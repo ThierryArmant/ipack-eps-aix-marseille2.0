@@ -77,13 +77,12 @@ st.markdown(f"""
         justify-content: space-between; 
         align-items: center; 
         padding: 10px 20px; 
-        height: 85px !important; /* Force la hauteur optimale */
+        height: 85px !important; 
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
     
-    /* Bloc titre équilibré */
     .hub-title {{
         display: flex;
         flex-direction: column;
@@ -94,7 +93,6 @@ st.markdown(f"""
         padding-right: 35px; 
     }}
     
-    /* Ligne du titre principal */
     .title-row {{
         display: flex;
         align-items: center;
@@ -111,7 +109,6 @@ st.markdown(f"""
         letter-spacing: 0.5px;
     }}
     
-    /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur {{ 
         background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
@@ -126,7 +123,6 @@ st.markdown(f"""
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }}
     
-    /* Sous-titre remonté et calé */
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -355,6 +351,25 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
+    # ------------------------------------------------------------------
+    # PIÈGE SPÉCIAL ACROSPORT (EASTER EGG POUR L'INSPECTEUR)
+    # ------------------------------------------------------------------
+    if st.session_state.active_module == "general" and "acrosport" in prompt.lower():
+        formatted_answer = """
+        <div class="general-card">
+            <strong>🔍 RÉSULTATS DE RECHERCHE :</strong><br><br>
+            <div style="color: #FFFFFF !important; font-weight: 400 !important; font-family: sans-serif;">
+                Lionel Amatte, le grand spécialiste des questions de déséquilibre posturaux pourrait vous répondre. 
+                Je vous laisse son numéro de téléphone : <strong>06 11 55 09 (10)</strong>, il sera heureux de voir que quelqu'un pense à lui.
+            </div>
+        </div>
+        """
+        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        st.rerun()
+
+    # ------------------------------------------------------------------
+    # TRAITEMENT CLASSIQUE DE L'IA SI PAS DE MOT-CLÉ SPÉCIAL
+    # ------------------------------------------------------------------
     glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation"]
     
     prompt_mots = prompt.lower().split()

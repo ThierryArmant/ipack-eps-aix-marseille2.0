@@ -131,7 +131,7 @@ st.markdown(f"""
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }}
     
-    /* Sous-titre }*/
+    /* Style du Sous-titre nettoyé */
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -229,7 +229,7 @@ st.markdown(f"""
     }}
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
-    .securite-card {{ border-left: 6px solid #EF4444 !important; }} /* Bordure Rouge Alerte pour la Sécurité */
+    .securite-card {{ border-left: 6px solid #EF4444 !important; }} 
     
     .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li {{ 
         color: #FFFFFF !important; 
@@ -298,7 +298,7 @@ def initialiser_base_santorin():
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -370,7 +370,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. BOUTONS DE CONTEXTE (VERSION OPTION 1 : LIGNE DE 4 BOUTONS TEINTÉS ÉGALITAIRES)
+# 6. BOUTONS DE CONTEXTE (VERSION LIGNE DE 4 BOUTONS PROPRE)
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -470,7 +470,7 @@ if prompt:
         texte_spinner = "Analyse juridique et sécuritaire..."
         color_card = "securite-card"
         badge_title = "🔒 SÉCURITÉ & PROTECTION JURIDIQUE"
-        instruction_date = "Priorité absolue aux décrets et notes de service en vigueur. Filtre strict post-2020 sauf textes fondateurs du Code de l'éducation."
+        instruction_date = "Priorité absolue aux décrets et notes de service en vigueur. Filtre de date strict post-2020 sauf textes fondateurs du Code de l'éducation."
     else:
         query_recherche = prompt 
         domaines_recherche = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]

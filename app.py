@@ -359,7 +359,7 @@ if prompt:
         <div class="general-card">
             <strong>🔍 RÉSULTATS DE RECHERCHE :</strong><br><br>
             <div style="color: #FFFFFF !important; font-weight: 400 !important; font-family: sans-serif;">
-                Lionel Amatte, le grand spécialiste des questions de déséquilibre posturaux pourrait vous répondre. 
+                Lionel Amatte, le grand spécialiste des questions de déséquilibres posturaux pourrait vous répondre. 
                 Je vous laisse son numéro de téléphone : <strong>06 11 55 09 (10)</strong>, il sera heureux de voir que quelqu'un pense à lui.
             </div>
         </div>

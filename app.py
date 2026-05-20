@@ -69,7 +69,7 @@ if prompt:
             st.session_state.messages_hub.append({"role": "assistant", "content": response.text})
         except Exception as e:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"Erreur technique : {str(e)}"})
-    st.rerun()
+    st.rerun() 
 
 # 4. AFFICHAGE
 for m in st.session_state.messages_hub:

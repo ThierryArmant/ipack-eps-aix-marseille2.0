@@ -30,16 +30,6 @@ def incrementer_et_recuperer_compteur():
 
 nb_visites = incrementer_et_recuperer_compteur()
 
-# ======================================================================
-# 3. INTERFACE GRAPHIQUE ET FEUILLES DE STYLE 
-# ======================================================================
-img_gauche = "image_7.png"
-img_eps = "image_6.png" 
-img_droite = "image_5.png"
-img_fond = "image_8.png"
-
-github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
-
 st.markdown(f"""
     <style>
     .block-container {{ 
@@ -70,9 +60,8 @@ st.markdown(f"""
     
     /* Encadré Sélection du Contexte */
     .context-container {{
-        background-color: rgba(30, 41, 59, 0.7) !important;
+        background-color: rgba(30, 41, 59, 0.5) !important; /* Plus transparent */
         backdrop-filter: blur(15px) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
         border: 1px solid rgba(255, 255, 255, 0.15) !important;
         padding: 14px 18px 18px 18px !important; 
         border-radius: 12px !important;
@@ -128,7 +117,6 @@ st.markdown(f"""
         padding: 12px 10px !important;
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
-        transition: all 0.3s ease;
     }}
     
     /* BOUTON NETTOYER */
@@ -139,30 +127,34 @@ st.markdown(f"""
         border-radius: 8px !important;
         padding: 7px 10px !important;
         width: 100% !important;
-        box-shadow: none !important;
-        font-weight: 500 !important;
     }}
     div.element-container:has(.nettoyer-wrapper) + div.element-container button:hover {{
         background-color: rgba(220, 38, 38, 0.65) !important;
-        color: #FFFFFF !important;
     }}
     
-    /* Cartes de réponse de l'IA */
+    /* CARTES DE RÉPONSE - Opacité passée de 0.8 à 0.45 pour laisser deviner la Sainte-Victoire */
     .santorin-card, .general-card {{ 
-        background-color: rgba(15, 23, 42, 0.8) !important; 
-        backdrop-filter: blur(10px) !important;
+        background-color: rgba(15, 23, 42, 0.45) !important; 
+        backdrop-filter: blur(12px) !important; /* Augmentation du flou arrière pour garder le texte lisible */
+        -webkit-backdrop-filter: blur(12px) !important;
         padding: 18px; 
         border-radius: 8px; 
         margin-bottom: 16px; 
-        box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+        box-shadow: 0px 6px 20px rgba(0,0,0,0.5);
     }}
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
     
-    .santorin-card *, .general-card * {{ 
+    .santorin-card p, .general-card p, .santorin-card div, .general-card div, .santorin-card span, .general-card span, .santorin-card li, .general-card li {{ 
         color: #FFFFFF !important; 
         font-size: 15px !important; 
         line-height: 1.6 !important; 
+        font-weight: 400 !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Ombre portée sous le texte pour détacher le blanc du fond transparent */
+    }}
+    .santorin-card strong, .general-card strong {{
+        font-weight: 700 !important; 
+        color: #FFFFFF !important;
     }}
     
     /* Bulle Utilisateur */

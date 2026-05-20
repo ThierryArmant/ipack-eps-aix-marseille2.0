@@ -313,7 +313,7 @@ def initialiser_base_santorin():
     ]
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS (COACHÉE ET SÉCURISÉE AVEC TOUTES LES RÈGLES MÉTIERS ÉLARGIES)
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (TOTALEMENT SÉCURISÉE AVEC LES CAS COMPLEXES)
 @st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
@@ -348,11 +348,12 @@ def initialiser_base_ipack():
             metadata={"title": "Règles Métiers et Alertes iPackEPS", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
-            text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (JURY & EXAMENS) :
-            1. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
-            2. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
-            3. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
-            4. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS. Si un barème spécial SHN est validé par le rectorat, il doit être activé dans le Dossier EPS.""",
+            text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
+            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année par le médecin scolaire, l'élève redevient apte pour la période restante (ex: T3). RÈGLE DE SÉCURITÉ ABSOLUE : Il ne faut JAMAIS supprimer le certificat initial dans iPackEPS, sinon le T1 et le T2 basculent en absence injustifiée (0/20). La seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise. L'élève aura une note unique en fin d'année, et le dossier sera arbitré par le Jury Académique.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS blocks le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
+            3. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
+            4. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
+            5. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
@@ -541,7 +542,7 @@ if prompt:
         
         CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Rédige une réponse claire, fluide et structurée.
-        2. Tu dois OBLIGATOIREMENT ajouter les sources et documents officiels consultés à la fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom de la source / du PDF](URL).
+        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document / de la source officielle](URL). Exemple attendu : [Guide de l'interface Professeur (PDF)](https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf).
         3. Interdiction absolue d'inventer des URL. Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
         4. GESTION DES DATES : {instruction_date}"""
 

@@ -313,13 +313,13 @@ def initialiser_base_santorin():
     ]
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS (TOTALEMENT SÉCURISÉE AVEC LES CAS COMPLEXES)
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC CORRECTION DE LA RÈGLE N°3 DU BOUTON GRISÉ)
 @st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS est l'application officielle de gestion des évaluations d'EPS et du CCF. Le portail de Créteil fournit les notes de mise à jour techniques, l'interfaçage avec les bases élèves (fichiers XML de l'administration) et les règles de gestion des cas particuliers (dispenses, inaptitudes partielles ou totales).""",
+            iPackEPS is l'application officielle de gestion des évaluations d'EPS et du CCF. Le portail de Créteil fournit les notes de mise à jour techniques, l'interfaçage avec les bases élèves (fichiers XML de l'administration) et les règles de gestion des cas particuliers (dispenses, inaptitudes partielles ou totales).""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -349,11 +349,12 @@ def initialiser_base_ipack():
         ),
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
-            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année par le médecin scolaire, l'élève redevient apte pour la période restante (ex: T3). RÈGLE DE SÉCURITÉ ABSOLUE : Il ne faut JAMAIS supprimer le certificat initial dans iPackEPS, sinon le T1 et le T2 basculent en absence injustifiée (0/20). La seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise. L'élève aura une note unique en fin d'année, et le dossier sera arbitré par le Jury Académique.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier is transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
-            3. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
-            4. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
-            5. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS.""",
+            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année par le médecin scolaire, l'élève redevient apte pour la période restante (ex: T3). RÈGLE DE SÉCURITÉ ABSOLUE : Il ne faut JAMAIS supprimer le certificat médical historique dans iPackEPS, sinon le T1 et le T2 basculent en absence injustifiée (0/20). La seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise. L'élève aura une note unique en fin d'année, et le dossier sera arbitré par le Jury Académique.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
+            3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre (bouton de changement d'option grisé), c'est qu'une note (même partielle ou de première séance d'évaluation) a déjà été saisie dans le cycle entamé. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé et accessible.
+            4. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
+            5. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
+            6. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]

@@ -313,7 +313,7 @@ def initialiser_base_santorin():
     ]
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC CORRECTION DE LA RÈGLE N°3 DU BOUTON GRISÉ)
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC RÈGLE DU BOUTON GRISÉ VERROUILLÉE)
 @st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
@@ -442,7 +442,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle ou technique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC SÉCURISATION DES LIENS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC FILTRAGE MÉTIER GLOBAUX)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -538,7 +538,7 @@ if prompt:
             except: 
                 pass
 
-        # Construction finale de la consigne (Prompt Engineering pour forcer l'affichage des liens)
+        # Construction finale de la consigne (Prompt Engineering pour forcer l'affichage des liens et verrouiller les règles métiers)
         consigne_commune = f"""Analyse rigoureusement les documents et extraits du web mis à ta disposition ci-dessous :
         {extraits_doc}
         
@@ -547,7 +547,7 @@ if prompt:
         CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Rédige une réponse claire, fluide et structurée.
         2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document / de la source officielle](URL). Exemple attendu : [Guide de l'interface Professeur (PDF)](https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf).
-        3. Interdiction absolue d'inventer des URL. Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
+        3. Interdiction absolue d'inventer des URL ou des numéros de textes officiels (ex: fausses notes de service). Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
         4. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
@@ -555,7 +555,18 @@ if prompt:
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en lissant les fiches mémos correspondantes avec leurs liens."
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date."
+            # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL (PROGRAMMES, JURIDIQUE ET SÉCURITÉ APPN)
+            consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale. {consigne_commune} 
+            
+            Tu dois STRICTEMENT respecter les trois règles métiers du terrain suivantes, même si les extraits du web disent le contraire :
+            
+            1. PROGRAMMES LYCÉE (SECONDE/PREMIÈRE) : Il n'existe AUCUN barème national chiffré ou mathématique imposé par le ministère pour les classes de Seconde et Première. L'évaluation est exclusivement LOCALE, définie par l'équipe pédagogique dans le projet EPS de l'établissement à partir des Attendus de Fin de Lycée (AFL) officiels (Réforme 2019/2020). Ne confonds jamais les textes du Collège (Cycle 4) avec ceux du Lycée.
+            
+            2. CONTESTATION DE NOTE ET SOUVERAINETÉ : En CCF (Baccalauréat), l'enseignant ne valide pas la note finale tout seul ; il propose une note à un binôme de co-évaluation. C'est le Jury Académique, présidé par le Recteur, qui est constitutionnellement seul souverain pour arrêter la note définitive (Article L. 331-1 du Code de l'éducation). Une demande de double correction par un parent d'élève est juridiquement irrecevable pour une prestation physique évaluée en direct.
+            
+            3. SÉCURITÉ ET ENCADREMENT APPN (ESCALADE SNE) : Durant les cours d'EPS obligatoires du second degré (inscrits à l'emploi du temps), l'enseignant d'EPS est réglementairement SEUL face à sa classe, quel que soit l'effectif ou le milieu (pas de taux de 2 adultes obligatoire). En revanche, pour toute sortie sur un Site Naturel d'Escalade (SNE), l'accord écrit préalable du Chef d'Établissement est une obligation légale absolue après dépôt d'un protocole de sécurité rigoureux incluant le contrôle des EPI (casque obligatoire).
+            
+            Donne une réponse claire, institutionnelle et liste uniquement les URL utiles selon la règle de date."""
 
         response_web = Settings.llm.complete(consigne_ia)
         

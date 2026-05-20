@@ -489,15 +489,16 @@ if prompt:
         instruction_date = "Priorité absolue aux décrets et notes de service en vigueur. Filtre de date strict post-2020 sauf textes fondateurs du Code de l'éducation."
     else:
         query_recherche = prompt 
-        domaines_recherche = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
-        texte_spinner = "Recherche multi-académies..."
+        # Ajout du domaine unss.org pour croiser les recherches pédagogiques et le sport scolaire
+        domaines_recherche = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr", "unss.org"]
+        texte_spinner = "Recherche multi-académies & UNSS..."
         color_card = "general-card"
         badge_title = "🔍 RÉSULTATS DE RECHERCHE"
         
         if contient_terme_loi:
             instruction_date = "L'utilisateur recherche un texte officiel ou historique. LAISSE LES DATES LIBRES."
         else:
-            instruction_date = "L'utilisateur pose une question de pratique courante ou pédagogique. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore l'ancien Lycée."
+            instruction_date = "L'utilisateur pose une question de pratique courante, pédagogique ou liée à l'UNSS / AS. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore l'ancien Lycée."
 
     with st.spinner(texte_spinner):
         extraits_doc = ""
@@ -572,7 +573,7 @@ if prompt:
             Rédige une analyse froide, protectrice mais lucide pour le collègue. Interdiction absolue d'inventer de faux numéros de décrets."""
         else:
             # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL
-            consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale. {consigne_commune} 
+            consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale et du fonctionnement associatif. {consigne_commune} 
             
             Tu dois STRICTEMENT respecter les règles métiers suivantes :
             1. PROGRAMMES LYCÉE (SECONDE/PREMIÈRE) : Il n'existe AUCUN barème national chiffré ou mathématique imposé par le ministère pour les classes de Seconde et Première. L'évaluation est exclusivement LOCALE (projet EPS). Ne confonds pas avec le Collège (Cycle 4).

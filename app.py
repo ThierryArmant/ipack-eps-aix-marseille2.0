@@ -37,7 +37,6 @@ img_eps = "image_6.png"
 img_droite = "image_5.png"
 img_fond = "image_8.png"
 
-# CRUCIAL : Défini ICI pour éviter le NameError dans le st.markdown ci-dessous
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
 st.markdown(f"""
@@ -166,15 +165,16 @@ st.markdown(f"""
         font-weight: 700 !important; 
         color: #FFFFFF !important;
     }}
-    
-    /* Bulle Utilisateur */
-    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {{ 
-        background-color: rgba(255, 255, 255, 0.15) !important; 
-        backdrop-filter: blur(6px) !important;
-        border-radius: 14px 14px 0px 14px !important; 
-        margin-left: 15% !important; 
+
+    /* REGLAGE ULTRA-CIBLÉ DES LIENS HYPERTEXTES (STYLE AMBRE/OR BRUN) */
+    .santorin-card a, .general-card a, .santorin-card a *, .general-card a * {{
+        color: #FFB020 !important; 
+        text-decoration: underline !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }}
-    div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] {{ display: none !important; }}
+    .santorin-card a:hover, .general-card a:hover {{
+        color: #FCD34D !important;
     </style>
 """, unsafe_allow_html=True)
 

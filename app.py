@@ -351,25 +351,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    # ------------------------------------------------------------------
-    # PIÈGE SPÉCIAL ACROSPORT (EASTER EGG POUR L'INSPECTEUR)
-    # ------------------------------------------------------------------
-    if st.session_state.active_module == "general" and "acrosport" in prompt.lower():
-        formatted_answer = """
-        <div class="general-card">
-            <strong>🔍 RÉSULTATS DE RECHERCHE :</strong><br><br>
-            <div style="color: #FFFFFF !important; font-weight: 400 !important; font-family: sans-serif;">
-                Lionel Amatte, le grand spécialiste des questions de déséquilibres posturaux pourrait vous répondre. 
-                Je vous laisse son numéro de téléphone : <strong>06 11 55 09 (10)</strong>, il sera heureux de voir que quelqu'un pense à lui.
-            </div>
-        </div>
-        """
-        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        st.rerun()
-
-    # ------------------------------------------------------------------
-    # TRAITEMENT CLASSIQUE DE L'IA SI PAS DE MOT-CLÉ SPÉCIAL
-    # ------------------------------------------------------------------
     glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation"]
     
     prompt_mots = prompt.lower().split()

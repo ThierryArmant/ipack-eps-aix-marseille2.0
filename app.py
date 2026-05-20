@@ -17,12 +17,39 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE
+# 2. GESTION DE LA MÉMOIRE ET DU VRAI COMPTEUR DE VISITES AUTOMATIQUE
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "general"  
+
+def obtenir_vrai_compteur():
+    try:
+        # Connexion à la mini-base SQLite locale sécurisée
+        conn = st.connection("local_db", type="sql")
+        with conn.session as session:
+            # Création de la table si c'est le tout premier démarrage
+            session.execute("CREATE TABLE IF NOT EXISTS compteur (id INTEGER PRIMARY KEY, total INTEGER);")
+            res = session.execute("SELECT total FROM compteur WHERE id = 1;").fetchone()
+            
+            if res is None:
+                # Initialisation au premier lancement
+                session.execute("INSERT INTO compteur (id, total) VALUES (1, 1);")
+                session.commit()
+                return 1
+            else:
+                # Incrémentation automatique +1 à chaque rechargement
+                nouveau_total = res[0] + 1
+                session.execute("UPDATE compteur SET total = :total WHERE id = 1;", {"total": nouveau_total})
+                session.commit()
+                return nouveau_total
+    except:
+        # Sécurité : Si les secrets ne sont pas encore enregistrés, renvoie un chiffre neutre
+        return 1
+
+# Exécution du comptage au chargement de la page
+nb_visites_reel = obtenir_vrai_compteur()
 
 # ======================================================================
 # 3. INTERFACE GRAPHIQUE ET CONFIGURATION DES LIENS IMAGES
@@ -60,7 +87,6 @@ st.markdown(f"""
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
     
-    /* Bloc titre décalé vers la gauche pour éviter les images de droite */
     .hub-title {{
         display: flex;
         flex-direction: column;
@@ -68,7 +94,15 @@ st.markdown(f"""
         justify-content: center;
         text-align: center;
         flex-grow: 1;
-        padding-right: 40px; /* Crée la sécurité pour ne pas coller à droite */
+        padding-right: 40px; 
+    }}
+    
+    /* Titre Principal avec alignement du Badge */
+    .title-row {{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
     }}
     
     .hub-title h1 {{ 
@@ -80,11 +114,24 @@ st.markdown(f"""
         letter-spacing: 0.5px;
     }}
     
-    /* Sous-titre remonté et mis en gras */
+    /* Le Vrai Badge de passage discret */
+    .badge-visiteur {{ 
+        background-color: rgba(16, 185, 129, 0.12) !important; 
+        color: #10B981 !important; 
+        border: 1px solid rgba(16, 185, 129, 0.3) !important; 
+        padding: 1px 9px !important; 
+        border-radius: 12px !important; 
+        font-size: 11px !important; 
+        font-weight: 700 !important; 
+        font-family: monospace !important;
+        line-height: 1 !important;
+        display: inline-block;
+    }}
+    
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
-        margin-top: -2px !important; /* Remonte légèrement la ligne */
+        margin-top: -2px !important; 
         font-size: 13px !important; 
         text-transform: uppercase; 
         font-weight: bold !important;
@@ -141,7 +188,7 @@ st.markdown(f"""
         transition: all 0.3s ease;
     }}
 
-    /* Boutons Actifs (Vert Émeraude) */
+    /* Boutons Actifs */
     button[kind="primary"] {{
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
@@ -223,7 +270,7 @@ if openai_api_key:
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ ET ÉQUILIBRÉ
+# 5. BANDEAU SUPERIEUR AVEC VRAI COMPTEUR INTÉGRÉ
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
@@ -231,7 +278,10 @@ st.markdown(f"""
             <img src="{github_url}{img_gauche}" height="60">
         </div>
         <div class="hub-title">
-            <h1>HUB IA - EPS</h1>
+            <div class="title-row">
+                <h1>HUB IA - EPS</h1>
+                <span class="badge-visiteur">👁️ {nb_visites_reel}</span>
+            </div>
             <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
         </div>
         <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">

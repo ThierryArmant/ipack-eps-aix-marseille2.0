@@ -131,7 +131,7 @@ st.markdown(f"""
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }}
     
-    /* Sous-titre remonté, mis en gras et calé */
+    /* Sous-titre }*/
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -218,7 +218,7 @@ st.markdown(f"""
     }}
     
     /* CARTES DE RÉPONSE */
-    .santorin-card, .general-card {{ 
+    .santorin-card, .general-card, .securite-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
@@ -229,26 +229,27 @@ st.markdown(f"""
     }}
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
+    .securite-card {{ border-left: 6px solid #EF4444 !important; }} /* Bordure Rouge Alerte pour la Sécurité */
     
-    .santorin-card p, .general-card p, .santorin-card div, .general-card div, .santorin-card span, .general-card span, .santorin-card li, .general-card li {{ 
+    .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li {{ 
         color: #FFFFFF !important; 
         font-size: 15px !important; 
         line-height: 1.6 !important; 
         font-weight: 400 !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }}
-    .santorin-card strong, .general-card strong {{
+    .santorin-card strong, .general-card strong, .securite-card strong {{
         font-weight: 700 !important; 
         color: #FFFFFF !important;
     }}
 
-    .santorin-card a, .general-card a, .santorin-card a *, .general-card a * {{
+    .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a * {{
         color: #FFB020 !important; 
         text-decoration: underline !important;
         font-weight: 600 !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }}
-    .santorin-card a:hover, .general-card a:hover {{
+    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover {{
         color: #FCD34D !important;
     }}
     
@@ -297,7 +298,7 @@ def initialiser_base_santorin():
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -313,48 +314,31 @@ def initialiser_base_santorin():
     ]
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC RÈGLE DU BOUTON GRISÉ VERROUILLÉE)
+# BASE DE CONNAISSANCES FIXE : IPACKEPS
 @st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS is l'application officielle de gestion des évaluations d'EPS et du CCF. Le portail de Créteil fournit les notes de mise à jour techniques, l'interfaçage avec les bases élèves (fichiers XML de l'administration) et les règles de gestion des cas particuliers (dispenses, inaptitudes partielles ou totales).""",
+            iPackEPS est l'application officielle de gestion des évaluations d'EPS et du CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
             text="""Guide Pratique Utilisateur de l'interface Professeur iPackEPS - Académie de Normandie.
-            Ce manuel complet décrit l'interface enseignant. Il explique pas à pas comment gérer l'importation des structures de classes, le suivi pédagogique, et la configuration des fiches de notation pour le contrôle continu. 
-            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude' en renseignant les dates exactes du certificat médical et les restrictions. RÈGLE IMPÉRATIVE : On ne peut jamais taper directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application suite à la saisie du certificat.
-            RÈGLE DU CERTIFICAT MIXTE ET ABSENCE AU BAC : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves de familles différentes. Si un élève est absent injustifié (note 0/20) à une épreuve et inapte à une autre, le calcul automatique d'iPackEPS va bloquer car le quota des 2 notes n'est pas atteint. L'application générera alors une alerte pour exporter le dossier vers Cyclades afin que le jury statue sur une dispense ou un passage en examen ponctuel.""",
+            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'. RÈGLE IMPÉRATIVE : On ne peut jamais taper directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application.
+            RÈGLE DU CERTIFICAT MIXTE ET ABSENCE AU BAC : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves de familles différentes.""",
             metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
         ),
         Document(
             text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
-            Document officiel détaillant la bascule des données et la remontée des protocoles de CCF pour la session des examens. Explique les règles de transmission des dispenses, des inaptitudes à l'examen, et la synchronisation avec les serveurs de correction nationaux. Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
+            Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
             metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
         ),
         Document(
-            text="""Manuel Complet d'Exploitation et d'Arborescence iPackEPS - Académie de Besançon.
-            Guide pas-à-pas reprenant l'intégralité de l'arborescence des modules iPack : configuration de la Fiche professeur, création du Dossier EPS de l'établissement, suivi individuel dans l'onglet 'Gestion des élèves' et saisie des dispenses médicales.""",
-            metadata={"title": "Guide d'Utilisation Complet iPackEPS (PDF)", "url": "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2022/11/IPack-EPS-Guide-dutilisation-interface-professeur.pdf"}
-        ),
-        Document(
-            text="""RÈGLES MÉTIERS AVANCÉES - EXAMENS EPS ET CALCULS IPACKEPS :
-            1. ABSENCE VS INAPTITUDE : Une absence injustifiée donne la note de 0/20 (qui compte dans l'examen). Une absence médicale génère le statut INAPTE (IN) qui neutralise l'épreuve. Ne jamais saisir 0 pour un motif médical.
-            2. ABANDON EN COURS D'ÉPREUVE : Si un élève se blesse pendant le CCF, soit l'enseignant a assez d'éléments pour noter, soit l'épreuve est neutralisée pour cause de blessure et l'élève est envoyé en session de rattrapage.
-            3. SYNCHRONISATION DES ÉLÈVES : Les enseignants ne peuvent pas créer d'élèves manuellement pour les examens. Toutes les listes et dispenses officielles proviennent de l'administration de l'établissement (fichiers XML de Siècle/Cyclades) via une mise à jour du secrétariat.
-            4. INAPTITUDE TOTALE ANNUELLE : Un élève inapte total à l'année voit l'épreuve d'EPS neutralisée (Statut Dispensé DI final). Toutes les périodes doivent être couvertes par le certificat médical dans l'onglet Inaptitudes d'iPackEPS.""",
-            metadata={"title": "Règles Métiers et Alertes iPackEPS", "url": "https://eps.ac-creteil.fr/"}
-        ),
-        Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
-            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année par le médecin scolaire, l'élève redevient apte pour la période restante (ex: T3). RÈGLE DE SÉCURITÉ ABSOLUE : Il ne faut JAMAIS supprimer le certificat médical historique dans iPackEPS, sinon le T1 et le T2 basculent en absence injustifiée (0/20). La seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise. L'élève aura une note unique en fin d'année, et le dossier sera arbitré par le Jury Académique.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
-            3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre (bouton de changement d'option grisé), c'est qu'une note (même partielle ou de première séance d'évaluation) a déjà été saisie dans le cycle entamé. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé et accessible.
-            4. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
-            5. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
-            6. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS.""",
+            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
+            3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
@@ -386,9 +370,9 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. BOUTONS DE CONTEXTE
+# 6. BOUTONS DE CONTEXTE (VERSION OPTION 1 : LIGNE DE 4 BOUTONS TEINTÉS ÉGALITAIRES)
 # ======================================================================
-col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
 with col_b1:
     if st.button("🛠️ iPackEPS", use_container_width=True, key="btn_ip", type="primary" if st.session_state.active_module == "ipack" else "secondary"):
@@ -408,13 +392,20 @@ with col_b3:
         st.session_state.messages_hub = []
         st.rerun()
 
+with col_b4:
+    if st.button("🔒 Sécurité & Textes", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "securite" else "secondary"):
+        st.session_state.active_module = "securite"
+        st.session_state.messages_hub = []
+        st.rerun()
+
 # ======================================================================
-# 7. BARRE DE TITRE CENTRALE AVEC NOTE DE VIGILANCE FLUX MIXTES
+# 7. BARRE DE TITRE CENTRALE AJUSTÉE AUX 4 CONTEXTES
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
-    "general": "🔍 Mode Actif : Recherche Transversale Globale (Multi-Académies)"
+    "general": "🔍 Mode Actif : Recherche Transversale Globale (Multi-Académies)",
+    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 st.markdown(f"""
@@ -422,7 +413,7 @@ st.markdown(f"""
         <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessus</span>
         <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
         <div style="margin-top: 6px; font-size: 11px; color: #FCD34D !important; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px;">
-            ⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre problématique concerne à la fois iPackEPS et Santorin (ex: bascule de notes ou dispenses), n'hésitez pas à poser votre question dans les deux modules pour obtenir l'expertise technique ET réglementaire dédiée.
+            ⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre question aborde à la fois un problème matériel sur le terrain et sa responsabilité juridique, naviguez entre les onglets dédiés pour croiser les sources techniques et légales.
         </div>
     </div>
 """, unsafe_allow_html=True)
@@ -439,10 +430,10 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question institutionnelle ou technique ici...", key="chat_main")
+    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC FILTRAGE MÉTIER GLOBAUX)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC LES 4 FILTRES MÉTIERS STRICTS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -453,11 +444,12 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation"]
+    glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation", "jurisprudence", "responsabilite", "penal"]
     
     prompt_mots = prompt.lower().split()
     contient_terme_loi = any(mot in glossaire_loi for mot in prompt_mots) or "journal officiel" in prompt.lower()
 
+    # Routage des bases de données et styles de cartes
     if st.session_state.active_module == "ipack":
         query_recherche = f"{prompt} iPackEPS"
         domaines_recherche = ["ipackeps.ac-creteil.fr", "eps.ac-creteil.fr", "eps.ac-normandie.fr", "eps.ac-versailles.fr"]
@@ -467,40 +459,34 @@ if prompt:
         instruction_date = "Pas de restriction de date pour le support technique."
     elif st.session_state.active_module == "examens":
         query_recherche = f"{prompt} examen EPS santorin"
-        domaines_recherche = [
-            "eduscol.education.gouv.fr", 
-            "pedagogie.ac-aix-marseille.fr", 
-            "eps.ac-creteil.fr", 
-            "siec.education.fr",
-            "pole-examens.github.io",
-            "assistance.ac-noumea.nc"
-        ]
+        domaines_recherche = ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "siec.education.fr", "assistance.ac-noumea.nc"]
         texte_spinner = "Analyse réglementaire..."
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"
         instruction_date = "Exclus l'UNSS. Garde les textes de référence nationaux."
+    elif st.session_state.active_module == "securite":
+        query_recherche = f"{prompt} securite EPS responsabilite encadrement"
+        domaines_recherche = ["eduscol.education.gouv.fr", "education.gouv.fr", "legifrance.gouv.fr", "eps.ac-creteil.fr"]
+        texte_spinner = "Analyse juridique et sécuritaire..."
+        color_card = "securite-card"
+        badge_title = "🔒 SÉCURITÉ & PROTECTION JURIDIQUE"
+        instruction_date = "Priorité absolue aux décrets et notes de service en vigueur. Filtre strict post-2020 sauf textes fondateurs du Code de l'éducation."
     else:
         query_recherche = prompt 
-        domaines_recherche = [
-            "eps.ac-aix-marseille.fr",
-            "pedagogie.ac-aix-marseille.fr", 
-            "eduscol.education.gouv.fr", 
-            "eps.enseigne.ac-lyon.fr", 
-            "eps.ac-creteil.fr"
-        ]
+        domaines_recherche = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
         texte_spinner = "Recherche multi-académies..."
         color_card = "general-card"
         badge_title = "🔍 RÉSULTATS DE RECHERCHE"
         
         if contient_terme_loi:
-            instruction_date = "L'utilisateur recherche un texte de loi ou une pièce réglementaire historique ou officielle. LAISSE LES DATES LIBRES, accepte les textes anciens fondateurs."
+            instruction_date = "L'utilisateur recherche un texte officiel ou historique. LAISSE LES DATES LIBRES."
         else:
-            instruction_date = "L'utilisateur pose une question de pratique courante, pédagogique ou logistique. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore tout document, projet ou ressource d'avant 2020."
+            instruction_date = "L'utilisateur pose une question de pratique courante ou pédagogique. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore l'ancien Lycée."
 
     with st.spinner(texte_spinner):
         extraits_doc = ""
         
-        # 1. Requête sur les documents internes stockés en cache (Santorin OU iPack)
+        # Récupération Cache local
         if openai_api_key:
             try:
                 if st.session_state.active_module == "examens":
@@ -509,7 +495,6 @@ if prompt:
                         extraits_doc += "--- DOCUMENTS DE RÉFÉRENCE INTERNES (SANTORIN) ---\n"
                         for n in noeuds_locaux:
                             extraits_doc += f"Source locale: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
-                
                 elif st.session_state.active_module == "ipack":
                     noeuds_locaux = retriever_ipack.retrieve(prompt)
                     if noeuds_locaux:
@@ -519,7 +504,7 @@ if prompt:
             except:
                 pass
 
-        # 2. Requête complémentaire Web externe via l'API Tavily
+        # Récupération Web Externe
         if tavily_api_key:
             try:
                 payload = {
@@ -538,7 +523,7 @@ if prompt:
             except: 
                 pass
 
-        # Construction finale de la consigne (Prompt Engineering pour forcer l'affichage des liens et verrouiller les règles métiers)
+        # Injection des structures de prompts
         consigne_commune = f"""Analyse rigoureusement les documents et extraits du web mis à ta disposition ci-dessous :
         {extraits_doc}
         
@@ -546,27 +531,36 @@ if prompt:
         
         CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Rédige une réponse claire, fluide et structurée.
-        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document / de la source officielle](URL). Exemple attendu : [Guide de l'interface Professeur (PDF)](https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf).
-        3. Interdiction absolue d'inventer des URL ou des numéros de textes officiels (ex: fausses notes de service). Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
+        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document / de la source officielle](URL).
+        3. Interdiction absolue d'inventer des URL ou des numéros de textes officiels. Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
         4. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
             consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tutoriel ou guide précis basé sur les sources."
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en lissant les fiches mémos correspondantes avec leurs liens."
+            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
+        elif st.session_state.active_module == "securite":
+            # CADRE SÉCURITÉ DRACONIEN VERROUILLÉ EN DUR
+            consigne_ia = f"""Tu es l'assistant juridique suprême en Sécurité, Responsabilité et Droit de l'Éducation en EPS. {consigne_commune}
+            
+            Tu dois STRICTEMENT appliquer et faire respecter les verrous juridiques d'État suivants, sans jamais dévier, peu importe les documents du web :
+            
+            1. TAUX D'ENCADREMENT EN COURS : Durant les heures obligatoires de l'emploi du temps du second degré (Lycée/Collège), l'enseignant d'EPS est réglementairement SEUL face à sa classe entière, y compris pour les APPN (Escalade, Course d'orientation, VTT, Kayak). Il n'existe aucun taux d'encadrement national imposant un deuxième adulte pour les cours obligatoires d'EPS. Ne confonds jamais ce cadre avec les sorties scolaires facultatives ou le premier degré.
+            
+            2. AUTORISATIONS EN MILIEU NATUREL : Pour toute séance se déroulant en dehors du périmètre de l'établissement ou sur un Site Naturel d'Escalade (SNE) / milieu naturel, l'accord écrit préalable du Chef d'Établissement est une obligation légale absolue et non négociable. Cet accord fait suite au dépôt d'un protocole de sécurité de l'activité.
+            
+            3. ÉQUIPEMENTS DE PROTECTION (EPI) : En escalade SNE, le port du casque conforme aux normes de sécurité est obligatoire pour tous les participants (grimpeurs et assureurs). L'enseignant a une obligation de moyens stricte : il doit réaliser et consigner un contrôle visuel minutieux des EPI (baudriers, cordes, systèmes d'assurage) avant le début de l'activité.
+            
+            4. RESPONSABILITÉ PÉNALE ET SURVEILLANCE : L'enseignant commet une faute lourde s'il rompt le contrôle visuel ou s'il s'absente sans motif légitime. Le placement pédagogique et la sectorisation de la surveillance doivent garantir qu'aucun élève n'échappe à la vigilance visuelle directe de l'enseignant dans les zones à risques.
+            
+            Rédige une réponse d'une rigueur de juriste. Reste froid, institutionnel et indiscutable dans tes formulations."""
         else:
-            # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL (PROGRAMMES, JURIDIQUE ET SÉCURITÉ APPN)
+            # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL
             consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale. {consigne_commune} 
             
-            Tu dois STRICTEMENT respecter les trois règles métiers du terrain suivantes, même si les extraits du web disent le contraire :
-            
-            1. PROGRAMMES LYCÉE (SECONDE/PREMIÈRE) : Il n'existe AUCUN barème national chiffré ou mathématique imposé par le ministère pour les classes de Seconde et Première. L'évaluation est exclusivement LOCALE, définie par l'équipe pédagogique dans le projet EPS de l'établissement à partir des Attendus de Fin de Lycée (AFL) officiels (Réforme 2019/2020). Ne confonds jamais les textes du Collège (Cycle 4) avec ceux du Lycée.
-            
-            2. CONTESTATION DE NOTE ET SOUVERAINETÉ : En CCF (Baccalauréat), l'enseignant ne valide pas la note finale tout seul ; il propose une note à un binôme de co-évaluation. C'est le Jury Académique, présidé par le Recteur, qui est constitutionnellement seul souverain pour arrêter la note définitive (Article L. 331-1 du Code de l'éducation). Une demande de double correction par un parent d'élève est juridiquement irrecevable pour une prestation physique évaluée en direct.
-            
-            3. SÉCURITÉ ET ENCADREMENT APPN (ESCALADE SNE) : Durant les cours d'EPS obligatoires du second degré (inscrits à l'emploi du temps), l'enseignant d'EPS est réglementairement SEUL face à sa classe, quel que soit l'effectif ou le milieu (pas de taux de 2 adultes obligatoire). En revanche, pour toute sortie sur un Site Naturel d'Escalade (SNE), l'accord écrit préalable du Chef d'Établissement est une obligation légale absolue après dépôt d'un protocole de sécurité rigoureux incluant le contrôle des EPI (casque obligatoire).
-            
-            Donne une réponse claire, institutionnelle et liste uniquement les URL utiles selon la règle de date."""
+            Tu dois STRICTEMENT respecter les règles métiers suivantes :
+            1. PROGRAMMES LYCÉE (SECONDE/PREMIÈRE) : Il n'existe AUCUN barème national chiffré ou mathématique imposé par le ministère pour les classes de Seconde et Première. L'évaluation est exclusivement LOCALE (projet EPS). Ne confonds pas avec le Collège (Cycle 4).
+            2. CONTESTATION DE NOTE ET SOUVERAINETÉ : En CCF (Baccalauréat), c'est le Jury Académique, présidé par le Recteur, qui est constitutionnellement seul souverain pour arrêter la note définitive (Article L. 331-1 du Code de l'éducation). Une demande de double correction par un parent d'élève est juridiquement irrecevable."""
 
         response_web = Settings.llm.complete(consigne_ia)
         

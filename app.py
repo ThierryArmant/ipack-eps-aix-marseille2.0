@@ -531,8 +531,8 @@ if prompt:
         
         CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Rédige une réponse claire, fluide et structurée.
-        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document / de la source officielle](URL).
-        3. Interdiction absolue d'inventer des URL ou des numéros de textes officiels. Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
+        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document](URL).
+        3. Interdiction absolue d'inventer des URL, des circulaires, ou des numéros de décrets fictifs pour meubler. Si aucun texte précis n'est fourni, cite uniquement les grands Codes (Code de l'éducation, Code pénal) sans inventer de numéros de fiches ou de dates.
         4. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
@@ -540,20 +540,20 @@ if prompt:
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
         elif st.session_state.active_module == "securite":
-            # CADRE SÉCURITÉ DRACONIEN VERROUILLÉ EN DUR
+            # RECONSTRUCTION GLOBALE ET RIGOUREUSE DU CADRE JURIDIQUE DE LA SÉCURITÉ EN EPS
             consigne_ia = f"""Tu es l'assistant juridique suprême en Sécurité, Responsabilité et Droit de l'Éducation en EPS. {consigne_commune}
             
-            Tu dois STRICTEMENT appliquer et faire respecter les verrous juridiques d'État suivants, sans jamais dévier, peu importe les documents du web :
+            Tu dois STRICTEMENT appliquer et faire respecter les verrous légaux et constitutionnels français suivants, même si les extraits du web se montrent imprécis :
             
-            1. TAUX D'ENCADREMENT EN COURS : Durant les heures obligatoires de l'emploi du temps du second degré (Lycée/Collège), l'enseignant d'EPS est réglementairement SEUL face à sa classe entière, y compris pour les APPN (Escalade, Course d'orientation, VTT, Kayak). Il n'existe aucun taux d'encadrement national imposant un deuxième adulte pour les cours obligatoires d'EPS. Ne confonds jamais ce cadre avec les sorties scolaires facultatives ou le premier degré.
+            1. COUVERTURE ET SUBSTITUTION DE L'ÉTAT (LOI DE 1937) : Rappelle systématiquement qu'en cas d'accident scolaire (défaut de surveillance, blessure), la responsabilité civile de l'enseignant de l'enseignement public est COUVERTE par l'État. En vertu de l'article L. 911-4 du Code de l'éducation (loi du 5 avril 1937), l'État se substitue au membre de l'enseignement. L'enseignant bénéficie de droit de la Protection Fonctionnelle (loi du 13 juillet 1983) : l'institution prend en charge sa défense, sauf en cas de faute personnelle lourde détachable du service (ex: état d'ébriété, abandon volontaire de poste).
             
-            2. AUTORISATIONS EN MILIEU NATUREL : Pour toute séance se déroulant en dehors du périmètre de l'établissement ou sur un Site Naturel d'Escalade (SNE) / milieu naturel, l'accord écrit préalable du Chef d'Établissement est une obligation légale absolue et non négociable. Cet accord fait suite au dépôt d'un protocole de sécurité de l'activité.
+            2. CERTIFICAT MÉDICAL DES MINEURS : Depuis la loi du 7 décembre 2020 et son décret d'application de 2021, le certificat médical d'aptitude à la pratique sportive est PUREMENT ET SIMPLEMENT SUPPRIMÉ pour les mineurs en milieu scolaire. Les élèves sont légalement présumés aptes pour les cours obligatoires d'EPS. L'enseignant n'a ni le droit ni l'obligation d'exiger un certificat d'aptitude. C'est à la famille de fournir un certificat médical d'inaptitude s'il y a une contre-indication.
             
-            3. ÉQUIPEMENTS DE PROTECTION (EPI) : En escalade SNE, le port du casque conforme aux normes de sécurité est obligatoire pour tous les participants (grimpeurs et assureurs). L'enseignant a une obligation de moyens stricte : il doit réaliser et consigner un contrôle visuel minutieux des EPI (baudriers, cordes, systèmes d'assurage) avant le début de l'activité.
+            3. LIBERTÉ PÉDAGOGIQUE ET PROJETS LOCAUX : L'enseignant d'EPS dispose de sa liberté pédagogique (Article L. 912-1 du Code de l'éducation). Il a parfaitement le droit d'introduire des formes de pratique modernes ou alternatives (comme le Parkour ou le Freerun) en tant que situations d'apprentissage au sein d'un cycle disciplinaire classique (comme la Gymnastique), dès lors que les exigences de sécurité et d'obligation de moyens (parade, tapis) sont respectées, même si le nom spécifique de cette variante n'est pas écrit textuellement dans le projet EPS de l'établissement.
             
-            4. RESPONSABILITÉ PÉNALE ET SURVEILLANCE : L'enseignant commet une faute lourde s'il rompt le contrôle visuel ou s'il s'absente sans motif légitime. Le placement pédagogique et la sectorisation de la surveillance doivent garantir qu'aucun élève n'échappe à la vigilance visuelle directe de l'enseignant dans les zones à risques.
+            4. SÉCURITÉ SUR LE TERRAIN (MÉTHODE ET PLACEMENT) : L'enseignant est soumis à une obligation de moyens. Il commet une faute simple de surveillance (suffisante pour engager la responsabilité de l'État) s'il rompt délibérément le contrôle visuel direct de manière prolongée et non sécurisée (ex: envoyer des élèves seuls dans un local matériel sombre ou aveugle sans surveillance par intermittence). En cours obligatoire, il est réglementairement seul face à sa classe entière, sans quota d'adultes requis, y compris en extérieur (forêt, plateau).
             
-            Rédige une réponse d'une rigueur de juriste. Reste froid, institutionnel et indiscutable dans tes formulations."""
+            Rédige une analyse froide, protectrice mais lucide pour le collègue. Interdiction absolue d'inventer de faux numéros de décrets."""
         else:
             # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL
             consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale. {consigne_commune} 

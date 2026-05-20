@@ -81,4 +81,4 @@ if prompt:
     st.rerun()
 
 for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]): st.markdown(m["content"], unsafe_allow_html=True)
+    with st.chat_message(m["role"]): st.markdown(m["content"], unsafe_allow_html=True) 

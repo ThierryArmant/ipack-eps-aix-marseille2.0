@@ -17,17 +17,12 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES
+# 2. GESTION DE LA MÉMOIRE
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "general"  
-
-def incrementer_et_recuperer_compteur():
-    return 1250
-
-nb_visites = incrementer_et_recuperer_compteur()
 
 # ======================================================================
 # 3. INTERFACE GRAPHIQUE ET CONFIGURATION DES LIENS IMAGES
@@ -52,20 +47,25 @@ st.markdown(f"""
     .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
     
-    /* Structure du Bandeau Supérieur Principal */
+    /* Structure du Bandeau Supérieur Principal Réduit */
     .hub-header {{ 
         background-color: #1E293B; 
         display: flex; 
         justify-content: space-between; 
         align-items: center; 
-        padding: 10px 20px; 
+        padding: 5px 20px; 
+        height: 60px; /* Fixe la hauteur pour un bandeau fin */
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
-    .hub-title h1 {{ color: white !important; margin: 0; font-size: 20px !important; font-weight: bold; }}
-    .hub-title p {{ color: #94A3B8 !important; margin: 0; font-size: 10px !important; text-transform: uppercase; }}
-    .visitor-badge {{ background-color: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 12px; border-radius: 20px; font-size: 10px !important; font-weight: bold; font-family: monospace; margin-top: 5px; display: inline-block; }}
+    .hub-title {{
+        display: flex;
+        align-items: baseline;
+        gap: 15px;
+    }}
+    .hub-title h1 {{ color: white !important; margin: 0; font-size: 22px !important; font-weight: bold; line-height: 1; }}
+    .hub-title p {{ color: #94A3B8 !important; margin: 0; font-size: 12px !important; text-transform: uppercase; line-height: 1; }}
     
     /* Encadré Sélection du Contexte */
     .context-container {{
@@ -141,7 +141,7 @@ st.markdown(f"""
         background-color: rgba(220, 38, 38, 0.65) !important;
     }}
     
-    /* CARTES DE RÉPONSE - Semi-transparente (0.45) */
+    /* CARTES DE RÉPONSE */
     .santorin-card, .general-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
@@ -166,7 +166,6 @@ st.markdown(f"""
         color: #FFFFFF !important;
     }}
 
-    /* REGLAGE ULTRA-CIBLÉ DES LIENS HYPERTEXTES (STYLE AMBRE/OR BRUN) */
     .santorin-card a, .general-card a, .santorin-card a *, .general-card a * {{
         color: #FFB020 !important; 
         text-decoration: underline !important;
@@ -199,21 +198,20 @@ if openai_api_key:
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR
+# 5. BANDEAU SUPERIEUR RÉDUIT (SANS COMPTEUR)
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
-        <div style="text-align: left; width: 25%;">
-            <img src="{github_url}{img_gauche}" width="95">
+        <div style="display: flex; align-items: center; width: 25%;">
+            <img src="{github_url}{img_gauche}" height="45">
         </div>
-        <div class="hub-title" style="text-align: center; width: 50%;">
-            <h1>Hub IA - EPS</h1>
+        <div class="hub-title" style="width: 50%; justify-content: center;">
+            <h1>HUB IA - EPS</h1>
             <p>Espace Ressources &amp; Assistance Numérique</p>
-            <div class="visitor-badge">👁️ {nb_visites:05d} visites</div>
         </div>
-        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
-            <img src="{github_url}{img_eps}" width="70">
-            <img src="{github_url}{img_droite}" width="60">
+        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 12px;">
+            <img src="{github_url}{img_eps}" height="40">
+            <img src="{github_url}{img_droite}" height="40">
         </div>
     </div>
 """, unsafe_allow_html=True)
@@ -283,10 +281,8 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    # Glossaire des termes légaux et institutionnels (Insensible à la casse)
     glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation"]
     
-    # Vérification si un mot du prompt appartient au glossaire juridique
     prompt_mots = prompt.lower().split()
     contient_terme_loi = any(mot in glossaire_loi for mot in prompt_mots) or "journal officiel" in prompt.lower()
 
@@ -306,10 +302,8 @@ if prompt:
         instruction_date = "Exclus l'UNSS. Garde les textes de référence nationaux."
     else:
         query_recherche = prompt 
-        
-        # AJOUT ET PRIORISATION DU MEDIAWIKI AIX-MARSEILLE
         domaines_recherche = [
-            "eps.ac-aix-marseille.fr",         # Priorité absolue (MediaWiki inclus)
+            "eps.ac-aix-marseille.fr",
             "pedagogie.ac-aix-marseille.fr", 
             "eduscol.education.gouv.fr", 
             "eps.enseigne.ac-lyon.fr", 
@@ -319,7 +313,6 @@ if prompt:
         color_card = "general-card"
         badge_title = "🔍 RÉSULTATS DE RECHERCHE"
         
-        # Application dynamique du bouclier temporel selon le glossaire
         if contient_terme_loi:
             instruction_date = "L'utilisateur recherche un texte de loi ou une pièce réglementaire historique ou officielle. LAISSE LES DATES LIBRES, accepte les textes anciens fondateurs."
         else:

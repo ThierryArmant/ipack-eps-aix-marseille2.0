@@ -17,39 +17,35 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU VRAI COMPTEUR DE VISITES AUTOMATIQUE
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES FIABLE
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "general"  
 
-def obtenir_vrai_compteur():
+def incrementer_et_obtenir_visites():
+    fichier_compteur = "compteur_visites.txt"
+    if not os.path.exists(fichier_compteur):
+        with open(fichier_compteur, "w") as f:
+            f.write("1")
+        return 1
+    
     try:
-        # Connexion à la mini-base SQLite locale sécurisée
-        conn = st.connection("local_db", type="sql")
-        with conn.session as session:
-            # Création de la table si c'est le tout premier démarrage
-            session.execute("CREATE TABLE IF NOT EXISTS compteur (id INTEGER PRIMARY KEY, total INTEGER);")
-            res = session.execute("SELECT total FROM compteur WHERE id = 1;").fetchone()
+        with open(fichier_compteur, "r") as f:
+            valeur = int(f.read().strip())
+        
+        if "visite_comptabilisee" not in st.session_state:
+            valeur += 1
+            with open(fichier_compteur, "w") as f:
+                f.write(str(valeur))
+            st.session_state.visite_comptabilisee = True
             
-            if res is None:
-                # Initialisation au premier lancement
-                session.execute("INSERT INTO compteur (id, total) VALUES (1, 1);")
-                session.commit()
-                return 1
-            else:
-                # Incrémentation automatique +1 à chaque rechargement
-                nouveau_total = res[0] + 1
-                session.execute("UPDATE compteur SET total = :total WHERE id = 1;", {"total": nouveau_total})
-                session.commit()
-                return nouveau_total
+        return valeur
     except:
-        # Sécurité : Si les secrets ne sont pas encore enregistrés, renvoie un chiffre neutre
         return 1
 
-# Exécution du comptage au chargement de la page
-nb_visites_reel = obtenir_vrai_compteur()
+nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
 # 3. INTERFACE GRAPHIQUE ET CONFIGURATION DES LIENS IMAGES
@@ -74,19 +70,20 @@ st.markdown(f"""
     .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
     
-    /* Structure du Bandeau Supérieur Principal Réorganisé */
+    /* Structure du Bandeau Supérieur Principal Réorganisé et Optimisé */
     .hub-header {{ 
         background-color: #1E293B; 
         display: flex; 
         justify-content: space-between; 
         align-items: center; 
         padding: 10px 20px; 
-        height: 85px; 
+        height: 85px !important; /* Force la hauteur optimale */
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
     
+    /* Bloc titre équilibré */
     .hub-title {{
         display: flex;
         flex-direction: column;
@@ -94,15 +91,15 @@ st.markdown(f"""
         justify-content: center;
         text-align: center;
         flex-grow: 1;
-        padding-right: 40px; 
+        padding-right: 35px; 
     }}
     
-    /* Titre Principal avec alignement du Badge */
+    /* Ligne du titre principal */
     .title-row {{
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
+        gap: 15px;
     }}
     
     .hub-title h1 {{ 
@@ -114,24 +111,26 @@ st.markdown(f"""
         letter-spacing: 0.5px;
     }}
     
-    /* Le Vrai Badge de passage discret */
+    /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur {{ 
-        background-color: rgba(16, 185, 129, 0.12) !important; 
+        background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
-        border: 1px solid rgba(16, 185, 129, 0.3) !important; 
-        padding: 1px 9px !important; 
-        border-radius: 12px !important; 
-        font-size: 11px !important; 
-        font-weight: 700 !important; 
+        border: 1px solid rgba(16, 185, 129, 0.45) !important; 
+        padding: 3px 12px !important; 
+        border-radius: 20px !important; 
+        font-size: 13px !important; 
+        font-weight: 800 !important; 
         font-family: monospace !important;
         line-height: 1 !important;
         display: inline-block;
+        box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }}
     
+    /* Sous-titre remonté et calé */
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
-        margin-top: -2px !important; 
+        margin-top: -1px !important; 
         font-size: 13px !important; 
         text-transform: uppercase; 
         font-weight: bold !important;
@@ -150,7 +149,7 @@ st.markdown(f"""
         box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
     }}
 
-    /* Barre Bleue Centrale Enrichie */
+    /* Barre Bleue Centrale */
     .column-title {{ 
         color: #FFFFFF; 
         text-align: center; 
@@ -270,7 +269,7 @@ if openai_api_key:
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR AVEC VRAI COMPTEUR INTÉGRÉ
+# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR FLUIDE
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">

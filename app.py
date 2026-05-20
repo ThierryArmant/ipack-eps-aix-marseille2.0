@@ -141,7 +141,7 @@ st.markdown(f"""
         background-color: rgba(220, 38, 38, 0.65) !important;
     }}
     
-    /* CARTES DE RÉPONSE - Semi-transparente (0.45) pour dévoiler la Sainte-Victoire */
+    /* CARTES DE RÉPONSE - Semi-transparente (0.45) */
     .santorin-card, .general-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
@@ -175,6 +175,16 @@ st.markdown(f"""
     }}
     .santorin-card a:hover, .general-card a:hover {{
         color: #FCD34D !important;
+    }}
+    
+    /* Bulle Utilisateur */
+    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {{ 
+        background-color: rgba(255, 255, 255, 0.15) !important; 
+        backdrop-filter: blur(6px) !important;
+        border-radius: 14px 14px 0px 14px !important; 
+        margin-left: 15% !important; 
+    }}
+    div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] {{ display: none !important; }}
     </style>
 """, unsafe_allow_html=True)
 
@@ -273,24 +283,39 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
+    # Glossaire des termes légaux et institutionnels (Insensible à la casse)
+    glossaire_loi = ["bo", "boen", "jo", "jorf", "journal officiel", "texte", "textes", "officiel", "officiels", "circulaire", "circulaires", "decret", "décret", "decrets", "décrets", "loi", "lois", "arrete", "arrêté", "arretes", "arrêtés", "reglementation", "réglementation"]
+    
+    # Vérification si un mot du prompt appartient au glossaire juridique
+    prompt_mots = prompt.lower().split()
+    contient_terme_loi = any(mot in glossaire_loi for mot in prompt_mots) or "journal officiel" in prompt.lower()
+
     if st.session_state.active_module == "ipack":
         query_recherche = f"{prompt} iPackEPS"
         domaines_recherche = ["ipackeps.ac-creteil.fr"]
         texte_spinner = "Fouille de la base technique..."
         color_card = "general-card"
         badge_title = "🛠️ PROTOCOLE TECHNIQUE"
+        instruction_date = "Pas de restriction de date pour le support technique."
     elif st.session_state.active_module == "examens":
         query_recherche = f"{prompt} examen EPS"
         domaines_recherche = ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "siec.education.fr"]
         texte_spinner = "Analyse réglementaire..."
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"
+        instruction_date = "Exclus l'UNSS. Garde les textes de référence nationaux."
     else:
         query_recherche = prompt 
         domaines_recherche = ["pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
         texte_spinner = "Recherche multi-académies..."
         color_card = "general-card"
         badge_title = "🔍 RÉSULTATS DE RECHERCHE"
+        
+        # Application dynamique du bouclier temporel selon le glossaire
+        if contient_terme_loi:
+            instruction_date = "L'utilisateur recherche un texte de loi ou une pièce réglementaire historique ou officielle. LAISSE LES DATES LIBRES, accepte les textes anciens fondateurs."
+        else:
+            instruction_date = "L'utilisateur pose une question de pratique courante, pédagogique ou logistique. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore tout document, projet ou ressource d'avant 2020."
 
     with st.spinner(texte_spinner):
         extraits_doc = ""
@@ -314,16 +339,16 @@ if prompt:
         
         Réponds à cette question : '{prompt}'.
         
-        CRITÈRE DE QUALITÉ IMPÉRATIF : 
-        Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée. 
-        Si le moteur de recherche a renvoyé des documents hors-sujet (par exemple des textes sur les inaptitudes ou des lettres de rentrée alors que la question porte sur les sorties scolaires), IGNORE-LES complètement et ne les affiche pas."""
+        CRITÈRES DE FILTRAGE IMPÉRATIFS : 
+        1. Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée. Ignore les hors-sujets.
+        2. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
             consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tuto précis. Pas de menus imaginaires."
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens. {consigne_commune} Réponds en te basant sur les textes. Ajoute les liens URL exacts."
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles."
+            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date fournie."
 
         response_web = Settings.llm.complete(consigne_ia)
         

@@ -424,7 +424,7 @@ with col_b4:
 if st.session_state.active_module == "securite":
     message_alerte = """⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié."""
 elif st.session_state.active_module == "general":
-    message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques innovants, fonctionnement de l'AS / UNSS, gestion de classe, aménagements d'épreuves, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.). <em>Filtre strict appliqué sur les ressources obsolètes (post-2020).</em>"""
+    message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques innovants, fonctionnement de l'AS / UNSS, gestion de classe, aménagements d'épreuves, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).</em>"""
 else:
     message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre question aborde à la fois un problème matériel sur le terrain et sa responsabilité juridique, naviguez entre les onglets dédiés pour croiser les sources techniques et légales."""
 

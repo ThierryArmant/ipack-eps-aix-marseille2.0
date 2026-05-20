@@ -350,7 +350,7 @@ def initialiser_base_ipack():
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année par le médecin scolaire, l'élève redevient apte pour la période restante (ex: T3). RÈGLE DE SÉCURITÉ ABSOLUE : Il ne faut JAMAIS supprimer le certificat initial dans iPackEPS, sinon le T1 et le T2 basculent en absence injustifiée (0/20). La seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise. L'élève aura une note unique en fin d'année, et le dossier sera arbitré par le Jury Académique.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS blocks le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier is transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
             3. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
             4. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
             5. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS.""",
@@ -408,18 +408,21 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7. BARRE DE TITRE CENTRALE
+# 7. BARRE DE TITRE CENTRALE AVEC NOTE DE VIGILANCE FLUX MIXTES
 # ======================================================================
 label_titres = {
-    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS",
-    "examens": "📊 Mode Actif : Réglementation Examens & Dispenses",
-    "general": "🔍 Mode Actif : Recherche Transversale Globale"
+    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+    "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
+    "general": "🔍 Mode Actif : Recherche Transversale Globale (Multi-Académies)"
 }
 
 st.markdown(f"""
     <div class="column-title">
         <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessus</span>
         <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
+        <div style="margin-top: 6px; font-size: 11px; color: #FCD34D !important; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px;">
+            ⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre problématique concerne à la fois iPackEPS et Santorin (ex: bascule de notes ou dispenses), n'hésitez pas à poser votre question dans les deux modules pour obtenir l'expertise technique ET réglementaire dédiée.
+        </div>
     </div>
 """, unsafe_allow_html=True)
 
@@ -549,9 +552,9 @@ if prompt:
         if st.session_state.active_module == "ipack":
             consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tutoriel ou guide précis basé sur les sources."
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en listant les fiches mémos correspondantes avec leurs liens."
+            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en lissant les fiches mémos correspondantes avec leurs liens."
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date faut-il."
+            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date."
 
         response_web = Settings.llm.complete(consigne_ia)
         

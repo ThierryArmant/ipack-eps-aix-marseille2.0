@@ -142,30 +142,19 @@ st.markdown(f"""
         line-height: 1.1 !important; 
         letter-spacing: 0.5px;
     }}
-    
-    /* Encadré Sélection du Contexte */
-    .context-container {{
-        background-color: rgba(30, 41, 59, 0.5) !important;
-        backdrop-filter: blur(15px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        padding: 14px 18px 18px 18px !important; 
-        border-radius: 12px !important;
-        margin-bottom: 18px !important;
-        box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
-    }}
 
-    /* Barre Bleue Centrale */
-    .column-title {{ 
+    /* Barres d'informations Supérieures et Inférieures */
+    .column-title-top {{ 
         color: #FFFFFF; 
         text-align: center; 
-        margin-bottom: 15px !important; 
+        margin-bottom: 12px !important; 
         background-color: #1E293B; 
         border-radius: 6px !important; 
         padding: 8px 10px; 
         box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
         line-height: 1.4;
     }}
-    .column-title .instruction {{
+    .column-title-top .instruction {{
         font-size: 11px !important;
         font-weight: 500;
         text-transform: uppercase;
@@ -174,11 +163,25 @@ st.markdown(f"""
         display: block;
         margin-bottom: 2px;
     }}
-    .column-title .mode-actuel {{
+    .column-title-top .mode-actuel {{
         font-size: 14px !important; 
         font-weight: 700;
         color: #FFFFFF !important;
         display: block;
+    }}
+
+    .column-title-bottom {{ 
+        text-align: center; 
+        margin-top: 12px !important;
+        margin-bottom: 15px !important; 
+        background-color: rgba(30, 41, 59, 0.8); 
+        border-radius: 6px !important; 
+        padding: 8px 12px; 
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 11px !important; 
+        color: #FCD34D !important; 
+        font-weight: 500;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }}
     
     /* Boutons Inactifs */
@@ -370,7 +373,24 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. BOUTONS DE CONTEXTE (VERSION LIGNE DE 4 BOUTONS PROPRE)
+# 6. EN-TÊTE DU TABLEAU DE BORD (AU-DESSUS DES BOUTONS)
+# ======================================================================
+label_titres = {
+    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+    "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
+    "general": "🔍 Mode Actif : Recherche Transversale Globale (Multi-Académies)",
+    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+}
+
+st.markdown(f"""
+    <div class="column-title-top">
+        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
+        <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
+    </div>
+""", unsafe_allow_html=True)
+
+# ======================================================================
+# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -399,22 +419,16 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7. BARRE DE TITRE CENTRALE AJUSTÉE AUX 4 CONTEXTES & ALERTES DE SÉCURITÉ
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES (SOUS LES BOUTONS)
 # ======================================================================
-label_titres = {
-    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
-    "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
-    "general": "🔍 Mode Actif : Recherche Transversale Globale (Multi-Académies)",
-    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
-}
+if st.session_state.active_module == "securite":
+    message_alerte = """⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié."""
+else:
+    message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre question aborde à la fois un problème matériel sur le terrain et sa responsabilité juridique, naviguez entre les onglets dédiés pour croiser les sources techniques et légales."""
 
 st.markdown(f"""
-    <div class="column-title">
-        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessus</span>
-        <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
-        <div style="margin-top: 6px; font-size: 11px; color: #FCD34D !important; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px;">
-            ⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié.
-        </div>
+    <div class="column-title-bottom">
+        {message_alerte}
     </div>
 """, unsafe_allow_html=True)
 

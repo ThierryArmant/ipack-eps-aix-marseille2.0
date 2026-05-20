@@ -399,7 +399,7 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7. BARRE DE TITRE CENTRALE AJUSTÉE AUX 4 CONTEXTES
+# 7. BARRE DE TITRE CENTRALE AJUSTÉE AUX 4 CONTEXTES & ALERTES DE SÉCURITÉ
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
@@ -413,7 +413,7 @@ st.markdown(f"""
         <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessus</span>
         <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
         <div style="margin-top: 6px; font-size: 11px; color: #FCD34D !important; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px;">
-            ⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre question aborde à la fois un problème matériel sur le terrain et sa responsabilité juridique, naviguez entre les onglets dédiés pour croiser les sources techniques et légales.
+            ⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié.
         </div>
     </div>
 """, unsafe_allow_html=True)

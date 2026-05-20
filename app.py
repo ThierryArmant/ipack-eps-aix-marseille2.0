@@ -264,7 +264,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE
+# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DES BASES DE DOCUMENTS
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
@@ -272,6 +272,76 @@ tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
+
+# BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
+@st.cache_resource
+def initialiser_base_santorin():
+    docs_santorin = [
+        Document(
+            text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
+            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
+            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' puis cliquer sur le bouton 'Ajouter'.
+            Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
+            metadata={"title": "Fiche Mémo - Correction Partagée Santorin", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"}
+        ),
+        Document(
+            text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
+            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs par les coordonnateurs de l'établissement.""",
+            metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
+        ),
+        Document(
+            text="""Guide Utilisateur Santorin - Ouvrir, annoter et corriger une copie numérisée. 
+            Tutoriel pas-à-pas : liste des candidats anonymisés, outils d'annotation intégrés (surlignage, stylo, commentaires), saisie des notes par question ou globale, validation du lot. Utilisation de la messagerie interne (icône enveloppe) pour contacter les coordonnateurs.""",
+            metadata={"title": "Guide Utilisateur - Ouvrir et corriger une copie avec Santorin", "url": "https://pedagogie.ac-orleans-tours.fr/documents/pdf/lettres_tutoriels_ouvrir_et_corriger_une_copie_avec_santorin__2_.pdf"}
+        ),
+        Document(
+            text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
+        ),
+        Document(
+            text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
+            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots et demander des corrections d'affectation via l'enveloppe de communication.""",
+            metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
+        ),
+        Document(
+            text="""Guide technique d'installation de Santorin Scan. 
+            Documentation sur l'installation, le paramétrage des scanners physiques en établissement, les protocoles réseaux et la configuration des serveurs d'échange sécurisés.""",
+            metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
+        )
+    ]
+    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
+
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC LIENS ABSOLUS VERS LES DOCUMENTS ET PDF)
+@st.cache_resource
+def initialiser_base_ipack():
+    docs_ipack = [
+        Document(
+            text="""Portail Pilote iPackEPS - Académie de Créteil. 
+            iPackEPS est l'application officielle de gestion des évaluations d'EPS et du CCF. Le portail de Créteil fournit les notes de mise à jour techniques, l'interfaçage avec les bases élèves (fichiers XML de l'administration) et les règles de gestion des cas particuliers (dispenses, inaptitudes partielles ou totales).""",
+            metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
+        ),
+        Document(
+            text="""Guide Pratique Utilisateur de l'interface Professeur iPackEPS - Académie de Normandie.
+            Ce manuel complet décrit l'interface enseignant. Il explique pas à pas comment gérer l'importation des structures de classes, le suivi pédagogique, et la configuration des fiches de notation pour le contrôle continu. Explique la saisie des certificats médicaux (Inaptitudes) dans le menu 'Gestion/Suivi des élèves' (dates, type d'inaptitude totale ou partielle et restrictions). iPackEPS applique ensuite automatiquement les reports de notes ou neutralisations.""",
+            metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
+        ),
+        Document(
+            text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
+            Document officiel détaillant la bascule des données et la remontée des protocoles de CCF pour la session des examens. Explique les règles de transmission des dispenses, des inaptitudes à l'examen, et la synchronisation avec les serveurs de correction nationaux.""",
+            metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
+        ),
+        Document(
+            text="""Manuel Complet d'Exploitation et d'Arborescence iPackEPS - Académie de Besançon.
+            Guide pas-à-pas reprenant l'intégralité de l'arborescence des modules iPack : configuration de la Fiche professeur, création du Dossier EPS de l'établissement, suivi individuel dans l'onglet 'Gestion des élèves' et saisie des dispenses médicales.""",
+            metadata={"title": "Guide d'Utilisation Complet iPackEPS (PDF)", "url": "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2022/11/IPack-EPS-Guide-dutilisation-interface-professeur.pdf"}
+        )
+    ]
+    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
+
+retriever_santorin = initialiser_base_santorin()
+retriever_ipack = initialiser_base_ipack()
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
@@ -349,7 +419,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle ou technique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC SÉCURISATION DES LIENS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -367,49 +437,25 @@ if prompt:
 
     if st.session_state.active_module == "ipack":
         query_recherche = f"{prompt} iPackEPS"
-        domaines_recherche = ["ipackeps.ac-creteil.fr"]
+        domaines_recherche = ["ipackeps.ac-creteil.fr", "eps.ac-creteil.fr", "eps.ac-normandie.fr", "eps.ac-versailles.fr"]
         texte_spinner = "Fouille de la base technique..."
         color_card = "general-card"
         badge_title = "🛠️ PROTOCOLE TECHNIQUE"
         instruction_date = "Pas de restriction de date pour le support technique."
-        
-        # Consigne universalisée et ultra-sécurisée contre les confusions d'articles
-        consigne_ia = f"""Tu es l'assistant technique officiel iPackEPS. 
-        Analyse les extraits suivants issus de la base de données : {{extraits_doc}}
-        
-        Réponds précisément à cette question : '{prompt}'.
-        
-        RÈGLES D'OR DE SÉCURITÉ ET DE RIGUEUR (ANTI-CONFUSION) :
-        1. Tu dois être d'une précision chirurgicale sur les numéros d'articles cités (ex: Article 55, 57, 61...).
-        2. INTERDICTION FORMELLE d'associer un numéro d'article à une procédure si ce numéro exact n'apparaît pas explicitement lié à cette action dans les extraits fournis.
-        3. Si les extraits décrivent une démarche technique sans mentionner explicitement son numéro d'article, détaille la démarche mais NE DEVINE PAS et n'invente JAMAIS de numéro de section (ne confonds pas l'Article 55 et l'Article 57).
-        4. Pour rappel historique et technique constant : Tout ce qui concerne l'ajout d'un deuxième correcteur, l'attribution ou la modification des lots de correction sur Santorin relève explicitement et uniquement de l'ARTICLE 61.
-        5. Formule un tutoriel clair, pas à pas, sans omettre d'étapes et sans inventer d'onglets ou de menus inexistants."""
-
     elif st.session_state.active_module == "examens":
-        query_recherche = f"{prompt} examen EPS"
+        query_recherche = f"{prompt} examen EPS santorin"
         domaines_recherche = [
             "eduscol.education.gouv.fr", 
             "pedagogie.ac-aix-marseille.fr", 
             "eps.ac-creteil.fr", 
             "siec.education.fr",
-            "pole-examens.github.io"
+            "pole-examens.github.io",
+            "assistance.ac-noumea.nc"
         ]
         texte_spinner = "Analyse réglementaire..."
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"
         instruction_date = "Exclus l'UNSS. Garde les textes de référence nationaux."
-        
-        consigne_ia = f"""Tu es l'assistant officiel examens. 
-        Analyse les extraits du web suivants : {{extraits_doc}}
-        
-        Réponds à cette question : '{prompt}'.
-        
-        CRITÈRES DE FILTRAGE IMPÉRATIFS :
-        1. Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée. Ignore les hors-sujets.
-        2. GESTION DES DATES : {instruction_date}
-        3. Réponds en te basant rigoureusement sur les textes officiels et ajoute les liens URL exacts trouvés dans les sources."""
-
     else:
         query_recherche = prompt 
         domaines_recherche = [
@@ -428,18 +474,29 @@ if prompt:
         else:
             instruction_date = "L'utilisateur pose une question de pratique courante, pédagogique ou logistique. APPLIQUE UNE LIMITE STRICTE A 2020. Ignore tout document, projet ou ressource d'avant 2020."
 
-        consigne_ia = f"""Tu es l'assistant de recherche globale en EPS. 
-        Analyse les extraits du web suivants : {{extraits_doc}}
-        
-        Réponds à cette question : '{prompt}'.
-        
-        CRITÈRES DE FILTRAGE IMPÉRATIFS :
-        1. Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée.
-        2. GESTION DES DATES : {instruction_date}
-        3. Donne une réponse claire et liste uniquement les URL utiles selon la règle de date fournie."""
-
     with st.spinner(texte_spinner):
         extraits_doc = ""
+        
+        # 1. Requête sur les documents internes stockés en cache (Santorin OU iPack)
+        if openai_api_key:
+            try:
+                if st.session_state.active_module == "examens":
+                    noeuds_locaux = retriever_santorin.retrieve(prompt)
+                    if noeuds_locaux:
+                        extraits_doc += "--- DOCUMENTS DE RÉFÉRENCE INTERNES (SANTORIN) ---\n"
+                        for n in noeuds_locaux:
+                            extraits_doc += f"Source locale: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+                
+                elif st.session_state.active_module == "ipack":
+                    noeuds_locaux = retriever_ipack.retrieve(prompt)
+                    if noeuds_locaux:
+                        extraits_doc += "--- DOCUMENTS DE RÉFÉRENCE INTERNES (IPACKEPS) ---\n"
+                        for n in noeuds_locaux:
+                            extraits_doc += f"Source locale: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+            except:
+                pass
+
+        # 2. Requête complémentaire Web externe via l'API Tavily
         if tavily_api_key:
             try:
                 payload = {
@@ -451,13 +508,33 @@ if prompt:
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     data_web = res.json()
-                    for item in data_web.get("results", []):
-                        extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
-            except: pass
+                    if data_web.get("results"):
+                        extraits_doc += "--- RÉSULTATS COMPLÉMENTAIRES DU WEB ---\n"
+                        for item in data_web.get("results", []):
+                            extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
+            except: 
+                pass
 
-        # Formatage final de la consigne avec les extraits collectés à la volée
-        consigne_formatee = consigne_ia.format(extraits_doc=extraits_doc)
-        response_web = Settings.llm.complete(consigne_formatee)
+        # Construction finale de la consigne (Prompt Engineering pour forcer l'affichage des liens)
+        consigne_commune = f"""Analyse rigoureusement les documents et extraits du web mis à ta disposition ci-dessous :
+        {extraits_doc}
+        
+        Réponds précisément à cette question : '{prompt}'.
+        
+        CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
+        1. Rédige une réponse claire, fluide et structurée.
+        2. Tu dois OBLIGATOIREMENT ajouter les sources et documents officiels consultés à la fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom de la source / du PDF](URL).
+        3. Interdiction absolue d'inventer des URL. Utilise uniquement les adresses exactes situées entre parenthèses dans le texte fourni ci-dessus.
+        4. GESTION DES DATES : {instruction_date}"""
+
+        if st.session_state.active_module == "ipack":
+            consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tutoriel ou guide précis basé sur les sources."
+        elif st.session_state.active_module == "examens":
+            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en listant les fiches mémos correspondantes avec leurs liens."
+        else:
+            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date fournie."
+
+        response_web = Settings.llm.complete(consigne_ia)
         
         formatted_answer = f"""
         <div class="{color_card}">

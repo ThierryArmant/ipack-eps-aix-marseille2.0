@@ -1,0 +1,5 @@
+streamlit
+requests
+llama-index
+llama-index-llms-openai
+googlesearch-python

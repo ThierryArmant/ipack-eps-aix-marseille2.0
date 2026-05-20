@@ -269,24 +269,24 @@ for m in st.session_state.messages_hub:
 st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt:
-    st.session_state.messages_hub.append({"role": "user", "content": f"**Vous** : {prompt}"})
+    st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
+    # 1. Ajustement intelligent de la requête et des domaines
     if st.session_state.active_module == "ipack":
+        query_recherche = f"{prompt} iPackEPS"
         domaines_recherche = ["ipackeps.ac-creteil.fr"]
         texte_spinner = "Fouille de la base technique..."
         color_card = "general-card"
         badge_title = "🛠️ PROTOCOLE TECHNIQUE"
     elif st.session_state.active_module == "examens":
-        domaines_recherche = [
-            "eduscol.education.gouv.fr", 
-            "pedagogie.ac-aix-marseille.fr", 
-            "eps.ac-creteil.fr", 
-            "siec.education.fr"
-        ]
+        query_recherche = f"{prompt} examen EPS"
+        domaines_recherche = ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "siec.education.fr"]
         texte_spinner = "Analyse réglementaire..."
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"
     else:
+        # En mode général, on garde le prompt brut pour éviter de polluer la recherche
+        query_recherche = prompt 
         domaines_recherche = ["pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
         texte_spinner = "Recherche multi-académies..."
         color_card = "general-card"
@@ -298,7 +298,7 @@ if prompt:
             try:
                 payload = {
                     "api_key": tavily_api_key,
-                    "query": f"{prompt} EPS",
+                    "query": query_recherche,
                     "search_depth": "advanced",
                     "include_domains": domaines_recherche
                 }
@@ -309,15 +309,33 @@ if prompt:
                         extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
             except: pass
 
+        # 2. Consigne de filtrage drastique pour l'IA
+        consigne_commune = f"""Analyse les extraits du web suivants :
+        {extraits_doc}
+        
+        Réponds à cette question : '{prompt}'.
+        
+        CRITÈRE DE QUALITÉ IMPÉRATIF : 
+        Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée. 
+        Si le moteur de recherche a renvoyé des documents hors-sujet (par exemple des textes sur les inaptitudes ou des lettres de rentrée alors que la question porte sur les sorties scolaires), IGNORE-LES complètement et ne les affiche pas."""
+
         if st.session_state.active_module == "ipack":
-            consigne_ia = f"Tu es l'assistant technique iPackEPS. Crée un tuto précis basé sur : {extraits_doc}. Ajoute l'URL. Pas de menus imaginaires."
+            consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tuto précis. Pas de menus imaginaires."
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'assistant officiel. Réponds sur les textes ou dispenses à partir de : {extraits_doc}. Pas de clics logiciels. Ajoute les liens URL exacts."
+            consigne_ia = f"Tu es l'assistant officiel examens. {consigne_commune} Réponds en te basant sur les textes. Ajoute les liens URL exacts."
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale EPS. Synthétise clairement : {extraits_doc}. Donne la liste des URL."
+            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles."
 
         response_web = Settings.llm.complete(consigne_ia)
-        formatted_answer = f'<div class="{color_card}"><strong>{badge_title} :</strong><br><br>{response_web.text}</div>'
+        
+        formatted_answer = f"""
+        <div class="{color_card}">
+            <strong>{badge_title} :</strong><br><br>
+            <div style="color: #FFFFFF !important; font-weight: 400 !important; font-family: sans-serif;">
+                {response_web.text}
+            </div>
+        </div>
+        """
 
     st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
     st.rerun()

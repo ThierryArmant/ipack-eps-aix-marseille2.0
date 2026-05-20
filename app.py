@@ -82,7 +82,7 @@ st.markdown(f"""
         justify-content: space-between; 
         align-items: center; 
         padding: 10px 20px; 
-        height: 85px !important; /* Hauteur optimale préservée */
+        height: 85px !important; 
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
@@ -264,7 +264,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE
+# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DES DOCUMENTS SANTORIN
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
@@ -272,6 +272,51 @@ tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
+
+# Base de connaissances fixe sur Santorin (Intégration de vos sources)
+@st.cache_resource
+def initialiser_base_connaissances_santorin():
+    docs_santorin = [
+        Document(
+            text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
+            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
+            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' puis cliquer sur le bouton 'Ajouter' pour affecter un second enseignant de l'établissement.
+            Pour les examens terminaux nationaux, les correcteurs travaillent en binôme ou via des lots témoins créés par les gestionnaires de la DEC. 
+            Règles d'accès simultané : Un système de verrouillage s'active lorsqu'un correcteur édite une copie, l'autre correcteur bascule temporairement en lecture seule jusqu'à libération de la session.""",
+            metadata={"title": "Fiche Mémo - Correction Partagée Santorin", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"}
+        ),
+        Document(
+            text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
+            Ce document décrit la gestion, le paramétrage des tailles de groupes et la distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs. 
+            Les coordonnateurs ou gestionnaires de l'établissement peuvent ajouter, retirer ou réattribuer des correcteurs sur les lots d'examen via l'interface de pilotage Santorin.""",
+            metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
+        ),
+        Document(
+            text="""Guide Utilisateur Santorin - Ouvrir, annoter et corriger une copie numérisée. 
+            Guide à destination des enseignants correcteurs détaillant la prise en main de l'interface graphique : liste des candidats anonymisés, outils d'annotation intégrés (surlignage, stylo, commentaires), saisie des notes par question ou note globale, validation du lot et transfert au jury. Mentionne l'usage de la messagerie interne (icône enveloppe) pour contacter les coordonnateurs.""",
+            metadata={"title": "Guide Utilisateur - Ouvrir et corriger une copie avec Santorin", "url": "https://pedagogie.ac-orleans-tours.fr/documents/pdf/lettres_tutoriels_ouvrir_et_corriger_une_copie_avec_santorin__2_.pdf"}
+        ),
+        Document(
+            text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
+            Centralise l'accès à la Base École de Santorin (environnement de test pour les sessions de formation), les fiches d'aide à la connexion pour les correcteurs, les procédures d'urgence en cas de page manquante, de copie mal numérisée ou de problème d'affichage sur l'interface.""",
+            metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
+        ),
+        Document(
+            text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
+            Regroupe les fiches d'assistance et guides d'utilisation de l'outil de correction en ligne Santorin pour le DNB, le Baccalauréat et les BTS. Explique les parcours utilisateurs pour s'enregistrer, traiter les lots et l'utilisation de la messagerie pour demander des corrections d'affectation.""",
+            metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
+        ),
+        Document(
+            text="""Guide technique d'installation de Santorin Scan. 
+            Documentation sur l'installation, le paramétrage des scanners physiques en établissement, la configuration des serveurs d'échange sécurisés et les flux de transmission des copies numérisées vers la plateforme nationale Santorin.""",
+            metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf?type=FILE&path=%2Facademie.1221136265052%2Foffre-de-services%2Fpage-1%2Fapplications-services%2Fexamens-et-concours%2Fsiecle-base-eleve.151203664311048%2Fguide-installation&portalName=default&fieldName=file:content&t=1747316120"}
+        )
+    ]
+    index = VectorStoreIndex.from_documents(docs_santorin)
+    return index.as_retriever(similarity_top_k=3)
+
+retriever_santorin = initialiser_base_connaissances_santorin()
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
@@ -373,8 +418,7 @@ if prompt:
         badge_title = "🛠️ PROTOCOLE TECHNIQUE"
         instruction_date = "Pas de restriction de date pour le support technique."
     elif st.session_state.active_module == "examens":
-        query_recherche = f"{prompt} examen EPS"
-        # Ajout sécurisé de ta nouvelle source de tutoriels d'examens
+        query_recherche = f"{prompt} examen EPS santorin"
         domaines_recherche = [
             "eduscol.education.gouv.fr", 
             "pedagogie.ac-aix-marseille.fr", 
@@ -406,6 +450,21 @@ if prompt:
 
     with st.spinner(texte_spinner):
         extraits_doc = ""
+        
+        # 1. Requête sur les documents internes injectés (uniquement en mode examens / Santorin)
+        if st.session_state.active_module == "examens" and openai_api_key:
+            try:
+                noeuds_locaux = retriever_santorin.retrieve(prompt)
+                if noeuds_locaux:
+                    extraits_doc += "--- DOCUMENTS DE RÉFÉRENCE INTERNES (SANTORIN) ---\n"
+                    for n in noeuds_locaux:
+                        titre_doc = n.node.metadata.get('title', 'Document')
+                        url_doc = n.node.metadata.get('url', '#')
+                        extraits_doc += f"Source locale: {titre_doc} ({url_doc})\nContenu: {n.node.text}\n\n"
+            except Exception as e:
+                pass
+
+        # 2. Requête complémentaire Web via Tavily API
         if tavily_api_key:
             try:
                 payload = {
@@ -417,23 +476,28 @@ if prompt:
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     data_web = res.json()
-                    for item in data_web.get("results", []):
-                        extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
-            except: pass
+                    if data_web.get("results"):
+                        extraits_doc += "--- RÉSULTATS COMPLÉMENTAIRES DU WEB ---\n"
+                        for item in data_web.get("results", []):
+                            extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
+            except: 
+                pass
 
-        consigne_commune = f"""Analyse les extraits du web suivants :
+        # Construction des consignes pour le LLM
+        consigne_commune = f"""Analyse les documents et extraits du web suivants mis à ta disposition :
         {extraits_doc}
         
         Réponds à cette question : '{prompt}'.
         
-        CRITÈRES DE FILTRAGE IMPÉRATIFS : 
+        CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Tu ne dois retenir, synthétiser et lister QUE les sources et URL directement pertinentes pour la question posée. Ignore les hors-sujets.
-        2. GESTION DES DATES : {instruction_date}"""
+        2. Si la réponse se trouve dans les 'DOCUMENTS DE RÉFÉRENCE INTERNES', utilise-les prioritairement et intègre obligatoirement les liens hypertexte fournis en clair (ex: [Titre de la fiche](url)).
+        3. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
             consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tuto précis. Pas de menus imaginaires."
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'assistant officiel examens. {consigne_commune} Réponds en te basant sur les textes. Ajoute les liens URL exacts."
+            consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Réponds en te basant rigoureusement sur les fiches mémos fournies. Ajoute les liens URL exacts associés aux documents pour que l'utilisateur puisse cliquer dessus."
         else:
             consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date fournie."
 

@@ -313,7 +313,7 @@ def initialiser_base_santorin():
     ]
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC LIENS ABSOLUS VERS LES DOCUMENTS ET PDF)
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (COACHÉE ET SÉCURISÉE AVEC TOUTES LES RÈGLES MÉTIERS ÉLARGIES)
 @st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
@@ -324,18 +324,36 @@ def initialiser_base_ipack():
         ),
         Document(
             text="""Guide Pratique Utilisateur de l'interface Professeur iPackEPS - Académie de Normandie.
-            Ce manuel complet décrit l'interface enseignant. Il explique pas à pas comment gérer l'importation des structures de classes, le suivi pédagogique, et la configuration des fiches de notation pour le contrôle continu. Explique la saisie des certificats médicaux (Inaptitudes) dans le menu 'Gestion/Suivi des élèves' (dates, type d'inaptitude totale ou partielle et restrictions). iPackEPS applique ensuite automatiquement les reports de notes ou neutralisations.""",
+            Ce manuel complet décrit l'interface enseignant. Il explique pas à pas comment gérer l'importation des structures de classes, le suivi pédagogique, et la configuration des fiches de notation pour le contrôle continu. 
+            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude' en renseignant les dates exactes du certificat médical et les restrictions. RÈGLE IMPÉRATIVE : On ne peut jamais taper directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application suite à la saisie du certificat.
+            RÈGLE DU CERTIFICAT MIXTE ET ABSENCE AU BAC : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves de familles différentes. Si un élève est absent injustifié (note 0/20) à une épreuve et inapte à une autre, le calcul automatique d'iPackEPS va bloquer car le quota des 2 notes n'est pas atteint. L'application générera alors une alerte pour exporter le dossier vers Cyclades afin que le jury statue sur une dispense ou un passage en examen ponctuel.""",
             metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
         ),
         Document(
             text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
-            Document officiel détaillant la bascule des données et la remontée des protocoles de CCF pour la session des examens. Explique les règles de transmission des dispenses, des inaptitudes à l'examen, et la synchronisation avec les serveurs de correction nationaux.""",
+            Document officiel détaillant la bascule des données et la remontée des protocoles de CCF pour la session des examens. Explique les règles de transmission des dispenses, des inaptitudes à l'examen, et la synchronisation avec les serveurs de correction nationaux. Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
             metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
         ),
         Document(
             text="""Manuel Complet d'Exploitation et d'Arborescence iPackEPS - Académie de Besançon.
             Guide pas-à-pas reprenant l'intégralité de l'arborescence des modules iPack : configuration de la Fiche professeur, création du Dossier EPS de l'établissement, suivi individuel dans l'onglet 'Gestion des élèves' et saisie des dispenses médicales.""",
             metadata={"title": "Guide d'Utilisation Complet iPackEPS (PDF)", "url": "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2022/11/IPack-EPS-Guide-dutilisation-interface-professeur.pdf"}
+        ),
+        Document(
+            text="""RÈGLES MÉTIERS AVANCÉES - EXAMENS EPS ET CALCULS IPACKEPS :
+            1. ABSENCE VS INAPTITUDE : Une absence injustifiée donne la note de 0/20 (qui compte dans l'examen). Une absence médicale génère le statut INAPTE (IN) qui neutralise l'épreuve. Ne jamais saisir 0 pour un motif médical.
+            2. ABANDON EN COURS D'ÉPREUVE : Si un élève se blesse pendant le CCF, soit l'enseignant a assez d'éléments pour noter, soit l'épreuve est neutralisée pour cause de blessure et l'élève est envoyé en session de rattrapage.
+            3. SYNCHRONISATION DES ÉLÈVES : Les enseignants ne peuvent pas créer d'élèves manuellement pour les examens. Toutes les listes et dispenses officielles proviennent de l'administration de l'établissement (fichiers XML de Siècle/Cyclades) via une mise à jour du secrétariat.
+            4. INAPTITUDE TOTALE ANNUELLE : Un élève inapte total à l'année voit l'épreuve d'EPS neutralisée (Statut Dispensé DI final). Toutes les périodes doivent être couvertes par le certificat médical dans l'onglet Inaptitudes d'iPackEPS.""",
+            metadata={"title": "Règles Métiers et Alertes iPackEPS", "url": "https://eps.ac-creteil.fr/"}
+        ),
+        Document(
+            text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (JURY & EXAMENS) :
+            1. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. L'enseignant ne doit rien forcer. Le dossier est transmis au Jury Académique via Cyclades, qui décidera soit de valider la note unique, soit d'envoyer l'élève en examen ponctuel en septembre.
+            2. ÉLÈVE TRANSFÉRÉ (CHANGEMENT DE LYCÉE) : Les notes de CCF du lycée d'origine ne migrent pas automatiquement. Le prof doit récupérer le relevé officiel via le secrétariat et utiliser la fonction 'Saisie des notes hors établissement' dans iPackEPS pour intégrer l'épreuve externe.
+            3. INAPTITUDE AU PROTOCOLE ADAPTÉ : Si l'inaptitude partielle d'un élève l'empêche même de suivre le protocole adapté de l'établissement, il doit être basculé informatiquement en statut 'Inapte Total' pour la période concernée.
+            4. SPORTIFS DE HAUT NIVEAU (SHN) : Les élèves SHN ne sont pas dispensés du Bac EPS. En cas de compétition le jour du CCF, ils doivent obligatoirement être basculés sur une session de Rattrapage dans iPackEPS. Si un barème spécial SHN est validé par le rectorat, il doit être activé dans le Dossier EPS.""",
+            metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
@@ -532,7 +550,7 @@ if prompt:
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète en listant les fiches mémos correspondantes avec leurs liens."
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date fournie."
+            consigne_ia = f"Tu es l'assistant de recherche globale. {consigne_commune} Donne une réponse claire et liste uniquement les URL utiles selon la règle de date faut-il."
 
         response_web = Settings.llm.complete(consigne_ia)
         

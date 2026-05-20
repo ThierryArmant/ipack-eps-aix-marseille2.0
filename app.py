@@ -47,25 +47,44 @@ st.markdown(f"""
     .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
     
-    /* Structure du Bandeau Supérieur Principal Réduit */
+    /* Structure du Bandeau Supérieur Principal Rééquilibré */
     .hub-header {{ 
         background-color: #1E293B; 
         display: flex; 
         justify-content: space-between; 
         align-items: center; 
-        padding: 5px 20px; 
-        height: 60px; /* Fixe la hauteur pour un bandeau fin */
+        padding: 10px 20px; 
+        height: 85px; /* Hauteur augmentée pour donner du volume */
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
     .hub-title {{
         display: flex;
-        align-items: baseline;
-        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }}
-    .hub-title h1 {{ color: white !important; margin: 0; font-size: 22px !important; font-weight: bold; line-height: 1; }}
-    .hub-title p {{ color: #94A3B8 !important; margin: 0; font-size: 12px !important; text-transform: uppercase; line-height: 1; }}
+    /* Agrondissement du vrai titre principal */
+    .hub-title h1 {{ 
+        color: white !important; 
+        margin: 0 !important; 
+        font-size: 28px !important; 
+        font-weight: 800 !important; 
+        line-height: 1.2 !important;
+        letter-spacing: 0.5px;
+    }}
+    /* Mise en gras et agrandissement du sous-titre */
+    .hub-title p {{ 
+        color: #94A3B8 !important; 
+        margin: 4px 0 0 0 !important; 
+        font-size: 13px !important; 
+        text-transform: uppercase; 
+        font-weight: bold !important;
+        line-height: 1.1 !important; 
+        letter-spacing: 0.5px;
+    }}
     
     /* Encadré Sélection du Contexte */
     .context-container {{
@@ -198,21 +217,18 @@ if openai_api_key:
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR RÉDUIT (SANS COMPTEUR)
+# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC TITRE IMPOSANT
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
         <div style="display: flex; align-items: center; width: 25%;">
-            <img src="{github_url}{img_gauche}" height="45">
-        </div>
-        <div class="hub-title" style="width: 50%; justify-content: center;">
+            <img src="{github_url}{img_gauche}" height="60"> </div>
+        <div class="hub-title" style="width: 50%;">
             <h1>HUB IA - EPS</h1>
-            <p>Espace Ressources &amp; Assistance Numérique</p>
+            <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
         </div>
-        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 12px;">
-            <img src="{github_url}{img_eps}" height="40">
-            <img src="{github_url}{img_droite}" height="40">
-        </div>
+        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
+            <img src="{github_url}{img_eps}" height="55"> <img src="{github_url}{img_droite}" height="55"> </div>
     </div>
 """, unsafe_allow_html=True)
 

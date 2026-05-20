@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES FIABLE
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES FIABLE (PROTÉGÉ)
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
@@ -27,14 +27,18 @@ if "active_module" not in st.session_state:
 def incrementer_et_obtenir_visites():
     fichier_compteur = "compteur_visites.txt"
     if not os.path.exists(fichier_compteur):
-        with open(fichier_compteur, "w") as f:
-            f.write("1")
-        return 1
+        try:
+            with open(fichier_compteur, "w") as f:
+                f.write("1")
+            return 1
+        except:
+            return 1
     
     try:
         with open(fichier_compteur, "r") as f:
             valeur = int(f.read().strip())
         
+        # On incrémente uniquement au premier chargement de la session utilisateur
         if "visite_comptabilisee" not in st.session_state:
             valeur += 1
             with open(fichier_compteur, "w") as f:
@@ -45,6 +49,7 @@ def incrementer_et_obtenir_visites():
     except:
         return 1
 
+# Récupération du score réel sans risque de plantage
 nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
@@ -77,12 +82,13 @@ st.markdown(f"""
         justify-content: space-between; 
         align-items: center; 
         padding: 10px 20px; 
-        height: 85px !important; 
+        height: 85px !important; /* Hauteur optimale préservée */
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }}
     
+    /* Bloc titre équilibré avec décalage de sécurité pour éviter le collage à droite */
     .hub-title {{
         display: flex;
         flex-direction: column;
@@ -93,6 +99,7 @@ st.markdown(f"""
         padding-right: 35px; 
     }}
     
+    /* Ligne du titre principal */
     .title-row {{
         display: flex;
         align-items: center;
@@ -109,6 +116,7 @@ st.markdown(f"""
         letter-spacing: 0.5px;
     }}
     
+    /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur {{ 
         background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
@@ -123,6 +131,7 @@ st.markdown(f"""
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }}
     
+    /* Sous-titre remonté, mis en gras et calé */
     .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -265,7 +274,7 @@ if openai_api_key:
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR FLUIDE
+# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
@@ -365,7 +374,14 @@ if prompt:
         instruction_date = "Pas de restriction de date pour le support technique."
     elif st.session_state.active_module == "examens":
         query_recherche = f"{prompt} examen EPS"
-        domaines_recherche = ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "siec.education.fr"]
+        # Ajout sécurisé de ta nouvelle source de tutoriels d'examens
+        domaines_recherche = [
+            "eduscol.education.gouv.fr", 
+            "pedagogie.ac-aix-marseille.fr", 
+            "eps.ac-creteil.fr", 
+            "siec.education.fr",
+            "pole-examens.github.io"
+        ]
         texte_spinner = "Analyse réglementaire..."
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"

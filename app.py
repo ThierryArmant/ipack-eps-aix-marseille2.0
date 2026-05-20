@@ -25,10 +25,20 @@ if "active_module" not in st.session_state:
     st.session_state.active_module = "general"  
 
 def incrementer_et_recuperer_compteur():
-    # Fixé pour Streamlit Cloud afin de contourner l'interdiction d'écriture sur disque
     return 1250
 
 nb_visites = incrementer_et_recuperer_compteur()
+
+# ======================================================================
+# 3. INTERFACE GRAPHIQUE ET CONFIGURATION DES LIENS IMAGES
+# ======================================================================
+img_gauche = "image_7.png"
+img_eps = "image_6.png" 
+img_droite = "image_5.png"
+img_fond = "image_8.png"
+
+# CRUCIAL : Défini ICI pour éviter le NameError dans le st.markdown ci-dessous
+github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
 st.markdown(f"""
     <style>
@@ -60,7 +70,7 @@ st.markdown(f"""
     
     /* Encadré Sélection du Contexte */
     .context-container {{
-        background-color: rgba(30, 41, 59, 0.5) !important; /* Plus transparent */
+        background-color: rgba(30, 41, 59, 0.5) !important;
         backdrop-filter: blur(15px) !important;
         border: 1px solid rgba(255, 255, 255, 0.15) !important;
         padding: 14px 18px 18px 18px !important; 
@@ -132,10 +142,10 @@ st.markdown(f"""
         background-color: rgba(220, 38, 38, 0.65) !important;
     }}
     
-    /* CARTES DE RÉPONSE - Opacité passée de 0.8 à 0.45 pour laisser deviner la Sainte-Victoire */
+    /* CARTES DE RÉPONSE - Semi-transparente (0.45) pour dévoiler la Sainte-Victoire */
     .santorin-card, .general-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
-        backdrop-filter: blur(12px) !important; /* Augmentation du flou arrière pour garder le texte lisible */
+        backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         padding: 18px; 
         border-radius: 8px; 
@@ -150,7 +160,7 @@ st.markdown(f"""
         font-size: 15px !important; 
         line-height: 1.6 !important; 
         font-weight: 400 !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Ombre portée sous le texte pour détacher le blanc du fond transparent */
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }}
     .santorin-card strong, .general-card strong {{
         font-weight: 700 !important; 
@@ -263,7 +273,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    # 1. Ajustement intelligent de la requête et des domaines
     if st.session_state.active_module == "ipack":
         query_recherche = f"{prompt} iPackEPS"
         domaines_recherche = ["ipackeps.ac-creteil.fr"]
@@ -277,7 +286,6 @@ if prompt:
         color_card = "santorin-card"
         badge_title = "📊 REGLEMENTATION & EXAMENS"
     else:
-        # En mode général, on garde le prompt brut pour éviter de polluer la recherche
         query_recherche = prompt 
         domaines_recherche = ["pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
         texte_spinner = "Recherche multi-académies..."
@@ -301,7 +309,6 @@ if prompt:
                         extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
             except: pass
 
-        # 2. Consigne de filtrage drastique pour l'IA
         consigne_commune = f"""Analyse les extraits du web suivants :
         {extraits_doc}
         

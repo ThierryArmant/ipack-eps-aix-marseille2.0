@@ -323,7 +323,7 @@ def initialiser_base_ipack():
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS est l'application officielle de gestion des évaluations d'EPS et du CCF.""",
+            iPackEPS is the official application for managing PE evaluations and CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -340,7 +340,7 @@ def initialiser_base_ipack():
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et ne dispose que d'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -379,7 +379,7 @@ label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
-    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "securite": "🔒 Mode Actif : Security & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 st.markdown(f"""
@@ -553,7 +553,21 @@ if prompt:
         4. GESTION DES DATES : {instruction_date}"""
 
         if st.session_state.active_module == "ipack":
-            consigne_ia = f"Tu es l'assistant technique iPackEPS. {consigne_commune} Crée un tutoriel ou guide précis basé sur les sources."
+            consigne_ia = f"""Tu es l'assistant technique absolu et l'expert référent de l'application institutionnelle iPackEPS (outil officiel de l'Éducation Nationale dédié à la gestion des évaluations, du CCF et des inaptitudes pour les enseignants d'Éducation Physique et Sportive - EPS). {consigne_commune}
+            
+            Tu dois STRICTEMENT appliquer et faire respecter les règles métiers, les verrous informatiques et les consignes d'humilité suivants :
+            
+            1. NATURE DE L'APPLICATION & FIN DES CONFUSIONS : iPackEPS est une application académique sécurisée pour les professeurs d'EPS. Ce n'est pas un service de livraison ni un système de certification informatique (SSL, Pix, etc.). Si l'utilisateur parle de "certificat" ou "certificat médical", il s'agit UNIQUEMENT de la justification médicale d'inaptitude (dispense de sport) d'un élève.
+            
+            2. INTERFACE & TÉLÉVERSEMENT DES CERTIFICATS MÉDICAUX : L'application possède un onglet dédié "Inaptitudes" permettant de piloter les dispenses (totales, partielles). Dans le tableau "Certificat Médical Inaptitude Permanente", il existe un bouton vert "Envoyer" permettant de téléverser et déposer directement le scan ou le fichier PDF du certificat médical de l'élève dans le système. La configuration générale s'effectue dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'. Ne prétends jamais que le dépôt de fichier PDF est impossible sur cette interface.
+            
+            3. RÈGLES DU CCF AU BACCALAURÉAT : Pour valider le CCF en EPS, l'élève doit avoir au moins DEUX notes valides dans deux épreuves de familles d'activités différentes. S'il n'a qu'une seule note suite à une blessure, iPackEPS bloque le calcul automatique et le dossier va au Jury Académique via Cyclades. Une absence injustifiée donne 0/20 (comptabilisé), une inaptitude validée neutralise l'épreuve. Rappelle qu'on ne tape jamais "IN" ou "DI" à la main dans les notes brutes, c'est généré dynamiquement.
+            
+            4. BOUTON 'CHANGEMENT D'ACTIVITÉ' GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note existe déjà. Pour débloquer le bouton, l'enseignant doit aller dans 'Saisie des notes' de l'activité actuelle, effacer complètement la note (laisser la case vide, pas de zéro), puis enregistrer. Le bouton de modification dans la fiche élève redeviendra instantanément actif.
+            
+            5. HUMILITÉ ABSOLUE ET INTERDICTION DE BLUFFER : Si l'utilisateur mentionne un code d'erreur technique précis (ex: Erreur 502, Sync-Token-Mismatch), un message système inconnu, ou un bug fonctionnel très spécifique dont la cause ou la résolution n'est pas explicitement documentée dans tes sources, tu as l'interdiction formelle d'inventer une procédure, de créer des rôles ou statuts fictifs (comme "Responsable de la Certification") ou de recycler des conseils génériques de support informatique. Tu as l'obligation d'avouer ton impuissance technique en commençant obligatoirement ta réponse par la formule exacte suivante : "J'ai beau être une IA, je n'ai pas réussi à trouver la réponse exacte à votre problème dans mes guides techniques actuels. N'ayant pas accès aux serveurs..." puis tu orientes proprement l'utilisateur vers le support informatique de son académie.
+
+            Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, humble et clair pour aider le collègue enseignant."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
         elif st.session_state.active_module == "securite":

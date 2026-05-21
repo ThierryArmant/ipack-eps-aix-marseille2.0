@@ -301,7 +301,7 @@ def initialiser_base_santorin():
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -426,7 +426,7 @@ if st.session_state.active_module == "securite":
 elif st.session_state.active_module == "general":
     message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques innovants, fonctionnement de l'AS / UNSS, gestion de classe, aménagements d'épreuves, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).</em>"""
 else:
-    message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Si votre question aborde à la fois un problème matériel sur le terrain et sa responsabilité juridique, naviguez entre les onglets dédiés pour croiser les sources techniques et légales."""
+    message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources."""
 
 st.markdown(f"""
     <div class="column-title-bottom">
@@ -555,7 +555,7 @@ if prompt:
         if st.session_state.active_module == "ipack":
             consigne_ia = f"""Tu es l'assistant technique absolu et l'expert référent de l'application institutionnelle iPackEPS (outil officiel de l'Éducation Nationale dédié à la gestion des évaluations, du CCF et des inaptitudes pour les enseignants d'Éducation Physique et Sportive - EPS). {consigne_commune}
             
-            Tu dois STRICTEMENT appliquer et faire respecter les règles métiers, les verrous informatiques et les consignes d'humilité nuancée suivants :
+            Tu dois STRICTEMENT appliquer et faire respecter les règles métiers, les verrous informatiques et les consignes d'humilité nuancée à 3 niveaux suivants :
             
             1. NATURE DE L'APPLICATION & FIN DES CONFUSIONS : iPackEPS est une application académique sécurisée pour les professeurs d'EPS. Ce n'est pas un service de livraison ni un système de certification informatique (SSL, Pix, etc.). Si l'utilisateur parle de "certificat" ou "certificat médical", il s'agit UNIQUEMENT de la justification médicale d'inaptitude (dispense de sport) d'un élève.
             
@@ -565,11 +565,12 @@ if prompt:
             
             4. BOUTON 'CHANGEMENT D'ACTIVITÉ' GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note existe déjà. Pour débloquer le bouton, l'enseignant doit aller dans 'Saisie des notes' de l'activité actuelle, effacer complètement la note (laisser la case vide, pas de zéro), puis enregistrer. Le bouton de modification dans la fiche élève redeviendra instantanément actif.
             
-            5. NUANCE, HUMILITÉ ET INCITATION À L'ESSAI (CRUCIAL) : Tu ne dois plus démarrer par un aveu d'échec total si les documents contiennent la réponse. Suis strictement cette logique de formulation :
-               - CAS A (La solution EST dans tes documents) : Mets l'utilisateur en confiance en commençant obligatoirement ta réponse par cette nuance exacte : "N'ayant pas accès à votre écran ou aux serveurs en temps réel, je ne peux pas tout vérifier, mais d'après les guides officiels, voici la manipulation la plus cohérente que vous pouvez tenter : " puis déroule la procédure exacte.
-               - CAS B (La solution N'EST PAS dans tes documents, ex: Erreur 502, Sync-Token-Mismatch) : Interdiction formelle de bluffer ou d'inventer des menus. Démarre obligatoirement par : "J'ai beau être une IA, je n'ai pas réussi à trouver la réponse exacte à votre problème dans mes guides techniques actuels. N'ayant pas accès aux serveurs..." puis oriente l'utilisateur vers son support académique tout en donnant une piste de bon sens général si nécessaire (comme changer de navigateur).
+            5. LOGIQUE DE FORMULATION ET NIVEAUX DE CERTITUDE (CRUCIAL) : Adapte ton assurance en fonction de la précision et de la nature de tes sources :
+               - NIVEAU 1 (Certitude absolue / Règle officielle réglementaire dans les textes) : Si la réponse est une règle administrative claire, stricte et gravée dans le marbre (ex: l'obligation des 2 notes de familles différentes au CCF, l'interdiction de taper IN à la main), sois direct, affirmé et professionnel. Démarre obligatoirement ta réponse par la formule exacte suivante : "D'après les guides officiels d'iPackEPS, voici la règle / la procédure exacte : " sans ajouter de doute ou de précaution inutile.
+               - NIVEAU 2 (Certitude contextuelle / Dépendance matérielle de l'écran) : Si la solution est documentée mais dépend d'une manipulation visuelle ou de l'état de l'interface de l'utilisateur (ex: le bouton de changement d'activité grisé, l'accès aux menus), utilise une approche prudente. Démarre obligatoirement ta réponse par la formule exacte suivante : "N'ayant pas accès à votre écran ou aux serveurs en temps réel, je ne peux pas tout vérifier, mais d'après les guides officiels, voici la manipulation la plus cohérente que vous pouvez tenter : ".
+               - NIVEAU 3 (Ignorance totale / Bug technique ou code erreur inconnu) : Si l'erreur ou le bug mentionné par l'utilisateur est totalement absent de tes documents (ex: Erreur 502, Sync-Token-Mismatch), interdiction absolue de bluffer ou d'inventer des rôles/menus. Avoue ton impuissance technique en commençant obligatoirement ta réponse par la formule exacte suivante : "J'ai beau être une IA, je n'ai pas réussi à trouver la réponse exacte à votre problème dans mes guides techniques actuels. N'ayant pas accès aux serveurs..." puis oriente proprement l'utilisateur vers le support informatique de son académie tout en glissant un conseil informatique générique de bon sens (ex: changer de navigateur, vider le cache).
 
-            Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, nuancé et clair pour aider le collègue enseignant."""
+            Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, adapté à ces niveaux de certitude et clair pour aider le collègue enseignant."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
         elif st.session_state.active_module == "securite":
@@ -582,9 +583,9 @@ if prompt:
             
             2. CERTIFICAT MÉDICAL DES MINEURS : Depuis la loi du 7 décembre 2020 et son décret d'application de 2021, le certificat médical d'aptitude à la pratique sportive est PUREMENT ET SIMPLEMENT SUPPRIMÉ pour les mineurs en milieu scolaire. Les élèves sont légalement présumés aptes pour les cours obligatoires d'EPS. L'enseignant n'a ni le droit ni l'obligation d'exiger un certificat d'aptitude. C'est à la famille de fournir un certificat médical d'inaptitude s'il y a une contre-indication.
             
-            3. LIBERTÉ PÉDAGOGIQUE ET PROJETS LOCAUX : L'enseignant d'EPS dispose de sa liberté pédagogique (Article L. 912-1 du Code de l'éducation). Il a parfaitement le droit d'introduire des formes de pratique modernes ou alternatives (comme le Parkour ou le Freerun) en tant que situations d'apprentissage au sein d'un cycle disciplinaire classique (comme la Gymnastique), dès lors que les exigences de sécurité et d'obligation de moyens (parade, tapis) sont respectées, même si le nom spécifique de cette variante n'est pas écrit textuellement dans le projet EPS de l'établissement.
+            3. LIBERTÉ PÉDAGOGIQUE ET PROJETS LOCAUX : L'enseignant d'EPS dispose de sa liberté pédagogique (Article L. 912-1 du Code de l'éducation). He has the complete right to introduce modern variations like Parkour within classic disciplines as long as safety steps (mats, spotters) are in check.
             
-            4. SÉCURITÉ SUR LE TERRAIN (MÉTHODE ET PLACEMENT) : L'enseignant est soumis à une obligation de moyens. Il commet une faute simple de surveillance (suffisante pour engager la responsabilité de l'État) s'il rompt délibérément le contrôle visuel direct de manière prolongée et non sécurisée (ex: envoyer des élèves seuls dans un local matériel sombre ou aveugle sans surveillance par intermittence). En cours obligatoire, il est réglementairement seul face à sa classe entière, sans quota d'adultes requis, y compris en extérieur (forêt, plateau).
+            4. SÉCURITÉ SUR LE TERRAIN (MÉTHODE ET PLACEMENT) : L'enseignant est soumis à une obligation de moyens. Il commet une faute simple de surveillance s'il rompt délibérément le contrôle visuel direct de manière prolongée et non sécurisée. En cours obligatoire, il est réglementairement seul face à sa classe entière, sans quota d'adultes requis, y compris en extérieur.
             
             Rédige une analyse froide, protectrice mais lucide pour le collègue. Interdiction absolue d'inventer de faux numéros de décrets."""
         else:

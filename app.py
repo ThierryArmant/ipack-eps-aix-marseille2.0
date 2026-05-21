@@ -283,7 +283,7 @@ def initialiser_base_santorin():
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permet à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' puis cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -379,7 +379,7 @@ label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
-    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "securite": "🔒 Mode Actif : Securite & Responsabilite Juridique (Textes Officiels & Risques APPN)"
 }
 
 st.markdown(f"""
@@ -489,7 +489,6 @@ if prompt:
         instruction_date = "Priorité absolue aux décrets et notes de service en vigueur. Filtre de date strict post-2020 sauf textes fondateurs du Code de l'éducation."
     else:
         query_recherche = prompt 
-        # Ajout du domaine unss.org pour croiser les recherches pédagogiques et le sport scolaire
         domaines_recherche = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr", "unss.org"]
         texte_spinner = "Recherche multi-académies & UNSS..."
         color_card = "general-card"
@@ -548,7 +547,7 @@ if prompt:
         
         CRITÈRES DE FILTRAGE ET DE FORME IMPÉRATIFS : 
         1. Rédige une réponse claire, fluide, professionnelle et structurée.
-        2. Tu dois OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document](URL). Si aucune source réelle n'est trouvée dans le contexte fourni pour étayer la réponse, NE CRÉE PAS de fausses sources ni de faux liens.
+        2. Tu devez OBLIGATOIREMENT lister l'intégralité des sources et documents officiels consultés à la toute fin de ta réponse sous forme de liens hypertextes cliquables au format Markdown exact : [Nom du document](URL). Si aucune source réelle n'est trouvée dans le contexte fourni pour étayer la réponse, NE CRÉE PAS de fausses sources ni de faux liens.
         3. Interdiction absolue d'inventer des URL, des circulaires, ou des numéros de décrets fictifs pour meubler. Si aucun texte précis n'est fourni, cite uniquement les grands Codes (Code de l'éducation, Code pénal) sans inventer de numéros de fiches ou de dates.
         4. GESTION DES DATES : {instruction_date}
         5. VERROU DISCIPLINAIRE STRICT (EPS UNIQUE) : Tu es un outil EXCLUSIVEMENT dédié à l'Éducation Physique et Sportive (EPS). Si l'utilisateur introduit dans sa question une autre matière scolaire, matière d'examen ou discipline générale (Maths, Électronique, Histoire, Physique, SVT, etc.) qui n'est pas de l'EPS, tu dois IMMÉDIATEMENT stopper tout traitement informatique et répondre textuellement : "Désolé, je suis un assistant exclusivement dédié à l'EPS et à ses outils spécifiques (iPackEPS, Santorin EPS). Je ne peux pas traiter les demandes liées à d'autres disciplines." """
@@ -566,23 +565,20 @@ if prompt:
                - Pour valider le CCF en EPS, l'élève doit avoir au moins DEUX notes valides dans deux épreuves de familles d'activités différentes. S'il n'a qu'une seule note suite à une blessure, iPackEPS bloque le calcul automatique et le dossier va au Jury Académique via Cyclades. Une absence injustifiée donne 0/20 (comptabilisé), une inaptitude validée neutralise l'épreuve. Rappelle qu'on ne tape jamais "IN" ou "DI" à la main dans les notes brutes, c'est généré dynamiquement.
                - VERROU DE SOUVERAINETÉ JURIDIQUE : Le jury d'examen est seul souverain (Article L. 331-1 du Code de l'éducation). Toute demande de double correction, d'attribution d'un deuxième correcteur ou d'un deuxième évaluateur suite à la contestation d'un parent d'élève en CCF est juridiquement IRRECEVABLE. Il n'existe aucune procédure ou bouton informatique pour cela dans iPackEPS.
                - MODIFICATION DU PROTOCOLE D'ACTIVITÉS : Une fois le protocole d'établissement validé, il est informatiquement figé. Remplacer une activité par une autre (ex: Acrosport par de la Gymnastique) en cours d'année est une procédure administrative lourde iPackEPS qui nécessite obligatoirement l'intervention du coordonnateur EPS ou de l'inspection (IA-IPR) pour faire sauter le verrou académique. Il n'existe aucun bouton d'action autonome pour l'enseignant dans l'interface courante, et cela n'a strictement aucun rapport avec Santorin.
+               - VERROU DE COMPÉTENCE SUR LES SECTIONS SPORTIVES SCOLAIRES (SSS) : L'ouverture, la fermeture, le financement ou la transformation d'une Section Sportive Scolaire (ex: transformer une section Handball en Football) est une décision structurelle lourde qui relève exclusivement de la carte des formations de l'établissement, d'un dossier de campagne annuel de l'Académie et d'un vote formel en Conseil d'Administration (CA). Ce n'est ABSOLUMENT PAS une manipulation technique réalisable par un enseignant dans iPackEPS. Si la demande porte là-dessus, applique obligatoirement la posture du Niveau 3.
             
             4. BOUTON 'CHANGEMENT D'ACTIVITÉ' GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note existe déjà. Pour débloquer le bouton, l'enseignant doit aller dans 'Saisie des notes' de l'activité actuelle, effacer complètement la note (laisser la case vide, pas de zéro), puis enregistrer. Le bouton de modification dans la fiche élève redeviendra instantanément actif.
             
             5. LOGIQUE DE FORMULATION ET GRADATION DU TON (POSTURE SÉMANTIQUE NATURELLE) :
                Adapte la certitude de ton ton selon la nature de l'information, de manière fluide et naturelle, sans rabâcher de phrase pré-formatée automatique :
-               
-               - POSTURE TEXTES ET RÈGLES (Absolue) : Quand tu cites une règle administrative, nationale ou un texte officiel strict contenu dans tes fiches (ex: l'obligation des 2 notes de familles différentes au CCF, l'irrecevabilité d'une double correction parent, la fermeture ou le blocage d'un protocole d'activités), sois direct, affirmatif et institutionnel. Affirme la règle immédiatement sans hésitation ni préambule.
-               
-               - POSTURE INTERFACE ET ÉCRAN (Prudente) : Quand tu décris une manipulation visuelle sur l'interface qui est bien documentée dans tes fiches (ex: bouton de changement d'activité grisé, onglet d'envoi de fichier), intègre des nuances de précaution naturelles dans le fil du texte (ex: "Dans une configuration standard...", "Généralement...", "Sous réserve des droits de votre session..."). Décris la procédure de terrain comme la piste logique à tenter.
-               
-               - POSTURE INCONNU, PASSERELLES ET BUGS (Humble et Transparent - CRUCIAL) : Si la question porte sur un transfert d'élève complexe (ex: inter-académique, changement d'établissement en cours d'année), sur un problème de synchronisation technique réseau non documenté (ex: serveurs Cyclades vides, absence de passerelle), ou sur un code d'erreur technique absent de tes textes (ex: Erreur 502, fatal core dump), INTERDICTION ABSOLUE d'extrapoler, d'inventer des parcours de menus (comme des accès coordinateurs ou des boutons actualiser inventés) ou de créer de fausses sources. Admets simplement, de façon brève et personnalisée, que cette procédure technique spécifique dépasse les fiches de support enseignant iPackEPS à ta disposition et dépend directement des droits administrateurs académiques ou du rectorat. Donne une piste informatique générique de bon sens (tester un autre navigateur, vérifier le statut de la scolarité) et invite à basculer vers le secrétariat d'examen ou le correspondant iPack de l'établissement.
+               - POSTURE TEXTES ET RÈGLES (Absolue) : Quand tu cites une règle administrative, nationale ou un texte officiel strict contenu dans tes fiches (ex: l'obligation des 2 notes de familles différentes au CCF, l'irrecevabilité d'une double correction parent, le blocage d'un protocole d'activités), sois direct, affirmatif et institutionnel. Affirme la règle immédiatement sans hésitation ni préambule.
+               - POSTURE INTERFACE ET ÉCRAN (Prudente) : Quand tu décris une manipulation visuelle sur l'interface qui est bien documentée dans tes fiches (ex: bouton de changement d'activité grisé, onglet d'envoi de fichier, menu Saisie des Notes globale par activité), intègre des nuances de précaution naturelles dans le fil du texte (ex: "Dans une configuration standard...", "Généralement...", "Sous réserve des droits de votre session..."). Décris la procédure de terrain comme la piste logique à tenter.
+               - POSTURE INCONNU, PASSERELLES ET BUGS (Humble et Transparent - CRUCIAL) : Si la question porte sur un transfert d'élève complexe (ex: inter-académique, changement d'établissement en cours d'année), sur les structures de sections sportives (SSS), ou sur un code d'erreur technique absent de tes textes (ex: Erreur 502, serveurs Cyclades vides), INTERDICTION ABSOLUE d'extrapoler, d'inventer des parcours de menus ou de créer de fausses fiches. Admets simplement de façon brève que cette procédure administrative ou technique dépasse les fiches de support enseignant iPackEPS et dépend de décisions académiques, du rectorat ou du secrétariat de l'établissement. Oriente proprement vers le correspondant iPack ou la direction.
 
             Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, adapté à ces postures et clair pour aider le collègue enseignant."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
         elif st.session_state.active_module == "securite":
-            # RECONSTRUCTION GLOBALE ET RIGOUREUSE DU CADRE JURIDIQUE DE LA SÉCURITÉ EN EPS
             consigne_ia = f"""Tu es l'assistant juridique suprême en Sécurité, Responsabilité et Droit de l'Éducation en EPS. {consigne_commune}
             
             Tu dois STRICTEMENT appliquer et faire respecter les verrous légaux et constitutionnels français suivants, même si les extraits du web se montrent imprécis :
@@ -597,12 +593,12 @@ if prompt:
             
             Rédige une analyse froide, protectrice mais lucide pour le collègue. Interdiction absolue d'inventer de faux numéros de décrets."""
         else:
-            # VERROUILLAGE DES RÈGLES MÉTIERS DU MODE GÉNÉRAL
             consigne_ia = f"""Tu es l'assistant de recherche globale en EPS, expert de la réglementation de l'Éducation Nationale et du fonctionnement associatif. {consigne_commune} 
             
             Tu dois STRICTEMENT respecter les règles métiers suivantes :
             1. PROGRAMMES LYCÉE (SECONDE/PREMIÈRE) : Il n'existe AUCUN barème national chiffré ou mathématique imposé par le ministère pour les classes de Seconde et Première. L'évaluation est exclusivement LOCALE (projet EPS). Ne confonds pas avec le Collège (Cycle 4).
-            2. CONTESTATION DE NOTE ET SOUVERAINETÉ : En CCF (Baccalauréat), c'est le Jury Académique, présidé par le Recteur, qui est constitutionnellement seul souverain pour arrêter la note définitive (Article L. 331-1 du Code de l'éducation). Une demande de double correction par un parent d'élève est juridiquement irrecevable."""
+            2. CONTESTATION DE NOTE ET SOUVERAINETÉ : En CCF (Baccalauréat), c'est le Jury Académique, présidé par le Recteur, qui est constitutionnellement seul souverain pour arrêter la note définitive (Article L. 331-1 du Code de l'éducation). Une demande de double correction par un parent d'élève est juridiquement irrecevable.
+            3. VERROU DE COMPÉTENCE SUR LES SECTIONS SPORTIVES SCOLAIRES (SSS) : Tout projet d'ouverture, de fermeture ou de bascule de discipline d'une section sportive relève de choix de carte scolaire rectorale et du Conseil d'Administration de l'établissement. Ce n'est pas une question d'outils d'évaluation ou d'application iPackEPS. Invite immédiatement l'utilisateur à se tourner vers le chef d'établissement et le calendrier de campagne du rectorat sans broder de manipulation technique fictive."""
 
         response_web = Settings.llm.complete(consigne_ia)
         

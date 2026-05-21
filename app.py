@@ -7,6 +7,16 @@ from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.memory import ChatMemoryBuffer
 
+# --- AJOUT SÉCURISÉ POUR LIRE TON FICHIER "Géré par pierre.txt" ---
+@st.cache_resource
+def charger_consignes_pierre():
+    if os.path.exists("Géré par pierre.txt"):
+        try:
+            return SimpleDirectoryReader(input_files=["Géré par pierre.txt"]).load_data()
+        except:
+            return []
+    return []
+
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
 # ======================================================================
@@ -315,6 +325,8 @@ def initialiser_base_santorin():
             metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
         )
     ]
+    # INTÉGRATION DE TES DONNÉES
+    docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
@@ -345,6 +357,8 @@ def initialiser_base_ipack():
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
+    # INTÉGRATION DE TES DONNÉES
+    docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
 
 retriever_santorin = initialiser_base_santorin()

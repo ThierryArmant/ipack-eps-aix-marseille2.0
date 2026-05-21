@@ -379,7 +379,7 @@ label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
-    "securite": "🔒 Mode Actif : Security & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 st.markdown(f"""
@@ -555,7 +555,7 @@ if prompt:
         if st.session_state.active_module == "ipack":
             consigne_ia = f"""Tu es l'assistant technique absolu et l'expert référent de l'application institutionnelle iPackEPS (outil officiel de l'Éducation Nationale dédié à la gestion des évaluations, du CCF et des inaptitudes pour les enseignants d'Éducation Physique et Sportive - EPS). {consigne_commune}
             
-            Tu dois STRICTEMENT appliquer et faire respecter les règles métiers, les verrous informatiques et les consignes d'humilité suivants :
+            Tu dois STRICTEMENT appliquer et faire respecter les règles métiers, les verrous informatiques et les consignes d'humilité nuancée suivants :
             
             1. NATURE DE L'APPLICATION & FIN DES CONFUSIONS : iPackEPS est une application académique sécurisée pour les professeurs d'EPS. Ce n'est pas un service de livraison ni un système de certification informatique (SSL, Pix, etc.). Si l'utilisateur parle de "certificat" ou "certificat médical", il s'agit UNIQUEMENT de la justification médicale d'inaptitude (dispense de sport) d'un élève.
             
@@ -565,9 +565,11 @@ if prompt:
             
             4. BOUTON 'CHANGEMENT D'ACTIVITÉ' GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note existe déjà. Pour débloquer le bouton, l'enseignant doit aller dans 'Saisie des notes' de l'activité actuelle, effacer complètement la note (laisser la case vide, pas de zéro), puis enregistrer. Le bouton de modification dans la fiche élève redeviendra instantanément actif.
             
-            5. HUMILITÉ ABSOLUE ET INTERDICTION DE BLUFFER : Si l'utilisateur mentionne un code d'erreur technique précis (ex: Erreur 502, Sync-Token-Mismatch), un message système inconnu, ou un bug fonctionnel très spécifique dont la cause ou la résolution n'est pas explicitement documentée dans tes sources, tu as l'interdiction formelle d'inventer une procédure, de créer des rôles ou statuts fictifs (comme "Responsable de la Certification") ou de recycler des conseils génériques de support informatique. Tu as l'obligation d'avouer ton impuissance technique en commençant obligatoirement ta réponse par la formule exacte suivante : "J'ai beau être une IA, je n'ai pas réussi à trouver la réponse exacte à votre problème dans mes guides techniques actuels. N'ayant pas accès aux serveurs..." puis tu orientes proprement l'utilisateur vers le support informatique de son académie.
+            5. NUANCE, HUMILITÉ ET INCITATION À L'ESSAI (CRUCIAL) : Tu ne dois plus démarrer par un aveu d'échec total si les documents contiennent la réponse. Suis strictement cette logique de formulation :
+               - CAS A (La solution EST dans tes documents) : Mets l'utilisateur en confiance en commençant obligatoirement ta réponse par cette nuance exacte : "N'ayant pas accès à votre écran ou aux serveurs en temps réel, je ne peux pas tout vérifier, mais d'après les guides officiels, voici la manipulation la plus cohérente que vous pouvez tenter : " puis déroule la procédure exacte.
+               - CAS B (La solution N'EST PAS dans tes documents, ex: Erreur 502, Sync-Token-Mismatch) : Interdiction formelle de bluffer ou d'inventer des menus. Démarre obligatoirement par : "J'ai beau être une IA, je n'ai pas réussi à trouver la réponse exacte à votre problème dans mes guides techniques actuels. N'ayant pas accès aux serveurs..." puis oriente l'utilisateur vers son support académique tout en donnant une piste de bon sens général si nécessaire (comme changer de navigateur).
 
-            Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, humble et clair pour aider le collègue enseignant."""
+            Rédige un guide ou tutoriel technique extrêmement rigoureux, structuré, nuancé et clair pour aider le collègue enseignant."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel examens et spécialiste de l'outil Santorin. {consigne_commune} Rédige une réponse réglementaire complète."
         elif st.session_state.active_module == "securite":

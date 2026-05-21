@@ -21161,7 +21161,8 @@ Cordialement,
 
 M. Descamps pour l'équipe EPS
 
-Dans le cas d'une reprise avant CCF, Pierre rappelle toujours aux élèves de vérifier leur convocation sur l'ENT.
+
 
 -------------------------
-
+Dans le cas d'une reprise avant CCF, Pierre rappelle toujours aux élèves de vérifier leur convocation sur l'ENT.
+-------------------------

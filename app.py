@@ -277,6 +277,19 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
+# Fonction de lecture sécurisée pour les notes de Pierre
+@st.cache_resource
+def charger_consignes_pierre():
+    chemin = "gere_par_pierre.txt"
+    if os.path.exists(chemin):
+        try:
+            with open(chemin, "r", encoding="utf-8") as f:
+                contenu = f.read()
+            return [Document(text=contenu, metadata={"source": "Notes de Pierre"})]
+        except Exception:
+            return []
+    return []
+
 # BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
 @st.cache_resource
 def initialiser_base_santorin():
@@ -315,6 +328,8 @@ def initialiser_base_santorin():
             metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
         )
     ]
+    # Intégration des notes de Pierre
+    docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
@@ -345,6 +360,8 @@ def initialiser_base_ipack():
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
+    # Intégration des notes de Pierre
+    docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
 
 retriever_santorin = initialiser_base_santorin()

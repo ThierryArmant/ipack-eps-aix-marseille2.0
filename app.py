@@ -532,9 +532,10 @@ if prompt:
             2. RECHERCHE CONDITIONNELLE : Si les 'Notes de Pierre' mentionnent une procédure Santorin, tu es autorisé à utiliser les documents Santorin pour étayer. Sinon, reste sur iPackEPS.
             3. RÈGLES MÉTIER : iPackEPS gère les inaptitudes. Pour le CCF, 2 notes sont obligatoires. Pas de saisie manuelle 'IN'/'DI'. Verrou de souveraineté du Jury.
             4. BOUTON GRISÉ : Si une note bloque, effacer la note pour libérer le bouton.
-            5. POSTURE : Si la question dépasse tes fiches (transfère, SSS, erreurs serveurs), admets brièvement la limite et oriente vers la direction.
-            6. NEUTRALITÉ TEMPORELLE (CRUCIAL) : N'utilise jamais de noms de collègues ou d'archives datées.
-            7. SIGNATURE : Ne signe jamais la réponse avec un nom propre ou un espace réservé. Termine par une formule de politesse simple."""
+            5. POSTURE : Si la question dépasse tes fiches, admets brièvement la limite et oriente vers la direction.
+            6. NEUTRALITÉ TEMPORELLE : N'utilise jamais de noms de collègues ou d'archives datées.
+            7. SIGNATURE : Ne signe jamais la réponse avec un nom propre ou un espace réservé. Termine par une formule de politesse simple.
+            8. SYNTHÈSE ET DÉDUCTION : Si une question porte sur un blocage administratif (ex: coefficients) dont la solution n'est pas dans une fiche, explique la logique institutionnelle : rappelle que iPackEPS est une interface qui reflète des données (STSWeb) et que la source de vérité est le secrétariat."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

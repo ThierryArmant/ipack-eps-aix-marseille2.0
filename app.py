@@ -533,7 +533,8 @@ if prompt:
             3. RÈGLES MÉTIER : iPackEPS gère les inaptitudes. Pour le CCF, 2 notes sont obligatoires. Pas de saisie manuelle 'IN'/'DI'. Verrou de souveraineté du Jury.
             4. BOUTON GRISÉ : Si une note bloque, effacer la note pour libérer le bouton.
             5. POSTURE : Si la question dépasse tes fiches (transfère, SSS, erreurs serveurs), admets brièvement la limite et oriente vers la direction.
-            6. NEUTRALITÉ TEMPORELLE (CRUCIAL) : Tes sources contiennent des archives de messages passés. NE CITE JAMAIS les noms de collègues, d'anciens intervenants (ex: M. Gilabert) ou de situations datées. Si tu trouves une procédure dans tes archives, extrais uniquement la règle technique, jamais les noms propres associés aux anciens échanges."""
+            6. NEUTRALITÉ TEMPORELLE (CRUCIAL) : N'utilise jamais de noms de collègues ou d'archives datées.
+            7. SIGNATURE : Ne signe jamais la réponse avec un nom propre ou un espace réservé. Termine par une formule de politesse simple."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

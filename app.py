@@ -55,22 +55,37 @@ nb_visites_reel = incrementer_et_obtenir_visites()
 img_gauche, img_eps, img_droite, img_fond = "image_7.png", "image_6.png", "image_5.png", "image_8.png"
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-st.markdown(f"""<style>
+st.markdown(f"""
+    <style>
     .block-container {{ padding-top: 0.5rem !important; padding-bottom: 2rem !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; max-width: 920px !important; }}
     .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
+    
+    /* Bandeau */
     .hub-header {{ background-color: #1E293B; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; height: 85px !important; margin-bottom: 15px !important; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3); }}
-    .hub-title {{ display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-grow: 1; padding-right: 35px; }}
-    .title-row {{ display: flex; align-items: center; justify-content: center; gap: 15px; }}
-    .hub-title h1 {{ color: white !important; margin: 0 !important; font-size: 28px !important; font-weight: 800 !important; }}
-    .badge-visiteur {{ background-color: rgba(16, 185, 129, 0.2) !important; color: #10B981 !important; border: 1px solid rgba(16, 185, 129, 0.45) !important; padding: 3px 12px !important; border-radius: 20px !important; font-size: 13px !important; font-weight: 800 !important; font-family: monospace !important; }}
-    .column-title-top {{ background-color: #1E293B; color: #FFFFFF; text-align: center; margin-bottom: 12px !important; border-radius: 6px !important; padding: 8px 10px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); }}
-    .column-title-bottom {{ text-align: center; margin-top: 12px !important; margin-bottom: 15px !important; background-color: rgba(30, 41, 59, 0.8); border-radius: 6px !important; padding: 8px 12px; border: 1px solid rgba(255, 255, 255, 0.05); font-size: 11px !important; color: #FCD34D !important; }}
-    .santorin-card, .general-card, .securite-card {{ background-color: rgba(15, 23, 42, 0.45) !important; backdrop-filter: blur(12px) !important; padding: 18px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0px 6px 20px rgba(0,0,0,0.5); }}
-    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} .general-card {{ border-left: 6px solid #10B981 !important; }} .securite-card {{ border-left: 6px solid #EF4444 !important; }}
-    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {{ background-color: rgba(255, 255, 255, 0.15) !important; backdrop-filter: blur(6px) !important; border-radius: 14px 14px 0px 14px !important; margin-left: 15% !important; }}
-    div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] {{ display: none !important; }}
-    </style>""", unsafe_allow_html=True)
+    .hub-title h1 {{ color: white !important; font-size: 28px !important; font-weight: 800 !important; }}
+    .hub-title p {{ color: #94A3B8 !important; text-transform: uppercase; font-weight: bold !important; }}
+    
+    /* Cartes et Texte */
+    .santorin-card, .general-card, .securite-card {{ background-color: rgba(15, 23, 42, 0.45) !important; backdrop-filter: blur(12px) !important; padding: 18px; border-radius: 8px; margin-bottom: 16px; border-left: 6px solid #10B981 !important; }}
+    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }}
+    .securite-card {{ border-left: 6px solid #EF4444 !important; }}
+    
+    /* Couleur du texte forcé en blanc */
+    .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card li, .general-card li, .securite-card li {{ 
+        color: #FFFFFF !important; font-size: 15px !important; 
+    }}
+    
+    /* Liens en Orange */
+    .santorin-card a, .general-card a, .securite-card a {{ 
+        color: #FFB020 !important; text-decoration: underline !important; font-weight: 600 !important; 
+    }}
+    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover {{ color: #FCD34D !important; }}
+    
+    /* Bulle Utilisateur */
+    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {{ background-color: rgba(255, 255, 255, 0.15) !important; border-radius: 14px 14px 0px 14px !important; }}
+    </style>
+""", unsafe_allow_html=True)
 
 # ======================================================================
 # 4. CONFIGURATION IA ET BASES DE DOCUMENTS

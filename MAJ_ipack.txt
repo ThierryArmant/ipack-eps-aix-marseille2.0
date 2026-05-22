@@ -1,0 +1,19 @@
+# MISE À JOURS ET PROTOCOLES IPACKEPS - SESSION 2026
+
+## 1. RÈGLE D'OR DE PRIORITÉ
+Toute information contenue dans ce fichier annule et remplace les procédures antérieures présentes dans les archives ou notes historiques.
+
+## 2. CHECKLIST DE FIN DE SESSION (Session 2026)
+- Coche Verte : Vérifier systématiquement la présence de la coche verte après chaque import d'effectif ou de dossier. Sans cette coche, les données ne sont pas consolidées pour Santorin.
+- Référentiels : En cas de modification d'un référentiel après saisie, la procédure obligatoire est la suppression totale de l'ensemble certificatif concerné, suivie d'une nouvelle saisie complète. Toute modification partielle est prohibée.
+- Cache Navigateur : En cas de page figée ou de menu grisé, vider le cache du navigateur avant toute autre action technique.
+- Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin (début juin 2026). Aucun import ne sera possible après cette date sans intervention du SIEC.
+
+## 3. GESTION DES BLOCAGES
+- Si une note bloque l'interface ou le bouton de validation : effacer la note concernée pour libérer le bouton avant de tenter une nouvelle saisie.
+- Ne jamais tenter de contournement par des saisies manuelles non documentées (IN/DI) pour forcer une validation.
+- En cas d'anomalie persistante sur les effectifs ou coefficients : la source de vérité est STSWeb. Contacter impérativement le secrétariat de direction.
+
+## 4. RAPPEL RÉGLEMENTAIRE
+- Chaque CCF nécessite 2 notes valides (épreuves différentes).
+- Toute demande de double correction ou contestation de note est une procédure administrative qui sort du champ d'application de l'outil iPackEPS. Renvoyer systématiquement vers la Direction.

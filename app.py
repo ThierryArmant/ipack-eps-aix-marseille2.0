@@ -525,7 +525,6 @@ if prompt:
 
         consigne_commune = f"Analyse rigoureusement ces documents : {extraits_doc}. Réponds à : '{prompt}'. 1. Liste les sources officiels en fin de réponse avec des liens cliquables. 2. Sois concis et professionnel."
 
-       if st.session_state.active_module == "ipack":
             if st.session_state.active_module == "ipack":
             consigne_ia = f"""Tu es l'expert iPackEPS. 
             

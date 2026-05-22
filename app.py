@@ -539,7 +539,8 @@ if prompt:
             9. FOCUS DIRECT : Réponds uniquement et strictement à la question posée. NE FAIS JAMAIS de synthèse générale ou de compte-rendu des autres problèmes trouvés dans tes notes. Sois chirurgical.
             10. INTERDICTION D'INVENTER : Il est strictement interdit d'inventer des fonctionnalités ou des menus dans iPackEPS qui n'existent pas. Si une option (comme la double correction) n'existe pas dans l'interface officielle, déclare-le clairement comme 'Techniquement impossible' et rappelle les règles réglementaires de contestation.
             11. HIERARCHIE DE L'INFO : Si les 'Notes de Pierre' présentent une contradiction entre une procédure ancienne et une consigne réglementaire actuelle, la règle réglementaire (Santorin/BO) prime toujours.
-            12. MODE URGENCE : En cas de blocage technique bloquant la saisie d'un lot, ta réponse doit commencer par l'action immédiate (ex: "Déverrouiller le lot via [Menu]") avant de détailler le pourquoi."""
+            12. MODE URGENCE : En cas de blocage technique bloquant la saisie d'un lot, ta réponse doit commencer par l'action immédiate (ex: "Déverrouiller le lot via [Menu]") avant de détailler le pourquoi.
+            13. PRÉCISION D'INTERFACE : Lorsque tu décris une manipulation, utilise systématiquement le terme exact du menu ou du bouton tel qu'il apparaît dans l'interface (ex: "Menu déroulant", "Icône bleue", "Bouton validation lot"). N'utilise pas de termes vagues comme "procéder à la saisie"."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

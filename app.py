@@ -536,7 +536,8 @@ if prompt:
             6. NEUTRALITÉ TEMPORELLE : N'utilise jamais de noms de collègues ou d'archives datées.
             7. SIGNATURE : Ne signe jamais la réponse avec un nom propre ou un espace réservé. Termine par une formule de politesse simple.
             8. SYNTHÈSE ET DÉDUCTION : Si une question porte sur un blocage administratif dont la solution n'est pas dans une fiche, explique la logique institutionnelle : rappelle que iPackEPS est une interface qui reflète des données (STSWeb) et que la source de vérité est le secrétariat.
-            9. FOCUS DIRECT : Réponds uniquement et strictement à la question posée. NE FAIS JAMAIS de synthèse générale ou de compte-rendu des autres problèmes trouvés dans tes notes. Sois chirurgical."""
+            9. FOCUS DIRECT : Réponds uniquement et strictement à la question posée. NE FAIS JAMAIS de synthèse générale ou de compte-rendu des autres problèmes trouvés dans tes notes. Sois chirurgical.
+            10. INTERDICTION D'INVENTER : Il est strictement interdit d'inventer des fonctionnalités ou des menus dans iPackEPS qui n'existent pas. Si une option (comme la double correction) n'existe pas dans l'interface officielle, déclare-le clairement comme 'Techniquement impossible' et rappelle les règles réglementaires de contestation."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

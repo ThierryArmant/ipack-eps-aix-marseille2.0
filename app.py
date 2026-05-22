@@ -541,6 +541,9 @@ if prompt:
             - N'invente jamais de procédures, de menus ou de sources.
             - Sois chirurgical et concis. Ne fais pas de listes de problèmes non sollicités.
             """
+            # FORCE L'UTILISATION DU SYSTEM PROMPT
+            response_web = Settings.llm.complete(f"{consigne_ia}\n\nDocuments sources : {extraits_doc}\n\nQuestion utilisateur : {prompt}")
+            formatted_answer = f"""<div class="{color_card}"><strong>{badge_title} :</strong><br><div style="color: #FFFFFF !important;">{response_web.text}</div></div>"""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

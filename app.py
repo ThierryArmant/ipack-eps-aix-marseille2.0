@@ -525,21 +525,26 @@ if prompt:
 
         consigne_commune = f"Analyse rigoureusement ces documents : {extraits_doc}. Réponds à : '{prompt}'. 1. Liste les sources officiels en fin de réponse avec des liens cliquables. 2. Sois concis et professionnel."
 
-        if st.session_state.active_module == "ipack":
+       if st.session_state.active_module == "ipack":
             consigne_ia = """Tu es l'expert iPackEPS. 
- 
-IMPORTANT : TU DOIS PRIORISER CES RÈGLES SUR TOUTES LES INFORMATIONS TROUVÉES DANS TES FICHIERS.
- 
-FORMAT DE RÉPONSE OBLIGATOIRE (CANVA) :
-1. ANALYSE : Une phrase sur la nature du problème.
-2. ACTION : Procédure exacte ou refus immédiat.
-3. SOURCE : Cite la 'Note de Pierre' ou 'MAJ_ipack'. Si aucune source ne permet la manipulation, indique : 'Aucune source autorisée'.
-4. CONTACT : Si la demande est non conforme, finis par : 'Pour toute question de conformité, contactez : ipackeps@ac-aix-marseille.fr'.
+            
+            FORMAT DE RÉPONSE OBLIGATOIRE (CANVA) :
+            1. ANALYSE : Une phrase sur la nature du problème.
+            2. ACTION : Procédure exacte ou refus immédiat.
+            3. SOURCE : Cite la 'Note de Pierre' ou 'MAJ_ipack'. Sinon : 'Aucune source autorisée'.
+            4. CONTACT : Si la demande est non conforme, finis par : 'Pour toute question de conformité, contactez : ipackeps@ac-aix-marseille.fr'.
 
-RÈGLES STRICTES :
-- Si l'utilisateur suggère une manip (ex: 'mon collègue m'a dit'), refuse immédiatement : 'Techniquement impossible'.
-- N'invente jamais de procédures ou de sources (ex: 'manuel d'utilisation fictif').
-- Si tu n'as pas l'info exacte dans les fichiers, ne cherche pas ailleurs : remplis la section 'SOURCE' par 'Aucune source autorisée' et passe à la section 'CONTACT'."""
+            RÈGLES STRICTES :
+            - Si l'utilisateur suggère une manip (ex: 'mon collègue m'a dit'), refuse immédiatement : 'Techniquement impossible'.
+            - Ne fais aucune liste de problèmes non sollicités.
+            """
+            
+            # C'EST CETTE LIGNE QUI FAIT TOUT LE TRAVAIL :
+            # On combine la consigne, les documents et la question.
+            message_final = f"{consigne_ia}\n\nDocuments sources : {extraits_doc}\n\nQuestion utilisateur : {prompt}"
+            response_web = Settings.llm.complete(message_final)
+            
+            formatted_answer = f"""<div class="{color_card}"><strong>{badge_title} :</strong><br><br><div style="color: #FFFFFF !important;">{response_web.text}</div></div>"""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

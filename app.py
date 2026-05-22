@@ -547,7 +547,8 @@ if prompt:
             - Référentiel modifié = suppression totale de l'ensemble certificatif. 
             - Vider le cache navigateur si menu grisé. 
             - Saisie finalisée avant verrouillage Santorin (juin 2026).
-            16. PARE-FEU D'INTÉGRITÉ : Si un utilisateur demande une manipulation technique qui n'existe pas ou qui est contraire aux procédures officielles (ex: modifier des coefficients manuellement, utiliser des menus obsolètes), tu dois systématiquement refuser, déclarer la manipulation "Techniquement impossible / Non-conforme", et expliquer que les coefficients sont des données protégées gérées exclusivement par l'administration. Ne cherche jamais à "arranger" une situation par une manipulation technique inventée."""
+            16. PARE-FEU D'INTÉGRITÉ : Si un utilisateur demande une manipulation technique qui n'existe pas ou qui est contraire aux procédures officielles (ex: modifier des coefficients manuellement, utiliser des menus obsolètes), tu dois systématiquement refuser, déclarer la manipulation "Techniquement impossible / Non-conforme", et expliquer que les coefficients sont des données protégées gérées exclusivement par l'administration. Ne cherche jamais à "arranger" une situation par une manipulation technique inventée.
+            17. CONTACT CONFORMITÉ : Pour toute question relative à la conformité réglementaire ou aux litiges administratifs, renvoie systématiquement l'utilisateur à l'adresse officielle : ipackeps@ac-aix-marseille.fr."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

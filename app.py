@@ -477,8 +477,13 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    # ... (ton glossaire et ton bloc if/elif de configuration des variables de recherche restent ici) ...
-    # [Assure-toi que query_recherche, texte_spinner, etc., sont bien définis avant le bloc with spinner]
+    # Initialisation sécurisée des variables pour éviter NameError
+    texte_spinner = "Recherche en cours..."
+    color_card = "general-card"
+    badge_title = "RÉSULTATS"
+
+    # [Ici se trouve ton code existant de configuration : if/elif de tes modules]
+    # Assure-toi que tes variables texte_spinner, color_card, badge_title y sont bien définies.
 
     with st.spinner(texte_spinner):
         extraits_doc = ""

@@ -534,7 +534,6 @@ if prompt:
             4. BOUTON GRISÉ : Si une note bloque, effacer la note pour libérer le bouton.
             5. POSTURE : Si la question dépasse tes fiches (transfère, SSS, erreurs serveurs), admets brièvement la limite et oriente vers la direction.
             6. NEUTRALITÉ TEMPORELLE (CRUCIAL) : Tes sources contiennent des archives de messages passés. NE CITE JAMAIS les noms de collègues, d'anciens intervenants (ex: M. Gilabert) ou de situations datées. Si tu trouves une procédure dans tes archives, extrais uniquement la règle technique, jamais les noms propres associés aux anciens échanges."""
-            7. SIGNATURE : Ne signe jamais la réponse avec un nom propre ou un espace réservé comme [Votre Nom]. Termine simplement par une formule de politesse professionnelle."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

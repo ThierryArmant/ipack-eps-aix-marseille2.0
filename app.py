@@ -57,36 +57,30 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 
 st.markdown(f"""
     <style>
-    .block-container {{ padding-top: 0.5rem !important; padding-bottom: 2rem !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; max-width: 920px !important; }}
-    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
-    header[data-testid="stHeader"] {{ display: none !important; }}
+    /* Couleur de fond globale */
+    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; }}
     
-    /* Bandeau */
-    .hub-header {{ background-color: #1E293B; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; height: 85px !important; margin-bottom: 15px !important; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3); }}
-    .hub-title h1 {{ color: white !important; font-size: 28px !important; font-weight: 800 !important; }}
-    .hub-title p {{ color: #94A3B8 !important; text-transform: uppercase; font-weight: bold !important; }}
-    
-    /* Cartes et Texte */
-    .santorin-card, .general-card, .securite-card {{ background-color: rgba(15, 23, 42, 0.45) !important; backdrop-filter: blur(12px) !important; padding: 18px; border-radius: 8px; margin-bottom: 16px; border-left: 6px solid #10B981 !important; }}
-    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }}
-    .securite-card {{ border-left: 6px solid #EF4444 !important; }}
-    
-    /* Couleur du texte forcé en blanc */
-    .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card li, .general-card li, .securite-card li {{ 
-        color: #FFFFFF !important; font-size: 15px !important; 
+    /* Couleur du texte principal et des cartes */
+    .santorin-card, .general-card, .securite-card {{ 
+        background-color: rgba(15, 23, 42, 0.45) !important; 
+        color: #FFFFFF !important; 
+        padding: 18px; 
+        border-radius: 8px; 
     }}
     
-    /* Liens en Orange */
+    /* Couleur spécifique pour le texte dans les cartes */
+    .santorin-card p, .general-card p, .securite-card p, 
+    .santorin-card div, .general-card div, .securite-card div {{ 
+        color: #FFFFFF !important; 
+    }}
+    
+    /* Liens en orange */
     .santorin-card a, .general-card a, .securite-card a {{ 
-        color: #FFB020 !important; text-decoration: underline !important; font-weight: 600 !important; 
+        color: #FFB020 !important; 
+        text-decoration: underline !important; 
     }}
-    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover {{ color: #FCD34D !important; }}
-    
-    /* Bulle Utilisateur */
-    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {{ background-color: rgba(255, 255, 255, 0.15) !important; border-radius: 14px 14px 0px 14px !important; }}
     </style>
 """, unsafe_allow_html=True)
-
 # ======================================================================
 # 4. CONFIGURATION IA ET BASES DE DOCUMENTS
 # ======================================================================

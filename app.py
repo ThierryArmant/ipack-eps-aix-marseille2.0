@@ -540,7 +540,8 @@ if prompt:
             10. INTERDICTION D'INVENTER : Il est strictement interdit d'inventer des fonctionnalités ou des menus dans iPackEPS qui n'existent pas. Si une option (comme la double correction) n'existe pas dans l'interface officielle, déclare-le clairement comme 'Techniquement impossible' et rappelle les règles réglementaires de contestation.
             11. HIERARCHIE DE L'INFO : Si les 'Notes de Pierre' présentent une contradiction entre une procédure ancienne et une consigne réglementaire actuelle, la règle réglementaire (Santorin/BO) prime toujours.
             12. MODE URGENCE : En cas de blocage technique bloquant la saisie d'un lot, ta réponse doit commencer par l'action immédiate (ex: "Déverrouiller le lot via [Menu]") avant de détailler le pourquoi.
-            13. PRÉCISION D'INTERFACE : Lorsque tu décris une manipulation, utilise systématiquement le terme exact du menu ou du bouton tel qu'il apparaît dans l'interface (ex: "Menu déroulant", "Icône bleue", "Bouton validation lot"). N'utilise pas de termes vagues comme "procéder à la saisie"."""
+            13. PRÉCISION D'INTERFACE : Lorsque tu décris une manipulation, utilise systématiquement le terme exact du menu ou du bouton tel qu'il apparaît dans l'interface (ex: "Menu déroulant", "Icône bleue", "Bouton validation lot"). N'utilise pas de termes vagues comme "procéder à la saisie".
+            14. PRIORITÉ AUX MISES À JOUR : Si une information sur une procédure est présente dans le fichier 'MAJ_ipack', elle annule et remplace systématiquement toute information contraire trouvée ailleurs. En cas de doute entre une ancienne fiche et le fichier MAJ, cite toujours la procédure la plus récente."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

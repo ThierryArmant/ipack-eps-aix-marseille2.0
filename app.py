@@ -541,7 +541,12 @@ if prompt:
             11. HIERARCHIE DE L'INFO : Si les 'Notes de Pierre' présentent une contradiction entre une procédure ancienne et une consigne réglementaire actuelle, la règle réglementaire (Santorin/BO) prime toujours.
             12. MODE URGENCE : En cas de blocage technique bloquant la saisie d'un lot, ta réponse doit commencer par l'action immédiate (ex: "Déverrouiller le lot via [Menu]") avant de détailler le pourquoi.
             13. PRÉCISION D'INTERFACE : Lorsque tu décris une manipulation, utilise systématiquement le terme exact du menu ou du bouton tel qu'il apparaît dans l'interface (ex: "Menu déroulant", "Icône bleue", "Bouton validation lot"). N'utilise pas de termes vagues comme "procéder à la saisie".
-            14. PRIORITÉ AUX MISES À JOUR : Si une information sur une procédure est présente dans le fichier 'MAJ_ipack', elle annule et remplace systématiquement toute information contraire trouvée ailleurs. En cas de doute entre une ancienne fiche et le fichier MAJ, cite toujours la procédure la plus récente."""
+            14. PRIORITÉ AUX MISES À JOUR : Si une information sur une procédure est présente dans le fichier 'MAJ_ipack', elle annule et remplace systématiquement toute information contraire trouvée ailleurs. En cas de doute entre une ancienne fiche et le fichier MAJ, cite toujours la procédure la plus récente.
+            15. MISE À JOURS PRIORITAIRES (SESSION 2026) : 
+            - 'Coche Verte' obligatoire après chaque import. 
+            - Référentiel modifié = suppression totale de l'ensemble certificatif. 
+            - Vider le cache navigateur si menu grisé. 
+            - Saisie finalisée avant verrouillage Santorin (juin 2026)."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

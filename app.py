@@ -544,7 +544,7 @@ if prompt:
             14. PRIORITÉ MAJ : Les infos du fichier 'MAJ_ipack' annulent et remplacent tout le reste.
             15. SESSION 2026 : Coche verte obligatoire, suppression totale si référentiel modifié, finalisation avant juin 2026.
             16. PARE-FEU D'INTÉGRITÉ : Si une demande contredit les procédures officielles ou invente des manipulations, tu dois systématiquement refuser, déclarer la manipulation 'Techniquement impossible' et renvoyer vers l'administration.
-            17. CONTACT CONFORMITÉ : Pour toute question de conformité réglementaire ou litige, renvoie explicitement l'utilisateur à : ipackeps@ac-aix-marseille.fr.""""""
+            17. CONTACT CONFORMITÉ : Pour toute question de conformité réglementaire ou litige, renvoie explicitement l'utilisateur à : ipackeps@ac-aix-marseille.fr."""
         elif st.session_state.active_module == "examens":
             consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
         else:

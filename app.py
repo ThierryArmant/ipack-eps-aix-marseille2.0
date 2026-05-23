@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE SUPRÊME V6)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE SÉCURISÉ V8)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -515,7 +515,7 @@ if prompt:
         if tavily_api_key:
             try:
                 if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune partage faute surveillance administrative EPS Conseil d Etat"
+                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité enseignant EPS choc imprévisible faute caractérisée loi fauchon"
                     domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "circulaires.gouv.fr"]
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation officielle examen circulaire décret"
@@ -552,20 +552,23 @@ if prompt:
         protocole_rigueur = (
             "RÈGLES D'OR JURIDIQUES ABSOLUES (INTERDICTION STRICTE D'INVENTER) :\n"
             "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
-            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil. N'applique JAMAIS les taux du Code du sport civil au cadre scolaire.\n"
-            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif. Elle prime absolument sur une formation (Décret du 17 décembre 1933).\n"
-            "4. RÈGLE APPN : L'autonomie des groupes sans présence physique constante de l'enseignant est LÉGALE et AUTORISÉE (Circulaire APPN n° 2017-075 du 19 avril 2017) si elle est préparée.\n"
-            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986) sous double verrou (Autorisation du chef d'établissement et assurance pro).\n"
-            "6. RÈGLE SURVEILLANCE AS : La présence physique d'un adulte qualifié est OBLIGATOIRE. Interdiction de laisser le gymnase sous la garde d'un élève majeur.\n"
+            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil.\n"
+            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif (Décret du 17 décembre 1933).\n"
+            "4. RÈGLE APPN : L'autonomie des groupes sans présence physique constante est LÉGALE (Circulaire APPN n° 2017-075 du 19 avril 2017) si elle est préparée.\n"
+            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986).\n"
+            "6. RÈGLE SURVEILLANCE AS : La présence physique d'un adulte qualifié est OBLIGATOIRE.\n"
             "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Art L. 911-4 du Code de l'éducation). C'est l'État qui indemnise au civil, JAMAIS le prof sur ses deniers personnels.\n"
-            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un quota ne figure pas explicitement dans les documents ou les règles ci-dessus, tu pas interdiction formelle de l'inventer.\n"
-            "9. CLOISONNEMENT DES JURIDICTIONS : Tu as interdiction formelle d'attribuer un arrêt de la Cour de cassation (ordre judiciaire/pénal) à la responsabilité d'une commune (ordre administratif). Les mairies relèvent exclusivement des Tribunaux Administratifs et du Conseil d'État.\n"
-            "10. JURISPRUDENCE ACCIDENTS GYMNASE : En cas d'accident au gymnase, la responsabilité pénale de l'enseignant pour faute caractérisée n'est retenue que s'il y a défaut d'organisation matérielle, consignes de sécurité absentes, ou agrès manifestement défectueux (ex: Arrêt Cour de cassation du 12 octobre 1999 sur la parade en gymnastique).\n"
-            "11. JURISPRUDENCE ACCIDENTS ESCALADE / SAE MUNICIPALE (LOGIQUE STRICTE REPRISE) :\n"
-            "   A) SI LE DÉFAUT ÉTAIT VISIBLE / DÉCELABLE (ex: mousqueton visiblement tordu, usé, bloqué) : La responsabilité pèse sur l'enseignant au titre de son obligation de moyens renforcée (défaut de contrôle visuel et tactile des EPI avant la séance). La commune est déchargée de sa responsabilité car le défaut aurait dû être détecté par l'utilisateur.\n"
-            "   B) SI LE DÉFAUT ÉTAIT INVISIBLE / INDÉCELABLE (ex: vice caché de fabrication, rupture structurelle interne d'un point d'ancrage dans le mur) : La responsabilité pèse sur la MAIRIE (propriétaire) au titre du défaut d'entretien normal de l'ouvrage public (jurisprudence du Conseil d'État), car l'enseignant ne pouvait pas le détecter avec un contrôle de routine.\n"
-            "12. RÉGLEMENTATION PROF & CONVOCATIONS EXAMENS : La non-présentation non justifiée médicalement à une convocation d'examen constitue une faute professionnelle lourde (abandon de poste).\n"
-            "13. DIRECTIVE D'INVESTIGATION JURISPRUDENTIELLE SYSTÉMATIQUE (PROMPTS LARGES) : L'utilisateur peut poser des questions très larges sans vocabulaire juridique. Dès que le mode 'Textes' est actif, traduis sa demande en concepts du droit (faute de surveillance, obligation de moyens, entretien normal). Tu dois fouiller activement les données issues de 'Source Officielle' pour en extraire des décisions de justice réelles (arrêts, jugements) pour étoffer, illustrer et border juridiquement ta réponse sans jamais intervertir les règles d'imputation de la faute."
+            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un quota ne figure pas explicitement dans les documents, tu as interdiction formelle de l'inventer.\n"
+            "9. CLOISONNEMENT DES JURIDICTIONS : Ne confonds pas l'ordre judiciaire (Cour de cassation) et l'ordre administratif (Mairies/Conseil d'État).\n"
+            "10. JURISPRUDENCE ACCIDENTS GYMNASE : Responsabilité pénale pour faute caractérisée (ex: Arrêt Cour de cassation du 12 octobre 1999 sur la parade).\n"
+            "11. JURISPRUDENCE ACCIDENTS ESCALADE / SAE MUNICIPALE : Si le défaut est visible = faute du prof (EPI). Si le défaut est invisible = faute de la mairie (entretien normal).\n"
+            "12. RÉGLEMENTATION PROF & CONVOCATIONS EXAMENS : La non-présentation non justifiée constitue un abandon de poste.\n"
+            "13. DIRECTIVE JURISPRUDENCE SYSTÉMATIQUE : Traduis les demandes larges en concepts du droit.\n"
+            "14. RÈGLE NATIONALE INAPTITUDE BAC / SANTORIN : Tableau obligatoire à 3 colonnes.\n"
+            "15. JURISPRUDENCE SURVEILLANCE & ACCIDENTS FORTUITS (RÈGLE DE PROTECTION COULISSANTE) :\n"
+            "   A) CARACTÈRE IMPRÉVISIBLE ET SOUDAIN : La jurisprudence (administrative et judiciaire) établit qu'un enseignant d'EPS ne peut être tenu pour responsable d'un accident résultant d'un geste normal de jeu, d'une maladresse ou d'un choc fortuit, soudain et imprévisible entre deux élèves (ex: collision lors d'un double-pas, tacle involontaire, perte d'équilibre), dès lors que l'activité était réglementée par des consignes préalables.\n"
+            "   B) LE MYTHE DE LA SURVEILLANCE VISUELLE DISCONTINUE : Le fait pour un enseignant de détourner momentanément le regard pour remplir une obligation administrative légale (comme l'appel obligatoire en début de cours) ne constitue PAS une faute de surveillance ou une négligence coupable si la classe est installée dans une activité normale, connue et balisée.\n"
+            "   C) LOI FAUCHON (10 JUILLET 2000) : Au pénal, la responsabilité du prof exige la preuve d'une faute caractérisée (violation délibérée d'une obligation de sécurité, absence physique du gymnase). Un accident de jeu instantané exclut la faute caractérisée."
         )
 
         if mode == "ipack":
@@ -575,10 +578,10 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Liens sous la forme [Nom du document](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO, LE CODE DE L'ÉDUCATION ET SURTOUT LES CAS DE JURISPRUDENCE ADMINISTRATIVE OU PÉNALE TROUVÉS. Tu devez IMPÉRATIVEMENT afficher les sites officiels sous la forme [Nom du site/texte](URL) et inclure les adresses e-mails. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO, LE CODE DE L'ÉDUCATION ET SURTOUT LES PRINCIPES JURISPRUDENTIELS ET LA LOI FAUCHON. Tu devez IMPÉRATIVEMENT afficher les sites officiels sous la forme [Nom du site/texte](URL) et inclure les adresses e-mails. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
-            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences. Liens sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION

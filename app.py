@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE VERROUILLÉ)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE SUPRÊME)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -507,40 +507,38 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse approfondie en cours..."):
+    with st.spinner("Analyse approfondie et consultation des bases juridiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB (Sources institutionnelles exhaustive par module)
+        # 1. MOTEUR WEB EN COUPLAGE LÉGIFRANCE / BO (Sources exhaustives)
         if tavily_api_key:
             try:
+                # On enrichit la requête pour forcer la recherche sur toute la pyramide des textes officiels
+                requete_blindee = f"{prompt} Legifrance Journal Officiel décret loi arrêté circulaire BO EPS"
+                
                 if mode == "examens":
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr"]
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr"]
                 elif mode == "textes":
                     domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "circulaires.gouv.fr"]
                 elif mode == "general":
                     domains = [
                         "unss.org", "eduscol.education.gouv.fr", "reseau-canope.fr",
-                        "pedagogie.ac-aix-marseille.fr", "eps.ac-versailles.fr", "eps.ac-grenoble.fr", "eps.ac-lyon.fr",
-                        "eps.ac-nantes.fr", "eps.ac-creteil.fr", "eps.ac-toulouse.fr", "eps.ac-bordeaux.fr",
-                        "eps.ac-rennes.fr", "eps.ac-lille.fr", "eps.ac-nancy-metz.fr", "eps.ac-strasbourg.fr",
-                        "eps.ac-montpellier.fr", "eps.ac-caen.fr", "eps.ac-clermont.fr", "eps.ac-dijon.fr",
-                        "eps.ac-amiens.fr", "eps.ac-poitiers.fr", "eps.ac-orleans-tours.fr", "eps.ac-reunion.fr",
-                        "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", "eps.ac-martinique.fr"
+                        "pedagogie.ac-aix-marseille.fr", "eps.ac-versailles.fr", "eps.ac-grenoble.fr"
                     ]
-                else: # iPack
+                else:
                     domains = ["eduscol.education.gouv.fr"]
                 
                 res = requests.post("https://api.tavily.com/search", json={
                     "api_key": tavily_api_key, 
-                    "query": f"{prompt} obligation enseignant EPS officiel", 
+                    "query": requete_blindee, 
                     "search_depth": "advanced", 
                     "include_domains": domains
                 }, timeout=15)
                 
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
-                        extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
+                        extraits_doc += f"Source Officielle ({item['title']}): {item['content']}\n\n"
             except: pass
 
         # 2. CONTEXTE LOCAL (Data/)
@@ -555,24 +553,29 @@ if prompt:
         # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
         protocole_rigueur = (
             "RÈGLES D'OR JURIDIQUES ABSOLUES (INTERDICTION STRICTE D'INVENTER) :\n"
-            "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève. Si la question concerne le personnel, ignore les textes sur les candidats.\n"
-            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'Association Sportive (UNSS, facultative mais encadrée) et le club civil. N'applique JAMAIS les taux d'encadrement du Code du sport extra-scolaire (ex: pas de quota d'un adulte pour 12 élèves) au cadre scolaire du second degré où l'enseignant est seul responsable de sa classe.\n"
-            "3. RÈGLE EXAMENS : Une convocation officielle (surveillance/jury) est un ordre de mission impératif. Elle prime absolument sur une formation ou le service de cours habituel (Décret du 17 décembre 1933).\n"
-            "4. RÈGLE APPN (VTT / CO / ESCALADE) : L'autonomie des groupes sans présence physique constante de l'enseignant est LÉGALE et AUTORISÉE (Circulaire APPN n° 2017-075 du 19 avril 2017) uniquement si elle est intégrée à un projet pédagogique maîtrisé (élèves formés, consignes, circuit délimité, protocole d'alerte).\n"
-            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986). Double verrou obligatoire : Autorisation écrite du chef d'établissement ET assurance pro couvrant le transport de tiers à titre bénévole. La seule limite numérique est le nombre de places sur la carte grise. N'invente AUCUN autre quota.\n"
-            "6. RÈGLE SURVEILLANCE AS/UNSS : La présence physique d'un adulte qualifié et habilité par le chef d'établissement est OBLIGATOIRE. Un enseignant ne peut en aucun cas laisser un gymnase ou des élèves en autonomie sous la garde d'un élève, même si ce dernier est majeur ou capitaine d'équipe.\n"
-            "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Art L. 911-4 du Code de l'éducation). C'est l'État qui est assigné. La responsabilité pénale individuelle reste distincte mais n'est engagée qu'en cas de faute caractérisée.\n"
-            "8. DIRECTIVE DE COMPORTEMENT : Si la question de l'utilisateur implique un chiffre, un quota, un taux d'encadrement ou une démarche administrative, et que ce chiffre exact ne figure pas textuellement dans les documents (extraits_doc) ou dans les règles ci-dessus, tu as interdiction formelle de l'inventer ou de déduire un chiffre au hasard. Tu dois explicitement répondre que le texte précis doit être vérifié auprès des autorités académiques."
+            "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
+            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil. N'applique JAMAIS les taux du Code du sport civil au cadre scolaire.\n"
+            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif. Elle prime absolument sur une formation ou le service de cours habituel (Décret du 17 décembre 1933).\n"
+            "4. RÈGLE APPN : L'autonomie des groupes sans présence physique constante de l'enseignant est LÉGALE et AUTORISÉE (Circulaire APPN n° 2017-075 du 19 avril 2017) si elle est préparée.\n"
+            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986) sous double verrou (Autorisation du chef d'établissement et assurance pro). Limite = carte grise.\n"
+            "6. RÈGLE SURVEILLANCE AS : La présence physique d'un adulte qualifié est OBLIGATOIRE. Interdiction de laisser le gymnase sous la garde d'un élève majeur.\n"
+            "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Art L. 911-4 du Code de l'éducation). C'est l'État qui indemnise.\n"
+            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un quota ne figure pas explicitement dans les documents ou les règles ci-dessus, tu pas interdiction formelle de l'inventer.\n"
+            "9. ACCÈS JURISPRUDENCE / LÉGIFRANCE : Tu es connecté aux archives juridiques et à Légifrance via ton moteur web pour analyser les arrêts du Conseil d'État et de la Cour de cassation concernant l'EPS.\n"
+            "10. JURISPRUDENCE ACCIDENTS GYMNASE : En cas d'accident au gymnase, la responsabilité pénale de l'enseignant pour faute caractérisée n'est retenue que s'il y a défaut d'organisation matérielle, consignes de sécurité absentes, ou agrès manifestement défectueux (ex: Arrêt Cour de cassation du 12 octobre 1999).\n"
+            "11. JURISPRUDENCE ACCIDENTS ESCALADE : En escalade, l'enseignant est soumis à une obligation de moyens renforcée. Sa responsabilité est engagée s'il ne vérifie pas personnellement ou ne fait pas vérifier les nœuds d'encordement, le système d'assurage (EPI) et la conformité des installations.\n"
+            "12. RÉGLEMENTATION PROF & CONVOCATIONS EXAMENS : La non-présentation non justifiée médicalement à une convocation d'examen constitue une faute professionnelle lourde qualifiée juridiquement d'abandon de poste.\n"
+            "13. DIRECTIVE D'INVESTIGATION SYSTÉMATIQUE : Dès que la question de l'utilisateur comporte un terme juridique ou réglementaire (accident, responsabilité, obligation, droit, texte, dispense, décret, loi, circulaire), tu as l'obligation d'analyser la situation sous l'angle de la hiérarchie des normes. Tu dois impérativement fonder ta réponse sur les lois (Code de l'éducation, Code du sport), décrets ou circulaires officielles du BO récupérés dans 'Source Officielle' ou énoncés ci-dessus. Tout avis personnel ou usage non réglementé est strictement interdit."
         )
 
         if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels sous la forme [Nom du document](URL) et fournir les adresses e-mails. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Liens sous la forme [Nom du document](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels sous la forme [Nom du document](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Liens sous la forme [Nom du document](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code de l'éducation. Tu devez IMPÉRATIVEMENT afficher les sites officiels sous la forme [Nom du site](URL) et inclure les adresses e-mails de contact. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO, LE CODE DE L'ÉDUCATION OU LA JURISPRUDENCE. Tu devez IMPÉRATIVEMENT afficher les sites officiels sous la forme [Nom du site/texte](URL) et inclure les adresses e-mails. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
             consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"

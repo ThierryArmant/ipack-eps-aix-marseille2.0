@@ -368,27 +368,25 @@ retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
+# 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ)
 # ======================================================================
+label_titres = {
+    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+    "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
+    "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
+    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+}
+
+# Assure-toi que active_module a une valeur par défaut au démarrage
+if "active_module" not in st.session_state:
+    st.session_state.active_module = "general"
+
 st.markdown(f"""
-    <div class="hub-header">
-        <div style="display: flex; align-items: center; width: 20%;">
-            <img src="{github_url}{img_gauche}" height="60">
-        </div>
-        <div class="hub-title">
-            <div class="title-row">
-                <h1>HUB IA - EPS</h1>
-                <span class="badge-visiteur">👁️ {nb_visites_reel}</span>
-            </div>
-            <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
-        </div>
-        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
-            <img src="{github_url}{img_eps}" height="55">
-            <img src="{github_url}{img_droite}" height="55">
-        </div>
+    <div class="column-title-top">
+        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
+        <span class="mode-actuel">{label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain")}</span>
     </div>
 """, unsafe_allow_html=True)
-
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (AU-DESSUS DES BOUTONS)
 # ======================================================================

@@ -507,7 +507,15 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Recherche de textes officiels et vérification automatique des jurisprudences..."):
+    with st.spinner("st.warning("""
+⚠️ **Avertissement important – Limites du module IA :**
+Cet outil est un assistant numérique destiné à faciliter vos recherches documentaires (Légifrance, BO, Circulaires). Bien que ses règles d'analyse soient strictes, les réponses générées par l'IA ne se substituent en aucun cas aux textes officiels ni aux prérogatives des autorités académiques.
+
+**Pour toute question d'ordre juridique ou en cas de sinistre, rapprochez-vous impérativement de :**
+* 🏫 Votre **Chef d'établissement** (représentant légal de l'État au sein de l'EPLE).
+* 🗂️ Votre **Secrétariat d'examen** ou référent **CYCLADES** (pour les litiges liés aux CCF/Examens).
+* 📐 Votre **Inspecteur d'académie (IA-IPR)** pour arbitrage pédagogique et réglementaire.
+""")"):
         extraits_doc = ""
         mode = st.session_state.active_module
         

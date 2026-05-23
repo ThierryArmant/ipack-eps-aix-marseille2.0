@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET ENRICHI V3)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE VERROUILLÉ)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -554,29 +554,28 @@ if prompt:
 
         # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
         protocole_rigueur = (
-            "RÈGLES D'OR ABSOLUES :\n"
-            "1. NE JAMAIS CONFONDRE un enseignant (fonctionnaire soumis à des obligations de service) et un candidat/élève.\n"
-            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats.\n"
-            "3. FACTUEL : N'invente rien. Ne crée jamais de règles de toutes pièces.\n"
-            "4. RÈGLE EXAMENS/FORMATION : Une convocation officielle à un examen prime absolument sur une formation. L'enseignant a l'obligation de s'y rendre (décret du 17 décembre 1933).\n"
-            "5. RÈGLE APPN (VTT / COURSE D'ORIENTATION) : L'autonomie des groupes d'élèves est PARFAITEMENT AUTORISÉE et légale en EPS selon la circulaire nationale APPN n° 2017-075 du 19 avril 2017 si elle est préparée.\n"
-            "6. RÈGLE RESPONSABILITÉ CIVILE (LOI 1937 / ART L.911-4) : En cas d'accident d'élève, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Article L. 911-4 du Code de l'éducation). C'est l'État qui prend en charge les réparations.\n"
-            "7. RÈGLE TRANSPORT EN VÉHICULE PERSONNEL (CIRCULAIRE 1986) : Le transport d'élèves dans le véhicule personnel d'un enseignant est EXCEPTIONNELLEMENT AUTORISÉ (Circulaire n° 86-101 du 5 mars 1986). Les deux conditions absolues sont : A) L'autorisation écrite préalable du chef d'établissement (ordre de mission), B) Une assurance couvrant l'activité professionnelle avec transport de tiers à titre bénévole.\n"
-            "8. RÈGLE D'ACTION - INTERDICTION DES QUOTAS IMAGINAIRES : Tu as interdiction absolue d'inventer des seuils numériques d'encadrement ou des quotas d'adultes au sein d'un véhicule (ex: n'invente jamais de règle imposant un deuxième adulte si le nombre d'élèves dépasse 4). La seule et unique limite légale de passagers est le nombre de places assises indiqué sur la carte grise du véhicule.\n"
-            "9. RÈGLE D'ACTION - VÉRIFICATION DES SEUILS : Si une règle numérique relative à un encadrement, un taux ou un quota ne figure pas explicitement et textuellement dans les documents fournis (extraits_doc), tu ne dois pas l'énoncer. Tu dois à la place renvoyer vers les textes officiels pour vérification."
+            "RÈGLES D'OR JURIDIQUES ABSOLUES (INTERDICTION STRICTE D'INVENTER) :\n"
+            "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève. Si la question concerne le personnel, ignore les textes sur les candidats.\n"
+            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'Association Sportive (UNSS, facultative mais encadrée) et le club civil. N'applique JAMAIS les taux d'encadrement du Code du sport extra-scolaire (ex: pas de quota d'un adulte pour 12 élèves) au cadre scolaire du second degré où l'enseignant est seul responsable de sa classe.\n"
+            "3. RÈGLE EXAMENS : Une convocation officielle (surveillance/jury) est un ordre de mission impératif. Elle prime absolument sur une formation ou le service de cours habituel (Décret du 17 décembre 1933).\n"
+            "4. RÈGLE APPN (VTT / CO / ESCALADE) : L'autonomie des groupes sans présence physique constante de l'enseignant est LÉGALE et AUTORISÉE (Circulaire APPN n° 2017-075 du 19 avril 2017) uniquement si elle est intégrée à un projet pédagogique maîtrisé (élèves formés, consignes, circuit délimité, protocole d'alerte).\n"
+            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986). Double verrou obligatoire : Autorisation écrite du chef d'établissement ET assurance pro couvrant le transport de tiers à titre bénévole. La seule limite numérique est le nombre de places sur la carte grise. N'invente AUCUN autre quota.\n"
+            "6. RÈGLE SURVEILLANCE AS/UNSS : La présence physique d'un adulte qualifié et habilité par le chef d'établissement est OBLIGATOIRE. Un enseignant ne peut en aucun cas laisser un gymnase ou des élèves en autonomie sous la garde d'un élève, même si ce dernier est majeur ou capitaine d'équipe.\n"
+            "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Art L. 911-4 du Code de l'éducation). C'est l'État qui est assigné. La responsabilité pénale individuelle reste distincte mais n'est engagée qu'en cas de faute caractérisée.\n"
+            "8. DIRECTIVE DE COMPORTEMENT : Si la question de l'utilisateur implique un chiffre, un quota, un taux d'encadrement ou une démarche administrative, et que ce chiffre exact ne figure pas textuellement dans les documents (extraits_doc) ou dans les règles ci-dessus, tu as interdiction formelle de l'inventer ou de déduire un chiffre au hasard. Tu dois explicitement répondre que le texte précis doit être vérifié auprès des autorités académiques."
         )
 
         if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Tu dois IMPÉRATIVEMENT inclure les liens internet officiels ou d'assistance trouvés sous la forme [Nom du document/site](URL) et fournir les adresses e-mails de contact pour qu'ils soient cliquables. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels sous la forme [Nom du document](URL) et fournir les adresses e-mails. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu dois IMPÉRATIVEMENT inclure les liens internet officiels des fiches mémos ou guides disponibles sous la forme [Nom du document](URL) et les e-mails de contact si présents. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels sous la forme [Nom du document](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code du sport. Tu devez IMPÉRATIVEMENT afficher les sites internet officiels ou textes trouvés sous la forme [Nom du texte/site](URL) et inclure les adresses e-mails de contact direct sous forme de texte pour qu'ils s'affichent. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code de l'éducation. Tu devez IMPÉRATIVEMENT afficher les sites officiels sous la forme [Nom du site](URL) et inclure les adresses e-mails de contact. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
-            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Tu devez IMPÉRATIVEMENT ajouter les liens URL utiles trouvés sous la forme [Nom du site/ressource](URL) et les e-mails s'il y en a. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION

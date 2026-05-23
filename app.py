@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET CORRIGÉ)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET ENRICHI)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -556,9 +556,11 @@ if prompt:
         protocole_rigueur = (
             "RÈGLES D'OR ABSOLUES :\n"
             "1. NE JAMAIS CONFONDRE un enseignant (fonctionnaire soumis à des obligations de service) et un candidat/élève.\n"
-            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats (ex: aménagements d'épreuves, justificatifs de candidats).\n"
+            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats (ex: aménagements d'épreuves, justificatifs d'absence des candidats).\n"
             "3. FACTUEL : N'invente rien. Si tu ne sais pas, dis-le.\n"
-            "4. RÈGLE JURIDIQUE CONVIND/FORMATION : Une convocation officielle à un examen (surveillance, correction, jury) est un ordre de mission impératif qui PRIME ABSOLUMENT sur une convocation à une formation (PAF) ou sur le service habituel en établissement. L'enseignant a l'obligation de s'y rendre, sous peine de sanction pour abandon de poste."
+            "4. RÈGLE EXAMENS/FORMATION : Une convocation officielle à un examen prime absolument sur une formation (PAF) ou sur le service habituel en établissement. L'enseignant a l'obligation de s'y rendre (décret du 17 décembre 1933), sous peine de sanction pour abandon de poste.\n"
+            "5. RÈGLE APPN (VTT / COURSE D'ORIENTATION) : L'autonomie des groupes d'élèves (sans présence physique constante de l'enseignant à leurs côtés) est PARFAITEMENT AUTORISÉE et légale en EPS selon la circulaire nationale APPN n° 2017-075 du 19 avril 2017. Elle ne constitue pas une faute si elle est pédagogiquement préparée : élèves formés, niveau maîtrisé, consignes strictes, circuit connu/délimité, et système d'alerte ou de ralliement prévu.\n"
+            "6. RÈGLE RESPONSABILITÉ CIVILE (LOI 1937 / ART L.911-4) : En cas d'accident d'élève, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Article L. 911-4 du Code de l'éducation). C'est l'État qui prend en charge les réparations et dommages-intérêts, jamais le professeur sur ses deniers personnels. La responsabilité pénale individuelle du professeur (imprudence, etc.) reste distincte mais ne relève pas de la responsabilité civile classique."
         )
 
         if mode == "ipack":
@@ -568,10 +570,10 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu dois IMPÉRATIVEMENT inclure les liens internet officiels des fiches mémos ou guides disponibles sous la forme [Nom du document](URL) et les e-mails de contact si présents. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code du sport. Tu dois IMPÉRATIVEMENT afficher les sites internet officiels ou textes trouvés sous la forme [Nom du texte/site](URL) et inclure les adresses e-mails de contact direct sous forme de texte pour qu'ils s'affichent. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code du sport. Tu devez IMPÉRATIVEMENT afficher les sites internet officiels ou textes trouvés sous la forme [Nom du texte/site](URL) et inclure les adresses e-mails de contact direct sous forme de texte pour qu'ils s'affichent. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
-            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Tu dois IMPÉRATIVEMENT ajouter les liens URL utiles trouvés sous la forme [Nom du site/ressource](URL) et les e-mails s'il y en a. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Tu devez IMPÉRATIVEMENT ajouter les liens URL utiles trouvés sous la forme [Nom du site/ressource](URL) et les e-mails s'il y en a. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION

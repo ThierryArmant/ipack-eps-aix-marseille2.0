@@ -261,24 +261,20 @@ st.markdown(f"""
         color: #FCD34D !important;
     }}
     
-   /* Bulle Utilisateur */
-    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) { 
-        background-color: rgba(255, 255, 255, 0.15) !important; 
-        backdrop-filter: blur(6px) !important;
-        border-radius: 14px 14px 0px 14px !important; 
-        margin-left: 15% !important; 
-    }
-    div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
-    
-    /* FORÇAGE DU BLANC ET RÉTABLISSEMENT DES LIENS */
+    /* Bulle Utilisateur */
+    /* LIGNE AJOUTÉE POUR FORCER LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
+
+    /* RÈGLE SPÉCIFIQUE POUR RÉTABLIR LA COULEUR DES LIENS */
     div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * { 
         color: #FFB020 !important; 
         text-decoration: underline !important;
+        font-weight: 600 !important;
     }
     div[data-testid="stChatMessage"] a:hover { 
         color: #FCD34D !important; 
     }
+    
     </style>
 """, unsafe_allow_html=True)
 

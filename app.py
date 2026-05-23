@@ -468,18 +468,26 @@ with col_b4:
 # ======================================================================
 # 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES (SOUS LES BOUTONS)
 # ======================================================================
-if st.session_state.active_module == "securite":
-    message_alerte = """⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié."""
-elif st.session_state.active_module == "general":
-    message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).</em>"""
-else:
-    message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources."""
+if st.session_state.active_module == "textes":
+    st.warning("""
+⚠️ **Avertissement important – Limites du module IA :**
+Cet outil est un assistant numérique destiné à faciliter vos recherches documentaires (Légifrance, BO, Circulaires). Bien que ses règles d'analyse soient strictes, les réponses générées par l'IA ne se substituent en aucun cas aux textes officiels ni aux prérogatives des autorités académiques.
 
-st.markdown(f"""
-    <div class="column-title-bottom">
-        {message_alerte}
+**Pour toute question d'ordre juridique ou en cas de sinistre, rapprochez-vous impérativement de :**
+* 🏫 Votre **Chef d'établissement** (représentant légal de l'État au sein de l'EPLE).
+* 🗂️ Votre **Secrétariat d'examen** ou référent **CYCLADES** (pour les litiges liés aux CCF/Examens).
+* 📐 Votre **Inspecteur d'académie (IA-IPR)** pour arbitrage pédagogique et réglementaire.
+""")
+elif st.session_state.active_module == "general":
+    st.info("💡 **Exemples de recherches dans cet onglet :** Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).")
+else:
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ Conseil Flux Mixtes : Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
+        </span>
     </div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 # ======================================================================
 # 8. ZONE D'ACTION (NETTOYER + SAISIE)

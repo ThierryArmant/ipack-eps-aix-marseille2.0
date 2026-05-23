@@ -273,6 +273,16 @@ st.markdown(f"""
     /* LIGNE AJOUTÉE POUR FORCER LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * {{ color: #FFFFFF !important; }}
     
+    /* RESTAURATION DE LA COULEUR DES LIENS SANS TOUCHER AU RESTE */
+    div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * {{
+        color: #FFB020 !important;
+        text-decoration: underline !important;
+        font-weight: 600 !important;
+    }}
+    div[data-testid="stChatMessage"] a:hover {{
+        color: #FCD34D !important;
+    }}
+    
     </style>
 """, unsafe_allow_html=True)
 

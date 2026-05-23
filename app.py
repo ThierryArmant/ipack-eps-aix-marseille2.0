@@ -424,13 +424,13 @@ with col_b2:
         st.rerun()
 
 with col_b3:
-    if st.button("🔍 Recherches Générales", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "general" else "secondary"):
+    if st.button("🔍 Pédagogie & Diadactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "general" else "secondary"):
         st.session_state.active_module = "general"
         st.session_state.messages_hub = []
         st.rerun()
 
 with col_b4:
-    if st.button("🔒 Sécurité & Textes", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "securite" else "secondary"):
+    if st.button("🔒 Sécurité & Responsabilité Juridique", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "securite" else "secondary"):
         st.session_state.active_module = "securite"
         st.session_state.messages_hub = []
         st.rerun()

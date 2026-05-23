@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE SUPRÊME V5)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR JURIDIQUE SUPRÊME V6)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -558,12 +558,14 @@ if prompt:
             "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986) sous double verrou (Autorisation du chef d'établissement et assurance pro).\n"
             "6. RÈGLE SURVEILLANCE AS : La présence physique d'un adulte qualifié est OBLIGATOIRE. Interdiction de laisser le gymnase sous la garde d'un élève majeur.\n"
             "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Art L. 911-4 du Code de l'éducation). C'est l'État qui indemnise au civil, JAMAIS le prof sur ses deniers personnels.\n"
-            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un quota ne figure pas explicitement dans les documents ou les règles ci-dessus, tu as interdiction formelle de l'inventer.\n"
+            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un quota ne figure pas explicitement dans les documents ou les règles ci-dessus, tu pas interdiction formelle de l'inventer.\n"
             "9. CLOISONNEMENT DES JURIDICTIONS : Tu as interdiction formelle d'attribuer un arrêt de la Cour de cassation (ordre judiciaire/pénal) à la responsabilité d'une commune (ordre administratif). Les mairies relèvent exclusivement des Tribunaux Administratifs et du Conseil d'État.\n"
             "10. JURISPRUDENCE ACCIDENTS GYMNASE : En cas d'accident au gymnase, la responsabilité pénale de l'enseignant pour faute caractérisée n'est retenue que s'il y a défaut d'organisation matérielle, consignes de sécurité absentes, ou agrès manifestement défectueux (ex: Arrêt Cour de cassation du 12 octobre 1999 sur la parade en gymnastique).\n"
-            "11. JURISPRUDENCE ACCIDENTS ESCALADE & SAE MUNICIPALE : En escalade, l'enseignant est soumis à une obligation de moyens renforcée incluant le contrôle visuel/tactile des EPI avant la séance. En cas de matériel défectueux fourni par une mairie, la jurisprudence administrative (Conseil d'État) n'engage la responsabilité de la commune que pour 'défaut d'entretien normal de l'ouvrage public' en cas de vice caché ou de rupture structurelle invisible. Si le défaut était décelable par un contrôle de routine, la responsabilité de la garde de l'usage pèse sur l'établissement/l'État.\n"
+            "11. JURISPRUDENCE ACCIDENTS ESCALADE / SAE MUNICIPALE (LOGIQUE STRICTE REPRISE) :\n"
+            "   A) SI LE DÉFAUT ÉTAIT VISIBLE / DÉCELABLE (ex: mousqueton visiblement tordu, usé, bloqué) : La responsabilité pèse sur l'enseignant au titre de son obligation de moyens renforcée (défaut de contrôle visuel et tactile des EPI avant la séance). La commune est déchargée de sa responsabilité car le défaut aurait dû être détecté par l'utilisateur.\n"
+            "   B) SI LE DÉFAUT ÉTAIT INVISIBLE / INDÉCELABLE (ex: vice caché de fabrication, rupture structurelle interne d'un point d'ancrage dans le mur) : La responsabilité pèse sur la MAIRIE (propriétaire) au titre du défaut d'entretien normal de l'ouvrage public (jurisprudence du Conseil d'État), car l'enseignant ne pouvait pas le détecter avec un contrôle de routine.\n"
             "12. RÉGLEMENTATION PROF & CONVOCATIONS EXAMENS : La non-présentation non justifiée médicalement à une convocation d'examen constitue une faute professionnelle lourde (abandon de poste).\n"
-            "13. DIRECTIVE D'INVESTIGATION JURISPRUDENTIELLE SYSTÉMATIQUE (PROMPTS LARGES) : L'utilisateur peut poser des questions très larges sans vocabulaire juridique. Dès que le mode 'Textes' est actif, traduis sa demande en concepts du droit (faute de surveillance, obligation de moyens, entretien normal). Tu dois fouiller activement les données issues de 'Source Officielle' pour en extraire des décisions de justice réelles (arrêts, jugements) pour étoffer, illustrer et border juridiquement ta réponse sans jamais fusionner ou inventer l'origine d'un arrêt."
+            "13. DIRECTIVE D'INVESTIGATION JURISPRUDENTIELLE SYSTÉMATIQUE (PROMPTS LARGES) : L'utilisateur peut poser des questions très larges sans vocabulaire juridique. Dès que le mode 'Textes' est actif, traduis sa demande en concepts du droit (faute de surveillance, obligation de moyens, entretien normal). Tu dois fouiller activement les données issues de 'Source Officielle' pour en extraire des décisions de justice réelles (arrêts, jugements) pour étoffer, illustrer et border juridiquement ta réponse sans jamais intervertir les règles d'imputation de la faute."
         )
 
         if mode == "ipack":

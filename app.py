@@ -64,6 +64,11 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 
 st.markdown(f"""
     <style>
+    /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
+    .santorin-card *, .general-card *, .securite-card * {{ 
+        color: #FFFFFF !important; 
+    }}
+
     .block-container {{ 
         padding-top: 0.5rem !important; 
         padding-bottom: 2rem !important; 

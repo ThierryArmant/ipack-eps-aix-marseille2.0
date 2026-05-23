@@ -334,7 +334,7 @@ def initialiser_base_santorin():
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -363,7 +363,7 @@ def initialiser_base_ipack():
         ),
         Document(
             text="""Guide Pratique Utilisateur de l'interface Professeur iPackEPS - Académie de Normandie.
-            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'. RÈGLE IMPÉRATIVE : On ne peut jamais taper directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application.
+            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'. RÈGLE IMPÉRATIVE : On ne peut jamais tape directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application.
             RÈGLE DU CERTIFICAT MIXTE ET ABSENCE AU BAC : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves de familles différentes.""",
             metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
         ),
@@ -575,6 +575,16 @@ if prompt:
         texte_html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_html)
         texte_html = re.sub(r'###\s+(.*)', r'<h3>\1</h3>', texte_html)
         texte_html = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', texte_html)
+        
+        # DETECTION ET INTEGRATION DES ADRESSES EMAILS BRUTES EN LIENS MAILTO
+        pattern_email = r'(<a[^>]*>.*?</a>)|(<[^>]+>)|\b([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})\b'
+        def developper_lien_email(m):
+            if m.group(1): return m.group(1)
+            if m.group(2): return m.group(2)
+            email = m.group(3)
+            return f'<a href="mailto:{email}">{email}</a>'
+        texte_html = re.sub(pattern_email, developper_lien_email, texte_html)
+        
         texte_html = texte_html.replace(chr(10), "<br>")
         
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'

@@ -368,29 +368,27 @@ retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 
 # ======================================================================
+# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
 # ======================================================================
-# 5. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
-# ======================================================================
-label_titres = {
-    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
-    "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
-    "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
-    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
-}
-
-# Initialisation par défaut : on force le mode "general" pour que le bouton soit vert au démarrage
-if "active_module" not in st.session_state:
-    st.session_state.active_module = "general"
-
-# Utilisation de .get() pour protéger l'application contre les KeyError
-titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain")
-
 st.markdown(f"""
-    <div class="column-title-top">
-        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
-        <span class="mode-actuel">{titre_affiche}</span>
+    <div class="hub-header">
+        <div style="display: flex; align-items: center; width: 20%;">
+            <img src="{github_url}{img_gauche}" height="60">
+        </div>
+        <div class="hub-title">
+            <div class="title-row">
+                <h1>HUB IA - EPS</h1>
+                <span class="badge-visiteur">👁️ {nb_visites_reel}</span>
+            </div>
+            <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
+        </div>
+        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
+            <img src="{github_url}{img_eps}" height="55">
+            <img src="{github_url}{img_droite}" height="55">
+        </div>
     </div>
 """, unsafe_allow_html=True)
+
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (AU-DESSUS DES BOUTONS)
 # ======================================================================

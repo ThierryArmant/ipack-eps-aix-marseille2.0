@@ -560,10 +560,10 @@ if prompt:
                 if mode == "examens":
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin: {n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"iPack: {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
             except: pass
 
-       # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
         protocole_rigueur = (
             "RÈGLES D'OR JURIDIQUES ABSOLUES :\n"
             "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
@@ -584,7 +584,7 @@ if prompt:
         )
 
         if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. RÈGLE ABSOLUE : Tu as l'interdiction de parler de Santorin ou de générer des tableaux. CANVA DE RÉPONSE OBLIGATOIRE ET STRICT : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Liens sous la forme [Nom](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert technique EXCLUSIF du logiciel iPackEPS. \nDIRECTIVE MAJEURE : Tu as l'interdiction de parler de Santorin. Tu as l'interdiction formelle d'inventer ou de deviner des clics ou des menus informatiques. Tu dois extraire la solution TECHNIQUE UNIQUEMENT à partir de la section 'Données' ci-dessous. Si la manipulation exacte n'est pas dans les 'Données', dis que tu ne sais pas. \nCANVA DE RÉPONSE OBLIGATOIRE ET STRICT : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"

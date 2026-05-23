@@ -418,20 +418,22 @@ with col_b1:
         st.rerun()
 
 with col_b2:
-    if st.button("📊 Examens & Santorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
+    # Utilisation de \n pour mettre "Santorin" en dessous de "Examens"
+    if st.button("Examens\n& Santorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
         st.session_state.active_module = "examens"
         st.session_state.messages_hub = []
         st.rerun()
 
 with col_b3:
-    if st.button("🔍 Pédagogie & Diadactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "general" else "secondary"):
+    if st.button("🔍 Pédagogie &\nDidactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "general" else "secondary"):
         st.session_state.active_module = "general"
         st.session_state.messages_hub = []
         st.rerun()
 
 with col_b4:
-    if st.button("🔒 Sécurité & Responsabilité Juridique", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "securite" else "secondary"):
-        st.session_state.active_module = "securite"
+    # Texte modifié et passage à la ligne pour "Cadres Réglementaires"
+    if st.button("Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "textes" else "secondary"):
+        st.session_state.active_module = "textes"
         st.session_state.messages_hub = []
         st.rerun()
 

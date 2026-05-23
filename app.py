@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET ENRICHI)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET ENRICHI V3)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -556,11 +556,14 @@ if prompt:
         protocole_rigueur = (
             "RÈGLES D'OR ABSOLUES :\n"
             "1. NE JAMAIS CONFONDRE un enseignant (fonctionnaire soumis à des obligations de service) et un candidat/élève.\n"
-            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats (ex: aménagements d'épreuves, justificatifs d'absence des candidats).\n"
-            "3. FACTUEL : N'invente rien. Si tu ne sais pas, dis-le.\n"
-            "4. RÈGLE EXAMENS/FORMATION : Une convocation officielle à un examen prime absolument sur une formation (PAF) ou sur le service habituel en établissement. L'enseignant a l'obligation de s'y rendre (décret du 17 décembre 1933), sous peine de sanction pour abandon de poste.\n"
-            "5. RÈGLE APPN (VTT / COURSE D'ORIENTATION) : L'autonomie des groupes d'élèves (sans présence physique constante de l'enseignant à leurs côtés) est PARFAITEMENT AUTORISÉE et légale en EPS selon la circulaire nationale APPN n° 2017-075 du 19 avril 2017. Elle ne constitue pas une faute si elle est pédagogiquement préparée : élèves formés, niveau maîtrisé, consignes strictes, circuit connu/délimité, et système d'alerte ou de ralliement prévu.\n"
-            "6. RÈGLE RESPONSABILITÉ CIVILE (LOI 1937 / ART L.911-4) : En cas d'accident d'élève, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Article L. 911-4 du Code de l'éducation). C'est l'État qui prend en charge les réparations et dommages-intérêts, jamais le professeur sur ses deniers personnels. La responsabilité pénale individuelle du professeur (imprudence, etc.) reste distincte mais ne relève pas de la responsabilité civile classique."
+            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats.\n"
+            "3. FACTUEL : N'invente rien. Ne crée jamais de règles de toutes pièces.\n"
+            "4. RÈGLE EXAMENS/FORMATION : Une convocation officielle à un examen prime absolument sur une formation. L'enseignant a l'obligation de s'y rendre (décret du 17 décembre 1933).\n"
+            "5. RÈGLE APPN (VTT / COURSE D'ORIENTATION) : L'autonomie des groupes d'élèves est PARFAITEMENT AUTORISÉE et légale en EPS selon la circulaire nationale APPN n° 2017-075 du 19 avril 2017 si elle est préparée.\n"
+            "6. RÈGLE RESPONSABILITÉ CIVILE (LOI 1937 / ART L.911-4) : En cas d'accident d'élève, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Article L. 911-4 du Code de l'éducation). C'est l'État qui prend en charge les réparations.\n"
+            "7. RÈGLE TRANSPORT EN VÉHICULE PERSONNEL (CIRCULAIRE 1986) : Le transport d'élèves dans le véhicule personnel d'un enseignant est EXCEPTIONNELLEMENT AUTORISÉ (Circulaire n° 86-101 du 5 mars 1986). Les deux conditions absolues sont : A) L'autorisation écrite préalable du chef d'établissement (ordre de mission), B) Une assurance couvrant l'activité professionnelle avec transport de tiers à titre bénévole.\n"
+            "8. RÈGLE D'ACTION - INTERDICTION DES QUOTAS IMAGINAIRES : Tu as interdiction absolue d'inventer des seuils numériques d'encadrement ou des quotas d'adultes au sein d'un véhicule (ex: n'invente jamais de règle imposant un deuxième adulte si le nombre d'élèves dépasse 4). La seule et unique limite légale de passagers est le nombre de places assises indiqué sur la carte grise du véhicule.\n"
+            "9. RÈGLE D'ACTION - VÉRIFICATION DES SEUILS : Si une règle numérique relative à un encadrement, un taux ou un quota ne figure pas explicitement et textuellement dans les documents fournis (extraits_doc), tu ne dois pas l'énoncer. Tu dois à la place renvoyer vers les textes officiels pour vérification."
         )
 
         if mode == "ipack":

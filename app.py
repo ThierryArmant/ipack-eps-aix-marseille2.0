@@ -529,6 +529,16 @@ if prompt:
         else:
             consigne_ia = f"{protocole_rigueur} Tu es le juriste/expert EPS. Synthétise les pratiques. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "general-card"
+            # ... (Partie du Bloc 9 pour le module "général") ...
+        else:
+            consigne_ia = f"""{regles_or} 
+            Tu es l'Expert Pédagogique EPS.
+            MISSION : Utilise les 10 bases de données académiques pour concevoir des cycles d'apprentissage.
+            ANALYSE : Cite les compétences propres, les attendus de fin de cycle et les connaissances associées.
+            RIGUEUR : Ne propose jamais une séquence sans référencer le programme officiel (Cycle 3, 4 ou Lycée).
+            Données : {extraits_doc}
+            Question : {prompt}"""
+            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)

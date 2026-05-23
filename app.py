@@ -450,7 +450,7 @@ with col_b4:
 if st.session_state.active_module == "securite":
     message_alerte = """⚠️ <strong>Avis Institutionnel :</strong> Ce Hub est un outil d'aide réglementaire automatisé. En cas d'accident corporel grave avec mise en cause pénale directe, contactez immédiatement vos représentants syndicaux ou votre Autonomie de Solidarité Laïque (ASL) pour un accompagnement juridique humain dédié."""
 elif st.session_state.active_module == "general":
-    message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques innovants, fonctionnement de l'AS / UNSS, gestion de classe, aménagements d'épreuves, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).</em>"""
+    message_alerte = """💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).</em>"""
 else:
     message_alerte = """⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources."""
 

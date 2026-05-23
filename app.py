@@ -184,28 +184,28 @@ st.markdown(f"""
         box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }}
     
-    /* Boutons Inactifs */
-    button[kind="secondary"] {{ 
+   /* Boutons Inactifs */
+    button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
         border: 1px solid rgba(255,255,255,0.05) !important; 
         border-radius: 8px !important; 
-        font-size: 13px !important; 
-        padding: 12px 10px !important;
+        font-size: 15px !important; /* Augmenté de 13px à 15px */
+        padding: 14px 12px !important; /* Ajusté pour laisser respirer le texte */
         transition: all 0.3s ease;
-    }}
+    }
 
     /* Boutons Actifs */
-    button[kind="primary"] {{
+    button[kind="primary"] {
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
         border: 1px solid #10B981 !important;
         border-radius: 8px !important; 
-        font-size: 13px !important; 
-        padding: 12px 10px !important;
+        font-size: 15px !important; /* Augmenté de 13px à 15px */
+        padding: 14px 12px !important; /* Ajusté pour laisser respirer le texte */
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
-    }}
+    }
     
     /* BOUTON NETTOYER */
     div.element-container:has(.nettoyer-wrapper) + div.element-container button {{

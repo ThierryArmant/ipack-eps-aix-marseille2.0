@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import pandas as pd
 import requests
+import re
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.openai import OpenAIEmbedding
@@ -568,6 +569,14 @@ if prompt:
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
+        
+        # Conversion du texte Markdown brut en éléments HTML cliquables et structurés avant l'injection
+        texte_html = response.text
+        texte_html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_html)
+        texte_html = re.sub(r'###\s+(.*)', r'<h3>\1</h3>', texte_html)
+        texte_html = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', texte_html)
+        texte_html = texte_html.replace(chr(10), "<br>")
+        
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         st.rerun()

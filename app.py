@@ -269,10 +269,7 @@ st.markdown(f"""
         margin-left: 15% !important; 
     }}
     div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] {{ display: none !important; }}
-    /* FORÇAGE DE TOUT LE TEXTE DANS LE CHAT */
-    div[data-testid="stChatMessageContent"] * { 
-        color: #FFFFFF !important; 
-    }
+    
     </style>
 """, unsafe_allow_html=True)
 

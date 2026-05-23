@@ -466,7 +466,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC UNIFIÉ - ACCÈS TOTAL)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC EXPERT - SOURCES INSTITUTIONNELLES)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -477,26 +477,31 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse approfondie (Santorin + Académies Expert) en cours..."):
+    with st.spinner("Analyse institutionnelle rigoureuse en cours..."):
         extraits_doc = ""
-        # 1. BOOSTER WEB (INCLUSION VERSAILLES)
+        # 1. MOTEUR WEB (SOURCES INSTITUTIONNELLES OFFICIELLES)
         if tavily_api_key:
             try:
-                is_ex = st.session_state.active_module == "examens"
-                query_web = f"{prompt} {'Santorin EPS certification inaptitude' if is_ex else 'EPS officiel'}"
-                # Liste complète des sites experts
+                # Liste complète des sources officielles
                 domains = [
-                    "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", 
-                    "eps.ac-creteil.fr", "eps.ac-lyon.fr", "eps.ac-grenoble.fr", 
-                    "eps.ac-versailles.fr" 
-                ] if is_ex else ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr"]
+                    "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr",
+                    "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr", 
+                    "eps.ac-grenoble.fr", "eps.ac-versailles.fr"
+                ]
                 
-                res = requests.post("https://api.tavily.com/search", json={"api_key": tavily_api_key, "query": query_web, "search_depth": "advanced", "include_domains": domains}, timeout=15)
+                res = requests.post("https://api.tavily.com/search", json={
+                    "api_key": tavily_api_key, 
+                    "query": f"{prompt} texte officiel circulaire code éducation", 
+                    "search_depth": "advanced", 
+                    "include_domains": domains
+                }, timeout=15)
+                
                 if res.status_code == 200:
-                    for item in res.json().get("results", []): extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
+                    for item in res.json().get("results", []): 
+                        extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (DATA/ - SANTORIN / IPACK)
+        # 2. CONTEXTE LOCAL (DATA/)
         if openai_api_key:
             try:
                 if st.session_state.active_module == "examens":
@@ -505,17 +510,24 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"FAQ iPack: {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE PAR RÔLES (REGLES D'OR + CONSIGNES SPÉCIFIQUES)
-        regles_or = "RÈGLES D'OR : 1. FACTUEL : N'invente jamais. 2. ANALYSE PROFONDE : Plonge dans les documents pour extraire les références précises. 3. PREUVE : Cite tes sources (fichier ou URL). 4. RIGUEUR : Sois synthétique."
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR (ANALYSES STRICTES)
+        # Consigne commune renforcée pour garantir l'absence d'interprétation
+        protocole_rigueur = """
+        PROTOCOLE DE TRAITEMENT STRICT :
+        1. AUCUNE INTERPRÉTATION : Traite les informations de manière littérale. Ne déduis rien qui ne soit explicitement écrit.
+        2. INTERDICTION D'IMAGINER : Si l'information est manquante dans les sources, déclare 'Information non trouvée' immédiatement.
+        3. ANALYSE FACTUELLE : Plonge dans les textes (BO, circulaires, code). Cite les références précises (articles, dates, n° de circulaire).
+        4. HIERARCHIE : Tes fichiers locaux (Data/) priment sur tout. Les sources officielles (Legifrance, Eduscol) sont tes seules références extérieures autorisées.
+        """
 
         if st.session_state.active_module == "ipack":
-            consigne_ia = f"{regles_or} Tu es l'expert iPackEPS. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE (FAQ), 4. CONTACT. RÈGLES : Priorité 'FAQ'. PARE-FEU : Interdiction de modif technique (code, coef). Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur} Tu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE (FAQ), 4. CONTACT. PARE-FEU : Interdiction de modif technique (code, coef). Refuse et renvoie au support. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"{regles_or} Tu es l'expert Santorin. Priorise EDUSCOL et les sites académiques (Créteil, Lyon, Grenoble, Versailles). TABLEAU MARKDOWN obligatoire pour les certifs/inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur} Tu es l'expert Santorin. Priorise Legifrance et Eduscol. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         else:
-            consigne_ia = f"{regles_or} Tu es le juriste/expert EPS. Synthétise les pratiques. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur} Tu es le juriste/expert EPS. Synthétise les pratiques. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "general-card"
 
         # 4. EXÉCUTION

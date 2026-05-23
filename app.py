@@ -504,7 +504,7 @@ if prompt:
             Ta réponse doit impérativement commencer par ces 4 points, sans introduction :
             1. ANALYSE : Une phrase sur la nature du problème.
             2. ACTION : Procédure exacte ou refus immédiat.
-            3. SOURCE : Cite la 'FAQ'. 
+            3. SOURCE : Référence issue du référentiel interne. 
             4. CONTACT : Pour toute question de conformité, contactez l'adresse mail dédiée.
 
             RÈGLES D'EXPERTISES :

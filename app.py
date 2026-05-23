@@ -469,22 +469,29 @@ with col_b4:
 # 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES (SOUS LES BOUTONS)
 # ======================================================================
 if st.session_state.active_module == "textes":
-    st.warning("""
-⚠️ **Avertissement important – Limites du module IA :**
-Cet outil est un assistant numérique destiné à faciliter vos recherches documentaires (Légifrance, BO, Circulaires). Bien que ses règles d'analyse soient strictes, les réponses générées par l'IA ne se substituent en aucun cas aux textes officiels ni aux prérogatives des autorités académiques.
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Avertissement important – Limites du module IA :</strong> Cet outil est un assistant numérique destiné à faciliter vos recherches documentaires. Bien que ses règles d'analyse soient strictes, les réponses générées ne se substituent en aucun cas aux textes officiels.<br>
+            Pour toute question d'ordre juridique ou en cas de sinistre, rapprochez-vous impérativement de : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
 
-**Pour toute question d'ordre juridique ou en cas de sinistre, rapprochez-vous impérativement de :**
-* 🏫 Votre **Chef d'établissement** (représentant légal de l'État au sein de l'EPLE).
-* 🗂️ Votre **Secrétariat d'examen** ou référent **CYCLADES** (pour les litiges liés aux CCF/Examens).
-* 📐 Votre **Inspecteur d'académie (IA-IPR)** pour arbitrage pédagogique et réglementaire.
-""")
 elif st.session_state.active_module == "general":
-    st.info("💡 **Exemples de recherches dans cet onglet :** Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).")
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+
 else:
     st.markdown("""
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px;">
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ Conseil Flux Mixtes : Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
+            ⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
         </span>
     </div>
     """, unsafe_allow_html=True)

@@ -496,7 +496,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC UNIFIÉ ET COMPLET)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC SÉCURISÉ ET CORRIGÉ)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -533,7 +533,7 @@ if prompt:
                 
                 res = requests.post("https://api.tavily.com/search", json={
                     "api_key": tavily_api_key, 
-                    "query": f"{prompt} EPS officiel", 
+                    "query": f"{prompt} obligation enseignant EPS officiel", 
                     "search_depth": "advanced", 
                     "include_domains": domains
                 }, timeout=15)
@@ -552,20 +552,26 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"iPack: {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR
-        protocole_rigueur = "RÈGLES D'OR : 1. FACTUEL : N'invente jamais. 2. ANALYSE : Cite tes références. 3. SYNTHÈSE : Sois concis."
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
+        protocole_rigueur = (
+            "RÈGLES D'OR ABSOLUES :\n"
+            "1. NE JAMAIS CONFONDRE un enseignant (fonctionnaire soumis à des obligations de service) et un candidat/élève.\n"
+            "2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats (ex: aménagements d'épreuves, justificatifs de candidats).\n"
+            "3. FACTUEL : N'invente rien. Si tu ne sais pas, dis-le.\n"
+            "4. RÈGLE JURIDIQUE CONVIND/FORMATION : Une convocation officielle à un examen (surveillance, correction, jury) est un ordre de mission impératif qui PRIME ABSOLUMENT sur une convocation à une formation (PAF) ou sur le service habituel en établissement. L'enseignant a l'obligation de s'y rendre, sous peine de sanction pour abandon de poste."
+        )
 
         if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur} Tu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels ou d'assistance trouvés sous la forme [Nom du document/site](URL) et fournir les adresses e-mails de contact pour qu'ils soient cliquables. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Tu dois IMPÉRATIVEMENT inclure les liens internet officiels ou d'assistance trouvés sous la forme [Nom du document/site](URL) et fournir les adresses e-mails de contact pour qu'ils soient cliquables. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{protocole_rigueur} Tu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu devez IMPÉRATIVEMENT inclure les liens internet officiels des fiches mémos ou guides disponibles sous la forme [Nom du document](URL) et les e-mails de contact si présents. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Tu dois IMPÉRATIVEMENT inclure les liens internet officiels des fiches mémos ou guides disponibles sous la forme [Nom du document](URL) et les e-mails de contact si présents. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur} Tu es le juriste expert EPS. CITE LE BO ou Code du sport. Tu devez IMPÉRATIVEMENT afficher les sites internet officiels ou textes trouvés sous la forme [Nom du texte/site](URL) et inclure les adresses e-mails de contact direct sous forme de texte pour qu'ils s'affichent. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert EPS. CITE LE BO ou Code du sport. Tu dois IMPÉRATIVEMENT afficher les sites internet officiels ou textes trouvés sous la forme [Nom du texte/site](URL) et inclure les adresses e-mails de contact direct sous forme de texte pour qu'ils s'affichent. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
-            consigne_ia = f"{protocole_rigueur} Tu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Tu devez IMPÉRATIVEMENT ajouter les liens URL utiles trouvés sous la forme [Nom du site/ressource](URL) et les e-mails s'il y en a. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Tu dois IMPÉRATIVEMENT ajouter les liens URL utiles trouvés sous la forme [Nom du site/ressource](URL) et les e-mails s'il y en a. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION

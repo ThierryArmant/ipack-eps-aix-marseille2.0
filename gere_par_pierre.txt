@@ -21160,8 +21160,5 @@ rentrée des notes arrive à grands pas.
 Cordialement,
 
 M. Descamps pour l'équipe EPS
-
-
-
 -------------------------
-
+PROCÉDURE SAISIE INAPTITUDE IPACKEPS : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.

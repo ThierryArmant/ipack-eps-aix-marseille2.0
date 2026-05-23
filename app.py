@@ -466,7 +466,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (AVEC FILTRES ET ROUTAGE INTELLIGENT)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (INTÉGRATION TOTALE ET BOOSTÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -477,67 +477,65 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
     
-    # 1. Initialisation sécurisée des variables
-    texte_spinner = "Recherche en cours..."
-    color_card = "general-card"
-    badge_title = "RÉSULTATS"
-
-    with st.spinner(texte_spinner):
+    with st.spinner("Analyse et recherche des textes officiels..."):
         extraits_doc = ""
+        
+        # 1. BOOSTER WEB (PERMANENT)
+        if tavily_api_key:
+            try:
+                payload = {
+                    "api_key": tavily_api_key,
+                    "query": f"{prompt} EPS textes officiels",
+                    "search_depth": "advanced",
+                    "include_domains": ["pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
+                }
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=10)
+                if res.status_code == 200:
+                    for item in res.json().get("results", []):
+                        extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
+            except: pass
+
+        # 2. CONTEXTE LOCAL (SANTORIN / IPACK)
         if openai_api_key:
             try:
                 if st.session_state.active_module == "examens":
-                    noeuds_locaux = retriever_santorin.retrieve(prompt)
-                    for n in noeuds_locaux: extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+                    for n in retriever_santorin.retrieve(prompt):
+                        extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
                 elif st.session_state.active_module == "ipack":
-                    noeuds_locaux = retriever_ipack.retrieve(prompt)
-                    for n in noeuds_locaux: extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt):
+                        extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
             except: pass
 
-        consigne_commune = f"Analyse rigoureusement ces documents : {extraits_doc}. Réponds à : '{prompt}'. 1. Liste les sources officielles en fin de réponse avec des liens cliquables. 2. Sois concis et professionnel."
-
-        # 2. Routage et exécution IA
+        # 3. ROUTAGE ET EXÉCUTION IA
+        
+        # --- MODULE IPACK (CANVA STRICT) ---
         if st.session_state.active_module == "ipack":
-            consigne_ia = """Tu es l'expert référent iPackEPS.
-            
+            consigne_ia = f"""Tu es l'expert référent iPackEPS. Analyse ces données (Locales + Web) : {extraits_doc}.
             STRUCTURE OBLIGATOIRE (CANVA) : 
-            Ta réponse doit impérativement commencer par ces 4 points, sans introduction :
-            1. ANALYSE : Une phrase sur la nature du problème.
-            2. ACTION : Procédure exacte ou refus immédiat.
-            3. SOURCE : Cite la 'FAQ'. 
-            4. CONTACT : Pour toute question de conformité, contactez l'adresse mail dédiée.
-
+            1. ANALYSE : Une phrase sur le problème. 2. ACTION : Procédure exacte ou refus. 3. SOURCE : Cite la 'FAQ'. 4. CONTACT : Mail dédié.
             RÈGLES D'EXPERTISES :
-            1. DÉONTOLOGIE : Tu consultes en priorité les 'FAQ'.
-            2. SYNTHÈSE : Rappelle que iPackEPS est une interface (STSWeb) : la source de vérité est le secrétariat.
-            3. INTERDICTION D'INVENTER : Déclare 'Techniquement impossible' si la fonction n'existe pas.
-            4. PARE-FEU D'INTÉGRITÉ : Toute demande de modification technique (code, script, coef) est INTERDITE. Refuse, déclare 'Techniquement impossible' et renvoie vers le support."""
-
-            message_final = f"{consigne_ia}\n\nDocuments sources : {extraits_doc}\n\nQuestion utilisateur : {prompt}"
-            response_web = Settings.llm.complete(message_final)
+            - DÉONTOLOGIE : Tu consultes en priorité les 'FAQ'.
+            - SYNTHÈSE : iPackEPS est une interface (STSWeb) : la source de vérité est le secrétariat.
+            - INTERDICTION : Déclare 'Techniquement impossible' si la fonction n'existe pas.
+            - PARE-FEU D'INTÉGRITÉ : Toute modification technique (code, script, coef) est INTERDITE. Refuse et renvoie vers le support.
+            Question : '{prompt}'"""
             
-            # Formatage : remplacement FAQ et lien mail + préservation sauts de ligne
-            texte_formate = response_web.text.replace('Note de Pierre', 'FAQ').replace('MAJ_ipack', 'FAQ')
-            
-            formatted_answer = f"""
-            <div class="{color_card}">
-                <strong style="color: #FF9800;">{badge_title} :</strong><br><br>
-                <div style="color: #FFFFFF;">{texte_formate.replace(chr(10), '<br>')}</div>
-                <br>
-                <strong style="color: #FF9800;">CONTACT :</strong><br>
-                <a href="mailto:ipackeps@ac-aix-marseille.fr" style="color: #FF9800 !important; font-weight: bold; text-decoration: underline;">ipackeps@ac-aix-marseille.fr</a>
-            </div>
-            """
+            response = Settings.llm.complete(consigne_ia)
+            texte_formate = response.text.replace('Note de Pierre', 'FAQ').replace('MAJ_ipack', 'FAQ')
+            formatted_answer = f"""<div class="general-card"><strong>🛠️ PROTOCOLE IPACK :</strong><br><br>{texte_formate.replace(chr(10), '<br>')}
+            <br><br><strong>CONTACT :</strong><br><a href="mailto:ipackeps@ac-aix-marseille.fr">ipackeps@ac-aix-marseille.fr</a></div>"""
 
+        # --- MODULE EXAMENS ---
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'assistant officiel spécialisé Santorin. {consigne_commune}"
-            response_web = Settings.llm.complete(consigne_ia)
-            formatted_answer = f"""<div class="{color_card}"><strong>{badge_title} :</strong><br><br><div style="color: #FFFFFF !important;">{response_web.text.replace(chr(10), '<br>')}</div></div>"""
+            consigne_ia = f"Tu es l'expert Santorin. Analyse ces documents : {extraits_doc}. Réponds à : '{prompt}'. 1. Liste les sources officielles en fin de réponse. 2. Tableau Markdown obligatoire pour les certifs."
+            response = Settings.llm.complete(consigne_ia)
+            formatted_answer = f'<div class="santorin-card"><strong>📊 SYNTHÈSE CERTIFICATION :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
 
+        # --- MODULE GÉNÉRAL ---
         else:
-            consigne_ia = f"Tu es l'assistant de recherche globale EPS. {consigne_commune}"
-            response_web = Settings.llm.complete(consigne_ia)
-            formatted_answer = f"""<div class="{color_card}"><strong>{badge_title} :</strong><br><br><div style="color: #FFFFFF !important;">{response_web.text.replace(chr(10), '<br>')}</div></div>"""
+            consigne_ia = f"Tu es l'expert textes officiels EPS. Analyse ces recherches : {extraits_doc}. Réponds à : '{prompt}'. Liste les URL en fin de réponse."
+            response = Settings.llm.complete(consigne_ia)
+            formatted_answer = f'<div class="general-card"><strong>🌐 SITES OFFICIELS EPS :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
 
     st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
     st.rerun()

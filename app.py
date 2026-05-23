@@ -586,6 +586,7 @@ if prompt:
             "   B) INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes/APSA non évaluées. La note finale est laissée vide ou marquée 'Inapte'.\n"
             "   C) FORMATAGE EXIGÉ : Tu as l'obligation absolue de présenter la procédure sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac].\n"
             "15. JURISPRUDENCE SURVEILLANCE & ACCIDENTS FORTUITS : Un choc fortuit, soudain et instantané en cours de jeu (ex: collision lors d'un double-pas) exclut la faute caractérisée au pénal (Loi Fauchon du 10 juillet 2000). Détourner momentanément le regard pour accomplir une obligation administrative légale (comme l'appel obligatoire) ne constitue pas une faute de surveillance."
+            "16. DÉPLACEMENTS VERS INSTALLATIONS SPORTIVES : Tu dois faire une distinction stricte entre le Lycée et le Collège. Au LYCÉE (Circulaire n°96-248 du 25 octobre 1996), les élèves peuvent se rendre seuls sur l'installation sportive ou rentrer chez eux après le cours. Ce déplacement est assimilé à un trajet domicile-établissement. L'enseignant n'est PAS responsable en cas d'accident sur ce trajet. Au collège, l'encadrement par le professeur reste la règle générale."
         )
 
         if mode == "ipack":

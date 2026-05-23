@@ -390,19 +390,26 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD (AU-DESSUS DES BOUTONS)
+# 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
-    "securite": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
+
+# Initialisation par sécurité si active_module n'existe pas
+if "active_module" not in st.session_state:
+    st.session_state.active_module = "general"
+
+# Utilisation de .get() pour éviter le plantage si la clé n'est pas dans le dictionnaire
+titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques")
 
 st.markdown(f"""
     <div class="column-title-top">
         <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
-        <span class="mode-actuel">{label_titres[st.session_state.active_module]}</span>
+        <span class="mode-actuel">{titre_affiche}</span>
     </div>
 """, unsafe_allow_html=True)
 

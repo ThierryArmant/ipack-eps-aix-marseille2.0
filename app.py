@@ -368,7 +368,8 @@ retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ)
+# ======================================================================
+# 5. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
@@ -377,14 +378,17 @@ label_titres = {
     "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
-# Assure-toi que active_module a une valeur par défaut au démarrage
+# Initialisation par défaut : on force le mode "general" pour que le bouton soit vert au démarrage
 if "active_module" not in st.session_state:
     st.session_state.active_module = "general"
+
+# Utilisation de .get() pour protéger l'application contre les KeyError
+titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain")
 
 st.markdown(f"""
     <div class="column-title-top">
         <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
-        <span class="mode-actuel">{label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain")}</span>
+        <span class="mode-actuel">{titre_affiche}</span>
     </div>
 """, unsafe_allow_html=True)
 # ======================================================================

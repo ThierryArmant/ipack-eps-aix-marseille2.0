@@ -475,7 +475,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC UNIFIÉ - SYNTAXE CORRIGÉE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC UNIFIÉ ET COMPLET)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -486,41 +486,65 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse institutionnelle rigoureuse en cours..."):
+    with st.spinner("Analyse approfondie en cours..."):
         extraits_doc = ""
-        # 1. MOTEUR WEB (SOURCES INSTITUTIONNELLES)
+        mode = st.session_state.active_module
+        
+        # 1. MOTEUR WEB (Sources institutionnelles exhaustive par module)
         if tavily_api_key:
             try:
-                is_ex = st.session_state.active_module == "examens"
-                domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr", "eps.ac-grenoble.fr", "eps.ac-versailles.fr"] if is_ex else ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr"]
-                res = requests.post("https://api.tavily.com/search", json={"api_key": tavily_api_key, "query": f"{prompt} texte officiel circulaire", "search_depth": "advanced", "include_domains": domains}, timeout=15)
+                if mode == "examens":
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr"]
+                elif mode == "textes":
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "circulaires.gouv.fr"]
+                elif mode == "general":
+                    domains = [
+                        "unss.org", "eduscol.education.gouv.fr", "reseau-canope.fr",
+                        "pedagogie.ac-aix-marseille.fr", "eps.ac-versailles.fr", "eps.ac-grenoble.fr", "eps.ac-lyon.fr",
+                        "eps.ac-nantes.fr", "eps.ac-creteil.fr", "eps.ac-toulouse.fr", "eps.ac-bordeaux.fr",
+                        "eps.ac-rennes.fr", "eps.ac-lille.fr", "eps.ac-nancy-metz.fr", "eps.ac-strasbourg.fr",
+                        "eps.ac-montpellier.fr", "eps.ac-caen.fr", "eps.ac-clermont.fr", "eps.ac-dijon.fr",
+                        "eps.ac-amiens.fr", "eps.ac-poitiers.fr", "eps.ac-orleans-tours.fr", "eps.ac-reunion.fr",
+                        "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", "eps.ac-martinique.fr"
+                    ]
+                else: # iPack
+                    domains = ["eduscol.education.gouv.fr"]
+                
+                res = requests.post("https://api.tavily.com/search", json={
+                    "api_key": tavily_api_key, 
+                    "query": f"{prompt} EPS officiel", 
+                    "search_depth": "advanced", 
+                    "include_domains": domains
+                }, timeout=15)
+                
                 if res.status_code == 200:
-                    for item in res.json().get("results", []): extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
+                    for item in res.json().get("results", []): 
+                        extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (DATA/)
+        # 2. CONTEXTE LOCAL (Data/)
         if openai_api_key:
             try:
-                if st.session_state.active_module == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Fichier Local: {n.node.text}\n\n"
-                elif st.session_state.active_module == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"FAQ iPack: {n.node.text}\n\n"
+                if mode == "examens":
+                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin: {n.node.text}\n\n"
+                elif mode == "ipack":
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"iPack: {n.node.text}\n\n"
             except: pass
 
         # 3. ROUTAGE : PROTOCOLES DE RIGUEUR
-        protocole_rigueur = "RÈGLES D'OR : 1. FACTUEL : N'invente jamais. 2. ANALYSE PROFONDE : Plonge dans les documents pour extraire les références précises. 3. PREUVE : Cite tes sources (fichier ou URL). 4. RIGUEUR : Sois synthétique."
+        protocole_rigueur = "RÈGLES D'OR : 1. FACTUEL : N'invente jamais. 2. ANALYSE : Cite tes références. 3. SYNTHÈSE : Sois concis."
 
-        if st.session_state.active_module == "ipack":
-            consigne_ia = f"{protocole_rigueur} Tu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE (FAQ), 4. CONTACT. PARE-FEU : Interdiction de modif technique (code, coef). Refuse et renvoie au support. Données : {extraits_doc}\nQuestion : {prompt}"
+        if mode == "ipack":
+            consigne_ia = f"{protocole_rigueur} Tu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        elif st.session_state.active_module == "examens":
-            consigne_ia = f"{protocole_rigueur} Tu es l'expert Santorin. Priorise Legifrance et Eduscol. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
+        elif mode == "examens":
+            consigne_ia = f"{protocole_rigueur} Tu es l'expert Santorin. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-        elif st.session_state.active_module == "textes":
-            consigne_ia = f"{protocole_rigueur} Tu es le juriste expert EPS. Cite les textes officiels, BO et circulaires. Données : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "⚖️ CADRE JURIDIQUE", "general-card"
-        else:
-            consigne_ia = f"{protocole_rigueur} Tu es l'Expert Pédagogique EPS. MISSION : Utilise les bases de données académiques pour concevoir des cycles. ANALYSE : Cite les compétences, attendus de cycle, connaissances. Données : {extraits_doc}\nQuestion : {prompt}"
+        elif mode == "textes":
+            consigne_ia = f"{protocole_rigueur} Tu es le juriste expert EPS. CITE LE BO ou Code du sport. Données : {extraits_doc}\nQuestion : {prompt}"
+            badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+        else: # Mode General
+            consigne_ia = f"{protocole_rigueur} Tu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION

@@ -466,7 +466,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC EXPERT - SOURCES INSTITUTIONNELLES)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (BLOC UNIFIÉ - SYNTAXE CORRIGÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -479,26 +479,14 @@ if prompt:
     
     with st.spinner("Analyse institutionnelle rigoureuse en cours..."):
         extraits_doc = ""
-        # 1. MOTEUR WEB (SOURCES INSTITUTIONNELLES OFFICIELLES)
+        # 1. MOTEUR WEB (SOURCES INSTITUTIONNELLES)
         if tavily_api_key:
             try:
-                # Liste complète des sources officielles
-                domains = [
-                    "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr",
-                    "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr", 
-                    "eps.ac-grenoble.fr", "eps.ac-versailles.fr"
-                ]
-                
-                res = requests.post("https://api.tavily.com/search", json={
-                    "api_key": tavily_api_key, 
-                    "query": f"{prompt} texte officiel circulaire code éducation", 
-                    "search_depth": "advanced", 
-                    "include_domains": domains
-                }, timeout=15)
-                
+                is_ex = st.session_state.active_module == "examens"
+                domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-lyon.fr", "eps.ac-grenoble.fr", "eps.ac-versailles.fr"] if is_ex else ["eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr"]
+                res = requests.post("https://api.tavily.com/search", json={"api_key": tavily_api_key, "query": f"{prompt} texte officiel circulaire", "search_depth": "advanced", "include_domains": domains}, timeout=15)
                 if res.status_code == 200:
-                    for item in res.json().get("results", []): 
-                        extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
+                    for item in res.json().get("results", []): extraits_doc += f"Source ({item['title']}): {item['content']}\n\n"
             except: pass
 
         # 2. CONTEXTE LOCAL (DATA/)
@@ -510,15 +498,8 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"FAQ iPack: {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR (ANALYSES STRICTES)
-        # Consigne commune renforcée pour garantir l'absence d'interprétation
-        protocole_rigueur = """
-        PROTOCOLE DE TRAITEMENT STRICT :
-        1. AUCUNE INTERPRÉTATION : Traite les informations de manière littérale. Ne déduis rien qui ne soit explicitement écrit.
-        2. INTERDICTION D'IMAGINER : Si l'information est manquante dans les sources, déclare 'Information non trouvée' immédiatement.
-        3. ANALYSE FACTUELLE : Plonge dans les textes (BO, circulaires, code). Cite les références précises (articles, dates, n° de circulaire).
-        4. HIERARCHIE : Tes fichiers locaux (Data/) priment sur tout. Les sources officielles (Legifrance, Eduscol) sont tes seules références extérieures autorisées.
-        """
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR
+        protocole_rigueur = "RÈGLES D'OR : 1. FACTUEL : N'invente jamais. 2. ANALYSE PROFONDE : Plonge dans les documents pour extraire les références précises. 3. PREUVE : Cite tes sources (fichier ou URL). 4. RIGUEUR : Sois synthétique."
 
         if st.session_state.active_module == "ipack":
             consigne_ia = f"{protocole_rigueur} Tu es l'expert iPack. CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE (FAQ), 4. CONTACT. PARE-FEU : Interdiction de modif technique (code, coef). Refuse et renvoie au support. Données : {extraits_doc}\nQuestion : {prompt}"
@@ -526,23 +507,15 @@ if prompt:
         elif st.session_state.active_module == "examens":
             consigne_ia = f"{protocole_rigueur} Tu es l'expert Santorin. Priorise Legifrance et Eduscol. TABLEAU MARKDOWN obligatoire pour les inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-        else:
-            consigne_ia = f"{protocole_rigueur} Tu es le juriste/expert EPS. Synthétise les pratiques. Données : {extraits_doc}\nQuestion : {prompt}"
+        elif st.session_state.active_module == "textes":
+            consigne_ia = f"{protocole_rigueur} Tu es le juriste expert EPS. Cite les textes officiels, BO et circulaires. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "general-card"
-            # ... (Partie du Bloc 9 pour le module "général") ...
         else:
-            consigne_ia = f"""{regles_or} 
-            Tu es l'Expert Pédagogique EPS.
-            MISSION : Utilise les 10 bases de données académiques pour concevoir des cycles d'apprentissage.
-            ANALYSE : Cite les compétences propres, les attendus de fin de cycle et les connaissances associées.
-            RIGUEUR : Ne propose jamais une séquence sans référencer le programme officiel (Cycle 3, 4 ou Lycée).
-            Données : {extraits_doc}
-            Question : {prompt}"""
+            consigne_ia = f"{protocole_rigueur} Tu es l'Expert Pédagogique EPS. MISSION : Utilise les bases de données académiques pour concevoir des cycles. ANALYSE : Cite les compétences, attendus de cycle, connaissances. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
-
-    st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-    st.rerun()
+        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        st.rerun()

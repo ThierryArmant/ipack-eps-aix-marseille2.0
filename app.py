@@ -466,7 +466,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (INTÉGRATION TOTALE ET BOOSTÉE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR HYBRIDE 4 RÔLES)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -475,67 +475,72 @@ for m in st.session_state.messages_hub:
 st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt:
-    st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white; font-weight: normal;'>{prompt}</span>"})
+    st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse et recherche des textes officiels..."):
+    with st.spinner("Hub IA : Recherche hybride et analyse des rôles..."):
         extraits_doc = ""
         
-        # 1. BOOSTER WEB (PERMANENT)
+        # 1. LE BOOSTER (INTERNET - TEXTES OFFICIELS)
         if tavily_api_key:
             try:
+                # On ajuste la requête Tavily selon le mode pour "booster" les bons textes
+                query_web = f"{prompt} EPS"
+                if st.session_state.active_module == "textes": query_web += " textes officiels BO circulaire"
+                
                 payload = {
                     "api_key": tavily_api_key,
-                    "query": f"{prompt} EPS textes officiels",
+                    "query": query_web,
                     "search_depth": "advanced",
                     "include_domains": ["pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr", "eps.enseigne.ac-lyon.fr", "eps.ac-creteil.fr"]
                 }
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=10)
                 if res.status_code == 200:
                     for item in res.json().get("results", []):
-                        extraits_doc += f"Source: {item['title']} ({item['url']})\nContenu: {item['content']}\n\n"
+                        extraits_doc += f"Source Web: {item['title']} ({item['url']})\n{item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (SANTORIN / IPACK)
+        # 2. LE CONTEXTE LOCAL (TES FICHIERS DATA)
         if openai_api_key:
             try:
                 if st.session_state.active_module == "examens":
                     for n in retriever_santorin.retrieve(prompt):
-                        extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+                        extraits_doc += f"Source Locale (Notation): {n.node.metadata.get('title')}\n{n.node.text}\n\n"
                 elif st.session_state.active_module == "ipack":
                     for n in retriever_ipack.retrieve(prompt):
-                        extraits_doc += f"Source: {n.node.metadata.get('title')} ({n.node.metadata.get('url')})\nContenu: {n.node.text}\n\n"
+                        extraits_doc += f"Source FAQ (iPack): {n.node.metadata.get('title')}\n{n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE ET EXÉCUTION IA
-        
-        # --- MODULE IPACK (CANVA STRICT) ---
+        # 3. ROUTAGE ET DÉFINITION DU RÔLE IA
         if st.session_state.active_module == "ipack":
-            consigne_ia = f"""Tu es l'expert référent iPackEPS. Analyse ces données (Locales + Web) : {extraits_doc}.
-            STRUCTURE OBLIGATOIRE (CANVA) : 
-            1. ANALYSE : Une phrase sur le problème. 2. ACTION : Procédure exacte ou refus. 3. SOURCE : Cite la 'FAQ'. 4. CONTACT : Mail dédié.
-            RÈGLES D'EXPERTISES :
-            - DÉONTOLOGIE : Tu consultes en priorité les 'FAQ'.
-            - SYNTHÈSE : iPackEPS est une interface (STSWeb) : la source de vérité est le secrétariat.
-            - INTERDICTION : Déclare 'Techniquement impossible' si la fonction n'existe pas.
-            - PARE-FEU D'INTÉGRITÉ : Toute modification technique (code, script, coef) est INTERDITE. Refuse et renvoie vers le support.
-            Question : '{prompt}'"""
+            consigne_ia = f"""Tu es l'expert référent iPackEPS.
+            STRUCTURE CANVA OBLIGATOIRE : 1. ANALYSE, 2. ACTION, 3. SOURCE (FAQ), 4. CONTACT.
+            RÈGLES : Consultation priorité 'FAQ'. iPack est une interface, la vérité est au secrétariat.
+            PARE-FEU : Interdiction de modif technique (code, coef). Refuse et déclare 'Techniquement impossible'.
+            Données : {extraits_doc}\nQuestion : {prompt}"""
+            color_card = "general-card"
+            badge = "🛠️ PROTOCOLE IPACK"
             
-            response = Settings.llm.complete(consigne_ia)
-            texte_formate = response.text.replace('Note de Pierre', 'FAQ').replace('MAJ_ipack', 'FAQ')
-            formatted_answer = f"""<div class="general-card"><strong>🛠️ PROTOCOLE IPACK :</strong><br><br>{texte_formate.replace(chr(10), '<br>')}
-            <br><br><strong>CONTACT :</strong><br><a href="mailto:ipackeps@ac-aix-marseille.fr">ipackeps@ac-aix-marseille.fr</a></div>"""
-
-        # --- MODULE EXAMENS ---
         elif st.session_state.active_module == "examens":
-            consigne_ia = f"Tu es l'expert Santorin. Analyse ces documents : {extraits_doc}. Réponds à : '{prompt}'. 1. Liste les sources officielles en fin de réponse. 2. Tableau Markdown obligatoire pour les certifs."
-            response = Settings.llm.complete(consigne_ia)
-            formatted_answer = f'<div class="santorin-card"><strong>📊 SYNTHÈSE CERTIFICATION :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
+            consigne_ia = f"Tu es l'expert Santorin et Examens EPS. Ton administratif et rigoureux. TABLEAU MARKDOWN obligatoire pour comparer les certifs ou inaptitudes. Données : {extraits_doc}\nQuestion : {prompt}"
+            color_card = "santorin-card"
+            badge = "📊 RÉGLEMENTATION SANTORIN"
+            
+        elif st.session_state.active_module == "textes":
+            consigne_ia = f"Tu es le juriste expert EPS. Cite précisément les articles du BO et circulaires. Pas d'avis, juste les faits. Données : {extraits_doc}\nQuestion : {prompt}"
+            color_card = "general-card"
+            badge = "⚖️ CADRE JURIDIQUE"
+            
+        else: # Recherche Globale
+            consigne_ia = f"Tu es le chercheur pédagogique EPS. Synthétise les pratiques des différentes académies. Sois nuancé et exhaustif. Données : {extraits_doc}\nQuestion : {prompt}"
+            color_card = "general-card"
+            badge = "🔍 SYNTHÈSE ACADÉMIQUE"
 
-        # --- MODULE GÉNÉRAL ---
-        else:
-            consigne_ia = f"Tu es l'expert textes officiels EPS. Analyse ces recherches : {extraits_doc}. Réponds à : '{prompt}'. Liste les URL en fin de réponse."
-            response = Settings.llm.complete(consigne_ia)
-            formatted_answer = f'<div class="general-card"><strong>🌐 SITES OFFICIELS EPS :</strong><br><br>{response.text.replace(chr(10), "<br>")}</div>'
+        # 4. EXÉCUTION ET FORMATAGE
+        response = Settings.llm.complete(consigne_ia)
+        texte_final = response.text.replace('Note de Pierre', 'FAQ').replace('MAJ_ipack', 'FAQ')
+        
+        formatted_answer = f"""<div class="{color_card}"><strong>{badge} :</strong><br><br>
+        <div style="color: white;">{texte_final.replace(chr(10), '<br>')}</div></div>"""
 
     st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
     st.rerun()

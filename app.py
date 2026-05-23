@@ -270,6 +270,9 @@ st.markdown(f"""
     }}
     div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] {{ display: none !important; }}
     
+    /* LIGNE AJOUTÉE POUR FORCER LE BLANC DANS LE CHAT */
+    div[data-testid="stChatMessage"] * {{ color: #FFFFFF !important; }}
+    
     </style>
 """, unsafe_allow_html=True)
 

@@ -300,19 +300,20 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Lecture dynamique sans cache pour prendre en compte tes modifs immédiatement
-def charger_consignes_pierre():
+# Fonction de lecture sans cache pour que le fichier texte soit toujours lu en temps réel
+def charger_consignes_exclusives_pierre():
     chemin = "gere_par_pierre.txt"
     if os.path.exists(chemin):
         try:
             with open(chemin, "r", encoding="utf-8") as f:
                 contenu = f.read()
-            return [Document(text=contenu, metadata={"source": "Notes de Pierre"})]
+            return [Document(text=contenu, metadata={"source": "Arbitrages de Pierre"})]
         except Exception:
             return []
     return []
 
-# BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
+# BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN (AVEC CACHE POUR ECONOMISER)
+@st.cache_resource
 def initialiser_base_santorin():
     docs_santorin = [
         Document(
@@ -332,27 +333,13 @@ def initialiser_base_santorin():
             text="""Guide Utilisateur Santorin - Ouvrir, annoter et corriger une copie numérisée. 
             Tutoriel pas-à-pas : liste des candidats anonymisés, outils d'annotation intégrés (surlignage, stylo, commentaires), saisie des notes par question ou globale, validation du lot. Utilisation de la messagerie interne (icône enveloppe) pour contacter les coordonnateurs.""",
             metadata={"title": "Guide Utilisateur - Ouvrir et corriger une copie avec Santorin", "url": "https://pedagogie.ac-orleans-tours.fr/documents/pdf/lettres_tutoriels_ouvrir_et_corriger_une_copie_avec_santorin__2_.pdf"}
-        ),
-        Document(
-            text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
-            metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
-        ),
-        Document(
-            text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
-            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots et demander des corrections d'affectation via l'enveloppe de communication.""",
-            metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
-        ),
-        Document(
-            text="""Guide technique d'installation de Santorin Scan. 
-            Documentation sur l'installation, le paramétrage des scanners physiques en établissement, les protocoles réseaux et la configuration des serveurs d'échange sécurisés.""",
-            metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
         )
     ]
-    docs_santorin.extend(charger_consignes_pierre())
+    docs_santorin.extend(charger_consignes_exclusives_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS
+# BASE DE CONNAISSANCES FIXE : IPACKEPS (AVEC CACHE POUR ECONOMISER)
+@st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
         Document(
@@ -367,11 +354,6 @@ def initialiser_base_ipack():
             metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
         ),
         Document(
-            text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
-            Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
-            metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
-        ),
-        Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
             2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
@@ -379,10 +361,11 @@ def initialiser_base_ipack():
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
-    docs_ipack.extend(charger_consignes_pierre())
+    docs_ipack.extend(charger_consignes_exclusives_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
-# BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
+# BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES (AVEC CACHE POUR ECONOMISER)
+@st.cache_resource
 def initialiser_base_textes():
     docs_textes = [
         Document(
@@ -390,10 +373,10 @@ def initialiser_base_textes():
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
         )
     ]
-    docs_textes.extend(charger_consignes_pierre())
+    docs_textes.extend(charger_consignes_exclusives_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Génération dynamique des retrievers à chaque rafraîchissement
+# Initialisation des trois retrievers sécurisés par le cache
 retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 retriever_textes = initialiser_base_textes()

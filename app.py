@@ -574,7 +574,6 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    # Recherche ciblée sur les fichiers pour maximiser le résultat
                     requete_blindee = f"{prompt} EPS fiche pédagogique évaluation filetype:pdf OR site:ac-creteil.fr OR site:eduscol.education.fr"
                     domains = domaine_eps_france
                 else:
@@ -600,7 +599,6 @@ if prompt:
                 elif mode == "textes":
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    # Récupération de TES documents personnels (ta base de fiches)
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
@@ -628,16 +626,12 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
-            consigne_ia = (
-                "MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir des documents concrets.\n"
-                "1. EXTRACTION : Affiche tous les liens PDF et ressources trouvés dans le 'Contexte Web' ou ta 'Base locale'.\n"
-                "2. GÉNÉRATION : Si tu n'as pas de fichier, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation) 
+            consigne_ia = """MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir des documents concrets.
+1. EXTRACTION : Liste les liens réels vers des PDF ou fiches d'évaluation trouvés dans le 'Contexte Web' ou ta 'Base locale'.
+2. GÉNÉRATION : Si tu n'as pas de fichier, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation).
+RÈGLE : Sois direct et exploitable. Utilise les éléments du contexte fournis.
 
-[Image of X]
-.\n"
-                "RÈGLE : Sois direct et exploitable. Utilise les éléments du contexte fournis.\n"
-                f"Contexte Web et Base locale : {extraits_doc}\nQuestion de l'enseignant : {prompt}"
-            )
+Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
@@ -653,7 +647,7 @@ if prompt:
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Traitement tableaux (inchangé)
+        # Traitement tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'

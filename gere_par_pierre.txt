@@ -169,3 +169,8 @@ MISES A JOUR ET ARBITRAGES OFFICIELS DE PIERRE (SESSION 2025/2026)
 7. HIÉRARCHIE DES CONVOCATIONS D'EXAMENS (DNB/BAC) :
    - Les convocations pour les corrections ou jurys d'examens nationaux (DNB/BAC) sont des missions de service public impératives. Elles priment sur toutes les autorisations internes à l'établissement.
    - Arbitrage : Un chef d'établissement n'a juridiquement pas le pouvoir d'annuler ou de dispenser un enseignant d'une convocation officielle, même s'il lui a accordé un congé exceptionnel (mariage, événement familial). Seul le Rectorat (DEC) peut accorder une dispense de correction.
+======================================================================
+tutoriels et liens
+======================================================================
+- Verrouiller / déverrouiller les lots de notation après saisie des notes :https://youtu.be/a4sp4ULplCE?si=oY3MHt_HWWJtimLt
+

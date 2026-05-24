@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V18 - MATRICE VIDÉO)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -548,7 +548,7 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB (Tavily) - Verrouillage du périmètre "iPackEPS rubrique 4"
+        # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 if mode == "textes":
@@ -558,7 +558,6 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr"]
                 elif mode == "ipack":
-                    # VERROUILLAGE : Navigation dans l'arborescence rubrique 4, exclusion de YouTube externe
                     requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
@@ -570,13 +569,12 @@ if prompt:
                 if mode == "ipack": payload["exclude_domains"] = exclude
                 
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL - Segmentation Stricte
+        # 2. CONTEXTE LOCAL
         if openai_api_key:
             try:
                 if mode == "examens":
@@ -587,7 +585,7 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE INTÉGRÉ)
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
@@ -599,44 +597,28 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "PÉRIMÈTRE : Explore uniquement l'arborescence 'rubrique4'. Interdiction de dériver sur des recommandations YouTube externes.\n"
-                "MATRICE D'EXTRACTION VIDÉO :\n"
-                "- Si mot-clé 'classe' : Extraire le lien du tutoriel 'Gestion des classes' du contexte.\n"
-                "- Si mot-clé 'emploi du temps' ou 'edt' : Extraire le lien du tutoriel 'Gestion Agenda/EDT' du contexte.\n"
-                "CONSIGNE SÉCURITÉ : Si un créneau contient des notes, NE JAMAIS FORCER LA SUPPRESSION. "
-                "Procédure : Fusionner le créneau ou ajuster les dates.\n"
+                "MATRICE D'EXTRACTION : Si tu abordes 'classe' ou 'edt', insère les liens du référentiel que tu as en mémoire.\n"
+                "CONSIGNE SÉCURITÉ : Ne JAMAIS FORCER LA SUPPRESSION (fusionner ou ajuster les dates).\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        # ... (les autres modes restent identiques) ...
         elif mode == "examens":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                "CANVA : Utilise un tableau [Acteur | Action | Conséquence]. "
-                "DIRECTIVE : Priorise la sécurité des données."
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n"
-                "CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS."
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else:
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
-                "CANVA : Analyse structurée et concrète."
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Extraction vidéo AVANT toute transformation
-        youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        # EXTRACTION MULTIPLE (re.findall au lieu de search)
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
         # Traitement tableaux
         if "|" in texte_brut and "---" in texte_brut:
@@ -659,7 +641,8 @@ if prompt:
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        if youtube_match:
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{youtube_match.group(1)}')"})
+        # AFFICHAGE MULTIPLE DES VIDÉOS
+        for link in youtube_links:
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
         
         st.rerun()

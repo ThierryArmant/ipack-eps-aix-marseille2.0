@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V12 - HIÉRARCHIQUE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (PERSONNALITÉ PARTENAIRE V12)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -541,7 +541,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Recherche et croisement des sources officielles..."):
+    with st.spinner("Je réfléchis à la meilleure réponse pour toi..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
@@ -581,26 +581,28 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE ET CANVA INTELLIGENT
-        protocole_rigueur = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+        # 3. IDENTITÉ ET PERSONNALITÉ (V12)
+        protocole_rigueur = (
+            "TON IDENTITÉ : Tu es un collaborateur IA expert, pédagogue et bienveillant, dédié à l'EPS. "
+            "TON TON : Chaleureux, précis et proactif. Tu anticipes les besoins de l'utilisateur. "
+            "DIRECTIVES JURIDIQUES (Ta Boussole) : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative. "
+            "RÈGLE DE RÉPONSE : Priorise les données locales. Si incomplet, croise avec les sources Web. "
+            "Si tu ne sais pas, dis-le avec franchise et propose une piste de recherche académique. "
+            "Sois fluide : tisse des liens, explique le contexte, ne te limite pas à une liste froide."
+        )
         
-        if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPackEPS. PRIORITÉ : 1. Données locales. 2. Sources Web si inconnu. 3. Si introuvable, dis-le. CANVA : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        elif mode == "examens":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. PRIORITÉ : 1. Données locales. 2. Sources Web. CANVA : TABLEAU [Acteur | Action | Conséquence].\nDonnées : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-        elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es expert juridique EPS. PRIORITÉ : 1. 'Notes de Pierre'. 2. Sources Web. INTERDICTION : Ne jamais inventer de partage de responsabilité. CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
-        else:
-            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. Croise Données et Web. CANVA : Analyse structurée.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+        consigne_ia = f"{protocole_rigueur}\n\nContexte : {extraits_doc}\nQuestion de l'utilisateur : {prompt}"
+        
+        if mode == "ipack": badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        elif mode == "examens": badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+        elif mode == "textes": badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+        else: badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
+        # Traitement automatique des tableaux (pour Santorin)
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'

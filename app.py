@@ -562,8 +562,18 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    requete_blindee = f"{prompt} fiche pédagogique EPS cycle 4 filetype:pdf"
-                    domains = ["eduscol.education.gouv.fr", "eps.ac-versailles.fr", "eps.ac-creteil.fr", "pedagogie.ac-aix-marseille.fr"]
+                    domaine_eps_france = [
+                        "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+                        "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
+                        "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
+                        "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
+                        "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
+                        "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
+                        "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
+                        "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
+                    ]
+                    requete_blindee = f"{prompt} EPS fiche pédagogique cycle 4 filetype:pdf"
+                    domains = domaine_eps_france
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
@@ -617,10 +627,11 @@ if prompt:
         elif mode == "peda":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
-                "MISSION : Tu parcours les sites académiques pour trouver des fiches pédagogiques prêtes à l'emploi.\n"
-                "RÈGLE D'OR : Si tu trouves un document (PDF/DOC), TU DOIS impérativement afficher le lien direct de téléchargement.\n"
+                "INSTRUCTION WEB : Utilise Tavily pour trouver des PDF académiques.\n"
+                "NE JAMAIS DIRE 'je ne peux pas naviguer'.\n"
+                "FORMAT LIENS : Pour chaque fiche, affiche le lien direct : [Télécharger la fiche](URL).\n"
                 "CANVA : 1. Compétences (Cycle 4), 2. Situation, 3. Indicateurs de réussite.\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                f"Contexte Web : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
         else:

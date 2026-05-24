@@ -69,6 +69,24 @@ PARTIE 7 : PROCÉDURE DE SAISIE DE L'INAPTITUDE ET CAS SPÉCIFIQUES IPACKEPS
 ======================================================================
 - PROCÉDURE SAISIE INAPTITUDE IPACKEPS : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 - BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.
+FICHE : Gestion de la levée d'inaptitude en cours de cycle
+Contexte : Levée d'inaptitude médicale annuelle par un nouveau certificat en cours de trimestre.
+
+Objectif : Régulariser le dossier sans risque de litige avec les jurys académiques (protection juridique).
+
+1. Procédure Technique (iPackEPS)
+→ Accès : Menu 'Gestion/Suivi des élèves' > Fiche élève > Onglet 'Inaptitudes'.
+→ Modification : Clôturer l'inaptitude annuelle en saisissant la date de fin effective.
+→ Saisie : Cliquer sur 'Saisir une inaptitude' (ou mise à jour certificat) pour indiquer la reprise.
+→ Dépôt : Scanner et téléverser le nouveau certificat médical.
+→ Vérification : S'assurer que les APSA sont bien réactivées pour l'élève.
+→ Enregistrement : Valider les modifications.
+
+2. Procédure "Sécurité Juridique" (Protection du prof)
+→ Traçabilité : Vérifier que la date de reprise sur le certificat médical coïncide strictement avec la date de saisie dans l'application.
+→ Information Coordonnateur : Si l'élève a manqué une épreuve certifiative (CCF), alerter immédiatement le coordonnateur EPS par écrit pour permettre une éventuelle épreuve de remplacement.
+→ Règle de sécurité : Pour les activités à environnement spécifique (APPN), accorder une vigilance renforcée lors de la première séance de reprise, en rappelant les consignes de sécurité à l'élève, et noter cet échange si nécessaire.
+→ Protection Fonctionnelle (Loi 1937) : En cas d'inaptitude levée, la responsabilité du professeur est engagée sur la capacité physique réelle de l'élève. En cas de doute sur la pratique, prioriser une adaptation de la charge de travail documentée dans le suivi de l'élève.
 ======================================================================
 NOUVEAUTÉS ET ÉVOLUTIONS DES MENUS IPACKEPS (MAJ 2024 - 2025)
 ======================================================================

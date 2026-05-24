@@ -626,10 +626,10 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
             consigne_ia = (
-                "RÈGLE N°1 : Réponds UNIQUEMENT sur le sujet de la question.\n"
-                "RÈGLE N°2 : Ne développe pas d'introduction ou de conclusion de courtoisie.\n"
-                "RÈGLE N°3 : Pour les liens, n'extrais que des fichiers réels (PDF) issus du 'Contexte Web'.\n"
-                "RÈGLE N°4 : Si aucun lien PDF n'est trouvé, affiche uniquement l'URL de la page académique source.\n"
+                "RÈGLE N°1 : Analyse la question pour identifier l'APSA et traite EXCLUSIVEMENT ce sujet.\n"
+                "RÈGLE N°2 : Aucune phrase de courtoisie. Va droit au but.\n"
+                "RÈGLE N°3 : Pour les liens, n'extrais que des fichiers réels (PDF) issus du 'Contexte Web'. N'invente jamais de lien.\n"
+                "RÈGLE N°4 : Si aucun PDF n'est trouvé, affiche uniquement l'URL source.\n"
                 "FORMAT DE SORTIE OBLIGATOIRE :\n"
                 "1. COMPÉTENCES : [Liste concise]\n"
                 "2. SITUATION : [Description technique]\n"

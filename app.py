@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (PERSONNALITÉ PARTENAIRE V12 + VIDÉO)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE : RÈGLES D'OR + TECHNIQUE + VIDÉO)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -558,7 +558,7 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr"]
                 elif mode == "ipack":
-                    requete_blindee = f"{prompt} iPackEPS guide utilisateur"
+                    requete_blindee = f"{prompt} iPackEPS guide utilisateur ajouter APSA"
                     domains = ["eps.ac-creteil.fr", "eps.ac-normandie.fr", "eps.ac-versailles.fr"]
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
@@ -584,22 +584,40 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (V12)
-        protocole_rigueur = (
-            "TON IDENTITÉ : Tu es un collaborateur IA expert, pédagogue et bienveillant, dédié à l'EPS. "
-            "TON TON : Chaleureux, précis et proactif. Tu anticipes les besoins de l'utilisateur. "
-            "DIRECTIVES JURIDIQUES (Ta Boussole) : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative. "
-            "RÈGLE DE RÉPONSE : Priorise les données locales. Si incomplet, croise avec les sources Web. "
-            "Si tu ne sais pas, dis-le avec franchise et propose une piste de recherche académique. "
-            "Sois fluide : tisse des liens, explique le contexte, ne te limite pas à une liste froide."
-        )
+        # 3. IDENTITÉ ET PERSONNALITÉ (V12 - RÈGLES D'OR CONSOLIDÉES)
+        règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         
-        consigne_ia = f"{protocole_rigueur}\n\nContexte : {extraits_doc}\nQuestion de l'utilisateur : {prompt}"
-        
-        if mode == "ipack": badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        elif mode == "examens": badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-        elif mode == "textes": badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
-        else: badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+        if mode == "ipack":
+            consigne_ia = (
+                f"{règles_or}\nTu es l'expert technique d'iPackEPS. "
+                "PROCÉDURE : Réponds par étapes fléchées (→). "
+                "DÉBLOCAGE APSA : 1. Menu 'Gestion des APSA'. 2. Création manuelle. 3. Si bouton grisé → Saisie des notes → Supprimer note (case vide) → Enregistrer → Retour fiche prof. "
+                "VIDÉO : Insère ce lien : https://www.youtube.com/watch?v=4mqx_sWqSbE "
+                f"\nDonnées : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        elif mode == "examens":
+            consigne_ia = (
+                f"{règles_or}\nTu es l'expert Santorin. "
+                "CANVA : Utilise un tableau [Acteur | Action | Conséquence]. "
+                "DIRECTIVE : Priorise la sécurité des données et les procédures de correction partagée."
+                f"\nDonnées : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+        elif mode == "textes":
+            consigne_ia = (
+                f"{règles_or}\nTu es l'expert juridique EPS (Protection fonctionnelle). "
+                "CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS."
+                f"\nDonnées : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+        else:
+            consigne_ia = (
+                f"{règles_or}\nTu es l'Expert Pédagogique EPS. "
+                "CANVA : Analyse structurée et concrète."
+                f"\nDonnées : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

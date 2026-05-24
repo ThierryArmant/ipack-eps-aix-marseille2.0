@@ -69,3 +69,18 @@ PARTIE 7 : PROCÉDURE DE SAISIE DE L'INAPTITUDE ET CAS SPÉCIFIQUES IPACKEPS
 ======================================================================
 - PROCÉDURE SAISIE INAPTITUDE IPACKEPS : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 - BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.
+======================================================================
+NOUVEAUTÉS ET ÉVOLUTIONS DES MENUS IPACKEPS (MAJ 2024 - 2025)
+======================================================================
+- IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS : Il est désormais possible d'importer directement les fichiers d'élèves issus de l'application École-Directe (pour le privé sous contrat) ou de Pronote. 
+  -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Élèves'.
+- DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT) : Le dépôt des différents projets de l'équipe ne se fait plus dans des menus dispersés, tout a été centralisé.
+  -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Projets'.
+- VISUALISATION DES RÉFÉRENTIELS ACADÉMIQUES : Pour consulter directement les référentiels et APSA spécifiques proposés par l'académie.
+  -> Chemin exact : Menu 'Dossiers' > 'Dossier CERTIFICATIF' > 'Référentiels'.
+- NOUVELLES FONCTIONS ENSEIGNANTS : Dans la fiche du professeur, de nouvelles fonctions officielles peuvent être déclarées (Référent haut-niveau, coordonnateur Sport-Études, référent CHAD, plan PHARE, EVARs).
+  -> Chemin exact : Menu 'Fiche Professeur' > 'Fonctions'.
+- VŒUX DE JURY CRPE : Les enseignants d'EPS peuvent désormais postuler pour être jury du concours de recrutement des professeurs des écoles (CRPE).
+  -> Chemin exact : Menu 'Fiche Professeur' > 'Vœux de Jury'.
+- ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS) : Les étudiants en stage de Master MEEF (STAPS) ou les accompagnateurs extérieurs peuvent désormais obtenir un accès de lecture ou d'écriture sur les classes si le chef d'établissement les valide dans le module d'administration.
+- DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données d'évaluation.

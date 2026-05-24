@@ -310,6 +310,36 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
   - Santorin - Accès à l’interface Santorin pour les Enseignants EPS : https://youtu.be/mhoOtTty3Pc?si=n6HSPwS3VIj4QJGC
   - Cyclades / Santorin : Gestion des élèves de Haut Niveau (SHN) :
 
+[SECTION: TUTORIELS_ET_LIENS_INTERFACE_CYCLADE]
+
+[SITUATION: RÉFÉRENTIEL_LIENS_YOUTUBE_CYCLADES_ET_SANTORIN]
+- Instruction : L'ensemble des médias officiels d'assistance :
+  - Verrouiller / déverrouiller les lots de notation après saisie des notes : https://youtu.be/a4sp4ULplCE?si=oY3MHt_HWWJtimLt
+  - Santorin - Consulter les statistiques : https://youtu.be/3ThO5nLNzJg?si=SCax7hPSGJzwsABJ
+  - Santorin : Extraire la liste des inaptes / dispensés : https://youtu.be/KooSwcy4gAA?si=J8ZeRPjgsFZFnEQy
+  - Santorin - Chef d’Établissement - Export du fichier de notes : https://youtu.be/KooSwcy4gAA?si=cvOj95d3GCthBR-e
+  - Dernières vérifications : S’assurer que tous les élèves présents sur Cyclades et Santorin ont bien été affectés à un protocole / lot de correction : https://youtu.be/Ap17Gn69ruU?si=GLXQ1uzM0kaKkELn
+  - [santorin] : gestion des [cas exceptionnels] (évaluation sur une seule ou 2 apsas) : https://youtu.be/hFLv_cAuq30?si=yAyHA0c3yvDx2bx9
+  - [Santorin] - Attribuer un 2° correcteur sur un lot de correction : https://youtu.be/fmMl82KkZt4?si=4gemwhiGn0lIjCtO
+  - gérer un élève arrivé en cours d’année dans l’établissement : https://youtu.be/YCLktNeYbPw?si=1C-nPD12FtajOFlo
+  - Cyclades - Créer en cours d’année sur Cyclades un nouveau protocole (ou affecter un élève sur un protocole particulier (adapté) en cours d’année) : https://youtu.be/57xZDq_vyDE?si=3ZLM1DF9TJAiuS72
+  - Cyclades / Santorin : Gestion des élèves de Haut Niveau (SHN)
+  - Santorin - Saisie des Notes : https://youtu.be/hFLv_cAuq30?si=Q984T3cA3D3uas1_
+  - Santorin - Accès à l’interface Santorin pour les Enseignants EPS : https://youtu.be/mhoOtTty3Pc?si=T0FxUSnqIM9IewG7
+  - Santorin - déplacer des éleves d’un lot de correction à un autre lot : https://youtu.be/WKbg51eUQVs?si=Jqs6fnhWJzds0209
+  - Santorin - Distribution des Lots de Correction : https://youtu.be/-EtWyhSzNlM?si=6HdXLwVzBUfpYaAo
+  - Cyclades - Contrôler/Réaffecter les protocoles des enseignants : https://youtu.be/ImAk9BcpiO4?si=UdXtkcgJb3NrW2IF ; https://youtu.be/fmMl82KkZt4?si=-DlP8yARxasyUL8w
+  - [SANTORIN] créer des missions d’évaluation pour chaque enseignant : https://youtu.be/0njoZigh_5w?si=SVyfB_yrjyau0WxE
+  - Cyclades - Vérification de l’affectation des élèves à leurs protocoles : https://youtu.be/YCLktNeYbPw?si=h3Op8Io05_CBBupt
+  - Connexion à l’interface Cyclades : https://youtu.be/YoOC_CdOQ_I?si=uz9At7FUMa26-Y5C
+  - [Dossiers]/[Dossier Certificatif]/[Cyclades] : Exporter les Groupes et Élèves vers Cyclades : https://youtu.be/4ZsuQi_YoMs?si=xl7Wi-btFNhKwBX-
+  - [Doc complet - Partie 2] Les saisies sur Cyclades / Santorin
+  - [Doc complet - Partie 1] Les étapes nécessaires pour que vos données iPackEPS soient transférées vers Cyclades
+  - [Dossiers]/[Dossier Certificatif]/[Cyclades] : Exporter les Groupes et Élèves vers Cyclades : https://youtu.be/4ZsuQi_YoMs?si=a1xiF9U3HK41NtFk
+  - Cyclades - Contrôler/Réaffecter les protocoles des enseignants : https://youtu.be/ImAk9BcpiO4?si=zEqfZmzkmfzplYaZ
+  - Santorin - Accès à l’interface Santorin pour les Enseignants EPS : https://youtu.be/mhoOtTty3Pc?si=n6HSPwS3VIj4QJGC
+  - Cyclades / Santorin : Gestion des élèves de Haut Niveau (SHN) :
+
 
 [SECTION: TUTORIELS_ET_LIENS_INTERFACE_IPACK]
 
@@ -327,7 +357,7 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
   - [MesDocuments]/[Documents] Enregistrement et Impression de documents : https://youtu.be/zdpARu52Rxc?si=d8WYeslLYQJ006AD
   - [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement : https://youtu.be/g1PAzRq4Dh0?si=dDdRMEO7F-3g2bfz
   - [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves : https://youtu.be/34w4Z6dd1dM?si=WrjrkoqaBrzaZkcY
-  - [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNA : https://youtu.be/xlXcb8Z5ZQU?si=9-MEQaRPxgZ8hW-Q
+  - [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNA : https://youtu.be/xlXcb8Z5QU?si=9-MEQaRPxgZ8hW-Q
   - [Mes Élèves]/[Visualisation] Visualisation des informations élèves (parcours scolaire, savoir-nager, dispenses) : https://youtu.be/4tjPIbnhzDU?si=vtAqdGBJeNaPWNb0
   - [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études : https://youtu.be/AEXIn3d6K6U?si=CW8LNMfTAoEqWYbu
   - [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique : https://youtu.be/RUlrS0a1YA0?si=yOldcLrfeCPSlsd0
@@ -335,7 +365,7 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
   - [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire : https://youtu.be/iH54YEF_2XY?si=SZJ6BT4cw-AfkFfx
   - [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire: https://youtu.be/FUJzYLskCGQ?si=nR3_z_xJ9awLee9g
   - [Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires : https://youtu.be/1EothsjU1Kc?si=23GGoKm6q76a13AS
-  - [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation : 1jpda8iu7713eec3c4a
+  - [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation : https://youtu.be/tcuNAUFzI8w
   - [Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation : https://youtu.be/tcuNAUFzI8w?si=e-TYTEAu44_Qsyzr
   - [Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression : https://youtu.be/JmhwQNyagOI?si=jxJCwTCuplGHdY3Y
   - [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique : https://youtu.be/ToTBgO_nMAI?si=wIdfVI1BmwjrCMNA
@@ -361,9 +391,9 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
   - [Fiche Professeur] Renseigner sa Fiche Professeur : https://youtu.be/WoTtGxzawAI?si=nU8j4_663irHsOZo
   - [Établissement] Configuration de la Fiche Établissement : https://youtu.be/-Ka0fNtMLBk?si=XyfWcyUkbKtonwKq
   - Tableau de bord iPackEPS : https://youtu.be/HtFmE-6rCl4?si=Qk_olyjEZjwzVwei
-  - Choix de l’année scolaire : 1jpdb6fvldf84679998
-  - Sélection de votre établissement : 1jpdb74j98bf68de973
-  - Page d’accueil des modules : 1jpdb7j8u7358776156
+  - Choix de l’année scolaire : https://youtu.be/HtFmE-6rCl4
+  - Sélection de votre établissement : https://youtu.be/HtFmE-6rCl4
+  - Page d’accueil des modules : https://youtu.be/HtFmE-6rCl4
   - Connexion à iPackEPS via votre portail ARENA : https://youtu.be/b29_2hEqzoU?si=Ysu2MGqPl1JGrD6B ; https://youtu.be/AhczBJAXG24?si=9T3nwHd5P3F9BytO
 
 • Quel est l’intérêt de l’outil Ipack EPS ?

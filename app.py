@@ -574,7 +574,8 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    requete_blindee = f"{prompt} EPS fiche pédagogique évaluation filetype:pdf OR site:ac-creteil.fr OR site:eduscol.education.fr"
+                    # PROTECTION EXPERTE : Extension de la recherche de PDF à l'ensemble des 30 académies
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
@@ -626,11 +627,19 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir les fichiers originaux.
-1. EXTRACTION : Liste les liens réels vers des fichiers PDF ou ressources téléchargeables trouvés dans le 'Contexte Web' ou ta 'Base locale'.
-2. FORMAT : Affiche les liens sous la forme : "📥 Télécharger : [Nom du document](URL)".
-3. GÉNÉRATION : Si aucun fichier n'est trouvé, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation).
-RÈGLE : Sois direct, le lien de téléchargement doit être en priorité.
+            # CONFIGURATION DOUBLE ACTION (EXTRACTION 30 ACADÉMIES + GÉNÉRATION DE SÉCURITÉ)
+            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
+
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable structurée ainsi :
+   - COMPÉTENCES (Cycle 4)
+   - ANALYSE DIDACTIQUE (Savoirs, logique de l'activité)
+   - ANALYSE PÉDAGOGIQUE (Gestion, climat)
+   - SITUATION TECHNIQUE DIRECTE (Mise en œuvre sur le terrain)
+   - INDICATEURS DE RÉUSSITE (Points chiffrés précis)
+   - ÉVALUATION (Grille d'évaluation simple)
+
+RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
 
 Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"

@@ -153,7 +153,7 @@ css_pur = """
     /* Barres d'informations Supérieures et Inférieures */
     .column-title-top { 
         color: #FFFFFF; 
-                text-align: center; 
+        text-align: center; 
         margin-bottom: 12px !important; 
         background-color: #1E293B; 
         border-radius: 6px !important; 
@@ -191,25 +191,35 @@ css_pur = """
         box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }
     
-    /* Boutons Inactifs */
+    /* Boutons Inactifs - Réajustés pour compacité et alignement parfait */
     button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
         border: 1px solid rgba(255,255,255,0.05) !important; 
         border-radius: 8px !important; 
-        font-size: 13px !important; 
-        padding: 12px 10px !important;
+        font-size: 12px !important; 
+        padding: 0px 4px !important;
+        height: 44px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
         transition: all 0.3s ease;
     }
 
-    /* Boutons Actifs */
+    /* Boutons Actifs - Réajustés pour compacité et alignement parfait */
     button[kind="primary"] {
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
         border: 1px solid #10B981 !important;
         border-radius: 8px !important; 
-        font-size: 13px !important; 
-                padding: 12px 10px !important;
+        font-size: 12px !important; 
+        padding: 0px 4px !important;
+        height: 44px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
     }
@@ -456,7 +466,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
+# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES (TEXTES NETTOYÉS ET PARFAITEMENT SANS RETOUR)
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -467,19 +477,19 @@ with col_b1:
         st.rerun()
 
 with col_b2:
-    if st.button("Examens\n& Santorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
+    if st.button("📊 Examens & Santorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
         st.session_state.active_module = "examens"
         st.session_state.messages_hub = []
         st.rerun()
 
 with col_b3:
-    if st.button("🔍 Pédagogie &\nDidactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "peda" else "secondary"):
+    if st.button("🔍 Pédagogie & Didactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "peda" else "secondary"):
         st.session_state.active_module = "peda"
         st.session_state.messages_hub = []
         st.rerun()
 
 with col_b4:
-    if st.button("Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "textes" else "secondary"):
+    if st.button("🔒 Sécurité & Réglementation", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "textes" else "secondary"):
         st.session_state.active_module = "textes"
         st.session_state.messages_hub = []
         st.rerun()

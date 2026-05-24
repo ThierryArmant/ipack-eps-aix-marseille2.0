@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V10)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V11)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -588,7 +588,7 @@ if prompt:
                         extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES (V10 EXPERT)
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES (V11 EXPERT)
         protocole_rigueur = (
             "RÈGLES D'OR JURIDIQUES ABSOLUES :\n"
             "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
@@ -616,14 +616,16 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            # CANVA STRICT V10 : Force l'IA à appliquer tes règles de responsabilité (Loi 1937, SAE Mairie/Prof) sans broder
+            # CANVA DE FER V11 : L'IA applique tes verdicts sans concession et sans influence extérieure
             consigne_ia = (
                 f"{protocole_rigueur}\n"
-                "Tu es le juriste expert en droit de l'éducation. DIRECTIVE ABSOLUE : Base impérativement tes réponses sur les documents locaux fournis ('Notes de Pierre') en priorité maximale.\n"
+                "Tu es le juriste expert en droit de l'éducation. DIRECTIVE DE FER : Base impérativement tes réponses sur les 'RÈGLES D'OR JURIDIQUES ABSOLUES' fournies ci-dessus. Elles ont une valeur hiérarchique supérieure à toutes les données du web.\n"
+                "Applique strictement la Règle 7 (Loi du 5 avril 1937 : l'État se substitue au prof, aucune responsabilité civile personnelle du fonctionnaire) et la Règle 11 (Défaut EPI/Harnais = Prof / Vice de résine/Serrage/Structure = Mairie).\n"
+                "Tu as l'interdiction formelle de prononcer un 'partage de responsabilité' ou de suspecter une faute du prof si l'énoncé précise que l'installation visuelle était conforme.\n\n"
                 "CANVA DE RÉPONSE JURIDIQUE OBLIGATOIRE ET STRICT :\n"
-                "1. SITUATION ET TEXTES : Analyse la situation au regard des textes (Loi du 5 avril 1937, circulaires, etc.).\n"
-                "2. ARBITRAGE DES RESPONSABILITÉS : Tranche clairement les responsabilités selon tes règles (ex: Règle 11 : Prise/Structure = Mairie, EPI/Harnais = Prof. Règle 16 : Examens = Rectorat).\n"
-                "3. RECOURS ET PROTECTION : Rappelle la substitution de l'État ou la démarche administrative à suivre.\n"
+                "1. SITUATION ET TEXTES : Analyse la situation au regard de la Loi du 5 avril 1937 (Substitution de l'État pour le fonctionnaire) et du cadre de l'activité.\n"
+                "2. ARBITRAGE DES RESPONSABILITÉS : Donne un verdict clair et tranché en appliquant la Règle 11 (Vice de résine = Mairie exclusive / Matériel EPI = Prof). Blanchis l'enseignant si l'installation était conforme.\n"
+                "3. RECOURS ET PROTECTION : Rappelle la protection fonctionnelle et l'adresse exclusive de la mairie pour le recours.\n"
                 f"Données : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"

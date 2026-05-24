@@ -84,3 +84,33 @@ NOUVEAUTÉS ET ÉVOLUTIONS DES MENUS IPACKEPS (MAJ 2024 - 2025)
   -> Chemin exact : Menu 'Fiche Professeur' > 'Vœux de Jury'.
 - ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS) : Les étudiants en stage de Master MEEF (STAPS) ou les accompagnateurs extérieurs peuvent désormais obtenir un accès de lecture ou d'écriture sur les classes si le chef d'établissement les valide dans le module d'administration.
 - DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données d'évaluation.
+======================================================================
+Markdown reponse tableau
+======================================================================
+<table style="width:100%; border-collapse: collapse; margin-top: 15px; font-family: Arial, sans-serif;">
+    <tr style="background-color: #f2f2f2; border-bottom: 2px solid #ccc;">
+        <th style="padding: 10px; text-align: left; font-weight: bold;">Acteur concerné</th>
+        <th style="padding: 10px; text-align: left; font-weight: bold;">🛠️ Action et Chemin Exact (iPackEPS)</th>
+        <th style="padding: 10px; text-align: left; font-weight: bold;">⚖️ Conséquence Juridique / Note</th>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px;"><b>Enseignant</b></td>
+        <td style="padding: 10px;">Menu <i>Gestion/Suivi des élèves</i> &gt; <i>Fiche élève</i> &gt; bouton <b>Saisir une inaptitude</b>.<br><small style="color:red;">⚠️ Ne jamais taper 'IN' ou 'DI' à la main.</small></td>
+        <td style="padding: 10px;"><b>Neutralisation</b> de l'épreuve (le coefficient est annulé).</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee; background-color: #fafafa;">
+        <td style="padding: 10px;"><b>Enseignant</b> <i>(Bug)</i></td>
+        <td style="padding: 10px;">Si le bouton de modification est grisé : aller dans <i>Saisie des notes</i>, <b>effacer la note</b> pour vider la case, puis enregistrer.</td>
+        <td style="padding: 10px;">Déblocage informatique instantané du bouton de modification.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px;"><b>Élève</b></td>
+        <td style="padding: 10px;">Présenter un certificat médical d'inaptitude valide à l'enseignant.</td>
+        <td style="padding: 10px;"><b>Justifié</b> = Neutralisation.<br><b>Injustifié</b> = 0/20 au Bac (Cyclades).</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee; background-color: #fafafa;">
+        <td style="padding: 10px;"><b>Jury / Équipe</b></td>
+        <td style="padding: 10px;">Si blessure en cours d'année et <b>une seule note</b> au CCF au lieu de deux (calcul bloqué).</td>
+        <td style="padding: 10px;">Transmission manuelle du dossier au <b>Jury Académique via Cyclades</b>.</td>
+    </tr>
+</table>

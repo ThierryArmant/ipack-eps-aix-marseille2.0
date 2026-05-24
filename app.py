@@ -23,7 +23,7 @@ st.set_page_config(
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
-    st.session_state.active_module = "general"  
+    st.session_state.active_module = "peda"  
 
 def incrementer_et_obtenir_visites():
     fichier_compteur = "compteur_visites.txt"
@@ -437,13 +437,13 @@ st.markdown(f"""
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
-    "general": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
+    "peda": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
     "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 # Initialisation par sécurité si active_module n'existe pas
 if "active_module" not in st.session_state:
-    st.session_state.active_module = "general"
+    st.session_state.active_module = "peda"
 
 # Utilisation de .get() pour éviter le plantage si la clé n'est pas dans le dictionnaire
 titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques")
@@ -473,8 +473,8 @@ with col_b2:
         st.rerun()
 
 with col_b3:
-    if st.button("🔍 Pédagogie &\nDidactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "general" else "secondary"):
-        st.session_state.active_module = "general"
+    if st.button("🔍 Pédagogie &\nDidactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "peda" else "secondary"):
+        st.session_state.active_module = "peda"
         st.session_state.messages_hub = []
         st.rerun()
 
@@ -496,7 +496,7 @@ if st.session_state.active_module == "textes":
     </div>
     """, unsafe_allow_html=True)
 
-elif st.session_state.active_module == "general":
+elif st.session_state.active_module == "peda":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">

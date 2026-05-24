@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V14 - FILTRE PIERRE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V16 - FILTRE PIERRE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -594,28 +594,60 @@ if prompt:
         )
         
         if mode == "ipack":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
+                "CONSIGNE SÉCURITÉ : Si un créneau contient des notes, NE JAMAIS FORCER LA SUPPRESSION (risque de corruption). "
+                "Procédure : Fusionner le créneau ou ajuster les dates. "
+                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
+                "CANVA : Utilise un tableau [Acteur | Action | Conséquence]. "
+                "DIRECTIVE : Priorise la sécurité des données et les procédures de correction partagée."
+                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS (Protection fonctionnelle).\n"
+                "CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS."
+                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
+                "CANVA : Analyse structurée et concrète, focus sur la réussite des élèves."
+                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Traitement tableaux & Détection vidéo
+        # Traitement automatique des tableaux
         if "|" in texte_brut and "---" in texte_brut:
-            # ... (logique de traitement tableau inchangée pour préserver l'affichage)
-            pass 
-            
+            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
+            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
+            est_entete = True
+            for ligne in lignes:
+                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
+                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
+                    html_table += "<tr>"
+                    for cell in cells:
+                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
+                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
+                    html_table += "</tr>"
+                    est_entete = False
+            html_table += "</table>"
+            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
+
+        # Détection vidéo
         youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})

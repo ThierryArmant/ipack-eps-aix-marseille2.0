@@ -300,6 +300,13 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
+# Fonction pour obtenir la date de modification du fichier pour vider le cache automatiquement s'il change
+def obtenir_cle_fichier():
+    chemin = "gere_par_pierre.txt"
+    if os.path.exists(chemin):
+        return os.path.getmtime(chemin)
+    return 0.0
+
 # Lecture dynamique sans cache pour prendre en compte tes modifs immédiatement
 def charger_consignes_pierre():
     chemin = "gere_par_pierre.txt"
@@ -313,7 +320,8 @@ def charger_consignes_pierre():
     return []
 
 # BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
-def initialiser_base_santorin():
+@st.cache_resource
+def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
@@ -353,7 +361,8 @@ def initialiser_base_santorin():
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
-def initialiser_base_ipack():
+@st.cache_resource
+def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
@@ -373,7 +382,7 @@ def initialiser_base_ipack():
         ),
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
-            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
+            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure is de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
             2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
@@ -383,7 +392,8 @@ def initialiser_base_ipack():
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
-def initialiser_base_textes():
+@st.cache_resource
+def initialiser_base_textes(cle_fremt):
     docs_textes = [
         Document(
             text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
@@ -393,10 +403,11 @@ def initialiser_base_textes():
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Génération dynamique des retrievers à chaque rafraîchissement
-retriever_santorin = initialiser_base_santorin()
-retriever_ipack = initialiser_base_ipack()
-retriever_textes = initialiser_base_textes()
+# Initialisation sécurisée par le cache avec surveillance du fichier de Pierre
+timestamp_fichier = obtenir_cle_fichier()
+retriever_santorin = initialiser_base_santorin(timestamp_fichier)
+retriever_ipack = initialiser_base_ipack(timestamp_fichier)
+retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET

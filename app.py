@@ -628,6 +628,9 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
+        # Extraction vidéo AVANT toute transformation
+        youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        
         # Traitement automatique des tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
@@ -645,9 +648,6 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
-        # Détection vidéo
-        youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-        
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})

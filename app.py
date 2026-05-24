@@ -300,8 +300,7 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Fonction de lecture sécurisée pour les notes de Pierre
-@st.cache_resource
+# Lecture dynamique sans cache pour prendre en compte tes modifs immédiatement
 def charger_consignes_pierre():
     chemin = "gere_par_pierre.txt"
     if os.path.exists(chemin):
@@ -314,7 +313,6 @@ def charger_consignes_pierre():
     return []
 
 # BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
-@st.cache_resource
 def initialiser_base_santorin():
     docs_santorin = [
         Document(
@@ -337,7 +335,7 @@ def initialiser_base_santorin():
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -351,13 +349,10 @@ def initialiser_base_santorin():
             metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
         )
     ]
-    # Intégration des notes de Pierre
     docs_santorin.extend(charger_consignes_pierre())
-    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
-@st.cache_resource
 def initialiser_base_ipack():
     docs_ipack = [
         Document(
@@ -384,13 +379,10 @@ def initialiser_base_ipack():
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
     ]
-    # Intégration des notes de Pierre
     docs_ipack.extend(charger_consignes_pierre())
-    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
-@st.cache_resource
 def initialiser_base_textes():
     docs_textes = [
         Document(
@@ -398,12 +390,10 @@ def initialiser_base_textes():
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
         )
     ]
-    # Intégration des notes de Pierre dans la base Textes également
     docs_textes.extend(charger_consignes_pierre())
-    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation finale des trois retrievers distincts avec top_k optimisé
+# Génération dynamique des retrievers à chaque rafraîchissement
 retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 retriever_textes = initialiser_base_textes()

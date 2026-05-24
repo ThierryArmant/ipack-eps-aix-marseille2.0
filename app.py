@@ -560,6 +560,10 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
+        # Détection automatique des demandes de fiches terrain
+        mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
+        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
+        
         # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
@@ -574,12 +578,16 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    # PROTECTION EXPERTE : Extension de la recherche de PDF à l'ensemble des 30 académies
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 else:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = ["eduscol.education.gouv.fr", "unss.org"]
+                    # Si mode général par défaut mais qu'on détecte une recherche de fiche
+                    if est_demande_fiche:
+                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                        domains = domaine_eps_france
+                    else:
+                        requete_blindee = f"{prompt} EPS programme officiel"
+                        domains = ["eduscol.education.gouv.fr", "unss.org"]
                 
                 payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
                 if mode == "ipack": payload["exclude_domains"] = exclude
@@ -601,6 +609,11 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                else:
+                    if est_demande_fiche:
+                        try:
+                            for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                        except: pass
             except: pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
@@ -627,25 +640,27 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
-            # CONFIGURATION DOUBLE ACTION (EXTRACTION 30 ACADÉMIES + GÉNÉRATION DE SÉCURITÉ)
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
-
 1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable structurée ainsi :
-   - COMPÉTENCES (Cycle 4)
-   - ANALYSE DIDACTIQUE (Savoirs, logique de l'activité)
-   - ANALYSE PÉDAGOGIQUE (Gestion, climat)
-   - SITUATION TECHNIQUE DIRECTE (Mise en œuvre sur le terrain)
-   - INDICATEURS DE RÉUSSITE (Points chiffrés précis)
-   - ÉVALUATION (Grille d'évaluation simple)
-
+2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
 RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
 
 Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+            # SÉCURITÉ INTENTIONS DANS LE MODE GÉNÉRAL : Si recherche de fiche terrain, on bascule en Chasseur de ressources !
+            if est_demande_fiche:
+                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
+RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
+
+Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
+                badge = "🔍 CHASSEUR DE RESSOURCES"
+            else:
+                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
+            color_card = "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

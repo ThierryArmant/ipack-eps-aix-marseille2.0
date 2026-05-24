@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V11)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V12 - HIÉRARCHIQUE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -541,155 +541,83 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Recherche de textes officiels et vérification automatique des jurisprudences..."):
+    with st.spinner("Recherche et croisement des sources officielles..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB AVEC EXTENSION EXTENSIVE AUX ARRÊTS ET JURISPRUDENCES
+        # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune partage faute surveillance administrative EPS Conseil d Etat"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "circulaires.gouv.fr"]
+                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
                 elif mode == "examens":
-                    requete_blindee = f"{prompt} réglementation officielle examen circulaire décret"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "pedagogie.ac-aix-marseille.fr"]
-                elif mode == "general":
-                    requete_blindee = f"{prompt} EPS programme officiel accompagnement pédagogique"
-                    domains = ["unss.org", "eduscol.education.gouv.fr", "reseau-canope.fr", "pedagogie.ac-aix-marseille.fr"]
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr"]
+                elif mode == "ipack":
+                    requete_blindee = f"{prompt} iPackEPS guide utilisateur"
+                    domains = ["eps.ac-creteil.fr", "eps.ac-normandie.fr", "eps.ac-versailles.fr"]
                 else:
-                    requete_blindee = f"{prompt}"
-                    domains = ["eduscol.education.gouv.fr"]
+                    requete_blindee = f"{prompt} EPS programme officiel"
+                    domains = ["eduscol.education.gouv.fr", "unss.org"]
                 
                 res = requests.post("https://api.tavily.com/search", json={
-                    "api_key": tavily_api_key, 
-                    "query": requete_blindee, 
-                    "search_depth": "advanced", 
-                    "include_domains": domains
+                    "api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains
                 }, timeout=15)
                 
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
-                        extraits_doc += f"Source Officielle ({item['title']}): {item['content']}\n\n"
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (Data/ & gere_par_pierre.txt via la Section 4)
+        # 2. CONTEXTE LOCAL
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): 
-                        extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): 
-                        extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    # BRANCHEMENT DE L'ONGLET SÉCURITÉ SUR LE RETRIEVER RÉGLEMENTAIRE LOCAL
-                    for n in retriever_textes.retrieve(prompt): 
-                        extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES (V11 EXPERT)
-        protocole_rigueur = (
-            "RÈGLES D'OR JURIDIQUES ABSOLUES :\n"
-            "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
-            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil.\n"
-            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif. Elle prime sur toute convenance personnelle.\n"
-            "4. RÈGLE APPN : L'autonomie des groupes est LÉGALE (Circulaire APPN n° 2017-075) si elle est intégrée à un projet pédagogique.\n"
-            "5. RÈGLE VÉHICULE PERSONNEL : Transport exceptionnel (Circulaire n° 86-101) : Autorisation écrite du chef d'établissement ET assurance pro obligatoires.\n"
-            "6. RÈGLE SURVEILLANCE AS : Présence physique d'un adulte qualifié obligatoire.\n"
-            "7. RÈGLE RESPONSABILITÉ CIVILE : L'État se substitue à l'enseignant (Loi du 5 avril 1937).\n"
-            "8. DIRECTIVE DE COMPORTEMENT : Interdiction absolue d'inventer des taux d'encadrement.\n"
-            "9. CLOISONNEMENT DES JURIDICTIONS : Ne mélange jamais faute pénale (individu) et responsabilité administrative (commune/État).\n"
-            "10. JURISPRUDENCE ACCIDENTS : La parade par un élève est une délégation de sécurité (Cour de cassation, 12 octobre 1999).\n"
-            "11. SAE MUNICIPALE : Défaut EPI = Prof / Vice de résine = Mairie.\n"
-            "12. CONVOCATIONS : La non-présentation est un abandon de poste.\n"
-            "13. INAPTITUDE BAC : Neutralisation du coefficient. Pas de note, pas de mention.\n"
-            "14. ACCIDENTS FORTUITS : Choc instantané en jeu = pas de faute caractérisée.\n"
-            "15. DÉPLACEMENTS LYCÉE : Trajet domicile-établissement (Circulaire n°96-248). Prof non responsable.\n"
-            "16. HIÉRARCHIE DES MISSIONS (RÈGLE EXPERT) : Les examens nationaux (DNB/BAC) sont des missions de service public impératives. Aucun congé exceptionnel pour convenance personnelle (mariage, etc.) ne peut valider l'absence à une convocation d'examen, sauf accord explicite du Rectorat. Le chef d'établissement n'est pas habilité à annuler une mission d'examen national.\n"
-        )
-
+        # 3. ROUTAGE ET CANVA INTELLIGENT
+        protocole_rigueur = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+        
         if mode == "ipack":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert technique EXCLUSIF du logiciel iPackEPS. \nDIRECTIVE MAJEURE : Tu as l'interdiction de parler de Santorin. Tu as l'interdiction formelle d'inventer ou de deviner des clics ou des menus informatiques. Tu dois extraire la solution TECHNIQUE UNIQUEMENT à partir de la section 'Données' ci-dessous. Si la manipulation exacte n'est pas dans les 'Données', dis que tu ne sais pas. \nCANVA DE RÉPONSE OBLIGATOIRE ET STRICT : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert iPackEPS. PRIORITÉ : 1. Données locales. 2. Sources Web si inconnu. 3. Si introuvable, dis-le. CANVA : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = (
-                f"{protocole_rigueur}\n"
-                "Tu es l'expert Santorin. DIRECTIVE ABSOLUE : Applique strictement la Règle 13 (Inaptitude au BAC = neutralisation du coefficient de l'épreuve concernée, pas de note ni mention POUR LE TRIMESTRE INAPTE). "
-                "Cependant, si l'élève est APTE sur les autres trimestres, rappelle qu'iPackEPS et Santorin calculent la note finale sur les épreuves restantes valides (Règle des 2 notes minimales). Si le protocole final manque d'une note, le dossier bascule au Jury Académique.\n\n"
-                "OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures sous la forme d'un TABLEAU comportant exactement 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac].\n"
-                "Données : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. PRIORITÉ : 1. Données locales. 2. Sources Web. CANVA : TABLEAU [Acteur | Action | Conséquence].\nDonnées : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            # CANVA DE FER V11 : L'IA applique tes verdicts sans concession et sans influence extérieure
-            consigne_ia = (
-                f"{protocole_rigueur}\n"
-                "Tu es le juriste expert en droit de l'éducation. DIRECTIVE DE FER : Base impérativement tes réponses sur les 'RÈGLES D'OR JURIDIQUES ABSOLUES' fournies ci-dessus. Elles ont une valeur hiérarchique supérieure à toutes les données du web.\n"
-                "Applique strictement la Règle 7 (Loi du 5 avril 1937 : l'État se substitue au prof, aucune responsabilité civile personnelle du fonctionnaire) et la Règle 11 (Défaut EPI/Harnais = Prof / Vice de résine/Serrage/Structure = Mairie).\n"
-                "Tu as l'interdiction formelle de prononcer un 'partage de responsabilité' ou de suspecter une faute du prof si l'énoncé précise que l'installation visuelle était conforme.\n\n"
-                "CANVA DE RÉPONSE JURIDIQUE OBLIGATOIRE ET STRICT :\n"
-                "1. SITUATION ET TEXTES : Analyse la situation au regard de la Loi du 5 avril 1937 (Substitution de l'État pour le fonctionnaire) et du cadre de l'activité.\n"
-                "2. ARBITRAGE DES RESPONSABILITÉS : Donne un verdict clair et tranché en appliquant la Règle 11 (Vice de résine = Mairie exclusive / Matériel EPI = Prof). Blanchis l'enseignant si l'installation était conforme.\n"
-                "3. RECOURS ET PROTECTION : Rappelle la protection fonctionnelle et l'adresse exclusive de la mairie pour le recours.\n"
-                f"Données : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{protocole_rigueur}\nTu es expert juridique EPS. PRIORITÉ : 1. 'Notes de Pierre'. 2. Sources Web. INTERDICTION : Ne jamais inventer de partage de responsabilité. CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
-        else: # Mode General
-            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+        else:
+            consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. Croise Données et Web. CANVA : Analyse structurée.\nDonnées : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
-        # 4. EXÉCUTION
+        # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # --- CONFIGURATION ET STYLISATION DYNAMIQUE DES TABLEAUX ---
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
-            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 12px rgba(0,0,0,0.3);">'
-            
+            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
             est_entete = True
             for ligne in lignes:
                 if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
-                    cellules = [c.strip() for c in ligne.split("|")[1:-1]]
+                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
                     html_table += "<tr>"
-                    for cellule in cellules:
-                        if est_entete:
-                            html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 12px 10px; text-align: left; font-weight: 700; font-size: 14px; border: none;">{cellule}</th>'
-                        else:
-                            html_table += f'<td style="padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px; vertical-align: top;">{cellule}</td>'
+                    for cell in cells:
+                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
+                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
                     html_table += "</tr>"
-                    if est_entete:
-                        est_entete = False
+                    est_entete = False
             html_table += "</table>"
-            
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
-        # --- TRAITEMENT DU TEXTE ET DES LIENS HTML ---
-        texte_html = texte_brut
-        texte_html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_html)
-        texte_html = re.sub(r'###\s+(.*)', r'<h3>\1</h3>', texte_html)
-        texte_html = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', texte_html)
-        
-        # Détection et intégration des adresses emails brutes en liens mailto
-        pattern_email = r'(<a[^>]*>.*?</a>)|(<[^>]+>)|\b([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})\b'
-        def developper_lien_email(m):
-            if m.group(1): return m.group(1)
-            if m.group(2): return m.group(2)
-            email = m.group(3)
-            return f'<a href="mailto:{email}">{email}</a>'
-        texte_html = re.sub(pattern_email, developper_lien_email, texte_html)
-        
-        # Saut de ligne sécurisé préservant les structures de tableaux complexes
-        if "</table>" not in texte_html:
-            texte_html = texte_html.replace(chr(10), "<br>")
-        else:
-            parties = texte_html.split("</table>")
-            parties[0] = parties[0].replace(chr(10), "<br>") if "<table>" not in parties[0] else parties[0]
-            if len(parties) > 1:
-                parties[1] = parties[1].replace(chr(10), "<br>")
-            texte_html = "</table>".join(parties)
-        
+        texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         st.rerun()

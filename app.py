@@ -574,8 +574,8 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    # Requête orientée extraction documentaire
-                    requete_blindee = f"{prompt} EPS fiche pédagogique évaluation PDF"
+                    # Recherche ciblée sur les fichiers pour maximiser le résultat
+                    requete_blindee = f"{prompt} EPS fiche pédagogique évaluation filetype:pdf OR site:ac-creteil.fr OR site:eduscol.education.fr"
                     domains = domaine_eps_france
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
@@ -600,7 +600,8 @@ if prompt:
                 elif mode == "textes":
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Référentiel Pédagogique EPS : {n.node.text}\n\n"
+                    # Récupération de TES documents personnels (ta base de fiches)
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
@@ -628,12 +629,14 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
             consigne_ia = (
-                "Tu es un documentaliste EPS. Ta mission est d'extraire des liens réels vers des documents PDF et fiches d'évaluation.\n"
-                "1. Liste les documents trouvés dans le 'Contexte Web'.\n"
-                "2. Si des liens PDF/URL sont présents, affiche-les clairement.\n"
-                "3. Si tu ne trouves pas de lien direct, indique le site académique source exact.\n"
-                "4. N'invente pas de fiches, sois un outil d'accès aux sources officielles.\n"
-                f"Contexte Web (Liens trouvés) : {extraits_doc}\nQuestion de l'enseignant : {prompt}"
+                "MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir des documents concrets.\n"
+                "1. EXTRACTION : Affiche tous les liens PDF et ressources trouvés dans le 'Contexte Web' ou ta 'Base locale'.\n"
+                "2. GÉNÉRATION : Si tu n'as pas de fichier, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation) 
+
+[Image of X]
+.\n"
+                "RÈGLE : Sois direct et exploitable. Utilise les éléments du contexte fournis.\n"
+                f"Contexte Web et Base locale : {extraits_doc}\nQuestion de l'enseignant : {prompt}"
             )
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:

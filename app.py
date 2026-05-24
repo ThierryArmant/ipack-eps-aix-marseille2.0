@@ -613,7 +613,12 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert technique EXCLUSIF du logiciel iPackEPS. \nDIRECTIVE MAJEURE : Tu as l'interdiction de parler de Santorin. Tu as l'interdiction formelle d'inventer ou de deviner des clics ou des menus informatiques. Tu dois extraire la solution TECHNIQUE UNIQUEMENT à partir de la section 'Données' ci-dessous. Si la manipulation exacte n'est pas dans les 'Données', dis que tu ne sais pas. \nCANVA DE RÉPONSE OBLIGATOIRE ET STRICT : 1. ANALYSE, 2. ACTION, 3. SOURCE, 4. CONTACT. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{protocole_rigueur}\n"
+                "Tu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées.\n"
+                "OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac].\n"
+                "Données : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
             # CANVA DE FER V11 : L'IA applique tes verdicts sans concession et sans influence extérieure
@@ -635,14 +640,37 @@ if prompt:
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
+        texte_brut = response.text
         
-        # Conversion du texte Markdown brut en éléments HTML cliquables et structurés avant l'injection
-        texte_html = response.text
+        # --- CONFIGURATION ET STYLISATION DYNAMIQUE DES TABLEAUX ---
+        if "|" in texte_brut and "---" in texte_brut:
+            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
+            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 12px rgba(0,0,0,0.3);">'
+            
+            est_entete = True
+            for ligne in lignes:
+                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
+                    cellules = [c.strip() for c in ligne.split("|")[1:-1]]
+                    html_table += "<tr>"
+                    for cellule in cellules:
+                        if est_entete:
+                            html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 12px 10px; text-align: left; font-weight: 700; font-size: 14px; border: none;">{cellule}</th>'
+                        else:
+                            html_table += f'<td style="padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px; vertical-align: top;">{cellule}</td>'
+                    html_table += "</tr>"
+                    if est_entete:
+                        est_entete = False
+            html_table += "</table>"
+            
+            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
+
+        # --- TRAITEMENT DU TEXTE ET DES LIENS HTML ---
+        texte_html = texte_brut
         texte_html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_html)
         texte_html = re.sub(r'###\s+(.*)', r'<h3>\1</h3>', texte_html)
         texte_html = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', texte_html)
         
-        # DETECTION ET INTEGRATION DES ADRESSES EMAILS BRUTES EN LIENS MAILTO
+        # Détection et intégration des adresses emails brutes en liens mailto
         pattern_email = r'(<a[^>]*>.*?</a>)|(<[^>]+>)|\b([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})\b'
         def developper_lien_email(m):
             if m.group(1): return m.group(1)
@@ -651,7 +679,15 @@ if prompt:
             return f'<a href="mailto:{email}">{email}</a>'
         texte_html = re.sub(pattern_email, developper_lien_email, texte_html)
         
-        texte_html = texte_html.replace(chr(10), "<br>")
+        # Saut de ligne sécurisé préservant les structures de tableaux complexes
+        if "</table>" not in texte_html:
+            texte_html = texte_html.replace(chr(10), "<br>")
+        else:
+            parties = texte_html.split("</table>")
+            parties[0] = parties[0].replace(chr(10), "<br>") if "<table>" not in parties[0] else parties[0]
+            if len(parties) > 1:
+                parties[1] = parties[1].replace(chr(10), "<br>")
+            texte_html = "</table>".join(parties)
         
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})

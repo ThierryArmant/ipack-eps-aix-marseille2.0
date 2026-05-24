@@ -561,6 +561,9 @@ if prompt:
                     requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
+                elif mode == "peda": # AJOUT PÉDAGOGIE WEB
+                    requete_blindee = f"{prompt} fiche pédagogique EPS cycle 4 filetype:pdf"
+                    domains = ["eduscol.education.gouv.fr", "eps.ac-versailles.fr", "eps.ac-creteil.fr", "pedagogie.ac-aix-marseille.fr"]
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
@@ -583,6 +586,8 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                elif mode == "peda": # AJOUT CONTEXTE LOCAL PÉDA
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Référentiel Pédagogique EPS : {n.node.text}\n\n"
             except: pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
@@ -609,40 +614,15 @@ if prompt:
         elif mode == "textes":
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+        elif mode == "peda": # AJOUT CONSIGNE PÉDA
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
+                "MISSION : Tu parcours les sites académiques pour trouver des fiches pédagogiques prêtes à l'emploi.\n"
+                "RÈGLE D'OR : Si tu trouves un document, affiche le lien direct de téléchargement (URL).\n"
+                "CANVA : 1. Compétences (Cycle 4), 2. Situation, 3. Indicateurs de réussite.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
         else:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
-
-        # 4. EXÉCUTION ET RENDU HTML
-        response = Settings.llm.complete(consigne_ia)
-        texte_brut = response.text
-        
-        # EXTRACTION MULTIPLE (re.findall capture TOUS les liens)
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-        
-        # Traitement tableaux
-        if "|" in texte_brut and "---" in texte_brut:
-            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
-            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
-            est_entete = True
-            for ligne in lignes:
-                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
-                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
-                    html_table += "<tr>"
-                    for cell in cells:
-                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
-                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
-                    html_table += "</tr>"
-                    est_entete = False
-            html_table += "</table>"
-            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
-
-        texte_html = texte_brut.replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
-        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        
-        # AFFICHAGE MULTIPLE DES VIDÉOS (ton filet de sécurité)
-        for link in youtube_links:
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
-        
-        st.rerun()

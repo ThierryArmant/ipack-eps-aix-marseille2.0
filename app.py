@@ -618,20 +618,20 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
                 "MISSION : Tu parcours les sites académiques pour trouver des fiches pédagogiques prêtes à l'emploi.\n"
-                "RÈGLE D'OR : Si tu trouves un document, affiche le lien direct de téléchargement (URL).\n"
+                "RÈGLE D'OR : Si tu trouves un document (PDF/DOC), TU DOIS impérativement afficher le lien direct de téléchargement.\n"
                 "CANVA : 1. Compétences (Cycle 4), 2. Situation, 3. Indicateurs de réussite.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # EXTRACTION MULTIPLE (re.findall capture TOUS les liens)
+        # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
         # Traitement tableaux
@@ -655,7 +655,7 @@ if prompt:
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # AFFICHAGE MULTIPLE DES VIDÉOS (ton filet de sécurité)
+        # AFFICHAGE VIDÉOS
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
         

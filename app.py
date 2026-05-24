@@ -153,7 +153,7 @@ css_pur = """
     /* Barres d'informations Supérieures et Inférieures */
     .column-title-top { 
         color: #FFFFFF; 
-        text-align: center; 
+                text-align: center; 
         margin-bottom: 12px !important; 
         background-color: #1E293B; 
         border-radius: 6px !important; 
@@ -209,7 +209,7 @@ css_pur = """
         border: 1px solid #10B981 !important;
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        padding: 12px 10px !important;
+                padding: 12px 10px !important;
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
     }
@@ -580,7 +580,7 @@ if prompt:
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 else:
-                    # Si mode général par défaut mais qu'on détecte une recherche de fiche
+                    # Si mode général par défaut mais qu'on d'tecte une recherche de fiche
                     if est_demande_fiche:
                         requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                         domains = domaine_eps_france
@@ -624,19 +624,35 @@ if prompt:
             "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
         )
         
+        # Consigne d'extraction vidéo générique et réutilisable
+        consigne_extraction_video = (
+            "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
+            "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
+            "- Identifie le ou les liens YouTube (https://youtu.be/... ou https://www.youtube.com/...) associés spécifiquement au sujet de la question.\n"
+            "- Si une vidéo correspond précisément à la demande (ex: inaptitudes, Santorin, Cyclades, etc.), inclus-la obligatoirement à la fin de ta réponse sous le format Markdown strict : '[Regarder le tutoriel vidéo associé](URL)'.\n"
+            "- INTERDICTION : Ne force jamais de lien vidéo générique ou par défaut si le sujet de la question est différent."
+        )
+        
         if mode == "ipack":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "MATRICE D'EXTRACTION : Si le sujet concerne 'classe' ou 'edt', tu DOIS inclure : "
-                "'Tutoriel officiel à consulter : https://youtu.be/tu8J1RBUTwk'\n"
+                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS."
+                f"{consigne_extraction_video}\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
+                f"Canva: [Acteur|Action|Conséquence].{consigne_extraction_video}\n\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n"
+                f"Canva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
@@ -668,7 +684,7 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
         # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # EXTRACTION MULTIPLE
+        # EXTRACTION MULTIPLE DYNAMIQUE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
         # Traitement tableaux

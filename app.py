@@ -300,54 +300,20 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Fonction de surveillance pour invalider automatiquement le cache si le fichier change
-def obtenir_cle_cache_pierre():
+# Lecture dynamique sans cache pour prendre en compte tes modifs immédiatement
+def charger_consignes_pierre():
     chemin = "gere_par_pierre.txt"
     if os.path.exists(chemin):
-        return f"{os.path.getmtime(chemin)}"  # Renvoie la date exacte de modification
-    return "vide"
-
-# TEXTE CONSOLIDÉ DES CONSIGNES ET ARBITRAGES DE PIERRE
-CONSIGNES_PIERRE_TEXTE = """
-======================================================================
-MISES A JOUR ET ARBITRAGES OFFICIELS DE PIERRE (SESSION 2025/2026)
-======================================================================
-[MODULE IPACKEPS : IMPORTATIONS & NOUVEAUTES]
-1. IMPORTATION ETABLISSEMENTS PRIVES (ALTERNATIVE SCONET) : 
-   Les collèges et lycées privés sous contrat (qui n'utilisent pas SCONET/SIECLE) peuvent importer directement leurs listes d'élèves. 
-   - Procédure : Faire une extraction de la liste des élèves au format standard depuis la vie scolaire (Pronote ou École-Directe).
-   - Chemin exact : Aller dans [DOSSIERS] > [DOSSIER EPS] > onglet [ÉLÈVES] et cliquer sur "IMPORT DES ÉLÈVES DE PRONOTE / ECOLE-DIRECTE".
-   - Support : En cas d'erreur de format, envoyer un exemple de fichier à ipackeps@ac-aix-marseille.fr.
-
-2. LOGICIEL IPACKEPS VERSION 2025.3.1 :
-   - Dépôt des projets : Le Projet EPS et le Projet d'Association Sportive (AS) ne se déposent plus séparément. Ils doivent être téléversés de manière centralisée via le chemin exact : [Dossiers] > [Dossier EPS] > [Projets].
-   - Profil Enseignant : Les fonctions spécifiques (ex: Coordonnateur Sport-Études, Référent plan PHARE) se gèrent désormais directement dans le menu : [Fiche Professeur] > [Fonctions].
-
-[MODULE SANTORIN / IMAG'IN : GESTION DES COPIES DE MATÉRIALISÉES]
-3. CORRECTEUR MANQUANT OU BLOCAGE DE LOT :
-   Si un évaluateur n'apparaît pas dans l'interface Santorin pour la distribution de ses copies, le problème vient d'IMAG'IN.
-   - Manipulation exacte : Le chef d'établissement doit aller sur IMAG'IN pour affecter l'enseignant. Action obligatoire : Il faut CLIQUER SUR L'ICÔNE "PDF" pour éditer et valider la convocation. C'est cette édition du PDF qui déclenche l'envoi informatique des droits vers SANTORIN. Une fois le PDF édité, retourner sur Santorin et relancer la distribution automatique des lots.
-
-4. FONCTIONNEMENT DE LA CORRECTION PARTAGÉE :
-   - Ajout : Le coordonnateur ou chef d'établissement peut ajouter un deuxième correcteur sur un lot existant via Arena (Lots > Voir le détail > Correcteurs > Ajouter).
-   - Sécurité synchrone : Si deux correcteurs ouvrent le même lot en même temps, dès que le Correcteur 1 clique sur une copie pour l'éditer/l'annoter, cette copie bascule instantanément en "Lecture seule" sur l'écran du Correcteur 2. Aucun risque de double saisie ou d'écrasement de note.
-
-[MODULE REGLEMENTATION : EXAMENS ET CADRE JURIDIQUE]
-5. PROTOCOLE CCF EN CAP (RÈGLE DES 2 ÉPREUVES) :
-   - Règle absolue de la commission (CAHN) : Un protocole de CAP proposant 3 activités obligatoires évaluées sera SYSTÉMATIQUEMENT REJETÉ. La réglementation nationale CAP impose strictement un ensemble de DEUX (2) épreuves certificatives.
-   - Solution de secours : Pour les équipes ayant programmé 3 activités, il faut obligatoirement configurer la classe en "Mode Groupe" dans iPackEPS. Créer ensuite plusieurs protocoles distincts à deux épreuves (ex: Groupe 1 = Demi-fond/Badminton, Groupe 2 = Badminton/Gymnastique) et répartir les élèves manuellement.
-
-6. CAS DE LA NOTE UNIQUE EN TERMINALE (BAC) :
-   - Si un élève se blesse après la première épreuve et présente un certificat médical d'inaptitude annuelle pour le reste de l'année, il n'a qu'une seule note sur deux. iPackEPS blocks the automatic calculation. Le dossier d'évaluation doit être extrait et transmis manuellement au Jury Académique via Cyclades, qui arbitrera la validation.
-
-7. HIÉRARCHIE DES CONVOCATIONS D'EXAMENS (DNB/BAC) :
-   - Les convocations pour les corrections ou jurys d'examens nationaux (DNB/BAC) sont des missions de service public impératives. Elles priment sur toutes les autorisations internes à l'établissement.
-   - Arbitrage : Un chef d'établissement n'a juridiquement pas le pouvoir d'annuler ou de dispenser un enseignant d'une convocation officielle, même s'il lui a accordé un congé exceptionnel (mariage, événement familial). Seul le Rectorat (DEC) peut accorder une dispense de correction.
-"""
+        try:
+            with open(chemin, "r", encoding="utf-8") as f:
+                contenu = f.read()
+            return [Document(text=contenu, metadata={"source": "Notes de Pierre"})]
+        except Exception:
+            return []
+    return []
 
 # BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
-@st.cache_resource(hash_funcs={str: lambda x: x})
-def initialiser_base_santorin(cle_fichier):
+def initialiser_base_santorin():
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
@@ -367,13 +333,27 @@ def initialiser_base_santorin(cle_fichier):
             Tutoriel pas-à-pas : liste des candidats anonymisés, outils d'annotation intégrés (surlignage, stylo, commentaires), saisie des notes par question ou globale, validation du lot. Utilisation de la messagerie interne (icône enveloppe) pour contacter les coordonnateurs.""",
             metadata={"title": "Guide Utilisateur - Ouvrir et corriger une copie avec Santorin", "url": "https://pedagogie.ac-orleans-tours.fr/documents/pdf/lettres_tutoriels_ouvrir_et_corriger_une_copie_avec_santorin__2_.pdf"}
         ),
-        Document(text=CONSIGNES_PIERRE_TEXTE, metadata={"title": "Arbitrages et Directives de Pierre", "url": "Interne"})
+        Document(
+            text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
+        ),
+        Document(
+            text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
+            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots et demander des corrections d'affectation via l'enveloppe de communication.""",
+            metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
+        ),
+        Document(
+            text="""Guide technique d'installation de Santorin Scan. 
+            Documentation sur l'installation, le paramétrage des scanners physiques en établissement, les protocoles réseaux et la configuration des serveurs d'échange sécurisés.""",
+            metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
+        )
     ]
+    docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
-@st.cache_resource(hash_funcs={str: lambda x: x})
-def initialiser_base_ipack(cle_fichier):
+def initialiser_base_ipack():
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
@@ -387,33 +367,36 @@ def initialiser_base_ipack(cle_fichier):
             metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
         ),
         Document(
+            text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
+            Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
+            metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
+        ),
+        Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
             2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
-        ),
-        Document(text=CONSIGNES_PIERRE_TEXTE, metadata={"title": "Arbitrages et Directives de Pierre", "url": "Interne"})
+        )
     ]
+    docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
-@st.cache_resource(hash_funcs={str: lambda x: x})
-def initialiser_base_textes(cle_fichier):
+def initialiser_base_textes():
     docs_textes = [
         Document(
             text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
-        ),
-        Document(text=CONSIGNES_PIERRE_TEXTE, metadata={"title": "Arbitrages et Directives de Pierre", "url": "Interne"})
+        )
     ]
+    docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation finale des retrievers avec passage de la clé dynamique
-cle_actuelle = obtenir_cle_cache_pierre()
-retriever_santorin = initialiser_base_santorin(cle_actuelle)
-retriever_ipack = initialiser_base_ipack(cle_actuelle)
-retriever_textes = initialiser_base_textes(cle_actuelle)
+# Génération dynamique des retrievers à chaque rafraîchissement
+retriever_santorin = initialiser_base_santorin()
+retriever_ipack = initialiser_base_ipack()
+retriever_textes = initialiser_base_textes()
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET

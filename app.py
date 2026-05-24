@@ -562,13 +562,19 @@ if prompt:
                         extraits_doc += f"Source Officielle ({item['title']}): {item['content']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (Data/)
+        # 2. CONTEXTE LOCAL (Data/ & gere_par_pierre.txt via la Section 4)
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin: {n.node.text}\n\n"
+                    for n in retriever_santorin.retrieve(prompt): 
+                        extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt): 
+                        extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                elif mode == "textes":
+                    # CORRECTIONS DES CONFLITS : On connecte l'onglet sécurité au retriever réglementaire local
+                    for n in retriever_textes.retrieve(prompt): 
+                        extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
 
         # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES (V10 EXPERT)
@@ -599,7 +605,7 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert en droit de l'éducation. Base impérativement tes réponses sur la hiérarchie des normes. Affiche les sites officiels sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert en droit de l'éducation. Base impérativement tes réponses sur les documents locaux fournis s'ils traitent du sujet (comme les arbitrages de CAP). Affiche les sites officiels sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
             consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"

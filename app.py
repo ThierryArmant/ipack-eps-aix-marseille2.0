@@ -534,8 +534,10 @@ with col_action_input:
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
-            exec(m["content"])
+        # Remplacement de exec() par un appel natif Streamlit hautement fiable
+        if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
+            url_video = m["content"].replace("VIDEO_URL:", "").strip()
+            st.video(url_video)
         else:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
@@ -580,7 +582,6 @@ if prompt:
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 else:
-                    # Si mode général par défaut mais qu'on d'tecte une recherche de fiche
                     if est_demande_fiche:
                         requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                         domains = domaine_eps_france
@@ -624,7 +625,6 @@ if prompt:
             "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
         )
         
-        # Consigne d'extraction vidéo générique et réutilisable
         consigne_extraction_video = (
             "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
             "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
@@ -663,7 +663,6 @@ RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début 
 Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
-            # SÉCURITÉ INTENTIONS DANS LE MODE GÉNÉRAL : Si recherche de fiche terrain, on bascule en Chasseur de ressources !
             if est_demande_fiche:
                 consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
 1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
@@ -684,10 +683,10 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
         # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # EXTRACTION MULTIPLE DYNAMIQUE
+        # EXTRACTION MULTIPLE DYNAMIQUE (Prend en compte les formats d'URL YouTube nettoyés)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Traitement tableaux
+        # Traitement des tableaux Markdown
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
@@ -708,8 +707,8 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # AFFICHAGE VIDÉOS
+        # AJOUT DES COMPOSANTS VIDÉOS AVEC LE NOUVEAU MARQUEUR SÉCURISÉ
         for link in youtube_links:
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
         
         st.rerun()

@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit st
 import os
 import pandas as pd
 import requests
@@ -393,7 +393,7 @@ def initialiser_base_ipack(cle_fremt):
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure is de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier is transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -575,7 +575,7 @@ if prompt:
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # 1. MOTEUR WEB (Tavily)
+        # 1. MOTEUR WEB (Tavily) - MODIFIÉ POUR COUVRIR LES RUBRIQUES 2, 4 ET 7 EN INTERNE DANS IPACK
         if tavily_api_key:
             try:
                 if mode == "textes":
@@ -585,7 +585,8 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 elif mode == "ipack":
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    # Requête booléenne élargie sur les rubriques 2, 4 et 7 de l'académie de Créteil
+                    requete_blindee = f"{prompt} (rubrique2 OR rubrique4 OR rubrique7)"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":

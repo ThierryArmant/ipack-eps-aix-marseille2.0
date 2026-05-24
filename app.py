@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V16 - FILTRE PIERRE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V17 - VERROUILLAGE TOTAL)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -548,7 +548,7 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB (Tavily) - Segmentation Stricte
+        # 1. MOTEUR WEB (Tavily) - Verrouillage du périmètre "iPackEPS rubrique 4"
         if tavily_api_key:
             try:
                 if mode == "textes":
@@ -558,15 +558,18 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr", "pedagogie.ac-aix-marseille.fr", "eps.ac-creteil.fr"]
                 elif mode == "ipack":
-                    requete_blindee = f"{prompt} iPackEPS guide utilisateur ajouter APSA"
-                    domains = ["eps.ac-creteil.fr", "eps.ac-normandie.fr", "eps.ac-versailles.fr"]
+                    # VERROUILLAGE : Navigation dans l'arborescence rubrique 4, exclusion de YouTube externe
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    domains = ["ipackeps.ac-creteil.fr"]
+                    exclude = ["youtube.com"]
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
                 
-                res = requests.post("https://api.tavily.com/search", json={
-                    "api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains
-                }, timeout=15)
+                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                if mode == "ipack": payload["exclude_domains"] = exclude
+                
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
@@ -596,22 +599,23 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "CONSIGNE SÉCURITÉ : Si un créneau contient des notes, NE JAMAIS FORCER LA SUPPRESSION (risque de corruption). "
-                "Procédure : Fusionner le créneau ou ajuster les dates. "
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+                "PÉRIMÈTRE : Explore uniquement l'arborescence 'rubrique4'. Interdiction de dériver sur des recommandations YouTube externes.\n"
+                "CONSIGNE SÉCURITÉ : Si un créneau contient des notes, NE JAMAIS FORCER LA SUPPRESSION. "
+                "Procédure : Fusionner le créneau ou ajuster les dates.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
                 "CANVA : Utilise un tableau [Acteur | Action | Conséquence]. "
-                "DIRECTIVE : Priorise la sécurité des données et les procédures de correction partagée."
+                "DIRECTIVE : Priorise la sécurité des données."
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS (Protection fonctionnelle).\n"
+                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n"
                 "CANVA : 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS."
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
@@ -619,7 +623,7 @@ if prompt:
         else:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
-                "CANVA : Analyse structurée et concrète, focus sur la réussite des élèves."
+                "CANVA : Analyse structurée et concrète."
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
@@ -631,7 +635,7 @@ if prompt:
         # Extraction vidéo AVANT toute transformation
         youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Traitement automatique des tableaux
+        # Traitement tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'

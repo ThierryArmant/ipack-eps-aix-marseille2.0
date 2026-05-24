@@ -1,6 +1,28 @@
 
+==================================================
+SUIVI DES MISES À JOUR & ÉVOLUTIONS IPACKEPS
+==================================================
+[MAJ MAI 2026 - VERSION X.X] : 
+- Note de mise à jour : Décrire ici le changement (ex: modification de l'affichage, nouveau bouton, etc.).
+- Règle technique associée : Préciser le nouveau chemin si un menu a changé.
+- Impact sur l'utilisateur : Ce que le prof doit faire différemment par rapport à l'ancienne version.
+
+==================================================
+PARTIE 1 : RÈGLES DE GESTION IPACKEPS (CLASSIQUES)
+==================================================
+... (le reste de tes notes actuelles)
+==================================================
+PARTIE 2 : cadres reglementaires
+==================================================
 CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX : Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission. Elle est hiérarchiquement supérieure à toute autorisation d'absence pour convenance personnelle. Le chef d'établissement n'a pas compétence pour annuler une mission d'examen national ; seule l'autorité organisatrice (Rectorat/DEC) le peut.
 ---------------------------------
+==================================================
+PARTIE 5 : réponses i pack & santorin de pierre)
+==================================================
+
+==================================================
+PARTIE 5 : réponses i pack & santorin de pierre)
+==================================================
 Sujet : modifications coordonnées
 De : "Olivier LEAU" <Olivier.Leau@ac-aix-marseille.fr>
 Date : 10/09/2025, 10:36
@@ -21163,4 +21185,4 @@ Cordialement,
 
 M. Descamps pour l'équipe EPS
 -------------------------
-PROCÉDURE SAISIE INAPTITUDE IPACKEPS : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
+

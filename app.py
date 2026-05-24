@@ -491,8 +491,7 @@ if st.session_state.active_module == "textes":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement important – Limites du module IA :</strong> Cet outil est un assistant numérique destiné à faciliter vos recherches documentaires. Bien que ses règles d'analyse soient strictes, les réponses générées ne se substituent en aucun cas aux textes officiels.<br>
-            Pour toute question d'ordre juridique ou en cas de sinistre, rapprochez-vous impérativement de : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+            ⚠️ <strong>Avertissement – Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
     </div>
     """, unsafe_allow_html=True)

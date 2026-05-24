@@ -114,3 +114,40 @@ Markdown reponse tableau
         <td style="padding: 10px;">Transmission manuelle du dossier au <b>Jury Académique via Cyclades</b>.</td>
     </tr>
 </table>
+
+======================================================================
+MISES A JOUR ET ARBITRAGES OFFICIELS DE PIERRE (SESSION 2025/2026)
+======================================================================
+
+[MODULE IPACKEPS : IMPORTATIONS & NOUVEAUTES]
+1. IMPORTATION ETABLISSEMENTS PRIVES (ALTERNATIVE SCONET) : 
+   Les collèges et lycées privés sous contrat (qui n'utilisent pas SCONET/SIECLE) peuvent importer directement leurs listes d'élèves. 
+   - Procédure : Faire une extraction de la liste des élèves au format standard depuis la vie scolaire (Pronote ou École-Directe).
+   - Chemin exact : Aller dans [DOSSIERS] > [DOSSIER EPS] > onglet [ÉLÈVES] et cliquer sur "IMPORT DES ÉLÈVES DE PRONOTE / ECOLE-DIRECTE".
+   - Support : En cas d'erreur de format, envoyer un exemple de fichier à ipackeps@ac-aix-marseille.fr.
+
+2. LOGICIEL IPACKEPS VERSION 2025.3.1 :
+   - Dépôt des projets : Le Projet EPS et le Projet d'Association Sportive (AS) ne se déposent plus séparément. Ils doivent être téléversés de manière centralisée via le chemin exact : [Dossiers] > [Dossier EPS] > [Projets].
+   - Profil Enseignant : Les fonctions spécifiques (ex: Coordonnateur Sport-Études, Référent plan PHARE) se gèrent désormais directement dans le menu : [Fiche Professeur] > [Fonctions].
+
+[MODULE SANTORIN / IMAG'IN : GESTION DES COPIES DE MATÉRIALISÉES]
+3. CORRECTEUR MANQUANT OU BLOCAGE DE LOT :
+   Si un évaluateur n'apparaît pas dans l'interface Santorin pour la distribution de ses copies, le problème vient d'IMAG'IN.
+   - Manipulation exacte : Le chef d'établissement doit aller sur IMAG'IN pour affecter l'enseignant. Action obligatoire : Il faut CLIQUER SUR L'ICÔNE "PDF" pour éditer et valider la convocation. C'est cette édition du PDF qui déclenche l'envoi informatique des droits vers SANTORIN. Une fois le PDF édité, retourner sur Santorin et relancer la distribution automatique des lots.
+
+4. FONCTIONNEMENT DE LA CORRECTION PARTAGÉE :
+   - Ajout : Le coordonnateur ou chef d'établissement peut ajouter un deuxième correcteur sur un lot existant via Arena (Lots > Voir le détail > Correcteurs > Ajouter).
+   - Sécurité synchrone : Si deux correcteurs ouvrent le même lot en même temps, dès que le Correcteur 1 clique sur une copie pour l'éditer/l'annoter, cette copie bascule instantanément en "Lecture seule" sur l'écran du Correcteur 2. Aucun risque de double saisie ou d'écrasement de note.
+
+[MODULE REGLEMENTATION : EXAMENS ET CADRE JURIDIQUE]
+5. PROTOCOLE CCF EN CAP (RÈGLE DES 2 ÉPREUVES) :
+   - Règle absolue de la commission (CAHN) : Un protocole de CAP proposant 3 activités obligatoires évaluées sera SYSTÉMATIQUEMENT REJETÉ. La réglementation nationale CAP impose strictement un ensemble de DEUX (2) épreuves certificatives.
+   - Solution de secours : Pour les équipes ayant programmé 3 activités, il faut obligatoirement configurer la classe en "Mode Groupe" dans iPackEPS. Créer ensuite plusieurs protocoles distincts à deux épreuves (ex: Groupe 1 = Demi-fond/Badminton, Groupe 2 = Badminton/Gymnastique) et répartir les élèves manuellement.
+
+6. CAS DE LA NOTE UNIQUE EN TERMINALE (BAC) :
+   - Si un élève se blesse après la première épreuve et présente un certificat médical d'inaptitude annuelle pour le reste de l'année, il n'a qu'une seule note sur deux. iPackEPS bloque automatiquement le calcul de la moyenne.
+   - Action : Interdiction de forcer la moyenne ou de dupliquer la note. Le dossier d'évaluation doit être extrait et transmis manuellement au Jury Académique via Cyclades, qui arbitrera la validation.
+
+7. HIÉRARCHIE DES CONVOCATIONS D'EXAMENS (DNB/BAC) :
+   - Les convocations pour les corrections ou jurys d'examens nationaux (DNB/BAC) sont des missions de service public impératives. Elles priment sur toutes les autorisations internes à l'établissement.
+   - Arbitrage : Un chef d'établissement n'a juridiquement pas le pouvoir d'annuler ou de dispenser un enseignant d'une convocation officielle, même s'il lui a accordé un congé exceptionnel (mariage, événement familial). Seul le Rectorat (DEC) peut accorder une dispense de correction.

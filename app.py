@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V9)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (MOTEUR SUPRÊME VERROUILLÉ V10)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -616,8 +616,16 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            # DIRECTIVE AJUSTÉE : Force la priorité sur les données locales du fichier de Pierre (ex: CAP 2 épreuves)
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert en droit de l'éducation. DIRECTIVE ABSOLUE : Base impérativement tes réponses sur les documents locaux fournis ('Notes de Pierre') en priorité maximale si le sujet y est abordé. Ne suis pas les règles ou interprétations générales extérieures si une consigne de Pierre la contredit. Affiche les sites officiels sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            # CANVA STRICT V10 : Force l'IA à appliquer tes règles de responsabilité (Loi 1937, SAE Mairie/Prof) sans broder
+            consigne_ia = (
+                f"{protocole_rigueur}\n"
+                "Tu es le juriste expert en droit de l'éducation. DIRECTIVE ABSOLUE : Base impérativement tes réponses sur les documents locaux fournis ('Notes de Pierre') en priorité maximale.\n"
+                "CANVA DE RÉPONSE JURIDIQUE OBLIGATOIRE ET STRICT :\n"
+                "1. SITUATION ET TEXTES : Analyse la situation au regard des textes (Loi du 5 avril 1937, circulaires, etc.).\n"
+                "2. ARBITRAGE DES RESPONSABILITÉS : Tranche clairement les responsabilités selon tes règles (ex: Règle 11 : Prise/Structure = Mairie, EPI/Harnais = Prof. Règle 16 : Examens = Rectorat).\n"
+                "3. RECOURS ET PROTECTION : Rappelle la substitution de l'État ou la démarche administrative à suivre.\n"
+                f"Données : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
             consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"

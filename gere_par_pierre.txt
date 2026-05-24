@@ -110,6 +110,17 @@
 
 [SECTION: PROCEDURES_INAPTITUDES_ET_LEVEE_DE_CYCLE]
 
+[SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]
+- Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
+1. ANALYSE DES RISQUES (Bouton de modification grisé) : Si l'interface bloque, c'est qu'une note est déjà enregistrée ce trimestre pour cet élève. Procédure de déblocage : Aller dans le menu 'Saisie des notes', effacer manuellement la note pour rendre la case totalement vide (pas de zéro), enregistrer, puis revenir sur la fiche de l'élève.
+2. PROCÉDURE TECHNIQUE :
+→ Accès : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
+→ Action : Cliquer sur le bouton 'Saisir une inaptitude'.
+→ Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans les cases de notes brutes. La validation de l'inaptitude génère le statut automatiquement.
+→ Dépôt : Scanner et téléverser le certificat médical (PDF ou image) directement via l'option dédiée dans cet onglet.
+3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.
+- Liens vidéos associés : https://youtu.be/34w4Z6dd1dM (Suivi des inaptitudes) ; https://youtu.be/YjvU7KCuJpk (Contrôle des certificats commission).
+
 [SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]
 - Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 

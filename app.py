@@ -626,14 +626,18 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n"
-                "INSTRUCTION WEB : Utilise Tavily pour trouver des PDF académiques.\n"
-                "NE JAMAIS DIRE 'je ne peux pas naviguer'.\n"
-                "FORMAT LIENS : Pour chaque fiche, affiche le lien direct : [Télécharger la fiche](URL).\n"
-                "CANVA : 1. Compétences (Cycle 4), 2. Situation, 3. Indicateurs de réussite.\n"
+                "RÈGLE N°1 : Réponds UNIQUEMENT sur le sujet de la question.\n"
+                "RÈGLE N°2 : Ne développe pas d'introduction ou de conclusion de courtoisie.\n"
+                "RÈGLE N°3 : Pour les liens, n'extrais que des fichiers réels (PDF) issus du 'Contexte Web'.\n"
+                "RÈGLE N°4 : Si aucun lien PDF n'est trouvé, affiche uniquement l'URL de la page académique source.\n"
+                "FORMAT DE SORTIE OBLIGATOIRE :\n"
+                "1. COMPÉTENCES : [Liste concise]\n"
+                "2. SITUATION : [Description technique]\n"
+                "3. INDICATEURS : [Points chiffrés]\n"
+                "4. RESSOURCES : [Titre](URL)\n"
                 f"Contexte Web : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"

@@ -532,7 +532,7 @@ with col_action_input:
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V14 - FILTRE PIERRE)
 # ======================================================================
-st.markdown('<div style="margin-top: 20px;">', unsafe_ maximise_html=True)
+st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
         if isinstance(m["content"], str) and m["content"].startswith("st.video("):

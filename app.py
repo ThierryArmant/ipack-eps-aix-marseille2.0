@@ -353,7 +353,8 @@ def initialiser_base_santorin():
     ]
     # Intégration des notes de Pierre
     docs_santorin.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=2)
+    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
+    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
 @st.cache_resource
@@ -385,7 +386,8 @@ def initialiser_base_ipack():
     ]
     # Intégration des notes de Pierre
     docs_ipack.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
+    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
+    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
 @st.cache_resource
@@ -398,9 +400,10 @@ def initialiser_base_textes():
     ]
     # Intégration des notes de Pierre dans la base Textes également
     docs_textes.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=2)
+    # FORCE LE RETRIEVER A RETOURNER 5 DOCUMENTS POUR UNE LECTURE GLOBALE ET COMPLETE
+    return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation finale des trois retrievers distincts
+# Initialisation finale des trois retrievers distincts avec top_k optimisé
 retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
 retriever_textes = initialiser_base_textes()

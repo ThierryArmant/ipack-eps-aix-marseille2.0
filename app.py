@@ -556,7 +556,7 @@ domaine_eps_france = [
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Je réfléchis à la meilleure réponse pour toi..."):
+    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
@@ -574,7 +574,8 @@ if prompt:
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 elif mode == "peda":
-                    requete_blindee = f"{prompt} EPS fiche pédagogique cycle 4 filetype:pdf"
+                    # Requête orientée extraction documentaire
+                    requete_blindee = f"{prompt} EPS fiche pédagogique évaluation PDF"
                     domains = domaine_eps_france
                 else:
                     requete_blindee = f"{prompt} EPS programme officiel"
@@ -586,7 +587,7 @@ if prompt:
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
-                        extraits_doc += f"Source Web ({item['title']}): {item['content']}\n\n"
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
         # 2. CONTEXTE LOCAL
@@ -606,17 +607,16 @@ if prompt:
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
-            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers (Pronote, Cyclades, Mairie).\n"
+            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers.\n"
             "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité et l'écrit nécessaire."
+            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
         )
         
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "MATRICE D'EXTRACTION : Si le sujet concerne 'classe' ou 'edt', tu DOIS inclure en fin de réponse : "
+                "MATRICE D'EXTRACTION : Si le sujet concerne 'classe' ou 'edt', tu DOIS inclure : "
                 "'Tutoriel officiel à consulter : https://youtu.be/tu8J1RBUTwk'\n"
-                "CONSIGNE SÉCURITÉ : Ne JAMAIS FORCER LA SUPPRESSION (fusionner ou ajuster les dates).\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -624,23 +624,16 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE (Règle 11), 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
             consigne_ia = (
-                "ACTION : Recherche uniquement des situations pédagogiques pour la question posée.\n"
-                "CONTRAINTE 1 : Analyse dimension PÉDAGOGIQUE (gestion, climat) et DIDACTIQUE (savoirs).\n"
-                "CONTRAINTE 2 : Traite EXCLUSIVEMENT l'APSA de la question. N'évoque JAMAIS d'autres APSA.\n"
-                "CONTRAINTE 3 : Si tu trouves des liens PDF/URL dans le 'Contexte Web', affiche-les OBLIGATOIREMENT. N'invente jamais de lien.\n"
-                "CONTRAINTE 4 : Si aucun lien n'est trouvé, indique 'Aucune ressource en ligne disponible'.\n"
-                "FORMAT DE SORTIE STRICT :\n"
-                "1. COMPÉTENCES : [Synthèse]\n"
-                "2. ANALYSE DIDACTIQUE : [Savoirs, logique de l'activité]\n"
-                "3. ANALYSE PÉDAGOGIQUE : [Gestion, engagement]\n"
-                "4. SITUATION TECHNIQUE : [Détails]\n"
-                "5. INDICATEURS : [Points chiffrés]\n"
-                "6. RESSOURCES : [Titre](URL)\n"
-                f"Contexte Web : {extraits_doc}\nQuestion : {prompt}"
+                "Tu es un documentaliste EPS. Ta mission est d'extraire des liens réels vers des documents PDF et fiches d'évaluation.\n"
+                "1. Liste les documents trouvés dans le 'Contexte Web'.\n"
+                "2. Si des liens PDF/URL sont présents, affiche-les clairement.\n"
+                "3. Si tu ne trouves pas de lien direct, indique le site académique source exact.\n"
+                "4. N'invente pas de fiches, sois un outil d'accès aux sources officielles.\n"
+                f"Contexte Web (Liens trouvés) : {extraits_doc}\nQuestion de l'enseignant : {prompt}"
             )
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
@@ -657,7 +650,7 @@ if prompt:
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Traitement tableaux
+        # Traitement tableaux (inchangé)
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'

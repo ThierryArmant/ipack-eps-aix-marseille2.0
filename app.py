@@ -387,8 +387,23 @@ def initialiser_base_ipack():
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=2)
 
+# BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
+@st.cache_resource
+def initialiser_base_textes():
+    docs_textes = [
+        Document(
+            text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
+            metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
+        )
+    ]
+    # Intégration des notes de Pierre dans la base Textes également
+    docs_textes.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=2)
+
+# Initialisation finale des trois retrievers distincts
 retriever_santorin = initialiser_base_santorin()
 retriever_ipack = initialiser_base_ipack()
+retriever_textes = initialiser_base_textes()
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET

@@ -530,7 +530,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V17 - VERROUILLAGE TOTAL)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION TOTALE V18 - MATRICE VIDÉO)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -600,6 +600,9 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
                 "PÉRIMÈTRE : Explore uniquement l'arborescence 'rubrique4'. Interdiction de dériver sur des recommandations YouTube externes.\n"
+                "MATRICE D'EXTRACTION VIDÉO :\n"
+                "- Si mot-clé 'classe' : Extraire le lien du tutoriel 'Gestion des classes' du contexte.\n"
+                "- Si mot-clé 'emploi du temps' ou 'edt' : Extraire le lien du tutoriel 'Gestion Agenda/EDT' du contexte.\n"
                 "CONSIGNE SÉCURITÉ : Si un créneau contient des notes, NE JAMAIS FORCER LA SUPPRESSION. "
                 "Procédure : Fusionner le créneau ou ajuster les dates.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"

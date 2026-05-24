@@ -300,6 +300,13 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
+# Fonction de surveillance pour invalider automatiquement le cache si le fichier change
+def obtenir_cle_cache_pierre():
+    chemin = "gere_par_pierre.txt"
+    if os.path.exists(chemin):
+        return f"{os.path.getmtime(chemin)}"  # Renvoie la date exacte de modification
+    return "vide"
+
 # TEXTE CONSOLIDÉ DES CONSIGNES ET ARBITRAGES DE PIERRE
 CONSIGNES_PIERRE_TEXTE = """
 ======================================================================
@@ -331,8 +338,7 @@ MISES A JOUR ET ARBITRAGES OFFICIELS DE PIERRE (SESSION 2025/2026)
    - Solution de secours : Pour les équipes ayant programmé 3 activités, il faut obligatoirement configurer la classe en "Mode Groupe" dans iPackEPS. Créer ensuite plusieurs protocoles distincts à deux épreuves (ex: Groupe 1 = Demi-fond/Badminton, Groupe 2 = Badminton/Gymnastique) et répartir les élèves manuellement.
 
 6. CAS DE LA NOTE UNIQUE EN TERMINALE (BAC) :
-   - Si un élève se blesse après la première épreuve et présente un certificat médical d'inaptitude annuelle pour le reste de l'année, il n'a qu'une seule note sur deux. iPackEPS bloque automatiquement le calcul de la moyenne.
-   - Action : Interdiction de forcer la moyenne ou de dupliquer la note. Le dossier d'évaluation doit être extrait et transmis manuellement au Jury Académique via Cyclades, qui arbitrera la validation.
+   - Si un élève se blesse après la première épreuve et présente un certificat médical d'inaptitude annuelle pour le reste de l'année, il n'a qu'une seule note sur deux. iPackEPS blocks the automatic calculation. Le dossier d'évaluation doit être extrait et transmis manuellement au Jury Académique via Cyclades, qui arbitrera la validation.
 
 7. HIÉRARCHIE DES CONVOCATIONS D'EXAMENS (DNB/BAC) :
    - Les convocations pour les corrections ou jurys d'examens nationaux (DNB/BAC) sont des missions de service public impératives. Elles priment sur toutes les autorisations internes à l'établissement.
@@ -340,8 +346,8 @@ MISES A JOUR ET ARBITRAGES OFFICIELS DE PIERRE (SESSION 2025/2026)
 """
 
 # BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
-@st.cache_resource
-def initialiser_base_santorin():
+@st.cache_resource(hash_funcs={str: lambda x: x})
+def initialiser_base_santorin(cle_fichier):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
@@ -366,8 +372,8 @@ def initialiser_base_santorin():
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : IPACKEPS
-@st.cache_resource
-def initialiser_base_ipack():
+@st.cache_resource(hash_funcs={str: lambda x: x})
+def initialiser_base_ipack(cle_fichier):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
@@ -392,8 +398,8 @@ def initialiser_base_ipack():
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 # BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
-@st.cache_resource
-def initialiser_base_textes():
+@st.cache_resource(hash_funcs={str: lambda x: x})
+def initialiser_base_textes(cle_fichier):
     docs_textes = [
         Document(
             text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
@@ -403,10 +409,11 @@ def initialiser_base_textes():
     ]
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation finale
-retriever_santorin = initialiser_base_santorin()
-retriever_ipack = initialiser_base_ipack()
-retriever_textes = initialiser_base_textes()
+# Initialisation finale des retrievers avec passage de la clé dynamique
+cle_actuelle = obtenir_cle_cache_pierre()
+retriever_santorin = initialiser_base_santorin(cle_actuelle)
+retriever_ipack = initialiser_base_ipack(cle_actuelle)
+retriever_textes = initialiser_base_textes(cle_actuelle)
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET

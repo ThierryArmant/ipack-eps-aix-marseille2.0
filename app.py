@@ -530,12 +530,15 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (PERSONNALITÉ PARTENAIRE V12)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (PERSONNALITÉ PARTENAIRE V12 + VIDÉO)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        st.markdown(m["content"], unsafe_allow_html=True)
+        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
+            exec(m["content"])
+        else:
+            st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt:
@@ -602,7 +605,7 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Traitement automatique des tableaux (pour Santorin)
+        # Traitement automatique des tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
@@ -619,7 +622,14 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
+        # Détection vidéo
+        youtube_match = re.search(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        
+        if youtube_match:
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{youtube_match.group(1)}')"})
+        
         st.rerun()

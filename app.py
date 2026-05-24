@@ -626,10 +626,11 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir des documents concrets.
-1. EXTRACTION : Liste les liens réels vers des PDF ou fiches d'évaluation trouvés dans le 'Contexte Web' ou ta 'Base locale'.
-2. GÉNÉRATION : Si tu n'as pas de fichier, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation).
-RÈGLE : Sois direct et exploitable. Utilise les éléments du contexte fournis.
+            consigne_ia = """MISSION : Tu es un documentaliste EPS. Ta priorité est de fournir les fichiers originaux.
+1. EXTRACTION : Liste les liens réels vers des fichiers PDF ou ressources téléchargeables trouvés dans le 'Contexte Web' ou ta 'Base locale'.
+2. FORMAT : Affiche les liens sous la forme : "📥 Télécharger : [Nom du document](URL)".
+3. GÉNÉRATION : Si aucun fichier n'est trouvé, CRÉE une fiche complète (Objectifs, Didactique, Pédagogie, Situation, Indicateurs, Évaluation).
+RÈGLE : Sois direct, le lien de téléchargement doit être en priorité.
 
 Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"

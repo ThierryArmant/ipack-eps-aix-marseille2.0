@@ -642,6 +642,9 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
+        # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
+        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         

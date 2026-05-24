@@ -563,24 +563,25 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
             except: pass
 
-        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES
+        # 3. ROUTAGE : PROTOCOLES DE RIGUEUR ET DIRECTIVES STRICTES (V10 EXPERT)
         protocole_rigueur = (
             "RÈGLES D'OR JURIDIQUES ABSOLUES :\n"
             "1. DISTINCTION STATUTAIRE : Ne confonds JAMAIS les obligations d'un enseignant (fonctionnaire) et les droits d'un candidat/élève.\n"
-            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil. N'applique JAMAIS les taux du Code du sport civil au cadre scolaire du second degré.\n"
-            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif. Elle prime absolument sur une formation ou le service habituel.\n"
-            "4. RÈGLE APPN : L'autonomie des groupes sans présence physique constante de l'enseignant est LÉGALE et AUTORISÉE (Circulaire APPN n° 2017-075 du 19 avril 2017) si elle est intégrée à un projet pédagogique maîtrisé.\n"
-            "5. RÈGLE VÉHICULE PERSONNEL : Le transport d'élèves par un enseignant est autorisé de façon EXCEPTIONNELLE (Circulaire n° 86-101 du 5 mars 1986) sous double verrou : Autorisation écrite du chef d'établissement ET assurance pro. Limite = places sur la carte grise.\n"
-            "6. RÈGLE SURVEILLANCE AS : La présence physique d'un adulte qualifié et habilité est OBLIGATOIRE. Interdiction absolue de laisser le gymnase sous la garde d'un élève.\n"
-            "7. RÈGLE RESPONSABILITÉ CIVILE : En cas d'accident, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937). C'est l'État qui indemnise au civil.\n"
-            "8. DIRECTIVE DE COMPORTEMENT : Si un chiffre ou un taux d'encadrement ne figure pas explicitement, interdiction formelle de l'inventer.\n"
-            "9. CLOISONNEMENT DES JURIDICTIONS : Interdiction formelle d'attribuer un arrêt de la Cour de cassation (pénal) à la responsabilité d'une commune (administratif).\n"
-            "10. JURISPRUDENCE ACCIDENTS GYMNASE : En cas d'accident, la responsabilité pénale pour faute caractérisée est retenue en cas de défaut d'organisation. ATTENTION : La 'parade' par un élève n'est pas un acte de jeu fortuit, c'est une délégation de sécurité. Confier la parade à un élève se plaignant de douleurs (même sans certificat) constitue une négligence coupable (Cour de cassation, 12 octobre 1999).\n"
-            "11. JURISPRUDENCE ESCALADE / SAE MUNICIPALE : A) Défaut visible (EPI) = Responsabilité enseignant. B) Défaut invisible (prise murale) = Responsabilité MAIRIE (défaut entretien ouvrage public).\n"
-            "12. RÉGLEMENTATION CONVOCATIONS : La non-présentation non justifiée à une convocation d'examen constitue un abandon de poste.\n"
-            "13. RÈGLE NATIONALE INAPTITUDE BAC : L'élève inapte total à l'année est dispensé. Sa moyenne d'EPS au Bac est neutralisée (pas de coefficient, pas de zéro, pas de mention 'DI').\n"
-            "14. JURISPRUDENCE SURVEILLANCE & ACCIDENTS FORTUITS : Un choc fortuit, soudain et instantané en cours de jeu (collision) exclut la faute caractérisée au pénal.\n"
-            "15. DÉPLACEMENTS VERS INSTALLATIONS SPORTIVES : Au LYCÉE (Circulaire n°96-248), les élèves peuvent se rendre seuls sur l'installation sportive. Ce déplacement est assimilé à un trajet domicile-établissement. L'enseignant n'est PAS responsable en cas d'accident. Au collège, l'encadrement reste la règle générale."
+            "2. SÉPARATION DES CADRES : Distingue strictement le cours d'EPS obligatoire, l'AS et le club civil.\n"
+            "3. RÈGLE EXAMENS : Une convocation officielle est un ordre de mission impératif. Elle prime sur toute convenance personnelle.\n"
+            "4. RÈGLE APPN : L'autonomie des groupes est LÉGALE (Circulaire APPN n° 2017-075) si elle est intégrée à un projet pédagogique.\n"
+            "5. RÈGLE VÉHICULE PERSONNEL : Transport exceptionnel (Circulaire n° 86-101) : Autorisation écrite du chef d'établissement ET assurance pro obligatoires.\n"
+            "6. RÈGLE SURVEILLANCE AS : Présence physique d'un adulte qualifié obligatoire.\n"
+            "7. RÈGLE RESPONSABILITÉ CIVILE : L'État se substitue à l'enseignant (Loi du 5 avril 1937).\n"
+            "8. DIRECTIVE DE COMPORTEMENT : Interdiction absolue d'inventer des taux d'encadrement.\n"
+            "9. CLOISONNEMENT DES JURIDICTIONS : Ne mélange jamais faute pénale (individu) et responsabilité administrative (commune/État).\n"
+            "10. JURISPRUDENCE ACCIDENTS : La parade par un élève est une délégation de sécurité (Cour de cassation, 12 octobre 1999).\n"
+            "11. SAE MUNICIPALE : Défaut EPI = Prof / Vice de résine = Mairie.\n"
+            "12. CONVOCATIONS : La non-présentation est un abandon de poste.\n"
+            "13. INAPTITUDE BAC : Neutralisation du coefficient. Pas de note, pas de mention.\n"
+            "14. ACCIDENTS FORTUITS : Choc instantané en jeu = pas de faute caractérisée.\n"
+            "15. DÉPLACEMENTS LYCÉE : Trajet domicile-établissement (Circulaire n°96-248). Prof non responsable.\n"
+            "16. HIÉRARCHIE DES MISSIONS (RÈGLE EXPERT) : Les examens nationaux (DNB/BAC) sont des missions de service public impératives. Aucun congé exceptionnel pour convenance personnelle (mariage, etc.) ne peut valider l'absence à une convocation d'examen, sauf accord explicite du Rectorat. Le chef d'établissement n'est pas habilité à annuler une mission d'examen national.\n"
         )
 
         if mode == "ipack":

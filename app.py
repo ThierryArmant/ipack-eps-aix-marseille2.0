@@ -615,8 +615,9 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{protocole_rigueur}\n"
-                "Tu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées.\n"
-                "OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac].\n"
+                "Tu es l'expert Santorin. DIRECTIVE ABSOLUE : Applique strictement la Règle 13 (Inaptitude au BAC = neutralisation du coefficient de l'épreuve concernée, pas de note ni mention POUR LE TRIMESTRE INAPTE). "
+                "Cependant, si l'élève est APTE sur les autres trimestres, rappelle qu'iPackEPS et Santorin calculent la note finale sur les épreuves restantes valides (Règle des 2 notes minimales). Si le protocole final manque d'une note, le dossier bascule au Jury Académique.\n\n"
+                "OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures sous la forme d'un TABLEAU comportant exactement 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac].\n"
                 "Données : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"

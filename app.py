@@ -597,12 +597,12 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "MATRICE D'EXTRACTION : Si tu abordes 'classe' ou 'edt', insère les liens du référentiel que tu as en mémoire.\n"
+                "MATRICE D'EXTRACTION : Si le sujet concerne 'classe' ou 'edt', tu DOIS inclure en fin de réponse : "
+                "'Tutoriel officiel à consulter : https://youtu.be/tu8J1RBUTwk'\n"
                 "CONSIGNE SÉCURITÉ : Ne JAMAIS FORCER LA SUPPRESSION (fusionner ou ajuster les dates).\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        # ... (les autres modes restent identiques) ...
         elif mode == "examens":
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
@@ -617,7 +617,7 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # EXTRACTION MULTIPLE (re.findall au lieu de search)
+        # EXTRACTION MULTIPLE (re.findall capture TOUS les liens)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
         # Traitement tableaux
@@ -641,7 +641,7 @@ if prompt:
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # AFFICHAGE MULTIPLE DES VIDÉOS
+        # AFFICHAGE MULTIPLE DES VIDÉOS (ton filet de sécurité)
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
         

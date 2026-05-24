@@ -317,9 +317,9 @@ def initialiser_base_santorin():
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permet à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
-            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
+            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
             metadata={"title": "Fiche Mémo - Correction Partagée Santorin", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"}
         ),
@@ -572,7 +572,7 @@ if prompt:
                     for n in retriever_ipack.retrieve(prompt): 
                         extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    # CORRECTIONS DES CONFLITS : On connecte l'onglet sécurité au retriever réglementaire local
+                    # BRANCHEMENT DE L'ONGLET SÉCURITÉ SUR LE RETRIEVER RÉGLEMENTAIRE LOCAL
                     for n in retriever_textes.retrieve(prompt): 
                         extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
             except: pass
@@ -605,7 +605,8 @@ if prompt:
             consigne_ia = f"{protocole_rigueur}\nTu es l'expert Santorin. INTERFACE SANTORIN : L'enseignant doit cocher la case 'Inapte' pour l'ensemble des périodes non évaluées. OBLIGATION DE FORMAT : Tu dois OBLIGATOIREMENT présenter les procédures d'inaptitude sous la forme d'un TABLEAU MARKDOWN comportant 3 colonnes : [Acteur concerné | Action à mener | Conséquence sur la note du Bac]. Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert en droit de l'éducation. Base impérativement tes réponses sur les documents locaux fournis s'ils traitent du sujet (comme les arbitrages de CAP). Affiche les sites officiels sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
+            # DIRECTIVE AJUSTÉE : Force la priorité sur les données locales du fichier de Pierre (ex: CAP 2 épreuves)
+            consigne_ia = f"{protocole_rigueur}\nTu es le juriste expert en droit de l'éducation. DIRECTIVE ABSOLUE : Base impérativement tes réponses sur les documents locaux fournis ('Notes de Pierre') en priorité maximale si le sujet y est abordé. Ne suis pas les règles ou interprétations générales extérieures si une consigne de Pierre la contredit. Affiche les sites officiels sous la forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else: # Mode General
             consigne_ia = f"{protocole_rigueur}\nTu es l'Expert Pédagogique EPS. MISSION : Analyse compétences, attendus, cycles, AS/UNSS. Liens sous forme [Nom du site](URL). Données : {extraits_doc}\nQuestion : {prompt}"

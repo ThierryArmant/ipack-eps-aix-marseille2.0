@@ -126,7 +126,7 @@ css_pur = """
     /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur { 
         background-color: rgba(16, 185, 129, 0.2) !important; 
-                color: #10B981 !important; 
+        color: #10B981 !important; 
         border: 1px solid rgba(16, 185, 129, 0.45) !important; 
         padding: 3px 12px !important; 
         border-radius: 20px !important; 
@@ -346,7 +346,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permits à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permits à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -354,7 +354,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
-            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs par les coordonnateurs de l'établissement.""",
+            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les évaluateurs par les coordonnateurs de l'établissement.""",
             metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
         ),
         Document(
@@ -565,32 +565,37 @@ with col_action_input:
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
 
-# 🛡️ ARMURE CSS DE SÉCURITÉ : Force le fond opaque des fiches et la lisibilité du texte
+# 🛡️ ARMURE CSS DE SÉCURITÉ CIBLÉE POUR LA PÉDA (N'altère aucunement le comportement d'origine des autres modes)
 st.markdown("""
     <style>
-        [data-testid="stChatMessage"] {
-            background-color: rgba(255, 255, 255, 0.97) !important;
+        /* 1. On donne à la fiche Peda son magnifique conteneur blanc opaque et solide */
+        div[data-testid="stChatMessage"] .peda-card-white {
+            background-color: #ffffff !important;
             border-radius: 12px !important;
-            padding: 22px !important;
-            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15) !important;
-            margin-bottom: 15px !important;
+            padding: 25px !important;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2) !important;
+            border-left: 6px solid #4f46e5 !important;
+            margin-top: 10px !important;
+            display: block !important;
         }
-        /* Force TOUT le texte interne en sombre pour éliminer le blanc sur blanc */
-        [data-testid="stChatMessage"] * {
+        /* 2. CONTRE-ATTAQUE HYPER CIBLÉE : On force TOUT le texte interne de la fiche Peda en sombre, neutralisant le blanc sur blanc imposé par la section 3 */
+        div[data-testid="stChatMessage"] .peda-card-white,
+        div[data-testid="stChatMessage"] .peda-card-white * {
             color: #1e293b !important;
-            font-size: 15px;
+            font-size: 15px !important;
         }
-        /* Style haut de gamme pour les titres de tes fiches */
-        [data-testid="stChatMessage"] h1, 
-        [data-testid="stChatMessage"] h2, 
-        [data-testid="stChatMessage"] h3 {
+        /* 3. On applique la bonne couleur pour les sous-titres de la fiche */
+        div[data-testid="stChatMessage"] .peda-card-white h1, 
+        div[data-testid="stChatMessage"] .peda-card-white h2, 
+        div[data-testid="stChatMessage"] .peda-card-white h3 {
             color: #4f46e5 !important;
             font-weight: bold !important;
-            margin-top: 18px !important;
+            margin-top: 20px !important;
             margin-bottom: 8px !important;
         }
-        /* Gestion propre des liens de téléchargement des Académies */
-        [data-testid="stChatMessage"] a {
+        /* 4. On s'assure que les liens de téléchargement vers les 30 Académies ressortent magnifiquement en bleu roi */
+        div[data-testid="stChatMessage"] .peda-card-white a,
+        div[data-testid="stChatMessage"] .peda-card-white a * {
             color: #0284c7 !important;
             text-decoration: underline !important;
             font-weight: bold !important;
@@ -599,7 +604,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-# 🎯 RECONSTRUCTION DE LA BOUCLE D'AFFICHAGE REPRÉCISE ICI :
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
         if isinstance(m["content"], str) and m["content"].startswith("st.video("):
@@ -738,7 +742,7 @@ if prompt:
                 "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en Markdown) :\n\n"
                 "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
                 "### 🎯 OBJECTIFS & COMPÉTENCES\n(Points clés)\n\n"
-                "### 🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
+                "### 🏃‍♂️ CADRE DE l'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
                 "### 🛠️ SITUATIONS & VARIABLES\n(Situations pratiques et évolutions)\n\n"
                 "### 📊 CRITÈRES DE RÉUSSITE\n(Indicateurs de réussite)\n\n"
                 "### 💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)\n"
@@ -775,8 +779,14 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
-        # Extraction de la réponse en pur Markdown (Plus aucun IF/ELSE ici pour éviter les bugs)
-        formatted_answer = f"### {badge}\n\n{texte_brut}"
+        # 📦 COMPARTIMENTAGE STRICT : Application sélective du fond blanc + texte sombre UNIQUEMENT pour la Péda
+        if mode == "peda":
+            # On encapsule la réponse dans la div peda-card-white avec deux sauts de ligne pour préserver l'analyse Markdown native de Streamlit
+            formatted_answer = f'<div class="peda-card-white">\n\n### {badge}\n\n{texte_brut}\n\n</div>'
+        else:
+            # Reste du code originel inchangé pour iPack, Examens et Textes
+            formatted_answer = f"### {badge}\n\n{texte_brut}"
+            
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Rendu des vidéos associées s'il y en a et rafraîchissement

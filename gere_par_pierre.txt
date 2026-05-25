@@ -11,6 +11,18 @@
 [SITUATION: NOTATION EPS AU BACCALAURÉAT]
 - Instruction : Seule la note de CCF (Contrôle en Cours de Formation) de Terminale remonte sur Cyclades (coefficient 6). Les notes issues du contrôle continu classique ne sont pas prises en compte pour l'obtention du Baccalauréat.
 
+DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)
+
+Cible : Chef d’établissement / Secrétariat des examens.
+Objectif : Générer les lots de correction à partir des protocoles d'épreuve.
+Procédure :
+Accéder à l'onglet "Distribution de l’épreuve".
+Sélectionner le groupe ou la classe concerné(e).
+Cliquer sur le bouton "Distribuer".
+Vérification de succès :
+Vérifier que le protocole a bien été transformé en "lot de correction".
+Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
+
 [SITUATION: EXPORT DES GROUPES VERS CYCLADES]
 - Instruction : Pour que les groupes constitués dans iPackEPS soient reconnus par Cyclades :
  1. Vérifier que la configuration des classes (Article 14) est terminée et validée dans iPackEPS.

@@ -1,4 +1,10 @@
 ======================================================================
+AJOUT MAI 2026 : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
+======================================================================
+Quelle est la date limite de saisie des notes dasn santorin ?
+la date limite de saisie des notes dans santorin est fixée au 30 mai 2026
+
+======================================================================
                   CONSIGNES ET DICTIONNAIRE IA DE PIERRE
                       (SOURCE DE VÉRITÉ ABSOLUE)
 ======================================================================
@@ -939,3 +945,95 @@ FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
 ----------------------------------------------------------------------
 * Tout arbitrage lié au choix d'une option d'épreuve par un élève doit être consigné dans le cahier de texte numérique de la classe (traçabilité pédagogique).
 * En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS requiert la suppression préalable de toute note brute saisie dans le protocole initial pour dégriser les boutons de configuration.
+
+======================================================================
+BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROGÉDURES STRICTES
+======================================================================
+
+[SANTORIN] CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR
+----------------------------------------------------------------------
+* CAUSE REELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCEDURE INCOMPLETE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
+* RESOLUTION : Le coordonnateur doit impérativement valider le choix des AFLP dans les paramètres du protocole de l'établissement pour débloquer et rendre actives les cases de saisie des notes pour tous les correcteurs.
+
+[SANTORIN] DATE LIMITE DE SAISIE DES NOTES 2026
+----------------------------------------------------------------------
+* DATE NATIONALE & ACADEMIQUE : La date limite absolue et impérative de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute date comme le 09 juin ou le 11 mai est fausse.
+
+[SANTORIN] ACCÈS REMPLAÇANT (CHRONOLOGIE)
+----------------------------------------------------------------------
+* CHRONOLOGIE STRICTE : 
+  1. Étape 1 : Vérification et édition de la convocation officielle du remplaçant (indispensable pour justifier ses droits).
+  2. Étape 2 : Déclenchement de l'ouverture des accès ARENA par le rectorat ou le chef d'établissement.
+  3. Étape 3 : Attribution des droits de correction sur les lots correspondants dans Santorin.
+
+[SANTORIN] AUCUN LOT A CORRIGER (DISTRIBUTION)
+----------------------------------------------------------------------
+* PROCEDURE TECHNIQUE : Le chef d'établissement ne doit pas chercher un bouton de création manuelle immédiate. La réalité est qu'il faut obligatoirement :
+  1. Lancer d'abord une DISTRIBUTION AUTOMATIQUE des lots.
+  2. Si et seulement si la distribution automatique s'avère incomplète, exécuter ensuite une DISTRIBUTION MANUELLE complémentaire pour attribuer le reliquat des copies numérisées.
+
+[SANTORIN / CCF] INDISPONIBILITE DES INSTALLATIONS SPORTIVES (CCF3)
+----------------------------------------------------------------------
+* CADRE PEDAGOGIQUE ET JURIDIQUE : L'indisponibilité des installations sportives (ex: gymnase brûlé, travaux, intempéries majeures) constitue réglementairement un « CAS EXCEPTIONNEL DE FORCE MAJEURE ».
+* INTERDICTION : Il est strictement interdit d'utiliser la procédure d'inaptitude médicale (le statut IN ou DI est réservé aux certificats médicaux).
+* ACTION : L'établissement doit acter la force majeure, organiser une session de rattrapage ou une épreuve alternative sur des installations de repli, documenter la situation via une fiche d'incident signée par le Chef d'établissement et la transmettre immédiatement au Jury Académique.
+
+[SANTORIN] LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)
+----------------------------------------------------------------------
+* PROCEDURE IMAG'IN COMPLETE : Si le lot est présent dans Cyclades mais absent de Santorin, l'enseignant doit être convoqué correctement. La procédure dans IMAG'IN impose au secrétariat d'examen de vérifier l'affectation de la mission de correction à l'identifiant de l'enseignant, de valider son rattachement au groupe de correction EPS, puis de synchroniser le flux pour pousser le lot vers Santorin.
+
+[SANTORIN] ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS
+----------------------------------------------------------------------
+* REGLEMENTATION CHANGEMENT EN COURS D'ANNEE : Un élève ne peut pas bénéficier d'un contrôle adapté décidé à la carte ou au sifflet en cours d'année selon son humeur. Le protocole adapté doit être validé en amont (commission médicale, PAI, PPS, ou décision officielle du médecin scolaire).
+* INSTRUCTION TECHNIQUE : Une fois les candidats officiellement associés à ces protocoles adaptés, il est techniquement OBLIGATOIRE DE RELANCER UNE DISTRIBUTION AUTOMATIQUE DES LOTS dans Santorin pour que les copies des épreuves spécifiques soient réparties chez les correcteurs.
+
+[SANTORIN] ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES
+----------------------------------------------------------------------
+* ERREUR INTERFACE : L'option textuelle "Ajouter un élève" dans l'interface Santorin n'est PAS fonctionnelle pour l'utilisateur.
+* DIAGNOSTIC ET RESOLUTION : Si l'élève est absent, c'est qu'il n'est actuellement affecté à aucun groupe de compétences ("élève sans groupe"). La seule procédure valide est de retourner dans Cyclades (ou via le secrétariat), d'affecter manuellement le candidat à son groupe/protocole EPS. Il remontera automatiquement dans Santorin sans action manuelle.
+
+[SANTORIN] ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20
+----------------------------------------------------------------------
+* RÈGLE DU CHAMP D'APPRENTISSAGE (CA) : Lorsqu'un élève bénéficie du statut de Sportif de Haut Niveau (SHN) et que son activité de spécialité n'est pas représentée dans les protocoles de l'établissement, la règle d'attribution automatique de la note de 20/20 n'est recevable que si l'activité du sportif relève d'un Champ d'Apprentissage (CA) qui n'est pas déjà évalué ou saturé dans le parcours CCF standard de l'élève, et après validation formelle de son statut par la commission académique.
+
+[IPACKEPS] EXPORT ET RECUPERATION DANS CYCLADES
+----------------------------------------------------------------------
+* MENUS EXACTS D'EXPORT (IPACK) : Accéder au menu [Tableau de bord] > [Les Projets et Dossiers] > [Dossier Certificatif] > Onglet [Cyclades/Export]. C'est ici que l'on génère le fichier standardisé des groupes-élèves.
+* MENUS EXACTS D'IMPORT (CYCLADES) : Se connecter à Arena > [Examens et concours] > [Cyclades] (ou Imag'in selon les sessions académiques) > Menu [Gestion des épreuves EPS] > [Importation des structures/groupes] > Charger le fichier extrait d'iPackEPS.
+
+[IPACKEPS] PROGRAMMATION DEMI-FOND BAC GT
+----------------------------------------------------------------------
+* DISTINCTION IMPÉRATIVE : Il ne faut pas confondre l'épreuve nationale « Courses » (libellé officiel d'examen) et l'activité locale d'établissement « Course de demi-fond ». En Bac GT, il est strictement interdit de créer des protocoles hybrides ou inappropriés à deux épreuves (ex: mélanger Demi-fond/Badminton dans un faux protocole unique). La classe doit être configurée selon la nomenclature officielle de l'APSA rattachée au CA1.
+
+[IPACKEPS] ADAPTATION ATHLETISME ET SAISIE DES NOTES
+----------------------------------------------------------------------
+* VERROUILLAGE DES CANDIDATS : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole précis (Course, ou Saut, ou Lancer) en début d'année (ou à l'issue de la phase réglementaire d'orientation fixée par l'équipe). Ils ne doivent PLUS EN BOUGER en cours d'année ou au milieu du cycle selon les séances.
+* LOGIQUE INFORMATIQUE : L'application iPackEPS n'est pas un carnet de note de séance ; elle est structurée pour collecter les performances certificatives finales associées au groupe fixe défini dans le protocole validé.
+
+[IPACKEPS] COMMENT DÉPOSER UN CERTIFICAT MÉDICAL
+----------------------------------------------------------------------
+* CHEMIN CHIRURGICAL DES MENUS :
+  1. Se connecter à l'interface iPackEPS Professeur.
+  2. Cliquer sur le module [Mes Élèves].
+  3. Dans la liste, cliquer sur le nom de l'élève pour ouvrir la [Fiche élève].
+  4. Repérer la section [Inaptitudes] (et non Dossier Certificatif).
+  5. Cliquer sur le bouton officiel [Saisir une inaptitude].
+  6. Renseigner les dates, les APSA visées par la dispense, téléverser le scan du certificat médical.
+  7. Pour la réactivation des APSA lors de la commission d'arbitrage, il faut modifier la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.
+
+[IPACKEPS] COMMENT SUPPRIMER UN PROTOCOLE
+----------------------------------------------------------------------
+* FAUSSE PROCEDURE : L'option directe "Supprimer le protocole" n'existe pas dans les menus terminaux si des données y sont rattachées.
+* LA VRAIE PROCEDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
+  1. Aller dans [Dossiers] > [Dossier EPS] > [Séquences d'Apprentissage] et supprimer toutes les séquences liées au groupe.
+  2. Aller dans le module [Mes Élèves], vider le groupe en décochant tous les élèves affectés.
+  3. Une fois le groupe totalement vide et sans aucune séquence ni note, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
+
+[IPACKEPS] REPARTIR LES ELEVES DANS LES GROUPES
+----------------------------------------------------------------------
+* ERREUR DE BOUTON : Le bouton ou l'option "Placement des Élèves dans les Groupes" n'existe pas dans l'application.
+* LA VRAIE MANIPULATION : Tout s'exécute exclusivement via le module [Mes Élèves].
+  1. Dans le panneau de configuration, sélectionner l'onglet [Classes] ou [Groupes].
+  2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
+  3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
+  4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.

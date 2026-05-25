@@ -323,7 +323,7 @@ def obtenir_cle_fichier():
         return os.path.getmtime(chemin)
     return 0.0
 
-# RADAR DE LECTURE FORCÉ HORS CACHE (S'exécute à chaque chargement de page)
+# RADAR DE LECTURE FORCÉ HORS CACHE
 chemin_detecte = trouver_chemin_pierre()
 contenu_global_pierre = ""
 status_radar = "❌ ERREUR DIRECTE : Aucun fichier 'gere_par_pierre.txt' trouvé à la racine de ton GitHub !"
@@ -342,7 +342,7 @@ if chemin_detecte:
     if chemin_detecte and not contenu_global_pierre:
         status_radar = f"⚠️ ALERTE : Le fichier '{chemin_detecte}' a été localisé mais il est vu comme complètement VIDE."
 
-# BASE DE CONNAISSANCES CENTRALISÉE (Se reconstruit uniquement si le texte ou le fichier change)
+# BASE DE CONNAISSANCES CENTRALISÉE
 @st.cache_resource
 def initialiser_base_unique(cle_timestamp, texte_connaissances):
     if texte_connaissances.strip():
@@ -387,13 +387,7 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-# Affichage visuel du bandeau de diagnostic en temps réel (HORS CACHE)
-if "❌" in status_radar:
-    st.error(status_radar)
-elif "⚠️" in status_radar:
-    st.warning(status_radar)
-else:
-    st.info(status_radar)
+# L'affichage visuel direct a été supprimé d'ici pour laisser l'interface 100% propre aux collègues.
 
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
@@ -559,19 +553,17 @@ if prompt:
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (Couplé directement aux variables lues hors cache)
+        # 2. CONTEXTE LOCAL
         if openai_api_key:
             try:
-                if not contenu_global_pierre.strip():
+                if not contenido_global_pierre.strip():
                     extraits_doc += "\n[ALERTE RADAR : Le fichier local gere_par_pierre.txt est lu comme VIDE par le système.]\n"
                 else:
                     nodes = retriever_unique.retrieve(prompt)
-                    if not nodes:
-                        extraits_doc += "\n[ALERTE RADAR : Aucun paragraphe correspondant trouvé dans le texte local.]\n"
                     for n in nodes:
                         extraits_doc += f"Base Connaissances de Pierre: {n.node.text}\n\n"
-            except Exception as e:
-                extraits_doc += f"\n[PANNE TECHNIQUE INDEXATION : {str(e)}]\n"
+            except:
+                pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
@@ -661,3 +653,14 @@ if prompt:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
         
         st.rerun()
+
+# ======================================================================
+# 10. ZONE TECHNIQUE ET DIAGNOSTIC (MASQUÉE TOUT EN BAS DU SITE)
+# ======================================================================
+with st.expander("🛠️ Zone de Diagnostic (Développeur)"):
+    if "❌" in status_radar:
+        st.error(status_radar)
+    elif "⚠️" in status_radar:
+        st.warning(status_radar)
+    else:
+        st.success(status_radar)

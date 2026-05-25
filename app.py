@@ -126,7 +126,7 @@ css_pur = """
     /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur { 
         background-color: rgba(16, 185, 129, 0.2) !important; 
-        color: #10B981 !important; 
+                color: #10B981 !important; 
         border: 1px solid rgba(16, 185, 129, 0.45) !important; 
         padding: 3px 12px !important; 
         border-radius: 20px !important; 
@@ -599,7 +599,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-# ... (le reste de ton code de boucle m in messages_hub reste identique)
+# 🎯 RECONSTRUCTION DE LA BOUCLE D'AFFICHAGE REPRÉCISE ICI :
+for m in st.session_state.messages_hub:
+    with st.chat_message(m["role"]): 
+        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
+            exec(m["content"])
+        else:
+            st.markdown(m["content"], unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Liste globale des domaines académiques EPS
 domaine_eps_france = [

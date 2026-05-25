@@ -717,6 +717,7 @@ if prompt:
                 "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             consigne_ia = (

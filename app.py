@@ -607,67 +607,78 @@ if prompt:
         except:
             pass
         
-     # 1. MOTEUR WEB (Tavily)
+    # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 # Initialisation des variables pour éviter les erreurs
                 domains = domaine_eps_france
                 requete_blindee = prompt
                 exclude = []
+                tavily_deja_execute = False  # Drapeau pour gérer la cascade du mode "textes"
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    # PRIORITÉ AIX-MARSEILLE : focus juridique global amélioré
-                    domains = ["pedagogie.ac-aix-marseille.fr"] + ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"] + domaine_eps_france
-                    requete_blindee = (
-                        f"EPS \"{prompt}\" AND (site:pedagogie.ac-aix-marseille.fr OR "
-                        "\"code de l'éducation\" OR \"circulaire\" OR \"décret\" OR \"arrêté\" OR "
-                        "\"BO\" OR \"bulletin officiel\" OR \"note de service\" OR \"JO\" OR \"journal officiel\" OR \"loi\" OR \"protocole\")"
-                    )
+                    # RECHERCHE EN CASCADE : Périmètre prioritaire (Aix-Marseille + National)
+                    domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
+                    requete_blindee = f"EPS {prompt} texte officiel circulaire décret arrêté BO"
+                    
+                    payload = {
+                        "api_key": tavily_api_key, 
+                        "query": requete_blindee, 
+                        "search_depth": "advanced", 
+                        "include_domains": domains_prioritaires
+                    }
+                    
+                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                    results = res.json().get("results", []) if res.status_code == 200 else []
+                    
+                    # Si aucun résultat local/national, on élargit à toute la France
+                    if not results:
+                        payload["include_domains"] = domaine_eps_france
+                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                        results = res.json().get("results", []) if res.status_code == 200 else []
+                    
+                    for item in results: 
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
+                    
+                    tavily_deja_execute = True
                 
                 elif mode == "examens":
-                    # STABLE : Aucun changement
-                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
-                    domains = ["education.gouv.fr"] + domaine_eps_france
+                    # OPTIMISÉ : Aix-Marseille passe en premier pour éviter de récupérer les CCF des autres académies
+                    domains = ["pedagogie.ac-aix-marseille.fr", "education.gouv.fr"] + domaine_eps_france
+                    requete_blindee = f"EPS {prompt} réglementation examen Santorin Cyclades certification CCF"
                 
                 elif mode == "ipack":
-                    # AMÉLIORATION IPACK : Recherche propre ouverte aux rubriques 2, 4 et 7
-                    requete_blindee = f"\"{prompt}\" AND site:ipackeps.ac-creteil.fr AND (\"rubrique2\" OR \"rubrique4\" OR \"rubrique7\")"
+                    # OPTIMISÉ : Syntaxe épurée de tout opérateur Google pour Tavily
                     domains = ["ipackeps.ac-creteil.fr"]
+                    requete_blindee = f"{prompt} rubrique2 rubrique4 rubrique7 outil tutoriel"
                     exclude = ["youtube.com"]
                 
-                elif mode == "peda":
-                    # STABLE : Aucun changement
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                elif mode == "peda" or est_demande_fiche:
+                    # OPTIMISÉ : Remplacement du filetype:pdf par des mots-clés de format pour Tavily
                     domains = domaine_eps_france
-                
-                elif est_demande_fiche:
-                    # STABLE : Aucun changement
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                    domains = domaine_eps_france
+                    requete_blindee = f"EPS {prompt} évaluation fiche outil document PDF cycle séance"
                 
                 else:
-                    # STABLE : Aucun changement
-                    requete_blindee = f"{prompt} EPS programme officiel"
+                    # OPTIMISÉ : On s'assure que la recherche reste disciplinaire
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
+                    requete_blindee = f"EPS {prompt} programme officiel texte national"
 
-                # Construction finale du payload
-                payload = {
-                    "api_key": tavily_api_key, 
-                    "query": requete_blindee, 
-                    "search_depth": "advanced", 
-                    "include_domains": domains
-                }
-                
-                # Ajout de l'exclusion si nécessaire
-                if exclude:
-                    payload["exclude_domains"] = exclude
-                
-                # Exécution de la recherche
-                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                if res.status_code == 200:
-                    for item in res.json().get("results", []): 
-                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
+                # Exécution standard pour tous les modes sauf "textes" (déjà géré plus haut)
+                if not tavily_deja_execute:
+                    payload = {
+                        "api_key": tavily_api_key, 
+                        "query": requete_blindee, 
+                        "search_depth": "advanced", 
+                        "include_domains": domains
+                    }
+                    if exclude:
+                        payload["exclude_domains"] = exclude
+                    
+                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                    if res.status_code == 200:
+                        for item in res.json().get("results", []): 
+                            extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: 
                 pass
         # 2. CONTEXTE LOCAL

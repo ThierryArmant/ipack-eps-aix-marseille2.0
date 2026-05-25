@@ -607,7 +607,7 @@ if prompt:
         except:
             pass
         
-       # 1. MOTEUR WEB (Tavily)
+      # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 # Initialisation des variables pour éviter les erreurs
@@ -617,8 +617,9 @@ if prompt:
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr"]+ domaine_eps_france
-                    requete_blindee = f"{prompt} texte officiel réglementation EPS"
+                    # PRIORITÉ AIX-MARSEILLE : on cible l'académie et on élargit au national si besoin
+                    domains = ["pedagogie.ac-aix-marseille.fr"] + ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"] + domaine_eps_france
+                    requete_blindee = f"site:pedagogie.ac-aix-marseille.fr/jcms/c_78026 {prompt} OR {prompt} texte officiel réglementation EPS"
                 
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"

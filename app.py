@@ -652,7 +652,7 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
         if "tu8J1RBUTwk" in texte_brut:
             st.session_state.messages_hub.append({"role": "assistant", "content": "st.video('https://youtu.be/tu8J1RBUTwk')"})
             
-        st.rerun())
+        st.rerun()
 
 # ======================================================================
 # 10. ZONE TECHNIQUE GHOST

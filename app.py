@@ -688,22 +688,22 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
-        elif mode == "peda":
-            consigne_ia = (
-                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
-                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
-                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en Markdown) :\n\n"
-                "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
-                "### 🎯 OBJECTIFS & COMPÉTENCES\n(Points clés)\n\n"
-                "### 🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
-                "### 🛠️ SITUATIONS & VARIABLES\n(Situations pratiques et évolutions)\n\n"
-                "### 📊 CRITÈRES DE RÉUSSITE\n(Indicateurs de réussite)\n\n"
-                "### 💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)\n"
-                "Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :\n"
-                "- [📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)](https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf)\n\n"
-                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+        Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
+            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
+        else:
+            # SÉCURITÉ INTENTIONS DANS LE MODE GÉNÉRAL : Si recherche de fiche terrain, on bascule en Chasseur de ressources !
+            if est_demande_fiche:
+                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
+RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
+
+Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
+                badge = "🔍 CHASSEUR DE RESSOURCES"
+            else:
+                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
+            color_card = "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

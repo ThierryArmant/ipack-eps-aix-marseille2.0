@@ -593,7 +593,7 @@ if prompt:
             "1. ANALYSE DES RISQUES : Impact outils/protocoles.\n"
             "2. PROCÉDURE TECHNIQUE : Étapes fléchées (→). Acteurs ([Chef d'établissement], [Enseignant]).\n"
             "3. PROTECTION FONCTIONNELLE : Traçabilité.\n"
-            "4. DIRECTIVE SÉCURITÉ : Ne jamais inventer de fonctionnalités (ex: bouton 'Ajouter élève'). Si une info est absente, admets-le."
+            "4. DIRECTIVE SÉCURITÉ : Ne JAMAIS inventer de bouton ou fonctionnalité (ex: bouton 'Ajouter élève'). Si une info est absente, admets-le."
         )
         
         # 4. POSTURE PAR MODULE
@@ -609,7 +609,12 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                "ATTENTION : Santorin est un miroir. Un élève manquant n'est jamais 'ajouté' manuellement : il doit être affecté au groupe dans Cyclades puis re-importé.\n"
+                "!!! DIRECTIVE TECHNIQUE ABSOLUE : SANTORIN EST UN MIROIR DE CYCLADES.\n"
+                "Il n'existe AUCUNE fonction d'ajout manuel ou d'importation individuelle dans Santorin.\n"
+                "Si un élève manque, c'est une erreur de configuration Cyclades. PROCÉDURE OBLIGATOIRE :\n"
+                "1. Affecter l'élève dans le groupe dans CYCLADES.\n"
+                "2. Cliquer sur 'Rejouer l'import' ou 'Actualiser' dans Santorin.\n"
+                "Si tu proposes un 'Ajout Manuel' ou une 'Option d'ajout', tu fais une erreur technique grave.\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
@@ -633,11 +638,10 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
                 badge = "🔍 CONSEILLER PÉDAGOGIQUE"
             color_card = "general-card"
 
-        # 5. EXÉCUTION PROPRE (Sans pollution Regex)
+        # 5. EXÉCUTION PROPRE
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Transformation manuelle HTML pour garder le style
         texte_html = texte_brut.replace(chr(10), "<br>")
         texte_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_html)
         
@@ -648,7 +652,7 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
         if "tu8J1RBUTwk" in texte_brut:
             st.session_state.messages_hub.append({"role": "assistant", "content": "st.video('https://youtu.be/tu8J1RBUTwk')"})
             
-        st.rerun()
+        st.rerun())
 
 # ======================================================================
 # 10. ZONE TECHNIQUE GHOST

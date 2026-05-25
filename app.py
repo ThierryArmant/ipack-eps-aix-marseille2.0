@@ -664,8 +664,8 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain, d'échauffement ou de gestion de séances.\n"
-                "MISSION : Explique uniquement comment ce choix impacte la remontée des notes de l'examen, la numérisation des fiches d'évaluation et la validation par le Jury Académique.\n"
+                "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain (pas de séances, pas de cycles, pas d'échauffements).\n"
+                "MISSION : Réponds précisément aux questions réglementaires et logistiques : dates limites de saisie, gestion des remplaçants, répartition des lots, élèves manquants, et validation par le Jury Académique.\n"
                 "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', chaque étape doit obligatoirement utiliser le Canva : [Acteur | Action | Conséquence].\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
             )

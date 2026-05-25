@@ -754,20 +754,23 @@ if prompt:
         )
         badge = "INFORMATION"
         color_card = "general-card"
-        if mode == "ipack":
+       if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu exclus tout blabla pédagogique.\n"
+                "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ VERROUILLAGE SÉCURITÉ & FORMATAGE IPACK
+                # ⚡ MATRICE DE VÉRITÉS INFORMANTIQUES IPACK (AUDIT PIERRE)
                 "CRITICAL IPACK RULES:\n"
-                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par la Fiche Élève.\n"
-                "- NOTE UNIQUE : iPack bloque le calcul automatique. Le dossier va au Jury via Cyclades (le jury arbitre, ce n'est pas une absence injustifiée).\n"
-                "- CONSIGNE FORMATAGE STRICTE : Tu dois obligatoirement structurer ta réponse selon le 'Filtre Pierre' (1. ANALYSE DES RISQUES, 2. PROCÉDURE TECHNIQUE avec des étapes fléchées '→', 3. PROTECTION FONCTIONNELLE).\n\n"
+                "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
+                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves, le protocole Bac GT doit rester réglementaire.\n"
+                "- CHOIX D'APSA EN COURS DE CYCLE : Procédure impossible. Les élèves doivent être positionnés dans un protocole fixe dès le début d'année et ne peuvent plus en bouger. iPackEPS ne permet pas de modifier les choix d'activités à la volée selon les performances.\n"
+                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas dans l'onglet Protocoles. Pour faire disparaître un protocole, il faut obligatoirement supprimer ou désaffecter les Groupes et les séquences d'apprentissage qui lui sont rattachés en amont.\n"
+                "- RÉPARTITION DANS LES GROUPES : L'action se fait exclusivement via le module 'Mes élèves'. Attention, l'option textuelle 'Placement des élèves dans les groupes' n'existe pas dans l'interface.\n"
+                "- DÉPÔT CERTIFICAT MÉDICAL : Dissocier la saisie simple de l'inaptitude (Fiche élève > Onglet Inaptitudes) du téléversement des pièces justificatives pour la commission qui se fait dans [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].\n"
+                "- NOTE UNIQUE CCF : iPack bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée en utilisant les vérités techniques des CONSIGNES INTERNES. Ne parle pas de date si on ne te le demande pas.\n"
-                "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application en citant les vrais menus du contexte.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée en utilisant les vérités techniques ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

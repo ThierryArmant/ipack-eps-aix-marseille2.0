@@ -915,3 +915,27 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
   1. Dans iPackEPS : Allez dans [Dossiers] > [Dossier Certificatif] > [Protocoles] > "Générer le fichier d'export".
   2. Dans Cyclades : Le secrétariat doit effectuer une "Importation de groupes" dans le module "Gestion des épreuves" avec ce fichier CSV.
 - Si le fichier n'est pas généré ou reconnu : La synchronisation entre STSWEB et Cyclades est incomplète au niveau académique (données RH). Aucune action technique n'est possible depuis iPackEPS pour corriger ce point. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr.
+
+======================================================================
+FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
+======================================================================
+
+1. RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC
+----------------------------------------------------------------------
+* RÈGLES IMPÉRATIVES : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves d'APSA différentes, appartenant obligatoirement à DEUX Champs d'Apprentissage (CA) distincts.
+* ERREUR CRITIQUE À ÉVITER : Un cycle d'Athlétisme (même si l'élève a le choix entre Course, Saut ou Lancer) ne représente qu'UN SEUL ET UNIQUE cycle d'APSA (Champ d'Apprentissage 1). Un élève ne peut JAMAIS valider son CCF ou obtenir ses deux notes de Bac sur un seul cycle d'Athlétisme. La deuxième note doit obligatoirement provenir d'une autre activité d'un autre champ (ex: Badminton en CA4, Demi-fond en CA1 et Gymnastique en CA3).
+
+2. CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE
+----------------------------------------------------------------------
+* STRUCTURE DE L'APPLICATION : Dans l'interface iPackEPS, un protocole d'évaluation CCF est unique et verrouillé par groupe-classe pour une APSA spécifique (ex: un protocole unique pour le "Pentabond", ou un protocole unique pour le "1500m"). L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.
+* PROCÉDURE TECHNIQUE EN CAS DE CHOIX (COURSE / SAUT / LANCER) :
+  Si l'enseignant propose des options d'épreuves différentes au sein du groupe en fonction des performances initiales, il est techniquement obligatoire de :
+  → Étape 1 : Créer des "Groupes de compétences" ou des groupes d'évaluation distincts directement dans iPackEPS.
+  → Étape 2 : Affecter manuellement les élèves dans leur groupe d'option respectif (Groupe Course, Groupe Saut, ou Groupe Lancer).
+  → Étape 3 : Associer à chaque groupe le protocole et le barème officiel de l'épreuve choisie.
+  → Étape 4 : Saisir les performances dans chaque menu dédié pour éviter tout blocage ou bug lors du calcul automatique de la note finale du protocole.
+
+3. TRAÇABILITÉ ET PROTECTION FONCTIONNELLE
+----------------------------------------------------------------------
+* Tout arbitrage lié au choix d'une option d'épreuve par un élève doit être consigné dans le cahier de texte numérique de la classe (traçabilité pédagogique).
+* En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS requiert la suppression préalable de toute note brute saisie dans le protocole initial pour dégriser les boutons de configuration.

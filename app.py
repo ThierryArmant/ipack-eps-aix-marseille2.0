@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - TON COLLABORATIF)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -549,24 +549,29 @@ if prompt:
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
-        # 3. DIRECTIVES SPÉCIFIQUES PAR MODE (Pas d'injection globale pour Peda/Textes)
-        directive_tech = "DIRECTIVE TECHNIQUE (Examens) : Santorin est un miroir. Pas d'ajout manuel. Procédure : Affecter dans Cyclades -> Rejouer l'import. Problème AFLP ? C'est le bouton 'Choisir les AFLP' OBLIGATOIRE avant toute saisie."
+        # 3. DIRECTIVES SPÉCIFIQUES (TON MODIFIÉ POUR EXAMENS)
         
         if mode == "ipack":
-            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{directive_tech}\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif mode == "examens":
-            consigne_ia = f"Tu es l'expert Santorin/Cyclades (Académie Aix-Marseille).\n{directive_tech}\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"Tu es un collègue expert EPS de l'Académie d'Aix-Marseille.\n"
+                "Réponds avec un ton professionnel et collaboratif.\n"
+                "Pour les problèmes de saisie (Santorin/Cyclades) :\n"
+                "1. Suggère d'abord de vérifier l'étape 'Choisir les AFLP' (c'est souvent la cause).\n"
+                "2. Si le problème persiste, évoque une potentielle erreur de configuration dans Cyclades ou un problème de droits.\n"
+                "3. Si rien ne fonctionne, conseille de prendre contact avec le service examen avec une capture d'écran pour tracer la demande.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
             
         elif mode == "textes":
-            # RESTE EXACTEMENT COMME AVANT - PURE
             consigne_ia = f"Tu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
-            # RESTE EXACTEMENT COMME AVANT - PURE
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. 
 1. EXTRACTION : Parcours le contexte. Si tu trouves un lien de document, affiche-le : "📥 Télécharger : [Nom](URL)".
 2. GÉNÉRATION : Si pas de lien, génère une fiche technique complète (Compétences, Analyse didactique, Indicateurs chiffrés).

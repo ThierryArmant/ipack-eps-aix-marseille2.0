@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - LOCALISÉE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - AIX-MARSEILLE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -521,16 +521,13 @@ if prompt:
     with st.spinner("Analyse pour l'Académie d'Aix-Marseille..."):
         extraits_doc = ""
         mode = st.session_state.active_module
-        
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
         # 1. MOTEUR WEB (Tavily localisé)
         if tavily_api_key:
             try:
-                # On force la recherche sur Aix-Marseille
                 requete_localisee = f"{prompt} académie Aix-Marseille"
-                
                 if mode == "textes":
                     requete_blindee = f"{requete_localisee} jurisprudence administrative"
                     domains = ["legifrance.gouv.fr", "education.gouv.fr", "ac-aix-marseille.fr"]
@@ -540,7 +537,6 @@ if prompt:
                 else:
                     requete_blindee = requete_localisee
                     domains = domaine_eps_france
-                
                 payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
@@ -561,15 +557,14 @@ if prompt:
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE + LOCALISATION)
+        # 3. FILTRE PIERRE (Aix-Marseille)
         filtre_pierre = (
             "!!! DIRECTIVE D'ACADÉMIE : Tu es l'expert EPS de l'ACADÉMIE D'AIX-MARSEILLE.\n"
-            "Pour TOUTES les dates, calendriers ou procédures, tu DOIS privilégier les circulaires spécifiques à Aix-Marseille.\n"
-            "Si une date académique contredit une date nationale, la date académique gagne.\n"
+            "Pour TOUTES les dates, privilégie les circulaires spécifiques à Aix-Marseille.\n"
             "RÈGLES D'OR : 1. Loi 1937. 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         )
         
-        # 4. POSTURE PAR MODULE (Textes/Peda préservés à l'identique)
+        # 4. POSTURE PAR MODULE
         if mode == "ipack":
             consigne_ia = (
                 f"{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
@@ -582,8 +577,10 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                "!!! INTERDICTION FORMELLE : Il n'existe AUCUNE fonction d'ajout manuel ou d'importation individuelle dans Santorin.\n"
-                "Si un élève manque, c'est une erreur Cyclades. PROCÉDURE : 1. Affecter dans Cyclades. 2. Cliquer sur 'Rejouer l'import' dans Santorin.\n"
+                "!!! DIRECTIVE TECHNIQUE ABSOLUE :\n"
+                "1. SANTORIN = MIROIR. Pas d'ajout manuel. Procédure : Affecter dans Cyclades -> Rejouer l'import dans Santorin.\n"
+                "2. PROBLÈME 'CASES INACTIVES' / AFLP : C'est une procédure incomplète. L'étape OBLIGATOIRE est de cliquer sur 'Choisir les AFLP' dans l'interface Santorin. \n"
+                "Ne traite JAMAIS cela comme un problème de droits avant d'avoir vérifié cette étape fonctionnelle.\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
@@ -607,7 +604,7 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
                 badge = "🔍 CONSEILLER PÉDAGOGIQUE"
             color_card = "general-card"
 
-        # 5. EXÉCUTION PROPRE
+        # 5. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         texte_html = texte_brut.replace(chr(10), "<br>")
@@ -615,10 +612,8 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
         
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        
         if "tu8J1RBUTwk" in texte_brut:
             st.session_state.messages_hub.append({"role": "assistant", "content": "st.video('https://youtu.be/tu8J1RBUTwk')"})
-            
         st.rerun()
 
 # ======================================================================

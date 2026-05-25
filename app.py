@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -589,61 +589,101 @@ if prompt:
                         except: pass
             except: pass
 
-        # 3. IDENTITÉ ET RÈGLES
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
-        filtre_pierre = "\nMÉTHODE : 1. Analyse des risques. 2. Procédure technique fléchée (→). 3. Traçabilité."
-        consigne_video = "\nVidéo : Si une vidéo spécifique est dans le contexte, affiche : '[Regarder le tutoriel](URL)'."
-
-        # --- ROUTAGE ET PERSONAS (VERROUILLAGE) ---
+        filtre_pierre = (
+            "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
+            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers.\n"
+            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
+            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
+        )
         
-        if mode == "examens":
-            # RÈGLES VERROUILLÉES
-            system_rules = "Expert EPS Aix-Marseille. DEC = Division des Examens et Concours. Ne jamais inventer. Santorin = saisie, Cyclades = gestion."
+        consigne_extraction_video = (
+            "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
+            "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
+            "- Identifie le ou les liens YouTube (https://youtu.be/... ou https://www.youtube.com/...) associés spécifiquement au sujet de la question.\n"
+            "- Si une vidéo correspond précisément à la demande (ex: inaptitudes, Santorin, Cyclades, etc.), inclus-la obligatoirement à la fin de ta réponse sous le format Markdown strict : '[Regarder le tutoriel vidéo associé](URL)'.\n"
+            "- INTERDICTION : Ne force jamais de lien vidéo générique ou par défaut si le sujet de la question est différent."
+        )
+        
+        if mode == "ipack":
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS."
+                f"{consigne_extraction_video}\n\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+            
+        elif mode == "examens":
+            system_rules = "Expert EPS Aix-Marseille. DEC = Division des Examens et Concours. Santorin = saisie (données réelles uniquement). Cyclades = gestion administrative."
             p = prompt.lower()
-            if any(x in p for x in ["distribution", "distribuer", "lots"]):
+            
+            # --- ÉCLUSE LOGIQUE POUR FORCE MAJEURE ---
+            if any(x in p for x in ["indisponibilité", "gymnase", "inondé", "force majeure", "matériel"]):
+                instruction = """PROCÉDURE FORCE MAJEURE (Indisponibilité installation) :
+                1. NE JAMAIS SAISIR D'INAPTITUDE MÉDICALE (C'est une fraude administrative).
+                2. NE RIEN SAISIR DANS SANTORIN.
+                3. RÉDIGER SIGNALEMENT ÉCRIT IMMÉDIAT À LA DEC.
+                4. CONSERVER LA TRAÇABILITÉ (Copie du mail)."""
+            elif any(x in p for x in ["distribution", "distribuer", "lots"]):
                 instruction = "PROCÉDURE DISTRIBUTION : 1. Onglet 'Distribution de l’épreuve'. 2. Sélectionner groupe. 3. Cliquer 'Distribuer'. 4. Vérifier transformation en lot de correction."
             elif any(x in p for x in ["remplaçant", "convocation"]):
                 instruction = "PROCÉDURE REMPLAÇANT : 1. Convocation = Point n°1. 2. Déclaration DEC dans Cyclades = Obligatoire. 3. Import Santorin."
-            elif any(x in p for x in ["indisponibilité", "gymnase", "force majeure"]):
-                instruction = "PROCÉDURE FORCE MAJEURE : Indisponibilité = NI inaptitude NI absence. Signalement écrit immédiat à la DEC."
             elif "aucun lot" in p:
                 instruction = "PROCÉDURE LOT ABSENT : 1. Vérifier affectation Cyclades. 2. Rejouer l'import Santorin. 3. Signalement DEC si KO."
             else:
                 instruction = "PROCÉDURE SAISIE : 1. Bouton 'Choisir les AFLP' = Priorité n°1."
             
-            consigne_ia = f"{system_rules}\n{règles_or}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
+                f"RÈGLE APPLIQUÉE : {instruction}\n"
+                f"Canva: [Acteur|Action|Conséquence].{consigne_extraction_video}\n\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-
-        elif mode == "ipack":
-            # RÈGLES VERROUILLÉES (PARE-FEU CYCLADES)
-            system_rules = "Expert technique iPackEPS. INTERDICTION ABSOLUE : Aucune interopérabilité avec Cyclades/Santorin. Ne jamais inventer d'import/export vers Cyclades."
-            consigne_ia = f"{system_rules}\n{règles_or}\nSi question sur lien iPack->Cyclades, réponds : 'Aucune interopérabilité n'existe. Gestion exclusive via DEC.'\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        
+            
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n"
+                f"Canva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
-            consigne_ia = """MISSION : Documentaliste EPS expert.
-1. EXTRACTION : Extrais les liens (📥 Télécharger : [Nom](URL)).
-2. GÉNÉRATION : Si pas de lien, génère une fiche complète (Compétences, Analyse didactique, Indicateurs).
-Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
+            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
+RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
+
+Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
             
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+            if est_demande_fiche:
+                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
+RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
 
-        # 4. EXÉCUTION ET RENDU
+Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
+                badge = "🔍 CHASSEUR DE RESSOURCES"
+            else:
+                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
+            color_card = "general-card"
+
+        # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Formatage des liens et vidéos
+        # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        
+        # EXTRACTION MULTIPLE DYNAMIQUE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Tableaux
+        # Traitement des tableaux Markdown
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'

@@ -23,6 +23,13 @@ Vérification de succès :
 Vérifier que le protocole a bien été transformé en "lot de correction".
 Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
 
+ERREUR : AUCUN LOT À CORRIGER
+Cause : Rupture de synchronisation entre Cyclades et Santorin ou absence d'affectation officielle.
+Procédure : >     1. Vérifier l'affectation dans Cyclades (DEC).
+2. Forcer la synchronisation via "Rejouer l'import" dans Santorin.
+3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
+Note : Le bouton "Choisir les AFLP" est inopérant car le lot est absent de l'interface.
+
 [SITUATION: EXPORT DES GROUPES VERS CYCLADES]
 - Instruction : Pour que les groupes constitués dans iPackEPS soient reconnus par Cyclades :
  1. Vérifier que la configuration des classes (Article 14) est terminée et validée dans iPackEPS.

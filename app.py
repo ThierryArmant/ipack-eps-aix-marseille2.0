@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - AIX-MARSEILLE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -518,33 +518,25 @@ st.markdown('</div>', unsafe_allow_html=True)
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse pour l'Académie d'Aix-Marseille..."):
+    with st.spinner("Analyse du Hub..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # 1. MOTEUR WEB (Tavily localisé)
+        # 1. MOTEUR WEB
         if tavily_api_key:
             try:
-                requete_localisee = f"{prompt} académie Aix-Marseille"
-                if mode == "textes":
-                    requete_blindee = f"{requete_localisee} jurisprudence administrative"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "ac-aix-marseille.fr"]
-                elif mode == "examens":
-                    requete_blindee = f"{requete_localisee} réglementation Santorin Cyclades calendrier"
-                    domains = ["ac-aix-marseille.fr", "education.gouv.fr"]
-                else:
-                    requete_blindee = requete_localisee
-                    domains = domaine_eps_france
-                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                requete_base = prompt
+                if mode == "examens": requete_base = f"{prompt} réglementation Santorin Cyclades académie Aix-Marseille"
+                payload = {"api_key": tavily_api_key, "query": requete_base, "search_depth": "advanced"}
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL
+        # 2. CONTEXTE LOCAL (Préservé)
         if openai_api_key:
             try:
                 if mode == "examens":
@@ -557,39 +549,24 @@ if prompt:
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
-        # 3. FILTRE PIERRE (Aix-Marseille)
-        filtre_pierre = (
-            "!!! DIRECTIVE D'ACADÉMIE : Tu es l'expert EPS de l'ACADÉMIE D'AIX-MARSEILLE.\n"
-            "Pour TOUTES les dates, privilégie les circulaires spécifiques à Aix-Marseille.\n"
-            "RÈGLES D'OR : 1. Loi 1937. 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
-        )
+        # 3. DIRECTIVES SPÉCIFIQUES PAR MODE (Pas d'injection globale pour Peda/Textes)
+        directive_tech = "DIRECTIVE TECHNIQUE (Examens) : Santorin est un miroir. Pas d'ajout manuel. Procédure : Affecter dans Cyclades -> Rejouer l'import. Problème AFLP ? C'est le bouton 'Choisir les AFLP' OBLIGATOIRE avant toute saisie."
         
-        # 4. POSTURE PAR MODULE
         if mode == "ipack":
-            consigne_ia = (
-                f"{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "SANTORIN = MIROIR. Aucune saisie manuelle. Tout se fait dans CYCLADES.\n"
-                "Tutoriel si besoin EDT/Classe : https://youtu.be/tu8J1RBUTwk\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{directive_tech}\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif mode == "examens":
-            consigne_ia = (
-                f"{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                "!!! DIRECTIVE TECHNIQUE ABSOLUE :\n"
-                "1. SANTORIN = MIROIR. Pas d'ajout manuel. Procédure : Affecter dans Cyclades -> Rejouer l'import dans Santorin.\n"
-                "2. PROBLÈME 'CASES INACTIVES' / AFLP : C'est une procédure incomplète. L'étape OBLIGATOIRE est de cliquer sur 'Choisir les AFLP' dans l'interface Santorin. \n"
-                "Ne traite JAMAIS cela comme un problème de droits avant d'avoir vérifié cette étape fonctionnelle.\n"
-                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
-            )
+            consigne_ia = f"Tu es l'expert Santorin/Cyclades (Académie Aix-Marseille).\n{directive_tech}\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
             
         elif mode == "textes":
-            consigne_ia = f"{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            # RESTE EXACTEMENT COMME AVANT - PURE
+            consigne_ia = f"Tu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
+            # RESTE EXACTEMENT COMME AVANT - PURE
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. 
 1. EXTRACTION : Parcours le contexte. Si tu trouves un lien de document, affiche-le : "📥 Télécharger : [Nom](URL)".
 2. GÉNÉRATION : Si pas de lien, génère une fiche technique complète (Compétences, Analyse didactique, Indicateurs chiffrés).
@@ -600,11 +577,11 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
                 consigne_ia = "MISSION : Tu es un documentaliste EPS. Génère une fiche pratique de terrain (Compétences Cycle 4, Indicateurs, Situation). Contexte : " + extraits_doc + f"\nQuestion : {prompt}"
                 badge = "🔍 CHASSEUR DE RESSOURCES"
             else:
-                consigne_ia = f"{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                consigne_ia = f"Tu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
                 badge = "🔍 CONSEILLER PÉDAGOGIQUE"
             color_card = "general-card"
 
-        # 5. EXÉCUTION
+        # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         texte_html = texte_brut.replace(chr(10), "<br>")

@@ -241,7 +241,7 @@ css_pur = """
     }
     
     /* CARTES DE RÉPONSE */
-    .santorin-card, .general-card, .securite-card { 
+    .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
@@ -253,6 +253,7 @@ css_pur = """
     .santorin-card { border-left: 6px solid #38BDF8 !important; } 
     .general-card { border-left: 6px solid #10B981 !important; } 
     .securite-card { border-left: 6px solid #EF4444 !important; } 
+    .peda-card { border-left: 6px solid #8B5CF6 !important; } /* Magnifique violet pour la pédagogie */
     
     .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li { 
         color: #FFFFFF !important; 
@@ -688,22 +689,23 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
-        Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
-            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
-        else:
-            # SÉCURITÉ INTENTIONS DANS LE MODE GÉNÉRAL : Si recherche de fiche terrain, on bascule en Chasseur de ressources !
-            if est_demande_fiche:
-                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
-RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
-
-Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
-                badge = "🔍 CHASSEUR DE RESSOURCES"
-            else:
-                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
-            color_card = "general-card"
+        elif mode == "peda":
+            consigne_ia = (
+                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
+                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
+                "CONSIGNE FORMATAGE STRICTE : Interdiction absolue d'utiliser du Markdown (pas de ###, pas de **, pas de tirets). Tu dois obligatoirement formater ta réponse avec des balises HTML classiques (<h3>, <p>, <ul>, <li>, <strong>) pour l'affichage.\n\n"
+                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en HTML) :\n\n"
+                "<h3>📋 INTITULÉ DE LA FICHE</h3>\n<p>(Titre clair lié à la demande)</p>\n\n"
+                "<h3>🎯 OBJECTIFS & COMPÉTENCES</h3>\n<ul><li>...</li></ul>\n\n"
+                "<h3>🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ</h3>\n<ul><li>...</li></ul>\n\n"
+                "<h3>🛠️ SITUATIONS & VARIABLES</h3>\n<ul><li>...</li></ul>\n\n"
+                "<h3>📊 CRITÈRES DE RÉUSSITE</h3>\n<ul><li>...</li></ul>\n\n"
+                "<h3>💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)</h3>\n"
+                "<p>Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :</p>\n"
+                "<ul><li><a href='https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf' target='_blank'>📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)</a></li></ul>\n\n"
+                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

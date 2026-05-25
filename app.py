@@ -670,15 +670,49 @@ if prompt:
             consigne_ia = f"Tu es l'Expert EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
-        # 4. EXÉCUTION
+        # 4. EXÉCUTION ET RENDU
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Coloration automatique des mails et liens
+        # Coloration automatique des liens et mails
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         texte_brut = re.sub(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', r'<a href="mailto:\1" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # ... (Suite du rendu et st.rerun() identiques) ...
+        # Traitement des tableaux
+        if "|" in texte_brut and "---" in texte_brut:
+            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
+            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
+            est_entete = True
+            for ligne in lignes:
+                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
+                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
+                    html_table += "<tr>"
+                    for cell in cells:
+                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
+                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
+                    html_table += "</tr>"
+                    est_entete = False
+            html_table += "</table>"
+            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
+
+        texte_html = texte_brut.replace(chr(10), "<br>")
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        
+        # Gestion des vidéos
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        for link in youtube_links:
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
+        
+        # --- C'EST LE ST.RERUN() QUI FORCE L'AFFICHAGE ---
+        st.rerun()
+
+# ======================================================================
+# 10. ZONE TECHNIQUE GHOST
+# ======================================================================
+with st.expander("🛠️"):
+    # Assure-toi que status_radar est défini quelque part en haut de ton script
+    st.write(status_radar)
 # ======================================================================
 # 10. ZONE TECHNIQUE GHOST
 # ======================================================================

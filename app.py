@@ -617,8 +617,8 @@ if prompt:
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    domains = ["legifrance.gouv.fr", "journal-officiel.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr", "eps.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-versailles.fr", "eps.ac-lyon.fr", "unss.org"]
-                    requete_blindee = f"{prompt} réglementation juridique EPS Code de l'éducation"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr"]
+                    requete_blindee = f"site:legifrance.gouv.fr OR site:education.gouv.fr {prompt} texte officiel complet"
                 
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
@@ -708,18 +708,14 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es un moteur d'extraction de textes officiels EPS pour experts (IPR/DASEN).\n"
-                "MISSION : Identifie et extrais les textes réglementaires (Lois, Décrets, Circulaires) pertinents.\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date et lien source complet)\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique du contenu en 3 phrases maximum)\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du Code de l'éducation ou du Code du sport cité)\n"
-                "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
-                "1. Utilise uniquement <h3> pour les titres.\n"
-                "2. Pas de **, pas de ###, pas de tirets, pas de paragraphes <p>.\n"
-                "3. Utilise <br> pour aérer le texte.\n"
-                f"CONTEXTE (Base documentaire) : {extraits_doc}\n"
-                f"QUESTION DE L'UTILISATEUR : {prompt}"
+                "ROLE : Expert juridique officiel EPS.\n"
+                "MISSION : Extraction factuelle de textes réglementaires (Code éducation, Code sport, BOEN).\n"
+                "STRUCTURE OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre exact, date de référence et lien).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases max).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article précis cité).\n"
+                "RÈGLE D'OR : N'invente AUCUN texte. Si le texte exact n'est pas dans le contexte fourni ci-dessous, écris uniquement : 'Texte indisponible dans la base officielle'.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 

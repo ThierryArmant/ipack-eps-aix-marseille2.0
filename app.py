@@ -689,21 +689,22 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
-        elif mode == "peda":
+       elif mode == "peda":
             consigne_ia = (
                 "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
-                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
-                "CONSIGNE FORMATAGE STRICTE : Interdiction absolue d'utiliser du Markdown (pas de ###, pas de **, pas de tirets). Tu dois obligatoirement formater ta réponse avec des balises HTML classiques (<h3>, <p>, <ul>, <li>, <strong>) pour l'affichage.\n\n"
-                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en HTML) :\n\n"
-                "<h3>📋 INTITULÉ DE LA FICHE</h3>\n<p>(Titre clair lié à la demande)</p>\n\n"
-                "<h3>🎯 OBJECTIFS & COMPÉTENCES</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>🛠️ SITUATIONS & VARIABLES</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>📊 CRITÈRES DE RÉUSSITE</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)</h3>\n"
-                "<p>Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :</p>\n"
-                "<ul><li><a href='https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf' target='_blank'>📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)</a></li></ul>\n\n"
-                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
+                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, condensée, claire et directement exploitable sur le terrain.\n"
+                "CONSIGNE FORMATAGE STRICTE : Interdiction absolue d'utiliser du Markdown (pas de ###, pas de **, pas de tirets). Tu dois obligatoirement formater ta réponse avec des balises HTML classiques très serrées (<h3>, <strong>, <span>). N'utilise JAMAIS la balise <p> car elle crée des espaces trop grands, utilise des simples <br> pour aller à la ligne.\n\n"
+                "STRUCTURE DE FICHE STRICTE (Colle les titres directement au contenu, sans aucun saut de ligne) :\n"
+                "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Gymnastique au sol - 4ème</strong><br>"
+                "<h3>🎯 OBJECTIFS & COMPÉTENCES</h3>• Compétence 1<br>• Compétence 2<br>"
+                "<h3>🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ</h3>• Règle 1<br>• Règle 2<br>"
+                "<h3>🛠️ SITUATIONS & VARIABLES</h3>• Situation 1<br>• Situation 2<br>"
+                "<h3>📊 CRITÈRES DE RÉUSSITE</h3>• Critère 1<br>• Critère 2<br>"
+                "<h3>💾 RESSOURCES & FICHES ACADÉMIQUES</h3>"
+                "Sélectionne et affiche uniquement 2 ou 3 liens pertinents d'académies issus des données fournies ci-dessous, configurés explicitement pour l'activité demandée sous cette forme HTML stricte :<br>"
+                "• <a href='URL_DE_L_ACADEMIE_TROUVEE' target='_blank'>📥 Fiche EPS Gymnastique - Académie de [Nom]</a><br><br>"
+                f"Base des Académies disponibles dans le script : {extraits_doc}\n"
+                f"Question de l'enseignant : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 
@@ -716,26 +717,16 @@ if prompt:
         
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-        
-        # Traitement tableaux
-        if "|" in texte_brut and "---" in texte_brut:
-            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
-            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
-            est_entete = True
-            for ligne in lignes:
-                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
-                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
-                    html_table += "<tr>"
-                    for cell in cells:
-                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
-                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
-                    html_table += "</tr>"
-                    est_entete = False
-            html_table += "</table>"
-            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
-
-        texte_html = texte_brut.replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+      # Extraction de la réponse et étanchéité des rendus (Resserrage des lignes pour la Péda)
+        if mode == "peda":
+            # On supprime tous les retours à la ligne physiques de l'IA pour ne garder que ses balises HTML directes
+            texte_html_peda = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_html_peda}</div>'
+        else:
+            # Code historique intact pour ipack, examens et textes
+            texte_html = texte_brut.replace(chr(10), "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+            
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Rendu des vidéos associées s'il y en a et rafraîchissement

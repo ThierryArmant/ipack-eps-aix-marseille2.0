@@ -214,18 +214,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
 - Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. Comment adapter les protocoles au choix des élèves ?
-1. ANALYSE DES RISQUES
-Risque de non-conformité : Un protocole CCF déposé au rectorat doit définir précisément les épreuves. Si tu changes l'épreuve de l'élève en cours de route sans formalisation, la note peut être invalidée lors d'une commission d'harmonisation.
-Risque d'iniquité : Laisser le choix sans cadre peut créer des différences de niveau de difficulté technique injustifiées entre les élèves.
-2. PROCÉDURE TECHNIQUE (Formalisation)
-Pour offrir ce choix tout en restant conforme au protocole officiel, tu devez anticiper la structure du protocole dès le dépôt :
-Le choix dans le protocole : Ton protocole déposé auprès de l'IPR doit impérativement prévoir une polyvalence. Si tu prévois "Une épreuve de course, de saut ou de lancer", le protocole est validé pour l'ensemble de la classe. L'élève choisit alors son épreuve dans le menu déroulant lors de sa saisie sur iPackEPS.
-La formalisation du choix (Séance 3 ou 4) :
-- Fais signer une "Fiche de choix d'épreuve" individuelle aux élèves.
-- Utilise un simple document (format tableau) où l'élève coche son épreuve, signe, et où tu valides par un commentaire : "Épreuve choisie après observation des performances initiales".
-La saisie sur iPackEPS :
-- Dans iPackEPS, créer autant de "Groupes d'activités" que d'épreuves proposées (ex: Groupe "Lancer", Groupe "Course", Groupe "Saut"). Affecter chaque élève au groupe correspondant après la période de test initiale.
-Traçabilité : Cette affectation informatique fait office de preuve administrative du choix de l'élève.
+→ RÈGLE ACADÉMIQUE : PROCÉDURE TECHNIQUE ABSOLUMENT IMPOSSIBLE ET INTERDITE. Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole fixe et définitif dès le début de l'année scolaire (octobre/novembre). L'application iPackEPS est une base de données rigide synchronisée avec Cyclades et ne permet aucune modification rétroactive des choix d'activités en cours de cycle pour s'adapter aux performances ou aux envies des élèves.
 
 ### [SITUATION: HISTORIQUE_DES_PROMPTS_ET_LOGIQUE_DU_MOTEUR]
 - Instruction : RÈGLES D'OR ABSOLUES :

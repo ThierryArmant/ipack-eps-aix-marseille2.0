@@ -690,21 +690,16 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":
+            # On demande à l'IA d'utiliser la liste déjà présente dans le script
             consigne_ia = (
-                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
-                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, condensée, claire et directement exploitable sur le terrain.\n"
-                "CONSIGNE FORMATAGE STRICTE : Interdiction absolue d'utiliser du Markdown (pas de ###, pas de **, pas de tirets). Tu dois obligatoirement formater ta réponse avec des balises HTML classiques très serrées (<h3>, <strong>, <span>). N'utilise JAMAIS la balise <p> car elle crée des espaces trop grands, utilise des simples <br> pour aller à la ligne.\n\n"
-                "STRUCTURE DE FICHE STRICTE (Colle les titres directement au contenu, sans aucun saut de ligne) :\n"
-                "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Gymnastique au sol - 4ème</strong><br>"
-                "<h3>🎯 OBJECTIFS & COMPÉTENCES</h3>• Compétence 1<br>• Compétence 2<br>"
-                "<h3>🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ</h3>• Règle 1<br>• Règle 2<br>"
-                "<h3>🛠️ SITUATIONS & VARIABLES</h3>• Situation 1<br>• Situation 2<br>"
-                "<h3>📊 CRITÈRES DE RÉUSSITE</h3>• Critère 1<br>• Critère 2<br>"
-                "<h3>💾 RESSOURCES & FICHES ACADÉMIQUES</h3>"
-                "Sélectionne et affiche uniquement 2 ou 3 liens pertinents d'académies issus des données fournies ci-dessous, configurés explicitement pour l'activité demandée sous cette forme HTML stricte :<br>"
-                "• <a href='URL_DE_L_ACADEMIE_TROUVEE' target='_blank'>📥 Fiche EPS Gymnastique - Académie de [Nom]</a><br><br>"
-                f"Base des Académies disponibles dans le script : {extraits_doc}\n"
-                f"Question de l'enseignant : {prompt}"
+                f"ROLE : Tu es l'expert pédagogique EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
+                "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE (HTML). \n"
+                "RÈGLE LIENS : Sélectionne 3 académies dans la liste fournie et construis pour chacune un lien de recherche Google personnalisé pour l'activité demandée.\n"
+                "Format strict pour chaque lien :\n"
+                "• <a href='https://www.google.com/search?q=site:DOMAINE_CHOISI+gymnastique+fiche+EPS' target='_blank'>📥 Fiche Gymnastique - Académie de [Nom]</a><br>\n\n"
+                "STRUCTURE HTML STRICTE :\n"
+                "<h3>📋 INTITULÉ DE LA FICHE</h3>...<h3>🎯 OBJECTIFS</h3>...<h3>🏃‍♂️ CADRE SÉCURITÉ</h3>...<h3>🛠️ SITUATIONS</h3>...<h3>📊 CRITÈRES</h3>...<h3>💾 RESSOURCES</h3>"
+                f"\nContexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 

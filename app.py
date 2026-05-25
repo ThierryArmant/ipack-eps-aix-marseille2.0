@@ -619,8 +619,7 @@ if prompt:
                 if mode == "textes":
                     # PRIORITÉ AIX-MARSEILLE : on cible l'académie et on élargit au national si besoin
                     domains = ["pedagogie.ac-aix-marseille.fr"] + ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"] + domaine_eps_france
-                    requete_blindee = f"site:pedagogie.ac-aix-marseille.fr/jcms/c_78026 {prompt} OR {prompt} AND (\"code de l'éducation\" OR \"circulaire\" OR \"décret\" OR \"arrêté\" OR \"responsabilité administrative\" OR \"protection fonctionnelle\")"
-                
+                    requete_blindee = f"EPS \"{prompt}\" AND (site:pedagogie.ac-aix-marseille.fr OR \"code de l'éducation\" OR \"circulaire\" OR \"décret\" OR \"arrêté\")"
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france

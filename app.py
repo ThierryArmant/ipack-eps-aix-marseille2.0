@@ -757,8 +757,15 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique iPackEPS. Tu exclus tout blabla pédagogique.\n"
+                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
+                
+                # ⚡ VERROUILLAGE SÉCURITÉ & FORMATAGE IPACK
+                "CRITICAL IPACK RULES:\n"
+                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par la Fiche Élève.\n"
+                "- NOTE UNIQUE : iPack bloque le calcul automatique. Le dossier va au Jury via Cyclades (le jury arbitre, ce n'est pas une absence injustifiée).\n"
+                "- CONSIGNE FORMATAGE STRICTE : Tu dois obligatoirement structurer ta réponse selon le 'Filtre Pierre' (1. ANALYSE DES RISQUES, 2. PROCÉDURE TECHNIQUE avec des étapes fléchées '→', 3. PROTECTION FONCTIONNELLE).\n\n"
+                
                 "MISSION : Réponds STRICTEMENT à la question posée en utilisant les vérités techniques des CONSIGNES INTERNES. Ne parle pas de date si on ne te le demande pas.\n"
                 "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application en citant les vrais menus du contexte.\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"

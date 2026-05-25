@@ -798,9 +798,9 @@ if prompt:
             </div>
             """
         else:
-           # --- REMPLACE TOUTE LA FIN DE LA SECTION 9 À PARTIR DE TEXTE_HTML PAR CELA ---
+           # === REMPLACE TOUTE LA FIN (À PARTIR DE LA LIGNE 800) PAR CE BLOC NETTOYÉ ===
         
-        # On injecte la réponse en pur Markdown : Streamlit va l'analyser à la perfection
+        # On supprime définitivement le if/else pour injecter directement le Markdown
         formatted_answer = f"### {badge}\n\n{texte_brut}"
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         

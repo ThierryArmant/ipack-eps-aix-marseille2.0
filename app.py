@@ -198,8 +198,7 @@ css_pur = """
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        white-space: nowrap !important;
-        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
+        white-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
     }
     
@@ -381,7 +380,7 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES TRADITIONNELS RESTAURÉS
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -434,18 +433,6 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Liste globale des domaines académiques EPS restaurée
-domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
-    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
-    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
-    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
-    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
-    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
-    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
-    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
-]
-
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
@@ -453,11 +440,10 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # Détection automatique des demandes de fiches terrain restaurée
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # 1. MOTEUR WEB TAVILY (Restauré avec filtres complexes par onglet)
+        # 1. MOTEUR WEB TAVILY
         if tavily_api_key:
             try:
                 if mode == "textes":
@@ -488,21 +474,21 @@ if prompt:
         if contenu_global_pierre.strip():
             extraits_doc += f"\n--- MEMOIRE ADMINISTRATIVE INTEGRALE DE PIERRE ---\n{contenu_global_pierre}\n"
 
-        # 3. DIRECTIVES DE POSTURE IA PAR ONGLET (RESTAURÉES AVEC EXIGENCE STRICTE DES RÔLES)
+        # 3. DIRECTIVES DE POSTURE IA PAR ONGLET
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre_standard = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
             "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers ou blocages de protocoles.\n"
-            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). ATTENTION IMPÉRATIVE : Tu dois obligatoirement mentionner et conserver le SUJET/L'ACTEUR exact de chaque action décrit dans la mémoire de Pierre (ex: '→ [Chef d'établissement] Doit faire ceci', '→ [Enseignant] Doit faire cela'). Ne transforme jamais une action destinée au chef d'établissement ou au secrétariat en une action anonyme qui laisserait croire que c'est le professeur qui doit cliquer.\n"
+            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). ATTENTION IMPÉRATIVE : Tu dois obligatoirement mentionner et conserver le SUJET/L'ACTEUR exact de chaque action décrit dans la mémoire de Pierre (ex: '→ [Chef d'établissement] Doit faire ceci', '→ [Enseignant] Doit faire cela'). Ne transforme jamais une action destinée au chef d'établissement ou au secrétariat en une action anonyme.\n"
             "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative."
         )
         
+        # SÉCURISATION ABSOLUE CONTRE LE PIÈGE DES VIDÉOS SATELLITES
         consigne_extraction_video = (
-            "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
-            "- Parcoure la Mémoire de Pierre ci-dessus.\n"
-            "- Trouve le ou les liens YouTube associés spécifiquement au sujet.\n"
-            "- Inclus-le impérativement à la fin au format Markdown : '[Regarder le tutoriel vidéo associé](URL)'.\n"
-            "- INTERDICTION : N'invente jamais d'URL ou de texte générique."
+            "\n\n🎥 DIRECTIVE STRICTE VIDÉO (SÉCURITÉ ANTI-HALLUCINATION) :\n"
+            "- Ne regarde QUE les paragraphes de la mémoire de Pierre qui traitent EXACTEMENT du sujet de la question.\n"
+            "- SI ET SEULEMENT SI un lien YouTube (ex: https://youtu.be/... ou https://www.youtube.com/...) y est inscrit explicitement juste à côté du sujet, écris à la toute fin de ta réponse : '[Regarder le tutoriel vidéo associé](METS_ICI_L_URL_YOUTUBE_TROUVÉE)'.\n"
+            "- SI LE SUJET N'A PAS DE LIEN YOUTUBE DIRECT ASSOCIÉ DANS LA MÉMOIRE DE PIERRE : Tu as l'INTERDICTION STRICTE ET ABSOLUE d'inclure un lien, d'inventer une URL, de mettre un placeholder ou même d'écrire la phrase 'Regarder le tutoriel vidéo associé'. Tu passes la partie vidéo sous silence complet."
         )
         
         if mode == "ipack":
@@ -543,7 +529,7 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE REHAUSSÉ
+        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE
         lignes_originales = texte_brut.split("\n")
         lignes_transformees = []
         en_dans_tableau = False
@@ -587,7 +573,7 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
         st.rerun()
 
 # ======================================================================
-# 10. ZONE TECHNIQUE GHOST (DISCRÈTE EN BAS À GAUCHE SUR LE PARQUET)
+# 10. ZONE TECHNIQUE GHOST
 # ======================================================================
 with st.expander("🛠️"):
     st.write(status_radar)

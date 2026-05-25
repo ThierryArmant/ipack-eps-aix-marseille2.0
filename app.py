@@ -708,16 +708,20 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert juridique EPS. \n"
-                "MISSION : Réponds impérativement avec la structure : <h3>1. SITUATION</h3>, <h3>2. ARBITRAGE</h3>, <h3>3. RECOURS</h3>.\n"
+                "ROLE : Tu es un moteur d'extraction de textes officiels EPS pour experts (IPR/DASEN).\n"
+                "MISSION : Identifie et extrais les textes réglementaires (Lois, Décrets, Circulaires) pertinents.\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date et lien source complet)\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique du contenu en 3 phrases maximum)\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du Code de l'éducation ou du Code du sport cité)\n"
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"
-                "2. Pas de **, pas de ###, pas de tirets.\n"
-                "3. Utilise <br> pour aérer ton texte sans utiliser de paragraphes <p>.\n"
-                "CONTEXTE : Réponds en t'appuyant sur les textes officiels (Code de l'éducation, Code du sport) et le contexte fourni.\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                "2. Pas de **, pas de ###, pas de tirets, pas de paragraphes <p>.\n"
+                "3. Utilise <br> pour aérer le texte.\n"
+                f"CONTEXTE (Base documentaire) : {extraits_doc}\n"
+                f"QUESTION DE L'UTILISATEUR : {prompt}"
             )
-            badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             consigne_ia = (

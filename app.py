@@ -689,13 +689,21 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
-RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
-
-Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
-            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
+            consigne_ia = (
+                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
+                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
+                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en Markdown) :\n\n"
+                "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
+                "### 🎯 OBJECTIFS & COMPÉTENCES\n(Points clés)\n\n"
+                "### 🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
+                "### 🛠️ SITUATIONS & VARIABLES\n(Situations pratiques et évolutions)\n\n"
+                "### 📊 CRITÈRES DE RÉUSSITE\n(Indicateurs de réussite)\n\n"
+                "### 💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)\n"
+                "Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :\n"
+                "- [📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)](https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf)\n\n"
+                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

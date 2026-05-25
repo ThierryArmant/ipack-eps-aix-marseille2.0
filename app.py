@@ -504,14 +504,18 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        st.markdown(m["content"], unsafe_allow_html=True)
+        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
+            exec(m["content"])
+        else:
+            st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+# Liste globale des domaines académiques EPS
 domaine_eps_france = [
     "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
     "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
@@ -530,10 +534,36 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
+        mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
+        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
+        
         # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
-                payload = {"api_key": tavily_api_key, "query": prompt, "search_depth": "advanced", "include_domains": domaine_eps_france}
+                if mode == "textes":
+                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
+                elif mode == "examens":
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr"] + domaine_eps_france
+                elif mode == "ipack":
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    domains = ["ipackeps.ac-creteil.fr"]
+                    exclude = ["youtube.com"]
+                elif mode == "peda":
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    domains = domaine_eps_france
+                else:
+                    if est_demande_fiche:
+                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                        domains = domaine_eps_france
+                    else:
+                        requete_blindee = f"{prompt} EPS programme officiel"
+                        domains = ["eduscol.education.gouv.fr", "unss.org"]
+                
+                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                if mode == "ipack": payload["exclude_domains"] = exclude
+                
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
@@ -541,48 +571,83 @@ if prompt:
             except: pass
 
         # 2. CONTEXTE LOCAL
-        if retriever_unique:
+        if openai_api_key:
             try:
-                nodes = retriever_unique.retrieve(prompt)
-                for n in nodes:
-                    extraits_doc += f"Base Connaissances de Pierre: {n.node.text}\n\n"
+                if mode == "examens":
+                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                elif mode == "ipack":
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                elif mode == "textes":
+                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                elif mode == "peda":
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                else:
+                    if est_demande_fiche:
+                        for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
-        # 3. FILTRE PIERRE (RÈGLES D'OR + HIERARCHIE ACTEURS)
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE SÉCURISÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE :\n"
-            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers ou blocages de protocoles.\n"
-            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). \n"
-            "   - Tu dois obligatoirement mentionner le SUJET/L'ACTEUR (ex: '→ [Chef d'établissement]', '→ [Enseignant]', '→ [IA-IPR / DEC]').\n"
-            "   - Hiérarchie fixe : [Enseignant] (signalement) → [Chef d'établissement] (canal officiel) → [IA-IPR / DEC] (arbitrage final).\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative.\n"
-            "4. DIRECTIVE STRICTE : NE JAMAIS INVENTER DE LIENS VIDEO. Si le lien n'est pas dans le contexte, ne propose rien."
+            "1. ANALYSE DES RISQUES : Impact outils/protocoles.\n"
+            "2. PROCÉDURE TECHNIQUE : Étapes fléchées (→). Acteurs ([Chef d'établissement], [Enseignant]).\n"
+            "3. PROTECTION FONCTIONNELLE : Traçabilité.\n"
+            "4. DIRECTIVE SÉCURITÉ : Ne jamais inventer de fonctionnalités (ex: bouton 'Ajouter élève'). Si une info est absente, admets-le."
         )
         
-        # Posture selon le module
+        # 4. POSTURE PAR MODULE
         if mode == "ipack":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
+                "RÈGLE SANTORIN/CYCLADES : Toute modification (élève/groupe) se fait dans CYCLADES, jamais manuellement dans Santorin.\n"
+                "Si demande concernant EDT/Classe, inclure : 'Tutoriel officiel : https://youtu.be/tu8J1RBUTwk'\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+            
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades. Respecte la hiérarchie [Enseignant]→[Chef]→[IA-IPR/DEC].\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
+                "ATTENTION : Santorin est un miroir. Un élève manquant n'est jamais 'ajouté' manuellement : il doit être affecté au groupe dans Cyclades puis re-importé.\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+            
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+            
+        elif mode == "peda":
+            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. 
+1. EXTRACTION : Parcours le contexte. Si tu trouves un lien de document, affiche-le : "📥 Télécharger : [Nom](URL)".
+2. GÉNÉRATION : Si pas de lien, génère une fiche technique complète (Compétences, Analyse didactique, Indicateurs chiffrés).
+Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
+            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n\nContexte: {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+            if est_demande_fiche:
+                consigne_ia = "MISSION : Tu es un documentaliste EPS. Génère une fiche pratique de terrain (Compétences Cycle 4, Indicateurs, Situation). Contexte : " + extraits_doc + f"\nQuestion : {prompt}"
+                badge = "🔍 CHASSEUR DE RESSOURCES"
+            else:
+                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
+            color_card = "general-card"
 
-        # 4. EXÉCUTION
+        # 5. EXÉCUTION PROPRE (Sans pollution Regex)
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Traitement texte final simple (sans injection vidéo)
+        # Transformation manuelle HTML pour garder le style
         texte_html = texte_brut.replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+        texte_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_html)
         
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        
+        # Gestion spécifique vidéo (si tutoriel demandé explicitement dans consigne)
+        if "tu8J1RBUTwk" in texte_brut:
+            st.session_state.messages_hub.append({"role": "assistant", "content": "st.video('https://youtu.be/tu8J1RBUTwk')"})
+            
         st.rerun()
 
 # ======================================================================

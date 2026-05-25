@@ -610,17 +610,28 @@ if prompt:
     # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
-                # Initialisation des variables pour éviter les erreurs
+                # Initialisation des variables d'origine pour éviter les erreurs
                 domains = domaine_eps_france
                 requete_blindee = prompt
                 exclude = []
-                tavily_deja_execute = False  # Drapeau pour gérer la cascade du mode "textes"
+                tavily_deja_execute = False  # Drapeau d'isolation pour le mode textes
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
+                    # NETTOYAGE ISOLE : Uniquement pour le mode textes
+                    mot_cle = prompt.lower()
+                    expressions_inutiles = [
+                        "je cherche un texte sur le", "je cherche un texte sur la", "je cherche un texte sur",
+                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
+                    ]
+                    for exp in expressions_inutiles:
+                        mot_cle = mot_cle.replace(exp, "")
+                    mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
+
                     # RECHERCHE EN CASCADE : Périmètre prioritaire (Aix-Marseille + National)
                     domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {prompt} texte officiel circulaire décret arrêté BO"
+                    requete_blindee = f"EPS {mot_cle} circulaire décret arrêté BO"
                     
                     payload = {
                         "api_key": tavily_api_key, 
@@ -641,30 +652,35 @@ if prompt:
                     for item in results: 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
                     
-                    tavily_deja_execute = True
+                    tavily_deja_execute = True  # On verrouille pour bloquer l'exécution standard
                 
                 elif mode == "examens":
-                    # OPTIMISÉ : Aix-Marseille passe en premier pour éviter de récupérer les CCF des autres académies
-                    domains = ["pedagogie.ac-aix-marseille.fr", "education.gouv.fr"] + domaine_eps_france
-                    requete_blindee = f"EPS {prompt} réglementation examen Santorin Cyclades certification CCF"
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr"] + domaine_eps_france
                 
                 elif mode == "ipack":
-                    # OPTIMISÉ : Syntaxe épurée de tout opérateur Google pour Tavily
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
-                    requete_blindee = f"{prompt} rubrique2 rubrique4 rubrique7 outil tutoriel"
                     exclude = ["youtube.com"]
                 
-                elif mode == "peda" or est_demande_fiche:
-                    # OPTIMISÉ : Remplacement du filetype:pdf par des mots-clés de format pour Tavily
+                elif mode == "peda":
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
-                    requete_blindee = f"EPS {prompt} évaluation fiche outil document PDF cycle séance"
+                
+                elif est_demande_fiche:
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    domains = domaine_eps_france
                 
                 else:
-                    # OPTIMISÉ : On s'assure que la recherche reste disciplinaire
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
-                    requete_blindee = f"EPS {prompt} programme officiel texte national"
 
-                # Exécution standard pour tous les modes sauf "textes" (déjà géré plus haut)
+                # Exécution standard pour tous les modes sauf "textes" (qui a son propre bouton d'arrêt)
                 if not tavily_deja_execute:
                     payload = {
                         "api_key": tavily_api_key, 

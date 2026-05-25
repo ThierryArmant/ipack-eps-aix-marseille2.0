@@ -346,7 +346,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permits à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permits à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -354,7 +354,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
-            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les évaluateurs par les coordonnateurs de l'établissement.""",
+            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs par les coordonnateurs de l'établissement.""",
             metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
         ),
         Document(
@@ -564,45 +564,6 @@ with col_action_input:
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
-
-# 🛡️ ARMURE CSS DE SÉCURITÉ CIBLÉE POUR LA PÉDA (N'altère aucunement le comportement d'origine des autres modes)
-st.markdown("""
-    <style>
-        /* 1. On donne à la fiche Peda son magnifique conteneur blanc opaque et solide */
-        div[data-testid="stChatMessage"] .peda-card-white {
-            background-color: #ffffff !important;
-            border-radius: 12px !important;
-            padding: 25px !important;
-            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2) !important;
-            border-left: 6px solid #4f46e5 !important;
-            margin-top: 10px !important;
-            display: block !important;
-        }
-        /* 2. CONTRE-ATTAQUE HYPER CIBLÉE : On force TOUT le texte interne de la fiche Peda en sombre, neutralisant le blanc sur blanc imposé par la section 3 */
-        div[data-testid="stChatMessage"] .peda-card-white,
-        div[data-testid="stChatMessage"] .peda-card-white * {
-            color: #1e293b !important;
-            font-size: 15px !important;
-        }
-        /* 3. On applique la bonne couleur pour les sous-titres de la fiche */
-        div[data-testid="stChatMessage"] .peda-card-white h1, 
-        div[data-testid="stChatMessage"] .peda-card-white h2, 
-        div[data-testid="stChatMessage"] .peda-card-white h3 {
-            color: #4f46e5 !important;
-            font-weight: bold !important;
-            margin-top: 20px !important;
-            margin-bottom: 8px !important;
-        }
-        /* 4. On s'assure que les liens de téléchargement vers les 30 Académies ressortent magnifiquement en bleu roi */
-        div[data-testid="stChatMessage"] .peda-card-white a,
-        div[data-testid="stChatMessage"] .peda-card-white a * {
-            color: #0284c7 !important;
-            text-decoration: underline !important;
-            font-weight: bold !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
@@ -705,8 +666,8 @@ if prompt:
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les CONSIGNES INTERNES PRIORITAIRES. Tu dois obligatoirement suivre la structure du Filtre Pierre (1. ANALYSE DES RISQUES, 2. PROCÉDURE TECHNIQUE, 3. PROTECTION FONCTIONNELLE).\n"
-                "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', interdit d'utiliser des listes numérotées. Chaque étape doit obligatoirement commencer par une flèche brute (→) pour lister les actions dans les menus.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée en utilisant les vérités techniques des CONSIGNES INTERNES. Ne parle pas de date si on ne te le demande pas.\n"
+                "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application en citant les vrais menus du contexte.\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
@@ -724,33 +685,17 @@ if prompt:
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            consigne_ia = (
-                "ROLE : Tu es l'expert juridique EPS pur. Tu analyses la situation uniquement sous l'angle du droit, des textes officiels et de la jurisprudence.\n"
-                "CONSIGNE DE POSTURE : Interdiction absolue d'utiliser le langage informatique d'iPack ou les termes 'impact sur les outils'. Tu es un juriste.\n"
-                "STRUCTURE STRICTE (Le Canva) :\n"
-                "### 1. SITUATION\n(Analyse factuelle de l'accident ou de l'événement)\n\n"
-                "### 2. ARBITRAGE\n(Application des textes officiels, de la Loi de 1937 sur la substitution de la responsabilité de l'État, et évaluation de la faute ou du respect des consignes de sécurité)\n\n"
-                "### 3. RECOURS\n(Protection fonctionnelle, rapports administratifs à rédiger et démarches juridiques)\n\n"
-                f"Contexte juridique: {extraits_doc}\nQuestion: {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":
-            consigne_ia = (
-                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
-                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
-                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en Markdown) :\n\n"
-                "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
-                "### 🎯 OBJECTIFS & COMPÉTENCES\n(Points clés)\n\n"
-                "### 🏃‍♂️ CADRE DE l'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
-                "### 🛠️ SITUATIONS & VARIABLES\n(Situations pratiques et évolutions)\n\n"
-                "### 📊 CRITÈRES DE RÉUSSITE\n(Indicateurs de réussite)\n\n"
-                "### 💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)\n"
-                "Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :\n"
-                "- [📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)](https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf)\n\n"
-                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
+1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
+RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
+
+Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
+            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
@@ -762,7 +707,7 @@ if prompt:
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-       # Traitement tableaux
+        # Traitement tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
@@ -779,14 +724,8 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
-        # 📦 COMPARTIMENTAGE STRICT : Application sélective du fond blanc + texte sombre UNIQUEMENT pour la Péda
-        if mode == "peda":
-            # On encapsule la réponse dans la div peda-card-white avec deux sauts de ligne pour préserver l'analyse Markdown native de Streamlit
-            formatted_answer = f'<div class="peda-card-white">\n\n### {badge}\n\n{texte_brut}\n\n</div>'
-        else:
-            # Reste du code originel inchangé pour iPack, Examens et Textes
-            formatted_answer = f"### {badge}\n\n{texte_brut}"
-            
+        texte_html = texte_brut.replace(chr(10), "<br>")
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Rendu des vidéos associées s'il y en a et rafraîchissement

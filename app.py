@@ -798,9 +798,9 @@ if prompt:
             </div>
             """
         else:
-           # === REMPLACE TOUTE LA FIN (À PARTIR DE LA LIGNE 800) PAR CE BLOC NETTOYÉ ===
-        
-        # On supprime définitivement le if/else pour injecter directement le Markdown
+           # --- REMPLACE TOUTE LA FIN APRÈS LE TRAITEMENT DES TABLEAUX PAR CECI ---
+
+        # On injecte directement le Markdown sans aucun IF/ELSE
         formatted_answer = f"### {badge}\n\n{texte_brut}"
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         

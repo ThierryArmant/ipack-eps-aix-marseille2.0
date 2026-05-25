@@ -66,7 +66,7 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 # Utilisation d'une chaîne classique sans "f" pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
-    /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
+    /* Force le blanc sur tout le texte des cartes */
     .santorin-card *, .general-card *, .securite-card * { 
         color: #FFFFFF !important; 
     }
@@ -191,7 +191,7 @@ css_pur = """
         box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }
     
-    /* Boutons Inactifs - Réajustés pour compacité et alignement parfait */
+    /* Boutons Inactifs */
     button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
@@ -207,7 +207,7 @@ css_pur = """
         transition: all 0.3s ease;
     }
 
-    /* Boutons Actifs - Réajustés pour compacité et alignement parfait */
+    /* Boutons Actifs */
     button[kind="primary"] {
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
@@ -285,7 +285,6 @@ css_pur = """
     /* FORCE LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
     
-    /* RESTAURATION DE LA COULEUR DES LIENS SANS TOUCHER AU RESTE */
     div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * {
         color: #FFB020 !important;
         text-decoration: underline !important;
@@ -296,35 +295,45 @@ css_pur = """
     }
 
     /* ======================================================================
-       REFONTE DU BLOC EXPANDER (ZONE DE DIAGNOSTIC DE PIERRE)
+       ANCRAGE ET TRANSPARENCE TOTALE DE L'EXPANDER (STYLE GHOST TERMINAL)
        ====================================================================== */
     div[data-testid="stExpander"] {
-        background-color: rgba(15, 23, 42, 0.65) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(148, 163, 184, 0.15) !important;
-        border-radius: 8px !important;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4) !important;
-        margin-top: 30px !important;
+        position: fixed !important;
+        bottom: 12px !important;
+        left: 16px !important;
+        width: auto !important;
+        min-width: 250px !important;
+        max-width: 380px !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        z-index: 999999 !important;
+        margin: 0 !important;
     }
-    /* En-tête textuel cliquable */
+    div[data-testid="stExpander"] details {
+        border: none !important;
+        background: transparent !important;
+    }
+    /* Libellé cliquable */
     div[data-testid="stExpander"] summary {
-        padding: 10px 15px !important;
-    }
-    div[data-testid="stExpander"] summary p {
-        color: #94A3B8 !important; /* Couleur gris ardoise discret */
+        padding: 0 !important;
+    summary p {
+        color: rgba(148, 163, 184, 0.5) !important; /* Gris ultra discret */
         font-weight: 700 !important;
-        font-size: 13px !important;
+        font-size: 11px !important;
         letter-spacing: 0.5px !important;
-        transition: color 0.2s ease !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }
     div[data-testid="stExpander"] summary:hover p {
         color: #38BDF8 !important; /* Devient bleu azur au survol */
     }
-    /* Contenu à l'intérieur une fois déplié */
+    /* Contenu de la console technique une fois déplié */
     div[data-testid="stExpander"] [data-testid="stMarkdownContainer"] * {
-        font-size: 13px !important;
-        font-family: monospace !important; /* Look console technique */
+        font-size: 11px !important;
+        font-family: monospace !important;
+        color: rgba(56, 189, 248, 0.8) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }
     
     </style>
@@ -358,7 +367,7 @@ def obtenir_cle_fichier():
 # RADAR DE LECTURE FORCÉ HORS CACHE
 chemin_detecte = trouver_chemin_pierre()
 contenu_global_pierre = ""
-status_radar = "❌ ERREUR DIRECTE : Aucun fichier 'gere_par_pierre.txt' trouvé à la racine de ton GitHub !"
+status_radar = "❌ ERREUR : 'gere_par_pierre.txt' introuvable à la racine de GitHub !"
 
 if chemin_detecte:
     for encodage in ["utf-8", "utf-8-sig", "latin-1", "utf-16", "cp1252"]:
@@ -367,12 +376,10 @@ if chemin_detecte:
                 texte_charge = f.read()
             if texte_charge.strip():
                 contenu_global_pierre = texte_charge
-                status_radar = f"📁 RADAR ACTIF : Fichier '{chemin_detecte}' couplé avec succès ({len(contenu_global_pierre)} caractères lus en [{encodage}])."
+                status_radar = f"📁 BASE ACTUELLE : {len(contenu_global_pierre)} caractères lus en [{encodage}]."
                 break
         except:
             continue
-    if chemin_detecte and not contenu_global_pierre:
-        status_radar = f"⚠️ ALERTE : Le fichier '{chemin_detecte}' a été localisé mais il est vu comme complètement VIDE."
 
 # BASE DE CONNAISSANCES CENTRALISÉE
 @st.cache_resource
@@ -391,7 +398,6 @@ class RetrieverSecours:
 if retriever_unique is None:
     retriever_unique = RetrieverSecours()
 
-# Connexion dynamique des modules
 retriever_santorin = retriever_unique
 retriever_ipack = retriever_unique
 retriever_textes = retriever_unique
@@ -429,7 +435,6 @@ label_titres = {
     "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
-# Initialisation par sécurité si active_module n'existe pas
 if "active_module" not in st.session_state:
     st.session_state.active_module = "peda"
 
@@ -683,7 +688,7 @@ if prompt:
         st.rerun()
 
 # ======================================================================
-# 10. ZONE TECHNIQUE ET DIAGNOSTIC (MASQUÉE ET ENTIÈREMENT RESTYLISÉE)
+# 10. ZONE TECHNIQUE ET DIAGNOSTIC (ANCRÉE EN GHOST EN BAS À GAUCHE)
 # ======================================================================
 with st.expander("🛠️ Zone de Diagnostic (Développeur)"):
     if "❌" in status_radar:
@@ -691,4 +696,4 @@ with st.expander("🛠️ Zone de Diagnostic (Développeur)"):
     elif "⚠️" in status_radar:
         st.warning(status_radar)
     else:
-        st.success(status_radar)
+        st.write(status_radar)

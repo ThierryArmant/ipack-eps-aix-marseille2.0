@@ -528,20 +528,24 @@ elif st.session_state.active_module == "peda":
     """, unsafe_allow_html=True)
 
 else:
-    # BANDEAU MUTUALISÉ ET CLAIR POUR L'AIGUILLAGE IPACK / EXAMENS
-    st.markdown("""
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.6;">
-        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 8px; letter-spacing: 0.5px;">
-            🎯 OÙ POSER VOTRE QUESTION ?
-        </div>
-        <div style="color: #FCD34D; font-size: 13px;">
-            • <strong>Menu 🛠️ iPackEPS :</strong> Réservé à la technique de terrain (configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales).<br>
-            <div style="margin-top: 5px;">
-            • <strong>Menu 📊 Examens & Santorin :</strong> Réservé à l'administration des examens (remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques).
+        # BANDEAU MUTUALISÉ EN 2 COLONNES POUR L'AIGUILLAGE
+        st.markdown("""
+        <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
+            <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">
+                🎯 OÙ POSER VOTRE QUESTION ?
+            </div>
+            <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
+                <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS</strong><br>
+                    <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales.</span>
+                </div>
+                <div style="flex: 1; padding-left: 5px;">
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin</strong><br>
+                    <span style="color: #FCD34D !important;">Administration des examens : remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques.</span>
+                </div>
             </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # ======================================================================
 # 8. ZONE D'ACTION (NETTOYER + SAISIE)

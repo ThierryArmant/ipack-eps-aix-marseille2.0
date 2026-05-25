@@ -607,39 +607,59 @@ if prompt:
         except:
             pass
         
-        # 1. MOTEUR WEB (Tavily)
+       # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
+                # Initialisation des variables pour éviter les erreurs
+                domains = domaine_eps_france
+                requete_blindee = prompt
+                exclude = []
+
+                # Définition des paramètres selon le mode
                 if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
+                    domains = ["legifrance.gouv.fr", "journal-officiel.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr", "eps.ac-aix-marseille.fr", "eps.ac-creteil.fr", "eps.ac-versailles.fr", "eps.ac-lyon.fr", "unss.org"]
+                    requete_blindee = f"{prompt} réglementation juridique EPS Code de l'éducation"
+                
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
+                
                 elif mode == "ipack":
                     requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
+                
                 elif mode == "peda":
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
+                
+                elif est_demande_fiche:
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    domains = domaine_eps_france
+                
                 else:
-                    if est_demande_fiche:
-                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                        domains = domaine_eps_france
-                    else:
-                        requete_blindee = f"{prompt} EPS programme officiel"
-                        domains = ["eduscol.education.gouv.fr", "unss.org"]
+                    requete_blindee = f"{prompt} EPS programme officiel"
+                    domains = ["eduscol.education.gouv.fr", "unss.org"]
+
+                # Construction finale du payload
+                payload = {
+                    "api_key": tavily_api_key, 
+                    "query": requete_blindee, 
+                    "search_depth": "advanced", 
+                    "include_domains": domains
+                }
                 
-                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
-                if mode == "ipack": payload["exclude_domains"] = exclude
+                # Ajout de l'exclusion si nécessaire
+                if exclude:
+                    payload["exclude_domains"] = exclude
                 
+                # Exécution de la recherche
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
-            except: pass
-
+            except: 
+                pass
         # 2. CONTEXTE LOCAL
         if openai_api_key:
             try:

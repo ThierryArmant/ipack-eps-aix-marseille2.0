@@ -712,15 +712,22 @@ if prompt:
         
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-      # Extraction de la réponse et étanchéité des rendus (Resserrage des lignes pour la Péda)
+
+        # PACKAGING ET ÉTANCHÉITÉ DES RENDUS
         if mode == "peda":
-            # On supprime tous les retours à la ligne physiques de l'IA pour ne garder que ses balises HTML directes
-            texte_html_peda = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_html_peda}</div>'
+            # Nettoyage agressif pour la Péda (ligne unique)
+            texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
+        
+        elif mode == "textes":
+            # Restauration propre pour les textes (on garde les sauts de ligne)
+            texte_final = texte_brut.replace(chr(10), "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
+            
         else:
-            # Code historique intact pour ipack, examens et textes
-            texte_html = texte_brut.replace(chr(10), "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+            # Mode standard (ipack, examens)
+            texte_final = texte_brut.replace(chr(10), "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         

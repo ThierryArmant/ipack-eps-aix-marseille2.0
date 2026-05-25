@@ -751,7 +751,7 @@ if prompt:
         # EXTRACTION MULTIPLE
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # Traitement tableaux
+       # Traitement tableaux
         if "|" in texte_brut and "---" in texte_brut:
             lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
             html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
@@ -768,39 +768,7 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
-       # --- REMPLACE CETTE PARTIE EN BAS DE LA SECTION 9 ---
-        texte_html = texte_brut.replace(chr(10), "<br>")
-        
-        if mode == "peda":
-            # Armure absolue : Style inline + micro-style local pour forcer le texte sombre sur fond blanc
-            formatted_answer = f"""
-            <div style="
-                background-color: #ffffff !important; 
-                color: #1e293b !important; 
-                padding: 30px; 
-                border-radius: 12px; 
-                box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); 
-                margin-top: 15px; 
-                border-left: 6px solid #4f46e5;
-            ">
-                <strong style="color: #4f46e5 !important; font-size: 1.25rem; display: block; margin-bottom: 10px;">{badge} :</strong>
-                <div class="peda-content-fix" style="color: #1e293b !important;">
-                    {texte_html}
-                </div>
-                <style>
-                    /* Sécurité totale pour empêcher le thème sombre de Streamlit de blanchir les textes */
-                    .peda-content-fix h3 {{ color: #4f46e5 !important; font-size: 1.2rem !important; font-weight: bold !important; margin-top: 20px !important; margin-bottom: 8px !important; }}
-                    .peda-content-fix ul {{ color: #334155 !important; margin-left: 20px !important; margin-bottom: 15px !important; }}
-                    .peda-content-fix li {{ color: #334155 !important; margin-bottom: 6px !important; }}
-                    .peda-content-fix p {{ color: #1e293b !important; margin-bottom: 10px !important; }}
-                    .peda-content-fix a {{ color: #0284c7 !important; font-weight: bold !important; text-decoration: underline !important; }}
-                </style>
-            </div>
-            """
-        else:
-           # --- REMPLACE TOUTE LA FIN APRÈS LE TRAITEMENT DES TABLEAUX PAR CECI ---
-
-        # On injecte directement le Markdown sans aucun IF/ELSE
+        # Extraction de la réponse en pur Markdown (Plus aucun IF/ELSE ici pour éviter les bugs)
         formatted_answer = f"### {badge}\n\n{texte_brut}"
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         

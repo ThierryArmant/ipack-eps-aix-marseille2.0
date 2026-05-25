@@ -43,14 +43,6 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
   3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
 - Note : Le bouton "Choisir les AFLP" est inopérant car le lot est absent de l'interface.
 
-### [SITUATION: EXPORT DES GROUPES VERS CYCLADES]
-- Instruction : Pour que les groupes constitués dans iPackEPS soient reconnus par Cyclades :
-  1. Vérifier que la configuration des classes (Article 14) est terminée et validée dans iPackEPS.
-  2. Procédure : Aller dans le module [Dossiers] / [Dossier Certificatif] / [Protocoles]. 
-  3. Action : Cliquer sur "Générer le fichier d'export" ou procéder à la synchronisation automatique si le protocole est validé.
-  4. Dans Cyclades : Le secrétariat doit effectuer une "Importation de groupes" dans le module "Gestion des épreuves" en utilisant le fichier .CSV généré.
-  5. Rappel : Si les groupes n'apparaissent pas, c'est que la synchronisation des données RH ou des affectations entre STSWEB et Cyclades est incomplète au niveau académique.
-
 [SECTION: LOGISTIQUE_EXAMENS_SANTORIN]
 
 ### [SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]
@@ -218,9 +210,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [SITUATION: MESSAGE AUCUN LOT A CORRIGER]
 - Instruction : Si Santorin affiche « Aucun lot à corriger » :
-→ Le chef d’établissement doit cliquer sur l’onglet "Distribution de l’épreuve".
-→ Sélectionner le groupe et cliquer sur "Distribuer" pour créer les lots de correction.
-→ S’assurer que chaque protocole est transformé en lot de correction. La réalité est qu’il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
+ Il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
 
 ### [SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
 - Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. Comment adapter les protocoles au choix des élèves ?
@@ -941,10 +931,7 @@ FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
 * STRUCTURE DE L'APPLICATION : Dans l'interface iPackEPS, un protocole d'évaluation CCF est unique et verrouillé par groupe-classe pour une APSA spécifique (ex: un protocole unique pour le "Pentabond", ou un protocole unique pour le "1500m"). L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.
 * PROCÉDURE TECHNIQUE EN CAS DE CHOIX (COURSE / SAUT / LANCER) :
   Si l'enseignant propose des options d'épreuves différentes au sein du groupe en fonction des performances initiales, il est techniquement obligatoire de :
-  → Étape 1 : Créer des "Groupes de compétences" ou des groupes d'évaluation distincts directement dans iPackEPS.
-  → Étape 2 : Affecter manuellement les élèves dans leur groupe d'option respectif (Groupe Course, Groupe Saut, ou Groupe Lancer).
-  → Étape 3 : Associer à chaque groupe le protocole et le barème officiel de l'épreuve choisie.
-  → Étape 4 : Saisir les performances dans chaque menu dédié pour éviter tout blocage ou bug lors du calcul automatique de la note finale du protocole.
+  
 
 3. TRAÇABILITÉ ET PROTECTION FONCTIONNELLE
 ----------------------------------------------------------------------
@@ -1043,7 +1030,4 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROGÉDURES STRICTES
   3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
   4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
 
-BUG CASES AFLP GRISÉES :
-- Les cases AFLP grisées ou inactives ne sont pas un bug. Cela signifie que le protocole de la classe n'est pas encore validé ou activé.
-- Risque : Blocage de la saisie des notes et retard de transmission.
-- Procédure réelle : L'enseignant doit aller dans l'onglet "Paramétrage" ou "Protocoles", vérifier que l'APSA est bien associée, sélectionner les AFLP de l'évaluation, puis cliquer obligatoirement sur "Valider/Enregistrer le protocole" pour débloquer définitivement la saisie des grilles de notes.
+

@@ -281,8 +281,8 @@ css_pur = """
     }
 
     /* ======================================================================
-       ANCRAGE MAGIQUE DE L'EXPANDER TOUT EN BAS À GAUCHE (PARQUET)
-       ====================================================================== */
+        ANCRAGE MAGIQUE DE L'EXPANDER TOUT EN BAS À GAUCHE (PARQUET)
+        ====================================================================== */
     div[data-testid="stExpander"] {
         position: fixed !important;
         bottom: 14px !important;
@@ -509,11 +509,7 @@ with col_action_input:
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
-            url_video = m["content"].replace("VIDEO_URL:", "").strip()
-            st.video(url_video)
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
+        st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 domaine_eps_france = [
@@ -537,7 +533,6 @@ if prompt:
         # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
-                # Configuration des recherches avancées
                 payload = {"api_key": tavily_api_key, "query": prompt, "search_depth": "advanced", "include_domains": domaine_eps_france}
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
@@ -556,51 +551,38 @@ if prompt:
         # 3. FILTRE PIERRE (RÈGLES D'OR + HIERARCHIE ACTEURS)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
+            "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE :\n"
             "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers ou blocages de protocoles.\n"
-            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). ATTENTION : \n"
-            "   - Tu dois obligatoirement mentionner et conserver le SUJET/L'ACTEUR exact (ex: '→ [Chef d'établissement]', '→ [Enseignant]', '→ [IA-IPR / DEC]').\n"
-            "   - En cas d'anomalie d'examen, la hiérarchie est fixe : [Enseignant] (signalement) → [Chef d'établissement] (canal officiel) → [IA-IPR / DEC] (arbitrage final).\n"
-            "   - Ne prête jamais au chef d'établissement une autorité sur le report d'examen qu'il n'a pas.\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative."
-        )
-        
-        consigne_extraction_video = (
-            "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
-            "- Parcoure le contexte. SI ET SEULEMENT SI un lien YouTube y est inscrit explicitement, inclus-le à la fin au format : '[Regarder le tutoriel vidéo associé](URL)'.\n"
-            "- INTERDICTION : N'invente jamais d'URL ou de texte générique."
+            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). \n"
+            "   - Tu dois obligatoirement mentionner le SUJET/L'ACTEUR (ex: '→ [Chef d'établissement]', '→ [Enseignant]', '→ [IA-IPR / DEC]').\n"
+            "   - Hiérarchie fixe : [Enseignant] (signalement) → [Chef d'établissement] (canal officiel) → [IA-IPR / DEC] (arbitrage final).\n"
+            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative.\n"
+            "4. DIRECTIVE STRICTE : NE JAMAIS INVENTER DE LIENS VIDEO. Si le lien n'est pas dans le contexte, ne propose rien."
         )
         
         # Posture selon le module
         if mode == "ipack":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.{consigne_extraction_video}\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades. Respecte la hiérarchie [Enseignant]→[Chef]→[IA-IPR/DEC].{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades. Respecte la hiérarchie [Enseignant]→[Chef]→[IA-IPR/DEC].\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\n\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Nettoyage et rendu final
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
-        
-        # Traitement tableau (Simplifié pour rester stable)
+        # Traitement texte final simple (sans injection vidéo)
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+        
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        
-        for link in youtube_links:
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
-        
         st.rerun()
 
 # ======================================================================

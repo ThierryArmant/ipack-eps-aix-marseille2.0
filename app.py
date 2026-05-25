@@ -681,7 +681,8 @@ if prompt:
             "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
             "3. PROTECTION FONCTIONNELLE : Indique la traçabilité et les recours."
         )
-        
+        badge = "INFORMATION"
+        color_card = "general-card"
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"

@@ -618,20 +618,27 @@ if prompt:
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    # NETTOYAGE ISOLE : Uniquement pour le mode textes
+                    # NETTOYAGE ULTRA-RENFORCÉ (Isole le cœur du problème même sur les longues phrases)
                     mot_cle = prompt.lower()
                     expressions_inutiles = [
-                        "je cherche un texte sur le", "je cherche un texte sur la", "je cherche un texte sur",
+                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
                         "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
                         "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
                     ]
                     for exp in expressions_inutiles:
                         mot_cle = mot_cle.replace(exp, "")
+                    
+                    # Nettoyage des verbes introducteurs courants
+                    for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
+                        mot_cle = mot_cle.replace(verbe, "")
+                        
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
-                    # RECHERCHE EN CASCADE : Périmètre prioritaire (Aix-Marseille + National)
+                    # RECHERCHE EN CASCADE : On réintègre LOI, CODE et LAÏCITÉ
                     domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {mot_cle} circulaire décret arrêté BO"
+                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
                     
                     payload = {
                         "api_key": tavily_api_key, 
@@ -643,7 +650,6 @@ if prompt:
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
                     
-                    # Si aucun résultat local/national, on élargit à toute la France
                     if not results:
                         payload["include_domains"] = domaine_eps_france
                         res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
@@ -652,7 +658,7 @@ if prompt:
                     for item in results: 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
                     
-                    tavily_deja_execute = True  # On verrouille pour bloquer l'exécution standard
+                    tavily_deja_execute = True
                 
                 elif mode == "examens":
                     # STRICTEMENT INCHANGÉ

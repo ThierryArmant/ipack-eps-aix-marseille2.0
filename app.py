@@ -779,21 +779,30 @@ if prompt:
 
         elif mode == "peda":
             consigne_ia = (
-                f"ROLE : Tu es l'expert pédagogique EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
-                "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE. \n"
+                f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
+                "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE, ULTRA-DÉTAILLÉE, rigoureuse sur le plan institutionnel et directement exploitable sur le terrain.\n"
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"
                 "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
                 "3. Utilise <br> pour les sauts de ligne simples.\n"
                 "RÈGLE LIENS : Sélectionne 3 académies dans la liste, construis pour chacune un lien Google personnalisé : "
                 "<a href='https://www.google.com/search?q=site:DOMAINE+activite+fiche+EPS' target='_blank'>📥 Fiche - Académie de [Nom]</a><br>\n\n"
-                "STRUCTURE :\n"
-                "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité</strong><br>"
-                "<h3>🎯 OBJECTIFS</h3><ul><li>Objectif 1</li><li>Objectif 2</li></ul>"
-                "<h3>🏃‍♂️ CADRE SÉCURITÉ</h3><ul><li>Règle 1</li></ul>"
-                "<h3>🛠️ SITUATIONS</h3><ul><li>Situation 1</li></ul>"
-                "<h3>📊 CRITÈRES</h3><ul><li>Critère 1</li></ul>"
-                "<h3>💾 RESSOURCES</h3>(Liens ici)"
+                "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
+                "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
+                
+                # 🌐 AJOUT DU BLOC INSTITUTIONNEL REQUIS
+                "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
+                "<ul>"
+                "<li><strong>Domaines du Socle Commun :</strong> [Citer explicitement les domaines engagés, ex: Domaine 1 (Langages), Domaine 2 (Méthodes), Domaine 3 (Citoyen), etc.]</li>"
+                "<li><strong>Compétences Générales EPS :</strong> [Développer sa motricité, S'approprier des méthodes, Partager des règles/valeurs, Maintenir sa santé, S'approprier une culture]</li>"
+                "<li><strong>Attendus de Fin de Cycle (AFC) :</strong> [Formuler textuellement le ou les AFC officiels du cycle concerné en lien avec l'activité]</li>"
+                "</ul>"
+                
+                "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>Objectifs moteurs et intentions tactiques spécifiques</li></ul>"
+                "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT</h3><ul><li>Consignes de sécurité passive/active et gestion de l'espace</li></ul>"
+                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST</h3><ul><li>Description de la situation, variables, aménagement, score parlant et règles d'action</li></ul>"
+                "<h3>📊 CRITÈRES D'ÉVALUATION ET OBSERVABLES</h3><ul><li>Indicateurs quantitatifs (statistiques, ratios) et qualitatifs (motricité, choix) pour valider les niveaux de maîtrise</li></ul>"
+                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Liens ici)"
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"

@@ -504,79 +504,169 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION ISOLÉE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
-            exec(m["content"])
+        if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
+            url_video = m["content"].replace("VIDEO_URL:", "").strip()
+            st.video(url_video)
         else:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+# Liste globale des domaines académiques EPS
+domaine_eps_france = [
+    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
+    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
+    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
+    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
+    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
+    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
+    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
+]
+
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse du Hub..."):
+    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. RÉCUPÉRATION DU CONTEXTE (Commune)
-        # ... (Tes retrievers ici) ...
-
-        # 2. ROUTAGE INTELLIGENT PAR MODULE (Isolé)
+        mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
+        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # A. MODULE EXAMENS (Spécifique, avec analyse par mots-clés)
+        # 1. MOTEUR WEB (Tavily)
+        if tavily_api_key:
+            try:
+                if mode == "textes":
+                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
+                elif mode == "examens":
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr"] + domaine_eps_france
+                elif mode == "ipack":
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    domains = ["ipackeps.ac-creteil.fr"]
+                    exclude = ["youtube.com"]
+                elif mode == "peda":
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    domains = domaine_eps_france
+                else:
+                    if est_demande_fiche:
+                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                        domains = domaine_eps_france
+                    else:
+                        requete_blindee = f"{prompt} EPS programme officiel"
+                        domains = ["eduscol.education.gouv.fr", "unss.org"]
+                
+                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                if mode == "ipack": payload["exclude_domains"] = exclude
+                
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                if res.status_code == 200:
+                    for item in res.json().get("results", []): 
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
+            except: pass
+
+        # 2. CONTEXTE LOCAL
+        if openai_api_key:
+            try:
+                if mode == "examens":
+                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                elif mode == "ipack":
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                elif mode == "textes":
+                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                elif mode == "peda":
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                else:
+                    if est_demande_fiche:
+                        try:
+                            for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                        except: pass
+            except: pass
+
+        # 3. IDENTITÉ ET RÈGLES
+        règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+        filtre_pierre = "\nMÉTHODE : 1. Analyse des risques. 2. Procédure technique fléchée (→). 3. Traçabilité."
+        consigne_video = "\nVidéo : Si une vidéo spécifique est dans le contexte, affiche : '[Regarder le tutoriel](URL)'."
+
+        # --- ROUTAGE ET PERSONAS (VERROUILLAGE) ---
+        
         if mode == "examens":
+            # RÈGLES VERROUILLÉES
+            system_rules = "Expert EPS Aix-Marseille. DEC = Division des Examens et Concours. Ne jamais inventer. Santorin = saisie, Cyclades = gestion."
             p = prompt.lower()
-            if any(x in p for x in ["remplaçant", "convocation", "accès"]):
-                instruction_ciblee = "PROCÉDURE REMPLAÇANT : 1. Convocation = Point n°1 (Indispensable). 2. Déclaration DEC dans Cyclades = Obligatoire. 3. Import Santorin = Secondaire."
-            elif any(x in p for x in ["indisponibilité", "gymnase", "force majeure", "matériel", "installations"]):
-                instruction_ciblee = "PROCÉDURE FORCE MAJEURE : Indisponibilité = NI inaptitude NI absence. C'est un cas de force majeure administrative. Signalement écrit immédiat à la DEC pour traçabilité."
+            if any(x in p for x in ["distribution", "distribuer", "lots"]):
+                instruction = "PROCÉDURE DISTRIBUTION : 1. Onglet 'Distribution de l’épreuve'. 2. Sélectionner groupe. 3. Cliquer 'Distribuer'. 4. Vérifier transformation en lot de correction."
+            elif any(x in p for x in ["remplaçant", "convocation"]):
+                instruction = "PROCÉDURE REMPLAÇANT : 1. Convocation = Point n°1. 2. Déclaration DEC dans Cyclades = Obligatoire. 3. Import Santorin."
+            elif any(x in p for x in ["indisponibilité", "gymnase", "force majeure"]):
+                instruction = "PROCÉDURE FORCE MAJEURE : Indisponibilité = NI inaptitude NI absence. Signalement écrit immédiat à la DEC."
+            elif "aucun lot" in p:
+                instruction = "PROCÉDURE LOT ABSENT : 1. Vérifier affectation Cyclades. 2. Rejouer l'import Santorin. 3. Signalement DEC si KO."
             else:
-                instruction_ciblee = "PROCÉDURE SAISIE : 1. Bouton 'Choisir les AFLP' = Priorité n°1. 2. Si échec = Signalement service examen avec capture d'écran."
+                instruction = "PROCÉDURE SAISIE : 1. Bouton 'Choisir les AFLP' = Priorité n°1."
             
-            consigne_ia = (
-                f"Tu es un collègue expert EPS de l'Académie d'Aix-Marseille.\n"
-                f"RÈGLE : {instruction_ciblee}\n"
-                "SIGNATURE OBLIGATOIRE : Si le problème persiste, termine par : 'Si vous ne parvenez toujours pas à effectuer les modifications, veuillez contacter l'assistance iPackEPS : [ipackeps@ac-aix-marseille.fr](mailto:ipackeps@ac-aix-marseille.fr)'"
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{system_rules}\n{règles_or}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
-        # B. MODULE IPACK (Expert Technique)
         elif mode == "ipack":
-            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{extraits_doc}\nQuestion : {prompt}"
+            # RÈGLES VERROUILLÉES (PARE-FEU CYCLADES)
+            system_rules = "Expert technique iPackEPS. INTERDICTION ABSOLUE : Aucune interopérabilité avec Cyclades/Santorin. Ne jamais inventer d'import/export vers Cyclades."
+            consigne_ia = f"{system_rules}\n{règles_or}\nSi question sur lien iPack->Cyclades, réponds : 'Aucune interopérabilité n'existe. Gestion exclusive via DEC.'\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         
-        # C. MODULE TEXTES (Sanctuarisé - PURE)
         elif mode == "textes":
-            consigne_ia = f"Tu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
-        # D. MODULE PEDA (Sanctuarisé - PURE)
         elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. 
-1. EXTRACTION : Parcours le contexte. Si tu trouves un lien de document, affiche-le : "📥 Télécharger : [Nom](URL)".
-2. GÉNÉRATION : Si pas de lien, génère une fiche technique complète (Compétences, Analyse didactique, Indicateurs chiffrés).
+            consigne_ia = """MISSION : Documentaliste EPS expert.
+1. EXTRACTION : Extrais les liens (📥 Télécharger : [Nom](URL)).
+2. GÉNÉRATION : Si pas de lien, génère une fiche complète (Compétences, Analyse didactique, Indicateurs).
 Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
             
-        # E. DEFAULT (Expert généraliste)
         else:
-            consigne_ia = f"Tu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
-        # 3. EXÉCUTION
+        # 4. EXÉCUTION ET RENDU
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
-        texte_html = texte_brut.replace(chr(10), "<br>")
-        # Regex pour les liens et emails
-        texte_html = re.sub(r'\[([^\]]+)\]\(((?:https?|mailto):[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_html)
         
+        # Formatage des liens et vidéos
+        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        
+        # Tableaux
+        if "|" in texte_brut and "---" in texte_brut:
+            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
+            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
+            est_entete = True
+            for ligne in lignes:
+                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
+                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
+                    html_table += "<tr>"
+                    for cell in cells:
+                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
+                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
+                    html_table += "</tr>"
+                    est_entete = False
+            html_table += "</table>"
+            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
+
+        texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        
+        for link in youtube_links:
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
+        
         st.rerun()
 
 # ======================================================================

@@ -596,6 +596,16 @@ if prompt:
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
+        # 🟢 INJECTION DE FORCE : Lecture directe de gere_par_pierre.txt sur la racine (.)
+        verites_terrain_pierre = ""
+        try:
+            for fichier in os.listdir("."):
+                if fichier.endswith((".txt", ".md")) and "pierre" in fichier.lower():
+                    with open(fichier, "r", encoding="utf-8") as f:
+                        verites_terrain_pierre += f"\n--- REGLES DIRECTES ({fichier}) ---\n" + f.read() + "\n"
+        except:
+            pass
+        
         # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
@@ -655,6 +665,7 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu exclus tout blabla pédagogique.\n"
+                f"CONSIGNES INTERNES PRIORITAIRES (À APPLIQUER STRICTEMENT) :\n{verites_terrain_pierre}\n\n"
                 "MISSION : Si la question demande une date, un nom de bouton précis, un menu ou un choix réglementaire, donne cette information capitale EN GRAS tout au début de ta réponse, puis développe le Filtre Pierre.\n"
                 "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application en citant les vrais menus du contexte.\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
@@ -666,6 +677,7 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain.\n"
+                f"CONSIGNES INTERNES PRIORITAIRES (À APPLIQUER STRICTEMENT) :\n{verites_terrain_pierre}\n\n"
                 "MISSION : Si la question demande une date limite ou une donnée précise, affiche cette information capitale EN GRAS tout au début de ta réponse, avant de dérouler les paragraphes du Filtre Pierre.\n"
                 "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', chaque étape doit obligatoirement utiliser le Canva : [Acteur | Action | Conséquence]. Utilise les vraies dates et les vrais boutons issus du contexte.\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
@@ -716,8 +728,7 @@ Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant 
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # AFFICHAGE VIDÉOS
+        # Rendu des vidéos associées s'il y en a et rafraîchissement
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
-        
         st.rerun()

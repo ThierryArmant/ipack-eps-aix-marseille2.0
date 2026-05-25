@@ -564,14 +564,42 @@ with col_action_input:
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
 # ======================================================================
+
+# 🛡️ ARMURE CSS DE SÉCURITÉ : Force le fond opaque des fiches et la lisibilité du texte
+st.markdown("""
+    <style>
+        [data-testid="stChatMessage"] {
+            background-color: rgba(255, 255, 255, 0.97) !important;
+            border-radius: 12px !important;
+            padding: 22px !important;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15) !important;
+            margin-bottom: 15px !important;
+        }
+        /* Force TOUT le texte interne en sombre pour éliminer le blanc sur blanc */
+        [data-testid="stChatMessage"] * {
+            color: #1e293b !important;
+            font-size: 15px;
+        }
+        /* Style haut de gamme pour les titres de tes fiches */
+        [data-testid="stChatMessage"] h1, 
+        [data-testid="stChatMessage"] h2, 
+        [data-testid="stChatMessage"] h3 {
+            color: #4f46e5 !important;
+            font-weight: bold !important;
+            margin-top: 18px !important;
+            margin-bottom: 8px !important;
+        }
+        /* Gestion propre des liens de téléchargement des Académies */
+        [data-testid="stChatMessage"] a {
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+            font-weight: bold !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]): 
-        if isinstance(m["content"], str) and m["content"].startswith("st.video("):
-            exec(m["content"])
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+# ... (le reste de ton code de boucle m in messages_hub reste identique)
 
 # Liste globale des domaines académiques EPS
 domaine_eps_france = [
@@ -699,19 +727,16 @@ if prompt:
         elif mode == "peda":
             consigne_ia = (
                 "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique ou de secrétariat.\n"
-                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE EN PUR HTML, claire et directement exploitable sur le terrain.\n"
-                "CONSIGNE FORMATAGE STRICTE : Interdiction absolue d'utiliser le formatage Markdown (pas de ###, pas de **, pas de tirets). Tu dois obligatoirement utiliser des balises HTML (<p>, <h3>, <ul>, <li>, <strong>) pour que l'affichage soit parfait.\n\n"
-                "CANVA DE FICHE HTML STRICT (Respecte obligatoirement cette structure) :\n"
-                "<h3>📋 INTITULÉ DE LA FICHE</h3>\n<p>(Titre clair lié à la demande)</p>\n\n"
-                "<h3>🎯 OBJECTIFS & COMPÉTENCES</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>🛠️ SITUATIONS & VARIABLES</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>📊 CRITÈRES DE RÉUSSITE</h3>\n<ul><li>...</li></ul>\n\n"
-                "<h3>💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)</h3>\n"
-                "<p>Accédez aux fiches de cours, grilles d'évaluation et référentiels officiels de cette APSA, issus des groupes de ressources des 30 académies :</p>\n"
-                "<ul>\n"
-                "  <li><a href='https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf' target='_blank' style='color: #0284c7; font-weight: bold; text-decoration: underline;'>📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)</a></li>\n"
-                "</ul>\n\n"
+                "MISSION : Réponds obligatoirement sous la forme d'une FICHE TECHNIQUE SÉQUENCÉE, claire et directement exploitable sur le terrain.\n"
+                "STRUCTURE DE FICHE STRICTE (Respecte obligatoirement ces titres en Markdown) :\n\n"
+                "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
+                "### 🎯 OBJECTIFS & COMPÉTENCES\n(Points clés)\n\n"
+                "### 🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ\n(Consignes de sécurité et aménagement)\n\n"
+                "### 🛠️ SITUATIONS & VARIABLES\n(Situations pratiques et évolutions)\n\n"
+                "### 📊 CRITÈRES DE RÉUSSITE\n(Indicateurs de réussite)\n\n"
+                "### 💾 RESSOURCES & FICHES TÉLÉCHARGEABLES (30 ACADÉMIES)\n"
+                "Retrouvez les fiches officielles de cette APSA prêtes à imprimer sur les espaces EPS des 30 académies de France :\n"
+                "- [📥 Télécharger les fiches de séances officielles (Accès direct aux 30 Académies)](https://www.google.com/search?q=site+EPS+academie+files+fiche+pdf)\n\n"
                 f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
@@ -773,9 +798,10 @@ if prompt:
             </div>
             """
         else:
-            # On garde ton comportement d'origine pour les autres onglets techniques
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
-            
+           # --- REMPLACE TOUTE LA FIN DE LA SECTION 9 À PARTIR DE TEXTE_HTML PAR CELA ---
+        
+        # On injecte la réponse en pur Markdown : Streamlit va l'analyser à la perfection
+        formatted_answer = f"### {badge}\n\n{texte_brut}"
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Rendu des vidéos associées s'il y en a et rafraîchissement

@@ -607,7 +607,7 @@ if prompt:
         except:
             pass
         
-      # 1. MOTEUR WEB (Tavily)
+     # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 # Initialisation des variables pour éviter les erreurs
@@ -617,27 +617,37 @@ if prompt:
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    # PRIORITÉ AIX-MARSEILLE : on cible l'académie et on élargit au national si besoin
+                    # PRIORITÉ AIX-MARSEILLE : focus juridique global amélioré
                     domains = ["pedagogie.ac-aix-marseille.fr"] + ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"] + domaine_eps_france
-                    requete_blindee = f"EPS \"{prompt}\" AND (site:pedagogie.ac-aix-marseille.fr OR \"code de l'éducation\" OR \"circulaire\" OR \"décret\" OR \"arrêté\")"
+                    requete_blindee = (
+                        f"EPS \"{prompt}\" AND (site:pedagogie.ac-aix-marseille.fr OR "
+                        "\"code de l'éducation\" OR \"circulaire\" OR \"décret\" OR \"arrêté\" OR "
+                        "\"BO\" OR \"bulletin officiel\" OR \"note de service\" OR \"JO\" OR \"journal officiel\" OR \"loi\" OR \"protocole\")"
+                    )
+                
                 elif mode == "examens":
+                    # STABLE : Aucun changement
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 
                 elif mode == "ipack":
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    # AMÉLIORATION IPACK : Recherche propre ouverte aux rubriques 2, 4 et 7
+                    requete_blindee = f"\"{prompt}\" AND site:ipackeps.ac-creteil.fr AND (\"rubrique2\" OR \"rubrique4\" OR \"rubrique7\")"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
+                    # STABLE : Aucun changement
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
+                    # STABLE : Aucun changement
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 else:
+                    # STABLE : Aucun changement
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
 

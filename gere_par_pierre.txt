@@ -5,138 +5,132 @@
 
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL]
 
-[SITUATION: CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX]
+### [SITUATION: CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX]
 - Instruction : Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission. Elle est hiérarchiquement supérieure à toute autorisation d'absence pour convenance personnelle. Le chef d'établissement n'a pas compétence pour annuler une mission d'examen national ; seule l'autorité organisatrice (Rectorat/DEC) le peut.
 
-[SITUATION: NOTATION EPS AU BACCALAURÉAT]
+### [SITUATION: NOTATION EPS AU BACCALAURÉAT]
 - Instruction : Seule la note de CCF (Contrôle en Cours de Formation) de Terminale remonte sur Cyclades (coefficient 6). Les notes issues du contrôle continu classique ne sont pas prises en compte pour l'obtention du Baccalauréat.
 
-DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)
+### [DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]
+- Cible : Chef d’établissement / Secrétariat des examens.
+- Objectif : Générer les lots de correction à partir des protocoles d'épreuve.
+- Procédure :
+  1. Accéder à l'onglet "Distribution de l’épreuve".
+  2. Sélectionner le groupe ou la classe concerné(e).
+  3. Cliquer sur le bouton "Distribuer".
+- Vérification de succès : Vérifier que le protocole a bien été transformé en "lot de correction".
+- Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
 
-Cible : Chef d’établissement / Secrétariat des examens.
-Objectif : Générer les lots de correction à partir des protocoles d'épreuve.
-Procédure :
-Accéder à l'onglet "Distribution de l’épreuve".
-Sélectionner le groupe ou la classe concerné(e).
-Cliquer sur le bouton "Distribuer".
-Vérification de succès :
-Vérifier que le protocole a bien été transformé en "lot de correction".
-Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
+### [ERREUR : AUCUN LOT À CORRIGER]
+- Cause : Rupture de synchronisation entre Cyclades et Santorin ou absence d'affectation officielle.
+- Procédure :
+  1. Vérifier l'affectation dans Cyclades (DEC).
+  2. Forcer la synchronisation via "Rejouer l'import" dans Santorin.
+  3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
+- Note : Le bouton "Choisir les AFLP" est inopérant car le lot est absent de l'interface.
 
-ERREUR : AUCUN LOT À CORRIGER
-Cause : Rupture de synchronisation entre Cyclades et Santorin ou absence d'affectation officielle.
-Procédure : >     1. Vérifier l'affectation dans Cyclades (DEC).
-2. Forcer la synchronisation via "Rejouer l'import" dans Santorin.
-3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
-Note : Le bouton "Choisir les AFLP" est inopérant car le lot est absent de l'interface.
-
-[SITUATION: EXPORT DES GROUPES VERS CYCLADES]
+### [SITUATION: EXPORT DES GROUPES VERS CYCLADES]
 - Instruction : Pour que les groupes constitués dans iPackEPS soient reconnus par Cyclades :
- 1. Vérifier que la configuration des classes (Article 14) est terminée et validée dans iPackEPS.
- 2. Procédure : Aller dans le module [Dossiers] / [Dossier Certificatif] / [Protocoles]. 
- 3. Action : Cliquer sur "Générer le fichier d'export" ou procéder à la synchronisation automatique si le protocole est validé.
- 4. Dans Cyclades : Le secrétariat doit effectuer une "Importation de groupes" dans le module "Gestion des épreuves" en utilisant le fichier .CSV généré.
- 5. Rappel : Si les groupes n'apparaissent pas, c'est que la synchronisation des données RH ou des affectations entre STSWEB et Cyclades est incomplète au niveau académique.
+  1. Vérifier que la configuration des classes (Article 14) est terminée et validée dans iPackEPS.
+  2. Procédure : Aller dans le module [Dossiers] / [Dossier Certificatif] / [Protocoles]. 
+  3. Action : Cliquer sur "Générer le fichier d'export" ou procéder à la synchronisation automatique si le protocole est validé.
+  4. Dans Cyclades : Le secrétariat doit effectuer une "Importation de groupes" dans le module "Gestion des épreuves" en utilisant le fichier .CSV généré.
+  5. Rappel : Si les groupes n'apparaissent pas, c'est que la synchronisation des données RH ou des affectations entre STSWEB et Cyclades est incomplète au niveau académique.
 
 [SECTION: LOGISTIQUE_EXAMENS_SANTORIN]
 
-[SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]
+### [SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]
 - Instruction : Si un enseignant est manquant dans Santorin pour la distribution d'un lot, le chef d'établissement doit obligatoirement le convoquer manuellement via IMAG'IN. Si l'enseignant n'apparaît pas dans la liste des personnels "convocables", l'établissement doit le signaler immédiatement pour demander à la DIEC de le rajouter.
 
-[SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]
+### [SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]
 - Instruction : Ne pas oublier d’éditer la convocation dans IMAG'IN en cliquant sur l’icône « PDF ». C'est cette action précise qui génère et transmet informatiquement la convocation vers SANTORIN. Une fois la convocation éditée, procéder à une nouvelle distribution automatique des lots dans SANTORIN.
 
-[SITUATION: INTERFACE MESSAGERIE SANTORIN]
+### [SITUATION: INTERFACE MESSAGERIE SANTORIN]
 - Instruction : En cas d'erreur (message incomplet, fausse manipulation), si l'utilisateur n'enregistre pas le message sur un dossier, le système ne le conserve pas. En cas de blocage ou d'anomalie sur un dossier (marqué incomplet à tort), privilégier immédiatement la communication directe par mail avec les coordonnateurs.
 
-[SITUATION: CORRECTION PARTAGÉE SANTORIN]
+### [SITUATION: CORRECTION PARTAGÉE SANTORIN]
 - Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via le portail Arena / Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en "lecture seule" pour l'autre correcteur afin d'éviter les conflits de saisie.
 
-[SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]
+### [SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]
 - Instruction : Pour signaler une page manquante ou une mauvaise numérisation, le correcteur doit utiliser exclusivement la messagerie interne (icône enveloppe) de la plateforme Santorin pour alerter le coordonnateur.
-
 
 [SECTION: INTERFACES_ACCES_ET_REFRESH_IPACKEPS]
 
-[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]
+### [SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]
 - Instruction : Si l'application iPackEPS est introuvable ou si le module "Établissement" ne s'affiche pas sur le portail Estérel / Arena, l'utilisateur doit forcer une synchronisation manuelle.
   -> Procédure : Depuis l'interface ESTEREL, cliquer sur le bouton "Aide" (en haut à droite) > cliquer sur "Synchro manuelle" > puis faire "Rafraîchir la page" (F5). L'application s'ajoutera alors correctement dans le module « Enquête et pilotage ».
 
-[SITUATION: ERREUR DE PROFIL ET D'ANCIENNETÉ ENSEIGNANT]
+### [SITUATION: ERREUR DE PROFIL ET D'ANCIENNETÉ ENSEIGNANT]
 - Instruction : Les erreurs de profil (ancienneté erronée dans l'établissement, date d'entrée en fonction fausse) proviennent de la qualité des données RH des bases académiques. Ces erreurs n'étant pas bloquantes pour les procédures d'examens (protocoles), leur correction est reportée en second plan après la sécurisation des sessions d'examen. Les enseignants ne peuvent pas les modifier eux-mêmes.
 
-[SITUATION: ERREUR "ÉTABLISSEMENT NON TROUVÉ" / SANS ADRESSE]
+### [SITUATION: ERREUR "ÉTABLISSEMENT NON TROUVÉ" / SANS ADRESSE]
 - Instruction : Si un personnel de direction ou enseignant (ex: Lycée Militaire RNE 0131596P) fait face au message "L'Établissement n'a pas été trouvé dans la base", il s'agit d'une anomalie technique remontée à la DSI. Malgré ce message visuel, l'accès à l'établissement reste techniquement opérationnel dans l'application.
-
 
 [SECTION: CONFIGURATION_CLASSES_ET_PROTOCOLES_IPACKEPS]
 
-[SITUATION: ERREUR DE TYPE DE SCOLARITÉ (CLASSES MIXTES)]
+### [SITUATION: ERREUR DE TYPE DE SCOLARITÉ (CLASSES MIXTES)]
 - Instruction : Lors de l'ajout d'élèves dans un groupe, si l'application bloque avec le message "Ce n'est pas possible car les élèves ne suivent pas la même scolarité", c'est que le groupe mélange des élèves de filières différentes (ex: filière Générale et filière Technologique). iPackEPS interdit informatiquement la fusion de ces structures au sein d'un protocole unique.
 
-[SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]
+### [SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]
 - Instruction : Pour les structures n'existant pas dans la liste officielle (ex: Seconde Prépa), la qualification n'ayant pas d'enjeu pour les examens terminaux, l'équipe peut la qualifier par défaut de "2nde générale" pour débloquer la configuration.
 
-[SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]
+### [SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]
 - Instruction : Pour les groupes regroupant plusieurs niveaux (ex: 1ère et Terminale en section Euro ou option EPS), iPackEPS ne permet de renseigner qu'un seul niveau de classe. La priorité absolue doit être donnée à la certification (CCF des Terminales). Si le groupe relève du contrôle continu classique (Option), il n'est pas nécessaire de tenter de créer un groupe iPackEPS, car les élèves sortent du champ du CCF.
 
-[SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]
+### [SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]
 - Instruction : Si les intitulés de groupes créés sur iPackEPS ne correspondent pas à la nomenclature officielle de l'établissement (ex: École Directe / Pronote) et bloquent l'utilisateur, le coordonnateur doit vider les affectations pour réinitialiser la structure.
 
-[SITUATION: ÉLEVES SSS (SECTIONS SPORTIVES SCOLAIRES)]
+### [SITUATION: ÉLEVES SSS (SECTIONS SPORTIVES SCOLAIRES)]
 - Instruction : Pour réaliser la bascule automatique des élèves SSS dans le dossier projet annuel, tous les groupes SSS doivent être préalablement créés et rattachés aux emplois du temps. Les dénominations iPackEPS doivent être strictement identiques à celles de Pronote.
 
-[SITUATION: VALIDATION DU DOSSIER]
+### [SITUATION: VALIDATION DU DOSSIER]
 - Instruction : Pour soumettre le dossier certificatif à la commission académique (CAHN), seule la validation des dossiers certificatifs (FCA et protocoles) est requise. Il n'est pas nécessaire de transmettre ou de finaliser le "dossier établissement" global pour valider l'envoi. Le registre EPI n'est pas obligatoire.
-
 
 [SECTION: CAS_SPECIFIQUES_DES_APSA]
 
-[SITUATION: GESTION SPÉCIFIQUE DE L'ACTIVITÉ "COURSES" (DEMI-FOND / RELAIS)]
+### [SITUATION: GESTION SPÉCIFIQUE DE L'ACTIVITÉ "COURSES" (DEMI-FOND / RELAIS)]
 - Instruction : L'académie utilise l'appellation générique nationale « Courses » sans différencier le demi-fond et le relais dans les menus déroulants. Il est impossible de déposer deux fiches distinctes sous le même onglet ou de détourner une "APSA Établissement" (comme le Relais) pour contourner le système, car cela crée une ambiguïté réglementaire.
   -> Procédure officielle : Déclarer uniquement l'activité nationale unique « Courses ». Regrouper informatiquement les deux FCA (Demi-fond et Relais) en un seul et unique document PDF / Word. Déposer ce document unique comme référentiel pour l'APSA Courses. Avant la transmission finale, l'enseignant doit obligatoirement spécifier en commentaire les épreuves de courses réellement programmées.
 
-[SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]
+### [SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]
 - Instruction : Si le bouton bascule « Certificative » est bloqué ou non sélectionnable sur OUI pour une APSA (ex: Cross-training ou Circuit-training), le référent doit d'abord vérifier que l'activité a bien été déclarée et enregistrée dans le menu initial « Dossier EPS -> APSA ». C'est l'activation du bouton sur OUI dans ce menu premier qui libère l'accès au dépôt de la FCA dans le dossier certificatif.
 
-[SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]
+### [SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]
 - Instruction : La réglementation nationale impose strictement un ensemble de DEUX (2) épreuves certificatives en CAP (contrairement au Bac Pro qui en compte 3). Si une équipe enseigne 3 activités (A, B et C), le dossier sera systématiquement rejeté si un protocole à 3 activités est soumis.
   -> Procédure officielle : Configurer obligatoirement la classe en "Mode Groupe". Créer ensuite 3 protocoles distincts à deux épreuves (Ex: Groupe 1 = A-B, Groupe 2 = B-C, Groupe 3 = A-C). Répartir manuellement les élèves dans ces protocoles en début d'année selon la certification visée. Pour corriger un dossier bloqué ou rejeté, effacer manuellement les épreuves initiales pour libérer le choix du mode groupe.
 
-[SITUATION: ENSEMBLES AVEC EPS ADAPTÉE]
+### [SITUATION: ENSEMBLES AVEC EPS ADAPTÉE]
 - Instruction : La présence d'épreuves adaptées (ex: marche adaptée, pétanque) dans un ensemble certificatif assouplit les règles de composition. Pour les déclarer, il faut éditer l'APSA et cocher la case "Adaptée". Le tableau récapitulatif de droite confirmera visuellement le statut adapté de l'activité.
-
 
 [SECTION: INTERFACES_RH_COMPTES_ET_BASES_ACADEMIQUES]
 
-[SITUATION: MISE À JOURS DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]
+### [SITUATION: MISE À JOURS DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]
 - Instruction : L'application iPackEPS extrait automatiquement ses données de contacts (Chef d'établissement, Adjoints, Secrétaire général, Agent comptable) depuis le référentiel national RAMSESE. L'assistance iPackEPS n'a pas la main pour modifier ces fiches. En cas d'erreur ou de personnel non mis à jour (ex: ancien adjoint resté dans la base), le chef d'établissement doit obligatoirement contacter le service de la DIASEP au Rectorat pour mettre à jour RAMSESE. Les modifications se synchroniseront automatiquement sous 24h.
   -> Exemple [Lycée Romane] : Chef d’établissement : Mr LEAU Olivier | Adjoint 1 : Mr Le MEUR Alan | Adjoint 2 : Aucun.
   -> Exemple [Lycée Pierre-Gilles de Gennes - RNE 0040490L] : Adjoint 1 : Mme DAUBRESSE Claire (Proviseure adjointe) | Adjoint 2 : Mme LEDOUX Laurence (Agent Comptable / Secrétaire Générale).
   -> Exemple [Lycée Sévigné - RNE 0131348V] : Cheffe d'établissement : Mme GORLIER Christelle (en remplacement de M. Cortes).
   -> Exemple [Lycée Jean Monnet] : Secrétaire général / Agent comptable : M. Raphaël MORENO (en remplacement de Mme AZAIS-BOYER Caroline).
 
-[SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTEK/PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]
+### [SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTEK/PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]
 - Instruction : L'accès à iPackEPS est strictement conditionné par les données de paie et d'affectation RH du Rectorat (DRASI). Si un enseignant (ex: M. Damien LUPI, intervenant au Lycée Charles Privat d'Arles 0130171R mais administrativement rattaché au Collège Van Gogh 0131610E) n'apparaît pas dans l'équipe EPS d'un établissement, la DSI ne peut pas le forcer. Le chef d'établissement doit obligatoirement procéder à son installation administrative et déclarer son affectation sur le lycée pour que ses droits Arena redescendent automatiquement.
 
-[SITUATION: ARRÊTS MALADIE ET SUPPLÉANTS]
+### [SITUATION: ARRÊTS MALADIE ET SUPPLÉANTS]
 - Instruction : Si des enseignants titulaires sont en arrêt longue maladie, leur présence non modifiée dans iPackEPS peut bloquer le système. L'établissement doit impérativement mettre à jour la base des enseignants pour intégrer officiellement les suppléants/remplaçants RH afin qu'ils reçoivent leurs accès techniques via la synchronisation quotidienne.
 
-[SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]
+### [SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]
 - Instruction : Pour les structures spécifiques (ex: Professeur des écoles spécialisé à l'EREA de Haute Provence à BEVONS 04), les enseignants gérant des CAP doivent obligatoirement être déclarés via le formulaire d'enquête académique de la DSI pour obtenir l'ouverture manuelle de leurs droits d'accès à l'application ESTEREL.
   -> Lien d'enquête DSI : https://appli.region-academique-paca.fr/enquetes/index.php/993987?lang=fr
 
-[SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]
+### [SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]
 - Instruction : Centralisation des liens essentiels du réseau :
   -> Formulaire de déclaration enseignant (DSI) : https://appli.region-academique-paca.fr/enquetes/index.php/993987?lang=fr
   -> Replay de la visioconférence de formation iPackEPS : https://bbb-adm-scalelite.visio.education.fr/playback/presentation/2.3/dbd746640e601c545452135445ce77fea714389d-1758206971830
   -> Plateforme officielle des tutoriels complets : https://ipackeps.ac-creteil.fr/spip.php?rubrique2
   -> Documents d'accompagnement Sections Sportives Scolaires (SSS) : https://www.pedagogie.ac-aix-marseille.fr/jcms/c_10962486/fr/sections-sportives-scolaires
 
-
 [SECTION: PROCEDURES_INAPTITUDES_ET_LEVEE_DE_CYCLE]
 
-[SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]
+### [SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]
 - Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
 1. ANALYSE DES RISQUES (Bouton de modification grisé) : Si l'interface bloque, c'est qu'une note est déjà enregistrée ce trimestre pour cet élève. Procédure de déblocage : Aller dans le menu 'Saisie des notes', effacer manuellement la note pour rendre la case totalement vide (pas de zéro), enregistrer, puis revenir sur la fiche de l'élève.
 2. PROCÉDURE TECHNIQUE :
@@ -147,13 +141,13 @@ Note : Le bouton "Choisir les AFLP" est inopérant car le lot est absent de l'in
 3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.
 - Liens vidéos associés : https://youtu.be/34w4Z6dd1dM (Suivi des inaptitudes) ; https://youtu.be/YjvU7KCuJpk (Contrôle des certificats commission).
 
-[SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]
+### [SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]
 - Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 
-[SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]
+### [SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]
 - Instruction : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.
 
-[SITUATION: FICHE - GESTION DE LA LEVÉE D'INAPTITUDE EN COURS DE CYCLE]
+### [SITUATION: FICHE - GESTION DE LA LEVÉE D'INAPTITUDE EN COURS DE CYCLE]
 - Instruction : Contexte : Levée d'inaptitude médicale annuelle par un nouveau certificat en cours de trimestre.
 Objectif : Régulariser le dossier sans risque de litige avec les jurys académiques (protection juridique).
 1. Procédure Technique (iPackEPS)
@@ -169,54 +163,52 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 → Règle de sécurité : Pour les activités à environnement spécifique (APPN), accorder une vigilance renforcée lors de la première séance de reprise, en rappelant les consignes de sécurité à l'élève, et noter cet échange si nécessaire.
 → Protection Fonctionnelle (Loi 1937) : En cas d'inaptitude levée, la responsabilité du professeur est engagée sur la capacité physique réelle de l'élève. En cas de doute sur la pratique, prioriser une adaptation de la charge de travail documentée dans le suivi de l'élève.
 
-
 [SECTION: NOUVEAUTÉS_ET_ÉVOLUTIONS_MENUS_IPACKEPS]
 
-[SITUATION: IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS]
+### [SITUATION: IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS]
 - Instruction : Il est désormais possible d'importer directement les fichiers d'élèves issus de l'application École-Directe (pour le privé sous contrat) ou de Pronote.
   -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Élèves'.
 
-[SITUATION: DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT)]
+### [SITUATION: DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT)]
 - Instruction : Le dépôt des différents projets de l'équipe ne se fait plus dans des menus dispersés, tout a été centralisé.
   -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Projets'.
 
-[SITUATION: VISUALISATION DES RÉFÉRENTIELS ACADÉMIQUES]
+### [SITUATION: VISUALISATION DES RÉFÉRENTIELS ACADÉMIQUES]
 - Instruction : Pour consulter directement les référentiels et APSA spécifiques proposés par l'académie.
   -> Chemin exact : Menu 'Dossiers' > 'Dossier CERTIFICATIF' > 'Référentiels'.
 
-[SITUATION: NOUVELLES FONCTIONS ENSEIGNANTS]
+### [SITUATION: NOUVELLES FONCTIONS ENSEIGNANTS]
 - Instruction : Dans la fiche du professeur, de nouvelles fonctions officielles peuvent être déclarées (Référent haut-niveau, coordonnateur Sport-Études, référent CHAD, plan PHARE, EVARs).
   -> Chemin exact : Menu 'Fiche Professeur' > 'Fonctions'.
 
-[SITUATION: VŒUX DE JURY CRPE]
+### [SITUATION: VŒUX DE JURY CRPE]
 - Instruction : Les enseignants d'EPS peuvent désormais postuler pour être jury du concours de recrutement des professeurs des écoles (CRPE).
   -> Chemin exact : Menu 'Fiche Professeur' > 'Vœux de Jury'.
 
-[SITUATION: ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS)]
+### [SITUATION: ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS)]
 - Instruction : Les étudiants en stage de Master MEEF (STAPS) ou les accompagnateurs extérieurs peuvent désormais obtenir un accès de lecture ou d'écriture sur les classes si le chef d'établissement les valide dans le module d'administration.
 
-[SITUATION: DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE]
+### [SITUATION: DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE]
 - Instruction : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données d'évaluation.
-
 
 [SECTION: MISES_A_JOUR_ET_ARBITRAGES_OFFICIELS_DE_PIERRE]
 
-[SITUATION: CASES DE SAISIE AFLP INACTIVES]
+### [SITUATION: CASES DE SAISIE AFLP INACTIVES]
 - Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes. Cherchez le bouton "choisir les AFLP". Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
 
-[SITUATION: DATE LIMITE SAISIE SANTORIN]
+### [SITUATION: DATE LIMITE SAISIE SANTORIN]
 - Instruction : La date limite de saisie dans Santorin est fixée au 30 mai 2026 pour l'académie d'Aix-Marseille.
 
-[SITUATION: ACCÈS REMPLAÇANT SANTORIN]
+### [SITUATION: ACCÈS REMPLAÇANT SANTORIN]
 - Instruction : Pour donner accès à la saisie des notes sur Santorin à un remplaçant, l'affectation manuelle se fait dans Imag'in en générant le fichier PDF de convocation.
 
-[SITUATION: MESSAGE AUCUN LOT A CORRIGER]
+### [SITUATION: MESSAGE AUCUN LOT A CORRIGER]
 - Instruction : Si Santorin affiche « Aucun lot à corriger » :
 → Le chef d’établissement doit cliquer sur l’onglet "Distribution de l’épreuve".
 → Sélectionner le groupe et cliquer sur "Distribuer" pour créer les lots de correction.
 → S’assurer que chaque protocole est transformé en lot de correction. La réalité est qu’il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
 
-[SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
+### [SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
 - Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. Comment adapter les protocoles au choix des élèves ?
 1. ANALYSE DES RISQUES
 Risque de non-conformité : Un protocole CCF déposé au rectorat doit définir précisément les épreuves. Si tu changes l'épreuve de l'élève en cours de route sans formalisation, la note peut être invalidée lors d'une commission d'harmonisation.
@@ -231,7 +223,7 @@ La saisie sur iPackEPS :
 - Dans iPackEPS, créer autant de "Groupes d'activités" que d'épreuves proposées (ex: Groupe "Lancer", Groupe "Course", Groupe "Saut"). Affecter chaque élève au groupe correspondant après la période de test initiale.
 Traçabilité : Cette affectation informatique fait office de preuve administrative du choix de l'élève.
 
-[SITUATION: HISTORIQUE_DES_PROMPTS_ET_LOGIQUE_DU_MOTEUR]
+### [SITUATION: HISTORIQUE_DES_PROMPTS_ET_LOGIQUE_DU_MOTEUR]
 - Instruction : RÈGLES D'OR ABSOLUES :
 1. NE JAMAIS CONFONDRE un enseignant et un candidat/élève.
 2. Si la question porte sur un enseignant, ignore les textes qui traitent des droits ou des obligations des candidats.
@@ -239,7 +231,6 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
 4. RÈGLE EXAMENS/FORMATION : Une convocation officielle à un examen prime absolument sur une formation (PAF) ou sur le service habituel en établissement. L'enseignant a l'obligation de s'y rendre (décret du 17 décembre 1933), sous peine de sanction pour abandon de poste.
 5. RÈGLE APPN (VTT / COURSE D'ORIENTATION) : L'autonomie des groupes d'élèves (sans présence physique constante de l'enseignant à leurs côtés) est PARFAITEMENT AUTORISÉE et légale en EPS selon la circulaire nationale APPN n° 2017-075 du 19 avril 2017. Elle ne constitue pas une faute si elle est pédagogiquement préparée : élèves formés, niveau maîtrisé, consignes strictes, circuit connu/délimité, et système d'alerte ou de ralliement prévu.
 6. RÈGLE RESPONSABILITÉ CIVILE (LOI 1937 / ART L.911-4) : En cas d'accident d'élève, la responsabilité civile de l'enseignant est substituée par celle de l'État (Loi du 5 avril 1937 / Article L. 911-4 du Code de l'éducation). C'est l'État qui prend en charge les réparations et dommages-intérêts, jamais le professeur sur ses deniers personnels. La responsabilité pénale individuelle du professeur (imprudence, etc.) reste distincte mais ne relève pas de la responsabilité civile classique.
-
 
 ======================================================================
           SECTION 2: MANUEL OFFICIEL ET ARTICLES DE RÉFÉRENCE IPACKEPS
@@ -346,7 +337,7 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
     - Référentiels : Cyclades accepte n’importe quelle APSA en contrôle adapté, à tout moment de l’année, sans vérification qu’un référentiel ait été validé par l’inspection. Nous suivons donc cette logique, en ne demandant pas de référentiel lorsqu’un établissement propose une APSA adaptée.
     - Coche grisée : l’équipe a créé une NOUVELLE APSA, en la nommant « musculation adaptée ». Donc le logiciel considère que ce n’est pas une APSA de la liste nationale ou académique, donc cette APSA ne peut pas être certificative en bac GT, c’est donc normal que la coche [certificative] soit bloquée. Ce n’est pas la bonne utilisation, on ne crée pas de nouvelle APSA pour juste une adaptation. La logique est de sélectionner l’APSA musculation de la liste nationale, et de cocher certificative adaptée (ainsi que [certificative], si elle est évaluée également pour les élèves valides). Évidemment, penser à supprimer l’APSA « musculation adaptée » qui devient inutile.
   - Q2 : En Bac GT, j’ai déclaré la Course de Relais-Vitesse en tant qu’APSA établissement, au lieu de choisir l’APSA [Courses] de la liste nationale (le même problème peut intervenir avec les APSAs Sauts ou Lancers). Comment Remplacer l’APSA Course de Relais-Vitesse par l’APSA nationale Courses ?
-  - R2 : La procédure de résolution est la suivante : retournez dans [Dossiers] / [Dossier EPS] / [APSA] ; sélectionnez dans le tableau de gauche des APSAs nationales l’activité [courses], et déclarez-la certificative en Lycée. Vous voyez alors apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissement) et l’APSA Courses. Retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage d’un groupe de voie GT qui propose de la Course de Relais-Vitesse. En bas de la fenêtre, cliquez sur le bouton de modification de l’APSA [Course de Relais-Vitesse], et remplacez-la par l’APSA [Courses]. Faites de même pour tous les autres groupes de voie GT sur lesquels vous aviez attribué l’APSA [Course de Relais-Vitesse]. Retournez dans [Dossier Certificatif] / [Dépôt des Référentiels] : vous trouverez votre ancienne APSA Course de Relais-Vitesse qui possède un référentiel, et la nouvelle APSA Courses qui n’a pas encore de référentiel. Il vous faut alors déposer le référentiel pour l’APSA Courses, et supprimer le référentiel de l’APSA Course de Relais-Vitesse. Vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [Course de Relais-Vitesse] non certificative en Lycée GT.
+  - R2 : La procédure de résolution est la suivante : retournez dans [Dossiers] / [Dossier EPS] / [APSA] ; sélectionnez dans le tableau de gauche des APSAs nationales l’activité [courses], et déclarez-la certificative en Lycée. Vous voyez alors apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissement) et l’APSA Courses. Retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage du groupe concerné. En bas de la fenêtre, cliquez sur le bouton de modification de l’APSA [Course de Vitesse], et remplacez-la par l’APSA [Courses]. Le protocole doit alors être déclaré valide. Faites de même pour tous les autres groupes de Bac GT sur lesquels vous aviez attribué l’APSA [Courses de vitesse]. Retournez dans [Dossier Certificatif] / [Dépôt des Référentiels] : vous trouverez votre ancienne APSA Courses de Vitesse qui possède un référentiel, et la nouvelle APSA Courses qui n’a pas encore de référentiel. Il vous faut alors déposer le référentiel pour l’APSA Courses, et supprimer le référentiel de l’APSA Courses de Vitesse. Vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [Course de Relais-Vitesse] non certificative en Lycée GT.
   - Q3 : En Bac GT, j’avais par le passé déclaré par erreur la Course de Relais-Vitesse en tant qu’APSA établissement, et l’avais sélectionnée certificative en voie GT, au lieu de choisir l’APSA [Courses] de la liste nationale. J’ai maintenant déclaré également l’APSA courses, mais j’ai donc 2 référentiels déposés pour 2 APSAs différentes, et certains groupes de voie GT ont encore l’APSA Course de Relais-Vitesse déclarée au lieu de Courses. Comment fusionner les 2 APSAs ?
   - R3 : La procédure de résolution est la suivante : retournez dans [Dossiers] / [Dossier EPS] / [APSA]. Vous voyez apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissement) et l’APSA Courses. Retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage d’un groupe de voie GT qui propose de la Course de Relais-Vitesse. En bas de la fenêtre, cliquez sur le bouton de modification de l’APSA [Course de Relais-Vitesse], et remplacez-la par l’APSA [Courses]. Faites de même pour tous les autres groupes de voie GT sur lesquels vous aviez attribué l’APSA [Course de Relais-Vitesse]. Retournez dans [Dossier Certificatif] / [Dépôt des Référentiels] : vous pourrez alors supprimer le référentiel de l’APSA Course de Relais-Vitesse. Vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [Course de Relais-Vitesse] non certificative en Lycée GT.
   - Q4 : En EPPCS, j’enseigne plusieurs APSA qui ne sont pas dans la liste nationale. Je ne peux pas toutes les cocher [certificative] puisque qu’iPackEPS n’autorise qu’une seule APSA hors liste nationale.
@@ -486,7 +477,7 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
 - URL: spip.php?article55
 - Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Les tutoriels vous décrivent les étapes de dépôt des documents que votre académie peut vous demander pour piloter la commission académique d’harmonisation des notes aux examens. Vous pouvez déposer une fiche récapitulative d’établissement, des listings de notes, des listes d’inaptitudes, des scans de certificats médicaux, et des fiches individuelles d’élèves pour les cas particuliers d’évaluation. Tuto unique : https://youtu.be/FZ1KSuuKkEA. Le tutoriel sur le dépôt de la fiche Établissement est disponible sur l'article 83. Le tutoriel sur le contrôle et dépôt des certificats médicaux est disponible sur l'article 85. Le tutoriel sur le dépôt de Fiches Individuelles est disponible sur l'article 84.
 - QUESTIONS / RÉPONSES :
-  - Q1 : Est-il possible de déposer plusieurs certificats médicaux d’un élève pour une même activité ? (le certificat qui couvre la date du CCF et le certificat qui couvre la date de rattrapage par exemple ?)
+  - Q1 : Est-il possible de déposer plusieurs certificats médicaux d’un élève pour une même activité ? (le certificat qui couvre la date du CCF et le certificat qui couvre la date du rattrapage par exemple ?)
   - R1 : OUI, depuis la version 2025.3.1 (décembre 2025) il est possible de déposer plusieurs certificats pour une même séquence d’apprentissage.
 
 ### [ARTICLE 83] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement
@@ -632,9 +623,8 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
 - URL: spip.php?article58
 - Texte: Ce tutoriel présente le détail des modules accessibles au chef d’établissement, et les validations nécessaires demandées (validation des projets de Section Sportive Scolaire, de l’enquête natation…). Tutoriel #1 : présentation des divers modules, navigation dans l’application (https://youtu.be/jOt-pUj-5Hc?si=Ny9ukSBNYwTRfb4O). Tutoriel #2 : validation des divers dossiers (SSS, enquête natation, équipements sportifs, projets APPN…) (https://youtu.be/2iSTkzR0fns?si=FZGhDtvwgMxpyold).
 
-
 ======================================================================
-           SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
+          SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 ======================================================================
 
 ### 1. Affectation et convocation automatique des enseignants d’EPS

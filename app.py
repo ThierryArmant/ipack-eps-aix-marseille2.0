@@ -24,6 +24,8 @@ if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "peda"  
+if "diag_txt" not in st.session_state:
+    st.session_state.diag_txt = "Recherche du fichier non démarrée"
 
 def incrementer_et_obtenir_visites():
     fichier_compteur = "compteur_visites.txt"
@@ -310,9 +312,9 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Détection automatique du chemin du fichier (dans /data/ ou à la racine)
+# Recherche stricte à la racine en priorité
 def trouver_chemin_pierre():
-    chemins_possibles = ["data/gere_par_pierre.txt", "gere_par_pierre.txt"]
+    chemins_possibles = ["gere_par_pierre.txt", "data/gere_par_pierre.txt"]
     for ch in chemins_possibles:
         if os.path.exists(ch):
             return ch
@@ -326,13 +328,22 @@ def obtenir_cle_fichier():
 
 def charger_cerveau_unique():
     chemin = trouver_chemin_pierre()
-    if chemin:
+    if not chemin:
+        st.session_state.diag_txt = "❌ ERREUR DIRECTE : Le fichier 'gere_par_pierre.txt' est introuvable sur GitHub !"
+        return []
+    
+    # Décodeur multi-formats pour parer les exports Windows
+    for encodage in ["utf-8", "utf-8-sig", "latin-1", "utf-16", "cp1252"]:
         try:
-            with open(chemin, "r", encoding="utf-8") as f:
+            with open(chemin, "r", encoding=encodage) as f:
                 contenu = f.read()
-            return [Document(text=contenu, metadata={"source": "Cerveau Unique de Pierre"})]
-        except Exception:
-            return []
+            if contenu.strip():
+                st.session_state.diag_txt = f"📁 RACINE CONNECTÉE : '{chemin}' lu avec succès ({len(contenu)} caractères) en format [{encodage}]."
+                return [Document(text=contenu, metadata={"source": "Cerveau Unique de Pierre"})]
+        except Exception as e:
+            continue
+            
+    st.session_state.diag_txt = f"⚠️ ALERTE : Le fichier '{chemin}' existe mais il est vu comme complètement VIDE."
     return []
 
 # BASE DE CONNAISSANCES CENTRALISÉE (Indexation du fichier unique)
@@ -353,7 +364,7 @@ class RetrieverSecours:
 if retriever_unique is None:
     retriever_unique = RetrieverSecours()
 
-# Connexion dynamique : toutes les rubriques pointent vers l'entrepôt unique de Pierre
+# Connexion dynamique des modules
 retriever_santorin = retriever_unique
 retriever_ipack = retriever_unique
 retriever_textes = retriever_unique
@@ -381,6 +392,12 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
+# Affichage permanent du voyant radar de la base de connaissances
+if "❌" in st.session_state.diag_txt or "⚠️" in st.session_state.diag_txt:
+    st.error(st.session_state.diag_txt)
+else:
+    st.info(st.session_state.diag_txt)
+
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
 # ======================================================================
@@ -406,7 +423,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES (TEXTES NETTOYÉS ET PARFAITEMENT SANS RETOUR)
+# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -484,7 +501,6 @@ with col_action_input:
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        # Remplacement de exec() par un appel natif Streamlit hautement fiable
         if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
             url_video = m["content"].replace("VIDEO_URL:", "").strip()
             st.video(url_video)
@@ -515,7 +531,7 @@ if prompt:
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # 1. MOTEUR WEB (Tavily) - MODIFIÉ POUR COUVRIR LES RUBRIQUES 2, 4 ET 7 EN INTERNE DANS IPACK
+        # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 if mode == "textes":
@@ -525,7 +541,6 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 elif mode == "ipack":
-                    # Requête élargie sur les rubriques de l'académie de Créteil
                     requete_blindee = f"{prompt} (rubrique2 OR rubrique4 OR rubrique7)"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
@@ -549,96 +564,63 @@ if prompt:
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (Interrogation de la base consolidée unique de Pierre)
+        # 2. CONTEXTE LOCAL (Avec traçabilité forcée des pannes d'index)
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                    nodes = retriever_santorin.retrieve(prompt)
+                    if not nodes: extraits_doc += "\n[ALERTE RADAR : L'index local n'a trouvé aucun paragraphe correspondant dans gere_par_pierre.txt]\n"
+                    for n in nodes: extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    nodes = retriever_ipack.retrieve(prompt)
+                    if not nodes: extraits_doc += "\n[ALERTE RADAR : L'index local n'a trouvé aucun paragraphe correspondant dans gere_par_pierre.txt]\n"
+                    for n in nodes: extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-                else:
-                    if est_demande_fiche:
-                        try:
-                            for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-                        except: pass
-            except: pass
+            except Exception as e:
+                extraits_doc += f"\n[PANNE TECHNIQUE INDEXATION : {str(e)}]\n"
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
-            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers.\n"
+            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers ou blocages de protocoles.\n"
             "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
+            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative."
         )
         
         consigne_extraction_video = (
             "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
             "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
-            "- Identifie le ou les liens YouTube (https://youtu.be/... ou https://www.youtube.com/...) associés spécifiquement au sujet de la question.\n"
-            "- Si une vidéo correspond précisément à la demande (ex: inaptitudes, Santorin, Cyclades, etc.), inclus-la obligatoirement à la fin de ta réponse sous le format Markdown strict : '[Regarder le tutoriel vidéo associé](URL)'.\n"
-            "- INTERDICTION : Ne force jamais de lien vidéo générique ou par défaut si le sujet de la question est différent."
+            "- Identifie le ou les liens YouTube associés spécifiquement au sujet.\n"
+            "- Si une vidéo correspond précisément, inclus-la à la fin au format : '[Regarder le tutoriel vidéo associé](URL)'.\n"
+            "- INTERDICTION : Ne force jamais de lien vidéo générique ou fictif si le contexte local est vide."
         )
         
         if mode == "ipack":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS."
-                f"{consigne_extraction_video}\n\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.{consigne_extraction_video}\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                f"Canva: [Acteur|Action|Conséquence].{consigne_extraction_video}\n\n"
-                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\n"
-                f"Canva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\n"
-                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
-        elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
-RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
-
-Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
-            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
-            if est_demande_fiche:
-                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
-RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
-
-Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
-                badge = "🔍 CHASSEUR DE RESSOURCES"
-            else:
-                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
-            color_card = "general-card"
+            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # EXTRACTION MULTIPLE DYNAMIQUE DES LIENS VIDEOS (Prise en compte des formats d'URL YouTube nettoyés)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-
-        # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
         # ======================================================================
-        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE (CORRIGÉ)
+        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE
         # ======================================================================
         lignes_originales = texte_brut.split("\n")
         lignes_transformees = []
@@ -648,19 +630,15 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
         for l_actuelle in lignes_originales:
             l_nettoye = l_actuelle.strip()
             
-            # Détection d'une ligne de tableau Markdown
             if l_nettoye.startswith("|") and l_nettoye.count("|") >= 2:
-                # Si c'est la ligne de séparation de type |---|---|, on la saute
                 if "---" in l_nettoye:
                     continue
                 
-                # Si le tableau démarre, on ouvre la balise HTML avec la bordure bleue Santorin
                 if not en_dans_tableau:
                     en_dans_tableau = True
                     lignes_transformees.append('<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.3);">')
                     est_entete_tableau = True
                 
-                # Découpage propre des cellules
                 cellules = [c.strip() for c in l_nettoye.split("|")][1:]
                 if cellules and cellules[-1] == "":
                     cellules.pop()
@@ -668,16 +646,13 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
                 ligne_html = "<tr>"
                 for cell in cellules:
                     if est_entete_tableau:
-                        # En-tête bleu ciel assorti au mode Santorin (#38BDF8)
                         ligne_html += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 12px 10px; text-align: left; font-size: 14px; font-weight: 700; border-bottom: 2px solid #0284C7;">{cell}</th>'
                     else:
-                        # Lignes de données blanches et propres
                         ligne_html += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
                 ligne_html += "</tr>"
                 lignes_transformees.append(ligne_html)
                 est_entete_tableau = False
             else:
-                # Si on sort du tableau, on ferme proprement la balise
                 if en_dans_tableau:
                     lignes_transformees.append("</table>")
                     en_dans_tableau = False
@@ -687,12 +662,10 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
             lignes_transformees.append("</table>")
             
         texte_brut = "\n".join(lignes_transformees)
-
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # AJOUT DES COMPOSANTS VIDÉOS AVEC LE NOUVEAU MARQUEUR SÉCURISÉ
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
         

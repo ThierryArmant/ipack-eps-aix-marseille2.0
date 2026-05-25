@@ -686,20 +686,37 @@ if prompt:
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Tu es l'expert juridique EPS. \n"
+                "MISSION : Réponds impérativement avec la structure : <h3>1. SITUATION</h3>, <h3>2. ARBITRAGE</h3>, <h3>3. RECOURS</h3>.\n"
+                "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
+                "1. Utilise uniquement <h3> pour les titres.\n"
+                "2. Pas de **, pas de ###, pas de tirets.\n"
+                "3. Utilise <br> pour aérer ton texte sans utiliser de paragraphes <p>.\n"
+                "CONTEXTE : Réponds en t'appuyant sur les textes officiels (Code de l'éducation, Code du sport) et le contexte fourni.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":
-            # On demande à l'IA d'utiliser la liste déjà présente dans le script
             consigne_ia = (
                 f"ROLE : Tu es l'expert pédagogique EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
-                "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE (HTML). \n"
-                "RÈGLE LIENS : Sélectionne 3 académies dans la liste fournie et construis pour chacune un lien de recherche Google personnalisé pour l'activité demandée.\n"
-                "Format strict pour chaque lien :\n"
-                "• <a href='https://www.google.com/search?q=site:DOMAINE_CHOISI+gymnastique+fiche+EPS' target='_blank'>📥 Fiche Gymnastique - Académie de [Nom]</a><br>\n\n"
-                "STRUCTURE HTML STRICTE :\n"
-                "<h3>📋 INTITULÉ DE LA FICHE</h3>...<h3>🎯 OBJECTIFS</h3>...<h3>🏃‍♂️ CADRE SÉCURITÉ</h3>...<h3>🛠️ SITUATIONS</h3>...<h3>📊 CRITÈRES</h3>...<h3>💾 RESSOURCES</h3>"
-                f"\nContexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
+                "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE. \n"
+                "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
+                "1. Utilise uniquement <h3> pour les titres.\n"
+                "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
+                "3. Utilise <br> pour les sauts de ligne simples.\n"
+                "RÈGLE LIENS : Sélectionne 3 académies dans la liste, construis pour chacune un lien Google personnalisé : "
+                "<a href='https://www.google.com/search?q=site:DOMAINE+activite+fiche+EPS' target='_blank'>📥 Fiche - Académie de [Nom]</a><br>\n\n"
+                "STRUCTURE :\n"
+                "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité</strong><br>"
+                "<h3>🎯 OBJECTIFS</h3><ul><li>Objectif 1</li><li>Objectif 2</li></ul>"
+                "<h3>🏃‍♂️ CADRE SÉCURITÉ</h3><ul><li>Règle 1</li></ul>"
+                "<h3>🛠️ SITUATIONS</h3><ul><li>Situation 1</li></ul>"
+                "<h3>📊 CRITÈRES</h3><ul><li>Critère 1</li></ul>"
+                "<h3>💾 RESSOURCES</h3>(Liens ici)"
+                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 

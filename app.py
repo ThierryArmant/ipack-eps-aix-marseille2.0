@@ -24,8 +24,6 @@ if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "peda"  
-if "diag_txt" not in st.session_state:
-    st.session_state.diag_txt = "Recherche du fichier non démarrée"
 
 def incrementer_et_obtenir_visites():
     fichier_compteur = "compteur_visites.txt"
@@ -312,7 +310,6 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Recherche stricte à la racine en priorité
 def trouver_chemin_pierre():
     chemins_possibles = ["gere_par_pierre.txt", "data/gere_par_pierre.txt"]
     for ch in chemins_possibles:
@@ -326,37 +323,35 @@ def obtenir_cle_fichier():
         return os.path.getmtime(chemin)
     return 0.0
 
-def charger_cerveau_unique():
-    chemin = trouver_chemin_pierre()
-    if not chemin:
-        st.session_state.diag_txt = "❌ ERREUR DIRECTE : Le fichier 'gere_par_pierre.txt' est introuvable sur GitHub !"
-        return []
-    
-    # Décodeur multi-formats pour parer les exports Windows
+# RADAR DE LECTURE FORCÉ HORS CACHE (S'exécute à chaque chargement de page)
+chemin_detecte = trouver_chemin_pierre()
+contenu_global_pierre = ""
+status_radar = "❌ ERREUR DIRECTE : Aucun fichier 'gere_par_pierre.txt' trouvé à la racine de ton GitHub !"
+
+if chemin_detecte:
     for encodage in ["utf-8", "utf-8-sig", "latin-1", "utf-16", "cp1252"]:
         try:
-            with open(chemin, "r", encoding=encodage) as f:
-                contenu = f.read()
-            if contenu.strip():
-                st.session_state.diag_txt = f"📁 RACINE CONNECTÉE : '{chemin}' lu avec succès ({len(contenu)} caractères) en format [{encodage}]."
-                return [Document(text=contenu, metadata={"source": "Cerveau Unique de Pierre"})]
-        except Exception as e:
+            with open(chemin_detecte, "r", encoding=encodage) as f:
+                texte_charge = f.read()
+            if texte_charge.strip():
+                contenu_global_pierre = texte_charge
+                status_radar = f"📁 RADAR ACTIF : Fichier '{chemin_detecte}' couplé avec succès ({len(contenu_global_pierre)} caractères lus en [{encodage}])."
+                break
+        except:
             continue
-            
-    st.session_state.diag_txt = f"⚠️ ALERTE : Le fichier '{chemin}' existe mais il est vu comme complètement VIDE."
-    return []
+    if chemin_detecte and not contenu_global_pierre:
+        status_radar = f"⚠️ ALERTE : Le fichier '{chemin_detecte}' a été localisé mais il est vu comme complètement VIDE."
 
-# BASE DE CONNAISSANCES CENTRALISÉE (Indexation du fichier unique)
+# BASE DE CONNAISSANCES CENTRALISÉE (Se reconstruit uniquement si le texte ou le fichier change)
 @st.cache_resource
-def initialiser_base_unique(cle_fremt):
-    docs = charger_cerveau_unique()
-    if docs:
-        return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+def initialiser_base_unique(cle_timestamp, texte_connaissances):
+    if texte_connaissances.strip():
+        doc = Document(text=texte_connaissances, metadata={"source": "Cerveau Unique de Pierre"})
+        return VectorStoreIndex.from_documents([doc]).as_retriever(similarity_top_k=5)
     return None
 
-# Initialisation sécurisée par cache et capteur de temps
 timestamp_fichier = obtenir_cle_fichier()
-retriever_unique = initialiser_base_unique(timestamp_fichier)
+retriever_unique = initialiser_base_unique(timestamp_fichier, contenu_global_pierre)
 
 class RetrieverSecours:
     def retrieve(self, prompt): return []
@@ -392,11 +387,13 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-# Affichage permanent du voyant radar de la base de connaissances
-if "❌" in st.session_state.diag_txt or "⚠️" in st.session_state.diag_txt:
-    st.error(st.session_state.diag_txt)
+# Affichage visuel du bandeau de diagnostic en temps réel (HORS CACHE)
+if "❌" in status_radar:
+    st.error(status_radar)
+elif "⚠️" in status_radar:
+    st.warning(status_radar)
 else:
-    st.info(st.session_state.diag_txt)
+    st.info(status_radar)
 
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
@@ -412,7 +409,6 @@ label_titres = {
 if "active_module" not in st.session_state:
     st.session_state.active_module = "peda"
 
-# Utilisation de .get() pour éviter le plantage si la clé n'est pas dans le dictionnaire
 titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques")
 
 st.markdown(f"""
@@ -452,7 +448,7 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES (SOUS LES BOUTONS)
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -527,7 +523,6 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # Détection automatique des demandes de fiches terrain
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
@@ -564,21 +559,17 @@ if prompt:
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL (Avec traçabilité forcée des pannes d'index)
+        # 2. CONTEXTE LOCAL (Couplé directement aux variables lues hors cache)
         if openai_api_key:
             try:
-                if mode == "examens":
-                    nodes = retriever_santorin.retrieve(prompt)
-                    if not nodes: extraits_doc += "\n[ALERTE RADAR : L'index local n'a trouvé aucun paragraphe correspondant dans gere_par_pierre.txt]\n"
-                    for n in nodes: extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
-                elif mode == "ipack":
-                    nodes = retriever_ipack.retrieve(prompt)
-                    if not nodes: extraits_doc += "\n[ALERTE RADAR : L'index local n'a trouvé aucun paragraphe correspondant dans gere_par_pierre.txt]\n"
-                    for n in nodes: extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
-                elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
-                elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                if not contenu_global_pierre.strip():
+                    extraits_doc += "\n[ALERTE RADAR : Le fichier local gere_par_pierre.txt est lu comme VIDE par le système.]\n"
+                else:
+                    nodes = retriever_unique.retrieve(prompt)
+                    if not nodes:
+                        extraits_doc += "\n[ALERTE RADAR : Aucun paragraphe correspondant trouvé dans le texte local.]\n"
+                    for n in nodes:
+                        extraits_doc += f"Base Connaissances de Pierre: {n.node.text}\n\n"
             except Exception as e:
                 extraits_doc += f"\n[PANNE TECHNIQUE INDEXATION : {str(e)}]\n"
 
@@ -596,7 +587,7 @@ if prompt:
             "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
             "- Identifie le ou les liens YouTube associés spécifiquement au sujet.\n"
             "- Si une vidéo correspond précisément, inclus-la à la fin au format : '[Regarder le tutoriel vidéo associé](URL)'.\n"
-            "- INTERDICTION : Ne force jamais de lien vidéo générique ou fictif si le contexte local est vide."
+            "- INTERDICTION : Ne force jamais de lien vidéo générique ou fictif si le contexte local ne mentionne aucun lien youtube."
         )
         
         if mode == "ipack":

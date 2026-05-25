@@ -282,7 +282,7 @@ css_pur = """
     }
     div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
     
-    /* LIGNE AJOUTÉE POUR FORCER LE BLANC DANS LE CHAT */
+    /* FORCE LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
     
     /* RESTAURATION DE LA COULEUR DES LIENS SANS TOUCHER AU RESTE */
@@ -293,6 +293,38 @@ css_pur = """
     }
     div[data-testid="stChatMessage"] a:hover {
         color: #FCD34D !important;
+    }
+
+    /* ======================================================================
+       REFONTE DU BLOC EXPANDER (ZONE DE DIAGNOSTIC DE PIERRE)
+       ====================================================================== */
+    div[data-testid="stExpander"] {
+        background-color: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(148, 163, 184, 0.15) !important;
+        border-radius: 8px !important;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4) !important;
+        margin-top: 30px !important;
+    }
+    /* En-tête textuel cliquable */
+    div[data-testid="stExpander"] summary {
+        padding: 10px 15px !important;
+    }
+    div[data-testid="stExpander"] summary p {
+        color: #94A3B8 !important; /* Couleur gris ardoise discret */
+        font-weight: 700 !important;
+        font-size: 13px !important;
+        letter-spacing: 0.5px !important;
+        transition: color 0.2s ease !important;
+    }
+    div[data-testid="stExpander"] summary:hover p {
+        color: #38BDF8 !important; /* Devient bleu azur au survol */
+    }
+    /* Contenu à l'intérieur une fois déplié */
+    div[data-testid="stExpander"] [data-testid="stMarkdownContainer"] * {
+        font-size: 13px !important;
+        font-family: monospace !important; /* Look console technique */
     }
     
     </style>
@@ -386,8 +418,6 @@ st.markdown(f"""
         </div>
     </div>
 """, unsafe_allow_html=True)
-
-# L'affichage visuel direct a été supprimé d'ici pour laisser l'interface 100% propre aux collègues.
 
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
@@ -556,9 +586,7 @@ if prompt:
         # 2. CONTEXTE LOCAL
         if openai_api_key:
             try:
-                if not contenido_global_pierre.strip():
-                    extraits_doc += "\n[ALERTE RADAR : Le fichier local gere_par_pierre.txt est lu comme VIDE par le système.]\n"
-                else:
+                if contenu_global_pierre.strip():
                     nodes = retriever_unique.retrieve(prompt)
                     for n in nodes:
                         extraits_doc += f"Base Connaissances de Pierre: {n.node.text}\n\n"
@@ -655,7 +683,7 @@ if prompt:
         st.rerun()
 
 # ======================================================================
-# 10. ZONE TECHNIQUE ET DIAGNOSTIC (MASQUÉE TOUT EN BAS DU SITE)
+# 10. ZONE TECHNIQUE ET DIAGNOSTIC (MASQUÉE ET ENTIÈREMENT RESTYLISÉE)
 # ======================================================================
 with st.expander("🛠️ Zone de Diagnostic (Développeur)"):
     if "❌" in status_radar:

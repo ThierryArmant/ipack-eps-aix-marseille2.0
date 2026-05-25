@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION ISOLÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -522,43 +522,48 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB & CONTEXTE (Récupération commune)
-        # (Tes moteurs de recherche et retrievers restent identiques à ce que tu avais avant)
-        # ... [Garde ici tes blocs Moteur Web et Contexte Local habituels] ...
+        # 1. RÉCUPÉRATION DU CONTEXTE (Commune)
+        # ... (Tes retrievers ici) ...
 
-        # 2. ROUTAGE ET DÉFINITION DES PERSONAS
-        # TEXTES ET PEDA SONT STRICTEMENT PRÉSERVÉS
+        # 2. ROUTAGE INTELLIGENT PAR MODULE (Isolé)
         
-        if mode == "ipack":
-            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        # A. MODULE EXAMENS (Spécifique, avec analyse par mots-clés)
+        if mode == "examens":
+            p = prompt.lower()
+            if any(x in p for x in ["remplaçant", "convocation", "accès"]):
+                instruction_ciblee = "PROCÉDURE REMPLAÇANT : 1. Convocation = Point n°1 (Indispensable). 2. Déclaration DEC dans Cyclades = Obligatoire. 3. Import Santorin = Secondaire."
+            elif any(x in p for x in ["indisponibilité", "gymnase", "force majeure", "matériel", "installations"]):
+                instruction_ciblee = "PROCÉDURE FORCE MAJEURE : Indisponibilité = NI inaptitude NI absence. C'est un cas de force majeure administrative. Signalement écrit immédiat à la DEC pour traçabilité."
+            else:
+                instruction_ciblee = "PROCÉDURE SAISIE : 1. Bouton 'Choisir les AFLP' = Priorité n°1. 2. Si échec = Signalement service examen avec capture d'écran."
             
-        elif mode == "examens":
             consigne_ia = (
                 f"Tu es un collègue expert EPS de l'Académie d'Aix-Marseille.\n"
-                "Réponds avec un ton professionnel, pédagogique et diplomate.\n"
-                "HIÉRARCHIE DE RÉPONSE :\n"
-                "1. ACCÈS REMPLAÇANT : La convocation officielle est le point de contrôle n°1. La déclaration par la DEC dans Cyclades est le pré-requis administratif obligatoire.\n"
-                "2. SYNCHRONISATION : Une fois la DEC ok, alors seulement on parle d'Import Santorin.\n"
-                "3. PROBLÈME SAISIE : Si les cases sont inactives, l'étape 1 est de cliquer sur 'Choisir les AFLP' (procédure fonctionnelle).\n"
-                "SIGNATURE : Si le problème persiste, termine ta réponse par cette phrase exacte : 'Si vous ne parvenez toujours pas à effectuer les modifications, veuillez contacter l'assistance iPackEPS : [ipackeps@ac-aix-marseille.fr](mailto:ipackeps@ac-aix-marseille.fr)'"
+                f"RÈGLE : {instruction_ciblee}\n"
+                "SIGNATURE OBLIGATOIRE : Si le problème persiste, termine par : 'Si vous ne parvenez toujours pas à effectuer les modifications, veuillez contacter l'assistance iPackEPS : [ipackeps@ac-aix-marseille.fr](mailto:ipackeps@ac-aix-marseille.fr)'"
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-            
+
+        # B. MODULE IPACK (Expert Technique)
+        elif mode == "ipack":
+            consigne_ia = f"Tu es l'expert technique iPackEPS.\n{extraits_doc}\nQuestion : {prompt}"
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        
+        # C. MODULE TEXTES (Sanctuarisé - PURE)
         elif mode == "textes":
-            # RESTE EXACTEMENT COMME AVANT - PURE
             consigne_ia = f"Tu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
+        # D. MODULE PEDA (Sanctuarisé - PURE)
         elif mode == "peda":
-            # RESTE EXACTEMENT COMME AVANT - PURE
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. 
 1. EXTRACTION : Parcours le contexte. Si tu trouves un lien de document, affiche-le : "📥 Télécharger : [Nom](URL)".
 2. GÉNÉRATION : Si pas de lien, génère une fiche technique complète (Compétences, Analyse didactique, Indicateurs chiffrés).
 Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
             
+        # E. DEFAULT (Expert généraliste)
         else:
             consigne_ia = f"Tu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"

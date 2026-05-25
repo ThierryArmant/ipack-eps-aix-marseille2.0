@@ -4,6 +4,11 @@ AJOUT MAI 2026 : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
 Quelle est la date limite de saisie des notes dasn santorin ?
 la date limite de saisie des notes dans santorin est fixée au 30 mai 2026
 
+PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
+- Il est strictement INTERDIT de créer un élève manuellement dans iPackEPS (cela brise la synchronisation, les identifiants et l'INE pour les examens comme Santorin).
+- Risque : Élève invisible ou bloqué lors des remontées officielles.
+- Procédure réelle : Le coordonnateur ou l'enseignant doit demander une extraction à jour du fichier SIÈCLE/SCONET (XML/CSV) au secrétariat, puis faire un nouvel "Import" dans iPackEPS pour que l'élève soit créé proprement avec ses identifiants officiels. Ensuite, il suffit de l'affecter dans son groupe depuis l'onglet des classes/groupes.
+
 ======================================================================
                   CONSIGNES ET DICTIONNAIRE IA DE PIERRE
                       (SOURCE DE VÉRITÉ ABSOLUE)

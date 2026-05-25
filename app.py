@@ -631,28 +631,62 @@ Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
+        # EXTRACTION MULTIPLE DYNAMIQUE DES LIENS VIDEOS (Prise en compte des formats d'URL YouTube nettoyés)
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+
         # TRANSFORMATION FORCÉE DES LIENS EN HTML CLIQUABLE (Orange)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # EXTRACTION MULTIPLE DYNAMIQUE (Prend en compte les formats d'URL YouTube nettoyés)
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        # ======================================================================
+        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE (CORRIGÉ)
+        # ======================================================================
+        lignes_originales = texte_brut.split("\n")
+        lignes_transformees = []
+        en_dans_tableau = False
+        est_entete_tableau = True
         
-        # Traitement des tableaux Markdown
-        if "|" in texte_brut and "---" in texte_brut:
-            lignes = [l.strip() for l in texte_brut.split("\n") if l.strip()]
-            html_table = '<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden;">'
-            est_entete = True
-            for ligne in lignes:
-                if ligne.startswith("|") and not any(c in ligne for c in ["---", "==="]):
-                    cells = [c.strip() for c in ligne.split("|")[1:-1]]
-                    html_table += "<tr>"
-                    for cell in cells:
-                        if est_entete: html_table += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 10px; text-align: left; font-size: 14px;">{cell}</th>'
-                        else: html_table += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
-                    html_table += "</tr>"
-                    est_entete = False
-            html_table += "</table>"
-            texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
+        for l_actuelle in lignes_originales:
+            l_nettoye = l_actuelle.strip()
+            
+            # Détection d'une ligne de tableau Markdown
+            if l_nettoye.startswith("|") and l_nettoye.count("|") >= 2:
+                # Si c'est la ligne de séparation de type |---|---|, on la saute
+                if "---" in l_nettoye:
+                    continue
+                
+                # Si le tableau démarre, on ouvre la balise HTML avec la bordure bleue Santorin
+                if not en_dans_tableau:
+                    en_dans_tableau = True
+                    lignes_transformees.append('<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.3);">')
+                    est_entete_tableau = True
+                
+                # Découpage propre des cellules
+                cellules = [c.strip() for c in l_nettoye.split("|")][1:]
+                if cellules and cellules[-1] == "":
+                    cellules.pop()
+                
+                ligne_html = "<tr>"
+                for cell in cellules:
+                    if est_entete_tableau:
+                        # En-tête bleu ciel assorti au mode Santorin (#38BDF8)
+                        ligne_html += f'<th style="background-color: #38BDF8 !important; color: #0F172A !important; padding: 12px 10px; text-align: left; font-size: 14px; font-weight: 700; border-bottom: 2px solid #0284C7;">{cell}</th>'
+                    else:
+                        # Lignes de données blanches et propres
+                        ligne_html += f'<td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #FFFFFF !important; font-size: 14px;">{cell}</td>'
+                ligne_html += "</tr>"
+                lignes_transformees.append(ligne_html)
+                est_entete_tableau = False
+            else:
+                # Si on sort du tableau, on ferme proprement la balise
+                if en_dans_tableau:
+                    lignes_transformees.append("</table>")
+                    en_dans_tableau = False
+                lignes_transformees.append(l_actuelle)
+                
+        if en_dans_tableau:
+            lignes_transformees.append("</table>")
+            
+        texte_brut = "\n".join(lignes_transformees)
 
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'

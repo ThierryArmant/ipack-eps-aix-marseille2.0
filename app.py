@@ -534,7 +534,7 @@ else:
         <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 8px; letter-spacing: 0.5px;">
             🎯 OÙ POSER VOTRE QUESTION ?
         </div>
-        <div style="color: #FFFFFF; font-size: 13px;">
+        <div style="color: #FCD34D; font-size: 13px;">
             • <strong>Menu 🛠️ iPackEPS :</strong> Réservé à la technique de terrain (configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales).<br>
             <div style="margin-top: 5px;">
             • <strong>Menu 📊 Examens & Santorin :</strong> Réservé à l'administration des examens (remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques).

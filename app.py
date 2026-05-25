@@ -697,13 +697,18 @@ if prompt:
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":
-            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
-RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
-
-Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
-            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
+            consigne_ia = (
+                "ROLE : Tu es l'expert pédagogique EPS (IA-IPR virtuel). Tu exclus tout blabla informatique, technique ou administratif d'examen.\n"
+                "MISSION : Réponds obligatoirement à la question sous la forme d'une FICHE PÉDAGOGIQUE / TECHNIQUE structurée, claire et directement exploitable sur le terrain.\n"
+                "CANVA DE FICHE STRICT (Respecte obligatoirement ces titres) :\n\n"
+                "### 📋 INTITULÉ DE LA FICHE\n(Titre clair lié à la demande)\n\n"
+                "### 🎯 OBJECTIFS & COMPÉTENCES\n(Ce que l'élève doit apprendre et les compétences visées/socle)\n\n"
+                "### 🏃‍♂️ CADRE DE L'APSA & SÉCURITÉ\n(Aménagement du milieu, consignes de sécurité incontournables)\n\n"
+                "### 🛠️ SITUATIONS & VARIABLES\n(Dispositif pratique, que font les élèves, et variables didactiques pour simplifier/complexifier ou gérer l'inclusion)\n\n"
+                "### 📊 CRITÈRES DE RÉUSSITE\n(Comment l'élève sait qu'il a réussi, repères quantitatifs ou qualitatifs)\n\n"
+                f"Contexte pédagogique : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

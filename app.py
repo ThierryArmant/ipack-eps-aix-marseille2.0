@@ -622,8 +622,12 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Formatage liens/vidéos/tableaux
+        # Formatage liens/vidéos
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        
+        # Formatage emails en JAUNE ORANGE
+        texte_brut = re.sub(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', r'<a href="mailto:\1" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
         texte_html = texte_brut.replace(chr(10), "<br>")
@@ -631,7 +635,6 @@ if prompt:
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         for link in youtube_links: st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
         st.rerun()
-
 # ======================================================================
 # 10. ZONE TECHNIQUE GHOST
 # ======================================================================

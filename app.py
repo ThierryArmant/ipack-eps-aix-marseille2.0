@@ -3,8 +3,10 @@ import os
 import pandas as pd
 import requests
 import re
-from llama_index.core import Settings
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
 from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.core.memory import ChatMemoryBuffer
 
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
@@ -379,6 +381,34 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES TRADITIONNELS RESTAURÉS
+# ======================================================================
+if st.session_state.active_module == "textes":
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Avertissement – Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+elif st.session_state.active_module == "peda":
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ======================================================================
 # 8. ZONE D'ACTION
 # ======================================================================
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
@@ -393,7 +423,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA INTEGRAL (SANS DECOUPAGE)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA INTEGRAL RESTAURÉ ET ENRICHI
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -404,57 +434,107 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+# Liste globale des domaines académiques EPS restaurée
+domaine_eps_france = [
+    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
+    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
+    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
+    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
+    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
+    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
+    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
+]
+
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Analyse immédiate de la base de connaissances..."):
+    with st.spinner("Recherche et analyse immédiate de la base de connaissances..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB EN APPOINT (Tavily)
+        # Détection automatique des demandes de fiches terrain restaurée
+        mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
+        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
+        
+        # 1. MOTEUR WEB TAVILY (Restauré avec filtres complexes par onglet)
         if tavily_api_key:
             try:
-                domaine_eps_france = ["eduscol.education.gouv.fr"]
-                payload = {"api_key": tavily_api_key, "query": prompt, "search_depth": "advanced", "include_domains": domaine_eps_france}
-                res = requests.post("https://api.tavily.com/search", json=payload, timeout=10)
+                if mode == "textes":
+                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
+                    payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                elif mode == "examens":
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr"] + domaine_eps_france
+                    payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
+                elif mode == "ipack":
+                    requete_blindee = f"{prompt} (rubrique2 OR rubrique4 OR rubrique7)"
+                    payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": ["ipackeps.ac-creteil.fr"], "exclude_domains": ["youtube.com"]}
+                elif mode == "peda" or est_demande_fiche:
+                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domaine_eps_france}
+                else:
+                    requete_blindee = f"{prompt} EPS programme officiel"
+                    payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": ["eduscol.education.gouv.fr", "unss.org"]}
+                
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=12)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. INJECTION INTEGRALE FORCEE DU CERVEAU DE PIERRE (100% FIABLE)
+        # 2. INJECTION INTEGRALE FORCEE DU CERVEAU DE PIERRE
         if contenu_global_pierre.strip():
             extraits_doc += f"\n--- MEMOIRE ADMINISTRATIVE INTEGRALE DE PIERRE ---\n{contenu_global_pierre}\n"
 
-        # 3. DIRECTIVES DE POSTURE IA
+        # 3. DIRECTIVES DE POSTURE IA PAR ONGLET (RESTAURÉES AVEC EXIGENCE STRICTE DES RÔLES)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
-        filtre_pierre = (
+        filtre_pierre_standard = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
             "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers ou blocages de protocoles.\n"
-            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
+            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→). ATTENTION IMPÉRATIVE : Tu dois obligatoirement mentionner et conserver le SUJET/L'ACTEUR exact de chaque action décrit dans la mémoire de Pierre (ex: '→ [Chef d'établissement] Doit faire ceci', '→ [Enseignant] Doit faire cela'). Ne transforme jamais une action destinée au chef d'établissement ou au secrétariat en une action anonyme qui laisserait croire que c'est le professeur qui doit cliquer.\n"
             "3. PROTECTION FONCTIONNELLE : Indique la traçabilité administrative."
         )
         
         consigne_extraction_video = (
             "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
             "- Parcoure la Mémoire de Pierre ci-dessus.\n"
-            "- Trouve le ou les liens YouTube associés au sujet.\n"
+            "- Trouve le ou les liens YouTube associés spécifiquement au sujet.\n"
             "- Inclus-le impérativement à la fin au format Markdown : '[Regarder le tutoriel vidéo associé](URL)'.\n"
             "- INTERDICTION : N'invente jamais d'URL ou de texte générique."
         )
         
         if mode == "ipack":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.{consigne_extraction_video}\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre_standard}\nTu es l'expert technique iPackEPS.{consigne_extraction_video}\n\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre_standard}\nTu es l'expert Santorin/Cyclades. Respecte scrupuleusement l'attribution des compétences et des accès de chaque statut. Canva obligatoire : [Acteur|Action|Conséquence].{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{règles_or}{filtre_pierre_standard}\nTu es l'expert juridique EPS. Canva obligatoire : 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.{consigne_extraction_video}\n\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+        elif mode == "peda":
+            consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
+1. EXTRACTION DES LIENS : Parcours le Contexte et la Mémoire. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Si aucun lien direct de fichier n'est présent dans le contexte, ou pour enrichir la réponse, GÉNÈRE une fiche complète et immédiatement exploitable (COMPÉTENCES Cycle 4, ANALYSE DIDACTIQUE, ANALYSE PÉDAGOGIQUE, SITUATION TECHNIQUE DIRECTE, INDICATEURS DE RÉUSSITE chiffrés, ÉVALUATION).
+RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début de ta réponse. N'invente jamais d'URL fictive.
+
+Contexte et Mémoire locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
+            badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
         else:
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
+            if est_demande_fiche:
+                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
+1. EXTRACTION DES LIENS : Parcours le Contexte. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
+2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
+RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
+
+Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
+                badge = "🔍 CHASSEUR DE RESSOURCES"
+            else:
+                consigne_ia = f"{règles_or}{filtre_pierre_standard}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
+            color_card = "general-card"
 
         # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
@@ -463,7 +543,7 @@ if prompt:
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # CONVERTISSEUR DE TABLEAUX
+        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE REHAUSSÉ
         lignes_originales = texte_brut.split("\n")
         lignes_transformees = []
         en_dans_tableau = False
@@ -507,7 +587,7 @@ if prompt:
         st.rerun()
 
 # ======================================================================
-# 10. ZONE TECHNIQUE GHOST (DISCRÈTE EN BAS À GAUCHE)
+# 10. ZONE TECHNIQUE GHOST (DISCRÈTE EN BAS À GAUCHE SUR LE PARQUET)
 # ======================================================================
 with st.expander("🛠️"):
     st.write(status_radar)

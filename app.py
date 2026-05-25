@@ -685,7 +685,15 @@ if prompt:
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                "ROLE : Tu es l'expert juridique EPS pur. Tu analyses la situation uniquement sous l'angle du droit, des textes officiels et de la jurisprudence.\n"
+                "CONSIGNE DE POSTURE : Interdiction absolue d'utiliser le langage informatique d'iPack ou les termes 'impact sur les outils'. Tu es un juriste.\n"
+                "STRUCTURE STRICTE (Le Canva) :\n"
+                "### 1. SITUATION\n(Analyse factuelle de l'accident ou de l'événement)\n\n"
+                "### 2. ARBITRAGE\n(Application des textes officiels, de la Loi de 1937 sur la substitution de la responsabilité de l'État, et évaluation de la faute ou du respect des consignes de sécurité)\n\n"
+                "### 3. RECOURS\n(Protection fonctionnelle, rapports administratifs à rédiger et démarches juridiques)\n\n"
+                f"Contexte juridique: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
 
         elif mode == "peda":

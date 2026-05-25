@@ -3,10 +3,8 @@ import os
 import pandas as pd
 import requests
 import re
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
+from llama_index.core import Settings
 from llama_index.llms.openai import OpenAI
-from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.core.memory import ChatMemoryBuffer
 
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
@@ -50,7 +48,6 @@ def incrementer_et_obtenir_visites():
     except:
         return 1
 
-# Récupération du score réel sans risque de plantage
 nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
@@ -63,7 +60,6 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Utilisation d'une chaîne classique sans "f" pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Force le blanc sur tout le texte des cartes */
@@ -95,7 +91,6 @@ css_pur = """
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }
     
-    /* Bloc titre équilibré avec décalage de sécurité pour éviter le collage à droite */
     .hub-title {
         display: flex;
         flex-direction: column;
@@ -106,7 +101,6 @@ css_pur = """
         padding-right: 35px; 
     }
     
-    /* Ligne du titre principal */
     .title-row {
         display: flex;
         align-items: center;
@@ -123,7 +117,6 @@ css_pur = """
         letter-spacing: 0.5px;
     }
     
-    /* Badge vert émeraude agrandi et bien visible */
     .badge-visiteur { 
         background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
@@ -138,7 +131,6 @@ css_pur = """
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }
     
-    /* Style du Sous-titre nettoyé */
     .hub-title p { 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -150,7 +142,6 @@ css_pur = """
         letter-spacing: 0.5px;
     }
 
-    /* Barres d'informations Supérieures et Inférieures */
     .column-title-top { 
         color: #FFFFFF; 
         text-align: center; 
@@ -175,20 +166,6 @@ css_pur = """
         font-weight: 700;
         color: #FFFFFF !important;
         display: block;
-    }
-
-    .column-title-bottom { 
-        text-align: center; 
-        margin-top: 12px !important;
-        margin-bottom: 15px !important; 
-        background-color: rgba(30, 41, 59, 0.8); 
-        border-radius: 6px !important; 
-        padding: 8px 12px; 
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        font-size: 11px !important; 
-        color: #FCD34D !important; 
-        font-weight: 500;
-        box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }
     
     /* Boutons Inactifs */
@@ -233,9 +210,6 @@ css_pur = """
         padding: 7px 10px !important;
         width: 100% !important;
     }
-    div.element-container:has(.nettoyer-wrapper) + div.element-container button:hover {
-        background-color: rgba(220, 38, 38, 0.65) !important;
-    }
     
     /* CARTES DE RÉPONSE */
     .santorin-card, .general-card, .securite-card { 
@@ -258,19 +232,12 @@ css_pur = """
         font-weight: 400 !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
-    .santorin-card strong, .general-card strong, .securite-card strong {
-        font-weight: 700 !important; 
-        color: #FFFFFF !important;
-    }
+    .santorin-card strong, .general-card strong, .securite-card strong { font-weight: 700 !important; }
 
-    .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a * {
+    .santorin-card a, .general-card a, .securite-card a * {
         color: #FFB020 !important; 
         text-decoration: underline !important;
         font-weight: 600 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
-    }
-    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover {
-        color: #FCD34D !important;
     }
     
     /* Bulle Utilisateur */
@@ -281,93 +248,54 @@ css_pur = """
         margin-left: 15% !important; 
     }
     div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
-    
-    /* FORCE LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
-    
-    div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * {
-        color: #FFB020 !important;
-        text-decoration: underline !important;
-        font-weight: 600 !important;
-    }
-    div[data-testid="stChatMessage"] a:hover {
-        color: #FCD34D !important;
-    }
 
-    /* ======================================================================
-       ANCRAGE ET TRANSPARENCE TOTALE DE L'EXPANDER (STYLE GHOST TERMINAL)
-       ====================================================================== */
+    /* ANCRAGE GHOST EN BAS À GAUCHE DISCRET SUR LE PARQUET */
     div[data-testid="stExpander"] {
         position: fixed !important;
         bottom: 12px !important;
         left: 16px !important;
         width: auto !important;
         min-width: 250px !important;
-        max-width: 380px !important;
         background: transparent !important;
-        background-color: transparent !important;
         border: none !important;
         box-shadow: none !important;
         z-index: 999999 !important;
         margin: 0 !important;
     }
-    div[data-testid="stExpander"] details {
-        border: none !important;
-        background: transparent !important;
-    }
-    /* Libellé cliquable */
-    div[data-testid="stExpander"] summary {
-        padding: 0 !important;
-    summary p {
-        color: rgba(148, 163, 184, 0.5) !important; /* Gris ultra discret */
+    div[data-testid="stExpander"] summary p {
+        color: rgba(148, 163, 184, 0.4) !important;
         font-weight: 700 !important;
         font-size: 11px !important;
-        letter-spacing: 0.5px !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }
-    div[data-testid="stExpander"] summary:hover p {
-        color: #38BDF8 !important; /* Devient bleu azur au survol */
-    }
-    /* Contenu de la console technique une fois déplié */
+    div[data-testid="stExpander"] summary:hover p { color: #38BDF8 !important; }
     div[data-testid="stExpander"] [data-testid="stMarkdownContainer"] * {
         font-size: 11px !important;
         font-family: monospace !important;
-        color: rgba(56, 189, 248, 0.8) !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
+        color: rgba(56, 189, 248, 0.7) !important;
     }
-    
     </style>
 """.replace('__URL_FOND__', f"{github_url}{img_fond}")
 
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DU CERVEAU UNIQUE
+# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & LECTURE DU CERVEAU
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 
 if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
-    Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 def trouver_chemin_pierre():
-    chemins_possibles = ["gere_par_pierre.txt", "data/gere_par_pierre.txt"]
-    for ch in chemins_possibles:
-        if os.path.exists(ch):
-            return ch
+    for ch in ["gere_par_pierre.txt", "data/gere_par_pierre.txt"]:
+        if os.path.exists(ch): return ch
     return None
 
-def obtenir_cle_fichier():
-    chemin = trouver_chemin_pierre()
-    if chemin:
-        return os.path.getmtime(chemin)
-    return 0.0
-
-# RADAR DE LECTURE FORCÉ HORS CACHE
 chemin_detecte = trouver_chemin_pierre()
 contenu_global_pierre = ""
-status_radar = "❌ ERREUR : 'gere_par_pierre.txt' introuvable à la racine de GitHub !"
+status_radar = "❌ ERREUR : Fichier 'gere_par_pierre.txt' introuvable."
 
 if chemin_detecte:
     for encodage in ["utf-8", "utf-8-sig", "latin-1", "utf-16", "cp1252"]:
@@ -376,35 +304,12 @@ if chemin_detecte:
                 texte_charge = f.read()
             if texte_charge.strip():
                 contenu_global_pierre = texte_charge
-                status_radar = f"📁 BASE ACTUELLE : {len(contenu_global_pierre)} caractères lus en [{encodage}]."
+                status_radar = f"📁 CERVEAU EMBARQUÉ : {len(contenu_global_pierre)} caractères actifs."
                 break
-        except:
-            continue
-
-# BASE DE CONNAISSANCES CENTRALISÉE
-@st.cache_resource
-def initialiser_base_unique(cle_timestamp, texte_connaissances):
-    if texte_connaissances.strip():
-        doc = Document(text=texte_connaissances, metadata={"source": "Cerveau Unique de Pierre"})
-        return VectorStoreIndex.from_documents([doc]).as_retriever(similarity_top_k=5)
-    return None
-
-timestamp_fichier = obtenir_cle_fichier()
-retriever_unique = initialiser_base_unique(timestamp_fichier, contenu_global_pierre)
-
-class RetrieverSecours:
-    def retrieve(self, prompt): return []
-
-if retriever_unique is None:
-    retriever_unique = RetrieverSecours()
-
-retriever_santorin = retriever_unique
-retriever_ipack = retriever_unique
-retriever_textes = retriever_unique
-retriever_peda = retriever_unique
+        except: continue
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
+# 5. BANDEAU SUPERIEUR REHAUSSÉ
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
@@ -426,7 +331,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
+# 6. EN-TÊTE DU TABLEAU DE BORD
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
@@ -434,9 +339,6 @@ label_titres = {
     "peda": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
     "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
-
-if "active_module" not in st.session_state:
-    st.session_state.active_module = "peda"
 
 titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques")
 
@@ -448,7 +350,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
+# 7. BOUTONS DE CONTEXTE
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -477,37 +379,7 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES
-# ======================================================================
-if st.session_state.active_module == "textes":
-    st.markdown("""
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement – Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
-        </span>
-    </div>
-    """, unsafe_allow_html=True)
-
-elif st.session_state.active_module == "peda":
-    st.markdown("""
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).
-        </span>
-    </div>
-    """, unsafe_allow_html=True)
-
-else:
-    st.markdown("""
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
-        </span>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ======================================================================
-# 8. ZONE D'ACTION (NETTOYER + SAISIE)
+# 8. ZONE D'ACTION
 # ======================================================================
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 
@@ -521,84 +393,40 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA INTEGRAL (SANS DECOUPAGE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
         if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
-            url_video = m["content"].replace("VIDEO_URL:", "").strip()
-            st.video(url_video)
+            st.video(m["content"].replace("VIDEO_URL:", "").strip())
         else:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Liste globale des domaines académiques EPS
-domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
-    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
-    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
-    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
-    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
-    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
-    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
-    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
-]
-
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
+    with st.spinner("Analyse immédiate de la base de connaissances..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
-        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
-        
-        # 1. MOTEUR WEB (Tavily)
+        # 1. MOTEUR WEB EN APPOINT (Tavily)
         if tavily_api_key:
             try:
-                if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
-                elif mode == "examens":
-                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
-                    domains = ["education.gouv.fr"] + domaine_eps_france
-                elif mode == "ipack":
-                    requete_blindee = f"{prompt} (rubrique2 OR rubrique4 OR rubrique7)"
-                    domains = ["ipackeps.ac-creteil.fr"]
-                    exclude = ["youtube.com"]
-                elif mode == "peda":
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                    domains = domaine_eps_france
-                else:
-                    if est_demande_fiche:
-                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                        domains = domaine_eps_france
-                    else:
-                        requete_blindee = f"{prompt} EPS programme officiel"
-                        domains = ["eduscol.education.gouv.fr", "unss.org"]
-                
-                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
-                if mode == "ipack": payload["exclude_domains"] = exclude
-                
-                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                domaine_eps_france = ["eduscol.education.gouv.fr"]
+                payload = {"api_key": tavily_api_key, "query": prompt, "search_depth": "advanced", "include_domains": domaine_eps_france}
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=10)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL
-        if openai_api_key:
-            try:
-                if contenu_global_pierre.strip():
-                    nodes = retriever_unique.retrieve(prompt)
-                    for n in nodes:
-                        extraits_doc += f"Base Connaissances de Pierre: {n.node.text}\n\n"
-            except:
-                pass
+        # 2. INJECTION INTEGRALE FORCEE DU CERVEAU DE PIERRE (100% FIABLE)
+        if contenu_global_pierre.strip():
+            extraits_doc += f"\n--- MEMOIRE ADMINISTRATIVE INTEGRALE DE PIERRE ---\n{contenu_global_pierre}\n"
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
+        # 3. DIRECTIVES DE POSTURE IA
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
@@ -609,10 +437,10 @@ if prompt:
         
         consigne_extraction_video = (
             "\n\n🎥 DIRECTIVE STRICTE DE SELECTION VIDÉO :\n"
-            "- Parcoure minutieusement le 'Contexte' fourni ci-dessous.\n"
-            "- Identifie le ou les liens YouTube associés spécifiquement au sujet.\n"
-            "- Si une vidéo correspond précisément, inclus-la à la fin au format : '[Regarder le tutoriel vidéo associé](URL)'.\n"
-            "- INTERDICTION : Ne force jamais de lien vidéo générique ou fictif si le contexte local ne mentionne aucun lien youtube."
+            "- Parcoure la Mémoire de Pierre ci-dessus.\n"
+            "- Trouve le ou les liens YouTube associés au sujet.\n"
+            "- Inclus-le impérativement à la fin au format Markdown : '[Regarder le tutoriel vidéo associé](URL)'.\n"
+            "- INTERDICTION : N'invente jamais d'URL ou de texte générique."
         )
         
         if mode == "ipack":
@@ -628,16 +456,14 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
-        # 4. EXÉCUTION ET RENDU HTML
+        # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # ======================================================================
-        # CONVERTISSEUR DE TABLEAUX MARKDOWN EN HTML LIGNE PAR LIGNE
-        # ======================================================================
+        # CONVERTISSEUR DE TABLEAUX
         lignes_originales = texte_brut.split("\n")
         lignes_transformees = []
         en_dans_tableau = False
@@ -645,20 +471,14 @@ if prompt:
         
         for l_actuelle in lignes_originales:
             l_nettoye = l_actuelle.strip()
-            
             if l_nettoye.startswith("|") and l_nettoye.count("|") >= 2:
-                if "---" in l_nettoye:
-                    continue
-                
+                if "---" in l_nettoye: continue
                 if not en_dans_tableau:
                     en_dans_tableau = True
                     lignes_transformees.append('<table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; background-color: rgba(30, 41, 59, 0.7); border-radius: 8px; overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.3);">')
                     est_entete_tableau = True
-                
                 cellules = [c.strip() for c in l_nettoye.split("|")][1:]
-                if cellules and cellules[-1] == "":
-                    cellules.pop()
-                
+                if cellules and cellules[-1] == "": cellules.pop()
                 ligne_html = "<tr>"
                 for cell in cellules:
                     if est_entete_tableau:
@@ -674,8 +494,7 @@ if prompt:
                     en_dans_tableau = False
                 lignes_transformees.append(l_actuelle)
                 
-        if en_dans_tableau:
-            lignes_transformees.append("</table>")
+        if en_dans_tableau: lignes_transformees.append("</table>")
             
         texte_brut = "\n".join(lignes_transformees)
         texte_html = texte_brut.replace(chr(10), "<br>")
@@ -688,12 +507,7 @@ if prompt:
         st.rerun()
 
 # ======================================================================
-# 10. ZONE TECHNIQUE ET DIAGNOSTIC (ANCRÉE EN GHOST EN BAS À GAUCHE)
+# 10. ZONE TECHNIQUE GHOST (DISCRÈTE EN BAS À GAUCHE)
 # ======================================================================
-with st.expander("🛠️ Zone de Diagnostic (Développeur)"):
-    if "❌" in status_radar:
-        st.error(status_radar)
-    elif "⚠️" in status_radar:
-        st.warning(status_radar)
-    else:
-        st.write(status_radar)
+with st.expander("🛠️"):
+    st.write(status_radar)

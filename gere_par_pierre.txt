@@ -907,3 +907,8 @@ Traçabilité : Cette affectation informatique fait office de preuve administrat
 ### Thématique : Inaptitudes et dispenses (Modification post-CAHN en cas d'inaptitude temporaire)
 - **Question** : Pour des élèves en inaptitude temporaire à qui l'on pourrait proposer une autre APSA aménagée, peut-on créer un protocole adapté après la tenue de la CAHN ?
 - **Réponse Lycée GT Bac / Lycée Pro Bac** : NON. Un protocole adapté doit être validé par la CAHN. Il concerne uniquement les élèves en inaptitude partielle permanente ou en situation de handicap sur l'ensemble de l'année à qui il est possible de proposer un protocole spécifique adapté. Il ne concerne pas des élèves en inaptitude partielle temporaire à qui l'on pourrait proposer une épreuve aménagée de l'ensemble certificatif initialement validé par la CAHN. Autrement dit, il n'y a pas de changement de l'APSA support de l'épreuve, mais aménagement possible des conditions de passation sur la même APSA du protocole initial.
+
+
+[SITUATION: PROCÉDURE EN CAS D'ABSENCE D'INFO DANS LE DICTIONNAIRE]
+- Instruction : Si l'information demandée ne figure pas explicitement dans ce dictionnaire, ne tente jamais d'inventer une procédure. 
+- Réponse obligatoire : "Je ne dispose pas de la procédure officielle dans mon dictionnaire. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr."

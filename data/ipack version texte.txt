@@ -1,0 +1,3536 @@
+
+
+  (http://www.education.gouv.fr)   (http://www.ac-creteil.fr)
+( https://ipackeps.ac-creteil.fr)
+Utilisation de iPackEPS
+  Connexion à iPackEPS via votre portail ARENA (spip.php?article5)
+Pour tous les utilisateurs (enseignants, chefs d’établissement, IA-IPR…), l’accès à iPackEPS se fait via le portail ARENA. nouveau portail arena (2025) accès : [structures et personnels]
+
+  En cas d’impossibilité d’accéder à iPackEPS… (spip.php?article23) document complet à destination des IA IPR EPS / DSI
+Si vous ne parvenez pas à accéder à iPackEPS, consultez les propositions de solution ci-dessous : Problème 1 : "Je ne vois pas le lien (…)
+
+  Logique d’utilisation de iPackEPS en lien avec CollègeEPS (spip.php?article7)   Page d’accueil des modules (spip.php?article32)
+Présentation de la page d’accueil de iPackEPS module Professeur
+
+  Sélection de votre établissement (spip.php?article43)
+[Accueil] Sélection de votre établissement. QUESTIONS/RÉPONSES Question 1 : "J’arrive bien à accéder à iPackEPS - Professeur, mais mon établissement n’apparaît pas (aucun établissement proposé, (…)
+
+  Choix de l’année scolaire (spip.php?article33)
+[Accueil] Présentation de la fonctionnalité de choix d’année scolaire
+
+  Tableau de bord iPackEPS (spip.php?article34)
+Présentation de l’ergonomie des tableaux de bord d’iPackEPS
+ 
+
+
+  Les manipulations requises à chaque nouvelle année scolaire (spip.php?article51)
+à Chaque nouvelle année scolaire, iPackEPS procède à un archivage et nettoyage des données. Vous devez chaque année compléter les informations existantes, pour la nouvelle année en cours. Ce (…)
+
+  [Établissement] Configuration de la Fiche Établissement (spip.php?article12) Accès à cette fonctionnalité : Tableau de bord => Établissement
+Questions / Réponses Question Les informations de contact (nom du chef et / ou nom de l’adjoint) ne sont pas bonnes, un (…)
+
+  [Fiche Professeur] Renseigner sa Fiche Professeur (spip.php?article11) Accès à cette fonctionnalité : Tableau de bord => Fiche Professeur
+Questions / Réponses Question Je suis spécialiste d’une activité qui n’est pas référencée dans la liste d’APSA prédéfinie, (…)
+
+  [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets (Établissement, EPS, AS, SSS) (spip.php?article27)
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossier et Projets ==> Les Projets Question / Réponses Q1 : pourquoi ne puis-je pas déposer mon Projet de SSS ou Projet de Classe (…)
+
+  [Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS (spip.php?article13) Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Éguipe EPS
+La liste des enseignants de l’équipe EPS est extraite directement des bases du rectorat (…)
+
+  [Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves (spip.php?article14) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Classes Question / Réponses Q1 : Une alerte m’informe que je ne suis pas coordonnateur EPS, je ne peux pas (…)
+
+  [Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs (spip.php?article15) Accès à cette fonctionnalité :
+Tableau de bord => Les Projets et Dossiers ==> Dossier EPS ==> APSA
+Questions/Réponses Question 1 J’ai créé manuellement une APSA [musculation adaptée] (…)
+
+  [Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage (spip.php? article16)
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Périodes
+ 
+
+
+  [Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…) (spip.php?article17) Accès à cette fonctionnalité :
+Interface Professeur et Chef Établissement :
+Tableau de bord => Dossiers => Dossier EPS ==> Groupes iPackEPS permet de déclarer des groupes de type
+– [EPS] (…)
+
+  [Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS) (spip.php?article93)
+Accès à cette fonctionnalité : Interface Professeur et Chef Établissement : Tableau de bord => Dossiers => Dossier EPS ==> Groupes
+La gestion de l’EPPCS est particulière, puisque cet (…)
+
+  [Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes (AS, SSS, classe mélangées…) (spip.php?article18)
+Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier EPS => Élèves
+Note : depuis la version 2025 il est possible de récupérer d’un clic les élèves de Pronote / École Directe (…)
+
+  [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe (spip.php?article88) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Élèves
+Si vous avez déjà placé vos élèves dans des groupes sur Pronote / École Directe (Menus de Terminale, groupe (…)
+
+  [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs (spip.php?article19) Accès à cette fonctionnalité : Tableau de bord => Dossier EPS ==> Équipements Sportifs Présentation globale du module de gestion des équipements sportifs
+Déclarer et Configurer les (…)
+
+  [Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps (spip.php?article20) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers ==> Dossier EPS ==> Emplois du Temps IntroductionCréation Suppression de CréneauxCas particulier des saisies de créneaux en Semaine A (…)
+
+  [Dossiers]/[Dossier Certificatif]/[Protocoles] Dossier Certificatif : Configuration des Protocoles des Épreuves certificatives (dates rattrapage, co-évaluation) (spip.php?article42)
+Accès à cette fonctionnalité :Retour ligne automatique
+Tableau de bord => Dossiers et Projets => Dossier Certificatif ==> Protocoles d’évaluation Questions/Réponses Question 1 En Bac (…)
+ 
+
+
+  [Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle (spip.php?article38)
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers et Projets => Dossier Certificatif ==> Référentiels
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans (…)
+
+  [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS (spip.php?article55)
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Les tutoriels ci-dessous vous (…)
+
+  [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement (spip.php? article83)
+Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+Note : Selon votre académie, le (…)
+
+  [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles (spip.php? article84)
+Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+Il est possible que votre (…)
+
+  [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux (spip.php? article85)
+Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+Pour le dépôt / contrôle des (…)
+
+  [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique (spip.php?article45) Accès à cette fonctionnalité :
+Tableau de bord
+ou Tableau de bord => Dossiers et Projets => Dossier EPS
+ou Tableau de bord => Dossiers et Projets => Dossier Certificatif Question / Réponses (…)
+
+  [Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression (spip.php? article49)
+ 
+
+
+Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier Natation => ASNS
+Note : pour valider manuellement l’ASNS pour vos élèves, passez par le menu [tableau de Bord ==> [Mes (…)
+
+  [Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation (spip.php?article4) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier Natation => Enquête
+Une fois l’enquête complétée, elle devra être validée par le chef d’établissement via son interface. (…)
+
+  [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation (spip.php?article25) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier Natation => Statistiques
+iPackEPS vous permet de consulter de consulter les statistiques des saisies de l’enquête Dossier (…)
+
+  [Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires (spip.php?article35) Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier SSS
+Présentation de la Gestion des Sections Sportives Scolaires
+
+  [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire (spip.php?article28) Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Demande d’ouverture SSS
+NOTE : voici les informations minimales qui doivent (…)
+
+  [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire (spip.php?article31) Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Projet Annuel NOTE : les documents téléchargés (document modèle, votre (…)
+
+  [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire (spip.php?article39) Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Bilan
+NOTE : les documents téléchargés (document modèle, votre projet…) (…)
+
+  [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS (spip.php?article94) Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Évolution
+Chaque année vous pouvez demander une demande de Fermeture ou de (…)
+ 
+
+
+  [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique (spip.php?article53)
+Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier APPN
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il est possible que (…)
+
+  [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études (spip.php?article91) accès à la fonctionnalité :
+Dossiers]/[Dossier Sports-Études]
+
+  [Mes Élèves]/[Visualisation] Visualisation des informations élèves (parcours scolaire, savoir-nager, dispenses) (spip.php?article48)
+Accès à cette fonctionnalité : Tableau de bord => Mes Élèves => Visualisation Onglets : [Généralités], [Scolarité], [APSA]
+Onglet [Savoir-Nager] la gestion spécifique de l’onglet (…)
+
+  [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS (spip.php?article50) Accès à cette fonctionnalité :
+Tableau de bord => Mes Élèves => Visualisation ==> onglet Savoir Nager
+NOTE : pour l’import des attestations déjà saisies sur CollègeEPS, et l’impression en (…)
+
+  [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves (spip.php?article82) Accès à cette fonctionnalité :
+Tableau de bord => Mes Élèves => Visualisation Onglet [Inaptitudes]
+
+  [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement (spip.php?article90) Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Mes Élèves]/[Inaptitudes]
+Retrouvez sur cette page les certificats médicaux présentés pour les inaptitudes (…)
+
+  [MesDocuments]/[Documents] Enregistrement et Impression de documents (spip.php?article54)
+Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents
+iPackEPS permet d’éditer, imprimer et stocker divers documents, notamment des bordereaux de présence ou des (…)
+
+  [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève (spip.php?article56)
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Documents Administratifs => Programmation
+ 
+
+
+  [MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross (spip.php?article57)
+Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents => Dossards Tutoriel 1 : Sélection, Filtres, numérotation et Impression des dossards
+Tutoriel 2 : Transférer la (…)
+
+  [MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages (spip.php?article47)
+Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Publipostage
+la fonction de publipostage permet d’éditer des documents modèle, contenant des balises spécifiques permettant (…)
+
+  [MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS (spip.php?article92)
+Accès à la fonctionnalité
+[Mes Documents]/[Bibliothèque]
+
+  [Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels) (spip.php?article26) Accès à cette fonctionnalité : Tableau de bord => Matériel
+Lorsque vous programmez l’activité Escalade dans votre établissement, vous êtes tenus de tenir à jour un Registre EPI. IpackEPS vous (…)
+
+  [Offre de Formation] / [Groupes et APSAs] (spip.php?article77)
+Accès à cette fonctionnalité : Tableau de bord => Offre de Formation ==> Groupes et APSAs
+Cet article vous montre comment repérer les divers groupes (AS, SSS, option) de l’académie, et faire (…)
+
+  [Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement (spip.php?article86)
+Accés à la fonctionnalité
+[statistiques et Offre de Formation] / [Statistiques Inaptitudes]
+
+  [Outils]/[Export Fichier Elèves vers d’autres logiciels] (spip.php?article89) Accès à la fonctionnalité :
+interface Professeur :
+module : [Outils]/[Export Fichier Elèves vers d’autres logiciels]
+iPackEPS vous permet d’exporter la liste des élèves de vos divers groupes (…)
+
+  Interface chef d’établissement : description de l’interface complète (spip.php?article58)
+ce tutoriel présente le détail des modules accessibles au chef d’établissement, et les validations nécessaires demandées (validation des projets de Section Sportive Scolaire, de l’enquête (…)
+ 
+
+Agenda
+
+  (spip.php?page=breve&id_breve=1) 14 / 08 / 2025
+Ouverture iPackEPS 2025-2026
+
+  (spip.php?page=breve&id_breve=5) 01 / 11 / 2025
+nouvelle version 2025.3.1
+
+Présentation (spip.php?rubrique1) Tutoriels (spip.php?rubrique2)
+  Utilisation de iPackEPS (spip.php?rubrique4)
+  Interface iPackEPS / Cyclades (spip.php?rubrique7)
+
+Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique
+
+12 / 02 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article45&t=[Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique)   (https://plus.google.com/share?url=spip.php?article45)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle45)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord
+ou Tableau de bord => Dossiers et Projets => Dossier EPS
+ou Tableau de bord => Dossiers et Projets => Dossier Certificatif
+ 
+
+
+[Tutoriel iPackEPS] Soumettre à validation le doss
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Question / Réponses
+
+Q1 : "Je suis en collège, et j’obtiens des alertes concernant le dossier certificatif (protoocel,s référentiel, certification…)"
+R1 : Ceci arrive lorsqu’un enseignant a déclaré dans la fiche Établissement que le collège gérait également des
+calesses de lycée ou de voie professionnelle. Dans ce cas suivez pas à pas le tutoriel ci-dessous pour supprimer les traces du dossier certificatif de votre collège
+[Tutoriel iPackEPS] corriger alertes sur Dossier Ce
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Q2 : "l’application me signale des alertes, je ne peux pas proposer mon dossier pour validation"
+R2 : Dès que l’on clique sur le bouton [vérification], les curseurs sont débloqués et l’on peut soumettre les dossiers (EPS ou certificatifs) à validation, qu’il y ait ou non des alertes.
+ 
+
+
+Étape 1 : affichage de la fenêtre de validation du dossier certif
+
+ 
+Étape 2 : clic sur [vérification] => l’appli alerte qu’il manque des dates
+ 
+
+ 
+
+
+Étape 3 : Je déplace le curseur sur [OUI] => L’appli me met une alerte en orange (sous le bouton enregistrer) en m’informant qu’il faut que je rajoute un commentaire vu que des alertes sont repérées
+
+ 
+
+ 
+(IMG/png/dossier3.png)
+
+
+Étape 4 : je mets un commentaire, et je clique sur [enregistrer]
+
+ 
+
+ 
+(IMG/png/dossier4.png)
+
+
+le dossier est terminé et soumis à validation, malgré les alertes.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique
+
+03 / 12 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article53&t=[Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique)   (https://plus.google.com/share?url=spip.php? article53)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle53)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier APPN
+
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il est possible que certains navigateurs refusent d’ouvrir ces documents dans un nouvel onglet. il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document)
+ 
+
+
+[iPackEPS] Dépôt de Demande de Validation de Pr
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+L’académie de Montpellier propose également un tutoriel avec en complément une aide à la saisie de projet modèle fourni par l’académie :
+
+Procédure de déclaration d'un projet APPN à envir
+EPS Montpellier
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement
+
+23 / 05 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article83&t=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement)   (https://plus.google.com/share?url=spip.php? article83)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle83)   (spip.php?page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+
+Note : Selon votre académie, le format du fichier peut changer, ce peut être une checklist de contrôle de référentiel, ou une demande de dépôt de diverses annexes (par exemple le scan des fiches d’émargement des élèves).
+Si plusieurs fichiers sont à fournir, vous devrez les placer dans un dossier zip afin de rassembler toutes les pièces en un seul document (procédure décrite à 1’39’’ sur la vidéo).
+ 
+
+
+[Tutoriel iPackEPS] Dépôt de Documents pour la C
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux
+
+25 / 05 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article85&t=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux)   (https://plus.google.com/share?url=spip.php? article85)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle85)   (spip.php?page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+
+Pour le dépôt / contrôle des certificats médicaux, 2 cas peuvent être rencontrés :
+› si les élèves de vos classes à examens sont bien présents dans iPackEPS, vous déposerez pour chaque élève concerné son CM dans sa fiche de visualisation.
+› si vos élèves de classe à examens ne sont pas importés dans iPackEPS (CFA, AEFE…), vous pourrez déposer manuellement les CM directement dans cette fenêtre de documents pour la CAHPN (cf. procédure expliquée à
+1’53’’ sur la vidéo)
+ 
+
+
+[Tutoriel iPackEPS] Dépôt de Documents pour la C
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles
+
+23 / 05 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article84&t=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles)   (https://plus.google.com/share?url=spip.php?article84)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle84)   (spip.php?page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+
+Il est possible que votre académie vous demande de déposer des fiches explicatives concernant les cas particuliers d’élèves à signaler. Ceci concerne notamment les élèves qui auraient été inaptes sur 2 Épreuves, et n’auraient qu’une seule note. L’enseignant devra alors justifier son choix de garder la note ou de demander une dispense d’évaluation EPS pour cet élève.
+ 
+
+
+[Tutoriel iPackEPS] Dépôt de Documents pour la C
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS
+
+24 / 05 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article55&t=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS)   (https://plus.google.com/share?url=spip.php?article55)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle55)   (spip.php? page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]
+
+Les tutoriels ci-dessous vous décrivent les étapes de dépôt des documents que votre académie peut vous demander pour piloter la commission académique d’aharmonisation des notes aux examens.
+
+Vous pouvez déposer une fiche récapitulative d’établissement, des listings de note, des listes d’inaptitudes, des scans de certificats médicaux, et des fiches individuelles d’élèves pour les cas particuliers d’évaluation.
+
+Vidéo 1 : Introduction - accès au module
+
+ 
+
+
+ 
+[Tutoriel iPackEPS] Dépôt de Documents pour la C
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+Dépôt de la Fiche Établissement
+ 
+Regarder sur
+ 
+
+ 
+Le tutoriel sur le dépôt de la fiche Établissement est disponible sur cet article : https://ipackeps.ac- creteil.fr/spip.php?article83 (https://ipackeps.ac-creteil.fr/spip.php?article83)
+
+
+Dépôt des Certificats Médicaux
+
+Le tutoriel sur le contrôle et dépôt de la fiche Établissement est disponible sur cet article : https://ipackeps.ac- creteil.fr/spip.php?article85 (https://ipackeps.ac-creteil.fr/spip.php?article85)
+
+
+Dépôt des Fiche Individuelles
+
+Le tutoriel sur le dépôt deFiches Individuelles est disponible sur cet article : https://ipackeps.ac- creteil.fr/spip.php?article84 (https://ipackeps.ac-creteil.fr/spip.php?article84)
+
+
+
+Questions / Réponses
+
+Question 1 Est-il possible de déposer plusieurs certificats médicaux d’un élève pour une même activité ? (le certificat qui couvre la date du CCF et le certificat qui couvre la date de rattrapage par exemple ?)
+
+Réponse : OUI, depuis la version 2025.3.1 (décembre 2025) il est possible de déposer plusieurs certificats pour une même séquence d’apprentissage.
+
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Protocoles] Dossier Certificatif : Configuration des Protocoles des Épreuves certificatives (dates rattrapage, co-évaluation)
+
+04 / 11 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article42&t=[Dossiers]/[Dossier Certificatif]/[Protocoles] Dossier Certificatif : Configuration des Protocoles des Épreuves certificatives (dates rattrapage, co-évaluation))   (https://plus.google.com/share?url=spip.php?article42)   (https://twitter.com/intent/tweet? source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Protocoles] Dossier Certificatif : Configuration des Protocoles des Épreuves certificatives (dates rattrapage, co-évaluation)&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle42)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :Retour ligne automatique
+Tableau de bord => Dossiers et Projets => Dossier Certificatif ==> Protocoles d’évaluation
+ 
+
+
+[tutoriel iPackEPS] Renseignement des Protocoles
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+Questions/Réponses
+
+
+ 
+Question 1 En Bac GT, j’ai déclaré dans un protocole la course de relais-vitesse (CA 1) en tant qu’APSA établissement, au lieu de choisir l’APSA [Courses] de la liste nationale (le même problème peut intervenir avec les APSAs Sauts ou Lancers).
+Ceci pose 2 problèmes :
+*	il peut arriver que iPackEPS annonce que mon protocole n’est pas valide, si par exemple le protocole contient également une APSA académique (car cette configuation est interdite par les textes qui imposent a minima 2 activités de la liste nationale.).
+*	lors de la saisie des notes sur Cyclades, l’APSA ne sera pas considérée comme une APSA de la liste nationale, les statistiques académiques seront donc faussées sur cette APSA.
+ 
+
+ 
+(IMG/png/protoc1.png)
+ 
+
+
+ 
+ 
+
+
+ 
+
+ 
+Réponse : La procédure de résolution est la suivante :
+› retournez dans [Dossiers] / [Dossier EPS] / [APSA],
+› sélectionnez dans le tableau de gauche des apsas nationales l’activité [courses], et déclarez-la
+certificative en Lycée
+ 
+
+ 
+(IMG/png/protoc2.png)
+ 
+
+
+Vous voyez alors apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissemement) et l’APSA Courses
+- retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage du groupe concerné.
+› en bas de la fenêtre, cliquez sur le bouton de
+modification de l’APSA [Course de Vitesse], et remplacez la par l’apsa [Courses]
+› le protocole doit alors être déclaré valide
+(IMG/png/protoc3.png)
+faites de même pour tous les autres groupes de Bac GT sur lesquels vous aviez attribué l’APSA [Courses de vitesse]
+ 
+
+
+Retournez Dans [Dossier Certificatif] / [Dépôt des Référentiels]
+Vous trouverez votre ancienne APSA Courses de
+Vitesse qui possède un référentiel, et la nouvelle APSA	(IMG/png/protoc5.png) Courses qui n’a pas encore de référentiel.
+Il vous faut alors déposer le référentiel pour l’APSA Courses, et supprimer le référentiel de l’APSA Courses de Vitesse.
+vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [course de vitesse] non certificative en Lycée GT.
+
+
+
+
+Question 2 Pourquoi ne vois-je aucune APSA dans les tableaux affichés ?
+
+Réponse :
+Le dossier certificatif est directement lié aux séquences que vous avez attribuées à vos groupes.
+iPackEPS va donc rechercher tous vos groupes de classes à examens (Terminales Bac Pro, Terminales G/T, CAP 2ème année…), et affiche les APSAs que vous avez déclarées certifiables et attribuées à ces groupes d’examen.
+
+Si vous ne voyez aucune APSA c’est tout simplement que vous n’avez pas encore saisi la programmation de vos groupes.
+
+- Retournez dans [dossiers] / [Dossier EPS] / [APSA] : vérifiez que vous avez déclaré les APSAs, et indiqué quelles APSAs sont certificatives dans l’établissement. (cf. tutoriel (https://ipackeps.ac-creteil.fr/spip.php? article15))
+› puis Retournez dans [dossiers] / [Dossier EPS] / [Groupes] : déclarez l’offre de formation de chaque groupe
+/ classe d’examen (cf. tutoriel (https://ipackeps.ac-creteil.fr/spip.php?article17))
+
+
+
+
+
+Question 3 J’enseigne le cross training dans le cadre du CA1, mais comme j’ai sélectionné l’APSA Académique Cross Training qui est en CA5, mes protocoles sont invalides (iPackEPS considére que j’ai 2 APSAs de CA5 dans un même protocole)
+
+ 
+
+
+ 
+Réponse : Comme vous avez sélectionné l’APSA cross training en CA5, c’est normal que les protocoles soient en erreur puisqu’ils comportent 2 CA5.
+Vous avez choisi d’enseigner et évaluer le cross-training dans le cadre du CA1, il ne s’agit donc pas techniquement de la même APSA cross-training proposée en CA5 en liste académique.
+
+Le cross training en CA1 sera donc votre APSA Établissement, comme l’autorisent les textes officiels.
+
+
+La procédure de résolution est la suivante :
+› 1- dans [dossier EPS] / [APSA], créer une nouvelle APSA :
+
+
+
+(IMG/png/capture_d_ecran_2023-12-20_153738.png)
+2 - Lui donner un nom différent de l’APSA Académique, par exemple [Cross Training - CA1], la déclarer en CA1, la cocher [APSA Établissement], et certificative :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+3 – vous vous retrouvez alors avec 2 APSAs Cross Training déclarées, une en CA1 et l’autre en CA5 :
+4 – Retournez Dans [Dossier Certificatif] / [Dépôt des Référentiels]
+Vous trouverez votre ancienne APSA CA5 qui possède un référentiel, et la nouvelle APSA CA1 qui n’a pas encore de référentiel.
+Il vous faut alors déposer le référentiel du Cross-Training CA1, et supprimer le référentiel du Cross-Training CA5.
+5 - Retournez Dans [Dossier EPS] / [Groupes] Pour chaque groupe qui se voyait attribué le cross training CA5, ouvrez la fenêtre des séquences d’apprentissage, Cliquez sur le bouton de modification de la séquence d’apprentissage Cross Training CA5.
+
+
+
+(IMG/png/capture_d_ecran_2023-12-20_154329.png)
+Et dans la liste déroulante, sélectionnez le cross training CA1 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+la liste des APSAs se met à jour, le protocole est recalculé, et indiqué maintenant comme Valide :
+6 – Refaites la manipulation pour chaque groupe programmant le cross-training CA5.
+7 – Retournez dans [dossier EPS] [ APSA] : vous pouvez maintenant modifier l’APSA Cross Training CA5, pour la déclarer non- certificative en Lycée.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle
+
+08 / 05 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article38&t=[Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle)   (https://plus.google.com/share?url=spip.php?article38)   (https://twitter.com/intent/tweet? source=webclient&text=[Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle38)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers et Projets => Dossier Certificatif ==> Référentiels
+ 
+
+
+[Tutoriel iPackEPS] Dépôt des référentiels d'évalua
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il est
+possible que certains navigateurs refusent d’ouvrir ces documents dans un nouvel onglet. il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document)
+
+NOTE : si après la remontée des référentiels la commission vous indique qu’un ou plusieurs référentiels doivent être retouchés, il vous suffit de modifier votre référentiel, puis de le redéposer (clic sur [envoyer] dans le tableau des référentiels).
+Le nouveau référentiel remplacera l’ancien, et le statut de votre dossier repassera en statut [En attente de validation].
+
+
+Vidéo 2 : inversement, si une APSA avait été déclarée certificative mais qu’elle n’est plus évaluée cette année, vous devez modifier ses informations pour qu’il n’y ait plus d’alerte sur les référentiels attendus :
+ 
+
+
+dossier Certificatif - référentiels : Supprimer des A
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Questions / Réponses
+
+Question 1 en EPPCS, j’enseigne des APSA que je ne veux pas évaluer aux examens. Cependant iPackEPS me demande des référentiels pour toutes les APSAs du groupe, même si je décoche la case [certificative].
+Réponse : Dans la configuration des APSAs, la case [certificative] ne concerne que l’enseignement commun.
+Par défaut iPackEPS considère que toutes les APSAs enseignées dans les groupes de type EPPCS pourront être évaluées. iPackEPS demande donc un dépôt de référentiel pour chaque APSA trouvée.
+Si vous ne voulez pas déposer de référentiel pour certaines APSA, il suffit de mettre un commentaire pour expliquer que vous n’évaluerez pas certaines aps, et ignorer les alertes d’ipackeps.
+
+
+Question 2 Notre équipe propose plusieurs référentiels pour une même APSA (contrôle adapté…), mais iPackEPS ne me propose de déposer qu’un seul référentiel.
+R : Il vous suffit de créer sur le même document vos divers référentiels, sur plusieurs pages différentes. par exemple : page 1 : référentiel course de vitesse, page 2 : référentiel relais, page 3 : version contrôle adapté, etc…
+
+Question 3 . Je veux déposer un référentiel, mais l’APSA n’apparait pas dans le tableau.
+
+ 
+
+
+ 
+R : pour qu’une APSA apparaisse, il faut que
+
+  elle soit déclarée Certificative (dans [Dossier EPS] / [APSA])
+  l’APSA soit déclarée dans l’offre de formation d’au moins un groupe d’examen (dans [dossier EPS] / [Groupes])
+
+
+Question 4. Comment déposer des référentiels pour les APSAs adaptées
+
+R : Nous n’avons pas prévu de gestion spécifique des référentiels adaptés. Si par exemple dans plutôt que des Courses (liste Nationale), vous proposez une APSA Marche Nordique Adaptée, vous pouvez rajouter des pages supplémentaires au référentiel de Courses, pour y inclure votre référentiel de Marche Nordique Adaptée.
+
+
+Question 5 . J’ai déclaré par erreur le Badminton en APSA certificative, j’ai donc une alerte sur le dépôt de référentiel
+
+R : Retournez dans [Tableau de bord] / [Dossiers] / [Dossier EPS] / [APSA], sélectionnez le badminton, et décochez la case [Certificative]. Si une alerte vous indique que l’APSA est déjà déclarée certificative dans des séquences d’apprentissage, retournez dans [Tableau de bord] / [Dossiers] / [Dossier EPS] / [Groupes], Recherechez les groupes d’examens qui programment le badminton, et modifiez la séquence d’apprentissage en cochant [NON] sur l’option [les élèves seront évalués à l’examen sur cette APSA]
+
+
+Question 6 . J’ai déclaré cértificative une APSA académique, pourquoi ne la vois-je pas dans la zone de dépôt des référentiels ?
+
+R : Cyclades considère que pour les APSAs académiques, c’est le référentiel académique qui fait foi, l’établissement n’a donc pas à déposer de référentiel.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression
+
+27 / 08 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article49&t=[Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression)   (https://plus.google.com/share?url=spip.php?article49)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle49)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier Natation => ASNS
+
+[tutoriel iPackEPS] interface Professeur - Import e
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+Note : pour valider manuellement l’ASNS pour vos élèves, passez par le menu [tableau de Bord ==> [Mes Élèves] ==> [Visualisation]
+(cf. tutoriel dans cet article : https://ipackeps.ac-creteil.fr/spip.php?article50 (https://ipackeps.ac- creteil.fr/spip.php?article50) )
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation
+
+31 / 08 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article4&t=[Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation)   (https://plus.google.com/share?url=spip.php?article4)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle4)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier Natation => Enquête
+
+Une fois l’enquête complétée, elle devra être validée par le chef d’établissement via son interface.
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - saisie de
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+Mode d’emploi version PDF
+
+
+(IMG/pdf/ipackeps-dossiernatation- 2nddegre.pdf)
+ipackeps-dossiernatation-2nddegre.pdf	
+
+(IMG/pdf/ipackeps-dossiernatation- 1erdegre.pdf)
+ipackeps-dossiernatation-1erdegre.pdf
+
+
+
+QUESTIONS / RÉPONSES
+
+Q1. J’ai oublié de remble l’enquête l’année dernière, on me demande de la compléter
+R. depuis le tableau de bord, il faut sélectionner l’année précédente, puis aller dans [Dossier] / [Dossier Natation] / [Saisie de l’enquête]. les données saisies seront alors stockées pour l’année précédente.
+NOTE : si un message vous informe que la saisie est interdite pour l’année précédente, prévenez votre correspondanti iPackEPS pour qu’il ouvre la campagne de saisie pour l’année N-1
+
+
+
+Documents
+(IMG/pdf/ipackeps-dossiernatation-2nddegre.pdf)
+ipackeps-dossiernatation-2nddegre.pdf (IMG/pdf/ipackeps-dossiernatation-2nddegre.pdf) ipackeps-dossiernatation-2nddegre.pdf
+31 / 08 / 2018
+ 
+
+
+(IMG/pdf/ipackeps-dossiernatation-1erdegre.pdf)
+ipackeps-dossiernatation-1erdegre.pdf (IMG/pdf/ipackeps-dossiernatation-1erdegre.pdf) ipackeps-dossiernatation-1erdegre.pdf
+03 / 09 / 2020
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation
+
+23 / 05 / 2019
+  (http://www.facebook.com/sharer.php?u=spip.php?article25&t=[Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation )   (https://plus.google.com/share?url=spip.php?article25)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation &url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle25)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier Natation => Statistiques
+
+iPackEPS vous permet de consulter de consulter les statistiques des saisies de l’enquête Dossier Natation. Vous pouvez ainsi comparer vos données à celles de votre secteur géographique.
+ 
+
+
+ 
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports- Études
+
+10 / 12 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article91&t=[Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études)   (https://plus.google.com/share?url=spip.php?article91)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle91)   (spip.php? page=contact2&id_auteur=2)  
+accès à la fonctionnalité :
+Dossiers]/[Dossier Sports-Études]
+
+Configurer les Classes Sports-Études
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires
+
+27 / 01 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article35&t=[Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires)   (https://plus.google.com/share?url=spip.php?article35)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle35)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier SSS
+
+Présentation de la Gestion des Sections Sportives Scolaires
+ 
+
+
+[tutoriel iPackEPS] Gestion des dossiers Section S
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire
+
+07 / 06 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article39&t=[Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire)   (https://plus.google.com/share?url=spip.php?article39)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle39)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Bilan
+ 
+
+
+Tutoriel iPackEPS : Renseigner le Bilan de Section
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il est possible que certains navigateurs refusent d’ouvrir ces documents dans un nouvel onglet. il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document)
+
+
+Q : Mon chef établissement a signé le dossier, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
+
+R : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature.
+Vous pourrez alors modifier le dossier.
+Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire
+
+13 / 09 / 2019
+  (http://www.facebook.com/sharer.php?u=spip.php?article28&t=[Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire)   (https://plus.google.com/share?url=spip.php?article28)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle28)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Demande d’ouverture SSS
+ 
+
+
+tutoriel iPackEPS : Demande d'Ouverture de Sectio
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+NOTE : voici les informations minimales qui doivent nécessairement avoir été renseignées au préalable, afin de pouvoir renseigner une demande d’ouverture de section sportive :
+› Dossiers/dossier EPS/projets : Déclaration des axes des projets (eps, as , étab…)
+› Dossiers/dossier EPS/équipe : actualiser et vérifier que chaque enseignant a rempli sa partie
+› Dossiers/dossier EPS/apsa déclarer les apsas pratiquées dans l’établissement (EPS,AS, sss..)
+› Dossiers/dossier EPS/équipements : déclarer les équipements utilisés par l’établissement
+
+Questions/Réponses
+
+Question 1 : lorsque je veux visualiser / télécharger le document modèle ou mes conventions/annexes, rien ne se passe
+Réponse : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il
+est possible que certains navigateurs refusent d’ouvrir ces documents dans un nouvel onglet. il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document)
+
+
+Q2 : je veux créer un SSS baseball, mais iPackEPS ne me propose pas cette APSA lorsque je fais une demande d’ouverture
+R : il faut au préalable déclarer l’ASPA Baseball dans [dossiers] / [dossier EPS] / [APSA]
+
+Q3 : la liste des axes de projet pour la SSS est vide
+
+ 
+
+
+ 
+R : la saisie des Axes de projets se fait dans [Dossiers] / [dossier EPS] / [Axes des projets
+
+
+Q4 : Mon chef établissement à signé le dossier, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
+
+R : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature.
+Vous pourrez alors modifier le dossier.
+Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire
+
+26 / 01 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article31&t=[Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire)   (https://plus.google.com/share?url=spip.php?article31)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle31)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Projet Annuel
+ 
+
+
+Tutoriel iPackEPS : Projet Annuel de Section Sport
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+NOTE : les documents téléchargés (document modèle, votre projet…) s’ouvrent dans un nouvel onglet : il est possible que certains navigateurs refusent d’ouvrir ces documents dans un nouvel onglet. il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document)
+
+
+Questions / Réponses
+
+Question 1 : Mon chef établissement a signé le dossier, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
+Réponse : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature.
+Vous pourrez alors modifier le dossier.
+Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
+
+
+Question 2 : Je veux créer mon projet SSS, mais ma SSS n’apparait pas dans le module [Projet Annuel SSS] ?
+Réponse : Les rubriques [Projets Annuels SSS] et [Bilan SSS] ne sont actives que si iPackEPS trouve au moins un groupe de type SSS dans l’établissement.
+Ce point est traité à 0’50’’ sur la vidéo.
+l’équipe doit donc configurer l’intégralité du Dossier EPS avant de se pencher sur le Projet de Section.
+Car le projet de section va reprendre la liste des élèves placés dans la SSS, les créneaux de SSS trouvés dans l’emploi du temps, les profs qui encadrent, etc…
+
+Donc si une équipe tente de saisir un projet SSS avant d’avoir finalisé le dossier EPS (groupes, APSA, élèves, équipements sportifs, EDT), le projet SSS sera incomplet.
+
+ 
+
+
+Question 3 : J’ai oublié de saisir mon projet (ou bilan) pur l’année précédente, comment compléter les informations ?
+Réponse : Il suffit, depuis le tableau de bord, de penser à modifier l’année scolaire. vous pourrez ensuite
+retourner dans [dossiers] / [dossier SSS] / [projet (ou bilan)], et vous retrouverez les projets et bilans de l’année dernière, et pourrez les compléter.
+Le chef d’établissement fera la même manipulation pous pouvoir signer ces documents.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS
+
+11 / 05 / 2026
+  (http://www.facebook.com/sharer.php?u=spip.php?article94&t=[Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS)   (https://plus.google.com/share?url=spip.php?article94)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle94)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Évolution
+
+Chaque année vous pouvez demander une demande de Fermeture ou de Reconduction de votre Section Sportive Scolaire.
+ 
+
+
+[tutoriel iPackEPS] Demande de Reconduction ou
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article15&t=[Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs)   (https://plus.google.com/share?url=spip.php?article15)   (https://twitter.com/intent/tweet? source=webclient&text=[Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle15)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Projets et Dossiers ==> Dossier EPS ==> APSA
+ 
+
+
+[Tutoriel iPackEPS] DossierEPS - APSA : Déclarati
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+Questions/Réponses
+
+Question 1 J’ai créé manuellement une APSA [musculation adaptée] pour le bac GT, la coche [certificative adaptée] fonctionne, mais la coche [certificative] est grisée.
+Je ne peux donc pas déposer de référentiel pour cette APSA.
+Réponse : 2 éléments sont à distinguer : dépôt de référentiel, et coche [Certificative] grisée :
+› référentiels : Cyclades accepte n’importe quelle Apsa en contrôle adapté, à tout moment de l’année, sans vérification qu’un référentiel ait été validé par l’inspection. Nous suivons donc cette logique, en ne demandant pas de référentiel lorsqu’un établissement propose une APSA adaptée.
+› coche grisée : l’équipe a créé une NOUVELLE APSA, en la nommant « musculation adaptée ».
+Donc le logiciel considère que c’est pas une APSA de la liste nationale ou académique, donc cette apsa ne peut pas être certificative en bac GT’ c’est donc normal que la coche [certificative] soit bloquée.
+Ce n’est pas la bonne utilisation, on ne crée pas de nouvvelle apsa pour juste une adaptation. La logique est de
+sélectionner l’APSA musculation de la liste nationale, et de cocher certificative adaptée (ainsi que [certificative], si elle est évaluée également pour les élèves valides.
+
+Évidemment, penser à supprimer l’apsa « musculation adaptée » qui devient inutile.
+
+
+
+Question 2 En Bac GT, j’ai déclaré la Course de Relais-Vitesse en tant qu’APSA établissement, au lieu de choisir l’APSA [Courses] de la liste nationale (le même problème peut intervenir avec les APSAs Sauts ou Lancers).
+Comment Remplacer l’APSA Course de Relais-Vitesse par l’apsa nationale Courses ?
+ 
+
+
+ 
+
+ 
+Réponse : La procédure de résolution est la suivante :
+› retournez dans [Dossiers] / [Dossier EPS] /
+[APSA],
+› sélectionnez dans le tableau de gauche des apsas nationales l’activité [courses], et déclarez- la certificative en Lycée
+ 
+
+ 
+(IMG/png/protoc2.png)
+ 
+
+
+Vous voyez alors apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissemement) et l’APSA Courses
+- retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage d’un groupe de voie GT qui
+propose de la Course de Relais-Vitesse.
+ 
+› en bas de la fenêtre, cliquez sur le bouton de modification de l’APSA [Course de Relais- Vitesse], et remplacez la par l’apsa [Courses]
+ 
+
+
+
+
+
+(IMG/png/protoc3.png)
+ 
+
+
+faites de même pour tous les autres groupes de voie GT sur lesquels vous aviez attribué l’APSA [Course de Relais-Vitesse]
+Retournez Dans [Dossier Certificatif] / [Dépôt des Référentiels]
+Vous trouverez votre ancienne APSA Course de
+Relais-Vitesse qui possède un référentiel, et la
+nouvelle APSA Courses qui n’a pas encore de	(IMG/png/protoc5.png) référentiel.
+Il vous faut alors déposer le référentiel pour l’APSA Courses, et supprimer le référentiel de l’APSA Course de Relais-Vitesse.
+vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [Course de Relais-Vitesse] non certificative en Lycée GT.
+
+Question 3 En Bac GT, j’avais par le passé déclaré par erreur la Course de Relais-Vitesse en tant qu’APSA établissement, et l’avais sélectionnée certificative en voie GT, au lieu de choisir l’APSA [Courses] de la liste nationale (le même problème peut intervenir avec les APSAs Sauts ou Lancers).
+J’ai maintenant déclaré également l’APSA courses, mais j’ai donc 2 référentiels déposés pour 2 apsas différentes, et certains groupes de voie GT ont encore l’apsa Course de Relais-Vitesse déclarée au lieu de Courses. Comment fusionner les 2 Apsas ?
+
+Réponse : La procédure de résolution est la suivante :
+› retournez dans [Dossiers] / [Dossier EPS] /
+[APSA],
+› Vous voyez apparaître dans votre liste d’APSAs à la fois la Course de Relais-Vitesse (en APSA établissemement) et l’APSA Courses
+
+ 
+
+
+- retournez dans [Dossiers] / [Dossier EPS] / [Groupes], et ouvrez la liste des séquences d’apprentissage d’un groupe de voie GT qui propose de la Course de Relais-Vitesse.
+› en bas de la fenêtre, cliquez sur le bouton de
+modification de l’APSA [Course de Relais- Vitesse], et remplacez la par l’apsa [Courses]
+
+(IMG/png/protoc3.png)
+faites de même pour tous les autres groupes de voie GT sur lesquels vous aviez attribué l’APSA [Course de Relais-Vitesse]
+Retournez Dans [Dossier Certificatif] / [Dépôt des Référentiels]
+Vous pourrez alors supprimer le référentiel de
+l’APSA Course de Relais-Vitesse.
+(IMG/png/protoc5.png)
+vous pouvez maintenant retourner dans la gestion des APSAs et déclarer l’APSA [Course de Relais-Vitesse] non certificative en Lycée GT.
+
+Question 4 en EPPCS, j’enseigne plusieurs APSA qui ne sont pas dans la liste nationale. Je ne peux pas toutes les cocher [certificative] puisque qu’ipackeps n’autorise qu’une seule apsa hors liste nationale.
+
+Réponse : La case [certificative] ne concerne que l’enseignement commun. Par défaut iPackEPS considère que toutes les APSAs enseignées dans les groupes de type EPPCS pourront être évaluées. Il n’y a donc pas besoin de cocher Certificative. Vous pourrez déposer les référentiels de toutes les APSAs d’eppcs même si elles ne sont pas cochées certificatives
+
+
+
+Portfolio
+(IMG/png/protoc1.png)
+
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8)
+ 
+
+
+Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article14&t=[Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves)   (https://plus.google.com/share?url=spip.php?article14)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle14)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Classes
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Question / Réponses
+
+
+Q1 : Une alerte m’informe que je ne suis pas coordonnateur EPS, je ne peux pas actualiser la liste des classes
+R : chaque année scolaire les fonctions déclarées des enseignants sont réinitialisées, vu que les fonctions peuvent changer chaque année.
+Si vous êtes coordonnateur, il suffit de retourner sur votre fiche professeur et redéclarer vos diverses fonctions.
+
+Si un autre enseignant est coordonnateur et que vous constatez que la liste des classes / élèves est incomplète il suffit de demander à votre coordinateur de se connecter à l’application puis :
+
+› aller dans [gestion Classes] ==> [Actualiser] (puis dans [importation élèves] => [Actualiser])
+
+Si jamais le coordinateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte).
+Vous pourrez alors faire toutes les manipulations d’import profs/élèves.
+Pensez à décocher votre statut coordonnateur après ces manipulations.
+
+
+
+Q2 : lors du clic sur [actualiser les classes], j’obtiens le message d’erreur : « Votre administration n’a pas encore déclaré les élèves de cet établissement »
+
+ 
+
+
+ 
+R : Si vous êtes dans un établissement public, prenez contact avec le correspondant iPackteps pour qu’il investigue auprès des services du rectorat.
+Si vous êtes dans un établissement privé, le chef d’établissement doit suivre une procédure pour faire remonter la liste de ses élèves sur la base SIECLE du rectorat. Son éditeur de logiciel (Charlemagne, École Direct...) doit pouvoir l’accompagner dans cette procédure.
+
+Le transfert doit normalement se faire d’un clic via l’application omogen.
+
+un transfert manuel est également possible sur [Charlemagne administratif], en passant par le menu [modules]/[Éducation Nationale]/[SIECLE]/type établissement/Envoi des élèves]
+
+
+Q3 : Ma liste d’élèves dans les classes est vide
+
+R : il faut impérativement suivre les 2 étapes de Configuration des Classes puis d’Organisation des Classes (cf. vidéo de cet article) avant de demander l’import des élèves. Tant que les classes ne sont pas complètement configurées les élèves de ces classes ne seront pas importés.
+
+_ NOTE : si vous êtes en CFA, ou établissement privé particulier ou dans un établissement à l’étranger (AEFE), les élèves ne sont pas connus dans les bases du rectorat. Dans ce cas il est normal qu’iPackEPS ne vous affiche aucune classe. Dans ce cas, effectuez le reste de la configuration de iPackEPS sans vous préoccuper des classe/élèves. (Vous devrez donc créer les classes directement dans la gestion des groupes (menu [Dossiers] / [Dossier EPS] / [Groupes])
+
+
+Q4 : - Des élèves ont changé de classe, il apparaissent toujours dans les anciennes classes
+› ou Des élèves n’apparaissent pas dans certaines classes
+
+R : il suffit de demander à votre coordinateur de se connecter à l’application puis :
+› aller dans [gestion Classes] ==> [Actualiser]
+› puis dans [importation élèves] => [Actualiser]
+
+
+Q5 : J’ai des élèves ULIS / UPE2A, qui sont intégrés dans diverses classes. Comment configurer iPackEPS pour prendre en compte ces élèves ?
+ 
+
+
+ 
+R : -* dans [dossier EPS] / [Classes] / [Configuration des Classes], déclarer la classe ULIS ((ou UPE2A) en cycle scolaire [ULIS/UPE2A]ULIS/UPE2A collège (ou ULIS/UPE2A lycée, ou bacpro).
+
+2 solutions s’offrent ensuite à vous, selon la configuration que vous auriez déjà faite sur la classe qui intégrèe ces élèves : prenons l’exemple "la classe 6eme 1 intègre en plus 3 élèves ULIS" : :
+SOLUTION 1 - Gérer un seul groupe :
+- dans [dossier EPS] / [Classes] / [organisation des Classes] : configurer la classe 61 en mode [groupe] (si vous avez déjà attribué des séquences d’apprentissages ou créé des créneaux d’emploi du temps pour ce groupe, une alerte vous empêchera de faire cette manipulation. Dans ce cas vous devrez suivre la solution 2 pour éviter de devoir effacer vos créneaux et séquences).
+› dans [dossier EPS] / [groupes] / [eps] créer un groupe [61 - ULIS], et attribuer les séquences d’apprentissage
+› dans [dossier EPS] / [élèves] : placer dans le groupe [61 - ULIS] les élèves d’Ulis et ceux de 61.
+› dans [dossier EPS] / [Emploi du temps] : placer le groupe [61 - ULIS] sur les créneaux EDT.
+
+SOLUTION 2 - Gérer 2 groupes :
+› dans [dossier EPS] / [Classes] / [organisation des Classes] : configurer la classe 61 en mode [seul ou mixte], et attribuer l’enseignant.
+› dans [dossier EPS] / [groupes] / [eps] , attribuer les séquences d’apprentissages à la classe 61.
+› créer également un groupe [61 - ULIS], et attribuer les même séquences d’apprentissages
+› dans [dossier EPS] / [Élèves] : placer les élèves d’ULIS dans le groupe [61 - ULIS]
+› dans [dossier EPS] / [Emploi du temps] : placer le groupe [61] sur les créneaux EDT.
+puis sur le même créneau placer le groupe [61 - ULIS] ==> l’application considère donc que vous encadrez 2 groupes en simultané.
+
+
+Q6 : J’ai des classes de 3ème Prépa Métiers, comment les configurer ?
+
+R : assurez-vous tout d’abord que la fiche établissement indique que vous avez des sections professionnelles ([Tableau de bord] / [Établissement] / onglet [configuration] : cocher [voie professionnelle])
+puis aller dans le gestion des classes ([Tableau de bord] / [Dossiers] / [Dossier EPS] / [Classes] / onglet
+[configuration] ), sélectionner la classe, et attribuer le cycle scolaire [Troisième prépa Métiers]. La gestion de ce type de classe se fais comme pour les autres cycles scolaires.
+
+
+Q7 : J’ai par erreur indiqué le mauvais cycle scolaire à une de mes classes (par exemple : déclarer une classe de Terminale Bac Pro en 1ère Bac Pro), comment corriger ceci ?
+ 
+
+
+ 
+R : pour modifier un cycle scolaire d’une classe, il faut au préalable "nettoyer" les séquences éventuellement déjà attribuées à cette classe.
+Procédure à suivre :
+› aller dans [Dossiers] / [Dossier EPS] / [Groupes] : repérer cette classe, et supprimer le cas échéant toutes les séquences associées à cette classe
+› aller dans [Dossiers] / [Dossier EPS] / [Classes] / [Configuration des classes] : ouvrez la fiche de la classe en question, et modifier le cycle scolaire associé.
+› vérifiez dans [Dossiers] / [Dossier EPS] / [Classes] / [Organisation des classes] que l’organisation correspond bien pour cette classe.
+› retournez [Dossiers] / [Dossier EPS] / [Groupes] et réattribuez les bonnes séquences d’apprentissages à cette classe si elle n’est pas en mode de fonctionnement par groupe.
+
+
+Q8 : J’ai des élèves dans des dispositifs particuliers (classe SAS, DAIP...). Quel cycle scolaire attirbuer à ces classes ?
+
+R : Comme il s’agit d’élèves à profil particulier, comme pour les autres dispositifs d’insertion (UPE2A, ULIS..) il faut mettre globalement un cycles scolaire qui se rapproche de leur niveau EPS.
+
+Si les élèves seront répartis ensuite dans divers groupes d’élèves, vous devez déclarer ces classes en mode groupe. Puis dans la gestion des groupes EPS, vous pourrez créer plusieurs groupes pour lesquels vous pourrez attribuer attribuer divers cycles scolaires en fonction du niveau global du groupe.
+
+Si par contre ces élèves passent un examen en fin d’année en EPS (CAB, bac pro, bac gt), il faut les déclarer en CAP 2ème année, terminale bac pro, etc... pour qu’ils puissent avoir un protocole et être transférérs sur Cyclades.
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article20&t=[Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps)   (https://plus.google.com/share?url=spip.php?article20)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle20)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers ==> Dossier EPS ==> Emplois du Temps
+ 
+
+Introduction
+
+[tutoriel iPackEPS] EDT Introduction
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+Création Suppression de Créneaux
+
+[Tutoriel iPackEPS] EDT : Création Suppression de
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Cas particulier des saisies de créneaux en Semaine A et B :
+
+Saisie des Emplois du Temps - Gestion des crénea
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+Vérification et alertes sur les créneaux saisis ou manquants
+
+[Tutoriel iPackEPS] EDT: Vérification et alertes sur
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Questions / Réponses
+
+Question 1 : pourquoi dans certains cas les créneaux apparaissent-ils en 2 colonnes comme ici ?
+
+ 
+
+
+Réponse : L’affichage de l’emploi du temps se fait sur des "tranches horaires" de 30’. Lorsqu’un créneau se termine dans une tranche horaire et qu’un autre créneau commence sur la même tranche horaire, l’interface graphique crée automatiquement 2 colonnes pour éviter les éventuels chevauchements. il s’agit donc juste d’une adaptation graphique.
+ 
+
+
+Question 2 : Comment supprimer un créneau existant ?
+Réponse : Il suffit de faire un clic droit sur ce créneau et de sélectionner l’option [Supprimer]
+
+Question 3 : Comment déplacer un créneau existant ?
+Réponse : Il suffit de faire un clic droit sur ce créneau et de sélectionner l’option [Modifier] (vous pouvez aussi double-cliquer sur ce créneau). Les paramètres du créneau s’affichent alors, vous pouvez modifier le jour et l’heure de début et fin, l’équipement, etc.
+
+Question 4 : j’encadre 2 groupes sur un même créneau, comment faire apparaître 2 créneaux simultanément ?
+Réponse : Un exemple ci-dessous avec les menus 1 et 2 du groupe 1 placés sur le même créneaux.
+ 
+(IMG/png/creneausimultane.png)
+
+
+pour cela, si un des 2 créneaux est déjà créé, il suffit de faire un
+clic droit sur le créneau, et de cliquer sur l’option [ajouter un créneau].
+
+
+ 
+
+
+Question 5 : Je suis en cité scolaire et j’enseigne sur le collège et le lycée. Puis-je saisir tout mon emploi du temps sur une seule entité ?
+Réponse : NON : l’emploi du temps collège doit être complété sur le collège et celui du lycée sur l’autre entité correspondante
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…)
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article17&t=[Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…))   (https://plus.google.com/share?url=spip.php?article17)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…)&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle17)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Interface Professeur et Chef Établissement :
+Tableau de bord => Dossiers => Dossier EPS ==> Groupes
+
+iPackEPS permet de déclarer des groupes de type
+› [EPS] (les classes sont déja configurées, mais vous pouvez créer des groupes pour les menus de Terminales, des groupes savoir-nager, etc…)
+› [Enseignement Optionnel]
+› [EPPCS] (enseignement de Spécialité)
+› [AS]
+› [SSS] (uniquement si votre établissement est habilité à encadrer une SSS)
+› [UF2S]
+› [Sport-Études]
+ 
+
+
+› [Accompagnement Personnalisé] (avec ou sans apsa)
+› [Autres Dispositifs Sportifs] (dispositifs ne relevant pas d’une véritable SSS validée par le recteur)
+› [divers sans APSA] (secourisme, vie de classe...)
+
+NOTE : pour les groupes de type EPPCS, consulter cet article qui détail toutes les particularités liées à la gestion de l’Enseignement de Spécialité : https://ipackeps.ac-creteil.fr/spip.php?article93 (https://ipackeps.ac- creteil.fr/spip.php?article93)
+
+Vidéo 1 : Gestion des Groupes
+
+[tutoriel iPackEPS] Gestion des Groupes (EPS, AS,
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+ 
+
+
+Vidéo 2 : Renseignement des Séquences d’Apprentissage pratiquées par chaque Groupe
+
+[Tutoriel iPackEPS] Renseigner les Séquences d'A
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Vidéo 3 : Gestion de l’enseignement adapté (déclaration des APSAs, configuration des Groupes et Séquences)
+
+[Tutoriel iPackEPS] Gestion de l'enseignement ada
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+ 
+
+
+
+Vidéo 4 : CAP : cas spécial des groupes qui comportent plus de 2 APSAs, avec choix des élèves des APSAs à conserver pour l’examen en fin d’année
+[iPackEPS] Déclaration des APSAs Certificatives e
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+Cette vidéo traite des cas de terminale CAP pour lesquelles les élèves pratiquent plus de 2 apsas dans l’année, qui sont toutes susceptibles d’être certifiables. Les élèves choisiront leurs APSA pour l’examen en fin d’année.
+Vous devrez donc créer autant de groupes qu’il y a de protocoles possibles. Lorsque les élèves auront choisi leurs menus, vous pourrez placer les élèves dans leur groupe. Chaque groupe aura alors uniquement 2 APSAs certifiables attribuées, et le test des protocoles sera valide.
+
+
+Questions / Réponses
+
+Question 1. en Terminale CAP, mes élèves sont évalués en Badminton et Danse.
+Cependant ils pratiquent le Badminton au 1er trimestre, puis ont un long stage, et reprenne le badminton plus tard. J’ai donc créé 2 périodes, et ajouté 2 fois l’APSA pour le groupe.
+Comme j’ai indiqué 2 fois le badminton certifiable + 1 fois la danse certifiable, le test du protocole indique que je n’ai pas le bon nombre d’APSAs certifiables.
+Réponse : Effectivement, le test des protocoles est strict pour assurer un bon interfaçage avec Cyclades. Comme le badminton ne sera évalué qu’à l’issue de la 2ème période de pratique, il faut donc que pour la 1ère période, vous indiquiez que le badminton n’est pas certifiable. Il y aura au final un protocole avec seulement 2 séquences certifiables, et le test sera valide.
+
+Question 2. Je veux créer un groupe de type SSS, mais l’application m’indique que je n’ai pas le droit de créer ce type de groupe.
+
+ 
+
+
+ 
+Réponse : la création d’un groupe de type SSS nécessite que le recteur ait validé la demande d’ouverture de votre section. Par défaut iPackeps n’autorise donc pas ce type de groupe. Chaque année le responsable iPackEPS de votre académie met donc à jour la liste des nouvelles SSS autorisées. Si votre dossier a été validé par le recteur mais que iPackEPS ne vous autorise pas la création de ce type de groupe, faites un simple signalement par mail à votre responsable ipackeps ou votre ipr pour que votre établissement soit activé.
+
+
+Question 3. Comment placer des groupes sur l’Emploi du Temps, s’il s’agit de groupes sans APSA (vie de classe, cours théorique, formation secourisme…) ?
+
+Réponse : Pour les cours sans APSA, il faut utiliser le type de groupe [divers sans APSA].
+ 
+
+
+
+ATTENTION, même s’il n’y à pas d‘APSA il faut penser à cliquer tout de même sur [attribuer une S.A.] : cela permet d’indiquer sur quelle période on travaille avec ce groupe.
+
+Il sera alors possible de placer ce groupe et la séquence d’apprentissage sur l’emploi du temps.
+
+
+
+Question 4. Pour mes classes de Terminale Bac Pro, je propose 5 APSA différentes, le protocole sera choisi parmis les meilleures notes en fin d’année. iPackEPS indique que le protocole est invalide puisque j’ai déclaré les 5 apsas certificatives dans mon groupe.
+
+ 
+
+
+ 
+Réponse : Effectivement si toutes les séquences sont déclarées certificatives, iPackEPS ne peut les valider, et elles ne seront pas transférées vers Cyclades.
+Un groupe ne doit donc proposer que 3 APSAs certificatives (ou 2 pour les CAP) 2 solutions :
+
+  Si l’enseignant sait déjà quelles seront les 3 APSAs certificatives, le groupe conserve les 5 APSAs mais le prof indique que seules 3 APSAs sont certificatives (cocher [NON] à la phrase [Les élèves seront évalués sur cette APSA pour l’Examen], lors de la sélection de l’APSA)
+  Si, comme c’est classiquement le cas, l’enseignant proposera les 5 apsas, et ne conservera en fin d’année que les 3 meilleures notes de 3 APSAs, il ne connait pas d’avance le protocole proposé.   La seule solution est donc de créer autant de groupes que de cas possibles de protocoles.
+Inutile de mettre les élèves à l’intérieur des groupes vu que l’on ne sait pas encore quel protocole l’élève choisira. (C’est ce fonctionnement qui se faisait déjà sur EPSnet les années précédentes, les équipes créaient tous les cas possibles.)
+
+
+Question 5. Dans une classe de terminale les élèves sont séparés en 2 groupes. Ils partent 2 fois 4 semaines en stage par an. Donc sur 16 semaines je n’ai que la moitié des élèves. Je ne peux pas les évaluer ensemble sur les 2 premiers CCF ; seul le 3ème CCF sera fait ensemble.
+Donc les dates d’évaluation ne sont pas les mêmes pour tous les élèves sur les 2 premiers CCF.
+
+Réponse : Si les dates diffèrent, vous devez créer des protocoles distincts.
+La solution est donc de créer 2 groupes, chacun avec les mêmes apsas, mais des dates différentes pour les fins de séquence.
+exemple :
+Groupe Term 1 (apsa danse (date 1), handball (date 2), escalade (date 3)) Groupe Term 2 (apsa danse (date 1 bis), handball (date 2 bis), escalade (date 3))
+Vous placerez ensuite vos élèves respectivement dans les groupes Groupe Term 1 ou Groupe Term 2 en fopnction de leurs dates d’évaluation.
+
+
+Question 6. mes élèves ULIS sont répartis sur des classes avec des niveaux différents. Lorsque je crée un groupe je suis bloqué car il faut indiquer le niveau de classe. Une solution ?
+
+ 
+
+
+ 
+Réponse : effectivement, par défaut pour chaque classe ou chaque groupe de type EPS, on ne peut définir qu’un seul niveau de classe.
+Si les élèves ULIS sont répartis dans des classes de 5°, 4° et 3°, il faut créer 3 groupes, chacun avec son niveau de classe, et nommer par exemple les groupes [ULES 5eme], [ULIS 4eme], [Ulis 3eme].
+Ensuite il suffira de placer chaque élève ULIS dans son bon groupe.
+Et si plusieurs groupes sont regroupés sur le même créneau d’emploi du temps, il suffira de placer ces divers groupes sur le même créneau horaire dans l’agenda
+
+
+Question 7. dans un groupe EPS, je mélange des élèves de 2nde et de 1ères. Cependant à la création du groupe je ne peux déclarer qu’un seul cycle scolaire
+
+Réponse : un groupe EPS ne peut effectivement être associé qu’à un seul niveau de classe. Pour contourner cela, il faut donc créer 2 groupes distincts, (par exemple "menu1_Secondes", et "menu1-Premières").
+Ensuite vous placerez dans le 1er groupe les élèves de 2nde concernés, et dans le 2nd groupe les élèves de 1ère cocernés.
+
+et sur l’emploi du temps, il suffira de déclarer les 2 groupes sur le même créneau d’emploi du temps. (pour cela, suivre l’explication dans la Qusteion/Réponse n°4 de cet article : https://ipackeps.ac-creteil.fr/spip.php? article20 (https://ipackeps.ac-creteil.fr/spip.php?article20)
+
+
+Question 8. dans notre établissement, les BAC PRO n’ont que 2 APSA programmées et certificatives au regard de la particularité de notre établissement : BAC sur 4 ans pour eux.
+Ainsi, depuis toujours, nous évaluons des APSA au BAC en 3ème année (correspondant à une 1ère-terminale) et en 4ème année (Terminale) afin qu’ils soient bien évalués sur 3 APSA comme convenu dans les textes. .
+Or sur IPACKEPS, cette particularité n’est pas recevable. Comment faire ?
+
+ 
+
+
+ 
+Réponse : Pour la gestion des examens, iPackEPS ne peut que se conformer aux exigences techniques de Cyclades et Santorin.
+
+Pour que les élèves puissent être évalués en 4ème année sur Santorin, il faudra fournir à Cyclades un protocole de 3 apsast.
+
+Nous vous proposons donc la solution suivante :
+› Pour les élèves de 3ème année, déclarez leur cycle scolaire en 1ère bac pro.
+› Pour les élèves de 4ème année . déclarez leur cycle scolaire en Terminale bac pro
+==> ipack considèrera donc qu’il font une 2nde bac pro, puis une 1ère, puis encore une 1ère, et enfin une terminale
+
+Pour les élèves de terminale bac pro (donc de 4ème année), il va absolument falloir proposer des protocoles de 3 apsas. Donc pour la 3 ème apsa qui a déjà été évaluée l’année précédente, il va falloir la déclarer à nouveau les séquences d’apprentissage même si l’apsa n’est pas enseignée (inutile de la placer dans les emplois du temps).
+
+iPackeps pourra alors générer des fichiers de 3 apsas dans les protocoles, et Cyclades acceptera les fichiers.
+
+
+Question 9. j’enseigne plusieurs APSA dans le cadre de ma SSS, mais iPackEPS ne me permet de déclarer qu’une seule APSA dans le groupe SSS
+
+Réponse : Effectivement pour des raisons techniques nous devons associer une seule APSA par groupe SSS. La solution est donc de créer manuellement une APSA, en lui donnant le nom des diverses APSAs de la SSS. par exemple : "Football-Musculation". la création d’APSA se fait dans le module [dossiers]/[dossier EPS]/[APSA]
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS)
+
+12 / 01 / 2026
+  (http://www.facebook.com/sharer.php?u=spip.php?article93&t=[Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS))   (https://plus.google.com/share?url=spip.php? article93)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS)&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle93)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Interface Professeur et Chef Établissement :
+Tableau de bord => Dossiers => Dossier EPS ==> Groupes
+
+La gestion de l’EPPCS est particulière, puisque cet enseignement est certificatif, mais les notes sont gérées par le logiciel de vie scolaire (Pronote, École-directe...).
+iPackEPS ne gère donc pas pour le moment toute la partie certificative.
+
+Les étapes de gestion sont donc les suivantes :
+1 - gestion des APSAs :
+si une APSA de l’ EPPCS n’est évaluée que dans le cadre de l’EPPCS et pas pour le CCF en bac GT, il n’y a pas à cocher la case Certificative dans la configuration des APSAs.
+cf. tutoriel gestion APSA : https://ipackeps.ac-creteil.fr/spip.php?article15 (https://ipackeps.ac- creteil.fr/spip.php?article15)
+ 
+
+
+2 - Gestion des Groupes :
+les groupes de type EPPCS se créent dans le menu EPPCS du module Dossiers => Dossier EPS ==> Groupes. cf. tutoriel gestion Groupes : https://ipackeps.ac-creteil.fr/spip.php?article17 (https://ipackeps.ac- creteil.fr/spip.php?article17)
+Cependant pour éviter la complexité, nous ne proposons que des APSAs en tant que support d’apprentissage pour les séquences.
+Pour les équipes qui ont des cours d’apports théoriques sur des créneaux spécifiques, il est possible de déclarer des séquences d’apprentissage qui ne seraient pas dédiées à une APSA particulière.
+L’astuce est, dans le gestion des groupes, d’aller dans le menu [groupes divers sans APSA], et de créer un nouveau groupe que vous nommerez par exemple [EPPCS théorie]. vous pourrez affecter les séquences d’apprentissage sans avoir à préciser d’APSA.
+Vous pourrez alors placer ce groupe sur votre emploi du temps.
+
+3 - Certification : lorsqu’iPackEPS repère des groupes de type EPPCS, il devient possible de déposer les référentiels pour chacune des APSAs.
+Ceci se fait dans Dossiers => Dossier Certificatif ==> Référentiels
+cf. tutoriel dépôt référentiels : https://ipackeps.ac-creteil.fr/spip.php?article38 (https://ipackeps.ac- creteil.fr/spip.php?article38)
+
+NOTE : iPakEPS demande un dépôt de référentiel pour chaque APSA repérée dans ces groupes. si certaines APSA ne sont pas évaluées et ne nécessitent pas de référentiel, il suffit d’ignorer les alertes iPackEPS, et simplement préciser ceci dans les commentaires de l’équipe.
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets (Établissement, EPS, AS, SSS)
+
+13 / 09 / 2019
+  (http://www.facebook.com/sharer.php?u=spip.php?article27&t=[Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets (Établissement, EPS, AS, SSS))   (https://plus.google.com/share? url=spip.php?article27)   (https://twitter.com/intent/tweet?source=webclient&text= [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets (Établissement, EPS, AS, SSS)&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle27)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossier et Projets ==> Les Projets
+ 
+
+
+[Dossiers]/[DossierEPS]/[Projets] Configuration de
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Question / Réponses
+
+
+Q1 : pourquoi ne puis-je pas déposer mon Projet de SSS ou Projet de Classe esports-Études ?
+R : Ces 2 types de projets sont gérés dans un module plus complexe d’iPackEPS. La gestion des Projets SSS se fait dans le module [Dossiers]/[Dossier SSS].
+La gestion des Projets Sports-Études se fait dans le module [Dossiers]/[Dossier Sports-Études].
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article16&t=[Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage)   (https://plus.google.com/share?url=spip.php? article16)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle16)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Périodes
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École- Directe
+
+27 / 08 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article88&t=[Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe)   (https://plus.google.com/share?url=spip.php?article88)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle88)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Élèves
+
+Si vous avez déjà placé vos élèves dans des groupes sur Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...) vous pouvez depuis ces logiciels extraire vos groupes d’élèves, et les importer d’un clic dans iPackEPS.
+
+Résumé de la Procédure :
+1- générer le fichier des élèves depuis votre logiciel de vie scolaire, l’enregistrer sur son ordinateur
+2 - depuis iPackEPS, cliquer sur [Importer un fichier télèves], et sélectionner le fichier précédemment créé.
+
+Détail des Manipulations :
+ 
+
+
+
+Pronote
+- menu [Mes Données] / [Liste des Élèves]
+› sélectionner le groupe à exporter
+› cliquer en haut à droite sur l’icône d’export des élèves.
+ 
+
+
+
+
+École Directe
+- aller dans le menu [consultation] puis onglet [groupes] puis icône [Les éditions]
+› cocher uniquement [date de naissance], [sexe] et [classe], puis cliquer sur [visualiser]
+› cliquer sur [télécharger le document]
+› ouvrir ensuite le fichier excel généré, supprimer les lignes inutiles pour ne garder que la ligne d’entête
+› enfin cliquer sur [enregistrer sous] pour choisir le format CSV séparateur point-virgule
+
+
+
+fonctionnalité d’import des élèves sur iPackEPS
+- Tableau de bord => Dossiers => Dossier EPS => Élèves
+› cliquer sur [Importer un fichier Pronote], sélectionner le fichier csv
+
+
+Attention : il est déconseillé de tenter d’ouvrir les fichiers CSV avec Excel leur format risquerait d’être corrompu et l’import dans iPackeps ne fonctionnerait plus.
+(par exemple si une classe s’appelle 1-1, l’ouverture du fichier sur Excel transformerait la cellule en date et
+ 
+
+
+remplacerait [1-1] en [1er janvier].)
+
+
+En cas d’erreur signalée à l’importation
+si iPackEPS indique que des classes n’ont pas été retrouvées.
+› vérifiez que vous avez bien importé vos classes et élèves sur iPackEPS (menu [dossiers]/[dossier EPS]/[classes])
+› vérifiez précisément dans le message d’erreur le nom de la classe qui n’est pas trouvée : si le nom n’est pas exactement le même que la vraie classe équivalente sur iPackEPS (par exemple, avec des espaces ou des
+caractères en moins : une classe peut s’appeller g-t1 sur iPackeps, et t1 sur Pronote), c’est que votre administration a modifié manuellement des noms de classe sur Pronote, sans les synchroniser avec les bases du rectorat. Cette manipulation est à proscrire puisque cela rend Pronote incompatible avec toutes les applis du rectorat.
+Le cas échéant, vous devrez renommer les noms de classe manuellement sur le fichier de Pronote. Suivez le
+tutoriel ci-dessous pour cette manipulation : (merci Guillaume Hubert pour la contribution ;-) )
+
+
+[tutoriel iPackEPS] import d’élèves de groupes pro
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+si iPackEPS indique des noms d’élèves qui n’ont pas retrouvés.
+› là aussi, cette alerte s’affiche si votre administration a modifié manuellement des noms d’élèves sur Pronote, sans les synchroniser avec les bases du rectorat. Cette manipulation est à proscrire puisque cela rend Pronote incompatible avec toutes les applis du rectorat.
+› Comme cela ne concerne que très peu d’élèves, il suffit dans ce cas d’ajouter manuellement les quelques
+élèves en erreur avec la procédure classique d’ajout d’élève dans un groupe.
+› Prévenez tout de même votre administration que la préconisation est de demander les modifications de données sur Siecle, puis de synchroniser Pronote avec Siecle pour récupérer les modifications.
+
+ 
+
+
+
+Création/modification manuelle d’un fichier à partir du presse-papier (issu de Pronote, excel ou tout autre logiciel de vie scolaire)
+si Pronote copie la liste dans le presse-papier au lieu de générer un fichier, vous pouvez le créer vous même :
+
+1.	créez un fichier texte vierge sur le bureau (sur windows : clic droit => nouveau => document texte)
+2.	ouvrez le fichier, copiez le texte suivant en ligne 1 : Nom ;Prénom ;Date de naissance ;Sexe ;Classe
+3.	en ligne 2, collez le presse papier issu de votre logiciel de vie scolaire(clic droit => coller)
+4.	enregistrer et fermer le fichier
+5.	renommez-le, en remplaçant l’extension .txt en .csv
+6.	Vous pouvez maintenant importer le fichier sur iPackEPS
+
+
+
+
+Création/modification manuelle d’un fichier
+si votre logiciel de vie scolaire ne propose pas de fichier compatible avec iPackEPS, vous pouvez le créer vous même :
+
+1.	ouvrez un classeur vierge sur excel
+2.	en ligne 1, mettez dans les cellules les libellés suivants (respectez la casse !) : Nom, Prénom, Date de naissance,Sexe,Classe
+3.	si la liste d’élèves est dans le presse papier,
+4.	dans les lignes suivantes, saisissez les infos élèves avec une ligne par élève. tapez les dates au format JJ/MM/AAAA, et en colonne sexe tapez M ou F. Le nom de classe doit être strictement le même que les libellé de classe d’ipackeps (respecter la casse, les espaces, accents...)
+5.	enregistrer le fichier en passant par le menu [enregistrer sous], et choisissez le format [CSV utf8, séparateur ;]
+6.	vous pouvez alors importer le fichier dans iPackEPS
+
+
+QUESTIONS / RÉPONSES
+
+Q 1 : un message d’erreur m’indique que des colonnes n’ont pas été trouvées dans l’en-tête du fichier
+
+R : Il est probable que sur Pronote vous ayez demandé un export d’une classe et non d’un groupe. lorsque pronote exporte une classe, il ne génère pas de colonne de la classe des élèves. L’import est alors impossible sur iPackeps.
+
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes (AS, SSS, classe mélangées…)
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article18&t=[Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes (AS, SSS, classe mélangées…))   (https://plus.google.com/share?url=spip.php? article18)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes (AS, SSS, classe mélangées…)&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle18)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossiers => Dossier EPS => Élèves
+
+Note : depuis la version 2025 il est possible de récupérer d’un clic les élèves de Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...)
+tous les détails sur cet article : https://ipackeps.ac-creteil.fr/spip.php?article88 (https://ipackeps.ac- creteil.fr/spip.php?article88).
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+QUESTIONS/RÉPONSES
+
+Question 1 : La liste de mes classes n’apparaît pas (ou certaines classes sont manquantes) lorsque je sélectionne [Visualisation par : [classes] ] dans la première liste déroulante.
+
+Réponse : Ce problème apparaît si vous n’avez pas encore configuré toutes les classes de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (https://ipackeps.ac-creteil.fr/spip.php? article14).
+
+
+Question 2 : Lorsque je sélectionne une classe, celle-ci est vide, aucun élève n’apparait
+
+Réponse : Ce problème apparaît si vous n’avez pas encore importé les élèves de votre établissement.
+Suivez le tutoriel de configuration des classes et d’import des élèves (https://ipackeps.ac-creteil.fr/spip.php? article14).
+
+
+Question 3 : la liste des élèves dans les classes n’est pas à jour (élèves arrivés en cours d’année / élèves ayant quitté l’établissement / élèves ayant changé de classe
+
+Réponse : Pour mettre à jour la liste des élèves , retournez dans Tableau de bord => Dossiers => Dossier EPS => Classes.
+puis menu [importation élèves] => [Actualiser]
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article13&t=[Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS)   (https://plus.google.com/share?url=spip.php?article13)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle13)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Éguipe EPS
+
+La liste des enseignants de l’équipe EPS est extraite directement des bases du rectorat (EPP Public et IPP Privé). Si la liste est incomplète, pensez à cliquer sur [Actualiser] pour forcer une recherche de mise à jour.
+Si en début d’année un enseignant nouvellement affecté n’apparaît toujours pas après le clic sur [Actualiser], c’est que les affectations au sein du rectorat ne sont toujours pas à jour. il convient dans ce cas de patienter quelques jours puis redemander une actualisation.
+ 
+
+
+[tuto iPackEPS] interface Professeur - Gestion de l
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+Vidéo 2 : Gestion des Remplacements
+
+[tuto iPackEPS] Gestion des Remplacements
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+Vidéo 3 : cas particulier des Établissements Français à l’Étranger
+ 
+
+
+[Tutoriel iPackEPS] Dossiers DossierEPS EquipeEP
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Question / Réponses
+
+Q1 : Je ne suis pas coordonnateur, je ne peux pas actualiser la liste des enseignants
+R1 : Si vous constatez que la liste des enseignants est incomplète il suffit de demander à votre coordinateur de se connecter à l’application puis :
+› aller dans [équipe EPS] ==> [Actualiser]
+
+Si jamais le coordinateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte).
+Vous pourrez alors faire toutes les manipulations d’import profs/élèves. Pensez à décocher votre statut coordonnateur après ces manipulations.
+Q2 : nous avons créé par erreur un intervenant extérieur, comment le supprimer ?
+R2 :
+*- retournez dans Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Éguipe EPS
+*- dans le tableau [intervenants extérieurs], cliquer sur l’icône [modifier] de cet intervenant
+*- dans la fenêtre qui s’ouvre, cliquez sur [Supprimer].
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8)
+ 
+
+
+Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article19&t=[Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs)   (https://plus.google.com/share?url=spip.php?article19)   (https://twitter.com/intent/tweet?source=webclient&text=[Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle19)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Dossier EPS ==> Équipements Sportifs
+ 
+
+Présentation globale du module de gestion des équipements sportifs
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Déclarer et Configurer les équipements sportifs utilisés par mon établissement (EPS, AS, SSS…)
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+Identifier les Emplois du temps d’utilisation de chaque équipement (affichage des créneaux des autres établissements utilisant le même équipement)
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Rechercher un équipement spécifique en fonction de son type, dans un périmètre choisi
+
+[tutoriel iPackEPS] interface Professeur - Dossiers
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Fiche Professeur] Renseigner sa Fiche Professeur
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article11&t=[Fiche Professeur] Renseigner sa Fiche Professeur)   (https://plus.google.com/share?url=spip.php?article11)   (https://twitter.com/intent/tweet? source=webclient&text=[Fiche Professeur] Renseigner sa Fiche Professeur&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle11)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité : Tableau de bord => Fiche Professeur
+
+[Tutoriel iPackEPS] Modifier sa Fiche Professeur
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+Questions / Réponses
+Question
+Je suis spécialiste d’une activité qui n’est pas référencée dans la liste d’APSA prédéfinie, comment puis-je déclarer ma spécialisté sportive ?
+Réponse
+Il vous suffit d’aller dans le module [Dossiers] / [Dossier EPS] / [APSA] : vous pourrez alors créer manuellement une nouvelle APSA. Pensez à ne pas déclarer cette APSA certificative évidemment puisqu’elle ne sera pas enseignée.
+Vous verrez alors cette nouvelle APSA dans votre fiche Prof, dans la liste des spécialistés sportives ainsi que dans la liste des APSAs de voeux de formation.
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels)
+
+08 / 06 / 2019
+  (http://www.facebook.com/sharer.php?u=spip.php?article26&t=[Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels))   (https://plus.google.com/share?url=spip.php?article26)   (https://twitter.com/intent/tweet?source=webclient&text=[Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels)&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle26)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité :
+Tableau de bord => Matériel
+
+Lorsque vous programmez l’activité Escalade dans votre établissement, vous êtes tenus de tenir à jour un Registre EPI.
+IpackEPS vous permet de constituer votre registre de Matériel EPI. À la différence des registres sous forme papier, iPackEPS vous alerte automatiquement dès que les dates de contrêle sont dépassées, qu’un matériel a dépassé sa date de fin de vie, ou que des achats doivent être prévus dans l’année.
+Le registre est accessible directement par toute l’équipe, et conservé année après année. Vous pouvez également imprimer ou sauvegarder au format PDF votre registre EPI.
+ 
+
+
+[Tutoriel iPackEPS] Gestion du Matériel EPI (Équip
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Aperçus écran :
+
+(IMG/png/capture1.png)
+ 
+
+
+ 
+(IMG/png/capture11.png)
+
+(IMG/png/capture2.png)
+ 
+
+
+ 
+(IMG/png/capture3.png)
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement
+
+28 / 08 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article90&t=[Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement)   (https://plus.google.com/share?url=spip.php?article90)   (https://twitter.com/intent/tweet?source=webclient&text=[Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle90)   (spip.php?page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur ou chef d’Établissement :
+module : [Mes Élèves]/[Inaptitudes]
+
+Retrouvez sur cette page les certificats médicaux présentés pour les inaptitudes partielles et totales des élèves.
+ 
+
+
+[Tuto iPackEPS] Suivi des Inaptitudes des élèves
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+› Pour ajouter des certificats médicaux, allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes], et déposez les certificats des élèves concernés. (cf. article : https://ipackeps.ac-creteil.fr/spip.php?article82 (https://ipackeps.ac-creteil.fr/spip.php?article82))
+› Pour consulter vos statistiques d’Inaptitudes, allez dans le module [Statistiques / Offre de Formation] /
+[Statistiques Inaptitudes]
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Mes Élèves]/[Visualisation] Visualisation des informations élèves (parcours scolaire, savoir-nager, dispenses)
+
+28 / 08 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article48&t=[Mes Élèves]/[Visualisation] Visualisation des informations élèves (parcours scolaire, savoir-nager, dispenses))   (https://plus.google.com/share?url=spip.php? article48)   (https://twitter.com/intent/tweet?source=webclient&text=[Mes Élèves]/[Visualisation] Visualisation des informations élèves (parcours scolaire, savoir-nager, dispenses)&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle48)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Élèves => Visualisation
+
+Onglets : [Généralités], [Scolarité], [APSA]
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - mes Élèv
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+Onglet [Savoir-Nager]
+la gestion spécifique de l’onglet [Savoir-Nager] (validation des ASNS et impression des attestations), est décrite dans cet article :
+http://ipackeps.ac-creteil.fr/spip.php?article50 (http://ipackeps.ac-creteil.fr/spip.php?article50)
+
+Onglet [Inaptitudes]
+iPackEPS permet le dépôt des certificats médicaux pour les inaptitudes partielles et totales.
+la gestion spécifique de l’onglet [Savoir-Nager] (validation des ASNS et impression des attestations), est décrite dans cet article :
+http://ipackeps.ac-creteil.fr/spip.php?article50 (http://ipackeps.ac-creteil.fr/spip.php?article82)
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves
+
+23 / 05 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article82&t=[Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves)   (https://plus.google.com/share?url=spip.php?article82)   (https://twitter.com/intent/tweet?source=webclient&text=[Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle82)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Élèves => Visualisation
+
+Onglet [Inaptitudes]
+ 
+
+
+[tutoriel iPackEPS] [Mes Élèves]/[Visualisation][Ina
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+(IMG/pdf/ipackeps_smartphone-inaptitudes.pdf)
+démo d’utilisation sur téléphone (utilisation appareil photo)
+
+
+Documents
+(IMG/pdf/ipackeps_smartphone-inaptitudes.pdf)
+démo d’utilisation sur téléphone (utilisation appareil photo) (IMG/pdf/ipackeps_smartphone- inaptitudes.pdf)
+ipackeps_smartphone-inaptitudes.pdf 07 / 05 / 2026
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS
+
+28 / 08 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article50&t=[Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS)   (https://plus.google.com/share?url=spip.php?article50)   (https://twitter.com/intent/tweet?source=webclient&text=[Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle50)   (spip.php? page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Élèves => Visualisation ==> onglet Savoir Nager
+
+[tutoriel iPackEPS] eleves - visualisation - validatio
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+NOTE : pour l’import des attestations déjà saisies sur CollègeEPS, et l’impression en série de toutes les attestations de l’établissement, consultez ce tutoriel :
+https://ipackeps.ac-creteil.fr/spip.php?article49 (https://ipackeps.ac-creteil.fr/spip.php?article49)
+ 
+
+Questions / Réponses
+
+
+Question 1 : je dois éditer les attestations d’élèves qui ont validé l’ASNS l’année précédente, mais ils ont quitté l’établissenment, je ne les vois plus apparaître.
+réponse :
+1- sur la page principale, sélectionnez l’année scolaire de l’année précédente pour vous placer sur l’historique de la session précédente.
+ 
+(IMG/png/annescolaire.png)
+
+
+
+
+2	– allez ensuite dans [mes élèves/ visualisation]
+3	– par défaut ipackeps n’affiche que les élèves encore scolarisés. Il va donc falloir demander à afficher les élèves sortis de l’établissement.
+Pour cela, sélectionner une visualisation par [statut], type [sorti étab], sélection [tous]
+ 
+
+
+Question 1 : je dois éditer les attestations d’élèves qui ont validé l’ASNS l’année précédente, mais ils ont quitté l’établissenment, je ne les vois plus apparaître.
+
+(IMG/png/visu.png)
+
+
+
+
+4	- Vos anciens élèves apparaissent alors, vous pouvez générer leurs attestations
+
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS
+
+10 / 12 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article92&t=[MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS)   (https://plus.google.com/share?url=spip.php?article92)   (https://twitter.com/intent/tweet?source=webclient&text=[MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle92)   (spip.php?page=contact2&id_auteur=2)  
+Accès à la fonctionnalité
+[Mes Documents]/[Bibliothèque]
+
+[Tuto iPackEPS] Accès à la Bibliothèque de Docum
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross
+
+04 / 10 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article57&t=[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross)   (https://plus.google.com/share?url=spip.php? article57)   (https://twitter.com/intent/tweet?source=webclient&text=[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle57)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Documents => Dossards
+
+Tutoriel 1 : Sélection, Filtres, numérotation et Impression des dossards
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - Docume
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+
+
+Tutoriel 2 : Transférer la liste des coureurs sur le logiciel CrossEPS (association EPSoft)
+
+[tutoriel iPackEPS] interface Professeur - Gestion
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+(lien de téléchargement de CrossEPS : https://epsoft.fr/wp/2017/09/28/crosseps/ (https://epsoft.fr/wp/2017/09/28/crosseps/))
+ 
+
+
+Tutoriel 3 : Transférer la liste des coureurs sur LogiCross (Excel - Arnaud Pelliet)
+
+[tutoriel iPackEPS] interface Professeur - Gestion
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+(lien de téléchargement de LogiCross : https://eps.ac-creteil.fr/spip.php?article184 (https://eps.ac- creteil.fr/spip.php?article184))
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross
+
+04 / 10 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article57&t=[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross)   (https://plus.google.com/share?url=spip.php? article57)   (https://twitter.com/intent/tweet?source=webclient&text=[MesDocuments]/[Documents] / [Dossards] : Gestion (filtrer, numéroter, imprimer) des dossards de Cross&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle57)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Documents => Dossards
+
+Tutoriel 1 : Sélection, Filtres, numérotation et Impression des dossards
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - Docume
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+
+
+
+Tutoriel 2 : Transférer la liste des coureurs sur le logiciel CrossEPS (association EPSoft)
+
+[tutoriel iPackEPS] interface Professeur - Gestion
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+(lien de téléchargement de CrossEPS : https://epsoft.fr/wp/2017/09/28/crosseps/ (https://epsoft.fr/wp/2017/09/28/crosseps/))
+ 
+
+
+Tutoriel 3 : Transférer la liste des coureurs sur LogiCross (Excel - Arnaud Pelliet)
+
+[tutoriel iPackEPS] interface Professeur - Gestion
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+(lien de téléchargement de LogiCross : https://eps.ac-creteil.fr/spip.php?article184 (https://eps.ac- creteil.fr/spip.php?article184))
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève
+
+02 / 09 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article56&t=[MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève)   (https://plus.google.com/share? url=spip.php?article56)   (https://twitter.com/intent/tweet?source=webclient&text= [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle56)   (spip.php? page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Documents Administratifs => Programmation
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - imprime
+EPS Créteil
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Documents] Enregistrement et Impression de documents
+
+13 / 05 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article54&t=[MesDocuments]/[Documents] Enregistrement et Impression de documents)   (https://plus.google.com/share?url=spip.php?article54)   (https://twitter.com/intent/tweet?source=webclient&text=[MesDocuments]/[Documents] Enregistrement et Impression de documents&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle54)   (spip.php?page=contact2&id_auteur=3)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Documents
+
+iPackEPS permet d’éditer, imprimer et stocker divers documents, notamment des bordereaux de présence ou des bordereaux de notes pour les épreuves de certification.
+Vous pouvez ainsi générer des documents officiels, les faire signer par vos élèves afin de garder une trace des notes et présences des élèves aux examens.
+ 
+
+
+[tutoriel iPackEPS] Impression de documents adm
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages
+
+26 / 08 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article47&t=[MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages)   (https://plus.google.com/share?url=spip.php?article47)   (https://twitter.com/intent/tweet?source=webclient&text=[MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle47)   (spip.php? page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Mes Documents => Publipostage
+
+la fonction de publipostage permet d’éditer des documents modèle, contenant des balises spécifiques permettant d’intégrer dynamiquement diverses informations (nom et prénom de l’élève, etc…).
+
+Lorsque vous imprimez un publipostage à partir d’une sélection d’élèves, vous imprimez une série de documents, contenant chacun des infos personnalisées par élève.
+ 
+
+
+[tutoriel iPackEPS] interface Professeur - publipos
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Offre de Formation] / [Groupes et APSAs]
+
+28 / 11 / 2024
+  (http://www.facebook.com/sharer.php?u=spip.php?article77&t=[Offre de Formation] / [Groupes et APSAs])   (https://plus.google.com/share?url=spip.php?article77)   (https://twitter.com/intent/tweet? source=webclient&text=[Offre de Formation] / [Groupes et APSAs]&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle77)   (spip.php?page=contact2&id_auteur=2)  
+Accès à cette fonctionnalité :
+Tableau de bord => Offre de Formation ==> Groupes et APSAs
+
+Cet article vous montre comment repérer les divers groupes (AS, SSS, option) de l’académie, et faire des filtres sur les APSAs et zone géographique pour repérer les pratiques autour de votre établissement.
+ 
+
+
+[tutoriel iPackEPS] interface Prof - Module [Offre d
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Outils]/[Export Fichier Elèves vers d’autres logiciels]
+
+28 / 08 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article89&t=[Outils]/[Export Fichier Elèves vers d’autres logiciels])   (https://plus.google.com/share?url=spip.php?article89)   (https://twitter.com/intent/tweet? source=webclient&text=[Outils]/[Export Fichier Elèves vers d’autres logiciels]&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle89)   (spip.php? page=contact2&id_auteur=2)  
+Accès à la fonctionnalité :
+interface Professeur :
+module : [Outils]/[Export Fichier Elèves vers d’autres logiciels]
+
+iPackEPS vous permet d’exporter la liste des élèves de vos divers groupes et classes, pour les logiciels de gestion d’élèves, comme Idoceo ou Additio.
+
+iPackEPS génère un dossier zip, dans lequel vous trouverez un fichier par groupe. chaque fichier contient la liste des élèves du groupe.
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+ 
+
+
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement
+
+25 / 05 / 2025
+  (http://www.facebook.com/sharer.php?u=spip.php?article86&t=[Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement)   (https://plus.google.com/share?url=spip.php?article86)   (https://twitter.com/intent/tweet?source=webclient&text=[Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle86)   (spip.php?page=contact2&id_auteur=2)  
+Accés à la fonctionnalité
+[statistiques et Offre de Formation] / [Statistiques Inaptitudes]
+
+[tutoriel iPackEPS] Statistiques Inaptitudes
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+[Établissement] Configuration de la Fiche Établissement
+
+12 / 10 / 2018
+  (http://www.facebook.com/sharer.php?u=spip.php?article12&t=[Établissement] Configuration de la Fiche Établissement)   (https://plus.google.com/share?url=spip.php?article12)   (https://twitter.com/intent/tweet? source=webclient&text=[Établissement] Configuration de la Fiche Établissement&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle12)   (spip.php? page=contact2&id_auteur=2)  
+
+
+
+Accès à cette fonctionnalité : Tableau de bord => Établissement
+ 
+
+
+[Tutoriel iPackEPS] Configuration de la Fiche Établ
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Questions / Réponses
+Question
+Les informations de contact (nom du chef et / ou nom de l’adjoint) ne sont pas bonnes, un nouveau chef / adjoint a pris ses fonctions.
+
+Réponse
+iPackEPS extrait les informations de l’établissement depuis la base des établissements du rectorat (RAMSESE). Il est fréquent que des informations administratives n’aient pas été mises à jour en début d’année scolaire.
+
+Il faut dans ce cas que votre chef d’établissement fasse un signalement auprès du service de gestion des bases administratives pour qu’une mise à jour des données soit faite. Ceci permettra que cette information soit à jour sur toutes les autres applications du rectorat.
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+Choix de l’année scolaire
+
+27 / 01 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article33&t=Choix de l’année scolaire)   (https://plus.google.com/share?url=spip.php?article33)   (https://twitter.com/intent/tweet? source=webclient&text=Choix de l’année scolaire&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle33)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+[Accueil] Présentation de la fonctionnalité de choix d’année scolaire
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8)
+ 
+
+
+Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+Interface chef d’établissement : description de l’interface complète
+
+07 / 12 / 2022
+  (http://www.facebook.com/sharer.php?u=spip.php?article58&t=Interface chef d’établissement : description de l’interface complète)   (https://plus.google.com/share?url=spip.php?article58)   (https://twitter.com/intent/tweet?source=webclient&text=Interface chef d’établissement : description de l’interface complète&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle58)   (spip.php? page=contact2&id_auteur=2)  
+ce tutoriel présente le détail des modules accessibles au chef d’établissement, et les validations nécessaires demandées (validation des projets de Section Sportive Scolaire, de l’enquête natation…)
+
+tutoriel #1 : présentation des divers modules, navigation dans l’application
+ 
+
+
+[tutoriel iPackEPS] interface Chef Établissement :
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+tutoriel #2 : validation des divers dossiers (SSS, enquête natation, équipements sportifs, projets APPN…)
+
+[tutoriel iPackEPS] interface Chef Établissement :
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+Les manipulations requises à chaque nouvelle année scolaire
+
+31 / 08 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article51&t=Les manipulations requises à chaque nouvelle année scolaire)   (https://plus.google.com/share?url=spip.php?article51)   (https://twitter.com/intent/tweet? source=webclient&text=Les manipulations requises à chaque nouvelle année scolaire&url=https%3A%2F%2Fipackeps.ac-creteil.fr%2Fspip.php%3Farticle51)   (spip.php? page=contact2&id_auteur=2)  
+à Chaque nouvelle année scolaire, iPackEPS procède à un archivage et nettoyage des données. Vous devez chaque année compléter les informations existantes, pour la nouvelle année en cours.
+Ce tutoriel vous reprécise la liste des manipulations essentielles à exécuter chaque année (rafraichir la liste des enseignants, reconfigurer les classes, réimporter les élèves…)
+ 
+
+
+[tutoriel iPackEPS] les Manipulations à chaque No
+EPS Créteil
+
+
+
+
+
+
+
+
+
+Regarder sur
+
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+Sélection de votre établissement
+
+07 / 02 / 2021
+  (http://www.facebook.com/sharer.php?u=spip.php?article43&t=Sélection de votre établissement)   (https://plus.google.com/share?url=spip.php?article43)   (https://twitter.com/intent/tweet? source=webclient&text=Sélection de votre établissement&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle43)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+[Accueil] Sélection de votre établissement.
+
+
+ 
+
+QUESTIONS/RÉPONSES
+
+
+Question 1 : "J’arrive bien à accéder à iPackEPS - Professeur, mais mon établissement n’apparaît pas (aucun établissement proposé, ou c’est mon ancien établissement est proposé)
+Réponse : Ce problème indique qu’Arena vous reconnaît en tant que professeur EPS, mais lorsque vous
+accédez à iPackEPS, votre adresse mail n’est pas connue dans les bases iPackEPS. Plusieurs causes peuvent être à l’origine de ce probleme :
+› 1. usage de la mauvaise adresse mail : certains enseignants ont plusieurs adresses mail professionnelle (cas particuliers d’enseignants TZR / contractuels pour lesquels le rectorat a par erreur générer un nouveau compte lors d’une nouvelle année scolaire plutôt que de modifier une ancienne fiche existante).
+Si vous avez plusieurs comptes, vous avez alors plusieurs identifiants académiques.
+
+Par exemple, l’enseignant contractuel François Dupont a eu un identifiant fdupont, puis a été titularisé, et reçu un autre identifiant fdupont1.
+s’il entre sur iPackEPS avec l’identifiant fdupont, il sera connecté à son ancien établissement, iPackEPS ne le reconnaîtra pas. Il faut donc qu’il saisisse le nouvel identifiant fdupont1 pour voir son établissement actuel.
+
+-	2. Certains établissements privés peuvent également ne pas avoir été importés sur iPackEPS, ce que explique une page vierge lors de l’accès à iPackEPS.
+
+-	3. Certains enseignants peuvent ne pas avoir été affectés en début d’année sur les certaines bases professeur, ce qui peut exister qu’ils n’existent pas encoère sur iPackEPS.
+
+Dans tous les cas, prenez contact avec votre correspondant académique iPackEPS, en lui fournissant le login avec lequel vous vous connectez à Arena, pour qu’il puisse investiguer auprès des services de la DSI.
+
+
+Question 2 : "j’ai une affection à l’année dans un Collège, mais je suis rattachée administrativement à un autre Lycée. Je n’ai pas d’accès sur ipackeps au Lycée)
+Réponse : Si vous n’enseignez pas sur le lycée, c’est normal que vous n’ayez pas accès à cet établissement dans iPackEPS. Votre saisie iPackEPS ne concerne que les établissements où vous enseignez.
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)
+ 
+
+
+
+
+
+
+(http://www.education.gouv.fr)
+(https://ipackeps.ac-creteil.fr)
+Tableau de bord iPackEPS
+
+27 / 01 / 2020
+  (http://www.facebook.com/sharer.php?u=spip.php?article34&t=Tableau de bord iPackEPS)   (https://plus.google.com/share?url=spip.php?article34)   (https://twitter.com/intent/tweet? source=webclient&text=Tableau de bord iPackEPS&url=https%3A%2F%2Fipackeps.ac- creteil.fr%2Fspip.php%3Farticle34)   (spip.php?page=contact2&id_auteur=2)  
+
+
+
+Présentation de l’ergonomie des tableaux de bord d’iPackEPS
+
+[tutoriel ipackeps] les tableaux de bord
+EPS Créteil
+
+
+
+
+
+
+
+
+
+
+Regarder sur
+ 
+
+
+Directeur de publication :
+Pascal Gaduel (spip.php?page=contact2&id_auteur=8) Secrétaire de rédaction :
+webmestre (spip.php?page=contact2&id_auteur=2) Hébergement :
+Rectorat Créteil (http://Rectorat Créteil) Rectorat Créteil
+  Nous écrire (spip.php?page=contact2&id_auteur=2)

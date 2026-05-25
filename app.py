@@ -743,8 +743,39 @@ if prompt:
             html_table += "</table>"
             texte_brut = re.sub(r'\|.*\|(\n\|.*\|)*', html_table, texte_brut)
 
+       # --- REMPLACE CETTE PARTIE EN BAS DE LA SECTION 9 ---
         texte_html = texte_brut.replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+        
+        if mode == "peda":
+            # Armure absolue : Style inline + micro-style local pour forcer le texte sombre sur fond blanc
+            formatted_answer = f"""
+            <div style="
+                background-color: #ffffff !important; 
+                color: #1e293b !important; 
+                padding: 30px; 
+                border-radius: 12px; 
+                box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); 
+                margin-top: 15px; 
+                border-left: 6px solid #4f46e5;
+            ">
+                <strong style="color: #4f46e5 !important; font-size: 1.25rem; display: block; margin-bottom: 10px;">{badge} :</strong>
+                <div class="peda-content-fix" style="color: #1e293b !important;">
+                    {texte_html}
+                </div>
+                <style>
+                    /* Sécurité totale pour empêcher le thème sombre de Streamlit de blanchir les textes */
+                    .peda-content-fix h3 {{ color: #4f46e5 !important; font-size: 1.2rem !important; font-weight: bold !important; margin-top: 20px !important; margin-bottom: 8px !important; }}
+                    .peda-content-fix ul {{ color: #334155 !important; margin-left: 20px !important; margin-bottom: 15px !important; }}
+                    .peda-content-fix li {{ color: #334155 !important; margin-bottom: 6px !important; }}
+                    .peda-content-fix p {{ color: #1e293b !important; margin-bottom: 10px !important; }}
+                    .peda-content-fix a {{ color: #0284c7 !important; font-weight: bold !important; text-decoration: underline !important; }}
+                </style>
+            </div>
+            """
+        else:
+            # On garde ton comportement d'origine pour les autres onglets techniques
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
+            
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Rendu des vidéos associées s'il y en a et rafraîchissement

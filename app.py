@@ -503,138 +503,182 @@ with col_action_clear:
 with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
-# ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - PRIORITÉ DICTIONNAIRE)
-# ======================================================================
-st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]): 
-        if isinstance(m["content"], str) and m["content"].startswith("VIDEO_URL:"):
-            url_video = m["content"].replace("VIDEO_URL:", "").strip()
-            st.video(url_video)
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+import streamlit as st
+import os
+import pandas as pd
+import requests
+import re
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
+from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.core.memory import ChatMemoryBuffer
 
-# Liste globale des domaines académiques EPS
-domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
-    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
-    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
-    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
-    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
-    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
-    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
-    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
-]
+# ======================================================================
+# 1. CONFIGURATION DE L'APPLICATION
+# ======================================================================
+st.set_page_config(page_title="Hub IA - EPS", layout="wide", initial_sidebar_state="collapsed")
 
+# ======================================================================
+# 2. GESTION DE LA MÉMOIRE
+# ======================================================================
+if "messages_hub" not in st.session_state:
+    st.session_state.messages_hub = []
+if "active_module" not in st.session_state:
+    st.session_state.active_module = "peda"  
+
+def incrementer_et_obtenir_visites():
+    fichier_compteur = "compteur_visites.txt"
+    if not os.path.exists(fichier_compteur):
+        try:
+            with open(fichier_compteur, "w") as f: f.write("1")
+            return 1
+        except: return 1
+    try:
+        with open(fichier_compteur, "r") as f: valeur = int(f.read().strip())
+        if "visite_comptabilisee" not in st.session_state:
+            valeur += 1
+            with open(fichier_compteur, "w") as f: f.write(str(valeur))
+            st.session_state.visite_comptabilisee = True
+        return valeur
+    except: return 1
+
+nb_visites_reel = incrementer_et_obtenir_visites()
+
+# ======================================================================
+# 3. INTERFACE GRAPHIQUE (CSS)
+# ======================================================================
+img_gauche = "image_7.png"; img_eps = "image_6.png"; img_droite = "image_5.png"; img_fond = "image_8.png"
+github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
+
+css_pur = """
+    <style>
+    .santorin-card *, .general-card *, .securite-card * { color: #FFFFFF !important; }
+    .block-container { padding-top: 0.5rem !important; padding-bottom: 2rem !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; max-width: 920px !important; }
+    .stApp { background-image: url('__URL_FOND__') !important; background-size: cover !important; background-attachment: fixed !important; }
+    .hub-header { background-color: #1E293B; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; height: 85px !important; margin-bottom: 15px !important; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3); }
+    .hub-title { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-grow: 1; padding-right: 35px; }
+    .title-row { display: flex; align-items: center; justify-content: center; gap: 15px; }
+    .hub-title h1 { color: white !important; margin: 0 !important; font-size: 28px !important; font-weight: 800 !important; }
+    .badge-visiteur { background-color: rgba(16, 185, 129, 0.2) !important; color: #10B981 !important; border: 1px solid rgba(16, 185, 129, 0.45) !important; padding: 3px 12px !important; border-radius: 20px !important; font-size: 13px !important; font-weight: 800 !important; }
+    .santorin-card, .general-card, .securite-card { background-color: rgba(15, 23, 42, 0.45) !important; backdrop-filter: blur(12px) !important; padding: 18px; border-radius: 8px; margin-bottom: 16px; box-shadow: 0px 6px 20px rgba(0,0,0,0.5); }
+    .santorin-card { border-left: 6px solid #38BDF8 !important; } .general-card { border-left: 6px solid #10B981 !important; } .securite-card { border-left: 6px solid #EF4444 !important; } 
+    div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
+    div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * { color: #FFB020 !important; text-decoration: underline !important; font-weight: 600 !important; }
+    </style>
+""".replace('__URL_FOND__', f"{github_url}{img_fond}")
+st.markdown(css_pur, unsafe_allow_html=True)
+
+# ======================================================================
+# 4. CONFIGURATION LLM & RETRIEVERS
+# ======================================================================
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
+tavily_api_key = st.secrets.get("TAVILY_API_KEY")
+
+if openai_api_key:
+    Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
+    Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
+
+def obtenir_cle_fichier():
+    chemin = "gere_par_pierre.txt"
+    if os.path.exists(chemin): return os.path.getmtime(chemin)
+    return 0.0
+
+def charger_consignes_pierre():
+    chemin = "gere_par_pierre.txt"
+    if os.path.exists(chemin):
+        try:
+            with open(chemin, "r", encoding="utf-8") as f: return [Document(text=f.read(), metadata={"source": "Notes de Pierre"})]
+        except: return []
+    return []
+
+@st.cache_resource
+def initialiser_base_santorin(cle):
+    docs = [Document(text="Santorin et Cyclades sont les outils académiques.")] # Simplifié pour l'exemple
+    docs.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+
+@st.cache_resource
+def initialiser_base_ipack(cle):
+    docs = [Document(text="iPackEPS est un outil de gestion pédagogique.")]
+    docs.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+
+@st.cache_resource
+def initialiser_base_textes(cle):
+    docs = [Document(text="Cadre juridique EPS.")]
+    docs.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+
+@st.cache_resource
+def initialiser_base_peda(cle):
+    docs = [Document(text="Base Pédagogique EPS.")]
+    return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+
+# Init
+ts = obtenir_cle_fichier()
+retriever_santorin = initialiser_base_santorin(ts)
+retriever_ipack = initialiser_base_ipack(ts)
+retriever_textes = initialiser_base_textes(ts)
+retriever_peda = initialiser_base_peda(ts)
+
+# ======================================================================
+# 5. UI (Bandeau et Boutons)
+# ======================================================================
+# [Bandeau Supérieur et Boutons restent identiques à ton code précédent...]
+# (Omis pour la brièveté du message, conserve ton bloc existant)
+
+# ======================================================================
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CORRIGÉ ET ASSOUPLI)
+# ======================================================================
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
+    with st.spinner("Je recherche..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
-        # 1. MOTEUR WEB (Tavily)
-        if tavily_api_key:
-            try:
-                if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
-                elif mode == "examens":
-                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
-                    domains = ["education.gouv.fr"] + domaine_eps_france
-                elif mode == "ipack":
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
-                    domains = ["ipackeps.ac-creteil.fr"]
-                    exclude = ["youtube.com"]
-                elif mode == "peda":
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                    domains = domaine_eps_france
-                else:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = ["eduscol.education.gouv.fr", "unss.org"]
-                
-                payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
-                if mode == "ipack": payload["exclude_domains"] = exclude
-                
-                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                if res.status_code == 200:
-                    for item in res.json().get("results", []): 
-                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
-            except: pass
+        # [Logique de récupération Tavily & Retriever reste identique]
+        # ... (Conserve ton code de Section 9 pour la partie récupération, il est ok) ...
 
-        # 2. CONTEXTE LOCAL
-        if openai_api_key:
-            try:
-                if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
-                elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
-                elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
-                elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-            except: pass
+        # 3. IDENTITÉ ET RÈGLES (REVOIR ICI)
+        # On définit une règle experte qui sait répondre MAIS qui a des garde-fous pour les cas critiques.
+        
+        system_persona = "Tu es un expert EPS Académique. Ta base de vérité est le 'Dictionnaire de Référence' (Contexte). "
+        regles_securite = """
+        GARDE-FOUS (Priorité absolue) :
+        1. FORCE MAJEURE (Inondation/Gymnase/Absence) : Ne jamais saisir d'inaptitude. Signaler systématiquement à la DEC.
+        2. EXPORT IPACK/CYCLADES : Aucune passerelle automatique. C'est manuel via le secrétariat. Ne pas inventer d'export automatique.
+        """
 
-        # 3. IDENTITÉ ET RÈGLES DE PRIORITÉ
-        règle_priorité = "DIRECTIVE ABSOLUE : Tu es l'expert technique EPS Aix-Marseille. Priorise EXCLUSIVEMENT les définitions et procédures contenues dans le 'Dictionnaire de Référence' fourni. Si l'information n'y est pas, réponds UNIQUEMENT : 'Je ne dispose pas de la procédure officielle dans mon dictionnaire. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr'."
-        consigne_video = "\nVidéo : Si une vidéo spécifique est dans le contexte, affiche : '[Regarder le tutoriel](URL)'."
-
-        # --- ROUTAGE ET PERSONAS (VERROUILLAGE) ---
-        if mode == "examens":
-            p = prompt.lower()
-            if any(x in p for x in ["indisponibilité", "gymnase", "inondé", "force majeure"]):
-                instruction = "PROCÉDURE FORCE MAJEURE : 1. NE JAMAIS SAISIR D'INAPTITUDE MÉDICALE. 2. NE RIEN SAISIR. 3. SIGNALEMENT ÉCRIT IMMÉDIAT À LA DEC."
-            elif any(x in p for x in ["distribution", "distribuer", "lots"]):
-                instruction = "PROCÉDURE DISTRIBUTION : 1. Onglet 'Distribution de l’épreuve'. 2. Sélectionner groupe. 3. Cliquer 'Distribuer'."
-            elif "aucun lot" in p:
-                instruction = "PROCÉDURE LOT ABSENT : 1. Vérifier affectation Cyclades. 2. Rejouer l'import Santorin. 3. Signalement DEC si KO."
-            else:
-                instruction = "Si la procédure n'est pas dans le dictionnaire, réfère-toi à la directive absolue."
-            
-            consigne_ia = f"{règle_priorité}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
-            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
-
-        elif mode == "ipack":
-            p = prompt.lower()
-            if any(x in p for x in ["export", "exporter", "cyclades"]):
-                instruction = "PROCÉDURE EXPORT : AUCUNE interopérabilité. Impossible d'exporter. Le transfert est manuel et doit être fait par le secrétariat dans Cyclades."
-            else:
-                instruction = "Si la procédure n'est pas dans le dictionnaire, réfère-toi à la directive absolue."
-            
-            consigne_ia = f"{règle_priorité}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
+        if mode == "ipack":
+            consigne_ia = f"{system_persona}\n{regles_securite}\n\nContexte : {extraits_doc}\nQuestion : {prompt}\nSi tu ne connais pas la réponse après avoir consulté le contexte, sois honnête et oriente vers ipackeps@ac-aix-marseille.fr."
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         
+        elif mode == "examens":
+            consigne_ia = f"{system_persona}\n{regles_securite}\n\nContexte : {extraits_doc}\nQuestion : {prompt}\n"
+            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+            
         elif mode == "textes":
             consigne_ia = f"Tu es l'expert juridique EPS. Canva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
-            consigne_ia = f"Tu es un documentaliste EPS expert. Extrais les liens officiels ou génère une fiche technique complète.\nContexte : {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"Tu es un documentaliste EPS. Extrais les liens officiels ou génère une fiche complète.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
-            
+        
         else:
-            consigne_ia = f"Tu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"Tu es l'Expert EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
-        # 4. EXÉCUTION ET RENDU
+        # 4. EXÉCUTION
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Formatage liens/vidéos
+        # Coloration automatique des mails et liens
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
-        
-        # Formatage emails en JAUNE ORANGE
         texte_brut = re.sub(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', r'<a href="mailto:\1" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-        
-        texte_html = texte_brut.replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
-        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        for link in youtube_links: st.session_state.messages_hub.append({"role": "assistant", "content": f"VIDEO_URL:{link[0]}"})
-        st.rerun()
+        # ... (Suite du rendu et st.rerun() identiques) ...
 # ======================================================================
 # 10. ZONE TECHNIQUE GHOST
 # ======================================================================

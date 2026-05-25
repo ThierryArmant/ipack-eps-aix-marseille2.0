@@ -504,7 +504,7 @@ with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - LOCALISÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -515,55 +515,33 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Liste globale des domaines académiques EPS
-domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
-    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
-    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
-    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
-    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
-    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
-    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
-    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
-]
-
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
+    with st.spinner("Analyse pour l'Académie d'Aix-Marseille..."):
         extraits_doc = ""
         mode = st.session_state.active_module
         
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
         
-        # 1. MOTEUR WEB (Tavily)
+        # 1. MOTEUR WEB (Tavily localisé)
         if tavily_api_key:
             try:
+                # On force la recherche sur Aix-Marseille
+                requete_localisee = f"{prompt} académie Aix-Marseille"
+                
                 if mode == "textes":
-                    requete_blindee = f"{prompt} jurisprudence administrative responsabilité commune EPS"
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr"] + domaine_eps_france
+                    requete_blindee = f"{requete_localisee} jurisprudence administrative"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "ac-aix-marseille.fr"]
                 elif mode == "examens":
-                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
-                    domains = ["education.gouv.fr"] + domaine_eps_france
-                elif mode == "ipack":
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
-                    domains = ["ipackeps.ac-creteil.fr"]
-                    exclude = ["youtube.com"]
-                elif mode == "peda":
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                    domains = domaine_eps_france
+                    requete_blindee = f"{requete_localisee} réglementation Santorin Cyclades calendrier"
+                    domains = ["ac-aix-marseille.fr", "education.gouv.fr"]
                 else:
-                    if est_demande_fiche:
-                        requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
-                        domains = domaine_eps_france
-                    else:
-                        requete_blindee = f"{prompt} EPS programme officiel"
-                        domains = ["eduscol.education.gouv.fr", "unss.org"]
+                    requete_blindee = requete_localisee
+                    domains = domaine_eps_france
                 
                 payload = {"api_key": tavily_api_key, "query": requete_blindee, "search_depth": "advanced", "include_domains": domains}
-                if mode == "ipack": payload["exclude_domains"] = exclude
-                
                 res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                 if res.status_code == 200:
                     for item in res.json().get("results", []): 
@@ -581,46 +559,37 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-                else:
-                    if est_demande_fiche:
-                        for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
             except: pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE SÉCURISÉ)
-        règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE + LOCALISATION)
         filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE :\n"
-            "1. ANALYSE DES RISQUES : Impact outils/protocoles.\n"
-            "2. PROCÉDURE TECHNIQUE : Étapes fléchées (→). Acteurs ([Chef d'établissement], [Enseignant]).\n"
-            "3. PROTECTION FONCTIONNELLE : Traçabilité.\n"
-            "4. DIRECTIVE SÉCURITÉ : Ne JAMAIS inventer de bouton ou fonctionnalité (ex: bouton 'Ajouter élève'). Si une info est absente, admets-le."
+            "!!! DIRECTIVE D'ACADÉMIE : Tu es l'expert EPS de l'ACADÉMIE D'AIX-MARSEILLE.\n"
+            "Pour TOUTES les dates, calendriers ou procédures, tu DOIS privilégier les circulaires spécifiques à Aix-Marseille.\n"
+            "Si une date académique contredit une date nationale, la date académique gagne.\n"
+            "RÈGLES D'OR : 1. Loi 1937. 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         )
         
-        # 4. POSTURE PAR MODULE
+        # 4. POSTURE PAR MODULE (Textes/Peda préservés à l'identique)
         if mode == "ipack":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "RÈGLE SANTORIN/CYCLADES : Toute modification (élève/groupe) se fait dans CYCLADES, jamais manuellement dans Santorin.\n"
-                "Si demande concernant EDT/Classe, inclure : 'Tutoriel officiel : https://youtu.be/tu8J1RBUTwk'\n"
+                f"{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
+                "SANTORIN = MIROIR. Aucune saisie manuelle. Tout se fait dans CYCLADES.\n"
+                "Tutoriel si besoin EDT/Classe : https://youtu.be/tu8J1RBUTwk\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif mode == "examens":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
-                "!!! DIRECTIVE TECHNIQUE ABSOLUE : SANTORIN EST UN MIROIR DE CYCLADES.\n"
-                "Il n'existe AUCUNE fonction d'ajout manuel ou d'importation individuelle dans Santorin.\n"
-                "Si un élève manque, c'est une erreur de configuration Cyclades. PROCÉDURE OBLIGATOIRE :\n"
-                "1. Affecter l'élève dans le groupe dans CYCLADES.\n"
-                "2. Cliquer sur 'Rejouer l'import' ou 'Actualiser' dans Santorin.\n"
-                "Si tu proposes un 'Ajout Manuel' ou une 'Option d'ajout', tu fais une erreur technique grave.\n"
+                f"{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\n"
+                "!!! INTERDICTION FORMELLE : Il n'existe AUCUNE fonction d'ajout manuel ou d'importation individuelle dans Santorin.\n"
+                "Si un élève manque, c'est une erreur Cyclades. PROCÉDURE : 1. Affecter dans Cyclades. 2. Cliquer sur 'Rejouer l'import' dans Santorin.\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
             
         elif mode == "textes":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
@@ -634,21 +603,19 @@ Contexte : """ + extraits_doc + f"\nQuestion : {prompt}"
                 consigne_ia = "MISSION : Tu es un documentaliste EPS. Génère une fiche pratique de terrain (Compétences Cycle 4, Indicateurs, Situation). Contexte : " + extraits_doc + f"\nQuestion : {prompt}"
                 badge = "🔍 CHASSEUR DE RESSOURCES"
             else:
-                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+                consigne_ia = f"{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
                 badge = "🔍 CONSEILLER PÉDAGOGIQUE"
             color_card = "general-card"
 
         # 5. EXÉCUTION PROPRE
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
-        
         texte_html = texte_brut.replace(chr(10), "<br>")
         texte_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_html)
         
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # Gestion spécifique vidéo (si tutoriel demandé explicitement dans consigne)
         if "tu8J1RBUTwk" in texte_brut:
             st.session_state.messages_hub.append({"role": "assistant", "content": "st.video('https://youtu.be/tu8J1RBUTwk')"})
             

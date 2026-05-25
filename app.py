@@ -636,8 +636,7 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "MATRICE D'EXTRACTION : Si le sujet concerne 'classe' ou 'edt', tu DOIS include : "
-                "'Tutoriel officiel à consulter : https://youtu.be/tu8J1RBUTwk'\n"
+                "Analyse le contexte pour extraire et afficher les liens vidéos (YouTube) les plus pertinents associés aux mots-clés de la question.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"

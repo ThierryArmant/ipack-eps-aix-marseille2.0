@@ -760,6 +760,12 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert juridique officiel EPS.\n"
+                
+                # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
+                "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
+                "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
+                "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
+                
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE :\n"
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"

@@ -1042,3 +1042,8 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROGÉDURES STRICTES
   2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
   3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
   4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
+
+BUG CASES AFLP GRISÉES :
+- Les cases AFLP grisées ou inactives ne sont pas un bug. Cela signifie que le protocole de la classe n'est pas encore validé ou activé.
+- Risque : Blocage de la saisie des notes et retard de transmission.
+- Procédure réelle : L'enseignant doit aller dans l'onglet "Paramétrage" ou "Protocoles", vérifier que l'APSA est bien associée, sélectionner les AFLP de l'évaluation, puis cliquer obligatoirement sur "Valider/Enregistrer le protocole" pour débloquer définitivement la saisie des grilles de notes.

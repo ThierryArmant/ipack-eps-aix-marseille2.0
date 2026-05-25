@@ -578,40 +578,44 @@ if prompt:
             except: pass
 
         # 3. IDENTITÉ ET RÈGLES DE PRIORITÉ
-        règle_priorité = "DIRECTIVE ABSOLUE : Tu es l'expert technique EPS Aix-Marseille. Priorise EXCLUSIVEMENT les définitions et procédures contenues dans le 'Dictionnaire de Référence' fourni. Si l'information n'y est pas, réponds : 'Je ne dispose pas de la procédure officielle dans mon dictionnaire'."
-        filtre_pierre = "\nMÉTHODE : 1. Analyse des risques. 2. Procédure technique fléchée (→). 3. Traçabilité."
+        règle_priorité = "DIRECTIVE ABSOLUE : Tu es l'expert technique EPS Aix-Marseille. Priorise EXCLUSIVEMENT les définitions et procédures contenues dans le 'Dictionnaire de Référence' fourni. Si l'information n'y est pas, réponds UNIQUEMENT : 'Je ne dispose pas de la procédure officielle dans mon dictionnaire. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr'."
         consigne_video = "\nVidéo : Si une vidéo spécifique est dans le contexte, affiche : '[Regarder le tutoriel](URL)'."
 
         # --- ROUTAGE ET PERSONAS (VERROUILLAGE) ---
         if mode == "examens":
-            system_rules = "Expert EPS Aix-Marseille. DEC = Division des Examens et Concours. Santorin = saisie. Cyclades = gestion."
             p = prompt.lower()
-            if any(x in p for x in ["indisponibilité", "gymnase", "inondé", "force majeure", "matériel"]):
+            if any(x in p for x in ["indisponibilité", "gymnase", "inondé", "force majeure"]):
                 instruction = "PROCÉDURE FORCE MAJEURE : 1. NE JAMAIS SAISIR D'INAPTITUDE MÉDICALE. 2. NE RIEN SAISIR. 3. SIGNALEMENT ÉCRIT IMMÉDIAT À LA DEC."
             elif any(x in p for x in ["distribution", "distribuer", "lots"]):
                 instruction = "PROCÉDURE DISTRIBUTION : 1. Onglet 'Distribution de l’épreuve'. 2. Sélectionner groupe. 3. Cliquer 'Distribuer'."
             elif "aucun lot" in p:
                 instruction = "PROCÉDURE LOT ABSENT : 1. Vérifier affectation Cyclades. 2. Rejouer l'import Santorin. 3. Signalement DEC si KO."
             else:
-                instruction = "PROCÉDURE SAISIE : 1. Bouton 'Choisir les AFLP' = Priorité n°1."
+                instruction = "Si la procédure n'est pas dans le dictionnaire, réfère-toi à la directive absolue."
             
-            consigne_ia = f"{règle_priorité}\n{system_rules}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"{règle_priorité}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
         elif mode == "ipack":
-            consigne_ia = f"{règle_priorité}\nTu es expert technique iPackEPS. INTERDICTION : Aucune interopérabilité avec Cyclades. Gestion exclusive via DEC.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            p = prompt.lower()
+            if any(x in p for x in ["export", "exporter", "cyclades"]):
+                instruction = "PROCÉDURE EXPORT : AUCUNE interopérabilité. Impossible d'exporter. Le transfert est manuel et doit être fait par le secrétariat dans Cyclades."
+            else:
+                instruction = "Si la procédure n'est pas dans le dictionnaire, réfère-toi à la directive absolue."
+            
+            consigne_ia = f"{règle_priorité}\nRÈGLE : {instruction}\n{consigne_video}\nContexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         
         elif mode == "textes":
-            consigne_ia = f"{règle_priorité}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = f"Tu es l'expert juridique EPS. Canva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
             
         elif mode == "peda":
-            consigne_ia = f"{règle_priorité}\nTu es un documentaliste EPS expert. Extrais les liens officiels ou génère une fiche technique complète.\nContexte : {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"Tu es un documentaliste EPS expert. Extrais les liens officiels ou génère une fiche technique complète.\nContexte : {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
             
         else:
-            consigne_ia = f"{règle_priorité}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
+            consigne_ia = f"Tu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🔍 CONSEILLER PÉDAGOGIQUE", "general-card"
 
         # 4. EXÉCUTION ET RENDU
@@ -622,7 +626,6 @@ if prompt:
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         
-        # ... (Tableaux et rendu HTML identiques à la version précédente) ...
         texte_html = texte_brut.replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_html}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})

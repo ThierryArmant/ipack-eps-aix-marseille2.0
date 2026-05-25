@@ -760,17 +760,21 @@ if prompt:
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ MATRICE DE VÉRITÉS INFORMANTIQUES IPACK (AUDIT PIERRE)
+                # ⚡ MATRICE DE SÉCURITÉ INFORMANTIQUE & RÉGLEMENTAIRE
                 "CRITICAL IPACK RULES:\n"
                 "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
                 "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves, le protocole Bac GT doit rester réglementaire.\n"
-                "- CHOIX D'APSA EN COURS DE CYCLE : Procédure impossible. Les élèves doivent être positionnés dans un protocole fixe dès le début d'année et ne peuvent plus en bouger. iPackEPS ne permet pas de modifier les choix d'activités à la volée selon les performances.\n"
                 "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas dans l'onglet Protocoles. Pour faire disparaître un protocole, il faut obligatoirement supprimer ou désaffecter les Groupes et les séquences d'apprentissage qui lui sont rattachés en amont.\n"
                 "- RÉPARTITION DANS LES GROUPES : L'action se fait exclusivement via le module 'Mes élèves'. Attention, l'option textuelle 'Placement des élèves dans les groupes' n'existe pas dans l'interface.\n"
                 "- DÉPÔT CERTIFICAT MÉDICAL : Dissocier la saisie simple de l'inaptitude (Fiche élève > Onglet Inaptitudes) du téléversement des pièces justificatives pour la commission qui se fait dans [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].\n"
-                "- NOTE UNIQUE CCF : iPack bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
+                "- NOTE UNIQUE CCF : iPack編 bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée en utilisant les vérités techniques ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
+                # 🛑 VERROU ANTI-HALLUCINATION : ABOLITION DU CHOIX EN COURS DE CYCLE
+                "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
+                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
+                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                
+                "MISSION : Réponds STRICTEMENT à la question posée en appliquant le verrou ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

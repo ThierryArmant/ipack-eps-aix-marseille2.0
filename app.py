@@ -617,8 +617,8 @@ if prompt:
 
                 # Définition des paramètres selon le mode
                 if mode == "textes":
-                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr"]
-                    requete_blindee = f"site:legifrance.gouv.fr OR site:education.gouv.fr {prompt} texte officiel complet"
+                    domains = ["legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr", "service-public.fr"]+ domaine_eps_france
+                    requete_blindee = f"{prompt} texte officiel réglementation EPS"
                 
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
@@ -709,15 +709,14 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert juridique officiel EPS.\n"
-                "MISSION : Extraction factuelle de textes réglementaires (Code éducation, Code sport, BOEN).\n"
+                "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre exact, date de référence et lien).\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases max).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article précis cité).\n"
-                "RÈGLE D'OR : N'invente AUCUN texte. Si le texte exact n'est pas dans le contexte fourni ci-dessous, écris uniquement : 'Texte indisponible dans la base officielle'.\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
+                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             consigne_ia = (

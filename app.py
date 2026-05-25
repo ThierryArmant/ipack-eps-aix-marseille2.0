@@ -191,30 +191,42 @@ css_pur = """
         box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }
     
-    /* Boutons Inactifs */
+    /* Boutons Inactifs - Alignement et hauteur forcés */
     button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
         border: 1px solid rgba(255,255,255,0.05) !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        padding: 12px 10px !important;
+        padding: 2px 10px !important;
         transition: all 0.3s ease;
+        height: 60px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
     }
 
-    /* Boutons Actifs */
+    /* Boutons Actifs - Alignement et hauteur forcés */
     button[kind="primary"] {
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
         border: 1px solid #10B981 !important;
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        padding: 12px 10px !important;
+        padding: 2px 10px !important;
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
         font-weight: 700 !important;
+        height: 60px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
     }
     
-    /* BOUTON NETTOYER */
+    /* BOUTON NETTOYER - Protection contre l'alignement des boutons du haut */
     div.element-container:has(.nettoyer-wrapper) + div.element-container button {
         background-color: rgba(220, 38, 38, 0.45) !important;
         color: #FFFFFF !important;
@@ -222,6 +234,7 @@ css_pur = """
         border-radius: 8px !important;
         padding: 7px 10px !important;
         width: 100% !important;
+        height: 38px !important;
     }
     div.element-container:has(.nettoyer-wrapper) + div.element-container button:hover {
         background-color: rgba(220, 38, 38, 0.65) !important;
@@ -333,7 +346,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permits à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -465,7 +478,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
+# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES (AVEC AVATARS ET HAUTEUR FIXE)
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -476,7 +489,7 @@ with col_b1:
         st.rerun()
 
 with col_b2:
-    if st.button("Examens\n& Santorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
+    if st.button("📊 Examens &\nSantorin", use_container_width=True, key="btn_ex", type="primary" if st.session_state.active_module == "examens" else "secondary"):
         st.session_state.active_module = "examens"
         st.session_state.messages_hub = []
         st.rerun()
@@ -488,13 +501,13 @@ with col_b3:
         st.rerun()
 
 with col_b4:
-    if st.button("Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "textes" else "secondary"):
+    if st.button("🔒 Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type="primary" if st.session_state.active_module == "textes" else "secondary"):
         st.session_state.active_module = "textes"
         st.session_state.messages_hub = []
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES (SOUS LES BOUTONS)
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES AVEC BANDEAU D'AIGUILLAGE PIERRE
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -515,11 +528,18 @@ elif st.session_state.active_module == "peda":
     """, unsafe_allow_html=True)
 
 else:
+    # BANDEAU MUTUALISÉ ET CLAIR POUR L'AIGUILLAGE IPACK / EXAMENS
     st.markdown("""
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Conseil Flux Mixtes :</strong> Certaines questions touchent à la fois à la technique (iPackEPS) et à la réglementation (Santorin). N'hésitez pas à tester votre recherche dans ces deux onglets pour croiser les sources.
-        </span>
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.6;">
+        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 8px; letter-spacing: 0.5px;">
+            🎯 OÙ POSER VOTRE QUESTION ?
+        </div>
+        <div style="color: #FFFFFF; font-size: 13px;">
+            • <strong>Menu 🛠️ iPackEPS :</strong> Réservé à la technique de terrain (configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales).<br>
+            <div style="margin-top: 5px;">
+            • <strong>Menu 📊 Examens & Santorin :</strong> Réservé à l'administration des examens (remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques).
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -589,7 +609,6 @@ if prompt:
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 else:
-                    # Si mode général par défaut mais qu'on détecte une recherche de fiche
                     if est_demande_fiche:
                         requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                         domains = domaine_eps_france
@@ -617,35 +636,41 @@ if prompt:
                     for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-                else:
-                    if est_demande_fiche:
-                        try:
-                            for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-                        except: pass
             except: pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE)
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
-            "1. ANALYSE DES RISQUES : Identifie l'impact sur outils tiers.\n"
+            "1. ANALYSE DES RISQUES : Identifie l'impact sur les outils ou la responsabilité.\n"
             "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité."
+            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité et les recours."
         )
         
         if mode == "ipack":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\nTu es l'expert technique iPackEPS.\n"
-                "Analyse le contexte pour extraire et afficher les liens vidéos (YouTube) les plus pertinents associés aux mots-clés de la question.\n"
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Tu es l'expert informatique iPackEPS. Tu exclus tout blabla pédagogique.\n"
+                "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application.\n"
+                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif ou texte brut sans URL.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+
         elif mode == "examens":
-            consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert Santorin/Cyclades.\nCanva: [Acteur|Action|Conséquence].\nContexte: {extraits_doc}\nQuestion: {prompt}"
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain, d'échauffement ou de gestion de séances.\n"
+                "MISSION : Explique uniquement comment ce choix impacte la remontée des notes de l'examen, la numérisation des fiches d'évaluation et la validation par le Jury Académique.\n"
+                "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', chaque étape doit obligatoirement utiliser le Canva : [Acteur | Action | Conséquence].\n"
+                f"Contexte: {extraits_doc}\nQuestion: {prompt}"
+            )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+
         elif mode == "textes":
             consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'expert juridique EPS.\nCanva: 1. SITUATION, 2. ARBITRAGE, 3. RECOURS.\nContexte: {extraits_doc}\nQuestion: {prompt}"
             badge, color_card = "⚖️ CADRE JURIDIQUE", "securite-card"
+
         elif mode == "peda":
             consigne_ia = """MISSION : Tu es un documentaliste EPS expert. Ta priorité absolue est de fournir des documents directement téléchargeables provenant des 30 académies de France.
 1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et la 'Base locale'. Extrais CHAQUE lien de document ou fichier d'évaluation réel trouvé et affiche-le obligatoirement au format strict : "📥 Télécharger : [Nom explicite du document et de son Académie](URL)".
@@ -654,20 +679,6 @@ RÈGLE IMPÉRATIVE : Mets les liens de téléchargement trouvés au tout début 
 
 Contexte Web et Base locale : """ + extraits_doc + f"\nQuestion de l'enseignant : {prompt}"
             badge, color_card = "🔍 CHASSEUR DE RESSOURCES", "general-card"
-        else:
-            # SÉCURITÉ INTENTIONS DANS LE MODE GÉNÉRAL : Si recherche de fiche terrain, on bascule en Chasseur de ressources !
-            if est_demande_fiche:
-                consigne_ia = """MISSION : Tu es un documentaliste EPS expert. L'enseignant te demande une ressource ou fiche de terrain depuis le mode général. Brise le cadre théorique et va à l'essentiel historique et pratique.
-1. EXTRACTION DES LIENS : Parcours le 'Contexte Web' et ta base. Extrais CHAQUE lien de fichier d'évaluation ou document de travail réel trouvé dans les 30 académies et affiche-le obligatoirement au format : "📥 Télécharger : [Nom de la fiche et son Académie](URL)".
-2. GÉNÉRATION DE SECOURS : Génère en complément une fiche technique de terrain complète (Compétences, Situation, Indicateurs chiffrés, Grille).
-RÈGLE : Les liens de téléchargement réels doivent apparaître immédiatement au tout début de ta réponse.
-
-Contexte Web : """ + extraits_doc + f"\nQuestion : {prompt}"
-                badge = "🔍 CHASSEUR DE RESSOURCES"
-            else:
-                consigne_ia = f"{règles_or}{filtre_pierre}\nTu es l'Expert Pédagogique EPS.\nContexte: {extraits_doc}\nQuestion : {prompt}"
-                badge = "🔍 CONSEILLER PÉDAGOGIQUE"
-            color_card = "general-card"
 
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

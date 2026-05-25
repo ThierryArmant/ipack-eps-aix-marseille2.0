@@ -5,6 +5,9 @@
 
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL]
 
+[SITUATION: DÉFINITION DEC]
+Instruction : DEC = Division des Examens et Concours. Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion administrative des examens et concours. C'est l'autorité qui valide les affectations dans Cyclades, gère les convocations via IMAG'IN et traite les dossiers de force majeure.
+
 ### [SITUATION: CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX]
 - Instruction : Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission. Elle est hiérarchiquement supérieure à toute autorisation d'absence pour convenance personnelle. Le chef d'établissement n'a pas compétence pour annuler une mission d'examen national ; seule l'autorité organisatrice (Rectorat/DEC) le peut.
 

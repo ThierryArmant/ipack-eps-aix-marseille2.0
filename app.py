@@ -655,8 +655,9 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu exclus tout blabla pédagogique.\n"
-                "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application.\n"
-                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif ou texte brut sans URL.\n"
+                "MISSION : Si la question demande une date, un nom de bouton précis, un menu ou un choix réglementaire, donne cette information capitale EN GRAS tout au début de ta réponse, puis développe le Filtre Pierre.\n"
+                "CONSIGNE TECHNIQUE : Concentre-toi uniquement sur la création des groupes, le paramétrage des barèmes et la saisie informatique dans l'application en citant les vrais menus du contexte.\n"
+                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -664,9 +665,9 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain (pas de séances, pas de cycles, pas d'échauffements).\n"
-                "MISSION : Réponds précisément aux questions réglementaires et logistiques : dates limites de saisie, gestion des remplaçants, répartition des lots, élèves manquants, et validation par le Jury Académique.\n"
-                "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', chaque étape doit obligatoirement utiliser le Canva : [Acteur | Action | Conséquence].\n"
+                "ROLE : Tu es l'expert administratif Santorin et Cyclades. Interdiction absolue de parler de pédagogie de terrain.\n"
+                "MISSION : Si la question demande une date limite ou une donnée précise, affiche cette information capitale EN GRAS tout au début de ta réponse, avant de dérouler les paragraphes du Filtre Pierre.\n"
+                "CONSIGNE FORMATAGE STRICTE : Dans la partie '2. PROCÉDURE TECHNIQUE', chaque étape doit obligatoirement utiliser le Canva : [Acteur | Action | Conséquence]. Utilise les vraies dates et les vrais boutons issus du contexte.\n"
                 f"Contexte: {extraits_doc}\nQuestion: {prompt}"
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"

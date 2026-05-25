@@ -262,18 +262,47 @@ css_pur = """
         font-weight: 400 !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
+    
+    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (Ajouté) */
+    .peda-card h3 {
+        font-size: 15px !important; /* Réduction drastique des titres */
+        margin-top: 14px !important; /* Espace équilibré avant le titre */
+        margin-bottom: 4px !important; /* Effondrement de l'interligne après le titre */
+        color: #C084FC !important; /* Violet pastel lumineux pour détacher les catégories */
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+    }
+    .peda-card ul {
+        margin-top: 2px !important;
+        margin-bottom: 6px !important;
+        padding-left: 20px !important;
+    }
+    .peda-card li, .peda-card div, .peda-card span, .peda-card p {
+        font-size: 14px !important; /* Texte légèrement plus dense et compact */
+        line-height: 1.4 !important; /* Resserre les lignes entre elles */
+        color: #FFFFFF !important;
+        margin-bottom: 3px !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }
+    .peda-card strong {
+        color: #FCD34D !important; /* Couleur Or/Jaune pour faire ressortir l'activité et le socle */
+        font-weight: 700 !important;
+    }
+
     .santorin-card strong, .general-card strong, .securite-card strong {
         font-weight: 700 !important; 
         color: #FFFFFF !important;
     }
 
-    .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a * {
+    .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a, .peda-card a * {
         color: #FFB020 !important; 
         text-decoration: underline !important;
         font-weight: 600 !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
     }
-    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover {
+    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover, .peda-card a:hover {
         color: #FCD34D !important;
     }
     
@@ -301,7 +330,6 @@ css_pur = """
     
     </style>
 """.replace('__URL_FOND__', f"{github_url}{img_fond}")
-
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================

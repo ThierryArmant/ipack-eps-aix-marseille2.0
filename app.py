@@ -301,7 +301,7 @@ css_pur = """
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DES BASES DE DOCUMENTS
+# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DU CERVEAU UNIQUE
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
@@ -310,114 +310,54 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# Fonction pour obtenir la date de modification du fichier pour vider le cache automatiquement s'il change
+# Détection automatique du chemin du fichier (dans /data/ ou à la racine)
+def trouver_chemin_pierre():
+    chemins_possibles = ["data/gere_par_pierre.txt", "gere_par_pierre.txt"]
+    for ch in chemins_possibles:
+        if os.path.exists(ch):
+            return ch
+    return None
+
 def obtenir_cle_fichier():
-    chemin = "gere_par_pierre.txt"
-    if os.path.exists(chemin):
+    chemin = trouver_chemin_pierre()
+    if chemin:
         return os.path.getmtime(chemin)
     return 0.0
 
-# Lecture dynamique sans cache pour prendre en compte tes modifs immédiatement
-def charger_consignes_pierre():
-    chemin = "gere_par_pierre.txt"
-    if os.path.exists(chemin):
+def charger_cerveau_unique():
+    chemin = trouver_chemin_pierre()
+    if chemin:
         try:
             with open(chemin, "r", encoding="utf-8") as f:
                 contenu = f.read()
-            return [Document(text=contenu, metadata={"source": "Notes de Pierre"})]
+            return [Document(text=contenu, metadata={"source": "Cerveau Unique de Pierre"})]
         except Exception:
             return []
     return []
 
-# BASE DE CONNAISSANCES FIXE : EXAMENS & SANTORIN
+# BASE DE CONNAISSANCES CENTRALISÉE (Indexation du fichier unique)
 @st.cache_resource
-def initialiser_base_santorin(cle_fremt):
-    docs_santorin = [
-        Document(
-            text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
-            Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
-            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
-            Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
-            metadata={"title": "Fiche Mémo - Correction Partagée Santorin", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"}
-        ),
-        Document(
-            text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
-            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs par les coordonnateurs de l'établissement.""",
-            metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
-        ),
-        Document(
-            text="""Guide Utilisateur Santorin - Ouvrir, annoter et corriger une copie numérisée. 
-            Tutoriel pas-à-pas : liste des candidats anonymisés, outils d'annotation intégrés (surlignage, stylo, commentaires), saisie des notes par question ou globale, validation du lot. Utilisation de la messagerie interne (icône enveloppe) pour contacter les coordonnateurs.""",
-            metadata={"title": "Guide Utilisateur - Ouvrir et corriger une copie avec Santorin", "url": "https://pedagogie.ac-orleans-tours.fr/documents/pdf/lettres_tutoriels_ouvrir_et_corriger_une_copie_avec_santorin__2_.pdf"}
-        ),
-        Document(
-            text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
-            metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
-        ),
-        Document(
-            text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
-            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots et demander des corrections d'affectation via l'enveloppe de communication.""",
-            metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
-        ),
-        Document(
-            text="""Guide technique d'installation de Santorin Scan. 
-            Documentation sur l'installation, le paramétrage des scanners physiques en établissement, les protocoles réseaux et la configuration des serveurs d'échange sécurisés.""",
-            metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
-        )
-    ]
-    docs_santorin.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
+def initialiser_base_unique(cle_fremt):
+    docs = charger_cerveau_unique()
+    if docs:
+        return VectorStoreIndex.from_documents(docs).as_retriever(similarity_top_k=5)
+    return None
 
-# BASE DE CONNAISSANCES FIXE : IPACKEPS
-@st.cache_resource
-def initialiser_base_ipack(cle_fremt):
-    docs_ipack = [
-        Document(
-            text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS is the official application for managing PE evaluations and CCF.""",
-            metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
-        ),
-        Document(
-            text="""Guide Pratique Utilisateur de l'interface Professeur iPackEPS - Académie de Normandie.
-            SAISIE DES CERTIFICATS MÉDICAUX & DISPENSES : La saisie des inaptitudes se fait UNIQUEMENT dans le menu 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'. RÈGLE IMPÉRATIVE : On ne peut jamais taper directement 'IN' ou 'DI' à la main dans la case d'une note brute, le statut est généré automatiquement par l'application.
-            RÈGLE DU CERTIFICAT MIXTE ET ABSENCE AU BAC : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, la réglementation nationale impose que l'élève dispose d'au moins DEUX notes valides dans deux épreuves de familles différentes.""",
-            metadata={"title": "Guide Utilisateur Interface Professeur iPackEPS (PDF)", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"}
-        ),
-        Document(
-            text="""Note Technique de Liaison Examens / Cyclades / Santorin - Académie de Versailles.
-            Rappelle qu'une absence injustifiée équivaut à 0/20 et compte réglementairement comme une note prise en compte, alors qu'une inaptitude médicale validée neutralise l'épreuve.""",
-            metadata={"title": "Note d'Information iPackEPS - Session Examens (PDF)", "url": "https://eps.ac-versailles.fr/IMG/pdf/2025_10_08_info_ipackeps_octobre_2025_-_lyc_cfa.pdf"}
-        ),
-        Document(
-            text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
-            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure is de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier is transmis au Jury Académique via Cyclades.
-            3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
-            metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
-        )
-    ]
-    docs_ipack.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
-
-# BASE DE CONNAISSANCES FIXE : TEXTES & CADRES RÉGLEMENTAIRES
-@st.cache_resource
-def initialiser_base_textes(cle_fremt):
-    docs_textes = [
-        Document(
-            text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
-            metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
-        )
-    ]
-    docs_textes.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
-
-# Initialisation sécurisée par le cache avec surveillance du fichier de Pierre
+# Initialisation sécurisée par cache et capteur de temps
 timestamp_fichier = obtenir_cle_fichier()
-retriever_santorin = initialiser_base_santorin(timestamp_fichier)
-retriever_ipack = initialiser_base_ipack(timestamp_fichier)
-retriever_textes = initialiser_base_textes(timestamp_fichier)
+retriever_unique = initialiser_base_unique(timestamp_fichier)
+
+class RetrieverSecours:
+    def retrieve(self, prompt): return []
+
+if retriever_unique is None:
+    retriever_unique = RetrieverSecours()
+
+# Connexion dynamique : toutes les rubriques pointent vers l'entrepôt unique de Pierre
+retriever_santorin = retriever_unique
+retriever_ipack = retriever_unique
+retriever_textes = retriever_unique
+retriever_peda = retriever_unique
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
@@ -585,7 +525,7 @@ if prompt:
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 elif mode == "ipack":
-                    # Requête booléenne élargie sur les rubriques 2, 4 et 7 de l'académie de Créteil
+                    # Requête élargie sur les rubriques de l'académie de Créteil
                     requete_blindee = f"{prompt} (rubrique2 OR rubrique4 OR rubrique7)"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
@@ -609,7 +549,7 @@ if prompt:
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
             except: pass
 
-        # 2. CONTEXTE LOCAL
+        # 2. CONTEXTE LOCAL (Interrogation de la base consolidée unique de Pierre)
         if openai_api_key:
             try:
                 if mode == "examens":

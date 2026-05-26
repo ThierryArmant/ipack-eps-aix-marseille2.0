@@ -780,7 +780,7 @@ if prompt:
         )
         badge = "INFORMATION"
         color_card = "general-card"
-        if mode == "ipack":
+       if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
@@ -813,7 +813,7 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-         elif mode == "examens":
+        elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"

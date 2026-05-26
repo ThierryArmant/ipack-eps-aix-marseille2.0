@@ -894,6 +894,14 @@ if prompt:
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
                 "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
+
+                 # 🌐 AJOUT DU BLOC INSTITUTIONNEL REQUIS
+                "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
+                "<ul>"
+                "<li><strong>Domaines du Socle Commun :</strong> [Citer explicitement les domaines engagés, ex: Domaine 1 (Langages), Domaine 2 (Méthodes), Domaine 3 (Citoyen), etc.]</li>"
+                "<li><strong>Compétences Générales EPS :</strong> [Développer sa motricité, S'approprier des méthodes, Partager des règles/valeurs, Maintenir sa santé, S'approprier une culture]</li>"
+                "<li><strong>Attendus de Fin de Cycle (AFC) :</strong> [Formuler textuellement le ou les AFC officiels du cycle concerné en lien avec l'activité]</li>"
+                "</ul>"
                 
                 "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
@@ -906,6 +914,7 @@ if prompt:
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+            
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text

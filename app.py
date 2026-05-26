@@ -835,7 +835,7 @@ if prompt:
                 
                 # 🛑 VERROU ANTI-HALLUCINATION : BOUTON AJOUTER BLOQUÉ
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR LE REMPLAÇANT) :\n"
-                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
+                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] and cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
                 "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
@@ -863,7 +863,7 @@ if prompt:
                 "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
                 
                 # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
-                "RÈGLE IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
+                "RÈGLES IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
                 "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: droit+image+ecole) :\n"
                 "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
                 "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"

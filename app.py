@@ -581,9 +581,9 @@ else:
         """, unsafe_allow_html=True)
 
 # ======================================================================
-# 8. ZONE D'ACTION (ALIGNEUSE & ÉTIRÉE)
+# 8. ZONE D'ACTION (ARCHITECTURE SÉCURISÉE & TEXTE LUMINEUX)
 # ======================================================================
-# A. Ligne de Saisie et Bouton Nettoyer (Compacte)
+# A. Ligne de Saisie et Bouton Nettoyer
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 
 with col_action_clear:
@@ -595,14 +595,17 @@ with col_action_clear:
 with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
-# B. Bandeau d'Information d'Amnésie (Sorti des colonnes pour s'étirer sur toute la largeur)
-# 💡 Il se place automatiquement sous les boutons ci-dessus et s'étire par défaut.
-st.info(
-    "💡 **Attention :** Pour des raisons pratiques et de mise à jour des textes réglementaires, "
-    "votre assistant ne mémorise pas le fil de la conversation. "
-    "Posez vos questions une par une après les avoir nettoyées.",
-    icon="⚠️"
-)
+# B. Bandeau d'Information d'Amnésie en HTML Strict (Style calqué sur le bandeau supérieur)
+st.markdown("""
+    <div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height: 1.4;">
+        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">
+            ⚠️ 💡 ATTENTION :
+        </span>
+        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+            Pour des raisons pratiques et de mise à jour des textes réglementaires, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une après les avoir nettoyées.
+        </span>
+    </div>
+""", unsafe_allow_html=True)
 
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)

@@ -847,27 +847,20 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS (Académie d'Aix-Marseille). "
-                "TU DOIS FAIRE TABLE RASE DE LA QUESTION PRÉCÉDENTE. Chaque réponse doit être indépendante et basée UNIQUEMENT sur la question actuelle.\n\n"
+                "ROLE : Expert juridique officiel EPS (Académie d'Aix-Marseille).\n"
+                "RÈGLE D'OR : CHAQUE RÉPONSE EST INDÉPENDANTE. Interdiction formelle d'utiliser les références d'une question précédente.\n\n"
                 
-                "HIÉRARCHIE D'ANALYSE (OBLIGATOIRE) :\n"
-                "1. PRIORITÉ PÉNAL : Si la situation relève d'un délit (enregistrement, menace), ta seule référence est le CODE PÉNAL (Art 226-1). INTERDICTION de citer la Loi de 2004.\n"
-                "2. PRIORITÉ MÉDICALE : Si la situation concerne un certificat médical ou une dispense, ta référence est le Code de l'éducation (Art L551-1). INTERDICTION de citer la Loi de 2004.\n"
-                "3. Si une information n'est pas dans ton contexte, RÉPONDS STRICTEMENT : 'Information non sourcée dans la base académique'.\n\n"
+                "HIÉRARCHIE D'ANALYSE (SÉLECTIVE) :\n"
+                "- Si Droit à l'image : Référence OBLIGATOIRE = Article 9 Code Civil / CNIL.\n"
+                "- Si Accident/Responsabilité : Référence OBLIGATOIRE = Loi 1937 / Art L. 911-4.\n"
+                "- Si Délit (Enregistrement/Menace) : Référence OBLIGATOIRE = Art 226-1 Code Pénal.\n"
+                "- Si Inaptitude médicale : Référence OBLIGATOIRE = Code de l'éducation Art L551-1.\n\n"
                 
-                "--- FONDAMENTAUX JURIDIQUES ---\n"
-                "- Enregistrement à l'insu : Délit pénal (Art. 226-1). ACTION : Interpellation, RETRAIT PHYSIQUE IMMÉDIAT, Rapport écrit.\n"
-                "- Certificat Médical : Autorité du médecin scolaire uniquement (Art L551-1). Ne jamais qualifier un certificat de 'complaisance'.\n"
-                "- Laïcité/Mixité : Loi du 15 mars 2004 (Art L. 141-5-1). Aucune dispense religieuse.\n\n"
-                
-                "MISSION : Extraction factuelle. STRUCTURE HTML OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Citer le texte exact et sa date. Pas de lien cliquable généré).\n"
+                "MISSION : Extraction factuelle. AUCUNE NÉGOCIATION AUTORISÉE.\n"
+                "STRUCTURE HTML OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Citer le texte exact et sa date. AUCUN LIEN).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Synthèse : fait, loi, procédure administrative).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou texte officiel).\n\n"
-                
-                "RÈGLE D'OR : AUCUNE DISCUSSION OU NÉGOCIATION N'EST AUTORISÉE DANS TES RÉPONSES.\n"
-                "Tu ne dois JAMAIS suggérer de 'dialoguer' avec une partie adverse en cas d'infraction, de délit ou de contestation abusive.\n"
-                "Applique strictement la procédure de retrait ou de signalement hiérarchique.\n\n"
                 
                 f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )

@@ -846,7 +846,7 @@ if prompt:
 
         elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
+                f"{règles_or}\n"
                 "ROLE : Expert juridique officiel EPS.\n\n"
                 
                 # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
@@ -855,10 +855,12 @@ if prompt:
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
+                "STRUCTURE OBLIGATOIRE EN BALISES HTML STRICTES (INTERDICTION ABSOLUE DU MARKDOWN AVEC #) :\n"
+                "Tu as l'obligation stricte de générer ta réponse finale uniquement avec les titres HTML suivants pour éviter tout crash d'affichage :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire au format exact [📥 Cliquez ici pour voir la source](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
+                
                 "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

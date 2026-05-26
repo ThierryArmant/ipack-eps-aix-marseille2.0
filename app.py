@@ -835,23 +835,20 @@ if prompt:
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et tu DOIS obligatoirement rendre l'URL cliquable au format Markdown : [Nom du texte ou URL](URL_trouvée_dans_le_contexte)).\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et tu DOIS obligatoirement rendre l'URL cliquable au format Markdown : [Nom du texte ou URL](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
                 
-                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien trouvé dans le contexte vers Légifrance (Article 9 du Code Civil) ou la page officielle d'Éduscol.\n\n"
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement un lien fonctionnel et ciblé sur l'Article 9 du Code Civil ou la protection des données d'Éduscol.\n\n"
                 
-                # 🔗 RÈGLE SÉCURISÉE FORMATAGE ET LIENS CLIQUABLES (ANTI-TEXTE BRUT)
+                # 🔗 FILTRE ANTI-HORS SUJET ET ROUTINE DE SECOURS DYNAMIQUE
                 "RÈGLE IMPÉRATIVE SUR LES LIENS :\n"
-                "1. Tu as l'interdiction formelle d'inventer de fausses URL de ta mémoire ou de laisser une URL en texte brut inactif. Tu dois TOUJOURS utiliser la syntaxe [Texte du lien](URL) pour qu'il soit bleu et cliquable dans l'interface.\n"
-                "2. Utilise en priorité absolue l'URL réelle fournie dans le 'Contexte' ci-dessous.\n"
-                
-                # 🔄 ROUTINE DE SECOURS AUTOMATIQUE (FALLBACK DYNAMIQUE SUR RECHERCHE INTERNE)
-                "3. Si le 'Contexte' ne fournit aucun lien web direct ou si l'URL semble obsolète, active IMMÉDIATEMENT la procédure de recherche de secours en générant une ancre dynamique basée sur les mots-clés de la demande :\n"
-                "   - 🔗 [Consulter les textes mis à jour sur Légifrance](https://www.legifrance.gouv.fr/search/all?tab_selection=all&searchField=ALL&query=MOTS_CLÉS&page=1_)\n"
-                "   - 🔗 [Vérifier la réglementation en vigueur sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
-                "   - 🔗 [Consulter les fiches de sécurité de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
-                "⚠️ OBLIGATION DE REMPLACEMENT : Remplace systématiquement 'MOTS_CLÉS' dans ces URL de secours par les termes juridiques de la question en minuscules séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
+                "1. Tu as l'interdiction d'afficher une URL en texte brut inactif. Utilise TOUJOURS la syntaxe [Texte](URL) pour créer un lien bleu cliquable.\n"
+                "2. ATTENTION AUX FAUX LIENS : Si une URL du Contexte renvoie vers un vieux texte hors-sujet (ex: amendes en francs, vieux articles abrogés), TU DOIS LA REJETER.\n"
+                "3. En cas de lien rejeté, suspect ou absent, utilise IMMÉDIATEMENT notre routine de secours en générant une requête dynamique pré-remplie avec les mots-clés précis de la question :\n"
+                "   - 🔗 [Consulter l'Article 9 du Code Civil à jour sur Légifrance](https://www.legifrance.gouv.fr/search/all?tab_selection=all&searchField=ALL&query=article+9+code+civil+respect+vie+privee&page=1_)\n"
+                "   - 🔗 [Vérifier les fiches pratiques de la CNIL pour les élèves](https://www.cnil.fr/fr/recherche?search_api_fulltext=droit+image+eleves+ecole)\n"
+                "   - 🔗 [Consulter le cadre réglementaire d'Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+protection+donnees+droit+image+eleve)\n\n"
                 
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

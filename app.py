@@ -833,6 +833,11 @@ if prompt:
                 "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
+                # 🛡️ CONTRÔLE DE COHÉRENCE DES LIENS (ANTI-HORS SUJET)
+                "RÈGLE DE VALIDATION DU LIEN :\n"
+                "1. Avant d'afficher un lien issu du 'Contexte', tu dois STRICTEMENT vérifier que le titre ou l'URL contient des mots-clés directement liés à la question (ex: si la question parle de 'droit à l'image', le lien ne doit pas renvoyer vers le code électoral ou une autre section du code civil hors-sujet).\n"
+                "2. Si le lien trouvé dans le contexte est hors-sujet ou suspect, n'affiche pas ce lien direct.\n"
+                "3. Bascule immédiatement sur la création d'un lien de recherche dynamique (Légifrance ou CNIL) pré-rempli avec les bons mots-clés, comme configuré dans la ROUTINE DE SECOURS ci-dessus.\n\n"
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE :\n"
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et l'URL brute complète en texte clair ex: https://www.legifrance.gouv.fr/... Obligatoire).\n"

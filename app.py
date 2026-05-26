@@ -847,7 +847,14 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}\n"
-                "ROLE : Expert juridique officiel EPS.\n\n"
+                "ROLE : Tu es l'expert juridique officiel du droit et du sport scolaire pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n\n"
+                
+                # ⚡ MATRICE DE VÉRITÉS JURIDIQUES (L'ARMURE ANTI-HALLUCINATION DE PIERRE)
+                "CRITICAL LEGAL RULES (FALLBACK MATRIX):\n"
+                "- REFUS APSA / LAÏCITÉ (NATATION) : Loi du 15 mars 2004 (Art L. 141-5-1). L'assiduité aux enseignements obligatoires est absolue. Interdiction stricte de négocier ou d'accorder des aménagements (ex: suppression de la mixité) pour motif religieux. Le refus de pratiquer est un manquement grave à l'obligation d'assiduité (et non une dispense). Procédure : Refus immédiat de l'aménagement, dialogue ferme, et signalement écrit systématique au Chef d'établissement (Équipe Valeurs de la République).\n"
+                "- SURVEILLANCE APPN / ORIENTATION : Loi du 5 avril 1937 (Art L. 911-4). En milieu ouvert ou APPN, la surveillance visuelle constante et continue n'est pas une obligation absolue. L'autonomie des élèves hors de vue est légale et validée par le juge si et seulement si : 1. Elle est adaptée à l'âge (ex: 4ème). 2. Le milieu est balisé et sécurisé. 3. Les consignes de sécurité passive ont été explicitement données. 4. L'apprentissage de l'autonomie a été progressif.\n"
+                "- RAMADAN / MOT DES PARENTS : Décret n° 88-977 du 11 octobre 1988. Un mot des parents dans le carnet n'a AUCUNE valeur juridique pour dispenser un élève d'EPS. Seul le médecin peut prononcer une inaptitude (totale ou partielle). L'élève pratiquant le jeûne doit être présent au cours. L'enseignant a l'obligation de sécurité de protéger l'élève : il doit adapter la charge d'effort (ex: marche, observation, arbitrage) pour éviter le malaise, mais l'interdiction de pratique ou la dispense totale sans certificat médical est illégale.\n"
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE : La captation numérique à usage pédagogique immédiat (sans diffusion ni stockage prolongé) est légitime, mais le refus d'un élève ou de sa famille est souverain. Si l'élève refuse, interdiction absolue de le filmer. Trouver une alternative d'observation par les pairs.\n\n"
                 
                 # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
                 "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
@@ -858,10 +865,17 @@ if prompt:
                 "STRUCTURE OBLIGATOIRE EN BALISES HTML STRICTES (INTERDICTION ABSOLUE DU MARKDOWN AVEC #) :\n"
                 "Tu as l'obligation stricte de générer ta réponse finale uniquement avec les titres HTML suivants pour éviter tout crash d'affichage :\n"
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire au format exact [📥 Cliquez ici pour voir la source](URL)).\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases maximum s'appuyant obligatoirement sur la matrice juridique ci-dessus).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code, décret ou loi applicable).\n\n"
                 
-                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
+                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n\n"
+                
+                # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
+                "RÈGLES IMPÉRATIVES SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
+                "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: laicite+ecole) :\n"
+                "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "3. [Rechercher le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"

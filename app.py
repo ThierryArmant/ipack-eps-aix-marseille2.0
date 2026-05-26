@@ -263,12 +263,12 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (Ajouté) */
+    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
     .peda-card h3 {
-        font-size: 15px !important; /* Réduction drastique des titres */
-        margin-top: 14px !important; /* Espace équilibré avant le titre */
-        margin-bottom: 4px !important; /* Effondrement de l'interligne après le titre */
-        color: #C084FC !important; /* Violet pastel lumineux pour détacher les catégories */
+        font-size: 15px !important; 
+        margin-top: 14px !important; 
+        margin-bottom: 4px !important; 
+        color: #C084FC !important; 
         font-weight: 800 !important;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -280,14 +280,14 @@ css_pur = """
         padding-left: 20px !important;
     }
     .peda-card li, .peda-card div, .peda-card span, .peda-card p {
-        font-size: 14px !important; /* Texte légèrement plus dense et compact */
-        line-height: 1.4 !important; /* Resserre les lignes entre elles */
+        font-size: 14px !important; 
+        line-height: 1.4 !important; 
         color: #FFFFFF !important;
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
     .peda-card strong {
-        color: #FCD34D !important; /* Couleur Or/Jaune pour faire ressortir l'activité et le socle */
+        color: #FCD34D !important; 
         font-weight: 700 !important;
     }
 
@@ -557,7 +557,7 @@ elif st.session_state.active_module == "peda":
     """, unsafe_allow_html=True)
 
 else:
-        # BANDEAU MUTUALISÉ EN 2 COLONNES POUR L'AIGUILLAGE
+        # BANDEAU MUTUALISÉ EN 2 COLONNES POUR L'AIGUILLAGE OBLIGATOIRE DES INAPTITUDES
         st.markdown("""
         <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
             <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">
@@ -565,11 +565,15 @@ else:
             </div>
             <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
                 <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
-                    <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS</strong><br>
-                    <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales.</span>
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+                    <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, saisie des notes brutes.</span><br>
+                    <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
+                        <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
+                        <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
+                    </div>
                 </div>
                 <div style="flex: 1; padding-left: 5px;">
-                    <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin</strong><br>
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
                     <span style="color: #FCD34D !important;">Administration des examens : remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques.</span>
                 </div>
             </div>
@@ -577,8 +581,9 @@ else:
         """, unsafe_allow_html=True)
 
 # ======================================================================
-# 8. ZONE D'ACTION (NETTOYER + SAISIE)
+# 8. ZONE D'ACTION (ARCHITECTURE SÉCURISÉE & TEXTE LUMINEUX)
 # ======================================================================
+# A. Ligne de Saisie et Bouton Nettoyer
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 
 with col_action_clear:
@@ -588,7 +593,19 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
+    prompt = st.chat_input("Posez votre question ici...", key="chat_main")
+
+# B. Bandeau d'Information d'Amnésie en HTML Strict (Style calqué sur le bandeau supérieur)
+st.markdown("""
+    <div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height: 1.4;">
+        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">
+            ⚠️ 💡 ATTENTION :
+        </span>
+        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+            Pour des raisons pratiques et de mise à jour, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une après les avoir nettoyées.
+        </span>
+    </div>
+""", unsafe_allow_html=True)
 
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
@@ -604,7 +621,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Liste globale des domaines académiques EPS
 domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "edubase.eduscol.education.fr" , "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
     "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
     "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
     "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
@@ -635,7 +652,7 @@ if prompt:
         except:
             pass
         
-    # 1. MOTEUR WEB (Tavily)
+        # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 # Initialisation des variables d'origine pour éviter les erreurs
@@ -689,28 +706,24 @@ if prompt:
                     tavily_deja_execute = True
                 
                 elif mode == "examens":
-                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 
                 elif mode == "ipack":
-                    # STRICTEMENT INCHANGÉ
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    # ÉLARGISSEMENT DE LA REQUÊTE POUR COUVRIR TOUT LE DOMAINE (RUBRIQUES 2, 4 ET 7)
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
-                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 else:
-                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
 
@@ -747,20 +760,42 @@ if prompt:
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE OBLIGATOIRE (Le 'Filtre Pierre') :\n"
-            "1. ANALYSE DES RISQUES : Identifie l'impact sur les outils ou la responsabilité.\n"
-            "2. PROCÉDURE TECHNIQUE : Utilise des étapes fléchées (→).\n"
-            "3. PROTECTION FONCTIONNELLE : Indique la traçabilité et les recours."
+            "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
+            "Tu devez STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
+            "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
+            "### 1. ANALYSE DES RISQUES\n"
+            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Bloquer l'export d'examen** : explications).\n\n"
+            "### 2. PROCÉDURE TECHNIQUE\n"
+            "- Déroule les actions de terrain de manière chronologique.\n"
+            "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
+            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle (ex: **[Mes Élèves]**, **[Saisir une inaptitude]**).\n"
+            "- S'il y a une interdiction absolue ou un point de sécurité critique, isole-le avec un émoji visible (ex: ⚠️ **ALERTE SÉCURITÉ** : ...).\n\n"
+            "### 3. PROTECTION FONCTIONNELLE\n"
+            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras (ex: 📁 **Traçabilité** : rappel de la couverture juridique).\n\n"
+            "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
         )
         badge = "INFORMATION"
         color_card = "general-card"
+        
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ MATRICE DE SÉCURITÉ INFORMANTIQUE & RÉGLEMENTAIRE
+                # ⚡ OBLIGATION DES LIENS FIXES SURLIGNÉS (NOTION STABILO DE CE MATIN)
+                "⚠️ OBLIGATION DE LIEN SURLIGNÉ (STABLE) :\n"
+                "Ta réponse DOIT obligatoirement se terminer, juste après la section '3. PROTECTION FONCTIONNELLE', par l'un de ces liens Markdown exacts selon le problème de l'utilisateur (choisis la bonne ligne et colle-la telle quelle, sans rien modifier) :\n"
+                "- Si l'utilisateur parle de connexion ou établissement (Rubrique 2) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=Sélection%20de%20votre%20établissement)\n"
+                "- Si l'utilisateur parle de l'ergonomie, de l'affichage ou de l'interface (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Présentation%20de%20l'ergonomie)\n"
+                "- Si l'utilisateur parle des imports d'élèves ou Pronote (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Logique%20d'utilisation)\n"
+                "- Si l'utilisateur parle de la saisie des notes ou verrouillage Santorin (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Verrouiller%20/%20déverrouiller)\n\n"
+                
+                # CRITICAL IPACK RULES
                 "CRITICAL IPACK RULES:\n"
                 "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
                 "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves, le protocole Bac GT doit rester réglementaire.\n"
@@ -772,10 +807,10 @@ if prompt:
                 # 🛑 VERROU ANTI-HALLUCINATION : ABOLITION DU CHOIX EN COURS DE CYCLE
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
                 "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
-                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée en appliquant le verrou ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
-                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée en appliquant le verrou ici-haut. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle) et colle le lien Markdown exact choisi plus haut en conclusion.\n"
+                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -786,18 +821,24 @@ if prompt:
                 "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST)
+                # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST MODIFIÉ)
                 "CRITICAL EPS EXAM RULES (AIX-MARSEILLE):\n"
                 "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
                 "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
                 "- ACCÈS REMPLAÇANT : L'étape n°1 absolue est la vérification de la génération de sa convocation dans IMAG'IN. Sans convocation générée (PDF créé), les droits Santorin ne s'ouvriront jamais.\n"
+                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est en panne. Interdiction absolue de dire à l'utilisateur de cliquer sur [Ajouter]. Tu dois obligatoirement expliquer la procédure de contournement : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Tout sélectionner. 4. Cliquer sur **[Déplacer vers un nouveau lot]**. 5. Choisir le correcteur remplaçant dans la fenêtre du bas.\n"
                 "- AUCUN LOT À CORRIGER : Le Chef d'établissement doit obligatoirement lancer en premier lieu la 'Distribution automatique' dans Santorin. La distribution manuelle ne vient qu'en second recours si le lot est incomplet.\n"
-                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale. Le dossier doit être transmis directement à l'arbitrage de la commission d'harmonisation (CAHN).\n"
+                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot. Le dossier doit être transmis directement à l'arbitrage de la commission d'harmonisation (CAHN).\n"
                 "- LOT COLLÈGUE MANQUANT : Vérifier l'état des services et forcer la synchronisation en finalisant sa convocation d'évaluateur dans IMAG'IN.\n"
                 "- PROTOCOLE ADAPTÉ EN COURS D'ANNÉE : Obligation de relancer une 'Distribution automatique des lots' dans Santorin une fois les candidats rattachés au protocole adapté.\n"
                 "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
                 "- SPORTIF DE HAUT NIVEAU (SHN) : La validation de la note de 20/20 s'appuie réglementairement sur l'équivalence du Champ d'Apprentissage (CA) correspondant.\n"
                 "- ÉLÈVE TRANSFÉRÉ (APSA DIFFÉRENTES) : Interdiction de modifier le protocole de l'établissement ou de réévaluer l'élève sur les épreuves passées. Les notes d'origine sont sanctuarisées. Le professeur évalue la 3ème épreuve sur papier et le chef d'établissement demande à la DEC un 'Protocole Individuel Dérogatoire' dans Cyclades pour fusion manuelle par le rectorat.\n\n"
+                
+                # 🛑 VERROU ANTI-HALLUCINATION : BOUTON AJOUTER BLOQUÉ
+                "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR LE REMPLAÇANT) :\n"
+                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
+                "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 f"Contexte additionnel: {extraits_doc}\nQuestion: {prompt}"
@@ -807,7 +848,7 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS.\n"
+                "ROLE : Expert juridique officiel EPS.\n\n"
                 
                 # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
                 "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
@@ -831,7 +872,7 @@ if prompt:
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"
                 "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
-                "3. Utilise <br> pour les sauts de ligne simples.\n"
+                "3. Utilise <br> pour les sauts de ligne simples.\n\n"
                 
                 # ⚡ MODIFICATION ICI : REQUÊTE GOOGLE DYNAMIQUE AVEC LE NOM DU SPORT
                 "RÈGLE LIENS : Sélectionne 3 académies dans la liste. Détermine l'APSA principale de la demande (ex: badminton, acrosport). "
@@ -845,7 +886,7 @@ if prompt:
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT</h3><ul><li>Consignes de sécurité passive/active et gestion de l'espace</li></ul>"
                 "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST</h3><ul><li>Description de la situation, variables, aménagement, score parlant et règles d'action</li></ul>"
                 "<h3>📊 CRITÈRES D'ÉVALUATION ET OBSERVABLES</h3><ul><li>Indicateurs quantitatifs (statistiques, ratios) et qualitatifs (motricité, choix) pour valider les niveaux de maîtrise</li></ul>"
-                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Liens ici)"
+                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Insère ici les 3 liens HTML générés ci-dessus, aucun texte brut passif autorisé)<br>"
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"

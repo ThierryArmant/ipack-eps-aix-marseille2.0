@@ -844,12 +844,14 @@ if prompt:
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
-        elif mode == "textes":
+       elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS (Académie d'Aix-Marseille).\n"
+                "ROLE : Expert juridique officiel EPS (Académie d'Aix-Marseille). "
+                "TU DOIS FAIRE TABLE RASE DE LA QUESTION PRÉCÉDENTE. Chaque réponse doit être indépendante et basée UNIQUEMENT sur la question actuelle.\n\n"
+                
                 "HIÉRARCHIE D'ANALYSE (OBLIGATOIRE) :\n"
-                "1. PRIORITÉ PÉNAL : Si la situation relève d'un délit (enregistrement, menace), ta référence est le CODE PÉNAL (Art 226-1). INTERDICTION de citer la Loi de 2004.\n"
+                "1. PRIORITÉ PÉNAL : Si la situation relève d'un délit (enregistrement, menace), ta seule référence est le CODE PÉNAL (Art 226-1). INTERDICTION de citer la Loi de 2004.\n"
                 "2. PRIORITÉ MÉDICALE : Si la situation concerne un certificat médical ou une dispense, ta référence est le Code de l'éducation (Art L551-1). INTERDICTION de citer la Loi de 2004.\n"
                 "3. Si une information n'est pas dans ton contexte, RÉPONDS STRICTEMENT : 'Information non sourcée dans la base académique'.\n\n"
                 
@@ -859,7 +861,7 @@ if prompt:
                 "- Laïcité/Mixité : Loi du 15 mars 2004 (Art L. 141-5-1). Aucune dispense religieuse.\n\n"
                 
                 "MISSION : Extraction factuelle. STRUCTURE HTML OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Citer le texte exact, date, article précis).\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Citer le texte exact et sa date. Pas de lien cliquable généré).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Synthèse : fait, loi, procédure administrative).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou texte officiel).\n\n"
                 

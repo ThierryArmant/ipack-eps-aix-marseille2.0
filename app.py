@@ -802,7 +802,7 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-      elif mode == "textes":
+  elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}\n"
                 "ROLE : Tu es l'expert juridique officiel du droit et du sport scolaire pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n\n"
@@ -884,7 +884,7 @@ if prompt:
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-        elif mode == "peda":
+    elif mode == "peda":
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
                 "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE, ULTRA-DÉTAILLÉE, rigoureuse sur le plan institutionnel et directement exploitable sur le terrain.\n"

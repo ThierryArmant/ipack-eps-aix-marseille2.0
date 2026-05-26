@@ -816,7 +816,7 @@ if prompt:
                 "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
-                "⚠️ OBLIGATION LIENS : Dès que ta réponse aborde un des thèmes listés ci-dessus, affiche obligatoirement le lien Markdown [Texte](URL) correspondant. Interdiction d'inventer d'autres URL.\n\n"
+                "⚠️ OBLIGATION STRICTE DES LIENS : Tu as l'interdiction absolue d'écrire les thèmes ci-dessus en texte brut (ex: 'consultez le module Connexion'). Tu dois OBLIGATOIREMENT insérer le lien Markdown exact de la liste (ex: [Consulter le module Connexion à iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)) dès que tu mentionnes une de ces procédures. C'est éliminatoire.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"

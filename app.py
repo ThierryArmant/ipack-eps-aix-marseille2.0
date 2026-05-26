@@ -844,7 +844,7 @@ if prompt:
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
-       elif mode == "textes":
+        elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n\n"

@@ -826,7 +826,7 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS.\n"
+                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
                 
                 # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
                 "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
@@ -837,10 +837,20 @@ if prompt:
                 "STRUCTURE OBLIGATOIRE :\n"
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
-                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement les liens réels vers Légifrance (Article 9 du Code Civil) et la page officielle de protection des données d'Éduscol."
-                "RÈGLE D'OR ABSOLUE POUR LES LIENS : Tu as l'interdiction formelle d'inventer des URL ou de réutiliser de vieux numéros de pages BO de ta mémoire. Tu dois UNIQUEMENT utiliser les liens URL textuels STRICTEMENT présents dans le 'Contexte' fourni ci-dessus (générés par le moteur de recherche en temps réel). Si une information ou un texte de loi n'a pas d'URL associée dans le Contexte, écris simplement : [Source : Base Académique - Lien direct non disponible]."
-                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
+                
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement les liens réels vers Légifrance (Article 9 du Code Civil) et la page officielle de protection des données d'Éduscol.\n\n"
+                
+                # 🔄 ROUTINE DE SECOURS ANTI-404 (FALLBACK DYNAMIQUE SUR RECHERCHE INTERNE)
+                "RÈGLE IMPÉRATIVE SUR LES LIENS ET ERREURS 404 :\n"
+                "1. Tu as l'interdiction formelle d'inventer de fausses URL statiques du Bulletin Officiel de ta mémoire.\n"
+                "2. Si le 'Contexte' ne fournit aucun lien web en direct ou si tu suspectes qu'une vieille circulaire va renvoyer une erreur 404, active IMMÉDIATEMENT la procédure de recherche de secours.\n"
+                "3. Pour ce faire, génère un lien de requête dynamique basé sur les mots-clés de la question, sous l'une de ces 3 formes d'ancres indestructibles :\n"
+                "   - 🔗 [Consulter les textes mis à jour sur Légifrance](https://www.legifrance.gouv.fr/search/all?tab_selection=all&searchField=ALL&query=MOTS_CLÉS&page=1_)\n"
+                "   - 🔗 [Vérifier la réglementation en vigueur sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "   - 🔗 [Consulter les fiches de sécurité de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "⚠️ OBLIGATION : Remplace systématiquement 'MOTS_CLÉS' dans l'URL par les termes juridiques de la demande en minuscules séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
+                
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"

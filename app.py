@@ -263,12 +263,12 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
+    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (Ajouté) */
     .peda-card h3 {
-        font-size: 15px !important; 
-        margin-top: 14px !important; 
-        margin-bottom: 4px !important; 
-        color: #C084FC !important; 
+        font-size: 15px !important; /* Réduction drastique des titres */
+        margin-top: 14px !important; /* Espace équilibré avant le titre */
+        margin-bottom: 4px !important; /* Effondrement de l'interligne après le titre */
+        color: #C084FC !important; /* Violet pastel lumineux pour détacher les catégories */
         font-weight: 800 !important;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -280,14 +280,14 @@ css_pur = """
         padding-left: 20px !important;
     }
     .peda-card li, .peda-card div, .peda-card span, .peda-card p {
-        font-size: 14px !important; 
-        line-height: 1.4 !important; 
+        font-size: 14px !important; /* Texte légèrement plus dense et compact */
+        line-height: 1.4 !important; /* Resserre les lignes entre elles */
         color: #FFFFFF !important;
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
     .peda-card strong {
-        color: #FCD34D !important; 
+        color: #FCD34D !important; /* Couleur Or/Jaune pour faire ressortir l'activité et le socle */
         font-weight: 700 !important;
     }
 
@@ -593,7 +593,7 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question ici...", key="chat_main")
+    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # B. Bandeau d'Information d'Amnésie en HTML Strict (Style calqué sur le bandeau supérieur)
 st.markdown("""
@@ -652,7 +652,7 @@ if prompt:
         except:
             pass
         
-        # 1. MOTEUR WEB (Tavily)
+    # 1. MOTEUR WEB (Tavily)
         if tavily_api_key:
             try:
                 # Initialisation des variables d'origine pour éviter les erreurs
@@ -706,24 +706,28 @@ if prompt:
                     tavily_deja_execute = True
                 
                 elif mode == "examens":
+                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 
                 elif mode == "ipack":
-                    # ÉLARGISSEMENT DE LA REQUÊTE POUR COUVRIR TOUT LE DOMAINE (RUBRIQUES 2, 4 ET 7)
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr {prompt}"
+                    # STRICTEMENT INCHANGÉ
+                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
+                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
+                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 else:
+                    # STRICTEMENT INCHANGÉ
                     requete_blindee = f"{prompt} EPS programme officiel"
                     domains = ["eduscol.education.gouv.fr", "unss.org"]
 
@@ -761,7 +765,7 @@ if prompt:
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
-            "Tu devez STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
+            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
             "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
             "### 1. ANALYSE DES RISQUES\n"
             "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Bloquer l'export d'examen** : explications).\n\n"
@@ -776,24 +780,19 @@ if prompt:
         )
         badge = "INFORMATION"
         color_card = "general-card"
-        
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ OBLIGATION DES LIENS FIXES SURLIGNÉS (NOTION STABILO DE CE MATIN)
-                "⚠️ OBLIGATION DE LIEN SURLIGNÉ (STABLE) :\n"
-                "Ta réponse DOIT obligatoirement se terminer, juste après la section '3. PROTECTION FONCTIONNELLE', par l'un de ces liens Markdown exacts selon le problème de l'utilisateur (choisis la bonne ligne et colle-la telle quelle, sans rien modifier) :\n"
-                "- Si l'utilisateur parle de connexion ou établissement (Rubrique 2) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=Sélection%20de%20votre%20établissement)\n"
-                "- Si l'utilisateur parle de l'ergonomie, de l'affichage ou de l'interface (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Présentation%20de%20l'ergonomie)\n"
-                "- Si l'utilisateur parle des imports d'élèves ou Pronote (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Logique%20d'utilisation)\n"
-                "- Si l'utilisateur parle de la saisie des notes ou verrouillage Santorin (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Verrouiller%20/%20déverrouiller)\n\n"
+                # 🧠 CHASSIS TAXI PORTE-À-PORTE (SCROLL AUTOMATIQUE HTML5)
+                "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
+                "1. Scanne le 'Contexte' pour trouver le TITRE EXACT du paragraphe écrit par l'utilisateur (ex: 'Sélection de votre établissement' ou 'Choix de l’année scolaire').\n"
+                "2. À la fin de ta réponse, sous le titre '3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien ultra-précis qui va faire défiler la page du navigateur directement sur ce titre.\n"
+                "3. Formate le lien de conclusion EXACTEMENT selon ces modèles en remplaçant 'TITRE_NETTOYÉ' par le titre trouvé où chaque espace est remplacé par %20 (ex: Sélection%20de%20votre%20établissement) :\n"
+                "   - Pour un sujet de début d'année/connexion : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=TITRE_NETTOYÉ)\n"
+                "   - Pour un sujet de gestion de classes/APSA/évaluations : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TITRE_NETTOYÉ)\n\n"
                 
                 # CRITICAL IPACK RULES
                 "CRITICAL IPACK RULES:\n"
@@ -802,14 +801,14 @@ if prompt:
                 "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas dans l'onglet Protocoles. Pour faire disparaître un protocole, il faut obligatoirement supprimer ou désaffecter les Groupes et les séquences d'apprentissage qui lui sont rattachés en amont.\n"
                 "- RÉPARTITION DANS LES GROUPES : L'action se fait exclusivement via le module 'Mes élèves'. Attention, l'option textuelle 'Placement des élèves dans les groupes' n'existe pas dans l'interface.\n"
                 "- DÉPÔT CERTIFICAT MÉDICAL : Dissocier la saisie simple de l'inaptitude (Fiche élève > Onglet Inaptitudes) du téléversement des pièces justificatives pour la commission qui se fait dans [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].\n"
-                "- NOTE UNIQUE CCF : iPack編 bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
+                "- NOTE UNIQUE CCF : iPackEPS bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
                 
-                # 🛑 VERROU ANTI-HALLUCINATION : ABOLITION DU CHOIX EN COURS DE CYCLE
+                # 🛑 VERROU ANTI-HALLUCINATION
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
-                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
-                "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CC CONTEXTE. C'est une erreur réglementaire majeure.\n"
+                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée en appliquant le verrou ici-haut. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle) et colle le lien Markdown exact choisi plus haut en conclusion.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée. Génère le lien porte-à-porte avec le fragment #:~:text= en convertissant les espaces en %20. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
@@ -821,14 +820,14 @@ if prompt:
                 "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST MODIFIÉ)
+                # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST)
                 "CRITICAL EPS EXAM RULES (AIX-MARSEILLE):\n"
                 "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
                 "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
                 "- ACCÈS REMPLAÇANT : L'étape n°1 absolue est la vérification de la génération de sa convocation dans IMAG'IN. Sans convocation générée (PDF créé), les droits Santorin ne s'ouvriront jamais.\n"
-                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est en panne. Interdiction absolue de dire à l'utilisateur de cliquer sur [Ajouter]. Tu dois obligatoirement expliquer la procédure de contournement : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Tout sélectionner. 4. Cliquer sur **[Déplacer vers un nouveau lot]**. 5. Choisir le correcteur remplaçant dans la fenêtre du bas.\n"
+                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est en panne. Interdiction absolue de dire à l'utilisateur de cliquer sur [Ajouter]. Tu dois obligatoirement expliquer la procédure de contournement : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Tout sélectionner. 4. Cliquer sur **[Déplacer vers un nouveau lot]**. 5. Choisir le correcteur remplaçant dans la fenêtre du bas."
                 "- AUCUN LOT À CORRIGER : Le Chef d'établissement doit obligatoirement lancer en premier lieu la 'Distribution automatique' dans Santorin. La distribution manuelle ne vient qu'en second recours si le lot est incomplet.\n"
-                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot. Le dossier doit être transmis directement à l'arbitrage de la commission d'harmonisation (CAHN).\n"
+                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot.\n"
                 "- LOT COLLÈGUE MANQUANT : Vérifier l'état des services et forcer la synchronisation en finalisant sa convocation d'évaluateur dans IMAG'IN.\n"
                 "- PROTOCOLE ADAPTÉ EN COURS D'ANNÉE : Obligation de relancer une 'Distribution automatique des lots' dans Santorin une fois les candidats rattachés au protocole adapté.\n"
                 "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
@@ -837,7 +836,7 @@ if prompt:
                 
                 # 🛑 VERROU ANTI-HALLUCINATION : BOUTON AJOUTER BLOQUÉ
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR LE REMPLAÇANT) :\n"
-                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
+                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] and cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
                 "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
@@ -848,19 +847,29 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS.\n\n"
+                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
                 
-                # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
+                # DISTINCTION JURIDIQUE EPS VS AS/UNSS
                 "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
                 "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
-                "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
+                "MISSION : Extraction factuelle de textes réglementaires depuis les sites officiels.\n"
+                "STRUCTURE OBLIGATOIRE À RESPECTER SOUS PEINE DE SANCTION :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre du texte, date, et TU DOIS OBLIGATOIREMENT METTRE UN LIEN CLIQUABLE au format exact [Cliquez ici pour voir la source](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
-                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
+                
+                # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
+                
+                # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
+                "RÈGLES IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
+                "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: droit+image+ecole) :\n"
+                "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "3. [Rechercher le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n\n"
+                
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -874,10 +883,15 @@ if prompt:
                 "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
                 "3. Utilise <br> pour les sauts de ligne simples.\n\n"
                 
-                # ⚡ MODIFICATION ICI : REQUÊTE GOOGLE DYNAMIQUE AVEC LE NOM DU SPORT
-                "RÈGLE LIENS : Sélectionne 3 académies dans la liste. Détermine l'APSA principale de la demande (ex: badminton, acrosport). "
-                "Construis pour chacune un lien Google ultra-ciblé en remplaçant 'DOMAINE' par l'académie et 'NOM_APSA' par le nom du sport demandé : "
-                "<a href='https://www.google.com/search?q=site:DOMAINE+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom]</a><br>\n\n"
+                # ⚡ VERROU ANTI-FAINÉANT ET LIENS INCASSABLES DYNAMIQUES
+                "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
+                "1. Interdiction absolue d'inventer des URL directes vers des fichiers PDF ou Excel spécifiques (ex: ac-creteil.fr/eps/gym.pdf), ils finissent toujours en erreur 404.\n"
+                "2. Tu as l'obligation stricte de générer les 3 liens HTML exacts ci-dessous. Tu dois obligatoirement remplacer 'NOM_APSA' par l'activité demandée en minuscules (ex: gymnastique, badminton, acrosport).\n"
+                "3. Tu dois obligatoirement remplacer 'DOMAINE1' et 'DOMAINE2' par les domaines d'académies de la liste (ex: eps.ac-creteil.fr), et '[Nom1]'/'[Nom2]' par le nom de l'académie (ex: Créteil). INTERDICTION d'écrire les variables brutes.\n"
+                "Construis obligatoirement ces 3 liens de recherche dynamiques au format HTML exact suivant :<br>"
+                "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
+                "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
+                "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
                 
                 "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
@@ -890,7 +904,6 @@ if prompt:
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
-
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text

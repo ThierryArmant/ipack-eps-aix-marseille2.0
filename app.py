@@ -854,9 +854,12 @@ if prompt:
                 "3. Utilise <br> pour les sauts de ligne simples.\n"
                 
                 # ⚡ MODIFICATION ICI : REQUÊTE GOOGLE DYNAMIQUE AVEC LE NOM DU SPORT
-                "RÈGLE LIENS : Sélectionne 3 académies dans la liste. Détermine l'APSA principale de la demande (ex: badminton, acrosport). "
-                "Construis pour chacune un lien Google ultra-ciblé en remplaçant 'DOMAINE' par l'académie et 'NOM_APSA' par le nom du sport demandé : "
-                "<a href='https://www.google.com/search?q=site:DOMAINE+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom]</a><br>\n\n"
+                # ⚡ OPTIMISATION ÉDUBASE ET ACADÉMIES
+                "RÈGLE LIENS : Sélectionne 2 académies dans la liste ainsi qu'Édubase. Détermine l'APSA principale de la demande (ex: gymnastique, acrosport). "
+                "Construis obligatoirement 3 liens Google ultra-ciblés au format HTML suivant : "
+                "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
+                "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
+                "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
                 
                 "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"

@@ -581,8 +581,9 @@ else:
         """, unsafe_allow_html=True)
 
 # ======================================================================
-# 8. ZONE D'ACTION (NETTOYER + SAISIE + INSTRUCTION AMNÉSIE)
+# 8. ZONE D'ACTION (ALIGNEUSE & ÉTIRÉE)
 # ======================================================================
+# A. Ligne de Saisie et Bouton Nettoyer (Compacte)
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 
 with col_action_clear:
@@ -592,15 +593,16 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question  ici...", key="chat_main")
-    
-    # 💡 AJOUT DU BANDEAU D'AIGUILLAGE SUR L'AMNÉSIE DE L'IA (JUSTE SOUS LA SAISIE)
-    st.info(
-        "💡 **Attention :** Pour des raisons pratiques et de mise à jour des textes, "
-        "votre assistant ne mémorise pas le fil de la conversation. "
-        "Posez vos questions une par une de manière complète (en précisant l'activité ou l'application concernée).",
-        icon="⚠️"
-    )
+    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
+
+# B. Bandeau d'Information d'Amnésie (Sorti des colonnes pour s'étirer sur toute la largeur)
+# 💡 Il se place automatiquement sous les boutons ci-dessus et s'étire par défaut.
+st.info(
+    "💡 **Attention :** Pour des raisons pratiques et de mise à jour des textes réglementaires, "
+    "votre assistant ne mémorise pas le fil de la conversation. "
+    "Posez vos questions une par une après les avoir nettoyées.",
+    icon="⚠️"
+)
 
 # ======================================================================
 # 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)

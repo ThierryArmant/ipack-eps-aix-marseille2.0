@@ -593,7 +593,7 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
+    prompt = st.chat_input("Posez votre question ici...", key="chat_main")
 
 # B. Bandeau d'Information d'Amnésie en HTML Strict (Style calqué sur le bandeau supérieur)
 st.markdown("""

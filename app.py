@@ -835,7 +835,7 @@ if prompt:
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et l'URL brute complète en texte clair ex: https://www.legifrance.gouv.fr/... Obligatoire).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
                 

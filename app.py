@@ -847,34 +847,32 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
+                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n\n"
                 
-                # DISTINCTION JURIDIQUE EPS VS AS/UNSS
-                "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
-                "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
-                "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
+                "HIÉRARCHIE D'ANALYSE (OBLIGATOIRE) :\n"
+                "1. AVANT TOUT, analyse la question au regard des FONDAMENTAUX JURIDIQUES ci-dessous.\n"
+                "2. Si une source web trouvée dans le contexte contredit ces Fondamentaux, REJETTE LA SOURCE WEB et priorise la règle juridique officielle.\n\n"
                 
-                "MISSION : Extraction factuelle de textes réglementaires depuis les sites officiels.\n"
-                "STRUCTURE OBLIGATOIRE À RESPECTER SOUS PEINE DE SANCTION :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre du texte, date, et TU DOIS OBLIGATOIREMENT METTRE UN LIEN CLIQUABLE au format exact [Cliquez ici pour voir la source](URL)).\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
-                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
-                            
-                # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
-                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
+                "--- FONDAMENTAUX JURIDIQUES (À APPLIQUER) ---\n"
+                "- EPS Obligatoire : Responsabilité de l'État (Loi 1937 / Art L. 911-4). L'État se substitue à l'enseignant.\n"
+                "- AS/UNSS (Associatif) : Régime Loi 1901. Responsabilité couverte par l'assurance MAIF de l'AS.\n"
+                "- Laïcité/Mixité : Loi du 15 mars 2004 (Art L. 141-5-1). Aucune dispense religieuse.\n"
+                "- Enregistrement à l'insu : Délit pénal (Art. 226-1 Code Pénal). Refus immédiat et signalement écrit au Chef d'établissement.\n"
+                "- Droit à l'image (Gym) : Captation soumise à autorisation. Si refus = Interdiction absolue de filmer.\n\n"
                 
-                # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
-                "RÈGLES IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
-                "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: droit+image+ecole) :\n"
-                "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
-                "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "MISSION : Extraction factuelle. STRUCTURE HTML OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien cliquable [Voir la source](URL)).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Synthèse juridique).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article de loi).\n\n"
+                
+                "RÈGLES LIENS : Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Si le contexte est vide, génère obligatoirement l'un de ces 3 liens :\n"
+                "1. [Consulter Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "2. [Consulter le guide CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
                 "3. [Rechercher le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n\n"
                 
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card" 
 
         elif mode == "peda":
             consigne_ia = (

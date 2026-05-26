@@ -860,12 +860,14 @@ if prompt:
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"
                 "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
-                "3. Utilise <br> pour les sauts de ligne simples.\n"
+                "3. Utilise <br> pour les sauts de ligne simples.\n\n"
                 
-                # ⚡ MODIFICATION ICI : REQUÊTE GOOGLE DYNAMIQUE AVEC LE NOM DU SPORT
-                # ⚡ OPTIMISATION ÉDUBASE ET ACADÉMIES
-                "RÈGLE LIENS : Sélectionne 2 académies dans la liste ainsi qu'Édubase. Détermine l'APSA principale de la demande (ex: gymnastique, acrosport). "
-                "Construis obligatoirement 3 liens Google ultra-ciblés au format HTML suivant : "
+                # ⚡ VERROU ANTI-FAINÉANT ET LIENS INCASSABLES DYNAMIQUES
+                "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
+                "1. Interdiction absolue d'inventer des URL directes vers des fichiers PDF ou Excel spécifiques (ex: ac-creteil.fr/eps/gym.pdf), ils finissent toujours en erreur 404.\n"
+                "2. Tu as l'obligation stricte de générer les 3 liens HTML exacts ci-dessous. Tu dois obligatoirement remplacer 'NOM_APSA' par l'activité demandée en minuscules (ex: gymnastique, badminton, acrosport).\n"
+                "3. Tu dois obligatoirement remplacer 'DOMAINE1' et 'DOMAINE2' par les domaines d'académies de la liste (ex: eps.ac-creteil.fr), et '[Nom1]'/'[Nom2]' par le nom de l'académie (ex: Créteil). INTERDICTION d'écrire les variables brutes.\n"
+                "Construis obligatoirement ces 3 liens de recherche dynamiques au format HTML exact suivant :<br>"
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
                 "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
@@ -877,7 +879,7 @@ if prompt:
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT</h3><ul><li>Consignes de sécurité passive/active et gestion de l'espace</li></ul>"
                 "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST</h3><ul><li>Description de la situation, variables, aménagement, score parlant et règles d'action</li></ul>"
                 "<h3>📊 CRITÈRES D'ÉVALUATION ET OBSERVABLES</h3><ul><li>Indicateurs quantitatifs (statistiques, ratios) et qualitatifs (motricité, choix) pour valider les niveaux de maîtrise</li></ul>"
-                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Liens ici)"
+                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Insère ici les 3 liens HTML générés ci-dessus, aucun texte brut passif autorisé)<br>"
                 f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"

@@ -802,7 +802,7 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif mode == "textes":
+      elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}\n"
                 "ROLE : Tu es l'expert juridique officiel du droit et du sport scolaire pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n\n"
@@ -826,13 +826,19 @@ if prompt:
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases maximum s'appuyant obligatoirement sur la matrice juridique ci-dessus).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code, décret ou loi applicable).\n\n"
                 
-                # 🔗 DOUBLE ROUTINE DE LIENS FIXES : AIX-MARSEILLE OU RECHERCHE DE SECOURS CODE EDUCATION
-                "RÈGLE IMPÉRATIVE POUR LE LIEN DE LA SECTION 1 (ZÉRO ERREUR) :\n"
-                "Tu DOIS obligatoirement afficher ces deux lignes de liens exactes en conclusion de la section 1, sans modifier une seule lettre et sans aucun accent dans les paramètres :\n"
-                "[📥 Consulter l'espace des Textes Officiels - Académie d'Aix-Marseille](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels)\n"
-                "[🔍 Lancer la recherche directe dans le Code de l'éducation](https://www.google.com/search?q=site:legifrance.gouv.fr+code+education+surveillance+laicite)\n\n"
+                # 📚 BIBLIOTHÈQUE DE ROUTAGE DE PIERRE (AIX-MARSEILLE)
+                "RÈGLES IMPÉRATIVES POUR LE LIEN DE LA SECTION 1 (ROUTAGE AUTOMATIQUE) :\n"
+                "Selon le thème de la question, tu DOIS obligatoirement choisir et afficher le lien exact de la bibliothèque de Pierre ci-dessous. Interdiction d'inventer une autre URL ou d'utiliser des accents dans l'adresse :\n"
+                "- Si la question concerne les EXAMENS, le CCF, le Brevet (DNB), le Baccalauréat ou les dispenses d'examen :\n"
+                "  [📥 Consulter l'espace officiel Examens - Académie d'Aix-Marseille](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11095694/fr/examens)\n"
+                "- Si la question concerne les EPI (Enseignements Pratiques Interdisciplinaires) ou les projets transversaux :\n"
+                "  [📥 Consulter l'espace officiel EPI - Académie d'Aix-Marseille](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels)\n"
+                "- Si la question concerne la laïcité, le règlement général, la sécurité, le Ramadan ou la responsabilité (Ligne racine) :\n"
+                "  [📥 Consulter l'espace des Textes Officiels - Académie d'Aix-Marseille](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels)\n"
+                "- Pour toute autre recherche de texte législatif brut :\n"
+                "  [🔍 Lancer la recherche directe dans le Code de l'éducation](https://www.google.com/search?q=site:legifrance.gouv.fr+code+education+surveillance+laicite)\n\n"
                 
-                "RÈGLES D'OR : Insère uniquement les deux liens construits ci-dessus en conclusion de la section 1. Ne mets aucun autre lien générique ou brut dans le reste de ton texte.\n"
+                "RÈGLES D'OR : Insère uniquement les liens sélectionnés ci-dessus en conclusion de la section 1. Ne mets aucun autre lien générique ou brut dans le reste de ton texte.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"

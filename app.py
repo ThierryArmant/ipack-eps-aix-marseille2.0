@@ -859,7 +859,9 @@ if prompt:
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre du texte, date, et TU DOIS OBLIGATOIREMENT METTRE UN LIEN CLIQUABLE au format exact [Cliquez ici pour voir la source](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
-                
+                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                            
                 # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
                 "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
                 

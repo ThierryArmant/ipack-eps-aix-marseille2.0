@@ -593,7 +593,7 @@ with col_action_clear:
         st.rerun()
 
 with col_action_input:
-    prompt = st.chat_input("Posez votre question ici...", key="chat_main")
+    prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
 
 # B. Bandeau d'Information d'Amnésie en HTML Strict (Style calqué sur le bandeau supérieur)
 st.markdown("""
@@ -779,23 +779,20 @@ if prompt:
             "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
         )
         badge = "INFORMATION"
+        color_card = "general-card"
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ VERROUILLAGE STRICT DU BOUTON FLUO (PORTE-À-PORTE)
-                "⚠️ OBLIGATION ABSOLUE DE LIEN (INTERDICTION DU TEXTE BRUT) :\n"
-                "Tu as l'interdiction formelle de taper le lien final en texte brut. Ta réponse DOIT obligatoirement se terminer, juste après la section '3. PROTECTION FONCTIONNELLE', par l'un de ces liens Markdown exacts (choisis celui qui correspond au problème, sans rien modifier à sa structure) :\n"
-                "- Si l'utilisateur parle de connexion ou établissement (Rubrique 2) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=Sélection%20de%20votre%20établissement)\n"
-                "- Si l'utilisateur parle de l'ergonomie ou de l'affichage (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Présentation%20de%20l'ergonomie)\n"
-                "- Si l'utilisateur parle des imports d'élèves ou Pronote (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Logique%20d'utilisation)\n"
-                "- Si l'utilisateur parle de la saisie des notes ou verrouillage Santorin (Rubrique 4) :\n"
-                "  [📥 Cliquer ici pour ouvrir l'article surligné sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Verrouiller%20/%20déverrouiller)\n\n"
+                # 🧠 CHASSIS TAXI PORTE-À-PORTE (SCROLL AUTOMATIQUE HTML5)
+                "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
+                "1. Scanne le 'Contexte' pour trouver le TITRE EXACT du paragraphe écrit par l'utilisateur (ex: 'Sélection de votre établissement' ou 'Choix de l’année scolaire').\n"
+                "2. À la fin de ta réponse, sous le titre '3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien ultra-précis qui va faire défiler la page du navigateur directement sur ce titre.\n"
+                "3. Formate le lien de conclusion EXACTEMENT selon ces modèles en remplaçant 'TITRE_NETTOYÉ' par le titre trouvé où chaque espace est remplacé par %20 (ex: Sélection%20de%20votre%20établissement) :\n"
+                "   - Pour un sujet de début d'année/connexion : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=TITRE_NETTOYÉ)\n"
+                "   - Pour un sujet de gestion de classes/APSA/évaluations : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TITRE_NETTOYÉ)\n\n"
                 
                 # CRITICAL IPACK RULES
                 "CRITICAL IPACK RULES:\n"
@@ -808,10 +805,10 @@ if prompt:
                 
                 # 🛑 VERROU ANTI-HALLUCINATION
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
-                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
-                "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CC CONTEXTE. C'est une erreur réglementaire majeure.\n"
+                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle) et colle le lien Markdown exact en conclusion.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée. Génère le lien porte-à-porte avec le fragment #:~:text= en convertissant les espaces en %20. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
@@ -820,7 +817,7 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades and Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
+                "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
                 # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST)
@@ -850,21 +847,28 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS pour Aix-Marseille. Interdiction absolue d'inventer des circulaires ou des aménagements religieux.\n\n"
+                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
                 
-                "MATRICE DE VÉRITÉ JURIDIQUE (LAÏCITÉ) :\n"
-                "- En EPS, aucune dispense religieuse n'est légale. La mixité est obligatoire (Loi 2004).\n"
-                "- Le refus de participer pour motif religieux est un manquement à l'assiduité.\n"
-                "- Procédure : Refus de la dispense + Signalement écrit immédiat au Chef d'établissement.\n\n"
+                # DISTINCTION JURIDIQUE EPS VS AS/UNSS
+                "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
+                "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
+                "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Loi du 15 mars 2004).\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Application stricte de la matrice ci-dessus).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article L. 141-5-1 Code de l'éducation).\n\n"
+                "MISSION : Extraction factuelle de textes réglementaires depuis les sites officiels.\n"
+                "STRUCTURE OBLIGATOIRE À RESPECTER SOUS PEINE DE SANCTION :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre du texte, date, et TU DOIS OBLIGATOIREMENT METTRE UN LIEN CLIQUABLE au format exact [Cliquez ici pour voir la source](URL)).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
                 
-                "BIBLIOTHÈQUE DE ROUTAGE AIX-MARSEILLE :\n"
-                "- Examens/CCF : [Consulter l'espace officiel](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11095694/fr/examens)\n"
-                "- Textes/Laïcité : [Consulter les textes officiels](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels)\n\n"
+                # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
+                
+                # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
+                "RÈGLES IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
+                "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: droit+image+ecole) :\n"
+                "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "3. [Rechercher le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n\n"
                 
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
@@ -889,7 +893,7 @@ if prompt:
                 "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
                 
-                "STRUCTURE IMPÉRATIVE À REMPLIR WITH PRÉCISION :\n"
+                "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3><ul><li><strong>Domaines du Socle Commun :</strong> [domaines]</li><li><strong>Compétences Générales EPS :</strong> [compétences]</li><li><strong>Attendus de Fin de Cycle (AFC) :</strong> [AFC]</li></ul>"
                 "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>Objectifs moteurs et intentions tactiques spécifiques</li></ul>"

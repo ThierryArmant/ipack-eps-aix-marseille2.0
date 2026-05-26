@@ -779,7 +779,7 @@ if prompt:
             "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
         )
         badge = "INFORMATION"
-       if mode == "ipack":
+    if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"

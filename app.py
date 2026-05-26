@@ -779,12 +779,23 @@ if prompt:
             "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
         )
         badge = "INFORMATION"
-        color_card = "general-card"
-        if mode == "ipack":
+       if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
+                
+                # ⚡ VERROUILLAGE STRICT DU BOUTON FLUO (PORTE-À-PORTE)
+                "⚠️ OBLIGATION ABSOLUE DE LIEN (INTERDICTION DU TEXTE BRUT) :\n"
+                "Tu as l'interdiction formelle de taper le lien final en texte brut. Ta réponse DOIT obligatoirement se terminer, juste après la section '3. PROTECTION FONCTIONNELLE', par l'un de ces liens Markdown exacts (choisis celui qui correspond au problème, sans rien modifier à sa structure) :\n"
+                "- Si l'utilisateur parle de connexion ou établissement (Rubrique 2) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=Sélection%20de%20votre%20établissement)\n"
+                "- Si l'utilisateur parle de l'ergonomie ou de l'affichage (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Présentation%20de%20l'ergonomie)\n"
+                "- Si l'utilisateur parle des imports d'élèves ou Pronote (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Logique%20d'utilisation)\n"
+                "- Si l'utilisateur parle de la saisie des notes ou verrouillage Santorin (Rubrique 4) :\n"
+                "  [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=Verrouiller%20/%20déverrouiller)\n\n"
                 
                 # CRITICAL IPACK RULES
                 "CRITICAL IPACK RULES:\n"
@@ -798,17 +809,10 @@ if prompt:
                 # 🛑 VERROU ANTI-HALLUCINATION
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
                 "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
-                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
-                # 🧠 OBLIGATION DU LIEN ULTRA-STRICTE
-                "⚠️ COMPORTEMENT DE LIEN IMPÉRATIF (SOUS PEINE DE CRASH) :\n"
-                "À la toute fin de ta réponse, juste après le paragraphe '3. PROTECTION FONCTIONNELLE', tu as l'obligation absolue d'afficher un bouton d'accès direct.\n"
-                "Tu dois obligatoirement repérer dans le contexte la description en texte noir associée à la question (ex: Présentation de l'ergonomie). Remplace les espaces par %20 et intègre-les EXACTEMENT dans cette syntaxe Markdown :\n"
-                "- Si le sujet parle de début d'année/connexion, écris exactement : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=TEXTE_NOIR_ICI)\n"
-                "- Si le sujet parle de classes/APSA/Santorin, écris exactement : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TEXTE_NOIR_ICI)\n"
-                "Interdiction absolue d'oublier les parenthèses () ou de laisser le texte en brut sans son URL.\n\n"
-                
-                "MISSION : Réponds STRICTEMENT à la question posée. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle) et termine par le lien Markdown complet.\n"
+                "MISSION : Réponds STRICTEMENT à la question posée. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle) et colle le lien Markdown exact en conclusion.\n"
+                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"

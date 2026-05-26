@@ -863,7 +863,7 @@ if prompt:
                 
                 f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             consigne_ia = (

@@ -843,7 +843,7 @@ if prompt:
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-        elif mode == "peda":
+    elif mode == "peda":
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
                 "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE, ULTRA-DÉTAILLÉE, rigoureuse sur le plan institutionnel et directement exploitable sur le terrain.\n"

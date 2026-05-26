@@ -823,7 +823,7 @@ if prompt:
             )
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
-        elif mode == "textes":
+       elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
@@ -834,23 +834,22 @@ if prompt:
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites officiels.\n"
-                "STRUCTURE OBLIGATOIRE À RESPECTER STRICTEMENT :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre exact, date exacte, et LIEN CLIQUABLE obligatoire au format Markdown [Texte](URL)).\n"
+                "STRUCTURE OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et tu DOIS obligatoirement rendre l'URL cliquable au format Markdown : [Nom du texte](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
                 
-                # 🔒 CAS DU DROIT À L'IMAGE EN GYMNASTIQUE (RÉPONSE INJECTÉE EN DUR)
-                "RÈGLE ABSOLUE POUR LA QUESTION DROIT À L'IMAGE / FILMER LES ÉLÈVES :\n"
-                "Si la question concerne le fait de filmer les élèves en gymnastique (ou le refus d'un élève), tu as l'obligation stricte de recopier EXACTEMENT les informations suivantes sans rien modifier de ta mémoire :\n"
-                "1. Dans TEXTE OFFICIEL, écris mot pour mot : 'Loi n° 70-643 du 17 juillet 1970 - Article 9 du Code Civil relatif au respect de la vie privée. [Lien officiel Légifrance](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419283/)'\n"
-                "2. Dans ANALYSE FACTUELLE, explique obligatoirement que : La captation seule (le fait de filmer), même sans aucune diffusion et dans un but purement pédagogique, est strictement soumise à l'autorisation écrite préalable des parents. Si un élève ou sa famille refuse, il est formellement interdit de lui imposer la vidéo. L'enseignant doit obligatoirement évaluer l'élève par observation directe en temps réel (à la volée).\n"
-                "3. Dans RÉFÉRENCE JURIDIQUE, écris : 'Article 9 du Code Civil (Droit au respect de la vie privée) et Règlement Général sur la Protection des Données (RGPD).'\n\n"
+                # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien officiel d'Éduscol ou de la CNIL.\n\n"
                 
-                # 🔗 GESTION DES AUTRES RECHERCHES
-                "RÈGLE GÉNÉRALE SUR LES LIENS (AUTRES SUJETS) :\n"
-                "Pour toute autre question, utilise les liens du Contexte s'ils sont à jour (après 2020). Si le lien est absent ou suspect, génère un lien de recherche dynamique :\n"
-                "   - [Rechercher les textes à jour sur Légifrance](https://www.legifrance.gouv.fr/search/all?tab_selection=all&searchField=ALL&query=MOTS_CLÉS&page=1_)\n"
-                "⚠️ OBLIGATION : Remplace 'MOTS_CLÉS' par les termes de la question séparés par des '+' (ex: accident+eps).\n\n"
+                # 🔗 STRATÉGIE DE RECHERCHE STRUCTURÉE (ANTI-LÉGIFRANCE)
+                "RÈGLE IMPÉRATIVE SUR LES LIENS (BANNISSEMENT DES ARCHIVES LÉGIFRANCE) :\n"
+                "1. Ne génère JAMAIS de liens vers des articles précis de Légifrance si tu as un doute (leur architecture est trop complexe et contient des versions obsolètes).\n"
+                "2. Priorise TOUJOURS les fiches pratiques simplifiées et à jour des sites institutionnels suivants en utilisant notre routine de secours :\n"
+                "   - 🔗 [Vérifier la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "   - 🔗 [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "   - 🔗 [Consulter le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n"
+                "⚠️ OBLIGATION : Remplace 'MOTS_CLÉS' par les termes précis de la question séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
                 
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

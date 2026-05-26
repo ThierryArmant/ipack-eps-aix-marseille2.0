@@ -780,18 +780,18 @@ if prompt:
         )
         badge = "INFORMATION"
         color_card = "general-card"
-        if mode == "ipack":
+      if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
                 
-                # ⚡ ROUTINE DE RECHERCHE INTERNE DYNAMIQUE (PLUS DE LIENS MORTS OU STUPIDES)
+                # ⚡ CARTOGRAPHIE DES LIENS STABLES (RUBRIQUE 2 & 4 GLOBALES)
                 "RÈGLES ET GENERATION DES LIENS IPACK CRÉTEIL :\n"
-                "Tu ne dois jamais inventer de numéro d'article (ex: article33). À la fin de ta réponse, tu as l'obligation stricte de proposer un bouton d'accès direct en combinant les 3 mots-clés les plus importants de la demande de l'utilisateur.\n"
-                "Génère obligatoirement le lien au format exact suivant :\n"
-                "[📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?page=recherche&recherche=MOTS_CLÉS)\n"
-                "⚠️ RÈGLE DE REMPLACEMENT : Remplace 'MOTS_CLÉS' par les 3 termes techniques en minuscules séparés par des '+' (ex: connexion+etablissement+annee ou import+pronote+eleves).\n\n"
+                "Tu ne dois jamais inventer de numéro d'article (ex: article33). À la fin de ta réponse, sous le titre '3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte d'intégrer l'un des deux liens généraux stables ci-dessous selon la nature de la question de l'utilisateur :\n"
+                "1. Si la question concerne la configuration, la connexion, l'accès ou le début d'année : [📥 Cliquer ici pour ouvrir le module d'aide - Rubrique 2 (Généralités)](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
+                "2. Si la question concerne les classes, les élèves, les APSA, les évaluations ou Cyclades : [📥 Cliquer ici pour ouvrir le module d'aide - Rubrique 4 (Utilisation)](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
+                "⚠️ RÈGLE STRICTE : Utilise exclusivement le format Markdown [Texte](URL). Aucun lien mort ou texte brut inactif.\n\n"
                 
                 # CRITICAL IPACK RULES
                 "CRITICAL IPACK RULES:\n"
@@ -805,10 +805,10 @@ if prompt:
                 # 🛑 VERROU ANTI-HALLUCINATION
                 "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR L'ATHLÉTISME / CHOIX D'APSA) :\n"
                 "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
-                "Tu as l'obligation stricte d'accepter que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
+                "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
-                "⚠️ OBLIGATION LIENS : Intègre obligatoirement en conclusion le lien de recherche dynamique formaté avec les 3 mots-clés comme exigé ci-dessus. Aucun texte brut.\n\n"
+                "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"

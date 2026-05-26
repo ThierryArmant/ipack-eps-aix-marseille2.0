@@ -851,9 +851,9 @@ if prompt:
                 
                 # ⚡ MATRICE DE VÉRITÉS JURIDIQUES (L'ARMURE ANTI-HALLUCINATION DE PIERRE)
                 "CRITICAL LEGAL RULES (FALLBACK MATRIX):\n"
-                "- REFUS APSA / LAÏCITÉ (NATATION) : Loi du 15 mars 2004 (Art L. 141-5-1). L'assiduité aux enseignements obligatoires est absolue. Interdiction stricte de négocier ou d'accorder des aménagements (ex: suppression de la mixité) pour motif religieux. Le refus de pratiquer est un manquement grave à l'obligation d'assiduité (et non une dispense). Procédure : Refus immédiat de l'aménagement, dialogue ferme, et signalement écrit systématique au Chef d'établissement (Équipe Valeurs de la République).\n"
-                "- SURVEILLANCE APPN / ORIENTATION : Loi du 5 avril 1937 (Art L. 911-4). En milieu ouvert ou APPN, la surveillance visuelle constante et continue n'est pas une obligation absolue. L'autonomie des élèves hors de vue est légale et validée par le juge si et seulement si : 1. Elle est adaptée à l'âge (ex: 4ème). 2. Le milieu ést balisé et sécurisé. 3. Les consignes de sécurité passive ont été explicitement données. 4. L'apprentissage de l'autonomie a été progressif.\n"
-                "- RAMADAN / MOT DES PARENTS : Dé摡et n° 88-977 du 11 octobre 1988. Un mot des parents dans le carnet n'a AUCUNE valeur juridique pour dispenser un élève d'EPS. Seul le médecin peut prononcer une inaptitude (totale ou partielle). L'élève pratiquant le jeûne doit être présent au cours. L'enseignant a l'obligation de sécurité de protéger l'élève : il doit adapter la charge d'effort (ex: marche, observation, arbitrage) pour éviter le malaise, mais l'interdiction de pratique ou la dispense totale sans certificat médical est illégale.\n"
+                "- REFUS APSA / LAÏCITÉ (NATATION) : Loi du 15 mars 2004 (Art L. 141-5-1). L'assiduité aux enseignements obligatoires ést absolue. Interdiction stricte de négocier ou d'accorder des aménagements (ex: suppression de la mixité) pour motif religieux. Le refus de pratiquer est un manquement grave à l'obligation d'assiduité (et non une dispense). Procédure : Refus immédiat de l'aménagement, dialogue ferme, et signalement écrit systématique au Chef d'établissement (Équipe Valeurs de la République).\n"
+                "- SURVEILLANCE APPN / ORIENTATION : Loi du 5 avril 1937 (Art L. 911-4). En milieu ouvert ou APPN, la surveillance visuelle constante et continue n'est pas une obligation absolue. L'autonomie des élèves hors de vue est légale et validée par le juge si et seulement si : 1. Elle est adaptée à l'âge (ex: 4ème). 2. Le milieu est balisé et sécurisé. 3. Les consignes de sécurité passive ont été explicitement données. 4. L'apprentissage de l'autonomie a été progressif.\n"
+                "- RAMADAN / MOT DES PARENTS : Décret n° 88-977 du 11 octobre 1988. Un mot des parents dans le carnet n'a AUCUNE valeur juridique pour dispenser un élève d'EPS. Seul le médecin peut prononcer une inaptitude (totale ou partielle). L'élève pratiquant le jeûne doit être présent au cours. L'enseignant a l'obligation de sécurité de protéger l'élève : il doit adapter la charge d'effort (ex: marche, observation, arbitrage) pour éviter le malaise, mais l'interdiction de pratique ou la dispense totale sans certificat médical est illégale.\n"
                 "- CAPTATION VIDÉO / DROIT À L'IMAGE : La captation numérique à usage pédagogique immédiat (sans diffusion ni stockage prolongé) est légitime, mais le refus d'un élève ou de sa famille est souverain. Si l'élève refuse, interdiction absolue de le filmer. Trouver une alternative d'observation par les pairs.\n\n"
                 
                 # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
@@ -863,14 +863,15 @@ if prompt:
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
                 "STRUCTURE OBLIGATOIRE EN BALISES HTML STRICTES (INTERDICTION ABSOLUE DU MARKDOWN AVEC #) :\n"
-                "Tu avez l'obligation stricte de générer ta réponse finale uniquement avec les titres HTML suivants pour éviter tout crash d'affichage :\n"
+                "Tu as l'obligation stricte de générer ta réponse finale uniquement avec les titres HTML suivants pour éviter tout crash d'affichage :\n"
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et lien source obligatoire construit selon la règle ci-dessous).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases maximum s'appuyant obligatoirement sur la matrice juridique ci-dessus).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code, décret ou loi applicable).\n\n"
                 
-                # 🔗 VERROU DE LIEN INCASSABLE ET CIBLÉ (ANTI-POLLUTION DES TEXTES DE DÉPLACEMENT)
-                "RÈGLE IMPÉRATIVE SUR LE LIEN SOURCE (INTERDICTION DES LIENS DU CONTEXTE HORS-SUJET) :\n"
-                "Interdiction absolue de copier les liens du contexte s'ils parlent de déplacements ou d'autres thèmes. Tu DOIS obligatoirement construire un lien de recherche Google ciblé. Remplace 'MOTS_CLÉS' par les mots exacts de la question posée séparés par des '+' (ex: laicite+natation+mixite ou accident+eps+surveillance) :\n"
+                # 🔗 VERROU DE LIEN INCASSABLE SANS ACCENT (ANTI-CRASH)
+                "RÈGLE IMPÉRATIVE SUR LE LIEN SOURCE :\n"
+                "Tu DOIS obligatoirement construire un lien de recherche Google sécurisé. Remplace 'MOTS_CLÉS' par 3 ou 4 mots simples décrivant le problème.\n"
+                "⚠️ ATTENTION SÉCURITÉ CRITIQUE : Les MOTS_CLÉS ne doivent JAMAIS contenir d'accents (pas de é, è, à, ç, ï, ô), ni de caractères spéciaux (pas de n°, pas de °). Convertis-les impérativement en lettres minuscules simples de a à z (ex: laicite+natation ou orientation+surveillance+eps) :\n"
                 "[📥 Cliquez ici pour consulter la source officielle](https://www.google.com/search?q=site:legifrance.gouv.fr+OR+site:eduscol.education.fr+MOTS_CLÉS)\n\n"
                 
                 "RÈGLE D'OR : Insère uniquement le lien construit ci-dessus en conclusion de la section 1. Ne mets aucun autre lien générique ou brut dans le reste de ton texte.\n"

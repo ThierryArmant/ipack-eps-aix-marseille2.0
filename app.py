@@ -865,6 +865,10 @@ if prompt:
                 "<h3>2. ANALYSE FACTUELLE</h3> (Synthèse : fait, loi, procédure administrative).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou texte officiel).\n\n"
                 
+                "RÈGLE D'OR : AUCUNE DISCUSSION OU NÉGOCIATION N'EST AUTORISÉE DANS TES RÉPONSES.\n"
+                "Tu ne dois JAMAIS suggérer de 'dialoguer' avec une partie adverse en cas d'infraction, de délit ou de contestation abusive.\n"
+                "Applique strictement la procédure de retrait ou de signalement hiérarchique.\n\n"
+                
                 f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"

@@ -834,22 +834,20 @@ if prompt:
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
                 "MISSION : Extraction factuelle de textes réglementaires depuis les sites officiels.\n"
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et tu DOIS obligatoirement rendre l'URL cliquable au format Markdown : [Nom du texte](URL)).\n"
+                "STRUCTURE OBLIGATOIRE À RESPECTER SOUS PEINE DE SANCTION :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre du texte, date, et TU DOIS OBLIGATOIREMENT METTRE UN LIEN CLIQUABLE au format exact [Cliquez ici pour voir la source](URL)).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n\n"
                 
                 # VERROUILLAGE SÉCURITÉ GYMNASTIQUE / VIDÉO
-                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien officiel d'Éduscol ou de la CNIL.\n\n"
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement le lien de secours Service-Public ou CNIL formaté comme demandé ci-dessous.\n\n"
                 
-                # 🔗 STRATÉGIE DE RECHERCHE STRUCTURÉE (ANTI-LÉGIFRANCE)
-                "RÈGLE IMPÉRATIVE SUR LES LIENS (BANNISSEMENT DES ARCHIVES LÉGIFRANCE) :\n"
-                "1. Ne génère JAMAIS de liens vers des articles précis de Légifrance si tu as un doute (leur architecture est trop complexe et contient des versions obsolètes).\n"
-                "2. Priorise TOUJOURS les fiches pratiques simplifiées et à jour des sites institutionnels suivants en utilisant notre routine de secours :\n"
-                "   - 🔗 [Vérifier la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
-                "   - 🔗 [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
-                "   - 🔗 [Consulter le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n"
-                "⚠️ OBLIGATION : Remplace 'MOTS_CLÉS' par les termes précis de la question séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
+                # 🔗 ROUTINE DE LIENS DYNAMIQUES ULTRA-STABLES
+                "RÈGLE IMPÉRATIVE SUR LES LIENS (INTERDICTION DU TEXTE BRUT) :\n"
+                "Tu as l'interdiction absolue d'écrire un lien sous forme de texte mort. Tu dois TOUJOURS insérer l'URL fonctionnelle entre parenthèses derrière les crochets. Si le contexte est vide ou obsolète, génère obligatoirement l'un de ces trois liens en remplaçant 'MOTS_CLÉS' par les mots de la question séparés par des '+' (ex: droit+image+ecole) :\n"
+                "1. [Consulter la réglementation sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
+                "2. [Consulter le guide pratique de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
+                "3. [Rechercher le cadre légal sur Éduscol](https://www.google.com/search?q=site:eduscol.education.fr+MOTS_CLÉS)\n\n"
                 
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )

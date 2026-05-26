@@ -793,7 +793,7 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif mode == "examens":
+       elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
@@ -804,14 +804,19 @@ if prompt:
                 "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
                 "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
                 "- ACCÈS REMPLAÇANT : L'étape n°1 absolue est la vérification de la génération de sa convocation dans IMAG'IN. Sans convocation générée (PDF créé), les droits Santorin ne s'ouvriront jamais.\n"
-                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est temporairement désactivé au niveau national. Si l'utilisateur pose une question sur un collègue absent, en arrêt ou retraité qu'il faut remplacer, donne impérativement la procédure de contournement officielle suivante dans la partie Procédure Technique : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Sélectionner tous les candidats. 4. Cliquer sur le bouton **[Déplacer vers un nouveau lot]**. 5. Renseigner les dates et choisir le nom du correcteur remplaçant dans la fenêtre en bas."
+                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est temporairement désactivé au niveau national. Si l'utilisateur pose une question sur un collègue absent, en arrêt ou retraité qu'il faut remplacer, donne impérativement la procédure de contournement officielle suivante dans la partie Procédure Technique : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Sélectionner tous les candidats. 4. Cliquer sur le bouton **[Déplacer vers un nouveau lot]**. 5. Renseigner les dates et choisir le nom du correcteur remplaçant dans la fenêtre en bas.\n"
                 "- AUCUN LOT À CORRIGER : Le Chef d'établissement doit obligatoirement lancer en premier lieu la 'Distribution automatique' dans Santorin. La distribution manuelle ne vient qu'en second recours si le lot est incomplet.\n"
-                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot."
+                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot.\n"
                 "- LOT COLLÈGUE MANQUANT : Vérifier l'état des services et forcer la synchronisation en finalisant sa convocation d'évaluateur dans IMAG'IN.\n"
                 "- PROTOCOLE ADAPTÉ EN COURS D'ANNÉE : Obligation de relancer une 'Distribution automatique des lots' dans Santorin une fois les candidats rattachés au protocole adapté.\n"
                 "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
                 "- SPORTIF DE HAUT NIVEAU (SHN) : La validation de la note de 20/20 s'appuie réglementairement sur l'équivalence du Champ d'Apprentissage (CA) correspondant.\n"
                 "- ÉLÈVE TRANSFÉRÉ (APSA DIFFÉRENTES) : Interdiction de modifier le protocole de l'établissement ou de réévaluer l'élève sur les épreuves passées. Les notes d'origine sont sanctuarisées. Le professeur évalue la 3ème épreuve sur papier et le chef d'établissement demande à la DEC un 'Protocole Individuel Dérogatoire' dans Cyclades pour fusion manuelle par le rectorat.\n\n"
+                
+                # 🛑 VERROU ANTI-HALLUCINATION : BOUTON AJOUTER BLOQUÉ
+                "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR LE REMPLAÇANT) :\n"
+                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
+                "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
                 
                 "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 f"Contexte additionnel: {extraits_doc}\nQuestion: {prompt}"

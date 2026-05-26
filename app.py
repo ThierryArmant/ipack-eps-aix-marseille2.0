@@ -662,28 +662,16 @@ if prompt:
                 tavily_deja_execute = False  # Drapeau d'isolation pour le mode textes
 
                 # Définition des paramètres selon le mode
-                if mode == "textes":
-                    # NETTOYAGE ULTRA-RENFORCÉ (Isole le cœur du problème même sur les longues phrases)
+                if mode == "textes":  # Ou elif mode == "textes": selon ton fichier
+                    # Nettoyage simple des expressions d'introduction pour garder le cœur de ta question
                     mot_cle = prompt.lower()
-                    expressions_inutiles = [
-                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
-                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
-                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
-                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
-                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
-                    ]
-                    for exp in expressions_inutiles:
+                    for exp in ["je cherche un texte officiel sur", "est-ce que j'ai le droit de", "textes officiels sur", "circulaire concernant", "reglementation sur"]:
                         mot_cle = mot_cle.replace(exp, "")
-                    
-                    # Nettoyage des verbes introducteurs courants
-                    for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
-                        mot_cle = mot_cle.replace(verbe, "")
-                        
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
-                    # RECHERCHE EN CASCADE : On réintègre LOI, CODE et LAÏCITÉ
-                    domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
+                    # On cible uniquement Éduscol et le Code de l'éducation pour la recherche
+                    domains_prioritaires = ["eduscol.education.gouv.fr", "education.gouv.fr"]
+                    requete_blindee = f"\"Code de l'education\" {mot_cle}"
                     
                     payload = {
                         "api_key": tavily_api_key, 

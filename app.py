@@ -602,7 +602,7 @@ st.markdown("""
             ⚠️ 💡 ATTENTION :
         </span>
         <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
-            Pour des raisons pratiques et de mise à jour des textes réglementaires, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une après les avoir nettoyées.
+            Pour des raisons pratiques et de mise à jour, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une après les avoir nettoyées.
         </span>
     </div>
 """, unsafe_allow_html=True)

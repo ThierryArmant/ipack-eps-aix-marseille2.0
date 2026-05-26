@@ -838,6 +838,7 @@ if prompt:
                 "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
                 "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
                 "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
+                "- CAPTATION VIDÉO / DROIT À L'IMAGE GYMNASTIQUE : La captation seule (sans diffusion) est soumise à autorisation. Si l'élève ou la famille refuse, interdiction absolue de filmer. Donne impérativement les liens réels vers Légifrance (Article 9 du Code Civil) et la page officielle de protection des données d'Éduscol."
                 "RÈGLE D'OR ABSOLUE POUR LES LIENS : Tu as l'interdiction formelle d'inventer des URL ou de réutiliser de vieux numéros de pages BO de ta mémoire. Tu dois UNIQUEMENT utiliser les liens URL textuels STRICTEMENT présents dans le 'Contexte' fourni ci-dessus (générés par le moteur de recherche en temps réel). Si une information ou un texte de loi n'a pas d'URL associée dans le Contexte, écris simplement : [Source : Base Académique - Lien direct non disponible]."
                 "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"

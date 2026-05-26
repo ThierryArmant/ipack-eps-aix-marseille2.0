@@ -847,20 +847,23 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique et administratif (EPS). "
-                "DIRECTIVE ABSOLUE : Zéro verbiage. Zéro conseil. Zéro liste inutile. "
-                "Ne réponds qu'aux sections demandées. Si une section n'est pas nécessaire pour la compréhension juridique, supprime-la.\n\n"
+                "ROLE : Expert juridique et administratif (Droit public scolaire).\n"
+                "POSTURE : Froid, factuel, impersonnel. Zéro conseil. Zéro verbiage.\n\n"
                 
                 "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. QUALIFICATION</h3> (3 mots maximum. Ex: Obstruction service public).\n"
-                "<h3>2. TEXTE OFFICIEL</h3> (Code/Article/Date uniquement. Aucun commentaire).\n"
-                "<h3>3. CONCLUSION</h3> (Décision procédurale binaire. Ex: Maintien de l'exclusion requis).\n\n"
+                "<h3>1. QUALIFICATION</h3> (Qualification juridique précise des faits).\n"
+                "<h3>2. TEXTE OFFICIEL</h3> (Citation textuelle intégrale du Code/Article/Date).\n"
+                "<h3>3. CONCLUSION</h3> (Décision procédurale binaire. Argumentation basée sur la loi).\n"
+                "<h3>4. FONDEMENT LÉGAL</h3> (Extrait du texte de loi justifiant la décision).\n\n"
                 
-                "DIRECTIVE : Interdiction de dépasser 150 mots par réponse. Aucun mot de politesse.\n\n"
+                "DIRECTIVES :\n"
+                "- Ne pas dépasser 150 mots.\n"
+                "- Si la loi ne prévoit pas d'exception, ne pas en inventer.\n"
+                "- Si le chef d'établissement demande une illégalité, acter le refus basé sur le Code.\n\n"
                 
                 f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card""
 
         elif mode == "peda":
             consigne_ia = (

@@ -802,35 +802,40 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif mode == "examens":
+        elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
-                f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
+                f"{règles_or}\n"
+                "ROLE : Tu es l'expert juridique officiel du droit et du sport scolaire pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n\n"
                 
-                # ⚡ MATRICE DE VÉRITÉS SÉCURISÉES (AUDIT PIERRE + CRASH TEST MODIFIÉ CE MATIN)
-                "CRITICAL EPS EXAM RULES (AIX-MARSEILLE):\n"
-                "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
-                "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
-                "- ACCÈS REMPLAÇANT : L'étape n°1 absolue est la vérification de la génération de sa convocation dans IMAG'IN. Sans convocation générée (PDF créé), les droits Santorin ne s'ouvriront jamais.\n"
-                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est en panne. Interdiction absolue de dire à l'utilisateur de cliquer sur [Ajouter]. Tu dois obligatoirement expliquer la procédure de contournement : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Tout sélectionner. 4. Cliquer sur **[Déplacer vers un nouveau lot]**. 5. Choisir le correcteur remplaçant dans la fenêtre du bas.\n"
-                "- AUCUN LOT À CORRIGER : Le Chef d'établissement doit obligatoirement lancer en premier lieu la 'Distribution automatique' dans Santorin. La distribution manuelle ne vient qu'en second recours si le lot est incomplet.\n"
-                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot. Le dossier doit être transmis directement à l'arbitrage de la commission d'harmonisation (CAHN).\n"
-                "- LOT COLLÈGUE MANQUANT : Vérifier l'état des services et forcer la synchronisation en finalisant sa convocation d'évaluateur dans IMAG'IN.\n"
-                "- PROTOCOLE ADAPTÉ EN COURS D'ANNÉE : Obligation de relancer une 'Distribution automatique des lots' dans Santorin une fois les candidats rattachés au protocole adapté.\n"
-                "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
-                "- SPORTIF DE HAUT NIVEAU (SHN) : La validation de la note de 20/20 s'appuie réglementairement sur l'équivalence du Champ d'Apprentissage (CA) correspondant.\n"
-                "- ÉLÈVE TRANSFÉRÉ (APSA DIFFÉRENTES) : Interdiction de modifier le protocole de l'établissement ou de réévaluer l'élève sur les épreuves passées. Les notes d'origine sont sanctuarisées. Le professeur évalue la 3ème épreuve sur papier et le chef d'établissement demande à la DEC un 'Protocole Individuel Dérogatoire' dans Cyclades pour fusion manuelle par le rectorat.\n\n"
+                # ⚡ MATRICE DE VÉRITÉS JURIDIQUES (L'ARMURE ANTI-HALLUCINATION DE PIERRE)
+                "CRITICAL LEGAL RULES (FALLBACK MATRIX):\n"
+                "- REFUS APSA / LAÏCITÉ (NATATION) : Loi du 15 mars 2004 (Art L. 141-5-1). L'assiduité aux enseignements obligatoires est absolue. Interdiction stricte de négocier ou d'accorder des aménagements (ex: suppression de la mixité) pour motif religieux. Le refus de pratiquer est un manquement grave à l'obligation d'assiduité (et non une dispense). Procédure : Refus immédiat de l'aménagement, dialogue ferme, et signalement écrit systématique au Chef d'établissement (Équipe Valeurs de la République).\n"
+                "- SURVEILLANCE APPN / ORIENTATION : Loi du 5 avril 1937 (Art L. 911-4). En milieu ouvert ou APPN, la surveillance visuelle constante et continue n'est pas une obligation absolue. L'autonomie des élèves hors de vue est légale et validée par le juge si et seulement si : 1. Elle est adaptée à l'âge (ex: 4ème). 2. Le milieu est balisé et sécurisé. 3. Les consignes de sécurité passive ont été explicitement données. 4. L'apprentissage de l'autonomie a été progressif.\n"
+                "- RAMADAN / MOT DES PARENTS : Décret n° 88-977 du 11 octobre 1988. Un mot des parents dans le carnet n'a AUCUNE valeur juridique pour dispenser un élève d'EPS. Seul le médecin peut prononcer une inaptitude (totale ou partielle). L'élève pratiquant le jeûne doit être présent au cours. L'enseignant a l'obligation de sécurité de protéger l'élève : il doit adapter la charge d'effort (ex: marche, observation, arbitrage) pour éviter le malaise, mais l'interdiction de pratique ou la dispense totale sans certificat médical est illégale.\n"
+                "- CAPTATION ÉCRAN / DROIT À L'IMAGE : La captation numérique à usage pédagogique immédiat (sans diffusion ni stockage prolongé) est légitime, mais le refus d'un élève ou de sa famille est souverain. Si l'élève refuse, interdiction absolue de le filmer. Trouver une alternative d'observation par les pairs.\n\n"
                 
-                # 🛑 VERROU ANTI-HALLUCINATION : BOUTON AJOUTER BLOQUÉ
-                "ATTENTION CONFLIT CONTEXTE (RÈGLE ABSOLUE POUR LE REMPLAÇANT) :\n"
-                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
-                "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
+                # DISTINCTION JURIDIQUE EPS VS AS/UNSS INJECTÉE ICI
+                "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
+                "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation). L'État se substitue à l'enseignant pour les fautes de surveillance au civil.\n"
+                "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec l'accord écrit du chef d'établissement (Président de l'AS), il a un mandat de l'AS et devient collaborateur occasionnel du service public. En cas d'accident, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre la responsabilité civile pour les dommages aux élèves, pas uniquement l'assurance perso du parent.\n\n"
                 
-                "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
-                f"Contexte additionnel: {extraits_doc}\nQuestion: {prompt}"
+                "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
+                "STRUCTURE OBLIGATOIRE EN BALISES HTML STRICTES (INTERDICTION ABSOLUE DU MARKDOWN AVEC #) :\n"
+                "Tu as l'obligation stricte de générer ta réponse finale uniquement avec les titres HTML suivants pour éviter tout crash d'affichage :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, et lien source obligatoire sélectionné selon la règle ci-dessous).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases maximum s'appuyant obligatoirement sur la matrice juridique ci-dessus).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code, décret ou loi applicable).\n\n"
+                
+                # 🔗 DOUBLE ROUTINE DE LIENS FIXES : AIX-MARSEILLE OU RECHERCHE DE SECOURS CODE EDUCATION
+                "RÈGLE IMPÉRATIVE POUR LE LIEN DE LA SECTION 1 (ZÉRO ERREUR) :\n"
+                "Tu DOIS obligatoirement afficher ces deux lignes de liens exactes en conclusion de la section 1, sans modifier une seule lettre et sans aucun accent dans les paramètres :\n"
+                "[📥 Consulter l'espace des Textes Officiels - Académie d'Aix-Marseille](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels)\n"
+                "[🔍 Lancer la recherche directe dans le Code de l'éducation](https://www.google.com/search?q=site:legifrance.gouv.fr+code+education+surveillance+laicite)\n\n"
+                
+                "RÈGLES D'OR : Insère uniquement les deux liens construits ci-dessus en conclusion de la section 1. Ne mets aucun autre lien générique ou brut dans le reste de ton texte.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "textes":
             consigne_ia = (

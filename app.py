@@ -557,7 +557,7 @@ elif st.session_state.active_module == "peda":
     """, unsafe_allow_html=True)
 
 else:
-        # BANDEAU MUTUALISÉ EN 2 COLONNES POUR L'AIGUILLAGE
+        # BANDEAU MUTUALISÉ EN 2 COLONNES POUR L'AIGUILLAGE OBLIGATOIRE DES INAPTITUDES
         st.markdown("""
         <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
             <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">
@@ -565,11 +565,15 @@ else:
             </div>
             <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
                 <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
-                    <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS</strong><br>
-                    <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes de compétences, saisie des notes brutes, dispenses et inaptitudes médicales.</span>
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+                    <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, saisie des notes brutes.</span><br>
+                    <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
+                        <span style="color: #F87171 !important; font-weight: 800;">⚠️ URGENT INAPTITUDES :</span><br>
+                        <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
+                    </div>
                 </div>
                 <div style="flex: 1; padding-left: 5px;">
-                    <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin</strong><br>
+                    <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
                     <span style="color: #FCD34D !important;">Administration des examens : remontée officielle des notes du Bac/DNB, correction des lots de copies numériques sur Arena, arbitrages des Jurys Académiques.</span>
                 </div>
             </div>

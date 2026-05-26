@@ -843,7 +843,7 @@ if prompt:
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-        elif mode == "textes":
+    elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}\n"
                 "ROLE : Tu es l'expert juridique officiel du droit et du sport scolaire pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n\n"

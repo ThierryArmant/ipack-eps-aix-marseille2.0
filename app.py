@@ -764,76 +764,50 @@ if prompt:
         color_card = "general-card"
         
         if mode == "ipack":
+            # 1. Définition des sources officielles iPackEPS en dur dans le code Python
+            liens_utiles = {
+                "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
+                "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
+                "rubrique7": "- [📥 Ouvrir la rubrique 7 de documentation (Examens / CCF) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)",
+                "video_inapt": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Déclaration / Suivi des inaptitudes](https://youtu.be/34w4Z6dd1dM)",
+                "video_import": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote](https://youtu.be/RlScDjd8kHk)",
+                "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
+            }
+
+            # 2. Analyse dynamique des mots-clés de la question pour sélectionner les bons liens
+            liens_selectionnes = []
+            prompt_lower = prompt.lower()
+            
+            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve"]):
+                liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
+            elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu"]):
+                liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
+            elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe"]):
+                liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
+            else:
+                # Fallback général si aucun mot-clé n'est détecté
+                liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
+
+            bloc_liens_dynamique = "\n".join(liens_selectionnes)
+
+            # 3. Construction de la consigne IA avec injection des liens sécurisés
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu es un robot d'extraction strict et technique. Tu n'inventes RIEN.\n\n"
+                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction RAG strict. Tu n'inventes RIEN.\n\n"
                 
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER OU D'AJOUTER DES BLOCS ALERTE) :\n"
+                "STRUCTURE DE RÉPONSE NON NEGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n\n"
                 
-                "🛑 INTERDICTION INTERNE DES ALERTES SÉCURITÉ :\n"
-                "Tu as l'interdiction formelle d'ajouter des blocs 'ALERTE SÉCURITÉ' ou 'PROTECTION FONCTIONNELLE' à la fin de tes procédures. Reste exclusivement sur des clics techniques.\n\n"
+                "🛑 CONSIGNES DE SÉCURITÉ DE SÉLECTION :\n"
+                "1. Pour la section 2, analyse la question et va chercher la réponse TECHNIQUE exclusivement dans les extraits de fichiers fournis ci-dessous.\n"
+                "2. Si la question demande si on peut faire quelque chose d'interdit (ex: 4 épreuves au CAP), commence ta section 2 par un 'NON' clair et catégorique avant d'expliquer la procédure de contournement.\n"
+                "3. Pour la section 3, tu as l'INTERDICTION ABSOLUE d'écrire des liens ou des numéros de rubriques de ton propre chef. Tu dois copier-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
                 
-                "🎯 CAS CONFIGURÉS EN DUR (À COPIER-COLLER MOT POUR MOT SELON LE SUJET) :\n\n"
-                
-                "1. Si l'utilisateur parle de PROTOCOLE IMPOSSIBLE À SUPPRIMER / BOUTON ABSENT :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 : Rends-toi dans l'onglet **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
-                "➔ Étape 2 : Sur la ligne du protocole concerné, clique sur le bouton de modification (icône du crayon ou **[Modifier]**).\n"
-                "➔ Étape 3 : Dans la fenêtre de configuration qui s'ouvre, va sur les menus déroulants des Groupes et des Séquences d'apprentissage, puis décoche ou désélectionne tous les éléments rattachés pour les vider.\n"
-                "➔ Étape 4 : Clique sur **[Enregistrer]**. Le protocole, désormais totalement libéré et sans aucun élève ni classe associé, s'effacera automatiquement de ton tableau de bord.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)\n"
-                "- [📥 Ouvrir la rubrique 7 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
-                
-                "2. Si l'utilisateur parle d'ERREUR ÉQUIPEMENT / EMPLOI DU TEMPS / SECTION SPORTIVE (SSS) :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 (Déclaration) : Aller dans **[Dossiers]** > **[Dossier EPS]** > **[Équipements sportifs]**. Cliquer sur **[Ajouter un équipement sportif]**, renseigner le département/commune, et sélectionner l'infrastructure RES officielle. Enregistrer.\n"
-                "➔ Étape 2 (Couplage) : Aller dans **[Dossiers]** > **[Dossier EPS]** > **[Emploi du Temps]**. Sélectionner l'enseignant concerné et cliquer sur la case horaire dédiée au groupe de la Section Sportive (SSS).\n"
-                "➔ Étape 3 (Affectation) : Dans la fenêtre d'édition du créneau, utiliser le menu déroulant pour affecter l'équipement déclaré à l'Étape 1 à cette heure de cours. Enregistrer le créneau.\n"
-                "➔ Étape 4 (Validation) : Revenir sur la page principale de validation du dossier d'établissement et valider globalement pour effacer définitivement l'alerte.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Saisie des Emplois du Temps](https://youtu.be/uCF9kxUDaI8)\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Gestion des Équipements Sportifs](https://youtu.be/mRK9rhUgL44)\n"
-                "- [📥 Ouvrir la rubrique 2 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n\n"
-                
-                "3. Si l'utilisateur parle de DOUBLONS ÉLÈVES / IMPORT PRONOTE / XML / NETTOYAGE BASE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 : Avant de relancer tout nouvel import, tu dois obligatoirement vider l'ancienne base pour éviter les collisions d'identifiants STS.\n"
-                "➔ Étape 2 : Accède à l'onglet **[Mes Élèves]** ou **[Dossiers]** > **[Dossier EPS]** > **[Classes]**.\n"
-                "➔ Étape 3 : Sélectionne l'ensemble des listes et séléctionne l'option pour purger/vider la table locale des élèves.\n"
-                "➔ Étape 4 : Procède ensuite à la nouvelle importation propre de ton fichier XML mis à jour depuis Pronote ou École-Directe.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Import d'élèves depuis Pronote ou École-Directe](https://youtu.be/RlScDjd8kHk)\n"
-                "- [📥 Ouvrir la rubrique 2 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n\n"
-                
-                "4. Si l'utilisateur parle de SAVOIR-NAGER / ATTESTATION ASNS / 6ÈME :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 : Sur ton tableau de bord, va dans le menu principal **[Mes Élèves]**.\n"
-                "➔ Étape 2 : Clique sur le sous-onglet **[Visualisation]**.\n"
-                "➔ Étape 3 : Sélectionne la rubrique **[ASNS]** (Attestation Scolaire du Savoir-Nager).\n"
-                "➔ Étape 4 : C'est ici que tu peux cocher les validations individuelles des élèves de 6ème, importer les réussites et lancer l'impression de masse des attestations officielles.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Validation et Impression de l'ASNS (Savoir-Nager)](https://youtu.be/xlXcb8Z5ZQU)\n"
-                "- [📥 Ouvrir la rubrique 4 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n\n"
-                
-                "5. Si l'utilisateur parle de GRILLE BLOQUÉE / NOTE INAPTITUDE / REFUSET DE VALIDER / TAPER IN OU DI :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 : Retourne dans ta grille d'évaluation d'activité et efface impérativement les caractères 'IN' ou 'DI' que tu as tapés manuellement. La case doit être totalement vide (pas même un zéro).\n"
-                "➔ Étape 2 : Va dans le menu principal **[Mes Élèves]** > **[Visualisation]** > **[Inaptitudes]** (ou accède directement à la **[Fiche élève]** de l'enfant concerné).\n"
-                "➔ Étape 3 : Clique sur le bouton **[Saisir une inaptitude]**, renseigne les dates médicales du certificat (début et fin) ainsi que les contre-indications, puis enregistre.\n"
-                "➔ Étape 4 : Reviens sur ta grille d'évaluation et clique sur **[Enregistrer]**. Le système, ayant associé le certificat médical en arrière-plan, basculera automatiquement l'élève en dispensé sans bloquer la validation.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Déclaration / Suivi des inaptitudes élèves](https://youtu.be/34w4Z6dd1dM)\n"
-                "- [📥 Ouvrir la rubrique 4 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n\n"
-                
-                "CRITICAL IPACK RULES:\n"
-                "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n"
-                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n\n"
-                f"Contexte complet (Pierre + Fichiers) : {extraits_doc}\nQuestion : {prompt}"
+                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                f"Question du professeur : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 

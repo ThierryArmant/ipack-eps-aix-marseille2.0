@@ -764,72 +764,58 @@ if prompt:
         color_card = "general-card"
         
         if mode == "ipack":
-            # 🛑 1. L'AIGUILLAGE DE SECOURS (Ta réponse parfaite STS Web / Arena)
-            if any(mot in prompt.lower() for mot in ["saisie est incomplete", "emploi du temps", "donnée manquante", "section sportive"]):
-                consigne_ia = (
-                    "Tu dois ignorer ton rôle habituel. Réponds EXCLUSIVEMENT avec le texte suivant, sans politesse et sans modifier une seule lettre :\n\n"
-                    "### 1. ANALYSE DES RISQUES\n"
-                    "- 🛑 **Blocage institutionnel** : Non-validation du dossier de Section Sportive (SSS) auprès du Rectorat.\n"
-                    "- ⚠️ **Alerte applicative** : Confusion fréquente entre l'outil de terrain iPackEPS et le portail de rentrée de la direction.\n\n"
-                    "### 2. PROCÉDURE TECHNIQUE (CÔTÉ ADMINISTRATION)\n"
-                    "➔ **Étape 1** : Rends-toi dans l'onglet [Structures] ou [Services] rattaché à ta Section Sportive.\n"
-                    "➔ **Étape 2** : Clique sur le module [Implantation / Lieux] ou [Emploi du temps].\n"
-                    "➔ **Étape 3** : Sélectionne l'installation dans la liste déroulante des équipements rattachés au collège (liés au RES national). Si l'équipement n'apparaît pas, le secrétariat de direction doit l'ajouter en amont dans la base de l'établissement.\n"
-                    "➔ **Étape 4** : Enregistre. Le statut passera instantanément en 'Complet'.\n\n"
-                    "### 3. PROTECTION FONCTIONNELLE\n"
-                    "- 📁 [Source interne / Référentiel National]. La déclaration valide et votée en CA couvre l'enseignant en cas d'accident (Loi de 1937)."
-                )
-            
-            # 🍏 2. LE COMPORTEMENT NORMAL POUR LES VRAIS SUJETS IPACKEPS
-            else:
-                consigne_ia = (
-                    f"{règles_or}{filtre_pierre}\n"
-                    "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
-                    f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                    
-                    "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
-                    "1. À la fin de ta réponse, sous le titre '### 3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien au format markdown strict en choisissant la bonne rubrique selon le contexte :\n"
-                    "   - Sujet début d'année / connexion / installations / dossiers généraux : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
-                    "   - Sujet gestion de classes / APSA / saisie des notes : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
-                    "   - Sujet examens / CCF / protocoles officiels (Rubrique 7) : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
-                    
-                    "CRITICAL IPACK RULES:\n"
-                    "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                    "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves.\n"
-                    "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n"
-                    "- RÉPARTITION DANS LES GROUPES : Via le module 'Mes élèves' uniquement. L'option textuelle 'Placement des élèves dans les groupes' n'existe pas.\n"
-                    "- NOTE UNIQUE CCF : iPackEPS bloque le calcul automatique. Envoi manuel au Jury Académique via Cyclades.\n\n"
-                    
-                    "🛑 VERROU REGLEMENTAIRE :\n"
-                    "Si le document prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, ou d'adapter les protocoles après coup, REJETTE CE CONTEXTE. Réponds que cette PROCÉDURE EST IMPOSSIBLE.\n\n"
-                    f"Contexte : {extraits_doc}\nQuestion : {prompt}"
-                )
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Expert informatique et technique iPackEPS. Tu exclus tout blabla de contextualisation.\n\n"
+                
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER) :\n"
+                "### 1. ANALYSE DES RISQUES\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "### 3. SOURCES ET LIENS\n\n"
+                
+                "⚠️ CAS PARTICULIER - ERREUR D'EMPLOI DU TEMPS / SECTION SPORTIVE (SSS) :\n"
+                "Si la question de l'utilisateur mentionne une 'saisie incomplète' ou un 'équipement manquant' pour les sections sportives, tu dois obligatoirement ignorer le reste et afficher mot pour mot cette procédure :\n"
+                "### 1. ANALYSE DES RISQUES\n"
+                "- 🛑 Blocage institutionnel : Non-validation du dossier de Section Sportive (SSS) auprès du Rectorat.\n"
+                "### 2. PROCÉDURE TECHNIQUE (CÔTÉ ADMINISTRATION)\n"
+                "➔ Étape 1 : Rends-toi dans l'onglet [Structures] ou [Services] rattaché à ta Section Sportive.\n"
+                "➔ Étape 2 : Clique sur le module [Implantation / Lieux] ou [Emploi du temps].\n"
+                "➔ Étape 3 : Sélectionne l'installation dans la liste déroulante des équipements rattachés au collège (liés au RES national). Si l'équipement n'apparaît pas, le secrétariat de direction doit l'ajouter en amont.\n"
+                "➔ Étape 4 : Enregistre. Le statut passera instantanément en 'Complet'.\n"
+                "### 3. SOURCES ET LIENS\n"
+                "- 📁 [Source interne / Référentiel National]. La déclaration valide aux structures est obligatoire.\n\n"
+                
+                "🧠 MODE NORMAL - EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
+                "Pour les autres questions iPack, génère le lien sous le titre '### 3. SOURCES ET LIENS' au format markdown strict :\n"
+                "   - Pour un sujet début d'année / connexion / installations : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
+                "   - Pour un sujet gestion de classes / APSA / saisie des notes : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
+                "   - Pour un sujet examens / CCF / protocoles officiels : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
+                
+                "CRITICAL IPACK RULES:\n"
+                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Utiliser 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
+                "- DEMI-FOND BAC GT : Distinction entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n"
+                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Désaffecter les Groupes et séquences en amont.\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+            )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
-                f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                "CRITICAL EPS EXAM RULES (AIX-MARSEILLE):\n"
-                "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
-                "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
-                "- ACCÈS REMPLAÇANT : L'étape n°1 absolue est la vérification de la génération de sa convocation dans IMAG'IN. Sans convocation générée (PDF créé), les droits Santorin ne s'ouvriront jamais.\n"
-                "- BOUTON AJOUTER GRISÉ / RETRAITE / REMPLAÇANT : Le bouton [Ajouter] pour un 2ème correcteur est en panne. Interdiction absolue de dire à l'utilisateur de cliquer sur [Ajouter]. Tu dois obligatoirement expliquer la procédure de contournement : 1. Aller dans le détail du lot du 1er correcteur. 2. Ouvrir l'onglet [Candidats]. 3. Tout sélectionner. 4. Cliquer sur **[Déplacer vers un nouveau lot]**. 5. Choisir le correcteur remplaçant dans la fenêtre du bas.\n"
-                "- AUCUN LOT À CORRIGER : Le Chef d'établissement doit obligatoirement lancer en premier lieu la 'Distribution automatique' dans Santorin. La distribution manuelle ne vient qu'en second recours si le lot est incomplet.\n"
-                "- INDISPONIBILITÉ INSTALLATIONS : Situation de 'Cas exceptionnel / Force majeure'. Interdiction stricte de saisir une inaptitude médicale ('IN' ou 'DI'). Après accord écrit de la CAHN, l'enseignant doit utiliser le bouton officiel **[CE]** (Cas Exceptionnel) sur Santorin pour neutraliser l'épreuve et clore le lot.\n"
-                "- LOT COLLÈGUE MANQUANT : Vérifier l'état des services et forcer la synchronisation en finalisant sa convocation d'évaluateur dans IMAG'IN.\n"
-                "- PROTOCOLE ADAPTÉ EN COURS D'ANNÉE : Obligation de relancer une 'Distribution automatique des lots' dans Santorin une fois les candidats rattachés au protocole adapté.\n"
-                "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
-                "- SPORTIF DE HAUT NIVEAU (SHN) : La validation de la note de 20/20 s'appuie réglementairement sur l'équivalence du Champ d'Apprentissage (CA) correspondant.\n"
-                "- ÉLÈVE TRANSFÉRÉ (APSA DIFFÉRENTES) : Interdiction de modifier le protocole de l'établissement ou de réévaluer l'élève sur les épreuves passées. Les notes d'origine sont sanctuarisées. Le professeur évalue la 3ème épreuve sur papier et le chef d'établissement demande à la DEC un 'Protocole Individuel Dérogatoire' dans Cyclades pour fusion manuelle par le rectorat.\n\n"
-                "🛑 VERROU ANTI-HALLUCINATION :\n"
-                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] and cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
-                "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
-                "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
-                f"Contexte additionnel: {extraits_doc}\nQuestion: {prompt}"
+                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades).\n\n"
+                
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "### 1. ANALYSE DES RISQUES (Ex: Perte de note, hors-délai, rupture d'égalité)\n"
+                "### 2. PROCÉDURE TECHNIQUE (Les étapes de saisie ou de secours pas-à-pas)\n"
+                "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
+                
+                "⚠️ VERROUS D'EXAMENS ABSOLUS :\n"
+                "- DATE LIMITE MAI 2026 : Rappel systématique que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après le委员会.\n"
+                "- MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, bascule immédiate sur le protocole national de secours.\n"
+                "- SOURCES : Termine toujours la section 3 par les liens trouvés dans le contexte ou écris [Source interne / Guide Académique Santorin].\n\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
 
         elif mode == "textes":
             consigne_ia = (

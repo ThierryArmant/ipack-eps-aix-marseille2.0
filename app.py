@@ -819,6 +819,7 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}\n"
                 "ROLE : Expert juridique et administratif (Droit public scolaire).\n"
+                f"CONSIGNES DE PIERRE A RESPECTER : {verites_terrain_pierre}\n\n" # Interception ici !
                 "POSTURE : Froid, factuel, impersonnel. Zéro conseil. Zéro verbiage. Style de greffier de tribunal.\n\n"
                 
                 "STRUCTURE OBLIGATOIRE INTERDITE DE MODIFIER :\n"
@@ -843,6 +844,7 @@ if prompt:
         elif mode == "peda":
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
+                f"CONSIGNES DE SÉCURITÉ TERRAIN DE PIERRE : {verites_terrain_pierre}\n\n" # Interception ici !
                 "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE, ULTRA-DÉTAILLÉE, rigoureuse sur le plan institutionnel et directement exploitable sur le terrain.\n"
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"

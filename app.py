@@ -859,20 +859,61 @@ if prompt:
             )
             badge, color_card = "🎓 RESPONSABILITÉ PÉDA", "peda-card"
         elif mode == "examens":
+            # 1. Définition des sources officielles pour les Examens & Santorin
+            liens_utiles = {
+                "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",
+                "portail_santorin": "- [🌐 Accéder au Portail d'assistance et Fiches Mémo Santorin Académique](https://www.ac-aix-marseille.fr/santorin)",
+                "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
+            }
+
+            # 2. Analyse dynamique des mots-clés de la question
+            liens_selectionnes = []
+            prompt_lower = prompt.lower()
+            
+            if any(x in prompt_lower for x in ["simul", "entraîn", "test", "école", "faux", "s'exercer"]):
+                liens_selectionnes.extend([liens_utiles["base_ecole"], liens_utiles["webinaire_eps"]])
+            elif any(x in prompt_lower for x in ["absent", "dispense", "inapte", "neutralis", "substitution", "bless", "aflp"]):
+                liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
+            else:
+                liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
+
+            bloc_liens_dynamique = "\n".join(liens_selectionnes)
+
+            # 3. Construction de la consigne IA avec injection des verrous et cas blindés
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades).\n\n"
+                "ROLE : Tu es l'expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
                 
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES (Ex: Perte de note, hors-délai, rupture d'égalité)\n"
                 "### 2. PROCÉDURE TECHNIQUE (Les étapes de saisie ou de secours pas-à-pas)\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                 
-                "⚠️ VERROUS D'EXAMENS ABSOLUS :\n"
-                "- DATE LIMITE MAI 2026 : Rappel systématique que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après le委员会.\n"
-                "- MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, bascule immédiate sur le protocole national de secours.\n"
-                "- SOURCES : Termine toujours la section 3 par les liens trouvés dans le contexte ou écris [Source interne / Guide Académique Santorin].\n\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
+                "1. DATE LIMITE MAI 2026 : Rappelle systématiquement dans la section 1 ou 3 que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après la commission d'harmonisation.\n"
+                "2. MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, ordonne la bascule immédiate sur le protocole national de secours.\n"
+                "3. INTERDICTION ABSOLUE d'inventer des liens ou d'écrire des mentions floues comme [Source interne]. Tu dois copier-coller STRICTEMENT le bloc de liens ci-dessous en section 3.\n\n"
+                
+                "🎯 CAS BLINDÉS EXAMENS (À COPIER-COLLER SI LA QUESTION CORRESPOND) :\n\n"
+                
+                "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "Attention à la manipulation sur l'interface Santorin, l'impact réglementaire sur la note de l'élève est radical :\n\n"
+                "➔ Cas 1 (Élève ABSENT à l'épreuve) : Vous devez impérativement cocher 'ABS' (Absent). Cela attribue la note de 0/20 pour l'épreuve concernée (sauf cas de force majeure validé par le chef d'établissement).\n"
+                "➔ Cas 2 (Élève DISPENSÉ / INAPTE) : Vous devez cocher 'DISP' (Dispensé). Cela déclenche la NEUTRALISATION de l'APSA. L'élève n'est pas pénalisé, sa note finale de CCF sera calculée au prorata des autres épreuves valides de son protocole d'examen.\n\n"
+                
+                "- SI LA QUESTION PARLE DE PROBLÈME DE CONNEXION / NE TROUVE PAS L'ACCÈS À SANTORIN :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "L'accès correcteur ne se fait pas par un site public ou un lien direct. Vous devez suivre le cheminement institutionnel sécurisé :\n\n"
+                "➔ Étape 1 : Connectez-vous à votre portail académique habituel **[ESTEREL / ARENA]**.\n"
+                "➔ Étape 2 : Allez dans le menu latéral et cliquez sur **[Examens et Concours]**.\n"
+                "➔ Étape 3 : Sélectionnez l'application **[IMAG'IN]** (Portail d'accès aux missions des intervenants aux examens).\n"
+                "➔ Étape 4 : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira l'accès sécurisé à votre lot de grilles d'évaluation Santorin.\n"
+                "➔ Étape 5 : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour (Safari et Edge provoquent des bugs de blocage lors de la signature numérique des notes).\n\n"
+                
+                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                f"Question du professeur : {prompt}"
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
 

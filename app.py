@@ -892,7 +892,7 @@ if prompt:
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
                 "1. DATE LIMITE MAI 2026 : Rappelle systématiquement dans la section 1 ou 3 que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après la commission d'harmonisation.\n"
                 "2. MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, ordonne la bascule immédiate sur le protocole national de secours.\n"
-                "3. INTERDICTION ABSOLUE d'inventer des liens ou d'écrire des mentions floues comme [Source interne]. Tu dois copier-coller STRICTEMENT le bloc de liens ci-dessous en section 3.\n\n"
+                "3. CONTENU STRICT DE LA SECTION 3 : La section 3 doit UNIQUEMENT contenir les points de vigilance issus du contexte et se terminer obligatoirement par le bloc de liens fourni ci-dessous. Tu as l'interdiction absolue de créer des sous-titres contenant le mot 'ALERTE' ou 'SÉCURITÉ' dans toute ta réponse.\n\n"
                 
                 "🎯 CAS BLINDÉS EXAMENS (À COPIER-COLLER SI LA QUESTION CORRESPOND) :\n\n"
                 

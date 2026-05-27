@@ -821,6 +821,16 @@ if prompt:
                 "➔ Étape 2 : Pour lier ces élèves à vos activités, rendez-vous dans **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
                 "➔ Étape 3 : Modifiez le protocole concerné et cochez/sélectionnez les classes ou les groupes d'élèves correspondants pour les basculer d'un bloc.\n"
                 "➔ Étape 4 : Si un élève change de groupe en cours d'année, la modification doit être faite dans votre outil de vie scolaire (Pronote) avant de relancer un import de mise à jour, ou directement via sa **[Fiche élève]** dans le menu **[Mes Élèves]**.\n\n"
+
+                "- SI LA QUESTION PARLE DE DONNER LE CHOIX DE L'APSA / ADAPTER SELON LES PERFORMANCES (EX: ATHLÉTISME COURSE/SAUT/LANCER) :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "iPackEPS ne permet pas de créer un protocole 'générique' où l'élève choisit son option au dernier moment sur la grille. Un protocole est rigide et lié à une APSA fixe. Pour offrir ce choix à vos élèves, appliquez la méthode de contournement réglementaire :\n\n"
+                "➔ Étape 1 : Créez autant de groupes distincts dans votre outil de vie scolaire (Pronote) que d'options choisies (ex: un groupe 'Athlé Courses', un groupe 'Athlé Sauts', un groupe 'Athlé Lancers').\n"
+                "➔ Étape 2 : Lancez une mise à jour de l'import XML dans iPackEPS pour faire remonter ces structures spécifiques.\n"
+                "➔ Étape 3 : Allez dans **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
+                "➔ Étape 4 : Créez un protocole d'examen distinct pour chaque groupe en y associant l'APSA exacte correspondante.\n"
+                "➔ Étape 5 : Affectez les élèves dans leurs protocoles respectifs. C'est la seule méthode pour que l'export Cyclades soit valide sans bloquer le système.\n\n"
+                
                 "CRITICAL IPACK RULES (À APPLIQUER SUR LES AUTRES CAS) :\n"
                 "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Passage par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
                 "- DEMI-FOND BAC GT : Distinction entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n\n"

@@ -763,7 +763,7 @@ if prompt:
         badge = "INFORMATION"
         color_card = "general-card"
         
-       if mode == "ipack":
+        if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu exclus tout blabla inutile.\n\n"

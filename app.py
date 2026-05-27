@@ -763,52 +763,9 @@ if prompt:
         badge = "INFORMATION"
         color_card = "general-card"
         
-        if mode == "ipack": 
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu es un robot d'extraction strict et technique. Tu n'inventes RIEN.\n\n"
-                
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER OU D'AJOUTER DES BLOCS ALERTE) :\n"
-                "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n\n"
-                
-                "🛑 INTERDICTION INTERNE DES ALERTES SÉCURITÉ :\n"
-                "Tu as l'interdiction formelle d'ajouter des blocs 'ALERTE SÉCURITÉ' ou 'PROTECTION FONCTIONNELLE' à la fin de tes procédures. Reste exclusivement sur des clics techniques.\n\n"
-                
-                "🎯 CAS CONFIGURÉS EN DUR (À COPIER-COLLER MOT POUR MOT) :\n\n"
-                
-                "1. Si l'utilisateur parle de PROTOCOLE IMPOSSIBLE À SUPPRIMER / BOUTON ABSENT :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 : Rends-toi dans l'onglet **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
-                "➔ Étape 2 : Sur la ligne du protocole concerné, clique sur le bouton de modification (icône du crayon ou **[Modifier]**).\n"
-                "➔ Étape 3 : Dans la fenêtre de configuration qui s'ouvre, va sur les menus déroulants des Groupes et des Séquences d'apprentissage, puis décoche ou désélectionne tous les éléments rattachés pour les vider.\n"
-                "➔ Étape 4 : Clique sur **[Enregistrer]**. Le protocole, désormais totalement libéré et sans aucun élève ni classe associé, s'effacera automatiquement de ton tableau de bord.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)\n"
-                "- [📥 Ouvrir la rubrique 7 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
-                
-                "2. Si l'utilisateur parle d'ERREUR ÉQUIPEMENT / EMPLOI DU TEMPS / SECTION SPORTIVE (SSS) :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "➔ Étape 1 (Déclaration) : Aller dans **[Dossiers]** > **[Dossier EPS]** > **[Équipements sportifs]**. Cliquer sur **[Ajouter un équipement sportif]**, renseigner le département/commune, et sélectionner l'infrastructure RES officielle. Enregistrer.\n"
-                "➔ Étape 2 (Couplage) : Aller dans **[Dossiers]** > **[Dossier EPS]** > **[Emploi du Temps]**. Sélectionner l'enseignant concerné et cliquer sur la case horaire dédiée au groupe de la Section Sportive (SSS).\n"
-                "➔ Étape 3 (Affectation) : Dans la fenêtre d'édition du créneau, utiliser le menu déroulant pour affecter l'équipement déclaré à l'Étape 1 à cette heure de cours. Enregistrer le créneau.\n"
-                "➔ Étape 4 (Validation) : Revenir sur la page principale de validation du dossier d'établissement et valider globalement pour effacer définitivement l'alerte.\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Saisie des Emplois du Temps](https://youtu.be/uCF9kxUDaI8)\n"
-                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Gestion des Équipements Sportifs](https://youtu.be/mRK9rhUgL44)\n"
-                "- [📥 Ouvrir la rubrique 2 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n\n"
-                
-                "3. AUTRES CAS IPACK (DOUBLONS, INAPTITUDES, ASNS) :\n"
-                "Génère la procédure technique stricte issue du contexte sans inventer de boutons. Pour la section 3, va chercher l'URL YouTube exacte dans le contexte et associe la bonne rubrique (Rubrique 2 pour le début d'année, Rubrique 4 pour le suivi/APSA, Rubrique 7 pour les examens).\n\n"
-                
-                "CRITICAL IPACK RULES:\n"
-                "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n"
-                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n\n"
-                f"Contexte complet (Pierre + Fichiers) : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+        "5. Si le sujet parle de CERTIFICAT MÉDICAL / INAPTITUDE / DISPENSE :\n"
+"- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Déclaration / Suivi des inaptitudes élèves](https://youtu.be/34w4Z6dd1dM)\n"
+"- [📥 Ouvrir la rubrique 4 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n\n"
 
         elif mode == "peda":
             consigne_ia = (

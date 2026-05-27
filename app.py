@@ -766,51 +766,49 @@ if prompt:
         if mode == "ipack":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu es un robot d'extraction strict, tu n'inventes RIEN.\n\n"
+                "ROLE : Tu es l'expert informatique et technique iPackEPS. Tu es un robot d'extraction strict et tu n'inventes RIEN.\n\n"
                 
                 "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER) :\n"
                 "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n\n"
                 
-                "🛑 VERROU D'EXTRACTION ABSOLU (CRUCIAL) :\n"
-                "1. INTERDICTION FORMELLE d'inventer des noms d'onglets ou des modules qui ne sont pas écrits dans le contexte (interdiction d'inventer [Savoir-Nager] par exemple).\n"
-                "2. Tu dois obligatoirement utiliser les chemins exacts écrits entre crochets dans le contexte (Ex: [Mes Élèves]/[Visualisation]/[ASNS] ou [Dossiers]/[Dossier EPS]/[Classes]).\n"
-                "3. Pour les doublons Pronote, tu dois impérativement donner la solution du contexte : vider la table 'Mes Élèves' avant de relancer l'import STS Web.\n\n"
+                "🛑 VERROU D'EXTRACTION ET DE RECHERCHE INTEGRÉ :\n"
+                "Tu as l'interdiction absolue d'écrire des phrases d'attente comme '(remplacer par l'URL...)'. Tu dois obligatoirement piocher dans la table de correspondance ci-dessous pour remplir la section 3.\n\n"
                 
-                "🧠 CAS PARTICULIER - DOSSIER INCOMPLET (SECTIONS SPORTIVES / ÉQUIPEMENTS) :\n"
-                "Si l'erreur mentionne une 'saisie incomplète' ou un 'équipement manquant' pour les sections sportives, affiche la procédure de couplage dans l'EDT et génère STRICTEMENT ces liens en section 3 :\n"
+                "🎯 TABLE DE CORRESPONDANCE DES LIENS ET VIDÉOS (À COPIER-COLLER SELON LE THÈME) :\n"
+                "Selon le thème de la question de l'utilisateur, affiche STRICTEMENT les liens correspondants dans ta section 3 :\n\n"
+                
+                "1. Si le sujet parle de PROTOCOLE / SUPPRESSION / MODIFICATION / CCF EXAMENS :\n"
+                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)\n"
+                "- [📥 Ouvrir la rubrique 7 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
+                
+                "2. Si le sujet parle d'ERREUR ÉQUIPEMENT / EMPLOI DU TEMPS / SECTION SPORTIVE (SSS) :\n"
                 "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Saisie des Emplois du Temps](https://youtu.be/uCF9kxUDaI8)\n"
                 "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Gestion des Équipements Sportifs](https://youtu.be/mRK9rhUgL44)\n"
                 "- [📥 Ouvrir la rubrique 2 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n\n"
                 
-                "🎥 GESTION DES LIENS VIDÉOS POUR LES AUTRES CAS :\n"
-                "Fouille le contexte. Si tu trouves une URL YouTube associée au problème (ASNS, Certificats médicaux, etc.), tu as l'obligation de l'afficher dans la section 3 sous la forme : - [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Nom du module](URL_YouTube_du_contexte).\n\n"
+                "3. Si le sujet parle de DOUBLONS ÉLÈVES / IMPORT PRONOTE / XML / CLASSES :\n"
+                "*(Rappel procédure : tu dois imposer de vider la table 'Mes Élèves' avant de réimporter)*\n"
+                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Import d'élèves depuis Pronote ou École-Directe](https://youtu.be/RlScDjd8kHk)\n"
+                "- [📥 Ouvrir la rubrique 2 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n\n"
                 
-                "🌐 LIENS DE REPLI ACADÉMIQUES (SECTION 3) :\n"
-                "Sélectionne et ajoute uniquement la rubrique de repli adaptée au sujet :\n"
-                "   - Sujet début d'année / Connexion / Déploiement / EDT : [📥 Ouvrir la rubrique 2 de documentation](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
-                "   - Sujet quotidien / Saisie des notes / Groupes / APSA / Inaptitudes : [📥 Ouvrir la rubrique 4 de documentation](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
-                "   - Sujet Examens / CCF / Protocoles / Validation / Exprots : [📥 Ouvrir la rubrique 7 de documentation](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
+                "4. Si le sujet parle de SAVOIR-NAGER / ATTESTATION ASNS / 6ÈME :\n"
+                "*(Rappel procédure : le chemin exact est [Mes Élèves] -> [Visualisation] -> [ASNS])* \n"
+                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Validation et Impression de l'ASNS (Savoir-Nager)](https://youtu.be/xlXcb8Z5ZQU)\n"
+                "- [📥 Ouvrir la rubrique 4 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n\n"
+                
+                "5. Si le sujet parle de CERTIFICAT MÉDICAL / INAPTITUDE / DISPENSE :\n"
+                "- [🎥 Cliquer ici pour voir le tutoriel vidéo officiel : Déclaration / Suivi des inaptitudes élèves](https://youtu.be/34w4Z6dd1dM)\n"
+                "- [📥 Ouvrir la rubrique 4 de documentation sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n\n"
                 
                 "CRITICAL IPACK RULES:\n"
                 "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activity 'Course de demi-fond'.\n"
+                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n"
                 "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n\n"
-                f"Contexte complet (Pierre + Fichiers data + Liens + Vidéos) : {extraits_doc}\nQuestion : {prompt}"
+                f"Contexte complet (Pierre + Fichiers) : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-        elif mode == "examens":
-            consigne_ia = (
-                f"{règles_or}\n"
-                "ROLE : Expert de la certification et des examens EPS (Santorin, Cyclades).\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
-                "### 1. RISQUES DE CERTIFICATION (Perte de note, rupture d'égalité, hors-délai)\n"
-                "### 2. PROCÉDURE DE SAISIE ET DE SECOURS\n"
-                "### 3. TEXTES DE RÉFÉRENCE ET RECOMMANDATIONS\n\n"
-                f"Contexte complet (Pierre + Web) : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
 
         elif mode == "peda":
             consigne_ia = (

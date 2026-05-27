@@ -904,6 +904,13 @@ if prompt:
                 "➔ Étape 3 (Application) : Sélectionnez l'application **[IMAG'IN]** (Portail de gestion des missions des intervenants).\n"
                 "➔ Étape 4 (Accès Santorin) : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira le lien d'accès sécurisé vers votre lot de grilles Santorin.\n"
                 "➔ Étape 5 (Navigateurs recommandés) : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour. L'utilisation de Safari ou d'Edge provoque des bugs majeurs lors du verrouillage et de la signature numérique des notes.\n\n"
+
+                "- SI LA QUESTION PARLE DE PROCÉDURE INCOMPLÈTE / CONTRÔLE INCOMPLET / CASE VIDE :\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "Dans l'interface correcteur de Santorin, l'option ou le bouton 'Procédure incomplète' n'existe pas. Vous ne devez jamais laisser de cases vides. Appliquez la stricte bascule réglementaire :\n\n"
+                "➔ Cas 1 (Manque SANS justificatif) : Vous devez impérativement cocher **[ABS]** (Absent) sur la grille de l'APSA concernée. Cela attribue un 0/20 à l'épreuve mais valide techniquement la procédure pour les serveurs.\n"
+                "➔ Cas 2 (Manque AVEC certificat médical) : Vous devez cocher **[DISP]** (Dispensé). Cela déclenche la neutralisation de l'APSA et le calcul de la note finale au prorata.\n"
+                "➔ Cas 3 (Anomalie ou ligne grisée) : Le correcteur n'a pas la main. Signalez immédiatement l'anomalie au secrétariat d'établissement pour une régularisation du protocole directement dans **[Cyclades]**.\n\n"
                 
                 "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"

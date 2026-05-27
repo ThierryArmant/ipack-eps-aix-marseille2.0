@@ -913,6 +913,12 @@ if prompt:
                 ca_nom = "CA3 (Réaliser une prestation corporelle à visée artistique ou acrobatique)"
                 ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement, au sein d'un groupe, à l'élaboration et à la réalisation d'un projet artistique et/ou acrobatique. Apprécier des prestations de manière argumentée, en référence à des supports d'observation et des critères choisis ou construits."
                 ca_competences = "Élaborer et réaliser, seul ou à plusieurs, un projet artistique et/ou acrobatique pour provoquer une émotion du public. Utiliser des procédés simples de composition et de coordination. Construire un regard critique sur ses prestations et celles des autres, en utilisant le numérique. S'engager : maîtriser les risques, dominer ses appréhensions."
+
+            # Détection CA5 (Entretien / Santé)
+            elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
+                ca_nom = "CA5 (Développement de soi et entretien de la santé)"
+                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet d'entretien.<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster ses charges et récupérations selon des indicateurs précis.<br>AFL 3 (Social) : Assumer le rôle de partenaire d'entraînement (conseiller, observer, parer) et respecter son projet."
+                ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
             # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):

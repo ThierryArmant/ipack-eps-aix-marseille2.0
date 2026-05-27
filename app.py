@@ -778,7 +778,7 @@ if prompt:
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
-            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer"]):
+            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer" , "groupe" ,"répartir" , "affecte"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
             elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu"]):
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])

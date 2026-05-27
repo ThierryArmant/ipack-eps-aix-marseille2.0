@@ -622,6 +622,7 @@ domaine_eps_france = [
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
+    # Le spinner englobe bien toute la chaîne de traitement
     with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
@@ -647,6 +648,7 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
+                    # Le nettoyage agressif est STRICTEMENT réservé au juridique ici
                     mot_cle = prompt.lower()
                     expressions_inutiles = [
                         "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
@@ -657,10 +659,8 @@ if prompt:
                     ]
                     for exp in expressions_inutiles:
                         mot_cle = mot_cle.replace(exp, "")
-                    
                     for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
                         mot_cle = mot_cle.replace(verbe, "")
-                        
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
                     domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
@@ -691,15 +691,17 @@ if prompt:
                     domains = ["education.gouv.fr"] + domaine_eps_france
                 
                 elif mode == "ipack":
-                    requete_blindee = f"site:ipackeps.ac-creteil.fr/spip.php?rubrique4 {prompt}"
+                    requete_blindee = f"rubrique4 {prompt}"
                     domains = ["ipackeps.ac-creteil.fr"]
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
+                    # Sanctuarisation de ta structure d'origine
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
+                    # Sanctuarisation de ta structure d'origine
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
@@ -724,7 +726,7 @@ if prompt:
             except: 
                 pass
 
-        # 2. CONTEXTE LOCAL
+        # 2. CONTEXTE LOCAL (Restauration complète de ta logique d'hier matin avec prompt)
         if openai_api_key:
             try:
                 if mode == "examens":
@@ -732,10 +734,14 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    # On applique mot_cle ici uniquement pour cibler le texte de loi local sans fioritures
+                    mot_cle_local = prompt.lower()
+                    for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
+                    for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-            except: pass
+            except: 
+                pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."

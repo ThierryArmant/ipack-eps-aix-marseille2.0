@@ -762,14 +762,12 @@ if prompt:
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                
                 "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
                 "1. Scanne le 'Contexte' pour trouver le TITRE EXACT du paragraphe écrit par l'utilisateur (ex: 'Sélection de votre établissement' ou 'Choix de l’année scolaire').\n"
                 "2. À la fin de ta réponse, sous le titre '### 3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien ultra-précis qui va faire défiler la page du navigateur directement sur ce titre.\n"
                 "3. Formate le lien de conclusion EXACTEMENT selon ces modèles en remplaçant 'TITRE_NETTOYÉ' par le titre trouvé où chaque espace est remplacé par %20 (ex: Sélection%20de%20votre%20établissement) :\n"
                 "   - Pour un sujet de début d'année/connexion : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=TITRE_NETTOYÉ)\n"
                 "   - Pour un sujet de gestion de classes/APSA/évaluations : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TITRE_NETTOYÉ)\n\n"
-                
                 "CRITICAL IPACK RULES:\n"
                 "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
                 "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves, le protocole Bac GT doit rester réglementaire.\n"
@@ -777,11 +775,9 @@ if prompt:
                 "- RÉPARTITION DANS LES GROUPES : L'action se fait exclusivement via le module 'Mes élèves'. Attention, l'option textuelle 'Placement des élèves dans les groupes' n'existe pas dans l'interface.\n"
                 "- DÉPÔT CERTIFICAT MÉDICAL : Dissocier la saisie simple de l'inaptitude (Fiche élève > Onglet Inaptitudes) du téléversement des pièces justificatives pour la commission qui se fait dans [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].\n"
                 "- NOTE UNIQUE CCF : iPackEPS bloque le calcul automatique. Le dossier doit être transmis manuellement au Jury Académique via Cyclades.\n\n"
-                
                 "🛑 VERROU ANTI-HALLUCINATION :\n"
-                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il fait de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
+                "Si le document fourni dans le 'Contexte' ci-dessous prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, de créer des groupes 'Lancer/Saut/Course' en cours de route ou d'adapter les protocoles après coup, TU DOIS IGNORER ET REJETER CE CONTEXTE. C'est une erreur réglementaire majeure.\n"
                 "Tu as l'obligation stricte de répondre que cette PROCÉDURE EST IMPOSSIBLE ET INTERDITE. Les protocoles CCF sont verrouillés en début d'année dans Cyclades et iPackEPS ne permet aucune modification rétroactive des choix d'épreuves.\n\n"
-                
                 "MISSION : Réponds STRICTEMENT à la question posée. Génère le lien porte-à-porte avec le fragment #:~:text= en convertissant les espaces en %20. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 "VIDÉOS : N'affiche des liens YouTube que s'ils sont explicitement présents dans le contexte. Ne génère aucun lien fictif.\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
@@ -793,7 +789,6 @@ if prompt:
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert administratif et technique Santorin, Cyclades et Imag'in pour l'académie d'Aix-Marseille. Interdiction absolue de parler de pédagogie.\n"
                 f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                
                 "CRITICAL EPS EXAM RULES (AIX-MARSEILLE):\n"
                 "- DATE LIMITE : La date butoir impérative de saisie pour Aix-Marseille est le 30 mai 2026 au soir (et non le 9 juin).\n"
                 "- AFLP GRISÉS / INACTIFS : Le problème vient de Santorin. L'utilisateur a oublié de cliquer sur le bouton spécifique 'Choisir les AFLP' pour activer la grille de saisie. Ce n'est pas un problème de droits d'accès.\n"
@@ -806,11 +801,9 @@ if prompt:
                 "- ÉLÈVE MANQUANT SANTORIN : Préciser d'abord que le candidat est invisible car il n'est rattaché à aucun groupe. La seule procédure est de l'affecter à un groupe dans Cyclades, puis faire une distribution manuelle dans Santorin (le bouton 'Ajouter un élève' dans Santorin n'est pas fonctionnel).\n"
                 "- SPORTIF DE HAUT NIVEAU (SHN) : La validation de la note de 20/20 s'appuie réglementairement sur l'équivalence du Champ d'Apprentissage (CA) correspondant.\n"
                 "- ÉLÈVE TRANSFÉRÉ (APSA DIFFÉRENTES) : Interdiction de modifier le protocole de l'établissement ou de réévaluer l'élève sur les épreuves passées. Les notes d'origine sont sanctuarisées. Le professeur évalue la 3ème épreuve sur papier et le chef d'établissement demande à la DEC un 'Protocole Individuel Dérogatoire' dans Cyclades pour fusion manuelle par le rectorat.\n\n"
-                
                 "🛑 VERROU ANTI-HALLUCINATION :\n"
-                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] et cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
+                "Si un document fourni dans le 'Contexte' ci-dessous prétend qu'il faut aller dans l'onglet [Correcteurs] and cliquer sur le bouton [Ajouter] pour intégrer un évaluateur, TU DOIS IGNORER ET REJETER CE CONTEXTE. Ce bouton est en panne au niveau national.\n"
                 "Tu as l'obligation stricte d'appliquer et de décrire la procédure de contournement avec le bouton **[Déplacer vers un nouveau lot]** détaillée dans tes règles ci-dessus. Ne mentionne jamais le bouton [Ajouter] comme une solution fonctionnelle.\n\n"
-                
                 "MISSION : Réponds STRICTEMENT à la question posée en t'appuyant sur les règles ci-dessus. Utilise obligatoirement la structure du Filtre Pierre (1. Analyse des risques, 2. Procédure technique avec étapes fléchées '→', 3. Protection fonctionnelle).\n"
                 f"Contexte additionnel: {extraits_doc}\nQuestion: {prompt}"
             )
@@ -821,18 +814,15 @@ if prompt:
                 f"{règles_or}\n"
                 "ROLE : Expert juridique et administratif (Droit public scolaire).\n"
                 "POSTURE : Froid, factuel, impersonnel. Zéro conseil. Zéro verbiage.\n\n"
-                
                 "STRUCTURE OBLIGATOIRE :\n"
                 "<h3>1. QUALIFICATION</h3> (Qualification juridique précise des faits).\n"
                 "<h3>2. TEXTE OFFICIEL</h3> (Citation textuelle intégrale du Code/Article/Date).\n"
                 "<h3>3. CONCLUSION</h3> (Décision procédurale binaire. Argumentation basée sur la loi).\n"
                 "<h3>4. FONDEMENT LÉGAL</h3> (Extrait du texte de loi justifiant la décision).\n\n"
-                
                 "DIRECTIVES :\n"
                 "- Ne pas dépasser 150 mots.\n"
                 "- Si la loi ne prévoit pas d'exception, ne pas en inventer.\n"
                 "- Si le chef d'établissement demande une illégalité, acter le refus basé sur le Code.\n\n"
-                
                 f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -845,7 +835,6 @@ if prompt:
                 "1. Utilise uniquement <h3> pour les titres.\n"
                 "2. Utilise <ul> et <li> pour toutes les listes (pas de tirets).\n"
                 "3. Utilise <br> pour les sauts de ligne simples.\n\n"
-                
                 "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
                 "1. Interdiction absolue d'inventer des URL directes vers des fichiers PDF ou Excel spécifiques, ils finissent toujours en erreur 404.\n"
                 "2. Tu as l'obligation stricte de générer les 3 liens HTML exacts ci-dessous. Tu dois obligatoirement remplacer 'NOM_APSA' par l'activité demandée en minuscules (ex: gymnastique, badminton, acrosport).\n"
@@ -854,15 +843,12 @@ if prompt:
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
                 "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
-
-                 # 🌐 BLOC INSTITUTIONNEL
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
                 "<ul>"
                 "<li><strong>Domaines du Socle Commun :</strong> [Citer explicitement les domaines engagés, ex: Domaine 1 (Langages), Domaine 2 (Méthodes), Domaine 3 (Citoyen), etc.]</li>"
                 "<li><strong>Compétences Générales EPS :</strong> [Développer sa motricité, S'approprier des méthodes, Partager des règles/valeurs, Maintenir sa santé, S'approprier une culture]</li>"
                 "<li><strong>Compétences Attendu de Fin de Cycle (AFC) :</strong> [Formuler textuellement le ou les AFC officiels du cycle concerné en lien avec l'activité]</li>"
                 "</ul>"
-                
                 "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3><ul><li><strong>Domaines du Socle Commun :</strong> [domaines]</li><li><strong>Compétences Générales EPS :</strong> [compétences]</li><li><strong>Attendus de Fin de Cycle (AFC) :</strong> [AFC]</li></ul>"
@@ -886,15 +872,9 @@ if prompt:
         if mode == "peda":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
-        
         elif mode == "textes":
-            texte_final = texte_brut.replace(chr(10), "<br>") # <--- Le "e" est restauré ici !
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
-            
-        else:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
-            
         else:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'

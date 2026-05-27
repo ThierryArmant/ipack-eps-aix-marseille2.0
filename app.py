@@ -760,7 +760,7 @@ if prompt:
                     # (Poursuis ici avec le reste de ton code : filtre_pierre, consigne_ia, etc.)
             
             # ... et ensuite le reste de ton code (filtre_pierre, consigne_ia, etc.)
-        filtre_pierre = (
+            filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
             "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
             "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"

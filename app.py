@@ -912,7 +912,7 @@ if prompt:
                 "➔ Étape 3 (Application) : Sélectionnez l'application **[IMAG'IN]** (Portail de gestion des missions des intervenants).\n"
                 "➔ Étape 4 (Accès Santorin) : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira le lien d'accès sécurisé vers votre lot de grilles Santorin.\n"
                 "➔ Étape 5 (Navigateurs recommandés) : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour. L'utilisation de Safari ou d'Edge provoque des bugs majeurs lors du verrouillage et de la signature numérique des notes.\n\n"
-
+                
                 "- SI LA QUESTION PARLE D'INSTALLATION INDISPONIBLE / METEO / IMPOSSIBLE D'ÉVALUER / PROTOCOLE DE SECOURS :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "Il n'existe aucun bouton ou module de secours direct dans l'interface Santorin ou iPackEPS pour valider une installation indisponible. La procédure est réglementaire et administrative :\n\n"
@@ -921,6 +921,14 @@ if prompt:
                 "➔ Étape 3 : Si un protocole de secours existe, le secrétariat de l'établissement doit modifier l'arborescence dans Cyclades pour basculer la classe sur la nouvelle activité.\n"
                 "➔ Étape 4 : Si aucun secours n'était prévu, le chef d'établissement doit contacter de toute urgence les IA-IPR EPS. À l'approche de la commission de fin mai 2026, toute modification exceptionnelle de protocole exige une autorisation rectorale écrite.\n"
                 "➔ Étape 5 : Ne laissez pas de cases vides et ne validez rien sur Santorin tant que l'arborescence officielle de la classe n'a pas été corrigée par l'administration.\n\n"
+
+                "- SI LA QUESTION PARLE DE PROTOCOLE ADAPTÉ / ÉPREUVE ADAPTÉE / MODIFIER PROTOCOLE CANDIDAT :\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "NON, un enseignant ne peut pas créer ou modifier un protocole adapté directement dans Cyclades ou Santorin. Les enseignants n'ont aucun droit d'écriture sur ces bases de données. La procédure est strictement institutionnelle :\n\n"
+                "➔ Étape 1 : L'évaluation adaptée doit reposer sur une décision officielle (avis médical, aménagement de scolarité PAP/PPS, ou décision du chef d'établissement).\n"
+                "➔ Étape 2 : Transmettez immédiatement la liste des épreuves réellement subies par le candidat au secrétariat de votre direction.\n"
+                "➔ Étape 3 : C'est le secrétariat de l'établissement qui va configurer le 'dispense partielle' ou basculer l'élève sur un protocole d'épreuve adaptée directement dans **[Cyclades]**.\n"
+                "➔ Étape 4 : Une fois la modification effectuée par l'administration, la mise à jour remontera dans votre lot de correction **[Santorin]**, vous permettant de saisir les notes sur les seules activités validées.\n\n"
                 
                 "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"

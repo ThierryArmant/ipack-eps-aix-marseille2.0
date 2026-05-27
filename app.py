@@ -764,7 +764,7 @@ if prompt:
         color_card = "general-card"
         
         if mode == "ipack":
-            # 1. Définition des sources officielles iPackEPS en dur dans le code Python
+            # 1. Définition des sources officielles iPackEPS en dur
             liens_utiles = {
                 "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
                 "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
@@ -774,36 +774,49 @@ if prompt:
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
 
-            # 2. Analyse dynamique des mots-clés de la question pour sélectionner les bons liens
+            # 2. Analyse dynamique des mots-clés pour les liens
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
-            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve"]):
+            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
             elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu"]):
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
             elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe"]):
                 liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
             else:
-                # Fallback général si aucun mot-clé n'est détecté
                 liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
-            # 3. Construction de la consigne IA avec injection des liens sécurisés
+            # 3. Construction de la consigne IA ultra-verrouillée
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction RAG strict. Tu n'inventes RIEN.\n\n"
+                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction RAG strict et froid. Tu n'inventes RIEN.\n\n"
                 
-                "STRUCTURE DE RÉPONSE NON NEGOCIABLE :\n"
+                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n\n"
                 
-                "🛑 CONSIGNES DE SÉCURITÉ DE SÉLECTION :\n"
-                "1. Pour la section 2, analyse la question et va chercher la réponse TECHNIQUE exclusivement dans les extraits de fichiers fournis ci-dessous.\n"
-                "2. Si la question demande si on peut faire quelque chose d'interdit (ex: 4 épreuves au CAP), commence ta section 2 par un 'NON' clair et catégorique avant d'expliquer la procédure de contournement.\n"
-                "3. Pour la section 3, tu as l'INTERDICTION ABSOLUE d'écrire des liens ou des numéros de rubriques de ton propre chef. Tu dois copier-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
+                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
+                "1. INTERDICTION ABSOLUE d'inventer des boutons 'Supprimer', des icônes de corbeille ou des pop-ups de confirmation.\n"
+                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ' ou 'PROTECTION FONCTIONNELLE' à la fin de la section 2.\n"
+                "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous, sans modifier un seul caractère.\n\n"
+                
+                "🎯 CAS BLINDÉS (À COPIER-COLLER SI LA QUESTION CORRESPOND) :\n\n"
+                
+                "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "NON, il n'existe aucun bouton ou icône 'Supprimer' direct pour un protocole dans iPackEPS. Pour faire disparaître un protocole, vous devez obligatoirement le vider de toute affectation en amont :\n\n"
+                "➔ Étape 1 : Rends-toi dans l'onglet **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
+                "➔ Étape 2 : Sur la ligne du protocole concerné, clique sur le bouton de modification (icône du crayon ou **[Modifier]**).\n"
+                "➔ Étape 3 : Dans la fenêtre de configuration qui s'ouvre, va sur les menus déroulants des Groupes et des Séquences d'apprentissage, puis décoche ou désélectionne tous les éléments rattachés pour les vider.\n"
+                "➔ Étape 4 : Clique sur **[Enregistrer]**. Le protocole, désormais totalement libéré et sans aucun élève ni classe associé, s'effacera automatiquement de ton tableau de bord.\n\n"
+                
+                "CRITICAL IPACK RULES (À APPLIQUER SUR LES AUTRES CAS) :\n"
+                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Passage par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
+                "- DEMI-FOND BAC GT : Distinction entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n\n"
                 
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"

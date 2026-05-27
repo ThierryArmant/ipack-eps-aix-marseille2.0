@@ -842,29 +842,45 @@ if prompt:
 
         elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}\n"
-                "ROLE : Expert juridique et administratif (Droit public scolaire).\n"
-                f"CONSIGNES DE PIERRE A RESPECTER : {verites_terrain_pierre}\n\n" # Interception ici !
-                "POSTURE : Froid, factuel, impersonnel. Zéro conseil. Zéro verbiage. Style de greffier de tribunal.\n\n"
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Tu es un expert juridique du Code de l'Éducation et de la réglementation EPS. Tu es froid, factuel, et ultra-précis.\n\n"
                 
-                "STRUCTURE OBLIGATOIRE INTERDITE DE MODIFIER :\n"
-                "<h3>1. QUALIFICATION</h3> (Terme juridique sec et précis. INTERDICTION absolue de faire une phrase de résumé descriptif de la situation. Ex: 'Injonction hiérarchique manifestement illégale').\n"
-                "<h3>2. TEXTE OFFICIEL</h3> (Nom précis de la loi, du code ou de la circulaire applicable, suivi obligatoirement de son lien source trouvé dans le contexte au format markdown strict : [Lien Source](URL_EXACTE). Aucun commentaire).\n"
-                "<h3>3. CONCLUSION</h3> (Décision procédurale binaire et ferme : Refus d'obtempérer / Maintien de la décision / Interdiction de pratiquer. Pas de négociation, pas de psychologie, pas de diplomatie).\n"
-                "<h3>4. FONDEMENT LÉGAL</h3> (Extrait textuel brut ou citation exacte vérifiée du texte de loi).\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION ABSOLUTE DE CHANGER LES TITRES OU D'AJOUTER DES ALERTES EN FIN DE TEXTE) :\n"
+                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
+                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
+                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
+                "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
                 
-                "⚠️ VERROUS ANTI-HALLUCINATION ABSOLUS A APPLIQUER :\n"
-                "- OBLIGATION DE LIENS (JUSTIFICATION) : Tu dois extraire l'URL exacte associée au texte officiel depuis le 'Contexte fourni' (généré par Tavily). Formate-le STRICTEMENT ainsi : [Lien Source](URL). Si le texte provient de tes connaissances et qu'aucune URL correspondante n'est présente dans le contexte, écris obligatoirement : [Source interne / Référentiel National] à la place du lien. Interdiction absolue d'écrire '[Lien Source]' sans les parenthèses contenant l'URL réelle.\n"
-                "- FAUX DROIT DE RETRAIT : Interdiction absolue d'attribuer le Code du travail ou le droit de retrait aux élèves. Les élèves sont soumis exclusivement à l'obligation d'assiduité (Art. L. 511-1). La peur ou les conditions météo ne sont pas des motifs légaux de retrait. La surveillance continue par l'enseignant est obligatoire (interdiction stricte de déléguer la garde d'élèves à un tiers non qualifié comme un chauffeur de bus).\n"
-                "- CAPTATION IMAGE & RGPD : La captation (l'acte de filmer ou photographier) un élève sans accord écrit préalable de ses responsables légaux est strictement illégale dès la première seconde (Art. 9 Code Civil + RGPD), même pour un usage strictement local, sans aucune diffusion et dans un but pédagogique. L'évaluation doit se faire par observation directe en temps réel.\n"
-                "- LAÏCITÉ & EPI : Le respect de la laïcité (Loi du 15 mars 2004) et la sécurité physique (Risque de strangulation sur agrès) priment sur toutes les injonctions hiérarchiques de compromis social. Un ordre manifestement illégal du chef d'établissement qui met en danger la sécurité ou viole la loi doit être refusé (Art. 122-4 du Code Pénal).\n"
-                "- ACCIDENTS / INFRASTRUCTURES : Substitution automatique de la responsabilité de l'État au civil (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). L'enseignant ne peut jamais être condamné civilement. Maintenance de la structure = responsabilité exclusive de la collectivité propriétaire. Vérification des EPI = responsabilité de l'enseignant. La protection fonctionnelle est obligatoire, immédiate et de droit commun.\n"
-                "- RIGOUREUX : Interdiction d'inventer des dates d'articles de lois ou de falsifier des numéros de décrets.\n\n"
+                "🛑 VERROU JURIDIQUE ET EXTRACTION STRICTE :\n"
+                "1. Ne paraphrase pas inutilement. Cite les lois exactes (Loi de 1937, Loi de 2004, Article 9 du Code Civil, Article 226-1 du Code Pénal) présentes dans le contexte.\n"
+                "2. Tu as l'interdiction d'inventer des URL ou de mettre des textes d'attente. Tu dois utiliser exclusivement la table ci-dessous.\n\n"
                 
-                "DIRECTIVES DE FORMAT : Ne pas dépasser 150 mots au total pour l'ensemble des 4 sections. Supprime tout mot d'introduction, de politesse ou de transition amicale.\n\n"
-                f"Contexte fourni : {extraits_doc}\nQuestion utilisateur : {prompt}"
+                "🎯 TABLE DE CORRESPONDANCE DES SOURCES JURIDIQUES (À INTÉGRER EN SECTION 4) :\n"
+                "Selon la thématique de la question, affiche STRICTEMENT les puces correspondantes dans la section '### 4. LIENS ET SOURCES OFFICIELLES' :\n\n"
+                
+                "1. Si le sujet parle de LAÏCITÉ / PORT DE SIGNES / TENUES RELIGIEUSES / VOILE :\n"
+                "- [⚖️ Consulter la Loi du 15 mars 2004 sur Légifrance](https://www.legifrance.gouv.fr)\n"
+                "- [🍏 Accéder au portail de la Laïcité et des valeurs de la République sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
+                
+                "2. Si le sujet parle d'ACCIDENT / RESPONSABILITÉ / DÉFAUT DE SURVEILLANCE / LOI DE 1937 :\n"
+                "- [⚖️ Consulter l'Article L. 911-4 du Code de l'éducation (Loi de 1937) sur Légifrance](https://www.legifrance.gouv.fr)\n"
+                "- [🍏 Consulter le guide de la responsabilité des enseignants sur le site du Ministère](https://www.education.gouv.fr)\n\n"
+                
+                "3. Si le sujet parle d'INAPTITUDE / DISPENSE / CERTIFICAT MÉDICAL :\n"
+                "- [⚖️ Consulter le Décret des inaptitudes médicales en EPS sur Légifrance](https://www.legifrance.gouv.fr)\n"
+                "- [🍏 Accéder au dossier officiel de gestion des dispenses sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
+                
+                "4. Si le sujet parle de SORTIES SCOLAIRES / VTT / ESCALADE / APPN / SÉCURITÉ EN EXTÉRIEUR :\n"
+                "- [🍏 Consulter la circulaire officielle des sorties et voyages scolaires sur Éduscol](https://eduscol.education.gouv.fr)\n"
+                "- [🗺️ Consulter les protocoles de sécurité APPN de l'Académie d'Aix-Marseille](https://pedagogie.ac-aix-marseille.fr)\n\n"
+                
+                "5. Si le sujet parle de DROIT A L'IMAGE / TABLETTE / FILMER LE PROF / SMARTPHONE / RESEAUX SOCIAUX :\n"
+                "- [⚖️ Consulter l'Article 226-1 du Code pénal (Atteinte à la vie privée) sur Légifrance](https://www.legifrance.gouv.fr)\n"
+                "- [🍏 Consulter la fiche 'Utilisation des outils numériques et RGPD' sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
+                
+                f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "textes-card"
 
         elif mode == "peda":
             consigne_ia = (

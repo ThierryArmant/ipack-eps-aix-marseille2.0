@@ -767,7 +767,7 @@ if prompt:
        # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale sur le Web et le RAG) :\n{verites_terrain_pierre}\n\n"
 
-        if mode == "ipack":
+       if mode == "ipack":
             # 1. Définition des sources officielles iPackEPS en dur
             liens_utiles = {
                 "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
@@ -778,7 +778,7 @@ if prompt:
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
 
-            # 2. Analyse dynamique des mots-clés
+            # 2. Analyse dynamique des mots-clés (Mise à jour avec Certificat/Médical)
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
@@ -786,7 +786,7 @@ if prompt:
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
             elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
                 liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
-            elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu"]):
+            elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu", "certificat", "médical", "cm"]):
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
             else:
                 liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
@@ -804,26 +804,30 @@ if prompt:
                 "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
                 
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
-                "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves. Tout ajout passe par l'importation de fichiers de vie scolaire (Pronote/SIECLE).\n"
-                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ' à la fin de la section 2 ou 3.\n"
+                "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
+                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
                 "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
                 
                 "🎯 CAS BLINDÉS CONFIGURÉS (A COPIER-COLLER CONFORMÉMENT À LA BIBLE DE PIERRE) :\n\n"
+
+                "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
+                "➔ Étape 1 (Accès) : Connectez-vous et cliquez sur le module **[Mes Élèves]**.\n"
+                "➔ Étape 2 (Fiche) : Dans la liste, cliquez sur le nom de l'élève pour ouvrir sa **[Fiche élève]**.\n"
+                "➔ Étape 3 (Section) : Repérez et ouvrez l'onglet ou la section **[Inaptitudes]**.\n"
+                "➔ Étape 4 (Action) : Cliquez sur le bouton officiel **[Saisir une inaptitude]**.\n"
+                "➔ Étape 5 (Saisie) : Renseignez scrupuleusement les dates de validité du certificat ainsi que les APSA spécifiquement visées par la dispense.\n"
+                "➔ Étape 6 (Dépôt) : Téléversez le scan ou la capture photo du certificat médical officiel.\n"
+                "➔ Étape 7 (Verrou d'arbitrage) : Pour la réactivation ultérieure des APSA lors des commissions d'arbitrage, modifiez la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.\n"
+                "⚠️ **RÈGLE D'OR DE SÉCURITÉ** : Ne tapez JAMAIS manuellement les mentions 'IN' ou 'DI' directement dans les cases de notes brutes. La validation de l'inaptitude dans l'onglet dédié génère le statut automatiquement pour éviter tout conflit de synchronisation.\n\n"
                 
                 "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
                 "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
-                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
+                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et visez-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
-
-                "- SI LA QUESTION PARLE DE CYCLE ATHLÉTISME / CHOIX ÉPREUVE / COURSE SAUT LANCER / ADAPTER PROTOCOLE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "RÈGLE ACADÉMIQUE : PROCÉDURE TECHNIQUE ABSOLUMENT IMPOSSIBLE ET INTERDITE. L'application iPackEPS est une base de données rigide synchronisée avec Cyclades et ne permet aucune modification rétroactive des choix d'activités en cours de cycle pour s'adapter aux performances des élèves.\n\n"
-                "➔ Étape 1 : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole fixe et définitif dès la phase d'orientation (octobre/novembre).\n"
-                "➔ Étape 2 : Attention à la structure : un protocole CCF dans iPackEPS est verrouillé par groupe pour UNE SEULE activité spécifique (ex: un groupe complet pour le 'Pentabond'). L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.\n"
-                "➔ Étape 3 : Si vous offrez le choix, vous devez techniquement créer autant de groupes iPackEPS distincts que d'options (ex: un groupe 'Athlé-Sprint', un groupe 'Athlé-Saut') et y répartir fixement les élèves avant la saisie des notes.\n"
-                "⚠️ **RÈGLE D'OR NATIONALE** : L'athlétisme ne représente qu'un seul Champ d'Apprentissage (CA1). Un élève ne peut jamais obtenir ses deux notes de Bac sur un seul cycle d'athlétisme ; la deuxième note doit obligatoirement provenir d'un autre champ.\n\n"
                 
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
@@ -839,7 +843,6 @@ if prompt:
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-
         elif mode == "examens":
             liens_utiles = {
                 "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",

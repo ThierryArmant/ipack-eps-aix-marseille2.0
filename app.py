@@ -797,19 +797,15 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
-                
                 "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
-                
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
                 "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
                 "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
                 "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
-                
                 "🎯 CAS BLINDÉS CONFIGURÉS (A COPIER-COLLER CONFORMÉMENT À LA BIBLE DE PIERRE) :\n\n"
-
                 "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
@@ -821,14 +817,12 @@ if prompt:
                 "➔ Étape 6 (Dépôt) : Téléversez le scan ou la capture photo du certificat médical officiel.\n"
                 "➔ Étape 7 (Verrou d'arbitrage) : Pour la réactivation ultérieure des APSA lors des commissions d'arbitrage, modifiez la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.\n"
                 "⚠️ **RÈGLE D'OR DE SÉCURITÉ** : Ne tapez JAMAIS manuellement les mentions 'IN' ou 'DI' directement dans les cases de notes brutes. La validation de l'inaptitude dans l'onglet dédié génère le statut automatiquement pour éviter tout conflit de synchronisation.\n\n"
-                
                 "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
                 "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
                 "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
-                
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
@@ -837,12 +831,12 @@ if prompt:
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
                 "⚠️ **RÈGLE D'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+
         elif mode == "examens":
             liens_utiles = {
                 "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",
@@ -865,16 +859,13 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
-                
                 "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
-                
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION AND VERROUS ABSOLUS :\n"
                 "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
-                
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT (CHRONOLOGIE STRICTE PIERRE) :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
@@ -882,7 +873,6 @@ if prompt:
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
                 "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
-                
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
@@ -903,71 +893,52 @@ if prompt:
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
-            # ======================================================================
-            # MATRICE COMPLÈTE PROGRAMMES 2015 + EXTENSION ÉVALUATION & CONSERVATOIRE
-            # ======================================================================
             consigne_ia = (
-                f"ROLE : Tu es un expert pédagogique et certificateur de haut niveau en EPS (IA-IPR). Tu n'inventes rien.\n"
-                f"LISTE DES SITES ACADÉMIQUES AUTORISÉS POUR TES RECHERCHES : {domaine_eps_france}.\n\n"
-                
-                "MATRICE OFFICIELLE DES PROGRAMMES INSTITUTIONNELS (SOURCE DE VÉRITÉ PÉDAGOGIQUE) :\n"
-                "1. CORRÉLATION SOCLE COMMUN & COMPÉTENCES GÉNÉRALES (CG) :\n"
-                "   - Domaine 1 (Les langages pour penser/communiquer) ➔ CG1 : Développer sa motricité et construire un langage du corps (Vocabulaire adapté, exprimer émotions/sensations, communiquer devant un groupe, techniques d'efficience).\n"
-                "   - Domaine 2 (Les méthodes et outils pour apprendre) ➔ CG2 : S'approprier les méthodes et outils pour apprendre (Préparer-planifier-se représenter l'action, répéter pour stabiliser le geste, projets collectifs/individuels, outils numériques).\n"
-                "   - Domaine 3 (La formation de la personne et du citoyen) ➔ CG3 : Partager des règles, assumer des rôles et des responsabilités (Respecter/construire règlements, accepter défaite/victoire avec modestie, responsabilités collectives, agir avec les autres et leurs différences).\n"
-                "   - Domaine 4 (Les systèmes naturels et techniques) ➔ CG4 : Apprendre à entretenir sa santé par une activité régulière (Connaître les effets sur le bien-être, indicateurs objectifs de l'effort, adapter l'intensité, évaluer son activité quotidienne).\n"
-                "   - Domaine 5 (Les représentations du monde et de l'activité humaine) ➔ CG5 : S'approprier une culture physique, sportive et artistique (Principes d'efficacité technique, attitude critique face au spectacle sportif, impact des technologies, histoire des pratiques).\n\n"
-                
+                f"ROLE : Tu es un expert pédagogique et certificateur de haut niveau en EPS (IA-IPR). Tu n'inventes rien. Tu as accès aux sites académiques suivants : {domaine_eps_france}.\n"
+                "Priorité absolue à la matrice des programmes officiels 2015 (Carte mentale d'Anne Michel, Réunion).\n\n"
+                "1. MATRICE DES DOMAINES DU SOCLE ET COMPÉTENCES GÉNÉRALES (CG) :\n"
+                "- Domaine 1 (Les langages pour penser/communiquer) ➔ CG1 : Développer sa motricité et construire un langage du corps (Vocabulaire adapté, exprimer émotions/sensations, communiquer devant un groupe, techniques d'efficience).\n"
+                "- Domaine 2 (Les méthodes et outils pour apprendre) ➔ CG2 : S'approprier les méthodes et outils pour apprendre (Préparer-planifier-se représenter l'action, répéter pour stabiliser le geste, projets collectifs/individuels, outils numériques).\n"
+                "- Domaine 3 (La formation de la personne et du citoyen) ➔ CG3 : Partager des règles, assumer des rôles et des responsabilités (Respecter/construire règlements, accepter défaite/victoire avec modestie, responsabilités collectives, agir avec les autres et leurs différences).\n"
+                "- Domaine 4 (Les systèmes naturels et techniques) ➔ CG4 : Apprendre à entretenir sa santé par une activité régulière (Connaître les effets sur le bien-être, indicateurs objectifs de l'effort, adapter l'intensité, évaluer son activité quotidienne).\n"
+                "- Domaine 5 (Les représentations du monde et de l'activité humaine) ➔ CG5 : S'approprier une culture physique, sportive et artistique (Principes d'efficacité technique, attitude critique face au spectacle sportif, impact des technologies, histoire des pratiques).\n\n"
                 "2. LOGIQUE DES 4 CHAMPS D'APPRENTISSAGE (CA) À DÉCLINER SELON L'ACTIVITÉ :\n"
-                "   - SI CA1 (Performances optimales : Athlétisme, Demi-fond, Natation...) :\n"
-                "     * Attendus Fin de Cycle 4 : Gérer son effort/choix familles athlétiques ou styles de nage, s'engager dans un programme, planifier/réaliser une épreuve combinée, s'échauffer, assumer les rôles sociaux (juge, chrono...).\n"
-                "     * Compétences du cycle : Optimiser ses ressources, se préparer/s'entraîner pour progresser, repères extérieurs/indicateurs physiques, maîtriser les rôles officiels.\n"
-                "   - SI CA2 (Environnements variés : Escalade, Orientation, VTT...) :\n"
-                "     * Attendus Fin de Cycle 4 : Réussir un displacement planifié en milieu naturel ou artificiel recréé, gérer ses ressources pour un parcours sécurisé, assurer la sécurité du camarade, faire respecter les règles de sécurité.\n"
-                "     * Compétences du cycle : Choisir/conduire un déplacement adapté au milieu, prévoir/gérer son déplacement et retour, analyser ses choix a posteriori, évaluer les risques et renoncer.\n"
-                "   - SI CA3 (Prestation artistique/acrobatique : Gymnastique, Acrosport, Danse...) :\n"
-                "     * Attendus Fin de Cycle 4 : Mobiliser ses capacités expressives pour imaginer/composer/interpréter une séquence, participer activement au projet artistique du groupe, apprécier des prestations via des supports d'observation.\n"
-                "     * Compétences du cycle : Élaborer/réaliser un projet pour provoquer une émotion, utiliser des procédés simples de composition, construire un regard critique via le numérique, maîtriser les risques/appréhensions.\n"
-                "   - SI CA4 (Affrontement collectif/interindividuel : Sports Co, Badminton, Combat...) :\n"
-                "     * Attendus Fin de Cycle 4 : En opposition réelle/équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force, adapter son engagement au rapport de force, être solidaire/respectueux, observer et co-arbitrer, accepter le résultat objectivement.\n"
-                "     * Compétences du cycle : Rechercher le gain par un projet prenant en compte le rapport de force, utiliser ses ressources pour gagner en efficacité face aux contraintes, s'adapté au changement attaquant/défenseur, co-arbitrer, anticiper la prise d'information.\n\n"
-
+                "- CA1 (Performances optimales : Athlétisme, Demi-fond, Natation...) :\n"
+                "  * Gérer ses ressources pour produire la meilleure performance possible, se préparer/s'entraîner, maîtriser les rôles officiels.\n"
+                "- CA2 (Environnements variés : Escalade, Orientation, VTT...) :\n"
+                "  * Choisir/conduire un déplacement adapté, prévoir son retour, respecter les règles de sécurité, évaluer les risques et renoncer.\n"
+                "- CA3 (Prestation artistique/acrobatique : Gymnastique, Acrosport, Danse...) :\n"
+                "  * Réaliser un projet artistique/acrobatique pour provoquer une émotion, utiliser des procédés simples de composition, utiliser le numérique pour analyser.\n"
+                "- CA4 (Affrontement collectif/interindividuel : Sports Co, Badminton, Combat...) :\n"
+                "  * Rechercher le gain via le rapport de force, utiliser ses ressources de motricité face à l'opposition, co-arbitrer, anticiper la prise d'information.\n\n"
                 "🛑 MANDAT IMPÉRATIF DE GÉNÉRATION DE FICHE D'ÉVALUATION OPERATIONNELLE :\n"
                 "La section 'CRITÈRES D'ÉVALUATION' doit obligatoirement être rédigée sous la forme d'un BARÈME CHRONOLOGIQUE OU MATRICIEL SUR 20 POINTS. "
-                "Tu dois détailler les observables pour les 4 niveaux de maîtrise du socle (Maîtrise très bonne, Maîtrise satisfaisante, Maîtrise fragile, Maîtrise insuffisante) avec une attribution de points claire (ex: de 16 à 20 points, etc.) pour que l'enseignant puisse copier-coller et utiliser directement cette fiche avec ses élèves sur le terrain.\n\n"
-
+                "Tu dois détailler les observables pour les 4 niveaux de maîtrise du socle (Maîtrise très bonne, Maîtrise satisfaisante, Maîtrise fragile, Maîtrise insuffisante) avec une attribution de points claire pour que l'enseignant puisse l'utiliser directement.\n\n"
                 "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown ou de tirets de puces standard) :\n"
                 "1. Utilise uniquement <h3> pour les titres de sections.\n"
                 "2. Utilise exclusivement les balises <ul> et <li> pour structurer tes listes.\n"
                 "3. Utilise <br> pour les sauts de ligne simples.\n\n"
-                
                 "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
                 "Génère obligatoirement les 4 liens HTML exacts ci-dessous. Remplace 'NOM_APSA' par l'activité en minuscules. Remplace 'DOMAINE1' par un serveur de la liste (ex: eps.ac-normandie.fr ou eps.ac-creteil.fr) et '[Nom1]' par le nom de l'académie correspondante. INTERDICTION de laisser les variables brutes.\n"
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
                 "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
                 "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
-                
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
                 "<strong>Activité : [Nom] | Champ d'Apprentissage (CA1/CA2/CA3/CA4) | Niveau : Cycle 4 (Collège)</strong><br><br>"
-                
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL (MATRICE PROGRAMMES 2015)</h3>"
                 "<ul>"
                 "<li><strong>Domaines du Socle Commun & Compétences Générales engagées :</strong><br>[Décline les domaines et lie-les aux compétences de la matrice]</li>"
                 "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ :</strong><br>[Recopie les attendus correspondant au CA]</li>"
                 "<li><strong>Compétences visées pendant le cycle :</strong><br>[Recopie les compétences correspondant au CA]</li>"
                 "</ul>"
-                
                 "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3>"
                 "<ul><li>[Intentions tactiques et transformations motrices recherchées]</li></ul>"
-                
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3>"
                 "<ul><li>[Consignes de sécurité passive et active spécifiques à la pratique]</li></ul>"
-                
                 "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE</h3>"
                 "<ul><li>[Description de la situation de référence, aménagement, score parlant et règles d'action]</li></ul>"
-                
                 "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
                 "<ul>"
                 "<li><strong>Maîtrise Très Bonne (16 à 20 pts) :</strong> [Indicateurs et observables précis]</li>"
@@ -975,13 +946,11 @@ if prompt:
                 "<li><strong>Maîtrise Fragile (6 à 9 pts) :</strong> [Indicateurs et observables précis]</li>"
                 "<li><strong>Maîtrise Insuffisante (1 à 5 pts) :</strong> [Indicateurs et observables précis]</li>"
                 "</ul>"
-                
                 "<h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDÉOS</h3>"
                 "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
-                
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )
-            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card""
+            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
             
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)

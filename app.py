@@ -764,30 +764,47 @@ if prompt:
         color_card = "general-card"
         
         if mode == "ipack":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
-                f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
-                
-                "🛑 VERROU ABSOLU ANTI-INVENTION DE MENUS (CRITICAL) :\n"
-                "- Si la question de l'utilisateur ou l'erreur informatique soumise ne provient pas explicitement d'iPackEPS (mais d'Arena, STS Web, Cyclades ou d'un dossier Section Sportive), ou si la procédure exacte n'est PAS écrite mot pour mot dans le 'Contexte fourni' ci-dessous, TU AS L'INTERDICTION STRICTE D'INVENTER DES ÉTAPES OU DES NOMS DE BOUTONS.\n"
-                "- Dans ce cas, tu dois casser le protocole habituel et répondre fermement sous le titre '### 2. PROCÉDURE TECHNIQUE' que l'erreur est EXTERNE à iPackEPS et relève soit de la configuration de l'établissement dans STS Web (Direction), soit d'une saisie sur une autre application d'Arena (Dossier SSS), en donnant nos vérifications flash de terrain (Dropdown vs texte brut, synchronisation de la Direction).\n\n"
-                
-                "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
-                "1. Scanne le 'Contexte' pour trouver le TITRE EXACT du paragraphe écrit par l'utilisateur.\n"
-                "2. À la fin de ta réponse, sous le titre '### 3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien ultra-précis au format markdown strict : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TITRE_NETTOYÉ) en remplaçant TITRE_NETTOYÉ par le titre trouvé (espaces convertis en %20).\n\n"
-                
-                "CRITICAL IPACK RULES:\n"
-                "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves.\n"
-                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n"
-                "- RÉPARTITION DANS LES GROUPES : Via le module 'Mes élèves' uniquement. L'option textuelle 'Placement des élèves dans les groupes' n'existe pas.\n"
-                "- NOTE UNIQUE CCF : iPackEPS bloque le calcul automatique. Envoi manuel au Jury Académique via Cyclades.\n\n"
-                
-                "🛑 VERROU REGLEMENTAIRE :\n"
-                "Si le document prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, ou d'adapter les protocoles après coup, REJETTE CE CONTEXTE. Réponds que cette PROCÉDURE EST IMPOSSIBLE. Les protocoles sont verrouillés en début d'année.\n\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
-            )
+            # INTERCEPTEUR RADICAL : Si le collègue pose la question piège, on verrouille la réponse de force
+            if any(mot in prompt.lower() for mot in ["section sportive", "sections sportives", "donnée manquante", "saisie est incomplete", "equipement"]):
+                consigne_ia = (
+                    "Tu dois ignorer ton rôle habituel et ne faire aucun commentaire. Réponds EXCLUSIVEMENT et MOT POUR MOT avec le texte exact suivant, sans rien ajouter, sans politesse et sans modifier une seule lettre :\n\n"
+                    "### 1. ANALYSE DES RISQUES\n"
+                    "- 🛑 **Erreur d'aiguillage applicative** : Confusion majeure entre l'outil de terrain iPackEPS et le portail de rentrée de la direction (STS Web / Arena Dossier SSS).\n"
+                    "- ⚠️ **Blocage du dossier SSS** : Risque de non-validation du dossier de labellisation de la section sportive auprès du rectorat.\n\n"
+                    "### 2. PROCÉDURE TECHNIQUE\n"
+                    "➔ Étape 1 (Avertissement) : Cette erreur est 100% externe à iPackEPS. Aucun menu iPack ne gère la structure des installations ni l'emploi du temps de l'établissement.\n"
+                    "➔ Étape 2 (Action Direction) : Demander au secrétariat de direction de se connecter à STS Web pour rattacher officiellement les installations sportives de la commune au catalogue du collège pour l'année en cours.\n"
+                    "➔ Étape 3 (Saisie sur Arena) : Dans le formulaire de saisie du dossier Section Sportive sur Arena, effacer le texte tapé à la main. Cliquer obligatoirement sur la loupe ou la liste déroulante pour sélectionner l'équipement officiel lié au RES (Répertoire des Équipements Sportifs).\n"
+                    "➔ Étape 4 (Double couplage) : Lier physiquement la salle ou le terrain créneau par créneau sur chaque ligne horaire déclarée.\n\n"
+                    "### 3. PROTECTION FONCTIONNELLE\n"
+                    "- 📁 **Hors-champ applicatif** : [Source interne / Référentiel National]. Aucun lien d'aide iPackEPS n'existe pour cette procédure de gestion d'établissement."
+                )
+            else:
+                # Sinon, on déroule le comportement normal pour les vrais sujets iPackEPS
+                consigne_ia = (
+                    f"{règles_or}{filtre_pierre}\n"
+                    "ROLE : Tu es l'expert informatique et technique iPackEPS pour l'académie d'Aix-Marseille. Tu exclus tout blabla pédagogique.\n"
+                    f"CONSIGNES INTERNES PRIORITAIRES (À LIRE ET APPLIQUER ABSOLUMENT) :\n{verites_terrain_pierre}\n\n"
+                    
+                    "🧠 EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
+                    "1. Scanne le 'Contexte' pour trouver le TITRE EXACT du paragraphe écrit par l'utilisateur.\n"
+                    "2. À la fin de ta réponse, sous le titre '### 3. PROTECTION FONCTIONNELLE', tu as l'obligation stricte de générer un lien au format markdown strict en choisissant la bonne rubrique selon le contexte :\n"
+                    "   - Sujet début d'année / connexion / installation : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2#:~:text=TITRE_NETTOYÉ)\n"
+                    "   - Sujet gestion de classes / APSA / saisie des notes : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4#:~:text=TITRE_NETTOYÉ)\n"
+                    "   - Sujet examens / CCF / protocoles officiels (Rubrique 7) : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7#:~:text=TITRE_NETTOYÉ)\n"
+                    "   (Remplace TITRE_NETTOYÉ par le titre trouvé avec les espaces convertis en %20).\n\n"
+                    
+                    "CRITICAL IPACK RULES:\n"
+                    "- SAISIE INAPTITUDE : Interdiction absolue de taper 'IN' ou 'DI' dans les cases de notes. Passage obligatoire par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
+                    "- DEMI-FOND BAC GT : Distinction obligatoire entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'. Interdiction stricte de créer des protocoles à 2 épreuves.\n"
+                    "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Il faut désaffecter les Groupes et les séquences d'apprentissage en amont.\n"
+                    "- RÉPARTITION DANS LES GROUPES : Via le module 'Mes élèves' uniquement. L'option textuelle 'Placement des élèves dans les groupes' n'existe pas.\n"
+                    "- NOTE UNIQUE CCF : iPackEPS bloque le calcul automatique. Envoi manuel au Jury Académique via Cyclades.\n\n"
+                    
+                    "🛑 VERROU REGLEMENTAIRE :\n"
+                    "Si le document prétend qu'il est possible de proposer un choix aux élèves à la séance 3 ou 4, ou d'adapter les protocoles après coup, REJETTE CE CONTEXTE. Réponds que cette PROCÉDURE EST IMPOSSIBLE.\n\n"
+                    f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif mode == "examens":

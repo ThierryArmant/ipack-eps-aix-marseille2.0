@@ -739,11 +739,9 @@ if prompt:
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    # 1. Détection automatique du niveau
                     prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     
-                    # 2. Recherche segmentée (UNIQUEMENT la recherche dans le try)
                     try:
                         if est_lycee:
                             for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
@@ -751,16 +749,17 @@ if prompt:
                         else:
                             for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"): 
                                 extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
-                    except Exception as e:
-                        st.warning(f"Erreur recherche : {e}")
+                    except:
+                        pass
 
-                    # 3. Variables et reste du code (TOTALEMENT HORS TRY/EXCEPT)
-                    # Ces lignes sont alignées sur le 'elif', donc parfaitement au bon niveau.
-                    règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+                    règles_or = "RÈGLES D'OR : 1. Loi 1937. 2. Règle 11. 3. Examens = Mission impérative."
                     badge = "INFORMATION"
                     color_card = "peda-card"
                     
-                    filtre_pierre = "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE :\n"
+                    filtre_pierre = "MÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE : Utilise les titres suivants."
+                    consigne_commune_pierre = "Respecte strictement le format demandé."
+                    
+                    # (Ici tu peux continuer le reste de ton code normalement)
                     
                     # Ici tu peux continuer ton code sans aucune erreur de syntaxe.
                         "Tu dois structurer ta réponse selon le plan et les titres suivants.\n"

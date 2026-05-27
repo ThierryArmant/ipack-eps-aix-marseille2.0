@@ -767,7 +767,7 @@ if prompt:
        # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale sur le Web et le RAG) :\n{verites_terrain_pierre}\n\n"
 
-       if mode == "ipack":
+        if mode == "ipack":
             # 1. Définition des sources officielles iPackEPS en dur
             liens_utiles = {
                 "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",

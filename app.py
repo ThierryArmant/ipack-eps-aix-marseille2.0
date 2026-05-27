@@ -902,7 +902,7 @@ if prompt:
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
-       elif mode == "peda":
+        elif mode == "peda":
             # ======================================================================
             # MATRICE COMPLÈTE PROGRAMMES 2015 + EXTENSION ÉVALUATION & CONSERVATOIRE
             # ======================================================================

@@ -752,29 +752,24 @@ if prompt:
                             for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"): 
                                 extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
                     except Exception as e:
-                        st.warning(f"Erreur recherche pédagogique : {e}")
-                    
-                    # 3. Règles d'or (Alignées avec le 'elif')
+                        st.warning(f"Erreur recherche : {e}")
+
+                    # 3. Définition des variables (EN DEHORS DU TRY/EXCEPT)
                     règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
                     
-                    # (Poursuis ici avec le reste de ton code : filtre_pierre, consigne_ia, etc.)
-            
-            # ... et ensuite le reste de ton code (filtre_pierre, consigne_ia, etc.)
-            filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
-            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
-            "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
-            "### 1. ANALYSE DES RISQUES\n"
-            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Bloquer l'export d'examen** : explications).\n\n"
-            "### 2. PROCÉDURE TECHNIQUE\n"
-            "- Déroule les actions de terrain de manière chronologique.\n"
-            "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
-            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle (ex: **[Mes Élèves]**, **[Saisir une inaptitude]**).\n"
-            "- S'il y a une interdiction absolue ou un point de sécurité critique, isole-le avec un émoji visible (ex: ⚠️ **ALERTE SÉCURITÉ** : ...).\n\n"
-            "### 3. PROTECTION FONCTIONNELLE\n"
-            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras (ex: 📁 **Traçabilité** : rappel de la couverture juridique).\n\n"
-            "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
-        )
+                    filtre_pierre = (
+                        "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE :\n"
+                        "Tu dois structurer ta réponse selon le plan et les titres suivants. "
+                        "Utilise un format aéré, percutant et très visuel :\n\n"
+                        "### 1. ANALYSE DES RISQUES\n"
+                        "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️).\n\n"
+                        "### 2. PROCÉDURE TECHNIQUE\n"
+                        "- Déroule les actions de manière chronologique.\n\n"
+                        "### 3. PROTECTION FONCTIONNELLE\n"
+                        "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓).\n"
+                    )
+                    
+                    # (Tu peux continuer ici le reste de ton code normalement...)
         badge = "INFORMATION"
         color_card = "general-card"
 

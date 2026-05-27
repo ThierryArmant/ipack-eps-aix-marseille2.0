@@ -893,67 +893,90 @@ if prompt:
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
+            # ======================================================================
+            # 1. ROUTAGE SÉMANTIQUE EN PYTHON (SÉCURITÉ ANTI-HALLUCINATION DE CHAMP)
+            # ======================================================================
+            ca_nom = "CA1 (Produire une performance optimale, mesurable à une échéance donnée)"
+            ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. S'engager dans un programme de préparation ou d'entraînement. Planifier et réaliser une épreuve combinée. Assumer les rôles sociaux (juge, chronométreur...)."
+            ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement. Maîtriser les rôles officiels de mesure et de validation."
+            
+            prompt_lower = prompt.lower()
+            
+            # Détection CA4 (Sports Co / Raquettes / Combat)
+            if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
+                ca_nom = "CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel)"
+                ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force en sa faveur ou celle de son équipe. Adapter son engagement moteur au rapport de force pour l'inverser. Être solidaire de ses partenaires et respectueux de ses adversaires et de l'arbitre. Observer et co-arbitrer. Accepter le résultat de la rencontre et savoir l'analyser objectivement."
+                ca_competences = "Rechercher le gain de la rencontre par la mise en œuvre d'un projet prenant en compte les caractéristiques du rapport de force. Utiliser au mieux ses ressources physiques et de motricité pour gagner en efficacité dans une situation d'opposition donnée et répondre aux contraintes de l'affrontement. S'adapter rapidement au changement de statut défenseur/attaquant. Co-arbitrer une séquence de match (de combat). Anticiper la prise et le traitement d'information pour enchaîner des actions. Se mettre au service de l'autre pour lui permettre de progresser."
+            
+            # Détection CA3 (Artistique / Acrobatique)
+            elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
+                ca_nom = "CA3 (Réaliser une prestation corporelle à visée artistique ou acrobatique)"
+                ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement, au sein d'un groupe, à l'élaboration et à la réalisation d'un projet artistique et/ou acrobatique. Apprécier des prestations de manière argumentée, en référence à des supports d'observation et des critères choisis ou construits."
+                ca_competences = "Élaborer et réaliser, seul ou à plusieurs, un projet artistique et/ou acrobatique pour provoquer une émotion du public. Utiliser des procédés simples de composition et de coordination. Construire un regard critique sur ses prestations et celles des autres, en utilisant le numérique. S'engager : maîtriser les risques, dominer ses appréhensions."
+            
+            # Détection CA2 (Milieux variés / APPN)
+            elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
+                ca_nom = "CA2 (Adapter ses déplacements à des environnements variés)"
+                ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou un environnement de nature recréé. Gérer ses ressources pour réaliser la totalité d'un parcours sécurisé. Assurer la sécurité de son camarade. Respecter et faire respecter les règles de sécurité spécifiques."
+                ca_competences = "Choisir et conduire un déplacement adapté aux caractéristiques du milieu. Prévoir et gérer son déplacement et le retour au point de départ. Respecter et faire respecter les règles de sécurité et l'environnement. Analyser ses choix a posteriori de l'action. Évaluer les risques et apprendre à renoncer."
+
+            # ======================================================================
+            # 2. CONTEXTE ET CONSIGNE IA AVEC LIEN DIRECT SITUATIONS ➔ COMPÉTENCES
+            # ======================================================================
             consigne_ia = (
-                f"ROLE : Tu es un expert pédagogique et certificateur de haut niveau en EPS (IA-IPR). Tu n'inventes rien. Tu as accès aux sites académiques suivants : {domaine_eps_france}.\n"
-                "Priorité absolue à la matrice des programmes officiels 2015 (Carte mentale d'Anne Michel, Réunion).\n\n"
-                "1. MATRICE DES DOMAINES DU SOCLE ET COMPÉTENCES GÉNÉRALES (CG) :\n"
-                "- Domaine 1 (Les langages pour penser/communiquer) ➔ CG1 : Développer sa motricité et construire un langage du corps (Vocabulaire adapté, exprimer émotions/sensations, communiquer devant un groupe, techniques d'efficience).\n"
-                "- Domaine 2 (Les méthodes et outils pour apprendre) ➔ CG2 : S'approprier les méthodes et outils pour apprendre (Préparer-planifier-se représenter l'action, répéter pour stabiliser le geste, projets collectifs/individuels, outils numériques).\n"
-                "- Domaine 3 (La formation de la personne et du citoyen) ➔ CG3 : Partager des règles, assumer des rôles et des responsabilités (Respecter/construire règlements, accepter défaite/victoire avec modestie, responsabilités collectives, agir avec les autres et leurs différences).\n"
-                "- Domaine 4 (Les systèmes naturels et techniques) ➔ CG4 : Apprendre à entretenir sa santé par une activité régulière (Connaître les effets sur le bien-être, indicateurs objectifs de l'effort, adapter l'intensité, évaluer son activité quotidienne).\n"
-                "- Domaine 5 (Les représentations du monde et de l'activité humaine) ➔ CG5 : S'approprier une culture physique, sportive et artistique (Principes d'efficacité technique, attitude critique face au spectacle sportif, impact des technologies, histoire des pratiques).\n\n"
-                "2. LOGIQUE DES 4 CHAMPS D'APPRENTISSAGE (CA) À DÉCLINER SELON L'ACTIVITÉ :\n"
-                "- CA1 (Performances optimales : Athlétisme, Demi-fond, Natation...) :\n"
-                "  * Gérer ses ressources pour produire la meilleure performance possible, se préparer/s'entraîner, maîtriser les rôles officiels.\n"
-                "- CA2 (Environnements variés : Escalade, Orientation, VTT...) :\n"
-                "  * Choisir/conduire un déplacement adapté, prévoir son retour, respecter les règles de sécurité, évaluer les risques et renoncer.\n"
-                "- CA3 (Prestation artistique/acrobatique : Gymnastique, Acrosport, Danse...) :\n"
-                "  * Réaliser un projet artistique/acrobatique pour provoquer une emotion, utiliser des procédés simples de composition, utiliser le numérique pour analyser.\n"
-                "- CA4 (Affrontement collectif/interindividuel : Sports Co, Badminton, Combat...) :\n"
-                "  * Rechercher le gain via le rapport de force, utiliser ses ressources de motricité face à l'opposition, co-arbitrer, anticiper la prise d'information.\n\n"
-                "🛑 MANDAT IMPÉRATIF DE GÉNÉRATION DE FICHE D'ÉVALUATION OPERATIONNELLE :\n"
-                "La section 'CRITÈRES D'ÉVALUATION' doit obligatoirement être rédigée sous la forme d'un BARÈME CHRONOLOGIQUE OU MATRICIEL SUR 20 POINTS. "
-                "Tu dois détailler les observables pour les 4 niveaux de maîtrise du socle (Maîtrise très bonne, Maîtrise satisfaisante, Maîtrise fragile, Maîtrise insuffisante) avec une attribution de points claire pour que l'enseignant puisse l'utiliser directement.\n\n"
-                "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown ou de tirets de puces standard) :\n"
-                "1. Utilise uniquement <h3> pour les titres de sections.\n"
-                "2. Utilise exclusivement les balises <ul> et <li> pour structurer tes listes.\n"
-                "3. Utilise <br> pour les sauts de ligne simples.\n\n"
-                "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
+                f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
+                f"Tu rédiges une fiche de cycle pour l'activité demandée qui appartient AU CHAMP SUIVANT :\n"
+                f"CHAMP D'APPRENTISSAGE CIBLÉ : {ca_nom}\n"
+                f"ATTENDUS DE FIN DE CYCLE À RECOPIER MOT POUR MOT : {ca_attendus}\n"
+                f"COMPÉTENCES DE CYCLE À RECOPIER MOT POUR MOT : {ca_competences}\n\n"
+                
+                "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
+                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', recopie textuellement sans modifier une seule virgule les attendus et compétences du champ fournis ci-dessus.\n"
+                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE ET DE TEST', la proposition doit être INTIMEMENT ET EXPLICITEMENT liée aux Domaines du Socle et aux compétences visées décrits plus haut. Tu dois détailler précisément comment les règles de la situation ou le calcul du score forcent l'élève à mobiliser ces compétences (ex: expliciter comment le dispositif valide le Domaine 2 via une auto-évaluation sur tablette, ou le Domaine 3 via le co-arbitrage ou un bonus d'équipe solidaire).\n"
+                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points découpé selon les 4 niveaux du socle. Donne obligatoirement pour chaque niveau au moins 2 OBSERVABLES MOTEURS réels et spécifiques à l'activité.\n"
+                "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
+                
+                "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
+                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes. Pas de tirets.\n\n"
+                
+                "RÈGLE DES LIENS DE RECHERCHE DYNAMIQUES (ANTI-LIENS MORTS) :\n"
                 "Génère obligatoirement les 4 liens HTML exacts ci-dessous. Remplace 'NOM_APSA' par l'activité en minuscules. Remplace 'DOMAINE1' par un serveur de la liste (ex: eps.ac-normandie.fr ou eps.ac-creteil.fr) et '[Nom1]' par le nom de l'académie correspondante. INTERDICTION de laisser les variables brutes.\n"
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
                 "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
                 "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
+                
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
                 "<strong>Activité : [Nom] | Champ d'Apprentissage (CA1/CA2/CA3/CA4) | Niveau : Cycle 4 (Collège)</strong><br><br>"
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL (MATRICE PROGRAMMES 2015)</h3>"
                 "<ul>"
-                "<li><strong>Domaines du Socle Commun & Compétences Générales engagées :</strong><br>[Décline les domaines et lie-les aux compétences de la matrice]</li>"
-                "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>[Recopie les attendus correspondant au CA]</li>"
-                "<li><strong>Compétences visées pendant le cycle (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>[Recopie les compétences correspondant au CA]</li>"
+                "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>" + ca_attendus + "</li>"
+                "<li><strong>Compétences visées pendant le cycle (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>" + ca_competences + "</li>"
                 "</ul>"
-                "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3>"
-                "<ul><li>[Intentions tactiques et transformations motrices recherchées]</li></ul>"
-                "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3>"
-                "<ul><li>[Consignes de sécurité passive et active spécifiques à la pratique]</li></ul>"
-                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE</h3>"
-                "<ul><li>[Description de la situation de référence, aménagement, score parlant et règles d'action]</li></ul>"
+                "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>[Intentions tactiques et transformations motrices]</li></ul>"
+                "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3><ul><li>[Consignes de sécurité passive et active]</li></ul>"
+                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE (ALIGNÉE SOCLE & COMPÉTENCES)</h3>"
+                "<ul>"
+                "<li><strong>Dispositif et aménagement du milieu :</strong> [Description précise]</li>"
+                "<li><strong>Règles du jeu et score parlant :</strong> [Expliquer les consignes et le décompte]</li>"
+                "<li><strong>Lien explicite avec les Domaines du Socle :</strong> [Détailler impérativement comment cette situation valide concrètement les Domaines 1, 2, 3 ou 4 ciblés plus haut via les comportements attendus des élèves]</li>"
+                "</ul>"
                 "<h3>📅 PROGRESSION CHRONOLOGIQUE DU CYCLE (6 À 8 SÉANCES)</h3>"
                 "<ul>"
-                "<li><strong>Séance 1 (Évaluation diagnostique) :</strong> [Définir l'objectif de la séance et la situation d'observation globale]</li>"
-                "<li><strong>Séances 2 à 4 (Bloc d'apprentissage technique et tactique - Phase 1) :</strong> [Détailler les thèmes de séances, objectifs moteurs et situations d'apprentissage évolutives]</li>"
-                "<li><strong>Séances 5 à 6 (Perfectionnement et autonomisation - Phase 2) :</strong> [Détailler les objectifs d'intégration, rôles sociaux et régulations des élèves]</li>"
-                "<li><strong>Séances 7 à 8 (Évaluation sommative protocolée) :</strong> [Mise en place de la situation de référence et passation de la grille de notation]</li>"
+                "<li><strong>Séance 1 (Évaluation diagnostique) :</strong> [Contenu]</li>"
+                "<li><strong>Séances 2 à 4 (Bloc d'apprentissage - Phase 1) :</strong> [Contenu]</li>"
+                "<li><strong>Séances 5 à 6 (Perfectionnement - Phase 2) :</strong> [Contenu]</li>"
+                "<li><strong>Séances 7 à 8 (Évaluation sommative protocolée) :</strong> [Contenu]</li>"
                 "</ul>"
                 "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
                 "<ul>"
-                "<li><strong>Maîtrise Très Bonne (16 à 20 pts) :</strong> [Insère 2 observables moteurs précis de l'activité]</li>"
-                "<li><strong>Maîtrise Satisfaisante (10 à 15 pts) :</strong> [Insère 2 observables moteurs précis de l'activité]</li>"
-                "<li><strong>Maîtrise Fragile (6 à 9 pts) :</strong> [Insère 2 observables moteurs précis de l'activité]</li>"
-                "<li><strong>Maîtrise Insuffisante (1 à 5 pts) :</strong> [Insère 2 observables moteurs précis de l'activité]</li>"
+                "<li><strong>Maîtrise Très Bonne (16 à 20 pts) :</strong> [2 observables moteurs précis]</li>"
+                "<li><strong>Maîtrise Satisfaisante (10 à 15 pts) :</strong> [2 observables moteurs précis]</li>"
+                "<li><strong>Maîtrise Fragile (6 à 9 pts) :</strong> [2 observables moteurs précis]</li>"
+                "<li><strong>Maîtrise Insuffisante (1 à 5 pts) :</strong> [2 observables moteurs précis]</li>"
                 "</ul>"
-                "<h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDÉOS</h3>"
+                "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDÉOS</h3>"
                 "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )

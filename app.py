@@ -898,7 +898,7 @@ if prompt:
             # ======================================================================
             ca_nom = "CA1 (Produire une performance optimale, mesurable à une échéance donnée)"
             ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. S'engager dans un programme de préparation ou d'entraînement. Planifier et réaliser une épreuve combinée. Assumer les rôles sociaux (juge, chronométreur...)."
-            ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement. Maîtriser les rôles officiels de mesure et de validation."
+            ca_competences = "Gérer ses ressources pour billionaire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement. Maîtriser les rôles officiels de mesure et de validation."
             
             prompt_lower = prompt.lower()
             
@@ -921,19 +921,19 @@ if prompt:
                 ca_competences = "Choisir et conduire un déplacement adapté aux caractéristiques du milieu. Prévoir et gérer son déplacement et le retour au point de départ. Respecter et faire respecter les règles de sécurité et l'environnement. Analyser ses choix a posteriori de l'action. Évaluer les risques et apprendre à renoncer."
 
             # ======================================================================
-            # 2. CONTEXTE ET CONSIGNE IA AVEC LIEN DIRECT SITUATIONS ➔ COMPÉTENCES
+            # 2. CONTEXTE ET CONSIGNE IA COMPACTE ET NETTOYÉE
             # ======================================================================
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
                 f"Tu rédiges une fiche de cycle pour l'activité demandée qui appartient AU CHAMP SUIVANT :\n"
                 f"CHAMP D'APPRENTISSAGE CIBLÉ : {ca_nom}\n"
-                f"ATTENDUS DE FIN DE CYCLE À RECOPIER MOT POUR MOT : {ca_attendus}\n"
-                f"COMPÉTENCES DE CYCLE À RECOPIER MOT POUR MOT : {ca_competences}\n\n"
+                f"ATTENDUS DE FIN DE CYCLE À RECOPIER INTERNEMENT : {ca_attendus}\n"
+                f"COMPÉTENCES DE CYCLE À RECOPIER INTERNEMENT : {ca_competences}\n\n"
                 
                 "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
-                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', recopie textuellement sans modifier une seule virgule les attendus et compétences du champ fournis ci-dessus.\n"
-                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE ET DE TEST', la proposition doit être INTIMEMENT ET EXPLICITEMENT liée aux Domaines du Socle et aux compétences visées décrits plus haut. Tu dois détailler précisément comment les règles de la situation ou le calcul du score forcent l'élève à mobiliser ces compétences (ex: expliciter comment le dispositif valide le Domaine 2 via une auto-évaluation sur tablette, ou le Domaine 3 via le co-arbitrage ou un bonus d'équipe solidaire).\n"
-                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points découpé selon les 4 niveaux du socle. Donne obligatoirement pour chaque niveau au moins 2 OBSERVABLES MOTEURS réels et spécifiques à l'activité.\n"
+                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', applique fidèlement et sans paraphrase les attendus et compétences du champ fournis ci-dessus.\n"
+                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE ET DE TEST', lie explicitement le dispositif aux Domaines du Socle (ex: comment les règles valident le Domaine 2 ou 3 via le co-arbitrage ou l'auto-évaluation).\n"
+                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points découpé selon les 4 niveaux du socle. Donne obligatoirement pour chaque niveau au moins 2 OBSERVABLES MOTEURS spécifiques à l'activité.\n"
                 "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
                 
                 "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
@@ -951,8 +951,8 @@ if prompt:
                 "<strong>Activité : [Nom] | Champ d'Apprentissage (CA1/CA2/CA3/CA4) | Niveau : Cycle 4 (Collège)</strong><br><br>"
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL (MATRICE PROGRAMMES 2015)</h3>"
                 "<ul>"
-                "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>" + ca_attendus + "</li>"
-                "<li><strong>Compétences visées pendant le cycle (RECOPIE TEXTUELLE OBLIGATOIRE) :</strong><br>" + ca_competences + "</li>"
+                "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ :</strong><br>" + ca_attendus + "</li>"
+                "<li><strong>Compétences visées pendant le cycle :</strong><br>" + ca_competences + "</li>"
                 "</ul>"
                 "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>[Intentions tactiques et transformations motrices]</li></ul>"
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3><ul><li>[Consignes de sécurité passive et active]</li></ul>"
@@ -960,7 +960,7 @@ if prompt:
                 "<ul>"
                 "<li><strong>Dispositif et aménagement du milieu :</strong> [Description précise]</li>"
                 "<li><strong>Règles du jeu et score parlant :</strong> [Expliquer les consignes et le décompte]</li>"
-                "<li><strong>Lien explicite avec les Domaines du Socle :</strong> [Détailler impérativement comment cette situation valide concrètement les Domaines 1, 2, 3 ou 4 ciblés plus haut via les comportements attendus des élèves]</li>"
+                "<li><strong>Lien explicite avec les Domaines du Socle :</strong> [Détailler impérativement comment cette situation valide concrètement les Domaines du Socle via les comportements attendus]</li>"
                 "</ul>"
                 "<h3>📅 PROGRESSION CHRONOLOGIQUE DU CYCLE (6 À 8 SÉANCES)</h3>"
                 "<ul>"

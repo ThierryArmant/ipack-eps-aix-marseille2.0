@@ -816,6 +816,14 @@ if prompt:
                 "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
                 "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
+
+                "- SI LA QUESTION PARLE DE CYCLE ATHLÉTISME / CHOIX ÉPREUVE / COURSE SAUT LANCER / ADAPTER PROTOCOLE :\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "RÈGLE ACADÉMIQUE : PROCÉDURE TECHNIQUE ABSOLUMENT IMPOSSIBLE ET INTERDITE. L'application iPackEPS est une base de données rigide synchronisée avec Cyclades et ne permet aucune modification rétroactive des choix d'activités en cours de cycle pour s'adapter aux performances des élèves.\n\n"
+                "➔ Étape 1 : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole fixe et définitif dès la phase d'orientation (octobre/novembre).\n"
+                "➔ Étape 2 : Attention à la structure : un protocole CCF dans iPackEPS est verrouillé par groupe pour UNE SEULE activité spécifique (ex: un groupe complet pour le 'Pentabond'). L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.\n"
+                "➔ Étape 3 : Si vous offrez le choix, vous devez techniquement créer autant de groupes iPackEPS distincts que d'options (ex: un groupe 'Athlé-Sprint', un groupe 'Athlé-Saut') et y répartir fixement les élèves avant la saisie des notes.\n"
+                "⚠️ **RÈGLE D'OR NATIONALE** : L'athlétisme ne représente qu'un seul Champ d'Apprentissage (CA1). Un élève ne peut jamais obtenir ses deux notes de Bac sur un seul cycle d'athlétisme ; la deuxième note doit obligatoirement provenir d'un autre champ.\n\n"
                 
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"

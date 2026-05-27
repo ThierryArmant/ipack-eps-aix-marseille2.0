@@ -759,7 +759,7 @@ if prompt:
             "### 3. PROTECTION FONCTIONNELLE\n"
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras (ex: 📁 **Traçabilité** : rappel de la couverture juridique).\n\n"
             "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
-        
+        )
         badge = "INFORMATION"
         color_card = "general-card"
         

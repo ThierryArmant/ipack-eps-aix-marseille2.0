@@ -1,0 +1,10 @@
+=== BANQUE NATIONAL ÉDUBASE : SCÉNARIOS ET MATRICE PÉDAGOGIQUE ===
+- Définition Édubase : Base de données nationale de fiches et scénarios pédagogiques validés par l'inspection de l'Éducation nationale. Elle recense les usages des outils numériques et les démarches innovantes en EPS.
+- Intégration par APSA : Chaque séquence d'apprentissage doit s'appuyer sur les attendus de fin de cycle (AFC) des programmes officiels (Cycles 3 et 4 au Collège, Lycée Général, Technologique et Professionnel).
+- Scénarios Numériques EPS (Édubase/Éduscol) : Validation des usages de la vidéo (analyse vidéo en Gymnastique/Acrosport), des capteurs (fréquence cardiaque en Demi-Fond/Course d'orientation), et des tablettes pour l'auto-évaluation immédiate par les élèves.
+
+=== PRATIQUES DE TERRAIN ET AMÉNAGEMENTS D'APSA ===
+- Sports Collectifs (Handball, Basketball, Volley-ball, Football) : Priorité à la transition rapide attaque/défense, à la gestion des espaces libres et au respect des rôles sociaux (arbitre, coach, observateur). Les terrains doivent être aménagés pour maximiser le temps d'engagement moteur (mini-terrains, supériorité numérique numérique).
+- Raquettes (Badminton, Tennis de table) : Travail de rupture du flux, placement/déplacement, et variabilité des trajectoires (volant haut/bas, court/long). Grilles d'évaluation axées sur le ratio points gagnants / fautes directes.
+- APPN (Course d'orientation, Escalade, VTT) : Gestion de la sécurité passive et active. En orientation, utilisation de la boussole et lecture fine de la carte (lignes directrices). En escalade, maîtrise absolue de la chaîne d'assurage (nœud en huit, double check) avant toute performance motrice.
+- Athlétisme (Demi-fond, Relais, Sprints) : Régulation de l'allure de course en fonction de VMA (Vitesse Maximale Aérobie). En relais, transmission du témoin dans la zone d'élan sans perte de vitesse de l'engin.

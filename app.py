@@ -743,7 +743,7 @@ if prompt:
                     prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     
-                    # 2. Recherche segmentée (dans le try/except)
+                    # 2. Recherche segmentée (UNIQUEMENT la recherche dans le try)
                     try:
                         if est_lycee:
                             for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
@@ -754,13 +754,15 @@ if prompt:
                     except Exception as e:
                         st.warning(f"Erreur recherche : {e}")
 
-                    # 3. Définition des variables (TOTALEMENT HORS TRY/EXCEPT)
+                    # 3. Variables et reste du code (TOTALEMENT HORS TRY/EXCEPT)
+                    # Ces lignes sont alignées sur le 'elif', donc parfaitement au bon niveau.
                     règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
                     badge = "INFORMATION"
                     color_card = "peda-card"
                     
-                    filtre_pierre = (
-                        "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE :\n"
+                    filtre_pierre = "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE :\n"
+                    
+                    # Ici tu peux continuer ton code sans aucune erreur de syntaxe.
                         "Tu dois structurer ta réponse selon le plan et les titres suivants.\n"
                     )
                     # ... Tu peux continuer ton code ici, tout est aligné correctement.

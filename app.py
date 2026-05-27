@@ -765,39 +765,44 @@ if prompt:
         
         if mode == "ipack":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert informatique et technique iPackEPS. Tu exclus tout blabla de contextualisation.\n\n"
-                
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER) :\n"
-                "### 1. ANALYSE DES RISQUES\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "### 3. SOURCES ET LIENS\n\n"
-                
-                "⚠️ CAS PARTICULIER - ERREUR D'EMPLOI DU TEMPS / SECTION SPORTIVE (SSS) :\n"
-                "Si la question de l'utilisateur mentionne une 'saisie incomplète' ou un 'équipement manquant' pour les sections sportives, tu dois obligatoirement ignorer le reste et afficher mot pour mot cette procédure :\n"
-                "### 1. ANALYSE DES RISQUES\n"
-                "- 🛑 Blocage institutionnel : Non-validation du dossier de Section Sportive (SSS) auprès du Rectorat.\n"
-                "### 2. PROCÉDURE TECHNIQUE (CÔTÉ ADMINISTRATION)\n"
-                "➔ Étape 1 : Rends-toi dans l'onglet [Structures] ou [Services] rattaché à ta Section Sportive.\n"
-                "➔ Étape 2 : Clique sur le module [Implantation / Lieux] ou [Emploi du temps].\n"
-                "➔ Étape 3 : Sélectionne l'installation dans la liste déroulante des équipements rattachés au collège (liés au RES national). Si l'équipement n'apparaît pas, le secrétariat de direction doit l'ajouter en amont.\n"
-                "➔ Étape 4 : Enregistre. Le statut passera instantanément en 'Complet'.\n"
-                "### 3. SOURCES ET LIENS\n"
-                "- 📁 [Source interne / Référentiel National]. La déclaration valide aux structures est obligatoire.\n\n"
-                
-                "🧠 MODE NORMAL - EXTRACTION ET LIEN CHIRURGICAL DIRECT :\n"
-                "Pour les autres questions iPack, génère le lien sous le titre '### 3. SOURCES ET LIENS' au format markdown strict :\n"
-                "   - Pour un sujet début d'année / connexion / installations : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
-                "   - Pour un sujet gestion de classes / APSA / saisie des notes : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
-                "   - Pour un sujet examens / CCF / protocoles officiels : [📥 Cliquer ici pour ouvrir l'article exact sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
-                
-                "CRITICAL IPACK RULES:\n"
-                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Utiliser 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n"
-                "- SUPPRESSION DE PROTOCOLE : Le bouton 'Supprimer' direct n'existe pas. Désaffecter les Groupes et séquences en amont.\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                f"{règles_or}\n"
+                "ROLE : Expert informatique et technique iPackEPS. Posture froide et purement logicielle.\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
+                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "### 3. SOURCES ET LIENS ACADÉMIQUES\n\n"
+                "🧠 LIENS MARCOURS STRICTS :\n"
+                "Génère le lien dans la section 3 sous cette forme exacte :\n"
+                "- Début d'année / Installations : [📥 Cliquer ici pour ouvrir la rubrique 2](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)\n"
+                "- Saisie des notes / Classes : [📥 Cliquer ici pour ouvrir la rubrique 4](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)\n"
+                "- Examens / CCF / Protocoles : [📥 Cliquer ici pour ouvrir la rubrique 7](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)\n\n"
+                f"Contexte complet (Pierre + Web) : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+
+        elif mode == "examens":
+            consigne_ia = (
+                f"{règles_or}\n"
+                "ROLE : Expert de la certification et des examens EPS (Santorin, Cyclades).\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "### 1. RISQUES DE CERTIFICATION (Perte de note, rupture d'égalité, hors-délai)\n"
+                "### 2. PROCÉDURE DE SAISIE ET DE SECOURS\n"
+                "### 3. TEXTES DE RÉFÉRENCE ET RECOMMANDATIONS\n\n"
+                f"Contexte complet (Pierre + Web) : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
+
+        elif mode == "peda":
+            consigne_ia = (
+                f"{règles_or}\n"
+                "ROLE : IA-IPR EPS. Tu t'adresses à un enseignant concepteur de terrain.\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "### 1. OBJECTIFS ET DESCRIPTIFS DE LA SÉQUENCE\n"
+                "### 2. APPRENTISSAGE ET AMÉNAGEMENT DU TERRAIN\n"
+                "### 3. GRILLE D'ÉVALUATION ET CRITÈRES DE NOTATION\n\n"
+                f"Contexte complet (Pierre + Web) : {extraits_doc}\nQuestion : {prompt}"
+            )
+            badge, color_card = "🎓 RESPONSABILITÉ PÉDA", "peda-card"
 
         elif mode == "examens":
             consigne_ia = (

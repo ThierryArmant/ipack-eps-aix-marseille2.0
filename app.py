@@ -866,7 +866,7 @@ if prompt:
                 "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
             }
 
-            # 2. Analyse dynamique des mots-clés de la question
+            # 2. Analyse dynamique des mots-clés
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
@@ -879,10 +879,10 @@ if prompt:
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
-            # 3. Construction de la consigne IA avec injection des verrous et cas blindés
+            # 3. Construction de la consigne IA ultra-verrouillée
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
+                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
                 
                 "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES (Ex: Perte de note, hors-délai, rupture d'égalité)\n"
@@ -892,24 +892,24 @@ if prompt:
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
                 "1. DATE LIMITE MAI 2026 : Rappelle systématiquement dans la section 1 ou 3 que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après la commission d'harmonisation.\n"
                 "2. MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, ordonne la bascule immédiate sur le protocole national de secours.\n"
-                "3. CONTENU STRICT DE LA SECTION 3 : La section 3 doit UNIQUEMENT contenir les points de vigilance issus du contexte et se terminer obligatoirement par le bloc de liens fourni ci-dessous. Tu as l'interdiction absolue de créer des sous-titres contenant le mot 'ALERTE' ou 'SÉCURITÉ' dans toute ta réponse.\n\n"
+                "3. CONTENU STRICT : Tu as l'interdiction absolue d'ajouter des lignes de texte, des puces ou des encadrés contenant le mot 'ALERTE' ou 'SÉCURITÉ' (que ce soit en section 2 ou en section 3). Tu dois copier-coller STRICTEMENT le bloc de liens fourni ci-dessous en fin de section 3.\n\n"
                 
-                "🎯 CAS BLINDÉS EXAMENS (À COPIER-COLLER SI LA QUESTION CORRESPOND) :\n\n"
+                "🎯 CAS BLINDÉS EXAMENS (À COPIER-COLLER TEXTUELLEMENT SI LA QUESTION CORRESPOND) :\n\n"
+                
+                "- SI LA QUESTION PARLE DE PROBLÈME DE CONNEXION / NE TROUVE PAS LE SITE / LIEN DIRECT / NAVIGATEUR :\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "L'accès correcteur à Santorin ne se fait pas par une recherche Google ou un lien direct public. Vous devez obligatoirement suivre le cheminement institutionnel sécurisé :\n\n"
+                "➔ Étape 1 (Connexion) : Connectez-vous à votre portail académique habituel **[ESTEREL / ARENA]**.\n"
+                "➔ Étape 2 (Menu) : Dans le menu latéral gauche, cliquez sur la rubrique **[Examens et Concours]**.\n"
+                "➔ Étape 3 (Application) : Sélectionnez l'application **[IMAG'IN]** (Portail de gestion des missions des intervenants).\n"
+                "➔ Étape 4 (Accès Santorin) : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira le lien d'accès sécurisé vers votre lot de grilles Santorin.\n"
+                "➔ Étape 5 (Navigateurs recommandés) : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour. L'utilisation de Safari ou d'Edge provoque des bugs majeurs lors du verrouillage et de la signature numérique des notes.\n\n"
                 
                 "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "Attention à la manipulation sur l'interface Santorin, l'impact réglementaire sur la note de l'élève est radical :\n\n"
-                "➔ Cas 1 (Élève ABSENT à l'épreuve) : Vous devez impérativement cocher 'ABS' (Absent). Cela attribue la note de 0/20 pour l'épreuve concernée (sauf cas de force majeure validé par le chef d'établissement).\n"
-                "➔ Cas 2 (Élève DISPENSÉ / INAPTE) : Vous devez cocher 'DISP' (Dispensé). Cela déclenche la NEUTRALISATION de l'APSA. L'élève n'est pas pénalisé, sa note finale de CCF sera calculée au prorata des autres épreuves valides de son protocole d'examen.\n\n"
-                
-                "- SI LA QUESTION PARLE DE PROBLÈME DE CONNEXION / NE TROUVE PAS L'ACCÈS À SANTORIN :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "L'accès correcteur ne se fait pas par un site public ou un lien direct. Vous devez suivre le cheminement institutionnel sécurisé :\n\n"
-                "➔ Étape 1 : Connectez-vous à votre portail académique habituel **[ESTEREL / ARENA]**.\n"
-                "➔ Étape 2 : Allez dans le menu latéral et cliquez sur **[Examens et Concours]**.\n"
-                "➔ Étape 3 : Sélectionnez l'application **[IMAG'IN]** (Portail d'accès aux missions des intervenants aux examens).\n"
-                "➔ Étape 4 : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira l'accès sécurisé à votre lot de grilles d'évaluation Santorin.\n"
-                "➔ Étape 5 : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour (Safari et Edge provoquent des bugs de blocage lors de la signature numérique des notes).\n\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "Attention à la saisie sur l'interface, l'impact sur la note finale de l'élève est radical :\n\n"
+                "➔ Cas 1 (Élève ABSENT) : Cochez la case 'ABS'. Cela attribue la note de 0/20 pour l'épreuve concernée.\n"
+                "➔ Cas 2 (Élève DISPENSÉ / INAPTE) : Cochez la case 'DISP'. Cela déclenche la NEUTRALISATION de l'APSA. La note de l'élève sera calculée au prorata de ses autres épreuves valides.\n\n"
                 
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"

@@ -743,7 +743,7 @@ if prompt:
                     prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     
-                    # 2. Recherche segmentée et sécurisée
+                    # 2. Recherche segmentée (dans le try/except)
                     try:
                         if est_lycee:
                             for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
@@ -754,20 +754,16 @@ if prompt:
                     except Exception as e:
                         st.warning(f"Erreur recherche : {e}")
 
-                    # 3. Définition des variables (EN DEHORS DU TRY/EXCEPT)
+                    # 3. Définition des variables (TOTALEMENT HORS TRY/EXCEPT)
                     règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+                    badge = "INFORMATION"
+                    color_card = "peda-card"
                     
                     filtre_pierre = (
                         "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE :\n"
-                        "Tu dois structurer ta réponse selon le plan et les titres suivants. "
-                        "Utilise un format aéré, percutant et très visuel :\n\n"
-                        "### 1. ANALYSE DES RISQUES\n"
-                        "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️).\n\n"
-                        "### 2. PROCÉDURE TECHNIQUE\n"
-                        "- Déroule les actions de manière chronologique.\n\n"
-                        "### 3. PROTECTION FONCTIONNELLE\n"
-                        "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓).\n"
+                        "Tu dois structurer ta réponse selon le plan et les titres suivants.\n"
                     )
+                    # ... Tu peux continuer ton code ici, tout est aligné correctement.
                     
                     # (Tu peux continuer ici le reste de ton code normalement...)
         badge = "INFORMATION"

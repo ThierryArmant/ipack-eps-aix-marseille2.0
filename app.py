@@ -762,7 +762,11 @@ if prompt:
         )
         badge = "INFORMATION"
         color_card = "general-card"
+
         
+       # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
+        consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale sur le Web et le RAG) :\n{verites_terrain_pierre}\n\n"
+
         if mode == "ipack":
             # 1. Définition des sources officielles iPackEPS en dur
             liens_utiles = {
@@ -774,22 +778,16 @@ if prompt:
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
 
-            # 2. Analyse dynamique des mots-clés (Ordre de priorité corrigé)
+            # 2. Analyse dynamique des mots-clés
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
-            # PRIORITÉ 1 : Les examens et protocoles
             if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
-            
-            # PRIORITÉ 2 : Les élèves introuvables / imports / Pronote (Passe avant les notes pour éviter les collisions)
             elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
                 liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
-            
-            # PRIORITÉ 3 : Les notes et inaptitudes pures
             elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu"]):
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
-            
             else:
                 liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
 
@@ -797,48 +795,36 @@ if prompt:
 
             # 3. Construction de la consigne IA ultra-verrouillée
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction RAG strict et froid. Tu n'inventes RIEN.\n\n"
+                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
                 
                 "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
                 "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS VIDÉO\n\n"
+                "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
                 
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
-                "1. INTERDICTION ABSOLUE d'inventer des boutons 'Ajouter un élève', 'Créer une fiche' ou des formulaires de saisie manuelle.\n"
-                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ' à la fin de la section 2.\n"
+                "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves. Tout ajout passe par l'importation de fichiers de vie scolaire (Pronote/SIECLE).\n"
+                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ' à la fin de la section 2 ou 3.\n"
                 "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
                 
-                "🎯 CAS BLINDÉS (À COPIER-COLLER SI LA QUESTION CORRESPOND) :\n\n"
+                "🎯 CAS BLINDÉS CONFIGURÉS (A COPIER-COLLER CONFORMÉMENT À LA BIBLE DE PIERRE) :\n\n"
                 
                 "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "NON, il n'existe aucun bouton ou icône 'Supprimer' direct pour un protocole dans iPackEPS. Pour faire disparaître un protocole, vous devez obligatoirement le vider de toute affectation en amont :\n\n"
-                "➔ Étape 1 : Rends-toi dans l'onglet **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
-                "➔ Étape 2 : Sur la ligne du protocole concerné, clique sur le bouton de modification (icône du crayon ou **[Modifier]**).\n"
-                "➔ Étape 3 : Dans la fenêtre de configuration qui s'ouvre, va sur les menus déroulants des Groupes et des Séquences d'apprentissage, puis décoche ou désélectionne tous les éléments rattachés pour les vider.\n"
-                "➔ Étape 4 : Clique sur **[Enregistrer]**. Le protocole s'effacera automatiquement de ton tableau de bord.\n\n"
+                "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
+                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
+                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
+                "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
                 
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "Dans iPackEPS, la répartition ne se fait pas élève par élève dans un menu isolé. Elle est structurelle :\n\n"
-                "➔ Étape 1 : Les groupes et les classes proviennent directement de l'importation de votre fichier XML (Pronote / STS Web).\n"
-                "➔ Étape 2 : Pour lier ces élèves à vos activités, rendez-vous dans **[Dossiers]** > **[Dossier Certificatif]** > **[Protocoles]**.\n"
-                "➔ Étape 3 : Modifiez le protocole concerné et cochez/sélectionnez les classes ou les groupes d'élèves correspondants pour les basculer d'un bloc.\n"
-                "➔ Étape 4 : Si un élève change de groupe en cours d'année, la modification doit être faite dans votre outil de vie scolaire (Pronote) avant de relancer un import de mise à jour, ou directement via sa **[Fiche élève]** dans le menu **[Mes Élèves]**.\n\n"
-
-                "- SI LA QUESTION PARLE D'UN ÉLÈVE INTROUVABLE / AJOUTER UN ÉLÈVE MANUELLEMENT / NOUVEL ÉLÈVE PRO NOTE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "NON, il est strictement impossible d'ajouter un élève manuellement dans iPackEPS pour des raisons de synchronisation avec les bases académiques. L'interface ne possède aucun bouton d'ajout direct. Vous devez obligatoirement forcer une mise à jour des listes :\n\n"
-                "➔ Étape 1 : Vérifie auprès du secrétariat ou sur ton espace Vie Scolaire que le nouvel élève est bien affecté à ta classe dans Pronote.\n"
-                "➔ Étape 2 : Connecte-toi sur iPackEPS avec les accès de l'établissement pour exporter/importer le nouveau fichier XML mis à jour depuis Pronote.\n"
-                "➔ Étape 3 : L'importation va mettre à jour la base de données sans écraser tes évaluations existantes.\n"
-                "➔ Étape 4 : Le nouvel élève apparaîtra automatiquement dans ta liste de classe pour le cycle de Gymnastique, te permettant de saisir sa note normalement.\n\n"
-                
-                "CRITICAL IPACK RULES (À APPLIQUER SUR LES AUTRES CAS) :\n"
-                "- SAISIE INAPTITUDE : Interdiction de taper 'IN' ou 'DI' dans les cases de notes. Passage par 'Gestion/Suivi des élèves' > 'Fiche élève' > 'Saisir une inaptitude'.\n"
-                "- DEMI-FOND BAC GT : Distinction entre l'épreuve nationale 'Courses' et l'activité d'établissement 'Course de demi-fond'.\n\n"
+                "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
+                "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
+                "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
+                "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
+                "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
+                "⚠️ **RÈGLE D'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
                 
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
@@ -846,27 +832,13 @@ if prompt:
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif mode == "peda":
-            consigne_ia = (
-                f"{règles_or}\n"
-                "ROLE : IA-IPR EPS. Tu t'adresses à un enseignant concepteur de terrain. Ton ton est exigeant, didactique et professionnel.\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION ABSOLUE DE CHANGER LES TITRES OU D'AJOUTER DES ALERTES JURIDIQUES) :\n"
-                "### 1. OBJECTIFS ET DESCRIPTIFS DE LA SÉQUENCE\n"
-                "### 2. APPRENTISSAGE ET AMÉNAGEMENT DU TERRAIN\n"
-                "### 3. GRILLE D'ÉVALUATION ET CRITÈRES DE NOTATION\n"
-                "### 4. INSPIRATIONS ET SCÉNARIOS ÉDUBASE\n\n"
-                f"Contexte Pédagogique Local (Édubase + Fichiers) : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "🎓 RESPONSABILITÉ PÉDA", "peda-card"
         elif mode == "examens":
-            # 1. Définition des sources officielles pour les Examens & Santorin
             liens_utiles = {
                 "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",
                 "portail_santorin": "- [🌐 Accéder au Portail d'assistance et Fiches Mémo Santorin Académique](https://www.ac-aix-marseille.fr/santorin)",
                 "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
             }
 
-            # 2. Analyse dynamique des mots-clés
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
@@ -879,62 +851,26 @@ if prompt:
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
-            # 3. Construction de la consigne IA ultra-verrouillée
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
+                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
                 
                 "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
-                "### 1. ANALYSE DES RISQUES (Ex: Perte de note, hors-délai, rupture d'égalité)\n"
-                "### 2. PROCÉDURE TECHNIQUE (Les étapes de saisie ou de secours pas-à-pas)\n"
+                "### 1. ANALYSE DES RISQUES\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                 
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE MAI 2026 : Rappelle systématiquement dans la section 1 ou 3 que les serveurs académiques de remontées verrouillent les protocoles de notation à la fin mai 2026. Aucune modification possible après la commission d'harmonisation.\n"
-                "2. MATÉRIEL REJETÉ : Si un outil ou une fiche d'évaluation n'est pas validé, ordonne la bascule immédiate sur le protocole national de secours.\n"
-                "3. CONTENU STRICT : La section 3 doit UNIQUEMENT contenir les points de vigilance issus du contexte et se terminer obligatoirement par le bloc de liens fourni ci-dessous. Tu as l'interdiction absolue de créer des sous-titres, des puces ou des lignes contenant le mot 'ALERTE' ou 'SÉCURITÉ' dans toute ta réponse (que ce soit en section 2 ou en section 3).\n\n"
+                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION AND VERROUS ABSOLUS :\n"
+                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
+                "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 
-                "🎯 CAS BLINDÉS EXAMENS (À COPIER-COLLER TEXTUELLEMENT SI LA QUESTION CORRESPOND) :\n\n"
-                
-                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT / TRANSMISSION DE LOTS :\n"
+                "🎯 CAS BLINDÉS EXAMENS :\n\n"
+                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT (CHRONOLOGIE STRICTE PIERRE) :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
-                "NON, il est techniquement et réglementairement impossible pour un enseignant de donner accès à son compte Santorin ou de transférer ses lots de copies à un remplaçant depuis l'interface. L'application ne possède aucun bouton d'ajout. La procédure est uniquement administrative :\n\n"
-                "➔ Étape 1 : Ne partagez jamais vos identifiants personnels de connexion (AFA / ARENA).\n"
-                "➔ Étape 2 : Signalez immédiatement votre remplacement au secrétariat de votre établissement de rattachement.\n"
-                "➔ Étape 3 : Le secrétariat ou le Rectorat (Division des Examens et Concours) doit affecter officiellement la mission d'examen au remplaçant dans la base de données académique.\n"
-                "➔ Étape 4 : Dès que sa mission est validée, le remplaçant verra apparaître le lot de grilles d'évaluation directement sur son propre espace IMAG'IN / Santorin personnel.\n\n"
-                
-                "- SI LA QUESTION PARLE DE PROBLÈME DE CONNEXION / NE TROUVE PAS LE SITE / LIEN DIRECT / NAVIGATEUR :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "L'accès correcteur à Santorin ne se fait pas par une recherche Google ou un lien direct public. Vous devez obligatoirement suivre le cheminement institutionnel sécurisé :\n\n"
-                "➔ Étape 1 (Connexion) : Connectez-vous à votre portail académique habituel **[ESTEREL / ARENA]**.\n"
-                "➔ Étape 2 (Menu) : Dans le menu latéral gauche, cliquez sur la rubrique **[Examens et Concours]**.\n"
-                "➔ Étape 3 (Application) : Sélectionnez l'application **[IMAG'IN]** (Portail de gestion des missions des intervenants).\n"
-                "➔ Étape 4 (Accès Santorin) : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira le lien d'accès sécurisé vers votre lot de grilles Santorin.\n"
-                "➔ Étape 5 (Navigateurs recommandés) : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour. L'utilisation de Safari ou d'Edge provoque des bugs majeurs lors du verrouillage et de la signature numérique des notes.\n\n"
-                
-                "- SI LA QUESTION PARLE D'INSTALLATION INDISPONIBLE / METEO / IMPOSSIBLE D'ÉVALUER / PROTOCOLE DE SECOURS :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "Il n'existe aucun bouton ou module de secours direct dans l'interface Santorin ou iPackEPS pour valider une installation indisponible. La procédure est réglementaire et administrative :\n\n"
-                "➔ Étape 1 : Alertez immédiatement le chef d'établissement et le coordonnateur EPS de votre établissement pour acter officiellement le cas de force majeure.\n"
-                "➔ Étape 2 : Vérifiez si une APSA de rechange ou une 'épreuve de substitution' (protocole de secours) a été validée lors du Conseil d'Administration en début d'année.\n"
-                "➔ Étape 3 : Si un protocole de secours existe, le secrétariat de l'établissement doit modifier l'arborescence dans Cyclades pour basculer la classe sur la nouvelle activité.\n"
-                "➔ Étape 4 : Si aucun secours n'était prévu, le chef d'établissement doit contacter de toute urgence les IA-IPR EPS. À l'approche de la commission de fin mai 2026, toute modification exceptionnelle de protocole exige une autorisation rectorale écrite.\n"
-                "➔ Étape 5 : Ne laissez pas de cases vides et ne validez rien sur Santorin tant que l'arborescence officielle de la classe n'a pas été corrigée par l'administration.\n\n"
-
-                "- SI LA QUESTION PARLE DE PROTOCOLE ADAPTÉ / ÉPREUVE ADAPTÉE / MODIFIER PROTOCOLE CANDIDAT :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "NON, un enseignant ne peut pas créer ou modifier un protocole adapté directement dans Cyclades ou Santorin. Les enseignants n'ont aucun droit d'écriture sur ces bases de données. La procédure est strictement institutionnelle :\n\n"
-                "➔ Étape 1 : L'évaluation adaptée doit reposer sur une décision officielle (avis médical, aménagement de scolarité PAP/PPS, ou décision du chef d'établissement).\n"
-                "➔ Étape 2 : Transmettez immédiatement la liste des épreuves réellement subies par le candidat au secrétariat de votre direction.\n"
-                "➔ Étape 3 : C'est le secrétariat de l'établissement qui va configurer le 'dispense partielle' ou basculer l'élève sur un protocole d'épreuve adaptée directement dans **[Cyclades]**.\n"
-                "➔ Étape 4 : Une fois la modification effectuée par l'administration, la mise à jour remontera dans votre lot de correction **[Santorin]**, vous permettant de saisir les notes sur les seules activités validées.\n\n"
-                
-                "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "Attention à la saisie sur l'interface, l'impact sur la note finale de l'élève est radical :\n\n"
-                "➔ Cas 1 (Élève ABSENT) : Cochez la case 'ABS'. Cela attribue la note de 0/20 pour l'épreuve concernée.\n"
-                "➔ Cas 2 (Élève DISPENSÉ / INAPTE) : Cochez la case 'DISP'. Cela déclenche la NEUTRALISATION de l'APSA. La note de l'élève sera calculée au prorata de ses autres épreuves valides.\n\n"
+                "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
+                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
+                "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
+                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
                 
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
@@ -944,55 +880,22 @@ if prompt:
 
         elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Tu es un robot d'extraction froid, factuel et technique. Tu n'inventes RIEN.\n\n"
-                
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER OU D'AJOUTER DES ALERTES EN FIN DE TEXTE) :\n"
+                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
                 "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
                 "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
                 "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                
-                "🎯 CAS CONFIGURÉS EN DUR (À COPIER-COLLER MOT POUR MOT SELON LE SUJET) :\n\n"
-                
-                "1. Si la question parle de FILMER / TABLETTE / DROIT À L'IMAGE / SMARTPHONE / PARENTS MENACENT :\n"
-                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
-                "- **Article 9 du Code civil & RGPD** : Protection de l'image en tant que donnée à caractère personnel.\n"
-                "- **Article 226-1 du Code pénal** : Sanctionne la captation d'image à l'insu des personnes (uniquement hors cadre pédagogique institutionnel).\n\n"
-                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "- **Règle Pédagogique Institutionnelle** : L'usage de la vidéo via les tablettes du collège pour l'auto-évaluation (Acrosport, Gym) est parfaitement légitime et autorisé sans accord parental préalable, À LA CONDITION EXCLUSIVE que le stockage soit strictement local, temporaire, et intégralement supprimé à la fin de la séance ou du cycle.\n\n"
-                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
-                "- **Étape 1 (Désamorcer)** : Montrer immédiatement aux parents ou à la direction que les images sont stockées localement sur la tablette de l'établissement (conforme RGPD) et qu'aucune diffusion externe n'est possible.\n"
-                "- **Étape 2 (Rappel du carnet)** : Rappeler que la signature du règlement intérieur dans le carnet en début d'année vaut information des familles sur l'utilisation des outils numériques pédagogiques.\n"
-                "- **Étape 3 (Action)** : Purger définitivement les fichiers devant le chef d'établissement à la fin de l'évaluation pour éteindre le litige.\n\n"
-                "### 4. LIENS ET SOURCES OFFICIELLES\n"
-                "- [⚖️ Consulter l'Article 226-1 du Code pénal (Atteinte à la vie privée) sur Légifrance](https://www.legifrance.gouv.fr)\n"
-                "- [🍏 Consulter la fiche 'Utilisation des outils numériques et RGPD' sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
-                
-                "2. Si la question parle de LAÏCITÉ / PORT DU VOILE / REFUS DE MIXITÉ / TENUE RELIGIEUSE :\n"
-                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
-                "- **Loi n° 2004-228 du 15 mars 2004** : Interdiction stricte du port de signes ou tenues manifestant ostensiblement une appartenance religieuse.\n"
-                "- **Charte de la Laïcité à l'École (2013)** : Obligation de neutralité des personnels et obligation de suivre l'ensemble des programmes pour les élèves.\n\n"
-                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "- **Impératif EPS** : Aucune dérogation vestimentaire (voile suspendu, burkini, vêtements amples) n'est tolérée, pour des raisons de stricte neutralité mais aussi d'hygiène et de sécurité (risques de strangulation en escalade/combat, coincement dans les agrès, règlements des piscines).\n\n"
-                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
-                "- **Étape 1** : Refuser l'accès au cours à l'élève si la tenue n'est pas réglementaire ou si le signe ostensible n'est pas retiré.\n"
-                "- **Étape 2** : Aucun élève ne peut s'affranchir d'un cours obligatoire (mixité, natation, danse) pour motifs religieux. Un refus persistant entraîne un rapport direct et immédiat au Chef d'établissement pour engagement d'une procédure disciplinaire.\n\n"
-                "### 4. LIENS ET SOURCES OFFICIELLES\n"
-                "- [⚖️ Consulter la Loi du 15 mars 2004 sur Légifrance](https://www.legifrance.gouv.fr)\n"
-                "- [🍏 Accéder au portail de la Laïcité et des valeurs de la République sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
-                
-                "3. AUTRES CAS JURIDIQUES (ACCIDENTS LOI 1937, VTT, INAPTITUDES) :\n"
-                "Utilise strictement les cadres 2, 3 et 4 de ta mémoire locale sans inventer de lois. Associe les vrais liens Légifrance ou Éduscol configurés dans ton texte.\n\n"
                 f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
             )
-            # ➔ Ici on force l'utilisation de la même carte graphique que l'onglet ipack
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
+            # UNIQUE BLOC PÉDAGOGIQUE SÉCURISÉ (L'ancien doublon en Markdown a été purgé)
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu as accès à cette liste d'académies : {domaine_eps_france}.\n"
-                f"CONSIGNES DE SÉCURITÉ TERRAIN DE PIERRE : {verites_terrain_pierre}\n\n" # Interception ici !
+                f"CONSIGNES DE SÉCURITÉ TERRAIN DE PIERRE : {verites_terrain_pierre}\n\n"
                 "MISSION : Réponds sous forme de FICHE TECHNIQUE SÉQUENCÉE, ULTRA-DÉTAILLÉE, rigoureuse sur le plan institutionnel et directement exploitable sur le terrain.\n"
                 "FORMATAGE HTML STRICT (Interdiction absolue de Markdown) :\n"
                 "1. Utilise uniquement <h3> pour les titres.\n"
@@ -1000,27 +903,20 @@ if prompt:
                 "3. Utilise <br> pour les sauts de ligne simples.\n\n"
                 "RÈGLE IMPÉRATIVE SUR LES LIENS PÉDAGOGIQUES (ANTI-LIENS MORTS) :\n"
                 "1. Interdiction absolue d'inventer des URL directes vers des fichiers PDF ou Excel spécifiques, ils finissent toujours en erreur 404.\n"
-                "2. Tu as l'obligation stricte de générer les 3 liens HTML exacts ci-dessous. Tu dois obligatoirement remplacer 'NOM_APSA' par l'activité demandée en minuscules (ex: gymnastique, badminton, acrosport).\n"
-                "3. Tu dois obligatoirement remplacer 'DOMAINE1' et 'DOMAINE2' par les domaines d'académies de la liste (ex: eps.ac-creteil.fr), et '[Nom1]'/'[Nom2]' par le nom de l'académie (ex: Créteil). INTERDICTION d'écrire les variables brutes.\n"
+                "2. Tu as l'obligation stricte de générer les 3 liens HTML exacts ci-dessous. Tu devez obligatoirement remplacer 'NOM_APSA' par l'activité demandée en minuscules (ex: gymnastique, badminton, acrosport).\n"
+                "3. Tu devez obligatoirement remplacer 'DOMAINE1' et 'DOMAINE2' par les domaines d'académies de la liste (ex: eps.ac-creteil.fr), et '[Nom1]'/'[Nom2]' par le nom de l'académie (ex: Créteil). INTERDICTION d'écrire les variables brutes.\n"
                 "Construis obligatoirement ces 3 liens de recherche dynamiques au format HTML exact suivant :<br>"
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>"
                 "2. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom1]</a><br>"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE2+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Académie de [Nom2]</a><br>\n\n"
-                "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
-                "<ul>"
-                "<li><strong>Domaines du Socle Commun :</strong> [Citer explicitement les domaines engagés, ex: Domaine 1 (Langages), Domaine 2 (Méthodes), Domaine 3 (Citoyen), etc.]</li>"
-                "<li><strong>Compétences Générales EPS :</strong> [Développer sa motricité, S'approprier des méthodes, Partager des règles/valeurs, Maintenir sa santé, S'approprier une culture]</li>"
-                "<li><strong>Compétences Attendu de Fin de Cycle (AFC) :</strong> [Formuler textuellement le ou les AFC officiels du cycle concerné en lien avec l'activité]</li>"
-                "</ul>"
-                "STRUCTURE IMPÉRATIVE À REMPLIR AVEC PRÉCISION :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE</h3><strong>Activité exacte, Champ d'Apprentissage (CA) et niveau de classe</strong><br>"
                 "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3><ul><li><strong>Domaines du Socle Commun :</strong> [domaines]</li><li><strong>Compétences Générales EPS :</strong> [compétences]</li><li><strong>Attendus de Fin de Cycle (AFC) :</strong> [AFC]</li></ul>"
                 "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>Objectifs moteurs et intentions tactiques spécifiques</li></ul>"
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT</h3><ul><li>Consignes de sécurité passive/active et gestion de l'espace</li></ul>"
                 "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST</h3><ul><li>Description de la situation, variables, aménagement, score parlant et règles d'action</li></ul>"
-                "<h3>📊 CRITÈRES D'ÉVALUATION ET OBSERVABLES</h3><ul><li>Indicateurs quantitatifs (statistiques, ratios) et qualitatifs (motricité, choix) pour valider les niveaux de maîtrise</li></ul>"
-                "<h3>💾 RESSOURCES ACADÉMIQUES</h3>(Insère ici les 3 liens HTML générés ci-dessus, aucun texte brut passif autorisé)<br>"
-                f"\nContexte : {extraits_doc}\nQuestion : {prompt}"
+                "<h3>📊 CRITÈRES D'ÉVALUATION ET OBSERVABLES</h3><ul><li>Indicateurs quantitatifs et qualitatifs pour valider les niveaux de maîtrise</li></ul>"
+                "<h3><h3>💾 RESSOURCES ACADÉMIQUES</h3>(Insère ici les 3 liens HTML générés ci-dessus, aucun texte brut passif autorisé)<br>"
+                f"\nContexte RAG : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
             

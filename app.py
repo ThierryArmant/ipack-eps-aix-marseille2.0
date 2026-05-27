@@ -912,6 +912,15 @@ if prompt:
                 "➔ Étape 3 (Application) : Sélectionnez l'application **[IMAG'IN]** (Portail de gestion des missions des intervenants).\n"
                 "➔ Étape 4 (Accès Santorin) : C'est depuis votre fiche de mission affectée dans IMAG'IN que s'ouvrira le lien d'accès sécurisé vers votre lot de grilles Santorin.\n"
                 "➔ Étape 5 (Navigateurs recommandés) : Utilisez obligatoirement les navigateurs **Google Chrome** ou **Mozilla Firefox** mis à jour. L'utilisation de Safari ou d'Edge provoque des bugs majeurs lors du verrouillage et de la signature numérique des notes.\n\n"
+
+                "- SI LA QUESTION PARLE D'INSTALLATION INDISPONIBLE / METEO / IMPOSSIBLE D'ÉVALUER / PROTOCOLE DE SECOURS :\n"
+                "### 2. PROCÉDURE TECHNIQUE\n"
+                "Il n'existe aucun bouton ou module de secours direct dans l'interface Santorin ou iPackEPS pour valider une installation indisponible. La procédure est réglementaire et administrative :\n\n"
+                "➔ Étape 1 : Alertez immédiatement le chef d'établissement et le coordonnateur EPS de votre établissement pour acter officiellement le cas de force majeure.\n"
+                "➔ Étape 2 : Vérifiez si une APSA de rechange ou une 'épreuve de substitution' (protocole de secours) a été validée lors du Conseil d'Administration en début d'année.\n"
+                "➔ Étape 3 : Si un protocole de secours existe, le secrétariat de l'établissement doit modifier l'arborescence dans Cyclades pour basculer la classe sur la nouvelle activité.\n"
+                "➔ Étape 4 : Si aucun secours n'était prévu, le chef d'établissement doit contacter de toute urgence les IA-IPR EPS. À l'approche de la commission de fin mai 2026, toute modification exceptionnelle de protocole exige une autorisation rectorale écrite.\n"
+                "➔ Étape 5 : Ne laissez pas de cases vides et ne validez rien sur Santorin tant que l'arborescence officielle de la classe n'a pas été corrigée par l'administration.\n\n"
                 
                 "- SI LA QUESTION PARLE DE LA DIFFÉRENCE ENTRE ABSENT ET DISPENSÉ / INAPTE SUR SANTORIN :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"

@@ -915,7 +915,7 @@ if prompt:
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
-            badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
             consigne_ia = (

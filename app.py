@@ -739,9 +739,22 @@ if prompt:
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
-            except: 
-                pass
+                    # 1. Détection automatique du niveau en début de bloc
+                    prompt_lower = prompt.lower()
+                    est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+                    
+                    # 2. Recherche segmentée et sécurisée
+                    try:
+                        if est_lycee:
+                            for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
+                                extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
+                        else:
+                            # Recherche ciblée sur le collège (2015)
+                            for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"): 
+                                extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
+                    except Exception as e:
+                        st.warning(f"Erreur lors de la recherche pédagogique : {e}")
+                        pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."

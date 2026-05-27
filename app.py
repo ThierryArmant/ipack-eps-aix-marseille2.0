@@ -883,12 +883,16 @@ if prompt:
         
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if mode == "peda":
+       if mode == "peda":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         
         elif mode == "textes":
-            texte_final = text_brut.replace(chr(10), "<br>")
+            texte_final = texte_brut.replace(chr(10), "<br>") # <--- Le "e" est restauré ici !
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
+            
+        else:
+            texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
             
         else:

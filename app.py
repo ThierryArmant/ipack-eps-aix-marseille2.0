@@ -813,6 +813,7 @@ if prompt:
                 "➔ Étape 2 : Sur la ligne du protocole concerné, clique sur le bouton de modification (icône du crayon ou **[Modifier]**).\n"
                 "➔ Étape 3 : Dans la fenêtre de configuration qui s'ouvre, va sur les menus déroulants des Groupes et des Séquences d'apprentissage, puis décoche ou désélectionne tous les éléments rattachés pour les vider.\n"
                 "➔ Étape 4 : Clique sur **[Enregistrer]**. Le protocole, désormais totalement libéré et sans aucun élève ni classe associé, s'effacera automatiquement de ton tableau de bord.\n\n"
+               
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "Dans iPackEPS, la répartition ne se fait pas élève par élève dans un menu isolé. Elle est structurelle :\n\n"

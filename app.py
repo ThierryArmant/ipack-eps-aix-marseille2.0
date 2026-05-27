@@ -739,24 +739,25 @@ if prompt:
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                elif mode == "peda":
-            # 1. Détection automatique du niveau
-            prompt_lower = prompt.lower()
-            est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
-            
-            # 2. Recherche segmentée et sécurisée
-            try:
-                if est_lycee:
-                    for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
-                        extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
-                else:
-                    for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"): 
-                        extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
-            except Exception as e:
-                # Si une erreur survient, on continue sans planter
-                pass
-
-            # 3. Définition des règles APRES le bloc try/except
-            règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+                    # 1. Détection automatique du niveau
+                    prompt_lower = prompt.lower()
+                    est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+                    
+                    # 2. Recherche segmentée et sécurisée
+                    try:
+                        if est_lycee:
+                            for n in retriever_peda.retrieve(prompt + " AFL Lycée"): 
+                                extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
+                        else:
+                            for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"): 
+                                extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
+                    except Exception as e:
+                        st.warning(f"Erreur recherche pédagogique : {e}")
+                    
+                    # 3. Règles d'or (Alignées avec le 'elif')
+                    règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
+                    
+                    # (Poursuis ici avec le reste de ton code : filtre_pierre, consigne_ia, etc.)
             
             # ... et ensuite le reste de ton code (filtre_pierre, consigne_ia, etc.)
         filtre_pierre = (

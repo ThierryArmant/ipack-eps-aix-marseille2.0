@@ -840,7 +840,7 @@ if prompt:
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
 
-       elif mode == "textes":
+        elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Tu es un robot d'extraction froid, factuel et technique. Tu n'inventes RIEN.\n\n"

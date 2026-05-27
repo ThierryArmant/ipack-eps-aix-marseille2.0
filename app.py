@@ -327,7 +327,7 @@ css_pur = """
         color: #FCD34D !important;
     }
     
-    </style>
+    </style> 
 """.replace('__URL_FOND__', f"{github_url}{img_fond}")
 st.markdown(css_pur, unsafe_allow_html=True)
 
@@ -840,47 +840,52 @@ if prompt:
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "examen-card"
 
-        elif mode == "textes":
+       elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Tu es un expert juridique du Code de l'Éducation et de la réglementation EPS. Tu es froid, factuel, et ultra-précis.\n\n"
+                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Tu es un robot d'extraction froid, factuel et technique. Tu n'inventes RIEN.\n\n"
                 
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION ABSOLUTE DE CHANGER LES TITRES OU D'AJOUTER DES ALERTES EN FIN DE TEXTE) :\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION DE MODIFIER OU D'AJOUTER DES ALERTES EN FIN DE TEXTE) :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
                 "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
                 "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
                 "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
                 
-                "🛑 VERROU JURIDIQUE ET EXTRACTION STRICTE :\n"
-                "1. Ne paraphrase pas inutilement. Cite les lois exactes (Loi de 1937, Loi de 2004, Article 9 du Code Civil, Article 226-1 du Code Pénal) présentes dans le contexte.\n"
-                "2. Tu as l'interdiction d'inventer des URL ou de mettre des textes d'attente. Tu dois utiliser exclusivement la table ci-dessous.\n\n"
+                "🎯 CAS CONFIGURÉS EN DUR (À COPIER-COLLER MOT POUR MOT SELON LE SUJET) :\n\n"
                 
-                "🎯 TABLE DE CORRESPONDANCE DES SOURCES JURIDIQUES (À INTÉGRER EN SECTION 4) :\n"
-                "Selon la thématique de la question, affiche STRICTEMENT les puces correspondantes dans la section '### 4. LIENS ET SOURCES OFFICIELLES' :\n\n"
-                
-                "1. Si le sujet parle de LAÏCITÉ / PORT DE SIGNES / TENUES RELIGIEUSES / VOILE :\n"
-                "- [⚖️ Consulter la Loi du 15 mars 2004 sur Légifrance](https://www.legifrance.gouv.fr)\n"
-                "- [🍏 Accéder au portail de la Laïcité et des valeurs de la République sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
-                
-                "2. Si le sujet parle d'ACCIDENT / RESPONSABILITÉ / DÉFAUT DE SURVEILLANCE / LOI DE 1937 :\n"
-                "- [⚖️ Consulter l'Article L. 911-4 du Code de l'éducation (Loi de 1937) sur Légifrance](https://www.legifrance.gouv.fr)\n"
-                "- [🍏 Consulter le guide de la responsabilité des enseignants sur le site du Ministère](https://www.education.gouv.fr)\n\n"
-                
-                "3. Si le sujet parle d'INAPTITUDE / DISPENSE / CERTIFICAT MÉDICAL :\n"
-                "- [⚖️ Consulter le Décret des inaptitudes médicales en EPS sur Légifrance](https://www.legifrance.gouv.fr)\n"
-                "- [🍏 Accéder au dossier officiel de gestion des dispenses sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
-                
-                "4. Si le sujet parle de SORTIES SCOLAIRES / VTT / ESCALADE / APPN / SÉCURITÉ EN EXTÉRIEUR :\n"
-                "- [🍏 Consulter la circulaire officielle des sorties et voyages scolaires sur Éduscol](https://eduscol.education.gouv.fr)\n"
-                "- [🗺️ Consulter les protocoles de sécurité APPN de l'Académie d'Aix-Marseille](https://pedagogie.ac-aix-marseille.fr)\n\n"
-                
-                "5. Si le sujet parle de DROIT A L'IMAGE / TABLETTE / FILMER LE PROF / SMARTPHONE / RESEAUX SOCIAUX :\n"
+                "1. Si la question parle de FILMER / TABLETTE / DROIT À L'IMAGE / SMARTPHONE / PARENTS MENACENT :\n"
+                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
+                "- **Article 9 du Code civil & RGPD** : Protection de l'image en tant que donnée à caractère personnel.\n"
+                "- **Article 226-1 du Code pénal** : Sanctionne la captation d'image à l'insu des personnes (uniquement hors cadre pédagogique institutionnel).\n\n"
+                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
+                "- **Règle Pédagogique Institutionnelle** : L'usage de la vidéo via les tablettes du collège pour l'auto-évaluation (Acrosport, Gym) est parfaitement légitime et autorisé sans accord parental préalable, À LA CONDITION EXCLUSIVE que le stockage soit strictement local, temporaire, et intégralement supprimé à la fin de la séance ou du cycle.\n\n"
+                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
+                "- **Étape 1 (Désamorcer)** : Montrer immédiatement aux parents ou à la direction que les images sont stockées localement sur la tablette de l'établissement (conforme RGPD) et qu'aucune diffusion externe n'est possible.\n"
+                "- **Étape 2 (Rappel du carnet)** : Rappeler que la signature du règlement intérieur dans le carnet en début d'année vaut information des familles sur l'utilisation des outils numériques pédagogiques.\n"
+                "- **Étape 3 (Action)** : Purger définitivement les fichiers devant le chef d'établissement à la fin de l'évaluation pour éteindre le litige.\n\n"
+                "### 4. LIENS ET SOURCES OFFICIELLES\n"
                 "- [⚖️ Consulter l'Article 226-1 du Code pénal (Atteinte à la vie privée) sur Légifrance](https://www.legifrance.gouv.fr)\n"
                 "- [🍏 Consulter la fiche 'Utilisation des outils numériques et RGPD' sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
                 
+                "2. Si la question parle de LAÏCITÉ / PORT DU VOILE / REFUS DE MIXITÉ / TENUE RELIGIEUSE :\n"
+                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
+                "- **Loi n° 2004-228 du 15 mars 2004** : Interdiction stricte du port de signes ou tenues manifestant ostensiblement une appartenance religieuse.\n"
+                "- **Charte de la Laïcité à l'École (2013)** : Obligation de neutralité des personnels et obligation de suivre l'ensemble des programmes pour les élèves.\n\n"
+                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
+                "- **Impératif EPS** : Aucune dérogation vestimentaire (voile suspendu, burkini, vêtements amples) n'est tolérée, pour des raisons de stricte neutralité mais aussi d'hygiène et de sécurité (risques de strangulation en escalade/combat, coincement dans les agrès, règlements des piscines).\n\n"
+                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
+                "- **Étape 1** : Refuser l'accès au cours à l'élève si la tenue n'est pas réglementaire ou si le signe ostensible n'est pas retiré.\n"
+                "- **Étape 2** : Aucun élève ne peut s'affranchir d'un cours obligatoire (mixité, natation, danse) pour motifs religieux. Un refus persistant entraîne un rapport direct et immédiat au Chef d'établissement pour engagement d'une procédure disciplinaire.\n\n"
+                "### 4. LIENS ET SOURCES OFFICIELLES\n"
+                "- [⚖️ Consulter la Loi du 15 mars 2004 sur Légifrance](https://www.legifrance.gouv.fr)\n"
+                "- [🍏 Accéder au portail de la Laïcité et des valeurs de la République sur Éduscol](https://eduscol.education.gouv.fr)\n\n"
+                
+                "3. AUTRES CAS JURIDIQUES (ACCIDENTS LOI 1937, VTT, INAPTITUDES) :\n"
+                "Utilise strictement les cadres 2, 3 et 4 de ta mémoire locale sans inventer de lois. Associe les vrais liens Légifrance ou Éduscol configurés dans ton texte.\n\n"
                 f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "textes-card"
+            # ➔ Ici on force l'utilisation de la même carte graphique que l'onglet ipack
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
             consigne_ia = (

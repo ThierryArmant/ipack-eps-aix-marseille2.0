@@ -1,0 +1,11 @@
+=== IPACKEPS RUBRIQUE 2 : CONFIGURATION ET ENTRÉE ===
+- Initialisation Établissement : L'importation de la structure s'effectue via le fichier XML issu de STS Web. En cas d'erreur de doublon d'élèves, vider la table 'Mes Élèves' avant de relancer l'import.
+- Gestion des installations : Les infrastructures sportives doivent être déclarées avec leur code RES (Répertoire des Équipements Sportifs) dans le Dossier Établissement avant toute affectation horaire.
+
+=== IPACKEPS RUBRIQUE 4 : GESTION DES NOTES ET APSA ===
+- Saisie Inaptitude : Pour dispenser un élève, ne jamais écrire "IN" ou "DI" dans la grille de notation. Aller dans [Gestion/Suivi des élèves] > [Fiche élève] > [Saisir une inaptitude]. Indiquer la date de début, de fin et le type d'inaptitude (partielle ou totale).
+- Protocole Demi-Fond : L'activité 'Course de demi-fond' (code établissement) ne doit pas être confondue avec l'épreuve nationale 'Courses'. Les barèmes d'établissement doivent être validés en conseil d'enseignement EPS avant bascule.
+
+=== IPACKEPS RUBRIQUE 7 : EXAMENS ET CERTIFICATION (CCF) ===
+- Verrouillage CCF : Les notes d'examens et fiches de certification iPackEPS ne calculent pas la note finale automatiquement en cas d'absence non justifiée (A.B.). La saisie manuelle de la pénalisation s'effectue directement sur le portail Cyclades avant la commission de fin mai.
+- Export Santorin : L'export des fichiers de notation pour les épreuves ponctuelles ou de CCF se fait au format standardisé .csv crypté via l'onglet [Utilitaires] > [Exportation Académique].

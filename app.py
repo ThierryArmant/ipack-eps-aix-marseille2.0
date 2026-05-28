@@ -543,7 +543,7 @@ elif st.session_state.active_module == "peda":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            💡 <strong>Rappel Institutionnel :</strong> Cet onglet extrait exclusivement les Champs d'Apprentissage (CA), compétences et Attendus des Bulletins Officiels (BO). La liberté pédagogique, la création de fiches locales et les choix de notation restent sous l'entière responsabilité des équipes d'établissement.
+            💡 <strong>Rappel Institutionnel :</strong> Cet haut-parleur extrait les repères des Bulletins Officiels (BO) en ciblant prioritairement Édubase et le Conservatoire d'Aix-Marseille. La liberté pédagogique reste sous l'entière responsabilité des équipes locales.
         </span>
     </div>
     """, unsafe_allow_html=True)
@@ -694,8 +694,30 @@ if prompt:
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    requete_blindee = f"{prompt} programme officiel EPS attendus de fin de cycle"
-                    domains = domaine_eps_france
+                    # CIBLAGE PRIORITAIRE POUR ÉDUBASE ET CONSERVATOIRE AIX-MARSEILLE
+                    requete_blindee = f"EPS {prompt} référentiel compétences officielles"
+                    domains_prioritaires_peda = ["edubase.eduscol.education.fr", "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr"]
+                    
+                    payload = {
+                        "api_key": tavily_api_key, 
+                        "query": requete_blindee, 
+                        "search_depth": "advanced", 
+                        "include_domains": domains_prioritaires_peda
+                    }
+                    
+                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                    results = res.json().get("results", []) if res.status_code == 200 else []
+                    
+                    # Si aucun résultat sur les domaines prioritaires, on élargit à la liste globale
+                    if not results:
+                        payload["include_domains"] = domaine_eps_france
+                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                        results = res.json().get("results", []) if res.status_code == 200 else []
+                    
+                    for item in results: 
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
+                    
+                    tavily_deja_execute = True
                 
                 elif est_demande_fiche:
                     requete_blindee = f"{prompt} EPS programme officiel"
@@ -891,7 +913,7 @@ if prompt:
 
         elif mode == "peda":
             # ======================================================================
-            # VRAIE REFONTE INSTITUTIONNELLE CADRÉE ET SÉCURISÉE (CONFORME IPR)
+            # REDACTION INSTITUTIONNELLE SÉCURISÉE (CONFORME EXIGENCE IPR)
             # ======================================================================
             prompt_lower = prompt.lower()
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
@@ -900,7 +922,7 @@ if prompt:
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
             label_competence = "Axe des compétences visées"
 
-            # 1. Routage des contenus par Champ d'Apprentissage (BO)
+            # Routage des contenus par Champ d'Apprentissage (BO)
             ca_nom = "CA1 (Performance optimale à une échéance donnée)"
             if est_lycee:
                 ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
@@ -913,7 +935,7 @@ if prompt:
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
+                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoriste, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
@@ -980,7 +1002,7 @@ if prompt:
                 "</ul>"
                 "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
                 "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
-                "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                "<h3><h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )

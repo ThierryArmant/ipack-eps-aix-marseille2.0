@@ -70,7 +70,7 @@ css_pur = """
         color: #FFFFFF !important; 
     }
 
-    /* Règle impérative : Force le Jaune/Orange sur tous les liens hyper束xtes */
+    /* Règle impérative : Force le Jaune/Orange sur tous les liens hypertextes */
     .santorin-card a, .general-card a, .securite-card a, .peda-card a { 
         color: #FFB020 !important; 
         text-decoration: underline !important;
@@ -558,7 +558,7 @@ if prompt:
             pass
         
         # ------------------------------------------------------------------
-        # 1. MOTEUR WEB (Tavily) - CASCADE HARMONISÉE
+        # 1. MOTEUR WEB (Tavily) - CASCADE HARMONISÉE (LÉGIFRANCE RETIRÉ)
         # ------------------------------------------------------------------
         if tavily_api_key:
             try:
@@ -589,8 +589,8 @@ if prompt:
                         f"OR \"journal officiel\" OR \"responsabilité\""
                     )
                     
+                    # 🎯 RETRAIT DE LEGIFRANCE DES RECHERCHES WEB POUR ÉVITER LES LIENS MORTS
                     domains = [
-                        "legifrance.gouv.fr", 
                         "conseil-etat.fr", 
                         "courdecassation.fr", 
                         "education.gouv.fr", 
@@ -698,7 +698,8 @@ if prompt:
                 "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
                 "CONSIGNE DE FORMATAGE IMPÉRATIVE (MARKDOWN BRUT) :\n"
                 "Rédige exclusivement en Markdown standard. N'utilise AUCUNE balise HTML (Pas de <h3>, pas de <ul>, pas de <a>). Utilise des titres de section commençant uniquement par '### '.\n"
-                "Pour CHAQUE texte officiel officiel, loi, ou circulaire que tu évoques, tu as l'obligation absolue de l'insérer sous forme de lien Markdown standard : [Nom précis du texte](URL). Si l'URL spécifique n'apparaît pas clairement dans ton contexte, utilise l'adresse racine correspondante : Légifrance (https://www.legifrance.gouv.fr), Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).\n\n"
+                "Pour CHAQUE texte, loi, ou circulaire évoqué, tu as l'obligation absolue de l'insérer sous forme de lien Markdown standard : [Nom précis du texte](URL).\n"
+                "🎯 SÉCURITÉ DES ENTRÉES : N'utilise jamais le site racine général de Légifrance. Si l'URL spécifique n'apparaît pas clairement, redirige de force vers l'arborescence officielle du Code de l'Éducation (https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006071191/), ou vers Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).\n\n"
                 "STRUCTURE ATTENDUE :\n"
                 "### 1. TEXTES OFFICIELS ET CADRE JURIDIQUE\n"
                 "### 2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE\n"
@@ -756,10 +757,10 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Interception et conversion automatique et sécurisée de TOUS les liens Markdown
+        # Interception et conversion automatique et sécurisée de TOUS les liens Markdown (Couleur forcée Orange)
         texte_brut = re.sub(
             r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
-            r'<a href="\2" target="_blank">\1</a>', 
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
             texte_brut
         )
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
@@ -770,14 +771,14 @@ if prompt:
             texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
             texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
             
-            # Sécurité d'injection : Ajoute systématiquement les liens profonds fixes en section 5 pour le mode textes
+            # Sécurité d'injection : Pointage direct vers le Code de l'Éducation en Section 5 permanente
             if mode == "textes":
                 liens_fixes_publics = """
                 <br><h3>5. RECOURS & LIENS INSTITUTIONNELS PERMANENTS</h3>
                 <ul>
-                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank'>Légifrance – Code de l'Éducation : Article L. 911-4 (Loi de 1937)</a></li>
-                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank'>Portail Pédagogique &amp; Réglementaire – Académie Aix-Marseille</a></li>
-                <li><a href='https://eps.ac-creteil.fr/' target='_blank'>Dossiers Contentieux &amp; FAQ Juridique – Académie de Créteil</a></li>
+                <li><a href='https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006071191/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Accès direct : Code de l'Éducation Intégral (Légifrance)</a></li>
+                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Article L. 911-4 : Substitution de la responsabilité de l'État (Loi de 1937)</a></li>
+                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail Réglementaire EPS – Académie d'Aix-Marseille</a></li>
                 </ul>
                 """
                 texte_final = texte_final.strip() + liens_fixes_publics

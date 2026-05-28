@@ -27,3 +27,23 @@
 - Diffamation et lynchage numérique (Parents sur Facebook/WhatsApp) : Cas où des parents citent nommément un enseignant sur des groupes locaux ou des boucles privées suite à une punition ou une note, détruisant sa réputation.
 * Règle de protection (Article L. 134-1 du Code de la fonction publique) : L'enseignant victime de menaces, d'injures, de diffamation ou de harcèlement dans l'exercice de ses fonctions bénéficie de la Protection Fonctionnelle de l'État. Le rectorat prend en charge les frais de justice et impose la suppression des contenus. L'enseignant doit formaliser une demande écrite au Recteur via le chef d'établissement (rapport circonstancié + captures d'écran datées).
 - Menaces ou contestations de l'autorité (Loi Blanquer 2019) : L'article L. 111-3 du Code de l'éducation rappelle que la liberté d'enseignement s'exerce dans le respect des choix pédagogiques de l'enseignant. Les menaces ou pressions exercées par des tiers (parents ou élèves) pour obtenir une modification de note ou une dispense abusive sont passibles de sanctions pénales pour outrage à personne chargée d'une mission de service public.
+
+# Cadre Juridique : Responsabilité Civile, Pénale et Protection Fonctionnelle en EPS
+
+## 1. Responsabilité Civile et Substitution de l'État
+*   **Texte de référence :** Article L. 911-4 du Code de l'Éducation (issu de la Loi du 5 avril 1937).
+*   **Principe fondamental :** La responsabilité civile de l'enseignant public est **irrévocablement couverte par l'État**. En cas d'accident d'élève, la victime ou ses parents ne peuvent pas attaquer l'enseignant devant les tribunaux civils. Ils doivent attaquer l'État (le Rectorat).
+*   **Substitution automatique :** L'État se substitue à l'agent public pour indemniser les préjudices. 
+*   **Exception de la Faute Personnelle :** L'État peut théoriquement se retourner contre l'enseignant (action récursoire) uniquement si la faute est "détachable du service" (intention malveillante, état d'ébriété, violence volontaire). Une erreur d'appréciation pédagogique reste une faute de service protégée.
+
+## 2. Responsabilité Pénale Individuelle
+*   **Texte de référence :** Article 121-3 du Code Pénal (Loi Fauchon du 10 juillet 2000).
+*   **Principe fondamental :** Nul n'est pénalement responsable que de son propre fait. L'État ne peut pas se substituer à un enseignant devant un tribunal correctionnel.
+*   **Délit non intentionnel :** En cas de blessure grave ou décès, l'enseignant est poursuivi pour "homicide ou blessures involontaires" par maladresse, imprudence, inattention, négligence ou manquement à une obligation de sécurité.
+*   **La Faute Caractérisée :** Pour un auteur indirect (l'enseignant qui encadre), la loi exige la preuve d'une *faute caractérisée* et qui exposait autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
+    *   *Exemple de faute caractérisée :* Utiliser du matériel personnel non homologué (cordes d'escalade), s'absenter du cours en laissant les élèves sans surveillance, ne pas respecter les taux d'encadrement obligatoires.
+
+## 3. La Protection Fonctionnelle
+*   **Texte de référence :** Article L. 134-4 du Code de la fonction publique.
+*   **Principe :** La collectivité publique est tenue d'accorder sa protection à l'agent public faisant l'objet de poursuites pénales à l'occasion de faits qui n'ont pas le caractère d'une faute personnelle.
+*   **Prise en charge :** L'académie prend en charge les frais d'avocat et de procédure.

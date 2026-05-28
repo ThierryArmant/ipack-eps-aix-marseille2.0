@@ -719,7 +719,11 @@ if prompt:
                 "<h3>3. PROTECTION ET RECOURS</h3>\n"
                 "<ul><li>Procédure administrative de protection de l'agent.</li></ul>\n"
                 "<h3>4. RÉFÉRENCES ET LIENS DIRECTS</h3>\n"
-                "<ul><li>Tu dois lister les liens réels trouvés dans le contexte sous cette forme exacte : <code><a href='URL_REELLE' target='_blank' style='color: #FFB020 !important; text-decoration: underline;'>Nom du texte officiel</a></code>. Si aucun lien réel n'est présent, écris : 'Source non trouvée dans la base officielle'.</li></ul>\n\n"
+                "<ul>\n"
+                "<li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Code de l'Éducation - Article L. 911-4 (Loi de 1937)</a></li>\n"
+                "<li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Site EPS Aix-Marseille (Textes Réglementaires)</a></li>\n"
+                "<li><a href='https://eps.ac-creteil.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Site EPS Créteil (FAQ Jurisprudence)</a></li>\n"
+                "</ul>\n\n"
                 f"Contexte juridique extrait : {extraits_doc}\n"
                 f"Question de l'agent : {prompt}"
             )

@@ -558,7 +558,7 @@ if prompt:
             pass
         
         # ------------------------------------------------------------------
-        # 1. MOTEUR WEB (Tavily) - CASCADE HARMONISÉE (LÉGIFRANCE RETIRÉ)
+        # 1. MOTEUR WEB (Tavily) - CASCADE SANS LÉGIFRANCE
         # ------------------------------------------------------------------
         if tavily_api_key:
             try:
@@ -589,10 +589,8 @@ if prompt:
                         f"OR \"journal officiel\" OR \"responsabilité\""
                     )
                     
-                    # 🎯 RETRAIT DE LEGIFRANCE DES RECHERCHES WEB POUR ÉVITER LES LIENS MORTS
+                    # 🎯 PURGE RADICALE : Aucun domaine Légifrance ici
                     domains = [
-                        "conseil-etat.fr", 
-                        "courdecassation.fr", 
                         "education.gouv.fr", 
                         "eduscol.education.gouv.fr", 
                         "eps.ac-creteil.fr",
@@ -613,7 +611,6 @@ if prompt:
                     requete_blindee = f"EPS {prompt} référentiel compétences officielles"
                     domains = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr"]
 
-                # Exécuteur global Tavily (Exécution unique harmonisée)
                 if not tavily_deja_execute:
                     payload = {
                         "api_key": tavily_api_key, 
@@ -653,7 +650,7 @@ if prompt:
                 pass
 
         # ------------------------------------------------------------------
-        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA
+        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA (BANNISSEMENT DE LEGIFRANCE)
         # ------------------------------------------------------------------
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
@@ -667,8 +664,6 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert technique officiel de l'application iPackEPS.\n"
-                "MISSION : Résolution de pannes, saisie de notes CCF, et protocole de gestion des certificats médicaux d'inaptitude.\n"
-                "STRUCTURE TECHNIQUE OBLIGATOIRE :\n"
                 "### 1. DIAGNOSTIC TECHNIQUE\n"
                 "### 2. PROCÉDURE DE RÉSOLUTION\n"
                 "### 3. ALERTES & SUIVI CCF\n\n"
@@ -680,9 +675,7 @@ if prompt:
         elif mode == "examens":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert officiel de la réglementation des examens EPS (DNB, Baccalauréat) et de la plateforme Santorin/Cyclades. Session 2026 (Date limite impérative : 30 mai 2026).\n"
-                "MISSION : Encadrer la notation numérique, la distribution des lots de copies et la gestion des absences ou dysfonctionnements.\n"
-                "STRUCTURE ADMINISTRATIVE OBLIGATOIRE :\n"
+                "ROLE : Expert officiel de la réglementation des examens EPS (DNB, Baccalauréat) et de la plateforme Santorin/Cyclades.\n"
                 "### 1. CADRAGE RÉGLEMENTAIRE EXAMEN\n"
                 "### 2. MANIPULATION PLATAFORME (SANTORIN/CYCLADES)\n"
                 "### 3. ACTIONS JURY ACADÉMIQUE\n\n"
@@ -694,18 +687,17 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
-                "MISSION : Tu analyses la question en t'appuyant sur les textes officiels présents dans le contexte. Tu explores méticuleusement le contexte pour en extraire le plus d'informations possibles.\n"
+                "MISSION : Tu analyses la question en t'appuyant sur les textes officiels présents dans le contexte.\n"
                 "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
                 "CONSIGNE DE FORMATAGE IMPÉRATIVE (MARKDOWN BRUT) :\n"
-                "Rédige exclusivement en Markdown standard. N'utilise AUCUNE balise HTML (Pas de <h3>, pas de <ul>, pas de <a>). Utilise des titres de section commençant uniquement par '### '.\n"
-                "Pour CHAQUE texte, loi, ou circulaire évoqué, tu as l'obligation absolue de l'insérer sous forme de lien Markdown standard : [Nom précis du texte](URL).\n"
-                "🎯 SÉCURITÉ DES ENTRÉES : N'utilise jamais le site racine général de Légifrance. Si l'URL spécifique n'apparaît pas clairement, redirige de force vers l'arborescence officielle du Code de l'Éducation (https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006071191/), ou vers Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).\n\n"
+                "Rédige exclusivement en Markdown standard. N'utilise AUCUNE balise HTML. Utilise des titres de section commençant uniquement par '### '.\n"
+                "Pour CHAQUE texte, loi, ou circulaire évoqué, insère-le sous forme de lien Markdown standard : [Nom du texte](URL).\n"
+                "❌ INTERDICTION ABSOLUE : Ne cite et n'utilise JAMAIS le site ou les liens vers Légifrance. Si un texte a été trouvé, pointe obligatoirement vers le portail institutionnel d'Aix-Marseille (http://www.eps.ac-aix-marseille.fr) ou de Créteil (https://eps.ac-creteil.fr) qui gèrent les fiches de synthèse réglementaires.\n\n"
                 "STRUCTURE ATTENDUE :\n"
                 "### 1. TEXTES OFFICIELS ET CADRE JURIDIQUE\n"
                 "### 2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE\n"
                 "### 3. PROTECTION ET RECOURS\n"
-                "### 4. RÉFÉRENCES ET LIENS DE RECHERCHE\n"
-                "Dresse la liste des textes cités sous forme de puces avec leurs liens Markdown obligatoires.\n\n"
+                "### 4. RÉFÉRENCES ET LIENS DE RECHERCHE\n\n"
                 f"Contexte juridique extrait : {extraits_doc}\n"
                 f"Question de l'agent : {prompt}"
             )
@@ -736,7 +728,6 @@ if prompt:
 
             consigne_ia = (
                 f"ROLE : Assistant technique d'extraction institutionnelle EPS. Interdiction absolue de concevoir des fiches locales.\n"
-                f"STRUCTURE FINALE EXCLUSIVEMENT EN BALISES HTML (Pas de Markdown) :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
                 f"<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
@@ -757,7 +748,7 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Interception et conversion automatique et sécurisée de TOUS les liens Markdown (Couleur forcée Orange)
+        # Interception et conversion automatique et sécurisée de TOUS les liens Markdown (Couleur Orange Forcée)
         texte_brut = re.sub(
             r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
             r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
@@ -771,14 +762,14 @@ if prompt:
             texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
             texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
             
-            # Sécurité d'injection : Pointage direct vers le Code de l'Éducation en Section 5 permanente
+            # Injection Python sécurisée : Uniquement des liens académiques immuables, aucun lien Légifrance
             if mode == "textes":
                 liens_fixes_publics = """
-                <br><h3>5. RECOURS & LIENS INSTITUTIONNELS PERMANENTS</h3>
+                <br><h3>5. RECOURS & LIENS INSTITUTIONNELS ACADÉMIQUES</h3>
                 <ul>
-                <li><a href='https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006071191/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Accès direct : Code de l'Éducation Intégral (Légifrance)</a></li>
-                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Article L. 911-4 : Substitution de la responsabilité de l'État (Loi de 1937)</a></li>
-                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail Réglementaire EPS – Académie d'Aix-Marseille</a></li>
+                <li><a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Fiches Textes de Référence &amp; Responsabilité – Académie d'Aix-Marseille</a></li>
+                <li><a href='https://eps.ac-creteil.fr/spip.php?rubrique7' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Dossiers Juridiques &amp; Accidents Sécurité – Académie de Créteil</a></li>
+                <li><a href='https://eduscol.education.gouv.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail National d'Information Éduscol (Sécurité des élèves)</a></li>
                 </ul>
                 """
                 texte_final = texte_final.strip() + liens_fixes_publics

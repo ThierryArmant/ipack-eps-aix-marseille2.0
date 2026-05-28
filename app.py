@@ -63,7 +63,7 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Utilisation d'une chaîne classique sans "f" pour utiliser des accolades CSS normales { }
+# Utilisation d'une chaîne classique sans f-string pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -226,7 +226,7 @@ css_pur = """
         white-space: normal !important;
     }
     
-    /* BOUTON NETTOYER - Protection contre l'alignement des boutons du haut */
+    /* BOUTON NETTOYER */
     div.element-container:has(.nettoyer-wrapper) + div.element-container button {
         background-color: rgba(220, 38, 38, 0.45) !important;
         color: #FFFFFF !important;
@@ -263,7 +263,7 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
+    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (STRICT INSTITUTIONNEL) */
     .peda-card h3 {
         font-size: 15px !important; 
         margin-top: 14px !important; 
@@ -371,9 +371,9 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permits à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
-            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
+            Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' puis cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
             metadata={"title": "Fiche Mémo - Correction Partagée Santorin", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"}
         ),
@@ -389,7 +389,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -411,7 +411,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS is the official application for managing PE evaluations and CCF.""",
+            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -427,8 +427,8 @@ def initialiser_base_ipack(cle_fremt):
         ),
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
-            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procedure is de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks the automatic calculation. Le dossier est transmis au Jury Académique via Cyclades.
+            1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -482,14 +482,14 @@ st.markdown(f"""
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
-    "peda": "🔍 Mode Actif : Questions Pédagogiques, Didactiques & Pratiques de Terrain",
+    "peda": "🔍 Mode Actif : Référentiels Institutionnels, APSA & Textes de Cadrage BO",
     "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 if "active_module" not in st.session_state:
     st.session_state.active_module = "peda"
 
-titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Questions Pédagogiques")
+titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Actif : Référentiels Institutionnels")
 
 st.markdown(f"""
     <div class="column-title-top">
@@ -516,7 +516,7 @@ with col_b2:
         st.rerun()
 
 with col_b3:
-    if st.button("🔍 Pédagogie &\nDidactique", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "peda" else "secondary"):
+    if st.button("🔍 Cadrage &\nRéférentiels", use_container_width=True, key="btn_ge", type="primary" if st.session_state.active_module == "peda" else "secondary"):
         st.session_state.active_module = "peda"
         st.session_state.messages_hub = []
         st.rerun()
@@ -528,7 +528,7 @@ with col_b4:
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES AVEC BANDEAU D'AIGUILLAGE PIERRE
+# 7B. MESSAGES D'AVERTISSEMENT DYNAMIQUES 
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -543,7 +543,7 @@ elif st.session_state.active_module == "peda":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            💡 <strong>Exemples de recherches dans cet onglet :</strong> Projets pédagogiques, compétences visées, fonctionnement de l'AS / UNSS, gestion de classe, ressources par APSA, projets transversaux (SRE, Savoir Rouler, etc.).
+            💡 <strong>Rappel Institutionnel :</strong> Cet onglet extrait exclusivement les Champs d'Apprentissage (CA), compétences et Attendus des Bulletins Officiels (BO). La liberté pédagogique, la création de fiches locales et les choix de notation restent sous l'entière responsabilité des équipes d'établissement.
         </span>
     </div>
     """, unsafe_allow_html=True)
@@ -597,7 +597,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA 
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -622,7 +622,6 @@ domaine_eps_france = [
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    # Le spinner englobe bien toute la chaîne de traitement
     with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
@@ -648,7 +647,6 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    # Le nettoyage agressif est STRICTEMENT réservé au juridique ici
                     mot_cle = prompt.lower()
                     expressions_inutiles = [
                         "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
@@ -696,11 +694,11 @@ if prompt:
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    requete_blindee = f"{prompt} programme officiel EPS attendus de fin de cycle"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
-                    requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
+                    requete_blindee = f"{prompt} EPS programme officiel"
                     domains = domaine_eps_france
                 
                 else:
@@ -724,7 +722,7 @@ if prompt:
             except: 
                 pass
 
-        # 2. CONTEXTE LOCAL (Restauration complète de ta logique d'hier matin avec prompt)
+        # 2. CONTEXTE LOCAL 
         if openai_api_key:
             try:
                 if mode == "examens":
@@ -742,36 +740,34 @@ if prompt:
                         for n in retriever_peda.retrieve(prompt + " AFL Lycée"):
                             extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
                     else:
-                        for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"):
-                            extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
+                        for n in retriever_peda.retrieve(prompt + " Collège programmes"):
+                            extraits_doc += f"Base collège (Programmes) : {n.node.text}\n\n"
             except: 
                 pass
 
         # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
+            "\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
             "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
             "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
             "### 1. ANALYSE DES RISQUES\n"
-            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Bloquer l'export d'examen** : explications).\n\n"
+            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque.\n\n"
             "### 2. PROCÉDURE TECHNIQUE\n"
             "- Déroule les actions de terrain de manière chronologique.\n"
             "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
-            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle (ex: **[Mes Élèves]**, **[Saisir une inaptitude]**).\n"
-            "- S'il y a une interdiction absolue ou un point de sécurité critique, isole-le avec un émoji visible (ex: ⚠️ **ALERTE SÉCURITÉ** : ...).\n\n"
+            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle.\n\n"
             "### 3. PROTECTION FONCTIONNELLE\n"
-            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras (ex: 📁 **Traçabilité** : rappel de la couverture juridique).\n\n"
-            "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
+            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
+            "Priorité maximale à la scannabilité graphique immédiate."
         )
         badge = "INFORMATION"
         color_card = "general-card"
 
-        # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
-        consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale sur le Web et le RAG) :\n{verites_terrain_pierre}\n\n"
+        # Injection automatique des vérités de Pierre en tête de chaque prompt
+        consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
 
         if mode == "ipack":
-            # 1. Définition des sources officielles iPackEPS en dur
             liens_utiles = {
                 "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
                 "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
@@ -781,7 +777,6 @@ if prompt:
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
 
-            # 2. Analyse dynamique des mots-clés
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
@@ -796,7 +791,6 @@ if prompt:
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
-            # 3. Construction de la consigne IA ultra-verrouillée
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
@@ -808,7 +802,7 @@ if prompt:
                 "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
                 "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
                 "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
-                "🎯 CAS BLINDÉS CONFIGURÉS (A COPIER-COLLER CONFORMÉMENT À LA BIBLE DE PIERRE) :\n\n"
+                "🎯 CAS BLINDÉS CONFIGURÉS :\n\n"
                 "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
@@ -866,11 +860,11 @@ if prompt:
                 "### 1. ANALYSE DES RISQUES\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION AND VERROUS ABSOLUS :\n"
+                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
                 "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
-                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT (CHRONOLOGIE STRICTE PIERRE) :\n"
+                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
@@ -897,24 +891,22 @@ if prompt:
 
         elif mode == "peda":
             # ======================================================================
-            # 1. DÉTECTION DU NIVEAU (COLLÈGE VS LYCÉE) - PROTECTION SÉMANTIQUE
+            # VRAIE REFONTE INSTITUTIONNELLE CADRÉE ET SÉCURISÉE (CONFORME IPR)
             # ======================================================================
             prompt_lower = prompt.lower()
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
             
             niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
-            label_competence = "Compétences d'Échauffement et d'Entraînement" if est_lycee else "Compétences visées pendant le cycle"
+            label_competence = "Axe des compétences visées"
 
-            # ======================================================================
-            # 2. ROUTAGE DES CONTENUS PAR CHAMP D'APPRENTISSAGE
-            # ======================================================================
-            ca_nom = "CA1 (Performance optimale)"
+            # 1. Routage des contenus par Champ d'Apprentissage (BO)
+            ca_nom = "CA1 (Performance optimale à une échéance donnée)"
             if est_lycee:
                 ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
-                ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux."
+                ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
                 ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
@@ -924,7 +916,7 @@ if prompt:
                     ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
-                    ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire et co-arbitrer."
+                    ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
                     ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
             # Détection CA3 (Artistique / Acrobatique)
@@ -934,14 +926,14 @@ if prompt:
                     ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
-                    ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer au projet du groupe."
-                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion. Utiliser des procédés simples de composition."
+                    ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
+                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
 
-            # Détection CA5 (Entretien / Santé - Réservé Exclusivement au Lycée)
+            # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, chorégraphie d'intensité en step, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade et respecter son projet."
-                ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
+                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
+                ca_competences = "Identifier ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
             # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
@@ -950,56 +942,49 @@ if prompt:
                     ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
                     ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique. Adapter sa vitesse au relief. Respecter la charte éco-citoyenne."
                 else:
-                    ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour un parcours sécurisé. Assurer la sécurité."
-                    ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement et le retour. Évaluer les risques."
+                    ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour assurer un parcours sécurisé. Assurer la sécurité du groupe."
+                    ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement ainsi que le retour. Évaluer les risques."
 
-            # ======================================================================
-            # 3. DIRECTIVES DE RÉDACTION POUR L'IA (MÉMOIRE LIÉE AU NIVEAU)
-            # ======================================================================
+            # Extraction du mot-clé APSA pour les liens automatisés
+            mots_apsa = ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "gym", "acro", "danse", "step", "muscu", "fitness", "escalade", "orientation", "vtt", "kayak", "relais", "natation"]
+            apsa_trouvee = "eps"
+            for m in mots_apsa:
+                if m in prompt_lower:
+                    apsa_trouvee = m
+                    break
+
+            # Consigne IA d'extraction factuelle pure (Interdiction de concevoir)
             consigne_ia = (
-                f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
-                f"Tu rédiges une fiche de cycle complète pour le niveau : {niveau_affiche}.\n"
+                f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
+                f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"
+                f"Tu ne dois JAMAIS concevoir ou proposer de fiches pédagogiques locales, de sujets de concours, de grilles d'évaluation chiffrées, de barèmes ou de programmations de cycles/séances. La création pratique de ces contenus relève de la responsabilité exclusive des équipes et de leur autonomie pédagogique.\n"
+                f"Ton rôle se limite à rappeler les bases réglementaires nationales du Bulletin Officiel pour l'activité mentionnée.\n\n"
                 f"CHAMP CIBLÉ : {ca_nom}\n"
                 f"TEXTE OFFICIEL À INJECTER : {ca_attendus}\n"
                 f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
-                "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
-                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', affiche textuellement le texte officiel fourni ci-dessus sans modifier une seule virgule.\n"
-                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE', adapte la complexité au niveau demandé (Lycée = plus d'autonomie, choix de mobiles ou tactiques, Collège = plus guidé). Lie précisément la situation aux Domaines du Socle (si collège) ou aux AFL méthodologiques (si Lycée).\n"
-                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points. S'il s'agit du Lycée, segmente clairement la notation selon les AFL (ex: AFL1 sur 12 pts, AFL2 sur 4 pts, AFL3 sur 4 pts) avec des observables moteurs hyper précis de niveau Lycée.\n"
-                "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
                 "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
                 "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
                 "RÈGLE DES LIENS RECHERCHE DYNAMIQUES :\n"
-                "Génère obligatoirement les 4 liens HTML exacts ci-dessous (NOM_APSA en minuscules, DOMAINE1 à remplacer par un vrai serveur académique).\n"
-                "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
-                "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
-                "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
-                "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
+                f"Génère obligatoirement les 4 liens HTML exacts ci-dessous en remplaçant NOM_APSA par '{apsa_trouvee}'.\n"
+                f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>\n"
+                f"2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+{apsa_trouvee}' target='_blank'>🎥 {apsa_trouvee.upper()} - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
+                f"3. <a href='https://www.google.com/search?q=site:education.gouv.fr+{apsa_trouvee}+bulletin+officiel' target='_blank'>🌐 {apsa_trouvee.upper()} - Bulletins Officiels Nationaux sur éducation.gouv.fr</a><br>\n"
+                f"4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a><br>\n\n"
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
-                "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
-                f"<strong>Activité : [Nom] | Champ d'Apprentissage ({ca_nom.split(' ')[0]}) | Niveau : {niveau_affiche}</strong><br><br>"
-                "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
+                f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
+                f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
+                "<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
                 "<ul>"
                 f"<li><strong>{label_attendu} :</strong><br>" + ca_attendus + "</li>"
                 f"<li><strong>{label_competence} :</strong><br>" + ca_competences + "</li>"
                 "</ul>"
-                "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>[Intentions tactiques et transformations motrices]</li></ul>"
-                "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3><ul><li>[Consignes de sécurité passive et active]</li></ul>"
-                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE</h3>"
-                "<ul>"
-                "<li><strong>Dispositif et aménagement du milieu :</strong> [Description]</li>"
-                "<li><strong>Règles du jeu et score parlant :</strong> [Consignes]</li>"
-                "<li><strong>Ciblage des compétences :</strong> [Détailler comment la situation valide les AFL ou domaines ciblés]</li>"
-                "</ul>"
-                "<h3>📅 PROGRESSION CHRONOLOGIQUE DU CYCLE (6 À 8 SÉANCES)</h3>"
-                "<ul><li>[Progression détaillée de la séance 1 à la séance 8]</li></ul>"
-                "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
-                "<ul><li>[Découpage chiffré précis et observables de terrain]</li></ul>"
-                "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDEOS</h3>"
-                "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
+                "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
+                "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
+                "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )
-            badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+            badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
         # 4. EXÉCUTION ET RENDU HTML
         response = Settings.llm.complete(consigne_ia)
@@ -1012,9 +997,6 @@ if prompt:
         if mode == "peda":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
-        elif mode == "textes":
-            texte_final = texte_brut.replace(chr(10), "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
         else:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'

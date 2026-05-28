@@ -371,7 +371,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permits à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permits à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' then cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -696,12 +696,10 @@ if prompt:
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    # Sanctuarisation de ta structure d'origine
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
                 elif est_demande_fiche:
-                    # Sanctuarisation de ta structure d'origine
                     requete_blindee = f"{prompt} évaluation fiche filetype:pdf"
                     domains = domaine_eps_france
                 
@@ -734,12 +732,18 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    # On applique mot_cle ici uniquement pour cibler le texte de loi local sans fioritures
                     mot_cle_local = prompt.lower()
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                    prompt_lower = prompt.lower()
+                    est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+                    if est_lycee:
+                        for n in retriever_peda.retrieve(prompt + " AFL Lycée"):
+                            extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
+                    else:
+                        for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"):
+                            extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
             except: 
                 pass
 
@@ -763,8 +767,7 @@ if prompt:
         badge = "INFORMATION"
         color_card = "general-card"
 
-        
-       # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
+        # Injection automatique des vérités de Pierre en tête de chaque prompt pour le forcer à respecter tes fichiers concrets
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale sur le Web et le RAG) :\n{verites_terrain_pierre}\n\n"
 
         if mode == "ipack":
@@ -778,7 +781,7 @@ if prompt:
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
 
-            # 2. Analyse dynamique des mots-clés (Mise à jour avec Certificat/Médical)
+            # 2. Analyse dynamique des mots-clés
             liens_selectionnes = []
             prompt_lower = prompt.lower()
             
@@ -830,7 +833,7 @@ if prompt:
                 "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
-                "⚠️ **RÈGLE D'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
+                "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
@@ -894,95 +897,105 @@ if prompt:
 
         elif mode == "peda":
             # ======================================================================
-            # 1. ROUTAGE SÉMANTIQUE EN PYTHON (SÉCURITÉ ANTI-HALLUCINATION DE CHAMP)
+            # 1. DÉTECTION DU NIVEAU (COLLÈGE VS LYCÉE) - PROTECTION SÉMANTIQUE
             # ======================================================================
-            ca_nom = "CA1 (Produire une performance optimale, mesurable à une échéance donnée)"
-            ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. S'engager dans un programme de préparation ou d'entraînement. Planifier et réaliser une épreuve combinée. Assumer les rôles sociaux (juge, chronométreur...)."
-            ca_competences = "Gérer ses ressources pour billionaire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement. Maîtriser les rôles officiels de mesure et de validation."
-            
             prompt_lower = prompt.lower()
+            est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+            
+            niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
+            label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
+            label_competence = "Compétences d'Échauffement et d'Entraînement" if est_lycee else "Compétences visées pendant le cycle"
+
+            # ======================================================================
+            # 2. ROUTAGE DES CONTENUS PAR CHAMP D'APPRENTISSAGE
+            # ======================================================================
+            ca_nom = "CA1 (Performance optimale)"
+            if est_lycee:
+                ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
+                ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
+            else:
+                ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux."
+                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
-                ca_nom = "CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel)"
-                ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force en sa faveur ou celle de son équipe. Adapter son engagement moteur au rapport de force pour l'inverser. Être solidaire de ses partenaires et respectueux de ses adversaires et de l'arbitre. Observer et co-arbitrer. Accepter le résultat de la rencontre et savoir l'analyser objectivement."
-                ca_competences = "Rechercher le gain de la rencontre par la mise en œuvre d'un projet prenant en compte les caractéristiques du rapport de force. Utiliser au mieux ses ressources physiques et de motricité pour gagner en efficacité dans une situation d'opposition donnée et répondre aux contraintes de l'affrontement. S'adapter rapidement au changement de statut défenseur/attaquant. Co-arbitrer une séquence de match (de combat). Anticiper la prise et le traitement d'information pour enchaîner des actions. Se mettre au service de l'autre pour lui permettre de progresser."
+                ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
+                if est_lycee:
+                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
+                    ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
+                else:
+                    ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire et co-arbitrer."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
             # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
-                ca_nom = "CA3 (Réaliser une prestation corporelle à visée artistique ou acrobatique)"
-                ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement, au sein d'un groupe, à l'élaboration et à la réalisation d'un projet artistique et/ou acrobatique. Apprécier des prestations de manière argumentée, en référence à des supports d'observation et des critères choisis ou construits."
-                ca_competences = "Élaborer et réaliser, seul ou à plusieurs, un projet artistique et/ou acrobatique pour provoquer une émotion du public. Utiliser des procédés simples de composition et de coordination. Construire un regard critique sur ses prestations et celles des autres, en utilisant le numérique. S'engager : maîtriser les risques, dominer ses appréhensions."
+                ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
+                if est_lycee:
+                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
+                    ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
+                else:
+                    ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer au projet du groupe."
+                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion. Utiliser des procédés simples de composition."
 
-            # Détection CA5 (Entretien / Santé)
+            # Détection CA5 (Entretien / Santé - Réservé Exclusivement au Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet d'entretien.<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster ses charges et récupérations selon des indicateurs précis.<br>AFL 3 (Social) : Assumer le rôle de partenaire d'entraînement (conseiller, observer, parer) et respecter son projet."
+                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, chorégraphie d'intensité en step, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade et respecter son projet."
                 ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
             # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
-                ca_nom = "CA2 (Adapter ses déplacements à des environnements variés)"
-                ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou un environnement de nature recréé. Gérer ses ressources pour réaliser la totalité d'un parcours sécurisé. Assurer la sécurité de son camarade. Respecter et faire respecter les règles de sécurité spécifiques."
-                ca_competences = "Choisir et conduire un déplacement adapté aux caractéristiques du milieu. Prévoir et gérer son déplacement et le retour au point de départ. Respecter et faire respecter les règles de sécurité et l'environnement. Analyser ses choix a posteriori de l'action. Évaluer les risques et apprendre à renoncer."
+                ca_nom = "CA2 (Environnements variés)"
+                if est_lycee:
+                    ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
+                    ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique. Adapter sa vitesse au relief. Respecter la charte éco-citoyenne."
+                else:
+                    ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour un parcours sécurisé. Assurer la sécurité."
+                    ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement et le retour. Évaluer les risques."
 
             # ======================================================================
-            # 2. CONTEXTE ET CONSIGNE IA COMPACTE ET NETTOYÉE
+            # 3. DIRECTIVES DE RÉDACTION POUR L'IA (MÉMOIRE LIÉE AU NIVEAU)
             # ======================================================================
             consigne_ia = (
                 f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
-                f"Tu rédiges une fiche de cycle pour l'activité demandée qui appartient AU CHAMP SUIVANT :\n"
-                f"CHAMP D'APPRENTISSAGE CIBLÉ : {ca_nom}\n"
-                f"ATTENDUS DE FIN DE CYCLE À RECOPIER INTERNEMENT : {ca_attendus}\n"
-                f"COMPÉTENCES DE CYCLE À RECOPIER INTERNEMENT : {ca_competences}\n\n"
-                
+                f"Tu rédiges une fiche de cycle complète pour le niveau : {niveau_affiche}.\n"
+                f"CHAMP CIBLÉ : {ca_nom}\n"
+                f"TEXTE OFFICIEL À INJECTER : {ca_attendus}\n"
+                f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
                 "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
-                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', applique fidèlement et sans paraphrase les attendus et compétences du champ fournis ci-dessus.\n"
-                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE ET DE TEST', lie explicitement le dispositif aux Domaines du Socle (ex: comment les règles valident le Domaine 2 ou 3 via le co-arbitrage ou l'auto-évaluation).\n"
-                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points découpé selon les 4 niveaux du socle. Donne obligatoirement pour chaque niveau au moins 2 OBSERVABLES MOTEURS spécifiques à l'activité.\n"
+                "1. Dans la section 'ANCRAGE INSTITUTIONNEL', affiche textuellement le texte officiel fourni ci-dessus sans modifier une seule virgule.\n"
+                "2. Dans la section 'SITUATIONS D'APPRENTISSAGE', adapte la complexité au niveau demandé (Lycée = plus d'autonomie, choix de mobiles ou tactiques, Collège = plus guidé). Lie précisément la situation aux Domaines du Socle (si collège) ou aux AFL méthodologiques (si Lycée).\n"
+                "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points. S'il s'agit du Lycée, segmente clairement la notation selon les AFL (ex: AFL1 sur 12 pts, AFL2 sur 4 pts, AFL3 sur 4 pts) avec des observables moteurs hyper précis de niveau Lycée.\n"
                 "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
-                
                 "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
-                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes. Pas de tirets.\n\n"
-                
-                "RÈGLE DES LIENS DE RECHERCHE DYNAMIQUES (ANTI-LIENS MORTS) :\n"
-                "Génère obligatoirement les 4 liens HTML exacts ci-dessous. Remplace 'NOM_APSA' par l'activité en minuscules. Remplace 'DOMAINE1' par un serveur de la liste (ex: eps.ac-normandie.fr ou eps.ac-creteil.fr) et '[Nom1]' par le nom de l'académie correspondante. INTERDICTION de laisser les variables brutes.\n"
+                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
+                "RÈGLE DES LIENS RECHERCHE DYNAMIQUES :\n"
+                "Génère obligatoirement les 4 liens HTML exacts ci-dessous (NOM_APSA en minuscules, DOMAINE1 à remplacer par un vrai serveur académique).\n"
                 "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
                 "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
                 "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
                 "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
-                
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
-                "<strong>Activité : [Nom] | Champ d'Apprentissage (CA1/CA2/CA3/CA4) | Niveau : Cycle 4 (Collège)</strong><br><br>"
-                "<h3>🌐 ANCRAGE INSTITUTIONNEL (MATRICE PROGRAMMES 2015)</h3>"
+                f"<strong>Activité : [Nom] | Champ d'Apprentissage ({ca_nom.split(' ')[0]}) | Niveau : {niveau_affiche}</strong><br><br>"
+                "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
                 "<ul>"
-                "<li><strong>Attendus de Fin de Cycle 4 spécifiques au Champ :</strong><br>" + ca_attendus + "</li>"
-                "<li><strong>Compétences visées pendant le cycle :</strong><br>" + ca_competences + "</li>"
+                f"<li><strong>{label_attendu} :</strong><br>" + ca_attendus + "</li>"
+                f"<li><strong>{label_competence} :</strong><br>" + ca_competences + "</li>"
                 "</ul>"
                 "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>[Intentions tactiques et transformations motrices]</li></ul>"
                 "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3><ul><li>[Consignes de sécurité passive et active]</li></ul>"
-                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE (ALIGNÉE SOCLE & COMPÉTENCES)</h3>"
+                "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE</h3>"
                 "<ul>"
-                "<li><strong>Dispositif et aménagement du milieu :</strong> [Description précise]</li>"
-                "<li><strong>Règles du jeu et score parlant :</strong> [Expliquer les consignes et le décompte]</li>"
-                "<li><strong>Lien explicite avec les Domaines du Socle :</strong> [Détailler impérativement comment cette situation valide concrètement les Domaines du Socle via les comportements attendus]</li>"
+                "<li><strong>Dispositif et aménagement du milieu :</strong> [Description]</li>"
+                "<li><strong>Règles du jeu et score parlant :</strong> [Consignes]</li>"
+                "<li><strong>Ciblage des compétences :</strong> [Détailler comment la situation valide les AFL ou domaines ciblés]</li>"
                 "</ul>"
                 "<h3>📅 PROGRESSION CHRONOLOGIQUE DU CYCLE (6 À 8 SÉANCES)</h3>"
-                "<ul>"
-                "<li><strong>Séance 1 (Évaluation diagnostique) :</strong> [Contenu]</li>"
-                "<li><strong>Séances 2 à 4 (Bloc d'apprentissage - Phase 1) :</strong> [Contenu]</li>"
-                "<li><strong>Séances 5 à 6 (Perfectionnement - Phase 2) :</strong> [Contenu]</li>"
-                "<li><strong>Séances 7 à 8 (Évaluation sommative protocolée) :</strong> [Contenu]</li>"
-                "</ul>"
+                "<ul><li>[Progression détaillée de la séance 1 à la séance 8]</li></ul>"
                 "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
-                "<ul>"
-                "<li><strong>Maîtrise Très Bonne (16 à 20 pts) :</strong> [2 observables moteurs précis]</li>"
-                "<li><strong>Maîtrise Satisfaisante (10 à 15 pts) :</strong> [2 observables moteurs précis]</li>"
-                "<li><strong>Maîtrise Fragile (6 à 9 pts) :</strong> [2 observables moteurs précis]</li>"
-                "<li><strong>Maîtrise Insuffisante (1 à 5 pts) :</strong> [2 observables moteurs précis]</li>"
-                "</ul>"
-                "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDÉOS</h3>"
+                "<ul><li>[Découpage chiffré précis et observables de terrain]</li></ul>"
+                "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDEOS</h3>"
                 "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )

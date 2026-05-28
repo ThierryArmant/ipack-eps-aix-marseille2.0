@@ -63,6 +63,7 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
+# Utilisation d'une chaîne classique sans f-string pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -849,7 +850,7 @@ if prompt:
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
+                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date is rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
@@ -894,7 +895,32 @@ if prompt:
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+griller la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
@@ -916,8 +942,8 @@ if prompt:
 
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire and enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
-                ca_competences = "Identify ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
+                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
+                ca_competences = "Identifier ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
                 ca_nom = "CA2 (Environnements variés)"
@@ -949,7 +975,7 @@ if prompt:
                 f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>\n"
                 f"2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+{apsa_trouvee}' target='_blank'>🎥 {apsa_trouvee.upper()} - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
                 f"3. <a href='https://www.google.com/search?q=site:education.gouv.fr+{apsa_trouvee}+bulletin+officiel' target='_blank'>🌐 {apsa_trouvee.upper()} - Bulletins Officiels Nationaux sur éducation.gouv.fr</a><br>\n"
-                f"4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiés</a><br>\n\n"
+                f"4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a><br>\n\n"
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"

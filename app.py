@@ -534,6 +534,17 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+domaine_eps_france = [
+    "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
+    "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", "eps.ac-limoges.fr", 
+    "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", "eps.ac-nantes.fr", 
+    "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", "eps.ac-poitiers.fr", 
+    "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", "eps.ac-toulouse.fr", 
+    "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", "eps.ac-martinique.fr", 
+    "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
+]
+
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
@@ -607,7 +618,7 @@ if prompt:
                 pass
 
         # ------------------------------------------------------------------
-        # 3. CONSIGNES DE L'IA : INTERDICTION ABSOLUE DE CRÉER DES LIENS (HTML OU MD)
+        # 3. CONSIGNES DE L'IA : INTERDICTION ABSOLUE DE CRÉER DES LIENS
         # ------------------------------------------------------------------
         if mode == "ipack":
             consigne_ia = (
@@ -618,7 +629,7 @@ if prompt:
                 "### 3. ALERTES & SUIVI CCF\n\n"
                 f"Données : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "🛠... PROTOCOLE IPACK", "general-card"
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif mode == "examens":
             consigne_ia = (
@@ -656,7 +667,7 @@ if prompt:
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
         # ------------------------------------------------------------------
-        # 4. EXÉCUTION DE L'IA ET INJECTION AUTOMATIQUE DES LIENS PROFONDS PAR PYTHON
+        # 4. EXÉCUTION DE L'IA ET ROUTAGE DOUBLE-COUTES + NOOPENER PAR PYTHON
         # ------------------------------------------------------------------
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
@@ -668,48 +679,48 @@ if prompt:
         texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
         texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
 
-        # ROUTAGE ET INJECTION SÉCURISÉE DES VRAIS LIENS PAR PYTHON SELON LE MODE
+        # INJECTION ULTRA-SÉCURISÉE DES ANCHORS EN DOUBLE QUOTES ET BLINDAGE DE REFERRER
         if mode == "textes":
             liens_fixes_publics = """
             <br><h3>4. RÉFÉRENCES ET LIENS DE RECHERCHE</h3>
             <ul>
-            <li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels' target='_blank'>Portail des Textes Officiels Référents – Académie d'Aix-Marseille</a></li>
-            <li><a href='https://eps.ac-creteil.fr/spip.php?rubrique7' target='_blank'>Synthèse Contentieux &amp; Jurisprudences EPS – Académie de Créteil</a></li>
+            <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels" target="_blank" rel="noopener noreferrer">Portail des Textes Officiels Référents – Académie d'Aix-Marseille</a></li>
+            <li><a href="https://eps.ac-creteil.fr/spip.php?rubrique7" target="_blank" rel="noopener noreferrer">Synthèse Contentieux &amp; Jurisprudences EPS – Académie de Créteil</a></li>
             </ul>
             <h3>5. RECOURS &amp; LIENS INSTITUTIONNELS DIRECTS</h3>
             <ul>
-            <li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels' target='_blank'>Fiches Numériques : Sécurité &amp; Responsabilité – Aix-Marseille</a></li>
-            <li><a href='https://eduscol.education.gouv.fr/' target='_blank'>Ressources Nationales de Sécurité du Service Public – Éduscol</a></li>
+            <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels" target="_blank" rel="noopener noreferrer">Fiches Numériques : Sécurité &amp; Responsabilité – Aix-Marseille</a></li>
+            <li><a href="https://eduscol.education.gouv.fr/" target="_blank" rel="noopener noreferrer">Ressources Nationales de Sécurité du Service Public – Éduscol</a></li>
             </ul>
             """
         elif mode == "examens":
             liens_fixes_publics = """
             <br><h3>4. RÉFÉRENCES ET LIENS DE RECHERCHE</h3>
             <ul>
-            <li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140964/fr/examens' target='_blank'>Cadrage Officiel et Règlements des Examens – Académie d'Aix-Marseille</a></li>
+            <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140964/fr/examens" target="_blank" rel="noopener noreferrer">Cadrage Officiel et Règlements des Examens – Académie d'Aix-Marseille</a></li>
             </ul>
             <h3>5. RECOURS &amp; LIENS INSTITUTIONNELS DIRECTS</h3>
             <ul>
-            <li><a href='https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf' target='_blank'>Manuel Numérique Santorin : Correction Partagée (PDF)</a></li>
+            <li><a href="https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf" target="_blank" rel="noopener noreferrer">Manuel Numérique Santorin : Correction Partagée (PDF)</a></li>
             </ul>
             """
         elif mode == "ipack":
             liens_fixes_publics = """
             <br><h3>4. RÉFÉRENCES ET LIENS DE RECHERCHE</h3>
             <ul>
-            <li><a href='https://eps.ac-creteil.fr/' target='_blank'>Serveur National Pilote de l'Application – Académie de Créteil</a></li>
+            <li><a href="https://eps.ac-creteil.fr/" target="_blank" rel="noopener noreferrer">Serveur National Pilote de l'Application – Académie de Créteil</a></li>
             </ul>
             <h3>5. RECOURS &amp; LIENS INSTITUTIONNELS DIRECTS</h3>
             <ul>
-            <li><a href='https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf' target='_blank'>Guide Technique d'Utilisation Interface Enseignant (PDF)</a></li>
+            <li><a href="https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf" target="_blank" rel="noopener noreferrer">Guide Technique d'Utilisation Interface Enseignant (PDF)</a></li>
             </ul>
             """
         else: # mode == "peda"
             liens_fixes_publics = """
-            <br><h3>4. RESSOUCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>
+            <br><h3>4. RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>
             <ul>
-            <li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels' target='_blank'>Programmes Officiels et Textes de Cadrage – Académie d'Aix-Marseille</a></li>
-            <li><a href='https://edubase.eduscol.education.fr/' target='_blank'>Banque Nationale d'Extraits Pédagogiques – ÉDUBASE EPS</a></li>
+            <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels" target="_blank" rel="noopener noreferrer">Programmes Officiels et Textes de Cadrage – Académie d'Aix-Marseille</a></li>
+            <li><a href="https://edubase.eduscol.education.fr/" target="_blank" rel="noopener noreferrer">Banque Nationale d'Extraits Pédagogiques – ÉDUBASE EPS</a></li>
             </ul>
             """
 

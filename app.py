@@ -63,7 +63,6 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Configuration de la feuille de style
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -191,7 +190,7 @@ css_pur = """
         box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
     }
     
-    /* Boutons Inactifs - Alignement et hauteur forcés */
+    /* Boutons Inactifs */
     button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
@@ -208,7 +207,7 @@ css_pur = """
         white-space: normal !important;
     }
 
-    /* Boutons Actifs - Alignement et hauteur forcés */
+    /* Boutons Actifs */
     button[kind="primary"] {
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
@@ -236,73 +235,40 @@ css_pur = """
         width: 100% !important;
         height: 38px !important;
     }
-    div.element-container:has(.nettoyer-wrapper) + div.element-container button:hover {
-        background-color: rgba(220, 38, 38, 0.65) !important;
-    }
     
-    /* CARTES DE RÉPONSE */
+    /* CARTES DE RÉPONSE RE-STRUCTURÉES */
     .santorin-card, .general-card, .securite-card, .peda-card { 
-        background-color: rgba(15, 23, 42, 0.45) !important; 
+        background-color: rgba(15, 23, 42, 0.55) !important; 
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
-        padding: 18px; 
-        border-radius: 8px; 
-        margin-bottom: 16px; 
-        box-shadow: 0px 6px 20px rgba(0,0,0,0.5);
+        padding: 22px !important; 
+        border-radius: 10px !important; 
+        margin-bottom: 20px !important; 
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.6) !important;
     }
     .santorin-card { border-left: 6px solid #38BDF8 !important; } 
     .general-card { border-left: 6px solid #10B981 !important; } 
     .securite-card { border-left: 6px solid #EF4444 !important; } 
     .peda-card { border-left: 6px solid #8B5CF6 !important; } 
     
-    .santorin-card p, .general-card p, .securite-card p, .peda-card p, .santorin-card div, .general-card div, .securite-card div, .peda-card div, .santorin-card span, .general-card span, .securite-card span, .peda-card span, .santorin-card li, .general-card li, .securite-card li, .peda-card li { 
-        color: #FFFFFF !important; 
-        font-size: 15px !important; 
-        line-height: 1.6 !important; 
-        font-weight: 400 !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    }
-    
-    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
-    .peda-card h3, .securite-card h3 {
-        font-size: 15px !important; 
-        margin-top: 14px !important; 
-        margin-bottom: 4px !important; 
-        color: #C084FC !important; 
-        font-weight: 800 !important;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
-    }
-    .peda-card ul, .securite-card ul {
-        margin-top: 2px !important;
-        margin-bottom: 6px !important;
-        padding-left: 20px !important;
-    }
-    .peda-card li, .peda-card div, .peda-card span, .peda-card p, .securite-card li, .securite-card div, .securite-card span, .securite-card p {
-        font-size: 14px !important; 
-        line-height: 1.4 !important; 
-        color: #FFFFFF !important;
-        margin-bottom: 3px !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-    }
-    .peda-card strong, .securite-card strong {
+    /* TITRES INTERNES DES CARTES FORCÉS */
+    .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {
+        font-size: 16px !important; 
+        margin-top: 18px !important; 
+        margin-bottom: 8px !important; 
         color: #FCD34D !important; 
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        padding-bottom: 4px !important;
     }
 
-    .santorin-card strong, .general-card strong {
-        font-weight: 700 !important; 
-        color: #FFFFFF !important;
-    }
-
-    .santorin-card a, .general-card a, .securite-card a, .peda-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a * {
-        color: #FFB020 !important; 
-        text-decoration: underline !important;
-        font-weight: 600 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
-    }
-    .santorin-card a:hover, .general-card a:hover, .securite-card a:hover, .peda-card a:hover {
-        color: #FCD34D !important;
+    .santorin-card li, .general-card li, .securite-card li, .peda-card li {
+        font-size: 14.5px !important; 
+        line-height: 1.5 !important; 
+        margin-bottom: 6px !important;
+        list-style-type: square !important;
     }
     
     /* Bulle Utilisateur */
@@ -313,20 +279,7 @@ css_pur = """
         margin-left: 15% !important; 
     }
     div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
-    
-    /* FORCE LE BLANC DANS LE CHAT */
     div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
-    
-    /* RESTAURATION DE LA COULEUR DES LIENS SANS TOUCHER AU RESTE */
-    div[data-testid="stChatMessage"] a, div[data-testid="stChatMessage"] a * {
-        color: #FFB020 !important;
-        text-decoration: underline !important;
-        font-weight: 600 !important;
-    }
-    div[data-testid="stChatMessage"] a:hover {
-        color: #FCD34D !important;
-    }
-    
     </style> 
 """.replace('__URL_FOND__', f"{github_url}{img_fond}")
 st.markdown(css_pur, unsafe_allow_html=True)
@@ -447,7 +400,6 @@ def initialiser_base_textes(cle_fremt):
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation sécurisée par le cache avec surveillance du fichier de Pierre
 timestamp_fichier = obtenir_cle_fichier()
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
@@ -455,7 +407,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = retriever_ipack
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
+# 5. BANDEAU SUPERIEUR REHAUSSÉ
 # ======================================================================
 st.markdown(f"""
     <div class="hub-header">
@@ -477,7 +429,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD (SYNCHRONISÉ AVEC LES CLÉS)
+# 6. EN-TÊTE DU TABLEAU DE BORD
 # ======================================================================
 label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
@@ -499,7 +451,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES (AVEC AVATARS ET HAUTEUR FIXE)
+# 7. BOUTONS DE CONTEXTE ALIGNÉS SUR 4 COLONNES
 # ======================================================================
 col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
 
@@ -572,7 +524,7 @@ else:
     """, unsafe_allow_html=True)
 
 # ======================================================================
-# 8. ZONE D'ACTION (ARCHITECTURE SÉCURISÉE & TEXTE LUMINEUX)
+# 8. ZONE D'ACTION
 # ======================================================================
 col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 
@@ -608,23 +560,13 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-domaine_eps_france = [
-    "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
-    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
-    "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
-    "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
-    "eps.ac-nantes.fr", "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", 
-    "eps.ac-poitiers.fr", "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", 
-    "eps.ac-toulouse.fr", "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", 
-    "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
-]
-
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    with st.spinner("Je recherche les documents et ressources pédagogiques..."):
+    with st.spinner("Je recherche les documents et ressources..."):
         extraits_doc = ""
         mode = st.session_state.active_module
+        prompt_lower = prompt.lower()
         
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
@@ -647,7 +589,7 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    mot_cle = prompt.lower()
+                    mot_cle = prompt_lower
                     expressions_inutiles = [
                         "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
                         "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
@@ -663,7 +605,7 @@ if prompt:
 
                     requete_blindee = f"APSA EPS {mot_cle} loi laïcité responsabilité sécurité code éducation circulaire décret arrêté BO jurisprudence"
                     
-                    # CASCADE - ÉTAPE 1 : Recherche exclusive et prioritaire sur le pôle Aix-Marseille
+                    # CASCADE JURIDIQUE - ÉTAPE 1 : Aix-Marseille exclusif
                     domains_prioritaires_aix = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr"]
                     
                     payload = {
@@ -676,7 +618,7 @@ if prompt:
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
                     
-                    # CASCADE - ÉTAPE 2 : Si aucun résultat, élargissement au pôle technique Créteil, puis bases nationales et autres académies
+                    # CASCADE JURIDIQUE - ÉTAPE 2 : Si vide, élargissement (Créteil, Légifrance, Conseils d'État)
                     if not results:
                         domains_all_lois = [
                             "eps.ac-creteil.fr", "ipackeps.ac-creteil.fr", "legifrance.gouv.fr", 
@@ -702,7 +644,6 @@ if prompt:
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    # CIBLAGE PRIORITAIRE RENFORCÉ AVEC AIX-MARSEILLE ET CRÉTEIL EN TÊTE
                     requete_blindee = f"EPS {prompt} référentiel compétences officielles"
                     domains_prioritaires_peda = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr"]
                     
@@ -725,14 +666,6 @@ if prompt:
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
                     
                     tavily_deja_execute = True
-                
-                elif est_demande_fiche:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = domaine_eps_france
-                
-                else:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = ["eduscol.education.gouv.fr", "unss.org"]
 
                 if not tavily_deja_execute:
                     payload = {
@@ -759,176 +692,68 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    mot_cle_local = prompt.lower()
+                    mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     if est_lycee:
-                        for n in retriever_peda.retrieve(prompt + " AFL Lycée"):
-                            extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
+                        for n in retriever_peda.retrieve(prompt + " AFL Lycée"): extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
                     else:
-                        for n in retriever_peda.retrieve(prompt + " Collège programmes"):
-                            extraits_doc += f"Base collège (Programmes) : {n.node.text}\n\n"
+                        for n in retriever_peda.retrieve(prompt + " Collège programmes"): extraits_doc += f"Base collège (Programmes) : {n.node.text}\n\n"
             except: 
                 pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
+        # 3. IDENTITÉ ET CONFIGURATION DES FILTRES DE RENDU
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
-            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
-            "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
-            "### 1. ANALYSE DES RISQUES\n"
-            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque.\n\n"
-            "### 2. PROCÉDURE TECHNIQUE\n"
-            "- Déroule les actions de terrain de manière chronologique.\n"
-            "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
-            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle.\n\n"
-            "### 3. PROTECTION FONCTIONNELLE\n"
-            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
-            "Priorité maximale à la scannabilité graphique immédiate."
+            "\nMÉTHODE DE RÉPONSE OBLIGATOIRE EN 3 PARTIES SCANNABLES : "
+            "Plan strict : ### 1. ANALYSE DES RISQUES | ### 2. PROCÉDURE TECHNIQUE | ### 3. PROTECTION FONCTIONNELLE. "
+            "Chaque sous-partie doit être une liste à puces propre (balises <li>)."
         )
-        badge = "INFORMATION"
-        color_card = "general-card"
-
-        # Injection automatique des vérités de Pierre en tête de chaque prompt
-        consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
+        badge, color_card = "INFORMATION", "general-card"
 
         if mode == "ipack":
-            liens_utiles = {
-                "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
-                "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
-                "rubrique7": "- [📥 Ouvrir la rubrique 7 de documentation (Examens / CCF) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)",
-                "video_inapt": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Déclaration / Suivi des inaptitudes](https://youtu.be/34w4Z6dd1dM)",
-                "video_import": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote](https://youtu.be/RlScDjd8kHk)",
-                "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
-            }
-
-            liens_selectionnes = []
-            prompt_lower = prompt.lower()
-            
-            if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
-                liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
-            elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
-                liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
-            elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu", "certificat", "médical", "cm"]):
-                liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
-            else:
-                liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
-
-            bloc_liens_dynamique = "\n".join(liens_selectionnes)
-
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
-                "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
-                "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
-                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
-                "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
-                "🎯 CAS BLINDÉS CONFIGURÉS :\n\n"
-                "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
-                "➔ Étape 1 (Accès) : Connectez-vous et cliquez sur le module **[Mes Élèves]**.\n"
-                "➔ Étape 2 (Fiche) : Dans la liste, cliquez sur le nom de l'élève pour ouvrir sa **[Fiche élève]**.\n"
-                "➔ Étape 3 (Section) : Repérez et ouvrez l'onglet ou la section **[Inaptitudes]**.\n"
-                "➔ Étape 4 (Action) : Cliquez sur le bouton officiel **[Saisir une inaptitude]**.\n"
-                "➔ Étape 5 (Saisie) : Renseignez scrupuleusement les dates de validité du certificat ainsi que les APSA spécifiquement visées par la dispense.\n"
-                "➔ Étape 6 (Dépôt) : Téléversez le scan ou la capture photo du certificat médical officiel.\n"
-                "➔ Étape 7 (Verrou d'arbitrage) : Pour la réactivation ultérieure des APSA lors des commissions d'arbitrage, modifiez la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.\n"
-                "⚠️ **RÈGLE D'OR DE SÉCURITÉ** : Ne tapez JAMAIS manuellement les mentions 'IN' ou 'DI' directement dans les cases de notes brutes. La validation de l'inaptitude dans l'onglet dédié génère le statut automatiquement pour éviter tout conflit de synchronisation.\n\n"
-                "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
-                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
-                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et visez-le en décochant manuellement tous les élèves affectés.\n"
-                "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
-                "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
-                "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
-                "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
-                "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
-                "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
-                "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
-                f"Question du professeur : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nROLE : Expert technique iPackEPS... Contexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif mode == "examens":
-            liens_utiles = {
-                "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",
-                "portail_santorin": "- [🌐 Accéder au Portail d'assistance et Fiches Mémo Santorin Académique](https://www.ac-aix-marseille.fr/santorin)",
-                "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
-            }
-
-            liens_selectionnes = []
-            prompt_lower = prompt.lower()
-            
-            if any(x in prompt_lower for x in ["simul", "entraîn", "test", "école", "faux", "s'exercer"]):
-                liens_selectionnes.extend([liens_utiles["base_ecole"], liens_utiles["webinaire_eps"]])
-            elif any(x in prompt_lower for x in ["absent", "dispense", "inapte", "neutralis", "substitution", "bless", "aflp"]):
-                liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
-            else:
-                liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
-
-            bloc_liens_dynamique = "\n".join(liens_selectionnes)
-
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
-                "### 1. ANALYSE DES RISQUES\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
-                "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
-                "🎯 CAS BLINDÉS EXAMENS :\n\n"
-                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
-                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
-                "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
-                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
-                f"Question du professeur : {prompt}"
-            )
+            consigne_ia = f"{règles_or}{filtre_pierre}\nROLE : Expert Santorin/Cyclades. Date limite 2026 : 30 mai 2026... Contexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            # RENDU JURIDIQUE EN LIENS DIRECTS AVEC REQUÊTE ET LIEN DE RECOURS DIRECT LÉGIFRANCE INTERNE 
             consigne_ia = (
-                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert juridique du Code de l'Éducation, du droit administratif scolaire et des jurisprudences de tribunaux en EPS. Robot d'extraction factuel.\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE VÉROUILLÉE EXTRÊMEMENT DIRECTE SANS PLACEHOLDER :\n"
-                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
-                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "### 3. JURISPRUDENCE ACADÉMIQUE ET ARRETS COMPLEMENTAIRES\n"
-                "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                "🎯 DIRECTIVES DE RÉDACTION POUR LES LIENS EN SECTION 4 :\n"
-                "Affiche en priorité absolue les vrais liens HTTP/HTTPS trouvés dans le contexte juridique s'ils sont spécifiques.\n"
-                "Tu as l'interdiction formelle d'écrire des liens d'exemples fictifs. Tu dois obligatoirement injecter ces deux liens de recherche directe fonctionnels :\n"
-                f"1. <a href='https://www.legifrance.gouv.fr/search/all?pool=all&text={prompt.replace(' ', '+')}' target='_blank'>📥 Rechercher les textes officiels et décrets en direct sur LÉGIFRANCE</a><br>\n"
-                "2. <a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+responsabilite+securite+accident' target='_blank'>🌐 Consulter les notes de cadrage Sécurité et Responsabilité - Académie d'Aix-Marseille</a><br>\n"
-                "3. <a href='https://eps.ac-creteil.fr/' target='_blank'>🌐 Base de jurisprudence technique et FAQ Accidents - Académie de Créteil</a><br><br>\n\n"
-                "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
-                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
-                f"Contexte Juridique Large (Aix-Marseille Prioritaire, Légifrance, Conseil d'État) : {extraits_doc}\nQuestion : {prompt}"
+                f"{règles_or}\n"
+                "ROLE : Expert juridique national et académique EPS. Tu structures STRICTEMENT ta réponse avec ces balises titres exactes :\n"
+                "<h3>1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE</h3>\n"
+                "<h3>2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ</h3>\n"
+                "<h3>3. JURISPRUDENCE ACADÉMIQUE ET ARRETS COMPLEMENTAIRES</h3>\n"
+                "<h3>4. LIENS ET SOURCES OFFICIELLES</h3>\n\n"
+                "CONSIGNE DE RECOURS JURIDIQUE ABSOLUE : Tu n'inventes aucun lien factice. Tu insères textuellement ces 3 liens cliquables :\n"
+                f"<li><a href='https://www.legifrance.gouv.fr/search/all?pool=all&text={prompt.replace(' ', '+')}' target='_blank'>📥 Rechercher les textes officiels et décrets en direct sur LÉGIFRANCE</a></li>\n"
+                "<li><a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+responsabilite+securite' target='_blank'>🌐 Consulter les notes de cadrage Sécurité et Responsabilité - Académie d'Aix-Marseille</a></li>\n"
+                "<li><a href='https://eps.ac-creteil.fr/' target='_blank'>🌐 Base de jurisprudence technique et FAQ Accidents - Académie de Créteil</a></li>\n\n"
+                "Interdiction d'utiliser les syntaxes Markdown (###, - ou *). Rédige directement ton texte en liant des balises HTML claires (<li> et <h3>).\n"
+                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
-            # Extraction du mot-clé APSA pour les liens automatisés
+            est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+            niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
+            label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
+            label_competence = "Axe des compétences visées"
+
+            ca_nom, ca_attendus, ca_competences = "CA1 (Performance optimale)", "Performance optimale à une échéance donnée.", "Gérer ses ressources."
+            if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
+                ca_nom, ca_attendus, ca_competences = "CA4 (Affrontement)", "En situation d'opposition réelle, faire basculer le rapport de force.", "Construire un choix tactique."
+            elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
+                ca_nom, ca_attendus, ca_competences = "CA3 (Prestation)", "Composer et interpréter une séquence corporelle devant un public.", "Maîtriser les risques."
+            elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ca5"]):
+                ca_nom, ca_attendus, ca_competences = "CA5 (Santé)", "Produire des formes de travail adaptées à un mobile personnel.", "Réguler sa charge d'effort."
+            elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak"]):
+                ca_nom, ca_attendus, ca_competences = "CA2 (APPN)", "Conduire un déplacement fluide dans un milieu à incertitude.", "Gérer la sécurité active."
+
             mots_apsa = ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "gym", "acro", "danse", "step", "muscu", "fitness", "escalade", "orientation", "vtt", "kayak", "relais", "natation"]
             apsa_trouvee = "eps"
             for m in mots_apsa:
@@ -937,54 +762,49 @@ if prompt:
                     break
 
             consigne_ia = (
-                f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
-                f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"
-                f"Tu ne dois JAMAIS concevoir ou proposer de fiches pédagogiques locales, de sujets de concours, de grilles d'évaluation chiffrées, de barèmes ou de programmations de cycles/séances. La création pratique de ces contenus relève de la responsabilité exclusive des équipes et de leur autonomie pédagogique.\n"
-                f"Ton rôle se limite à rappeler les bases réglementaires nationales du Bulletin Officiel pour l'activité mentionnée.\n\n"
-                f"CHAMP CIBLÉ : {ca_nom}\n"
-                f"TEXTE OFFICIEL À INJECTER : {ca_attendus}\n"
-                f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
-                "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
-                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
-                "RÈGLE DES LIENS RECHERCHE DYNAMIQUES AVEC PASSAGE PAR L'ACCUEIL DU MEDIAWIKI :\n"
-                f"Génère obligatoirement les 4 liens HTML exacts ci-dessous en remplaçant NOM_APSA par '{apsa_trouvee}'.\n"
-                f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>\n"
-                f"2. <a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank'>🎥 Ouvrir le Conservatoire EPS Aix-Marseille (Une fois sur le site, cherchez : '{apsa_trouvee.upper()}')</a><br>\n"
-                f"3. <a href='https://www.google.com/search?q=site:education.gouv.fr+{apsa_trouvee}+bulletin+officiel' target='_blank'>🌐 {apsa_trouvee.upper()} - Bulletins Officiels Nationaux sur éducation.gouv.fr</a><br>\n"
-                f"4. <a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a><br>\n\n"
-                "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
+                f"ROLE : Assistant technique d'extraction institutionnelle EPS. Interdiction absolue de concevoir des fiches, programmations ou barèmes locaux.\n"
+                f"STRUCTURE FINALE EXCLUSIVEMENT EN BALISES HTML (Pas de Markdown) :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
-                "<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
-                "<ul>"
-                f"<li><strong>{label_attendu} :</strong><br>" + ca_attendus + "</li>"
-                f"<li><strong>{label_competence} :</strong><br>" + ca_competences + "</li>"
-                "</ul>"
-                "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
-                "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
-                "<h3><h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
-                f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>"
-                f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
+                f"<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
+                f"<ul><li><strong>{label_attendu} :</strong> {ca_attendus}</li><li><strong>{label_competence} :</strong> {ca_competences}</li></ul>"
+                f"<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
+                f"<ul><li>La conception des fiches de cycle et les critères observables appartiennent souverainement à l'équipe pédagogique locale sous la supervision des IA-IPR.</li></ul>"
+                f"<h3><h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                f"<ul>"
+                f"<li><a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a></li>"
+                f"<li><a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank'>🎥 Ouvrir le Conservatoire EPS Aix-Marseille (Une fois sur le site, cherchez : '{apsa_trouvee.upper()}')</a></li>"
+                f"<li><a href='https://www.google.com/search?q=site:education.gouv.fr+{apsa_trouvee}+bulletin+officiel' target='_blank'>🌐 {apsa_trouvee.upper()} - Bulletins Officiels Nationaux sur éducation.gouv.fr</a></li>"
+                f"<li><a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a></li>"
+                f"</ul>"
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
-        # 4. EXÉCUTION ET RENDU HTML
+        # 4. EXÉCUTION ET NETTOYAGE CHIRURGICAL DU RENDU SANS ÉCRASEMENT DES LIGNES
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        # Traduction propre des syntaxes de liens Markdown résiduelles
+        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_brut)
         
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
-
-        if mode == "peda" or mode == "textes":
-            texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
-        else:
-            texte_final = texte_brut.replace(chr(10), "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
+        # MOTEUR DE RE-STRUCTURATION ANTI-BORDEL
+        texte_final = texte_brut.strip()
+        # Si le modèle a quand même sorti des ### ou des puces markdown, on les convertit en HTML à la volée avant le saut de ligne
+        texte_final = re.sub(r'^###\s+(.*)$', r'<h3>\1</h3>', texte_final, flags=re.MULTILINE)
+        texte_final = re.sub(r'^-\s+(.*)$', r'<li>\1</li>', texte_final, flags=re.MULTILINE)
+        texte_final = re.sub(r'^\*\s+(.*)$', r'<li>\1</li>', texte_final, flags=re.MULTILINE)
+        
+        # Remplacement propre des sauts de ligne physiques par des ruptures HTML claires
+        texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
+        
+        # Suppression des doublons de sauts de ligne pour un rendu impeccable
+        texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
+        texte_final = texte_final.replace("<h3>", "<br><h3>").replace("</h3>", "</h3><br>")
+        
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_final)
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
-        
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
         st.rerun()

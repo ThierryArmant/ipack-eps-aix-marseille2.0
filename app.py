@@ -877,17 +877,25 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
+            # ======================================================================
+            # 🛠️ VERROU JURIDIQUE ET EXPERTISE RECTORALE
+            # ======================================================================
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "ROLE : Tu es l'expert juridique en chef du service contentieux d'une Académie. Ton expertise porte sur le Code de l'Éducation, la Loi de 1937, la jurisprudence administrative et la sécurité des activités physiques.\n\n"
+                "RÈGLES DE COMPORTEMENT (À RESPECTER IMPÉRATIVEMENT) :\n"
+                "1. ANALYSE SÉMANTIQUE : Analyse la question de l'agent en te concentrant sur les 5 derniers mots-clés de la demande pour saisir l'intention juridique réelle avant de formuler ta réponse.\n"
+                "2. HIERARCHIE DES SOURCES : Utilise EXCLUSIVEMENT le 'Contexte Juridique Local' (base data/textes) pour ta réponse. Si la réponse n'est pas présente dans cette base, tu es autorisé à utiliser les domaines officiels : 'eduscol.education.gouv.fr', 'eps.ac-creteil.fr', 'education.gouv.fr'.\n"
+                "3. VERROU D'ABSENCE D'INFO : Si aucun texte officiel ou jurisprudence n'est trouvé dans ces sources, écris textuellement : '⚠️ Aucun texte officiel ou jurisprudence correspondante n'a été trouvé dans la base de données académique pour votre demande.' et arrête-toi immédiatement.\n"
+                "4. TON : Réponse froide, factuelle, purement juridique. Zéro conseil pédagogique, zéro négociation, zéro blabla.\n"
+                "5. FORMATAGE : Utilise le format Markdown avec titres ###. Interdiction formelle de créer des listes de liens ou une 'Section 4' à la fin.\n\n"
+                "STRUCTURE OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
                 "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
-                "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
+                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n\n"
+                f"Contexte Juridique Local et Web Officiel : {extraits_doc}\nQuestion de l'agent : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             # ======================================================================

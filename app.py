@@ -589,16 +589,65 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    # --- LISTE BLANCHE STRICTE ---
-                    # 1. Éducation/Administration 2. Droit/Jurisprudence 3. Académies sources
-                    domains_textes_officiels = [
+                    # ======================================================================
+                    # ÉTAPE 1 : ANALYSEUR ET NETTOYAGE CHIRURGICAL DE LA PHRASE
+                    # ======================================================================
+                    phrase_brute = prompt.lower()
+                    
+                    # Élimination des bruits de langage et structures passives
+                    scories = [
+                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
+                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur",
+                        "savoir si", "refuser une", "refuser un", "concerne le", "concerne la"
+                    ]
+                    for mot in scories:
+                        phrase_brute = phrase_brute.replace(mot, "")
+                    
+                    concept_cible = phrase_brute.strip() if phrase_brute.strip() else prompt
+
+                    # ======================================================================
+                    # ÉTAPE 2 : INJECTION DES BALISES DE LOI ET MOTS-CLÉS IMPÉRATIFS
+                    # ======================================================================
+                    # On arme la requête avec tout l'arsenal juridique de l'Éducation Nationale
+                    requete_blindee = (
+                        f"EPS {concept_cible} "
+                        f"\"loi\" OR \"code de l'éducation\" OR \"circulaire\" OR \"décret\" "
+                        f"OR \"arrêté\" OR \"BO\" OR \"bulletin officiel\" OR \"jurisprudence\" "
+                        f"OR \"journal officiel\" OR \"responsabilité\""
+                    )
+                    
+                    # ======================================================================
+                    # ÉTAPE 3 : LISTE BLANCHE STRICTE DES DOMAINES D'AUTORITÉ
+                    # ======================================================================
+                    domaines_exclusifs = [
                         "legifrance.gouv.fr", 
-                        "conseil-etat.fr", 
-                        "courdecassation.fr", 
                         "education.gouv.fr", 
                         "eduscol.education.gouv.fr", 
-                        "eps.ac-creteil.fr",
-                        "eps.ac-aix-marseille.fr"
+                        "eps.ac-creteil.fr", 
+                        "eps.ac-aix-marseille.fr",
+                        "unss.org"
+                    ]
+                    
+                    # Appel API Tavily restreint à la liste blanche
+                    payload = {
+                        "api_key": tavily_api_key, 
+                        "query": requete_blindee, 
+                        "search_depth": "advanced", 
+                        "include_domains": domaines_exclusifs
+                    }
+                    
+                    try:
+                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                        results = res.json().get("results", []) if res.status_code == 200 else []
+                        for item in results: 
+                            extraits_doc += f"Source ({item['url']}): {item['content']}\n\n"
+                    except Exception as e:
+                        extraits_doc += f"Erreur de liaison base externe: {str(e)}"
+                    
+                    tavily_deja_execute = True
                     ]
                     
                     mot_cle = prompt.lower()
@@ -709,21 +758,22 @@ if prompt:
             consigne_ia = f"{règles_or}{filtre_pierre}\nROLE : Expert Santorin/Cyclades. Date limite 2026 : 30 mai 2026... Contexte : {extraits_doc}\nQuestion : {prompt}"
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif mode == "textes":
+       elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}\n"
-                "ROLE : Expert juridique EPS.\n"
-                "MISSION : Répondre avec tes documents locaux uniquement.\n"
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. RESPONSABILITÉ CIVILE ET PÉNALE</h3>\n"
-                "<h3>2. TEXTE OFFICIEL ET PROTOCOLE</h3>\n"
-                "<h3>3. ANALYSE JURIDIQUE</h3>\n"
-                "<h3>4. LIENS OFFICIELS (STRICT)</h3>\n"
-                "CONSIGNE LIENS : Ne génère PAS de lien de recherche. Utilise UNIQUEMENT ces liens officiels immuables :\n"
-                "- Code de l'Éducation (Loi 1937) : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/n"
-                "- Site EPS Aix-Marseille (Textes TASA) : http://www.eps.ac-aix-marseille.fr/n"
-                "- Site EPS Créteil (FAQ Juridique) : https://eps.ac-creteil.fr/nn"
-                f"Contexte fourni : {extraits_doc}\nQuestion : {prompt}"
+                "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
+                "MISSION : Tu analyses la question en t'appuyant uniquement sur les textes officiels (Loi, Décret, Circulaire, Code de l'Éducation, BO) présents dans le contexte.\n"
+                "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
+                "STRUCTURE DE SORTIE STRICTE (HTML UNIQUEMENT, AUCUN CARACTÈRE MARKDOWN) :\n"
+                "<h3>1. TEXTES OFFICIELS ET CADRE JURIDIQUE</h3>\n"
+                "<ul><li>Données factuelles issues du Code ou des décrets.</li></ul>\n"
+                "<h3>2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE</h3>\n"
+                "<ul><li>Application directe à la situation sans extrapolation.</li></ul>\n"
+                "<h3>3. PROTECTION ET RECOURS</h3>\n"
+                "<ul><li>Procédure administrative de protection de l'agent.</li></ul>\n"
+                "<h3>4. RÉFÉRENCES ET LIENS DIRECTS</h3>\n"
+                "<ul><li>Tu dois lister les liens réels trouvés dans le contexte sous cette forme exacte : <code><a href='URL_REELLE' target='_blank' style='color: #FFB020 !important; text-decoration: underline;'>Nom du texte officiel</a></code>. Si aucun lien réel n'est présent, écris : 'Source non trouvée dans la base officielle'.</li></ul>\n\n"
+                f"Contexte juridique extrait : {extraits_doc}\n"
+                f"Question de l'agent : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 

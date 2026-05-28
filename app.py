@@ -63,11 +63,10 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Utilisation d'une chaîne classique sans f-string pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
-    .santorin-card *, .general-card *, .securite-card * { 
+    .santorin-card *, .general-card *, .securite-card *, .peda-card * { 
         color: #FFFFFF !important; 
     }
 
@@ -255,7 +254,7 @@ css_pur = """
     .securite-card { border-left: 6px solid #EF4444 !important; } 
     .peda-card { border-left: 6px solid #8B5CF6 !important; } 
     
-    .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li { 
+    .santorin-card p, .general-card p, .securite-card p, .peda-card p, .santorin-card div, .general-card div, .securite-card div, .peda-card div, .santorin-card span, .general-card span, .securite-card span, .peda-card span, .santorin-card li, .general-card li, .securite-card li, .peda-card li { 
         color: #FFFFFF !important; 
         font-size: 15px !important; 
         line-height: 1.6 !important; 
@@ -263,7 +262,7 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (STRICT INSTITUTIONNEL) */
+    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
     .peda-card h3 {
         font-size: 15px !important; 
         margin-top: 14px !important; 
@@ -295,7 +294,7 @@ css_pur = """
         color: #FFFFFF !important;
     }
 
-    .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a, .peda-card a * {
+    .santorin-card a, .general-card a, .securite-card a, .peda-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a * {
         color: #FFB020 !important; 
         text-decoration: underline !important;
         font-weight: 600 !important;
@@ -483,7 +482,7 @@ label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "peda": "🔍 Mode Actif : Référentiels Institutionnels, APSA & Textes de Cadrage BO",
-    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Jurisprudences & Textes de Lois)"
 }
 
 if "active_module" not in st.session_state:
@@ -534,7 +533,7 @@ if st.session_state.active_module == "textes":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement – Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+            ⚠️ <strong>Avertissement Juridique – Les réponses s'appuient sur le Code de l'Éducation, la législation nationale et la jurisprudence des tribunaux (Cadrage Aix-Marseille ciblé en priorité absolue). Elles ne se substituent pas aux circulaires rectorales en cas de contentieux.<strong>
         </span>
     </div>
     """, unsafe_allow_html=True)
@@ -609,7 +608,7 @@ for m in st.session_state.messages_hub:
 st.markdown('</div>', unsafe_allow_html=True)
 
 domaine_eps_france = [
-    "eduscol.education.gouv.fr", "eps.ac-aix-marseille.fr", "edubase.eduscol.education.fr" , "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
     "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
     "eps.ac-creteil.fr", "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", 
     "eps.ac-limoges.fr", "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", 
@@ -661,21 +660,29 @@ if prompt:
                         mot_cle = mot_cle.replace(verbe, "")
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
-                    domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
+                    requete_blindee = f"APSA EPS {mot_cle} loi laïcité responsabilité sécurité code éducation circulaire décret arrêté BO jurisprudence"
+                    
+                    # CASCADE - ÉTAPE 1 : Recherche exclusive et prioritaire sur le pôle Aix-Marseille
+                    domains_prioritaires_aix = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr"]
                     
                     payload = {
                         "api_key": tavily_api_key, 
                         "query": requete_blindee, 
                         "search_depth": "advanced", 
-                        "include_domains": domains_prioritaires
+                        "include_domains": domains_prioritaires_aix
                     }
                     
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
                     
+                    # CASCADE - ÉTAPE 2 : Si aucun résultat, élargissement au pôle technique Créteil, puis bases nationales et autres académies
                     if not results:
-                        payload["include_domains"] = domaine_eps_france
+                        domains_all_lois = [
+                            "eps.ac-creteil.fr", "ipackeps.ac-creteil.fr", "legifrance.gouv.fr", 
+                            "conseil-etat.fr", "courdecassation.fr", "education.gouv.fr", 
+                            "eduscol.education.gouv.fr", "doctrine.fr", "village-justice.com"
+                        ] + domaine_eps_france
+                        payload["include_domains"] = domains_all_lois
                         res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                         results = res.json().get("results", []) if res.status_code == 200 else []
                     
@@ -694,9 +701,9 @@ if prompt:
                     exclude = ["youtube.com"]
                 
                 elif mode == "peda":
-                    # CIBLAGE PRIORITAIRE POUR ÉDUBASE ET CONSERVATOIRE AIX-MARSEILLE
+                    # CIBLAGE PRIORITAIRE RENFORCÉ AVEC AIX-MARSEILLE ET CRÉTEIL EN TÊTE
                     requete_blindee = f"EPS {prompt} référentiel compétences officielles"
-                    domains_prioritaires_peda = ["edubase.eduscol.education.fr", "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "eduscol.education.gouv.fr"]
+                    domains_prioritaires_peda = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr"]
                     
                     payload = {
                         "api_key": tavily_api_key, 
@@ -708,7 +715,6 @@ if prompt:
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
                     
-                    # Si aucun résultat sur les domaines prioritaires, on élargit à la liste globale
                     if not results:
                         payload["include_domains"] = domaine_eps_france
                         res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
@@ -891,7 +897,7 @@ if prompt:
                 "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
-                "➔ Étape 2 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
+                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
@@ -901,13 +907,13 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
+                "ROLE : Tu es l'expert juridique du Code de l'Éducation, du droit administratif scolaire et des jurisprudences de tribunaux en EPS. Robot d'extraction factuel.\n\n"
                 "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
                 "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
+                "### 3. JURISPRUDENCE ACADÉMIQUE ET ARRETS COMPLEMENTAIRES\n"
                 "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
+                f"Contexte Juridique (Aix-Marseille Prioritaire, Légifrance, Conseil d'État) : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
@@ -945,7 +951,7 @@ if prompt:
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Composer et interprteren une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
+                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
@@ -975,7 +981,7 @@ if prompt:
                     apsa_trouvee = m
                     break
 
-            # Consigne IA d'extraction factuelle pure avec atterrissage sur l'accueil du MediaWiki
+            # Consigne IA d'extraction factuelle pure avec atterrissage sur l'accueil du MediaWiki du Conservatoire
             consigne_ia = (
                 f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
                 f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"

@@ -143,6 +143,20 @@ css_pur = """
         box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
     }
     
+    .badge-visiteur { 
+        background-color: rgba(16, 185, 129, 0.2) !important; 
+        color: #10B981 !important; 
+        border: 1px solid rgba(16, 185, 129, 0.45) !important; 
+        padding: 3px 12px !important; 
+        border-radius: 20px !important; 
+        font-size: 13px !important; 
+        font-weight: 800 !important; 
+        font-family: monospace !important;
+        line-height: 1 !important;
+        display: inline-block;
+        box-shadow: 0px 0px 8px rgba(16, 185, 129, 0.2);
+    }
+    
     .hub-title p { 
         color: #94A3B8 !important; 
         margin: 0 !important;
@@ -355,14 +369,23 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
+# ======================================================================
+# 4B. CHARGEMENT DYNAMIQUE DE TA BASE DE TEXTES LOCALE
+# ======================================================================
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
-    docs_textes = [
-        Document(
-            text="""Base de données réglementaire globale pour les textes de lois, décrets officiels et circulaires de sécurité d'un établissement scolaire du second degré.""",
-            metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
-        )
-    ]
+    docs_textes = []
+    fichier_cible = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(fichier_cible):
+        try:
+            # LlamaIndex utilise SimpleDirectoryReader pour charger et découper proprement ton gros fichier texte unique
+            docs_textes = SimpleDirectoryReader(input_files=[fichier_cible]).load_data()
+        except Exception:
+            pass
+    
+    if not docs_textes:
+        docs_textes = [Document(text="Base de données textuelle locale vide ou inaccessible. Vérifiez le chemin data/textes/base_textes_officiels.txt", metadata={"source": "System"})]
+        
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
@@ -558,7 +581,7 @@ if prompt:
             pass
         
         # ------------------------------------------------------------------
-        # 1. MOTEUR WEB (Tavily) - CASCADE SANS LÉGIFRANCE
+        # 1. MOTEUR WEB (Tavily) - CASCADE ASSURÉE SANS LÉGIFRANCE
         # ------------------------------------------------------------------
         if tavily_api_key:
             try:
@@ -589,12 +612,12 @@ if prompt:
                         f"OR \"journal officiel\" OR \"responsabilité\""
                     )
                     
-                    # 🎯 PURGE RADICALE : Aucun domaine Légifrance ici
                     domains = [
                         "education.gouv.fr", 
                         "eduscol.education.gouv.fr", 
                         "eps.ac-creteil.fr",
                         "eps.ac-aix-marseille.fr",
+                        "pedagogie.ac-aix-marseille.fr",
                         "unss.org"
                     ]
 
@@ -629,7 +652,7 @@ if prompt:
                 pass
 
         # ------------------------------------------------------------------
-        # 2. CONTEXTE LOCAL (RAG LlamaIndex)
+        # 2. CONTEXTE LOCAL (RAG LlamaIndex - S'APPUYANT SUR TA BASE LOCALE)
         # ------------------------------------------------------------------
         if openai_api_key:
             try:
@@ -638,8 +661,8 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    mot_cle_local = prompt_lower
-                    for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    # LlamaIndex va chercher dans ton fichier base_textes_officiels.txt les 5 paragraphes les plus pertinents
+                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Base Locale Textes Officiels : {n.node.text}\n\n"
                 elif mode == "peda":
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     if est_lycee:
@@ -650,7 +673,7 @@ if prompt:
                 pass
 
         # ------------------------------------------------------------------
-        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA (BANNISSEMENT DE LEGIFRANCE)
+        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA (INTÉGRATION DU LIEN DEEPLINK MARSEILLE)
         # ------------------------------------------------------------------
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
@@ -687,18 +710,18 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
-                "MISSION : Tu analyses la question en t'appuyant sur les textes officiels présents dans le contexte.\n"
+                "MISSION : Tu analyses la question en t'appuyant en priorité absolue sur les extraits de la Base Locale de Textes Officiels fournis dans ton contexte. Explore et exploite au maximum ces données.\n"
                 "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
                 "CONSIGNE DE FORMATAGE IMPÉRATIVE (MARKDOWN BRUT) :\n"
                 "Rédige exclusivement en Markdown standard. N'utilise AUCUNE balise HTML. Utilise des titres de section commençant uniquement par '### '.\n"
                 "Pour CHAQUE texte, loi, ou circulaire évoqué, insère-le sous forme de lien Markdown standard : [Nom du texte](URL).\n"
-                "❌ INTERDICTION ABSOLUE : Ne cite et n'utilise JAMAIS le site ou les liens vers Légifrance. Si un texte a été trouvé, pointe obligatoirement vers le portail institutionnel d'Aix-Marseille (http://www.eps.ac-aix-marseille.fr) ou de Créteil (https://eps.ac-creteil.fr) qui gèrent les fiches de synthèse réglementaires.\n\n"
+                "❌ INTERDICTION ABSOLUE : Ne génère aucun lien vers Légifrance. Si un texte national est cité, redirige impérativement le lien Markdown vers l'arborescence officielle d'Aix-Marseille (https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels) ou de Créteil (https://eps.ac-creteil.fr).\n\n"
                 "STRUCTURE ATTENDUE :\n"
                 "### 1. TEXTES OFFICIELS ET CADRE JURIDIQUE\n"
                 "### 2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE\n"
                 "### 3. PROTECTION ET RECOURS\n"
                 "### 4. RÉFÉRENCES ET LIENS DE RECHERCHE\n\n"
-                f"Contexte juridique extrait : {extraits_doc}\n"
+                f"Contexte juridique extrait de ta base locale et du web : {extraits_doc}\n"
                 f"Question de l'agent : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -737,7 +760,7 @@ if prompt:
                 f"<h3><h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"<ul>"
                 f"<li><a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a></li>"
-                f"<li><a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank'>🎥 Ouvrir le Conservatoire EPS Aix-Marseille (Cherchez : '{apsa_trouvee.upper()}')</a></li>"
+                f"<li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels' target='_blank'>🎥 Les Textes Officiels &amp; Cadrage Réglementaire – Académie d'Aix-Marseille</a></li>"
                 f"</ul>"
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
@@ -762,12 +785,12 @@ if prompt:
             texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
             texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
             
-            # Injection Python sécurisée : Uniquement des liens académiques immuables, aucun lien Légifrance
+            # Injection Python sécurisée : Utilisation systématique du lien profond précis d'Aix-Marseille
             if mode == "textes":
                 liens_fixes_publics = """
                 <br><h3>5. RECOURS & LIENS INSTITUTIONNELS ACADÉMIQUES</h3>
                 <ul>
-                <li><a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Fiches Textes de Référence &amp; Responsabilité – Académie d'Aix-Marseille</a></li>
+                <li><a href='https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Recueil Complet des Textes Officiels Pédagogiques – Académie d'Aix-Marseille</a></li>
                 <li><a href='https://eps.ac-creteil.fr/spip.php?rubrique7' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Dossiers Juridiques &amp; Accidents Sécurité – Académie de Créteil</a></li>
                 <li><a href='https://eduscol.education.gouv.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail National d'Information Éduscol (Sécurité des élèves)</a></li>
                 </ul>

@@ -454,6 +454,22 @@ retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = retriever_ipack
 
+@st.cache_resource
+def initialiser_base_concours(cle_fremt):
+    os.makedirs("data/bibli_concours", exist_ok=True)
+    try:
+        reader = SimpleDirectoryReader("data/bibli_concours")
+        docs_concours = reader.load_data()
+        if not docs_concours:
+            docs_concours = [Document(text="Base Concours EPS initialisée. En attente des fiches de sessions.")]
+        return VectorStoreIndex.from_documents(docs_concours).as_retriever(similarity_top_k=3)
+    except Exception:
+        dummy = [Document(text="Erreur ou absence de fichiers dans data/bibli_concours.")]
+        return VectorStoreIndex.from_documents(dummy).as_retriever(similarity_top_k=1)
+
+# Lignes à mettre juste après tes autres déclenchements de retrievers :
+retriever_concours = initialiser_base_concours(timestamp_fichier)
+
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
 # ======================================================================
@@ -725,9 +741,20 @@ if prompt:
                 pass
 
         # 2. CONTEXTE LOCAL (Restauration complète de ta logique d'hier matin avec prompt)
+        # 2. CONTEXTE LOCAL (Restauration complète de ta logique avec détection concours)
         if openai_api_key:
             try:
-                if mode == "examens":
+                prompt_lower = prompt.lower()
+                # Sécurité Concours prioritaire sur les fichiers spécifiques
+                est_demande_concours = any(x in prompt_lower for x in ["agreg", "agrégation", "capeps", "concours", "écrit 1", "écrit 2", "sujet de 20", "sujet 20"])
+                
+                if est_demande_concours:
+                    for n in retriever_concours.retrieve(prompt + " Sujet Rapport Jury"): 
+                        extraits_doc += f"Référence Bibliothèque Concours : {n.node.text}\n\n"
+                    badge, color_card = "🏆 CONCOURS (AGREG / CAPEPS)", "peda-card"
+                
+                # Reste de ta logique d'origine intacte si ce n'est pas un sujet de concours
+                elif mode == "examens":
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
@@ -736,7 +763,6 @@ if prompt:
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
-                    prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
                     if est_lycee:
                         for n in retriever_peda.retrieve(prompt + " AFL Lycée"):

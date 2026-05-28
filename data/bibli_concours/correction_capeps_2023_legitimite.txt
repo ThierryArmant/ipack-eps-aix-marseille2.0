@@ -1,0 +1,54 @@
+========================================================================
+BIBLIOTHÈQUE CONCOURS - CORRECTION DU SUJET : CAPEPS EXTERNE 2023 (ÉCRIT 1)
+POSTURE DU JURY : IA-IPR CHEVRONNÉ / ANCIEN AGRÉGÉ HORS-CLASSE
+SUJET : "L'EPS et l'école : comment la discipline a-t-elle défendu sa place et sa légitimité institutionnelle au sein du système éducatif de 1981 à nos jours ?"
+========================================================================
+
+### 1. DÉCODAGE DE LA TENSION DIALECTIQUE (L'ŒIL DE L'INSPECTEUR)
+Ce sujet pose la question de l'identité et de la survie de la discipline. 
+- En 1981, l'EPS quitte le ministère des Sports pour rejoindre définitivement l'Éducation Nationale. C'est une victoire politique historique, mais c'est aussi le début d'un immense défi : prouver que l'EPS n'est pas qu'un simple moment de récréation ou de pratique sportive brute, mais une discipline d'enseignement aussi sérieuse, rigoureuse et évaluable que les mathématiques ou le français.
+- Pour défendre sa place, l'EPS a oscillé entre deux stratégies de légitimation : s'aligner sur les codes scolaires traditionnels (parfois au risque d'une "intellectualisation" excessive ou d'une perte de temps d'engagement moteur) et réaffirmer sa spécificité unique (faire apprendre par le corps en mouvement).
+
+### 2. PROBLÉMATIQUE DE COPIE MAJORE
+De 1981 à nos jours, l'EPS a conquis et stabilisé sa légitimité institutionnelle en opérant une double mutation : d'une part, elle s'est conformée aux exigences structurelles et sémantiques de l'école républicaine (en édictant des programmes par compétences, en s'alignant sur le Socle commun et en créant des épreuves d'évaluation certifiées aux examens nationaux) ; d'autre part, elle a su faire valoir sa contribution unique et irremplaçable aux finalités éducatives de l'État, en s'affirmant comme la seule discipline capable d'articuler la transformation motrice concrète des élèves, l'éducation à la santé face aux dérives sédentaires et l'apprentissage de la citoyenneté en actes.
+
+---
+
+### 3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS DE TERRAIN
+
+<h3>PARTIE I : 1981 - Début des années 1990 : La légitimation par la normalisation scolaire et la didactisation.</h3>
+
+- **Thèse de la période** : Nouvellement intégrée à l'Éducation Nationale, l'EPS doit donner des gages de "scolarité". Pour être respectée, elle doit formaliser ce qu'elle fait apprendre. C'est l'explosion de la recherche didactique : on passe de l'enseignement des "techniques sportives fédérales" à l'enseignement de "savoirs scolaires".
+- 📚 **Ancrages scientifiques** : 
+  * **J. Marsenach (1991)** : Montre l'effort gigantesque des enseignants pour formuler des objectifs pédagogiques précis dans leurs leçons.
+  * **M. Hébrard (1986)** : L'EPS doit s'évaluer comme les autres disciplines pour couper court aux critiques d'inutilité.
+- 📜 **Textes réglementaires** : Décret d'intégration du 28 mai 1981 (rattachement au MEN), Textes de cadrage des lycées de 1984, Loi d'orientation sur l'éducation de 1989.
+- 🎯 **Illustration Terrain (APSA : Volley-ball / CA4)** :
+  * *Dispositif* : Match à 3 contre 3 sur terrain réduit.
+  * *Postures de terrain* : Le prof des années 80 ne demande plus seulement de "jouer au volley". Il introduit des fiches de critères et de la résolution de problèmes. Pour valider l'apprentissage, l'élève doit analyser la rupture de l'échange. On évalue la capacité à "construire l'attaque depuis la zone arrière". L'élève remplit des grilles de statistiques en cours de leçon pour valider la dimension conceptuelle de l'activité. La discipline prouve qu'elle fait réfléchir.
+
+---
+
+<h3>PARTIE II : Milieu des années 1990 - Années 2000 : La légitimation par l'évaluation officielle aux examens nationaux.</h3>
+
+- **Thèse de la période** : Une matière qui ne compte pas pour les examens n'est pas considérée comme noble par les familles et l'institution. L'EPS va ancrer définitivement sa légitimité en créant le CCF (Contrôle en Cours de Formation) au Brevet et au Baccalauréat, adossé à des référentiels nationaux d'évaluation stricts. Elle publie ses premiers programmes nationaux par cycles.
+- 📚 **Ancrages scientifiques** :
+  * **Y. Combaz (2010)** : Sociologie de l'évaluation en EPS, montrant comment la standardisation des barèmes a crédibilisé la matière auprès des chefs d'établissement.
+  * **F. Gleyse (2007)** : L'évolution de l'identité de l'enseignant, devenant un évaluateur rigoureux des compétences.
+- 📜 **Textes réglementaires** : Arrêtés de 1993 et 1995 sur le Baccalauréat (généralisation du CCF), Programmes Collège de 1996 (première nomenclature unifiée des compétences).
+- 🎯 **Illustration Terrain (APSA : Course d'Orientation / CA2)** :
+  * *Dispositif* : Épreuve du Baccalauréat en autonomie dans une forêt balisée.
+  * *Postures de terrain* : L'évaluation ne repose plus sur la simple vitesse de course de l'élève. Le référentiel national impose de croiser la performance chronométrique et la performance méthodologique. L'enseignant distribue des cartons de contrôle stricts. L'élève est évalué sur la pertinence de ses choix d'itinéraires (choix du chemin jaune vs ligne droite en forêt). Si l'élève se perd par manque de méthode, sa note s'effondre, même s'il court très vite. L'institution valide une notation juste, rigoureuse et indiscutable.
+
+---
+
+<h3>PARTIE III : Années 2010 - 2026 : La légitimation sociétale. L'EPS comme pilier républicain et de santé publique.</h3>
+
+- **Thèse de la période** : Face aux crises successives de la société (attentats de 2015, sédentarité post-COVID, isolement numérique), l'école demande à l'EPS de devenir le bouclier civique et sanitaire de la jeunesse. La discipline s'aligne totalement sur le Socle commun et la réforme du Lycée en démontrant qu'elle est la seule matière à faire vivre la fraternité républicaine (mixité, inclusion, rôles sociaux) et à armer les élèves pour leur capital santé.
+- 📚 **Ancrages scientifiques** :
+  * **D. Delignières (2020)** : Défense de l'utilité vitale de l'EPS face à l'inactivité physique des adolescents.
+  * **A. Michel (2016)** : L'apport de l'EPS aux différents domaines du socle commun de connaissances et de compétences.
+- 📜 **Textes réglementaires** : Programmes Collège 2015 (liaison directe avec les 5 domaines du Socle), Réforme des programmes du Lycée 2019 (AFL 1-2-3 orientés vers la citoyenneté et l'autonomie).
+- 🎯 **Illustration Terrain (APSA : Demi-fond / CA1 / Classe hétérogène)** :
+  * *Dispositif* : Séance de préparation à l'épreuve du Baccalauréat (AFL1 et AFL2).
+  * *Postures de terrain* : L'enseignant orchestre une leçon inclusive. Un élève dispensé partiel ou en situation de handicap gère la table numérique de relevé des temps de passage. Les élèves courent par paires de niveau. L'évaluation prend en compte la capacité de l'élève à respecter à 0,5 km/h près le projet de course qu'il a lui-même conçu et annoncé au prof au début de la séance (AFL2 : régulation). La légitimité n'est plus à prouver : le chef d'établissement constate que l'EPS produit des citoyens autonomes, solidaires et capables de gérer leur effort.

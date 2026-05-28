@@ -63,14 +63,15 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 
 css_pur = """
     <style>
-    /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
-    .santorin-card *, .general-card *, .securite-card *, .peda-card * { 
+    /* Règle de sécurité : Force le blanc uniquement sur le texte brut et les listes (libère les liens) */
+    .santorin-card, .general-card, .securite-card, .peda-card,
+    .santorin-card p, .general-card p, .securite-card p, .peda-card p,
+    .santorin-card li, .general-card li, .securite-card li, .peda-card li { 
         color: #FFFFFF !important; 
     }
 
-    /* Règle de couleur forcée pour TOUS les liens cliquables internes */
-    .santorin-card a, .general-card a, .securite-card a, .peda-card a, 
-    .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a * { 
+    /* Règle impérative : Force le Jaune/Orange sur tous les liens hyper束xtes */
+    .santorin-card a, .general-card a, .securite-card a, .peda-card a { 
         color: #FFB020 !important; 
         text-decoration: underline !important;
         font-weight: 700 !important;
@@ -245,22 +246,6 @@ css_pur = """
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
-    
-    .santorin-card p, .general-card p, .securite-card p, .peda-card p,
-    .santorin-card li, .general-card li, .securite-card li, .peda-card li { 
-        color: #FFFFFF !important; 
-        font-size: 14.5px !important; 
-        line-height: 1.5 !important; 
-    }
-    
-    div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) { 
-        background-color: rgba(255, 255, 255, 0.15) !important; 
-        backdrop-filter: blur(6px) !important;
-        border-radius: 14px 14px 0px 14px !important; 
-        margin-left: 15% !important; 
-    }
-    div[data-testid="stChatMessageAvatarUser"], div[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
-    div[data-testid="stChatMessage"] * { color: #FFFFFF !important; }
     </style> 
 """.replace('__URL_FOND__', f"{github_url}{img_fond}")
 st.markdown(css_pur, unsafe_allow_html=True)
@@ -774,7 +759,7 @@ if prompt:
         # Interception et conversion automatique et sécurisée de TOUS les liens Markdown
         texte_brut = re.sub(
             r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
-            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
+            r'<a href="\2" target="_blank">\1</a>', 
             texte_brut
         )
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
@@ -790,9 +775,9 @@ if prompt:
                 liens_fixes_publics = """
                 <br><h3>5. RECOURS & LIENS INSTITUTIONNELS PERMANENTS</h3>
                 <ul>
-                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Légifrance – Code de l'Éducation : Article L. 911-4 (Loi de 1937)</a></li>
-                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail Pédagogique &amp; Réglementaire – Académie Aix-Marseille</a></li>
-                <li><a href='https://eps.ac-creteil.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Dossiers Contentieux &amp; FAQ Juridique – Académie de Créteil</a></li>
+                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank'>Légifrance – Code de l'Éducation : Article L. 911-4 (Loi de 1937)</a></li>
+                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank'>Portail Pédagogique &amp; Réglementaire – Académie Aix-Marseille</a></li>
+                <li><a href='https://eps.ac-creteil.fr/' target='_blank'>Dossiers Contentieux &amp; FAQ Juridique – Académie de Créteil</a></li>
                 </ul>
                 """
                 texte_final = texte_final.strip() + liens_fixes_publics

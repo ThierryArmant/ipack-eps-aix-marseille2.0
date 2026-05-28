@@ -684,9 +684,9 @@ if prompt:
                 "ROLE : Expert technique officiel de l'application iPackEPS.\n"
                 "MISSION : Résolution de pannes, saisie de notes CCF, et protocole de gestion des certificats médicaux d'inaptitude.\n"
                 "STRUCTURE TECHNIQUE OBLIGATOIRE :\n"
-                "<h3>1. DIAGNOSTIC TECHNIQUE</h3>\n"
-                "<h3>2. PROCÉDURE DE RÉSOLUTION</h3>\n"
-                "<h3>3. ALERTES & SUIVI CCF</h3>\n\n"
+                "### 1. DIAGNOSTIC TECHNIQUE\n"
+                "### 2. PROCÉDURE DE RÉSOLUTION\n"
+                "### 3. ALERTES & SUIVI CCF\n\n"
                 f"Contexte applicatif : {extraits_doc}\n"
                 f"Question de l'enseignant : {prompt}"
             )
@@ -698,9 +698,9 @@ if prompt:
                 "ROLE : Expert officiel de la réglementation des examens EPS (DNB, Baccalauréat) et de la plateforme Santorin/Cyclades. Session 2026 (Date limite impérative : 30 mai 2026).\n"
                 "MISSION : Encadrer la notation numérique, la distribution des lots de copies et la gestion des absences ou dysfonctionnements.\n"
                 "STRUCTURE ADMINISTRATIVE OBLIGATOIRE :\n"
-                "<h3>1. CADRAGE RÉGLEMENTAIRE EXAMEN</h3>\n"
-                "<h3>2. MANIPULATION PLATAFORME (SANTORIN/CYCLADES)</h3>\n"
-                "<h3>3. ACTIONS JURY ACADÉMIQUE</h3>\n\n"
+                "### 1. CADRAGE RÉGLEMENTAIRE EXAMEN\n"
+                "### 2. MANIPULATION PLATAFORME (SANTORIN/CYCLADES)\n"
+                "### 3. ACTIONS JURY ACADÉMIQUE\n\n"
                 f"Contexte d'examen : {extraits_doc}\n"
                 f"Question : {prompt}"
             )
@@ -709,17 +709,17 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
-                "MISSION : Tu analyses la question en t'appuyant uniquement sur les textes officiels présents dans le contexte. Tu explores méticuleusement le contexte pour en extraire les textes profonds (circulaires, arrêtés, décrets spécifiques) et leurs URL réelles.\n"
+                "MISSION : Tu analyses la question en t'appuyant sur les textes officiels présents dans le contexte. Tu explores méticuleusement le contexte pour en extraire le plus d'informations possibles.\n"
                 "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
-                "STRUCTURE DE SORTIE STRICTE (HTML UNIQUEMENT, AUCUN CARACTÈRE MARKDOWN) :\n"
-                "<h3>1. TEXTES OFFICIELS ET CADRE JURIDIQUE</h3>\n"
-                "<ul><li>Données factuelles issues du Code ou des décrets spécifiques trouvés dans le contexte.</li></ul>\n"
-                "<h3>2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE</h3>\n"
-                "<ul><li>Application directe à la situation sans extrapolation.</li></ul>\n"
-                "<h3>3. PROTECTION ET RECOURS</h3>\n"
-                "<ul><li>Procédure administrative de protection de l'agent.</li></ul>\n"
-                "<h3>4. RÉFÉRENCES ET LIENS DIRECTS</h3>\n"
-                "<ul><li>Tu DOIS obligatoirement fouiller les lignes 'Source (URL): ...' du contexte pour extraire les liens profonds exacts et spécifiques correspondant aux textes que tu cites. Chaque lien doit être encapsulé de cette manière exacte : <a href='URL_PROFONDE_TROUVEE' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Nom précis du texte (ex: Décret n°...)</a>. Si le contexte ne contient pas de lien profond pour un texte, utilise sa racine officielle par défaut : Légifrance (https://www.legifrance.gouv.fr), Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).</li></ul>\n\n"
+                "CONSIGNE DE FORMATAGE IMPÉRATIVE (MARKDOWN BRUT) :\n"
+                "Rédige exclusivement en Markdown standard. N'utilise AUCUNE balise HTML (Pas de <h3>, pas de <ul>, pas de <a>). Utilise des titres de section commençant uniquement par '### '.\n"
+                "Pour CHAQUE texte officiel officiel, loi, ou circulaire que tu évoques, tu as l'obligation absolue de l'insérer sous forme de lien Markdown standard : [Nom précis du texte](URL). Si l'URL spécifique n'apparaît pas clairement dans ton contexte, utilise l'adresse racine correspondante : Légifrance (https://www.legifrance.gouv.fr), Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).\n\n"
+                "STRUCTURE ATTENDUE :\n"
+                "### 1. TEXTES OFFICIELS ET CADRE JURIDIQUE\n"
+                "### 2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE\n"
+                "### 3. PROTECTION ET RECOURS\n"
+                "### 4. RÉFÉRENCES ET LIENS DE RECHERCHE\n"
+                "Dresse la liste des textes cités sous forme de puces avec leurs liens Markdown obligatoires.\n\n"
                 f"Contexte juridique extrait : {extraits_doc}\n"
                 f"Question de l'agent : {prompt}"
             )
@@ -771,7 +771,12 @@ if prompt:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank">\1</a>', texte_brut)
+        # Interception et conversion automatique et sécurisée de TOUS les liens Markdown
+        texte_brut = re.sub(
+            r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
+            texte_brut
+        )
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         if mode == "peda" or mode == "textes":
@@ -779,6 +784,19 @@ if prompt:
             texte_final = re.sub(r'^###\s+(.*)$', r'<h3>\1</h3>', texte_final, flags=re.MULTILINE)
             texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
             texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
+            
+            # Sécurité d'injection : Ajoute systématiquement les liens profonds fixes en section 5 pour le mode textes
+            if mode == "textes":
+                liens_fixes_publics = """
+                <br><h3>5. RECOURS & LIENS INSTITUTIONNELS PERMANENTS</h3>
+                <ul>
+                <li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Légifrance – Code de l'Éducation : Article L. 911-4 (Loi de 1937)</a></li>
+                <li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Portail Pédagogique &amp; Réglementaire – Académie Aix-Marseille</a></li>
+                <li><a href='https://eps.ac-creteil.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Dossiers Contentieux &amp; FAQ Juridique – Académie de Créteil</a></li>
+                </ul>
+                """
+                texte_final = texte_final.strip() + liens_fixes_publics
+                
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
         else:
             texte_final = texte_brut.replace(chr(10), "<br>")

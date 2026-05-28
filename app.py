@@ -345,7 +345,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS is l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
+            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -362,7 +362,7 @@ def initialiser_base_ipack(cle_fremt):
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -709,21 +709,17 @@ if prompt:
         elif mode == "textes":
             consigne_ia = (
                 "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
-                "MISSION : Tu analyses la question en t'appuyant uniquement sur les textes officiels (Loi, Décret, Circulaire, Code de l'Éducation, BO) présents dans le contexte.\n"
+                "MISSION : Tu analyses la question en t'appuyant uniquement sur les textes officiels présents dans le contexte. Tu explores méticuleusement le contexte pour en extraire les textes profonds (circulaires, arrêtés, décrets spécifiques) et leurs URL réelles.\n"
                 "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
                 "STRUCTURE DE SORTIE STRICTE (HTML UNIQUEMENT, AUCUN CARACTÈRE MARKDOWN) :\n"
                 "<h3>1. TEXTES OFFICIELS ET CADRE JURIDIQUE</h3>\n"
-                "<ul><li>Données factuelles issues du Code ou des décrets.</li></ul>\n"
+                "<ul><li>Données factuelles issues du Code ou des décrets spécifiques trouvés dans le contexte.</li></ul>\n"
                 "<h3>2. ANALYSE ET JURISPRUDENCE ACADÉMIQUE</h3>\n"
                 "<ul><li>Application directe à la situation sans extrapolation.</li></ul>\n"
                 "<h3>3. PROTECTION ET RECOURS</h3>\n"
                 "<ul><li>Procédure administrative de protection de l'agent.</li></ul>\n"
                 "<h3>4. RÉFÉRENCES ET LIENS DIRECTS</h3>\n"
-                "<ul>\n"
-                "<li><a href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525615/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Code de l'Éducation - Article L. 911-4 (Loi de 1937)</a></li>\n"
-                "<li><a href='http://www.eps.ac-aix-marseille.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Site EPS Aix-Marseille (Textes Réglementaires)</a></li>\n"
-                "<li><a href='https://eps.ac-creteil.fr/' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Site EPS Créteil (FAQ Jurisprudence)</a></li>\n"
-                "</ul>\n\n"
+                "<ul><li>Tu DOIS obligatoirement fouiller les lignes 'Source (URL): ...' du contexte pour extraire les liens profonds exacts et spécifiques correspondant aux textes que tu cites. Chaque lien doit être encapsulé de cette manière exacte : <a href='URL_PROFONDE_TROUVEE' target='_blank' style='color: #FFB020 !important; text-decoration: underline; font-weight: 700;'>Nom précis du texte (ex: Décret n°...)</a>. Si le contexte ne contient pas de lien profond pour un texte, utilise sa racine officielle par défaut : Légifrance (https://www.legifrance.gouv.fr), Aix-Marseille (http://www.eps.ac-aix-marseille.fr), ou Créteil (https://eps.ac-creteil.fr).</li></ul>\n\n"
                 f"Contexte juridique extrait : {extraits_doc}\n"
                 f"Question de l'agent : {prompt}"
             )

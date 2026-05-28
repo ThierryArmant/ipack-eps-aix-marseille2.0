@@ -614,7 +614,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE - MULTI-VIDÉOS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (CONSOLIDATION FINALE ET SÉCURISÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -650,6 +650,15 @@ if prompt:
         
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt_lower for mot in mots_terrain)
+        est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
+        
+        expressions_inutiles = [
+            "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+            "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+            "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
+            "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+            "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
+        ]
         
         verites_terrain_pierre = ""
         try:
@@ -669,14 +678,7 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    mot_cle = prompt.lower()
-                    expressions_inutiles = [
-                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
-                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
-                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
-                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
-                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
-                    ]
+                    mot_cle = prompt_lower
                     for exp in expressions_inutiles:
                         mot_cle = mot_cle.replace(exp, "")
                     for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
@@ -746,120 +748,83 @@ if prompt:
         if openai_api_key:
             try:
                 if est_demande_concours:
-                    # Stockage direct des compositions rédigées par Pierre pour neutraliser les bugs serveurs
                     base_corrections_pierre = {
-                        "2022": """
-                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION AGRÉGATION INTERNE 2022 (ÉCRIT 1)</h3>
-                        <strong>Sujet : L’Éducation Physique et Sportive face aux enjeux de santé publique de 1967 à nos jours : de la préservation du capital corporel des élèves à l’éducation à la responsabilité sanitaire.</strong><br><br>
-                        
-                        <h3>1. DÉCODAGE DE LA TENSION DIALECTIQUE</h3>
-                        En 1967, la santé est envisagée sous un angle purement biologique et mécanique. L'école doit fortifier et redresser le capital corporel de l'élève (vision instrumentaliste du corps-machine). De nos jours, la santé est globale (physique, mentale, sociale - définition de l'OMS). L'enjeu est d'éduquer à la responsabilité sanitaire : l'élève devient l'acteur lucide de sa propre gestion de vie physique (savoir s'auto-réguler, faire des choix autonomes). La tension réside dans le passage d'une santé subie et mécaniste à une santé choisie et comportementale.<br><br>
-                        
-                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>
-                        De 1967 à nos jours, l'EPS est passée d'une logique de normalisation hygiéniste à une propédeutique de l'autonomie sanitaire. En adossant le traitement didactique des activités sportives à des compétences méthodologiques et sociales, la discipline a transformé l'effort physique : hier moyen de redressement et de sélection des corps, il est devenu aujourd'hui un objet de réflexion et d'auto-régulation, permettant à chaque élève de construire un habitus de pratique durable et responsable face aux dérives sédentaires contemporaines.<br><br>
-                        
-                        <h3>3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS</h3>
+                        "agreg_2025_ecrit1": """
+                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION AGRÉGATION INTERNE 2025 (ÉCRIT 1)</h3>
+                        <strong>Sujet : De 1967 à nos jours, comment l’Éducation Physique et Sportive a-t-elle concilié l’impératif de sécurité des élèves et la recherche d’une motricité audacieuse et performante ?</strong><br><br>
+                        <h3>1. DÉCODAGE DE LA TENSION DIALECTIQUE</h3>La tension réside dans le fait que l'EPS a dû prouver qu'elle pouvait scolariser le risque sportif sans éteindre l'engagement moteur. La sécurité n'est pas le frein de l'audace, mais sa condition de possibilité.<br><br>
+                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>L'EPS est passée d'une sécurité passive et externalisée (prise en charge par l'enseignant) à une sécurité active et partagée (internalisée par l'élève via des rôles sociaux), faisant de la gestion du risque un objet d'enseignement pour libérer l'audace.<br><br>
+                        <h3>3. DÉROULEMENT DU PLAN</h3>
                         <ul>
-                        <li><strong>PARTIE I (1967 - Fin 1970) : La santé mesurée par l'efficience motrice. Développer le capital corporel par le rendement sportif.</strong><br>
-                        - <i>Thèse</i> : La santé est synonyme de normalité morphologique et de puissance aérobie pour répondre à la modernisation de la société.<br>
-                        - <i>Ancrages</i> : 📚 J. Pineau (1990) et l'hygiénisme sportif. 📚 G. Vigarello (1985) et le passage du corps redressé au corps performant.<br>
-                        - <i>Textes</i> : 📜 IO de 1967 (développement des facteurs de la conduite).<br>
-                        - <i>Terrain (Demi-fond / CA1)</i> : 🎯 Test du Cooper (12 minutes). L'enseignant chronomètre au sifflet et impose une allure standardisée pour toute la classe. L'élève subit l'effort, la note est indexée sur la performance brute du barème national.<br><br>
-                        </li>
-                        <li><strong>PARTIE II (Années 1980 - Fin 1990) : La scolarisation de la santé. De la performance subie à la gestion méthodique de l'effort.</strong><br>
-                        - <i>Thèse</i> : L'intégration à l'Éducation Nationale (1981) intellectualise la discipline. La santé devient un Savoir. On apprend à l'élève à connaître ses limites.<br>
-                        - <i>Ancrages</i> : 📚 A. Hébrard (1986) et les habitudes de pratique pour la vie future. 📚 J. Marsenach (1991) et la pédagogie de résolution de problème.<br>
-                        - <i>Textes</i> : 📜 Loi de 1989 (élève au centre), 📜 Programmes Collège 1996 (le citoyen qui gère sa vie physique).<br>
-                        - <i>Terrain (Course en Durée / CA1)</i> : 🎯 Utilisation des tables de VMA. L'élève court à 80% de sa vitesse sur un contrat de régularité (plots tous les 50m) et apprend à prendre ses pulsations cardiaques à la carotide à la fin de l'effort.<br><br>
-                        </li>
-                        <li><strong>PARTIE III (Années 2000 - 2026) : L'ère de la responsabilité sanitaire. L'avènement du CA5 et la littératie physique.</strong><br>
-                        - <i>Thèse</i> : Face à l'explosion de la sédentarité, l'État commande une EPS protectrice. Le CA5 valide une performance de soi adossée à une conscience fine des postures de sécurité.<br>
-                        - <i>Ancrages</i> : 📚 D. Delignières (2019) et l'engagement lucide. 📚 N. Solal (2012) et la construction d'un habitus durable.<br>
-                        - <i>Textes</i> : 📜 Programmes Collège 2015 (Domaine 3 du socle), 📜 Programmes Lycée 2019 (AFL 2 : réguler sa charge au regard des indicators).<br>
-                        - <i>Terrain (Musculation / CA5 Lycée)</i> : 🎯 Mobile Entretien. L'élève conçoit sa séance (4x10 à 65% sur presse). Le partenaire (AFL 3) valide les trajectoires et pare. L'élève ajuste ses séries de manière autonome en croisant sa Fréquence Cardiaque et son échelle de ressenti de l'effort (RPE / Échelle de Borg).
-                        </li>
+                        <li><strong>PARTIE I (1967-1970) :</strong> Sécurité externe. 📚 B. Jeu (1977). 🎯 Gymnastique où le prof parade physiquement au saut de cheval. Sécurité passive.</li>
+                        <li><strong>PARTIE II (1980-1990) :</strong> Sécurité active. 📚 J.P. Dégal (1994). 🎯 Escalade en CA2 où les pairs gèrent le nœud de huit et l'assurage en 5 temps.</li>
+                        <li><strong>PARTIE III (2000-2026) :</strong> Engagement lucide. 📚 D. Delignières (2019). 🎯 Acrosport en CA3 où la note collective intègre la rigueur du pareur actif (AFL3).</li>
                         </ul>
                         """,
                         
-                        "2025": """
+                        "agreg_2025_ecrit2": """
                         <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION AGRÉGATION INTERNE 2025 (ÉCRIT 2)</h3>
                         <strong>Sujet : En quoi la diversité des parcours de formation des élèves en EPS (du cycle 3 au lycée) interroge-t-elle la conception des projets de cycle et le choix des situations d'apprentissage ?</strong><br><br>
-                        
-                        <h3>1. DÉGAGEAGE DE LA TENSION DIALECTIQUE</h3>
-                        Le sujet impose de penser la cohérence verticale du parcours face aux hétérogénéités et aux ruptures de programmation entre cycles. La tension centrale réside dans l'obligation d'assurer une transformation motrice commune et évaluable (les attendus des programmes) tout en prenant en compte la singularité et la discontinuité des parcours réels des élèves.<br><br>
-                        
-                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>
-                        La diversité des parcours, loin d'être un obstacle à la standardisation, constitue le moteur d'une rationalisation didactique de l'EPS. Du cycle 3 au lycée, elle impose de concevoir des projets de cycle centrés sur des profils de transformation prioritaires. Cette adaptabilité se traduit sur le terrain par des situations d'apprentissage à variables d'action multiples, permettant à chaque élève, quel que soit son vécu antérieur, de s'engager de manière lucide et d'atteindre les niveaux de maîtrise certifiés.<br><br>
-                        
-                        <h3>3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS</h3>
+                        <h3>1. DÉGAGEAGE DE LA TENSION DIALECTIQUE</h3>Assurer une transformation motrice commune et évaluable tout en gérant la discontinuité des parcours réels.<br><br>
+                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>La diversité des parcours constitue le moteur d'une rationalisation didactique de l'EPS. Du cycle 3 au lycée, elle impose de concevoir des projets de cycle centrés sur des profils de transformation prioritaires.<br><br>
+                        <h3>3. DÉROULEMENT DU PLAN</h3>
                         <ul>
-                        <li><strong>PARTIE I : Du Cycle 3 au Cycle 4 : Stabiliser les fondamentaux moteurs face aux ruptures de la liaison école-collège.</strong><br>
-                        - <i>Thèse</i> : L'arrivée au collège révèle des disparités massives dues à la fragilité de l'EPS au 1er degré. Le projet de cycle sert de matrice de remobilisation.<br>
-                        - <i>Ancrages</i> : 📚 J. Horoks (2018) et la liaison cycle 3. 📚 M. Durand (1987) et la coordination motrice générale préalable.<br>
-                        - <i>Textes</i> : 📜 Programmes de 2015 (Continuité école/collège), Domaines 1 et 2 du Socle.<br>
-                        - <i>Terrain (Volley-Ball / CA4)</i> : 🎯 Constat de 40% de novices en 4ème. Situation en 3vs3 avec score parlant. Les élèves fragiles ont droit à un joker (ballon bloqué 1 seconde) pour organiser l'attaque, les experts frappent en touches directes. Tous valident le Domaine 2.<br><br>
-                        </li>
-                        <li><strong>PARTIE II : Du Cycle 4 au Lycée : S'appuyer sur les acquis méthodologiques pour engager l'élève dans des choix de mobiles autonomes.</strong><br>
-                        - <i>Thèse</i> : Au lycée, la diversité est institutionnalisée par les menus de CCF. Le projet de cycle doit être capacitant et mobiliser les outils d'auto-régulation.<br>
-                        - <i>Ancrages</i> : 📚 D. Delignières (2019) et l'autonomie. 📚 C. Sève (2012) et le passage à l'auto-régulation des ressources.<br>
-                        - <i>Textes</i> : 📜 Programmes Lycée 2019 (AFL 2 : concevoir et réguler, AFL 3 : rôles sociaux).<br>
-                        - <i>Terrain (Musculation / CA5 Lycée)</i> : 🎯 Projet articulé autour de 3 parcours types (Tonification, Volume, Postural). L'élève choisit son mobile et ses charges en utilisant un carnet de bord croisant l'Échelle de Borg (RPE) et son calcul de charge max. L'effort est personnalisé, le parcours est valorisé.<br><br>
-                        </li>
-                        <li><strong>PARTIE III : La prise en compte des parcours singuliers : L'inclusion et l'adaptation réglementaire comme sommets de la responsabilité enseignante.</strong><br>
-                        - <i>Thèse</i> : La diversité culmine avec les élèves à besoins particuliers ou inaptes. Le projet de cycle impose une accessibilité didactique pour garantir l'équité sans exclusion.<br>
-                        - <i>Ancrages</i> : 📚 A. Marcellini (2005) et l'inclusion corporelle. 📚 É. Dugas (2004) et la modification des règles génératrices du jeu.<br>
-                        - <i>Textes</i> : 📜 Loi Handicap de 2005, aménagement des examens officiels et neutralisation médicale via iPackEPS.<br>
-                        - <i>Terrain (Course d'Orientation / CA2)</i> : 🎯 Intégration d'un élève inapte moteur des membres inférieurs en Terminale. L'enseignant conçoit une carte spécifique avec un parcours 'O-Précision' (identification des balises par choix d'azimut depuis des chemins carrossables). Le critère d'évaluation n'est pas la vitesse mais la justesse stratégique. L'inclusion est absolue.
-                        </li>
+                        <li><strong>PARTIE I :</strong> Liaison Cycle 3. 📚 J. Horoks (2018). 🎯 Volley avec option ballon bloqué pour les novices.</li>
+                        <li><strong>PARTIE II :</strong> Autonomie au Lycée. 📚 D. Delignières (2019). 🎯 Musculation en CA5 régulée à l'indice RPE de Borg.</li>
+                        <li><strong>PARTIE III :</strong> Parcours singuliers. 📚 É. Dugas (2004). 🎯 CO en 'O-Précision' pour inclure un élève inapte moteur.</li>
                         </ul>
                         """,
                         
-                        "2023": """
-                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION CAPEPS EXTERNE 2023 (ÉCRIT 1)</h3>
-                        <strong>Sujet : L'EPS et l'école : comment la discipline a-t-elle défendu sa place et sa légitimité institutionnelle au sein du système éducatif de 1981 à nos jours ?</strong><br><br>
-                        
-                        <h3>1. DÉCODAGE DE LA TENSION DIALECTIQUE</h3>
-                        En 1981, l'EPS rejoint l'Éducation Nationale. Pour défendre sa place, elle a dû prouver qu'elle n'était pas une simple récréation sportive mais une matière évaluable, sérieuse et noble. La tension réside dans l'oscillation historique entre s'aligner sur les codes scolaires traditionnels (au risque d'une intellectualisation) et affirmer sa spécificité corporelle unique.<br><br>
-                        
-                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>
-                        De 1981 à nos jours, l'EPS a conquis sa légitimité en opérant une double mutation : d'une part, en se conformant aux exigences de l'école (programmes par compétences, CCF aux examens, alignement sur le Socle) ; d'autre part, en affirmant sa contribution sociétale irremplaçable comme la seule matière capable d'articuler transformation motrice, santé publique face à la sédentarité et apprentissage de la citoyenneté républicaine en actes.<br><br>
-                        
-                        <h3>3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS</h3>
+                        "capeps_2025": """
+                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION CAPEPS EXTERNE 2025 (ÉCRIT 1)</h3>
+                        <strong>Sujet : La prise en compte de la diversité culturelle et sociale des élèves dans l'histoire de l'EPS de 1967 à nos jours.</strong><br><br>
+                        <h3>1. DÉGAGEAGE DE LA TENSION DIALECTIQUE</h3>Opposition entre l'uniformisation par le sport d'élite (IO 1967) et l'obligation de différencier pour l'équité (Socle commun).<br><br>
+                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>L'EPS est passée d'une acculturation sportive uniformisante à une inclusion équitable valorisant la diversité comme richesse.<br><br>
+                        <h3>3. DÉROULEMENT DU PLAN</h3>
                         <ul>
-                        <li><strong>PARTIE I (1981 - Début 1990) : La légitimation par la normalisation scolaire et la didactisation.</strong><br>
-                        - <i>Thèse</i> : Rattachée au MEN, l'EPS doit formaliser ce qu'elle fait apprendre. C'est l'apparition des savoirs scolaires issus de la recherche didactique.<br>
-                        - <i>Ancrages</i> : 📚 J. Marsenach (1991) et la formulation des objectifs. 📚 M. Hébrard (1986) et l'obligation d'évaluer pour être pris au sérieux.<br>
-                        - <i>Textes</i> : 📜 Décret d'intégration du 28 mai 1981, 📜 Loi d'orientation de 1989.<br>
-                        - <i>Terrain (Volley-ball / CA4)</i> : 🎯 On passe du jeu brut au traitement didactique. L'élève remplit des fiches d'observation sur la rupture de l'échange et est évalué sur sa capacité à organiser l'attaque depuis la zone arrière. La discipline fait réfléchir.<br><br>
-                        </li>
-                        <li><strong>PARTIE II (Milieu 1990 - Années 2000) : La légitimation par l'évaluation officielle aux examens nationaux.</strong><br>
-                        - <i>Thèse</i> : Pour être noble, une matière doit compter pour les diplômes. L'EPS ancre sa légitimité en créant le CCF au Brevet et au Baccalauréat.<br>
-                        - <i>Ancrages</i> : 📚 Y. Combaz (2010) et la sociologie de l'évaluation standardisée. 📚 F. Gleyse (2007) et la figure de l'enseignant-évaluateur.<br>
-                        - <i>Textes</i> : 📜 Arrêtés de 1993 et 1995 (généralisation du CCF au Bac), 📜 Programmes Nationaux de 1996.<br>
-                        - <i>Terrain (Course d'Orientation / CA2)</i> : 🎯 Épreuve du Baccalauréat. La note croise la vitesse et la justesse méthodologique. L'élève est noté sur la pertinence de ses choix d'itinéraires sur la carte. Une notation indiscutable qui valide la rigueur de la matière.<br><br>
-                        </li>
-                        <li><strong>PARTIE III (Années 2010 - 2026) : La légitimation sociétale. L'EPS comme pilier républicain et de santé publique.</strong><br>
-                        - <i>Thèse</i> : Face aux crises (sédentarité, écrans), l'État énumère l'EPS en bouclier sanitaire et civique. Elle s'aligne sur le Socle commun en faisant vivre la fraternité.<br>
-                        - <i>Ancrages</i> : 📚 D. Delignières (2020) et l'utilité vitale de l'EPS face à l'inactivité. 📚 A. Michel (2016) et l'apport de l'EPS aux domaines du Socle.<br>
-                        - <i>Textes</i> : 📜 Programmes Collège 2015 (liaison Socle), 📜 Programmes Lycée 2019 (AFL autonomie).<br>
-                        - <i>Terrain (Demi-fond / CA1)</i> : 🎯 Préparation au Bac. Classe inclusive où les dispensés gèrent les outils numériques de régulation. Évaluation indexée sur la capacité de l'élève à respecter à 0,5 km/h près le projet de course qu'il a lui-même planifié (AFL2). L'EPS produit des citoyens autonomes.
-                        </li>
+                        <li><strong>PARTIE I (1967-1970) :</strong> Illusion universaliste. 📚 P. Arnaud (1983). 🎯 Gymnastique notée sur le code de pointage rigide.</li>
+                        <li><strong>PARTIE II (1980-1990) :</strong> Formes de pratiques scolaires. 📚 J. Marsenach (1991). 🎯 Rugby/Volley en ZEP avec règles adoucies.</li>
+                        <li><strong>PARTIE III (2000-2026) :</strong> Justice sociale. 📚 Y. Combaz (2010). 🎯 Danse en Lycée Pro notée sur la composition artistique (AFL2) et le rôle de spectateur (AFL3).</li>
+                        </ul>
+                        """,
+                        
+                        "capeps_2023": """
+                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION CAPEPS EXTERNE 2023 (ÉCRIT 1)</h3>
+                        <strong>Sujet : Sa légitimité institutionnelle au sein du système éducatif de 1981 à nos jours.</strong><br><br>
+                        <h3>3. DÉROULEMENT DU PLAN</h3>
+                        <ul>
+                        <li><strong>PARTIE I (1981-1990) :</strong> 📚 J. Marsenach (1991). 🎯 Volley-ball didactisé.</li>
+                        <li><strong>PARTIE II (1990-2000) :</strong> 📚 Y. Combaz (2010). 🎯 Course d'orientation au Bac (CCF).</li>
+                        <li><strong>PARTIE III (2010-2026) :</strong> 📚 D. Delignières (2020). 🎯 Demi-fond synchrone AFL2.</li>
+                        </ul>
+                        """,
+                        
+                        "agreg_2022": """
+                        <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION AGRÉGATION INTERNE 2022 (ÉCRIT 1)</h3>
+                        <strong>Sujet : L’Éducation Physique et Sportive face aux enjeux de santé publique de 1967 à nos jours.</strong><br><br>
+                        <h3>3. DÉROULEMENT DU PLAN</h3>
+                        <ul>
+                        <li><strong>PARTIE I (1967-1970) :</strong> 📚 J. Pineau (1990). 🎯 Test du Cooper subit au sifflet.</li>
+                        <li><strong>PARTIE II (1980-1990) :</strong> 📚 A. Hébrard (1986). 🎯 Table de VMA et pulsations carotides.</li>
+                        <li><strong>PARTIE III (2000-2026) :</strong> 📚 D. Delignières (2019). 🎯 Musculation en CA5 et régulation Borg.</li>
                         </ul>
                         """
                     }
                     
-                    # Détection de l'année ciblée dans la question
-                    annee_detectee = None
-                    for annee in base_corrections_pierre.keys():
-                        if annee in prompt_lower:
-                            annee_detectee = annee
-                            break
+                    cle_cible = None
+                    if "2025" in prompt_lower:
+                        if "capeps" in prompt_lower:
+                            cle_cible = "capeps_2025"
+                        else:
+                            cle_cible = "agreg_2025_ecrit1" if "ecrit 1" in prompt_lower or "écrit 1" in prompt_lower else "agreg_2025_ecrit2"
+                    elif "2023" in prompt_lower:
+                        cle_cible = "capeps_2023"
+                    elif "2022" in prompt_lower:
+                        cle_cible = "agreg_2022"
                     
-                    # Rendu ultra-rapide et souverain
-                    if annee_detectee:
-                        extraits_doc = base_corrections_pierre[annee_detectee]
+                    if cle_cible and cle_cible in base_corrections_pierre:
+                        extraits_doc = base_corrections_pierre[cle_cible]
                     else:
-                        # Recherche sémantique de secours si pas d'année écrite
                         for n in retriever_concours.retrieve(prompt + " Sujet Rapport Jury"):
                             extraits_doc += f"{n.node.text}\n\n"
                     
@@ -870,7 +835,7 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    mot_cle_local = prompt.lower()
+                    mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
@@ -883,7 +848,9 @@ if prompt:
             except: 
                 pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
+        # ======================================================================
+        # 3. IDENTITÉ ET PERSONNALITÉ (RESTAURATION DE TOUTE LA LOGIQUE INTERNE)
+        # ======================================================================
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
@@ -900,14 +867,180 @@ if prompt:
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
             "Priorité maximale à la scannabilité graphique immédiate pour un professeur d'EPS."
         )
-        if not est_demande_concours:
-            badge = "INFORMATION"
-            color_card = "general-card"
-
+        
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
 
+        # RECONSTRUCTION DES TEMPLATES INDIVIDUELS CONGÉDIÉS PAR ERREUR
+        if not est_demande_concours:
+            if mode == "ipack":
+                liens_utiles = {
+                    "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
+                    "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
+                    "rubrique7": "- [📥 Ouvrir la rubrique 7 de documentation (Examens / CCF) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)",
+                    "video_inapt": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Déclaration / Suivi des inaptitudes](https://youtu.be/34w4Z6dd1dM)",
+                    "video_import": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote](https://youtu.be/RlScDjd8kHk)",
+                    "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
+                }
+                liens_selectionnes = []
+                if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
+                    liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
+                elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
+                    liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
+                elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu", "certificat", "médical", "cm"]):
+                    liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
+                else:
+                    liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
+                
+                bloc_liens_dynamique = "\n".join(liens_selectionnes)
+                
+                consigne_ia = (
+                    f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                    "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
+                    "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
+                    "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
+                    "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                    "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
+                    "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
+                    "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
+                    "2. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
+                    f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                    f"Contexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
+                )
+                badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+
+            elif mode == "examens":
+                liens_utiles = {
+                    "webinaire_eps": "- [📥 Télécharger le Webinaire Officiel IA-IPR (Guide pas-à-pas Santorin EPS Aix-Marseille)](https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf)",
+                    "portail_santorin": "- [🌐 Accéder au Portail d'assistance et Fiches Mémo Santorin Académique](https://www.ac-aix-marseille.fr/santorin)",
+                    "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
+                }
+                liens_selectionnes = []
+                if any(x in prompt_lower for x in ["simul", "entraîn", "test", "école", "faux", "s'exercer"]):
+                    liens_selectionnes.extend([liens_utiles["base_ecole"], liens_utiles["webinaire_eps"]])
+                elif any(x in prompt_lower for x in ["absent", "dispense", "inapte", "neutralis", "substitution", "bless", "aflp"]):
+                    liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
+                else:
+                    liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
+                
+                bloc_liens_dynamique = "\n".join(liens_selectionnes)
+                
+                consigne_ia = (
+                    f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                    "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
+                    "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
+                    "### 1. ANALYSE DES RISQUES\n"
+                    "### 2. PROCÉDURE TECHNIQUE\n"
+                    "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
+                    "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION AND VERROUS ABSOLUS :\n"
+                    "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir.\n"
+                    "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Pas de sous-titres 'ALERTE SÉCURITÉ'.\n\n"
+                    f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                    f"Contexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
+                )
+                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+            elif mode == "textes":
+                consigne_ia = (
+                    f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                    "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
+                    "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                    "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
+                    "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
+                    "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
+                    "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
+                    f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
+                )
+                badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
+
+            elif mode == "peda":
+                niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
+                label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
+                label_competence = "Compétences d'Échauffement et d'Entraînement" if est_lycee else "Compétences visées pendant le cycle"
+
+                ca_nom = "CA1 (Performance optimale)"
+                if est_lycee:
+                    ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
+                    ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
+                else:
+                    ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux."
+                    ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                
+                if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
+                    ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
+                    if est_lycee:
+                        ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force.<br>AFL 2 (Méthodologique) : Observer, recueillir des données et ajuster son projet en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires."
+                        ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur."
+                    else:
+                        ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force."
+                        ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force."
+                elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
+                    ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
+                    if est_lycee:
+                        ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes.<br>AFL 3 (Social) : Assumer un jugement argumenté, tenir le rôle de pareur."
+                        ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques."
+                    else:
+                        ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public."
+                        ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion."
+                elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
+                    ca_nom = "CA5 (Développement de soi et entretien de la santé)"
+                    ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées.<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail (RPE/Borg).<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement."
+                    ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité."    
+                elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
+                    ca_nom = "CA2 (Environnements variés)"
+                    if est_lycee:
+                        ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité.<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire."
+                        ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique."
+                    else:
+                        ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources."
+                        ca_competences = "Choisir et conduire un déplacement adapté. Évaluer les risques."
+
+                consigne_ia = (
+                    f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
+                    f"Tu rédiges une fiche de cycle complète pour le niveau : {niveau_affiche}.\n"
+                    f"CHAMP CIBLÉ : {ca_nom}\n"
+                    f"TEXTE OFFICIEL À INJECTER : {ca_attendus}\n"
+                    f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
+                    "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
+                    "1. Dans la section 'ANCRAGE INSTITUTIONNEL', affiche textuellement le texte officiel fourni ci-dessus sans modifier une seule virgule.\n"
+                    "2. Dans la section 'SITUATIONS D'APPRENTISSAGE', adapte la complexité au niveau demandé.\n"
+                    "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points.\n"
+                    "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
+                    "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
+                    "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
+                    "RÈGLE DES LIENS RECHERCHE DYNAMIQUES :\n"
+                    "Génère obligatoirement les 4 liens HTML exacts ci-dessous (NOM_APSA en minuscules, DOMAINE1 à remplacer par un vrai serveur académique).\n"
+                    "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
+                    "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
+                    "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
+                    "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
+                    "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
+                    "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
+                    f"<strong>Activité : [Nom] | Champ d'Apprentissage ({ca_nom.split(' ')[0]}) | Niveau : {niveau_affiche}</strong><br><br>"
+                    "<h3>🌐 ANCRAGE INSTITUTIONNEL</h3>"
+                    "<ul>"
+                    f"<li><strong>{label_attendu} :</strong><br>" + ca_attendus + "</li>"
+                    f"<li><strong>{label_competence} :</strong><br>" + ca_competences + "</li>"
+                    "</ul>"
+                    "<h3>🎯 OBJECTIFS PÉDAGOGIQUES DE LA SÉQUENCE</h3><ul><li>[Intentions tactiques et transformations motrices]</li></ul>"
+                    "<h3>🏃‍♂️ CADRE SÉCURITÉ & AMÉNAGEMENT DU TERRAIN</h3><ul><li>[Consignes de sécurité passive et active]</li></ul>"
+                    "<h3>🛠️ SITUATIONS D'APPRENTISSAGE ET DE TEST PROTOCOLÉE</h3>"
+                    "<ul>"
+                    "<li><strong>Dispositif et aménagement du milieu :</strong> [Description]</li>"
+                    "<li><strong>Règles du jeu et score parlant :</strong> [Consignes]</li>"
+                    "<li><strong>Ciblage des compétences :</strong> [Détailler comment la situation valide les AFL ou domaines ciblés]</li>"
+                    "</ul>"
+                    "<h3>📅 PROGRESSION CHRONOLOGIQUE DU CYCLE (6 À 8 SÉANCES)</h3>"
+                    "<ul><li>[Progression détaillée de la séance 1 à la séance 8]</li></ul>"
+                    "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
+                    "<ul><li>[Découpage chiffré précis et observables de terrain]</li></ul>"
+                    "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDEOS</h3>"
+                    "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
+                    f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
+                )
+                badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+
         # ======================================================================
-        # 4. EXÉCUTION ET RENDU HTML (ADOUCI CONTRE LE VERROU COPYRIGHT)
+        # 4. EXÉCUTION ET RENDU HTML (REMASTÉRISÉ SANS CONFLIT DE VARIABLE)
         # ======================================================================
         if est_demande_concours:
             consigne_ia_concours = (
@@ -924,10 +1057,8 @@ if prompt:
         texte_brut = response.text
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
-        
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        # Rendu différencié pour isoler le concours du nettoyage agressif du texte final
         if est_demande_concours:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'

@@ -589,87 +589,56 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    # ======================================================================
-                    # ÉTAPE 1 : ANALYSEUR ET NETTOYAGE CHIRURGICAL DE LA PHRASE
-                    # ======================================================================
-                    phrase_brute = prompt.lower()
-                    
-                    # Élimination des bruits de langage et structures passives
-                    scories = [
-                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
-                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
-                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
-                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
-                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur",
-                        "savoir si", "refuser une", "refuser un", "concerne le", "concerne la"
-                    ]
-                    for mot in scories:
-                        phrase_brute = phrase_brute.replace(mot, "")
-                    
-                    concept_cible = phrase_brute.strip() if phrase_brute.strip() else prompt
+            # 1. Analyseur et nettoyage sémantique
+            phrase_brute = prompt.lower()
+            scories = [
+                "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+                "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+                "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
+                "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+                "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur",
+                "savoir si", "refuser une", "refuser un", "concerne le", "concerne la"
+            ]
+            for mot in scories:
+                phrase_brute = phrase_brute.replace(mot, "")
+            
+            concept_cible = phrase_brute.strip() if phrase_brute.strip() else prompt
 
-                    # ======================================================================
-                    # ÉTAPE 2 : INJECTION DES BALISES DE LOI ET MOTS-CLÉS IMPÉRATIFS
-                    # ======================================================================
-                    # On arme la requête avec tout l'arsenal juridique de l'Éducation Nationale
-                    requete_blindee = (
-                        f"EPS {concept_cible} "
-                        f"\"loi\" OR \"code de l'éducation\" OR \"circulaire\" OR \"décret\" "
-                        f"OR \"arrêté\" OR \"BO\" OR \"bulletin officiel\" OR \"jurisprudence\" "
-                        f"OR \"journal officiel\" OR \"responsabilité\""
-                    )
-                    
-                    # ======================================================================
-                    # ÉTAPE 3 : LISTE BLANCHE STRICTE DES DOMAINES D'AUTORITÉ
-                    # ======================================================================
-                    domaines_exclusifs = [
-                        "legifrance.gouv.fr", 
-                        "education.gouv.fr", 
-                        "eduscol.education.gouv.fr", 
-                        "eps.ac-creteil.fr", 
-                        "eps.ac-aix-marseille.fr",
-                        "unss.org"
-                    ]
-                    
-                    # Appel API Tavily restreint à la liste blanche
-                    payload = {
-                        "api_key": tavily_api_key, 
-                        "query": requete_blindee, 
-                        "search_depth": "advanced", 
-                        "include_domains": domaines_exclusifs
-                    }
-                    
-                    try:
-                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                        results = res.json().get("results", []) if res.status_code == 200 else []
-                        for item in results: 
-                            extraits_doc += f"Source ({item['url']}): {item['content']}\n\n"
-                    except Exception as e:
-                        extraits_doc += f"Erreur de liaison base externe: {str(e)}"
-                    
-                    tavily_deja_execute = True
-                    ]
-                    
-                    mot_cle = prompt.lower()
-                    # (Conserve ici ton nettoyage d'expressions inutiles...)
-                    
-                    requete_blindee = f"{mot_cle} droit éducation EPS jurisprudence tribunal"
-                    
-                    payload = {
-                        "api_key": tavily_api_key, 
-                        "query": requete_blindee, 
-                        "search_depth": "advanced", 
-                        "include_domains": domains_textes_officiels
-                    }
-                    # ... (Le reste de l'exécution Tavily reste identique)
-                    
-                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                    results = res.json().get("results", []) if res.status_code == 200 else []
-                    
-                    for item in results: 
-                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
-                    
-                    tavily_deja_execute = True
+            # 2. Reconstitution de la requête blindée avec filtres de loi
+            requete_blindee = (
+                f"EPS {concept_cible} "
+                f"\"loi\" OR \"code de l'éducation\" OR \"circulaire\" OR \"décret\" "
+                f"OR \"arrêté\" OR \"BO\" OR \"bulletin officiel\" OR \"jurisprudence\" "
+                f"OR \"journal officiel\" OR \"responsabilité\""
+            )
+            
+            # 3. Liste Blanche exclusive (sans doublon de crochet)
+            domains_textes_officiels = [
+                "legifrance.gouv.fr", 
+                "conseil-etat.fr", 
+                "courdecassation.fr", 
+                "education.gouv.fr", 
+                "eduscol.education.gouv.fr", 
+                "eps.ac-creteil.fr",
+                "eps.ac-aix-marseille.fr",
+                "unss.org"
+            ]
+            
+            # 4. Envoi de la requête à Tavily
+            payload = {
+                "api_key": tavily_api_key, 
+                "query": requete_blindee, 
+                "search_depth": "advanced", 
+                "include_domains": domains_textes_officiels
+            }
+            
+            res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+            results = res.json().get("results", []) if res.status_code == 200 else []
+            
+            for item in results: 
+                extraits_doc += f"Source ({item['url']}): {item['content']}\n\n"
+            
+            tavily_deja_execute = True
                 
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"

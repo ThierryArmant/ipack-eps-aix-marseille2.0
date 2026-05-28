@@ -345,7 +345,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
+            iPackEPS is l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -710,7 +710,7 @@ if prompt:
             consigne_ia = (
                 "ROLE : Tu es un inspecteur de l'Éducation Nationale, expert en contentieux juridique EPS. Ton ton est froid, neutre et purement factuel.\n"
                 "MISSION : Tu analyses la question en t'appuyant uniquement sur les textes officiels (Loi, Décret, Circulaire, Code de l'Éducation, BO) présents dans le contexte.\n"
-                "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils is impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
+                "RÈGLE DE DROIT IMPÉRATIVE : La responsabilité civile d'un enseignant public devant les tribunaux civils est impossible (Loi de 1937 / Art. L. 911-4 du Code de l'éducation). Seule la responsabilité pénale personnelle s'applique en cas de faute caractérisée.\n\n"
                 "STRUCTURE DE SORTIE STRICTE (HTML UNIQUEMENT, AUCUN CARACTÈRE MARKDOWN) :\n"
                 "<h3>1. TEXTES OFFICIELS ET CADRE JURIDIQUE</h3>\n"
                 "<ul><li>Données factuelles issues du Code ou des décrets.</li></ul>\n"
@@ -778,7 +778,7 @@ if prompt:
             texte_final = texte_brut.strip()
             texte_final = re.sub(r'^###\s+(.*)$', r'<h3>\1</h3>', texte_final, flags=re.MULTILINE)
             texte_final = texte_final.replace("\r\n", "<br>").replace("\n", "<br>")
-            texte_final = re.sub(r'(<br>\s*){2,}', '<br>', text_final)
+            texte_final = re.sub(r'(<br>\s*){2,}', '<br>', texte_final)
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
         else:
             texte_final = texte_brut.replace(chr(10), "<br>")

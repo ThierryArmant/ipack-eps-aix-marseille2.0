@@ -1,1 +1,55 @@
+========================================================================
+BIBLIOTHÈQUE CONCOURS - CORRECTION DU SUJET : AGRÉGATION INTERNE 2022 (ÉCRIT 1)
+POSTURE DU JURY : IA-IPR CHEVRONNÉ / ANCIEN AGRÉGÉ HORS-CLASSE
+SUJET : "L’Éducation Physique et Sportive face aux enjeux de santé publique de 1967 à nos jours : de la préservation du capital corporel des élèves à l’éducation à la responsabilité sanitaire."
+========================================================================
 
+### 1. DÉCODAGE DE LA TENSION DIALECTIQUE (L'ŒIL DE L'INSPECTEUR)
+Ce sujet impose de comprendre un glissement conceptuel et politique majeur. 
+- En 1967, la "santé" est envisagée sous un angle purement biologique, anatomo-physiologique et mécanique. L'école doit "préserver" et développer le capital corporel de l'élève (vision instrumentaliste du corps-machine que l'on doit muscler, redresser ou entraîner). 
+- De nos jours, la santé est devenue globale (physique, mentale, sociale - définition de l'OMS). L'enjeu n'est plus seulement de faire transpirer l'élève sous la direction du maître, mais de l'éduquer à la "responsabilité sanitaire" : il doit devenir l'acteur lucide de sa propre gestion de vie physique (savoir s'auto-réguler, concevoir son entraînement, faire des choix autonomes).
+- La tension réside dans le passage d'une santé "subie et mécaniste" à une santé "choisie et comportementale".
+
+### 2. PROBLÉMATIQUE DE COPIE MAJORE (NOTE VISÉE : > 16/20)
+De 1967 à nos jours, l'EPS est passée d'une logique de normalisation hygiéniste et de développement forcé des ressources organiques à une véritable propédeutique de l'autonomie sanitaire. En adossant progressivement le traitement didactique des activités sportives à des compétences méthodologiques et sociales, la discipline a transformé l'effort physique : hier moyen de redressement et de sélection des corps, il est devenu aujourd'hui un objet de réflexion et d'auto-régulation, permettant à chaque élève de construire un habitus de pratique durable et responsable face aux dérives sédentaires contemporaines.
+
+---
+
+### 3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS DE TERRAIN
+
+<h3>PARTIE I : 1967 - Fin des années 1970 : La santé mesurée par l'efficience motrice. Développer le "capital corporel" par le rendement sportif.</h3>
+
+- **Thèse de la période** : Dans le sillage des Instructions Officielles de 1967, la santé est synonyme de normalité morphologique et de puissance aérobie. L'école cherche à rentabiliser le corps de l'élève pour répondre à la modernisation de la société. Le sport est le moyen exclusif de développer ces ressources.
+- 📚 **Ancrages scientifiques** : 
+  * **J. Pineau (1990)** : Concept "d'hygiénisme sportif". Le sport remplace la gymnastique de maintien mais garde la même finalité : redresser et fortifier.
+  * **G. Vigarello (1985)** : Le passage du "corps redressé" au "corps performant".
+- 📜 **Textes réglementaires** : Instructions Officielles de 1967 (les trois sous-finalités : développement des facteurs de la conduite, maîtrise du milieu, éducation à la relation).
+- 🎯 **Illustration Terrain (APSA : Course de Demi-fond / CA1)** :
+  * *Dispositif IO 1967* : Test du Cooper (courir la plus grande distance en 12 minutes). 
+  * *Postures de terrain* : L'enseignant est sur le bord de la piste avec son chronomètre et son sifflet. Il impose une allure de course standardisée pour toute la classe. L'élève subit l'effort de manière monolithique. La note est attribuée uniquement à la performance chronométrique brute (barème national de distance). La sécurité ou le ressenti de l'élève ne sont pas pris en compte : le corps doit produire du rendement.
+
+---
+
+<h3>PARTIE II : Années 1980 - Fin des années 1990 : La scolarisation de la santé. De la performance subie à la gestion méthodique de l'effort.</h3>
+
+- **Thèse de la période** : L'intégration de l'EPS à l'Éducation Nationale (1981) oblige la discipline à s'intellectualiser. La santé ne se résume plus à un chrono, elle devient un "Savoir". C'est la naissance de la didactique. On apprend à l'élève à connaître ses limites et à gérer son effort à travers des indicateurs objectifs (prise de pulsations).
+- 📚 **Ancrages scientifiques** :
+  * **A. Hébrard (1986)** : L'EPS doit donner des "habitudes de pratique" pour la vie future.
+  * **J. Marsenach (1991)** : Analyse des pratiques de terrain montrant le passage d'une pédagogie du modèle à une pédagogie de la résolution de problème.
+- 📜 **Textes réglementaires** : Loi d'orientation sur l'éducation de 1989 (l'élève au centre du système), Programmes Collège de 1996 (introduction de la composante méthodologique : "Le citoyen qui gère sa vie physique").
+- 🎯 **Illustration Terrain (APSA : Course en Durée / CA1-CA5)** :
+  * *Dispositif Années 90* : Utilisation des tables de VMA (Vitesse Maximale Aérobie).
+  * *Postures de terrain* : L'enseignant n'impose plus une vitesse unique. Il demande à l'élève de calculer sa VMA au préalable. En course, l'élève doit courir à 80% de sa VMA personnelle en utilisant un contrat de régularité (plots de couleur disposés tous les 50 mètres). L'élève apprend à prendre ses pulsations cardiaques au niveau de la carotide à la fin de chaque bloc d'effort. La santé commence à s'enseigner comme une méthode de gestion de soi.
+
+---
+
+<h3>PARTIE III : Années 2000 - 2026 : L'ère de la responsabilité sanitaire. L'avènement du CA5 et la littératie physique.</h3>
+
+- **Thèse de la période** : Face à l'explosion de la sédentatité, de l'obésité et de l'usage des écrans, l'État commande une EPS protectrice et émancipatrice. La santé devient une compétence citoyenne majeure. Avec la création de la CP5 (2005) puis du CA5 (2019), la discipline valide une performance de "soi" adossée à une conscience fine des postures de sécurité et du mobile personnel de l'élève.
+- 📚 **Ancrages scientifiques** :
+  * **D. Delignières (2019)** : Concept "d'engagement lucide" et de responsabilité individuelle face à sa santé.
+  * **N. Solal (2012)** : La santé comme "construction d'un habitus durable", refus d'un hygiénisme moralisateur.
+- 📜 **Textes réglementaires** : Programmes Collège 2015 (Domaine 3 du socle : "La responsabilité individuelle et collective"), Programmes Lycée 2019 (AFL 2 : "Réguler sa charge de travail au regard des indicateurs de l'effort").
+- 🎯 **Illustration Terrain (APSA : Musculation / CA5 Lycée)** :
+  * *Dispositif Contemporain* : Séance centrée sur le mobile "Entretien / Tonification".
+  * *Postures de terrain* : L'enseignant met à disposition des fiches numériques (tablettes ou carnets de suivi de type iPackEPS). L'élève conçoit son propre bloc de travail (ex: 4 séries de 10 répétitions à 65% de sa charge maximale sur de la presse à cuisses). Il travaille en binôme. Le partenaire (AFL 3) observe le placement du dos, valide la trajectoire de sécurité et co-pilote la récupération. L'élève ajuste sa charge en temps réel non pas selon une injonction du prof, mais en croisant sa Fréquence Cardiaque (mesurée via un capteur ou montre connectée) et son échelle de ressenti de l'effort (RPE / Échelle de Borg). C'est la responsabilité sanitaire en actes.

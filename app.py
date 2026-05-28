@@ -589,7 +589,8 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    mot_cle = prompt_lower
+                    # NETTOYAGE ULTRA-RENFORCÉ
+                    mot_cle = prompt.lower()
                     expressions_inutiles = [
                         "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
                         "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
@@ -603,31 +604,19 @@ if prompt:
                         mot_cle = mot_cle.replace(verbe, "")
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
-                    requete_blindee = f"APSA EPS {mot_cle} loi laïcité responsabilité sécurité code éducation circulaire décret arrêté BO jurisprudence"
-                    
-                    # CASCADE JURIDIQUE - ÉTAPE 1 : Aix-Marseille exclusif
-                    domains_prioritaires_aix = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr"]
+                    # CASCADE JURIDIQUE : Priorité Aix-Marseille
+                    domains_prioritaires = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
+                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
                     
                     payload = {
                         "api_key": tavily_api_key, 
                         "query": requete_blindee, 
                         "search_depth": "advanced", 
-                        "include_domains": domains_prioritaires_aix
+                        "include_domains": domains_prioritaires
                     }
                     
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
-                    
-                    # CASCADE JURIDIQUE - ÉTAPE 2 : Si vide, élargissement (Créteil, Légifrance, Conseils d'État)
-                    if not results:
-                        domains_all_lois = [
-                            "eps.ac-creteil.fr", "ipackeps.ac-creteil.fr", "legifrance.gouv.fr", 
-                            "conseil-etat.fr", "courdecassation.fr", "education.gouv.fr", 
-                            "eduscol.education.gouv.fr", "doctrine.fr", "village-justice.com"
-                        ] + domaine_eps_france
-                        payload["include_domains"] = domains_all_lois
-                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                        results = res.json().get("results", []) if res.status_code == 200 else []
                     
                     for item in results: 
                         extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
@@ -723,20 +712,17 @@ if prompt:
 
         elif mode == "textes":
             consigne_ia = (
-                f"{règles_or}\n"
-                "ROLE : Expert juridique national et académique EPS. Tu structures STRICTEMENT ta réponse avec ces balises titres exactes :\n"
-                "<h3>1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE</h3>\n"
-                "<h3>2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ</h3>\n"
-                "<h3>3. JURISPRUDENCE ACADÉMIQUE ET ARRETS COMPLEMENTAIRES</h3>\n"
-                "<h3>4. LIENS ET SOURCES OFFICIELLES</h3>\n\n"
-                "CONSIGNE DE RECOURS JURIDIQUE ABSOLUE : Tu n'inventes aucun lien factice. Tu insères textuellement ces 3 liens cliquables :\n"
-                f"<li><a href='https://www.legifrance.gouv.fr/search/all?pool=all&text={prompt.replace(' ', '+')}' target='_blank'>📥 Rechercher les textes officiels et décrets en direct sur LÉGIFRANCE</a></li>\n"
-                "<li><a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+responsabilite+securite' target='_blank'>🌐 Consulter les notes de cadrage Sécurité et Responsabilité - Académie d'Aix-Marseille</a></li>\n"
-                "<li><a href='https://eps.ac-creteil.fr/' target='_blank'>🌐 Base de jurisprudence technique et FAQ Accidents - Académie de Créteil</a></li>\n\n"
-                "Interdiction d'utiliser les syntaxes Markdown (###, - ou *). Rédige directement ton texte en liant des balises HTML claires (<li> et <h3>).\n"
+                f"{règles_or}{filtre_pierre}\n"
+                "ROLE : Expert juridique officiel EPS.\n"
+                "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
+                "STRUCTURE OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
+                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
+                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
+                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])

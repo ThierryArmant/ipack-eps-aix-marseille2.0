@@ -939,7 +939,7 @@ if prompt:
                 )
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-           elif mode == "textes":
+            elif mode == "textes":
                     mot_cle_local = prompt.lower()
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     

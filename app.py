@@ -656,15 +656,25 @@ if prompt:
         except:
             pass
         
-        # 1. MOTEUR WEB (Tavily)
+        # 1. MOTEUR WEB (Tavily) - Sécurisé anti-pollution pour le concours
         if tavily_api_key:
             try:
+                prompt_lower = prompt.lower()
+                # On détecte le concours immédiatement pour bloquer Tavily
+                est_demande_concours = any(x in prompt_lower for x in ["agreg", "agrégation", "capeps", "concours", "écrit 1", "écrit 2", "sujet de 20", "sujet 20"])
+                
                 domains = domaine_eps_france
                 requete_blindee = prompt
                 exclude = []
                 tavily_deja_execute = False
 
-                if mode == "textes":
+                # SI C'EST UN CONCOURS : ON FORCE TAVILY À NE RIEN FAIRE
+                if est_demande_concours:
+                    tavily_deja_execute = True
+                    results = []
+                
+                elif mode == "textes":
+                    # (Reste de ton code d'origine intact sous le mode textes...)
                     # Le nettoyage agressif est STRICTEMENT réservé au juridique ici
                     mot_cle = prompt.lower()
                     expressions_inutiles = [

@@ -47,3 +47,28 @@
 *   **Texte de référence :** Article L. 134-4 du Code de la fonction publique.
 *   **Principe :** La collectivité publique est tenue d'accorder sa protection à l'agent public faisant l'objet de poursuites pénales à l'occasion de faits qui n'ont pas le caractère d'une faute personnelle.
 *   **Prise en charge :** L'académie prend en charge les frais d'avocat et de procédure.
+
+=== CADRE RÉGLEMENTAIRE 8 : JURISPRUDENCES REPÈRES EN EPS (LE PIÈGE PÉNAL) ===
+
+- Cour d'Appel de Lyon, 11 mai 2004 (L'absence du professeur) : 
+* Les faits : Un enseignant d'EPS s'absente de la halle des sports pendant moins de 10 minutes pour aller remplir un document administratif dans son bureau. Durant ce laps de temps, un élève tente un salto sur un praticable sans autorisation et se blesse gravement aux cervicales.
+* La décision : L'enseignant est condamné pénalement pour blessures involontaires. Le tribunal retient que même une absence de courte durée rompt l'obligation de "surveillance continue, active et visuelle" inhérente à la dangerosité du cours d'EPS. L'éloignement sans motif légitime lié à la sécurité immédiate des élèves constitue une faute caractérisée.
+
+- Cour d'Appel de Versailles, 14 octobre 1999 (Le défaut de parade technique) :
+* Les faits : Lors d'une séance de gymnastique aux barres asymétriques, une élève chute lors d'une sortie dynamique et se blesse. L'enseignant avait organisé des ateliers mais n'avait pas installé de tapis de réception suffisant ni formé de "pareurs" spécifiques pour cet atelier à haut risque.
+* La décision : Condamnation pénale de l'enseignant. La jurisprudence établit que lorsque l'activité comporte un risque de chute de hauteur, l'obligation de moyens impose la mise en place d'une parade physique (manuelle ou matérielle). Ne pas l'organiser constitue un manquement caractérisé aux règles de l'art pédagogique.
+
+- Tribunal Correctionnel, 2001 (L'évaluation des conditions climatiques en APPN) :
+* Les faits : Un enseignant maintient une sortie VTT en milieu ouvert alors qu'un bulletin météo annonçait des pluies torrentielles et des risques d'orages (vigilance orange). Un élève glisse sur une coulée de boue dans une descente et se fracture le bras avec complications.
+* La décision : Condamnation de l'enseignant pour imprudence manifeste. Le juge rappelle que si l'enseignant est souverain pour évaluer les conditions sur place, le maintien d'une activité à environnement variable malgré des alertes officielles caractérise une exposition délibérée d'autrui à un risque grave.
+
+=== CADRE RÉGLEMENTAIRE 9 : BULLETINS OFFICIELS (BO) ET CIRCULAIRES DE RÉFÉRENCE ===
+
+- Circulaire n° 2017-075 du 19 avril 2017 (Le pilier de la sécurité APPN) :
+* Contenu : Ce texte du Bulletin Officiel fixe les exigences de sécurité pour toutes les activités de pleine nature (Escalade, VTT, Course d'orientation). Il impose la création d'un "registre de suivi des EPI" (Équipements de Protection Individuelle) au sein de l'établissement et interdit l'usage de matériels personnels non tracés pour l'assurage des élèves.
+
+- Décret n° 2016-1052 & BO n°32 du 8 septembre 2016 (Le cadre légal de l'inaptitude) :
+* Contenu : Ce texte abroge définitivement la notion de "dispense de cours d'EPS". Il impose l'usage du certificat médical type d'inaptitude (totale ou partielle) et pose le principe réglementaire que l'EPS est une matière d'enseignement obligatoire qui s'adapte aux capacités de l'élève. L'élève inapte partiel est textuellement "évalué sur ses rôles substitutifs".
+
+- Circulaire ministérielle du 27 août 2025 (Le sport scolaire et l'héritage) :
+* Contenu : Circulaire de rentrée axée sur la généralisation des passerelles entre l'EPS obligatoire et le sport scolaire (UNSS / Associations Sportives). Elle encadre juridiquement la mise à disposition et le partage des infrastructures locales (Pumptracks, plateaux multisports) entre les collectivités et les équipes pédagogiques scolaires sous couvert de conventions d'utilisation renforcées.

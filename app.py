@@ -639,7 +639,6 @@ domaine_eps_france = [
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
-    # Le spinner englobe bien toute la chaîne de traitement
     with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
@@ -743,7 +742,7 @@ if prompt:
                 pass
 
         # ======================================================================
-        # 2. CONTEXTE LOCAL & BIBLIOTHÈQUE CONCOURS SOUVERAINE (BLOC 2 VERROUILLÉ)
+        # 2. CONTEXTE LOCAL & BIBLIOTHÈQUE CONCOURS SOUVERAINE (SÉCURISÉE)
         # ======================================================================
         if openai_api_key:
             try:
@@ -753,12 +752,12 @@ if prompt:
                         <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION AGRÉGATION INTERNE 2025 (ÉCRIT 1)</h3>
                         <strong>Sujet : De 1967 à nos jours, comment l’Éducation Physique et Sportive a-t-elle concilié l’impératif de sécurité des élèves et la recherche d’une motricité audacieuse et performante ?</strong><br><br>
                         <h3>1. DÉCODAGE DE LA TENSION DIALECTIQUE</h3>La tension réside dans le fait que l'EPS a dû prouver qu'elle pouvait scolariser le risque sportif sans éteindre l'engagement moteur. La sécurité n'est pas le frein de l'audace, mais sa condition de possibilité.<br><br>
-                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>L'EPS est passée d'une sécurité passive et externalisée (prise en charge par l'enseignant) à une sécurité active et partagée (internalisée par l'élève via des rôles sociaux), faisant de la gestion du risque un objet d'enseignement pour libérer l'audace.<br><br>
+                        <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>L'EPS est passée d'une sécurité passive et externalisée à une sécurité active et partagée, faisant de la gestion du risque un objet d'enseignement pour libérer l'audace.<br><br>
                         <h3>3. DÉROULEMENT DU PLAN</h3>
                         <ul>
-                        <li><strong>PARTIE I (1967-1970) :</strong> Sécurité externe. 📚 B. Jeu (1977). 🎯 Gymnastique où le prof parade physiquement au saut de cheval. Sécurité passive.</li>
-                        <li><strong>PARTIE II (1980-1990) :</strong> Sécurité active. 📚 J.P. Dégal (1994). 🎯 Escalade en CA2 où les pairs gèrent le nœud de huit et l'assurage en 5 temps.</li>
-                        <li><strong>PARTIE III (2000-2026) :</strong> Engagement lucide. 📚 D. Delignières (2019). 🎯 Acrosport en CA3 où la note collective intègre la rigueur du pareur actif (AFL3).</li>
+                        <li><strong>PARTIE I (1967-1970) :</strong> Sécurité externe. 📚 B. Jeu (1977). 🎯 Gymnastique où le prof parade physiquement au saut de cheval.</li>
+                        <li><strong>PARTIE II (1980-1990) :</strong> Sécurité active. 📚 J.P. Dégal (1994). 🎯 Escalade en CA2 où les pairs gèrent le nœud de huit et l'assurage.</li>
+                        <li><strong>PARTIE III (2000-2026) :</strong> Engagement lucide. 📚 D. Delignières (2019). 🎯 Acrosport en CA3 noté sur la rigueur du pareur actif (AFL3).</li>
                         </ul>
                         """,
                         
@@ -778,13 +777,13 @@ if prompt:
                         "capeps_2025": """
                         <h3>BIBLIOTHÈQUE CONCOURS - CORRECTION CAPEPS EXTERNE 2025 (ÉCRIT 1)</h3>
                         <strong>Sujet : La prise en compte de la diversité culturelle et sociale des élèves dans l'histoire de l'EPS de 1967 à nos jours.</strong><br><br>
-                        <h3>1. DÉGAGEAGE DE LA TENSION DIALECTIQUE</h3>Opposition entre l'uniformisation par le sport d'élite (IO 1967) et l'obligation de différencier pour l'équité (Socle commun).<br><br>
+                        <h3>1. DÉGAGEAGE DE LA TENSION DIALECTIQUE</h3>Opposition entre l'uniformisation par le sport d'élite (IO 1967) and l'obligation de différencier pour l'équité (Socle commun).<br><br>
                         <h3>2. PROBLÉMATIQUE DE COPIE MAJORE</h3>L'EPS est passée d'une acculturation sportive uniformisante à une inclusion équitable valorisant la diversité comme richesse.<br><br>
                         <h3>3. DÉROULEMENT DU PLAN</h3>
                         <ul>
                         <li><strong>PARTIE I (1967-1970) :</strong> Illusion universaliste. 📚 P. Arnaud (1983). 🎯 Gymnastique notée sur le code de pointage rigide.</li>
                         <li><strong>PARTIE II (1980-1990) :</strong> Formes de pratiques scolaires. 📚 J. Marsenach (1991). 🎯 Rugby/Volley en ZEP avec règles adoucies.</li>
-                        <li><strong>PARTIE III (2000-2026) :</strong> Justice sociale. 📚 Y. Combaz (2010). 🎯 Danse en Lycée Pro notée sur la composition artistique (AFL2) et le rôle de spectateur (AFL3).</li>
+                        <li><strong>PARTIE III (2000-2026) :</strong> Justice sociale. 📚 Y. Combaz (2010). 🎯 Danse en Lycée Pro notée sur la composition (AFL2) et le rôle de spectateur (AFL3).</li>
                         </ul>
                         """,
                         
@@ -832,28 +831,98 @@ if prompt:
 
                 elif mode == "examens":
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                
                 elif mode == "textes":
                     mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
-                    for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
-                elif mode == "peda":
-                    if est_lycee:
-                        for n in retriever_peda.retrieve(prompt + " AFL Lycée"):
-                            extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
+                    
+                    if "tasa" in prompt_lower:
+                        extraits_doc = """
+                        <h3>GUIDE TECHNIQUE ET RÉGLEMENTAIRE - TASA (ACADÉMIE D'AIX-MARSEILLE)</h3>
+                        <strong>Nature : Test Académique de Sauvetage Aquatique. Prérequis obligatoire pour l'accès aux concours (CAPEPS / Agrégation).</strong><br><br>
+                        <h3>1. DESCRIPTIF DU PARCOURS EN CONTINUITÉ (100 MÈTRES)</h3>
+                        <ul>
+                        <li><strong>Étape 1 (Départ) :</strong> Entrée dans l'eau par un plongeon obligatoire depuis le bord du bassin.</li>
+                        <li><strong>Étape 2 (Nage surface) :</strong> Réaliser une distance de 25 mètres en nage libre en surface.</li>
+                        <li><strong>Étape 3 (Apnée intermédiaire) :</strong> Immersion et déplacement sur 25 mètres, dont 2 fois 7,50 mètres obligatoirement en apnée (sans émergence).</li>
+                        <li><strong>Étape 4 (Remorquage Mannequin) :</strong> Récupération d'un mannequin réglementaire immergé et remorquage sur une distance de 50 mètres.</li>
+                        </ul>
+                        <h3>2. VERROUS CHRONOMÉTRIQUES ET CAUSES D'ÉLIMINATION</h3>
+                        <ul>
+                        <li>⏱️ <strong>Barème temps :</strong> Le parcours total de 100 mètres doit être réalisé dans un temps STRICTEMENT inférieur à <strong>3 minutes et 45 secondes</strong>.</li>
+                        <li>🛑 <strong>Motifs d'invalidation immédiate :</strong> Absence de départ plongé, reprise d'appui au sol, ou transport du mannequin à l'envers (voies aériennes sous l'eau).</li>
+                        <li>⚠️ <strong>Équipement interdit :</strong> Épreuve en maillot classique. Lunettes, masques, pinces-nez ou combinaisons sont rigoureusement interdits. Bonnet obligatoire.</li>
+                        </ul>
+                        <h3>3. TRAÇABILITÉ ET PIÈCES OBLIGATOIRES</h3>
+                        <ul>
+                        <li>📁 <strong>Dossier d'inscription :</strong> Certificat médical de non-contre-indication de moins d'un an déposé au secrétariat du jury.</li>
+                        <li>🔓 <strong>Aménagement et dérogation :</strong> Les candidats titulaires du BEESAN ou BPJEPS AAN sont dispensés sur justificatif officiel.</li>
+                        </ul>
+                        """
                     else:
-                        for n in retriever_peda.retrieve(prompt + " Collège programmes 2015"):
-                            extraits_doc += f"Base collège (Programme 2015) : {n.node.text}\n\n"
+                        for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    
+                    badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
+
+                elif mode == "peda":
+                    niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
+                    label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
+                    label_competence = "Compétences d'Échauffement et d'Entraînement" if est_lycee else "Compétences visées pendant le cycle"
+
+                    ca_nom = "CA1 (Performance optimale)"
+                    if est_lycee:
+                        ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
+                        ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
+                    else:
+                        ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux."
+                        ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                    
+                    # Imbrication stricte des sous-APSA à l'intérieur du mode péda
+                    if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
+                        ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
+                        if est_lycee:
+                            ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force.<br>AFL 2 (Méthodologique) : Observer, recueillir des données et ajuster son projet en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires."
+                            ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur."
+                        else:
+                            ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force."
+                            ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force."
+                    
+                    elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
+                        ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
+                        if est_lycee:
+                            ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes.<br>AFL 3 (Social) : Assumer un jugement argumenté, tenir le rôle de pareur."
+                            ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques."
+                        else:
+                            ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public."
+                            ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion."
+                    
+                    elif any(x in prompt_lower for x in ["muscu", "fitness", "entretien", "ressources", "ca5"]):
+                        ca_nom = "CA5 (Développement de soi et entretien de la santé)"
+                        ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées.<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail (RPE/Borg).<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement."
+                        ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité."    
+                    
+                    elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
+                        ca_nom = "CA2 (Environnements variés)"
+                        if est_lycee:
+                            ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité.<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire."
+                            ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique."
+                        else:
+                            ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources."
+                            ca_competences = "Choisir et conduire un déplacement adapté. Évaluer les risques."
+
+                    badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
             except: 
                 pass
 
         # ======================================================================
-        # 3. IDENTITÉ ET PERSONNALITÉ (RESTAURATION DE TOUTE LA LOGIQUE INTERNE)
+        # 3. GENÈSE DES DIRECTIVES SYSTÈMES ET PROMPTS IA
         # ======================================================================
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\n\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
+            "\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
             "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
             "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
             "### 1. ANALYSE DES RISQUES\n"
@@ -870,8 +939,7 @@ if prompt:
         
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
 
-        # RECONSTRUCTION DES TEMPLATES INDIVIDUELS CONGÉDIÉS PAR ERREUR
-        if not est_demande_concours:
+        if not est_demande_concours and mode != "textes":
             if mode == "ipack":
                 liens_utiles = {
                     "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
@@ -892,7 +960,6 @@ if prompt:
                     liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
                 
                 bloc_liens_dynamique = "\n".join(liens_selectionnes)
-                
                 consigne_ia = (
                     f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                     "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
@@ -906,7 +973,6 @@ if prompt:
                     f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                     f"Contexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
                 )
-                badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
             elif mode == "examens":
                 liens_utiles = {
@@ -923,7 +989,6 @@ if prompt:
                     liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
                 
                 bloc_liens_dynamique = "\n".join(liens_selectionnes)
-                
                 consigne_ia = (
                     f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                     "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
@@ -932,94 +997,13 @@ if prompt:
                     "### 2. PROCÉDURE TECHNIQUE\n"
                     "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                     "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION AND VERROUS ABSOLUS :\n"
-                    "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir.\n"
+                    "1. DATE LIMITE SANTORIN 2026 : La date limite absolue de saisie des notes dans Santorin pour 2026 est fixée au 30 mai 2026 au soir.\n"
                     "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Pas de sous-titres 'ALERTE SÉCURITÉ'.\n\n"
                     f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                     f"Contexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
                 )
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-
-            elif mode == "textes":
-                    mot_cle_local = prompt_lower
-                    for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
-                    
-                    # CORRECTION CHIRURGICALE : Le TASA est le Test Académique de Sauvetage Aquatique
-                    if "tasa" in prompt_lower:
-                        extraits_doc = """
-                        <h3>GUIDE TECHNIQUE ET RÉGLEMENTAIRE - TASA (ACADÉMIE D'AIX-MARSEILLE)</h3>
-                        <strong>Nature : Test Académique de Sauvetage Aquatique. Prérequis obligatoire pour l'accès aux concours (CAPEPS / Agrégation) et listes d'aptitude EPS.</strong><br><br>
-                        
-                        <h3>1. DESCRIPTIF DU PARCOURS EN CONTINUITÉ (100 MÈTRES)</h3>
-                        <ul>
-                        <li><strong>Étape 1 (Départ) :</strong> Entrée dans l'eau par un plongeon obligatoire depuis le bord du bassin.</li>
-                        <li><strong>Étape 2 (Nage surface) :</strong> Réaliser une distance de 25 mètres en nage libre en surface.</li>
-                        <li><strong>Étape 3 (Apnée intermédiaire) :</strong> Immersion et déplacement sur 25 mètres, dont 2 fois 7,50 mètres obligatoirement en apnée (sans émergence).</li>
-                        <li><strong>Étape 4 (Remorquage Mannequin) :</strong> Récupération d'un mannequin réglementaire immergé et remorquage sur une distance de 50 mètres.</li>
-                        </ul>
-                        
-                        <h3>2. VERROUS CHRONOMÉTRIQUES ET CAUSES D'ÉLIMINATION</h3>
-                        <ul>
-                        <li>⏱️ <strong>Barème temps :</strong> Le parcours total de 100 mètres doit être réalisé en continuité dans un temps STRICTEMENT inférieur à <strong>3 minutes et 45 secondes</strong>.</li>
-                        <li>🛑 <strong>Motifs d'invalidation immédiate :</strong> 
-                        - Absence de départ plongé.<br>
-                        - Reprise d'appui ou contact avec le sol durant le trajet en apnée.<br>
-                        - Transport du mannequin les voies aériennes orientées vers le fond (mannequin à l'envers).<br>
-                        - Dos du mannequin non orienté vers le buste du sauveteur.</li>
-                        <li>⚠️ <strong>Équipement interdit :</strong> L'épreuve s'effectue obligatoirement en maillot de bain classique. Lunettes de piscine, masques, pinces-nez ou combinaisons sont rigoureusement interdits. Bonnet obligatoire.</li>
-                        </ul>
-                        
-                        <h3>3. TRAÇABILITÉ ET PIÈCES OBLIGATOIRES</h3>
-                        <ul>
-                        <li>📁 <strong>Dossier d'inscription :</strong> Obligation de fournir au secrétariat du jury un certificat médical de non-contre-indication à la pratique de la natation et du sauvetage datant de <strong>moins d'un an</strong>.</li>
-                        <li>🔓 <strong>Aménagement et dérogation :</strong> Les candidats déjà détenteurs de titres ou diplômes d'État spécifiques (ex: BEESAN, BPJEPS AAN) sont dispensés du test sur présentation de leur justificatif officiel lors de la constitution du dossier de concours.</li>
-                        </ul>
-                        """
-                    else:
-                        for n in retriever_textes.retrieve(mot_cle_local.strip()): 
-                            extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
 
             elif mode == "peda":
-                niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
-                label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
-                label_competence = "Compétences d'Échauffement et d'Entraînement" if est_lycee else "Compétences visées pendant le cycle"
-
-                ca_nom = "CA1 (Performance optimale)"
-                if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
-                    ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
-                else:
-                    ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux."
-                    ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
-                
-                if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
-                    ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
-                    if est_lycee:
-                        ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force.<br>AFL 2 (Méthodologique) : Observer, recueillir des données et ajuster son projet en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires."
-                        ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur."
-                    else:
-                        ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force."
-                        ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force."
-                elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
-                    ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
-                    if est_lycee:
-                        ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes.<br>AFL 3 (Social) : Assumer un jugement argumenté, tenir le rôle de pareur."
-                        ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques."
-                    else:
-                        ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public."
-                        ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion."
-                elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
-                    ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                    ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées.<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail (RPE/Borg).<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement."
-                    ca_competences = "Identifier ses limites et mobiles. Maîtriser les postures de sécurité."    
-                elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
-                    ca_nom = "CA2 (Environnements variés)"
-                    if est_lycee:
-                        ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité.<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire."
-                        ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique."
-                    else:
-                        ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources."
-                        ca_competences = "Choisir et conduire un déplacement adapté. Évaluer les risques."
-
                 consigne_ia = (
                     f"ROLE : Tu es un expert pédagogique de haut niveau en EPS (IA-IPR). Tu es rigoureux et factuel.\n"
                     f"Tu rédiges une fiche de cycle complète pour le niveau : {niveau_affiche}.\n"
@@ -1027,18 +1011,12 @@ if prompt:
                     f"TEXTE OFFICIEL À INJECTER : {ca_attendus}\n"
                     f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
                     "🎯 DIRECTIVES DE RÉDACTION IMPÉRATIVES :\n"
-                    "1. Dans la section 'ANCRAGE INSTITUTIONNEL', affiche textuellement le texte officiel fourni ci-dessus sans modifier une seule virgule.\n"
+                    "1. Dans la section 'ANCRAGE INSTITUTIONNEL', affiche textuellement le texte officiel sans modifier une seule virgule.\n"
                     "2. Dans la section 'SITUATIONS D'APPRENTISSAGE', adapte la complexité au niveau demandé.\n"
                     "3. Dans la section 'CRITÈRES D'ÉVALUATION', propose un barème chiffré sur 20 points.\n"
-                    "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation cohérente séance par séance de la séance 1 à la séance 8.\n\n"
+                    "4. Dans la section 'PROGRESSION CHRONOLOGIQUE', planifie une programmation de la séance 1 à la séance 8.\n\n"
                     "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
                     "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
-                    "RÈGLE DES LIENS RECHERCHE DYNAMIQUES :\n"
-                    "Génère obligatoirement les 4 liens HTML exacts ci-dessous (NOM_APSA en minuscules, DOMAINE1 à remplacer par un vrai serveur académique).\n"
-                    "1. <a href='https://edubase.eduscol.education.fr/recherche?q=NOM_APSA' target='_blank'>📥 Fiche NOM_APSA - Base Nationale ÉDUBASE EPS</a><br>\n"
-                    "2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+NOM_APSA' target='_blank'>🎥 NOM_APSA - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
-                    "3. <a href='https://www.google.com/search?q=site:DOMAINE1+NOM_APSA+fiche+evaluation+EPS' target='_blank'>📥 Fiche NOM_APSA - Fiches d'évaluation Académie de [Nom1]</a><br>\n"
-                    "4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+NOM_APSA+projet+cycle' target='_blank'>🌐 NOM_APSA - Projets de cycle homologués Aix-Marseille</a><br>\n\n"
                     "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                     "<h3>📋 INTITULÉ DE LA FICHE D'ÉVALUATION PRÊTE À L'EMPLOI</h3>"
                     f"<strong>Activité : [Nom] | Champ d'Apprentissage ({ca_nom.split(' ')[0]}) | Niveau : {niveau_affiche}</strong><br><br>"
@@ -1060,15 +1038,32 @@ if prompt:
                     "<h3>📊 CRITÈRES D'ÉVALUATION ET GRILLE DE NOTATION NUMÉRIQUE (/20)</h3>"
                     "<ul><li>[Découpage chiffré précis et observables de terrain]</li></ul>"
                     "<h3><h3>💾 BANQUE DE RESSOURCES NUMÉRIQUES ET VIDEOS</h3>"
-                    "(Insère ici les 4 liens HTML générés dynamiquement, aucun texte brut passif autorisé)<br>"
+                    "Génère obligatoirement les 4 liens HTML exacts demandés (NOM_APSA en minuscules).<br>"
                     f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
                 )
-                badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
+
+        elif mode == "textes" and not est_demande_concours:
+            # Sécurisation de la variable consigne_ia pour le mode textes classique hors TASA direct
+            consigne_ia = (
+                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
+                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE (INTERDICTION ABSOLUE DE MARKDOWN, PAS DE #) :\n"
+                "<h3>1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE</h3>\n"
+                "<h3>2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ</h3>\n"
+                "<h3>3. RÉSOLUTION ET APPLICATION DE TERRAIN</h3>\n"
+                "<h3>4. LIENS ET SOURCES OFFICIELLES</h3>\n\n"
+                "FORMATAGE : Rédige uniquement en utilisant les balises HTML <h3> pour les titres, <br> pour aérer, et <ul> / <li> pour les listes.\n\n"
+                f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
+            )
 
         # ======================================================================
-        # 4. EXÉCUTION ET RENDU HTML (REMASTÉRISÉ SANS CONFLIT DE VARIABLE)
+        # 4. EXÉCUTION ET RENDU HTML FINAUX (ZERO PERTE DE VARIABLE)
         # ======================================================================
-        if est_demande_concours:
+        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower
+
+        if est_tasa_direct:
+            texte_brut = extraits_doc  # Affiche le texte TASA configuré en haut sans solliciter le LLM
+        elif est_demande_concours:
             consigne_ia_concours = (
                 f"Tu es l'inspecteur d'académie expert. Prends les notes de synthèse de terrain fournies ci-dessous "
                 f"et mets-les en valeur en appliquant le formatage HTML requis pour le tableau de bord "
@@ -1077,18 +1072,18 @@ if prompt:
                 f"Notes à intégrer : {extraits_doc}"
             )
             response = Settings.llm.complete(consigne_ia_concours)
+            texte_brut = response.text
         else:
             response = Settings.llm.complete(consigne_ia)
+            texte_brut = response.text
             
-        texte_brut = response.text
-        
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if est_demande_concours:
-            texte_final = texte_brut.replace(chr(10), "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
-        elif mode == "peda":
+        if est_demande_concours or est_tasa_direct:
+            texte_final = texte_brut.replace(chr(10), "").replace("\r", "")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
+        elif mode == "peda" or mode == "textes":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

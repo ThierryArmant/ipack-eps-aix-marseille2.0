@@ -63,6 +63,7 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
+# Configuration de la feuille de style
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -263,7 +264,7 @@ css_pur = """
     }
     
     /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE */
-    .peda-card h3 {
+    .peda-card h3, .securite-card h3 {
         font-size: 15px !important; 
         margin-top: 14px !important; 
         margin-bottom: 4px !important; 
@@ -273,23 +274,23 @@ css_pur = """
         letter-spacing: 0.5px;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
     }
-    .peda-card ul {
+    .peda-card ul, .securite-card ul {
         margin-top: 2px !important;
         margin-bottom: 6px !important;
         padding-left: 20px !important;
     }
-    .peda-card li, .peda-card div, .peda-card span, .peda-card p {
+    .peda-card li, .peda-card div, .peda-card span, .peda-card p, .securite-card li, .securite-card div, .securite-card span, .securite-card p {
         font-size: 14px !important; 
         line-height: 1.4 !important; 
         color: #FFFFFF !important;
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
-    .peda-card strong {
+    .peda-card strong, .securite-card strong {
         color: #FCD34D !important; 
     }
 
-    .santorin-card strong, .general-card strong, .securite-card strong {
+    .santorin-card strong, .general-card strong {
         font-weight: 700 !important; 
         color: #FFFFFF !important;
     }
@@ -846,7 +847,7 @@ if prompt:
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
                 "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
-                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
+                "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et visez-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
@@ -905,74 +906,28 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
+            # RENDU JURIDIQUE EN LIENS DIRECTS AVEC REQUÊTE ET LIEN DE RECOURS DIRECT LÉGIFRANCE INTERNE 
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert juridique du Code de l'Éducation, du droit administratif scolaire et des jurisprudences de tribunaux en EPS. Robot d'extraction factuel.\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE VÉROUILLÉE EXTRÊMEMENT DIRECTE SANS PLACEHOLDER :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
                 "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
                 "### 3. JURISPRUDENCE ACADÉMIQUE ET ARRETS COMPLEMENTAIRES\n"
                 "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                f"Contexte Juridique (Aix-Marseille Prioritaire, Légifrance, Conseil d'État) : {extraits_doc}\nQuestion : {prompt}"
+                "🎯 DIRECTIVES DE RÉDACTION POUR LES LIENS EN SECTION 4 :\n"
+                "Affiche en priorité absolue les vrais liens HTTP/HTTPS trouvés dans le contexte juridique s'ils sont spécifiques.\n"
+                "Tu as l'interdiction formelle d'écrire des liens d'exemples fictifs. Tu dois obligatoirement injecter ces deux liens de recherche directe fonctionnels :\n"
+                f"1. <a href='https://www.legifrance.gouv.fr/search/all?pool=all&text={prompt.replace(' ', '+')}' target='_blank'>📥 Rechercher les textes officiels et décrets en direct sur LÉGIFRANCE</a><br>\n"
+                "2. <a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+responsabilite+securite+accident' target='_blank'>🌐 Consulter les notes de cadrage Sécurité et Responsabilité - Académie d'Aix-Marseille</a><br>\n"
+                "3. <a href='https://eps.ac-creteil.fr/' target='_blank'>🌐 Base de jurisprudence technique et FAQ Accidents - Académie de Créteil</a><br><br>\n\n"
+                "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
+                "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
+                f"Contexte Juridique Large (Aix-Marseille Prioritaire, Légifrance, Conseil d'État) : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
         elif mode == "peda":
-            # ======================================================================
-            # REDACTION INSTITUTIONNELLE SÉCURISÉE (CONFORME EXIGENCE IPR)
-            # ======================================================================
-            prompt_lower = prompt.lower()
-            est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
-            
-            niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
-            label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
-            label_competence = "Axe des compétences visées"
-
-            # Routage des contenus par Champ d'Apprentissage (BO)
-            ca_nom = "CA1 (Performance optimale à une échéance donnée)"
-            if est_lycee:
-                ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
-                ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
-            else:
-                ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
-            
-            # Détection CA4 (Sports Co / Raquettes / Combat)
-            if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
-                ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
-                if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
-                    ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
-                else:
-                    ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
-            
-            # Détection CA3 (Artistique / Acrobatique)
-            elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
-                ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
-                if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
-                    ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
-                else:
-                    ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
-                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
-
-            # Détection CA5 (Entretien / Santé - Lycée)
-            elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
-                ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
-                ca_competences = "Identifier ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
-            
-            # Détection CA2 (Milieux variés / APPN)
-            elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
-                ca_nom = "CA2 (Environnements variés)"
-                if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
-                    ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique. Adapter sa vitesse au relief. Respecter la charte éco-citoyenne."
-                else:
-                    ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour assurer un parcours sécurisé. Assurer la sécurité du groupe."
-                    ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement ainsi que le retour. Évaluer les risques."
-
             # Extraction du mot-clé APSA pour les liens automatisés
             mots_apsa = ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "gym", "acro", "danse", "step", "muscu", "fitness", "escalade", "orientation", "vtt", "kayak", "relais", "natation"]
             apsa_trouvee = "eps"
@@ -981,7 +936,6 @@ if prompt:
                     apsa_trouvee = m
                     break
 
-            # Consigne IA d'extraction factuelle pure avec atterrissage sur l'accueil du MediaWiki du Conservatoire
             consigne_ia = (
                 f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
                 f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"
@@ -1022,7 +976,7 @@ if prompt:
         
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if mode == "peda":
+        if mode == "peda" or mode == "textes":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

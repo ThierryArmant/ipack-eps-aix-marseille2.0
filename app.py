@@ -891,7 +891,7 @@ if prompt:
                 "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
-                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
+                "➔ Étape 2 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
                 f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
@@ -935,7 +935,7 @@ if prompt:
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoriste, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
+                    ca_attendus = "AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).<br>AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.<br>AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat."
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
@@ -945,7 +945,7 @@ if prompt:
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
+                    ca_attendus = "AFL 1 (Moteur) : Composer et interprteren une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
@@ -975,7 +975,7 @@ if prompt:
                     apsa_trouvee = m
                     break
 
-            # Consigne IA d'extraction factuelle pure (Interdiction de concevoir)
+            # Consigne IA d'extraction factuelle pure avec atterrissage sur l'accueil du MediaWiki
             consigne_ia = (
                 f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
                 f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"
@@ -986,12 +986,12 @@ if prompt:
                 f"COMPÉTENCES À INJECTER : {ca_competences}\n\n"
                 "FORMATAGE HTML STRICT ET OBLIGATOIRE (Interdiction absolue de Markdown) :\n"
                 "Utilise uniquement <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes.\n\n"
-                "RÈGLE DES LIENS RECHERCHE DYNAMIQUES :\n"
+                "RÈGLE DES LIENS RECHERCHE DYNAMIQUES AVEC PASSAGE PAR L'ACCUEIL DU MEDIAWIKI :\n"
                 f"Génère obligatoirement les 4 liens HTML exacts ci-dessous en remplaçant NOM_APSA par '{apsa_trouvee}'.\n"
                 f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>\n"
-                f"2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+{apsa_trouvee}' target='_blank'>🎥 {apsa_trouvee.upper()} - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>\n"
+                f"2. <a href='http://www.eps.ac-aix-marseille.fr/webphp2/mediawiki/index.php?title=Accueil' target='_blank'>🎥 Ouvrir le Conservatoire EPS Aix-Marseille (Une fois sur le site, cherchez : '{apsa_trouvee.upper()}')</a><br>\n"
                 f"3. <a href='https://www.google.com/search?q=site:education.gouv.fr+{apsa_trouvee}+bulletin+officiel' target='_blank'>🌐 {apsa_trouvee.upper()} - Bulletins Officiels Nationaux sur éducation.gouv.fr</a><br>\n"
-                f"4. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a><br>\n\n"
+                f"4. <a href='https://www.google.com/search?q=site:eps.ac-aix-marseille.fr+{apsa_trouvee}+projet+cycle' target='_blank'>🌐 {apsa_trouvee.upper()} - Cadres de repères institutionnels Académiques</a><br>\n\n"
                 "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"

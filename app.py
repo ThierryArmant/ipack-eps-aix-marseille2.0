@@ -589,31 +589,30 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    # NETTOYAGE ULTRA-RENFORCÉ
-                    mot_cle = prompt.lower()
-                    expressions_inutiles = [
-                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
-                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
-                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
-                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
-                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
+                    # --- LISTE BLANCHE STRICTE ---
+                    # 1. Éducation/Administration 2. Droit/Jurisprudence 3. Académies sources
+                    domains_textes_officiels = [
+                        "legifrance.gouv.fr", 
+                        "conseil-etat.fr", 
+                        "courdecassation.fr", 
+                        "education.gouv.fr", 
+                        "eduscol.education.gouv.fr", 
+                        "eps.ac-creteil.fr",
+                        "eps.ac-aix-marseille.fr"
                     ]
-                    for exp in expressions_inutiles:
-                        mot_cle = mot_cle.replace(exp, "")
-                    for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
-                        mot_cle = mot_cle.replace(verbe, "")
-                    mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
-
-                    # CASCADE JURIDIQUE : Priorité Aix-Marseille
-                    domains_prioritaires = ["eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
+                    
+                    mot_cle = prompt.lower()
+                    # (Conserve ici ton nettoyage d'expressions inutiles...)
+                    
+                    requete_blindee = f"{mot_cle} droit éducation EPS jurisprudence tribunal"
                     
                     payload = {
                         "api_key": tavily_api_key, 
                         "query": requete_blindee, 
                         "search_depth": "advanced", 
-                        "include_domains": domains_prioritaires
+                        "include_domains": domains_textes_officiels
                     }
+                    # ... (Le reste de l'exécution Tavily reste identique)
                     
                     res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
                     results = res.json().get("results", []) if res.status_code == 200 else []
@@ -714,13 +713,16 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
                 "ROLE : Expert juridique officiel EPS.\n"
-                "MISSION : Extraction factuelle de textes réglementaires depuis les sites académiques et officiels.\n"
-                "STRUCTURE OBLIGATOIRE :\n"
-                "<h3>1. TEXTE OFFICIEL</h3> (Titre, date, lien source obligatoire).\n"
-                "<h3>2. ANALYSE FACTUELLE</h3> (Résumé technique en 3 phrases).\n"
-                "<h3>3. RÉFÉRENCE JURIDIQUE</h3> (Article du code ou numéro de circulaire).\n"
-                "RÈGLE D'OR : Pour CHAQUE information donnée, tu DOIS citer le lien web trouvé dans le contexte. Si l'information n'est pas sourcée dans le contexte, précise : 'Source non trouvée dans la base académique'.\n"
-                f"Contexte : {extraits_doc}\nQuestion : {prompt}"
+                "MISSION : Extraction factuelle de textes réglementaires et jurisprudence uniquement depuis les sources : Légifrance, Conseil d'État, Éduscol, Académie de Créteil/Aix-Marseille.\n"
+                "RÈGLE DE DROIT : Ne cite JAMAIS le Code Civil (1242) pour un enseignant public. Cite TOUJOURS l'article L. 911-4 du Code de l'Éducation (Loi de 1937) pour la protection des enseignants.\n"
+                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
+                "<h3>1. TEXTE OFFICIEL & CADRE JURIDIQUE</h3>\n"
+                "<h3>2. ANALYSE TECHNIQUE ET JURISPRUDENCE</h3>\n"
+                "<h3>3. RÉFÉRENCE ET LIENS SOURCES</h3>\n\n"
+                "DIRECTIVE LIENS : Tu DOIS associer chaque point de la réponse à un lien cliquable vers la source officielle utilisée.\n"
+                "Si l'information n'est pas sourcée dans le contexte fourni, écris textuellement : 'Source non trouvée dans la base officielle'.\n"
+                "Interdiction d'utiliser le Markdown (###). Utilise uniquement des balises HTML (<h3>, <li>, <br>).\n\n"
+                f"Contexte fourni : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 

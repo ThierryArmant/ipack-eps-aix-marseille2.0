@@ -759,8 +759,29 @@ if prompt:
                 est_demande_concours = any(x in prompt_lower for x in ["agreg", "agrégation", "capeps", "concours", "écrit 1", "écrit 2", "sujet de 20", "sujet 20"])
                 
                 if est_demande_concours:
-                    for n in retriever_concours.retrieve(prompt + " Sujet Rapport Jury"): 
-                        extraits_doc += f"Référence Bibliothèque Concours : {n.node.text}\n\n"
+                    # 1. Dictionnaire des corrections d'expert réelles de Pierre
+                    dictionnaire_corrections = {
+                        "2025": "data/bibli_concours/correction_agreg_2025_ecrit2.txt",
+                        "2023": "data/bibli_concours/correction_capeps_2023_legitimite.txt",
+                        "2022": "data/bibli_concours/correction_agreg_2022_sante.txt"
+                    }
+                    
+                    # 2. Vérification si une année spécifique est demandée
+                    fichier_cible = None
+                    for annee, chemin in dictionnaire_corrections.items():
+                        if annee in prompt_lower:
+                            fichier_cible = chemin
+                            break
+                    
+                    # 3. Extraction de la vérité terrain
+                    if fichier_cible and os.path.exists(fichier_cible):
+                        with open(fichier_cible, "r", encoding="utf-8") as f:
+                            extraits_doc = f.read()
+                    else:
+                        # Si aucune année n'est détectée ou si le fichier n'est pas encore créé, on laisse le RAG chercher
+                        for n in retriever_concours.retrieve(prompt + " Sujet Rapport Jury"): 
+                            extraits_doc += f"Référence Bibliothèque Concours : {n.node.text}\n\n"
+                            
                     badge, color_card = "🏆 CONCOURS (AGREG / CAPEPS)", "peda-card"
                 
                 # Reste de ta logique d'origine intacte si ce n'est pas un sujet de concours

@@ -1027,15 +1027,28 @@ if prompt:
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
             
-        # 4. EXÉCUTION ET RENDU HTML
-        response = Settings.llm.complete(consigne_ia)
+       # ======================================================================
+        # # 4. EXÉCUTION ET RENDU HTML (SÉCURISÉ BANCHEMENT CONCOURS VS STANDARD)
+        # ======================================================================
+        if est_demande_concours:
+            consigne_ia_concours = (
+                f"ROLE : Tu es un IA-IPR expert et rapporteur de jury. Tu mets en valeur une copie majeure.\n"
+                f"Récris et structure la référence textuelle ci-dessous en appliquant STRICTEMENT le formatage HTML demandé "
+                f"(uniquement des <h3> pour les titres, <br> pour aérer, et les balises <ul> / <li> pour les listes d'arguments. Aucun paragraphe dense, pas de markdown).\n"
+                f"Ne crée PAS de fiche d'évaluation d'APSA collège. Reste focalisé à 100% sur le rapport de jury.\n\n"
+                f"Référence à mettre en forme : {extraits_doc}"
+            )
+            response = Settings.llm.complete(consigne_ia_concours)
+        else:
+            response = Settings.llm.complete(consigne_ia)
+            
         texte_brut = response.text
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if mode == "peda":
+        if mode == "peda" or est_demande_concours:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         elif mode == "textes":

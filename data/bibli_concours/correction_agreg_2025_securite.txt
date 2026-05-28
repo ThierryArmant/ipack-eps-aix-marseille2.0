@@ -1,0 +1,55 @@
+========================================================================
+BIBLIOTHÈQUE CONCOURS - CORRECTION DU SUJET : AGRÉGATION INTERNE 2025 (ÉCRIT 1)
+POSTURE DU JURY : IA-IPR CHEVRONNÉ / ANCIEN AGRÉGÉ HORS-CLASSE
+SUJET : "De 1967 à nos jours, comment l’Éducation Physique et Sportive a-t-elle concilié l’impératif de sécurité des élèves et la recherche d’une motricité audacieuse et performante ?"
+========================================================================
+
+### 1. DÉCODAGE DE LA TENSION DIALECTIQUE (L'ŒIL DE L'INSPECTEUR)
+Le sujet repose sur un paradoxe apparent mais structurant pour la discipline. 
+- La "sécurité" renvoie historiquement à la prudence, la préservation de l'intégrité physique et le contrôle légal (responsabilité civile de l'enseignant). 
+- L'audace et la performance" exigent la prise de risque, l'exploration des limites techniques et physiologiques, et l'incertitude motrice.
+- La tension réside dans le fait que l'EPS a dû prouver qu'elle pouvait scolariser le risque sportif sans éteindre l'engagement moteur. La bascule historique montre que la sécurité n'est pas le frein de l'audace, mais sa condition de possibilité : on ne peut être audacieux que si l'on se sait en sécurité.
+
+### 2. PROBLÉMATIQUE DE COPIE MAJORE
+De 1967 à nos jours, l'EPS n'a pas cherché à neutraliser le risque pour sécuriser les élèves, mais a transformé la nature même de la sécurité pour libérer leur audace motrice. En passant d'une sécurité passive et externalisée (entièrement prise en charge par les dispositifs matériels et la directivité de l'enseignant) à une sécurité active, processuelle et partagée (internalisée par l'élève à travers des compétences méthodologiques et des rôles sociaux d'assureur ou de pareur), la discipline a fait de la gestion du risque un objet d'enseignement à part entière, transformant l'insouciance motrice en un engagement lucide et hautement performant.
+
+---
+
+### 3. DÉROULEMENT DU PLAN ARGUMENTÉ ET ILLUSTRATIONS DE TERRAIN
+
+<h3>PARTIE I : 1967 - Fin des années 1970 : Une sécurité externe et directive au service d'une performance standardisée.</h3>
+
+- **Thèse de la période** : L'entrée massive du sport (IO 1967) impose la recherche du rendement moteur sur le modèle fédéral. Le risque est réel (gymnastique aux agrès, athlétisme). Pour éviter l'accident, l'enseignant centralise toutes les consignes de sécurité. La sécurité est subie, la performance est mécanique.
+- 📚 **Ancrages scientifiques** : 
+  * **B. Jeu (1977)** : Le sport comme "émotion et prise de risque contrôlée".
+  * **P. Arnaud (1983)** : La sportivisation de l'EPS comme réponse à une commande politique de l'État gaulliste.
+- 📜 **Textes réglementaires** : Instructions Officielles de 1967 (programmation par activités, obsession de la mesure et des grilles de performance).
+- 🎯 **Illustration Terrain (APSA : Gymnastique / CA1)** :
+  * *Dispositif* : Apprentissage du saut de cheval (lune).
+  * *Postures de terrain* : L'enseignant place des tapis de réception épais (sécurité passive matérielle) et se positionne lui-même en parade physique directe au niveau de la réception pour chaque élève. L'élève s'élance avec audace car le prof le "portera" en cas de déséquilibre, mais il n'analyse pas le risque. S'il n'y a pas de prof, il n'y a pas de saut. La sécurité est un monopole de l'adulte.
+
+---
+
+<h3>PARTIE II : Années 1980 - Années 1990 : La didactisation du risque. La sécurité devient active et s'enseigne.</h3>
+
+- **Thèse de la période** : L'EPS entre à l'Éducation Nationale (1981). Le courant constructiviste émerge. La gestion du risque est théorisée comme un facteur d'apprentissage. Pour que l'élève soit performant, il doit apprendre à se sécuriser lui-même et à sécuriser ses pairs. C'est l'apparition des rôles sociaux et de la sécurité active.
+- 📚 **Ancrages scientifiques** :
+  * **J.P. Dégal (1994)** : Concept de "gestion du risque". Le risque subjectif (perçu) doit s'aligner sur le risque objectif (réel).
+  * **G. Bui-Xuân (1993)** : Modèle conatif (le passage de l'étape "émotionnelle" ou "émotivo-motrice" à l'étape "fonctionnelle" puis "expert").
+- 📜 **Textes réglementaires** : Décret du 11 octobre 1988 (responsabilité des enseignants), Circulaire sur le "Savoir nager" de 1996, Programmes Collège 1996 (distinction entre compétences propres et méthodologiques).
+- 🎯 **Illustration Terrain (APSA : Escalade / CA2)** :
+  * *Dispositif* : Voie de 8 mètres en moulinette au gymnase.
+  * *Postures de terrain* : L'enseignant n'assure plus les élèves. Il enseigne le nœud de huit et la technique du "cinq temps" d'assurage. Le grimpeur ne peut s'engager dans une motricité audacieuse (recherche de prises techniques, lecture de voie) que parce que son assureur et son contre-assureur (les pairs) gèrent la chaîne de sécurité sous la validation visuelle du professeur. La sécurité est partagée et contractualisée.
+
+---
+
+<h3>PARTIE III : Années 2000 - 2026 : L'intégration institutionnelle de l'engagement lucide. L'évaluation de l'auto-régulation.</h3>
+
+- **Thèse de la période** : Dans l'EPS contemporaine, l'audace n'est plus une prise de risque aveugle, c'est un "engagement lucide". Les textes du Lycée (2019) institutionnalisent la capacité à adapter son projet de performance à ses ressources du jour. La sécurité est intégrée au cœur des grilles d'évaluation certificatives (AFL2 et AFL3).
+- 📚 **Ancrages scientifiques** :
+  * **D. Delignières (2019)** : La compétence comme capacité à agir efficacement et en toute sécurité dans un environnement complexe.
+  * **M. Travert (2015)** : L'évolution de l'éthique sportive scolaire vers la préservation de soi et la responsabilité collective.
+- 📜 **Textes réglementaires** : Réforme du Collège 2015 (Socle commun Domaine 3 : la règle et la sécurité), Programmes Lycée 2019 (AFL 1-2-3, barèmes d'évaluation intégrant la justesse du projet et la parade).
+- 🎯 **Illustration Terrain (APSA : Acrosport / CA3)** :
+  * *Dispositif* : Création d'une figure de niveau 3 (pyramide dynamique avec voltigeur).
+  * *Postures de terrain* : L'audace du voltigeur (monter à deux mètres du sol, réaliser un renversement) est conditionnée par le placement rigoureux des porteurs (appuis stables, alignement segmentaire). Un troisième élève est obligatoirement désigné comme "pareur actif" (AFL3). Ce dernier ne touche pas la pyramide mais accompagne le mouvement du voltigeur des mains, prêt à intervenir à la moindre alerte. Si le pareur se déconcentre, l'enseignant baisse la note collective. L'audace esthétique et acrobatique est indexée sur la rigueur de la sécurité collective.

@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 import os
 import pandas as pd
 import requests
@@ -22,7 +22,7 @@ st.set_page_config(
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
-if "active_module" not in st.session_state:
+if "active_module" not in st.session_state: 
     st.session_state.active_module = "peda"  
 
 def incrementer_et_obtenir_visites():
@@ -237,17 +237,7 @@ css_pur = """
     .securite-card { border-left: 6px solid #EF4444 !important; } 
     .peda-card { border-left: 6px solid #8B5CF6 !important; } 
 
-    .santorin-card h3, .general-card h3, .securite-card h3 {
-        font-size: 15px !important; 
-        margin-top: 14px !important; 
-        margin-bottom: 6px !important; 
-        color: #FCD34D !important; 
-        font-weight: 800 !important;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    /* ⚡ RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE EXCLUSIF */
+    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE EXCLUSIF */
     .peda-card h3 {
         font-size: 15px !important;
         margin-top: 14px !important;
@@ -480,7 +470,7 @@ else:
                 <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, saisie des notes brutes.</span><br>
                 <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
                     <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
-                    <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
+                    <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses and saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
                 </div>
             </div>
             <div style="flex: 1; padding-left: 5px;">
@@ -528,23 +518,25 @@ for m in st.session_state.messages_hub:
             st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+domaine_eps_france = [
+    "eps.ac-aix-marseille.fr", "pedagogie.ac-aix-marseille.fr", "edubase.eduscol.education.fr", "eps.ac-creteil.fr", "eduscol.education.gouv.fr", "eps.ac-amiens.fr", "eps.ac-besancon.fr", 
+    "eps.ac-bordeaux.fr", "eps.ac-normandie.fr", "eps.ac-clermont.fr", "eps.ac-corse.fr", 
+    "eps.ac-dijon.fr", "eps.ac-grenoble.fr", "eps.ac-lille.fr", "eps.ac-limoges.fr", 
+    "eps.ac-lyon.fr", "eps.ac-montpellier.fr", "eps.ac-nancy-metz.fr", "eps.ac-nantes.fr", 
+    "eps.ac-nice.fr", "eps.ac-orleans-tours.fr", "eps.ac-paris.fr", "eps.ac-poitiers.fr", 
+    "eps.ac-reims.fr", "eps.ac-rennes.fr", "pedagogie.ac-strasbourg.fr", "eps.ac-toulouse.fr", 
+    "eps.ac-versailles.fr", "eps.ac-guadeloupe.fr", "eps.ac-guyane.fr", "eps.ac-martinique.fr", 
+    "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
+]
+
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
     with st.spinner("Je recherche les documents et ressources..."):
         extraits_doc = ""
         mode = st.session_state.active_module
+        prompt_lower = prompt.lower()
         
-        # 🟢 INJECTION DE FORCE : Lecture de gere_par_pierre.txt sur la racine (.)
-        verites_terrain_pierre = ""
-        try:
-            for fichier in os.listdir("."):
-                if fichier.endswith((".txt", ".md")) and "pierre" in fichier.lower():
-                    with open(fichier, "r", encoding="utf-8") as f:
-                        verites_terrain_pierre += f"\n--- REGLES DIRECTES ({fichier}) ---\n" + f.read() + "\n"
-        except:
-            pass
-
         # ------------------------------------------------------------------
         # 1. MOTEUR WEB (Tavily) - AVEC NETTOYAGE DES SCORIES SÉMANTIQUES RÉINJECTÉ
         # ------------------------------------------------------------------
@@ -618,14 +610,14 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    for n in retriever_textes.retrieve(prompt): extraits_doc += f"Base Locale Textes Officiels : {n.node.text}\n\n"
                 elif mode == "peda":
-                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ma base pédagogique (Fiche/Éval) : {n.node.text}\n\n"
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Base Pédagogique : {n.node.text}\n\n"
             except: 
                 pass
 
         # ------------------------------------------------------------------
-        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA (PLANS EN 3 PARTIES DE DEUX JOURS REHAUSSÉS)
+        # 3. IDENTITÉ ET CONFIGURATION DES CONSIGNES IA
         # ------------------------------------------------------------------
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
@@ -633,11 +625,11 @@ if prompt:
             "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
             "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
             "### 1. ANALYSE DES RISQUES\n"
-            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Bloquer l'export d'examen** : explications).\n\n"
+            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque (ex: 🛑 **Absence non justifiée** : explications).\n\n"
             "### 2. PROCÉDURE TECHNIQUE\n"
             "- Déroule les actions de terrain de manière chronologique.\n"
             "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
-            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle (ex: **[Mes Élèves]**, **[Saisir une inaptitude]**).\n"
+            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle s'ils s'appliquent (ex: **[Mes Élèves]**, **[Saisir une inaptitude]**).\n"
             "- S'il y a une interdiction absolue ou un point de sécurité critique, isole-le avec un émoji visible (ex: ⚠️ **ALERTE SÉCURITÉ** : ...).\n\n"
             "### 3. PROTECTION FONCTIONNELLE\n"
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras (ex: 📁 **Traçabilité** : rappel de la couverture juridique).\n\n"
@@ -672,19 +664,18 @@ if prompt:
             badge, color_card = "📊 RÉGLEMENTATION SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            # REHAUSSEMENT DU SYSTÈME ANTI-404 D'URLS DYNAMIQUES AVEC LE MARQUAGE '+'
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}\n"
-                "ROLE : Expert juridique officiel EPS. Interdiction absolue de parler de pédagogie.\n"
+                "ROLE : Expert juridique officiel EPS. Rédige de façon froide et factuelle, sans pédagogie.\n"
                 "CRITICAL FRAMEWORK DISTINCTION (EPS vs AS/UNSS):\n"
                 "- CADRE EPS (Obligatoire / Temps scolaire) : Responsabilité de l'État (Loi de 1937 / Art L. 911-4 du Code de l'éducation).\n"
                 "- CADRE AS / UNSS (Volontaire / Mercredi après-midi) : Régime associatif (Loi 1901). Si un parent transporte des élèves avec accord écrit, c'est l'assurance MAIF collective de l'AS/UNSS qui couvre au civil.\n\n"
                 "RÈGLE IMPÉRATIVE SUR LES LIENS ET ERREURS 404 :\n"
-                "Si le Contexte ne fournit aucun lien web direct, tu as l'obligation stricte de générer un lien de requête dynamique basé sur les mots-clés sous l'une de ces formes exactes :\n"
+                "Génère obligatoirement au moins un lien de requête dynamique basé sur les mots-clés de la question sous l'une de ces formes exactes au cours de ton analyse :\n"
                 "- 🔗 [Consulter les textes mis à jour sur Légifrance](https://www.legifrance.gouv.fr/search/all?tab_selection=all&searchField=ALL&query=MOTS_CLÉS&page=1)\n"
                 "- 🔗 [Vérifier la réglementation en vigueur sur Service-Public.fr](https://www.service-public.fr/recherche?keyword=MOTS_CLÉS)\n"
                 "- 🔗 [Consulter les fiches de sécurité de la CNIL](https://www.cnil.fr/fr/recherche?search_api_fulltext=MOTS_CLÉS)\n"
-                "⚠️ OBLIGATION : Remplace systématiquement 'MOTS_CLÉS' dans l'URL par les termes juridiques de la demande en minuscules séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
+                "⚠️ OBLIGATION : Remplace 'MOTS_CLÉS' par les termes juridiques de la demande en minuscules séparés par des '+' (ex: droit+image+mineur+ecole).\n\n"
                 f"Contexte : {extraits_doc}\nQuestion : {prompt}"
             )
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -714,42 +705,105 @@ if prompt:
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
 
         # ------------------------------------------------------------------
-        # 4. RENDU ET PARSING SECURISE (TRANSFORMATION DES LIENS ORANGE EN OUVERTURE DE CIBLE BLINDÉE)
+        # 4. RENDU ET PARSING SECURISE (CONVERTISSEUR SÉMANTIQUE DE BLINDAGE DU DOM)
         # ------------------------------------------------------------------
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
-        # Injection automatique des attributs de sécurité et styles sur tous les liens Markdown détectés
-        texte_brut = re.sub(
-            r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
-            r'<a href="\2" target="_blank" rel="noopener noreferrer" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
-            texte_brut
-        )
-        
+        # Interception des vidéos YouTube
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         if mode == "peda":
-            # Nettoyage compact d'origine de la Pédagogie
+            # Injection automatique des attributs de sécurité et styles sur tous les liens Markdown détectés
+            texte_brut = re.sub(
+                r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
+                r'<a href="\2" target="_blank" rel="noopener noreferrer" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
+                texte_brut
+            )
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         
-        elif mode == "textes":
-            # Traitement d'origine pour les Textes avec injection de secours Python pour Aix-Marseille (Deep link)
-            texte_final = texte_brut.replace(chr(10), "<br>")
-            liens_fixes_publics = """
-            <br><br><h3>4. RECOURS &amp; LIENS INSTITUTIONNELS RECOMMANDÉS</h3>
-            <ul>
-            <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels" target="_blank" rel="noopener noreferrer">Recueil Pédagogique et Réglementaire – Académie d'Aix-Marseille</a></li>
-            <li><a href="https://eps.ac-creteil.fr/spip.php?rubrique7" target="_blank" rel="noopener noreferrer">Dossiers Contentieux &amp; FAQ Sécurité – Académie de Créteil</a></li>
-            <li><a href="https://eduscol.education.gouv.fr/" target="_blank" rel="noopener noreferrer">Portail Sécurité et Protection de l'Élève – Éduscol</a></li>
-            </ul>
-            """
-            texte_final = texte_final.strip() + liens_fixes_publics
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
-            
         else:
-            # Mode standard (ipack, examens)
-            texte_final = texte_brut.replace(chr(10), "<br>")
+            # CONVERTISSEUR SÉMANTIQUE INTERNE POUR TOUS LES AUTRES MODES (Évite de casser le DOM et libère les clics)
+            # 1. Parsing propre des liens Markdown
+            texte_brut = re.sub(
+                r'\[([^\]]+)\]\((https?://[^\)]+)\)', 
+                r'<a href="\2" target="_blank" rel="noopener noreferrer" style="color: #FFB020 !important; text-decoration: underline; font-weight: 700;">\1</a>', 
+                texte_brut
+            )
+            
+            # 2. Traduction des titres Markdown en HTML sémantique
+            lignes = texte_brut.split("\n")
+            html_lignes = []
+            dans_liste = False
+            
+            for index, ligne in enumerate(lignes):
+                ligne_strip = ligne.strip()
+                if not ligne_strip:
+                    if dans_liste:
+                        html_lignes.append("</ul>")
+                        dans_liste = False
+                    continue
+                
+                if ligne_strip.startswith("###"):
+                    if dans_liste:
+                        html_lignes.append("</ul>")
+                        dans_liste = False
+                    titre = ligne_strip.replace("###", "").strip()
+                    html_lignes.append(f"<h3>{titre}</h3>")
+                elif ligne_strip.startswith("-") or ligne_strip.startswith("*"):
+                    if not dans_liste:
+                        html_lignes.append("<ul>")
+                        dans_liste = True
+                    puce = ligne_strip[1:].strip()
+                    html_lignes.append(f"<li>{puce}</li>")
+                else:
+                    if dans_liste:
+                        html_lignes.append("</ul>")
+                        dans_liste = False
+                    html_lignes.append(f"<p>{ligne_strip}</p>")
+            
+            if dans_liste:
+                html_lignes.append("</ul>")
+            
+            texte_final = "".join(html_lignes)
+
+            # Injection Python stricte des liens profonds selon le contexte
+            if mode == "textes":
+                liens_fixes_publics = """
+                <br><h3>4. RECOURS &amp; LIENS INSTITUTIONNELS RECOMMANDÉS</h3>
+                <ul>
+                <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140963/fr/les-textes-officiels" target="_blank" rel="noopener noreferrer">Recueil Pédagogique et Réglementaire – Académie d'Aix-Marseille</a></li>
+                <li><a href="https://eps.ac-creteil.fr/spip.php?rubrique7" target="_blank" rel="noopener noreferrer">Dossiers Contentieux &amp; FAQ Sécurité – Académie de Créteil</a></li>
+                <li><a href="https://eduscol.education.gouv.fr/" target="_blank" rel="noopener noreferrer">Portail Sécurité et Protection de l'Élève – Éduscol</a></li>
+                </ul>
+                """
+                texte_final = texte_final + liens_fixes_publics
+            elif mode == "examens":
+                liens_fixes_publics = """
+                <br><h3>4. RÉFÉRENCES ET LIENS DE RECHERCHE</h3>
+                <ul>
+                <li><a href="https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11140964/fr/examens" target="_blank" rel="noopener noreferrer">Cadrage Officiel et Règlements des Examens – Académie d'Aix-Marseille</a></li>
+                </ul>
+                <h3>5. RECOURS &amp; LIENS INSTITUTIONNELS DIRECTS</h3>
+                <ul>
+                <li><a href="https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf" target="_blank" rel="noopener noreferrer">Manuel Numérique Santorin : Correction Partagée (PDF)</a></li>
+                </ul>
+                """
+                texte_final = texte_final + liens_fixes_publics
+            elif mode == "ipack":
+                liens_fixes_publics = """
+                <br><h3>4. RÉFÉRENCES ET LIENS DE RECHERCHE</h3>
+                <ul>
+                <li><a href="https://eps.ac-creteil.fr/" target="_blank" rel="noopener noreferrer">Serveur National Pilote de l'Application – Académie de Créteil</a></li>
+                </ul>
+                <h3>5. RECOURS &amp; LIENS INSTITUTIONNELS DIRECTS</h3>
+                <ul>
+                <li><a href="https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf" target="_blank" rel="noopener noreferrer">Guide Technique d'Utilisation Interface Enseignant (PDF)</a></li>
+                </ul>
+                """
+                texte_final = texte_final + liens_fixes_publics
+
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})

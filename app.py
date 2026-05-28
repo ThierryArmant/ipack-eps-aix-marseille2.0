@@ -940,45 +940,43 @@ if prompt:
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif mode == "textes":
-                    mot_cle_local = prompt.lower()
+                    mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     
-                    # BIEN JOUNÉ : Blindage chirurgical pour le cas des ASA de l'Enseignant-Élu
-                    if any(x in prompt_lower for x in ["tasa", "asa", "autorisation speciale", "absence elu"]):
+                    # CORRECTION CHIRURGICALE : Le TASA est le Test Académique de Sauvetage Aquatique
+                    if "tasa" in prompt_lower:
                         extraits_doc = """
-                        <h3>CADRE RÉGLEMENTAIRE - AUTORISATIONS SPÉCIALES D'ABSENCE (ASA) ENSEIGNANT-ÉLU</h3>
-                        <strong>Bénéficiaire : Fonctionnaire de l'État exerçant un mandat de Conseiller Municipal (Loi CGCT).</strong><br><br>
+                        <h3>GUIDE TECHNIQUE ET RÉGLEMENTAIRE - TASA (ACADÉMIE D'AIX-MARSEILLE)</h3>
+                        <strong>Nature : Test Académique de Sauvetage Aquatique. Prérequis obligatoire pour l'accès aux concours (CAPEPS / Agrégation) et listes d'aptitude EPS.</strong><br><br>
                         
-                        <h3>1. DROITS AUX ASA ET PLAFOND TRIMESTRIEL</h3>
+                        <h3>1. DESCRIPTIF DU PARCOURS EN CONTINUITÉ (100 MÈTRES)</h3>
                         <ul>
-                        <li><strong>Articles L. 2123-1 Il et suivants du CGCT :</strong> Le conseiller municipal qui n'en bénéficie pas au titre de ses fonctions exécutives a droit à un crédit d'heures forfaitaire trimestriel pour l'exercice de son mandat (calculé selon la taille de la commune, ex: Gargas).</li>
-                        <li><strong>Droit d'absence pour séances plénières :</strong> L'administration est tenue de laisser le temps nécessaire à l'élu pour assister aux conseils municipaux et aux réunions des commissions officielles dont il est membre (sur présentation de la convocation officielle).</li>
+                        <li><strong>Étape 1 (Départ) :</strong> Entrée dans l'eau par un plongeon obligatoire depuis le bord du bassin.</li>
+                        <li><strong>Étape 2 (Nage surface) :</strong> Réaliser une distance de 25 mètres en nage libre en surface.</li>
+                        <li><strong>Étape 3 (Apnée intermédiaire) :</strong> Immersion et déplacement sur 25 mètres, dont 2 fois 7,50 mètres obligatoirement en apnée (sans émergence).</li>
+                        <li><strong>Étape 4 (Remorquage Mannequin) :</strong> Récupération d'un mannequin réglementaire immergé et remorquage sur une distance de 50 mètres.</li>
                         </ul>
                         
-                        <h3>2. LE VERROU DE LA NÉCESSITÉ DE SERVICE</h3>
+                        <h3>2. VERROUS CHRONOMÉTRIQUES ET CAUSES D'ÉLIMINATION</h3>
                         <ul>
-                        <li><strong>Arbitrage Rectorat / Chef d'établissement :</strong> Contrairement aux décharges de droit, l'octroi d'une ASA reste soumis à la réserve réglementaire des <strong>nécessités de service</strong> (continuité des cours d'EPS, sécurité des élèves). L'administration peut motiver un refus si l'absence désorganise gravement le service.</li>
-                        <li><strong>Décompte et compensation :</strong> Les heures d'absences liées aux ASA ne sont pas rémunérées et ne donnent pas lieu à récupération systématique, sauf accord spécifique ou aménagement d'emploi du temps validé par le Chef d'établissement.</li>
+                        <li>⏱️ <strong>Barème temps :</strong> Le parcours total de 100 mètres doit être réalisé en continuité dans un temps STRICTEMENT inférieur à <strong>3 minutes et 45 secondes</strong>.</li>
+                        <li>🛑 <strong>Motifs d'invalidation immédiate :</strong> 
+                        - Absence de départ plongé.<br>
+                        - Reprise d'appui ou contact avec le sol durant le trajet en apnée.<br>
+                        - Transport du mannequin les voies aériennes orientées vers le fond (mannequin à l'envers).<br>
+                        - Dos du mannequin non orienté vers le buste du sauveteur.</li>
+                        <li>⚠️ <strong>Équipement interdit :</strong> L'épreuve s'effectue obligatoirement en maillot de bain classique. Lunettes de piscine, masques, pinces-nez ou combinaisons sont rigoureusement interdits. Bonnet obligatoire.</li>
                         </ul>
                         
-                        <h3>3. PROTECTION JURIDIQUE ET PROTOCOLE DE SÉCURITÉ</h3>
+                        <h3>3. TRAÇABILITÉ ET PIÈCES OBLIGATOIRES</h3>
                         <ul>
-                        <li>📁 <strong>Traçabilité administrative :</strong> Le professeur doit déposer sa demande d'ASA accompagnée de sa convocation officielle au moins <strong>8 jours à l'avance</strong> via le secrétariat de direction.</li>
-                        <li>🔓 <strong>Couverture en cas de sinistre :</strong> Dès lors que l'ASA est accordée par le Recteur ou le Chef d'établissement par délégation, l'absence est dite "régulière". L'enseignant est couvert administrativement dans ses déplacements liés au mandat.</li>
+                        <li>📁 <strong>Dossier d'inscription :</strong> Obligation de fournir au secrétariat du jury un certificat médical de non-contre-indication à la pratique de la natation et du sauvetage datant de <strong>moins d'un an</strong>.</li>
+                        <li>🔓 <strong>Aménagement et dérogation :</strong> Les candidats déjà détenteurs de titres ou diplômes d'État spécifiques (ex: BEESAN, BPJEPS AAN) sont dispensés du test sur présentation de leur justificatif officiel lors de la constitution du dossier de concours.</li>
                         </ul>
                         """
                     else:
-                        # Si ce n'est pas une question d'ASA, le RAG classique fouille tes fichiers textes sécurité
                         for n in retriever_textes.retrieve(mot_cle_local.strip()): 
                             extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
-                            
-                    consigne_ia = (
-                        f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                        "ROLE : Tu es l'expert juridique du Code de l'Éducation. Tu structures et mets en valeur les notes ci-dessous.\n"
-                        "FORMATAGE : Utilise uniquement des <h3> pour les titres, <br> pour aérer et les listes <ul> / <li>. Aucun dièse (#).\n\n"
-                        f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
-                    )
-                    badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
 
             elif mode == "peda":
                 niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"

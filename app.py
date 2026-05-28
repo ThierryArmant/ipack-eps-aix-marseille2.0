@@ -338,7 +338,9 @@ openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 
 if openai_api_key:
-    Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
+    if openai_api_key:
+    # On ajoute max_tokens=4000 pour autoriser les longues dissertations de concours
+    Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, max_tokens=4000, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
 def obtenir_cle_fichier():

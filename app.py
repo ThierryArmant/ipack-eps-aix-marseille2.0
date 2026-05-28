@@ -1026,8 +1026,7 @@ if prompt:
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
-            
-        # ======================================================================
+            # ======================================================================
         # # 4. EXÉCUTION ET RENDU HTML (SÉCURISÉ BANCHEMENT CONCOURS VS STANDARD)
         # ======================================================================
         if est_demande_concours:
@@ -1048,12 +1047,13 @@ if prompt:
         
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if mode == "peda" or est_demande_concours:
-            texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
-            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
-        elif mode == "textes":
+        # Extraction et rendu différenciés pour isoler le concours du nettoyage agressif
+        if est_demande_concours:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
+        elif mode == "peda":
+            texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
+            formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:
             texte_final = texte_brut.replace(chr(10), "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br><br>{texte_final}</div>'
@@ -1063,3 +1063,4 @@ if prompt:
         for link in youtube_links:
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
         st.rerun()
+        

@@ -338,8 +338,7 @@ openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 
 if openai_api_key:
-    if openai_api_key:
-    # On ajoute max_tokens=4000 pour autoriser les longues dissertations de concours
+    # On ajoute max_tokens=4000 pour autoriser les longues dissertations de concours et résout le doublon 'if'
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, max_tokens=4000, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
@@ -742,7 +741,6 @@ if prompt:
             except: 
                 pass
 
-        # 2. CONTEXTE LOCAL (Restauration complète de ta logique d'hier matin avec prompt)
         # 2. CONTEXTE LOCAL (Restauration complète de ta logique avec détection concours)
         if openai_api_key:
             try:
@@ -1029,7 +1027,7 @@ if prompt:
             )
             badge, color_card = "🎓 PÉDAGOGIE EPS", "peda-card"
             
-       # ======================================================================
+        # ======================================================================
         # # 4. EXÉCUTION ET RENDU HTML (SÉCURISÉ BANCHEMENT CONCOURS VS STANDARD)
         # ======================================================================
         if est_demande_concours:

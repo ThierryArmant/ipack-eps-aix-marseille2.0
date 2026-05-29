@@ -72,4 +72,416 @@
 
 - Circulaire ministérielle du 27 août 2025 (Le sport scolaire et l'héritage) :
 * Contenu : Circulaire de rentrée axée sur la généralisation des passerelles entre l'EPS obligatoire et le sport scolaire (UNSS / Associations Sportives). Elle encadre juridiquement la mise à disposition et le partage des infrastructures locales (Pumptracks, plateaux multisports) entre les collectivités et les équipes pédagogiques scolaires sous couvert de conventions d'utilisation renforcées.
-TASA : se rendre ici : https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11195547/fr/tasa
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 1 : EXAMENS ET VOIE PROFESSIONNELLE
+======================================================================
+
+--- CADRE GÉNÉRAL DE L'ÉVALUATION EPS (CIRCULAIRE N° 2018-029 DU 26-02-2018 / BO N°9) ---
+* TEXTE : Circulaire nationale fixant les modalités d'évaluation de l'EPS aux examens du BACCALAURÉAT PROFESSIONNEL (BAC PRO), Brevet des Métiers d'Art (BMA), Certificat d'Aptitude Professionnelle (CAP) et BEP.
+* REGLE ABSENCE CCF : Si un élève évalué en CCF (Contrôle en Cours de Formation) présente une ABSENCE INJUSTIFIÉE à une situation d'évaluation d'un ensemble certificatif, la note ZÉRO (0/20) lui est attribuée pour cette épreuve. La note finale de l'ensemble reste la moyenne des trois notes.
+* REGLE ABSENCE TOTALE : Si le candidat est absent sans justification valable à TOUTES les situations d'évaluation, il est déclaré "ABSENT" global, ce qui entraîne la NON-DÉLIVRANCE DU DIPLÔME (conformément aux articles D. 337-16 pour le CAP et D. 337-81 pour le BAC PRO).
+* EVALUATION DIFFÉRÉE : Les épreuves de rattrapage ou évaluations différées sont réservées aux candidats justifiant d'une blessure ou d'un problème de santé temporaire authentifié par l'autorité médicale scolaire, ou en cas de FORCE MAJEURE validée par le Chef d'établissement après consultation de l'équipe pédagogique.
+* ENSEMBLE CERTIFICATIF BAC PRO : Composé obligatoirement de 3 épreuves relevant de 3 CHAMPS D'APPRENTISSAGE (CA) différents. Au moins 2 épreuves doivent être issues de la liste nationale. L'évaluation de l'ensemble des 3 activités doit être assurée par le même enseignant pour le groupe-classe.
+* RÉDUCTION TECHNIQUE : Exceptionnellement, en cas d'impossibilité technique ou matérielle (ex: absence d'installations), le Recteur peut autoriser un établissement à évaluer le CCF sur 2 épreuves (2 CA différents) au lieu de 3, après expertise de l'IA-IPR.
+
+--- RÉFORME ÉVALUATION EPS AU CAP (CIRCULAIRE DU 27-08-2025 / BO N°36 / SESSION 2026) ---
+* TEXTE : Nouveau référentiel national d'évaluation en vigueur à compter de la SESSION 2026 pour le CERTIFICAT D'APTITUDE PROFESSIONNELLE (CAP). Ce texte abroge définitivement la circulaire du 17 juillet 2020.
+* STRUCTURE CCF CAP : L'évaluation repose obligatoirement sur DEUX activités (APSA) relevant de DEUX CHAMPS D'APPRENTISSAGE différents parmi les 5 existants. L'enseignement est dispensé par le même formateur ou enseignant sur l'année.
+* REGLE DE L'ARRONDI DES NOTES : Chaque APSA est notée sur 20. La note finale d'EPS correspond à la moyenne des deux notes. Cette note globale est ARRONDIE AU POINT ENTIER LE PLUS PROCHE. RÈGLE DES 0.5 : Si le dixième est égal à 5, l'arrondi se fait obligatoirement au POINT SUPÉRIEUR (Exemple réglementaire strict : 10,5/20 est arrondi à 11/20).
+* AMÉNAGEMENTS HANDICAP / INAPTITUDE PERMANENTE : En cas de handicap ou d'inaptitude partielle attestée dès le début d'année par le médecin scolaire, l'établissement doit proposer un ensemble de 2 activités adaptées (ou 1 seule activité adaptée dans des cas majeurs très particuliers), encadré par un PAI ou un PPS validé par le Recteur après avis de la commission académique.
+* INAPTITUDE TEMPORAIRE EN COURS D'ANNÉE : L'enseignant du groupe-classe peut soit renvoyer l'élève en évaluation différée, soit adapter l'épreuve (si inaptitude partielle), soit certifier le candidat sur UNE SEULE ACTIVITÉ si la blessure empêche de présenter la seconde épreuve. Si les éléments sont trop réduits, l'enseignant valide la mention "DISPENSÉ".
+* SPORTIFS DE HAUT NIVEAU (SHN) AU CAP : Les candidats inscrits sur listes ministérielles, structures de performance fédérale (PPF) ou centres de formation des clubs professionnels bénéficient d'un aménagement de droit en CCF. Le candidat est évalué sur une seule activité. Pour la seconde activité (qui correspond à sa spécialité sportive), la NOTE AUTOMATIQUE DE 20/20 est attribuée, sous réserve que cette note de 20/20 ne soit pas l'unique note de son épreuve d'EPS.
+
+--- UNITÉ FACULTATIVE SECTEUR SPORTIF - BACCALAURÉAT PROFESSIONNEL (NOTE DE SERVICE DU 09-07-2021) ---
+* TEXTE : Création d'une unité professionnelle facultative "Secteur Sportif" ouverte aux candidats sous statut scolaire de 6 spécialités de BAC PRO : AEPA (Animation Enfance et Personnes Âgées), Agora, Métiers de l'accueil, Métiers du commerce option A et B, Métiers de la sécurité.
+* CONDITIONS DE VALIDATION : Le parcours requiert d'avoir suivi la formation en classes de 1ère et Terminale et d'avoir validé au moins 6 semaines de PFMP (Périodes de Formation en Milieu Professionnel) dans une structure du secteur sportif (ramené à 4 semaines pour le BAC PRO AEPA).
+* ÉQUIVALENCES BPJEPS TRANSVERSALES : Les titulaires du BAC PRO qui obtiennent une note >= 10/20 à l'unité facultative ET une note >= 12/20 à l'épreuve obligatoire d'EPS obtiennent DE DROIT l'équivalence avec l'UNITÉ CAPITALISABLE 1 (UC1 : Encadrer tout public) et l'UNITÉ CAPITALISABLE 2 (UC2 : Mettre en œuvre un projet d'animation) du BPJEPS (Brevet Professionnel de la Jeunesse, de l'Éducation Populaire et du Sport).
+* CAS PARTICULIER BAC PRO AEPA : Les titulaires de cette spécialité obtiennent de plein droit les UC1, UC2 et UC4 du BPJEPS d'animation, sans même que l'obtention de l'unité facultative soit exigée.
+
+--- MENTIONS COMPLÉMENTAIRES DU SECTEUR SPORTIF (ARRÊTÉS DE 2018 ET 2022) ---
+* MC AGSS (ARRÊTÉ DU 13-04-2018) : Création de la Mention Complémentaire "Animation-Gestion de projets dans le Secteur Sportif" (Niveau 4 CNCP), accessible en priorité aux BAC PRO tertiaires et de sécurité. Comprend deux dominantes : APT (Activités Physiques pour Tous) et AAN (Activités Aquatiques et de la Natation). Sa validation vaut équivalence automatique avec les UC1 et UC2 du BPJEPS et valide les exigences préalables à la mise en situation pédagogique (EPMSP).
+* MC ESS (ARRÊTÉ DU 14-01-2022) : Création de la Mention Complémentaire "Encadrement Secteur Sportif" à 4 options : APT, AAN, Activités de la Forme option Cours Collectifs, et Activités de la Forme option Haltérophilie/Musculation. Accessible uniquement aux titulaires de la MC AGSS ou d'un BAC PRO ayant validé l'unité facultative secteur sportif. Les tests techniques d'entrée sont officiellement délivrés et validés par la DRAJES.
+
+--- PROGRAMMES D'EPS DE LA VOIE PROFESSIONNELLE (BO N°15 DU 11-04-2019) ---
+* TEXTE : Programme d'enseignement de l'EPS pour les classes de CAP et de BAC PRO. Fixe les 5 objectifs généraux nationaux : Développer sa motricité, S'organiser pour apprendre et savoir s'entraîner de façon autonome, Exercer sa responsabilité (engagement citoyen et solidaire), Construire durablement sa santé, Accéder au patrimoine culturel.
+* CHAMPS D'APPRENTISSAGE (CA) : Structuré autour de 5 compétences majeures :
+  - CA1 : Réaliser sa performance motrice maximale, mesurable à une échéance donnée.
+  - CA2 : Adapter son déplacement à des environnements variés et/ou incertains (Activités de Pleine Nature - APPN).
+  - CA3 : Réaliser une prestation corporelle destinée à être vue et appréciée par autrui (Artistique / Acrobatique).
+  - CA4 : Conduire un affrontement interindividuel ou collectif pour gagner (Sports collectifs / Raquettes / Combat).
+  - CA5 : Réaliser et orienter son activité physique pour développer ses ressources et s'entretenir (Musculation, Step).
+* COMPÉTENCES ET AFLP : Les équipes d'établissement déclinent ces champs sous forme d'AFLP (Attendus de Fin de Lycée Professionnel) adaptés aux spécificités locales et aux métiers des élèves, tout en préservant la liberté pédagogique.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 2 : LYCÉE GT, SHN, SPÉCIALITÉ ET CONSERVATION
+======================================================================
+
+--- SPORTIFS DE HAUT NIVEAU (SHN) - BACCALAURÉATS GÉNÉRAL & TECHNOLOGIQUE (CIRCULAIRE DU 17-11-2023 / BO N°47) ---
+* BÉNÉFICIAIRES SHN : Concerne les athlètes inscrits sur listes ministérielles (élite, senior, relève, reconversion) [cite: 35], espoirs et collectifs nationaux [cite: 36], structures du projet fédéral de performance (PPF) [cite: 37], centres de formation de clubs professionnels sous contrat [cite: 38], ainsi que les juges, arbitres et entraîneurs de haut niveau[cite: 39].
+* JUSTIFICATION DU STATUT : Les candidats doivent justifier de leur statut au moment de l'inscription sur la base de la liste publiée en janvier de la même année civile[cite: 40]. Aucune modification n'est acceptée après la fin de la période d'inscription de l'année de certification[cite: 41].
+* CONTRÔLE ADAPTÉ (STATUT SCOLAIRE CCF) : Le candidat, sur proposition du groupe de pilotage et validation du recteur, est évalué sur TROIS épreuves relevant de TROIS activités de CHAMPS D'APPRENTISSAGE différents[cite: 48]. L'une de ces épreuves porte sur sa SPÉCIALITÉ SPORTIVE pour laquelle la NOTE DE 20/20 est AUTOMATIQUEMENT ATTRIBUÉE[cite: 48, 49]. Les modalités d'enseignement et le calendrier peuvent être adaptés sur le cycle terminal[cite: 50].
+* EXAMEN PONCTUEL TERMINAL (INDIVIDUELS / CNED / SUR DEMANDE) : S'applique aux candidats individuels, inscrits au CNED [cite: 52, 53], ou aux scolaires sous contrat qui en font la demande écrite[cite: 54]. Le candidat est évalué sur DEUX épreuves de DEUX CHAMPS D'APPRENTISSAGE différents[cite: 56]. L'une porte sur sa spécialité sportive avec l'attribution AUTOMATIQUE DE LA NOTE DE 20/20[cite: 56].
+
+--- ENSEIGNEMENT DE SPÉCIALITÉ EPPCS - PREMIÈRE & TERMINALE GÉNÉRALES (BO N°25 DU 24-06-2021) ---
+* TEXTE : Fixe le programme officiel de la spécialité Éducation physique, pratiques et culture sportives[cite: 550].
+* VOLUMES HORAIRES ET ORGANISATION : En classe de PREMIÈRE, l'enseignement est de 4 heures par semaine (144h annuelles : 114h de pratique, 36h de théorie, 18h de projet)[cite: 629]. En classe TERMINALE, il passe à 6 heures par semaine (216h annuelles : 80h de pratique, 60h de théorie, 18h de projet)[cite: 629].
+* PROGRAMMATION DES APSA : Minimum de 3 APSA de 3 CHAMPS D'APPRENTISSAGE différents chaque année[cite: 629, 633]. Au cours du cycle terminal, au moins 5 APSA de 5 CA différents doivent être abordées[cite: 629, 632]. La durée minimale d'une séquence d'APSA est fixée à 18 heures[cite: 629, 637].
+* CONDUITE DE PROJETS OBLIGATOIRES : En classe de Première, le projet porte sur l'ORGANISATION D'UN ÉVÉNEMENT (AS du lycée, rencontres UNSS, journées caritatives, spectacles, etc.) conclu par un bilan écrit[cite: 702, 714, 715]. En classe Terminale, il consiste en une INTERVENTION PÉDAGOGIQUE d'animation en situation réelle face à un groupe de pratiquants[cite: 702, 717].
+* CARNET DE SUIVI PERSONNEL : Outil obligatoire construit de façon autonome par l'élève tout au long du cycle terminal pour consigner ses réussites, progrès et réflexions[cite: 766, 767, 768]. Il sert de support direct pour choisir la question de l'épreuve orale terminale du Grand Oral[cite: 770].
+* AMÉNAGEMENTS PROFILS SPORTIFS PARTICULIERS : Les élèves SHN, espoirs ou en centres de formation pro peuvent adapter les séquences pratiques de leur spécialité sportive et réduire à 4 le nombre de CA abordés au cycle terminal[cite: 744, 745]. Les élèves en section d'excellence sportive ou section sportive scolaire bénéficient d'un aménagement de leur épreuve pratique dans leur spécialité[cite: 746].
+
+--- ENSEIGNEMENT OPTIONNEL EPS - LYCÉE GÉNÉRAL & TECHNOLOGIQUE (BO N°25 DU 24-06-2021) ---
+* HORAIRES ET RÈGLES DE TEMPS : Enseignement de 3 heures par semaine de la Seconde à la Terminale[cite: 543]. La part dévolue à la pratique physique doit représenter au moins DEUX TIERS (2/3) du temps de l'enseignement optionnel[cite: 470].
+* PARCOURS APSA ET THÈMES : Découverte ou approfondissement de 3 à 6 APSA relevant d'au moins deux champs d'apprentissage sur les 3 ans[cite: 465]. Mise en relation obligatoire avec au moins deux thèmes d'étude parmi les 7 de la liste officielle (Égalité F/H, Santé, Prévention des risques, Spectacle, Inclusion, Environnement, Entraînement)[cite: 471, 472].
+* COMPÉTENCE RÉFLEXIVE ET ORAL TERMINAL : En seconde, production d'un portfolio ou carnet[cite: 489]. En première, restitution de recherches adossées à la pratique[cite: 493, 494]. En classe terminale, évaluation sous forme d'une SOUTENANCE ORALE individuelle (15 min dont 5 min d'exposé) ou en binôme (20 min dont 8 min d'exposé) devant un jury de deux professeurs d'EPS sur une problématique liant sa pratique personnelle et une thématique choisie[cite: 498, 512, 516, 524, 525].
+* NOTATION AU BACCALAURÉAT : L'évaluation s'effectue exclusivement en CONTRÔLE CONTINU. Ce sont les notes trimestrielles de Première et de Terminale qui comptent pour l'examen et complètent le livret scolaire[cite: 534, 535].
+
+--- CONSERVATION DES NOTES DU BACCALAURÉAT GÉNÉRAL & TECHNOLOGIQUE (NOTE DE SERVICE DU 15-06-2016 / BO N°28) ---
+* CADRE DE LA CONSERVATION : Les candidats ajournés aux baccalauréats général et technologique peuvent demander la conservation du bénéfice des notes égales ou supérieures à 10/20 obtenues aux épreuves du premier groupe[cite: 865, 871].
+* DURÉE DU BÉNÉFICE : Limité à CINQ SESSIONS CONSÉCUTIVES qui suivent la première session d'échec (soit de la session N+1 à N+5)[cite: 865, 874, 881]. Au-delà de la 6e session globale, la conservation n'est plus juridiquement possible[cite: 875]. La demande doit obligatoirement être formulée au moment de l'inscription[cite: 873].
+* CAS PARTICULIER DES CANDIDATS EN SITUATION DE HANDICAP : Les candidats présentant un handicap (au sens de l'art. L. 114 du CASF) peuvent conserver le bénéfice de TOUTES leurs notes, qu'elles soient INFÉRIEURES, ÉGALES ou SUPÉRIEURES à la moyenne (10/20)[cite: 870].
+* CONTRAINTES DE SÉRIE ET DE SPÉCIALITÉ : La conservation exige de se réinscrire dans la même série d'examen[cite: 886]. En cas de changement de spécialité, le candidat perd le bénéfice de la note de l'épreuve de spécialité antérieure et doit obligatoirement présenter la nouvelle spécialité choisie[cite: 888].
+* IMPACT DU CHANGEMENT DE STATUT (SCOLAIRE / NON SCOLAIRE) : Un candidat passant du statut scolaire au statut non scolaire perd le bénéfice des notes pour les épreuves non autorisées par son nouveau statut, notamment la note de TPE et la note d'EPS de complément[cite: 901, 905, 912, 913]. À l'inverse, le statut scolaire (y compris MOREA) permet de conserver les notes de TPE, d'épreuves facultatives et d'EPS de complément[cite: 904, 914, 915, 916, 917].
+
+--- CADRE ET NOTATION DU CCF EN BACCALAURÉAT PROFESSIONNEL & BMA (CIRCULAIRE DU 29-12-2020 / BO N°4) ---
+* CADRE CCF : Repose sur des situations d'évaluation organisées au cours de la dernière année de formation, distinctes des évaluations formatives[cite: 993, 995]. Évaluation obligatoire sur 3 activités relevant de 3 champs d'apprentissage différents[cite: 1039].
+* MOYENNE ET ARRONDI PRO : Chaque APSA est notée de 0 à 20[cite: 1042]. La note finale est la moyenne des trois notes, ARRONDIE AU POINT ENTIER SUPÉRIEUR après harmonisation par la commission académique[cite: 1043, 1044].
+* COMPOSITION DE LA NOTE PAR APSA (SITUATION ET FIL DE SÉQUENCE) :
+  - Situation de fin de séquence (12 points) : Évalue la production/répartition des efforts (AFLP1 jusqu'à 7 pts) et la maîtrise technique (AFLP2 jusqu'à 5 pts)[cite: 1129, 1130, 1131, 1150, 1155].
+  - Évaluation au fil de la séquence (8 points) : Évalue deux AFLP choisis par l'équipe pédagogique parmi les 4 restants (AFLP 3, 4, 5 ou 6)[cite: 1133, 1161]. Le candidat choisit librement sa répartition des points avant l'épreuve (options : 4/4, 6/2 ou 2/6, avec un minimum obligatoire de 2 points par AFLP)[cite: 1140, 1141, 1144, 1145].
+* ABSENCE EN CCF ET ABROGATION DE DIPLÔME : Une absence injustifiée à une situation terminale d'APSA entraîne la note de ZÉRO (0/20) pour cette activité[cite: 1059]. Une absence injustifiée à TOUTES les situations d'évaluation de l'année entraîne la mention globale "ABSENT" et provoque la NON-DÉLIVRANCE DU DIPLÔME[cite: 1060].
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 3 : PROTOCOLES TRANSVERSAUX, SSS & SPORT SCOLAIRE
+======================================================================
+
+--- ATTESTATION SAVOIR-NAGER EN SÉCURITÉ - ASNS (ARRÊTÉ DU 28 FÉVRIER 2022 / BO N°9) ---
+* TEXTE : Arrêté national définissant la maîtrise du SAVOIR-NAGER en sécurité. Il se substitue à l'ancienne Attestation Scolaire de Savoir-Nager (ASSN) de 2015.
+* CONDITIONS DE DÉLIVRANCE : L'attestation ASNS est délivrée formellement par le Directeur de l'école ou par le Chef d'établissement (Principal/Proviseur). Elle est visée par un professionnel agréé (MNS) et le professeur d'EPS. Elle est obligatoirement intégrée au livret scolaire de l'élève (LSU/LSL).
+* PARCOURS DU TEST STRICT (SANS REPRISE D'APPUIS NI ACCÈS ÉCHELLE) :
+  - Étape 1 : Entrée dans l'eau par un saut ou un plongeon en grande profondeur.
+  - Étape 2 : Déplacement de 15 mètres sur le ventre (immersion complète lors du franchissement d'un obstacle).
+  - Étape 3 : Réalisation d'un surplace en position horizontale dorsale pendant 15 secondes (au signal sonore).
+  - Étape 4 : Demi-tour et déplacement de 15 mètres sur le dos.
+  - Étape 5 : Ancrage sécurisé sur un élément fixe et stable (mur ou ligne) en fin de parcours.
+* CONNAISSANCES ET ATTITUDES VERROUILLÉES : L'élève doit savoir identifier le responsable de la surveillance à alerter en cas de détresse et maîtriser les règles de base d'hygiène et de sécurité de l'établissement de bains.
+
+--- SECTIONS SPORTIVES SCOLAIRES (SSS) ET EXCELLENCE (CIRCULAIRE DU 10 AVRIL 2020 / BO N°18) ---
+* TEXTE : Cadre national d'organisation et cahier des charges des Sections Sportives Scolaires (SSS) en collège et lycée.
+* CONVENTIONNEMENT OBLIGATOIRE : L'ouverture et le maintien d'une SSS exigent une CONVENTION écrite tripartite liant l'établissement scolaire, la fédération française du sport concerné (ou ses instances déconcentrées / club local) et les collectivités territoriales.
+* SUIVI MÉDICAL RECONFIGURÉ : L'aptitude a priori à la pratique renforcée est requise au moment de l'admission dans le dispositif. Les élèves participent obligatoirement aux compétitions de l'Association Sportive (AS) de l'établissement dans la catégorie "Excellence" pour l'UNSS.
+* ÉVALUATION CONTRACTUELLE ET RECONDUCTION : Le projet pédagogique de la SSS fait l'objet d'une évaluation annuelle présentée au Conseil d'Administration (CA). Une évaluation de fin de cycle est menée par les corps d'inspection (IA-IPR) tous les 4 ans en collège et tous les 3 ans en lycée pour valider ou non la reconduction du dispositif par le Recteur.
+
+--- AMÉNAGEMENTS SCOLAIRES ET CLASSES SPORT-ÉTUDES (CIRCULAIRE DU 15 DÉCEMBRE 2023) ---
+* TEXTE : Dispositif national de renforcement du parcours sportif des élèves, se substituant aux anciennes sections d'excellence sportive.
+* INTÉGRATION PPF (PARCOURS DE PERFORMANCE FÉDÉRALE) : Concerne le pilotage des structures d'accession au haut niveau. Les aménagements scolaires (allègement d'emploi du temps, sessions d'examen différées) sont accordés de droit sous réserve de validation par le Recteur et inscription au projet de performance fédéral validé par l'Agence Nationale du Sport (ANS).
+* PILOTAGE ACADÉMIQUE : Un bilan quantitatif et qualitatif annuel des structures sport-études déployées doit être transmis par le groupe de pilotage académique (CPASHN) à la direction des sports du ministère.
+
+--- PROJET NATIONAL DU SPORT SCOLAIRE - UNSS (PLANS 2020-2024 & PROJET F.AIR.E 2024-2028) ---
+* TEXTE : Directives nationales de l'Union Nationale du Sport Scolaire (UNSS) pour les Associations Sportives (AS) des établissements du second degré.
+* RÔLE INSTITUTIONNEL : L'AS est un laboratoire citoyen obligatoire dans chaque établissement, adossé au projet d'établissement. L'animation des créneaux (généralement le mercredi après-midi) est assurée exclusivement par les professeurs d'EPS au titre de leur forfait horaire d'AS.
+* DISPOSITIF F.AIR.E (2024-2028) : Axe le développement sur quatre piliers : Écoresponsabilité (livret Jeune Officiel écoresponsable, objectif zéro déchet), Mixité/Égalité des genres, Inclusion des élèves éloignés de la pratique physique, et valorisation des compétences via les rôles de "Jeunes Officiels" (Arbitres, Secouristes, Dirigeants).
+
+--- LOI DE REFONDATION DE L'ÉCOLE ET RÉFÉRENTIELS COMPÉTENCES (LOI DU 8-07-2013 & BO DU 25-07-2013) ---
+* LOI N° 2013-595 (ART. L. 111-1 CODE ÉDUCATION) : Impose l'inclusion scolaire de tous les enfants sans distinction et la lutte active contre les inégalités sociales et territoriales.
+* RÉFÉRENTIEL COMPÉTENCES ENSEIGNANTS : Fixe l'obligation légale de neutralité et de respect des valeurs de la République. La compétence "C8 : Travailler en équipe pédagogique" impose la coopération stricte entre les enseignants d'EPS, les CPE et les équipes de direction pour assurer la continuité des parcours et la cohérence du volet éducatif du projet d'établissement.
+* ÉDUCATION PRIORITAIRE (RÉFÉRENTIEL 2014) : Structuration forte des réseaux (REP/REP+). Impose un lien pédagogique renforcé entre les collèges et les lycées professionnels, sous la supervision directe d'un IA-IPR référent de réseau.
+
+--- ÉVALUATION DE L'EPS AU BACCALAURÉAT GÉNÉRAL & TECHNOLOGIQUE (CIRCULAIRE DU 26 SEPTEMBRE 2019 / BO N°36) ---
+* TEXTE : Protocole national d'évaluation en CCF de l'enseignement commun d'EPS pour les baccalauréats général et technologique.
+* COMPOSITION DE LA NOTE trimestrielle et finale : La notation repose sur trois Attendus de Fin de Lycée (AFL) transversaux :
+  - AFL 1 (Dimension Motrice / Technique) : Évalué le jour de l'épreuve finale sur la base d'une performance ou d'une efficacité motrice chiffrée. Noté obligatoirement sur 12 POINTS.
+  - AFL 2 (Dimension Méthodologique / Entraînement) : Évalué au fil de la séquence d'apprentissage sur la capacité à concevoir et réguler son projet de pratique. Noté sur 4 POINTS.
+  - AFL 3 (Dimension Sociale / Rôles) : Évalué au fil de la séquence sur la capacité à assumer un rôle d'observateur, de juge, de pareur ou de conseiller pour faire progresser un partenaire. Noté sur 4 POINTS.
+* ABROGATION CONSERVATION DES NOTES CONTRÔLE CONTINU (NOTE DE SERVICE DU 14-11-2023 / BO N°47) : Suite à la réforme du baccalauréat, la note de service du 15 juin 2016 relative à la conservation des notes pour les candidats scolaires réguliers est officiellement ABROGÉE pour le baccalauréat général et technologique, l'évaluation s'intégrant désormais dans la moyenne globale du contrôle continu de l'année terminale.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 4 : SÉCURITÉ APPN, NATATION, CADRE STATUTAIRE ET OUVERTURE DES ÉQUIPEMENTS
+======================================================================
+
+--- EXIGENCE DE SÉCURITÉ DANS LES APPN AU SECOND DEGRÉ (CIRCULAIRE N° 2017-075 DU 19-04-2017 / BO N°16) ---
+* TEXTE : Circulaire interministérielle fixant les exigences d'organisation et de sécurité pour les Activités Physiques de Pleine Nature (APPN) dans les établissements du second degré.
+* RESPONSABILITÉ ET SÉCURITÉ ACTIVE : La gestion de la sécurité dans les APPN impose une évaluation continue des risques environnementaux (météo, terrain) et humains. L'enseignant doit adapter ses variables didactiques pour maintenir un niveau de risque contrôlé.
+* PROTOCOLE DE BLOC ET SAE (STRUCTURES ARTIFICIELLES D'ESCALADE) : 
+  - Les ouvertures de voies et de blocs doivent intégrer systématiquement les conséquences d'une chute potentielle. Toutes les réceptions douteuses ou dangereuses doivent être formellement éliminées par l'équipe.
+  - Les espaces de réception sous chaque bloc doivent être strictement matérialisés au sol et différenciés des zones de cheminement, de repos ou d'observation.
+  - L'épaisseur et la disposition des tapis de réception doivent respecter strictement les normes de sécurité en vigueur (NF en SAE). Les collisions d'élèves dues à des chutes simultanées doivent être rendues impossibles par une séparation stricte des secteurs d'évolution.
+  - Il est fortement conseillé de localiser les arrivées de blocs à hauteur de la première dégaine en SAE pour limiter l'amplitude d'une chute potentielle. L'usage de l'espace de bloc en bas de voies interdit toute forme d'évolution simultanée au-dessus de lui avec corde.
+
+--- CADRE DE L'ENSEIGNEMENT DE LA NATATION (CIRCULAIRE N° 2017-127 DU 22-08-2017 / BO N°34) ---
+* TEXTE : Circulaire nationale fixant les conditions d'enseignement de la natation dans les premier et second degrés. Elle abroge la circulaire du 7 juillet 2011.
+* RESPONSABILITÉ DE L'ENCADREMENT : Les modalités d'organisation, de surveillance et d'encadrement pour la totalité des élèves sont fixées par le Chef d'établissement sur proposition exclusive de l'équipe pédagogique d'EPS. L'enseignement s'inscrit obligatoirement dans le projet pédagogique d'EPS et le projet d'établissement.
+* TEMPS DE PRATIQUE EFFECTIVE : Chaque séance de natation programmée doit correspondre à une durée minimale de 30 à 40 MINUTES DE PRATIQUE EFFECTIVE DANS L'EAU pour les élèves. Les temps de transport et de vestiaire ne doivent pas empiéter sur ce seuil minimal d'apprentissage.
+* ACCOMPAGNEMENT ET ÉLÈVES NON-NAGEURS : L'établissement doit mettre en œuvre des actions ciblées pour les élèves non-nageurs dans le cadre des dispositifs d'accompagnement et de soutien en vigueur. Les élèves en situation de handicap ou à aptitude partielle font l'objet d'aménagements spécifiques formalisés dans un PAI (Projet d'Accueil Individualisé) ou un PPS (Projet Personnalisé de Scolarisation).
+
+--- OUVERTURE ET MISE À DISPOSITION DES ÉQUIPEMENTS SPORTIFS SCOLAIRES (CIRCULAIRE DU 08-09-2025 / BO N°34 / RENTRÉE 2025) ---
+* TEXTE : Circulaire ministérielle encadrant l'ouverture et le partage des infrastructures sportives des établissements scolaires et d'enseignement supérieur à compter de la rentrée 2025.
+* CONVENTIONNEMENT ET PARTAGE LOCAL : Permet de maximiser l'utilisation des structures locales (Pumptracks, plateaux multisports, gymnases) au bénéfice des collectivités et des associations en dehors du temps scolaire, ou inversement pour les équipes pédagogiques scolaires sous couvert de conventions renforcées.
+* RÈGLE D'OCCUPATION DU DOMAINE PUBLIC : Lorsque l'utilisation des locaux et des équipements sportifs est consentie au profit d'une association sportive ou d'une personne publique, elle s'effectue par convention écrite. Si l'équipement appartient à une personne publique, l'utilisation peut être consentie à TITRE GRATUIT.
+* CLAUSE DE PRÉCARIETÉ ET RÉSILIATION : La convention d'occupation du domaine public est juridiquement consentie à titre PRÉCAIRE ET RÉVOCABLE. Elle peut être dénoncée de plein droit et à tout moment par la collectivité propriétaire ou le Chef d'établissement pour motif sérieux d'ordre public, d'intérêt général, ou cas de force majeure (sinistre). L'association occupante ne peut prétendre à aucune indemnité en cas d'impossibilité d'utilisation.
+
+--- STATUT DU FORFAIT AS ET PARTICIPATION DES ENSEIGNANTS D'EPS (DÉCRET N° 2014-460 / NOTE DE SERVICE DU 28-05-2014) ---
+* TEXTE : Réglementation fixant les obligations de service des enseignants d'EPS concernant le sport scolaire volontaire des élèves.
+* OBLIGATION STATUTAIRE DES 3 HEURES : Tous les enseignants d'EPS du second degré (certifiés, agrégés, contractuels) participent obligatoirement à l'animation de l'Association Sportive (AS) de leur établissement au titre de leur forfait horaire statutaire obligatoire de 3 HEURES PAR SEMAINE, intégré à leur maximum de service hebdomadaire.
+* AUTORITÉ ET PRÉSIDENCE DE L'AS : Les activités de l'AS se déroulent sous l'autorité du Recteur d'académie et sous la responsabilité directe du Chef d'établissement, qui est le PRÉSIDENT DE DROIT de l'Association Sportive. Les enseignants peuvent également participer à la définition de la politique du sport scolaire aux échelons départementaux ou académiques en lien avec l'UNSS.
+
+--- DÉVELOPPEMENT ET AMÉNAGEMENT DU TEMPS DU SPORT SCOLAIRE (CIRCULAIRE N° 2010-125 DU 18-08-2010) ---
+* TEXTE : Directives nationales sur l'aménagement du temps scolaire dédié aux pratiques physiques.
+* AMÉNAGEMENT DU TEMPS ET STAGES : Les emplois du temps des élèves doivent obligatoirement intégrer et préserver les créneaux nécessaires au développement de l'AS (généralement le mercredi après-midi). Les conventions de stage des élèves licenciés doivent prendre en compte ces contraintes pour permettre la continuité des compétitions.
+* EXPÉRIMENTATION RYTHMES SCOLAIRES : Encadre les dispositifs expérimentaux type "Cours le matin, sport l'après-midi", nécessitant un recensement exhaustif des installations sportives disponibles et la signature de partenariats étroits avec les collectivités territoriales et les clubs locaux.
+
+--- CADRE LÉGISLATIF, INCLUSION ET VALEURS DE LA RÉPUBLIQUE (CODE DE L'ÉDUCATION ET LOI CONFIANCE DE 2019) ---
+* ARTICLE L. 111-1 DU CODE DE L'ÉDUCATION : Affirme que l'éducation est la première priorité nationale. Le service public de l'éducation doit garantir l'égalité des chances, lutter activement contre les inégalités sociales et territoriales de réussite, et veiller à la SCOLARISALISATION INCLUSIVE de tous les enfants sans aucune distinction.
+* MISSION PREMIÈRE DE L'ÉCOLE : Outre la transmission des connaissances, l'école doit faire partager aux élèves les VALEURS DE LA RÉPUBLIQUE. Le service public de l'éducation fait acquérir à tous les élèves le respect de l'égale dignité des êtres humains, de la liberté de conscience et de la LAÏCITÉ.
+* LOI N° 2019-791 POUR UNE ÉCOLE DE LA CONFIANCE : Renforce l'engagement de la communauté éducative. Elle consacre le respect institutionnel dû aux personnels d'enseignement et de direction, et encadre l'obligation de formation et d'assiduité.
+* ALIGNEMENT DES CIRCULAIRES DE RENTRÉE (2021, 2022, 2025) : Réaffirmation constante de l'École comme "maison commune". Obligation d'élever le niveau général, d'assurer la continuité pédagogique face aux crises, de garantir un climat scolaire sécurisé et propice aux apprentissages, et de structurer des parcours sportifs fluides en favorisant les passerelles avec le monde fédéral.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 5 : CADRE DU COLLÈGE, EVALUATION DU SOCLE, DNB ET PARCOURS AQUATIQUE
+======================================================================
+
+--- LIVRET SCOLAIRE UNIQUE - LSU & ÉVALUATION AU COLLÈGE (DECRET DU 31-12-2015 / ARRETE DU 31-12-2015) ---
+* TEXTE : Réglementation fixant le contenu du livret scolaire de la scolarité obligatoire (Livret Scolaire Unique - LSU) de l'école élémentaire au collège.
+* CONTENU GLOBAL DU LSU : Regroupe pour chaque cycle (Cycle 2, Cycle 3, Cycle 4) l'ensemble des bilans périodiques de l'évolution des acquis scolaires, les bilans de fin de cycle, ainsi que les attestations officielles (ASNS, ASSR, PSC1).
+* DISPOSITIFS D'AMÉNAGEMENT ET PARTICULIERS : Le LSU mentionne obligatoirement les dispositifs d'accompagnement ou d'accessibilité mis en place pour l'élève parmi la liste réglementaire fermée : 
+  - PAP (Projet d'Accompagnement Personnalisé).
+  - PAI (Projet d'Accueil Individualisé).
+  - PPRE (Projet Personnalisé de Réussite Éducative).
+  - PPS (Projet Personnalisé de Scolarisation).
+  - Orientation : Mention des vœux et des décisions d'orientation en fin de classe de 3e.
+* BILAN DE LA VIE SCOLAIRE ET ABSENCES : Consignation rigoureuse pour chaque période du nombre de demi-journées d'absences, différenciées impérativement entre absences JUSTIFIÉES et absences NON JUSTIFIÉES par les responsables légaux.
+
+--- DISPOSITIF DEUX HEURES D'ACTIVITÉ PHYSIQUE EN PLUS AU COLLÈGE - 2HSC (NOTE DE SERVICE DU 22-10-2024 / BO N°42) ---
+* TEXTE : Circulaire conjointe fixant les modalités de déploiement du dispositif "Deux heures d'activité physique et sportive en plus par semaine au collège" à destination des collèges volontaires.
+* OBJECTIFS ET PUBLIC CIBLE : Vise à lutter contre la sédentarité et à promouvoir la santé et le bien-être des adolescents, en ciblant prioritairement les collégiens éloignés d'une pratique physique régulière ou ne manifestant pas d'appétence pour l'Association Sportive (AS).
+* CRÉNEAUX ET FAISABILITÉ : Les créneaux (une séquence de 2 heures ou deux séquences de 1 heure par semaine) sont calés hors temps d'enseignement obligatoire. Ils sont articulés et coordonnés par les instances académiques (DGESCO / Direction des Sports / DRAJES) en s'appuyant sur des partenariats formalisés avec les structures sportives locales.
+
+--- SOCLE COMMUN DE CONNAISSANCES, DE COMPÉTENCES ET DE CULTURE - SCCC (DECRET DU 31-03-2015 / BO N°17) ---
+* TEXTE : Cadre national fixant l'évaluation des acquis de la scolarité obligatoire (de 6 à 16 ans) structuré autour de 5 DOMAINES DE COMPÉTENCES :
+  - Domaine 1 : Les langages pour penser et communiquer (Comprendre et s'exprimer en langue française, langues étrangères, langages mathématiques/scientifiques, et langages des arts et du corps).
+  - Domaine 2 : Les méthodes et outils pour apprendre (Coopération, gestion de projets, outils numériques).
+  - Domaine 3 : La formation de la personne et du citoyen (Règles, civisme, esprit critique, respect de la laïcité).
+  - Domaine 4 : Les systèmes naturels et les systèmes techniques (Démarche scientifique, responsabilité environnementale).
+  - Domaine 5 : Les représentations du monde et l'activité humaine (Histoire, géographie, culture et pratiques sportives).
+* ÉVALUATION DES ACQUIS PAR COMPOSANTES : L'évaluation du niveau de maîtrise des compétences du socle est réalisée en fin de cycle 3 et fin de cycle 4. Le niveau de maîtrise est formalisé selon une échelle nationale à 4 degrés : Insuffisant (niveau 1), Fragile (niveau 2), Satisfaisant (niveau 3), Très bon (niveau 4). 
+* CONTRIBUTION DE L'EPS AU DOMAINE 1 : L'EPS est la contribution majeure de la maîtrise des "langages des arts et du corps" en amenant l'élève à s'exprimer, réaliser des performances orales ou corporelles, et assumer de façon éthique des positions d'auteur, d'acteur, d'arbitre ou de spectateur.
+
+--- DIPLÔME NATIONAL DU BREVET - DNB (ARRÊTÉ DU 31 DÉCEMBRE 2015 / BO N°3 DU 21-01-2016) ---
+* TEXTE : Conditions et modalités d'attribution du Diplôme National du Brevet (DNB) comportant deux séries : générale et professionnelle.
+* ARCHITECTURE DU BAREME ET NOTATION DU SOCLE : Le DNB est attribué sur la base d'un cumul de 800 POINTS au total. Le contrôle continu (évaluation du niveau de maîtrise des 8 composantes du socle en fin de 3e) compte pour 400 POINTS selon le barème réglementaire strict suivant :
+  - Maîtrise insuffisante = 10 points.
+  - Maîtrise fragile = 25 points.
+  - Maîtrise satisfaisante = 40 points.
+  - Maîtrise très bonne = 50 points.
+* CADRE JURIDIQUE EN CAS DE FRAUDE : Tout flagrant délit de fraude ou tentative de fraude constaté lors des épreuves écrites fait l'objet d'un PROCÈS-VERBAL circonstancié dressé par les surveillants, avec saisie des pièces à conviction. RÈGLE DE SÉCURITÉ : Le candidat n'est jamais expulsé de la salle d'examen, il est formellement AUTORISÉ À CONTINUER l'épreuve jusqu'au terme de la session, dans l'attente de la décision finale de la commission de discipline académique présidée par le Recteur.
+
+--- APPRENTISSAGE DE LA NATATION ET AISANCE AQUATIQUE (NOTE DE SERVICE DU 28-02-2022 / BO N°9) ---
+* TEXTE : Note de service fixant la contribution de l'École à l'Aisance Aquatique et encadrant l'enseignement de la natation scolaire. 
+* CADRE TECHNIQUE DU TEST "PASS-NAUTIQUE" (CODE DU SPORT ART. A. 322-3-1) : Ce test remplace les anciennes dénominations d'aisance aquatique et conditionne de droit l'accès aux activités sportives nautiques réglementées (Voile, Kayak, Surf). Le parcours peut être préparé dès le cycle 2 et la Grande Section.
+* VALIDATION DU PARCOURS PASS-NAUTIQUE : L'épreuve comprend obligatoirement, sans interruption et sans reprise d'appui solide :
+  - 1. Effectuer un saut dans l'eau.
+  - 2. Réaliser une flottaison sur le dos pendant 5 secondes.
+  - 3. Réaliser une sustentation verticale pendant 5 secondes.
+  - 4. Nager sur le ventre sur une distance de 20 mètres.
+  - 5. Franchir une ligne d'eau ou passer sous une embarcation ou un objet flottant.
+* ATTRIBUTION DE L'ASNS : Le "Savoir-Nager en Sécurité" (ASNS) intègre ces éléments techniques et s'évalue en fin de cycle 3 (6e). Le test valide la capacité à se déplacer de façon autonome en grande profondeur sans matériel d'aide à la flottaison.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 6 : ORGANISATION DU COLLÈGE ET NOUVELLES MODALITÉS DU DNB (SESSION 2026)
+======================================================================
+
+--- REFORME DE L'ORGANISATION DES ENSEIGNEMENTS AU COLLÈGE (CIRCULAIRE N° 2015-106 DU 30-06-2015) ---
+* TEXTE : Circulaire nationale fixant le cadre réglementaire de la nouvelle organisation pédagogique et horaire des collèges (décret et arrêté du 19 mai 2015)[cite: 31].
+* HORAIRES ET DOTATION GLOBALE : Le total hebdomadaire d'heures mis à disposition pour la prise en charge des élèves de la 6e à la 3e est fixé à 115 heures à la rentrée 2016, puis à 116 heures à partir de la rentrée 2017[cite: 40]. Ce total intègre les enseignements obligatoires et une dotation horaire supplémentaire (2h45 par semaine/division en 2016, puis 3h00 en 2017) pour les groupes réduits, les co-interventions et les enseignements de complément[cite: 41, 67, 68].
+* ROLES DES INSTANCES ET PILOTAGE : 
+  - Conseil d'enseignement : Réfléchit à la mise en œuvre des programmes de cycle, aux besoins de l'Accompagnement Personnalisé (AP) disciplinaire et à l'inscription dans les thématiques des EPI[cite: 52, 53].
+  - Conseil pédagogique : Formule des propositions sur les modalités de l'AP (soutien, approfondissement, groupements) et prépare l'organisation des Enseignements Pratiques Interdisciplinaires (EPI)[cite: 54, 58, 59].
+  - Conseil d'administration : Arrête formellement la répartition des moyens horaires de la dotation entre les enseignements communs, complémentaires (AP, EPI) et de complément, ainsi que la répartition de la dotation supplémentaire[cite: 60, 67].
+* ENSEIGNEMENTS PRATIQUES INTERDISCIPLINAIRES (EPI) : Concernent exclusivement le cycle 4[cite: 78, 79]. Ils s'appuient sur une démarche de projet débouchant sur une réalisation concrète[cite: 79]. Chaque élève doit aborder au moins 6 des 8 thématiques interdisciplinaires au cours du cycle[cite: 97]. Les EPI proposés doivent être au moins au nombre de deux par an, portant sur des thématiques différentes, avec un horaire hebdomadaire de 1 à 3 heures[cite: 98, 99].
+* LES 8 THÉMATIQUES INTERDISCIPLINAIRES DES EPI : Corps, santé, bien-être et sécurité ; Culture et création artistiques ; Transition écologique et développement durable ; Information, communication, citoyenneté ; Langues et cultures de l'Antiquité ; Langues et cultures étrangères ou régionales ; Monde économique et professionnel ; Sciences, technologie et société[cite: 86, 87, 88].
+* ACCOMPAGNEMENT PERSONNALISÉ (AP) : Concerne tous les niveaux de classe (6e jusqu'à la 3e)[cite: 117, 118]. Tous les élèves d'un même niveau bénéficient du même nombre d'heures d'AP[cite: 119]. En classe de 6e, l'horaire est fixé strictement à 3 heures hebdomadaires pour faciliter la transition école-collège[cite: 128]. Au cycle 4, le volume est de 1 heure à 2 heures hebdomadaires[cite: 130].
+* ENSEIGNEMENT DES SCIENCES ET TECHNOLOGIE EN 6E : La dotation horaire obligatoire est fixée globalement à 4 heures pour les sciences expérimentales (SVT, physique-chimie) et la technologie[cite: 146, 147].
+* CADRE DU TEMPS SCOLAIRE ET RYTHMES : L'amplitude quotidienne des cours est limitée à un maximum strict de 6 heures par jour pour les élèves de 6e, et de 7 heures par jour (autant que faire se peut) pour les élèves du cycle 4[cite: 155, 158]. La pause méridienne obligatoire doit être d'une durée minimale de 1 heure et demie (90 minutes)[cite: 157]. Des dérogations locales motivées peuvent être accordées exclusivement par le Recteur d'académie[cite: 158].
+
+--- NOUVELLES MODALITÉS D'ATTRIBUTION DU DIPLÔME NATIONAL DU BREVET - DNB (NOTE DE SERVICE DU 02-09-2025 / SESSION 2026) ---
+* TEXTE : Note de service nationale fixant la réforme de l'attribution du DNB applicable à compter de la SESSION 2026[cite: 235, 253]. Elle abroge les textes antérieurs et met fin définitivement au système historique de notation globale sur 800 points[cite: 254, 257].
+* NOUVELLE ARCHITECTURE DE CALCUL DU BAREME (MOYENNE SUR 20) : Le diplôme est obtenu si le candidat obtient une moyenne finale générale égale ou supérieure à 10 sur 20[cite: 255]. Pour les candidats scolaires, le calcul associe impérativement :
+  - Les épreuves terminales de l'examen, comptant pour 60 % de la note globale (exprimées sous forme de moyenne sur 20)[cite: 255].
+  - Le contrôle continu, comptant pour 40 % de la note globale, calculé à partir de la moyenne des moyennes annuelles de l'ensemble des enseignements obligatoires suivis en classe de 3e (exprimée sur 20)[cite: 255].
+* INTÉGRATION DES OPTIONS : Pour le calcul de la part contrôle continu, les points supérieurs à 10 sur 20 obtenus dans un enseignement facultatif (LCA, Langue de signes) sont directement ajoutés à la somme des moyennes annuelles, sous réserve que la moyenne finale du contrôle continu ne dépasse pas 20 sur 20[cite: 383].
+* REMONTÉE DES NOTES ET SÉCURITÉ LSU : Le conseil de classe valide les moyennes trimestrielles/semestrielles et annuelles disciplinaires[cite: 404]. La moyenne annuelle de chaque enseignement est transmise au système Cyclades en effectuant obligatoirement un ARRONDI AU CENTIÈME DE POINT SUPÉRIEUR[cite: 406, 407].
+* GESTION DE L'ASSIDUITE ET ABSENCES EN ÉVALUATION : Les élèves ont l'obligation légale d'accomplir tous les travaux et de se soumettre au contrôle continu[cite: 413, 418]. Si l'absence répétée d'un élève empêche la constitution d'une moyenne représentative, le professeur indique la mention "En attente"[cite: 421, 422]. En fin d'année, le conseil de classe statue et organise une ÉVALUATION DE REMPLACEMENT obligatoire[cite: 423, 425]. En cas d'absence injustifiée à cette épreuve de remplacement, la note de ZÉRO (0/20) est définitivement attribuée pour cet enseignement[cite: 428].
+* CAS D'ABSENCE AUX ÉPREUVES TERMINALES DE L'EXAMEN : Toute absence injustifiée à une épreuve terminale entraîne la mention "Absent" et l'attribution de la note ZÉRO[cite: 304]. Si l'absence est justifiée par un cas de force majeure, le Recteur autorise le candidat à se présent à la session de remplacement (septembre) pour passer les seules épreuves manquées, tout en conservant les notes des épreuves déjà passées en juin[cite: 305, 310].
+* PROCÉDURE STRICTE EN CAS DE FRAUDE AUX ÉPREUVES : Tout constat de fraude donne lieu à l'établissement immédiat d'un PROCÈS-VERBAL circonstancié par les surveillants avec saisie des preuves[cite: 313, 314, 446]. RÈGLE DE SÉCURITÉ ABSOLUE : Le candidat suspecté n'est jamais expulsé de la salle d'examen ; il est formellement AUTORISÉ À TERMINER SON ÉPREUVE et à composer jusqu'à la fin de la session[cite: 446]. Les pièces sont transmises directement au Président du jury et à la commission de discipline académique[cite: 314].
+* CANDIDATS INDIVIDUELS : Le DNB leur est délivré exclusivement sur la base des notes obtenues aux épreuves terminales écrites de l'examen (compte pour 100 % de la note globale)[cite: 260, 446].
+* PROGRAMMES DE RÉFÉRENCE DES ÉPREUVES : Les sujets reposent sur les programmes du cycle 4 jusqu'à la session 2026 incluse[cite: 440]. À compter de la session 2027, les sujets porteront exclusivement sur le programme strict de la classe de troisième[cite: 440].
+
+--- STRUCTURE ET COEFFICIENTS DES ÉPREUVES TERMINALES (CANDIDATS SCOLAIRES) ---
+* ÉPREUVE ÉCRITE DE FRANÇAIS (COEFFICIENT 2 / DURÉE 3H00 / NOTÉE SUR 20) : Notée globalement sur un barème de 100 points ramené sur 20[cite: 446, 456, 457, 459, 460]. Découpée en trois parties obligatoires :
+  - 1. Travail sur texte littéraire et image : Grammaire, compétences linguistiques, réécriture (5 à 10 formes à modifier) et questions de compréhension/interprétation (50 points / 1h10)[cite: 461, 463, 467, 469].
+  - 2. Dictée : Texte de 600 signes en série générale et de 400 signes en série professionnelle (10 points / 20 minutes)[cite: 479, 484, 485].
+  - 3. Rédaction : Deux sujets au choix (réflexion ou imagination) avec longueur minimale粗imposée[cite: 486, 487]. Dictionnaire de langue française ou dictionnaire bilingue autorisé[cite: 491]. (40 points / 1h30) [cite: 486].
+* ÉPREUVE ÉCRITE DE MATHÉMATIQUES (COEFFICIENT 2 / DURÉE 2H00 / NOTÉE SUR 20) : Composée d'exercices indépendants notée sur 20, dont 2 points réservés à la rédaction et clarté[cite: 446, 493, 494, 498, 499, 505]. Découpée en deux parties :
+  - Partie 1 - Automatismes (6 points / 20 minutes) : Réalisée STRICTEMENT SANS CALCULATRICE[cite: 501, 502].
+  - Partie 2 - Raisonnement et résolution de problèmes (14 points / 1h40) : CALCULATRICE AUTORISÉE[cite: 500, 502]. Les essais et démarches non aboutis doivent être valorisés[cite: 506].
+* ÉPREUVE ÉCRITE D'HISTOIRE-GÉOGRAPHIE-EMC (COEFFICIENT 2 / DURÉE 2H00 / NOTÉE SUR 20) : Traitée en deux heures sans pause, comprenant deux sous-épreuves distinctes[cite: 446, 508, 509, 518].
+  - Sous-épreuve Histoire-Géographie (Note sur 40 ramenée sur 20 / Coeff 1,5) [cite: 446, 520] : Exercice 1 d'analyse de documents (15 points) [cite: 521] et Exercice 2 de développement construit (au moins 30 lignes en série générale, 20 lignes en série pro) combiné à la réalisation d'un croquis, schéma ou frise (25 points)[cite: 528, 529, 531].
+  - Sous-épreuve Enseignement Moral et Civique (Note sur 20 / Coeff 0,5) [cite: 446, 533] : Problématique à partir d'une situation pratique avec questions courtes (QCM, tableaux) et une réponse développée[cite: 534, 535].
+* ÉPREUVE ÉCRITE DE SCIENCES (COEFFICIENT 2 / DURÉE 1H00 / NOTÉE SUR 20) : Évalue deux disciplines tirées au sort deux mois avant l'examen parmi les trois réglementaires (Physique-chimie, SVT, Technologie)[cite: 446, 538, 539, 546, 547]. L'épreuve est notée sur 20 (10 points par discipline) et rédigée sur une seule copie[cite: 550, 564]. Les démarches engagées et initiatives doivent être prises en compte et valorisées[cite: 552, 563].
+* ÉPREUVE ORALE DE SOUTENANCE DE PROJET (COEFFICIENT 2 / DURÉE 15 MIN / NOTÉE SUR 20) : Concerne uniquement les candidats scolaires[cite: 446, 566, 568]. Soutenance individuelle (5 min exposé / 10 min entretien) [cite: 587] ou collective (groupe de 3 candidats max, 10 min exposé par élève / 15 min entretien collectif) [cite: 576, 590, 591] portant sur un projet mené en EPI, en Histoire des arts, ou dans le cadre des parcours éducatifs (Avenir, Citoyen, Santé, PEAC)[cite: 569]. Évaluation stricte répartie comme suit : Maîtrise de l'expression orale (8 points) ; Maîtrise du sujet présenté (12 points)[cite: 640, 641, 642]. Une partie de l'exposé (5 minutes maximum au total) peut être réalisée en langue vivante étrangère ou régionale si elle est enseignée dans l'établissement[cite: 582, 583]. La note obtenue ne doit jamais être communiquée avant la publication officielle des résultats du DNB[cite: 643, 644].
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 7 : VOIE PROFESSIONNELLE, INGÉNIERIE DE FORMATION ET SPORT À L'ÉCOLE
+======================================================================
+
+--- RÉNOVATION ET GRILLES HORAIRES DE LA VOIE PROFESSIONNELLE (BO N°5 DU 29-01-2009 & ARRÊTÉ DU 22-01-2024) ---
+* PARCOURS DE RÉFÉRENCE EN 3 ANS : La rénovation de la voie professionnelle instaure un parcours de référence en 3 ans au lieu de 4 pour l'obtention du baccalauréat professionnel.
+* SECTIONS ET APPRENTISSAGE : Le dispositif crée des champs professionnels dès la classe de seconde et intègre les formations sous contrat d'apprentissage. L'accompagnement personnalisé y est introduit pour compenser les difficultés scolaires des élèves.
+* MODIFICATION DES HORAIRES COMPLÉMENTAIRES : L'arrêté du 22 janvier 2024 modifie le mode de calcul des volumes complémentaires d'heures-professeur. Pour le secteur des services, la dotation varie selon que l'effectif des divisions est supérieur ou inférieur/égal à 18 élèves.
+* VERROU EN FRANÇAIS ET MATHÉMATIQUES : En classes de seconde et de première professionnelles, au moins 15 % de cet horaire complémentaire globalisé doit obligatoirement être dédié à l'enseignement du français et des mathématiques.
+
+--- ORGANISATION ET UNITÉS SPÉCIFIQUES EN EPS VOIE PROFESSIONNELLE (BO N°15 DU 11-04-2019 & BO N°30 DU 29-07-2021) ---
+* ADAPTATION ET CONCORDANCE DES PARCOURS : Le programme d'EPS impose une concordance stricte entre l'aptitude professionnelle requise en atelier/stage et une pratique adaptée de l'élève en EPS. Le recours au certificat médical type est réglementairement recommandé.
+* ORGANISATIONS MASSÉES ET STAGES : Pour les activités de pleine nature (APPN) ou les activités aquatiques, un enseignement massé sous forme de stage est autorisé, requérant un volume de pratique minimal de 20 heures pour valider les attendus de fin de lycée.
+* INTERDISCIPLINARITÉ PSE : Le parcours d'EPS est lié par des objectifs communs avec le programme de prévention-santé-environnement (PSE) concernant l'équilibre de vie, l'alimentation et la gestion des risques professionnels.
+* CERTIFICATION INTERMÉDIAIRE CAP-BEP : L'arrêté du 11 juillet 2016 redéfinit les combinaisons d'épreuves obligatoires pour la session 2018, en précisant que le badminton et le tennis de table doivent exclusivement être évalués en modalité de jeu en simple.
+* UNITÉ FACULTATIVE SECTEUR SPORTIF : La note de service du 9 juillet 2021 crée une unité professionnelle facultative "Secteur Sportif" accessible à 6 spécialités de baccalauréat professionnel (AEPA, Agora, Accueil, Commerce options A/B, Sécurité), s'appuyant sur des partenariats formalisés avec les CREPS ou structures du ministère chargé des sports.
+* MC ENCADREMENT SECTEUR SPORTIF : L'arrêté du 14 janvier 2022 crée la mention complémentaire "Encadrement secteur sportif" à 4 options (APT, AAN, et deux options d'activités de la forme). La durée des PFMP est fixée à 18 semaines en formation continue, et ramenée à un minimum de 8 semaines en cas de décision de positionnement par le Recteur.
+
+--- CERTIFICATIONS ET RÉFÉRENTIEL DES FORMATEURS ACADÉMIQUES (CIRCULAIRE N° 2015-110 DU 21-07-2015) ---
+* CADRE DU CAFA ET CAFIPEMF : Le dispositif encadre la certification aux fonctions de formateur académique (CAFA) dans le second degré et actualise le CAFIPEMF pour le premier degré afin d'harmoniser les cultures professionnelles.
+* GRILLE D'ÉVALUATION ET SCORE D'ADMISSION : L'évaluation s'appuie sur une synthèse des compétences du candidat répartie en quatre niveaux de maîtrise : Très insuffisant, Insuffisant, Satisfaisant, et Très satisfaisant. L'admission finale requiert l'obtention d'une note globale minimale de 12 sur 20 et la moyenne dans chaque domaine de compétence évalué.
+* SÉCURITÉ JURIDIQUE DU TITRE : Pour simplifier les procédures administratives, l'extrait de l'arrêté global d'admission adressé individuellement au candidat fait office de certificat d'aptitude officiel.
+* POSTURE ET TRANSFERT DE FORMATION : Le référentiel de compétences (BO n°30 du 23-07-2015) impose aux formateurs d'accompagner le développement professionnel des équipes, de conseiller via des rétroactions basées sur des traces d'activité, et de mesurer l'efficacité des actions de formation en prenant pour critère majeur la qualité des apprentissages des élèves.
+
+--- HÉRITAGE JOP 2024, SPORT À L'ÉCOLE ET ORIENTATIONS DU CSP (CIRCULAIRE DU 27-08-2025 & PROJET CSP 2025) ---
+* STRATÉGIE HÉRITAGE ET EPS : La circulaire du 27 août 2025 définit la place de l'activité physique et du sport à l'école au titre de l'héritage des Jeux olympiques et paralympiques de Paris 2024. Elle fixe comme priorités la lutte contre la sédentarité, le développement de l'école promotrice de santé et la labellisation des établissements "Génération 2030".
+* PILOTAGE ET PARTENARIATS TERRITORIAUX : Les personnels de direction et les inspecteurs pédagogiques (IA-IPR et Jeunesse et Sports) doivent activement soutenir la mise en œuvre et la formalisation des partenariats avec le mouvement sportif territorial et les collectivités.
+* PROJETS DE PROGRAMMES CYCLE 4 (CSP) : Le projet de programme d'EPS pour le cycle 4 publié par le Conseil supérieur des programmes en juillet 2025 centre les apprentissages sur l'appropriation d'une culture sportive et d'une citényenneté en actes.
+* VALORISATION DES RÔLES SOCIAUX : L'évaluation doit mettre en relief la capacité de l'élève-arbitre à utiliser une gestuelle codifiée pour signaler les fautes et à expliciter ses prises de décision pour en faciliter l'acceptation par le collectif.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 8 : GRILLES D'ÉVALUATION, BARÈMES AFL/AFLP ET PRATIQUES CERTIFICATIVES
+======================================================================
+
+--- MATRICE DE NOTATION DES RÔLES SOCIAUX ET DE L'ARBITRAGE - AFLP4 (BO N°4 DU 28-01-2021 & BO N°31 DU 30-07-2020) ---
+* CADRE DE L'AFLP4 : Évalue la capacité de l'élève à respecter et faire respecter les règles partagées, s'engager de façon lucide et assumer les rôles sociaux (arbitre, juge, scoreur) pour permettre le bon déroulement du jeu.
+* GRADUATION DES POINTS EN ARBITRAGE / ENGAGEMENT (SUR 5 POINTS) :
+  - Niveau 1 (0 à 0.5 point) : L'élève présente de fréquents mouvements d'humeur au cours de la rencontre. Il s'implique difficilement, se montre peu attentif et commet des erreurs grossières dans le suivi du score ou l'application des règles.
+  - Niveau 2 (1 à 2 points) : Présence de quelques mouvements d'humeur. L'élève arbitre avec sérieux mais manifeste des hésitations visibles (ex: annonce du changement de service, attribution des points litigieux).
+  - Niveau 3 (2.5 à 3.5 points) : Comportement respectueux en continu envers l'adversaire, le matériel et le corps arbitral. L'élève assume le rôle d'arbitre sans erreur et sans hésitation sur les phases classiques.
+  - Niveau 4 (4 à 5 points) : Engagement citoyen et moteur optimal tout au long de la rencontre, quels que soient le score et le contexte. Arbitrage sans faille, autorité naturelle positive et capacité à expliciter le règlement et rappeler les règles aux joueurs si nécessaire.
+
+--- MATRICE DE L'ÉCHAUFFEMENT ET DE L'AUTONOMIE - AFLP5 (CIRCULAIRE DU 29-12-2020 / BO N°4 DU 28-01-2021) ---
+* CADRE DE L'AFLP5 : Évalue l'aptitude à se préparer, s'entraîner individuellement ou collectivement et récupérer de façon autonome et lucide.
+* ÉCHELLE DE NOTATION DE L'ÉCHAUFFEMENT (SUR 3 POINTS) :
+  - Niveau 1 (0 à 0.5 point) : Le candidat s'échauffe de manière passive, avec un manque de sérieux ou d'application évident.
+  - Niveau 2 (1 point) : L'échauffement est mené avec sérieux mais demeure incomplet, stéréotypé ou non adapté aux exigences spécifiques de l'APSA programmée.
+  - Niveau 3 (2 points) : Échauffement sérieux, structuré et global, prenant en compte les besoins cardio-respiratoires et articulaires généraux.
+  - Niveau 4 (3 points) : Échauffement d'une pertinence totale, individualisé et ancré sur la spécialité. Intègre des gammes techniques spécifiques (ex: répétition des coups spécifiques maîtrisés en sports de raquettes) et une gestion optimale de l'effort.
+
+--- EXIGENCES TECHNIQUES ET TACTIQUES EN SPORTS DE RAQUETTES (CIRCULAIRE N° 2018-029 & BO N°36 DE 2019) ---
+* COMPOSANTE DU GAIN DES RENCONTRES (BARÈME SUR 4 POINTS) : Les points de gain des rencontres sont rigoureusement attribués à chaque joueur sur la base du ratio réel de matchs gagnés et perdus au cours de la phase de confrontation collective, en tenant compte des écarts de scores.
+* COMPOSANTE CHOC TECHNIQUE ET TACTIQUE (BARÈME DE 6.5 À 8 POINTS) :
+  - Efficacité motrice maximale : Le candidat démontre une maîtrise complète et fluide de son projet tactique en attaque comme en défense. Il s'appuie sur un panel large de coups techniques maîtrisés (smashs, blocs, effets coupés et liftés).
+  - Intentionnalité du service : Le service n'est plus une simple mise en jeu sécuritaire ; il est utilisé comme une arme tactique majeure pour créer d'emblée des occasions de marque ou repousser l'adversaire (mise en place de schémas tactiques dès le premier coup).
+  - Mobilité et ajustement : Déplacements et replacements dynamiques, variés et coordonnés en fonction des trajectoires de balles ou de volants reçues, permettant un retour systématique en position préférentielle.
+
+--- CADRE DE CONSERVATION ET APPLICATION DU CCF LYCÉE (ARRÊTÉ DU 25-03-2022 / BO N°17) ---
+* ARCHITECTURE DES BARÈMES NATIONAUX : Rappel des obligations de croisement pour l'AFL1 (noté sur 12 points, associant performance brute et efficacité technique le jour du CCF) avec les AFL2 (4 points - conception/régulation) et AFL3 (4 points - coopération/co-évaluation) mesurés au fil de la séquence d'apprentissage.
+* VALIDATION DU CARNET DE SUIVI : L'évaluation de l'AFL2 s'appuie de droit sur un outil de recueil de données écrit (carnet d'entraînement, portfolio ou application numérique) complété par l'élève de façon autonome.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 9 : LOIS FONDAMENTALES, RÉFÉRENTIELS ET CADRE LYCÉE GT
+======================================================================
+
+--- LOI DE REFONDATION DE L'ÉCOLE DE LA RÉPUBLIQUE (LOI N° 2013-595 DU 8 JUILLET 2013 / ART. L. 111-1) ---
+* TEXTE : Loi d'orientation et de programmation fixant les missions premières du service public de l'éducation.
+* PRIORITÉ ET INCLUSION : L'éducation est la première priorité nationale. Le système garantit l'égalité des chances, lutte contre les inégalités sociales/territoriales et veille obligatoirement à la SCOLARISATION INCLUSIVE de tous les enfants, sans aucune distinction.
+* COOPÉRATION ET COMMUNAUTÉ : L'école reconnaît la capacité de tous les enfants à apprendre et progresser. Elle se construit avec la participation active des parents, par le dialogue et la coopération entre tous les acteurs de la communauté éducative.
+* VALEURS DE LA RÉPUBLIQUE : La mission première, outre la transmission des connaissances, est de faire partager les valeurs de la République : respect de l'égale dignité des êtres humains, liberté de conscience et LAÏCITÉ.
+
+--- RÉFÉRENTIEL DE COMPÉTENCES DES ENSEIGNANTS ET PERSONNELS D'ÉDUCATION (BO DU 25 JUILLET 2013) ---
+* TEXTE : Liste nationale des compétences professionnelles obligatoires pour l'exercice du métier d'enseignant et de CPE.
+* COMPÉTENCE STATUTAIRE C8 (TRAVAILLER EN ÉQUIPE PÉDAGOGIQUE) : Obligation de coopérer avec les professeurs pour élaborer les situations d'apprentissage, évaluer les compétences du socle commun et contribuer au volet éducatif du projet d'établissement.
+* CONTINUITÉ DES PARCOURS : Les équipes éducatives ont la responsabilité de faciliter la continuité des parcours des élèves et de gérer efficacement les transitions d'un cycle d'enseignement à l'autre.
+
+--- RÉFÉRENTIEL DE L'ÉDUCATION PRIORITAIRE (NOTE DE SERVICE DE JANVIER 2014) ---
+* TEXTE : Directives nationales pour le pilotage et l'organisation pédagogique des réseaux REP et REP+.
+* LIAISON ET STRUCTURATION : Impose une coopération renforcée entre les équipes des collèges et des lycées professionnels du secteur. Le pilotage intègre la présence régulière de l'IA-IPR référent au comité de pilotage pour coordonner les actions de réseau.
+* AUTO-ÉVALUATION ET DNB : Les réseaux doivent mener des démarches d'auto-évaluation et organiser des cérémonies républicaines de remise du DNB associant formellement les parents d'élèves.
+
+--- DISPOSITIF ET AMÉNAGEMENT DU SPORT SCOLAIRE (CIRCULAIRE N° 2010-125 DU 18-08-2010) ---
+* TEXTE : Organisation du sport scolaire et préservation des temps de pratique de l'Association Sportive (AS).
+* SÉCURISATION DES CRÉNEAUX : Les emplois du temps des élèves et les conventions de stage des élèves licenciés doivent impérativement préserver les créneaux dédiés aux rencontres de l'AS (généralement le mercredi après-midi).
+* PRÉSIDENCE DE DROIT : L'AS est obligatoirement présidée par le Chef d'établissement (Président de droit), qui pilote l'intégration du volet sportif dans le projet d'établissement.
+* EXPÉRIMENTATION RYTHMES : Encadre les projets type "Cours le matin, sport l'après-midi" basés sur un recensement des installations et des conventions territoriales.
+
+--- PROGRAMME COMMUN D'EPS AU LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BO SPÉCIAL N°1 DU 22-01-2019) ---
+* TEXTE : Cadre national d'enseignement obligatoire de l'EPS pour le cycle terminal des voies générale et technologique.
+* LES 5 CHAMPS D'APPRENTISSAGE (CA) :
+  - CA1 : Réaliser une performance motrice maximale, mesurable à une échéance donnée.
+  - CA2 : Adapter son déplacement à des environnements variés et/ou incertains (APPN).
+  - CA3 : Réaliser une prestation corporelle destinée à être vue et appréciée par autrui.
+  - CA4 : Conduire un affrontement interindividuel ou collectif pour gagner.
+  - CA5 : Réaliser et orienter son activité physique pour développer ses ressources et s'entretenir.
+* ENSEIGNEMENT MASSÉ ET SEUIL : Pour les APPN ou activités aquatiques, un enseignement massé sous forme de stage est autorisé. Un volume de pratique minimal de 20 HEURES EFFECTIVES est réglementairement requis pour valider les Attendus de Fin de Lycée (AFL).
+
+--- PROTOCOLE D'ÉVALUATION EN CCF - LYCÉE GT (CIRCULAIRE N° 2019-129 DU 26-09-2019 / BO N°36) ---
+* TEXTE : Modalités d'évaluation certificative au baccalauréat pour l'enseignement commun obligatoire.
+* DISTRIBUTION DES 20 POINTS (RÈGLE DES 3 AFL) :
+  - AFL1 (Moteur / Technique) : Évalué le jour de l'épreuve finale. Fixé strictement sur 12 POINTS.
+  - AFL2 (Méthodologique / Entraînement) : Évalué au fil de la séquence, adossé à l'utilisation obligatoire d'un carnet de suivi ou outil numérique. Fixé sur 4 POINTS.
+  - AFL3 (Social / Rôles d'arbitre, juge, observateur) : Évalué au fil des séances sur la capacité à coopérer et co-évaluer. Fixé sur 4 POINTS.
+* CAS DES RÈGLES DE CONFRONTATION (RAQUETTES / DUELS) : Le barème de l'épreuve doit obligatoirement inclure une part dédiée au gain réel des rencontres (ratio matchs gagnés/perdus sur 4 points) et une part dédiée à l'efficacité tactique/technique (choix des coups, schémas de service sur 8 points).
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 10 : PROGRAMMES COLLÈGE, SOCLE COMMUN ET CADRES DE SÉCURITÉ EPS
+======================================================================
+
+--- PROGRAMMES D'ENSEIGNEMENT DISCIPLINAIRE - CYCLES 2, 3 ET 4 (BO SPÉCIAL N°11 DU 26-11-2015) ---
+* TEXTE : Fixe les programmes d'enseignement pour la scolarité obligatoire, de l'école élémentaire au collège.
+* LES 4 CHAMPS D'APPRENTISSAGE (CA) DU COLLÈGE :
+  - CA1 : Produire une performance optimale, mesurable à une échéance donnée (ex: Athlétisme, Natation de vitesse).
+  - CA2 : Adapter son déplacement à des environnements variés ou incertains (ex: Escalade, Course d'orientation, VTT).
+  - CA3 : Réaliser une prestation corporelle destinée à être vue et appréciée (ex: Danse, Gymnastique, Acrosport).
+  - CA4 : Conduire un affrontement interindividuel ou collectif (ex: Sports collectifs, Combat, Raquettes).
+* ATTENDUS DE FIN DE CYCLE : Chaque champ d'apprentissage est décliné en attendus de fin de cycle qui croisent la maîtrise motrice, la conception de projets de pratique et l'appropriation de rôles sociaux (arbitre, observateur).
+
+--- SOCLE COMMUN SCCC - VALEURS ET APPORTS DE L'EPS (DÉCRET DU 31-03-2015 / J.O. DU 02-04-2015) ---
+* TEXTE : Décrète la structure du Socle Commun de Connaissances, de Compétences et de Culture.
+* ANCRAGE DE L'EPS DANS LE SOCLE :
+  - Domaine 1 (Langages des arts et du corps) : Apprentissage d'une motricité fine, expression corporelle et décodage des postures et actions d'autrui.
+  - Domaine 3 (Formation de la personne et du citoyen) : Respect absolu de la règle, développement du fair-play, acceptation du verdict arbitral et égalité filles-garçons en actes.
+  - Domaine 5 (Représentations du monde et activité humaine) : Conception d'une culture sportive et artistique, compréhension de l'histoire des pratiques et préservation d'un habitus de santé durable.
+
+--- PROTOCOLES EXAMENS ET INCIDENTS JURIDIQUES AU DNB (ARRÊTÉ DU 31 DÉCEMBRE 2015) ---
+* TEXTE : Arrêté fixant l'organisation et les modalités d'attribution du Diplôme National du Brevet.
+* SÉCURITÉ JURIDIQUE DU CANDIDAT EN CAS DE FRAUDE : En cas de suspicion de triche ou de flagrant délit de fraude, le surveillant dresse un procès-verbal circonstancié sans expulser le candidat de la salle afin de lui permettre de composer jusqu'au terme de l'épreuve, préservant ses droits dans l'attente du jugement final de la commission académique.
+
+--- PARCOURS AQUATIQUE ET CADRES DE SURVEILLANCE DE LA NATATION (NS DU 28-02-2022 & CIRCULAIRE DE 2017) ---
+* DISPOSITIF AISANCE AQUATIQUE : Vise l'acquisition des premiers réflexes de sécurité et de flottaison dès le plus jeune âge (Maternelle/GS/Cycle 2) pour prévenir activement les risques de noyade, en amont du savoir-nager.
+* TAUX D'ENCADREMENT EN NATATION (CIRCULAIRE N° 2017-127) : Dans le second degré, l'encadrement pédagogique est assuré par le professeur d'EPS de la classe. La surveillance du bassin est obligatoire et doit être exercée de façon exclusive par un personnel qualifié (MNS) titulaire d'un titre de maître-nageur sauveteur, extérieur à l'enseignement, sauf dérogation validée.
+* PASSAGE DU TEST STANDARDISÉ (ASSN 2015 & ASNS 2022) : Déplacement en grande profondeur intégrant la bascule arrière, un surplace de 15 secondes, le franchissement d'un obstacle en immersion complète et un retour dorsal, validé conjointement par l'enseignant et le personnel de surveillance.
+
+--- PROTOCOLES DE SÉCURITÉ EN APPN ET CONFIGURATION DES STRUCTURES (CIRCULAIRE N° 2017-075) ---
+* TEXTE : Fixe les exigences de sécurité active et passive pour les activités physiques de pleine nature dans le second degré.
+* SÉCURITÉ EN ESCALADE (SAE ET BLOC) : Impose une délimitation stricte des zones de chute potentielle. Les tapis de réception doivent répondre aux normes (NF). L'usage de l'espace de bloc au sol interdit toute évolution simultanée d'élèves au-dessus d'eux avec une corde afin d'exclure tout risque de collision majeure.
+======================================================================
+BASE DE DONNÉES JURIDIQUE - LOT 11 : COMPLÉMENTS COLLÈGE, LIVRET SCOLAIRE ET ACCOMPAGNEMENT DU SOCLE (CYCLES 3 & 4)
+======================================================================
+
+--- DISPOSITIF NATIONAL D'ÉVALUATION ET LIVRET SCOLAIRE UNIQUE (DÉCRET N° 2015-1929 DU 31-12-2015) ---
+* TEXTE : Décret national fixant les règles d'évaluation des acquis scolaires et la structure du livret scolaire obligatoire pour l'école élémentaire et le collège.
+* BILANS PÉRIODIQUES : Impose la transmission régulière aux familles d'un bilan global par période (trimestre ou semestre) détaillant les éléments de programme travaillés, les acquisitions de l'élève, et une appréciation précise des compétences et du comportement.
+* BILANS DE FIN DE CYCLE : À la fin de chaque cycle (Cycle 2, Cycle 3, Cycle 4), le livret comporte une fiche d'évaluation du niveau de maîtrise des 8 composantes du socle commun. Cette fiche sert de base légale pour le calcul des points du Contrôle Continu au Diplôme National du Brevet (DNB).
+
+--- INGÉNIERIE HORAIRE ET ARCHITECTURE PÉDAGOGIQUE DU COLLÈGE (CIRCULAIRE N° 2015-106 DU 30-06-2015) ---
+* TEXTE : Circulaire fixant l'organisation des enseignements obligatoires, les modalités de l'accompagnement et l'interdisciplinarité au collège.
+* ACCOMPAGNEMENT PERSONNALISÉ (AP) : Intégré aux heures d'enseignement obligatoire pour tous les niveaux (6e à la 3e). En 6e, l'horaire est fixé à 3 heures hebdomadaires pour soutenir l'articulation école-collège et consolider les méthodes de travail. Au cycle 4, le volume varie de 1 à 2 heures en fonction des choix pédagogiques de l'établissement validés en Conseil d'Administration.
+* ENSEIGNEMENTS PRATIQUES INTERDISCIPLINAIRES (EPI) : Dispositif obligatoire au cycle 4 adossé à une démarche de projet. Chaque élève doit aborder au moins 6 des 8 thématiques nationales officielles (ex: Corps, santé, bien-être et sécurité ; Transition écologique ; Citoyenneté) au cours des 3 années du cycle terminal du collège.
+
+--- REPERES ÉDUSCOL D'ÉVALUATION DES ACQUIS DU SOCLE COMMUN - CYCLE 3 (GUIDE D'ACCOMPAGNEMENT) ---
+* TEXTE : Document d'accompagnement national fixant les critères de validation d'un niveau de maîtrise satisfaisant (Degré 3) en fin de classe de 6e.
+* DOMAINE 1 : LES LANGAGES POUR PENSER ET COMMUNIQUER (LANGAGES DES ARTS ET DU CORPS) :
+  - Contribution EPS / Arts : L'évaluation valide la capacité de l'élève à utiliser des techniques corporelles ou artistiques pour s'exprimer, traduire des émotions et communiquer au sein d'un collectif.
+  - Postures citoyennes : L'élève en fin de cycle 3 doit être capable de distinguer clairement et d'assumer de manière éthique les positions d'auteur/acteur (pratiquant), de spectateur, d'auditeur ou de juge, et d'accepter que sa propre production soit soumise au regard critique de ses pairs.
+  - Réalisation de performances orales ou physiques : Intègre la capacité à mémoriser des enchaînements, diction poétique, récits ou spectacles chorégraphiques construits individuellement ou collectivement.
+
+--- REPERES ÉDUSCOL D'ÉVALUATION DES ACQUIS DU SOCLE COMMUN - CYCLE 4 (GUIDE D'ACCOMPAGNEMENT) ---
+* TEXTE : Document de cadrage fixant les indicateurs de réussite pour une maîtrise satisfaisante (Degré 3) en fin de classe de 3e.
+* EXTENSION DE LA COMPÉTENCE RÉFLEXIVE ET CRITIQUE :
+  - Expression argumentée : L'élève doit être capable de produire un texte ou un projet corporel structuré, de défendre un point de vue face à une argumentation ou une stratégie adverse, et de formuler des choix tactiques ou d'écriture explicites.
+  - Processus de création collective : Au cycle 4, la validation exige que l'élève soit capable de mener à bien des projets d'interprétation artistique ou d'affrontement tactique en petit groupe, d'adopter une réelle distance critique sur son action, et de manipuler ou détourner des codes préexistants dans une intention créative.
+  - Liens culturels et théoriques : Capacité affirmée à établir des passerelles robustes entre son travail de terrain, les œuvres étudiées (Histoire des arts, culture sportive) et l'explicitation de sa propre démarche réflexive.

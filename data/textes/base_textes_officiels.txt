@@ -150,3 +150,35 @@ BASE DE DONNÉES JURIDIQUE ET ADMINISTRATIVE CENTRALISÉE - VERSION UNIQUE
 * EXIGENCE DU CONVENTIONNEMENT ET DE L'AGRÉMENT : L'intervention requiert obligatoirement la signature préalable d'une CONVENTION écrite entre l'établissement scolaire (le Chef d'établissement après vote au CA) et la structure partenaire, ainsi que la délivrance d'un AGRÉMENT officiel par le Directeur Académique (IA-DASEN) attestant de l'honorabilité et de la qualification technique de l'intervenant (contrôle du FIJAIS / Casier judiciaire).
 * RÈGLE DE CO-RESPONSABILITÉ ET DROIT PÉNAL : L'intervention d'un tiers ne décharge jamais l'enseignant de ses obligations statutaires. L'intervenant extérieur assume la responsabilité technique et matérielle de la sécurité liée à sa spécialité (ex: état des bateaux, choix de la route en mer). 
 * SANCTUARISATION DE LA RESPONSABILITÉ PÉDAGOGIQUE : L'ENSEIGNANT D'EPS CONSERVE EN PERMANENCE LA RESPONSABILITÉ PÉDAGOGIQUE, DISCIPLINAIRE ET JURIDIQUE DE LA CLASSE. L'enseignant valide le projet, distribue les groupes et gère la discipline. Un intervenant extérieur (professionnel ou bénévole) ne peut jamais se retrouver seul à encadrer un groupe d'élèves en autonomie hors de la présence ou du contrôle visuel et spatial direct de l'enseignant d'EPS responsable de la classe.
+19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR APSA
+----------------------------------------------------------------------
+* ACTIVITÉS DE LANCERS (Javelot, Disque, Poids) : 
+  - Organisation spatiale : La zone de lancer doit être strictement délimitée et interdite d'accès pendant toute la durée de la séance. Les engins ne doivent être récupérés par les élèves que sur signal collectif et explicite de l'enseignant, après l'arrêt complet de tous les lancers.
+  - Sécurité active : Interdiction absolue de lancer en direction d'une zone non sécurisée ou en présence d'élèves dans le champ de tir. L'enseignant doit maintenir une surveillance visuelle constante sur la zone d'impact et la zone de sécurité.
+* ACTIVITÉS DE COMBAT (Lutte, Boxe éducative) :
+  - Hygiène et intégrité : Interdiction formelle du port de bijoux, montres ou objets saillants. Port du protège-dents vivement recommandé.
+  - Gestion des gabarits : L'enseignant doit impérativement constituer les binômes en fonction des catégories de poids et de gabarits pour éviter tout déséquilibre dangereux. 
+  - Protocole d'arrêt : Mise en place d'un signal sonore ou vocal univoque et connu de tous les élèves ("STOP" ou coup de sifflet) pour l'arrêt immédiat et total de tout contact ou échange en cas de détresse ou de dépassement des consignes.
+* ACTIVITÉS GYMNIQUES (Agrès, Acrosport) :
+  - Vérification du matériel : Obligation pour l'enseignant de procéder personnellement au contrôle visuel et technique (goupilles de sécurité, stabilité, verrouillage) de chaque agrès avant l'entrée des élèves sur l'atelier.
+  - Parade et sécurité : Obligation d'organiser des systèmes de parade (passive via tapis adaptés, ou active via pareurs formés) pour toute situation de déséquilibre ou de chute potentielle. L'enseignant doit garantir que les pareurs maîtrisent la technique de parade spécifique à l'élément travaillé avant de laisser les élèves évoluer en autonomie.
+  - Surveillance : L'enseignant doit organiser la rotation des élèves de façon à ce que le nombre de pratiquants sur les agrès soit compatible avec une surveillance visuelle constante et un accès immédiat à l'intervention manuelle si nécessaire.
+20E SECTION : VEILLE JURIDIQUE ET ACCOMPAGNEMENT SPÉCIFIQUE APPN
+----------------------------------------------------------------------
+* PROTOCOLES DE SÉCURITÉ APPN (MISE À JOUR 2023) : Le réseau national des sports de pleine nature assure une veille juridique permanente. Les enseignants doivent impérativement se référer aux dernières notes de cadrage académique pour l'organisation des manifestations sportives sur la voie publique (ex: raids, courses d'orientation urbaines) qui nécessitent des déclarations préfectorales ou municipales spécifiques au titre du code de la sécurité intérieure.
+* ACCOMPAGNEMENT ACADÉMIQUE DE L'ESCALADE : En référence stricte à la circulaire n° 2017-075, l'enseignement de l'escalade impose une validation des procédures de sécurité par les référents académiques. L'enseignant doit formaliser les procédures de vérification des matériels (EPI), des protocoles de parade et de la gestion des zones de chutes en SAE (Structure Artificielle d'Escalade) avant toute ouverture du cycle.
+* SÉJOURS SCOLAIRES "SPORTS DE NATURE" (GUIDE DGESCO) : La gestion des séjours scolaires intégrant des activités de pleine nature doit suivre le guide d'accompagnement de la DGESCO. 
+  - Responsabilité du Chef d'établissement : Garantir que les activités sont conformes aux programmes, que les intervenants extérieurs (guides, moniteurs) sont agréés et que les assurances couvrent spécifiquement les risques liés aux lieux de pratique (ex: montagne, haute mer, eaux vives).
+  - Continuité pédagogique : Le séjour ne doit pas être une simple succession d'activités sportives mais doit s'inscrire dans le projet d'EPS et le projet d'établissement.
+20E SECTION : PROTOCOLES ACADÉMIQUES ET RÉFÉRENTS APPN (EXIGENCES IPR)
+----------------------------------------------------------------------
+* RÔLE DU RÉFÉRENT SÉCURITÉ APPN : Chaque établissement doit identifier un enseignant référent APPN. Sa mission est de vérifier la conformité des protocoles de sécurité, la tenue du registre des EPI (Équipements de Protection Individuelle) et de s'assurer que les sorties respectent les protocoles académiques en vigueur avant tout engagement.
+* PROTOCOLES ACADÉMIQUES (VTT, ESCALADE, KAYAK, SKI, VOILE, CO) :
+  - VTT : Respect du taux d'encadrement renforcé obligatoire en milieu ouvert/voie publique, vérification systématique de l'état des vélos, casque obligatoire, trousse de secours et moyen de communication.
+  - Escalade : Application stricte du guide de positionnement diagnostic IPR. Le respect des zones de chute, des parades (manuelles/tapis) et des procédures de vérification des nœuds/systèmes d'assurage est un préalable non négociable.
+  - Activités nautiques (Kayak/Voile) : Obligation de valider le "Pass-Nautique" (article A. 322-3-1 du Code du sport) pour tous les élèves avant toute mise à l'eau.
+  - Ski : Exigence de port du casque, conformité du matériel loué et respect des balisages IPR pour les zones de pratique autorisées.
+  - Course d'Orientation (CO) : Obligation d'un protocole de sécurité formalisé avant chaque séance en milieu ouvert (balisage des zones de recherche, heure limite de retour, gestion des élèves en situation de difficulté).
+* SYNTHÈSE DES EXIGENCES (APPLICATION GLIDE) : Les outils de suivi numérique type "Appli Glide" peuvent être utilisés pour centraliser le suivi des protocoles de sécurité et la vérification des EPI, mais ne remplacent en aucun cas la responsabilité juridique de l'enseignant qui doit valider physiquement les dispositifs avant le début de l'activité.
+
+

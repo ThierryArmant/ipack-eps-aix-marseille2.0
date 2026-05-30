@@ -715,9 +715,12 @@ if prompt:
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                    for n in retriever_santorin.retrieve(prompt): 
+                        extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt): 
+                        extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 
                 elif mode == "textes":
                     # A. Recherche sémantique vectorielle classique
@@ -844,7 +847,7 @@ if prompt:
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
                 "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
                 "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
-                "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
+                "➔ Étape 1 : Axédez exclusivement au module **[Mes Élèves]**.\n"
                 "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
@@ -897,7 +900,7 @@ if prompt:
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-     elif mode == "textes":
+        elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert juridique en chef du service contentieux d'un Rectorat. Ton niveau d'exigence est absolu. "
@@ -936,7 +939,7 @@ if prompt:
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour phruire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
@@ -945,7 +948,7 @@ if prompt:
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapté rapidement au changement de statut."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"

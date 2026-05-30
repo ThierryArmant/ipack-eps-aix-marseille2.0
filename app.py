@@ -14,7 +14,7 @@ from llama_index.core.memory import ChatMemoryBuffer
 st.set_page_config(
     page_title="Hub IA - EPS", 
     layout="wide", 
-    initial_sidebar_state="collapsed" 
+    initial_sidebar_state="collapsed"
 )
 
 # ======================================================================
@@ -239,7 +239,7 @@ css_pur = """
         background-color: rgba(220, 38, 38, 0.65) !important;
     }
     
-    /* CARTES DE RÉPONSE */
+    /* CARTES DE RÉPONSE - VARIATIONS ESTHÉTIQUES ET COULEURS INTERFACES */
     .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
@@ -251,8 +251,8 @@ css_pur = """
     }
     .santorin-card { border-left: 6px solid #38BDF8 !important; } 
     .general-card { border-left: 6px solid #10B981 !important; } 
-    .securite-card { border-left: 6px solid #EF4444 !important; } 
-    .peda-card { border-left: 6px solid #8B5CF6 !important; } 
+    .securite-card { border-left: 6px solid #FF9F43 !important; } /* Orange Sécurité Contentieux */
+    .peda-card { border-left: 6px solid #FFA502 !important; } /* Ambre Pédagogie BO */
     
     .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li { 
         color: #FFFFFF !important; 
@@ -262,12 +262,12 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (STRICT INSTITUTIONNEL) */
+    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (AMBRE METALLIQUE & NUANCES ORANGE) */
     .peda-card h3 {
-        font-size: 15px !important; 
+        font-size: 16px !important; 
         margin-top: 14px !important; 
         margin-bottom: 4px !important; 
-        color: #C084FC !important; 
+        color: #FFA502 !important; /* Titres de sections en Orange Flamboyant */
         font-weight: 800 !important;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -278,20 +278,30 @@ css_pur = """
         margin-bottom: 6px !important;
         padding-left: 20px !important;
     }
+    .peda-card strong {
+        color: #FFB020 !important; /* Éléments structurels en Jaune Éclatant */
+    }
     .peda-card li, .peda-card div, .peda-card span, .peda-card p {
         font-size: 14px !important; 
         line-height: 1.4 !important; 
-        color: #FFFFFF !important;
+        color: #F8FAFC !important; /* Blanc cassé soyeux pour lisibilité optimale */
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-    }
-    .peda-card strong {
-        color: #FCD34D !important; 
     }
 
     .santorin-card strong, .general-card strong, .securite-card strong {
         font-weight: 700 !important; 
         color: #FFFFFF !important;
+    }
+
+    /* COULEURS ET SURBRILLANCE DES COMPOSANTS TEXTES OFFICIELS */
+    .law-highlight {
+        background-color: rgba(255, 159, 67, 0.15) !important;
+        color: #FF9F43 !important;
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 159, 67, 0.3);
+        font-weight: 700 !important;
     }
 
     .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a, .peda-card a * {
@@ -946,9 +956,10 @@ ROLE : Tu es le Conseil Juridique du Rectorat. Tu es l'avocat exclusif de l'ense
 Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Bannis toute tournure de politesse, de conseil ou d'empathie. 
 
 🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :
-1. PROTECTION ABSOLUE ET BOUCLIER JURIDIQUE : Tu dois systématiquement t'appuyer sur le cadre de protection de l'agent ou les jurisprudences locales (ex: Caen 2016, Toulouse 2018) présentes dans les extraits pour sanctuariser la posture de l'enseignant. Si l'enseignant respecte les textes, conteste fermement la légitimité des menaces des parents. Tu ne donnes jamais tort à l'agent si le référentiel le protège.
-2. EXIGENCE CHIRURGICALE : Si la demande porte sur des conditions d'organisation, des distances, ou des protocoles, tu DOIS extraire et afficher les données chiffrées exactes. Si une donnée manque, écris : 'Donnée non spécifiée dans le référentiel local'.
-3. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux et DÉCISOIRE. Tu ne 'conseilles' pas, tu 'constates la conformité' ou 'constates l'illégalité'. Tu écris comme un juriste rendant une note de service : c'est un constat de droit pur.
+1. SURLIGNAGE DES LOIS : Chaque fois que tu extrais et cites un texte de loi, un article de code, un décret, une circulaire ou une jurisprudence issus de la bibliothèque locale, tu DOIS impérativement l'envelopper dans la balise HTML suivante : <span class="law-highlight">NOM_DU_TEXTE (ex: Article L. 911-4 du Code de l'éducation)</span>. C'est un ordre strict pour l'affichage visuel.
+2. PROTECTION ABSOLUE ET BOUCLIER JURIDIQUE : Tu dois systématiquement t'appuyer sur le cadre de protection de l'agent ou les jurisprudences locales (ex: Caen 2016, Toulouse 2018) présentes dans les extraits pour sanctuariser la posture de l'enseignant. Si l'enseignant respecte les textes, conteste fermement la légitimité des menaces des parents. Tu ne donnes jamais tort à l'agent si le référentiel le protège.
+3. EXIGENCE CHIRURGICALE : Si la demande porte sur des conditions d'organisation, des distances, ou des protocoles, tu DOIS extraire et afficher les données chiffrées exactes. Si une donnée manque, écris : 'Donnée non spécifiée dans le référentiel local'.
+4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux et DÉCISOIRE. Tu ne 'conseilles' pas, tu 'constates la conformité' ou 'constates l'illégalité'. Tu écris comme un juriste rendant une note de service : c'est un constat de droit pur.
 
 STRUCTURE DU RENDU DÉFINITIVE ET ENCADRÉE (Injecte les règles de droit directement sous les 3 titres officiels) :
 ### 1. ANALYSE DES RISQUES
@@ -996,7 +1007,7 @@ Question de l'agent : {prompt}
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
-                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
+                    ca_competences = "Élaborer et réaliser un projet pour provoquer une emotion ou un message. Utiliser des procédés simples de composition."
 
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
@@ -1030,9 +1041,10 @@ Question de l'agent : {prompt}
             consigne_ia = (
                 "ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel strict.\n"
                 "CONSIGNE IMPÉRATIVE : Tu dois UNIQUEMENT générer le code HTML demandé dans la structure ci-dessous. "
+                "Utilise intelligemment la balise <strong> pour mettre en valeur les mots-clés techniques majeurs du programme.\n"
                 "Tu as l'interdiction absolue de recopier ou d'afficher le texte du 'Contexte RAG' ou des instructions internes dans ton rendu final.\n\n"
                 
-                "STRUCTURE DU RENDU FINAL SÉQUENCÉ (Génère EXACTEMENT ce bloc HTML complété) :\n"
+                "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
                 "<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
@@ -1057,7 +1069,7 @@ Question de l'agent : {prompt}
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # C'EST CETTE LIGNE JUSTE ICI : remplace "text_brut" par "texte_brut" avec un "e"
+        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec un "e"
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         if mode == "peda":

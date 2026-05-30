@@ -239,7 +239,7 @@ css_pur = """
         background-color: rgba(220, 38, 38, 0.65) !important;
     }
     
-    /* CARTES DE RÉPONSE - VARIATIONS ESTHÉTIQUES ET COULEURS INTERFACES */
+    /* CARTES DE RÉPONSE - ARCHITECTURE DES COULEURS DES ONGLETS */
     .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important;
@@ -252,7 +252,7 @@ css_pur = """
     .santorin-card { border-left: 6px solid #38BDF8 !important; } 
     .general-card { border-left: 6px solid #10B981 !important; } 
     .securite-card { border-left: 6px solid #FF9F43 !important; } /* Orange Sécurité Contentieux */
-    .peda-card { border-left: 6px solid #FFA502 !important; } /* Ambre Pédagogie BO */
+    .peda-card { border-left: 6px solid #FFA502 !important; } /* Ambre Cadrage Pédagogique */
     
     .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li { 
         color: #FFFFFF !important; 
@@ -262,50 +262,50 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* RE-CALIBRAGE COMPACT DU MODE PÉDAGOGIE (AMBRE METALLIQUE & NUANCES ORANGE) */
-    .peda-card h3 {
+    /* 🛠️ FORCE UNIFORMÉMENT TOUS LES TITRES DES CARTES EN BLEU ÉLECTRIQUE LISIBLE */
+    .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {
+        color: #38BDF8 !important; /* Bleu ciel / Cyan Électrique ultra-net */
         font-size: 16px !important; 
-        margin-top: 14px !important; 
-        margin-bottom: 4px !important; 
-        color: #FFA502 !important; /* Titres de sections en Orange Flamboyant */
+        margin-top: 16px !important; 
+        margin-bottom: 6px !important; 
         font-weight: 800 !important;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
     }
+    
+    /* COMPACTAGE DE L'ONGLET PÉDAGOGIE AMBRE */
     .peda-card ul {
         margin-top: 2px !important;
         margin-bottom: 6px !important;
         padding-left: 20px !important;
     }
-    .peda-card strong {
-        color: #FFB020 !important; /* Éléments structurels en Jaune Éclatant */
-    }
     .peda-card li, .peda-card div, .peda-card span, .peda-card p {
         font-size: 14px !important; 
         line-height: 1.4 !important; 
-        color: #F8FAFC !important; /* Blanc cassé soyeux pour lisibilité optimale */
+        color: #F8FAFC !important; /* Blanc doux cassé */
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
 
-    .santorin-card strong, .general-card strong, .securite-card strong {
+    .santorin-card strong, .general-card strong, .securite-card strong, .peda-card strong {
         font-weight: 700 !important; 
-        color: #FFFFFF !important;
     }
 
-    /* COULEURS ET SURBRILLANCE DES COMPOSANTS TEXTES OFFICIELS */
+    /* 🛠️ CARDINAL DE SURLIGNAGE : TOUTES LES RÉFÉRENCES JURIDIQUES ET TEXTES EN JAUNE-ORANGE */
     .law-highlight {
-        background-color: rgba(255, 159, 67, 0.15) !important;
-        color: #FF9F43 !important;
+        background-color: rgba(255, 176, 32, 0.12) !important; /* Fond ambre transparent */
+        color: #FFB020 !important; /* Couleur Jaune-Orange pure */
         padding: 2px 6px;
         border-radius: 4px;
-        border: 1px solid rgba(255, 159, 67, 0.3);
+        border: 1px solid rgba(255, 176, 32, 0.4) !important;
         font-weight: 700 !important;
+        display: inline-block;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5) !important;
     }
 
     .santorin-card a, .general-card a, .securite-card a, .santorin-card a *, .general-card a *, .securite-card a *, .peda-card a, .peda-card a * {
-        color: #FFB020 !important; 
+        color: #FFB020 !important; /* Liens hypertextes en nuance ambre */
         text-decoration: underline !important;
         font-weight: 600 !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
@@ -437,7 +437,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
+            iPackEPS is l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -483,12 +483,11 @@ def initialiser_base_textes(cle_fremt):
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# --- 🎓 CHARGEUR ET VERROU SÉCURISÉ DE L'ONGLET PÉDAGOGIE ---
+# --- 🔒 CHARGEUR ET VERROU SÉCURISÉ DE L'ONGLET PÉDAGOGIE ---
 @st.cache_resource
 def initialiser_base_peda(cle_fremt):
     docs_peda = []
     
-    # Aspiration globale sécurisée du dossier data/peda
     if os.path.exists("data/peda") and os.path.isdir("data/peda"):
         try:
             docs_peda.extend(SimpleDirectoryReader(input_dir="data/peda").load_data())
@@ -500,7 +499,6 @@ def initialiser_base_peda(cle_fremt):
                             docs_peda.append(Document(text=file_src.read(), metadata={"source": f_nom}))
             except: pass
             
-    # Extraction des fichiers spécifiques racines requis
     for fichier_racine in ["base_pedagogique_edubase.txt", "matrice_AFL_lycee.txt"]:
         if os.path.exists(fichier_racine):
             try:
@@ -818,23 +816,23 @@ if prompt:
             except: 
                 pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE CADRÉ)
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE AVEC TITRES HTML INTEGRES EN BLEU)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
-            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres exacts suivants. "
-            "Interdiction absolue de faire des paragraphes denses. Utilise un format aéré, percutant et très visuel :\n\n"
-            "### 1. ANALYSE DES RISQUES\n"
+            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres HTML exacts suivants. "
+            "Interdiction absolue d'utiliser la notation markdown ###. Utilise impérativement les balises <h3> comme indiqué ci-dessous :\n\n"
+            "<h3>1. ANALYSE DES RISQUES</h3>\n"
             "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque.\n\n"
-            "### 2. PROCÉDURE TECHNIQUE\n"
+            "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
             "- Déroule les actions de terrain de manière chronologique.\n"
             "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
             "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle.\n\n"
-            "### 3. PROTECTION FONCTIONNELLE\n"
+            "<h3>3. PROTECTION FONCTIONNELLE</h3>\n"
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
             "POSTURE DE L'IA : Tu es un haut fonctionnaire du contentieux. Tu ne 'conseilles' pas, tu 'constates'. "
-            "Tu bannis toute formule de politesse (ex: 'Il est conseillé de', 'Je vous recommande'). "
-            "Tu adoptes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal (Loi, Circulaire, Jurisprudence) cité nommément."
+            "Tu bannis toute formule de politesse (ex: 'Il est couteux de', 'Je vous recommande'). "
+            "Tu adoptes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
         )
         badge = "INFORMATION"
         color_card = "general-card"
@@ -868,17 +866,17 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
-                "### 1. ANALYSE DES RISQUES INFRA / TECHNIQUE\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
-                "### 3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR\n\n"
+                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE SUR LES TITRES HTML :\n"
+                "<h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>\n"
+                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
+                "<h3>3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
                 "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
                 "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
                 "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
                 "🎯 CAS BLINDÉS CONFIGURÉS :\n\n"
                 "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
                 "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
                 "➔ Étape 1 (Accès) : Connectez-vous et cliquez sur le module **[Mes Élèves]**.\n"
                 "➔ Étape 2 (Fiche) : Dans la liste, cliquez sur le nom de l'élève pour ouvrir sa **[Fiche élève]**.\n"
@@ -889,13 +887,13 @@ if prompt:
                 "➔ Étape 7 (Verrou d'arbitrage) : Pour la réactivation ultérieure des APSA lors des commissions d'arbitrage, modifiez la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.\n"
                 "⚠️ **RÈGLE D'OR DE SÉCURITÉ** : Ne tapez JAMAIS manuellement les mentions 'IN' ou 'DI' directement dans les cases de notes brutes. La validation de l'inaptitude dans l'onglet dédié génère le statut automatiquement pour éviter tout conflit de synchronisation.\n\n"
                 "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
                 "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
                 "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
                 "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
-                "### 2. PROCÉDURE TECHNIQUE DE RÉSOLUTION\n"
+                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
                 "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
                 "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
                 "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
@@ -930,16 +928,16 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE :\n"
-                "### 1. ANALYSE DES RISQUES\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
-                "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
+                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE AVEC TITRES HTML :\n"
+                "<h3>1. ANALYSE DES RISQUES</h3>\n"
+                "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
+                "<h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
                 "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
-                "### 2. PROCÉDURE TECHNIQUE\n"
+                "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
                 "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
@@ -955,20 +953,25 @@ if prompt:
 ROLE : Tu es le Conseil Juridique du Rectorat. Tu es l'avocat exclusif de l'enseignant d'EPS. Ton transient est froidement factuel, technique et décisoire.
 Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Bannis toute tournure de politesse, de conseil ou d'empathie. 
 
-🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :
-1. SURLIGNAGE DES LOIS : Chaque fois que tu extrais et cites un texte de loi, un article de code, un décret, une circulaire ou une jurisprudence issus de la bibliothèque locale, tu DOIS impérativement l'envelopper dans la balise HTML suivante : <span class="law-highlight">NOM_DU_TEXTE (ex: Article L. 911-4 du Code de l'éducation)</span>. C'est un ordre strict pour l'affichage visuel.
-2. PROTECTION ABSOLUE ET BOUCLIER JURIDIQUE : Tu dois systématiquement t'appuyer sur le cadre de protection de l'agent ou les jurisprudences locales (ex: Caen 2016, Toulouse 2018) présentes dans les extraits pour sanctuariser la posture de l'enseignant. Si l'enseignant respecte les textes, conteste fermement la légitimité des menaces des parents. Tu ne donnes jamais tort à l'agent si le référentiel le protège.
-3. EXIGENCE CHIRURGICALE : Si la demande porte sur des conditions d'organisation, des distances, ou des protocoles, tu DOIS extraire et afficher les données chiffrées exactes. Si une donnée manque, écris : 'Donnée non spécifiée dans le référentiel local'.
-4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux et DÉCISOIRE. Tu ne 'conseilles' pas, tu 'constates la conformité' ou 'constates l'illégalité'. Tu écris comme un juriste rendant une note de service : c'est un constat de droit pur.
+🛑 VERROU DE SÉCURITÉ JURIDIQUE CONTRE LES COLLISIONS DE MÉMOIRE (STRICT ET ABSOLU) :
+- SI LA QUESTION CONCERNE LA VIDÉO, LE FILM, LA CAMÉRA OU LE DROIT À L'IMAGE : Il est RIGOUREUSEMENT INTERDIT de mentionner la laïcité, la religion, la loi de 2004 ou la neutralité du fait religieux. C'est un hors-sujet juridique lourd. Un refus de captation d'image relève EXCLUSIVEMENT de la vie privée, du Code Civil et de la protection des données (RGPD). Reste hermétique !
 
-STRUCTURE DU RENDU DÉFINITIVE ET ENCADRÉE (Injecte les règles de droit directement sous les 3 titres officiels) :
-### 1. ANALYSE DES RISQUES
-- Analyse factuelle du droit applicable, fondements légaux purs (Codes, Décrets) et qualification claire des risques.
-### 2. PROCÉDURE TECHNIQUE
-- Déroule le protocole opérationnel pas-à-pas (➔ Étape 1, ➔ Étape 2...) pour l'action immédiate de l'agent sur le terrain.
-### 3. PROTECTION FONCTIONNELLE
-- Extrait ici le cadre de protection de l'agent (Frictions, Lois de protection, Jurisprudences) pour sanctuariser sa posture.
+🛑 DIRECTIVE DRACONIENNE DE SURLIGNAGE HTML (SANS EXCEPTION) :
+- Tu DOIS impérativement envelopper CHAQUE mention de texte de loi, d'article de code, de décret, de circulaire ou de jurisprudence dans la balise HTML exacte suivante : <span class="law-highlight">NOM DU TEXTE</span>.
+- Exemples à suivre à la lettre : <span class="law-highlight">Article 9 du Code civil</span>, <span class="law-highlight">RGPD</span>, <span class="law-highlight">Article L. 511-1 du Code de l'éducation</span>. 
+- Ne laisse JAMAIS un texte juridique en texte brut. Tout doit être encapsulé dans le composant de surlignage.
 
+STRUCTURE DU RENDU OBLIGATOIRE EN BALISES HTML H3 (INTERDICTION DU ###) :
+<h3>1. ANALYSE DES RISQUES</h3>
+- Qualification factuelle des risques en isolant le droit pur.
+
+<h3>2. PROCÉDURE TECHNIQUE</h3>
+- Actions immédiates étape par étape (➔ Étape 1, ➔ Étape 2...) coulées sur le terrain.
+
+<h3>3. PROTECTION FONCTIONNELLE</h3>
+- Bouclier législatif de défense de l'agent (en utilisant impérativement les balises law-highlight).
+
+--- CAPSULE ÉTANCHE DE CONTEXTE EN EXCLUSION DE RENDU ---
 Contexte Juridique Local et Web Officiel : {extraits_doc}
 Question de l'agent : {prompt}
 """
@@ -989,8 +992,9 @@ Question de l'agent : {prompt}
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour Unicode la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
+            # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
@@ -1000,24 +1004,27 @@ Question de l'agent : {prompt}
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
                     ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
+            # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
+                    ca_attendus = "AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.<br>AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.<br>AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenez le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe."
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
                     ca_competences = "Élaborer et réaliser un projet pour provoquer une emotion ou un message. Utiliser des procédés simples de composition."
 
+            # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
+                ca_attendus = "AFL 1 (Moteur) : Produire and enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
                 ca_competences = "Identification de ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
+            # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
                 ca_nom = "CA2 (Environnements variés)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
+                    ca_attendus = "AFL 1 (Moteur) : Conduire un displacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
                     ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique. Adapter sa vitesse au relief. Respecter la charte éco-citoyenne."
                 else:
                     ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour assurer un parcours sécurisé. Assurer la sécurité du groupe."
@@ -1030,7 +1037,7 @@ Question de l'agent : {prompt}
                     apsa_trouvee = m
                     break
 
-            # 🛠️ GÉNÉRATION DES LIENS STABLES COULÉS DANS LE RENDU FINAL
+            # 🛠️ CONFECTION DES GRAPHISMES ET DES LIENS DIRECTEMENT INJECTÉS SANS RECOPIE DU RAG
             liens_html = (
                 f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>"
                 f"2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+{apsa_trouvee}' target='_blank'>🎥 {apsa_trouvee.upper()} - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>"
@@ -1040,11 +1047,10 @@ Question de l'agent : {prompt}
 
             consigne_ia = (
                 "ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel strict.\n"
-                "CONSIGNE IMPÉRATIVE : Tu dois UNIQUEMENT générer le code HTML demandé dans la structure ci-dessous. "
-                "Utilise intelligemment la balise <strong> pour mettre en valeur les mots-clés techniques majeurs du programme.\n"
-                "Tu as l'interdiction absolue de recopier ou d'afficher le texte du 'Contexte RAG' ou des instructions internes dans ton rendu final.\n\n"
+                "CONSIGNE IMPÉRATIVE À RESPECTER : Tu dois SEULEMENT compléter et retourner la structure HTML fournie ci-dessous. "
+                "Tu as l'interdiction totale de recopier, d'afficher ou d'annexer le pavé de texte du 'Contexte RAG' sous peine de casser l'interface.\n\n"
                 
-                "STRUCTURE DU RENDU FINAL SÉQUENCÉ :\n"
+                "STRUCTURE DU RENDU SÉQUENCÉ À FOURNIR (EN BALISES HTML STRICTES) :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
                 "<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
@@ -1057,7 +1063,7 @@ Question de l'agent : {prompt}
                 "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>{liens_html}\n\n"
                 
-                "--- CLÔTURE DU RENDU INTERDIT DE RECOPIE ---\n"
+                "--- BARRIÈRE ÉTANCHE DE FERMETURE (INTERDICTION STRICTE DE LIRE OU DE RECOPIER CE QUI SUIT) ---\n"
                 f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
@@ -1067,9 +1073,13 @@ Question de l'agent : {prompt}
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
         
+        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie
+        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Règlement\s+général\s+sur\s+les\s+données|Code\s+de\s+l\'éducation|Code\s+civil|Loi\s+du\s+15\s+mars\s+2004)', r'<span class="law-highlight">\1</span>', texte_brut)
+        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
+        
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec un "e"
+        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec son "e"
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         if mode == "peda":

@@ -481,9 +481,9 @@ retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = retriever_ipack
-
 # 🕵️ MOUCHARD TEMPORAIRE À SUPPRIMER APRÈS LE TEST
 st.sidebar.write("Fichiers détectés par le système :", os.listdir(".") + (os.listdir("data") if os.path.exists("data") else []))
+
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
 # ======================================================================

@@ -340,26 +340,35 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# --- 🛠️ BUG RESOLU : ALIGNEMENT DU DETECTEUR SUR LA TOPOGRAPHIE REELLE (F5/CACHE) ---
+# --- 🛠️ DOUBLE VERROU DES FICHIERS DE SURVEILLANCE (REALITÉ DU REPERTOIRE) ---
 def obtenir_cle_fichier():
     mtimes = []
-    # Surveillance de ton fichier racine de règles de Pierre
+    
+    # 1. Surveillance de ton fichier racine réel de règles de Pierre
     fichier_pierre = "gere_par_pierre.txt"
     if os.path.exists(fichier_pierre):
         try:
             mtimes.append(os.path.getmtime(fichier_pierre))
         except Exception:
             pass
-    # Surveillance de ta bible juridique dans son vrai sous-dossier data/textes/
-    chemin_textes = "data/textes/base_textes_officiels.txt"
-    if os.path.exists(chemin_textes):
-        try:
-            mtimes.append(os.path.getmtime(chemin_textes))
-        except Exception:
-            pass
+            
+    # 2. Surveillance multi-chemins de ta bible juridique (sous-dossiers texte ou textes)
+    chemins_possibles = [
+        "data/texte/base_textes_officiels.txt",
+        "data/textes/base_textes_officiels.txt",
+        "data/base_textes_officiels.txt"
+    ]
+    for cp in chemins_possibles:
+        if os.path.exists(cp):
+            try:
+                mtimes.append(os.path.getmtime(cp))
+            except Exception:
+                pass
+            break
+            
     return max(mtimes) if mtimes else 0.0
 
-# --- 🛠️ BUG RESOLU : LECTURE DIRECTE ET ETANCHE DU FICHIER RACINE DE PIERRE ---
+# --- 🛠️ CHARGEUR ÉTANCHE DU FICHIER DE RÈGLES RACINE ---
 def charger_consignes_pierre():
     documents_charges = []
     fichier_cible = "gere_par_pierre.txt"
@@ -372,7 +381,7 @@ def charger_consignes_pierre():
             pass
     return documents_charges
 
-# --- BASES SANCTUARISÉES (PAS TOUCHE) ---
+# --- 📊 BASE DE DONNÉES SANCTORIN SCOLAIRE SANCTUARISÉE ---
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
@@ -413,12 +422,13 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
+# --- 🛠️ BASE DE DONNÉES IPACKEPS MÉTIER SANCTUARISÉE ---
 @st.cache_resource
 def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS is l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
+            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -443,7 +453,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
-# --- CORRECTION DE LA LIAISON TEXTES SUR LE SUB-FOLDER ---
+# --- 🔒 CHARGEUR AUTOMATISÉ ET MULTI-CHEMINS DE L'ONGLET TEXTES (RAG) ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -453,21 +463,30 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     
-    chemin_officiel_data = "data/textes/base_textes_officiels.txt"
-    if os.path.exists(chemin_officiel_data):
-        with open(chemin_officiel_data, "r", encoding="utf-8") as f:
-            docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
+    # Recherche adaptative de ton fichier pour parer aux coquilles de sous-dossiers GitHub
+    chemins_possibles = [
+        "data/texte/base_textes_officiels.txt",
+        "data/textes/base_textes_officiels.txt",
+        "data/base_textes_officiels.txt"
+    ]
+    for cp in chemins_possibles:
+        if os.path.exists(cp):
+            try:
+                with open(cp, "r", encoding="utf-8") as f:
+                    docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
+                break
+            except Exception:
+                pass
             
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation sécurisée par le cache avec surveillance du fichier de Pierre
+# --- INSTANCIATION DES MOTEURS SÉMANTIQUES (RACCORDEMENT DES TIMESTAMPS) ---
 timestamp_fichier = obtenir_cle_fichier()
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = retriever_ipack
-
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
 # ======================================================================

@@ -340,30 +340,37 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
+# --- 🛠️ BUG RESOLU : ALIGNEMENT DU DETECTEUR SUR LA TOPOGRAPHIE REELLE (F5/CACHE) ---
 def obtenir_cle_fichier():
-    chemin_dossier = "pierre"
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+    mtimes = []
+    # Surveillance de ton fichier racine de règles de Pierre
+    fichier_pierre = "gere_par_pierre.txt"
+    if os.path.exists(fichier_pierre):
         try:
-            mtimes = [os.path.getmtime(os.path.join(chemin_dossier, f)) for f in os.listdir(chemin_dossier) if f.endswith((".txt", ".md"))]
-            return max(mtimes) if mtimes else 0.0
+            mtimes.append(os.path.getmtime(fichier_pierre))
         except Exception:
-            return 0.0
-    return 0.0
+            pass
+    # Surveillance de ta bible juridique dans son vrai sous-dossier data/textes/
+    chemin_textes = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(chemin_textes):
+        try:
+            mtimes.append(os.path.getmtime(chemin_textes))
+        except Exception:
+            pass
+    return max(mtimes) if mtimes else 0.0
 
+# --- 🛠️ BUG RESOLU : LECTURE DIRECTE ET ETANCHE DU FICHIER RACINE DE PIERRE ---
 def charger_consignes_pierre():
-    chemin_dossier = "pierre"
     documents_charges = []
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+    fichier_cible = "gere_par_pierre.txt"
+    if os.path.exists(fichier_cible):
         try:
-            for fichier in os.listdir(chemin_dossier):
-                if fichier.endswith((".txt", ".md")):
-                    with open(os.path.join(chemin_dossier, fichier), "r", encoding="utf-8") as f:
-                        contenu_fichier = f.read()
-                    documents_charges.append(Document(text=contenu_fichier, metadata={"source": f"Notes de Pierre - {fichier}"}))
-            return documents_charges
+            with open(fichier_cible, "r", encoding="utf-8") as f:
+                contenu_fichier = f.read()
+            documents_charges.append(Document(text=contenu_fichier, metadata={"source": "Règles de Pierre (gere_par_pierre.txt)"}))
         except Exception:
-            return []
-    return []
+            pass
+    return documents_charges
 
 # --- BASES SANCTUARISÉES (PAS TOUCHE) ---
 @st.cache_resource
@@ -389,7 +396,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -411,7 +418,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text="""Portail Pilote iPackEPS - Académie de Créteil. 
-            iPackEPS est l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
+            iPackEPS is l'application officielle pour gérer les évaluations d'EPS et le CCF.""",
             metadata={"title": "Portail Officiel iPackEPS - Académie de Créteil", "url": "https://eps.ac-creteil.fr/"}
         ),
         Document(
@@ -436,7 +443,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
-# --- 🛠️ CORRECTION DU CHEMIN ACCÈS "TEXTES" POUR LIRE DANS LE SOUS-DOSSIER DEPOSIT ---
+# --- CORRECTION DE LA LIAISON TEXTES SUR LE SUB-FOLDER ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -446,7 +453,6 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     
-    # Correction chirurgicale : On cible le fichier là où il est réellement stocké sur ton GitHub
     chemin_officiel_data = "data/textes/base_textes_officiels.txt"
     if os.path.exists(chemin_officiel_data):
         with open(chemin_officiel_data, "r", encoding="utf-8") as f:
@@ -639,10 +645,10 @@ if prompt:
         
         verites_terrain_pierre = ""
         try:
-            for fichier in os.listdir("."):
-                if fichier.endswith((".txt", ".md")) and "pierre" in fichier.lower():
-                    with open(fichier, "r", encoding="utf-8") as f:
-                        verites_terrain_pierre += f"\n--- REGLES DIRECTES ({fichier}) ---\n" + f.read() + "\n"
+            # BUG RESOLU : Pointage direct sur le fichier racine réel
+            if os.path.exists("gere_par_pierre.txt"):
+                with open("gere_par_pierre.txt", "r", encoding="utf-8") as f:
+                    verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
         except:
             pass
         
@@ -737,7 +743,6 @@ if prompt:
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
-                # --- 🛠️ RE-COUPLEMENT DE LA RECHERCHE SÉMANTIQUE SÉCURISÉE ---
                 elif mode == "textes":
                     mot_cle_local = prompt.lower()
                     expressions_nettoyage = [
@@ -750,7 +755,6 @@ if prompt:
                     for exp in expressions_nettoyage: 
                         mot_cle_local = mot_cle_local.replace(exp, "")
                     
-                    # Sécurité totale : On envoie la requête brute si le nettoyage vide trop le sens
                     requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
                     for n in retriever_textes.retrieve(requete_extraction): 
                         extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
@@ -882,7 +886,7 @@ if prompt:
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
+                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autosomal date est rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
@@ -899,18 +903,18 @@ if prompt:
 
         elif mode == "textes":
             # ======================================================================
-            # 🛠️ VERROU JURIDIQUE ET EXPERTISE RECTORALE RE-BRANCHÉE (PRO ET PAS-A-PAS)
+            # 🛠️ VERROU JURIDIQUE SUPRÊME ET SÉCURITÉ ANTI-HALLUCINATION CONTRACTUELLE
             # ======================================================================
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert juridique en chef du service contentieux d'un Rectorat. Ton niveau d'exigence est absolu. "
                 "Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Tu dois bannir les généralités, le bavardage et les résumés flous.\n\n"
                 
-                "🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ) :\n"
-                "1. EXIGENCE CHIRURGICALE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu dois OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire).\n"
-                "2. FORMAT PAS-À-PAS SYSTÉMATIQUE : Dans la section 3, tu dois obligatoirement formuler ta résolution sous la forme d'une procédure chronologique de terrain. Chaque ligne d'action doit débuter par une flèche '➔ Étape X (Titre court) : '.\n"
-                "3. PRIORITÉ DE SÉLECTION : Extrait en priorité absolue les données issues de la 'SOURCE DE VÉRITÉ ABSOLUE INTERNE'. Le contenu web (Tavily) ne sert qu'à compléter si la donnée locale est absente.\n"
-                "4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux, sans aucune concession pédagogique.\n\n"
+                "🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :\n"
+                "1. EXIGENCE CHIRURGICALE MUTILATRICE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu dois OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire) présentes dans le référentiel local.\n"
+                "2. INTERDICTION FORMELLE ET ABSOLUE D'INVENTER OU HALLUCINER : Si une donnée chiffrée (distance, temps, profondeur) n'est pas explicitement écrite dans le référentiel local fourni, tu as l'INTERDICTION STRATEGIQUE ET ABSOLUE de la deviner, de l'inventer ou d'importer des approximations plausibles d'internet. Si elle manque, tu dois obligatoirement écrire mot pour mot : 'Donnée non spécifiée dans le référentiel local'.\n"
+                "3. FORMAT PAS-À-PAS SYSTÉMATIQUE ET CHRONOLOGIQUE : Dans la section 3, tu dois obligatoirement formuler ta résolution sous la forme d'une procédure de terrain fluide. Chaque ligne d'action opérationnelle doit impérativement débuter par une flèche '➔ Étape X (Titre court) : '.\n"
+                "4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux, sans aucune concession pédagogique ou tournure de politesse.\n\n"
                 
                 "STRUCTURE DU RENDU DÉFINITIVE ET OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"

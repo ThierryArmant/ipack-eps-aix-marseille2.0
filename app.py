@@ -14,7 +14,7 @@ from llama_index.core.memory import ChatMemoryBuffer
 st.set_page_config(
     page_title="Hub IA - EPS", 
     layout="wide", 
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed" 
 )
 
 # ======================================================================

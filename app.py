@@ -63,7 +63,6 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Utilisation d'une chaîne classique sans f-string pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -341,37 +340,53 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
+# --- 🛠️ ALIGNEMENT STRICT ET NETTOYAGE DU DÉTECTEUR DE CACHE ---
 def obtenir_cle_fichier():
-    chemin_dossier = "pierre"
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
-        try:
-            mtimes = [os.path.getmtime(os.path.join(chemin_dossier, f)) for f in os.listdir(chemin_dossier) if f.endswith((".txt", ".md"))]
-            return max(mtimes) if mtimes else 0.0
-        except Exception:
-            return 0.0
-    return 0.0
+    mtimes = []
+    
+    fichier_pierre = "gere_par_pierre.txt"
+    if os.path.exists(fichier_pierre):
+        try: mtimes.append(os.path.getmtime(fichier_pierre))
+        except: pass
+            
+    chemin_textes = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(chemin_textes):
+        try: mtimes.append(os.path.getmtime(chemin_textes))
+        except: pass
 
+    for f_peda in ["base_pedagogique_edubase.txt", "matrice_AFL_lycee.txt"]:
+        if os.path.exists(f_peda):
+            try: mtimes.append(os.path.getmtime(f_peda))
+            except: pass
+
+    if os.path.exists("data/peda") and os.path.isdir("data/peda"):
+        try:
+            for f in os.listdir("data/peda"):
+                mtimes.append(os.path.getmtime(os.path.join("data/peda", f)))
+        except: pass
+            
+    return max(mtimes) if mtimes else 0.0
+
+# --- 🛠️ CHARGEUR ÉTANCHE DU FICHIER DE RÈGLES RACINE ---
 def charger_consignes_pierre():
-    chemin_dossier = "pierre"
     documents_charges = []
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+    fichier_cible = "gere_par_pierre.txt"
+    if os.path.exists(fichier_cible):
         try:
-            for fichier in os.listdir(chemin_dossier):
-                if fichier.endswith((".txt", ".md")):
-                    with open(os.path.join(chemin_dossier, fichier), "r", encoding="utf-8") as f:
-                        contenu_fichier = f.read()
-                    documents_charges.append(Document(text=contenu_fichier, metadata={"source": f"Notes de Pierre - {fichier}"}))
-            return documents_charges
+            with open(fichier_cible, "r", encoding="utf-8") as f:
+                contenu_fichier = f.read()
+            documents_charges.append(Document(text=contenu_fichier, metadata={"source": "Règles de Pierre (gere_par_pierre.txt)"}))
         except Exception:
-            return []
-    return []
+            pass
+    return documents_charges
 
+# --- 📊 BASE DE DONNÉES SANCTORIN SCOLAIRE SANCTUARISÉE ---
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text="""Fiche Mémo - Correction Partagée Santorin (DEC / Assistance). 
-            La correction partagée ou multiple permet à plusieurs évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
+            La correction partagée ou multiple permet à several évaluateurs/correcteurs d'intervenir sur un même lot de copies. 
             Dans Santorin, un chef d'établissement peut ajouter manuellement un deuxième évaluateur ou correcteur à un lot via le portail Arena / Cyclades. 
             Procédure : Aller dans l'onglet 'Lots', cliquer sur 'Voir le détail', aller sur l'onglet 'Correcteurs' puis cliquer sur le bouton 'Ajouter'.
             Verrouillage : Lorsqu'un correcteur édite une copie, l'autre bascule temporairement en lecture seule.""",
@@ -406,6 +421,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
+# --- 🛠️ BASE DE DONNÉES IPACKEPS MÉTIER SANCTUARISÉE ---
 @st.cache_resource
 def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
@@ -428,7 +444,7 @@ def initialiser_base_ipack(cle_fremt):
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -436,6 +452,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
+# --- 🔒 CHARGEUR DE L'ONGLET TEXTES AJUSTÉ SUR TON CHEMIN STRICT ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -444,15 +461,54 @@ def initialiser_base_textes(cle_fremt):
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
         )
     ]
+    
+    chemin_officiel = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(chemin_officiel):
+        try:
+            with open(chemin_officiel, "r", encoding="utf-8") as f:
+                docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
+        except:
+            pass
+            
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
-# Initialisation sécurisée par le cache avec surveillance du fichier de Pierre
+# --- 🎓 CHARGEUR ET VERROU SÉCURISÉ DE L'ONGLET PÉDAGOGIE ---
+@st.cache_resource
+def initialiser_base_peda(cle_fremt):
+    docs_peda = []
+    
+    # Aspiration globale sécurisée du dossier data/peda
+    if os.path.exists("data/peda") and os.path.isdir("data/peda"):
+        try:
+            docs_peda.extend(SimpleDirectoryReader(input_dir="data/peda").load_data())
+        except:
+            try:
+                for f_nom in os.listdir("data/peda"):
+                    if f_nom.endswith((".txt", ".md")):
+                        with open(os.path.join("data/peda", f_nom), "r", encoding="utf-8", errors="ignore") as file_src:
+                            docs_peda.append(Document(text=file_src.read(), metadata={"source": f_nom}))
+            except: pass
+            
+    # Extraction des fichiers spécifiques racines requis
+    for fichier_racine in ["base_pedagogique_edubase.txt", "matrice_AFL_lycee.txt"]:
+        if os.path.exists(fichier_racine):
+            try:
+                with open(fichier_racine, "r", encoding="utf-8", errors="ignore") as file_src:
+                    docs_peda.append(Document(text=file_src.read(), metadata={"source": fichier_racine}))
+            except: pass
+            
+    if not docs_peda:
+        docs_peda.append(Document(text="Base de données pédagogique par défaut.", metadata={"source": "system"}))
+        
+    return VectorStoreIndex.from_documents(docs_peda).as_retriever(similarity_top_k=5)
+
+# --- INSTANCIATION DES MOTEURS SÉMANTIQUES (RACCORDEMENT DES TIMESTAMPS) ---
 timestamp_fichier = obtenir_cle_fichier()
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
-retriever_peda = retriever_ipack
+retriever_peda = initialiser_base_peda(timestamp_fichier)
 
 # ======================================================================
 # 5. BANDEAU SUPERIEUR REHAUSSÉ AVEC VRAI COMPTEUR COMPLET
@@ -557,7 +613,7 @@ else:
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
             <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
                 <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-                <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, saisie des notes brutes.</span><br>
+                <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, Saisie des notes brutes.</span><br>
                 <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
                     <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
                     <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
@@ -579,6 +635,7 @@ col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 with col_action_clear:
     st.markdown('<div class="nettoyer-wrapper"></div>', unsafe_allow_html=True)
     if st.button("🧹 Nettoyer", key="clear_all"):
+        st.cache_resource.clear()
         st.session_state.messages_hub = []
         st.rerun()
 
@@ -619,6 +676,14 @@ domaine_eps_france = [
     "eps.ac-martinique.fr", "eps.ac-mayotte.fr", "eps.ac-reunion.fr"
 ]
 
+expressions_inutiles = [
+    "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+    "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+    "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
+    "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+    "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
+]
+
 if prompt:
     st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
     
@@ -631,10 +696,9 @@ if prompt:
         
         verites_terrain_pierre = ""
         try:
-            for fichier in os.listdir("."):
-                if fichier.endswith((".txt", ".md")) and "pierre" in fichier.lower():
-                    with open(fichier, "r", encoding="utf-8") as f:
-                        verites_terrain_pierre += f"\n--- REGLES DIRECTES ({fichier}) ---\n" + f.read() + "\n"
+            if os.path.exists("gere_par_pierre.txt"):
+                with open("gere_par_pierre.txt", "r", encoding="utf-8", errors="ignore") as f:
+                    verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
         except:
             pass
         
@@ -648,13 +712,6 @@ if prompt:
 
                 if mode == "textes":
                     mot_cle = prompt.lower()
-                    expressions_inutiles = [
-                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
-                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
-                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
-                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
-                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
-                    ]
                     for exp in expressions_inutiles:
                         mot_cle = mot_cle.replace(exp, "")
                     for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
@@ -726,22 +783,28 @@ if prompt:
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                    for n in retriever_santorin.retrieve(prompt): 
+                        extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    for n in retriever_ipack.retrieve(prompt): 
+                        extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                
                 elif mode == "textes":
                     mot_cle_local = prompt.lower()
-                    for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
-                    for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    for exp in expressions_inutiles: 
+                        mot_cle_local = mot_cle_local.replace(exp, "")
+                    
+                    requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
+                    try:
+                        for n in retriever_textes.retrieve(requete_extraction): 
+                            extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    except:
+                        pass
+
                 elif mode == "peda":
-                    prompt_lower = prompt.lower()
-                    est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
-                    if est_lycee:
-                        for n in retriever_peda.retrieve(prompt + " AFL Lycée"):
-                            extraits_doc += f"Référentiel Lycée (AFL) : {n.node.text}\n\n"
-                    else:
-                        for n in retriever_peda.retrieve(prompt + " Collège programmes"):
-                            extraits_doc += f"Base collège (Programmes) : {n.node.text}\n\n"
+                    for n in retriever_peda.retrieve(prompt):
+                        extraits_doc += f"Ressource Pédagogique Locale : {n.node.text}\n\n"
             except: 
                 pass
 
@@ -759,12 +822,13 @@ if prompt:
             "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle.\n\n"
             "### 3. PROTECTION FONCTIONNELLE\n"
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
-            "Priorité maximale à la scannabilité graphique immédiate."
+            "POSTURE DE L'IA : Tu es un haut fonctionnaire du contentieux. Tu ne 'conseilles' pas, tu 'constates'. "
+            "Tu bannis toute formule de politesse (ex: 'Il est conseillé de', 'Je vous recommande'). "
+            "Tu adoptes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal (Loi, Circulaire, Jurisprudence) cité nommément."
         )
         badge = "INFORMATION"
         color_card = "general-card"
 
-        # Injection automatique des vérités de Pierre en tête de chaque prompt
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
 
         if mode == "ipack":
@@ -828,7 +892,7 @@ if prompt:
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
                 "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
@@ -870,29 +934,36 @@ if prompt:
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
                 "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            consigne_ia = (
-                f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert juridique du Code de l'Éducation et de la réglementation EPS. Robot d'extraction factuel.\n\n"
-                "STRUCTURE DE RÉPONSE OBLIGATOIRE :\n"
-                "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
-                "### 2. TEXTE OFFICIEL ET CONSIGNES DE SÉCURITÉ\n"
-                "### 3. RÉSOLUTION ET APPLICATION DE TERRAIN\n"
-                "### 4. LIENS ET SOURCES OFFICIELLES\n\n"
-                f"Contexte Juridique Local : {extraits_doc}\nQuestion : {prompt}"
-            )
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "general-card"
+            consigne_ia = f"""{règles_or}{filtre_pierre}{consigne_commune_pierre}
+ROLE : Tu es le Conseil Juridique du Rectorat. Tu es l'avocat exclusif de l'enseignant d'EPS. Ton transient est froidement factuel, technique et décisoire.
+Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Bannis toute tournure de politesse, de conseil ou d'empathie. 
+
+🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :
+1. PROTECTION ABSOLUE ET BOUCLIER JURIDIQUE : Tu dois systématiquement t'appuyer sur le cadre de protection de l'agent ou les jurisprudences locales (ex: Caen 2016, Toulouse 2018) présentes dans les extraits pour sanctuariser la posture de l'enseignant. Si l'enseignant respecte les textes, conteste fermement la légitimité des menaces des parents. Tu ne donnes jamais tort à l'agent si le référentiel le protège.
+2. EXIGENCE CHIRURGICALE : Si la demande porte sur des conditions d'organisation, des distances, ou des protocoles, tu DOIS extraire et afficher les données chiffrées exactes. Si une donnée manque, écris : 'Donnée non spécifiée dans le référentiel local'.
+3. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux et DÉCISOIRE. Tu ne 'conseilles' pas, tu 'constates la conformité' ou 'constates l'illégalité'. Tu écris comme un juriste rendant une note de service : c'est un constat de droit pur.
+
+STRUCTURE DU RENDU DÉFINITIVE ET ENCADRÉE (Injecte les règles de droit directement sous les 3 titres officiels) :
+### 1. ANALYSE DES RISQUES
+- Analyse factuelle du droit applicable, fondements légaux purs (Codes, Décrets) et qualification claire des risques.
+### 2. PROCÉDURE TECHNIQUE
+- Déroule le protocole opérationnel pas-à-pas (➔ Étape 1, ➔ Étape 2...) pour l'action immédiate de l'agent sur le terrain.
+### 3. PROTECTION FONCTIONNELLE
+- Extrait ici le cadre de protection de l'agent (Frictions, Lois de protection, Jurisprudences) pour sanctuariser sa posture.
+
+Contexte Juridique Local et Web Officiel : {extraits_doc}
+Question de l'agent : {prompt}
+"""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
-            # ======================================================================
-            # VRAIE REFONTE INSTITUTIONNELLE CADRÉE ET SÉCURISÉE (CONFORME IPR)
-            # ======================================================================
             prompt_lower = prompt.lower()
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
             
@@ -900,7 +971,6 @@ if prompt:
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
             label_competence = "Axe des compétences visées"
 
-            # 1. Routage des contenus par Champ d'Apprentissage (BO)
             ca_nom = "CA1 (Performance optimale à une échéance donnée)"
             if est_lycee:
                 ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
@@ -909,7 +979,6 @@ if prompt:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
                 ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
-            # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
@@ -919,7 +988,6 @@ if prompt:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
                     ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
-            # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
@@ -929,23 +997,20 @@ if prompt:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
                     ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
 
-            # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
-                ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
-                ca_competences = "Identifier ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
+                ca_attendus = "AFL 1 (Moteur) : Produire and enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
+                ca_competences = "Identification de ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
-            # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
                 ca_nom = "CA2 (Environnements variés)"
                 if est_lycee:
-                    ca_attendus = "AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
+                    ca_attendus = "AFL 1 (Moteur) : Conduire un displacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.<br>AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).<br>AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne."
                     ca_competences = "Maîtriser les techniques de réchappe et d'assurage dynamique. Adapter sa vitesse au relief. Respecter la charte éco-citoyenne."
                 else:
                     ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour assurer un parcours sécurisé. Assurer la sécurité du groupe."
                     ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement ainsi que le retour. Évaluer les risques."
 
-            # Extraction du mot-clé APSA pour les liens automatisés
             mots_apsa = ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "gym", "acro", "danse", "step", "muscu", "fitness", "escalade", "orientation", "vtt", "kayak", "relais", "natation"]
             apsa_trouvee = "eps"
             for m in mots_apsa:
@@ -953,7 +1018,6 @@ if prompt:
                     apsa_trouvee = m
                     break
 
-            # Consigne IA d'extraction factuelle pure (Interdiction de concevoir)
             consigne_ia = (
                 f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
                 f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"
@@ -980,7 +1044,7 @@ if prompt:
                 "</ul>"
                 "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
                 "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
-                "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                "<h3>🔍 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )
@@ -992,7 +1056,7 @@ if prompt:
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', text_brut)
 
         if mode == "peda":
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")

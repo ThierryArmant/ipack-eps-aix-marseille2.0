@@ -389,7 +389,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -436,7 +436,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
-# --- 🛠️ MODIFICATION DU CONNECTEUR "TEXTES" POUR ACCUEILLIR LA BIBLE JURIDIQUE ---
+# --- 🛠️ CORRECTION DU CHEMIN ACCÈS "TEXTES" POUR LIRE DANS LE SOUS-DOSSIER DEPOSIT ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -445,10 +445,11 @@ def initialiser_base_textes(cle_fremt):
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
         )
     ]
-    # Raccordement direct de ton super fichier de textes nettoyé hier soir
-    chemin_bible = "base_textes_officiels.txt"
-    if os.path.exists(chemin_bible):
-        with open(chemin_bible, "r", encoding="utf-8") as f:
+    
+    # Correction chirurgicale : On cible le fichier là où il est réellement stocké sur ton GitHub
+    chemin_officiel_data = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(chemin_officiel_data):
+        with open(chemin_officiel_data, "r", encoding="utf-8") as f:
             docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
             
     docs_textes.extend(charger_consignes_pierre())
@@ -500,7 +501,7 @@ titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Acti
 
 st.markdown(f"""
     <div class="column-title-top">
-        <span class="instruction">⚙️ Choose the context of your question below</span>
+        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
         <span class="mode-actuel">{titre_affiche}</span>
     </div>
 """, unsafe_allow_html=True)
@@ -736,7 +737,7 @@ if prompt:
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
-                # --- 🛠️ RE-COUPLEMENT DE LA RECHERCHE SÉMANTIQUE TEXTES SANS SUPPRESSION EXCESSIVE ---
+                # --- 🛠️ RE-COUPLEMENT DE LA RECHERCHE SÉMANTIQUE SÉCURISÉE ---
                 elif mode == "textes":
                     mot_cle_local = prompt.lower()
                     expressions_nettoyage = [
@@ -749,7 +750,7 @@ if prompt:
                     for exp in expressions_nettoyage: 
                         mot_cle_local = mot_cle_local.replace(exp, "")
                     
-                    # Sécurité : Si le nettoyage détruit trop la phrase, on passe la question entière au moteur sémantique
+                    # Sécurité totale : On envoie la requête brute si le nettoyage vide trop le sens
                     requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
                     for n in retriever_textes.retrieve(requete_extraction): 
                         extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
@@ -907,7 +908,7 @@ if prompt:
                 "1. ANALYSE SÉMANTIQUE : Analyse la question de l'agent en te concentrant sur les 5 derniers mots-clés de la demande pour saisir l'intention juridique réelle avant de formuler ta réponse.\n"
                 "2. HIERARCHIE DES SOURCES : Utilise EXCLUSIVEMENT le 'Contexte Juridique Local' (base data/textes) pour ta réponse. Si la réponse n'est pas présente dans cette base, tu es autorisé à utiliser les domaines officiels : 'eduscol.education.gouv.fr', 'eps.ac-creteil.fr', 'education.gouv.fr'.\n"
                 "3. VERROU D'ABSENCE D'INFO : Si aucun texte officiel ou jurisprudence n'est trouvé dans ces sources, écris textuellement : '⚠️ Aucun texte officiel ou jurisprudence correspondante n'a été trouvé dans la base de données académique pour votre demande.' et arrête-toi immédiatement.\n"
-                "4. TON : Réponse froide, factuelle, purement juridique. Zéro conseil pédagogique, zéro négociation, zéro blabla.\n"
+                "4. TON : Réponse froide, factuelle, purement juridique. Zéro conseil pédagogique, zero négociation, zéro blabla.\n"
                 "5. FORMATAGE : Utilise le format Markdown avec titres ###. Interdiction formelle de créer des listes de liens ou une 'Section 4' à la fin.\n\n"
                 "STRUCTURE OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"
@@ -935,7 +936,7 @@ if prompt:
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour producer la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
@@ -945,7 +946,7 @@ if prompt:
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adaptation rapidement au changement de statut."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
             
             # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):

@@ -620,7 +620,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA 
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (VERSION UNIFIÉE ET BLINDÉE)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -654,9 +654,8 @@ if prompt:
         
         verites_terrain_pierre = ""
         try:
-            # BUG RESOLU : Pointage direct sur le fichier racine réel
             if os.path.exists("gere_par_pierre.txt"):
-                with open("gere_par_pierre.txt", "r", encoding="utf-8") as f:
+                with open("gere_par_pierre.txt", "r", encoding="utf-8", errors="ignore") as f:
                     verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
         except:
             pass
@@ -670,7 +669,7 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    # 🔒 VERROU DE SÉCURITÉ JURIDIQUE : Interdiction d'aller sur le Web pour les textes officiels
+                    # 🔒 VERROU DE SÉCURITÉ JURIDIQUE INTERNE : Pas de pollution Google pour les lois
                     results = []
                     tavily_deja_execute = True
                 
@@ -719,7 +718,9 @@ if prompt:
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                
                 elif mode == "textes":
+                    # A. Recherche sémantique vectorielle classique
                     mot_cle_local = prompt.lower()
                     expressions_nettoyage = [
                         "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
@@ -732,8 +733,28 @@ if prompt:
                         mot_cle_local = mot_cle_local.replace(exp, "")
                     
                     requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
-                    for n in retriever_textes.retrieve(requete_extraction): 
-                        extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    try:
+                        for n in retriever_textes.retrieve(requete_extraction): 
+                            extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    except:
+                        pass
+                    
+                    # B. 🔒 ASPIRATION TEXTUELLE FORCÉE IMMUNISÉE CONTRE LES BUGS
+                    chemin_officiel = "data/textes/base_textes_officiels.txt"
+                    if os.path.exists(chemin_officiel):
+                        with open(chemin_officiel, "r", encoding="utf-8", errors="ignore") as f:
+                            plein_texte = f.read()
+                        
+                        # Découpage intelligent par lignes de tirets (flexible)
+                        blocs = re.split(r'-{10,}', plein_texte)
+                        
+                        # Mots-clés déclencheurs pour forcer la lecture de la bonne section
+                        mots_cibles = ["tasa", "sauvetage", "aquatique", "thonon", "cardiaque", "dispense", "pass-nautique", "asns", "laïcité", "laicite"]
+                        if any(w in prompt.lower() for w in mots_cibles):
+                            for bloc in blocs:
+                                if any(w in bloc.lower() for w in mots_cibles if w in prompt.lower()):
+                                    extraits_doc += f"\n--- EXTRAIT JURIDIQUE FORCE ---\n{bloc.strip()}\n"
+
                 elif mode == "peda":
                     prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
@@ -765,7 +786,6 @@ if prompt:
         badge = "INFORMATION"
         color_card = "general-card"
 
-        # Injection automatique des vérités de Pierre en tête de chaque prompt
         consigne_commune_pierre = f"\n⚠️ SOURCE DE VÉRITÉ ABSOLUE INTERNE (Priorité Maximale) :\n{verites_terrain_pierre}\n\n"
 
         if mode == "ipack":
@@ -862,7 +882,7 @@ if prompt:
                 "### 2. PROCÉDURE TECHNIQUE\n"
                 "### 3. CADRE OFFICIEL ET RECOMMANDATIONS\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autosomal date est rigoureusement fausse.\n"
+                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
@@ -878,17 +898,14 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
-            # ======================================================================
-            # 🛠️ VERROU JURIDIQUE SUPRÊME ET SÉCURITÉ ANTI-HALLUCINATION CONTRACTUELLE
-            # ======================================================================
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert juridique en chef du service contentieux d'un Rectorat. Ton niveau d'exigence est absolu. "
                 "Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Tu dois bannir les généralités, le bavardage et les résumés flous.\n\n"
                 
                 "🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :\n"
-                "1. EXIGENCE CHIRURGICALE MUTILATRICE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu dois OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire) présentes dans le référentiel local.\n"
-                "2. INTERDICTION FORMELLE ET ABSOLUE D'INVENTER OU HALLUCINER : Si une donnée chiffrée (distance, temps, profondeur) n'est pas explicitement écrite dans le référentiel local fourni, tu as l'INTERDICTION STRATEGIQUE ET ABSOLUE de la deviner, de l'inventer ou d'importer des approximations plausibles d'internet. Si elle manque, tu dois obligatoirement écrire mot pour mot : 'Donnée non spécifiée dans le référentiel local'.\n"
+                "1. EXIGENCE CHIRURGICALE MUTILATRICE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu doutes OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire) présentes dans le référentiel local.\n"
+                "2. INTERDICTION FORMELLE ET ABSOLUE D'INVENTER OU HALLUCINER : Si une donnée chiffrée (distance, temps, profondeur) n'est pas explicitement écrite dans le référentiel local fourni, tu as l'INTERDICTION STRATÉGIQUE ET ABSOLUE de la deviner, de l'inventer ou d'importer des approximations. Si elle manque, tu dois obligatoirement écrire mot pour mot : 'Donnée non spécifiée dans le référentiel local'.\n"
                 "3. FORMAT PAS-À-PAS SYSTÉMATIQUE ET CHRONOLOGIQUE : Dans la section 3, tu dois obligatoirement formuler ta résolution sous la forme d'une procédure de terrain fluide. Chaque ligne d'action opérationnelle doit impérativement débuter par une flèche '➔ Étape X (Titre court) : '.\n"
                 "4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux, sans aucune concession pédagogique ou tournure de politesse.\n\n"
                 
@@ -905,9 +922,6 @@ if prompt:
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
-            # ======================================================================
-            # VRAIE REFONTE INSTITUTIONNELLE CADRÉE ET SÉCURISÉE (CONFORME IPR)
-            # ======================================================================
             prompt_lower = prompt.lower()
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
             
@@ -915,16 +929,14 @@ if prompt:
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
             label_competence = "Axe des compétences visées"
 
-            # 1. Routage des contenus par Champ d'Apprentissage (BO)
             ca_nom = "CA1 (Performance optimale à une échéance donnée)"
             if est_lycee:
                 ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour phruire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
-            # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
@@ -932,9 +944,8 @@ if prompt:
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapté rapidement au changement de statut."
             
-            # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
@@ -944,13 +955,11 @@ if prompt:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
                     ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
 
-            # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
                 ca_attendus = "AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
                 ca_competences = "Identifier ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
-            # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
                 ca_nom = "CA2 (Environnements variés)"
                 if est_lycee:
@@ -960,7 +969,6 @@ if prompt:
                     ca_attendus = "Réussir un déplacement planifié dans un milieu naturel ou recréé. Gérer ses ressources pour assurer un parcours sécurisé. Assurer la sécurité du groupe."
                     ca_competences = "Choisir et conduire un déplacement adapté. Prévoir et gérer son déplacement ainsi que le retour. Évaluer les risques."
 
-            # Extraction du mot-clé APSA pour les liens automatisés
             mots_apsa = ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "gym", "acro", "danse", "step", "muscu", "fitness", "escalade", "orientation", "vtt", "kayak", "relais", "natation"]
             apsa_trouvee = "eps"
             for m in mots_apsa:
@@ -968,7 +976,6 @@ if prompt:
                     apsa_trouvee = m
                     break
 
-            # Consigne IA d'extraction factuelle pure (Interdiction de concevoir)
             consigne_ia = (
                 f"ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel.\n"
                 f"CONSIGNE STRICTE ET NON NÉGOCIABLE DES INSPECTEURS (IA-IPR) :\n"

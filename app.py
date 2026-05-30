@@ -593,6 +593,7 @@ col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
 with col_action_clear:
     st.markdown('<div class="nettoyer-wrapper"></div>', unsafe_allow_html=True)
     if st.button("🧹 Nettoyer", key="clear_all"):
+        st.cache_resource.clear()  # <--- LE VERROU EST ICI
         st.session_state.messages_hub = []
         st.rerun()
 

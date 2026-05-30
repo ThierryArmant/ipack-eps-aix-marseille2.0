@@ -63,7 +63,6 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
 
-# Utilisation d'une chaîne classique sans f-string pour utiliser des accolades CSS normales { }
 css_pur = """
     <style>
     /* Règle de sécurité : Force le blanc sur tout le texte des cartes */
@@ -366,6 +365,7 @@ def charger_consignes_pierre():
             return []
     return []
 
+# --- BASES SANCTUARISÉES (PAS TOUCHE) ---
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
@@ -428,7 +428,7 @@ def initialiser_base_ipack(cle_fremt):
         Document(
             text="""SITUATIONS RÉGLEMENTAIRES COMPLEXES ET CAS PARTICULIERS (SÉCURITÉ ET INTERFACES) :
             1. CONFLIT MÉDICAL (ANNULATION DE DISPENSE) : Si un certificat d'inaptitude totale annuelle est invalidé en cours d'année, la seule procédure est de MODIFIER LA DATE DE FIN du certificat dans l'onglet Inaptitudes pour l'arrêter juste avant le début du trimestre de reprise.
-            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS bloque le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
+            2. NOTE UNIQUE À L'ANNÉE : Si un élève se blesse et n'a qu'une seule note au lieu de deux au CCF, iPackEPS blocks le calcul automatique. Le dossier est transmis au Jury Académique via Cyclades.
             3. BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.""",
             metadata={"title": "Fiche des Cas Complexes et Arbitrages Jurys", "url": "https://eps.ac-creteil.fr/"}
         )
@@ -436,6 +436,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
+# --- 🛠️ MODIFICATION DU CONNECTEUR "TEXTES" POUR ACCUEILLIR LA BIBLE JURIDIQUE ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -444,6 +445,12 @@ def initialiser_base_textes(cle_fremt):
             metadata={"title": "Référentiel National Textes et Lois", "url": "https://www.legifrance.gouv.fr/"}
         )
     ]
+    # Raccordement direct de ton super fichier de textes nettoyé hier soir
+    chemin_bible = "base_textes_officiels.txt"
+    if os.path.exists(chemin_bible):
+        with open(chemin_bible, "r", encoding="utf-8") as f:
+            docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
+            
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
@@ -493,7 +500,7 @@ titre_affiche = label_titres.get(st.session_state.active_module, "🔍 Mode Acti
 
 st.markdown(f"""
     <div class="column-title-top">
-        <span class="instruction">⚙️ Choisissez le contexte de votre question ci-dessous</span>
+        <span class="instruction">⚙️ Choose the context of your question below</span>
         <span class="mode-actuel">{titre_affiche}</span>
     </div>
 """, unsafe_allow_html=True)
@@ -557,7 +564,7 @@ else:
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
             <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
                 <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-                <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, saisie des notes brutes.</span><br>
+                <span style="color: #FCD34D !important;">Technique de terrain : configuration de l'application, création des groupes, Saisie des notes brutes.</span><br>
                 <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
                     <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
                     <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici, dans le menu iPackEPS !</span>
@@ -729,10 +736,23 @@ if prompt:
                     for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                # --- 🛠️ RE-COUPLEMENT DE LA RECHERCHE SÉMANTIQUE TEXTES SANS SUPPRESSION EXCESSIVE ---
                 elif mode == "textes":
                     mot_cle_local = prompt.lower()
-                    for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
-                    for n in retriever_textes.retrieve(mot_cle_local.strip()): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                    expressions_nettoyage = [
+                        "je cherche un texte officiel pour savoir si", "je cherche un texte sur le", 
+                        "je cherche un texte sur la", "je cherche un texte sur", "pour savoir si j'ai le droit de",
+                        "est-ce que j'ai le droit de", "ai-je le droit de", "est-ce qu'il existe un texte",
+                        "trouve moi le texte sur", "trouve moi une circulaire sur", "trouve moi", 
+                        "recherche le texte sur", "texte officiel sur", "circulaire concernant", "circulaire sur"
+                    ]
+                    for exp in expressions_nettoyage: 
+                        mot_cle_local = mot_cle_local.replace(exp, "")
+                    
+                    # Sécurité : Si le nettoyage détruit trop la phrase, on passe la question entière au moteur sémantique
+                    requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
+                    for n in retriever_textes.retrieve(requete_extraction): 
+                        extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
                     prompt_lower = prompt.lower()
                     est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
@@ -828,9 +848,9 @@ if prompt:
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
                 "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
-                f"Question du professeur : {prompt}"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                "Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                "Question du professeur : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
@@ -870,15 +890,15 @@ if prompt:
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
                 "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
-                f"🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
-                f"Question du professeur : {prompt}"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
+                "Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                "Question du professeur : {prompt}"
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
             # ======================================================================
-            # 🛠️ VERROU JURIDIQUE ET EXPERTISE RECTORALE
+            # 🛠️ VERROU JURIDIQUE ET EXPERTISE RECTORALE RE-BRANCHÉE
             # ======================================================================
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
@@ -915,7 +935,7 @@ if prompt:
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour producer la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
@@ -925,7 +945,7 @@ if prompt:
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adaptation rapidement au changement de statut."
             
             # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
@@ -988,7 +1008,7 @@ if prompt:
                 "</ul>"
                 "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
                 "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
-                "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                "<h3>🔍 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>"
                 f"\nContexte RAG : {extraits_doc}\nQuestion du professeur : {prompt}"
             )

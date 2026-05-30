@@ -340,11 +340,11 @@ if openai_api_key:
     Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key)
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=openai_api_key)
 
-# --- 🛠️ DOUBLE VERROU DES FICHIERS DE SURVEILLANCE (REALITÉ DU REPERTOIRE) ---
+# --- 🛠️ DÉTECTEUR RÉCURSIF AUTOMATIQUE (SCANNE TOUT LE RÉPERTOIRE SANS ERREUR DE DOSSIER) ---
 def obtenir_cle_fichier():
     mtimes = []
     
-    # 1. Surveillance de ton fichier racine réel de règles de Pierre
+    # 1. Surveillance de ton fichier racine de règles de Pierre
     fichier_pierre = "gere_par_pierre.txt"
     if os.path.exists(fichier_pierre):
         try:
@@ -352,16 +352,11 @@ def obtenir_cle_fichier():
         except Exception:
             pass
             
-    # 2. Surveillance multi-chemins de ta bible juridique (sous-dossiers texte ou textes)
-    chemins_possibles = [
-        "data/texte/base_textes_officiels.txt",
-        "data/textes/base_textes_officiels.txt",
-        "data/base_textes_officiels.txt"
-    ]
-    for cp in chemins_possibles:
-        if os.path.exists(cp):
+    # 2. Recherche récursive du fichier textes pour s'affranchir des fautes de frappe de dossiers
+    for racine, dossiers, fichiers in os.walk("."):
+        if "base_textes_officiels.txt" in fichiers:
             try:
-                mtimes.append(os.path.getmtime(cp))
+                mtimes.append(os.path.getmtime(os.path.join(racine, "base_textes_officiels.txt")))
             except Exception:
                 pass
             break
@@ -453,7 +448,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
-# --- 🔒 CHARGEUR AUTOMATISÉ ET MULTI-CHEMINS DE L'ONGLET TEXTES (RAG) ---
+# --- 🔒 CHARGEUR INFAILLIBLE ET RÉCURSIF DE L'ONGLET TEXTES (RAG) ---
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
@@ -463,20 +458,19 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     
-    # Recherche adaptative de ton fichier pour parer aux coquilles de sous-dossiers GitHub
-    chemins_possibles = [
-        "data/texte/base_textes_officiels.txt",
-        "data/textes/base_textes_officiels.txt",
-        "data/base_textes_officiels.txt"
-    ]
-    for cp in chemins_possibles:
-        if os.path.exists(cp):
-            try:
-                with open(cp, "r", encoding="utf-8") as f:
-                    docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
-                break
-            except Exception:
-                pass
+    # Recherche récursive absolue : trouve le fichier peu importe l'orthographe du dossier parent
+    chemin_trouve = None
+    for racine, dossiers, fichiers in os.walk("."):
+        if "base_textes_officiels.txt" in fichiers:
+            chemin_trouve = os.path.join(racine, "base_textes_officiels.txt")
+            break
+            
+    if chemin_trouve and os.path.exists(chemin_trouve):
+        try:
+            with open(chemin_trouve, "r", encoding="utf-8") as f:
+                docs_textes.append(Document(text=f.read(), metadata={"title": "Bible Juridique EPS Intégrée"}))
+        except Exception:
+            pass
             
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)

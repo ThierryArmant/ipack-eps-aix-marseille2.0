@@ -897,17 +897,18 @@ if prompt:
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif mode == "textes":
+     elif mode == "textes":
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Tu es l'expert juridique en chef du service contentieux d'un Rectorat. Ton niveau d'exigence est absolu. "
                 "Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Tu dois bannir les généralités, le bavardage et les résumés flous.\n\n"
                 
                 "🛑 DIRECTIVES DE RÉDACTION DRACONIENNES (À RESPECTER SOUS PEINE DE NULLITÉ DE LA DÉCISION) :\n"
-                "1. EXIGENCE CHIRURGICALE MUTILATRICE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu doutes OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire) présentes dans le référentiel local.\n"
+                "1. EXIGENCE CHIRURGICALE MUTILATRICE : Si la demande porte sur un test (TASA, ASNS, Pass-Nautique) ou un protocole de sécurité, tu dois OBLIGATOIREMENT extraire et afficher les données chiffrées exactes (distances en mètres, chronomètres couperets, profondeurs de plongée, matériel obligatoire) présentes dans le référentiel local.\n"
                 "2. INTERDICTION FORMELLE ET ABSOLUE D'INVENTER OU HALLUCINER : Si une donnée chiffrée (distance, temps, profondeur) n'est pas explicitement écrite dans le référentiel local fourni, tu as l'INTERDICTION STRATÉGIQUE ET ABSOLUE de la deviner, de l'inventer ou d'importer des approximations. Si elle manque, tu dois obligatoirement écrire mot pour mot : 'Donnée non spécifiée dans le référentiel local'.\n"
                 "3. FORMAT PAS-À-PAS SYSTÉMATIQUE ET CHRONOLOGIQUE : Dans la section 3, tu dois obligatoirement formuler ta résolution sous la forme d'une procédure de terrain fluide. Chaque ligne d'action opérationnelle doit impérativement débuter par une flèche '➔ Étape X (Titre court) : '.\n"
-                "4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux, sans aucune concession pédagogique ou tournure de politesse.\n\n"
+                "4. TON CONSEIL D'ÉTAT : Rendu froid, hautement technique, rigoureux, sans aucune concession pédagogique ou tournure de politesse.\n"
+                "5. 🔒 DISPOSITIF BOUCLIER JURIDIQUE : Si le contexte local contient une jurisprudence (ex: Thonon, Toulouse, Lyon, Bastia) ou un cadre de protection spécifique face aux familles (ex: Friction 1, 2, 3), tu as l'obligation absolue de t'appuyer dessus pour donner raison à l'agent. Tu dois citer textuellement le nom du Tribunal ou de la Friction pour sanctuariser la posture de l'enseignant. Interdiction stricte de te laisser intimider par les menaces de plaintes des tiers si le texte de référence protège les prérogatives de l'agent.\n\n"
                 
                 "STRUCTURE DU RENDU DÉFINITIVE ET OBLIGATOIRE :\n"
                 "### 1. QUALIFICATION JURIDIQUE ET CADRE RÉGLEMENTAIRE\n"

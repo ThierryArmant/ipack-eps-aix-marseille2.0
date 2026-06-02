@@ -7,7 +7,7 @@ Il prévaut sur toute interprétation ou intuition de l'IA.
 ----------------------------------------------------------------------
 1. LES RÈGLES D'OR INSTITUTIONNELLES (SESSION 2026)
 ----------------------------------------------------------------------
-* DATE LIMITE ABSOLUE : Pour la session 2026, la date limite nationale et académique de verrouillage définitif des notes dans Santorin est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.
+* DATE LIMITE ABSOLUE : Pour la session 2026, la date limite nationale et académique de verrouillage définitif des notes dans Santorin est fixée au 30 mai 2026 au soir pour Aix-Marseille, le 9 juin pour Créteil, pour les autres académies merci de vous rapprocher de vos interlocuteurs ipackEPS.
 * RÈGLE DES APPRÉCIATIONS : Les appréciations textuelles ne sont JAMAIS obligatoires dans Santorin pour un parcours d'examen classique. La note chiffrée se suffit à elle-même. C'est une idée reçue du terrain.
 * COMPORTEMENT STRUCTURE : Si le prompt utilisateur demande s'il faut mettre des appréciations, l'analyse doit indiquer "Risque technique : Aucun" et la procédure doit être "Laissez la case vide".
 

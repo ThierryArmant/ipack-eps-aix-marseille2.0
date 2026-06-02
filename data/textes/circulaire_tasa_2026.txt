@@ -1,0 +1,57 @@
+======================================================================
+CADRE RÉGLEMENTAIRE MASTER - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)
+======================================================================
+[TEXTE DE RÉFÉRENCE] : Circulaire du 9 mars 2026 (NOR : MENH2607093C)
+Émetteur : MEN – DGRH B2-1
+Objet : Modalités d'organisation du test d'aptitude au sauvetage aquatique.
+Abrogation : Ce texte ABROGE la circulaire du 1er juillet 2019 (MENH1904914C).
+
+----------------------------------------------------------------------
+1. PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT
+----------------------------------------------------------------------
+* OBLIGATION DE QUALIFICATION : Les personnels enseignant l'EPS (public et privé sous contrat) doivent obligatoirement justifier d'une qualification en sauvetage aquatique et secourisme avant leur recrutement.
+* OBTENTION PAR DÉFAUT (STAPS) : Depuis la session 2021, la modalité par défaut est l'inscription de cette qualification dans le "Supplément au diplôme de licence STAPS".
+* COMPÉTENCE DU RECTORAT : Pour les candidats ne disposant pas de cette validation STAPS ou des diplômes équivalents (arrêté du 12 février 2019), le rectorat organise obligatoirement DEUX sessions annuelles.
+* ÉVALUATION CRITIQUE : La qualification s'apprécie impérativement à la date de publication des résultats d'admission du concours ou de l'examen professionnel présenté.
+
+----------------------------------------------------------------------
+2. LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE
+----------------------------------------------------------------------
+* RYTHME DES SESSIONS : Deux sessions par année civile au premier semestre : une en FÉVRIER, une en JUIN.
+* CONVENTIONNEMENT STAPS : Le rectorat peut déléguer l'organisation pratique aux UFR STAPS via une convention locale.
+* AUCUN RATTRAPAGE : Il n'existe aucune session de rattrapage pour les candidats absents ou ayant échoué au test.
+* VERROU MÉDICAL ABSOLU : Fourniture obligatoire au secrétariat du jury, AVANT le début du test, d'un certificat médical de non-contre-indication à la pratique de la natation datant de moins d'un an. Pas de certificat = Interdiction stricte de plonger.
+* COMPOSITION DU JURY : Présidé par l'IA-IPR d'EPS de l'académie (ou un enseignant du supérieur nommé par le recteur). Le jury comprend au moins deux membres (professeurs agrégés ou certifiés EPS titulaires).
+
+----------------------------------------------------------------------
+3. OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS
+----------------------------------------------------------------------
+Les sessions rectorales du TASA sont obligatoirement ouvertes par les services académiques :
+  1. Aux fonctionnaires de catégorie A candidats à un détachement dans le corps des professeurs d'EPS ou agrégés d'EPS.
+  2. Aux candidats au recrutement contractuel (contractuels d'établissement ou maîtres délégués du privé) ne disposant pas d'un titre conforme.
+  Note : Ces candidats sont soumis aux mêmes obligations de certificat médical que les candidats aux concours.
+
+----------------------------------------------------------------------
+4. PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)
+----------------------------------------------------------------------
+* PARCOURS : 100 mètres à réaliser en continuité, sans reprise d'appui, dans un temps inférieur à 3 minutes et 45 secondes.
+* TENUE STRICTE : Maillot de bain uniquement. Combinaison, lunettes de piscine, masque, pince-nez ou tout autre matériel sont STRICTEMENT INTERDITS.
+* CHRONOLOGIE DES 4 LONGUEURS (4 x 25 MÈTRES) :
+  - Longueur 1 (0 à 25m) : Entrée dans l'eau par un départ plongé obligatoire depuis le bord + déplacement en nage libre en surface.
+  - Longueur 2 (25 à 50m) : Nage libre comprenant obligatoirement 7,50 mètres en immersion complète (apnée) sur un trajet défini entre le repère des 5 mètres (drapeaux) et les 12,50 mètres (fond du bassin).
+  - Longueur 3 (50 à 75m) : Nage libre comprenant obligatoirement 7,50 mètres en immersion complète (apnée) depuis le milieu du bassin (12,50 mètres) jusqu'au repère des 5 mètres (drapeaux).
+  - Longueur 4 (75 à 100m) : Immersion pour rechercher un mannequin réglementaire adulte reposant à 2,50 mètres du bord sur le T (profondeur entre 1,80m et 3m). Remontée et remorquage sur le dos sur la totalité des 25 mètres restants (dos du mannequin contre le buste du sauveteur).
+
+----------------------------------------------------------------------
+5. MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)
+----------------------------------------------------------------------
+Le test est invalidé et arrêté si le candidat commet l'une des fautes suivantes :
+  - Absence de départ plongé.
+  - Reprise d'appui au sol ou sur la ligne d'eau durant la partie nagée.
+  - Action de s'accrocher au mur lors du virage (seul le contact avec la paroi verticale est autorisé).
+  - Contact avec le sol durant les trajets en apnée (autorisé uniquement lors de la saisie du mannequin).
+  - Émergence des voies aériennes avant d'avoir franchi les deux zones de 7,50 mètres d'apnée.
+  - Mannequin transporté à l'envers (voies aériennes orientées vers le fond).
+  - Mauvaise orientation du remorquage (dos du mannequin non orienté vers le buste du candidat).
+  - Voies aériennes (visage) du mannequin passant sous la surface de l'eau (les vagues/éclaboussures ne sont pas éliminatoires sauf si le visage est submergé).
+  - Absence de contact avec le mur à l'arrivée ou perte de contrôle du mannequin à l'approche du mur (lâcher le mannequin avant de toucher).

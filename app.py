@@ -1091,31 +1091,53 @@ Question de l'agent : {prompt}
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
-     # 4. EXÉCUTION ET RENDU HTML
-        # --- BLOC DE SÉCURITÉ CHIRURGICAL (SANS ALMANACH POUR LE RESTE) ---
+    # 4. EXÉCUTION ET RENDU HTML
+        # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
         est_tasa_direct = mode == "textes" and "tasa" in prompt_lower
         est_sss_direct = mode == "ipack" and any(x in prompt_lower for x in [
             "validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
             "oublie le bilan", "oublié le bilan", "plus la main", "bilan sss", "section sportive"
         ])
 
-        if est_tasa_direct or est_sss_direct:
-            texte_brut = extraits_doc  # Court-circuit : affichage direct de la base locale, sans IA
+        if est_tasa_direct:
+            texte_brut = extraits_doc  # Court-circuit historique TASA
+        elif est_sss_direct:
+            # Court-circuit SSS total : on écrit le texte propre ici, le web ne peut plus le polluer
+            texte_brut = """
+            <h3>📋 PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
+            <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
+            <h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>
+            <ul>
+            <li><strong>Le Chef ne peut pas débloquer :</strong> Une fois qu'un Chef d'établissement a validé ou signé un volet (Projet ou Bilan), son interface de direction ne lui permet plus réglementairement de modifier ou de repasser le dossier en brouillon.</li>
+            <li><strong>Le Professeur est bloqué :</strong> L'accès en écriture est instantanément coupé pour l'équipe pédagogique afin de garantir l'intégrité des données transmises.</li>
+            </ul>
+            <h3>2. LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
+            <ul>
+            <li>➔ <strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
+            <li>➔ <strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
+            <li>➔ <strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
+            </ul>
+            <br>
+            <h3>3. SOURCES ET DOCUMENTATION DE RÉFÉRENCE</h3>
+            <ul>
+            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique7" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Ouvrir la rubrique 7 de documentation (Examens / CCF / SSS) sur iPackEPS</a></li>
+            </ul>
+            """
         else:
-            response = Settings.llm.complete(consigne_ia)  # Comportement historique inchangé pour tout le reste
+            response = Settings.llm.complete(consigne_ia)  # Ton code historique pour TOUT le reste du Hub
             texte_brut = response.text
         # --- FIN DU BLOC DE SÉCURITÉ ---
         
-        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie (CONSERVÉ À 100%)
+        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie
         texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Règlement\s+général\s+sur\s+les\s+données|Code\s+de\s+l\'éducation|Code\s+civil|Loi\s+du\s+15\s+mars\s+2004)', r'<span class="law-highlight">\1</span>', texte_brut)
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec son "e" (CONSERVÉ À 100%)
+        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec son "e"
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        # Rendu visuel propre sans retours à la ligne parasites pour les textes bruts injectés
+        # Rendu visuel propre
         if mode == "peda" or est_tasa_direct or est_sss_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'

@@ -46,16 +46,63 @@ RÉFÉRENTIEL JURIDIQUE, ADMINISTRATIF ET TECHNIQUE NATIONAL - EPS (2026)
 * ENSEIGNEMENT DE LA NATATION (CIRCULAIRE N° 2017-127 DU 22-08-2017 / BO N°34) : L'encadrement pédagogique et la direction de la séance sont assurés exclusivement par l'enseignant d'EPS responsable de la classe. La surveillance du bassin est une mission d'ordre public obligatoire, constante et exercée de façon exclusive par un personnel qualifié et titulaire d'un titre de maître-nageur sauveteur (MNS, BEESAN, BPJEPS AAN) en position d'indépendance pédagogique. L'organisation matérielle doit garantir un seuil minimal de 30 à 40 MINUTES DE PRATIQUE EFFECTIVE DANS L'EAU pour les élèves à chaque séance. Application stricte des dispositions du POSS (Plan d'Organisation de la Surveillance et des Secours) de l'infrastructure d'accueil.
 * ATTESTATION SAVOIR-NAGER EN SÉCURITÉ - ASNS (ARRÊTÉ DU 28 FÉVRIER 2022 / BO N°9) : Certification de sécurité nationale obligatoire se substituant à l'ASSN de 2015. Elle est délivrée officiellement par le Chef d'établissement, co-signée par le professeur d'EPS, et insérée de plein droit dans le Livret Scolaire Unique (LSU). Le parcours doit être réalisé en continuité, sans aucune reprise d'appui au fond ou au bord du bassin : départ par un saut ou plongeon en grande profondeur, suivi de 15m en position ventrale avec franchissement d'un obstacle immergé, réalisation d'un surplace horizontal dorsal pendant une durée stricte de 15 secondes au signal sonore, demi-tour complet, parcours de 15m en position dorsale et stabilisation terminale sécurisée par ancrage manuel.
 ----------------------------------------------------------------------
-SECTION : SÉCURITÉ EN MILIEU AQUATIQUE ET TEST TASA
-Texte de cadrage : Circulaire n° 2019-100 du 1er juillet 2019 et Arrêté du 12 février 2019.
-Objet : Test d'Aptitude au Sauvetage Aquatique (TASA) pour l'accès aux corps des personnels enseignants d'EPS.
-Modalités et critères techniques stricts de l'épreuve (Parcours de 100 mètres en continuité) :
-Le candidat doit réaliser l'intégralité du parcours sans aucune reprise d'appui au fond ou sur les bords du bassin.
-- Phase 1 (Départ) : Départ plongé depuis le bord du bassin.
-- Phase 2 (Nage libre) : Parcours de 25 mètres de nage libre en surface.
-- Phase 3 (Immersion) : Immersion complète pour la recherche, la saisie et la remontée d'un mannequin plombé réglementaire. Le mannequin est immergé à une profondeur stricte de 2,50 mètres.
-- Phase 4 (Remorquage) : Remorquage du mannequin sur une distance de 25 mètres. Le sauveteur doit maintenir le dos du mannequin contre son buste, avec les voies respiratoires constamment sécurisées hors de l'eau.
-- Chronomètre couperet (Temps maximal éliminatoire) : L'épreuve doit être validée dans un temps maximum de 3 minutes et 45 secondes. Tout dépassement de ce délai ou toute reprise d'appui entraîne l'élimination immédiate du candidat.
+======================================================================
+CADRE RÉGLEMENTAIRE MASTER - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)
+======================================================================
+[TEXTE DE RÉFÉRENCE] : Circulaire du 9 mars 2026 (NOR : MENH2607093C)
+Émetteur : MEN – DGRH B2-1
+Objet : Modalités d'organisation du test d'aptitude au sauvetage aquatique.
+Abrogation : Ce texte ABROGE la circulaire du 1er juillet 2019 (MENH1904914C).
+
+----------------------------------------------------------------------
+1. PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT
+----------------------------------------------------------------------
+* OBLIGATION DE QUALIFICATION : Les personnels enseignant l'EPS (public et privé sous contrat) doivent obligatoirement justifier d'une qualification en sauvetage aquatique et secourisme avant leur recrutement.
+* OBTENTION PAR DÉFAUT (STAPS) : Depuis la session 2021, la modalité par défaut est l'inscription de cette qualification dans le "Supplément au diplôme de licence STAPS".
+* COMPÉTENCE DU RECTORAT : Pour les candidats ne disposant pas de cette validation STAPS ou des diplômes équivalents (arrêté du 12 février 2019), le rectorat organise obligatoirement DEUX sessions annuelles.
+* ÉVALUATION CRITIQUE : La qualification s'apprécie impérativement à la date de publication des résultats d'admission du concours ou de l'examen professionnel présenté.
+
+----------------------------------------------------------------------
+2. LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE
+----------------------------------------------------------------------
+* RYTHME DES SESSIONS : Deux sessions par année civile au premier semestre : une en FÉVRIER, une en JUIN.
+* CONVENTIONNEMENT STAPS : Le rectorat peut déléguer l'organisation pratique aux UFR STAPS via une convention locale.
+* AUCUN RATTRAPAGE : Il n'existe aucune session de rattrapage pour les candidats absents ou ayant échoué au test.
+* VERROU MÉDICAL ABSOLU : Fourniture obligatoire au secrétariat du jury, AVANT le début du test, d'un certificat médical de non-contre-indication à la pratique de la natation datant de moins d'un an. Pas de certificat = Interdiction stricte de plonger.
+* COMPOSITION DU JURY : Présidé par l'IA-IPR d'EPS de l'académie (ou un enseignant du supérieur nommé par le recteur). Le jury comprend au moins deux membres (professeurs agrégés ou certifiés EPS titulaires).
+
+----------------------------------------------------------------------
+3. OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS
+----------------------------------------------------------------------
+Les sessions rectorales du TASA sont obligatoirement ouvertes par les services académiques :
+  1. Aux fonctionnaires de catégorie A candidats à un détachement dans le corps des professeurs d'EPS ou agrégés d'EPS.
+  2. Aux candidats au recrutement contractuel (contractuels d'établissement ou maîtres délégués du privé) ne disposant pas d'un titre conforme.
+  Note : Ces candidats sont soumis aux mêmes obligations de certificat médical que les candidats aux concours.
+
+----------------------------------------------------------------------
+4. PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)
+----------------------------------------------------------------------
+* PARCOURS : 100 mètres à réaliser en continuité, sans reprise d'appui, dans un temps inférieur à 3 minutes et 45 secondes.
+* TENUE STRICTE : Maillot de bain uniquement. Combinaison, lunettes de piscine, masque, pince-nez ou tout autre matériel sont STRICTEMENT INTERDITS.
+* CHRONOLOGIE DES 4 LONGUEURS (4 x 25 MÈTRES) :
+  - Longueur 1 (0 à 25m) : Entrée dans l'eau par un départ plongé obligatoire depuis le bord + déplacement en nage libre en surface.
+  - Longueur 2 (25 à 50m) : Nage libre comprenant obligatoirement 7,50 mètres en immersion complète (apnée) sur un trajet défini entre le repère des 5 mètres (drapeaux) et les 12,50 mètres (fond du bassin).
+  - Longueur 3 (50 à 75m) : Nage libre comprenant obligatoirement 7,50 mètres en immersion complète (apnée) depuis le milieu du bassin (12,50 mètres) jusqu'au repère des 5 mètres (drapeaux).
+  - Longueur 4 (75 à 100m) : Immersion pour rechercher un mannequin réglementaire adulte reposant à 2,50 mètres du bord sur le T (profondeur entre 1,80m et 3m). Remontée et remorquage sur le dos sur la totalité des 25 mètres restants (dos du mannequin contre le buste du sauveteur).
+
+----------------------------------------------------------------------
+5. MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)
+----------------------------------------------------------------------
+Le test est invalidé et arrêté si le candidat commet l'une des fautes suivantes :
+  - Absence de départ plongé.
+  - Reprise d'appui au sol ou sur la ligne d'eau durant la partie nagée.
+  - Action de s'accrocher au mur lors du virage (seul le contact avec la paroi verticale est autorisé).
+  - Contact avec le sol durant les trajets en apnée (autorisé uniquement lors de la saisie du mannequin).
+  - Émergence des voies aériennes avant d'avoir franchi les deux zones de 7,50 mètres d'apnée.
+  - Mannequin transporté à l'envers (voies aériennes orientées vers le fond).
+  - Mauvaise orientation du remorquage (dos du mannequin non orienté vers le buste du candidat).
+  - Voies aériennes (visage) du mannequin passant sous la surface de l'eau (les vagues/éclaboussures ne sont pas éliminatoires sauf si le visage est submergé).
+  - Absence de contact avec le mur à l'arrivée ou perte de contrôle du mannequin à l'approche du mur (lâcher le mannequin avant de toucher).
 ----------------------------------------------------------------------
 * TEST DU PASS-NAUTIQUE (CODE DU SPORT ART. A. 322-3-1) : Condition administrative préalable non négociable pour l'accès aux activités nautiques réglementées en milieu ouvert (Voile, Canoë-Kayak, Planche à voile). Ce test peut être préparé et validé dès le cycle 2. Le parcours s'exécute en continu sans aucun appui matériel ou humain : saut dans l'eau, flottaison en position dorsale pendant 5 secondes, maintien en sustentation verticale pendant une durée de 5 secondes, déplacement ventral sur une distance de 20 mètres, franchissement d'une ligne d'eau ou passage sous un objet flottant standardisé.
 * TEST D'APTITUDE AU SAUVETAGE AQUATIQUE - TASA (ARRÊTÉ DU 12-02-2019 / CIRCULAIRE DU 01-07-2019) : Qualification réglementaire d'accès obligatoire pour tous les personnels ayant vocation à enseigner l'EPS (lauréats de concours CAPEPS/Agrégation, agents contractuels, personnels en détachement). Épreuve chronométrée éliminatoire : Parcours de 100 mètres exécuté en continuité sans aucune reprise d'appui au bord ou au fond. Départ plongé du bord, 25m en nage libre, immersion complète pour recherche, saisie et remontée d'un mannequin plombé réglementaire immergé à une profondeur stricte de 2,50m, suivi immédiat d'un parcours de remorquage sur une distance de 25m (mannequin maintenu dos contre le buste du sauveteur, voies respiratoires hors de l'eau). Temps maximal éliminatoire absolu : 3 minutes et 45 secondes.

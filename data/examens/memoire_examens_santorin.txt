@@ -1,0 +1,68 @@
+======================================================================
+MÉMOIRE SOUVERAINE DE RÉFÉRENCE - EXAMENS, CYCLADES & SANTORIN EPS
+======================================================================
+[DIRECTIVE SYSTEME] : Ce document est la source de vérité absolue pour l'onglet Examens. 
+Il prévaut sur toute interprétation ou intuition de l'IA.
+
+----------------------------------------------------------------------
+1. LES RÈGLES D'OR INSTITUTIONNELLES (SESSION 2026)
+----------------------------------------------------------------------
+* DATE LIMITE ABSOLUE : Pour la session 2026, la date limite nationale et académique de verrouillage définitif des notes dans Santorin est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.
+* RÈGLE DES APPRÉCIATIONS : Les appréciations textuelles ne sont JAMAIS obligatoires dans Santorin pour un parcours d'examen classique. La note chiffrée se suffit à elle-même. C'est une idée reçue du terrain.
+* COMPORTEMENT STRUCTURE : Si le prompt utilisateur demande s'il faut mettre des appréciations, l'analyse doit indiquer "Risque technique : Aucun" et la procédure doit être "Laissez la case vide".
+
+----------------------------------------------------------------------
+2. LE DICTIONNAIRE DES STATUTS ADMINISTRATIFS (AFL / CCF)
+----------------------------------------------------------------------
+* ÉLÈVE INAPTE / DISPENSÉ COMPLET : Sélectionner "DI" (Dispensé) ou "Inapte" dans le menu déroulant. Conséquence : Neutralisation de l'épreuve pour l'examen. Pas de note brute.
+* ÉLÈVE ABSENT JUSTIFIÉ (Blessure/Rattrapage possible) : Sélectionner "ABJ". Permet de bloquer la note en attente et de saisir ultérieurement la note du rattrapage si l'épreuve a lieu avant la clôture.
+* ÉLÈVE ABSENT INJUSTIFIÉ (Sécheur) : Sélectionner "ABI". Entraîne la note de 0/20 pour l'épreuve concernée, cette note est prise en compte dans le calcul de la moyenne.
+* CAS PARTICULIER "2 DISPENSES + 1 NOTE" : Sélectionner [Dispensé] pour les deux APSA visées par le certificat médical officiel, puis saisir normalement les notes d'AFL pour la seule APSA pratiquée. Dans ce cas précis, un commentaire de justification est STRICTEMENT OBLIGATOIRE pour éclairer la commission académique d'harmonisation.
+
+----------------------------------------------------------------------
+3. PROTOCOLES D'URGENCE DIEC & RÉSOLUTION DES BUGS INTERFACES
+----------------------------------------------------------------------
+* BUG : "AUCUN LOT À CORRIGER" / LOT INVISIBLE
+  - Cause 1 : L'enseignant n'a pas de mission active de type "Notation EPS CCF" dans Imag'in (problème STSWEB).
+  - Cause 2 (Fréquente) : Le Chef d'établissement a fait l'affectation manuelle dans Imag'in mais a oublié de cliquer sur l'icône "PDF". L'édition du PDF de convocation est l'étape OBLIGATOIRE qui pousse informatiquement le nom de l'enseignant et ses droits vers Santorin.
+  - Cause 3 : Le chef d'établissement n'a pas cliqué sur "Distribution automatique des candidats" dans sa console de direction Santorin.
+  - Cause 4 (Mails discordants) : L'adresse e-mail de l'examinateur déclarée dans Cyclades ne correspond pas à celle d'Imag'in. La direction doit modifier l'adresse via l'activité "EPS - Contrôler/réaffecter des protocoles" ou faire une distribution manuelle des candidats restants.
+* ÉLÈVE PRÉSENT SUR LE TERRAIN MAIS INTROUVABLE SUR SANTORIN
+  - Cause : Défaut de synchronisation Cyclades -> Santorin (élève arrivé en cours d'année).
+  - Solution : Le prof ne peut rien faire. Le Chef d'établissement doit aller dans Cyclades, réaffecter l'élève au bon protocole, puis retourner sur Santorin-Direction pour demander une distribution MANUELLE du candidat. La synchronisation prend entre 12h et 24h (traitement de nuit).
+* ÉLÈVES DOUBLONS
+  - Constat : Un élève apparaît deux fois dans le lot avec le même nom mais des identifiants différents.
+  - Règle : Interdiction absolue de noter les deux fiches. Le secrétariat doit nettoyer l'inscription INE sur Cyclades. L'enseignant ne note que la fiche valide.
+
+----------------------------------------------------------------------
+4. FOIRE AUX QUESTIONS MÉTIER (ENSEIGNANTS & BINÔMES)
+----------------------------------------------------------------------
+Q1 : Je me connecte à Arena mais je ne vois pas l'application Santorin ou ma mission d'évaluation. Pourquoi ?
+R1 : L'accès dépend de deux verrous. Le Chef d'établissement doit t'avoir rattaché au protocole dans Cyclades et la DEC doit avoir généré ta convocation. Vérifie sur IMAG'IN que ta convocation est signée électroniquement.
+
+Q2 : Je change d'établissement en cours d'année, est-ce que mes lots Santorin vont suivre automatiquement ?
+R2 : Non. Les droits sont liés à ton RAD (Rattachement Administratif). Le nouveau Chef d'établissement doit manuellement te réaffecter sur les nouveaux protocoles dans Cyclades (mise à jour sous 24h à 48h).
+
+Q3 : Puis-je me connecter à Santorin depuis mon smartphone sur le terrain ?
+R3 : Oui, l'interface est responsive. Cependant, pour la saisie de masse, l'ordinateur est fortement recommandé pour éviter les erreurs de clic et les pertes de session (déconnexion automatique Arena après 20 minutes d'inactivité).
+
+Q4 : Nous sommes deux enseignants à évaluer le même groupe (co-évaluation). Comment saisit-on les notes ?
+R4 : Le Chef d'établissement doit affecter un "2ème correcteur" (co-évaluateur) sur le lot de correction depuis son accès Santorin-Direction. L'un effectue la saisie, l'autre peut relire et valider.
+
+Q5 : Un collègue est absent ou malade au moment de la saisie. Puis-je récupérer son lot pour saisir les notes à sa place ?
+R5 : Non, un prof ne peut pas s'attribuer le lot d'un collègue. Le Chef d'établissement doit se connecter à son espace pour détacher le collègue absent et t'affecter à sa place sur Cyclades/Santorin.
+
+Q6 : Un élève a été totalement inapte (certificat médical annuel complet). Que dois-je saisir ?
+R6 : Sélectionne le statut réglementaire "DI" (Dispensé) ou "Inapte" dans le menu déroulant. Le système neutralisera l'épreuve pour le calcul du baccalauréat.
+
+Q7 : Un élève est inapte sur l'AFL1 et l'AFL2 d'une APSA, mais a pu pratiquer sur l'AFL3. Peut-on mettre une note partielle ?
+R7 : NON. Une note de CCF ne peut pas être validée si l'élève n'a pas été évalué sur la totalité des attendus requis (sauf protocole adapté officiel). C'est soit une épreuve complète, soit le statut DI (Dispensé).
+
+Q8 : Comment Santorin gère-t-il les arrondis des notes finales d'épreuve ?
+R8 : Tu saisis des notes brutes par AFL (points entiers ou demi-points). L'algorithme de Santorin se charge de faire la somme pondérée et applique les règles d'arrondi décidées par la commission académique ou nationale. N'arrondis pas toi-même les AFL.
+
+Q9 : La commission d'harmonisation académique (IA-IPR) peut-elle modifier mes notes directement dans Santorin ?
+R9 : Oui. Une fois le lot verrouillé, les notes montent au niveau académique. En cas d'écart statistique manifeste de l'établissement, les inspecteurs ont les droits de modification de masse pour appliquer un redressement.
+
+Q10 : Un enseignant contractuel a quitté l'établissement avant la saisie des notes. Qui doit remplir son Santorin ?
+R10 : Le Chef d'établissement doit attribuer le lot à un titulaire de l'équipe (ou au coordonnateur EPS) via Cyclades. Ce dernier saisira les notes en se basant scrupuleusement sur les bordereaux de notation papier laissés par le contractuel.

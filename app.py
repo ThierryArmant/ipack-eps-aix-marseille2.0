@@ -374,6 +374,12 @@ def obtenir_cle_fichier():
             for f in os.listdir("data/peda"):
                 mtimes.append(os.path.getmtime(os.path.join("data/peda", f)))
         except: pass
+
+    if os.path.exists("data/examens") and os.path.isdir("data/examens"):
+        try:
+            for f in os.listdir("data/examens"):
+                mtimes.append(os.path.getmtime(os.path.join("data/examens", f)))
+        except: pass
             
     return max(mtimes) if mtimes else 0.0
 
@@ -404,7 +410,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Fiche Mémo - Processus de Distribution de Lots Santorin en Établissement. 
-            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs par les coordonnateurs de l'établissement.""",
+            Gestion, paramétrage des tailles de groupes et distribution automatique ou manuelle des lots de copies numérisées vers les correcteurs by les coordonnateurs de l'établissement.""",
             metadata={"title": "Fiche Mémo - Processus de Distribution de Lots", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fic18-fichememo-etablissement-distribuer.pdf"}
         ),
         Document(
@@ -428,6 +434,20 @@ def initialiser_base_santorin(cle_fremt):
             metadata={"title": "Guide d'Installation Santorin Scan", "url": "https://www.toutatice.fr/toutatice-portail-cms-nuxeo/binary/Guide_Installation+scanner_v2.0.4.pdf"}
         )
     ]
+    
+    # Ingestion dynamique du répertoire data/examens (FAQ CSV réglementaire et fiches DIEC)
+    if os.path.exists("data/examens") and os.path.isdir("data/examens"):
+        try:
+            docs_santorin.extend(SimpleDirectoryReader(input_dir="data/examens").load_data())
+        except:
+            pass
+    elif os.path.exists("faq_evaluation_santorin.csv.csv"):
+        try:
+            with open("faq_evaluation_santorin.csv.csv", "r", encoding="utf-8", errors="ignore") as f:
+                docs_santorin.append(Document(text=f.read(), metadata={"source": "faq_evaluation_santorin.csv.csv"}))
+        except:
+            pass
+
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
@@ -547,7 +567,7 @@ label_titres = {
     "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
     "examens": "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées & Jurys)",
     "peda": "🔍 Mode Actif : Référentiels Institutionnels, APSA & Textes de Cadrage BO",
-    "textes": "🔒 Mode Actif : Sécurité & Responsabilité Juridique (Textes Officiels & Risques APPN)"
+    "textes": "🔒 Mode Actif : SÉCURITÉ & Responsabilité Juridique (Textes Officiels & Risques APPN)"
 }
 
 if "active_module" not in st.session_state:
@@ -598,7 +618,7 @@ if st.session_state.active_module == "textes":
     st.markdown("""
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement – Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+            ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
     </div>
     """, unsafe_allow_html=True)
@@ -698,9 +718,10 @@ if prompt:
     with st.spinner("Je recherche les documents et ressources pédagogiques..."):
         extraits_doc = ""
         mode = st.session_state.active_module
+        prompt_lower = prompt.lower()
         
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
-        est_demande_fiche = any(mot in prompt.lower() for mot in mots_terrain)
+        est_demande_fiche = any(mot in prompt_lower for mot in mots_terrain)
         
         verites_terrain_pierre = ""
         try:
@@ -719,7 +740,7 @@ if prompt:
                 tavily_deja_execute = False
 
                 if mode == "textes":
-                    mot_cle = prompt.lower()
+                    mot_cle = prompt_lower
                     for exp in expressions_inutiles:
                         mot_cle = mot_cle.replace(exp, "")
                     for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
@@ -791,8 +812,44 @@ if prompt:
         if openai_api_key:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt): 
-                        extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                    # Détection chirurgicale des deux requêtes critiques Santorin
+                    veut_appreciations = any(x in prompt_lower for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"])
+                    a_bug_de_lot = any(x in prompt_lower for x in ["aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
+
+                    if veut_appreciations:
+                        extraits_doc = """
+                        <h3>📊 EXAMENS & SANTORIN : LA RÈGLE DES APPRÉCIATIONS</h3>
+                        <strong>Statut réglementaire : Facultatif (Idée reçue du terrain).</strong><br><br>
+                        <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+                        <ul>
+                        <li><strong>Risque de non-conformité :</strong> Aucun pour un parcours classique. L'application Santorin ne bloque pas la validation si la case appréciation est vide.</li>
+                        <li><strong>Risque de perte de temps :</strong> Rédiger des commentaires généraux pour toute une classe est une charge de travail inutile non demandée par la DEC.</li>
+                        </ul>
+                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
+                        <ul>
+                        <li>➔ <strong>Règle générale :</strong> Saisissez uniquement les notes d'AFL. Laissez la case appréciation VIDE pour les élèves ordinaires.</li>
+                        <li>➔ <strong>Exception Obligatoire :</strong> Le commentaire devient STRICTEMENT OBLIGATOIRE uniquement pour justifier un statut d'alerte, une notation atypique ou un aménagement (ex: un élève avec 2 dispenses + 1 note, ou basculé en statut DI).</li>
+                        </ul>
+                        """
+                    elif a_bug_de_lot:
+                        extraits_doc = """
+                        <h3>📊 EXAMENS & SANTORIN : PROTOCOLE "AUCUN LOT À CORRIGER"</h3>
+                        <strong>Statut de l'erreur : Problème d'aiguillage Direction / DIEC.</strong><br><br>
+                        <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+                        <ul>
+                        <li><strong>Risque de blocage :</strong> Tant que le lot n'est pas généré, l'enseignant est dans l'impossibilité physique de saisir ses notes d'AFL, mettant en péril la date limite du 30 mai 2026.</li>
+                        </ul>
+                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION (CÔTÉ DIRECTION)</h3>
+                        <ul>
+                        <li>➔ <strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
+                        <li>➔ <strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
+                        <li>➔ <strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
+                        </ul>
+                        """
+                    else:
+                        for n in retriever_santorin.retrieve(prompt): 
+                            extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                            
                 elif mode == "ipack":
                     # 1. Détection du cas spécifique : Dossier validé par le Chef / Bilan oublié
                     est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
@@ -821,7 +878,7 @@ if prompt:
                             extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 
                 elif mode == "textes":
-                    mot_cle_local = prompt.lower()
+                    mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: 
                         mot_cle_local = mot_cle_local.replace(exp, "")
                     
@@ -872,7 +929,6 @@ if prompt:
             }
 
             liens_selectionnes = []
-            prompt_lower = prompt.lower()
             
             if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
@@ -911,7 +967,7 @@ if prompt:
                 "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
                 "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
                 "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
-                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
+                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[SSequences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
                 "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
                 "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
@@ -936,7 +992,6 @@ if prompt:
             }
 
             liens_selectionnes = []
-            prompt_lower = prompt.lower()
             
             if any(x in prompt_lower for x in ["simul", "entraîn", "test", "école", "faux", "s'exercer"]):
                 liens_selectionnes.extend([liens_utiles["base_ecole"], liens_utiles["webinaire_eps"]])
@@ -961,7 +1016,7 @@ if prompt:
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
                 "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
                 "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
-                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
+                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN and cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
                 "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
                 "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
@@ -1000,7 +1055,6 @@ Question de l'agent : {prompt}
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif mode == "peda":
-            prompt_lower = prompt.lower()
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
             
             niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
@@ -1014,7 +1068,7 @@ Question de l'agent : {prompt}
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour Unicode la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
@@ -1024,7 +1078,7 @@ Question de l'agent : {prompt}
                     ca_competences = "Construire un jeu d'intention. Maîtriser le changement de statut attaquant/défenseur. Assurer le déroulement éthique de la rencontre."
                 else:
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
-                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapter rapidement au changement de statut."
+                    ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapté rapidement au changement de statut."
             
             # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
@@ -1034,7 +1088,7 @@ Question de l'agent : {prompt}
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
-                    ca_competences = "Élaborer et réaliser un projet pour provoquer une emotion ou un message. Utiliser des procédés simples de composition."
+                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
 
             # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
@@ -1070,7 +1124,7 @@ Question de l'agent : {prompt}
             consigne_ia = (
                 "ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel strict.\n"
                 "CONSIGNE IMPÉRATIVE À RESPECTER : Tu dois SEULEMENT compléter et retourner la structure HTML fournie ci-dessous. "
-                "Tu as l'interdiction totale de recopier, d'afficher ou d'annexer le pavé de texte du 'Contexte RAG' sous peine de casser l'interface.\n\n"
+                "Tu avez l'interdiction totale de recopier, d'afficher ou d'annexer le pavé de texte du 'Contexte RAG' sous peine de casser l'interface.\n\n"
                 
                 "STRUCTURE DU RENDU SÉQUENCÉ À FOURNIR (EN BALISES HTML STRICTES) :\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
@@ -1082,7 +1136,7 @@ Question de l'agent : {prompt}
                 "</ul>"
                 "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
                 "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
-                "<h3>💾 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
+                "<h3>🔍 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
                 f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>{liens_html}\n\n"
                 
                 "--- BARRIÈRE ÉTANCHE DE FERMETURE (INTERDICTION STRICTE DE LIRE OU DE RECOPIER CE QUI SUIT) ---\n"
@@ -1093,34 +1147,27 @@ Question de l'agent : {prompt}
             
     # 4. EXÉCUTION ET RENDU HTML
         # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
-        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower
-        est_sss_direct = mode == "ipack" and any(x in prompt_lower for x in [
+        prompt_lower_eval = prompt.lower()
+        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
+        est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
             "validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
             "oublie le bilan", "oublié le bilan", "plus la main", "bilan sss", "section sportive"
         ])
+        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
+            "appréciation", "appreciation", "commentaire", "texte obligatoire", 
+            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
+        ])
 
-        if est_tasa_direct:
-            texte_brut = extraits_doc  # Court-circuit historique TASA
-        elif est_sss_direct:
-            # Court-circuit SSS total : on écrit le texte propre ici, le web ne peut plus le polluer
-            texte_brut = """
-            <h3>📋 PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
-            <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
-            <h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>
-            <ul>
-            <li><strong>Le Chef ne peut pas débloquer :</strong> Une fois qu'un Chef d'établissement a validé ou signé un volet (Projet ou Bilan), son interface de direction ne lui permet plus réglementairement de modifier ou de repasser le dossier en brouillon.</li>
-            <li><strong>Le Professeur est bloqué :</strong> L'accès en écriture est instantanément coupé pour l'équipe pédagogique afin de garantir l'intégrité des données transmises.</li>
-            </ul>
-            <h3>2. LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
-            <ul>
-            <li>➔ <strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
-            <li>➔ <strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
-            <li>➔ <strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
-            </ul>
+        if est_tasa_direct or est_sss_direct:
+            texte_brut = extraits_doc  # Court-circuit historique TASA / SSS
+        elif est_santorin_direct:
+            # Court-circuit Santorin total avec injection du guide du Pôle Examens GitHub Pages
+            texte_brut = extraits_doc + """
             <br>
-            <h3>3. SOURCES ET DOCUMENTATION DE RÉFÉRENCE</h3>
+            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
-            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique7" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Ouvrir la rubrique 7 de documentation (Examens / CCF / SSS) sur iPackEPS</a></li>
+            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir.</li>
             </ul>
             """
         else:
@@ -1138,7 +1185,7 @@ Question de l'agent : {prompt}
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         # Rendu visuel propre
-        if mode == "peda" or est_tasa_direct or est_sss_direct:
+        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

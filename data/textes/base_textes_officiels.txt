@@ -243,3 +243,64 @@ Objet : Risques particuliers à l'enseignement de l'EPS et au sport scolaire.
   - Soit la violation manifestement délibérée d'une obligation particulière de sécurité prévue par la loi ou le règlement (décret/arrêté).
   - Soit une "faute caractérisée" exposant autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
 * AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (Art. 1383) est démontrée.
+======================================================================
+PROGRAMMES COMPLÉMENTAIRES EN VIGUEUR : PRIMAIRE & SPÉCIALITÉS LYCÉE
+======================================================================
+[DIRECTIVE RAG] : Ce document complète la base pédagogique pour l'onglet Cadrage.
+Il couvre le bloc primaire obligatoire et les enseignements de spécialité (Arts).
+
+----------------------------------------------------------------------
+27. ÉCOLE MATERNELLE - CYCLE 1
+Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015 
+----------------------------------------------------------------------
+* DOMAINE D'APPRENTISSAGE : « Agir, s'exprimer, comprendre à travers l'activité physique »
+
+* LES 4 OBJECTIFS VISÉS AU CYCLE 1 :
+  - Objectif 1 : Adapter ses équilibres et ses déplacements à des environnements ou des contraintes variés.
+    -> Activités : Parcours de motricité, grimper, rouler, franchir, s'équilibrer sur des engins instables.
+  - Objectif 2 : Communiquer avec les autres à travers des actions à visée expressive ou artistique.
+    -> Activités : Rondes, jeux dansés, mime, expression corporelle libre ou guidée.
+  - Objectif 3 : Collaborer, coopérer, s'opposer.
+    -> Activités : Jeux de ballons collectifs simples, jeux de poursuite, jeux d'opposition duelle.
+  - Objectif 4 : Développer son schéma corporel et ses capacités motrices fondamentales.
+    -> Activités : Courir, sauter, lancer de manières variées et dans des buts différents.
+
+----------------------------------------------------------------------
+28. ÉCOLE ÉLÉMENTAIRE - CYCLE 2 (CP, CE1, CE2)
+Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015
+----------------------------------------------------------------------
+* LES 4 CHAMPS D'APPRENTISSAGE (CA) ET ATTENDUS DE FIN DE CYCLE 2 (AFC) :
+  - CA 1 : Produire une performance optimale, mesurable à une échéance donnée.
+    -> AFC : Courir, sauter, lancer de façon régulière pour aller plus vite, plus haut, plus loin. Accepter de mesurer sa performance et celle des autres.
+  - CA 2 : Adapter son déplacement à des environnements variés.
+    -> AFC : Se déplacer en sécurité et de manière efficace dans un milieu de plus en plus incertain (rouler, glisser, s'orienter, nager).
+  - CA 3 : S'exprimer devant les autres par une prestation artistique et/ou acrobatique.
+    -> AFC : Réaliser en petits groupes une séquence d'actions mémorisées, combinant des formes corporelles simples pour produire un effet sur un public.
+  - CA 4 : Conduire et maîtriser un affrontement collectif ou interindividuel.
+    -> AFC : S'engager dans un affrontement duel ou collectif en respectant les règles du jeu. Coopérer avec ses partenaires pour marquer ou défendre.
+
+----------------------------------------------------------------------
+29. ENSEIGNEMENT DE SPÉCIALITÉ : ARTS - OPTION DANSE (LYCÉE)
+Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
+----------------------------------------------------------------------
+* FINALITÉ : Cet enseignement associe étroitement la pratique physique d'auteur-chorégraphe, l'engagement sensible d'interprète et la construction d'une solide culture chorégraphique historique et contemporaine.
+
+* LES COMPÉTENCES STRUCTURELLES VISÉES AU BACCALAUREAT :
+  - Compétence 1 (Création/Composition) : Concevoir et structurer un projet chorégraphique personnel ou collectif. Maîtriser les variables de l'espace, du temps, du flux et de l'énergie pour faire sens.
+  - Compétence 2 (Interprétation) : Développer une présence scénique singulière. Ajuster sa technique corporelle au service d'une intention artistique commune, être à l'écoute des autres danseurs.
+  - Compétence 3 (Analyse critique/Culture) : Analyser des œuvres chorégraphiques majeures du patrimoine. Identifier les courants, les contextes politiques et esthétiques, et poser un regard critique sur sa propre pratique.
+
+----------------------------------------------------------------------
+30. ENSEIGNEMENT DE SPÉCIALITÉ : ARTS - OPTION ARTS DU CIRQUE (LYCÉE)
+Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
+----------------------------------------------------------------------
+* FINALITÉ : Développer une maîtrise corporelle transversale de haut niveau combinée à une démarche de création dramaturgique propre aux arts du cirque contemporains.
+
+* LES DOMAINES TECHNIQUES ET COMPÉTENCES IMPÉRATIVES :
+  - Les 4 Familles de techniques circassiennes à stabiliser :
+    1. Acrobaties (sol, portés acro, trampoline).
+    2. Équilibres sur objets (fil, boule, monocycle, rolla-bolla).
+    3. Jonglerie et manipulations d'objets (balles, massues, anneaux, diabolos).
+    4. Techniques aériennes (trapèze, tissu, corde).
+  - Compétence de création : Transformer une prouesse technique pure en un acte artistique théâtralisé ou poétique. Écrire une partition circassienne scénographiée.
+  - Compétence de sécurité active (Parade) : Assurer la gestion absolue du risque. Maîtriser les protocoles d'assurage et de parade acrobatique pour ses partenaires (responsabilité éthique et collective).

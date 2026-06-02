@@ -1194,7 +1194,7 @@ Question de l'agent : {prompt}
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir.</li>
+            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir pour Aix-Marseille, le 9 juin pour Créteil, pour les autres académies rapprochez-vous de vos gestionnaires IpackEPS.</li>
             </ul>
             """
         else:

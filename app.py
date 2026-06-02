@@ -793,10 +793,30 @@ if prompt:
                 if mode == "examens":
                     for n in retriever_santorin.retrieve(prompt): 
                         extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
-                
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt): 
-                        extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                    # 1. Détection du cas spécifique : Dossier validé par le Chef / Bilan oublié
+                    est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "modifier après validation", "redonner la main"])
+                    
+                    if est_dossier_verrouille_chef:
+                        extraits_doc = """
+                        <h3>PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
+                        <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
+                        <h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>
+                        <ul>
+                        <li><strong>Le Chef ne peut pas débloquer :</strong> Une fois qu'un Chef d'établissement a validé ou signé un volet (Projet ou Bilan), son interface de direction ne lui permet plus réglementairement de modifier ou de repasser le dossier en brouillon.</li>
+                        <li><strong>Le Professeur est bloqué :</strong> L'accès en écriture est instantanément coupé pour l'équipe pédagogique afin de garantir l'intégrité des données transmises.</li>
+                        </ul>
+                        <h3>2. LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
+                        <ul>
+                        <li>➔ <strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
+                        <li>➔ <strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
+                        <li>➔ <strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
+                        </ul>
+                        """
+                    else:
+                        # 2. Conservation stricte de ton RAG de confiance pour toutes les autres requêtes iPack
+                        for n in retriever_ipack.retrieve(prompt): 
+                            extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 
                 elif mode == "textes":
                     mot_cle_local = prompt.lower()

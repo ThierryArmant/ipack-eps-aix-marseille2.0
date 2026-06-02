@@ -1091,20 +1091,32 @@ Question de l'agent : {prompt}
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
-        # 4. EXÉCUTION ET RENDU HTML
-        response = Settings.llm.complete(consigne_ia)
-        texte_brut = response.text
+     # 4. EXÉCUTION ET RENDU HTML
+        # --- BLOC DE SÉCURITÉ CHIRURGICAL (SANS ALMANACH POUR LE RESTE) ---
+        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower
+        est_sss_direct = mode == "ipack" and any(x in prompt_lower for x in [
+            "validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
+            "oublie le bilan", "oublié le bilan", "plus la main", "bilan sss", "section sportive"
+        ])
+
+        if est_tasa_direct or est_sss_direct:
+            texte_brut = extraits_doc  # Court-circuit : affichage direct de la base locale, sans IA
+        else:
+            response = Settings.llm.complete(consigne_ia)  # Comportement historique inchangé pour tout le reste
+            texte_brut = response.text
+        # --- FIN DU BLOC DE SÉCURITÉ ---
         
-        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie
+        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie (CONSERVÉ À 100%)
         texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Règlement\s+général\s+sur\s+les\s+données|Code\s+de\s+l\'éducation|Code\s+civil|Loi\s+du\s+15\s+mars\s+2004)', r'<span class="law-highlight">\1</span>', texte_brut)
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec son "e"
+        # VARIABLE SÉCURISÉE ET COQUILLE TECHNIQUE CORRIGÉE : texte_brut avec son "e" (CONSERVÉ À 100%)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        if mode == "peda":
+        # Rendu visuel propre sans retours à la ligne parasites pour les textes bruts injectés
+        if mode == "peda" or est_tasa_direct or est_sss_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

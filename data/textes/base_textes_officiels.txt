@@ -206,3 +206,40 @@ Le candidat doit réaliser l'intégralité du parcours sans aucune reprise d'app
 * TRIBUNAL CORRECTIONNEL DE TOULOUSE, 2018 (DÉFAUT DE CONTRÔLE MATÉRIEL EN ATELIER HAUT RISQUE) : Condamnation d'un professeur d'EPS à 6 mois de prison avec sursis pour blessures involontaires après la chute de 8 mètres d'un élève de troisième en SAE. L'accident résultait d'un nœud de huit défaillant commis par le grimpeur et non détecté par son assureur (un autre élève de la classe). Le juge a condamné l'enseignant pour manquement grave à son obligation de moyens renforcée : le protocole de sécurité de l'établissement imposait une vérification visuelle et matérielle directe par le professeur avant chaque départ au-dessus du premier point d'assurage. Le prof ne peut déléguer la responsabilité de la sécurité finale aux élèves.
 * TRIBUNAL CORRECTIONNEL, 2012 (RUPTURE DU PROTOCOLE DE SURVEILLANCE EN NATATION) : Condamnation pénale d'un enseignant d'EPS à une peine de prison avec sursis pour homicide involontaire suite à la noyade d'un élève retrouvé inanimé au fond du grand bassin lors d'une séance de natation scolaire. Les magistrats ont retenu que l'enseignant n'avait pas mis en œuvre les comptages visuels et physiques réguliers obligatoires (à l'entrée, au milieu et en fin de séance) dictés par la circulaire nationale natation, ce qui a retardé la détection de la disparition de l'élève. La présence conjointe d'un MNS sur le bord du bassin n'exonère pas l'enseignant de son obligation de suivi constant de son groupe.
 * TRIBUNAL CORRECTIONNEL DE CAEN, 2016 (CRÉATION D'UNE SITUATION À RISQUE ANORMAL) : Condamnation d'un enseignant d'EPS à 4 mois de prison avec sursis pour blessures involontaires. Lors d'un exercice de course de vitesse à haute intensité pendant un échauffement, un élève a percuté un poteau métallique de badminton non rangé situé à proximité immédiate de la ligne de course, subissant un traumatisme crânien majeur. Le tribunal a établi que l'enseignant avait délibérément organisé son cours dans un espace exigu et encombré d'obstacles matériels dangereux fixes, créant ainsi une situation d'apprentissage comportant un risque anormal en violation directe des règles de sécurité régissant l'aménagement des espaces de pratique.
+======================================================================
+CADRE CADRAGE RÉGLEMENTAIRE - SÉCURITÉ ET RESPONSABILITÉ EN EPS
+======================================================================
+[TEXTE DE RÉFÉRENCE] : Circulaire n° 2004-138 du 13 juillet 2004 (NOR : MENE0401637C)
+Objet : Risques particuliers à l'enseignement de l'EPS et au sport scolaire.
+
+----------------------------------------------------------------------
+23. CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE
+----------------------------------------------------------------------
+* PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Plus de 58 % des accidents scolaires en collège ont lieu pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
+* NATURE DES RISQUES : Aucune activité n'est dangereuse a priori, mais l'engagement physique et affectif majore les risques. Les causes majeures des accidents graves relèvent de l'environnement, de l'état des matériels et de l'inadaptation des exercices proposés.
+* EXIGENCE DE VIGILANCE : L'enseignant a l'obligation permanente de contrôler les équipements, de calibrer précisément les tâches demandées et de définir des consignes d'organisation rigoureuses.
+
+----------------------------------------------------------------------
+24. GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES
+----------------------------------------------------------------------
+* CONVETIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
+* SÉCURITÉ DES DÉPLACEMENTS : Les trajets vers les installations extérieures exigent une planification stricte. En cas d'incident, le professeur doit se référer au Protocole national des soins et des urgences (BO du 6 janvier 2000). Une qualification de premier secours valide est obligatoire au recrutement.
+* SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention et la présence physique de l'enseignant à l'intérieur du vestiaire sont légitimes et indispensables pour garantir la sécurité.
+
+----------------------------------------------------------------------
+25. TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)
+----------------------------------------------------------------------
+* HÉTÉROGÉNÉITÉ DES CLASSES : L'enseignant doit adapter ses tâches aux différences interindividuelles (poids, taille, âge, sexe, inaptitudes temporaires) pour éviter les collisions et les comportements d'exclusion générateurs de risques.
+* LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire constitue une faute professionnelle en cas de dommage corporel.
+* INTERPOSITION EN CAS DE CONFLIT : En cas de violences ou de conflits entre élèves, le professeur d'EPS a l'obligation d'intervenir, y compris en s'interposant physiquement pour préserver l'intégrité des élèves, tout en proscrivant les sévices corporels.
+
+----------------------------------------------------------------------
+26. LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)
+----------------------------------------------------------------------
+* RESPONSABILITÉ CIVILE (SUBSTITUTION DE L'ÉTAT) : Fondée sur la Loi du 5 avril 1937 (Art. L. 911-4 du Code de l'éducation). En cas d'accident subi ou causé par un élève sous la surveillance d'un enseignant, la responsabilité de l'État se substitue à celle de l'agent. L'enseignant ne peut jamais être poursuivi devant les tribunaux civils par la victime.
+* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (en référence aux Articles 1382 et 1383 du Code civil).
+* RESPONSABILITÉ PÉNALE (STRICTEMENT PERSONNELLE) : Le principe de substitution ne s'applique pas au pénal (Art. 121-1 du Code pénal : "nul n'est responsable pénalement que de son propre fait"). Un enseignant peut être poursuivi personnellement pour délit non intentionnel (homicide involontaire, blessures involontaires).
+* PROTECTION ISSUE DE LA LOI FAUCHON (LOI DU 10 JUILLET 2000) : Pour un auteur indirect (l'enseignant qui a créé la situation du dommage sans porter le coup direct), la responsabilité pénale ne peut être engagée que s'il est prouvé :
+  - Soit la violation manifestement délibérée d'une obligation particulière de sécurité prévue par la loi ou le règlement (décret/arrêté).
+  - Soit une "faute caractérisée" exposant autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
+* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (Art. 1383) est démontrée.

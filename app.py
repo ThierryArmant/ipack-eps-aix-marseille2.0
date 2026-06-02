@@ -1146,7 +1146,7 @@ Question de l'agent : {prompt}
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
     # 4. EXÉCUTION ET RENDU HTML
-        # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
+       # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
         prompt_lower_eval = prompt.lower()
         est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
         est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
@@ -1157,9 +1157,36 @@ Question de l'agent : {prompt}
             "appréciation", "appreciation", "commentaire", "texte obligatoire", 
             "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
         ])
+        # Nouveau verrou de sécurité : Anti-bricolage / Forçage de notes au Bac (Cas unique note)
+        est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in [
+            "forcer la note", "prorata", "calculer la note", "bloque les cases", "une seule note", "seule note"
+        ])
 
         if est_tasa_direct or est_sss_direct:
             texte_brut = extraits_doc  # Court-circuit historique TASA / SSS
+        elif est_bricolage_note:
+            # Court-circuit direct contre la triche ou le forçage réglementaire
+            texte_brut = """
+            <h3>🛑 RÉGLEMENTATION CCF : INTERDICTION DE FORCER OU BRICOLER UNE NOTE</h3>
+            <strong>Statut juridique : Non-conformité majeure entraînant l'annulation de l'épreuve.</strong><br><br>
+            <h3>1. ANALYSE DES RISQUES JURIDIQUES & INSTITUTIONNELS</h3>
+            <ul>
+            <li>🛑 <strong>Risque de fraude :</strong> Il est strictement interdit d'inventer, de simuler ou de calculer au prorata une note d'APSA non réalisée physiquement par l'élève devant les examinateurs.</li>
+            <li>⚠️ <strong>Risque de blocage :</strong> Si un élève n'a qu'une seule note valide sur les deux requises, l'application bloque volontairement le calcul automatique pour alerter l'administration et le jury.</li>
+            </ul>
+            <h3>2. LA PROCÉDURE RÉGLEMENTAIRE REQUISE (CÔTÉ ENSEIGNANT)</h3>
+            <ul>
+            <li>➔ <strong>Étape 1 (Pas de forcing) :</strong> Ne cherchez pas à remplir artificiellement la case Badminton ou l'APSA manquante. Laissez l'interface verrouillée.</li>
+            <li>➔ <strong>Étape 2 (Statut Médical) :</strong> Si l'élève est officiellement inapte pour cause de blessure constatée, son statut médical doit être saisi en 'DI' (Dispensé) ou 'Inapte' dans l'onglet des inaptitudes.</li>
+            <li>➔ <strong>Étape 3 (Remontée administrative) :</strong> Le dossier d'un élève ne disposant que d'une seule note valide à l'année doit être obligatoirement transmis au <strong>Jury Académique</strong> via Cyclades pour arbitrage final.</li>
+            </ul>
+            <br>
+            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
+            <ul>
+            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin is fixée au 30 mai 2026 au soir.</li>
+            </ul>
+            """
         elif est_santorin_direct:
             # Court-circuit Santorin total avec injection du guide du Pôle Examens GitHub Pages
             texte_brut = extraits_doc + """

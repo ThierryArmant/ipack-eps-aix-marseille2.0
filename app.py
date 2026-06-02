@@ -795,7 +795,9 @@ if prompt:
                         extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
                     # 1. Détection du cas spécifique : Dossier validé par le Chef / Bilan oublié
-                    est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "modifier après validation", "redonner la main"])
+                    est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
+                        "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "plus la main", 
+                        "modifier après validation", "redonner la main", "bilan sss", "projet sss", "section sportive"])
                     
                     if est_dossier_verrouille_chef:
                         extraits_doc = """

@@ -1146,7 +1146,7 @@ Question de l'agent : {prompt}
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
     # 4. EXÉCUTION ET RENDU HTML
-       # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
+        # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
         prompt_lower_eval = prompt.lower()
         est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
         est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
@@ -1155,7 +1155,8 @@ Question de l'agent : {prompt}
         ])
         est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
             "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
+            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini",
+            "date", "limite", "butoir", "marseille", "creteil", "calendrier", "fin de saisie"
         ])
         # Nouveau verrou de sécurité : Anti-bricolage / Forçage de notes au Bac (Cas unique note)
         est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in [
@@ -1184,7 +1185,7 @@ Question de l'agent : {prompt}
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin is fixée au 30 mai 2026 au soir, le 9 juin pour Créteil, pour les autres académies rapprochez-vous de vos gestionnaires IpackEPS..</li>
+            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir pour Aix-Marseille, le 9 juin pour Créteil, pour les autres académies rapprochez-vous de vos gestionnaires IpackEPS.</li>
             </ul>
             """
         elif est_santorin_direct:

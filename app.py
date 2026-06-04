@@ -428,7 +428,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Espace d'aide et tutoriels Santorin - Académie de Lille. 
-            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots and demander des corrections d'affectation via l'enveloppe de communication.""",
+            Guides d'utilisation pour le DNB, le Baccalauréat et les BTS. Procédures pour s'enregistrer, traiter les lots et demander des corrections d'affectation via l'enveloppe de communication.""",
             metadata={"title": "Espace d'Aide Santorin - Académie de Lille", "url": "https://pedagogie.ac-lille.fr/lettres/aide-santorin/"}
         ),
         Document(
@@ -898,9 +898,9 @@ if prompt:
 
         if mode == "ipack":
             liens_utiles = {
-                "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-createil.fr/spip.php?rubrique2)",
-                "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-createil.fr/spip.php?rubrique4)",
-                "rubrique7": "- [📥 Ouvrir la rubrique 7 de documentation (Examens / CCF) sur iPackEPS](https://ipackeps.ac-createil.fr/spip.php?rubrique7)",
+                "rubrique2": "- [📥 Ouvrir la rubrique 2 de documentation (Structures / EDT) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique2)",
+                "rubrique4": "- [📥 Ouvrir la rubrique 4 de documentation (Notes / Inaptitudes) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique4)",
+                "rubrique7": "- [📥 Ouvrir la rubrique 7 de documentation (Examens / CCF) sur iPackEPS](https://ipackeps.ac-creteil.fr/spip.php?rubrique7)",
                 "video_inapt": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Déclaration / Suivi des inaptitudes](https://youtu.be/34w4Z6dd1dM)",
                 "video_import": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote](https://youtu.be/RlScDjd8kHk)",
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
@@ -1133,11 +1133,16 @@ Question de l'agent : {prompt}
             "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"
         ])
         
-        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
-            "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini", 
-            "date", "limite", "calendrier", "clôture", "cloture", "butoir"
-        ])
+        est_santorin_direct = mode == "examens" and (
+            any(x in prompt_lower_eval for x in [
+                "appréciation", "appreciation", "commentaire", "texte obligatoire", 
+                "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
+            ]) or
+            any(x in prompt_lower_eval for x in [
+                "date limite", "date butoir", "date de clôture", "date de cloture", 
+                "calendrier santorin", "clôture des serveurs", "cloture des serveurs"
+            ])
+        )
         
         est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
             "constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"
@@ -1153,6 +1158,10 @@ Question de l'agent : {prompt}
         
         est_grise_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
             "grisé", "grise", "bloqué", "bloque", "case vide", "pas cliquer", "bouton actif", "boutons aflp"
+        ])
+        
+        est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
+            "inapte", "dispense", "dispensé", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"
         ])
 
         if est_tasa_direct or est_sss_direct:
@@ -1252,8 +1261,35 @@ Question de l'agent : {prompt}
             
             <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li>➔ <strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'application bascule instantanément l'interface en lecture seule (boutons grisés) pour tous les autres correcteurs afin d'éviter les collisions de données. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte d'Arena.</strong></li>
+            <li>➔ <strong>Cas 1 (Correction partagée - Le plus frequent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'application bascule instantanément l'interface en lecture seule (boutons grisés) pour tous les autres correcteurs afin d'éviter les collisions de données. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte d'Arena.</strong></li>
             <li>➔ <strong>Cas 2 (Défaut de sélection active) :</strong> Les cases de saisie restent informatiquement bridées tant que le lot n'est pas pleinement déployé. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur le bouton [Voir le détail] de votre mission, puis sélectionnez explicitement le nom du candidat pour activer la grille.</strong></li>
+            </ul>
+            
+            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
+            <ul>
+            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            </ul>
+            """
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        elif est_inapte_santorin_direct:
+            # Court-circuit pour la gestion des inaptitudes dans Santorin
+            texte_brut = """
+            <h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET DISPENSÉS</h3>
+            <strong>Statut administratif : Neutralisation gérée en amont (Pas d'action dans Santorin).</strong><br><br>
+            
+            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <ul>
+            <li>🛑 <strong>Risque d'hallucination réglementaire :</strong> L'application Santorin n'est qu'un portail de saisie de notes d'AFL. Elle ne dispose d'aucun menu, bouton ou case pour déclarer une inaptitude médicale ou saisir un statut "DI".</li>
+            <li>⚠️ <strong>Risque d'absence injustifiée :</strong> Si l'inaptitude n'est pas configurée dans la base maître, l'absence de note sera interprétée par Cyclades comme un défaut de saisie ou un zéro éliminatoire.</li>
+            </ul>
+            
+            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
+            <ul>
+            <li>➔ <strong>Étape 1 (Saisie Maître obligatoire) :</strong> L'inaptitude médicale totale annuelle ou trimestrielle se traite exclusivement hors de Santorin. Elle doit être enregistrée dans **iPackEPS** (`[Gestion/Suivi des élèves]` > `[Fiche élève]` > `[Saisir une inaptitude]`).</li>
+            <li>➔ <strong>Étape 2 (Synchronisation d'examen) :</strong> C'est l'extraction iPackEPS envoyée vers **Cyclades** qui va qualifier l'élève comme dispensé officiel et propager le verrou.</li>
+            <li>➔ <strong>Étape 3 (Action Santorin) :</strong> Sur votre lot Santorin, la ligne de l'élève inapte total apparaît déjà neutralisée ou doit être **LAISSÉE ENTIÈREMENT VIDE**. N'inventez pas de note.</li>
+            <li>➔ <strong>Étape 4 (Validation finale) :</strong> La situation de dispense est récapitulée uniquement sur vos **bordereaux de notation globaux** et sera arbitrée souverainement par le **Jury Académique** lors des commissions d'harmonisation de fin d'année.</li>
             </ul>
             
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
@@ -1315,7 +1351,7 @@ Question de l'agent : {prompt}
                 
                 <h3>2. CALENDRIER OFFICIEL RECONNU (SESSION 2026)</h3>
                 <ul>
-                <li>➔ <strong>Académie d'Aix-Marseille :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au <strong>30 mai 2026 au soir</strong>. Toute autre date (comme le 30 mars) est rigoureusement fausse.</li>
+                <li>➔ <strong>Académie d'Aix-Marseille :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au <strong>30 mai 2026 au soir</strong>. Toute autre date (comme le 30 mars) is rigoureusement fausse.</li>
                 <li>➔ <strong>Académie de Créteil :</strong> La date limite de saisie est fixée au <strong>9 juin 2026 au soir</strong>.</li>
                 <li>➔ <strong>Autres académies :</strong> Les calendriers étant spécifiques, connectez-vous sur votre portail académique ou rapprochez-vous de vos gestionnaires iPackEPS d'établissement.</li>
                 </ul>
@@ -1342,7 +1378,7 @@ Question de l'agent : {prompt}
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         # Rendu visuel propre
-        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note:
+        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

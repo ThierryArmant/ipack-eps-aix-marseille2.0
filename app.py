@@ -1188,13 +1188,26 @@ Question de l'agent : {prompt}
             </ul>
             """
         elif est_santorin_direct:
-            # Court-circuit Santorin total avec injection du guide du Pôle Examens GitHub Pages
-            texte_brut = extraits_doc + """
-            <br>
+            # Court-circuit Santorin total avec affichage propre et ciblé (sans pollution du web)
+            texte_brut = """
+            <h3>📊 EXAMENS & SANTORIN : CALENDRIER & DATES BUTOIRS 2026</h3>
+            <strong>Statut administratif : Verrous impératifs des serveurs nationaux.</strong><br><br>
+            
+            <h3>1. ANALYSE DES RISQUES DE FORCLUSION</h3>
+            <ul>
+            <li>⚠️ <strong>Risque de verrouillage :</strong> Passée la date butoir, les serveurs Santorin basculent automatiquement en lecture seule. Plus aucune modification de note ou de saisie d'appréciation n'est techniquement possible sur Arena.</li>
+            </ul>
+            
+            <h3>2. CALENDRIER OFFICIEL RECONNU (SESSION 2026)</h3>
+            <ul>
+            <li>➔ <strong>Académie d'Aix-Marseille :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au <strong>30 mai 2026 au soir</strong>. Toute autre date (comme le 30 mars) est rigoureusement fausse.</li>
+            <li>➔ <strong>Académie de Créteil :</strong> La clôture nationale et le verrouillage de l'application sont fixés au <strong>9 juin 2026 au soir</strong>.</li>
+            <li>➔ <strong>Autres académies :</strong> Les calendriers étant spécifiques, connectez-vous sur votre portail académique ou rapprochez-vous de vos gestionnaires iPackEPS d'établissement.</li>
+            </ul>
+            
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir pour Aix-Marseille, le 9 juin pour Créteil, pour les autres académies rapprochez-vous de vos gestionnaires IpackEPS.</li>
             </ul>
             """
         else:

@@ -1155,7 +1155,7 @@ Question de l'agent : {prompt}
         ])
         est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
             "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
+            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini", "date", "limite", "saisie", "saisi", "calendrier", "clôture"
         ])
         # Nouveau verrou de sécurité : Anti-bricolage / Forçage de notes au Bac (Cas unique note)
         est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in [

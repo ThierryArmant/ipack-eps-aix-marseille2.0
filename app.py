@@ -1201,7 +1201,7 @@ Question de l'agent : {prompt}
             <h3>2. CALENDRIER OFFICIEL RECONNU (SESSION 2026)</h3>
             <ul>
             <li>➔ <strong>Académie d'Aix-Marseille :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au <strong>30 mai 2026 au soir</strong>. Toute autre date (comme le 30 mars) est rigoureusement fausse.</li>
-            <li>➔ <strong>Académie de Créteil :</strong> La clôture nationale et le verrouillage de l'application sont fixés au <strong>9 juin 2026 au soir</strong>.</li>
+            <li>➔ <strong>Académie de Créteil :</strong> La date limite de saisie est fixée au <strong>9 juin 2026 au soir</strong>.</li>
             <li>➔ <strong>Autres académies :</strong> Les calendriers étant spécifiques, connectez-vous sur votre portail académique ou rapprochez-vous de vos gestionnaires iPackEPS d'établissement.</li>
             </ul>
             

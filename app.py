@@ -1010,7 +1010,7 @@ if prompt:
                 "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
                 "<h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite absolue de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute autre date est rigoureusement fausse.\n"
+                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite de saisie des notes dans santorin est différente selon les académie, par exemple le 30 mai 2026 pour l'académie d'Aix Marseille, le 9 juin pour celle de Créteil les dates étant spécifiques je ne pourrais pas répondre pour toutes les académies.\n"
                 "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"

@@ -420,7 +420,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -747,29 +747,6 @@ if prompt:
                         mot_cle = mot_cle.replace(verbe, "")
                     mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
 
-                    domains_prioritaires = ["pedagogie.ac-aix-marseille.fr", "legifrance.gouv.fr", "education.gouv.fr", "eduscol.education.gouv.fr"]
-                    requete_blindee = f"EPS {mot_cle} loi laïcité code de l'éducation circulaire décret arrêté BO"
-                    
-                    payload = {
-                        "api_key": tavily_api_key, 
-                        "query": requete_blindee, 
-                        "search_depth": "advanced", 
-                        "include_domains": domains_prioritaires
-                    }
-                    
-                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                    results = res.json().get("results", []) if res.status_code == 200 else []
-                    
-                    if not results:
-                        payload["include_domains"] = domaine_eps_france
-                        res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                        results = res.json().get("results", []) if res.status_code == 200 else []
-                    
-                    for item in results: 
-                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
-                    
-                    tavily_deja_execute = True
-                
                 elif mode == "examens":
                     requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
                     domains = ["education.gouv.fr"] + domaine_eps_france
@@ -851,10 +828,10 @@ if prompt:
                             extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                             
                 elif mode == "ipack":
-                    # 1. Détection du cas spécifique : Dossier validé par le Chef / Bilan oublié
+                    # Détection du cas spécifique : Dossier validé par le Chef / Bilan oublié (nettoyé des faux positifs)
                     est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
                         "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "plus la main", 
-                        "modifier après validation", "redonner la main", "bilan sss", "projet sss", "section sportive"])
+                        "modifier après validation", "redonner la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
                     
                     if est_dossier_verrouille_chef:
                         extraits_doc = """
@@ -876,7 +853,7 @@ if prompt:
                         # 2. Conservation stricte de ton RAG de confiance pour toutes les autres requêtes iPack
                         for n in retriever_ipack.retrieve(prompt): 
                             extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
-                
+                        
                 elif mode == "textes":
                     mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: 
@@ -911,7 +888,7 @@ if prompt:
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
             "POSTURE DE L'IA : Tu es un haut fonctionnaire du contentieux. Tu ne 'conseilles' pas, tu 'constates'. "
             "Tu bannis toute formule de politesse (ex: 'Il est couteux de', 'Je vous recommande'). "
-            "Tu adoptes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
+            "Tu adopes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
         )
         badge = "INFORMATION"
         color_card = "general-card"
@@ -932,7 +909,7 @@ if prompt:
             
             if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
-            elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
+            elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "groupe", "constituer", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
                 liens_selectionnes.extend([liens_utiles["video_import"], liens_utiles["rubrique2"]])
             elif any(x in prompt_lower for x in ["inapte", "dispense", "bless", "note", "bloqu", "certificat", "médical", "cm"]):
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
@@ -1068,7 +1045,7 @@ Question de l'agent : {prompt}
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour Unicode la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
             # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
@@ -1146,16 +1123,19 @@ Question de l'agent : {prompt}
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
     # 4. EXÉCUTION ET RENDU HTML
-       # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
+        # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
         prompt_lower_eval = prompt.lower()
         est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
         est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
             "validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
-            "oublie le bilan", "oublié le bilan", "plus la main", "bilan sss", "section sportive"
+            "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"
         ])
         est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
             "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini", "date", "limite", "saisie", "saisi", "calendrier", "clôture"
+            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini", "date", "limite", "calendrier", "clôture", "cloture", "butoir"
+        ])
+        est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
+            "constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"
         ])
         # Nouveau verrou de sécurité : Anti-bricolage / Forçage de notes au Bac (Cas unique note)
         est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in [
@@ -1164,6 +1144,33 @@ Question de l'agent : {prompt}
 
         if est_tasa_direct or est_sss_direct:
             texte_brut = extraits_doc  # Court-circuit historique TASA / SSS
+        elif est_groupes_direct:
+            # Court-circuit Structure iPackEPS pour un rendu visuel premium avec vidéos
+            texte_brut = """
+            <h3>🛠️ IPACKEPS : CONSTITUTION DES CLASSES ET DES GROUPES</h3>
+            <strong>Nomenclature officielle : Configuration obligatoire avant tout import d'élèves.</strong><br><br>
+            
+            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <ul>
+            <li>🛑 <strong>Risque de désynchronisation :</strong> Si la structure des classes n'est pas configurée *avant* l'import Pronote/SIECLE, les élèves se retrouveront orphelins sans affectation possible.</li>
+            <li>⚠️ <strong>Risque de blocage des protocoles :</strong> Un groupe mal associé à sa filière (LGT vs LP) verrouille l'accès aux matrices d'évaluation nationales correspondantes.</li>
+            </ul>
+            
+            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
+            <ul>
+            <li>➔ <strong>Étape 1 (Initialisation) :</strong> Connectez-vous à votre console et accédez au menu supérieur **[Dossiers]**.</li>
+            <li>➔ <strong>Étape 2 (Nomenclature) :</strong> Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]** pour associer chaque division à son cycle d'enseignement.</li>
+            <li>➔ <strong>Étape 3 (Filières) :</strong> Basculez sur l'onglet **[Organisation des Classes]** pour valider la répartition réglementaire (Générale, Technologique ou Professionnelle).</li>
+            <li>➔ <strong>Étape 4 (Peuplement) :</strong> Rendez-vous dans le module **[Mes Élèves]** pour injecter votre fichier d'extraction Pronote ou SIECLE.</li>
+            </ul>
+            
+            <h3>3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
+            <ul>
+            <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote</a></li>
+            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
+            </ul>
+            """
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
         elif est_bricolage_note:
             # Court-circuit direct contre la triche ou le forçage réglementaire
             texte_brut = """
@@ -1225,7 +1232,7 @@ Question de l'agent : {prompt}
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         # Rendu visuel propre
-        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct:
+        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

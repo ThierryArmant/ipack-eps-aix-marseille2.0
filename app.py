@@ -668,6 +668,8 @@ with col_action_clear:
         st.cache_resource.clear()
         st.session_state.messages_hub = []
         st.rerun()
+    # DISJONCTEUR FINANCIER TAVILY :
+    activer_web = st.toggle("🌐 Recherche Web", value=False, help="Active la recherche web sémantique externe si la bibliothèque locale ne trouve rien.")
 
 with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
@@ -721,6 +723,7 @@ if prompt:
         extraits_doc = ""
         mode = st.session_state.active_module
         prompt_lower = prompt.lower()
+        prompt_lower_eval = prompt_lower
         
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt_lower for mot in mots_terrain)
@@ -735,132 +738,104 @@ if prompt:
                     verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
         except:
             pass
+
+        # --- 🛡️ FILTRES DE DÉTECTION CHIRURGICAUX (AVEC EXCLUSIONS AVANT LE MOTEUR) ---
+        est_date_notes_direct = any(x in prompt_lower_eval for x in ["date", "quand", "calendrier", "remise", "butoir", "limite", "échéance", "echeance"]) and any(x in prompt_lower_eval for x in ["note", "saisie", "saisir", "rendre", "remettre", "clôture", "cloture", "clore", "lot", "copie", "santorin", "ipack"])
         
-        # 1. MOTEUR WEB (Tavily)
-        if tavily_api_key:
-            try:
-                domains = domaine_eps_france
-                requete_blindee = prompt
-                exclude = []
-                tavily_deja_execute = False
+        # Urgence Santorin : Le prof a déjà envoyé ou validé ses notes et veut corriger une erreur
+        est_erreur_validation_santorin = mode == "examens" and any(x in prompt_lower_eval for x in ["verrouillé", "verrouille", "plus la main", "déposé mes notes", "depose mes notes", "déjà validé", "deja valide", "lot clos", "lot fermé"]) and any(x in prompt_lower_eval for x in ["erreur", "modifier", "modification", "trompé", "trompe", "boulette", "correction"])
+        
+        # Saisie simple inaptes Santorin : S'active UNIQUEMENT s'il n'y a pas de notion de blocage, de bug d'erreur après coup ou de rattrapage
+        est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["inapte", "dispense", "dispensé", "absent", "absente", "absents", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"]) and not any(y in prompt_lower_eval for y in [
+            "verrouillé", "verrouille", "plus la main", "bloqué", "bloque", "case blanche",
+            "erreur", "trompé", "trompe", "modifier", "modification", "supprimer", "effacer", "corriger", "écraser", "ecraser",
+            "grisé", "grise", "pas cliquer", "cadenas", "lecture seule",
+            "forcer", "calculer", "calcul", "moyenne", "prorata", "bricoler", "bidouiller", "une seule note", "seule note", "jury", "harmonisation",
+            "rattrapage", "substitution", "remplacement", "convocation", "convoqué", "convoqu"
+        ])
 
-                if mode == "textes":
-                    mot_cle = prompt_lower
-                    for exp in expressions_inutiles:
-                        mot_cle = mot_cle.replace(exp, "")
-                    for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]:
-                        mot_cle = mot_cle.replace(verbe, "")
-                    mot_cle = mot_cle.strip() if mot_cle.strip() else prompt
+        est_grise_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["grisé", "grise", "bloqué", "bloque", "case vide", "pas cliquer", "bouton actif", "boutons aflp"])
+        est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in ["forcer la note", "prorata", "calculer la note", "bloque les cases", "une seule note", "seule note"])
+        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire", "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
+        
+        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
+        est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement", "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
+        est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"])
+        est_nouvel_eleve_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["arriv", "nouveau", "nouvel", "ajouter un eleve", "ajouter un élève", "eleve inconnu", "élève inconnu", "nouvelle liste"])
+        
+        est_remplacement_reunion_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["remplace", "remplaç", "remplac"]) and any(x in prompt_lower_eval for x in ["réunion", "reunion", "commission", "convocation", "convoqu"])
 
-                elif mode == "examens":
-                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
-                    domains = ["education.gouv.fr"] + domaine_eps_france
-                
-                elif mode == "ipack":
-                    requete_blindee = f"rubrique4 {prompt}"
-                    domains = ["ipackeps.ac-creteil.fr"]
-                    exclude = ["youtube.com"]
-                
-                elif mode == "peda":
-                    requete_blindee = f"{prompt} programme officiel EPS attendus de fin de cycle"
-                    domains = domaine_eps_france
-                
-                elif est_demande_fiche:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = domaine_eps_france
-                
-                else:
-                    requete_blindee = f"{prompt} EPS programme officiel"
-                    domains = ["eduscol.education.gouv.fr", "unss.org"]
+        est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_groupes_direct or est_nouvel_eleve_direct or est_bricolage_note or est_grise_direct or est_inapte_santorin_direct or est_remplacement_reunion_direct)
 
-                if not tavily_deja_execute:
-                    payload = {
-                        "api_key": tavily_api_key, 
-                        "query": requete_blindee, 
-                        "search_depth": "advanced", 
-                        "include_domains": domains
-                    }
-                    if exclude:
-                        payload["exclude_domains"] = exclude
-                    
-                    res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
-                    if res.status_code == 200:
-                        for item in res.json().get("results", []): 
-                            extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
-            except: 
-                pass
-
-        # 2. CONTEXTE LOCAL 
-        if openai_api_key:
+        # 1. MOTEUR LOCAL EN PRIORITÉ ABSOLUE (Coût 0)
+        extraits_locaux = ""
+        if openai_api_key and not est_cas_blindé_racine:
             try:
                 if mode == "examens":
                     veut_appreciations = any(x in prompt_lower for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"])
                     a_bug_de_lot = any(x in prompt_lower for x in ["aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
 
-                    if veut_appreciations:
-                        extraits_doc = """
-                        <h3>📊 EXAMENS & SANTORIN : LA RÈGLE DES APPRÉCIATIONS</h3>
-                        <strong>Statut réglementaire : Facultatif (Idée reçue du terrain).</strong><br><br>
-                        <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-                        <ul>
-                        <li> Saisissez uniquement les notes d'AFL. Laissez la case appréciation VIDE pour les élèves ordinaires.</li>
-                        <li><strong>Exception Obligatoire :</strong> Le commentaire devient STRICTEMENT OBLIGATOIRE uniquement pour justifier un statut d'alerte, une notation atypique ou un aménagement (ex: un élève avec 2 dispenses + 1 note, ou basculé en statut DI).</li>
-                        </ul>
-                        """
-                    elif a_bug_de_lot:
-                        extraits_doc = """
-                        <h3>📊 EXAMENS & SANTORIN : PROTOCOLE "AUCUN LOT À CORRIGER"</h3>
-                        <strong>Statut de l'erreur : Problème d'aiguillage Direction / DIEC.</strong><br><br>
-                        <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
-                        <ul>
-                        <li><strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
-                        <li><strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
-                        <li><strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
-                        </ul>
-                        """
-                    else:
+                    if not (veut_appreciations or a_bug_de_lot):
                         for n in retriever_santorin.retrieve(prompt): 
-                            extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
+                            extraits_locaux += f"Santorin/Examen: {n.node.text}\n\n"
                             
                 elif mode == "ipack":
-                    est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
-                        "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "plus la main", 
-                        "modifier après validation", "redonner la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
-                    
-                    if est_dossier_verrouille_chef:
-                        extraits_doc = """
-                        <h3>PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
-                        <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
-                        <h3>➔ LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
-                        <ul>
-                        <li><strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
-                        <li><strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
-                        <li><strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
-                        </ul>
-                        """
-                    else:
+                    est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement", "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
+                    if not est_dossier_verrouille_chef:
                         for n in retriever_ipack.retrieve(prompt): 
-                            extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                            extraits_locaux += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                         
                 elif mode == "textes":
                     mot_cle_local = prompt_lower
                     for exp in expressions_inutiles: 
                         mot_cle_local = mot_cle_local.replace(exp, "")
-                    
                     requete_extraction = mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt
-                    try:
-                        for n in retriever_textes.retrieve(requete_extraction): 
-                            extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
-                    except:
-                        pass
+                    for n in retriever_textes.retrieve(requete_extraction): 
+                        extraits_locaux += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
 
                 elif mode == "peda":
                     for n in retriever_peda.retrieve(prompt):
-                        extraits_doc += f"Ressource Pédagogique Locale : {n.node.text}\n\n"
+                        extraits_locaux += f"Ressource Pédagogique Locale : {n.node.text}\n\n"
             except: 
                 pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE OPTIMISÉ POUR COUVRIR TOUTE L'IA ET CACHER SA CURIOSITÉ)
+        extraits_doc += extraits_locaux
+
+        # 2. DISJONCTEUR CASCADE : APPEL TAVILY CONDITIONNÉ (Uniquement si coché, hors iPack, et si la bibliothèque locale est vide)
+        if tavily_api_key and activer_web and mode != "ipack" and not est_cas_blindé_racine and len(extraits_locaux.strip()) == 0:
+            try:
+                domains = domaine_eps_france
+                requete_blindee = prompt
+
+                if mode == "textes":
+                    mot_cle = prompt_lower
+                    for exp in expressions_inutiles: mot_cle = mot_cle.replace(exp, "")
+                    for verbe in ["savoir si", "refuser une", "refuser un", "concerne le", "concerne la"]: mot_cle = mot_cle.replace(verbe, "")
+                    requete_blindee = mot_cle.strip() if mot_cle.strip() else prompt
+                elif mode == "examens":
+                    requete_blindee = f"{prompt} réglementation examen Santorin Cyclades"
+                    domains = ["education.gouv.fr"] + domaine_eps_france
+                elif mode == "peda":
+                    requete_blindee = f"{prompt} programme officiel EPS attendus de fin de cycle"
+                    domains = domaine_eps_france
+                else:
+                    requete_blindee = f"{prompt} EPS programme officiel"
+                    domains = ["eduscol.education.gouv.fr", "unss.org"]
+                
+                payload = {
+                    "api_key": tavily_api_key, 
+                    "query": requete_blindee, 
+                    "search_depth": "advanced", 
+                    "include_domains": domains
+                }
+                res = requests.post("https://api.tavily.com/search", json=payload, timeout=15)
+                if res.status_code == 200:
+                    for item in res.json().get("results", []): 
+                        extraits_doc += f"Source Web ({item['title']}): {item['content']} - URL: {item['url']}\n\n"
+            except: 
+                pass
+
+        # 3. STRUCTURES DE SORTIE ET ATTRIBUTIONS
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
             "\nMÉTHODE DE RENDU STRICT À RESPECTER SANS CONSEIL NI EMPATHIE :\n"
@@ -888,9 +863,7 @@ if prompt:
                 "video_import": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote](https://youtu.be/RlScDjd8kHk)",
                 "video_proto": "- [🎥 Cliquer ici pour voir le tutoriel vidéo : Configuration et Gestion des Protocoles](https://youtu.be/Bq7_ooQuZtU)"
             }
-
             liens_selectionnes = []
-            
             if any(x in prompt_lower for x in ["cap", "bac", "examen", "ccf", "protocole", "épreuve", "supprimer", "effacer", "retirer", "groupe", "répartir", "affecte"]):
                 liens_selectionnes.extend([liens_utiles["video_proto"], liens_utiles["rubrique7"]])
             elif any(x in prompt_lower for x in ["import", "xml", "pronote", "doublon", "classe", "groupe", "constituer", "nouvel élève", "introuvable", "manuellement", "ajouter un élève"]):
@@ -899,7 +872,6 @@ if prompt:
                 liens_selectionnes.extend([liens_utiles["video_inapt"], liens_utiles["rubrique4"]])
             else:
                 liens_selectionnes.extend([liens_utiles["rubrique4"], liens_utiles["rubrique7"]])
-
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
             consigne_ia = (
@@ -929,7 +901,7 @@ if prompt:
                 "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
                 "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
-                "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
+                "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant._LINE_BREAK_"
                 "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
                 f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
@@ -942,16 +914,13 @@ if prompt:
                 "portail_santorin": "- [🌐 Accéder au Portail d'assistance et Fiches Mémo Santorin Académique](https://www.ac-aix-marseille.fr/santorin)",
                 "base_ecole": "- [🧪 Accéder à la Base École Santorin (Plateforme officielle de simulation)](https://santorin-ecole.phm.education.gouv.fr/inscription/correcteur)"
             }
-
             liens_selectionnes = []
-            
             if any(x in prompt_lower for x in ["simul", "entraîn", "test", "école", "faux", "s'exercer"]):
                 liens_selectionnes.extend([liens_utiles["base_ecole"], liens_utiles["webinaire_eps"]])
-            elif any(x in prompt_lower for x in ["absent", "dispense", "inapte", "neutralis", "substitution", "bless", "aflp"]):
+            elif any(x in prompt_lower for x in ["absent", "dispense", "inapte", "neutralis", "substitution", "bless", "aflp", "verroui"]):
                 liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
             else:
                 liens_selectionnes.extend([liens_utiles["webinaire_eps"], liens_utiles["portail_santorin"]])
-
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
             consigne_ia = (
@@ -992,7 +961,6 @@ Question de l'agent : {prompt}
 
         elif mode == "peda":
             est_lycee = any(x in prompt_lower for x in ["lycée", "lycee", "bac", "terminale", "première", "premiere", "seconde", "cap", "bac pro"])
-            
             niveau_affiche = "Lycée (Baccalauréat / CAP)" if est_lycee else "Cycle 4 (Collège)"
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
             label_competence = "Axe des compétences visées"
@@ -1021,7 +989,7 @@ Question de l'agent : {prompt}
                     ca_competences = "Stabiliser des formes corporelles complexes. Maîtriser les risques et l'esthétique du geste. Formuler un avis critique technique."
                 else:
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
-                    ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
+                    ca_competences = "Élaborer et réaliser un projet pour provoquer une emotion ou un message. Utiliser des procédés simples de composition."
 
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
@@ -1069,43 +1037,19 @@ Question de l'agent : {prompt}
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
-    # 4. EXÉCUTION ET RENDU HTML
-        # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
-        prompt_lower_eval = prompt.lower()
-        
-        # SÉCURISATION CALENDRIER : Verrou absolu sur les questions de dates et d'échéances pour couper court aux hallucinations
-        est_date_notes_direct = any(x in prompt_lower_eval for x in ["date", "quand", "calendrier", "remise", "butoir", "limite", "échéance", "echeance"]) and any(x in prompt_lower_eval for x in ["note", "saisie", "saisir", "rendre", "remettre", "clôture", "cloture", "clore", "lot", "copie", "santorin", "ipack"])
-
-        # Inaptes/Absents Santorin : gère le "0" ou l'absence (Priorité Haute)
-        est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["inapte", "dispense", "dispensé", "absent", "absente", "absents", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"])
-
-        # Bugs techniques Santorin (Priorité Secondaire)
-        est_grise_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["grisé", "grise", "bloqué", "bloque", "pas cliquer", "bouton actif", "boutons aflp"])
-        est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in ["forcer la note", "prorata", "calculer la note", "bloque les cases", "une seule note", "seule note"])
-        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire", "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
-
-        # iPackEPS
-        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
-        est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement", "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
-        est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"])
-        est_nouvel_eleve_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["arriv", "nouveau", "nouvel", "ajouter un eleve", "ajouter un élève", "eleve inconnu", "élève inconnu", "nouvelle liste"])
-        
-        # Remplacements
-        est_remplacement_reunion_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["remplace", "remplaç", "remplac"]) and any(x in prompt_lower_eval for x in ["réunion", "reunion", "commission", "convocation", "convoqu"])
-
+        # --- BLOC D'EXÉCUTION FINAL DU SYSTÈME DE VÉRROUILLAGE ---
         if est_tasa_direct or est_sss_direct:
             texte_brut = extraits_doc.replace("<h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>", "").replace("<h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>", "")
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_date_notes_direct:
             texte_brut = """
             <h3>📊 CALENDRIER & DATES DE REMISE DES NOTES</h3>
             <strong>Statut administratif : Spécificités académiques locales.</strong><br><br>
-            
             <h3>➔ RÈGLE INSTITUTIONNELLE FIXE</h3>
             <ul>
             <li><strong>Notification officielle :</strong> Les dates étant différentes pour chaque académie, je ne suis pas en mesure de vous répondre. Rapprochez-vous de vos correspondants pour avoir cette information.</li>
             </ul>
-            
             <h3>📁 CADRE OFFICIEL DE RÉFÉRENCE</h3>
             <ul>
             <li><strong>Source de vérité :</strong> Seuls les calendriers émis par la Division des Examens et Concours (DEC) de votre académie de rattachement et transmis par votre chef d'établissement font foi.</li>
@@ -1113,11 +1057,28 @@ Question de l'agent : {prompt}
             """
             badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
+        elif est_erreur_validation_santorin:
+            texte_brut = """
+            <h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION DU LOT</h3>
+            <strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><br>
+            <h3>➔ PROCÉDURE TECHNIQUE & ADMINISTRATIVE D'URGENCE</h3>
+            <ul>
+            <li><strong>Étape 1 (Alerte Interne) :</strong> Ne tentez pas de manipuler l'interface informatique. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li>
+            <li><strong>Étape 2 (Demande de déverrouillage) :</strong> Le chef d'établissement ou le coordonnateur principal doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) du Rectorat pour demander un <strong>[Renvoi en modification]</strong> ou un rejet informatique du lot.</li>
+            <li><strong>Étape 3 (Correction) :</strong> Une fois que la DEC a libéré informatiquement le dossier, l'icône "crayon" redevient active dans votre tableau de bord Santorin. Vous pouvez alors écraser le statut erroné, saisir les points AFL réels de l'élève, puis valider à nouveau le lot.</li>
+            <li>⚠️ <strong>Si la plateforme est close :</strong> Si les serveurs nationaux sont définitivement clos, consignez l'erreur manuellement sur votre bordereau papier signé et transmettez-le directement au <strong>Jury Académique d'Harmonisation</strong> via Cyclades pour correction lors des délibérations.</li>
+            </ul>
+            <h3>📁 CADRE OFFICIEL DE RÉFÉRENCE</h3>
+            <ul>
+            <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Consulter les Directives de transmission DEC / DIEC Aix-Marseille</a></li>
+            </ul>
+            """
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
         elif est_groupes_direct:
             texte_brut = """
             <h3>🛠️ IPACKEPS : CONSTITUTION DES CLASSES ET DES GROUPES</h3>
             <strong>Nomenclature officielle : Configuration obligatoire avant tout import d'élèves.</strong><br><br>
-            
             <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
             <li><strong>Étape 1 (Initialisation) :</strong> Connectez-vous à votre console et accédez au menu supérieur **[Dossiers]**.</li>
@@ -1125,7 +1086,6 @@ Question de l'agent : {prompt}
             <li><strong>Étape 3 (Filières) :</strong> Basculez sur l'onglet **[Organisation des Classes]** pour valider la répartition réglementaire (Générale, Technologique ou Professionnelle).</li>
             <li><strong>Étape 4 (Peuplement) :</strong> Rendez-vous dans le module **[Mes Élèves]** pour injecter votre fichier d'extraction Pronote ou SIECLE.</li>
             </ul>
-            
             <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
             <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Import d'élèves depuis Pronote</a></li>
@@ -1138,7 +1098,6 @@ Question de l'agent : {prompt}
             texte_brut = """
             <h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>
             <strong>Nomenclature officielle : Interdiction absolue de création manuelle isolée dans l'application.</strong><br><br>
-            
             <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
             <li><strong>Étape 1 (Mise à jour SIÈCLE) :</strong> Assurez-vous auprès du secrétariat de l'établissement que le nouvel élève a bien été enregistré et affecté dans sa classe sur la base nationale <strong>SIÈCLE</strong>.</li>
@@ -1146,7 +1105,6 @@ Question de l'agent : {prompt}
             <li><strong>Étape 3 (Importation iPack) :</strong> Connectez-vous à iPackEPS, ouvrez le module **[Mes Élèves]** et cliquez sur le bouton officiel **[Importer un fichier d'élèves]**.</li>
             <li><strong>Étape 4 (Fusion des bases) :</strong> Téléversez votre nouveau fichier. L'application va détecter automatiquement le nouvel arrivant et l'ajouter à sa division sans altérer les notes des autres élèves.</li>
             </ul>
-            
             <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
             <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Import d'élèves depuis Pronote</a></li>
@@ -1177,13 +1135,11 @@ Question de l'agent : {prompt}
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : BOUTONS OU CASES GRISÉES</h3>
             <strong>Statut technique : Conflit de modification ou défaut de sélection de lot.</strong><br><br>
-            
             <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
             <li><strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'interface bascule en lecture seule (boutons grisés) pour tous les autres correcteurs. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte.</strong></li>
             <li><strong>Cas 2 (Défaut de sélection active) :</strong> Les cases restent bridées tant que le lot n'est pas déplié. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur [Voir le détail], puis sélectionnez le nom du candidat pour activer la grille.</strong></li>
             </ul>
-            
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
@@ -1195,20 +1151,18 @@ Question de l'agent : {prompt}
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET ABSENTS AU CCF</h3>
             <strong>Cadre réglementaire académique : Saisie obligatoire des notes particulières dans l'interface de notation.</strong><br><br>
-            
             <h3>➔ PROCÉDURE TECHNIQUE DE SAISIE (DIRECTIVES DIEC / DEC AIX-MARSEILLE)</h3>
             <ul>
             <li><strong>Étape 1 (Accès Mission) :</strong> Connectez-vous à Arena, ouvrez l'activité **[Portail d'accès aux missions]** puis sélectionnez votre mission **[Notation EPS CCF]**.</li>
             <li><strong>Étape 2 (Ouverture du Lot) :</strong> Dans votre tableau de bord Santorin, ouvrez votre lot d'APSA et cliquez sur l'icône "crayon" d'accès à la notation du candidat concerné.</li>
             <li><strong>Étape 3 (Saisie de la Note Particulière) :</strong> Dans la zone de notation de l'APSA, n'entrez pas de points AFL, mais ouvrez le menu déroulant officiel des **[Notes particulières]** :</li>
             <ul>
-                <li>🔹 <strong>Dispense (DI) :</strong> À sélectionner si l'élève présente un certificat médical d'inaptitude valide. Cela neutralise l'APSA (elle sort de la moyenne sans pénaliser l'élève).</li>
+                <li>🔹 <strong>Dispense (DI) :</strong> À sélectionner si l'élève presents un certificat médical d'inaptitude valide. Cela neutralise l'APSA (elle sort de la moyenne sans pénaliser l'élève).</li>
                 <li>🔹 <strong>Absent (AB) :</strong> À sélectionner en cas d'absence non justifiée lors de l'évaluation (vaut note zéro).</li>
                 <li>🔹 <strong>Épreuve de substitution :</strong> À cocher si l'élève est renvoyé à la session de rattrapage (motif : *Inapte* ou *Force majeure*).</li>
             </ul>
             <li><strong>Étape 4 (Cas des SHN) :</strong> Pour les Sportifs de Haut Niveau, le clic sur le crayon ouvre un volet spécifique permettant d'appliquer la note réglementaire de 20/20.</li>
             </ul>
-            
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Webinaire de Formation Officiel Santorin EPS (Académie d'Aix-Marseille)</a></li>
@@ -1220,14 +1174,12 @@ Question de l'agent : {prompt}
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : REMPLACEMENT EN SOUS-COMMISSION / JURY</h3>
             <strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br><br>
-            
             <h3>➔ PROCÉDURE TECHNIQUE & ADMINISTRATIVE IMMÉDIATE</h3>
             <ul>
             <li><strong>Étape 1 (Alerte Secrétariat) :</strong> Le secrétariat de direction de l'établissement doit contacter immédiatement le gestionnaire de l'examen au sein de la Division des Examens et Concours (DEC) du Rectorat.</li>
             <li><strong>Étape 2 (Régularisation nominative) :</strong> Demander l'émission d'un modificatif officiel de convocation ou d'un ordre de mission exprès au nom de l'enseignant remplaçant pour valider sa couverture juridique (accidents de trajet) et ses frais Chorus DT.</li>
             <li><strong>Étape 3 (Bascule Santorin / Imag'in) :</strong> Si le remplacement inclut la notation, le secrétariat doit valider la suppléance sur Imag'in et cliquer sur l'icône [PDF] pour injecter les accès de l'agent.</li>
             </ul>
-            
             <h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>
             <ul>
             <li>📁 <span class="law-highlight">Code de l'éducation</span> : La participation aux jurys d'examens nationaux constitue une obligation statutaire. L'exercice de cette mission is conditionné à la détention d'un titre de convocation régulier émis par l'autorité académique.</li>
@@ -1239,12 +1191,11 @@ Question de l'agent : {prompt}
             response = Settings.llm.complete(consigne_ia) 
             texte_brut = response.text
             
-            # 🛠️ SÉCURITÉ DE REMONTÉE ENÉRGÉTIQUE : Injection forcée en Python pour empêcher l'IA d'effacer les tutoriels de bassin
+            # Injection sécurisée en Python pour empêcher l'IA d'effacer les tutoriels de bassin
             if mode == "ipack" and 'bloc_liens_dynamique' in locals():
                 texte_brut += f"\n\n<h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n{bloc_liens_dynamique}"
             elif mode == "examens" and 'bloc_liens_dynamique' in locals():
                 texte_brut += f"\n\n<h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n{bloc_liens_dynamique}"
-        # --- FIN DU BLOC DE SÉCURITÉ ---
         
         # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie
         texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Règlement\s+général\s+sur\s+les\s+données|Code\s+de\s+l\'éducation|Code\s+civil|Loi\s+du\s+15\s+mars\s+2004)', r'<span class="law-highlight">\1</span>', texte_brut)
@@ -1260,7 +1211,7 @@ Question de l'agent : {prompt}
             lignes_nettoyees.append(ligne)
         texte_brut = "<br>".join(lignes_nettoyees)
         
-        # 🎥 DÉTECTEUR ABSOLU : Extraction chirurgicale des liens YouTube depuis le texte final ET les variables de bassin
+        # 🎥 DÉTECTEUR DE LIENS VIDÉOS (Scanne la réponse et les variables d'environnement)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         if 'liens_selectionnes' in locals() and liens_selectionnes:
             for l_sec in liens_selectionnes:
@@ -1269,7 +1220,7 @@ Question de l'agent : {prompt}
                     youtube_links.extend(yt_raw)
 
         # Rendu visuel propre et direct
-        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_date_notes_direct:
+        if mode == "peda" or est_cas_blindé_racine or est_tasa_direct or est_sss_direct or est_santorin_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:
@@ -1278,7 +1229,7 @@ Question de l'agent : {prompt}
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # Déploiement étanche du lecteur vidéo en dehors du conteneur HTML
+        # PERSISTANCE DES VIDÉOS : Injection dans l'historique Streamlit pour éviter l'effacement au rerun
         for link in youtube_links:
             clean_link = link[0].split('"')[0].split("'")[0].replace(">", "").replace("<", "").strip()
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{clean_link}')"})

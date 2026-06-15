@@ -113,7 +113,7 @@ css_pur = """
         gap: 15px;
     }
     
-    .hub-title h1 { 
+    .title-row h1 { 
         color: white !important; 
         margin: 0 !important; 
         font-size: 28px !important; 
@@ -357,10 +357,10 @@ if openai_api_key:
 def obtenir_cle_fichier():
     mtimes = []
     
-    fichier_pierre = "gere_par_pierre.txt"
-    if os.path.exists(fichier_pierre):
-        try: mtimes.append(os.path.getmtime(fichier_pierre))
-        except: pass
+    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+        if os.path.exists(fp):
+            try: mtimes.append(os.path.getmtime(fp))
+            except: pass
             
     chemin_textes = "data/textes/base_textes_officiels.txt"
     if os.path.exists(chemin_textes):
@@ -389,14 +389,14 @@ def obtenir_cle_fichier():
 # --- 🛠️ CHARGEUR ÉTANCHE DU FICHIER DE RÈGLES RACINE ---
 def charger_consignes_pierre():
     documents_charges = []
-    fichier_cible = "gere_par_pierre.txt"
-    if os.path.exists(fichier_cible):
-        try:
-            with open(fichier_cible, "r", encoding="utf-8") as f:
-                contenu_fichier = f.read()
-            documents_charges.append(Document(text=contenu_fichier, metadata={"source": "Règles de Pierre (gere_par_pierre.txt)"}))
-        except Exception:
-            pass
+    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+        if os.path.exists(fp):
+            try:
+                with open(fp, "r", encoding="utf-8") as f:
+                    contenu_fichier = f.read()
+                documents_charges.append(Document(text=contenu_fichier, metadata={"source": f"Règles de Pierre ({fp})"}))
+            except Exception:
+                pass
     return documents_charges
 
 # --- 📊 BASE DE DONNÉES SANCTORIN SCOLAIRE SANCTUARISÉE ---
@@ -727,7 +727,10 @@ if prompt:
         
         verites_terrain_pierre = ""
         try:
-            if os.path.exists("gere_par_pierre.txt"):
+            if os.path.exists("get_par_pierre.txt"):
+                with open("get_par_pierre.txt", "r", encoding="utf-8", errors="ignore") as f:
+                    verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
+            elif os.path.exists("gere_par_pierre.txt"):
                 with open("gere_par_pierre.txt", "r", encoding="utf-8", errors="ignore") as f:
                     verites_terrain_pierre += "\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
         except:
@@ -791,7 +794,7 @@ if prompt:
         if openai_api_key:
             try:
                 if mode == "examens":
-                    # Détection chirurgicale des deux requêtes critiques Santorin
+                    # Détection chirurgicale des requêtes critiques Santorin
                     veut_appreciations = any(x in prompt_lower for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"])
                     a_bug_de_lot = any(x in prompt_lower for x in ["aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
 
@@ -818,7 +821,7 @@ if prompt:
                         <ul>
                         <li><strong>Risque de blocage :</strong> Tant que le lot n'est pas généré, l'enseignant est dans l'impossibilité physique de saisir ses notes d'AFL, mettant en péril la date limite nationale.</li>
                         </ul>
-                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION (CÔTÉ DIRECTION)</h3>
+                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
                         <ul>
                         <li>➔ <strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
                         <li>➔ <strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
@@ -889,7 +892,7 @@ if prompt:
             "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
             "POSTURE DE L'IA : Tu es un haut fonctionnaire du contentieux. Tu ne 'conseilles' pas, tu 'constates'. "
             "Tu bannis toute formule de politesse (ex: 'Il est couteux de', 'Je vous recommande'). "
-            "Tu adoptes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
+            "Tu adopes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
         )
         badge = "INFORMATION"
         color_card = "general-card"
@@ -980,6 +983,7 @@ if prompt:
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
+            # 🛠️ NETTOYAGE ABSOLU : Retrait complet de la consigne qui orientait l'IA vers des affirmations de dates limites
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
@@ -988,8 +992,7 @@ if prompt:
                 "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
                 "<h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
                 "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. DATE LIMITE SANTORIN 2026 : Rappelle obligatoirement que la date limite de saisie des notes dans santorin est différente selon les académie, par exemple le 30 mai 2026 pour l'académie d'Aix Marseille, le 9 juin pour celle de Créteil les dates étant spécifiques je ne pourrais pas répondre pour toutes les académies.\n"
-                "2. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
+                "1. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
                 "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
                 "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
@@ -1133,16 +1136,13 @@ Question de l'agent : {prompt}
             "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"
         ])
         
-        est_santorin_direct = mode == "examens" and (
-            any(x in prompt_lower_eval for x in [
-                "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-                "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
-            ]) or
-            any(x in prompt_lower_eval for x in [
-                "date limite", "date butoir", "date de clôture", "date de cloture", 
-                "calendrier santorin", "clôture des serveurs", "cloture des serveurs"
-            ])
-        )
+        # SÉCURISATION CALENDRIER : Verrou absolu sur les questions de dates et d'échéances pour couper court aux hallucinations
+        est_date_notes_direct = any(x in prompt_lower_eval for x in ["date", "quand", "calendrier", "remise", "butoir", "limite", "échéance", "echeance"]) and any(x in prompt_lower_eval for x in ["note", "saisie", "saisir", "rendre", "remettre", "clôture", "cloture", "clore", "lot", "copie", "santorin", "ipack"])
+        
+        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
+            "appréciation", "appreciation", "commentaire", "texte obligatoire", 
+            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
+        ])
         
         est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
             "constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"
@@ -1163,9 +1163,34 @@ Question de l'agent : {prompt}
         est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
             "inapte", "dispense", "dispensé", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"
         ])
+        
+        est_remplacement_reunion_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["remplace", "remplaç", "remplac"]) and any(x in prompt_lower_eval for x in ["réunion", "reunion", "commission", "convocation", "convoqu"])
 
         if est_tasa_direct or est_sss_direct:
             texte_brut = extraits_doc  # Court-circuit historique TASA / SSS
+            
+        elif est_date_notes_direct:
+            # Court-circuit absolu sur les calendriers pour éviter la désinformation inter-académique
+            texte_brut = """
+            <h3>📊 CALENDRIER & DATES DE REMISE DES NOTES</h3>
+            <strong>Statut administratif : Spécificités académiques locales.</strong><br><br>
+            
+            <h3>1. ANALYSE DES RISQUES DE FORCLUSION</h3>
+            <ul>
+            <li>🛑 <strong>Risque de fermeture des serveurs :</strong> Se baser sur un calendrier erroné ou obsolète peut empêcher la saisie finale des évaluations, bloquant l'édition des livrets nationaux.</li>
+            </ul>
+            
+            <h3>2. RÈGLE INSTITUTIONNELLE FIXE</h3>
+            <ul>
+            <li>➔ <strong>Notification officielle :</strong> Les dates étant différentes pour chaque académie, je ne suis pas en mesure de vous répondre. Rapprochez-vous de vos correspondants pour avoir cette information.</li>
+            </ul>
+            
+            <h3>3. CADRE OFFICIEL DE RÉFÉRENCE</h3>
+            <ul>
+            <li>📁 <strong>Source de vérité :</strong> Seuls les calendriers émis par la Division des Examens et Concours (DEC) de votre académie de rattachement et transmis par votre chef d'établissement font foi.</li>
+            </ul>
+            """
+            badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
         elif est_groupes_direct:
             # Court-circuit Structure iPackEPS pour un rendu visuel premium avec vidéos
@@ -1243,7 +1268,6 @@ Question de l'agent : {prompt}
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-            <li>⚠️ <strong>Rappel Session 2026 :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au 30 mai 2026 au soir.</li>
             </ul>
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -1261,7 +1285,7 @@ Question de l'agent : {prompt}
             
             <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li>➔ <strong>Cas 1 (Correction partagée - Le plus frequent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'application bascule instantanément l'interface en lecture seule (boutons grisés) pour tous les autres correcteurs afin d'éviter les collisions de données. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte d'Arena.</strong></li>
+            <li>➔ <strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'application bascule instantanément l'interface en lecture seule (boutons grisés) pour tous les autres correcteurs afin d'éviter les collisions de données. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte d'Arena.</strong></li>
             <li>➔ <strong>Cas 2 (Défaut de sélection active) :</strong> Les cases de saisie restent informatiquement bridées tant que le lot n'est pas pleinement déployé. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur le bouton [Voir le détail] de votre mission, puis sélectionnez explicitement le nom du candidat pour activer la grille.</strong></li>
             </ul>
             
@@ -1273,34 +1297,65 @@ Question de l'agent : {prompt}
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_inapte_santorin_direct:
-            # Court-circuit pour la gestion des inaptitudes dans Santorin
+            # Court-circuit corrigé : Gestion réelle des inaptitudes et dispenses dans Santorin EPS (Directives DEC/DIEC)
             texte_brut = """
-            <h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET DISPENSÉS</h3>
-            <strong>Statut administratif : Neutralisation gérée en amont (Pas d'action dans Santorin).</strong><br><br>
+            <h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET ABSENTS AU CCF</h3>
+            <strong>Cadre réglementaire académique : Saisie obligatoire des notes particulières dans l'interface de notation.</strong><br><br>
             
             <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
             <ul>
-            <li>🛑 <strong>Risque d'hallucination réglementaire :</strong> L'application Santorin n'est qu'un portail de saisie de notes d'AFL. Elle ne dispose d'aucun menu, bouton ou case pour déclarer une inaptitude médicale ou saisir un statut "DI".</li>
-            <li>⚠️ <strong>Risque d'absence injustifiée :</strong> Si l'inaptitude n'est pas configurée dans la base maître, l'absence de note sera interprétée par Cyclades comme un défaut de saisie ou un zéro éliminatoire.</li>
+            <li>🛑 <strong>Risque de blocage du calcul :</strong> Si un élève est absent ou inapte et que sa case reste vide sans "Note particulière", les serveurs Cyclades bloquent la clôture du lot et l'édition du bordereau final.</li>
+            <li>⚠️ <strong>Risque de zéro injustifié :</strong> Saisir manuellement la note brute de 00/20 à un élève absent non justifié est interdit. Il faut impérativement utiliser le code officiel pour que le jury applique les abattements réglementaires.</li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
+            <h3>2. PROCÉDURE TECHNIQUE DE SAISIE (DIRECTIVES DIEC / DEC AIX-MARSEILLE)</h3>
             <ul>
-            <li>➔ <strong>Étape 1 (Saisie Maître obligatoire) :</strong> L'inaptitude médicale totale annuelle ou trimestrielle se traite exclusivement hors de Santorin. Elle doit être enregistrée dans **iPackEPS** (`[Gestion/Suivi des élèves]` > `[Fiche élève]` > `[Saisir une inaptitude]`).</li>
-            <li>➔ <strong>Étape 2 (Synchronisation d'examen) :</strong> C'est l'extraction iPackEPS envoyée vers **Cyclades** qui va qualifier l'élève comme dispensé officiel et propager le verrou.</li>
-            <li>➔ <strong>Étape 3 (Action Santorin) :</strong> Sur votre lot Santorin, la ligne de l'élève inapte total apparaît déjà neutralisée ou doit être **LAISSÉE ENTIÈREMENT VIDE**. N'inventez pas de note.</li>
-            <li>➔ <strong>Étape 4 (Validation finale) :</strong> La situation de dispense est récapitulée uniquement sur vos **bordereaux de notation globaux** et sera arbitrée souverainement par le **Jury Académique** lors des commissions d'harmonisation de fin d'année.</li>
+            <li>➔ <strong>Étape 1 (Accès Mission) :</strong> Connectez-vous à Arena, ouvrez l'activité **[Portail d'accès aux missions]** puis sélectionnez votre mission **[Notation EPS CCF]** de l'examen correspondant.</li>
+            <li>➔ <strong>Étape 2 (Ouverture du Lot) :</strong> Dans votre tableau de bord Santorin, ouvrez votre lot d'APSA et cliquez sur l'icône "crayon" d'accès à la notation du candidat concerné.</li>
+            <li>➔ <strong>Étape 3 (Saisie de la Note Particulière) :</strong> Dans la zone de notation de l'APSA, n'entrez pas de points AFL, mais ouvrez le menu déroulant officiel des **[Notes particulières]** pour qualifier la situation juridique de l'élève :</li>
+            <ul>
+                <li>🔹 <strong>Dispense (DI) :</strong> À sélectionner si l'élève présente un certificat médical d'inaptitude valide. Cela neutralise l'APSA (elle sort du calcul de la moyenne finale sans pénaliser l'élève).</li>
+                <li>🔹 <strong>Absent (AB) :</strong> À sélectionner en cas d'absence non justifiée lors de l'évaluation (vaut note zéro pour cette épreuve).</li>
+                <li>🔹 <strong>Épreuve de substitution :</strong> À cocher si l'élève est renvoyé à la session de rattrapage (sélectionner le motif : *Inapte* pour blessure de dernière minute ou *Force majeure*).</li>
+            </ul>
+            <li>➔ <strong>Étape 4 (Cas des SHN) :</strong> Pour les Sportifs de Haut Niveau, le clic sur le crayon ouvre un volet spécifique permettant de sélectionner l'activité sur laquelle appliquer la note réglementaire de 20/20.</li>
             </ul>
             
             <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
-            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour télécharger le Webinaire de Formation Officiel Santorin EPS (Académie d'Aix-Marseille)</a></li>
+            </ul>
+            """
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        elif est_remplacement_reunion_direct:
+            # Court-circuit Remplacement de réunion / Ordre de mission nominatif
+            texte_brut = """
+            <h3>📊 EXAMENS & SANTORIN : REMPLACEMENT EN SOUS-COMMISSION / JURY</h3>
+            <strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br><br>
+            
+            <h3>1. ANALYSE DES RISQUES JURIDIQUES & COUVERTURE</h3>
+            <ul>
+            <li>🛑 <strong>Risque d'accident de service (Zéro couverture) :</strong> Si l'enseignant remplaçant se déplace ou participe à une instance officielle sans convocation rectorale (DEC) établie à son nom, il agit hors cadre réglementaire. En cas d'accident de trajet ou de sinistre, la protection fonctionnelle et la couverture d'accident du travail sont légalement compromises.</li>
+            <li>⚠️ <strong>Risque de non-remboursement (Chorus DT) :</strong> Sans ordre de mission ou état de convocation nominatif i-Prof, l'agent ne pourra introduire aucune demande d'indemnisation de frais de transport ou de séjour sur l'application Chorus.</li>
+            </ul>
+            
+            <h3>2. PROCÉDURE TECHNIQUE & ADMINISTRATIVE IMMÉDIATE</h3>
+            <ul>
+            <li>➔ <strong>Étape 1 (Alerte Secrétariat) :</strong> Le secrétariat de direction de l'établissement doit contacter immédiatement et en urgence le gestionnaire de l'examen concerné au sein de la Division des Examens et Concours (DEC) du Rectorat.</li>
+            <li>➔ <strong>Étape 2 (Régularisation nominative) :</strong> Demander l'émission d'un modificatif officiel de convocation ou d'un ordre de mission exprès au nom de l'enseignant remplaçant. Un simple accord verbal ou interne à l'établissement ne possède aucune valeur juridique.</li>
+            <li>➔ <strong>Étape 3 (Bascule Santorin / Imag'in) :</strong> Si le remplacement inclut également la correction ou l'évaluation de lots dématérialisés, le secrétariat doit valider la bascule de suppléance sur Imag'in et cliquer sur l'icône [PDF] pour injecter automatiquement les accès Arena/Santorin de l'agent.</li>
+            </ul>
+            
+            <h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>
+            <ul>
+            <li>📁 <span class="law-highlight">Code de l'éducation</span> : La participation aux jurys d'examens nationaux constitue une obligation statutaire de service public. Toutefois, l'exercice de cette mission est conditionné à la détention d'un titre de convocation régulier émis par l'autorité académique souveraine.</li>
             </ul>
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_santorin_direct:
-            # Sous-routage dynamique Santorin (Appréciations / Aucun lot / Calendrier)
+            # Sous-routage dynamique Santorin (Appréciations / Aucun lot)
             if any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"]):
                 texte_brut = """
                 <h3>📊 EXAMENS & SANTORIN : LA RÈGLE DES APPRÉCIATIONS</h3>
@@ -1328,34 +1383,12 @@ Question de l'agent : {prompt}
                 <ul>
                 <li><strong>Risque de blocage :</strong> Tant que le lot n'est pas généré, l'enseignant est dans l'impossibilité physique de saisir ses notes d'AFL, mettant en péril la date limite nationale.</li>
                 </ul>
-                <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION (CÔTÉ DIRECTION)</h3>
+                <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
                 <ul>
                 <li>➔ <strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
                 <li>➔ <strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
                 <li>➔ <strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
                 </ul>
-                <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
-                <ul>
-                <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-                </ul>
-                """
-            else:
-                texte_brut = """
-                <h3>📊 EXAMENS & SANTORIN : CALENDRIER & DATES BUTOIRS 2026</h3>
-                <strong>Statut administratif : Verrous impératifs des serveurs nationaux.</strong><br><br>
-                
-                <h3>1. ANALYSE DES RISQUES DE FORCLUSION</h3>
-                <ul>
-                <li>⚠️ <strong>Risque de verrouillage :</strong> Passée la date butoir, les serveurs Santorin basculent automatiquement en lecture seule. Plus aucune modification de note ou de saisie d'appréciation n'est techniquement possible sur Arena.</li>
-                </ul>
-                
-                <h3>2. CALENDRIER OFFICIEL RECONNU (SESSION 2026)</h3>
-                <ul>
-                <li>➔ <strong>Académie d'Aix-Marseille :</strong> La date limite absolue de verrouillage des notes dans Santorin est fixée au <strong>30 mai 2026 au soir</strong>. Toute autre date (comme le 30 mars) is rigoureusement fausse.</li>
-                <li>➔ <strong>Académie de Créteil :</strong> La date limite de saisie est fixée au <strong>9 juin 2026 au soir</strong>.</li>
-                <li>➔ <strong>Autres académies :</strong> Les calendriers étant spécifiques, connectez-vous sur votre portail académique ou rapprochez-vous de vos gestionnaires iPackEPS d'établissement.</li>
-                </ul>
-                
                 <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
                 <ul>
                 <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
@@ -1378,7 +1411,7 @@ Question de l'agent : {prompt}
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         # Rendu visuel propre
-        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct:
+        if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_date_notes_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

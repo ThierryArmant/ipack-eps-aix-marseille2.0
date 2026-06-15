@@ -1,7 +1,7 @@
 import streamlit as st 
 import os
 import pandas as pd
-import requests 
+import requests
 import re
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
 from llama_index.llms.openai import OpenAI
@@ -423,7 +423,7 @@ def initialiser_base_santorin(cle_fremt):
         ),
         Document(
             text="""Portail d'assistance et ressources Dématérialisation Académie de Bordeaux. 
-            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procédures d'urgence en cas de page manquante ou copie mal numérisée.""",
+            Accès à la Base École de Santorin (environnement de test/formation), fiches d'aide à la connexion, procedures d'urgence en cas de page manquante ou copie mal numérisée.""",
             metadata={"title": "Portail Dématérialisation - Académie de Bordeaux", "url": "https://www.ac-bordeaux.fr/dematerialisation-126581"}
         ),
         Document(
@@ -1074,41 +1074,25 @@ Question de l'agent : {prompt}
     # 4. EXÉCUTION ET RENDU HTML
         # --- BLOC DE SÉCURITÉ ULTRA-CIBLÉ (IMMUNE AUX POLLUTIONS WEB) ---
         prompt_lower_eval = prompt.lower()
-        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
-        
-        est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
-            "validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
-            "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"
-        ])
         
         # SÉCURISATION CALENDRIER : Verrou absolu sur les questions de dates et d'échéances pour couper court aux hallucinations
         est_date_notes_direct = any(x in prompt_lower_eval for x in ["date", "quand", "calendrier", "remise", "butoir", "limite", "échéance", "echeance"]) and any(x in prompt_lower_eval for x in ["note", "saisie", "saisir", "rendre", "remettre", "clôture", "cloture", "clore", "lot", "copie", "santorin", "ipack"])
+
+        # Inaptes/Absents Santorin : gère le "0" ou l'absence (Priorité Haute)
+        est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["inapte", "dispense", "dispensé", "absent", "absente", "absents", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"])
+
+        # Bugs techniques Santorin (Priorité Secondaire)
+        est_grise_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["grisé", "grise", "bloqué", "bloque", "pas cliquer", "bouton actif", "boutons aflp"])
+        est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in ["forcer la note", "prorata", "calculer la note", "bloque les cases", "une seule note", "seule note"])
+        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire", "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
+
+        # iPackEPS
+        est_tasa_direct = mode == "textes" and "tasa" in prompt_lower_eval
+        est_sss_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement", "oublie le bilan", "oublié le bilan", "plus la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
+        est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"])
+        est_nouvel_eleve_direct = mode == "ipack" and any(x in prompt_lower_eval for x in ["arriv", "nouveau", "nouvel", "ajouter un eleve", "ajouter un élève", "eleve inconnu", "élève inconnu", "nouvelle liste"])
         
-        est_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
-            "appréciation", "appreciation", "commentaire", "texte obligatoire", 
-            "aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"
-        ])
-        
-        est_groupes_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
-            "constituer", "creer groupe", "créer groupe", "groupe classe", "groupe-classe", "former mes groupes", "groupes classes"
-        ])
-        
-        est_nouvel_eleve_direct = mode == "ipack" and any(x in prompt_lower_eval for x in [
-            "arriv", "nouveau", "nouvel", "ajouter un eleve", "ajouter un élève", "eleve inconnu", "élève inconnu", "nouvelle liste"
-        ])
-        
-        est_bricolage_note = mode == "examens" and any(x in prompt_lower_eval for x in [
-            "forcer la note", "prorata", "calculer la note", "bloque les cases", "une seule note", "seule note"
-        ])
-        
-        est_grise_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
-            "grisé", "grise", "bloqué", "bloque", "case vide", "pas cliquer", "bouton actif", "boutons aflp"
-        ])
-        
-        est_inapte_santorin_direct = mode == "examens" and any(x in prompt_lower_eval for x in [
-            "inapte", "dispense", "dispensé", "sans note", "rien à inscrire", "rien a inscrire", "bordereau"
-        ])
-        
+        # Remplacements
         est_remplacement_reunion_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["remplace", "remplaç", "remplac"]) and any(x in prompt_lower_eval for x in ["réunion", "reunion", "commission", "convocation", "convoqu"])
 
         if est_tasa_direct or est_sss_direct:
@@ -1146,8 +1130,8 @@ Question de l'agent : {prompt}
             
             <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
-            <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote</a></li>
-            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
+            <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Import d'élèves depuis Pronote</a></li>
+            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
             </ul>
             """
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -1167,8 +1151,8 @@ Question de l'agent : {prompt}
             
             <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
-            <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote</a></li>
-            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
+            <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Import d'élèves depuis Pronote</a></li>
+            <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
             </ul>
             """
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -1186,7 +1170,7 @@ Question de l'agent : {prompt}
             <br>
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
-            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
             </ul>
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -1204,7 +1188,7 @@ Question de l'agent : {prompt}
             
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
-            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
+            <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
             </ul>
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -1229,7 +1213,7 @@ Question de l'agent : {prompt}
             
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
-            <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour télécharger le Webinaire de Formation Officiel Santorin EPS (Académie d'Aix-Marseille)</a></li>
+            <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">Webinaire de Formation Officiel Santorin EPS (Académie d'Aix-Marseille)</a></li>
             </ul>
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -1272,7 +1256,7 @@ Question de l'agent : {prompt}
             lignes_nettoyees.append(ligne)
         texte_brut = "<br>".join(lignes_nettoyees)
         
-        # Capture des liens YouTube sécurisée
+        # Capture des liens YouTube sécurisée AVANT le traitement HTML
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
         # Rendu visuel propre et direct
@@ -1285,6 +1269,9 @@ Question de l'agent : {prompt}
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
+        # Injection sécurisée des vidéos dans la structure historique persistant pour ARENA/iPackEPS
         for link in youtube_links:
-            st.video(link[0])
+            clean_link = link[0].split('"')[0].replace(">", "")
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{clean_link}')"})
+            
         st.rerun()

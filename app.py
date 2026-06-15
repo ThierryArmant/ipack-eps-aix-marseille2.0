@@ -472,7 +472,7 @@ with col_b4:
         st.session_state.active_module = "textes"; st.session_state.messages_hub = []; st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT (VERROUILLÉS AVEC TRIPLES GUILLEMETS)
+# 7B. MESSAGES D'AVERTISSEMENT
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -505,7 +505,7 @@ else:
             </div>
             <div style="flex: 1; padding-left: 5px;">
                 <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
-                <span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Arena, arbitrages des Jurys Académiques.</span>
+                <span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Arena, arbitrages de la CAHPN.</span>
             </div>
         </div>
     </div>
@@ -524,15 +524,13 @@ with col_action_input: prompt = st.chat_input("Posez votre question institutionn
 st.markdown('<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height: 1.4;"><span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION :</span><span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"> Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span></div>', unsafe_allow_html=True)
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA (FIXÉ : PLUS DE EXEC POUR LES VIDEOS)
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
     with st.chat_message(m["role"]): 
-        if m.get("type") == "video":
-            st.video(m["content"])
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
+        if m.get("type") == "video": st.video(m["content"])
+        else: st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt:
@@ -557,11 +555,11 @@ if prompt:
             - SANTORIN_ERREUR_VALIDATION : Le prof a validé/déposé son lot trop vite, s'est trompé, lot clos/verrouillé, plus la main.
             - SANTORIN_INAPTE_SIMPLE : Saisie normale d'une dispense, inaptitude (IN), absent (AB) ou certificat médical (CM) sans bug d'interface.
             - SANTORIN_GRISE : Problèmes d'interface en lecture seule, boutons grisés, cases blanches, cadenas, absence de l'icône "crayon", conflit de correction partagée.
-            - SANTORIN_BRICOLAGE : NOTE UNIQUE au Bac GT/Pro, moyenne impossible, formules (ex: "DI+DI+note", "1 note + 2 CM", "DI+note", "AB+DI+note"), faire un prorata, forcer une moyenne.
+            - SANTORIN_BRICOLAGE : NOTE UNIQUE au Bac GT/Pro, moyenne impossible, formules (ex: "DI+DI+note", "1 note + 2 CM", "DI+note", "AB+DI+note"), arbitrage CAHPN, faire un prorata.
             - JURY_REMPLACEMENT : Problèmes de convocations, ordres de mission (OM), indemnités, réunions de sous-commissions, harmonisation ou prof remplaçant bloqué.
             - SANTORIN_CM_POSTERIEUR : Certificat médical ou dispense remis APRÈS l'évaluation, le lendemain ou rétroactif (ex: "gamin apporte une dispense après l'épreuve").
-            - SANTORIN_BLESSURE_CHOC : Élève qui se blesse EN PLEIN MILIEU de l'évaluation ou pendant l'examen (ex: "blessé au 2ème passage", "interrompu par blessure").
-            - EXAMENS_UNSS_ABSENCE : Élève absent car il est en compétition officielle UNSS, Championnat de France ou convocation fédérale (ex: "absent pour cause d'UNSS").
+            - SANTORIN_BLESSURE_CHOC : Élève qui se blesse EN PLEIN MILIEU de l'évaluation ou pendant l'examen (ex: "blessé au 2ème passage").
+            - EXAMENS_UNSS_ABSENCE : Élève absent car il est en compétition officielle UNSS, Championnat de France ou convocation fédérale.
             - AUCUN_BLINDAGE : Questions générales ou recherche documentaire classique dans les textes d'examens.
             """
         elif mode == "ipack":
@@ -570,12 +568,12 @@ if prompt:
             - IPACK_SSS : Un dossier ou bilan annuel est verrouillé par le chef d'établissement dans iPackEPS.
             - IPACK_GROUPES : Créer un groupe, configurer, associer un protocole/séquence d'APSA.
             - IPACK_NOUVEL_ELEVE : Ajouter un élève arrivant en cours d'année, synchronisation Pronote / SIECLE, fichier XML/CSV.
-            - IPACK_TRANSFERT_DOUBLON : Élève qui change d'établissement (mutation) avec des notes déjà acquises dans son ancien bahut, ou fiche élève en doublon (ex: "élève vient d'un autre bahut avec ses notes de CCF").
+            - IPACK_TRANSFERT_DOUBLON : Élève qui change d'établissement avec des notes déjà acquises dans son ancien bahut, ou fiche en doublon.
             - AUCUN_BLINDAGE : Questions techniques générales sur l'interface iPackEPS.
             """
         elif mode == "textes":
             choix_autorises = """
-            - SECURITE_TASA : La question concerne spécifiquement la taxe, la responsabilité liée au transport ou les déclarations TASA.
+            - SECURITE_TASA : Facturation, cotisations, transport, bus ou conventions liées à la TASA.
             - AUCUN_BLINDAGE : Textes juridiques généraux (Loi 1937, responsabilité APPN).
             """
         else:
@@ -586,7 +584,7 @@ if prompt:
         Question : "{prompt}" | Onglet : {mode}
         ⚠️ LINGUISTIQUE TERRAIN :
         - "DI" = Dispensé/Inapte, "AB" = Absent, "CM" = Certificat Médical, "OM" = Ordre de Mission.
-        - "DI+DI+note" ou n'importe quelle formule à une seule note = SANTORIN_BRICOLAGE (Note unique).
+        - "DI+DI+note" ou formule à une seule note = SANTORIN_BRICOLAGE (Note unique / CAHPN).
         - Si un justificatif arrive APRÈS l'épreuve = SANTORIN_CM_POSTERIEUR.
         - Si la blessure a lieu PENDANT l'épreuve = SANTORIN_BLESSURE_CHOC.
         - Si l'absence est due à l'UNSS/AS = EXAMENS_UNSS_ABSENCE.
@@ -615,7 +613,7 @@ if prompt:
         est_santorin_direct = mode == "examens" and intention == "AUCUN_BLINDAGE" and any(x in prompt.lower() for x in ["appréciation", "appreciation", "commentaire", "aucun lot"])
         est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_groupes_direct or est_nouvel_eleve_direct or est_bricolage_note or est_grise_direct or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_santorin_direct or est_tasa_direct or est_cm_posterieur_direct or est_blessure_choc_direct or est_unss_absence_direct or est_transfert_doublon_direct)
 
-        # 1. MOTEUR LOCAL EN PRIORITÉ (Coût 0)
+        # Moteur local (Coût 0)
         extraits_locaux = ""
         if openai_api_key and not est_cas_blindé_racine:
             try:
@@ -643,7 +641,7 @@ if prompt:
             badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
         elif est_erreur_validation_santorin:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement ou le coordonnateur doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li><strong>Étape 3 :</strong> Une fois le dossier libéré, l'icône "crayon" redevient active dans Santorin. Vous pouvez écraser la note et valider à nouveau.</li><li>⚠️ En cas de fermeture définitive des serveurs académiques, consignez l'erreur manuellement sur votre bordereau papier signé et transmettez-le au <strong>Jury Académique d'Harmonisation</strong> via Cyclades.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement ou le coordonnateur doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li><strong>Étape 3 :</strong> Une fois le dossier libéré, l'icône "crayon" redevient active dans Santorin. Vous pouvez écraser la note et valider à nouveau.</li><li>⚠️ En cas de fermeture définitive des serveurs académiques, transmettez le dossier papier pour arbitrage à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera informatiquement le lot afin que vous puissiez saisir vous-même la note définitive validée.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_sss_direct:
@@ -659,11 +657,11 @@ if prompt:
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif est_transfert_doublon_direct:
-            texte_brut = """<h3>🛠️ IPACK_TRANSFERT : ÉLÈVE MUTÉ D'UN AUTRE ÉTABLISSEMENT</h3><strong>Réglementation CCF : Reprise obligatoire des notes certifiées.</strong><br><ul><li><strong>Étape 1 :</strong> Ne recréez pas l'élève manuellement. Demandez au secrétariat de valider son intégration pédagogique via <strong>SIÈCLE</strong> pour qu'il descende dans ton Pronote.</li><li><strong>Étape 2 :</strong> Exigez le livret officiel de CCF (Bordereau de notes) visé et signé par le chef d'établissement d'origine.</li><li><strong>Étape 3 :</strong> Procédez à l'import XML de ta classe dans iPackEPS pour faire apparaître l'élève.</li><li><strong>Étape 4 :</strong> Saisissez manuellement dans iPackEPS les notes brutes d'épreuves déjà passées dans l'ancien établissement, telles qu'elles apparaissent sur le livret certifié papier. En cas de blocage informatique ou d'APSA non concordante, transmettez le dossier papier directement au <strong>Jury d'Harmonisation Académique</strong>.</li></ul>"""
+            texte_brut = """<h3>🛠️ IPACK_TRANSFERT : ÉLÈVE MUTÉ D'UN AUTRE ÉTABLISSEMENT</h3><strong>Réglementation CCF : Reprise obligatoire des notes certifiées.</strong><br><ul><li><strong>Étape 1 :</strong> Ne recréez pas l'élève manuellement. Demandez au secrétariat de valider son intégration pédagogique via <strong>SIÈCLE</strong> pour qu'il descende dans ton Pronote.</li><li><strong>Étape 2 :</strong> Exigez le livret officiel de CCF (Bordereau de notes) visé et signé par le chef d'établissement d'origine.</li><li><strong>Étape 3 :</strong> Procédez à l'import XML de ta classe dans iPackEPS pour faire apparaître l'élève.</li><li><strong>Étape 4 :</strong> Saisissez manuellement dans iPackEPS les notes brutes d'épreuves déjà passées dans l'ancien établissement. En cas de blocage informatique ou d'APSA non concordante, transmettez le dossier papier à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera le lot pour saisie par l'enseignant.</li></ul>"""
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_bricolage_note:
-            texte_brut = """<h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3><strong>Cadre réglementaire national (Bac GT) : Impossibilité administrative de calcul automatique.</strong><br><ul><li><strong>Règle d'or :</strong> Au Bac GT, l'évaluation repose sur un ensemble d'APSA. Si un élève se blesse et ne dispose au final que d'une **seule note valide** à l'année (ex: formule DI+DI+note), l'application bloque le calcul de la moyenne.</li><li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit d'effectuer un calcul manuel, un prorata artificiel ou d'entrer une fausse note pour débloquer le système. Laissez la case de l'activité manquée totalement vide.</li><li><strong>Saisie de l'inaptitude :</strong> Saisissez le statut **[DI]** (Dispensé) dans l'onglet des inaptitudes pour justifier réglementairement l'absence de note.</li><li><strong>Arbitrage final :</strong> Le dossier complet de l'élève (note acquise + certificats médicaux visés) is transmis automatiquement au <strong>Jury Académique d'Harmonisation</strong>. C'est ce jury qui détient la compétence exclusive pour valider la note unique ou prononcer la neutralisation complète.</li></ul>"""
+            texte_brut = """<h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3><strong>Cadre réglementaire national (Bac GT) : Impossibilité administrative de calcul automatique.</strong><br><ul><li><strong>Règle d'or :</strong> Au Bac GT, l'évaluation repose sur un ensemble d'APSA. Si un élève se blesse ou accumule des incidents et ne dispose au final que d'une **seule note valide** à l'année (comme dans ton cas de figure AB+DI+14), l'application bloque le calcul automatique de la moyenne.</li><li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit d'effectuer un calcul manuel, un prorata artificiel ou d'entrer une fausse note pour tenter de débloquer le système.</li><li><strong>Saisie impérative dans Santorin :</strong> Ne laissez JAMAIS de case vide. Dans Santorin, une case vide signifie "non évalué" et interdira la clôture de votre lot. Cliquez sur le **[Crayon]** d'édition de l'élève et sélectionnez scrupuleusement les statuts réglementaires (ex: **[DI]** pour la dispense en gym, et **[AB]** pour l'absence injustifiée) dans le menu déroulant des **[Notes particulières]**.</li><li><strong>Arbitrage et circuit final (CAHPN) :</strong> Une fois les lignes complétées, validez votre lot. Le dossier sera transmis à la <strong>CAHPN</strong> (Commission Académique d'Harmonisation des Protocoles et des Notes). ⚠️ La CAHPN ne saisit pas directement les modifications informatiques. C'est au retour de la commission que le chef d'établissement déverrouille le lot dans l'établissement, permettant ainsi au professeur de saisir manuellement la note définitive validée par la commission.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_grise_direct:
@@ -675,7 +673,7 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_remplacement_reunion_direct:
-            texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY OU SOUS-COMMISSION</h3><strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br>➔ Étape 1 : Le secrétariat doit contacter le gestionnaire d'examen à la Division des Examens et Concours (DEC).<br>➔ Étape 2 : Demander l'émission urgente d'un modificatif officiel de convocation au nom du remplaçant pour assurer sa couverture juridique (accident de trajet) et ses frais Chorus DT.<br>➔ Étape 3 : Le secrétariat doit valider la suppléance sur l'application nationale **Imag'in** et cliquer sur l'icône [PDF] pour basculer informatiquement les accès vers Santorin."""
+            texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY OU SOUS-COMMISSION</h3><strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br>➔ Étape 1 : Le secrétariat doit contacter le gestionnaire d'examen à la Division des Examens et Concours (DEC).<br>➔ Étape 2 : Demander l'émission urgente d'un modificatif officiel de convocation au nom du remplaçant pour assurer sa couverture juridique (accident de trajet) et ses frais Chorus DT.<br>➔ Étape 3 : Le secrétariat doit valider la suppléance sur l'application nationale **Imag'in** et éditer la fiche PDF pour basculer informatiquement les accès vers Santorin."""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_cm_posterieur_direct:
@@ -683,20 +681,24 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_blessure_choc_direct:
-            texte_brut = """<h3>📊 EXAMENS & CCF : ÉLÈVE BLESSÉ EN PLEIN MILIEU DE L'ÉPREUVE</h3><strong>Réglementation Examens : Interdiction absolue d'inventer ou de proratiser des points.</strong><br><ul><li><strong>Étape 1 :</strong> Interrompez immédiatement l'épreuve et faites raccompagner l'élève à l'infirmerie (déclaration d'accident scolaire obligatoire).</li><li><strong>Étape 2 (Règle d'or) :</strong> Ne tentez pas de "bricoler" une note finale en multipliant les points des premiers passages ou en faisant une moyenne imaginaire.</li><li><strong>Étape 3 (Arbitrage réglementaire) :</strong> </li><li>➔ <strong>Si l'élève a complété une partie significative notée autonome :</strong> L'équipe pédagogique peut décider de noter uniquement ce qui a été produit si la grille certificative le permet.</li><li>➔ <strong>Si l'épreuve est tronquée et illisible :</strong> Neutralisez l'épreuve informatiquement en saisissant **[Épreuve de substitution]** (Rattrapage). L'élève sera reconvoqué sur une épreuve de remplacement avec un nouveau certificat médical couvrant le jour J.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & CCF : ÉLÈVE BLESSÉ EN PLEIN MILIEU DE L'ÉPREUVE</h3><strong>Réglementation Examens : Interdiction absolue d'inventer ou de proratiser des points.</strong><br><ul><li><strong>Étape 1 :</strong> Interrompez immédiatement l'épreuve et faites raccompagner l'élève à l'infirmerie (déclaration d'accident scolaire obligatoire).</li><li><strong>Étape 2 (Règle d'or) :</strong> Ne tentez pas de "bricoler" une note finale en multipliant les points des premiers passages ou en faisant une moyenne imaginaire.</li><li><strong>Étape 3 (Arbitrage réglementaire) :</strong> </li><li>➔ <strong>Si l'élève a complété une partie significative notée autonome :</strong> L'équipe pédagogique peut décider de noter uniquement ce qui a été produit si la grille certificative le permet. En cas de note unique finale restante, le dossier sera transmis à la <strong>CAHPN</strong> ; au retour de la commission, le chef d'établissement déverrouillera le lot pour saisie par le professeur.</li><li>➔ <strong>Si l'épreuve est tronquée et illisible :</strong> Neutralisez l'épreuve informatiquement en saisissant **[Épreuve de substitution]** (Rattrapage). L'élève sera reconvoqué sur une épreuve de remplacement.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_unss_absence_direct:
-            texte_brut = """<h3>📊 EXAMENS & CCF : ABSENCE POUR CAUSE DE COMPÉTITION UNSS</h3><strong>Statut administratif : Absence institutionnelle justifiée (Ordre de mission AS).</strong><br><ul><li><strong>Règle réglementaire :</strong> Un élève absent à une épreuve de CCF car il représente l'établissement ou l'académie à un Championnat de France UNSS (ou convocation sur liste de Sportif de Haut Niveau SHN) est considéré comme **justifié institutionnellement**.</li><li><strong>Interdiction :</strong> Ne saisissez jamais la note particulière **[AB]** (Absent), ce qui lui vaudrait un zéro éliminatoire.</li><li><strong>Procédure technique :</strong> Dans l'interface Santorin, cochez la case **[Épreuve de substitution]**. L'élève est réglementairement basculé sur la session de rattrapage de l'établissement pour passer son épreuve ultérieurement. L'enseignant doit exiger la copie de la convocation officielle UNSS pour le dossier d'examen.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & CCF : ABSENCE POUR CAUSE DE COMPÉTITION UNSS</h3><strong>Statut administratif : Absence institutionnelle justifiée (Ordre de mission AS).</strong><br><ul><li><strong>Règle réglementaire :</strong> Un élève absent à une épreuve de CCF car il représente l'établissement ou l'académie à un Championnat de France UNSS is considéré comme **justifié institutionnellement**.</li><li><strong>Interdiction :</strong> Ne saisissez jamais la note particulière **[AB]** (Absent), ce qui lui vaudrait un zéro éliminatoire.</li><li><strong>Procédure technique :</strong> Dans l'interface Santorin, cochez la case **[Épreuve de substitution]**. L'élève est réglementairement basculé sur la session de rattrapage de l'établissement pour passer son épreuve ultérieurement. L'enseignant doit exiger la copie de la convocation officielle UNSS pour le dossier d'examen.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         else:
             response = Settings.llm.complete(consigne_ia) 
             texte_brut = response.text
+            if mode == "ipack" and 'bloc_liens_dynamique' in locals():
+                texte_brut += f"\n\n<h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n{bloc_liens_dynamique}"
+            elif mode == "examens" and 'bloc_liens_dynamique' in locals():
+                texte_brut += f"\n\n<h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n{bloc_liens_dynamique}"
         # --- FIN DU BLOC DES COMPOSANTS EN DUR ---
         
         # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi
-        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de\s+l\'éducation)', r'<span class="law-highlight">\1</span>', texte_brut)
+        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de\s+l\'éducation)', r'<span class="law-highlight">\1</span>', text_brut)
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
@@ -705,7 +707,7 @@ if prompt:
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
         
-        # GESTION SÉCURISÉE DES LIENS VIDÉOS (Historique structuré sans code exécutable)
+        # GESTION SÉCURISÉE DES LIENS VIDÉOS
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         for link in youtube_links:
             clean_link = link[0].split('"')[0].split("'")[0].strip()

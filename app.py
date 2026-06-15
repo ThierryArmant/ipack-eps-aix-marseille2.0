@@ -251,8 +251,8 @@ css_pur = """
     }
     .santorin-card { border-left: 6px solid #38BDF8 !important; } 
     .general-card { border-left: 6px solid #10B981 !important; } 
-    .securite-card { border-left: 6px solid #FF9F43 !important; } /* Orange Sécurité Contentieux */
-    .peda-card { border-left: 6px solid #FFA502 !important; } /* Ambre Cadrage Pédagogique */
+    .securite-card { border-left: 6px solid #FF9F43 !important; } 
+    .peda-card { border-left: 6px solid #FFA502 !important; } 
     
     .santorin-card p, .general-card p, .securite-card p, .santorin-card div, .general-card div, .securite-card div, .santorin-card span, .general-card span, .securite-card span, .santorin-card li, .general-card li, .securite-card li { 
         color: #FFFFFF !important; 
@@ -262,9 +262,9 @@ css_pur = """
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
-    /* 🛠️ FORCE UNIFORMÉMENT TOUS LES TITRES DES CARTES EN BLEU ÉLECTRIQUE LISIBLE */
+    /* FORCE UNIFORMÉMENT TOUS LES TITRES DES CARTES EN BLEU ÉLECTRIQUE LISIBLE */
     .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {
-        color: #38BDF8 !important; /* Bleu ciel / Cyan Électrique ultra-net */
+        color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 16px !important; 
         margin-bottom: 6px !important; 
@@ -283,7 +283,7 @@ css_pur = """
     .peda-card li, .peda-card div, .peda-card span, .peda-card p {
         font-size: 14px !important; 
         line-height: 1.4 !important; 
-        color: #F8FAFC !important; /* Blanc doux cassé */
+        color: #F8FAFC !important; 
         margin-bottom: 3px !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
@@ -292,10 +292,10 @@ css_pur = """
         font-weight: 700 !important; 
     }
 
-    /* 🛠️ CARDINAL DE SURLIGNAGE : TOUTES LES RÉFÉRENCES JURIDIQUES ET TEXTES EN JAUNE-ORANGE */
+    /* CARDINAL DE SURLIGNAGE : TOUTES LES RÉFÉRENCES JURIDIQUES ET TEXTES EN JAUNE-ORANGE */
     .law-highlight {
-        background-color: rgba(255, 176, 32, 0.12) !important; /* Fond ambre transparent */
-        color: #FFB020 !important; /* Couleur Jaune-Orange pure */
+        background-color: rgba(255, 176, 32, 0.12) !important; 
+        color: #FFB020 !important; 
         padding: 2px 6px;
         border-radius: 4px;
         border: 1px solid rgba(255, 176, 32, 0.4) !important;
@@ -304,7 +304,7 @@ css_pur = """
         text-shadow: 1px 1px 1px rgba(0,0,0,0.5) !important;
     }
 
-    /* 🛠️ VERROU DE SÉCURITÉ CSS : FORCE LA VISIBILITÉ DES LIENS HYPERTEXTES EN AMBRE SUR TOUTES LES CARTES */
+    /* VERROU DE SÉCURITÉ CSS : FORCE LA VISIBILITÉ DES LIENS HYPERTEXTES EN AMBRE SUR TOUTES LES CARTES */
     div.santorin-card a, div.general-card a, div.securite-card a, div.peda-card a,
     div.santorin-card a *, div.general-card a *, div.securite-card a *, div.peda-card a * {
         color: #FFB020 !important; 
@@ -745,7 +745,7 @@ if prompt:
             - SANTORIN_ERREUR_VALIDATION : Le prof a déjà validé/déposé ses examens Santorin, s'est trompé, et son lot est verrouillé ou clos.
             - SANTORIN_INAPTE_SIMPLE : Le prof veut savoir comment cocher/saisir une dispense (DI) ou un absent (AB) normal dans Santorin sans incident technique.
             - SANTORIN_GRISE : Le prof se plaint que les boutons, cases AFLP ou crayons de notation sont grisés/bloqués en lecture seule dans Santorin.
-            - SANTORIN_BRICOLAGE : Le prof demande s'il peut forcer une note, faire un prorata ou s'il y a une seule note au CCF.
+            - SANTORIN_BRICOLAGE : Le prof a un cas de "note unique" ou de calcul de moyenne impossible (ex: "DI + DI + note", "2 dispenses et une note", "une seule note au CCF", faire un prorata, forcer une moyenne).
             - JURY_REMPLACEMENT : Un collègue est remplacé pour une sous-commission, un jury d'examen ou une réunion académique.
             - AUCUN_BLINDAGE : La question est générale ou demande une recherche classique dans les fichiers d'examens.
             """
@@ -770,6 +770,12 @@ if prompt:
         
         Question du professeur : "{prompt}"
         Onglet actif actuel choisi par le prof : {mode}
+
+        ⚠️ DIRECTIVE CRUCIALE DE TRADUCTION DU JARGON :
+        - Les profs écrivent souvent des formules mathématiques : "DI" = Dispensé/Inapte, "AB" = Absent, "CM" = Certificat Médical.
+        - Si la question contient une seule note entourée de dispenses (ex: "DI+DI+note", "1 note et 2 CM", "DI+note"), c'est l'intention SANTORIN_BRICOLAGE (Note unique) qui prime obligatoirement sur SANTORIN_INAPTE_SIMPLE.
+        - "AFL" ou "AFLP" font référence aux cases de notation.
+        - Analyse la phrase globalement. Ne te laisse pas piéger par un mot isolé.
 
         Tu dois OBLIGATOIREMENT choisir ton mot-clé uniquement dans cette liste restrictive correspondant à l'onglet actif :
         {choix_autorises}
@@ -828,7 +834,7 @@ if prompt:
 
         extraits_doc += extraits_locaux
 
-        # 2. DISJONCTEUR CASCADE : APPEL TAVILY CONDITIONNÉ (Désactivé par défaut)
+        # 2. DISJONCTEUR CASCADE : APPEL TAVILY CONDITIONNÉ (Désactivé)
         if tavily_api_key and activer_web and mode != "ipack" and not est_cas_blindé_racine and len(extraits_locaux.strip()) == 0:
             try:
                 domains = domaine_eps_france
@@ -961,7 +967,7 @@ Question de l'agent : {prompt}"""
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
             
-        # --- 🛡️ EXÉCUTION DU BLOC DES COMPOSANTS EN DUR SÉCURISÉS (COMPLETS) ---
+        # --- 🛡️ EXÉCUTION DU BLOC DES COMPOSANTS EN DUR SÉCURISÉS (RESTAURATION INTÉGRALE) ---
         if est_tasa_direct:
             texte_brut = extraits_doc
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -972,7 +978,7 @@ Question de l'agent : {prompt}"""
             <strong>Statut administratif : Spécificités académiques locales.</strong><br><br>
             <h3>➔ RÈGLE INSTITUTIONNELLE FIXE</h3>
             <ul>
-            <li><strong>Notification officielle :</strong> Les dates limites de saisie informatique étant différentes pour chaque académie de France, je ne suis pas en mesure de vous fournir une date fixe. Veuillez vous rapprocher de vos coordonnateurs d'établissement ou de votre secrétariat.</li>
+            <li><strong>Notification officielle :</strong> Les dates limites de saisie informatique étant différentes pour chaque académie de France, je ne suis pas en mesure de vous fournir une date fixe. Veuillez vous rapprocher de vos coordonnateurs d'établissement ou de votre secrétariat de direction.</li>
             </ul>
             <h3>📁 CADRE OFFICIEL DE RÉFÉRENCE</h3>
             <ul>
@@ -1006,7 +1012,7 @@ Question de l'agent : {prompt}"""
             <h3>➔ LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
             <ul>
             <li><strong>Étape 1 (Signalement) :</strong> Ne tentez pas de modifier les données locales. Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou directement l'équipe de la mission académique des <strong>IA-IPR</strong>.</li>
-            <li><strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master requis dans leur console de gestion pour appliquer la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
+            <li><strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master requis dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
             <li><strong>Étape 3 (Mise à jour) :</strong> L'action de l'administrateur fait redescendre informatiquement le dossier d'un niveau. L'enseignant retrouve instantanément son accès en écriture pour compléter son bilan ou ses grilles, puis soumet à nouveau le bloc complet pour signature finale du Chef d'établissement.</li>
             </ul>
             """
@@ -1054,12 +1060,12 @@ Question de l'agent : {prompt}"""
             texte_brut = """
             <h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3>
             <strong>Cadre réglementaire national (Baccalauréat GT) : Impossibilité administrative de calcul automatique.</strong><br><br>
-            <h3>➔ LA PROCÉDURE RÉGLEMENTAIRE STRICHTE</h3>
+            <h3>➔ LA PROCÉDURE RÉGLEMENTAIRE STRICTE</h3>
             <ul>
-            <li><strong>Règle d'or :</strong> Au Baccalauréat GT, l'évaluation du CCF repose sur un ensemble d'APSA. Si un élève se blesse gravement et ne dispose au final que d'une **seule note valide** à l'année, l'application bloque le calcul.</li>
-            <li><strong>Interdiction de forcer :</strong> Il est strictement interdit à l'enseignant de procéder à un "bricolage" ou à un calcul de moyenne manuel, de faire un prorata artificiel ou de taper une fausse note pour débloquer la case. Laissez la case de l'activité manquée totalement vide.</li>
+            <li><strong>Règle d'or :</strong> Au Baccalauréat GT, l'évaluation du CCF repose sur un ensemble d'APSA. Si un élève se blesse gravement et ne dispose au final que d'une **seule note valide** à l'année (suite à des dispenses comme dans un cas de figure DI+DI+note), l'application bloque informatiquement le calcul automatique du bloc certificatif.</li>
+            <li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit à l'enseignant de procéder à un "bricolage" ou à un calcul de moyenne manuel, de faire un prorata artificiel ou de taper une fausse note pour débloquer les cases. Laissez la case de l'activité manquée totalement vide.</li>
             <li><strong>Saisie de l'inaptitude :</strong> Renseignez scrupuleusement le statut **[DI]** (Dispensé) ou Inapte dans l'onglet des inaptitudes pour justifier informatiquement l'absence de note sur les autres épreuves.</li>
-            <li><strong>Arbitrage souverain :</strong> Le dossier d'évaluation complet de l'élève (note obtenue + justificatifs médicaux validés par le médecin scolaire) doit être obligatoirement transmis au <strong>Jury Académique d'Harmonisation</strong> via la DEC. C'est ce jury, lors de sa session finale, qui détient la compétence exclusive pour décider de valider la note unique comme note finale de l'examen ou de prononcer la neutralisation.</li>
+            <li><strong>Arbitrage souverain :</strong> Le dossier d'évaluation complet de l'élève (note obtenue + justificatifs médicaux validés par le médecin scolaire) doit être obligatoirement transmis au <strong>Jury Académique d'Harmonisation</strong> via la DEC. C'est ce jury, lors de sa session finale de fin d'année, qui détient la compétence exclusive pour décider de valider la note unique comme note finale de l'examen ou de prononcer la neutralisation complète de l'épreuve.</li>
             </ul>
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
@@ -1074,8 +1080,8 @@ Question de l'agent : {prompt}"""
             <strong>Statut technique : Conflit d'édition en temps réel ou défaut d'arborescence.</strong><br><br>
             <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li><strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs/correcteurs sont affectés par le chef d'établissement sur un même lot de copies numérisées, dès qu'un enseignant ouvre ou édite le dossier d'un élève, la plateforme bascule instantanément en lecture seule (boutons grisés) pour tous les autres collègues afin d'éviter les collisions de données. <strong>Solution : Attendez simplement que votre collègue referme la copie ou se déconnecte de son espace.</strong></li>
-            <li><strong>Cas 2 (Défaut de déploiement) :</strong> Les boutons de notation restent verrouillés tant que le lot d'examen n'est pas actif. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur [Voir le détail], puis sélectionnez explicitement le nom du candidat pour débloquer les grilles.</strong></li>
+            <li><strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs/correcteurs sont affectés par le chef d'établissement sur un même lot de copies numérisées, dès qu'un enseignant ouvre ou édite le dossier d'un élève, la plateforme bascule instantanément en lecture seule (boutons grisés) pour tous les autres collègues afin d'éviter les collisions de données. <strong>Solution : Attendez simplement que votre collègue referme la copie ou se déconnecte de son espace Arena.</strong></li>
+            <li><strong>Cas 2 (Défaut de déploiement) :</strong> Les boutons de notation restent verrouillés tant que le lot d'examen n'est pas actif. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur [Voir le détail], puis sélectionnez explicitement le nom du candidat pour débloquer les grilles de notation.</strong></li>
             </ul>
             <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>

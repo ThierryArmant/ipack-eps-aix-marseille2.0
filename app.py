@@ -1,7 +1,7 @@
 import streamlit as st 
 import os
 import pandas as pd
-import requests
+import requests 
 import re
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, Document
 from llama_index.llms.openai import OpenAI

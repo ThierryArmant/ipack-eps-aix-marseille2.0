@@ -1,4 +1,4 @@
-import streamlit as st  
+import streamlit as st 
 import os
 import pandas as pd
 import requests
@@ -794,7 +794,6 @@ if prompt:
         if openai_api_key:
             try:
                 if mode == "examens":
-                    # Détection chirurgicale des requêtes critiques Santorin
                     veut_appreciations = any(x in prompt_lower for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"])
                     a_bug_de_lot = any(x in prompt_lower for x in ["aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"])
 
@@ -802,30 +801,21 @@ if prompt:
                         extraits_doc = """
                         <h3>📊 EXAMENS & SANTORIN : LA RÈGLE DES APPRÉCIATIONS</h3>
                         <strong>Statut réglementaire : Facultatif (Idée reçue du terrain).</strong><br><br>
-                        <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+                        <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
                         <ul>
-                        <li><strong>Risque de non-conformité :</strong> Aucun pour un parcours classique. L'application Santorin ne bloque pas la validation si la case appréciation est vide.</li>
-                        <li><strong>Risque de perte de temps :</strong> Rédiger des commentaires généraux pour toute une classe est une charge de travail inutile non demandée par la DEC.</li>
-                        </ul>
-                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-                        <ul>
-                        <li>➔ <strong>Règle générale :</strong> Saisissez uniquement les notes d'AFL. Laissez la case appréciation VIDE pour les élèves ordinaires.</li>
-                        <li>➔ <strong>Exception Obligatoire :</strong> Le commentaire devient STRICTEMENT OBLIGATOIRE uniquement pour justifier un statut d'alerte, une notation atypique ou un aménagement (ex: un élève avec 2 dispenses + 1 note, ou basculé en statut DI).</li>
+                        <li> Saisissez uniquement les notes d'AFL. Laissez la case appréciation VIDE pour les élèves ordinaires.</li>
+                        <li><strong>Exception Obligatoire :</strong> Le commentaire devient STRICTEMENT OBLIGATOIRE uniquement pour justifier un statut d'alerte, une notation atypique ou un aménagement (ex: un élève avec 2 dispenses + 1 note, ou basculé en statut DI).</li>
                         </ul>
                         """
                     elif a_bug_de_lot:
                         extraits_doc = """
                         <h3>📊 EXAMENS & SANTORIN : PROTOCOLE "AUCUN LOT À CORRIGER"</h3>
                         <strong>Statut de l'erreur : Problème d'aiguillage Direction / DIEC.</strong><br><br>
-                        <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+                        <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
                         <ul>
-                        <li><strong>Risque de blocage :</strong> Tant que le lot n'est pas généré, l'enseignant est dans l'impossibilité physique de saisir ses notes d'AFL, mettant en péril la date limite nationale.</li>
-                        </ul>
-                        <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
-                        <ul>
-                        <li>➔ <strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
-                        <li>➔ <strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
-                        <li>➔ <strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
+                        <li><strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
+                        <li><strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
+                        <li><strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
                         </ul>
                         """
                     else:
@@ -833,7 +823,6 @@ if prompt:
                             extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                             
                 elif mode == "ipack":
-                    # Détection sécurisée des vrais blocages (nettoyée des collisions avec "section sportive")
                     est_dossier_verrouille_chef = any(x in prompt_lower for x in ["validé par le chef", "valide par le chef", "chef d'établissement", "chef d'etablissement",
                         "oublie le bilan", "oublié le bilan", "plus l'accès", "plus l'acces", "plus la main", 
                         "modifier après validation", "redonner la main", "verrouillé sss", "bloqué sss", "débloquer sss"])
@@ -842,16 +831,11 @@ if prompt:
                         extraits_doc = """
                         <h3>PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
                         <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
-                        <h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>
+                        <h3>➔ LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
                         <ul>
-                        <li><strong>Le Chef ne peut pas débloquer :</strong> Une fois qu'un Chef d'établissement a validé ou signé un volet (Projet ou Bilan), son interface de direction ne lui permet plus réglementairement de modifier ou de repasser le dossier en brouillon.</li>
-                        <li><strong>Le Professeur est bloqué :</strong> L'accès en écriture est instantanément coupé pour l'équipe pédagogique afin de garantir l'intégrité des données transmises.</li>
-                        </ul>
-                        <h3>2. LA SEULE PROCÉDURE DE RÉSOLUTION RÉGLEMENTAIRE</h3>
-                        <ul>
-                        <li>➔ <strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
-                        <li>➔ <strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
-                        <li>➔ <strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
+                        <li><strong>Étape 1 (Alerte) :</strong> Contactez immédiatement votre <strong>Correspondant iPackEPS d'établissement / de bassin</strong> ou l'équipe des <strong>IA-IPR</strong>.</li>
+                        <li><strong>Étape 2 (Action Administrateur) :</strong> Seuls ces profils possèdent les droits master dans leur console de gestion pour utiliser la commande <strong>[Renvoyer en modification]</strong> ou <strong>[Débloquer le dossier]</strong>.</li>
+                        <li><strong>Étape 3 (Reprise en main) :</strong> L'action de l'administrateur fait redescendre le dossier d'un niveau. Le prof retrouve son accès en écriture pour compléter son bilan, puis soumet à nouveau le tout pour signature finale du Chef.</li>
                         </ul>
                         """
                     else:
@@ -876,23 +860,19 @@ if prompt:
             except: 
                 pass
 
-        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE AVEC TITRES HTML INTEGRES EN BLEU)
+        # 3. IDENTITÉ ET PERSONNALITÉ (FILTRE PIERRE OPTIMISÉ POUR COUVRIR TOUTE L'IA ET CACHER SA CURIOSITÉ)
         règles_or = "RÈGLES D'OR : 1. Loi 1937 (Substitution État). 2. Règle 11 (Structure=Mairie/EPI=Prof). 3. Examens = Mission impérative."
         filtre_pierre = (
-            "\nMÉTHODE DE RÉPONSE EN 3 PARTIES OBLIGATOIRE (Le 'Filtre Pierre' Ultra-Scannable) :\n"
-            "Tu dois STRICTEMENT structurer ta réponse finale selon le plan et les titres HTML exacts suivants. "
-            "Interdiction absolue d'utiliser la notation markdown ###. Utilise impérativement les balises <h3> comme indiqué ci-dessous :\n\n"
-            "<h3>1. ANALYSE DES RISQUES</h3>\n"
-            "- Utilise des listes à puces avec un émoji d'alerte (🛑, ⚠️ ou ⚖️) suivi d'un ancrage en gras qualifiant le risque.\n\n"
-            "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
-            "- Déroule les actions de terrain de manière chronologique.\n"
-            "- Commence impérativement CHAQUE étape par une flèche '➔ Étape X (Titre court) : '.\n"
-            "- Mets TOUJOURS en gras et entre crochets les boutons ou modules réels de l'interface logicielle.\n\n"
-            "<h3>3. PROTECTION FONCTIONNELLE</h3>\n"
-            "- Utilise des listes à puces avec des émojis de dossiers/sécurité (📁, 🔓) suivis d'une notion forte en gras.\n\n"
-            "POSTURE DE L'IA : Tu es un haut fonctionnaire du contentieux. Tu ne 'conseilles' pas, tu 'constates'. "
-            "Tu bannis toute formule de politesse (ex: 'Il est couteux de', 'Je vous recommande'). "
-            "Tu adopes un ton froid, décisoire et factuel. Chaque affirmation doit reposer sur un cadre légal cité nommément."
+            "\nMÉTHODE DE RENDU STRICT À RESPECTER SANS CONSEIL NI EMPATHIE :\n"
+            "Tu as l'interdiction absolue de créer ou de faire figurer une section intitulée 'ANALYSE DES RISQUES' ou d'expliquer comment tu réfléchis.\n"
+            "Tu devez attaquer directement par la procédure ou la réponse concrète, suivie des références réglementaires.\n"
+            "Tu dois impérativement utiliser les balises <h3> pour structurer ton rendu final comme suit, sans utiliser la notation markdown ### :\n\n"
+            "<h3>➔ PROCÉDURE TECHNIQUE</h3>\n"
+            "- Déroule les actions concrètes de terrain de manière chronologique.\n"
+            "- Surligne les boutons logiciels réels en gras et entre crochets.\n\n"
+            "<h3>📁 PROTECTION FONCTIONNELLE ET RÉFÉRENCES</h3>\n"
+            "- Liste les textes législatifs à l'appui (en utilisant impérativement les composants law-highlight).\n\n"
+            "POSTURE DE L'IA : Haut fonctionnaire. Tu constates, tu ne justifies pas. Ton style est froid, décisoire et factuel."
         )
         badge = "INFORMATION"
         color_card = "general-card"
@@ -924,43 +904,35 @@ if prompt:
 
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Tu es l'expert informatique iPackEPS. Tu es un moteur d'extraction strict et froid. Tu n'inventes RIEN.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE SUR LES TITRES HTML :\n"
-                "<h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>\n"
-                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
-                "<h3>3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n\n"
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET RÈGLES INTERNES :\n"
-                "1. INTERDICTION ABSOLUE d'inventer des boutons de création manuelle d'élèves.\n"
-                "2. INTERDICTION FORMELLE d'ajouter des lignes de texte ou des encadrés titrés 'ALERTE SÉCURITÉ'.\n"
-                "3. Pour la section 3, copie-coller STRICTEMENT le bloc de liens fourni ci-dessous.\n\n"
+                "ROLE : Expert informatique iPackEPS. Tu n'inventes RIEN. Rendu direct et épuré de toute réflexion.\n\n"
+                "STRUCTURE DE RÉPONSE DIRECTE :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
+                "<h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n\n"
                 "🎯 CAS BLINDÉS CONFIGURÉS :\n\n"
-                "- SI LA QUESTION PARLE DE CERTIFICAT MÉDICAL / SAISIE INAPTITUDE / DISPENSE ELEVE :\n"
-                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
-                "Le dépôt et la configuration d'un justificatif médical s'effectuent via le cheminement chirurgical suivant, sans jamais forcer l'écriture dans les grilles de notes :\n\n"
-                "➔ Étape 1 (Accès) : Connectez-vous et cliquez sur le module **[Mes Élèves]**.\n"
-                "➔ Étape 2 (Fiche) : Dans la liste, cliquez sur le nom de l'élève pour ouvrir sa **[Fiche élève]**.\n"
-                "➔ Étape 3 (Section) : Repérez et ouvrez l'onglet ou la section **[Inaptitudes]**.\n"
+                "- CM / INAPTITUDE / DISPENSE ELEVE :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
+                "➔ Étape 1 : Connectez-vous et cliquez sur le module **[Mes Élèves]**.\n"
+                "➔ Étape 2 : Dans la liste, cliquez sur le nom de l'élève pour ouvrir sa **[Fiche élève]**.\n"
+                "➔ Étape 3 : Repérez et ouvrez l'onglet ou la section **[Inaptitudes]**.\n"
                 "➔ Étape 4 (Action) : Cliquez sur le bouton officiel **[Saisir une inaptitude]**.\n"
                 "➔ Étape 5 (Saisie) : Renseignez scrupuleusement les dates de validité du certificat ainsi que les APSA spécifiquement visées par la dispense.\n"
                 "➔ Étape 6 (Dépôt) : Téléversez le scan ou la capture photo du certificat médical officiel.\n"
                 "➔ Étape 7 (Verrou d'arbitrage) : Pour la réactivation ultérieure des APSA lors des commissions d'arbitrage, modifiez la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.\n"
-                "⚠️ **RÈGLE D'OR DE SÉCURITÉ** : Ne tapez JAMAIS manuellement les mentions 'IN' ou 'DI' directement dans les cases de notes brutes. La validation de l'inaptitude dans l'onglet dédié génère le statut automatiquement pour éviter tout conflit de synchronisation.\n\n"
-                "- SI LA QUESTION PARLE DE SUPPRIMER / EFFACER / RETIRER / ENLEVER UN PROTOCOLE :\n"
-                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
-                "NON, l'option directe 'Supprimer le protocole' n'existe pas dans les menus terminaux si des données y sont rattachées. Pour faire disparaître un protocole, vous devez obligatoirement procéder à rebours :\n\n"
-                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[SSequences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
+                "⚠️ **SÉCURITÉ** : Ne tapez JAMAIS manuellement 'IN' ou 'DI' directement dans les grilles de notes brutes. La validation dans l'onglet dédié génère le statut automatiquement.\n\n"
+                "- SUPPRIMER / EFFACER / RETIRER UN PROTOCOLE :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
+                "➔ Étape 1 : Allez dans **[Dossiers]** > **[Dossier EPS]** > **[Séquences d'Apprentissage]** et supprimez toutes les séquences liées au groupe concerné.\n"
                 "➔ Étape 2 : Allez dans le module **[Mes Élèves]**, ouvrez le groupe et videz-le en décochant manuellement tous les élèves affectés.\n"
                 "➔ Étape 3 : Une fois le groupe totalement vide, sans aucune séquence ni note brute résiduelle, le protocole se désactive informatiquement et peut être archivé ou supprimé depuis le menu **[Dossier Certificatif]** > **[Protocoles d'évaluation]**.\n\n"
-                "- SI LA QUESTION PARLE DE RÉPARTIR / AFFECTER / PLACER LES ÉLÈVES DANS LES GROUPES :\n"
-                "<h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
-                "Le bouton ou l'option globale 'Placement des Élèves dans les Groupes' n'existe pas. Tout s'exécute via le module des élèves :\n\n"
+                "- RÉPARTIR / AFFECTER LES ÉLÈVES DANS LES GROUPES :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>\n"
                 "➔ Étape 1 : Accédez exclusivement au module **[Mes Élèves]**.\n"
                 "➔ Étape 2 : Dans le panneau de configuration, sélectionnez l'onglet **[Classes]** ou **[Groupes]**.\n"
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
                 "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER :\n{bloc_liens_dynamique}\n\n"
+                f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
@@ -983,54 +955,39 @@ if prompt:
 
             bloc_liens_dynamique = "\n".join(liens_selectionnes)
 
-            # 🛠️ NETTOYAGE ABSOLU : Retrait complet de la consigne qui orientait l'IA vers des affirmations de dates limites
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
-                "ROLE : Expert certificateur EPS (Examens, CCF, Santorin, Cyclades). Tu es un moteur d'extraction strict et froid.\n\n"
-                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE AVEC TITRES HTML :\n"
-                "<h3>1. ANALYSE DES RISQUES</h3>\n"
-                "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
-                "<h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
-                "🛑 CONSIGNES DE SÉCURITÉ DE RÉDACTION ET VERROUS ABSOLUS :\n"
-                "1. INTERDICTION D'ALERTES DE SÉCURITÉ : Tu as l'interdiction absolue de créer des sous-titres ou des lignes titrées 'ALERTE SÉCURITÉ' nulle part dans la réponse.\n\n"
+                "ROLE : Expert certificateur EPS. Tu es un moteur d'extraction strict. Aucun commentaire sur ton propre processus.\n\n"
+                "STRUCTURE DE RÉPONSE DIRECTE :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE</h3>\n"
+                "<h3>📁 CADRAGE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
-                "- SI LA QUESTION PARLE DE REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
-                "<h3>2. PROCÉDURE TECHNIQUE</h3>\n"
-                "L'affectation manuelle d'un remplaçant s'exécute exclusivement selon la chronologie administrative suivante :\n\n"
-                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN and cliquer impérativement sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
+                "- REMPLAÇANT / ACCÈS REMPLAÇANT :\n"
+                "<h3>➔ PROCÉDURE TECHNIQUE</h3>\n"
+                "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
-                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel. Ne partagez jamais vos identifiants propres.\n\n"
-                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER EN SECTION 3 :\n{bloc_liens_dynamique}\n\n"
-                f"Contexte Répertoire Local (RAG) : {extraits_doc}\n"
+                "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel.\n\n"
+                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER :\n{bloc_liens_dynamique}\n\n"
+                f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif mode == "textes":
             consigne_ia = f"""{règles_or}{filtre_pierre}{consigne_commune_pierre}
-ROLE : Tu es le Conseil Juridique du Rectorat. Tu es l'avocat exclusif de l'enseignant d'EPS. Ton transient est froidement factuel, technique et décisoire.
-Tu t'adresses à des DASEN, des IA-IPR et des Chefs d'établissement. Bannis toute tournure de politesse, de conseil ou d'empathie. 
+ROLE : Conseil Juridique du Rectorat. Aucun mot de politesse, d'empathie ou d'introduction réflexive.
 
-🛑 VERROU DE SÉCURITÉ JURIDIQUE CONTRE LES COLLISIONS DE MÉMOIRE (STRICT ET ABSOLU) :
-- SI LA QUESTION CONCERNE LA VIDÉO, LE FILM, LA CAMÉRA OU LE DROIT À L'IMAGE : Il est RIGOUREUSEMENT INTERDIT de mentionner la laïcité, la religion, la loi de 2004 ou la neutralité du fait religieux. C'est un hors-sujet juridique lourd. Un refus de captation d'image relève EXCLUSIVEMENT de la vie privée, du Code Civil et de la protection des données (RGPD). Reste hermétique !
+🛑 DIRECTIVE DE SURLIGNAGE HTML : Enveloppe les mentions de lois dans : <span class="law-highlight">NOM DU TEXTE</span>.
 
-🛑 DIRECTIVE DRACONIENNE DE SURLIGNAGE HTML (SANS EXCEPTION) :
-- Tu DOIS impérativement envelopper CHAQUE mention de texte de loi, d'article de code, de décret, de circulaire ou de jurisprudence dans la balise HTML exacte suivante : <span class="law-highlight">NOM DU TEXTE</span>.
-- Exemples à suivre à la lettre : <span class="law-highlight">Article 9 du Code civil</span>, <span class="law-highlight">RGPD</span>, <span class="law-highlight">Article L. 511-1 du Code de l'éducation</span>. 
-- Ne laisse JAMAIS un texte juridique en texte brut. Tout doit être encapsulé dans le composant de surlignage.
+STRUCTURE DU RENDU DIRECT :
+<h3>➔ PROCÉDURE TECHNIQUE JURIDIQUE</h3>
+- Actions immédiates étape par étape coulées sur le terrain.
 
-STRUCTURE DU RENDU OBLIGATOIRE EN BALISES HTML H3 (INTERDICTION DU ###) :
-<h3>1. ANALYSE DES RISQUES</h3>
-- Qualification factuelle des risques en isolant le droit pur.
+<h3>📁 PROTECTION FONCTIONNELLE ET BOUCLIER LÉGISLATIF</h3>
+- Cadre de défense de l'agent (en utilisant impérativement les balises law-highlight).
 
-<h3>2. PROCÉDURE TECHNIQUE</h3>
-- Actions immédiates étape par étape (➔ Étape 1, ➔ Étape 2...) coulées sur le terrain.
-
-<h3>3. PROTECTION FONCTIONNELLE</h3>
-- Bouclier législatif de défense de l'agent (en utilisant impérativement les balises law-highlight).
-
---- CAPSULE ÉTANCHE DE CONTEXTE EN EXCLUSION DE RENDU ---
-Contexte Juridique Local et Web Officiel : {extraits_doc}
+--- CAPSULE ÉTANCHE ---
+Contexte Juridique Local : {extraits_doc}
 Question de l'agent : {prompt}
 """
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -1042,16 +999,14 @@ Question de l'agent : {prompt}
             label_attendu = "Attendus de Fin de Lycée (AFL 1, 2, 3)" if est_lycee else "Attendus de Fin de Cycle 4 (AFC)"
             label_competence = "Axe des compétences visées"
 
-            # 1. Routage des contenus par Champ d'Apprentissage (BO)
             ca_nom = "CA1 (Performance optimale à une échéance donnée)"
             if est_lycee:
                 ca_attendus = "AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.<br>AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement.<br>AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure."
                 ca_competences = "Concevoir et stabiliser des techniques efficaces. Planifier et réguler sa charge d'entraînement. Gérer la pression de la mesure officielle."
             else:
                 ca_attendus = "Produire une performance optimale, mesurable à une échéance donnée. Réaliser des efforts et enchaîner plusieurs actions motrices dans différentes familles pour aller plus vite, plus longtemps, plus haut, plus loin. Assumer les rôles sociaux (juge, chronométreur)."
-                ca_competences = "Gérer ses ressources pour produire la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
+                ca_competences = "Gérer ses ressources pour Unicode la meilleure performance possible. Se préparer, planifier et s'entraîner individuellement ou collectivement."
             
-            # Détection CA4 (Sports Co / Raquettes / Combat)
             if any(x in prompt_lower for x in ["volley", "basket", "hand", "foot", "rugby", "badminton", "tennis", "ping", "boxe", "lutte", "combat"]):
                 ca_nom = "CA4 (Affrontement collectif ou interindividuel)"
                 if est_lycee:
@@ -1061,7 +1016,6 @@ Question de l'agent : {prompt}
                     ca_attendus = "En situation d'opposition réelle et équilibrée, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force. Être solidaire, coopérer et co-arbitrer."
                     ca_competences = "Rechercher le gain de la rencontre par un projet prenant en compte le rapport de force. S'adapté rapidement au changement de statut."
             
-            # Détection CA3 (Artistique / Acrobatique)
             elif any(x in prompt_lower for x in ["gym", "acro", "danse", "step", "cirque"]):
                 ca_nom = "CA3 (Prestation corporelle artistique ou acrobatique)"
                 if est_lycee:
@@ -1071,13 +1025,11 @@ Question de l'agent : {prompt}
                     ca_attendus = "Mobiliser ses capacités expressives et acrobatiques pour imaginer, composer et interpréter une séquence corporelle devant un public. Participer activement au projet du groupe."
                     ca_competences = "Élaborer et réaliser un projet pour provoquer une émotion ou un message. Utiliser des procédés simples de composition."
 
-            # Détection CA5 (Entretien / Santé - Lycée)
             elif any(x in prompt_lower for x in ["muscu", "step", "fitness", "entretien", "ressources", "ca5"]):
                 ca_nom = "CA5 (Développement de soi et entretien de la santé)"
                 ca_attendus = "AFL 1 (Moteur) : Produire and enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, blocs d'allures en course).<br>AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.<br>AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade."
                 ca_competences = "Identification de ses limites et ses mobiles personnels. Maîtriser les postures de sécurité et d'efficience. Analyser ses bilans d'entraînement."    
             
-            # Détection CA2 (Milieux variés / APPN)
             elif any(x in prompt_lower for x in ["escalade", "orientation", " co ", "vtt", "kayak", "randonnée"]):
                 ca_nom = "CA2 (Environnements variés)"
                 if est_lycee:
@@ -1094,7 +1046,6 @@ Question de l'agent : {prompt}
                     apsa_trouvee = m
                     break
 
-            # 🛠️ CONFECTION DES GRAPHISMES ET DES LIENS DIRECTEMENT INJECTÉS SANS RECOPIE DU RAG
             liens_html = (
                 f"1. <a href='https://edubase.eduscol.education.fr/recherche?q={apsa_trouvee}' target='_blank'>📥 Ressources {apsa_trouvee.upper()} - Base Nationale ÉDUBASE EPS</a><br>"
                 f"2. <a href='https://www.google.com/search?q=site:pedagogie.ac-aix-marseille.fr+conservatoire+{apsa_trouvee}' target='_blank'>🎥 {apsa_trouvee.upper()} - Banque de vidéos et fiches du Conservatoire EPS Aix-Marseille</a><br>"
@@ -1103,11 +1054,7 @@ Question de l'agent : {prompt}
             )
 
             consigne_ia = (
-                "ROLE : Tu es un assistant technique d'extraction institutionnelle en EPS. Tu es un robot factuel strict.\n"
-                "CONSIGNE IMPÉRATIVE À RESPECTER : Tu dois SEULEMENT compléter et retourner la structure HTML fournie ci-dessous. "
-                "Tu avez l'interdiction totale de recopier, d'afficher ou d'annexer le pavé de texte du 'Contexte RAG' sous peine de casser l'interface.\n\n"
-                
-                "STRUCTURE DU RENDU SÉQUENCÉ À FOURNIR (EN BALISES HTML STRICTES) :\n"
+                "ROLE : Assistant technique d'extraction institutionnelle. Rendu direct et épuré. Remplis uniquement la structure HTML :\n\n"
                 f"<h3>📊 CADRAGE INSTITUTIONNEL ET RÉGLEMENTAIRE - {apsa_trouvee.upper()}</h3>"
                 f"<strong>Niveau ciblé : {niveau_affiche} | Champ d'Apprentissage : {ca_nom}</strong><br><br>"
                 "<h3>🌐 TEXTES OFFICIELS & REPERES DU BULLETIN OFFICIEL (BO)</h3>"
@@ -1116,12 +1063,10 @@ Question de l'agent : {prompt}
                 f"<li><strong>{label_competence} :</strong><br>{ca_competences}</li>"
                 "</ul>"
                 "<h3>🔍 RESPONSABILITÉ ET CADRE ACADÉMIQUE D'ÉVALUATION</h3>"
-                "<ul><li>La conception des fiches de cycle, le choix des variables didactiques, les critères observables précis ainsi que la répartition chiffrée des points appartiennent souverainement à l'équipe pédagogique de l'établissement sous la supervision des IA-IPR.</li></ul>"
+                "<ul><li>La conception des fiches de cycle et les critères appartiennent souverainement à l'équipe pédagogique d'établissement sous la supervision des IA-IPR.</li></ul>"
                 "<h3>🔍 RESSOURCES EMBARQUÉES ET OUTILS NUMÉRIQUES HOMOLOGUÉS</h3>"
-                f"Pour approfondir votre ingénierie de cycle, consultez les espaces officiels sécurisés :<br><br>{liens_html}\n\n"
-                
-                "--- BARRIÈRE ÉTANCHE DE FERMETURE (INTERDICTION STRICTE DE LIRE OU DE RECOPIER CE QUI SUIT) ---\n"
-                f"Contexte RAG : {extraits_doc}\n"
+                f"{liens_html}\n\n"
+                "--- BARRIÈRE ---\n"
                 f"Question du professeur : {prompt}"
             )
             badge, color_card = "🎓 CADRAGE EPS", "peda-card"
@@ -1167,52 +1112,39 @@ Question de l'agent : {prompt}
         est_remplacement_reunion_direct = mode == "examens" and any(x in prompt_lower_eval for x in ["remplace", "remplaç", "remplac"]) and any(x in prompt_lower_eval for x in ["réunion", "reunion", "commission", "convocation", "convoqu"])
 
         if est_tasa_direct or est_sss_direct:
-            texte_brut = extraits_doc  # Court-circuit historique TASA / SSS
+            texte_brut = extraits_doc.replace("<h3>1. RÈGLE D'OR DE L'ARBORESCENCE IPACK</h3>", "").replace("<h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>", "")
             
         elif est_date_notes_direct:
-            # Court-circuit absolu sur les calendriers pour éviter la désinformation inter-académique
             texte_brut = """
             <h3>📊 CALENDRIER & DATES DE REMISE DES NOTES</h3>
             <strong>Statut administratif : Spécificités académiques locales.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES DE FORCLUSION</h3>
+            <h3>➔ RÈGLE INSTITUTIONNELLE FIXE</h3>
             <ul>
-            <li>🛑 <strong>Risque de fermeture des serveurs :</strong> Se baser sur un calendrier erroné ou obsolète peut empêcher la saisie finale des évaluations, bloquant l'édition des livrets nationaux.</li>
+            <li><strong>Notification officielle :</strong> Les dates étant différentes pour chaque académie, je ne suis pas en mesure de vous répondre. Rapprochez-vous de vos correspondants pour avoir cette information.</li>
             </ul>
             
-            <h3>2. RÈGLE INSTITUTIONNELLE FIXE</h3>
+            <h3>📁 CADRE OFFICIEL DE RÉFÉRENCE</h3>
             <ul>
-            <li>➔ <strong>Notification officielle :</strong> Les dates étant différentes pour chaque académie, je ne suis pas en mesure de vous répondre. Rapprochez-vous de vos correspondants pour avoir cette information.</li>
-            </ul>
-            
-            <h3>3. CADRE OFFICIEL DE RÉFÉRENCE</h3>
-            <ul>
-            <li>📁 <strong>Source de vérité :</strong> Seuls les calendriers émis par la Division des Examens et Concours (DEC) de votre académie de rattachement et transmis par votre chef d'établissement font foi.</li>
+            <li><strong>Source de vérité :</strong> Seuls les calendriers émis par la Division des Examens et Concours (DEC) de votre académie de rattachement et transmis par votre chef d'établissement font foi.</li>
             </ul>
             """
             badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
         elif est_groupes_direct:
-            # Court-circuit Structure iPackEPS pour un rendu visuel premium avec vidéos
             texte_brut = """
             <h3>🛠️ IPACKEPS : CONSTITUTION DES CLASSES ET DES GROUPES</h3>
             <strong>Nomenclature officielle : Configuration obligatoire avant tout import d'élèves.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li>🛑 <strong>Risque de désynchronisation :</strong> Si la structure des classes n'est pas configurée *avant* l'import Pronote/SIECLE, les élèves se retrouveront orphelins sans affectation possible.</li>
-            <li>⚠️ <strong>Risque de blocage des protocoles :</strong> Un groupe mal associé à sa filière (LGT vs LP) verrouille l'accès aux matrices d'évaluation nationales correspondantes.</li>
+            <li><strong>Étape 1 (Initialisation) :</strong> Connectez-vous à votre console et accédez au menu supérieur **[Dossiers]**.</li>
+            <li><strong>Étape 2 (Nomenclature) :</strong> Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]** pour associer chaque division à son cycle d'enseignement.</li>
+            <li><strong>Étape 3 (Filières) :</strong> Basculez sur l'onglet **[Organisation des Classes]** pour valider la répartition réglementaire (Générale, Technologique ou Professionnelle).</li>
+            <li><strong>Étape 4 (Peuplement) :</strong> Rendez-vous dans le module **[Mes Élèves]** pour injecter votre fichier d'extraction Pronote ou SIECLE.</li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-            <ul>
-            <li>➔ <strong>Étape 1 (Initialisation) :</strong> Connectez-vous à votre console et accédez au menu supérieur **[Dossiers]**.</li>
-            <li>➔ <strong>Étape 2 (Nomenclature) :</strong> Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]** pour associer chaque division à son cycle d'enseignement.</li>
-            <li>➔ <strong>Étape 3 (Filières) :</strong> Basculez sur l'onglet **[Organisation des Classes]** pour valider la répartition réglementaire (Générale, Technologique ou Professionnelle).</li>
-            <li>➔ <strong>Étape 4 (Peuplement) :</strong> Rendez-vous dans le module **[Mes Élèves]** pour injecter votre fichier d'extraction Pronote ou SIECLE.</li>
-            </ul>
-            
-            <h3>3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
+            <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
             <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote</a></li>
             <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
@@ -1221,26 +1153,19 @@ Question de l'agent : {prompt}
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_nouvel_eleve_direct:
-            # Court-circuit Nouvel Élève / Arrivant iPackEPS pour un affichage premium
             texte_brut = """
             <h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>
             <strong>Nomenclature officielle : Interdiction absolue de création manuelle isolée dans l'application.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li>🛑 <strong>Risque de rupture de synchronisation :</strong> La création manuelle d'un élève détruit la correspondance avec son identifiant national (INE). Lors des remontées Cyclades/Santorin, ses notes d'AFL seront rejetées par les serveurs nationaux.</li>
-            <li>⚠️ <strong>Risque de doublon applicatif :</strong> Si l'élève est réinjecté plus tard lors d'une mise à jour de fichier globale, l'application générera une seconde fiche orpheline, écrasant ou dupliquant ses évaluations.</li>
+            <li><strong>Étape 1 (Mise à jour SIÈCLE) :</strong> Assurez-vous auprès du secrétariat de l'établissement que le nouvel élève a bien été enregistré et affecté dans sa classe sur la base nationale <strong>SIÈCLE</strong>.</li>
+            <li><strong>Étape 2 (Extraction) :</strong> Générez ou demandez un nouveau fichier d'exportation des élèves (format XML ou CSV) depuis Pronote ou Écoles-Directe.</li>
+            <li><strong>Étape 3 (Importation iPack) :</strong> Connectez-vous à iPackEPS, ouvrez le module **[Mes Élèves]** et cliquez sur le bouton officiel **[Importer un fichier d'élèves]**.</li>
+            <li><strong>Étape 4 (Fusion des bases) :</strong> Téléversez votre nouveau fichier. L'application va détecter automatiquement le nouvel arrivant et l'ajouter à sa division sans altérer les notes des autres élèves.</li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-            <ul>
-            <li>➔ <strong>Étape 1 (Mise à jour SIÈCLE) :</strong> Assurez-vous auprès du secrétariat de l'établissement que le nouvel élève a bien été enregistré et affecté dans sa classe sur la base nationale <strong>SIÈCLE</strong>.</li>
-            <li>➔ <strong>Étape 2 (Extraction) :</strong> Générez ou demandez un nouveau fichier d'exportation des élèves (format XML ou CSV) depuis Pronote ou Écoles-Directe.</li>
-            <li>➔ <strong>Étape 3 (Importation iPack) :</strong> Connectez-vous à iPackEPS, ouvrez le module **[Mes Élèves]** et cliquez sur le bouton officiel **[Importer un fichier d'élèves]**.</li>
-            <li>➔ <strong>Étape 4 (Fusion des bases) :</strong> Téléversez votre nouveau fichier. L'application va détecter automatiquement le nouvel arrivant et l'ajouter à sa division sans altérer les notes des autres élèves.</li>
-            </ul>
-            
-            <h3>3. SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
+            <h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>
             <ul>
             <li>🎥 <a href="https://youtu.be/RlScDjd8kHk" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquer ici pour voir le tutoriel vidéo : Import d'élèves depuis Pronote</a></li>
             <li>📥 <a href="https://ipackeps.ac-creteil.fr/spip.php?rubrique2" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Accéder à la Rubrique 2 de la documentation officielle (Structures & Groupes)</a></li>
@@ -1249,23 +1174,17 @@ Question de l'agent : {prompt}
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_bricolage_note:
-            # Court-circuit direct contre la triche ou le forçage réglementaire
             texte_brut = """
             <h3>🛑 RÉGLEMENTATION CCF : INTERDICTION DE FORCER OU BRICOLER UNE NOTE</h3>
             <strong>Statut juridique : Non-conformité majeure entraînant l'annulation de l'épreuve.</strong><br><br>
-            <h3>1. ANALYSE DES RISQUES JURIDIQUES & INSTITUTIONNELS</h3>
+            <h3>➔ LA PROCÉDURE RÉGLEMENTAIRE REQUISE (CÔTÉ ENSEIGNANT)</h3>
             <ul>
-            <li>🛑 <strong>Risque de fraude :</strong> Il est strictement interdit d'inventer, de simuler ou de calculer au prorata une note d'APSA non réalisée physiquement par l'élève devant les examinateurs.</li>
-            <li>⚠️ <strong>Risque de blocage :</strong> Si un élève n'a qu'une seule note valide sur les deux requises, l'application bloque volontairement le calcul automatique pour alerter l'administration et le jury.</li>
-            </ul>
-            <h3>2. LA PROCÉDURE RÉGLEMENTAIRE REQUISE (CÔTÉ ENSEIGNANT)</h3>
-            <ul>
-            <li>➔ <strong>Étape 1 (Pas de forcing) :</strong> Ne cherchez pas à remplir artificiellement la case Badminton ou l'APSA manquante. Laissez l'interface verrouillée.</li>
-            <li>➔ <strong>Étape 2 (Statut Médical) :</strong> Si l'élève est officiellement inapte pour cause de blessure constatée, son statut médical doit être saisi en 'DI' (Dispensé) ou 'Inapte' dans l'onglet des inaptitudes.</li>
-            <li>➔ <strong>Étape 3 (Remontée administrative) :</strong> Le dossier d'un élève ne disposant que d'une seule note valide à l'année doit être obligatoirement transmis au <strong>Jury Académique</strong> via Cyclades pour arbitrage final.</li>
+            <li><strong>Étape 1 (Pas de forcing) :</strong> Ne cherchez pas à remplir artificiellement la case Badminton ou l'APSA manquante. Laissez l'interface verrouillée.</li>
+            <li><strong>Étape 2 (Statut Médical) :</strong> Si l'élève est officiellement inapte pour cause de blessure constatée, son statut médical doit être saisi en 'DI' (Dispensé) ou 'Inapte' dans l'onglet des inaptitudes.</li>
+            <li><strong>Étape 3 (Remontée administrative) :</strong> Le dossier d'un élève ne disposant que d'une seule note valide à l'année doit être obligatoirement transmis au <strong>Jury Académique</strong> via Cyclades pour arbitrage final.</li>
             </ul>
             <br>
-            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
+            <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
             </ul>
@@ -1273,23 +1192,17 @@ Question de l'agent : {prompt}
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_grise_direct:
-            # Court-circuit technique Santorin pour les boutons grisés
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : BOUTONS OU CASES GRISÉES</h3>
             <strong>Statut technique : Conflit de modification ou défaut de sélection de lot.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <h3>➔ PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
             <ul>
-            <li>🛑 <strong>Risque de blocage de saisie :</strong> L'affichage grisé empêche techniquement l'accès aux grilles de notation, mettant en péril le respect des dates butoirs académiques.</li>
+            <li><strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'interface bascule en lecture seule (boutons grisés) pour tous les autres correcteurs. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte.</strong></li>
+            <li><strong>Cas 2 (Défaut de sélection active) :</strong> Les cases restent bridées tant que le lot n'est pas déplié. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur [Voir le détail], puis sélectionnez le nom du candidat pour activer la grille.</strong></li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-            <ul>
-            <li>➔ <strong>Cas 1 (Correction partagée - Le plus fréquent) :</strong> Si plusieurs évaluateurs sont affectés au même lot de copies numérisées, dès qu'un collègue ouvre ou édite le dossier d'un élève, l'application bascule instantanément l'interface en lecture seule (boutons grisés) pour tous les autres correcteurs afin d'éviter les collisions de données. <strong>Solution : Attendez que votre collègue ferme la copie ou se déconnecte d'Arena.</strong></li>
-            <li>➔ <strong>Cas 2 (Défaut de sélection active) :</strong> Les cases de saisie restent informatiquement bridées tant que le lot n'est pas pleinement déployé. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur le bouton [Voir le détail] de votre mission, puis sélectionnez explicitement le nom du candidat pour activer la grille.</strong></li>
-            </ul>
-            
-            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
+            <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
             </ul>
@@ -1297,31 +1210,24 @@ Question de l'agent : {prompt}
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_inapte_santorin_direct:
-            # Court-circuit corrigé : Gestion réelle des inaptitudes et dispenses dans Santorin EPS (Directives DEC/DIEC)
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET ABSENTS AU CCF</h3>
             <strong>Cadre réglementaire académique : Saisie obligatoire des notes particulières dans l'interface de notation.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
+            <h3>➔ PROCÉDURE TECHNIQUE DE SAISIE (DIRECTIVES DIEC / DEC AIX-MARSEILLE)</h3>
             <ul>
-            <li>🛑 <strong>Risque de blocage du calcul :</strong> Si un élève est absent ou inapte et que sa case reste vide sans "Note particulière", les serveurs Cyclades bloquent la clôture du lot et l'édition du bordereau final.</li>
-            <li>⚠️ <strong>Risque de zéro injustifié :</strong> Saisir manuellement la note brute de 00/20 à un élève absent non justifié est interdit. Il faut impérativement utiliser le code officiel pour que le jury applique les abattements réglementaires.</li>
+            <li><strong>Étape 1 (Accès Mission) :</strong> Connectez-vous à Arena, ouvrez l'activité **[Portail d'accès aux missions]** puis sélectionnez votre mission **[Notation EPS CCF]**.</li>
+            <li><strong>Étape 2 (Ouverture du Lot) :</strong> Dans votre tableau de bord Santorin, ouvrez votre lot d'APSA et cliquez sur l'icône "crayon" d'accès à la notation du candidat concerné.</li>
+            <li><strong>Étape 3 (Saisie de la Note Particulière) :</strong> Dans la zone de notation de l'APSA, n'entrez pas de points AFL, mais ouvrez le menu déroulant officiel des **[Notes particulières]** :</li>
+            <ul>
+                <li>🔹 <strong>Dispense (DI) :</strong> À sélectionner si l'élève présente un certificat médical d'inaptitude valide. Cela neutralise l'APSA (elle sort de la moyenne sans pénaliser l'élève).</li>
+                <li>🔹 <strong>Absent (AB) :</strong> À sélectionner en cas d'absence non justifiée lors de l'évaluation (vaut note zéro).</li>
+                <li>🔹 <strong>Épreuve de substitution :</strong> À cocher si l'élève est renvoyé à la session de rattrapage (motif : *Inapte* ou *Force majeure*).</li>
+            </ul>
+            <li><strong>Étape 4 (Cas des SHN) :</strong> Pour les Sportifs de Haut Niveau, le clic sur le crayon ouvre un volet spécifique permettant d'appliquer la note réglementaire de 20/20.</li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE DE SAISIE (DIRECTIVES DIEC / DEC AIX-MARSEILLE)</h3>
-            <ul>
-            <li>➔ <strong>Étape 1 (Accès Mission) :</strong> Connectez-vous à Arena, ouvrez l'activité **[Portail d'accès aux missions]** puis sélectionnez votre mission **[Notation EPS CCF]** de l'examen correspondant.</li>
-            <li>➔ <strong>Étape 2 (Ouverture du Lot) :</strong> Dans votre tableau de bord Santorin, ouvrez votre lot d'APSA et cliquez sur l'icône "crayon" d'accès à la notation du candidat concerné.</li>
-            <li>➔ <strong>Étape 3 (Saisie de la Note Particulière) :</strong> Dans la zone de notation de l'APSA, n'entrez pas de points AFL, mais ouvrez le menu déroulant officiel des **[Notes particulières]** pour qualifier la situation juridique de l'élève :</li>
-            <ul>
-                <li>🔹 <strong>Dispense (DI) :</strong> À sélectionner si l'élève présente un certificat médical d'inaptitude valide. Cela neutralise l'APSA (elle sort du calcul de la moyenne finale sans pénaliser l'élève).</li>
-                <li>🔹 <strong>Absent (AB) :</strong> À sélectionner en cas d'absence non justifiée lors de l'évaluation (vaut note zéro pour cette épreuve).</li>
-                <li>🔹 <strong>Épreuve de substitution :</strong> À cocher si l'élève est renvoyé à la session de rattrapage (sélectionner le motif : *Inapte* pour blessure de dernière minute ou *Force majeure*).</li>
-            </ul>
-            <li>➔ <strong>Étape 4 (Cas des SHN) :</strong> Pour les Sportifs de Haut Niveau, le clic sur le crayon ouvre un volet spécifique permettant de sélectionner l'activité sur laquelle appliquer la note réglementaire de 20/20.</li>
-            </ul>
-            
-            <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
+            <h3>📁 CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
             <ul>
             <li>📥 <a href="https://www.pedagogie.ac-aix-marseille.fr/upload/docs/application/pdf/2024-03/webinaire_utilisation_de_santorin.pdf" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour télécharger le Webinaire de Formation Officiel Santorin EPS (Académie d'Aix-Marseille)</a></li>
             </ul>
@@ -1329,71 +1235,22 @@ Question de l'agent : {prompt}
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_remplacement_reunion_direct:
-            # Court-circuit Remplacement de réunion / Ordre de mission nominatif
             texte_brut = """
             <h3>📊 EXAMENS & SANTORIN : REMPLACEMENT EN SOUS-COMMISSION / JURY</h3>
             <strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br><br>
             
-            <h3>1. ANALYSE DES RISQUES JURIDIQUES & COUVERTURE</h3>
+            <h3>➔ PROCÉDURE TECHNIQUE & ADMINISTRATIVE IMMÉDIATE</h3>
             <ul>
-            <li>🛑 <strong>Risque d'accident de service (Zéro couverture) :</strong> Si l'enseignant remplaçant se déplace ou participe à une instance officielle sans convocation rectorale (DEC) établie à son nom, il agit hors cadre réglementaire. En cas d'accident de trajet ou de sinistre, la protection fonctionnelle et la couverture d'accident du travail sont légalement compromises.</li>
-            <li>⚠️ <strong>Risque de non-remboursement (Chorus DT) :</strong> Sans ordre de mission ou état de convocation nominatif i-Prof, l'agent ne pourra introduire aucune demande d'indemnisation de frais de transport ou de séjour sur l'application Chorus.</li>
+            <li><strong>Étape 1 (Alerte Secrétariat) :</strong> Le secrétariat de direction de l'établissement doit contacter immédiatement le gestionnaire de l'examen au sein de la Division des Examens et Concours (DEC) du Rectorat.</li>
+            <li><strong>Étape 2 (Régularisation nominative) :</strong> Demander l'émission d'un modificatif officiel de convocation ou d'un ordre de mission exprès au nom de l'enseignant remplaçant pour valider sa couverture juridique (accidents de trajet) et ses frais Chorus DT.</li>
+            <li><strong>Étape 3 (Bascule Santorin / Imag'in) :</strong> Si le remplacement inclut la notation, le secrétariat doit valider la suppléance sur Imag'in et cliquer sur l'icône [PDF] pour injecter les accès de l'agent.</li>
             </ul>
             
-            <h3>2. PROCÉDURE TECHNIQUE & ADMINISTRATIVE IMMÉDIATE</h3>
+            <h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>
             <ul>
-            <li>➔ <strong>Étape 1 (Alerte Secrétariat) :</strong> Le secrétariat de direction de l'établissement doit contacter immédiatement et en urgence le gestionnaire de l'examen concerné au sein de la Division des Examens et Concours (DEC) du Rectorat.</li>
-            <li>➔ <strong>Étape 2 (Régularisation nominative) :</strong> Demander l'émission d'un modificatif officiel de convocation ou d'un ordre de mission exprès au nom de l'enseignant remplaçant. Un simple accord verbal ou interne à l'établissement ne possède aucune valeur juridique.</li>
-            <li>➔ <strong>Étape 3 (Bascule Santorin / Imag'in) :</strong> Si le remplacement inclut également la correction ou l'évaluation de lots dématérialisés, le secrétariat doit valider la bascule de suppléance sur Imag'in et cliquer sur l'icône [PDF] pour injecter automatiquement les accès Arena/Santorin de l'agent.</li>
-            </ul>
-            
-            <h3>3. CADRE OFFICIEL ET RECOMMANDATIONS</h3>
-            <ul>
-            <li>📁 <span class="law-highlight">Code de l'éducation</span> : La participation aux jurys d'examens nationaux constitue une obligation statutaire de service public. Toutefois, l'exercice de cette mission est conditionné à la détention d'un titre de convocation régulier émis par l'autorité académique souveraine.</li>
+            <li>📁 <span class="law-highlight">Code de l'éducation</span> : La participation aux jurys d'examens nationaux constitue une obligation statutaire. L'exercice de cette mission is conditionné à la détention d'un titre de convocation régulier émis par l'autorité académique.</li>
             </ul>
             """
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-            
-        elif est_santorin_direct:
-            # Sous-routage dynamique Santorin (Appréciations / Aucun lot)
-            if any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "texte obligatoire"]):
-                texte_brut = """
-                <h3>📊 EXAMENS & SANTORIN : LA RÈGLE DES APPRÉCIATIONS</h3>
-                <strong>Statut réglementaire : Facultatif (Idée reçue du terrain).</strong><br><br>
-                <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
-                <ul>
-                <li><strong>Risque de non-conformité :</strong> Aucun pour un parcours classique. L'application Santorin ne bloque pas la validation si la case appréciation est vide.</li>
-                <li><strong>Risque de perte de temps :</strong> Rédiger des commentaires généraux pour toute une classe est une charge de travail inutile non demandée par la DEC.</li>
-                </ul>
-                <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION</h3>
-                <ul>
-                <li>➔ <strong>Règle générale :</strong> Saisissez uniquement les notes d'AFL. Laissez la case appréciation VIDE pour les élèves ordinaires.</li>
-                <li>➔ <strong>Exception Obligatoire :</strong> Le commentaire devient STRICTEMENT OBLIGATOIRE uniquement pour justifier un statut d'alerte, une notation atypique ou un aménagement (ex: un élève avec 2 dispenses + 1 note, ou basculé en statut DI).</li>
-                </ul>
-                <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
-                <ul>
-                <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-                </ul>
-                """
-            elif any(x in prompt_lower_eval for x in ["aucun lot", "pas de lot", "lot manquant", "lot invisible", "boccaccini"]):
-                texte_brut = """
-                <h3>📊 EXAMENS & SANTORIN : PROTOCOLE "AUCUN LOT À CORRIGER"</h3>
-                <strong>Statut de l'erreur : Problème d'aiguillage Direction / DIEC.</strong><br><br>
-                <h3>1. ANALYSE DES RISQUES INFRA / TECHNIQUE</h3>
-                <ul>
-                <li><strong>Risque de blocage :</strong> Tant que le lot n'est pas généré, l'enseignant est dans l'impossibilité physique de saisir ses notes d'AFL, mettant en péril la date limite nationale.</li>
-                </ul>
-                <h3>2. PROCÉDURE TECHNIQUE DE RÉSOLUTION CÔTÉ DIRECTION</h3>
-                <ul>
-                <li>➔ <strong>Étape 1 (Vérification Imag'in) :</strong> Le Chef d'établissement doit vérifier que vous possédez bien une mission active de type 'Notation EPS CCF'.</li>
-                <li>➔ <strong>Étape 2 (Le Clic PDF Master) :</strong> Lors de l'affectation, le chef doit OBLIGATOIREMENT cliquer sur le picto PDF dans son espace Imag'in. C'est ce clic précis qui pousse votre nom vers Santorin.</li>
-                <li>➔ <strong>Étape 3 (Distribution) :</strong> Le chef doit ensuite aller sur son tableau de bord Santorin et lancer la 'Distribution automatique' (ou manuelle si votre mail Cyclades diffère de votre mail Imag'in) pour créer votre lot.</li>
-                </ul>
-                <h3>3. CADRE OFFICIEL ET ACCOMPAGNEMENT</h3>
-                <ul>
-                <li>📥 <a href="https://pole-examens.github.io/tutoriels-examens/co/guide.html" target="_blank" style="color: #FFB020 !important; text-decoration: underline; font-weight: bold;">Cliquez ici pour consulter le Guide Interactif Complet du Pôle Examens</a></li>
-                </ul>
-                """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         else:
@@ -1407,10 +1264,18 @@ Question de l'agent : {prompt}
         
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
+        # 🧼 FILTRE MASTER DE PROTECTION : Supprime toute trace de réflexion ou de justifications sémantiques de l'IA
+        lignes_nettoyees = []
+        for ligne in texte_brut.split("<br>"):
+            if any(p in ligne.lower() for p in ["analyse des risques", "pourquoi je réponds", "en tant qu'ia", "consignes cachées", "voici la structure"]):
+                continue
+            lignes_nettoyees.append(ligne)
+        texte_brut = "<br>".join(lignes_nettoyees)
+        
         # Capture des liens YouTube sécurisée
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
 
-        # Rendu visuel propre
+        # Rendu visuel propre et direct
         if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_date_notes_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
@@ -1421,5 +1286,5 @@ Question de l'agent : {prompt}
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         for link in youtube_links:
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0]}')"})
+            st.video(link[0])
         st.rerun()

@@ -931,7 +931,6 @@ if prompt:
                 "➔ Étape 3 : Cochez manuellement les cases individuelles en bout de ligne pour chaque élève à attribuer.\n"
                 "➔ Étape 4 : Utilisez le bouton d'affectation collective **[Ajouter au groupe]** après avoir sélectionné votre groupe cible dans le menu déroulant.\n"
                 "⚠️ **RÈGLE d'ÉTANCHÉITÉ** : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation.\n\n"
-                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
@@ -958,7 +957,7 @@ if prompt:
             consigne_ia = (
                 f"{règles_or}{filtre_pierre}{consigne_commune_pierre}\n"
                 "ROLE : Expert certificateur EPS. Tu es un moteur d'extraction strict. Aucun commentaire sur ton propre processus.\n\n"
-                "STRUCTURE DE RÉPONSE DIRECTE :\n"
+                "STRUCTURE DE RÉPONSE NON NÉGOCIABLE AVEC TITRES HTML :\n"
                 "<h3>➔ PROCÉDURE TECHNIQUE</h3>\n"
                 "<h3>📁 CADRAGE OFFICIEL ET RECOMMANDATIONS</h3>\n\n"
                 "🎯 CAS BLINDÉS EXAMENS :\n\n"
@@ -967,7 +966,6 @@ if prompt:
                 "➔ Étape 1 (Convocation) : Le secrétariat doit éditer la convocation officielle du remplaçant dans IMAG'IN et cliquer sur l'icône 'PDF'. C'est cette édition qui transmet informatiquement ses droits vers Santorin.\n"
                 "➔ Étape 2 (Ouverture) : Déclenchement automatique de l'ouverture des accès de l'espace numérique ARENA de l'intervenant.\n"
                 "➔ Étape 3 (Lots) : Attribution finale et apparition des droits de correction sur les lots correspondants dans son tableau de bord Santorin personnel.\n\n"
-                "🎯 BLOC DE LIENS OFFICIELS À COPIER-COLLER :\n{bloc_liens_dynamique}\n\n"
                 f"Contexte RAG : {extraits_doc}\n"
                 f"Question du professeur : {prompt}"
             )
@@ -1240,6 +1238,12 @@ Question de l'agent : {prompt}
         else:
             response = Settings.llm.complete(consigne_ia) 
             texte_brut = response.text
+            
+            # 🛠️ SÉCURITÉ DE REMONTÉE ENÉRGÉTIQUE : Injection forcée en Python pour empêcher l'IA d'effacer les tutoriels de bassin
+            if mode == "ipack" and 'bloc_liens_dynamique' in locals():
+                texte_brut += f"\n\n<h3>📁 SOURCES, ARTICLES ET TUTORIELS ÉDITEUR</h3>\n{bloc_liens_dynamique}"
+            elif mode == "examens" and 'bloc_liens_dynamique' in locals():
+                texte_brut += f"\n\n<h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n{bloc_liens_dynamique}"
         # --- FIN DU BLOC DE SÉCURITÉ ---
         
         # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi si l'IA en oublie
@@ -1256,8 +1260,13 @@ Question de l'agent : {prompt}
             lignes_nettoyees.append(ligne)
         texte_brut = "<br>".join(lignes_nettoyees)
         
-        # Capture des liens YouTube sécurisée AVANT le traitement HTML
+        # 🎥 DÉTECTEUR ABSOLU : Extraction chirurgicale des liens YouTube depuis le texte final ET les variables de bassin
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        if 'liens_selectionnes' in locals() and liens_selectionnes:
+            for l_sec in liens_selectionnes:
+                yt_raw = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', l_sec)
+                if yt_raw and yt_raw[0] not in youtube_links:
+                    youtube_links.extend(yt_raw)
 
         # Rendu visuel propre et direct
         if mode == "peda" or est_tasa_direct or est_sss_direct or est_santorin_direct or est_groupes_direct or est_nouvel_eleve_direct or est_grise_direct or est_bricolage_note or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_date_notes_direct:
@@ -1269,9 +1278,9 @@ Question de l'agent : {prompt}
             
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
-        # Injection sécurisée des vidéos dans la structure historique persistant pour ARENA/iPackEPS
+        # Déploiement étanche du lecteur vidéo en dehors du conteneur HTML
         for link in youtube_links:
-            clean_link = link[0].split('"')[0].replace(">", "")
+            clean_link = link[0].split('"')[0].split("'")[0].replace(">", "").replace("<", "").strip()
             st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{clean_link}')"})
             
         st.rerun()

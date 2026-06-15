@@ -668,8 +668,6 @@ with col_action_clear:
         st.cache_resource.clear()
         st.session_state.messages_hub = []
         st.rerun()
-    # DISJONCTEUR FINANCIER TAVILY :
-    activer_web = st.toggle("🌐 Recherche Web", value=False, help="Active la recherche web sémantique externe si la bibliothèque locale ne trouve rien.")
 
 with col_action_input:
     prompt = st.chat_input("Posez votre question institutionnelle, technique ou juridique ici...", key="chat_main")
@@ -724,6 +722,9 @@ if prompt:
         mode = st.session_state.active_module
         prompt_lower_eval = prompt.lower()
         
+        # 🔒 ARCHITECTURE 100% SOUVERAINE : Tavily est désactivé en arrière-plan pour un coût web de 0€
+        activer_web = False
+        
         mots_terrain = ["fiche", "evaluation", "évaluation", "grille", "bareme", "barème", "cycle", "seance", "séance", "apsa", "volley", "hand", "basket", "badminton", "relais", "natation", "escalade", "gym", "college", "collège"]
         est_demande_fiche = any(mot in prompt_lower_eval for mot in mots_terrain)
         
@@ -776,7 +777,7 @@ if prompt:
         est_inapte_santorin_direct = (intention == "SANTORIN_INAPTE_SIMPLE")
         est_grise_direct = (intention == "SANTORIN_GRISE")
         est_bricolage_note = (intention == "SANTORIN_BRICOLAGE")
-        est_sss_direct = (intention == "IPACK_SSS")
+        st_sss_direct = (intention == "IPACK_SSS")
         est_groupes_direct = (intention == "IPACK_GROUPES")
         est_nouvel_eleve_direct = (intention == "IPACK_NOUVEL_ELEVE")
         est_remplacement_reunion_direct = (intention == "JURY_REMPLACEMENT")
@@ -816,7 +817,7 @@ if prompt:
 
         extraits_doc += extraits_locaux
 
-        # 2. DISJONCTEUR CASCADE : APPEL TAVILY CONDITIONNÉ (Uniquement si coché, hors iPack, et si la bibliothèque locale est vide)
+        # 2. DISJONCTEUR CASCADE : APPEL TAVILY CONDITIONNÉ
         if tavily_api_key and activer_web and mode != "ipack" and not est_cas_blindé_racine and len(extraits_locaux.strip()) == 0:
             try:
                 domains = domaine_eps_france
@@ -1081,7 +1082,7 @@ Question de l'agent : {prompt}
             <li><strong>Étape 1 (Alerte Interne) :</strong> Ne tentez pas de manipuler l'interface informatique. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li>
             <li><strong>Étape 2 (Demande de déverrouillage) :</strong> Le chef d'établissement ou le coordonnateur principal doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) du Rectorat pour demander un <strong>[Renvoi en modification]</strong> ou un rejet informatique du lot.</li>
             <li><strong>Étape 3 (Correction) :</strong> Une fois que la DEC a libéré informatiquement le dossier, l'icône "crayon" redevient active dans votre tableau de bord Santorin. Vous pouvez alors écraser le statut erroné, saisir les points AFL réels de l'élève, puis valider à nouveau le lot.</li>
-            <li>⚠️ <strong>Si la plateforme est close :</strong> Si les serveurs nationaux sont définitivement clos, consignez l'erreur manuellement sur votre bordereau papier signé et transmettez-le directement au <strong>Jury Académique d'Harmonisation</strong> via Cyclades pour correction lors des délibérations.</li>
+            <li>⚠️ <strong>Si la plateforme est close :</strong> Si les serveurs nationaux sont définitivement clos, consignez l'erreur manuellement sur votre bordereau papier signed et transmettez-le directement au <strong>Jury Académique d'Harmonisation</strong> via Cyclades pour correction lors des délibérations.</li>
             </ul>
             <h3>📁 CADRE OFFICIEL DE RÉFÉRENCE</h3>
             <ul>
@@ -1090,7 +1091,7 @@ Question de l'agent : {prompt}
             """
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_sss_direct:
+        elif st_sss_direct:
             texte_brut = """
             <h3>🛠️ PROTOCOLE DE SÉCURITÉ - DOSSIER VERROUILLÉ APRÈS VALIDATION CHEF</h3>
             <strong>Statut du dossier : Lecture seule absolue (Verrouillage institutionnel).</strong><br><br>
@@ -1249,7 +1250,7 @@ Question de l'agent : {prompt}
                     youtube_links.extend(yt_raw)
 
         # Rendu visuel propre et direct
-        if mode == "peda" or est_cas_blindé_racine or est_tasa_direct or est_sss_direct or est_santorin_direct:
+        if mode == "peda" or est_cas_blindé_racine or est_tasa_direct or est_santorin_direct:
             texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>")
             formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         else:

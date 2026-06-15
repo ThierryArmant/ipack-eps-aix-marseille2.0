@@ -472,14 +472,44 @@ with col_b4:
         st.session_state.active_module = "textes"; st.session_state.messages_hub = []; st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT
+# 7B. MESSAGES D'AVERTISSEMENT (VERROUILLÉS AVEC TRIPLES GUILLEMETS)
 # ======================================================================
 if st.session_state.active_module == "textes":
-    st.markdown('<div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;"><span style="color: #fbbf24; font-weight: 500; font-size: 14px;">⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong></span></div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
 elif st.session_state.active_module == "peda":
-    st.markdown('<div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;"><span style="color: #fbbf24; font-weight: 500; font-size: 14px;">💡 <strong>Rappel Institutionnel :</strong> Cet onglet extrait exclusivement les Champs d'Apprentissage (CA), compétences et Attendus des Bulletins Officiels (BO). La liberté pédagogique reste sous l'entière responsabilité des équipes d'établissement.</span></div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            💡 <strong>Rappel Institutionnel :</strong> Cet onglet extrait exclusivement les Champs d'Apprentissage (CA), compétences et Attendus des Bulletins Officiels (BO). La liberté pédagogique reste sous l'entière responsabilité des équipes d'établissement.
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
 else:
-    st.markdown('<div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;"><div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div><div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;"><div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;"><strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l\'année)</strong><br><span style="color: #FCD34D !important;">Technique de terrain : configuration, groupes, Saisie des notes brutes.</span><br><div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;"><span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br><span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d\'inaptitude se posent TOUJOURS ici !</span></div></div><div style="flex: 1; padding-left: 5px;"><strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d\'année)</strong><br><span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Arena, arbitrages des Jurys Académiques.</span></div></div></div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
+        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
+        <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
+            <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+                <span style="color: #FCD34D !important;">Technique de terrain : configuration, groupes, Saisie des notes brutes.</span><br>
+                <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
+                    <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
+                    <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici !</span>
+                </div>
+            </div>
+            <div style="flex: 1; padding-left: 5px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
+                <span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Arena, arbitrages des Jurys Académiques.</span>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ======================================================================
 # 8. ZONE D'ACTION
@@ -533,7 +563,7 @@ if prompt:
         elif mode == "ipack":
             choix_autorises = """
             - CALENDRIER : Date limite de validation des notes trimestrielles sur iPackEPS.
-            - IPACK_SSS : Section Sportive Scolaire ou bilan annuel verrouillé par le chef d'établissement.
+            - IPACK_SSS : Un dossier ou bilan annuel est verrouillé par le chef d'établissement dans iPackEPS.
             - IPACK_GROUPES : Créer un groupe, configurer, associer un protocole/séquence d'APSA.
             - IPACK_NOUVEL_ELEVE : Ajouter un élève arrivant en cours d'année, synchronisation Pronote / SIECLE, fichier XML/CSV.
             - IPACK_TRANSFERT_DOUBLON : Élève qui change d'établissement (mutation) avec des notes déjà acquises dans son ancien bahut, ou fiche élève en doublon (ex: "élève vient d'un autre bahut avec ses notes de CCF").
@@ -672,7 +702,9 @@ if prompt:
         st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
         
         # Gestion des liens vidéos YouTube
-        for link in re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut):
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{link[0].split Harvey_Clean_Filtre[0].strip()}')"})
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        for link in youtube_links:
+            clean_link = link[0].split('"')[0].split("'")[0].strip()
+            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{clean_link}')"})
             
         st.rerun()

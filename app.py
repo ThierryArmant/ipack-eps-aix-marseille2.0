@@ -472,7 +472,7 @@ with col_b4:
         st.session_state.active_module = "textes"; st.session_state.messages_hub = []; st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT
+# 7B. MESSAGES D'AVERTISSEMENT (VERROUILLÉS AVEC TRIPLES GUILLEMETS)
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown("""
@@ -573,7 +573,7 @@ if prompt:
             """
         elif mode == "textes":
             choix_autorises = """
-            - SECURITE_TASA : Facturation, cotisations, transport, bus ou conventions liées à la TASA.
+            - SECURITE_TASA : La question concerne spécifiquement la taxe, la responsabilité liée au transport ou les déclarations TASA.
             - AUCUN_BLINDAGE : Textes juridiques généraux (Loi 1937, responsabilité APPN).
             """
         else:
@@ -641,7 +641,7 @@ if prompt:
             badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
         elif est_erreur_validation_santorin:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement ou le coordonnateur doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li><strong>Étape 3 :</strong> Une fois le dossier libéré, l'icône "crayon" redevient active dans Santorin. Vous pouvez écraser la note et valider à nouveau.</li><li>⚠️ En cas de fermeture définitive des serveurs académiques, transmettez le dossier papier pour arbitrage à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera informatiquement le lot afin que vous puissiez saisir vous-même la note définitive validée.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement ou le coordonnateur doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li><strong>Étape 3 :</strong> Une fois le dossier libéré, l'icône "crayon" redevient active dans Santorin. Vous pouvez écraser la note et valider à nouveau.</li><li>⚠️ En cas de fermeture définitive des serveurs académiques, transmettez le dossier papier pour arbitrage à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera informatiquement le lot afin que vous puissiez saisir vous-même la note définitive validée par la commission.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_sss_direct:
@@ -697,10 +697,11 @@ if prompt:
                 texte_brut += f"\n\n<h3>📁 CADRE OFFICIEL ET RECOMMANDATIONS</h3>\n{bloc_liens_dynamique}"
         # --- FIN DU BLOC DES COMPOSANTS EN DUR ---
         
-        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi
-        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de\s+l\'éducation)', r'<span class="law-highlight">\1</span>', text_brut)
+        # Filtre Regex de sécurité pour forcer l'affichage orange des textes de loi (CORRIGÉ AU SCALPEL ICI : texte_brut partout)
+        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de\s+l\'éducation)', r'<span class="law-highlight">\1</span>', texte_brut)
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
-        texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        re_links = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        texte_brut = re_links
         
         # SÉCURISATION DU RENDU (Remplacement des retours chariots)
         texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>").replace(chr(10), "<br>")

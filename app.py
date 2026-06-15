@@ -524,15 +524,19 @@ with col_action_input: prompt = st.chat_input("Posez votre question institutionn
 st.markdown('<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height: 1.4;"><span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION :</span><span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"> Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span></div>', unsafe_allow_html=True)
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET TRAITEMENT IA 
+# 9. FLUX DE MESSAGES ET TRAITEMENT IA (FIXÉ : PLUS DE EXEC POUR LES VIDEOS)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]): exec(m["content"]) if isinstance(m["content"], str) and m["content"].startswith("st.video(") else st.markdown(m["content"], unsafe_allow_html=True)
+    with st.chat_message(m["role"]): 
+        if m.get("type") == "video":
+            st.video(m["content"])
+        else:
+            st.markdown(m["content"], unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt:
-    st.session_state.messages_hub.append({"role": "user", "content": f"<span style='color: white;'>{prompt}</span>"})
+    st.session_state.messages_hub.append({"role": "user", "type": "text", "content": f"<span style='color: white;'>{prompt}</span>"})
     with st.spinner("Je recherche les documents..."):
         mode = st.session_state.active_module
         activer_web = False
@@ -571,11 +575,11 @@ if prompt:
             """
         elif mode == "textes":
             choix_autorises = """
-            - SECURITE_TASA : Facturation, cotisations, transport, bus ou conventions liées à la TASA.
+            - SECURITE_TASA : La question concerne spécifiquement la taxe, la responsabilité liée au transport ou les déclarations TASA.
             - AUCUN_BLINDAGE : Textes juridiques généraux (Loi 1937, responsabilité APPN).
             """
         else:
-            choix_autorises = "- AUCUN_BLINDAGE : Référentiels institutionnels, APSA, BO."
+            choix_autorises = "- AUCUN_BLINDAGE : Recherche pédagogique institutionnelle classique (APSA, fiches de cycle, CA)."
 
         intent_prompt = f"""
         Tu es l'aiguilleur master du Hub IA-EPS. Détermine l'INTENTION exacte.
@@ -606,9 +610,9 @@ if prompt:
         est_blessure_choc_direct = (intention == "SANTORIN_BLESSURE_CHOC")
         est_unss_absence_direct = (intention == "EXAMENS_UNSS_ABSENCE")
         est_transfert_doublon_direct = (intention == "IPACK_TRANSFERT_DOUBLON")
-        est_tasa_direct = (intention == "SECURITE_TASA") or (mode == "textes" and "tasa" in prompt_lower_eval)
+        est_tasa_direct = (intention == "SECURITE_TASA") or (mode == "textes" and "tasa" in prompt.lower())
         
-        est_santorin_direct = mode == "examens" and intention == "AUCUN_BLINDAGE" and any(x in prompt_lower_eval for x in ["appréciation", "appreciation", "commentaire", "aucun lot"])
+        est_santorin_direct = mode == "examens" and intention == "AUCUN_BLINDAGE" and any(x in prompt.lower() for x in ["appréciation", "appreciation", "commentaire", "aucun lot"])
         est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_groupes_direct or est_nouvel_eleve_direct or est_bricolage_note or est_grise_direct or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_santorin_direct or est_tasa_direct or est_cm_posterieur_direct or est_blessure_choc_direct or est_unss_absence_direct or est_transfert_doublon_direct)
 
         # 1. MOTEUR LOCAL EN PRIORITÉ (Coût 0)
@@ -620,7 +624,7 @@ if prompt:
                 elif mode == "ipack":
                     for n in retriever_ipack.retrieve(prompt): extraits_locaux += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
                 elif mode == "textes":
-                    mot_cle_local = prompt_lower_eval
+                    mot_cle_local = prompt.lower()
                     for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
                     for n in retriever_textes.retrieve(mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt): extraits_locaux += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
                 elif mode == "peda":
@@ -659,7 +663,7 @@ if prompt:
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_bricolage_note:
-            texte_brut = """<h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3><strong>Cadre réglementaire national (Bac GT) : Impossibilité administrative de calcul automatique.</strong><br><ul><li><strong>Règle d'or :</strong> Au Bac GT, l'évaluation repose sur un ensemble d'APSA. Si un élève se blesse et ne dispose au final que d'une **seule note valide** à l'année (ex: formule DI+DI+note), l'application bloque le calcul de la moyenne.</li><li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit d'effectuer un calcul manuel, un prorata artificiel ou d'entrer une fausse note pour débloquer le système. Laissez la case de l'activité manquée totalement vide.</li><li><strong>Saisie de l'inaptitude :</strong> Saisissez le statut **[DI]** (Dispensé) dans l'onglet des inaptitudes pour justifier réglementairement l'absence de note.</li><li><strong>Arbitrage final :</strong> Le dossier complet de l'élève (note acquise + certificats médicaux visés) est transmis automatiquement au <strong>Jury Académique d'Harmonisation</strong>. C'est ce jury qui détient la compétence exclusive pour valider la note unique ou prononcer la neutralisation complète.</li></ul>"""
+            texte_brut = """<h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3><strong>Cadre réglementaire national (Bac GT) : Impossibilité administrative de calcul automatique.</strong><br><ul><li><strong>Règle d'or :</strong> Au Bac GT, l'évaluation repose sur un ensemble d'APSA. Si un élève se blesse et ne dispose au final que d'une **seule note valide** à l'année (ex: formule DI+DI+note), l'application bloque le calcul de la moyenne.</li><li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit d'effectuer un calcul manuel, un prorata artificiel ou d'entrer une fausse note pour débloquer le système. Laissez la case de l'activité manquée totalement vide.</li><li><strong>Saisie de l'inaptitude :</strong> Saisissez le statut **[DI]** (Dispensé) dans l'onglet des inaptitudes pour justifier réglementairement l'absence de note.</li><li><strong>Arbitrage final :</strong> Le dossier complet de l'élève (note acquise + certificats médicaux visés) is transmis automatiquement au <strong>Jury Académique d'Harmonisation</strong>. C'est ce jury qui détient la compétence exclusive pour valider la note unique ou prononcer la neutralisation complète.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_grise_direct:
@@ -696,15 +700,15 @@ if prompt:
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
         texte_brut = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
         
-        # Nettoyage final
+        # SÉCURISATION DU RENDU (Remplacement des retours chariots)
         texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>").replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
-        st.session_state.messages_hub.append({"role": "assistant", "content": formatted_answer})
+        st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
         
-        # Gestion des liens vidéos YouTube
+        # GESTION SÉCURISÉE DES LIENS VIDÉOS (Historique structuré sans code exécutable)
         youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
         for link in youtube_links:
             clean_link = link[0].split('"')[0].split("'")[0].strip()
-            st.session_state.messages_hub.append({"role": "assistant", "content": f"st.video('{clean_link}')"})
+            st.session_state.messages_hub.append({"role": "assistant", "type": "video", "content": clean_link})
             
         st.rerun()

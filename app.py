@@ -488,7 +488,7 @@ if prompt:
             except: intention = "AUCUN_BLINDAGE"
         elif mode == "ipack":
             intent_prompt = f"""Tu es l'aiguilleur d'iPackEPS. Détermine l'intention : "{prompt}"
-            - IPACK_SSS : Le dossier SSS ou le bilan annuel est verrouillé en lecture seule par la direction.
+            - IPACK_SSS : Le dossier SSS ou le bilan annuel est verrouillé en lecture seule by la direction.
             - IPACK_GROUPES : Procédure pas-à-pas pour configurer les classes/groupes ou imports XML Pronote.
             - IPACK_NOUVEL_ELEVE : Procédure pour injecter un nouvel élève arrivant via SIÈCLE.
             - AUCUN_BLINDAGE : Toute autre question générale.
@@ -522,7 +522,9 @@ if prompt:
                     for n in retriever_peda.retrieve(prompt): extraits_doc += f"{n.node.text}\n\n"
             except: pass
 
-        # Routage final du rendu
+        # ======================================================================
+        # 🎯 ROUTAGE FINAL DU RENDU (MIS À JUR AVEC FILTRES CAPSULES EN DUR)
+        # ======================================================================
         if est_tasa_direct:
             texte_brut = extraits_doc; badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
             
@@ -531,7 +533,7 @@ if prompt:
             badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
             
         elif est_erreur_validation_santorin:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement doit contacter le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li>⚠️ Après arbitrage de la commission, le chef d'établissement déverrouille le lot informatique, permettant ainsi au professeur de saisir la note définitive arrêtée.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement doit contacter le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li>⚠️ Après arbitrage de la commission, le chef d'établissement déverrouille le lot informatique, permettant ainsi au professeur de saisir la note définitive arrêtée.</li></ul><br>📺 <strong>Tutoriel de déblocage :</strong> Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_sss_direct:
@@ -539,19 +541,19 @@ if prompt:
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
         elif st_groupes_direct:
-            texte_brut = "<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>➔ Étape 1 : Accédez au menu supérieur **[Dossiers]**.<br>➔ Étape 2 : Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]**.<br>➔ Étape 3 : Importez le fichier d'extraction Pronote ou SIÈCLE dans le module **[Mes Élèves]**."
+            texte_brut = "<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>➔ Étape 1 : Accédez au menu supérieur **[Dossiers]**.<br>➔ Étape 2 : Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]**.<br>➔ Étape 3 : Importez le fichier d'extraction Pronote ou SIÈCLE dans le module **[Mes Élèves]**.<br><br>📺 <strong>Tutoriels d'accompagnement :</strong> Configuration_classes_import_eleves.mp4 et affecter_eleves_dans_groupes.mp4"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_nouvel_eleve_direct:
-            texte_brut = "<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>L'élève doit être enregistré dans <strong>SIÈCLE</strong> par le secrétariat. Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote pour l'intégrer automatiquement sans écraser vos notes."
+            texte_brut = "<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>L'élève doit être enregistré dans <strong>SIÈCLE</strong> par le secrétariat. Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote pour l'intégrer automatiquement sans écraser vos notes.<br><br>📺 <strong>Tutoriel d'accompagnement :</strong> import_eleves_pronote.mp4"
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_grise_direct:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><ul><li><strong>Correction partagée :</strong> Si un collègue édite le lot, l'interface bascule en lecture seule. <strong>Solution : Attendez qu'il ferme sa session Arena.</strong></li><li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom du candidat pour activer la grille.</li></ul>"""
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><ul><li><strong>Correction partagée :</strong> Si un collègue édite le lot, l'interface bascule en lecture seule. <strong>Solution : Attendez qu'il ferme sa session Arena.</strong></li><li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom du candidat pour activer la grille.</li></ul><br>📺 <strong>En cas de besoin de co-évaluation ou de transfert :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_remplacement_reunion_direct:
-            texte_brut = "<h3>📊 EXAMENS : REMPLACEMENT EN JURY</h3>L'établissement doit enregistrer la suppléance sur **Imag'in** et générer le PDF de convocation. C'est ce clic technique qui transmet instantanément vos droits d'écriture vers Santorin."
+            texte_brut = "<h3>📊 EXAMENS : REMPLACEMENT EN JURY</h3>L'établissement doit enregistrer la suppléance sur **Imag'in** et générer le PDF de convocation. C'est ce clic technique qui transmet instantanément vos droits d'écriture vers Santorin.<br><br>📺 <strong>Tutoriel de gestion des convocations :</strong> creer_convocations_enseignants.mp4"
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         else:
@@ -574,12 +576,12 @@ if prompt:
                 {prompt}
                 
                 DIRECTIVES COMPORTEMENTALES STRICTES :
-                1. Ta réponse doit s'aligner à 100% sur les extraits fournis...
-                2. 🔒 PRINCIPE DE NON-EXTRAPOLATION...
-                3. 🛑 DEMANDE DE REFORMULATION...
-                4. Discrimine les filières...
+                1. Ta réponse doit s'aligner à 100% sur les extraits fournis. Si le texte indique une procédure ou une interdiction (comme l'obligation pour un redoublant de repasser tout le CCF de terminale), applique-la de façon ferme et argumentée. Ne devine rien.
+                2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si le contexte fourni ne mentionne pas explicitement qu'une action ou une épreuve supplémentaire est autorisée, considère qu'elle est interdite. Renvoie systématiquement vers l'arbitrage de la CAHPN ou du Chef d'établissement.
+                3. 🛑 DEMANDE DE REFORMULATION : Si la question contient des formules syntaxiques brutes (ex: "DI+DI+note", "AB+DI+note") ou des suites de sigles collés par des opérateurs (comme +, /, -) sans explications en langage clair, n'essaie pas d'en deviner le sens ou d'interpréter le calcul. Demande immédiatement à l'utilisateur de reformuler en disant exactement : "Votre question comporte des abréviations ou une formule qui prêtent à confusion dans ce contexte. Pouvez-vous reformuler votre demande ou préciser la situation (filière, historique exact) pour éviter toute erreur d'interprétation réglementaire ?"
+                4. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
                 5. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
-                6. 📺 MENTION DES VIDÉOS : Si le contexte de référence contient un nom de fichier vidéo en `.mp4` (ex: Distribution_manuelle_lots_santorin.mp4), tu dois IMPÉRATIVEMENT l'écrire textuellement dans ta réponse pour que l'interface active le lecteur vidéo.
+                6. 📺 MENTION DES VIDÉOS : Si le contexte de référence contient un nom de fichier vidéo en `.mp4` (ex: Distribution_manuelle_lots_santorin.mp4), tu dois IMPÉRATIVEMENT l'écrire textuellement dans ta réponse pour que l'interface active le lecteur vidéo compagnon.
                 """
                 try:
                     response = Settings.llm.complete(consigne_ia)

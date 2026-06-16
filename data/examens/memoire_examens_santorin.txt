@@ -3,7 +3,8 @@ MÉMOIRE SOUVERAINE DE RÉFÉRENCE - EXAMENS, CYCLADES & SANTORIN EPS
 ======================================================================
 [DIRECTIVE SYSTEME] : Ce document est la source de vérité absolue pour l'onglet Examens. 
 Il contient le croisement des règles de la DIEC d'Aix-Marseille, des fiches nationales, 
-des arbitrages de la CAHPN et des cas de terrain. Il prévaut sur toute interprétation.
+des arbitrages de la CAHPN, de la FAQ inter-degrés et des cas de terrain. 
+Il prévaut sur toute interprétation ou intuition de l'IA.
 
 ----------------------------------------------------------------------
 1. LES RÈGLES D'OR INSTITUTIONNELLES (SESSION 2026)
@@ -24,7 +25,7 @@ des arbitrages de la CAHPN et des cas de terrain. Il prévaut sur toute interpr�
 3. LE CIRCUIT JURIDIQUE DES FLUX : CYCLADES ➔ IMAG'IN ➔ SANTORIN
 ----------------------------------------------------------------------
 Pour éviter toute confusion, le Hub doit appliquer cette arborescence stricte :
-1. CYCLADES (Le Socle Administratif) : Gère l'inscription des candidats, l'arborescence des divisions, la définition des protocoles d'établissement (choix des APSA) et le rattachement initial des enseignants aux épreuves. Tout correcteur doit y être enregistré avec une adresse e-mail valide.
+1. CYCLADES (Le Socle Administratif) : Gère l'inscription des candidats, l'arborescence des divisions, la définition des fiches et protocoles d'établissement (choix des APSA), la validation des épreuves adaptées et le rattachement initial des enseignants aux épreuves. Tout correcteur doit y être enregistré avec une adresse e-mail valide. C'est dans Cyclades que le secrétariat doit purger les numéros INE en cas d'élèves doublons (interdiction pour le prof de noter les deux fiches).
 2. IMAG'IN (La Passerelle de Mission) : Crée les missions de type "NOTATION EPS CCF" basées sur STSWEB. C'est le déclencheur des droits.
    - Le Verrou du Bouton PDF : Si un enseignant est ajouté manuellement ou en remplacement dans Imag'in, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto "PDF" pour générer la convocation. C'est cette action technique précise qui "pousse" l'identité de l'enseignant et ses droits d'écriture vers Santorin.
    - Paramétrage horaire : Conserver l'horaire par défaut proposé par la DIEC (16h à 17h) lors de la validation.
@@ -34,87 +35,89 @@ Pour éviter toute confusion, le Hub doit appliquer cette arborescence stricte :
 4. SPÉCIFICITÉS PAR DIPLÔME : REPERTOIRE DES MÉCANIQUES DE SAISIE
 ----------------------------------------------------------------------
 • FILIÈRE LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BAC GT) :
-Notation structurée par APSA : saisie d'une note brute sur 12 points pour l'AFL1. Sélection obligatoire de la ventilation des points choisie par l'élève pour le bloc méthodologique et social (note sur 8 points au format 4/4, 6/2 ou 2/6 entre l'AFL2 et l'AFL3).
+La note du Bac repose sur 3 épreuves en CCF sur l'année de Terminale dans des APSA de 3 champs d'apprentissage (CA) différents. Saisie d'une note brute sur 12 points pour l'AFL1. Sélection obligatoire de la ventilation des points choisie par l'élève pour le bloc méthodologique et social (note sur 8 points au format 4/4, 6/2 ou 2/6 entre l'AFL2 et l'AFL3). Les observables sont rigoureusement identiques quel que soit le choix de répartition de l'élève (2 ou 6 points).
 
 • FILIÈRE LYCÉE PROFESSIONNEL (BAC PROFESSIONNEL - BCP) :
-Réglementation issue de la circulaire du 02 avril 2025. La notation se divise en deux blocs distincts dans l'interface :
-1. Situation d'évaluation de fin de séquence : Saisie des notes obligatoires pour 2 AFLP (Attendus de Fin de Lycée Professionnel) prédéfinis (AFLP1 et AFLP2), notée sur 12 points.
+Réglementation issue de la circulaire du 02 avril 2025. Les candidats sont évalués sur 3 épreuves dans des APSA de 3 champs différents. La notation se divise en deux blocs distincts dans l'interface :
+1. Situation d'évaluation de fin de séquence : Saisie des notes obligatoires pour 2 AFLP prédéfinis (AFLP1 et AFLP2), notée sur 12 points.
 2. Évaluation au fil de la séquence : L'enseignant doit cliquer sur le bouton "Choisir AFLP" au préalable pour configurer et cocher les 2 AFLP optionnels retenus par l'équipe (parmi AFLP3, AFLP4, AFLP5 ou AFLP6) pour l'ensemble du protocole, notée sur 8 points.
 
 • FILIÈRE CERTIFICAT D'APTITUDE PROFESSIONNELLE (CAP) :
-Réglementation issue de la circulaire du 27 août 2025. Évaluation certificative reposant sur un ensemble de 2 épreuves adaptées ou standards. La configuration des AFLP se valide également via l'interface amont avant le déblocage des grilles de notation sur 20 points.
+Réglementation issue de la circulaire du 27 août 2025. Évaluation certificative en CCF reposant sur un ensemble de 2 épreuves adaptées ou standards relevant, autant que possible, de 2 CA différents. La configuration des AFLP se valide également via l'interface amont avant le déblocage des grilles de notation sur 20 points.
+
+• COLLÈGE (DNB) :
+La certification au DNB résulte exclusivement du contrôle continu (CC) en classe de 3ème. Le CCF et les fiches certificatives nationales n'existent pas au collège. La note finale (sur 20) est la moyenne des moyennes obtenues lors de l'évaluation d'au moins 3 APSA relevant, autant que possible, de 3 CA différents, définies dans un protocole d'évaluation annexé au projet pédagogique. Les notes sont reportées dans le Livret Scolaire Unique (LSU) après validation de la commission d'établissement.
 
 • EXCEPTION SÉCURISÉE - CAS EXCEPTIONNEL (CE) :
 Le bouton "Déclarer CE" neutralise une APSA pour cause technique ou matérielle lourde (installation détruite, sinistre). Équivaut à une dispense. ⚠️ INTERDICTION ABSOLUE de l'utiliser sans la validation écrite et l'autorisation préalable du Recteur après expertise de l'inspection pédagogique régionale d'EPS.
 
-• AMÉNAGEMENT SPORTIFS DE HAUT NIVEAU (SHN / PPF) :
-En référence à la circulaire du 15/12/23, l'activation du statut SHN dans l'arborescence Santorin ouvre un menu dédié. L'enseignant sélectionne l'APSA correspondant à la spécialité sportive du candidat : l'application applique automatiquement la note forfaitaire réglementaire de 20/20.
+----------------------------------------------------------------------
+5. MANUEL DES INAPTITUDES, CONTRÔLES AMÉNAGÉS ET ADAPTÉS
+----------------------------------------------------------------------
+• CONTRÔLE AMÉNAGÉ (Lycée et Collège) : Concerne les élèves en inaptitude partielle temporaire. Il s'agit d'un aménagement des conditions de la certification ou de l'évaluation sur la même APSA (pas de modification de l'épreuve, pas de changement d'activité). L'enjeu est de maintenir la pratique plutôt que d'exclure l'élève ou de le renvoyer vers un rattrapage complexe. En collège, il est possible de pondérer un critère au regard de l'inaptitude temporaire.
+• CONTRÔLE ADAPTÉ (Lycée et Collège) : Concerne exclusivement les élèves présentant un handicap ou une inaptitude partielle permanente (sur l'ensemble de l'année scolaire, attestée par un certificat médical dès la rentrée). 
+  - Au Lycée : Conduit à la modification/adaptation de l'épreuve (Fiche Certificative Adaptée - FCA). L'élève peut être évalué sur 3 épreuves (dont une adaptée), 2 épreuves adaptées, ou exceptionnellement une seule épreuve adaptée. Toutes les épreuves adaptées doivent obligatoirement être soumises à la validation de la CAHPN l'année précédant la mise en œuvre. Un élève en épreuve adaptée peut obtenir la note maximale de 20/20. Le contrôle adapté ne concerne jamais les inaptitudes temporaires. Il est strictement interdit de créer un protocole adapté en cours d'année après la tenue de la CAHPN pour un élève blessé temporairement.
+  - Au Collège : Le concept "d'épreuve adaptée" au sens du CCF n'existe pas. On propose une pratique aménagée continue en contrôle continu tenant compte des possibilités (Article D. 312-1 du Code de l'éducation). La note finale peut aller de 0 à 20. Une inaptitude totale permanente entraîne une dispense d'évaluation, mais l'enseignant doit tenter de proposer des formes d'évaluation adaptées pour l'engager dans l'apprentissage.
 
 ----------------------------------------------------------------------
-5. PROTOCOLES D'URGENCE DIEC & RÉSOLUTION DES BUGS INTERFACES
+6. MATRICE DE RÉSOLUTIONS DES BUGS ET LITIGES INTERFACES
 ----------------------------------------------------------------------
 * BUG : "AUCUN LOT À CORRIGER" / LOT INVISIBLE
   - Cause 1 : Absence de mission active "Notation EPS CCF" dans Imag'in (défaut de remontée STSWEB).
   - Cause 2 : Le Chef d'établissement a omis de cliquer sur le picto "PDF" dans Imag'in (les droits n'ont pas été poussés).
   - Cause 3 : Absence de clic sur "Distribution automatique des candidats" dans la console Santorin-Direction.
-  - Cause 4 (Conflit de mail Cyclades/Imag'in) : L'adresse e-mail de l'examinateur entrée dans Cyclades ne concorde pas avec celle d'Imag'in. Solution : Modifier l'adresse via l'activité Cyclades "EPS - Contrôler/réaffecter des protocoles" ou exécuter une distribution manuelle par glisser-déposer des candidats.
+  - Cause 4 (Conflit de mail) : L'adresse e-mail de l'examinateur dans Cyclades ne concorde pas avec Imag'in. Solution : Modifier l'adresse via l'activité Cyclades "EPS - Contrôler/réaffecter des protocoles" ou exécuter une distribution manuelle par glisser-déposer des candidats.
 * ÉLÈVE PRÉSENT MAIS INTROUVABLE SUR SANTORIN (Mutation / Arrivée tardive) :
-  - Cause : Défaut de synchronisation automatique de nuit entre Cyclades et Santorin.
-  - Solution : Le professeur ne peut rien faire. Le chef d'établissement doit aller dans Cyclades, associer l'élève au bon protocole, puis aller dans Santorin-Direction pour forcer une distribution MANUELLE du candidat. La prise en compte prend entre 12h et 24h.
-* ÉLÈVES DOUBLONS (Nom identique, identifiants différents) :
-  - Règle : Interdiction absolue de noter les deux lignes. Le secrétariat doit purger l'inscription INE erronée dans Cyclades. L'enseignant saisit les notes uniquement sur la fiche valide.
+  - Cause : Défaut de synchronisation de nuit entre Cyclades et Santorin.
+  - Solution : Le professeur ne peut rien faire. Le chef d'établissement doit aller dans Cyclades, associer l'élève au bon protocole, puis aller dans Santorin-Direction pour forcer une distribution MANUELLE du candidat. La prise en compte prend 12h à 24h.
 * CASES OU CRAYONS GRISÉS (Lecture seule) :
   - Cause 1 (Correction partagée) : Un autre enseignant co-évaluateur est actuellement connecté ou édite le même lot. Solution : Demander au collègue de fermer sa session Arena pour libérer les droits d'écriture.
   - Cause 2 : Le lot n'a pas été déplié. Solution : Aller dans [Lots] > [Voir le détail] et cliquer sur le nom du candidat pour activer la grille.
 
 ----------------------------------------------------------------------
-6. GRANDE FAQ RÉUNIE & LINÉARISÉE (ARBITRAGES INTER-DEGRÉS COMPLETS)
+7. GRANDE FAQ RÉUNIE & LINÉARISÉE (COMPTE RENDU DES LITIGES RATTRAPAGES)
 ----------------------------------------------------------------------
 L'IA doit obligatoirement extraire la réponse en fonction du diplôme visé par l'utilisateur.
 
-SECTION : ABSENCES ET RATTRAPAGES
-• Question : En cas d'absence injustifiée à une évaluation, peut-on renvoyer l'élève vers une épreuve différée ?
-- Lycée GT & Lycée Pro (Bac) : Non. Les épreuves différées sont exclusivement réservées aux candidats attestant d'une inaptitude temporaire authentifiée par la médecine scolaire le jour J, ou en cas de force majeure validée par le chef d'établissement. L'absence non justifiée entraîne la saisie du statut "ABI" (Absent Injustifié) dans Santorin, se traduisant par la note de 0/20.
-- Lycée Pro (CAP) : Si l'absence injustifiée concerne une seule situation de fin de séquence, la note de zéro est attribuée et la note finale sera la moyenne des situations passées. Si l'absence injustifiée concerne TOUTES les situations de l'année, le candidat est déclaré "Absent global", entraînant la non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
-- Collège (DNB) : Le principe des épreuves différées réglementaires n'existe pas au collège. L'évaluation repose sur le contrôle continu. Si l'enseignant dispose de suffisamment de notes pour établir une moyenne trimestrielle représentative, aucun rattrapage n'est obligatoire. En cas d'absences injustifiées répétées empêchant l'évaluation, une épreuve de remplacement unique peut être organisée en fin d'année par le chef d'établissement, ou le bulletin portera la mention "En attente".
+SECTION A : ABSENCES, DOSSIERS CLOS ET RÈGLEMENTS DE RAMPAGE
+• Question : En cas d'absence injustifiée à une évaluation de fin de séquence, l'élève peut-il être renvoyé vers une épreuve d'évaluation différée ?
+- Lycée GT & Lycée Pro (Bac) : Non. Les épreuves différées sont strictement réservées aux candidats attestant de blessures ou de problèmes de santé temporaires authentifiés par la médecine scolaire le jour J, ou en cas de force majeure validée par le chef d'établissement. Toute absence non justifiée à la date fixée entraîne l'attribution du statut "ABI" dans Santorin, se traduisant par un zéro informatique (0/20) pour l'épreuve correspondante.
+- Lycée Pro (CAP) : Si l'absence injustifiée concerne une seule situation de fin de séquence, la note de zéro est attribuée et la note finale de l'APSA sera la moyenne des notes obtenues. En revanche, si l'absence injustifiée concerne TOUTES les situations d'évaluation, le candidat est déclaré « absent », ce qui entraîne la non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
+- Collège (DNB) : Le principe des épreuves différées et du CCF n'existe pas au collège. L'évaluation au collège est construite sur le contrôle continu. Si l'enseignant dispose de suffisamment d'indications pour attribuer une note trimestrielle représentative des acquisitions, le renvoi vers une évaluation différée n'est pas nécessaire. La moyenne doit être construite à partir d'une pluralité de notes. Si l'absence répétée fait peser un risque sur la représentativité, une nouvelle évaluation peut être organisée spécifiquement. Si la moyenne périodique reste impossible à établir, elle est remplacée par la mention "En attente" sur le bilan LSU.
 
-SECTION : ENVIRONNEMENT ET CONTEXTE (CHAMP D'APPRENTISSAGE 2 - CA2)
-• Question : En CA2, les élèves doivent-ils obligatoirement être confrontés à un environnement inconnu le jour de l'évaluation ?
-- Lycée GT (Bac GT) : Non. L'arrêté du 28 avril 2022 précise que l'épreuve doit présenter des éléments variés d'incertitude, en milieu plus ou moins connu. L'incertitude peut donc être d'ordre événementiel (nature des obstacles, nombre de blocs, météo) sans imposer un espace géographique inconnu.
-- Lycée Pro (Bac Pro) : Non. La circulaire du 02 avril 2025 n'impose pas de milieu inconnu. L'incertitude événementielle peut être intégrée dans le cadre habituel de pratique.
-- Lycée Pro (CAP) : Non. La circulaire du 27 août 2025 spécifie que pour le CAP, l'épreuve de CA2 se déroule en milieu connu, l'incertitude étant purement événementielle.
-- Collège (DNB) : Non. Les modalités sont définies par l'équipe pédagogique. L'introduction d'un milieu inconnu est un choix pédagogique facultatif. Il n'y a pas de fiches certificatives nationales au collège.
+SECTION B : CONTEXTE DE L'ÉPREUVE EN CHAMP D'APPRENTISSAGE 2 (CA2)
+• Question : En CA2, les élèves doivent-ils obligatoirement être confrontés à un environnement ou contexte inconnu le jour J ?
+- Lycée GT : Non. L'arrêté du 28 avril 2022 précise que l'épreuve présente des éléments variés d’incertitude, en milieu plus ou moins connu. L'incertitude peut donc relever d'une autre nature que celle du milieu connu ou inconnu (incertitude événementielle : nature des obstacles, nombre de blocs, météo). Il est tout à fait possible de proposer une incertitude événementielle en milieu connu.
+- Lycée Pro (Bac Pro) : Non. La circulaire du 02 avril 2025 ne spécifie pas d'obligation de milieu inconnu. L'incertitude relève d'une autre nature (événementielle) et peut s'organiser dans le cadre de la séquence d'enseignement continue.
+- Lycée Pro (CAP) : Non. La circulaire du 27 août 2025 précise que l'épreuve présente des éléments variés d'incertitude en milieu connu. L'incertitude relève d'une autre nature que le milieu.
+- Collège (DNB) : Non. Les contextes d'évaluation sont proposés et partagés librement par l'équipe pédagogique. S'il est possible de proposer un contexte inconnu selon le niveau des élèves, la contrainte n'est pas obligatoire réglementairement. Il n'existe pas de fiches certificatives nationales au collège.
 
-SECTION : REDOUBLEMENT ET CONSERVATION DES NOTES
+SECTION C : REDOUBLEMENT ET CONSERVATION DES NOTES
 • Question : Un élève peut-il conserver ses notes d'EPS en cas de redoublement ?
-- Lycées (GT & Pro) : Les élèves redoublant la terminale conservent leurs notes de contrôle continu (moyennes annuelles) de la classe de première. En revanche, ils NE PEUVENT PAS conserver les notes de CCF obtenues en terminale l'année précédente. Ils doivent obligatoirement refaire l'intégralité du protocole de CCF (Bulletin officiel n°30 du 29 juillet 2021).
-- Collège (DNB) : Aucune réglementation ne prévoit de conservation de notes au DNB en cas de redoublement de la 3ème. L'élève intègre le contrôle continu ordinaire de sa nouvelle classe.
+- Lycées (GT & Pro) : Les élèves redoublant la terminale conservent pendant leur deuxième année les notes de contrôle continu (moyennes annuelles) acquises l'année précédente en classe de première. En revanche, ils ne conservent JAMAIS les notes de CCF obtenues en terminale avant leur redoublement. Ils doivent repasser l'intégralité du protocole de terminale (Bulletin officiel n°30 du 29 juillet 2021).
+- Collège (DNB) : Aucune réglementation n'est prévue dans les textes sur la conservation des notes au DNB en cas de redoublement de la classe de 3ème. L'élève réintègre le contrôle continu standard de sa nouvelle division.
 
-SECTION : ORGANISATION ET MODALITÉS DE LA CERTIFICATION
-• Question : La co-évaluation par deux enseignants donne-t-elle lieu à une rémunération ?
-- Lycée GT : Obligatoire pour le CCF du Bac GT, mais aucune rémunération spécifique n'est prévue par les textes. Cela entre dans les obligations réglementaires de service (ORS).
-- Lycée Pro & CAP : Non applicable. La co-évaluation par un enseignant tiers n'est pas obligatoire réglementairement dans la voie professionnelle.
-- Collège (DNB) : Non applicable. La co-évaluation n'existe pas réglementairement pour le DNB. L'évaluation suit le principe "un professeur-une classe".
+SECTION D : MODALITÉS D'ÉVALUATION PAR L'ÉCRIT OU L'ORAL
+• Question : Les acquisitions en EPS peuvent-elles être évaluées à partir d'une épreuve écrite ou orale ?
+- Inter-degrés (Lycée & Collège) : Les évaluations en EPS ne doivent jamais faire l'objet de "devoirs sur table" ou d'interrogations orales sèches pour valider un niveau de connaissances théoriques. Cependant, pour l'évaluation des rôles sociaux et méthodologiques (AFL3 ou AFC : coach, juge, spectateur, assureur), il est tout à fait possible d'intégrer des procédures évaluatives écrites ou orales directement connectées à l'activité motrice (ex: fiche de jugement de performances en gymnastique, carnet d'entraînement en musculation, retour oral du spectateur sur les effets d'une composition en danse).
 
-SECTION : INAPTILES TEMPORAIRES ET EVALUATION NON MOTRICE
-• Question : Un élève inapte total temporaire le jour de l'évaluation peut-il être noté uniquement sur les attendus non moteurs (AFL2 / AFL3 / Rôles sociaux) ?
-- Lycées (GT & Pro) : NON. Pour l'épreuve du CCF, c'est obligatoirement la validation de la dimension motrice (AFL1 ou AFLP1/2) qui valide et autorise la notation des dimensions méthodologiques et sociales (AFL2 et 3). Un élève inapte moteur ne peut pas obtenir de note de CCF basée uniquement sur ses rôles de juge ou de coach : il doit être basculé en statut "DI" ou renvoyé en épreuve de substitution.
-- Collège (DNB) : Dans le cadre du contrôle continu, il est toléré de noter un élève sur le bulletin à partir de l'évaluation des savoirs méthodologiques et sociaux (AFC) s'il a été actif sur l'ensemble du cycle. Toutefois, pour qu'une moyenne trimestrielle soit jugée représentative pour le DNB, l'évaluation des compétences motrices reste la priorité institutionnelle.
+SECTION E : INTERDICTION DU "ZÉRO DISCIPLINAIRE" ET INCIDENTS DE TENUE
+• Question : Peut-on attribuer la note "0" ou une sanction à un élève qui a oublié sa tenue de sport le jour de l'évaluation ?
+- Lycée (CCF) : L'oubli de tenue n'étant pas une cause médicale, si l'élève refuse de pratiquer, il est marqué "ABI" (Absent Injustifié), ce qui génère un zéro à l'examen. S'il accepte de pratiquer dans des conditions de sécurité validées par le prof, il est noté, mais l'absence de tenue réglementaire peut pénaliser les indicateurs liés à l'AFL3.
+- Collège (DNB) : La note zéro ne peut jamais être utilisée pour sanctionner l’absence de tenue ou une absence non justifiée à une évaluation disciplinaire ordinaire (règle générale d'interdiction de la note sanction). L'enseignant doit s'appuyer sur la pluralité des autres notes prises au cours du trimestre pour fabriquer la moyenne. L'oubli répété relève du règlement intérieur (sanction administrative) et non d'une falsification d'inaptitude (interdiction d'entrer le statut DI).
 
-----------------------------------------------------------------------
-7. VOS COMPLÉMENTS ET QUESTIONS DE CONFIGURATION MÉTIER
-----------------------------------------------------------------------
-Q1 : Je change d'établissement en cours d'année, est-ce que mes lots Santorin vont suivre automatiquement ?
-R1 : Non. Les droits sont liés à ton RAD (Rattachement Administratif). Le nouveau Chef d'établissement doit manuellement te réaffecter sur les nouveaux protocoles dans Cyclades (mise à jour sous 24h à 48h).
+SECTION F : INCIDENTS SUR LES ÉVALUATIONS COLLECTIVES
+• Question : Comment évaluer les élèves dans une organisation collective (sports collectifs, duos) lorsque l'un d'eux est inapte ou absent le jour de l'évaluation ?
+- Collège (DNB) : L'évaluation doit être impérativement maintenue pour les élèves présents dès lors que leurs acquisitions individuelles peuvent être observées de manière équitable. Seule une atteinte manifeste à la validité de l'évaluation des autres élèves justifie un report collectif, décision qui relève d'un choix pédagogique raisonné et non d'une obligation. Renvoyer un élève absent sur un rattrapage ultérieur n'impose pas de suspendre l'évaluation du reste de l'équipe le jour J. L'évaluation ultérieure du blessé avec le groupe ne devra pas pénaliser les notes initiales obtenues par ses partenaires.
 
-Q2 : Un collègue est absent ou malade au moment de la saisie. Puis-je récupérer son lot pour saisir les notes à sa place ?
-R2 : Non, un prof ne peut pas s'attribuer le lot d'un collègue. Le Chef d'établissement doit se connecter à son espace pour détacher le collègue absent et t'affecter à sa place sur Cyclades/Santorin.
-
-Q3 : Un élève est inapte sur l'AFL1 et l'AFL2 d'une APSA, mais a pu pratiquer sur l'AFL3. Peut-on mettre une note partielle au Bac ?
-R3 : NON. Une note de CCF ne peut pas être validée si l'élève n'a pas été évalué sur la totalité des attendus requis (sauf protocole adapté officiel validé en amont par la CAHPN). C'est soit une épreuve complète, soit le statut DI (Dispensé).
-
-Q4 : Comment Santorin gère-t-il les arrondis des notes finales d'épreuve ?
-R4 : Tu saisis des notes brutes par AFL (points entiers ou demi-points). L'algorithme de Santorin se charge de faire la somme pondérée et applique les règles d'arrondi décidées par la commission académique ou nationale. N'arrondis pas toi-même les AFL.
-
-Q5 : Un enseignant contractuel a quitté l'établissement avant la saisie des notes. Qui doit remplir son Santorin ?
-R5 : Le Chef d'établissement doit attribuer le lot à un titulaire de l'équipe (ou au coordonnateur EPS) via Cyclades. Ce dernier saisira les notes en se basant scrupuleusement sur les bordereaux de notation papier laissés par le contractuel.
+SECTION G : LES ANGLES MORTS ET LE CONTRÔLE CONTINU EN COLLÈGE
+• Question : Peut-on attribuer une note collective en EPS pour le DNB ?
+- Collège (DNB) : Oui. Dans le cadre du contrôle continu au collège, l'évaluation collective des élèves est possible. La notation pourra être collective et participer à la construction de la note certificative individuelle finale.
+• Question : Est-ce que la note de contrôle continu inscrite dans le bulletin intègre la note obtenue dans le cadre d'une épreuve de type CCF ?
+- Collège (DNB) : La certification au DNB se fonde uniquement sur le contrôle continu. Il est strictement interdit et non réglementaire d'organiser des épreuves de type CCF au collège. La note de fin de séquence est une évaluation ordinaire qui s'intègre à la moyenne trimestrielle.
+• Question : Lorsque l'organisation prévoit 4 séquences d'enseignement, comment identifie-t-on les 3 APSA de la certification ?
+- Collège (DNB) : Toutes les APSA pratiquées en classe de 3ème sont potentiellement certificatives (si le volume horaire est suffisant). Les notes obtenues au cours des 4 séquences de l'année peuvent toutes participer à la construction des moyennes des trimestres. Le score final DNB sera la moyenne de ces moyennes trimestrielles.
+• Question : Est-ce que les exigences (observables) des AFL2 et AFL3 au lycée varient selon que l'élève choisit la répartition à 2 points ou à 6 points ?
+- Lycée (Bac GT) : Non. Le référentiel décliné dans l’APSA est discuté et entériné en équipe d’établissement. Il s’applique de façon identique à tous les élèves quel que soit leur choix de ventilation. L’exigence et les « observables » de maîtrise sont strictement identiques, seuls les coefficients de points changent. Le moment d'annonce de ce choix est défini librement par l'équipe (possible modification en cours de cycle).
+• Question : Peut-on modifier le champ d'apprentissage d'une activité académique (ex: traiter le Cross-Training en CA1 au lieu du CA5) ?
+- Lycée (CCF) : Non. On ne peut pas modifier le CA d'une activité de la liste académique. En revanche, l'établissement peut créer une activité d'établissement (FCA) spécifique à partir de cette pratique sur le CA de son choix, sous réserve de faire valider cette fiche par la CAHPN l'année précédant sa mise en œuvre.

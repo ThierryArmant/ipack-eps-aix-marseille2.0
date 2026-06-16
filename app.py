@@ -232,7 +232,7 @@ css_pur = """
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'INTELLIGENCE ARTIFICIELLE & DES BASES DE DOCUMENTS
+# 4. CONFIGURATION DE L'IA & LECTEUR CHIRURGICAL DES BASES (ANTI-CRASH)
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 if openai_api_key:
@@ -257,38 +257,46 @@ def charger_consignes_pierre():
             except: pass
     return documents_charges
 
+def charger_dossier_txt_securise(chemin_dossier):
+    """Lit les fichiers .txt un par un pour éviter qu'un fichier système caché ne bloque tout le RAG"""
+    docs_trouves = []
+    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+        for nom_fichier in os.listdir(chemin_dossier):
+            if nom_fichier.endswith(".txt"):
+                chemin_complet = os.path.join(chemin_dossier, nom_fichier)
+                try:
+                    with open(chemin_complet, "r", encoding="utf-8", errors="ignore") as f:
+                        docs_trouves.append(Document(text=f.read(), metadata={"source": nom_fichier}))
+                except:
+                    pass  # Si un fichier pose problème, on passe au suivant sans bloquer le reste
+    return docs_trouves
+
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
     docs_santorin = [Document(text="Fiche Mémo - Correction Partagée Santorin (DEC). Spécifications techniques sur la correction multiple.", metadata={"title": "Correction Partagée", "url": "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"})]
-    if os.path.exists("data/examens") and os.path.isdir("data/examens"):
-        try: docs_santorin.extend(SimpleDirectoryReader(input_dir="data/examens").load_data())
-        except: pass
+    docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(similarity_top_k=5)
 
 @st.cache_resource
 def initialiser_base_ipack(cle_fremt):
     docs_ipack = [Document(text="Guide Pratique iPackEPS - Saisie des structures trimestrielles et imports XML.", metadata={"title": "Guide iPackEPS", "url": "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"})]
+    docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(similarity_top_k=5)
 
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
     docs_textes = [Document(text="Base de données réglementaire globale pour les textes de lois du second degré.", metadata={"title": "Légifrance", "url": "https://www.legifrance.gouv.fr/"})]
-    if os.path.exists("data/textes/base_textes_officiels.txt"):
-        try:
-            with open("data/textes/base_textes_officiels.txt", "r", encoding="utf-8") as f: docs_textes.append(Document(text=f.read(), metadata={"title": "Textes EPS"}))
-        except: pass
+    docs_textes.extend(charger_dossier_txt_securise("data/textes"))
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(similarity_top_k=5)
 
 @st.cache_resource
 def initialiser_base_peda(cle_fremt):
-    docs_peda = []
-    if os.path.exists("data/peda") and os.path.isdir("data/peda"):
-        try: docs_peda.extend(SimpleDirectoryReader(input_dir="data/peda").load_data())
-        except: pass
-    if not docs_peda: docs_peda.append(Document(text="Base pédagogique vide", metadata={"source": "system"}))
+    docs_peda = charger_dossier_txt_securise("data/peda")
+    if not docs_peda: 
+        docs_peda.append(Document(text="Base pédagogique vide", metadata={"source": "system"}))
     return VectorStoreIndex.from_documents(docs_peda).as_retriever(similarity_top_k=5)
 
 timestamp_fichier = obtenir_cle_fichier()

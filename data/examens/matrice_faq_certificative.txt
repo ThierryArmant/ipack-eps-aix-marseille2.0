@@ -1,0 +1,85 @@
+======================================================================
+MATRICE JURIDIQUE ET ADMINISTRATIVE INTER-DEGRÉS : ABSENCES & ÉVALUATIONS
+======================================================================
+[DIRECTIVE DE SOUVERAINETÉ] : Ce document contient les arbitrages officiels de la CAHPN pour chaque type d'établissement. L'IA doit filtrer la réponse selon le statut du candidat (Lycée GT, Lycée Pro, CAP ou Collège DNB).
+
+----------------------------------------------------------------------
+THÉMATIQUE : ABSENCES ET ÉPREUVES DIFFÉRÉES
+----------------------------------------------------------------------
+CONTEXTE : Élève absent à une évaluation de fin de séquence. Peut-on le renvoyer vers une épreuve différée ?
+
+• CADRE LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BAC GT) :
+Les candidats qui bénéficient d'une épreuve différée sont uniquement ceux qui attestent de blessures ou de problèmes de santé temporaires le jour d'un CCF prévu dans le projet certificatif de l'établissement, dûment authentifiés par l'autorité médicale scolaire. Peuvent également en bénéficier les candidats assidus qui, en cas de force majeure, ne peuvent être présents à la date fixée pour les épreuves du CCF, sous réserve de l'obtention de l'accord du chef d'établissement, après consultation des équipes pédagogiques. Toute absence non justifiée à la date de l'une des épreuves prévues pour le CCF ou différées entraîne l'attribution de la note particulière "ABI" (Absence Injustifiée) qui sera traduite en note de zéro (0/20) par Santorin pour l'épreuve correspondante.
+
+• CADRE LYCÉE PROFESSIONNEL (BAC PRO) :
+Les règles d'accès à l'épreuve différée sont identiques au Bac GT. L'absence doit être légitimée par des raisons médicales certifiées par la santé scolaire ou par un cas de force majeure validé par le Chef d'établissement. Toute absence non justifiée lors d'un rendez-vous de CCF entraîne la saisie du statut "ABI", générant un zéro informatique qui s'intègre dans le calcul de la moyenne de l'examen.
+
+• CADRE LYCÉE PROFESSIONNEL (CAP) :
+Lorsqu'un candidat évalué en CCF pour le CAP est absent à l'une des situations de fin de séquence sans justification valable, la note zéro lui est attribuée pour cette situation, et la note finale de l'APSA sera la moyenne des notes obtenues. En revanche, s'il est absent sans justification à TOUTES les situations d'évaluation de son cursus, il est déclaré globalement « Absent », ce qui entraîne la non-délivrance du diplôme du CAP (conformément à la règle générale prévue au sixième alinéa de l'article D. 337-16 du Code de l'éducation). Seuls les candidats avec blessure ou force majeure validée peuvent prétendre aux situations différées.
+
+• CADRE COLLÈGE (DNB) :
+Le principe des épreuves différées réglementaires et du CCF n'existe pas au collège. L'évaluation est construite exclusivement sur le contrôle continu. Si l'enseignant dispose de suffisamment d'indications pour attribuer une note trimestrielle ou semestrielle représentative, le renvoi vers une évaluation différée n'est pas nécessaire. Le contrôle continu implique un respect scrupuleux de l'obligation d'assiduité (Article L. 511-1 du Code de l'éducation). Si l'absence répétée fait peser un risque sur la représentativité de la moyenne, une nouvelle évaluation peut être spécifiquement organisée à l'intention de l'élève. Si la moyenne périodique reste impossible à établir, elle peut être remplacée par la mention "En attente" sur le bilan LSU.
+
+----------------------------------------------------------------------
+THÉMATIQUE : CONTEXTE DE L'ÉPREUVE EN CHAMP D'APPRENTISSAGE 2 (CA2)
+----------------------------------------------------------------------
+CONTEXTE : Les élèves doivent-ils obligatoirement être confrontés à un environnement inconnu le jour de l'évaluation ?
+
+• CADRE LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BAC GT) :
+L'arrêté du 28 avril 2022 précise que l'épreuve de CA2 en CCF doit présenter des éléments variés d’incertitude, en milieu plus ou moins connu. L'incertitude peut donc relever d'une autre nature que celle de la nouveauté du milieu (elle peut être événementielle : nature des obstacles, configuration des blocs, météo). Il n'est donc pas obligatoire que le milieu soit strictement inconnu le jour J.
+
+• CADRE LYCÉE PROFESSIONNEL (BAC PRO) :
+La circulaire du 02 avril 2025 n'impose pas de confrontation à un milieu inconnu pour l'évaluation du CA2 au Bac Pro. L'incertitude peut être intégrée de manière événementielle au sein du cadre habituel de pratique de la séquence d'enseignement.
+
+• CADRE LYCÉE PROFESSIONNEL (CAP) :
+La circulaire du 27 août 2025 précise que pour le CAP, l'épreuve du CA2 présente des éléments variés d'incertitude en milieu connu. L'incertitude est d'ordre événementiel (ex: complexité des itinéraires, gestion du matériel) et s'inscrit dans le déroulé ordinaire des leçons.
+
+• CADRE COLLÈGE (DNB) :
+Les contextes d'évaluation de fin de séquence au collège sont définis librement par l'équipe pédagogique. S'il est possible de proposer un contexte inconnu pour stimuler les élèves en CA2, cette contrainte n'a aucun caractère obligatoire réglementairement. Il n'existe aucune référence à des fiches certificatives nationales au collège.
+
+----------------------------------------------------------------------
+THÉMATIQUE : POSITIONNEMENT TEMPOREL DES RATTRAPAGES
+----------------------------------------------------------------------
+CONTEXTE : L'épreuve différée doit-elle être placée immédiatement après le CCF ou en fin d'année scolaire ?
+
+• CADRE LYCÉE (BAC GT / BAC PRO / CAP) :
+La réglementation nationale ne prévoit aucune obligation temporelle stricte. Chaque établissement fixe son organisation dans son projet d'évaluation selon ses contraintes matérielles. Les dates retenues pour les évaluations différées doivent être indiquées dans le protocole certificatif de l'établissement transmis à la CAHPN en début d'année scolaire. Une ou plusieurs sessions de rattrapage peuvent être proposées au fil de l'année.
+
+• CADRE COLLÈGE (DNB) :
+Le concept d'épreuve différée réglementaire n'existe pas au collège. Les rattrapages de devoirs ou d'évaluations se font au fil de l'eau, sous la responsabilité pédagogique de l'enseignant de la classe.
+
+----------------------------------------------------------------------
+THÉMATIQUE : REDOUBLEMENT ET CONSERVATION DES NOTES
+----------------------------------------------------------------------
+CONTEXTE : Un élève peut-il conserver ses notes d'EPS supérieures à 10/20 en cas de redoublement ?
+
+• CADRE LYCÉE GÉNÉRAL, TECHNOLOGIQUE ET PRO :
+Les élèves redoublant la classe de terminale conservent obligatoirement pendant leur deuxième année de terminale les notes de contrôle continu (moyennes annuelles) acquises l'année précédente en classe de première. En revanche, ils ne conservent JAMAIS les notes de CCF obtenues dans l'année de terminale précédant le redoublement. Ils doivent repasser l'intégralité du protocole de CCF de terminale. (Bulletin officiel n°30 du 29 juillet 2021).
+
+• CADRE COLLÈGE (DNB) :
+Aucune réglementation n'est prévue dans les textes officiels sur la conservation des notes du contrôle continu au DNB en cas de redoublement de la classe de 3ème. L'élève réintègre le contrôle continu ordinaire du nouvel établissement.
+
+----------------------------------------------------------------------
+THÉMATIQUE : RÉMUNÉRATION DE LA CO-ÉVALUATION
+----------------------------------------------------------------------
+CONTEXTE : Les enseignants convoqués pour évaluer en binôme (co-évaluation) sont-ils rémunérés ?
+
+• CADRE LYCÉE GT :
+Bien que la co-évaluation par deux enseignants (dont l'un est extérieur à la classe ou au groupe si possible) soit obligatoire pour les épreuves de CCF au Bac GT, il n'existe aucun texte réglementaire prévoyant une rémunération ou des indemnités spécifiques. Cette mission entre strictement dans les obligations réglementaires de service (ORS) des enseignants.
+
+• CADRE LYCÉE PRO & CAP :
+La question ne se pose pas dans la voie professionnelle. La co-évaluation par un enseignant tiers n'est pas une obligation réglementaire pour la certification au Bac Pro et au CAP. Les élèves sont évalués par l'enseignant qui a assuré les leçons.
+
+• CADRE COLLÈGE (DNB) :
+La co-évaluation n'est pas réglementaire au collège pour le DNB. L'évaluation respecte le principe "un professeur-une classe". Si l'équipe souhaite mettre en place une co-évaluation pour des raisons pédagogiques, celle-ci doit être validée par le Chef d'établissement mais ne génère aucune rémunération.
+
+----------------------------------------------------------------------
+THÉMATIQUE : INCIDENTS DE TERRAIN ET COMPORTEMENTS
+----------------------------------------------------------------------
+CONTEXTE : Comment évaluer un élève qui a oublié sa tenue de sport le jour de l'évaluation ?
+
+• CADRE LYCÉE (CCF) :
+L'oubli de tenue ne constitue pas une inaptitude médicale. Si l'élève refuse de pratiquer sans tenue, il est considéré comme absent injustifié à l'examen (Saisie de la note particulière [ABI] sur Santorin, équivalant à un zéro pour l'épreuve). Si l'enseignant estime que la sécurité permet une pratique adaptée, il peut l'évaluer, mais l'absence de tenue peut impacter les critères liés à l'AFL3 (sécurité/rôles sociaux).
+
+• CADRE COLLÈGE (DNB) :
+Le renvoi vers une épreuve différée n'est pas réglementé pour un oubli de tenue. L'enseignant doit s'appuyer sur la pluralité des notes prises au cours de la séquence d'enseignement pour établir la moyenne trimestrielle. La note de fin de séquence ne peut pas être la seule note du trimestre. L'oubli répété doit être traité via le règlement intérieur de l'établissement (sanction administrative) et non par une falsification médicale (interdiction de mettre DI).

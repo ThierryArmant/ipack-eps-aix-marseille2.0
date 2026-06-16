@@ -63,8 +63,8 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 
 css_pur = """
     <style>
-    .santorin-card *, .general-card *, .securite-card *, .peda-card * { 
-        color: #FFFFFF !important; 
+    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card *, .peda-card, .peda-card * { 
+        color: #FFFFFF !important;  
     }
 
     .block-container { 

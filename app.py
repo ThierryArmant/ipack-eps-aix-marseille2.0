@@ -562,14 +562,14 @@ if prompt:
             choix_autorises = """
             - CALENDRIER : Dates butoirs, dates limites, échéances, fermeture des serveurs, clôture des saisies.
             - SANTORIN_ERREUR_VALIDATION : Le prof a validé/déposé son lot trop vite, s'est trompé, lot clos/verrouillé, plus la main.
-            - SANTORIN_INAPTE_SIMPLE : Saisie normale d'une dispense, inaptitude (IN), absent (AB) ou certificat médical (CM) sans bug d'interface.
+            - SANTORIN_INAPTE_SIMPLE : Saisie normale ou procédure pour entrer une dispense, une inaptitude (IN), un absent (AB) ou un certificat médical (CM) sans question de notation complexe.
             - SANTORIN_GRISE : Problèmes d'interface en lecture seule, boutons grisés, cases blanches, cadenas, absence de l'icône "crayon", conflit de correction partagée.
             - SANTORIN_BRICOLAGE : NOTE UNIQUE au Bac GT/Pro, moyenne impossible, formules (ex: "DI+DI+note", "1 note + 2 CM", "DI+note", "AB+DI+note"), arbitrage CAHPN, faire un prorata.
             - JURY_REMPLACEMENT : Problèmes de convocations, ordres de mission (OM), indemnités, réunions de sous-commissions, harmonisation ou prof remplaçant bloqué.
             - SANTORIN_CM_POSTERIEUR : Certificat médical ou dispense remis APRÈS l'évaluation, le lendemain ou rétroactif (ex: "gamin apporte une dispense après l'épreuve").
             - SANTORIN_BLESSURE_CHOC : Élève qui se blesse EN PLEIN MILIEU de l'évaluation ou pendant l'examen (ex: "blessé au 2ème passage").
             - EXAMENS_UNSS_ABSENCE : Élève absent car il est en compétition officielle UNSS, Championnat de France ou convocation fédérale.
-            - AUCUN_BLINDAGE : Questions générales ou recherche documentaire classique dans les textes d'examens.
+            - AUCUN_BLINDAGE : Questions réglementaires spécifiques, barèmes, notation exclusive des rôles sociaux/AFL2/AFL3, ou recherche documentaire classique dans les textes.
             """
         elif mode == "ipack":
             choix_autorises = """

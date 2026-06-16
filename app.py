@@ -560,8 +560,9 @@ if prompt:
                 
                 DIRECTIVES COMPORTEMENTALES STRICTES :
                 1. Ta réponse doit s'aligner à 100% sur les extraits fournis. Si le texte indique une procédure ou une interdiction (comme l'obligation pour un redoublant de repasser tout le CCF de terminale), applique-la de façon ferme et argumentée. Ne devine rien.
-                2. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
-                3. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
+                2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si le contexte fourni ne mentionne pas explicitement qu'une action ou une épreuve supplémentaire est autorisée, considère qu'elle est interdite. Renvoie systématiquement vers l'arbitrage de la CAHPN ou du Chef d'établissement.
+                3. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
+                4. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
                 """
                 try:
                     response = Settings.llm.complete(consigne_ia)

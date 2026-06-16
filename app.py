@@ -595,4 +595,12 @@ if prompt:
         texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>").replace(chr(10), "<br>")
         formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
         st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
+        
+        # ======================================================================
+        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS
+        # ======================================================================
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_brut:
+                st.session_state.messages_hub.append({"role": "assistant", "type": "video", "content": video_url})
+                
         st.rerun()

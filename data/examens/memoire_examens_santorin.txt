@@ -93,9 +93,10 @@ Concerne exclusivement les élèves présentant un handicap ou une inaptitude pa
   - Cause : Défaut de synchronisation de nuit entre Cyclades et Santorin.
   - Solution : Le professeur ne peut rien faire. Le chef d'établissement doit aller dans Cyclades, associer l'élève au bon protocole, puis aller dans Santorin-Direction pour forcer une distribution MANUELLE du candidat. Délai de prise en compte : 12h à 24h.
 
-* BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) :
-  - Cause 1 (Correction partagée) : Un autre enseignant co-évaluateur est actuellement connecté ou édite le même lot. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
-  - Cause 2 : Le lot n'a pas été déplié. Solution : Aller dans [Lots] > [Voir le détail] et cliquer sur le nom exact du candidat pour activer la grille de saisie.
+* BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
+  - Cause 1 (Validation validée/bloquée) : Le lot a été validé (statut soumis). Le cadenas est permanent. Solution : Le collègue ne peut rien faire en fermant sa session. Seul le Chef d'établissement peut demander un "Renvoi en modification" à la DEC pour rouvrir les droits.
+  - Cause 2 (Correction partagée simultanée) : Le lot est ouvert mais un co-évaluateur est actuellement connecté en même temps sur le lot. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture immédiats.
+  - Cause 3 : Le lot n'a pas été déplié. Solution : Aller dans [Lots] > [Voir le détail] et cliquer sur le nom exact du candidat pour activer la grille.
 
 ----------------------------------------------------------------------
 7. GRANDE FAQ THÉMATIQUE RÉUNIE (L'IA doit filtrer selon le diplôme)

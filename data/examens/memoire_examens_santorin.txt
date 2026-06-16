@@ -140,3 +140,90 @@ Concerne exclusivement les élèves présentant un handicap ou une inaptitude pa
 
 • Question : Peut-on modifier le champ d'apprentissage d'une activité académique (ex: traiter le Cross-Training en CA1 au lieu du CA5) ?
   - Lycée (CCF) : Non. On ne peut pas modifier unilatéralement le CA d'une activité de la liste académique. En revanche, l'établissement peut créer une activité d'établissement (FCA) spécifique à partir de cette pratique sur le CA de son choix, sous réserve de faire valider cette fiche spécifique par la CAHPN l'année précédant sa mise en œuvre.
+======================================================================
+MÉMOIRE LOGISTIQUE COMPLÉMENTAIRE - LIENS IPACK EPS ➔ CYCLADES ➔ SANTORIN
+======================================================================
+[DIRECTIVE SYSTEME] : Ce module documente le circuit technique de synchronisation, d'importation de fichiers et de distribution des lots entre iPackEPS, Cyclades, Imag'in et Santorin.
+
+----------------------------------------------------------------------
+A. SÉCURISATION DE L'IMPORTATION DEPUIS PRONOTE / ÉCOLE DIRECTE
+----------------------------------------------------------------------
+* APPLICATION : Automatisation de la création et de l'importation initiale des candidats dans iPack EPS.
+* PRÉREQUIS : L'établissement exploite activement l'application PRONOTE ou ÉCOLE DIRECTE pour sa gestion scolaire interne.
+* ⚠️ RÈGLE DE CHARGEMENT CRITIQUE : Il faut impérativement générer et effectuer autant d’importations de fichiers qu’il y a de groupes d'évaluation. Chaque fichier de données correspond strictement à la liste nominative des élèves affectés à un groupe unique.
+* EFFET ADMINISTRATIVE : L'exécution correcte de cette procédure par fichier se substitue intégralement à l’étape manuelle d'affectation des candidats dans les groupes sur iPack EPS.
+
+----------------------------------------------------------------------
+B. RÉGIME SPÉCIFIQUE DES ÉTABLISSEMENTS « HORS SIECLE » (CFA, GRETA, MFR, AEFE)
+----------------------------------------------------------------------
+* 🛑 EXCEPTION STRUCTURELLE ABSOLUE : Les étapes automatiques suivantes :
+  - Étape 1 : Actualisation automatique de la liste des candidats dans iPack EPS
+  - Étape 2 : Affectation informatique des élèves dans les groupes sur iPack EPS
+  - Étape 4 : Génération du fichier d'import à destination de CYCLADES
+  ... ne sont STRICTEMENT PAS APPLICABLES aux établissements dont la base élèves n’est pas interconnectée ni synchronisée avec la base Académique SIECLE.
+* SONT CONCERNÉS PRINCIPALEMENT : Les Centres de Formation d'Apprentis (CFA), les GRETA, les Maisons Familiales Rurales (MFR) et les établissements de l'AEFE.
+* PROCÉDURE DE SECOURS OBLIGATOIRE : Pour ces structures hors SIECLE, l’association des candidats aux protocoles réglementaires doit être exécutée directement et manuellement dans l'interface CYCLADES, en appliquant les consignes du document de référence : "MEMO-Associer-eleves-protocole-Etab-v1.0.pdf".
+
+----------------------------------------------------------------------
+C. PHASE D'ACTUALISATION ET BUFFER DE FIN D'ANNÉE (IPACK EPS)
+----------------------------------------------------------------------
+* RESPONSABLES ADMINISTRATIFS : Chef(fe) d’établissement, Professeur(e) coordonnateur/trice d'EPS.
+* TIMING ET SYNCHRONISATION : Les inscriptions aux examens d'État ferment réglementairement à la fin décembre. À cette date, la liste des candidats remonte automatiquement dans iPack EPS.
+* PROCÉDURE AMONT : Actualiser la liste des classes et ré-importer la base élèves complète avant toute manipulation de placement dans les groupes d'examen.
+* BASE DE CONTRÔLE : En fin d'opération, la liste physique des candidats présentés aux épreuves par l’établissement doit correspondre au matricule près à la liste répertoriée dans iPack EPS.
+* URL DU SUPPPORT VIDÉO CONFIGURATION : https://ipackeps.ac-creteil.fr/spip.php?article14
+
+----------------------------------------------------------------------
+D. LE PROTOCOLE D'AFFECTATION ET CONTRÔLE DES ÉLÈVES « ORPHELINS »
+----------------------------------------------------------------------
+* RESPONSABLES : Chef(fe) d’établissement, Professeur(e) coordonnateur/trice d'EPS.
+* RÈGLE D'OPTIMISATION DU TEMPS ENSEIGNANT : Seule la configuration et la composition des groupes d'élèves rattachés à un examen (CCF/Certification) sont exigées. Il n’est pas obligatoire de composer informatiquement les groupes d'Association Sportive (AS), de sections sportives ou de classes d'EPS ordinaires hors examens.
+* POINT DE VÉRIFICATION QUALITÉ (LES ORPHELINS) : Avant d'extraire les données, exécuter impérativement une vérification de la liste des élèves "sans affectation" au sein des groupes d'examen.
+* CRITÈRE DE VALIDATION : 100 % des élèves inscrits dans des classes à examens doivent être ventilés dans des groupes d'évaluation fonctionnels sur iPack EPS.
+* URL DU SUPPORT VIDÉO AFFECTATION : https://ipackeps.ac-creteil.fr/spip.php?article18
+
+----------------------------------------------------------------------
+E. VERROU DE VALIDATION DES PROTOCOLES PAR L'IA-IPR (CYCLADES)
+----------------------------------------------------------------------
+* INTERLOCUTEUR DÉCISIONNAIRE : Inspection Pédagogique Régionale d'EPS (IA-IPR).
+* CONDITION PRÉALABLE : Tous les protocoles certificatifs saisis doivent impérativement afficher une coche verte de conformité dans la colonne « Validité » du module « Protocoles certificatifs » de l’application iPack EPS.
+* CIRCUIT INFORMATIQUE DES FLUX : L’Inspection Pédagogique Régionale valide globalement sur CYCLADES la conformité des fiches attestées en amont sur iPack EPS.
+* ACTION DU COORDO / SECRETARIAT : Se connecter sur CYCLADES pour vérifier que le statut général des protocoles est passé à "Validé".
+* CANAL DE RECOURS TECHNIQUE : En cas de blocage ou d'absence de validation à l'ouverture des fenêtres, envoyer un courriel de signalement à l'adresse officielle : examenseps@ac-aix-marseille.fr
+
+----------------------------------------------------------------------
+F. GÉNÉRATION DU FICHIER ET IMPORTATION DES LOGS (IPACK ➔ CYCLADES)
+----------------------------------------------------------------------
+* RESPONSABLE TECHNIQUE : Chef(fe) d’établissement (via ses codes d'accès académiques).
+* OBJECTIF : Générer le fichier d'extraction compressé ou standard d'iPack EPS contenant la répartition par groupes pour l'injecter dans CYCLADES afin d'éviter la saisie manuelle élève par élève.
+* URL DU SUPPORT VIDÉO EXTRACTION : https://ipackeps.ac-creteil.fr/spip.php?article60
+* CRITÈRE DE SUCCÈS DE L'ÉTAPE : Tous les candidats doivent apparaître associés à leur protocole d'évaluation respectif au sein de l'interface CYCLADES.
+
+----------------------------------------------------------------------
+G. LE CAS PARTICULIER DES CORRECTEURS DANS IMAG'IN
+----------------------------------------------------------------------
+* RESPONSABLE ADMINISTRATIVE : Chef(fe) d’établissement.
+* RECONDUCTION AUTOMATIQUE : Les enseignants correcteurs et examininateurs déjà convoqués lors de la session précédente (2025) sont reconduits de manière automatisée dans IMAG'IN pour la session 2026.
+* DOCUMENTATION D'APPUI : Se référer impérativement aux instructions des pages 4 à 7 du guide officiel de la DEC : "SANTORIN - bac 2024 - Gestion de la notation EPS CCF.pdf".
+
+----------------------------------------------------------------------
+H. STRATÉGIES DE DISTRIBUTION DES LOTS DANS SANTORIN (AUTOMATIQUE VS MANUELLE)
+----------------------------------------------------------------------
+* RESPONSABLE TECHNIQUE : Chef(fe) d’établissement (console Santorin-Direction).
+* PRÉREQUIS STRICT : L'affectation et la liaison candidats-protocoles doivent être finalisées à 100 % dans CYCLADES au préalable.
+
+* MÉTHODE 1 : DISTRIBUTION AUTOMATIQUE (VOIE CLASSIQUE)
+  - Action : Lancement global depuis Santorin-Direction pour répartir les élèves entre les correcteurs désignés.
+  - URL Vidéo Procédure : https://ipackeps.ac-creteil.fr/spip.php?article66
+
+* MÉTHODE 2 : DISTRIBUTION MANUELLE (PROCÉDURE ALTERNATIVE ET DE SECOURS)
+  - Contexte d'application obligatoire : À utiliser uniquement si la procédure de distribution automatique a échoué (plantage du script de répartition) OU en présence de candidats dits « isolés » (ex: nouvel élève muté, inscrit tardivement en cours d’année, répertorié de manière orpheline dans SANTORIN).
+  - Action : Glisser-déposer manuel des fiches candidats vers les lots des examinateurs concernés.
+
+----------------------------------------------------------------------
+I. CONTRÔLE DE LA SAISIE FINALE DES NOTES PAR LES ENSEIGNANTS (SANTORIN)
+----------------------------------------------------------------------
+* RESPONSABLES DE SAISIE : Enseignants d'EPS évaluateurs.
+* PRÉREQUIS : Les lots ont été distribués (automatiquement ou manuellement) et sont visibles dans l'espace de travail Arena.
+* URL DU SUPPORT VIDÉO ENSEIGNANT : https://ipackeps.ac-creteil.fr/spip.php?article67
+* INDICATEUR DE SÉCURITÉ DE FIN DE SAISIE : La saisie d'un lot est juridiquement et techniquement complète lorsque la barre de progression globale de l'interface affiche le score de 100 %.

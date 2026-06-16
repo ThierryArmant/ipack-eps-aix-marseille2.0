@@ -533,76 +533,224 @@ with col_action_input: prompt = st.chat_input("Posez votre question institutionn
 st.markdown('<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height: 1.4;"><span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION :</span><span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"> Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span></div>', unsafe_allow_html=True)
 
 # ======================================================================
-        # 9. FLUX DE MESSAGES ET TRAITEMENT IA (VERSION FINALE BLINDÉE)
+# 9. FLUX DE MESSAGES ET ARBITRAGE HYBRIDE INTÉGRAL (AUCUNE TRONCATURE)
+# ======================================================================
+st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
+for m in st.session_state.messages_hub:
+    with st.chat_message(m["role"]): 
+        if m.get("type") == "video": st.video(m["content"])
+        else: st.markdown(m["content"], unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+if prompt:
+    st.session_state.messages_hub.append({"role": "user", "type": "text", "content": f"<span style='color: white;'>{prompt}</span>"})
+    with st.spinner("Je recherche les documents..."):
+        mode = st.session_state.active_module
+        activer_web = False
+        
+        # Initialisation obligatoire de sécurité pour toutes les branches
+        texte_brut = ""
+        extraits_doc = ""
+        badge, color_card = "INFORMATION", "general-card"
+        bloc_liens_dynamique = ""
+        consigne_ia = ""
+        
+        verites_terrain_pierre = ""
+        try:
+            for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+                if os.path.exists(fp):
+                    with open(fp, "r", encoding="utf-8", errors="ignore") as f: 
+                        verites_terrain_pierre += f"\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
+        except: pass
+
         # ======================================================================
-        st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-        for m in st.session_state.messages_hub:
-            with st.chat_message(m["role"]): 
-                if m.get("type") == "video": st.video(m["content"])
-                else: st.markdown(m["content"], unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        # 🧠 L'AIGUILLEUR MASTER : SÉPARATION DES PANNES ET DE LA RÉGLEMENTATION
+        # ======================================================================
+        if mode == "examens":
+            choix_autorises = """
+            - CALENDRIER : Dates butoirs, dates limites, échéances, fermeture des serveurs, clôture des saisies.
+            - SANTORIN_ERREUR_VALIDATION : Le prof a validé/déposé son lot trop vite, s'est trompé, lot clos/verrouillé, plus la main.
+            - SANTORIN_INAPTE_SIMPLE : Saisie normale ou procédure pour entrer une dispense, une inaptitude (IN), un absent (AB) ou un certificat médical (CM) sans question de notation complexe.
+            - SANTORIN_GRISE : Problèmes d'interface en lecture seule, boutons grisés, cases blanches, cadenas, absence de l'icône "crayon", conflit de correction partagée.
+            - SANTORIN_BRICOLAGE : NOTE UNIQUE au Bac GT/Pro, moyenne impossible, formules (ex: "DI+DI+note", "1 note + 2 CM", "DI+note", "AB+DI+note"), arbitrage CAHPN, faire un prorata.
+            - JURY_REMPLACEMENT : Problèmes de convocations, ordres de mission (OM), indemnités, réunions de sous-commissions, harmonisation ou prof remplaçant bloqué.
+            - SANTORIN_CM_POSTERIEUR : Certificat médical ou dispense remis APRÈS l'évaluation, le lendemain ou rétroactif (ex: "gamin apporte une dispense après l'épreuve").
+            - SANTORIN_BLESSURE_CHOC : Élève qui se blesse EN PLEIN MILIEU de l'évaluation ou pendant l'examen (ex: "blessé au 2ème passage").
+            - EXAMENS_UNSS_ABSENCE : Élève absent car il est en compétition officielle UNSS, Championnat de France ou convocation fédérale.
+            - AUCUN_BLINDAGE : Questions réglementaires spécifiques, barèmes, notation exclusive des rôles sociaux/AFL2/AFL3, élèves mutés sans notes, ou recherche documentaire classique dans les fiches.
+            """
+        elif mode == "ipack":
+            choix_autorises = """
+            - CALENDRIER : Date limite de validation des notes trimestrielles sur iPackEPS.
+            - IPACK_SSS : Un dossier ou bilan annuel est verrouillé par le chef d'établissement dans iPackEPS.
+            - IPACK_GROUPES : Créer un groupe, configurer, associer un protocole/séquence d'APSA.
+            - IPACK_NOUVEL_ELEVE : Ajouter un élève arrivant en cours d'année, synchronisation Pronote / SIECLE, fichier XML/CSV.
+            - IPACK_TRANSFERT_DOUBLON : Élève qui change d'établissement avec des notes déjà acquises dans son ancien bahut, ou fiche en doublon.
+            - AUCUN_BLINDAGE : Questions techniques générales sur l'interface iPackEPS.
+            """
+        elif mode == "textes":
+            choix_autorises = """
+            - SECURITE_TASA : La question concerne spécifiquement la taxe, la responsabilité liée au transport ou les déclarations TASA.
+            - AUCUN_BLINDAGE : Textes juridiques généraux (Loi 1937, responsabilité APPN).
+            """
+        else:
+            choix_autorises = "- AUCUN_BLINDAGE : Recherche pédagogique institutionnelle classique (APSA, fiches de cycle, CA)."
 
-        if prompt:
-            st.session_state.messages_hub.append({"role": "user", "type": "text", "content": f"<span style='color: white;'>{prompt}</span>"})
-            with st.spinner("Je recherche les documents..."):
-                mode = st.session_state.active_module
-                texte_brut = ""
-                extraits_doc = ""
-                bloc_liens_dynamique = ""  # 🛡️ Initialisation de sécurité pour éviter le crash
-                
-                verites_terrain_pierre = ""
-                try:
-                    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-                        if os.path.exists(fp):
-                            with open(fp, "r", encoding="utf-8", errors="ignore") as f: 
-                                verites_terrain_pierre += f"\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
-                except: pass
+        intent_prompt = f"""
+        Tu es l'aiguilleur master du Hub IA-EPS. Détermine l'INTENTION exacte.
+        Question : "{prompt}" | Onglet : {mode}
+        ⚠️ LINGUISTIQUE TERRAIN :
+        - "DI" = Dispensé/Inapte, "AB" = Absent, "CM" = Certificat Médical, "OM" = Ordre de Mission.
+        - "DI+DI+note" ou formule à une seule note = SANTORIN_BRICOLAGE (Note unique / CAHPN).
+        - Si un justificatif arrive APRÈS l'épreuve = SANTORIN_CM_POSTERIEUR.
+        - Si la blessure a lieu PENDANT l'épreuve = SANTORIN_BLESSURE_CHOC.
+        - Si l'absence est due à l'UNSS/AS = EXAMENS_UNSS_ABSENCE.
+        Réponds STRICTEMENT par le mot-clé exact choisi dans cette liste restrictive :
+        {choix_autorises}
+        """
+        try: intention = Settings.llm.complete(intent_prompt).text.strip()
+        except: intention = "AUCUN_BLINDAGE"
 
-                # Aiguillage technique
-                intention = "AUCUN_BLINDAGE"
+        # Association complète des variables d'intention
+        est_date_notes_direct = (intention == "CALENDRIER")
+        est_erreur_validation_santorin = (intention == "SANTORIN_ERREUR_VALIDATION")
+        est_inapte_santorin_direct = (intention == "SANTORIN_INAPTE_SIMPLE")
+        est_grise_direct = (intention == "SANTORIN_GRISE")
+        est_bricolage_note = (intention == "SANTORIN_BRICOLAGE")
+        est_sss_direct = (intention == "IPACK_SSS")
+        est_groupes_direct = (intention == "IPACK_GROUPES")
+        est_nouvel_eleve_direct = (intention == "IPACK_NOUVEL_ELEVE")
+        est_remplacement_reunion_direct = (intention == "JURY_REMPLACEMENT")
+        est_cm_posterieur_direct = (intention == "SANTORIN_CM_POSTERIEUR")
+        est_blessure_choc_direct = (intention == "SANTORIN_BLESSURE_CHOC")
+        est_unss_absence_direct = (intention == "EXAMENS_UNSS_ABSENCE")
+        est_transfert_doublon_direct = (intention == "IPACK_TRANSFERT_DOUBLON")
+        est_tasa_direct = (intention == "SECURITE_TASA") or (mode == "textes" and "tasa" in prompt.lower())
+        
+        est_santorin_direct = mode == "examens" and intention == "AUCUN_BLINDAGE" and any(x in prompt.lower() for x in ["appréciation", "appreciation", "commentaire", "aucun lot"])
+        est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_groupes_direct or est_nouvel_eleve_direct or est_bricolage_note or est_grise_direct or est_inapte_santorin_direct or est_remplacement_reunion_direct or est_santorin_direct or est_tasa_direct or est_cm_posterieur_direct or est_blessure_choc_direct or est_unss_absence_direct or est_transfert_doublon_direct or est_sss_direct)
+
+        # Extraction vectorielle du RAG (Seulement si ce n'est pas intercepté en dur)
+        if openai_api_key and not est_cas_blindé_racine:
+            try:
                 if mode == "examens":
-                    intent_prompt = f"""Tu es l'aiguilleur technique. Question : "{prompt}". Sélectionne uniquement si c'est une panne : CALENDRIER, SANTORIN_ERREUR_VALIDATION, SANTORIN_GRISE, JURY_REMPLACEMENT, ou AUCUN_BLINDAGE."""
-                    try: intention = Settings.llm.complete(intent_prompt).text.strip()
-                    except: intention = "AUCUN_BLINDAGE"
+                    for n in retriever_santorin.retrieve(prompt): extraits_doc += f"Santorin/Examen: {n.node.text}\n\n"
                 elif mode == "ipack":
-                    intent_prompt = f"""Tu es l'aiguilleur iPack. Détermine : IPACK_SSS, IPACK_GROUPES, IPACK_NOUVEL_ELEVE, ou AUCUN_BLINDAGE."""
-                    try: intention = Settings.llm.complete(intent_prompt).text.strip()
-                    except: intention = "AUCUN_BLINDAGE"
+                    for n in retriever_ipack.retrieve(prompt): extraits_doc += f"DOCUMENT OFFICIEL IPACKEPS : {n.node.text}\n\n"
+                elif mode == "textes":
+                    mot_cle_local = prompt.lower()
+                    for exp in expressions_inutiles: mot_cle_local = mot_cle_local.replace(exp, "")
+                    for n in retriever_textes.retrieve(mot_cle_local.strip() if len(mot_cle_local.strip()) > 2 else prompt): extraits_doc += f"Cadre Réglementaire/Sécurité : {n.node.text}\n\n"
+                elif mode == "peda":
+                    for n in retriever_peda.retrieve(prompt): extraits_doc += f"Ressource Pédagogique Locale : {n.node.text}\n\n"
+            except: pass
 
-                # Définition des flags
-                est_cas_blindé = intention in ["CALENDRIER", "SANTORIN_ERREUR_VALIDATION", "SANTORIN_GRISE", "JURY_REMPLACEMENT", "IPACK_SSS", "IPACK_GROUPES", "IPACK_NOUVEL_ELEVE"]
+        # ======================================================================
+        # 🎛️ COEUR DU RENDU : LES PANNEAUX INTEGRALEMENT RE-ÉCRITS SANS COUPE
+        # ======================================================================
+        if est_tasa_direct:
+            texte_brut = extraits_doc; badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+            
+        elif est_date_notes_direct:
+            texte_brut = "<h3>📊 CALENDRIER & DATES DE REMISE DES NOTES</h3><strong>Statut administratif : Spécificités académiques locales.</strong><br>Les dates limites de saisie étant différentes pour chaque académie, rapprochez-vous de vos coordonnateurs ou de votre secrétariat de direction. Seuls les calendriers émis par la Division des Examens et Concours (DEC) font foi."
+            badge, color_card = ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"), ("santorin-card" if mode == "examens" else "general-card")
+            
+        elif est_erreur_validation_santorin:
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement ou le coordonnateur doit contacter sans délai le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li><strong>Étape 3 :</strong> Une fois le dossier libéré, l'icône "crayon" redevient active dans Santorin. Vous pouvez écraser la note et valider à nouveau.</li><li>⚠️ En cas de fermeture définitive des serveurs académiques, transmettez le dossier papier pour arbitrage à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera informatiquement le lot afin que vous puissiez saisir vous-même la note définitive validée par la commission.</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-                # RAG (Si pas de blindage)
-                if not est_cas_blindé:
-                    try:
-                        retriever = {"examens": retriever_santorin, "ipack": retriever_ipack, "textes": retriever_textes, "peda": retriever_peda}.get(mode)
-                        if retriever:
-                            for n in retriever.retrieve(prompt): extraits_doc += f"{n.node.text}\n\n"
-                    except: pass
+        elif est_sss_direct:
+            texte_brut = "<h3>🛠️ IPACKEPS : DOSSIER SSS OU BILAN VERROUILLÉ</h3><strong>Statut : Lecture seule absolue.</strong><br>Contactez immédiatement votre Correspondant iPackEPS de bassin ou l'équipe des IA-IPR. Seuls ces profils possèdent les droits master pour appliquer la commande <strong>[Renvoyer en modification]</strong> dans leur console d'administration."
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-                # Logique de rendu
-                if intention == "CALENDRIER":
-                    texte_brut = "<h3>📊 CALENDRIER & DATES</h3>Seuls les calendriers de la DEC font foi. Rapprochez-vous de votre secrétariat."
-                    badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-                elif intention == "SANTORIN_GRISE":
-                    texte_brut = "<h3>📊 CASES GRISÉES</h3>Attendez que le collègue ferme sa session ou dépliez le lot dans [Lots] > [Détail]."
-                    badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-                # ... (ajoute ici tes autres petits blocs blindés si besoin)
-                else:
-                    # Moteur IA expert
-                    if mode == "examens": badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-                    elif mode == "ipack": badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-                    elif mode == "textes": badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
-                    else: badge, color_card = "🔍 CADRAGE & RÉFÉRENTIELS BO", "peda-card"
+        elif est_groupes_direct:
+            texte_brut = "<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>➔ Étape 1 : Accédez au menu supérieur **[Dossiers]**.<br>➔ Étape 2 : Allez dans **[Dossier EPS]** > **[Classes]** > **[Configuration des Classes]** pour associer chaque division à son cycle.<br>➔ Étape 3 : Allez dans **[Organisation des Classes]** pour valider la répartition (Générale, Technologique ou Pro).<br>➔ Étape 4 : Rendez-vous dans le module **[Mes Élèves]** pour injecter le fichier d'extraction Pronote."
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+            
+        elif est_nouvel_eleve_direct:
+            texte_brut = """<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3><strong>Nomenclature officielle : Interdiction de création manuelle isolée.</strong><br><ul><li><strong>Étape 1 :</strong> Assurez-vous auprès du secrétariat que le nouvel élève est enregistré dans la base nationale <strong>SIÈCLE</strong>.</li><li><strong>Étape 2 :</strong> Générez ou demandez une nouvelle extraction des élèves (XML/CSV) depuis Pronote.</li><li><strong>Étape 3 :</strong> Dans iPackEPS, ouvrez le module **[Mes Élèves]** et cliquez sur **[Importer un fichier d'élèves]**.</li><li><strong>Étape 4 :</strong> Téléversez le fichier. L'application fusionne les bases et ajoute l'arrivant sans altérer les notes existantes.</li></ul>"""
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-                    consigne_ia = f"""Réponds à l'enseignant en t'appuyant STRICTEMENT sur : {extraits_doc}. {verites_terrain_pierre}
-                    Directives : 1. Non ferme si le texte l'indique. 2. Pas d'invention. 3. Format HTML propre."""
-                    try: texte_brut = Settings.llm.complete(consigne_ia).text
-                    except Exception as e: texte_brut = f"Erreur : {str(e)}"
-                    texte_brut += f"\n\n{bloc_liens_dynamique}"
+        elif est_transfert_doublon_direct:
+            texte_brut = """<h3>🛠️ IPACK_TRANSFERT : ÉLÈVE MUTÉ D'UN AUTRE ÉTABLISSEMENT</h3><strong>Réglementation CCF : Reprise obligatoire des notes certifiées.</strong><br><ul><li><strong>Étape 1 :</strong> Ne recréez pas l'élève manuellement. Demandez au secrétariat de valider son intégration pédagogique via <strong>SIÈCLE</strong> pour qu'il descende dans ton Pronote.</li><li><strong>Étape 2 :</strong> Exigez le livret officiel de CCF (Bordereau de notes) visé et signé par le chef d'établissement d'origine.</li><li><strong>Étape 3 :</strong> Procédez à l'import XML de ta classe dans iPackEPS pour faire apparaître l'élève.</li><li><strong>Étape 4 :</strong> Saisissez manuellement dans iPackEPS les notes brutes d'épreuves déjà passées dans l'ancien établissement. En cas de blocage informatique ou d'APSA non concordante, transmettez le dossier papier à la <strong>CAHPN</strong>. Au retour de la commission, le chef d'établissement déverrouillera le lot pour saisie par l'enseignant.</li></ul>"""
+            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
+            
+        elif est_bricolage_note:
+            texte_brut = """<h3>🛑 RÉGLEMENTATION CCF : CANDIDAT AVEC UNE SEULE NOTE VALIDE (NOTE UNIQUE)</h3><strong>Cadre réglementaire national (Bac GT) : Impossibilité administrative de calcul automatique.</strong><br><ul><li><strong>Règle d'or :</strong> Au Bac GT, l'évaluation repose sur un ensemble d'APSA. Si un élève se blesse ou accumule des incidents et ne dispose au final que d'une **seule note valide** à l'année (comme dans ton cas de figure AB+DI+14), l'application blocks le calcul automatique de la moyenne.</li><li><strong>Interdiction absolue de forcer :</strong> Il est strictement interdit d'effectuer un calcul manuel, un prorata artificiel ou d'entrer une fausse note pour tenter de débloquer le système.</li><li><strong>Saisie impérative dans Santorin :</strong> Ne laissez JAMAIS de case vide. Dans Santorin, une case vide signifie "non évalué" et interdira la clôture de votre lot. Cliquez sur le **[Crayon]** d'édition de l'élève et sélectionnez scrupuleusement les statuts réglementaires (ex: **[DI]** pour la dispense en gym, et **[AB]** pour l'absence injustifiée) dans le menu déroulant des **[Notes particulières]**.</li><li><strong>Arbitrage et circuit final (CAHPN) :</strong> Une fois les lignes complétées, validez votre lot. Le dossier sera transmis à la <strong>CAHPN</strong> (Commission Académique d'Harmonisation des Protocoles et des Notes). ⚠️ La CAHPN ne saisit pas directement les modifications informatiques. C'est au retour de la commission que le chef d'établissement déverrouille le lot dans l'établissement, permettant ainsi au professeur de saisir manuellement la note définitive validée par la commission.</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        elif est_grise_direct:
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><strong>Statut technique : Conflit d'édition ou défaut de déploiement.</strong><br><ul><li><strong>Cas 1 (Correction partagée) :</strong> Si plusieurs correcteurs sont affectés au même lot, dès qu'un collègue ouvre ou édite la copie d'un élève, l'interface bascule en lecture seule (boutons grisés) pour tous les autres afin d'éviter les doublons d'écriture. <strong>Solution : Attendez que le collègue ferme la copie ou se déconnecte d'Arena.</strong></li><li><strong>Cas 2 :</strong> Les cases de saisie restent bloquées tant que le lot d'examen n'est pas déplié. <strong>Solution : Allez dans l'onglet [Lots], cliquez sur [Voir le détail], puis sélectionnez le nom du candidat pour activer la grille.</strong></li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        elif est_inapte_santorin_direct:
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : ÉLÈVES INAPTES ET ABSENTS AU CCF</h3><strong>Cadre réglementaire : Saisie obligatoire des notes particulières dans Santorin.</strong><br>➔ Étape 1 : Ouvrez Arena > **[Portail d'accès aux missions]** > **[Notation EPS CCF]**.        <br>➔ Étape 2 : Dans votre lot, cliquez sur l'icône "crayon" en bout de ligne du candidat.<br>➔ Étape 3 : Ouvrez le menu déroulant des **[Notes particulières]** :<br><ul><li>🔹 <strong>Dispense (DI) :</strong> Si l'élève presents un certificat médical valide. Neutralise l'APSA (sort de la moyenne sans pénaliser).</li><li>🔹 <strong>Absent (AB) :</strong> En cas d'absence non justifiée (vaut note de zéro).</li><li>🔹 <strong>Épreuve de substitution :</strong> Si l'élève est renvoyé à la session de rattrapage.</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        elif est_remplacement_reunion_direct:
+            texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY OU SOUS-COMMISSION</h3><strong>Statut juridique : Ordre de mission nominatif impératif avant tout déplacement.</strong><br>➔ Étape 1 : Le secrétariat doit contacter le gestionnaire d'examen à la Division des Examens et Concours (DEC).        <br>➔ Étape 2 : Demander l'émission urgente d'un modificatif officiel de convocation au nom du remplaçant pour assurer sa couverture juridique (accident de trajet) et ses frais Chorus DT.<br>➔ Étape 3 : Le secrétariat doit valider la suppléance sur l'application nationale **Imag'in** et éditer la fiche PDF pour basculer informatiquement les accès vers Santorin."""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-                # Post-traitement et affichage
-                texte_brut = re.sub(r'(Article\s+\d+)', r'<span class="law-highlight">\1</span>', texte_brut)
-                formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_brut.replace(chr(10), "<br>")}</div>'
-                st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
-                st.rerun()
+        elif est_cm_posterieur_direct:
+            texte_brut = """<h3>📊 EXAMENS & CCF : CERTIFICAT MÉDICAL REMIS APRÈS L'ÉVALUATION</h3><strong>Statut juridique : Non-rétroactivité des dispenses médicales.</strong><br><ul><li><strong>Cas 1 : L'élève a réalisé l'épreuve (Candidat présent) :</strong> Un certificat médical produit ou déposé *after* avoir passé l'évaluation ne peut en aucun cas annuler ou effacer la note obtenue. Tout protocole de CCF débuté et mené à son terme est définitivement dû. L'évaluation est validée, la dispense n'est pas rétroactive.</li><li><strong>Cas 2 : L'élève était absent le jour de l'épreuve :</strong> Le candidat dispose d'un délai rigoureux de <strong>48 heures</strong> pour déposer son certificat médical original au secrétariat de l'établissement.</li><li>➔ Si le délai de 48h est respecté : L'absence est justifiée, cochez <strong>[Épreuve de substitution]</strong> (Rattrapage).</li><li>➔ Si le délai de 48h est dépassé : L'absence est injustifiée, la réglementation impose la saisie de la note particulière <strong>[AB]</strong> (équivaut à un zéro informatique).</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_blessure_choc_direct:
+            texte_brut = """<h3>📊 EXAMENS & CCF : ÉLÈVE BLESSÉ EN PLEIN MILIEU DE L'ÉPREUVE</h3><strong>Réglementation Examens : Interdiction absolue d'inventer ou de proratiser des points.</strong><br><ul><li><strong>Étape 1 :</strong> Interrompez immédiatement l'épreuve et faites raccompagner l'élève à l'infirmerie (déclaration d'accident scolaire obligatoire).</li><li><strong>Étape 2 (Règle d'or) :</strong> Ne tentez pas de "bricoler" une note finale en multipliant les points des premiers passages ou en faisant une moyenne imaginaire.</li><li><strong>Étape 3 (Arbitrage réglementaire) :</strong> </li><li>➔ <strong>Si l'élève a complété une partie significative notée autonome :</strong> L'équipe pédagogique peut décider de noter uniquement ce qui a été produit si la grille certificative le permet. En cas de note unique finale restante, le dossier sera transmis à la <strong>CAHPN</strong> ; au retour de la commission, le chef d'établissement déverrouillera le lot pour saisie par le professeur.</li><li>➔ <strong>Si l'épreuve is tronquée et illisible :</strong> Neutralisez l'épreuve informatiquement en saisissant **[Épreuve de substitution]** (Rattrapage). L'élève sera reconvoqué sur une épreuve de remplacement.</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_unss_absence_direct:
+            texte_brut = """<h3>📊 EXAMENS & CCF : ABSENCE POUR CAUSE DE COMPÉTITION UNSS</h3><strong>Statut administratif : Absence institutionnelle justifiée (Ordre de mission AS).</strong><br><ul><li><strong>Règle réglementaire :</strong> Un élève absent à une épreuve de CCF car il représente l'établissement ou l'académie à un Championnat de France UNSS est considéré comme **justifié institutionnellement**.</li><li><strong>Interdiction :</strong> Ne saisissez jamais la note particulière **[AB]** (Absent), ce qui lui vaudrait un zéro éliminatoire.</li><li><strong>Procédure technique :</strong> Dans l'interface Santorin, cochez la case **[Épreuve de substitution]**. L'élève est réglementairement basculé sur la session de rattrapage de l'établissement pour passer son épreuve ultérieurement. L'enseignant doit exiger la copie de la convocation officielle UNSS pour le dossier d'examen.</li></ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            
+        else:
+            # ======================================================================
+            # 🔄 LE CERVEAU CHATGPT ULTRA-ALIGNE SUR LE TEXTE VECTORIEL (RAG PUR)
+            # ======================================================================
+            if mode == "examens": badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            elif mode == "ipack": badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            elif mode == "textes": badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
+            else: badge, color_card = "🔍 CADRAGE & RÉFÉRENTIELS BO", "peda-card"
+
+            if mode == "examens" and not extraits_doc.strip():
+                texte_brut = "Désolé, je ne trouve pas cette règle spécifique dans ma mémoire locale d'examen. Veuillez vous rapprocher de votre coordonnateur d'établissement ou de votre IA-IPR EPS."
+            else:
+                consigne_ia = f"""Tu es l'assistant IA expert référent pour les examens EPS de l'académie d'Aix-Marseille.
+                Tu dois répondre de façon claire, structurée et chirurgicale à la question de l'enseignant en t'appuyant STRICTEMENT sur le contexte fourni ci-dessous.
+                
+                CONTEXTE DE RÉFÉRENCE JURIDIQUE LOCAL (SOURCE DE VÉRITÉ ABSOLUE) :
+                {extraits_doc}
+                {verites_terrain_pierre}
+                
+                QUESTION DE L'ENSEIGNANT :
+                {prompt}
+                
+                DIRECTIVES DE SÉCURITÉ CRITIQUES :
+                1. Fie-toi UNIQUEMENT au contexte fourni. Si le texte officiel indique clairement un "NON" (comme pour l'interdiction de noter un élève sur les rôles non-moteurs AFL2/AFL3 sans la pratique de l'AFL1 motrice au Lycée), ta réponse doit obligatoirement être un "NON" ferme et argumenté par le texte. Ne devine jamais.
+                2. Discrimine rigoureusement les filières (Lycée GT, Lycée Pro, CAP, Collège DNB). Si la question porte sur le collège, applique les règles du contrôle continu (LSU) et précise que le CCF et Santorin n'existent pas.
+                3. Structure ta réponse pour la rendre lisible : utilise des listes à puces HTML (<ul>, <li>) et des textes en gras (<strong>) pour isoler les étapes. Ne génère pas de balises structurelles globales de type <html>, <head> ou <body>.
+                """
+                try:
+                    response = Settings.llm.complete(consigne_ia) 
+                    texte_brut = response.text
+                except Exception as e:
+                    texte_brut = f"<h3>⚠️ Erreur système de traitement</h3>Une anomalie est survenue lors de la communication avec le moteur d'intelligence artificielle : {str(e)}"
+
+        # ======================================================================
+        # 3. FILTRES DE RENDU ET ENRICHISSEMENTS FINAUX
+        # ======================================================================
+        texte_brut = re.sub(r'(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de\s+l\'éducation)', r'<span class="law-highlight">\1</span>', texte_brut)
+        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace('</span></span>', '</span>')
+        re_links = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>', texte_brut)
+        texte_brut = re_links
+        
+        texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>").replace(chr(10), "<br>")
+        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
+        st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
+        
+        youtube_links = re.findall(r'(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}))', texte_brut)
+        for link in youtube_links:
+            clean_link = link[0].split('"')[0].split("'")[0].strip()
+            st.session_state.messages_hub.append({"role": "assistant", "type": "video", "content": clean_link})
+            
+        st.rerun()

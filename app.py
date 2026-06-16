@@ -574,11 +574,12 @@ if prompt:
                 {prompt}
                 
                 DIRECTIVES COMPORTEMENTALES STRICTES :
-                1. Ta réponse doit s'aligner à 100% sur les extraits fournis. Si le texte indique une procédure ou une interdiction (comme l'obligation pour un redoublant de repasser tout le CCF de terminale), applique-la de façon ferme et argumentée. Ne devine rien.
-                2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si le contexte fourni ne mentionne pas explicitement qu'une action ou une épreuve supplémentaire est autorisée, considère qu'elle est interdite. Renvoie systématiquement vers l'arbitrage de la CAHPN ou du Chef d'établissement.
-                3. 🛑 DEMANDE DE REFORMULATION : Si la question contient des formules syntaxiques brutes (ex: "DI+DI+note", "AB+DI+note") ou des suites de sigles collés par des opérateurs (comme +, /, -) sans explications en langage clair, n'essaie pas d'en deviner le sens ou d'interpréter le calcul. Demande immédiatement à l'utilisateur de reformuler en disant exactement : "Votre question comporte des abréviations ou une formule qui prêtent à confusion dans ce contexte. Pouvez-vous reformuler votre demande ou préciser la situation (filière, historique exact) pour éviter toute erreur d'interprétation réglementaire ?"
-                4. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
+                1. Ta réponse doit s'aligner à 100% sur les extraits fournis...
+                2. 🔒 PRINCIPE DE NON-EXTRAPOLATION...
+                3. 🛑 DEMANDE DE REFORMULATION...
+                4. Discrimine les filières...
                 5. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
+                6. 📺 MENTION DES VIDÉOS : Si le contexte de référence contient un nom de fichier vidéo en `.mp4` (ex: Distribution_manuelle_lots_santorin.mp4), tu dois IMPÉRATIVEMENT l'écrire textuellement dans ta réponse pour que l'interface active le lecteur vidéo.
                 """
                 try:
                     response = Settings.llm.complete(consigne_ia)

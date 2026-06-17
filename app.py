@@ -9,7 +9,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.memory import ChatMemoryBuffer
 
 # ======================================================================
-# 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (À GLISSER ICI)
+# 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
 VIDEOS_TUTOS = {
     "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
@@ -23,6 +23,7 @@ VIDEOS_TUTOS = {
     "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
     "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4"
 }
+
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
 # ======================================================================
@@ -465,6 +466,15 @@ if prompt:
         badge, color_card = "INFORMATION", "general-card"
         bloc_liens_dynamique = ""
         
+        # Détermination textuelle du nom de l'onglet pour la phrase de contexte
+        onglets_noms = {
+            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+            "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+            "peda": "l'onglet Référentiels Institutionnels, CA & Activités BO",
+            "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)"
+        }
+        contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+        
         verites_terrain_pierre = ""
         try:
             for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
@@ -482,6 +492,7 @@ if prompt:
             - SANTORIN_ERREUR_VALIDATION : Le prof a déjà cliqué sur valider son lot et l'écran est bloqué/clos.
             - SANTORIN_GRISE : Boutons ou crayons grisés, problème de co-évaluation/correction partagée (cadenas).
             - JURY_REMPLACEMENT : Problème d'ordre de mission (OM), convocation Chorus ou prof remplaçant invisible.
+            - SUJET_SECOURS : Demande d'impression, de téléchargement ou de recherche de sujet d'examen ou sujet écrit de secours.
             - AUCUN_BLINDAGE : TOUT LE RESTE (Réglementation, AFL, notation, dispense, inaptitude, cas d'élèves, élèves mutés, redoublants).
             """
             try: intention = Settings.llm.complete(intent_prompt).text.strip()
@@ -500,12 +511,13 @@ if prompt:
         est_erreur_validation_santorin = (intention == "SANTORIN_ERREUR_VALIDATION")
         est_grise_direct = (intention == "SANTORIN_GRISE")
         est_remplacement_reunion_direct = (intention == "JURY_REMPLACEMENT")
+        est_sujet_secours_direct = (intention == "SUJET_SECOURS")
         est_sss_direct = (intention == "IPACK_SSS")
         st_groupes_direct = (intention == "IPACK_GROUPES")
         est_nouvel_eleve_direct = (intention == "IPACK_NOUVEL_ELEVE")
         est_tasa_direct = (mode == "textes" and "tasa" in prompt.lower())
         
-        est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_grise_direct or est_remplacement_reunion_direct or est_sss_direct or st_groupes_direct or est_nouvel_eleve_direct or est_tasa_direct)
+        est_cas_blindé_racine = (est_date_notes_direct or est_erreur_validation_santorin or est_grise_direct or est_remplacement_reunion_direct or est_sujet_secours_direct or est_sss_direct or st_groupes_direct or est_nouvel_eleve_direct or est_tasa_direct)
 
         # Interrogation vectorielle RAG (Pour toutes les questions réglementaires)
         if openai_api_key and not est_cas_blindé_racine:
@@ -523,7 +535,7 @@ if prompt:
             except: pass
 
         # ======================================================================
-        # 🎯 ROUTAGE FINAL DU RENDU (MIS À JUR AVEC FILTRES CAPSULES EN DUR)
+        # 🎯 ROUTAGE FINAL DU RENDU (AVEC INJECTION DES BULLES EN DUR & MP4)
         # ======================================================================
         if est_tasa_direct:
             texte_brut = extraits_doc; badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -549,11 +561,15 @@ if prompt:
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
             
         elif est_grise_direct:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><ul><li><strong>Correction partagée :</strong> Si un collègue édite le lot, l'interface bascule en lecture seule. <strong>Solution : Attendez qu'il ferme sa session Arena.</strong></li><li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom du candidat pour activer la grille.</li></ul><br>📺 <strong>En cas de besoin de co-évaluation ou de transfert :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
+            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><ul><li><strong>Correction partagée :</strong> Si un collègue édite le lot, l'interface bascule en lecture seule. <strong>Solution : Attendez qu'il ferme sa session Arena.</strong></li><li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom du candidat pour activer la grille de notation.</li></ul><br>📺 <strong>En cas de besoin de co-évaluation ou de transfert :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         elif est_remplacement_reunion_direct:
             texte_brut = "<h3>📊 EXAMENS : REMPLACEMENT EN JURY</h3>L'établissement doit enregistrer la suppléance sur **Imag'in** et générer le PDF de convocation. C'est ce clic technique qui transmet instantanément vos droits d'écriture vers Santorin.<br><br>📺 <strong>Tutoriel de gestion des convocations :</strong> creer_convocations_enseignants.mp4"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_sujet_secours_direct:
+            texte_brut = """<h3>⚠️ CONFIGURATION EXAMEN : PAS DE SUJET ÉCRIT EN EPS</h3><strong>Règle de gestion nationale :</strong> En Éducation Physique et Sportive (CCF ou épreuve ponctuelle), il n'existe <strong>aucun sujet de secours papier ou écrit</strong> à télécharger ou à imprimer depuis iPackEPS ou Cyclades.<br><br><ul><li><strong>S'il s'agit d'un élève absent justifié (ABJ) :</strong> Il ne faut pas lui imprimer un sujet papier, mais organiser une <strong>Épreuve de substitution</strong> (rattrapage de l'évaluation motrice sur le terrain) avant le verrouillage des notes.</li><li><strong>S'il s'agit des grilles d'évaluation de l'équipe :</strong> Elles se trouvent dans votre projet pédagogique EPS d'établissement. Aucun sujet externe n'est fourni par la DEC.</li></ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             
         else:
@@ -582,6 +598,7 @@ if prompt:
                 4. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
                 5. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
                 6. 📺 MENTION DES VIDÉOS : Si le contexte de référence contient un nom de fichier vidéo en `.mp4` (ex: Distribution_manuelle_lots_santorin.mp4), tu dois IMPÉRATIVEMENT l'écrire textuellement dans ta réponse pour que l'interface active le lecteur vidéo compagnon.
+                7. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS (ex: recettes de cuisine, questions de culture générale générale, blagues, programmation informatique pure sans lien avec l'EPS), tu dois IMPÉRATIVEMENT répondre cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
                 """
                 try:
                     response = Settings.llm.complete(consigne_ia)
@@ -596,14 +613,18 @@ if prompt:
         texte_brut = re_links
         
         texte_final = texte_brut.replace("\n", "").replace("\r", "").replace("<p>", "").replace("</p>", "<br>").replace(chr(10), "<br>")
-        formatted_answer = f'<div class="{color_card}"><strong>{badge} :</strong><br>{texte_final}</div>'
+        
+        # Construction de la réponse avec la phrase de contexte en premier plan
+        phrase_contexte = f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+        formatted_answer = f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}</div>'
+        
         st.session_state.messages_hub.append({"role": "assistant", "type": "text", "content": formatted_answer})
         
         # ======================================================================
-        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS
+        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS (DEPUIS TEXTE FINAL)
         # ======================================================================
         for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_brut:
+            if video_name in texte_final:
                 st.session_state.messages_hub.append({"role": "assistant", "type": "video", "content": video_url})
                 
         st.rerun()

@@ -1036,3 +1036,15 @@ Sur iPackEPS, la saisie dépend de la nature de l'évaluation :
 
 3. Moyennes pour les bulletins trimestriels :
    - Rappel : La saisie finale s'effectue toujours dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte). iPackEPS permet uniquement de calculer et d'exporter le fichier CSV des moyennes.
+======================================================================
+[ARTICLE : LIMITES DE L'OUTIL ET ACCÈS MOBILE IPACKEPS]
+======================================================================
+Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger application, App Store, Play Store, mobile, tablette.
+
+1. Appel et gestion des absences du quotidien :
+- iPackEPS n'est PAS un logiciel de vie scolaire. L'appel officiel, la gestion des retards et les billets d'absence s'effectuent obligatoirement sur Pronote ou ÉcoleDirecte.
+
+2. Accès et application mobile (Smartphone / Tablette) :
+- iPackEPS ne se télécharge PAS sur l'App Store d'Apple ni sur le Google Play Store.
+- Accès : Il s'agit d'une application Web officielle accessible uniquement via le portail académique ARENA (authentification avec vos identifiants académiques).
+- Sur tablette/smartphone : Il suffit de se connecter sur ARENA depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.

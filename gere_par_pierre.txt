@@ -1048,3 +1048,74 @@ Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger applica
 - iPackEPS ne se télécharge PAS sur l'App Store d'Apple ni sur le Google Play Store.
 - Accès : Il s'agit d'une application Web officielle accessible uniquement via le portail académique ARENA (authentification avec vos identifiants académiques).
 - Sur tablette/smartphone : Il suffit de se connecter sur ARENA depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.
+======================================================================
+[ARTICLE : MOT DE PASSE ET IDENTIFIANTS PERDUS SUR IPACKEPS]
+======================================================================
+Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack, compte bloqué, login oublié, accès coordonnateur.
+
+- Aucun compte spécifique : Il n'existe AUCUN compte ni mot de passe créé spécifiquement pour iPackEPS. Le coordonnateur EPS ne peut pas créer ni réinitialiser vos identifiants.
+- Authentification unique ARENA : L'accès s'effectue exclusivement avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou clé OTP / Macat).
+- Procédure en cas d'oubli : En cas de perte de mot de passe, la réinitialisation se fait sur le portail académique ARENA (procédure « Mot de passe oublié » du Rectorat) et non dans iPackEPS.
+
+======================================================================
+[ARTICLE : MOT DES PARENTS VS INAPTITUDE MÉDICALE OFFICIELLE]
+======================================================================
+Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires, dispense exceptionnelle, dispense de cours, certificat médical.
+
+- Mot des parents / Dispense ponctuelle : Un mot écrit par les parents (sur le carnet de correspondance, par mail ou sur papier libre) n'a AUCUNE valeur médicale réglementaire.
+  -> Ne JAMAIS enregistrer d'inaptitude médicale sur iPackEPS sur la simple base d'un mot des parents.
+  -> Gestion terrain : L'élève est présent au cours. L'enseignant adapte la pratique ou lui confie un rôle social (arbitre, observateur, chronométreur).
+- Inaptitude officielle : Seul un certificat médical délivré par un médecin traitant donne lieu à la saisie d'une inaptitude (totale ou partielle) et au téléversement du justificatif dans le module [Suivi des élèves] d'iPackEPS.
+- Oubli de tenue / Baskets : L'oubli de matériel relève du règlement intérieur et de la vie scolaire, en aucun cas d'une saisie d'inaptitude médicale sur iPackEPS.
+
+======================================================================
+[ARTICLE : ABSENCE DE CONNEXION AU STADE ET UTILISATION SUR TABLETTE]
+======================================================================
+Mots-clés : pas de wifi, stade sans 4G, hors-ligne, batterie vide, perte de données tablette, mode nomade, synchronisation.
+
+- Perte de données : Si votre tablette ou votre smartphone perd le réseau (4G/Wi-Fi) au stade municipal ou au gymnase, les données locales saisies sur l'application nomade ne sont pas effacées.
+- Procédure de travail hors-ligne :
+  1. Ouvrez l'application nomade lorsque vous avez du réseau (au collège/lycée ou chez vous) pour charger la base d'élèves.
+  2. Procédez à vos évaluations sur le terrain (au stade / gymnase).
+  3. Dès le retour dans une zone couverte par le Wi-Fi ou la 4G, déclenchez la synchronisation manuelle vers le serveur iPackEPS.
+- Précaution : Ne videz pas le cache de votre navigateur web sur la tablette avant que la synchronisation finale n'ait été effectuée.
+
+======================================================================
+[ARTICLE : SUPPRESSION D'ÉLÈVE DISPENSÉ À L'ANNÉE OU CHANGEMENT DE CLASSE]
+======================================================================
+Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, corbeille, effacer la base du lycée.
+
+- Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
+- Portée des suppressions :
+  -> Si un enseignant non-coordonnateur supprime un affichage de groupe dans son profil, cela ne supprime pas la base SIÈCLE globale de l'établissement.
+  -> Seul le coordonnateur ou l'administrateur peut modifier la structure des classes de l'établissement.
+- En cas de départ d'élève : Si un élève quitte définitivement l'établissement, ne créez pas de manipulation manuelle destructrice ; l'actualisation de la base SIÈCLE lors du prochain import régularisera automatiquement l'effectif.
+
+======================================================================
+[ARTICLE : DEMANDE DE PROTOCOLE CCF AU COLLÈGE (6E, 5E, 4E, 3E)]
+======================================================================
+Mots-clés : protocole CCF collège, CCF 3ème, protocole 6ème, DNB CCF, examen collège.
+
+- Pas de CCF au Collège : Le système des protocoles certificatifs CCF (3 épreuves / APSA nationales obligatoires) s'applique STRICTEMENT au lycée (Baccalauréat Général, Technologique, Professionnel et CAP).
+- Évaluation au Collège : En 6e, 5e, 4e et 3e (DNB), l'évaluation s'effectue au fil des séquences d'apprentissage sur le socle commun et les compétences de cycle. Il ne faut JAMAIS tenter de créer un protocole CCF de lycée pour des classes de collège.
+
+======================================================================
+[ARTICLE : TRANSMISSION PAR PAPIER VS DÉMATÉRIALISATION RECTORAT]
+======================================================================
+Mots-clés : imprimer les fiches, envoyer par la poste, bordereau papier, courrier DEC, rectorat papier, signature chef d'établissement.
+
+- Zéro envoi papier par la poste : La gestion des examens et des protocoles EPS est 100 % dématérialisée. Il ne faut rien envoyer par courrier postal au Rectorat ou à la DEC.
+- Chaîne de transmission dématérialisée :
+  1. Configuration et saisie des protocoles / inaptitudes dans iPackEPS.
+  2. Validation pédagogique par le chef d'établissement et les corps d'inspection via les applications académiques dédiées.
+  3. Remontée des notes et copies d'évaluation vers Cyclades et Santorin.
+- Conservation locale : Les éventuelles impressions de bordereaux ou de bilans sont à conserver au sein de l'établissement à titre d'archive interne pour l'équipe pédagogique.
+
+======================================================================
+[ARTICLE : DIFFÉRENCE ENTRE SANTORIN ET IPACKEPS POUR LES NIVEAUX HORS EXAMEN]
+======================================================================
+Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classes n'apparaissent pas dans Santorin, lot introuvable.
+
+- Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
+- Absence normale des classes ordinaires : Il est parfaitement normal que vos classes de Collège (6e à 3e) ou de Seconde / Première n'apparaissent pas dans Santorin.
+- Règle d'usage : Pour le suivi, l'évaluation et la notation des niveaux hors examen, utilisez exclusivement iPackEPS et votre logiciel de vie scolaire (Pronote / ÉcoleDirecte).

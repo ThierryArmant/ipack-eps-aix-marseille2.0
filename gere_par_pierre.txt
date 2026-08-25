@@ -1019,3 +1019,20 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROGÉDURES STRICTES
   2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
   3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
   4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
+======================================================================
+[ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
+======================================================================
+Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation.
+
+Sur iPackEPS, la saisie dépend de la nature de l'évaluation :
+
+1. Évaluations formatives et bilans d'APSA (au fil de l'année) :
+   - Chemin : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou directement via la séquence dans le menu [Groupes]).
+   - Rôle : Saisie des degrés d'acquisition des compétences (AFL), des critères et des barèmes par classe ou groupe, sur ordinateur ou tablette mobile.
+
+2. Notes certificatives officielles (CCF Bac GT, Bac Pro, CAP) :
+   - Chemin : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Examens] / [CCF].
+   - Rôle : Renseignement et validation des notes des protocoles officiels avant transmission vers Cyclades ou Santorin.
+
+3. Moyennes pour les bulletins trimestriels :
+   - Rappel : La saisie finale s'effectue toujours dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte). iPackEPS permet uniquement de calculer et d'exporter le fichier CSV des moyennes.

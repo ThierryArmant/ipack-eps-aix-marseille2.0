@@ -1119,3 +1119,19 @@ Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classe
 - Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
 - Absence normale des classes ordinaires : Il est parfaitement normal que vos classes de Collège (6e à 3e) ou de Seconde / Première n'apparaissent pas dans Santorin.
 - Règle d'usage : Pour le suivi, l'évaluation et la notation des niveaux hors examen, utilisez exclusivement iPackEPS et votre logiciel de vie scolaire (Pronote / ÉcoleDirecte).
+======================================================================
+[ARTICLE : GESTION DES OUBLIS DE TENUE ET VIE SCOLAIRE]
+======================================================================
+Mots-clés : oubli de short, oubli de tenue, baskets, absent non justifié cours, mettre zéro, punition.
+
+- Hors examen : L'oubli ponctuel de tenue d'EPS lors d'une séance ordinaire relève exclusivement du règlement intérieur de l'établissement et de la vie scolaire (Pronote / carnet).
+- Interdiction Santorin : Ne JAMAIS aller dans Santorin pour un oubli de tenue en cours ordinaire. Santorin ne sert qu'à la notation des épreuves certificatives officielles d'examen.
+- Règle pédagogique : L'élève sans tenue participe au cours via un rôle social (observation, arbitrage, arbitrage vidéo, gestion du matériel).
+
+======================================================================
+[ARTICLE : PROTOCOLE D'EXAMEN DÉMATÉRIALISÉ SANS BORDEREAU PAPIER]
+======================================================================
+Mots-clés : imprimer fiche cartonnée, faire signer proviseur, bordereau papier DEC, mes documents.
+
+- Aucun bordereau papier : Il n'existe aucun module pour imprimer des fiches cartonnées d'élèves à faire signer manuellement pour la DEC.
+- Validation numérique : La transmission et la validation des protocoles et notes se font intégralement en ligne depuis les outils académiques.

@@ -1407,3 +1407,35 @@ Mots-clés : import Idoceo, Additio vers iPackEPS, structure colonnes tableur, e
 Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes CCF, contrôle inspection, destruction documents.
 - Obligation légale : Les feuilles d'émargement signées par les candidats lors des épreuves de CCF, ainsi que les grilles d'évaluation individuelles (AFL), doivent être obligatoirement conservées dans l'établissement sous la responsabilité du chef d'établissement pendant une durée minimale d'UN (1) AN après la proclamation officielle des résultats du Baccalauréat (délai de recours contentieux).
 - En cas de contestation : Seuls ces documents originaux font foi devant la commission de recours ou le tribunal administratif.
+======================================================================
+[ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]
+======================================================================
+Mots-clés : AEFE, MLF, étranger, hors de France, établissement étranger, rythme Sud, hémisphère Sud, lycée français étranger, homologué, zone AEFE, académie de rattachement, calendrier décalé, élèves introuvables étranger.
+
+Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges français à l'étranger, les règles d'utilisation d'iPackEPS et des examens comportent 6 spécificités majeures :
+
+1. Configuration iPackEPS & Absence de base SIÈCLE :
+   - Diagnostic : Les établissements hors de France ne sont pas interconnectés avec le SIÈCLE national direct du ministère.
+   - Comportement normal : Il est STRICTEMENT NORMAL que la liste des classes et des élèves soit vierge lors du clic sur « Actualiser ».
+   - Procédure : Ne pas chercher d'import automatique. Configurez le Dossier EPS (APSA, équipements) et créez vos classes/groupes manuellement dans [Dossiers] > [Dossier EPS] > [Groupes].
+
+2. Liaisons Cyclades & Examens (CCF Bac GT / Bac Pro) :
+   - Pas d'export automatique : iPackEPS ne peut pas générer de fichier de transfert automatique vers Cyclades pour l'étranger.
+   - Action secrétariat : L'association des candidats aux protocoles d'évaluation doit être effectuée manuellement dans CYCLADES par le secrétariat des examens de l'établissement (via l'activité « EPS - Associer les élèves à un protocole »).
+
+3. Calendriers d'Examens, Sessions Décalées & Hémisphère Sud :
+   - Rythme Nord : Verrouillage standard en mai/juin selon l'académie partenaire.
+   - Rythme Sud (Hémisphère Sud : Amérique du Sud, Océanie, Afrique australe...) : Les épreuves certificatives et les dates limites de saisie Santorin sont décalées (session d'octobre / novembre / décembre).
+   - Règle d'or : La date du 30 mai ne s'applique pas au rythme Sud. Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement / centre d'examen pilote.
+
+4. Référentiels d'Évaluation (FCA) & Académie de Rattachement :
+   - Chaque zone ou pays est adossé à une académie partenaire en France métropolitaine pour la gestion du Baccalauréat.
+   - Règle : Les fiches d'évaluation (FCA) déposées dans le [Dossier Certificatif] doivent respecter les listes et cadrages de l'académie de rattachement désignée par la DEC / l'AEFE.
+
+5. Certificats Médicaux & Inaptitudes Locales :
+   - Validité : Les certificats médicaux rédigés par les médecins locaux assermentés ou les médecins de l'Ambassade / Consulat sont pleinement recevables.
+   - Procédure : Déposer le certificat numérisé dans [Mes Élèves] > [Fiche élève] > [Inaptitudes] pour justifier du statut « Dispensé » (DISP) ou « Aménagé » face au jury académique métropolitain.
+
+6. Sécurité APPN & Droit Local vs Circulaires Françaises :
+   - Pour la certification (CCF) : Les critères et compétences des textes officiels français (BO) restent la règle d'évaluation.
+   - Pour les conditions matérielles et logistiques : Les normes locales de sécurité (accès secours, transports, législation du pays hôte) prévalent sur le terrain. Les projets APPN doivent formaliser ces adaptations spécifiques dans le dossier d'établissement.

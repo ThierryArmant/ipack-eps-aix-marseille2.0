@@ -1407,3 +1407,130 @@ Mots-clés : import Idoceo, Additio vers iPackEPS, structure colonnes tableur, e
 Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes CCF, contrôle inspection, destruction documents.
 - Obligation légale : Les feuilles d'émargement signées par les candidats lors des épreuves de CCF, ainsi que les grilles d'évaluation individuelles (AFL), doivent être obligatoirement conservées dans l'établissement sous la responsabilité du chef d'établissement pendant une durée minimale d'UN (1) AN après la proclamation officielle des résultats du Baccalauréat (délai de recours contentieux).
 - En cas de contestation : Seuls ces documents originaux font foi devant la commission de recours ou le tribunal administratif.
+======================================================================
+SECTION 6 : BLINDAGE JURIDIQUE, RÉGLEMENTAIRE & SANTORIN (EXAMENS EPS)
+======================================================================
+
+[SECTION: REGLEMENTATION_BAC_GT_CCF]
+
+### [SITUATION: ÉLÈVE ARRIVANT EN RETARD LE JOUR DU CCF]
+Mots-clés : retard épreuve CCF, élève en retard, refus d'accès épreuve, rattrapage retard, début d'épreuve.
+- Règle générale des examens : Une fois l'épreuve collective débutée (ex. : échauffement réglementaire terminé ou premier passage lancé), l'accès à l'épreuve peut être refusé pour des raisons d'équité et de sécurité physique.
+- Décision et arbitrage :
+  1. Si le retard est justifié par un cas de force majeure avéré (panne de transport scolaire, accident sur le trajet) : le chef d'établissement peut autoriser l'élève à se présenter sur le créneau d'épreuve différée (rattrapage).
+  2. Si le retard est injustifié : l'élève est déclaré non évalué pour absence non justifiée (« ABS » valant zéro sur Santorin pour cette épreuve).
+  3. L'enseignant ne doit jamais réorganiser une passation individuelle improvisée en fin de cours sans l'accord du chef d'établissement.
+
+### [SITUATION: REFUS D'UN ÉLÈVE DE CHOISIR SA RÉPARTITION DE POINTS AFL2 / AFL3]
+Mots-clés : choix AFL2 AFL3, refus de choisir, répartition points AFL, barème par défaut, contestation élève.
+- Règle d'évaluation : Lorsque le référentiel national ou académique prévoit une ventilation des points au choix du candidat (ex. : 4 pts / 2 pts ou 3 pts / 3 pts entre AFL2 et AFL3) :
+  1. L'élève doit formuler son choix au moment fixé par l'équipe (au plus tard avant le début de l'épreuve certificative).
+  2. Si l'élève refuse explicitement d'exprimer un choix : la répartition équilibrée par défaut (ex. : 3 points sur l'AFL2 et 3 points sur l'AFL3, ou barème médian du référentiel) lui est appliquée d'office.
+  3. Ce choix par défaut est consigné par écrit sur la feuille d'émargement de l'épreuve pour prévenir toute contestation ultérieure.
+
+### [SITUATION: BLESSURE OU MALAISE SURVENU PENDANT L'ÉPREUVE CERTIFICATIVE]
+Mots-clés : blessure pendant le CCF, entorse en plein saut, malaise CCF, arrêt sur blessure, note partielle.
+- Règle d'interruption médicale :
+  1. L'élève blessé pendant l'épreuve ne doit PAS être évalué avec un zéro ou une note dégradée sur sa tentative inachevée.
+  2. L'épreuve est immédiatement interrompue pour le candidat et prise en charge par les secours / l'infirmerie scolaire.
+  3. Dès constatation médicale (certificat médical de l'infirmerie ou du médecin traitant sous 48h), la passation est déclarée nulle pour cause médicale.
+  4. L'élève conserve son droit de passer l'épreuve dans son intégralité lors de la session d'épreuve différée.
+
+---
+
+[SECTION: REGLEMENTATION_BAC_PRO_ET_CAP]
+
+### [SITUATION: ÉLÈVE DE BAC PRO AYANT SUIVI 2 APSA SUR 3 EN RAISON DE PFMP (STAGES)]
+Mots-clés : PFMP Bac Pro, stage pendant CCF, 2 épreuves sur 3 bac pro, moyenne Bac Pro, dispense stage.
+- Règle d'assiduité et d'examen : Les périodes de formation en milieu professionnel (PFMP) sont planifiées et obligatoires. Elles ne constituent pas une dispense médicale.
+- Procédure officielle :
+  1. L'équipe pédagogique doit impérativement positionner les séquences certificatives en dehors des périodes de PFMP de la division.
+  2. Si un élève était en stage dérogatoire lors du CCF initial, il doit obligatoirement passer l'épreuve lors du créneau d'évaluation différée prévu au projet d'établissement.
+  3. Si l'épreuve différée n'a pas pu avoir lieu pour cas de force majeure : la commission d'harmonisation (CAHPN) statue sur proposition de la note moyenne des deux autres APSA ou sur une demande de dispense exceptionnelle.
+
+### [SITUATION: CAP — NON-CONFORMITÉ DU PROTOCOLE À 3 ÉPREUVES (REJET SANTORIN)]
+Mots-clés : CAP 3 activités, rejet protocole CAP, erreur 2 épreuves CAP, CCF CAP.
+- Règle stricte CAP : Le certificat d'aptitude professionnelle (CAP) impose réglementairement DEUX (2) épreuves certificatives (et non trois comme en Baccalauréat).
+- Bloqueur Santorin : Si un protocole CAP comporte 3 notes saisies, le système refuse la validation de la grille.
+- Procédure de régularisation :
+  1. Vérifier que la classe est bien paramétrée en « Mode Groupe » dans iPackEPS.
+  2. N'associer que deux épreuves certificatives par candidat.
+  3. Dans Santorin, renseigner exclusivement les 2 épreuves officielles retenues pour le diplôme.
+
+---
+
+[SECTION: COLLEGE_ET_DIPLOME_NATIONAL_DU_BREVET_DNB]
+
+### [SITUATION: DEMANDE D'UNE NOTE SUR 20 AU DNB POUR L'EPS]
+Mots-clés : note sur 20 DNB, moyenne EPS brevet, coefficient DNB, note examen troisième.
+- Règle d'évaluation au Brevet : Il n'existe AUCUNE épreuve terminale d'EPS au Diplôme National du Brevet, ni de note d'examen spécifique sur 20 envoyée à la DEC.
+- Modalités officielles :
+  1. L'EPS contribue à l'évaluation du socle commun de connaissances, de compétences et de culture (Cycle 4).
+  2. Le bilan de fin de cycle attribue des points par composante du socle (10 pts : maîtrise insuffisante, 25 pts : fragile, 40 pts : satisfaisante, 50 pts : très bonne maîtrise).
+  3. Les notes trimestrielles attribuées en classe de 3e servent uniquement au livret scolaire et aux moyennes de contrôle continu interne de l'établissement.
+
+### [SITUATION: ÉLÈVE TOTALEMENT DISPENSÉ D'EPS EN CLASSE DE TROISIÈME (DNB)]
+Mots-clés : dispense DNB, inapte toute l'année 3ème, socle commun sans EPS, impact brevet.
+- Règle du socle commun :
+  1. L'inaptitude médicale totale annuelle n'empêche pas l'obtention du DNB.
+  2. L'élève est dispensé d'évaluation motrice. Les compétences du socle liées à la motricité ne sont pas renseignées pour l'EPS ou sont neutralisées lors du calcul global des points du socle par l'application ministérielle (LSU / Cyclades).
+  3. L'élève peut néanmoins valider des compétences méthodologiques et sociales transversales travaillées au sein de l'établissement.
+
+---
+
+[SECTION: GESTION_AVANCEE_SANTORIN_ET_CYCLADES]
+
+### [SITUATION: BOUTON « CLÔTURER LE LOT » GRISÉ DANS SANTORIN]
+Mots-clés : impossible clôturer lot, bouton clôturer grisé, lot bloqué Santorin, validation finale impossible.
+- Cause réelle : Le bouton de clôture ne se déverrouille que si **100 % des candidats du lot possèdent un statut validé**.
+- Diagnostic :
+  1. Parcourir toutes les pages du lot (vérifier le sélecteur « Afficher 50 / 100 candidats »).
+  2. Repérer les candidats qui n'ont ni note saisie, ni statut particulier.
+  3. Pour chaque élève non évalué, positionner obligatoirement l'un des statuts officiels : « ABS » (absence injustifiée), « DISP » (dispense médicale) ou « CE » (cas exceptionnel validé).
+  4. Dès que la dernière case est renseignée, le bouton « Clôturer » passe en surbrillance.
+
+### [SITUATION: DIFFÉRENCE ENTRE STATUT « ABS », « DISP » ET « CE » DANS SANTORIN]
+Mots-clés : code ABS, code DISP, code CE, zéro Santorin, neutraliser coefficient, différence dispense absence.
+- Règle absolue de saisie sur Santorin :
+  - **ABS (Absent non justifié) :** Traduit informatiquement par la note de **0/20**. Cette note entre dans le calcul de la moyenne du CCF (sauf si absence à toutes les épreuves $\rightarrow$ mention « Absent » globale et non-délivrance du diplôme).
+  - **DISP (Dispensé médicalement) :** Neutralise l'APSA concernée. L'épreuve est retirée du calcul (moyenne calculée sur les autres épreuves valides).
+  - **CE (Cas Exceptionnel) :** Neutralise l'APSA pour cause de force majeure matérielle ou collective. **Nécessite l'accord formel préalable de l'inspection (IA-IPR)**.
+
+### [SITUATION: CANDIDAT EN SITUATION DE DOUBLE NOTATION SUR SANTORIN (CONFLIT DE CORRECTEURS)]
+Mots-clés : deux correcteurs même copie, écrasement de note Santorin, conflit saisie co-évaluation.
+- Fonctionnement technique :
+  1. Lorsque deux enseignants interviennent en co-évaluation sur un même lot, l'ouverture de la grille par le premier correcteur verrouille la copie en « Lecture seule » pour le second afin d'éviter les collisions d'écriture.
+  2. Les notes d'AFL saisies par le premier correcteur sont enregistrées en temps réel.
+  3. Pour modifier une saisie, le second correcteur doit attendre que le premier ait quitté la fiche élève, puis cliquer sur l'icône « Crayon » pour ajuster les curseurs après concertation.
+
+### [SITUATION: ÉLÈVE SPORTIF DE HAUT NIVEAU (SHN) NON RECONNU PAR SANTORIN (NOTE 20/20 BLOQUÉE)]
+Mots-clés : SHN 20 sur 20 impossible, bouton SHN absent, liste ministérielle SHN, PPF Bac.
+- Cause : Le statut de Sportif de Haut Niveau n'a pas été coché dans la base administrative Cyclades lors de l'inscription à l'examen en début d'année.
+- Résolution :
+  1. Le correcteur ne doit pas saisir 20/20 manuellement si les critères d'évaluation de l'élève ne correspondent pas aux observables moteurs réalisés.
+  2. L'enseignant alerte le chef d'établissement qui transmet l'attestation ministérielle (liste SHN/PPF de janvier de l'année en cours) à la DEC.
+  3. La DEC valide la bascule dans Cyclades $\rightarrow$ Santorin affiche l'icône SHN permettant l'attribution réglementaire du 20/20 sur l'activité de spécialité.
+
+---
+
+[SECTION: CONTESTATIONS_JURIDIQUES_ET_DROIT_DES_EXAMENS]
+
+### [SITUATION: DEMANDE DE CONSULTATION DE LA COPIE / GRILLE D'ÉVALUATION PAR L'ÉLÈVE OU LA FAMILLE]
+Mots-clés : droit communication copie, voir ma grille CCF, contestation parents, communication document administratif.
+- Droit d'accès (Code des relations entre le public et l'administration) :
+  1. Les grilles d'évaluation de CCF renseignées (détail des AFL 1, 2 et 3) constituent des documents administratifs communicables de plein droit **uniquement après la délibération finale du jury académique** (début juillet).
+  2. Avant la publication officielle des résultats du Baccalauréat, aucune grille ni note définitive ne peut être légalement exigée ou remise aux familles (secret des délibérations du jury).
+  3. Après les résultats, la demande s'effectue par écrit auprès du chef d'établissement qui transmet la copie de la fiche d'évaluation officielle.
+
+### [SITUATION: DISCRIMINATION ALLÉGUÉE SUR LES BARÈMES FILLES / GARÇONS (CA1)]
+Mots-clés : égalité filles garçons, barème sexué, contestation barème CA1, discrimination barème EPS.
+- Conformité constitutionnelle et réglementaire :
+  1. Les barèmes différenciés en CA1 (performance motrice mesurée) sont fixés par les référentiels nationaux et académiques validés par le Ministère de l'Éducation nationale.
+  2. Le Conseil d'État a confirmé la légalité de barèmes physiologiquement adaptés garantissant l'égalité réelle des chances face à la certification.
+  3. L'enseignant n'a pas le droit d'unifier ou de modifier les barèmes officiels de sa propre initiative.
+
+### [SITUATION: ACCUSATION DE CO-ÉVALUATION NON RESPECTÉE (BAC GT)]
+Mots-clés : co-évaluation absente, un seul prof pour évaluer, nullité de l'épreuve Bac, recours co-évaluation.
+- Cadre réglementaire : En Bac GT, la co-évaluation par deux enseignants est prescrite par les textes d'organisation.
+- Portée juridique : Si un empêchement de force majeure survient (ex. : absence imprévue du second enseignant non remplacé le jour de l'épreuve), l'enseignant de la classe assure la continuité de l'examen afin de ne pas léser les candidats.
+- Conduite à tenir : Documenter la situation dans le compte-rendu d'évaluation et informer le chef d'établissement. L'épreuve reste juridiquement valide et sera examinée sous cette réserve par la commission académique d'harmonisation (CAHN).

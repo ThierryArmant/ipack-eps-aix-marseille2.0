@@ -1285,3 +1285,13 @@ Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation lon
   1. Si motif médical (hospitalisation) : enregistrer le certificat d'inaptitude totale pour l'année dans iPackEPS ([Suivi des élèves] > [Inaptitudes]). L'élève est déclaré « Dispensé d'EPS » au Bac (coefficient neutralisé).
   2. Si motif carcéral ou éloignement sans inaptitude médicale : l'établissement signale immédiatement la situation à la DEC (Division des Examens et Concours).
   3. La DEC bascule le candidat en « Examen ponctuel terminal » (géré par l'unité pédagogique en milieu pénitentiaire ou un centre d'examen dédié) ou prononce une dispense d'examen pour motif de force majeure.
+======================================================================
+[ARTICLE : RGPD, SOUVERAINETÉ DES DONNÉES ET CARNET PAPIER]
+======================================================================
+Mots-clés : RGPD, protection des données, serveurs États-Unis, données biométriques, carnet à spirale, vie privée, hébergement cloud, chronomètre.
+
+- Hébergement souverain : iPackEPS est une application officielle de l'Éducation nationale, hébergée sur les serveurs académiques sécurisés en France. Aucune donnée d'élève n'est transmise à l'étranger ou sur des serveurs privés aux États-Unis.
+- Conformité RGPD et données scolaires :
+  -> La saisie des performances physiques (chronos, barèmes, compétences AFL) entre strictement dans le cadre des missions d'enseignement et d'évaluation du service public.
+  -> Les résultats sportifs ne constituent pas des données biométriques sensibles au sens du RGPD.
+- Carnet papier vs Outil numérique : L'utilisation d'iPackEPS protège l'enseignant en assurant la traçabilité et l'archivage sécurisé des évaluations de l'établissement (contrairement au carnet personnel sur papier qui peut être perdu, volé ou contesté sans preuve d'horodatage).

@@ -252,7 +252,7 @@ css_pur = """
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'IA & LECTEUR CHIRURGICAL DES BASES
+# 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
@@ -438,7 +438,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = initialiser_base_peda(timestamp_fichier)
 
 # ======================================================================
-# 5. BANDEAU SUPERIEUR REHAUSSÉ
+# 5. BANDEAU SUPÉRIEUR REHAUSSÉ
 # ======================================================================
 st.markdown(
     f"""
@@ -486,7 +486,7 @@ label_titres = {
 
 titre_affiche = label_titres.get(
     st.session_state.active_module,
-    "🔍 Mode Actif : Référentiels Institutionnels",
+    "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
 )
 st.markdown(
     '<div class="column-title-top"><span class="instruction">⚙️ Choisissez le'
@@ -635,7 +635,7 @@ st.markdown(
 )
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET ARBITRAGE HYBRIDE INTEGRAL (SÉCURISÉ)
+# 9. FLUX DE MESSAGES ET ARBITRAGE HYBRIDE INTÉGRAL (SÉCURISÉ)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -734,7 +734,7 @@ if prompt:
         or est_tasa_direct
     )
 
-    # Interrogation vectorielle RAG (Pour toutes les questions réglementaires)
+    # Interrogation vectorielle RAG
     if openai_api_key and not est_cas_blindé_racine:
       try:
         if mode == "examens":
@@ -760,7 +760,7 @@ if prompt:
         pass
 
     # ======================================================================
-    # 🎯 ROUTAGE FINAL DU RENDU (AVEC INJECTION DES BULLES EN DUR & MP4)
+    # 🎯 ROUTAGE FINAL DU RENDU
     # ======================================================================
     if est_tasa_direct:
       texte_brut = extraits_doc
@@ -871,13 +871,14 @@ DIRECTIVES COMPORTEMENTALES STRICTES :
 4. 👥 CAS DES ÉLÈVES QUI NE REMONTENT PAS / LISTE VIDE : Si la question porte sur des élèves introuvables ou une liste vide dans iPackEPS, tu dois OBLIGATOIREMENT distinguer les 2 cas :
    - Cas 1 (Public / Privé sous contrat rattachés à SIÈCLE) : Les classes doivent être préalablement configurées et organisées, puis l'importation effectuée via [Importation élèves] > [Actualiser].
    - Cas 2 (CFA, GRETA, MFR, AEFE / Étranger, Hors-contrat) : L'absence de liste est strictement normale (non rattachés à SIÈCLE). Création manuelle obligatoire des classes/groupes dans [Groupes] et association manuelle directe dans CYCLADES pour les examens.
-5. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
-6. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
-7. 📺 MENTION DES VIDÉOS & LIENS :
+5. 🌍 ÉTABLISSEMENTS À L'ÉTRANGER (RYTHME SUD) : Si la question concerne un établissement en rythme Sud (hémisphère Sud), précise d'emblée que la date métropolitaine du 30 mai ne s'applique pas et renvoie vers la session décalée d'octobre/novembre/décembre fixée par l'académie partenaire.
+6. Discrimine les filières (Bac GT, Bac Pro, CAP, DNB/Collège). Au collège, rappelle que le CCF n'existe pas.
+7. Utilise des puces HTML (<ul>, <li>) et des mots en gras (<strong>) pour isoler les étapes. Pas de balise <html> globale.
+8. 📺 MENTION DES VIDÉOS & LIENS :
    - Pour les vidéos, écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : import_eleves_pronote.mp4").
    - Ne crée JAMAIS de lien cliquable Markdown vers un fichier local ou relatif (ex: pas de [Tutoriel](nom.mp4) ni [Article](spip.php...)), car l'interface intègre déjà le lecteur vidéo sous la réponse.
    - N'insère de lien Markdown [texte](https://...) QUE s'il s'agit d'une URL web absolue valide commençant strictement par "https://".
-8. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS (ex: recettes de cuisine, questions de culture générale générale, blagues, programmation informatique pure sans lien avec l'EPS), tu dois IMPÉRATIVEMENT répondre cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+9. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS, tu dois IMPÉRATIVEMENT répondre cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
         try:
           response = Settings.llm.complete(consigne_ia)

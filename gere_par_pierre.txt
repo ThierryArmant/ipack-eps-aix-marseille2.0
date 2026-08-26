@@ -1259,3 +1259,16 @@ Mots-clés : changement de remplaçant, contractuel parti, historique des saisie
   2. Le coordonnateur clique sur [Équipe EPS] > [Actualiser].
   3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
   4. Le nouveau professeur accède immédiatement à l'ensemble des séquences, AFL et évaluations précédemment enregistrés par son prédécesseur sans aucune perte de données.
+======================================================================
+[ARTICLE : INCIDENT IMPRÉVISIBLE, PERTURBATION EXTÉRIEURE ET FORCE MAJEURE EN CCF]
+======================================================================
+Mots-clés : incident de course, perturbation épreuve, animal, sanglier, météo subite, agression, panique balise, force majeure, arbre.
+
+- Qualification juridique : Tout événement imprévisible, extérieur et insurmontable survenant pendant une épreuve certificative (ex. : intrusion animale, orage violent soudain, balise détruite, obstacle imprévu) constitue un cas de force majeure perturbant l'équité de l'examen.
+- Interdictions formelles :
+  -> Ne JAMAIS modifier la note d'AFL1 à la main pour compenser le temps perdu.
+  -> Ne JAMAIS cocher « Cas Exceptionnel (CE) » (réservé aux annulations globales d'APSA validées par l'IA-IPR).
+- Procédure officielle :
+  1. L'enseignant consigne l'incident par écrit (rapport d'incident d'épreuve).
+  2. Le chef d'établissement constate la force majeure et autorise officiellement le renvoi du candidat vers la date d'épreuve différée (session de rattrapage).
+  3. L'élève repasse l'épreuve dans des conditions régulières lors du créneau différé prévu au protocole.

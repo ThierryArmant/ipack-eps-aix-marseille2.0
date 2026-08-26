@@ -419,7 +419,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs
 - URL: spip.php?article19
-- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossier EPS ==> Équipements Sportifs.
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossier EPS ==> Équipements Sportifs. Déclaration des infrastructures avec leur code RES (Répertoire des Équipements Sportifs) avant affectation sur l'emploi du temps..
 
 ### [ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps
 - URL: spip.php?article20

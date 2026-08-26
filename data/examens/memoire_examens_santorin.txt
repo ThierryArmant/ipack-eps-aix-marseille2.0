@@ -329,3 +329,42 @@ Mots-clés : co-évaluation absente, un seul prof pour évaluer, nullité de l'�
 - Cadre réglementaire : En Bac GT, la co-évaluation par deux enseignants est prescrite par les textes d'organisation.
 - Portée juridique : Si un empêchement de force majeure survient (ex. : absence imprévue du second enseignant non remplacé le jour de l'épreuve), l'enseignant de la classe assure la continuité de l'examen afin de ne pas léser les candidats.
 - Conduite à tenir : Documenter la situation dans le compte-rendu d'évaluation et informer le chef d'établissement. L'épreuve reste juridiquement valide et sera examinée sous cette réserve par la commission académique d'harmonisation (CAHN).
+======================================================================
+[SECTION: EXAMENS_ET_CERTIFICATION_ETABLISSEMENTS_ETRANGER_AEFE]
+======================================================================
+
+### [SITUATION: AEFE / ÉTRANGER — ASSOCIATION CYCLADES ET REMONTÉE SANTORIN]
+Mots-clés : AEFE Cyclades, étranger Santorin, protocole élève étranger, candidats hors SIÈCLE, MEMO associer élèves, lot Santorin étranger.
+- Régime structurel : Les établissements de l'étranger (AEFE, MLF, OSUI, lycées homologués) n'étant pas connectés à la base nationale SIÈCLE métropolitaine, aucun export automatique de groupes depuis iPackEPS vers Cyclades n'est possible.
+- Procédure manuelle obligatoire :
+  1. Le secrétariat des examens de l'établissement doit obligatoirement effectuer l'association des candidats aux protocoles d'évaluation directement dans l'interface CYCLADES (activité « EPS - Associer les élèves à un protocole »).
+  2. Suivre scrupuleusement la procédure officielle du guide : « MEMO-Associer-eleves-protocole-Etab-v1.0.pdf ».
+  3. Une fois les associations validées sur Cyclades et les convocations éditées dans Imag'in (génération du PDF obligatoire), les lots de correction redescendent dans Santorin pour les examinateurs.
+
+### [SITUATION: AEFE / ÉTRANGER — CALENDRIERS DÉCALÉS ET RYTHME SUD]
+Mots-clés : rythme sud, hémisphère sud, date limite Santorin étranger, session novembre bac, calendrier décalé AEFE.
+- Distinction impérative des sessions :
+  - Zone Rythme Nord : Suit le calendrier de l'académie métropolitaine de rattachement (clôture des serveurs fin mai / début juin).
+  - Zone Rythme Sud (Hémisphère Sud : Amérique du Sud, Australie, Afrique australe...) : Les épreuves et la saisie des notes sont décalées sur la session d'octobre / novembre / décembre.
+- Directive IA : Ne JAMAIS opposer la date butoir métropolitaine du 30 mai 2026 à un établissement positionné en Rythme Sud. La date limite officielle est celle fixée par la Division des Examens de l'académie partenaire désignée.
+
+### [SITUATION: AEFE / ÉTRANGER — COMMISSION D'HARMONISATION (CAHN) À DISTANCE]
+Mots-clés : CAHN étranger, commission harmonisation AEFE, dépôt pièces étranger, académie rattachement.
+- Fonctionnement : L'établissement de l'étranger est rattaché administrativement à une académie pilote en métropole (ex. : Paris, Aix-Marseille, Montpellier...).
+- Procédure de transmission :
+  1. Les fiches de certification (FCA) et les protocoles doivent être validés par l'IA-IPR EPS référent de la zone AEFE.
+  2. En fin d'année scolaire locale, l'établissement téléverse l'ensemble des pièces requises (fiche récapitulative d'établissement, listings d'émargement et fiches individuelles d'élèves) via le module numérique dématérialisé pour transmission aux jurys d'harmonisation de l'académie de rattachement.
+
+### [SITUATION: AEFE / ÉTRANGER — VALIDITÉ DES CERTIFICATS MÉDICAUX ET INAPTITUDES]
+Mots-clés : médecin étranger, certificat médical ambassade, dispense bac étranger, inaptitude AEFE.
+- Règle de recevabilité : Les certificats médicaux délivrés par les praticiens locaux habilités du pays d'accueil ou les médecins de l'Ambassade / Consulat ont pleine valeur juridique pour attester d'une inaptitude.
+- Saisie dans Santorin :
+  1. Pour une inaptitude justifiée lors d'un CCF : positionner le statut « Dispensé » (DISP) ou « Absent Justifié » (ABJ) dans Santorin.
+  2. L'original numérisé du certificat médical local doit impérativement être conservé et joint au dossier transmis à la CAHN pour justifier la neutralisation de l'épreuve.
+
+### [SITUATION: AEFE / ÉTRANGER — DÉROGATION À LA CO-ÉVALUATION (ISOLEMENT GÉOGRAPHIQUE)]
+Mots-clés : co-évaluation étranger, un seul professeur de lycée, isolement géographique AEFE, dérogation co-évaluateur.
+- Cadre réglementaire et contraintes de poste : Dans certains établissements isolés de l'étranger ne comptant qu'un seul professeur d'EPS certifié ou agrégé :
+  1. La co-évaluation stricte par deux enseignants titulaires de l'Éducation nationale peut s'avérer matériellement impossible.
+  2. Le chef d'établissement formalise une dérogation d'évaluation en sollicitant l'accord de l'IA-IPR EPS de zone.
+  3. L'enseignant assure l'évaluation du CCF seul ou accompagné d'un personnel éducatif homologué désigné par la direction. L'épreuve conserve sa pleine validité juridique.

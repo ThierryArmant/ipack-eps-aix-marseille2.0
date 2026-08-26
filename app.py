@@ -37,7 +37,7 @@ st.set_page_config(
 if "messages_hub" not in st.session_state:
   st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
-  st.session_state.active_module = "peda"
+  st.session_state.active_module = "ipack"
 
 
 def incrementer_et_obtenir_visites():

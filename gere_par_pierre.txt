@@ -647,7 +647,6 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 ### 8. Suivi de l'avancement par l'établissement
 - L'établissement peut suivre en temps réel l'avancement de la saisie des notes, consulter les statistiques par groupe examinateur, et accéder à la liste des lots et des candidats pour visualiser les notes et appréciations. Le suivi permet si besoin de réaffecter un lot à un autre évaluateur. Il permet également à l'établissement de clôturer manuellement la saisie des notes si l'examinateur a oublié de le faire, à la condition stricte que tous les candidats du lot possèdent une note saisie. L'harmonisation par la commission académique débute dès que toutes les notes ont été saisies par les établissements.
 
-
 ======================================================================
   SECTION 4: FAQ EXHAUSTIVE RÉGLEMENTATION EXAMENS & CERTIFICATION
 ======================================================================
@@ -898,7 +897,6 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - **Question** : Pour des élèves en inaptitude temporaire à qui l'on pourrait proposer une autre APSA aménagée, peut-on créer un protocole adapté après la tenue de la CAHN ?
 - **Réponse Lycée GT Bac / Lycée Pro Bac** : NON. Un protocole adapté doit être validé par la CAHN. Il concerne uniquement les élèves en inaptitude partielle permanente ou en situation de handicap sur l'ensemble de l'année. Il ne concerne pas des élèves en inaptitude partielle temporaire à qui l'on pourrait proposer une épreuve aménagée de l'ensemble certificatif initialement validé par la CAHN. Autrement dit, il n'y a pas de changement de l'APSA support de l'épreuve, mais aménagement possible des conditions de passation sur la même APSA du protocole initial.
 
-
 [SITUATION: EXPORT DES GROUPES VERS CYCLADES / COMMENT FAIRE POUR EXPORTER]
 - Instruction : AUCUNE passerelle automatique ou bouton "Export direct" n'existe entre iPackEPS et Cyclades. Il est techniquement impossible d'export des groupes iPackEPS vers Cyclades. 
 - Procédure manuelle obligatoire :
@@ -1019,6 +1017,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROGÉDURES STRICTES
   2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
   3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
   4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
+
 ======================================================================
 [ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
 ======================================================================
@@ -1036,6 +1035,7 @@ Sur iPackEPS, la saisie dépend de la nature de l'évaluation :
 
 3. Moyennes pour les bulletins trimestriels :
    - Rappel : La saisie finale s'effectue toujours dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte). iPackEPS permet uniquement de calculer et d'exporter le fichier CSV des moyennes.
+
 ======================================================================
 [ARTICLE : LIMITES DE L'OUTIL ET ACCÈS MOBILE IPACKEPS]
 ======================================================================
@@ -1048,6 +1048,7 @@ Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger applica
 - iPackEPS ne se télécharge PAS sur l'App Store d'Apple ni sur le Google Play Store.
 - Accès : Il s'agit d'une application Web officielle accessible uniquement via le portail académique ARENA (authentification avec vos identifiants académiques).
 - Sur tablette/smartphone : Il suffit de se connecter sur ARENA depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.
+
 ======================================================================
 [ARTICLE : MOT DE PASSE ET IDENTIFIANTS PERDUS SUR IPACKEPS]
 ======================================================================
@@ -1077,7 +1078,7 @@ Mots-clés : pas de wifi, stade sans 4G, hors-ligne, batterie vide, perte de don
 - Procédure de travail hors-ligne :
   1. Ouvrez l'application nomade lorsque vous avez du réseau (au collège/lycée ou chez vous) pour charger la base d'élèves.
   2. Procédez à vos évaluations sur le terrain (au stade / gymnase).
-  3. Dès le retour dans une zone couverte par le Wi-Fi ou la 4G, déclenchez la synchronisation manuelle vers le serveur iPackEPS.
+  3. Dès le retour dans une zone couverte par le Wi-Fi ou la4G, déclenchez la synchronisation manuelle vers le serveur iPackEPS.
 - Précaution : Ne videz pas le cache de votre navigateur web sur la tablette avant que la synchronisation finale n'ait été effectuée.
 
 ======================================================================
@@ -1119,6 +1120,7 @@ Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classe
 - Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
 - Absence normale des classes ordinaires : Il est parfaitement normal que vos classes de Collège (6e à 3e) ou de Seconde / Première n'apparaissent pas dans Santorin.
 - Règle d'usage : Pour le suivi, l'évaluation et la notation des niveaux hors examen, utilisez exclusivement iPackEPS et votre logiciel de vie scolaire (Pronote / ÉcoleDirecte).
+
 ======================================================================
 [ARTICLE : GESTION DES OUBLIS DE TENUE ET VIE SCOLAIRE]
 ======================================================================
@@ -1135,3 +1137,125 @@ Mots-clés : imprimer fiche cartonnée, faire signer proviseur, bordereau papier
 
 - Aucun bordereau papier : Il n'existe aucun module pour imprimer des fiches cartonnées d'élèves à faire signer manuellement pour la DEC.
 - Validation numérique : La transmission et la validation des protocoles et notes se font intégralement en ligne depuis les outils académiques.
+
+======================================================================
+BLINDAGE TECHNIQUE & RÉGLEMENTAIRE TOTAL : LES CAS LIMITES ET QUESTIONS PIÈGES
+(PROFS DÉBUTANTS, RÉFRACTAIRES, ANCIENS DE TERRAIN & CONCEPTEUR POINTU)
+======================================================================
+
+[SECTION: CONTESTATIONS_JURIDIQUES_RESPONSABILITE_ET_JURY]
+
+### [SITUATION: MENACE DE RECOURS JURIDIQUE D'UN PARENT SUR UNE NOTE DE CCF]
+Mots-clés : recours tribunal administratif, contestation de note, parent d'élève avocat, contestation CCF, souveraineté du jury.
+- Règle de droit : Une note attribuée lors d'une épreuve de CCF en cours d'année n'est PAS une décision administrative individuelle susceptible de recours contentieux direct. Il s'agit d'une simple « proposition de note ».
+- Souveraineté du Jury : Seul le jury académique (délibération finale présidée par le Recteur) arrête la note définitive du Baccalauréat.
+- Conduite à tenir face au parent : 
+  1. Ne modifier sous aucun prétexte la proposition de note sous la pression.
+  2. Rappeler que la note reste provisoire jusqu'à l'harmonisation académique (CAHN/CAHPN).
+  3. Fournir sur demande la grille critériée renseignée (AFL) issue du référentiel validé pour justifier de l'équité de traitement.
+- Protection fonctionnelle : L'enseignant est couvert par la protection de l'État (art. L. 911-4 du Code de l'éducation).
+
+### [SITUATION: HORAIRES DE PASSATION DES ÉPREUVES DE CCF (MERCREDI / HORS COURS)]
+Mots-clés : CCF le mercredi après-midi, épreuve hors emploi du temps, faire passer le CCF le week-end, convocation hors cours.
+- Règle d'or : Le Contrôle en Cours de Formation s'effectue OBLIGATOIREMENT sur le temps d'enseignement ordinaire de la classe ou du groupe.
+- Interdiction : Il est formellement interdit d'organiser une épreuve certificative ponctuelle sur un créneau non inscrit à l'emploi du temps officiel (ex. le mercredi après-midi non banalisé ou le samedi), sauf s'il s'agit d'une session de rattrapage / épreuve différée officiellement banalisée et validée par le chef d'établissement.
+- Conséquence iPackEPS : Les dates de fin de séquence déclarées dans le protocole doivent obligatoirement coïncider avec les créneaux réguliers enregistrés dans l'onglet [EDT].
+
+[SECTION: BOGUES_D_INTERFACE_ET_BLOCAGES_EN_CASCADE_IPACKEPS]
+
+### [SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]
+Mots-clés : impossible de supprimer séquence, cadenas suppression groupe, corbeille grisée, erreur clé étrangère, BDD bloquée.
+- Diagnostic : iPackEPS applique une intégrité relationnelle stricte. Un élément ne peut pas être effacé s'il possède des données enfants (notes, élèves rattachés, créneaux EDT).
+- Ordre chirurgical de suppression (à rebours obligatoire) :
+  1. [Dossiers] > [Dossier EPS] > [Évaluations] : effacer toutes les notes et degrés d'AFL saisis.
+  2. [Dossiers] > [Dossier EPS] > [EDT] : faire un clic droit sur le créneau pour supprimer le créneau d'emploi du temps associé au groupe.
+  3. [Dossiers] > [Dossier EPS] > [Élèves] : retirer tous les élèves du groupe.
+  4. [Dossiers] > [Dossier EPS] > [Groupes] : supprimer la séquence d'apprentissage (S.A.).
+  5. Supprimer enfin le groupe ou l'APSA devenue orpheline.
+
+### [SITUATION: CARACTÈRES SPÉCIAUX, PRÉNOMS COMPOSÉS ET ENCODAGE CSV CORROMPU]
+Mots-clés : Ã©, nom coupé, accents détruits, import Pronote échoué, tirets prénoms, UTF-8.
+- Diagnostic : L'ouverture d'un export Pronote ou ÉcoleDirecte sous une ancienne version de Microsoft Excel convertit silencieusement le fichier en ANSI/Windows-1252, détruisant les caractères accentués (é devient Ã©) et empêchant l'appariement avec SIÈCLE.
+- Procédure de sauvetage :
+  1. Ne jamais double-cliquer pour ouvrir le fichier CSV généré par Pronote.
+  2. Dans Pronote, privilégier l'export direct sans modification manuelle.
+  3. Si une retouche est indispensable, ouvrir le fichier avec le Bloc-notes Windows ou Notepad++, puis faire Enregistrer sous en sélectionnant expressément l'encodage UTF-8.
+
+### [SITUATION: ÉLÈVE AYANT CHANGÉ D'ÉTAT CIVIL OU PRÉNOM D'USAGE EN COURS D'ANNÉE]
+Mots-clés : prénom d'usage, changement de nom, transition de genre, identité élève, divergence SIÈCLE Cyclades.
+- Procédure :
+  1. L'enseignant ne doit rien modifier manuellement dans iPackEPS.
+  2. Le secrétariat de scolarité doit mettre à jour la base SIÈCLE de l'établissement.
+  3. Le coordonnateur effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
+  4. L'identifiant national (INE) garantit la continuité des évaluations déjà enregistrées sans perte d'historique.
+
+[SECTION: COMPORTEMENT_ET_DIAGNOSTIC_DE_L_ENSEIGNANT_DEBUTANT]
+
+### [SITUATION: REFUS D'OBSTACLE, ÉLÈVE QUI PLEURE OU ABANDONNE EN PLEINE ÉPREUVE]
+Mots-clés : élève qui pleure, refus de sauter, abandon en cours d'épreuve, crise d'angoisse CCF, arrêt de l'épreuve.
+- Distinction réglementaire :
+  - Refus délibéré / Abandon sans motif médical : L'épreuve a débuté. Les AFL sont évalués sur les éléments effectivement observables au moment de l'abandon. Si aucun élément moteur n'est mesurable, l'AFL1 reçoit le degré minimal (la note finale reflétera la tentative). Ne pas saisir « Absent ».
+  - Malaise / Crise de panique / Blessure immédiate : L'épreuve est interrompue. L'élève est orienté vers l'infirmerie scolaire. Avec visa de l'autorité médicale scolaire, l'élève est basculé sur l'épreuve différée (rattrapage).
+
+### [SITUATION: TENTATIVE DE MODIFICATION DE BARÈME EN COURS DE CYCLE (« TOUT LE MONDE A RATÉ »)]
+Mots-clés : adapter le barème, tout le monde a des mauvaises notes, baisser les exigences, changer la grille AFL en fin de cycle.
+- Interdiction stricte : Le protocole et le référentiel d'évaluation (FCA) ont été validés par la Commission Académique (CAHN) en début d'année.
+- Règle d'égalité de traitement : Un enseignant ne peut en aucun cas modifier un barème, des curseurs ou des seuils de performance de sa propre initiative en fin de cycle.
+- Traitement normal : Si des résultats sont anormalement bas sur un groupe pour des raisons structurelles, l'enseignant remonte un commentaire circonstancié à la CAHN via la Fiche Établissement. C'est la commission qui procède aux éventuelles harmonisations d'échelle.
+
+### [SITUATION: DOUBLE NOTATION PRONOTE VS IPACKEPS (QUEL FICHIER FAIT FOI ?)]
+Mots-clés : écart de note Pronote iPack, quelle note compte pour le Bac, note bulletin différente du CCF.
+- Règle absolue de hiérarchie :
+  - Pour le Baccalauréat : SEULE la note saisie dans Santorin / Cyclades (générée via iPackEPS) est officielle et prise en compte (coeff 6).
+  - Pour le livret de scolarité / Parcoursup : Les moyennes trimestrielles de Pronote/ÉcoleDirecte reflètent le contrôle continu ordinaire mais n'ont aucun impact sur l'obtention de la note d'examen du Bac.
+
+[SECTION: REPONSES_AUX_PROFESSEURS_REFRACTAIRES_ET_ANCIENNES_PRATIQUES]
+
+### [SITUATION: « MOI JE VEUX METTRE UNE NOTE GLOBALE SUR 20 DIRECTEMENT DANS SANTORIN SANS DÉTAILLER LES AFL »]
+Mots-clés : note directe sur 20, pourquoi détailler les AFL, saisir note brute, calcul automatique moyenne, refuser la grille.
+- Réponse réglementaire : La réglementation nationale (Arrêté du 28 juin 2019) impose une évaluation critériée décomposée en trois Attendus de Fin de Lycée :
+  - AFL 1 (Motricité / Performance) : sur 12 points.
+  - AFL 2 (Méthode / Préparation) : sur 4 points (ou choix ventilé selon APSA).
+  - AFL 3 (Rôles sociaux / Règles / Analyse) : sur 4 points (ou choix ventilé).
+- Bloqueur technique Santorin : L'interface bloque tout enregistrement si chaque curseur d'AFL n'a pas été positionné. Il est informatiquement impossible de rentrer une note brute globale sans décomposer les compétences.
+
+### [SITUATION: « JE VEUX PROPOSER BADMINTON, VOLLEY ET BASKET EN BAC PRO » (CONFLIT DE CA)]
+Mots-clés : 3 sports collectifs, sports de raquette, même champ d'apprentissage, CA4 exclusif, protocole 3 sports de balle.
+- Règle nationale des Champs d'Apprentissage :
+  - En Bac Professionnel (3 épreuves) : Le protocole impose obligatoirement des épreuves issues de 3 Champs d'Apprentissage (CA) différents.
+  - Badminton, Volley-ball et Basket-ball relèvent tous du CA 4 (Conduire et maîtriser un affrontement collectif ou interindividuel).
+- Conséquence : iPackEPS et Cyclades rejetteront automatiquement ce menu. L'équipe doit obligatoirement diversifier avec du CA1 (athlétisme/natation), CA2 (escalade/CO), CA3 (gymnastique/danse) ou CA5 (musculation).
+
+### [SITUATION: « LE NUMÉRIQUE A PLANTÉ PENDANT MON ÉPREUVE, LE CCF EST JURIDIQUEMENT NUL »]
+Mots-clés : bug informatique le jour de l'épreuve, tablette éteinte, annulation d'examen, panne réseau pendant le CCF.
+- Cadre juridique : La validité d'une épreuve d'EPS repose sur l'observation motrice réelle de l'enseignant et l'émargement de présence des élèves, non sur la disponibilité instantanée du réseau Internet.
+- Procédure de continuité :
+  1. L'enseignant note sur support papier (grille d'émargement et d'évaluation de secours).
+  2. Les notes sont reportées ultérieurement sur iPackEPS / Santorin dès le retour de la connexion.
+  3. L'épreuve reste 100 % valide sur le plan réglementaire.
+
+[SECTION: CONCEPTEUR_IPACKEPS_ET_GESTION_AVANCEE_DES_PARAMETRES]
+
+### [SITUATION: REVENTILATION DES HEURES D'ENSEIGNEMENT ET GROUPES MIXTES SUR BARRETTES]
+Mots-clés : barrette 6 classes, alignement d'emploi du temps, gestion gros lycées, groupes multi-divisions.
+- Règle de conception iPackEPS :
+  1. Dans [Dossiers] > [Dossier EPS] > [Classes] > [Organisation des classes], déclarer toutes les divisions de la barrette en mode [Groupe].
+  2. Dans [Dossiers] > [Dossier EPS] > [Groupes], créer les groupes d'activités réels (ex. Menu 1 - Demi-fond / Escalade / Badminton).
+  3. Dans [Élèves], ventiler les élèves de chaque division d'origine dans leurs groupes de destination respectifs.
+  4. Cette modélisation permet d'isoler les flux d'évaluation tout en conservant le lien avec la division administrative d'origine pour les exports vers les livrets scolaires.
+
+### [SITUATION: DISPOSITIFS ULIS ET UPE2A SANS ÉVALUATION CHIFFRÉE AU DNB]
+Mots-clés : ULIS sans note, UPE2A non noté, évaluation par compétences socle, validation sans note sur 20.
+- Procédure iPackEPS Collège :
+  1. Les élèves rattachés au dispositif ULIS doivent figurer dans un groupe spécifique avec le cycle correspondant à leurs adaptations.
+  2. Dans le module d'évaluation, renseigner le positionnement sur l'échelle des 4 niveaux de maîtrise du socle commun (Insuffisant, Fragile, Satisfaisant, Très bon).
+  3. Ne pas forcer de conversion en note chiffrée sur 20 si le Projet Personnalisé de Scolarisation (PPS) de l'élève stipule une validation exclusive par compétences.
+
+### [SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]
+Mots-clés : changement de remplaçant, contractuel parti, historique des saisies de l'ancien prof, écrasement de données.
+- Règle de conservation : Les données saisies dans iPackEPS sont rattachées à la structure de la classe/groupe et à l'établissement, jamais au compte personnel de l'enseignant.
+- Procédure d'installation du remplaçant :
+  1. Dès notification du contrat RH, le chef d'établissement affecte le remplaçant sur STSWEB.
+  2. Le coordonnateur clique sur [Équipe EPS] > [Actualiser].
+  3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
+  4. Le nouveau professeur accède immédiatement à l'ensemble des séquences, AFL et évaluations précédemment enregistrés par son prédécesseur sans aucune perte de données.

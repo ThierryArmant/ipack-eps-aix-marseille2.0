@@ -1272,3 +1272,16 @@ Mots-clés : incident de course, perturbation épreuve, animal, sanglier, mété
   1. L'enseignant consigne l'incident par écrit (rapport d'incident d'épreuve).
   2. Le chef d'établissement constate la force majeure et autorise officiellement le renvoi du candidat vers la date d'épreuve différée (session de rattrapage).
   3. L'élève repasse l'épreuve dans des conditions régulières lors du créneau différé prévu au protocole.
+======================================================================
+[ARTICLE : ÉLÈVE HOSPITALISÉ LONGUE DURÉE OU EN CENTRE PÉNITENTIAIRE (BAC)]
+======================================================================
+Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation longue durée, pas d'accès gymnase, soins études, CCF impossible.
+
+- Statut réglementaire : Un élève scolarisé mais incarcéré ou hospitalisé au long cours qui ne peut pas suivre les cours d'EPS de l'établissement ne peut PAS être évalué dans le cadre du CCF ordinaire.
+- Interdictions :
+  -> Ne JAMAIS tenter de bricoler un protocole CCF fictif dans iPackEPS.
+  -> Ne JAMAIS aller dans Santorin pour saisir des commentaires sur un lot non évalué.
+- Procédure officielle :
+  1. Si motif médical (hospitalisation) : enregistrer le certificat d'inaptitude totale pour l'année dans iPackEPS ([Suivi des élèves] > [Inaptitudes]). L'élève est déclaré « Dispensé d'EPS » au Bac (coefficient neutralisé).
+  2. Si motif carcéral ou éloignement sans inaptitude médicale : l'établissement signale immédiatement la situation à la DEC (Division des Examens et Concours).
+  3. La DEC bascule le candidat en « Examen ponctuel terminal » (géré par l'unité pédagogique en milieu pénitentiaire ou un centre d'examen dédié) ou prononce une dispense d'examen pour motif de force majeure.

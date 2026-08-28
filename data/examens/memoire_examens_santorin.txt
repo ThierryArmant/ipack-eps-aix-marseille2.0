@@ -2,7 +2,7 @@
 🛑 MÉMOIRE SOUVERAINE DE RÉFÉRENCE COMPLÈTE : EXAMENS EPS & SANTORIN
 LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
 ======================================================================
-[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les fiches Scenari/Dokiel de l'académie de Créteil, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS et les cas concrets de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
+[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les fiches Scenari/Dokiel de l'académie de Créteil, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS, les retours d'expérience et les cas concrets de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
 
 ----------------------------------------------------------------------
 1. CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS
@@ -41,7 +41,38 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
   - Obligation technique absolue : Rédiger un commentaire circonstancié de justification STRICTEMENT OBLIGATOIRE dans l'interface Santorin pour éclairer l'arbitrage de la CAHPN.
 
 ----------------------------------------------------------------------
-3. CIRCUIT LOGISTIQUE DE FLUX : L'ARBORESCENCE DES DROITS EPS
+3. BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER
+----------------------------------------------------------------------
+A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
+* Saisie directe au pavé numérique (sans menu déroulant) :
+  - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
+  - Cliquer dans le premier champ de note et taper directement la valeur chiffrée au clavier.
+* Navigation ultra-rapide par touches :
+  - Touche [Entrée] : Valide et enregistre la note saisie.
+  - Touche [Tab] : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
+  - Combinaison [Maj + Tab] (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.
+* Sélection instantanée des statuts par lettre :
+  - Ouvrir le menu déroulant du statut et appuyer sur la touche [D] pour aller directement sur « DISP » (Dispensé).
+  - Appuyer sur la touche [A] pour se positionner directement sur « ABI » ou « ABJ ».
+* Affichage de masse anti-blocage (Astuce 100 candidats) :
+  - Dès l'ouverture du lot, basculer le sélecteur en bas de page sur « Afficher 100 candidats » (au lieu des 20 ou 50 par défaut).
+  - Cela évite d'oublier un élève sur une page 2 non visible, cause principale du blocage du bouton [Clôturer le lot].
+* Recherche instantanée [Ctrl + F] :
+  - Pour retrouver immédiatement un candidat précis (élève muté ou arrivant) dans un lot volumineux, utiliser la recherche native du navigateur via [Ctrl + F] (ou [Cmd + F] sur Mac).
+
+B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
+* Sélection multiple par bloc ([Maj] / Shift) :
+  - Dans l'activité « EPS - Associer les élèves à un protocole », cocher la première case, maintenir [Maj] enfoncé et cliquer sur la dernière case pour sélectionner toute la liste.
+  - Un unique Glisser-Déposer (Drag & Drop) permet ensuite de déplacer tout le bloc dans le protocole cible.
+* Réinitialisation rapide via [Vider] :
+  - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention [Vider] située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
+
+C. IMAG'IN & PORTAILS ACADÉMIQUES
+* Contournement des saturations de serveurs ENT :
+  - En période de pointe (fin mai), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier : https://appli.ac-aix-marseille.fr/imagin/enseignant
+
+----------------------------------------------------------------------
+4. CIRCUIT LOGISTIQUE DE FLUX : L'ARBORESCENCE DES DROITS EPS
 ----------------------------------------------------------------------
 Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de transmission suit rigoureusement cette chaîne :
 [PRONOTE / ÉCOLE DIRECTE] ➔ [1. IPACKEPS] ➔ [2. CYCLADES] ➔ [3. IMAG'IN] ➔ [4. SANTORIN]
@@ -77,7 +108,6 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
    - LE VERROU DU BOUTON PDF : Pour tout ajout manuel ou remplacement de professeur d'EPS, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto « PDF » pour générer la convocation. C'est ce clic technique précis qui « pousse » l'identité et les droits d'écriture de l'enseignant vers Santorin.
    - 📺 Tutoriel associé : creer_convocations_enseignants.mp4
    - Paramétrage horaire : Conserver l'horaire par défaut proposé par la DIEC (16h à 17h).
-   - Accès direct enseignant aux missions : https://appli.ac-aix-marseille.fr/imagin/enseignant
    - Instructions complètes pages 4 à 7 :
      📄 [Consulter le Guide SANTORIN - Gestion de la notation EPS CCF (PDF)](https://pole-examens.github.io/tutoriels-examens/res/SANTORIN_-_bac_2024_-_Gestion_de_la_notation_EPS_CCF.pdf)
 
@@ -89,9 +119,8 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
    - Indicateur de fin de saisie : Le lot est complet lorsque la barre de progression affiche 100 %.
 
 ----------------------------------------------------------------------
-4. SPÉCIFICITÉS RÉGLEMENTAIRES STRICTES PAR DIPLÔME
+5. SPÉCIFICITÉS RÉGLEMENTAIRES STRICTES PAR DIPLÔME
 ----------------------------------------------------------------------
-
 • FILIÈRE LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BAC GT) :
   - Protocole : 3 épreuves de CCF en classe de Terminale sur 3 APSA issues de 3 Champs d'Apprentissage (CA) distincts.
   - Saisie de la grille : AFL1 (moteur) noté sur 12 points. Sélection obligatoire de la ventilation choisie par l'élève (4/4, 6/2 ou 2/6) entre l'AFL2 et l'AFL3 (notés sur 8 points).
@@ -117,7 +146,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - ⚠️ INTERDICTION ABSOLUE de l'utiliser sans l'autorisation écrite préalable du Recteur après avis de l'inspection (IA-IPR).
 
 ----------------------------------------------------------------------
-5. MANUEL DES INAPTITUDES ET CONTRÔLES AMÉNAGÉS / ADAPTÉS EN EPS
+6. MANUEL DES INAPTITUDES ET CONTRÔLES AMÉNAGÉS / ADAPTÉS EN EPS
 ----------------------------------------------------------------------
 • CONTRÔLE AMÉNAGÉ (LYCÉE & COLLÈGE) :
   - Concerne les inaptitudes partielles temporaires.
@@ -129,7 +158,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Au Collège : Le concept de FCA n'existe pas. On applique un aménagement continu de la pratique (Article D. 312-1 du Code de l'éducation). Une inaptitude totale annuelle entraîne la neutralisation des composantes motrices du socle dans le LSU sans bloquer l'obtention du Brevet.
 
 ----------------------------------------------------------------------
-6. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN
+7. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN
 ----------------------------------------------------------------------
 * BUG A : « AUCUN LOT À CORRIGER » / LOT INVISIBLE
   - Cause 1 : Absence de mission active « Notation EPS CCF » dans Imag'in (défaut STSWEB).
@@ -155,10 +184,10 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 
 * BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
-  - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 50 / 100 candidats ») et renseigner chaque case manquante.
+  - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
 
 ----------------------------------------------------------------------
-7. GRANDE FAQ THÉMATIQUE RÉUNIE (FILTRAGE STRICT PAR DIPLÔME)
+8. GRANDE FAQ THÉMATIQUE RÉUNIE (FILTRAGE STRICT PAR DIPLÔME)
 ----------------------------------------------------------------------
 📁 SECTION A : ABSENCES ET RATTRAPAGES
 • En cas d'absence injustifiée à une évaluation de fin de séquence, l'élève peut-il être renvoyé vers une épreuve d'évaluation différée ?
@@ -195,12 +224,11 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Lycée (CCF) : Non. Modification unilatérale interdite sur la liste académique. L'établissement peut créer une activité d'établissement (FCA) spécifique sous réserve de validation par la CAHPN l'année précédente.
 
 ----------------------------------------------------------------------
-8. COMPLÉMENTS PROCÉDURAUX MANUELS DEC, CYCLADES & DIRECTION
+9. COMPLÉMENTS PROCÉDURAUX MANUELS DEC, CYCLADES & DIRECTION
 ----------------------------------------------------------------------
 • GESTION DES DROITS ET ACCÈS (IMAG'IN & ARENA) :
   - Prérequis d'affectation manuelle : Le secrétariat doit obligatoirement avoir défini un signataire dans IMAG'IN avant de générer ou modifier une convocation manuelle.
   - Lien direct enseignant : https://appli.ac-aix-marseille.fr/imagin/enseignant
-  - Confort de lecture : Possibilité de modifier le nombre de « candidats par page » (50 ou 100) en bas de tableau Santorin.
 
 • GUIDE DE DÉPANNAGE DES LOTS (CONSOLE DIRECTION SANTORIN) :
   - Candidats manquants : Le chef d'établissement utilise le bouton [Rejouer l'import] pour synchroniser instantanément la base Cyclades.
@@ -221,7 +249,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - ⚠️ RÈGLE D'OR INAPTES TOTAUX ANNUELS : Aucune déclaration préalable d'extraction dans Cyclades. Associer normalement les inaptes à la division, puis sélectionner « Inapte/DISP » dans Santorin lors de la saisie des notes.
 
 ----------------------------------------------------------------------
-9. BLINDAGE JURIDIQUE, RÉGLEMENTAIRE & CAS CONCRETS SANTORIN
+10. BLINDAGE JURIDIQUE, RÉGLEMENTAIRE & CAS CONCRETS SANTORIN
 ----------------------------------------------------------------------
 
 [SECTION: REGLEMENTATION_BAC_GT_CCF]
@@ -297,7 +325,7 @@ Mots-clés : co-évaluation absente, un seul prof pour évaluer, nullité de l'�
 - Règle : En cas d'empêchement de force majeure du co-évaluateur le jour J, l'enseignant de la classe assure seul la passation pour ne pas léser les élèves. L'épreuve reste juridiquement valide et la situation est consignée au procès-verbal pour la CAHPN.
 
 ----------------------------------------------------------------------
-10. EXAMENS ET CERTIFICATION : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE)
+11. EXAMENS ET CERTIFICATION : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE)
 ----------------------------------------------------------------------
 ### [SITUATION: AEFE / ÉTRANGER — ASSOCIATION CYCLADES ET REMONTÉE SANTORIN]
 Mots-clés : AEFE Cyclades, étranger Santorin, protocole élève étranger, candidats hors SIÈCLE, MEMO associer élèves, lot Santorin étranger.
@@ -319,7 +347,3 @@ Mots-clés : médecin étranger, certificat médical ambassade, dispense bac ét
 ### [SITUATION: AEFE / ÉTRANGER — DÉROGATION DE CO-ÉVALUATION (ISOLEMENT GÉOGRAPHIQUE)]
 Mots-clés : co-évaluation étranger, un seul professeur de lycée, isolement géographique AEFE, dérogation co-évaluateur.
 - Règle : Si l'établissement ne compte qu'un seul professeur d'EPS certifié/agrégé, dérogation formelle accordée par l'IA-IPR de zone pour évaluer seul ou avec un personnel homologué désigné.
-• ASTUCE DE SAISIE RAPIDE SANS MENU DÉROULANT (SANTORIN EPS) :
-  - L'utilisation des listes déroulantes à la souris n'est pas obligatoire.
-  - Saisie directe au clavier : L'enseignant peut taper directement la note chiffrée de l'AFL ou AFLP au pavé numérique dans le champ concerné.
-  - Validation et navigation : Appuyer sur la touche [Entrée] pour valider la note, ou utiliser la touche [Tab] pour basculer instantanément sur l'AFL suivant.

@@ -319,3 +319,7 @@ Mots-clés : médecin étranger, certificat médical ambassade, dispense bac ét
 ### [SITUATION: AEFE / ÉTRANGER — DÉROGATION DE CO-ÉVALUATION (ISOLEMENT GÉOGRAPHIQUE)]
 Mots-clés : co-évaluation étranger, un seul professeur de lycée, isolement géographique AEFE, dérogation co-évaluateur.
 - Règle : Si l'établissement ne compte qu'un seul professeur d'EPS certifié/agrégé, dérogation formelle accordée par l'IA-IPR de zone pour évaluer seul ou avec un personnel homologué désigné.
+• ASTUCE DE SAISIE RAPIDE SANS MENU DÉROULANT (SANTORIN EPS) :
+  - L'utilisation des listes déroulantes à la souris n'est pas obligatoire.
+  - Saisie directe au clavier : L'enseignant peut taper directement la note chiffrée de l'AFL ou AFLP au pavé numérique dans le champ concerné.
+  - Validation et navigation : Appuyer sur la touche [Entrée] pour valider la note, ou utiliser la touche [Tab] pour basculer instantanément sur l'AFL suivant.

@@ -475,7 +475,7 @@ label_titres = {
         " Jurys)"
     ),
     "peda": (
-        "🔍 Mode Actif : Programmes Collèges & Lycées (Référentiels, CA & BO)"
+        "🔍 Mode Actif : Les programmes (Référentiels, CA & BO)"
     ),
     "textes": (
         "🔒 Mode Actif : SÉCURITÉ & Responsabilité Juridique (Textes Officiels &"
@@ -526,7 +526,7 @@ with col_b2:
     st.rerun()
 with col_b3:
   if st.button(
-      "🔍 Programmes\nCollèges / Lycées",
+      "🔍 Les programmes",
       use_container_width=True,
       key="btn_ge",
       type=(
@@ -642,6 +642,9 @@ for m in st.session_state.messages_hub:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
+  # 🔄 AUTOMATISATION : On vide l'historique pour lancer chaque question proprement de zéro
+  st.session_state.messages_hub = []
+
   st.session_state.messages_hub.append({
       "role": "user",
       "type": "text",
@@ -661,7 +664,7 @@ if prompt:
         "examens": (
             "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
         ),
-        "peda": "l'onglet Programmes Collèges & Lycées (Référentiels & BO)",
+        "peda": "l'onglet Les programmes (Référentiels, CA & BO)",
         "textes": (
             "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)"
         ),
@@ -840,7 +843,7 @@ if prompt:
       elif mode == "textes":
         badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
       else:
-        badge, color_card = "🔍 PROGRAMMES COLLÈGES & LYCÉES", "peda-card"
+        badge, color_card = "🔍 LES PROGRAMMES", "peda-card"
 
       if mode == "examens" and not extraits_doc.strip():
         texte_brut = (
@@ -849,7 +852,7 @@ if prompt:
             " de votre IA-IPR EPS."
         )
       else:
-        consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS).
+        consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
 Réponds de façon claire, structurée et chirurgicale à l'enseignant en t'appuyant STRICTEMENT sur le contexte fourni.
 
 CONTEXTE DE RÉFÉRENCE LOCAL (SOURCE DE VÉRITÉ ABSOLUE) :
@@ -860,11 +863,25 @@ QUESTION DE L'ENSEIGNANT :
 {prompt}
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE OBLIGATOIRE (AÉRATION) : Interdiction formelle de fournir un bloc de texte compact. Utilise obligatoirement des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>) pour structurer nettement chaque étape, exactement comme les autres onglets du Hub.
-2. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET PROGRAMMES) : Si la question relève des programmes ou de la pédagogie (ex: acrosport, sports collectifs), ne prends AUCUNE initiative et n'invente aucune définition philosophique. Cite précisément les Champs d'Apprentissage institutionnels (CA1 à CA5) et les Attendus réglementaires extraits des documents officiels.
-3. 🛑 RESPECT DES CYCLES : Au Collège (Cycles 3 et 4), utilise exclusivement les termes **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**. Réserve les termes **AFL1, AFL2, AFL3** strictement au Lycée (CCF / Bac).
-4. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ne propose JAMAIS de solution technique ou pédagogique de ton propre chef en dehors des textes fournis.
-5. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS, tu dois IMPÉRATIVEMENT répondre cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+1. 📐 FORMAT DE SORTIE OBLIGATOIRE (AÉRATION) : Interdiction formelle de fournir un bloc de texte compact ou une dissertation. Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
+2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ta réponse doit s'aligner à 100% sur les extraits fournis. Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si une action n'est pas explicitement mentionnée comme autorisée, considère-la comme interdite et renvoie vers l'arbitrage de la CAHPN ou du Chef d'établissement.
+3. 🛑 BLINDAGE COLLÈGE & DNB (PAS DE NOTE SUR 20 NI DE CCF) : Si la question porte sur le Brevet / Collège / DNB (notes d'examen, CCF, remontée à la DEC, date limite), rappelle IMMÉDIATEMENT qu'il n'existe AUCUNE épreuve d'examen terminale, AUCUN CCF et AUCUNE note sur 20 transmise à la DEC pour l'EPS. L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun sur le Livret Scolaire Unique (LSU).
+4. 🛑 RESPECT DES CYCLES & TERMINOLOGIE :
+   - Au Collège (Cycles 3 et 4) : Utilise EXCLUSIVEMENT les termes **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
+   - Au Lycée (Voie GT & Voie Pro) : Utilise les termes **Attendus de Fin de Lycée (AFL)** ou AFLP dans le cadre du CCF.
+5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) : Si la question concerne une APSA ou un champ d'apprentissage, ne prends AUCUNE initiative philosophique. Cite précisément les Champs d'Apprentissage officiels (CA1 à CA5) et les Attendus réglementaires extraits des programmes nationaux.
+6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
+   - Note Unique (Bac GT) : Si un élève n'a qu'une seule note valide (ex: DI+DI+14), cocher [Dispensé] sur les épreuves manquantes, saisir la note de l'APSA évaluée, et préciser qu'un commentaire circonstancié de justification est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
+   - Remplacement en jury : Rappeler que le Chef d'établissement doit impérativement cliquer sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).
+   - Bac Pro : Rappeler le clic préalable obligatoire sur le bouton [Choisir les AFLP] pour débloquer la saisie des AFLP 3 à 6.
+   - CAP : Rappeler que le protocole exige strictement 2 épreuves (rejet immédiat si 3 notes).
+   - Erreur après validation : Rappeler la procédure de [Renvoi en modification] demandée par le Chef d'établissement à la DEC (Deverrouiller_lots_santorin.mp4).
+7. 👥 CAS DES ÉLÈVES HORS-SIÈCLE : Distinguer obligatoirement les établissements sous contrat (actualisation SIÈCLE) et les structures non rattachées (CFA, GRETA, MFR, AEFE / Étranger) où l'absence de liste est normale (création manuelle des groupes dans iPack et association manuelle directe dans CYCLADES).
+8. 🌍 ÉTABLISSEMENTS À L'ÉTRANGER (RYTHME SUD) : Préciser que la date métropolitaine du 30 mai ne s'applique pas et renvoyer vers la session décalée d'octobre/décembre.
+9. 📺 MENTION DES VIDÉOS & LIENS :
+   - Pour les vidéos, écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : import_eleves_pronote.mp4"). Ne crée JAMAIS de lien cliquable Markdown vers un fichier local ou relatif (pas de [Tutoriel](nom.mp4)).
+   - N'insère de lien Markdown [texte](https://...) QUE s'il s'agit d'une URL web absolue valide commençant par "https://".
+10. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS, réponds STRICTEMENT cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
         try:
           response = Settings.llm.complete(consigne_ia)

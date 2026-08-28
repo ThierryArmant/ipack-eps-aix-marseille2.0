@@ -204,15 +204,6 @@ css_pur = """
         justify-content: center !important;
     }
     
-    div.element-container:has(.nettoyer-wrapper) + div.element-container button {
-        background-color: rgba(220, 38, 38, 0.45) !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(220, 38, 38, 0.6) !important;
-        border-radius: 8px !important;
-        width: 100% !important;
-        height: 38px !important;
-    }
-    
     .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
@@ -605,28 +596,11 @@ else:
   )
 
 # ======================================================================
-# 8. ZONE D'ACTION
+# 8. ZONE D'ACTION (ÉPURÉE & 100% LARGEUR)
 # ======================================================================
-col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
-with col_action_clear:
-  st.markdown('<div class="nettoyer-wrapper"></div>', unsafe_allow_html=True)
-  if st.button("🧹 Nettoyer", key="clear_all"):
-    st.cache_resource.clear()
-    st.session_state.messages_hub = []
-    st.rerun()
-
-with col_action_input:
-  prompt = st.chat_input(
-      "Posez votre question institutionnelle, technique ou juridique ici...",
-      key="chat_main",
-  )
-
-st.markdown(
-    """<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.5;">
-        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION n'oubliez pas de cliquer sur Nettoyer entre chaque question :</span>
-        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); margin-top: 4px;">Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span>
-    </div>""",
-    unsafe_allow_html=True,
+prompt = st.chat_input(
+    "Posez votre question institutionnelle, technique ou juridique ici...",
+    key="chat_main",
 )
 
 # ======================================================================

@@ -365,3 +365,19 @@ Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
 * MISSION PREMIÈRE DE MIXITÉ ET D'ÉGALITÉ (ART. L. 121-1 DU CODE DE L'ÉDUCATION) : Les écoles, les collèges, les lycées et les établissements d'enseignement supérieur contribuent à favoriser la mixité et l'égalité entre les hommes et les femmes, notamment en matière d'orientation. Ils assurent une formation à la vigilance contre les stéréotypes de genre et les violences sexistes.
 * L'OBLIGATION DE MIXITÉ DES CLASSES (ART. L. 311-2 DU CODE DE L'ÉDUCATION) : Les enseignements sont dispensés dans des classes mixtes, sous réserve de dérogations temporaires et motivées par des considérations pédagogiques spécifiques liées à l'organisation de certaines activités. L'organisation d'un enseignement séparé par genre de manière permanente est constitutive d'une illégalité administrative.
 * CADRE STRATÉGIQUE NATIONAL (CONVENTION INTERMINISTÉRIELLE POUR L'ÉGALITÉ) : Texte cadre pluriannuel engageant l'autorité publique à déployer une culture de l'égalité, à assurer une orientation scolaire moins genrée, et à prévenir les violences sexistes et sexuelles. Il impose l'intégration d'objectifs de parité et d'égal accès aux responsabilités au sein des instances du sport scolaire (UNSS / Association Sportive).
+======================================================================
+SÉCURITÉ APPN : OBLIGATION DE MOYENS DE SECOURS & ZONES BLANCHES
+======================================================================
+
+[SECTION: MOYENS_ALERTE_ZONE_BLANCHE_MILIEU_ISOLE]
+Mots-clés : telephone satellite, zone blanche course orientation, milieu hostile, secours isolement, balise inReach, secours montagne, alerte secours APPN.
+
+1. DISTINCTION FONDAMENTALE : MILIEU STANDARD VS MILIEU HOSTILE / ISOLÉ
+   - En milieu scolaire ordinaire (forêt périurbaine, parc, terrain métropolitain) :
+     * Le téléphone satellite n'est PAS obligatoire.
+     * Mesures obligatoires : Délimitation de lignes d'arrêt infranchissables, consignes strictes de regroupement/sifflet, repérage préalable du point GSM le plus proche ou d'une habitation/borne de secours pour déclencher le 112.
+   
+   - En milieu hostile, haute montagne ou isolement total (zone blanche intégrale sans relais GSM accessible) :
+     * Le Code de l'éducation n'impose pas le mot « satellite », mais l'Article 121-3 du Code pénal et la Circulaire n° 2017-116 imposent une OBLIGATION DE MOYENS D'ALERTE IMMÉDIATS.
+     * Partir en isolement total sans moyen d'alerte autonome caractérise une faute délibérée en cas d'accident grave.
+     * Équipements recevables : Téléphone satellite (Iridium/Inmarsat), balise de communication satellitaire bidirectionnelle (type Garmin inReach / SPOT), balise de détresse PLB (Cospas-Sarsat) ou radio secours dédiée (Canal E montagne / VHF marine canal 16).

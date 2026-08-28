@@ -405,7 +405,7 @@ def initialiser_base_textes(cle_fremt):
   docs_textes.extend(charger_dossier_txt_securise("data/textes"))
   docs_textes.extend(charger_consignes_pierre())
   return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-      similarity_top_k=5
+      similarity_top_k=6
   )
 
 
@@ -435,8 +435,8 @@ L'utilisateur a posé cette question dans le module « {module_actif} » :
 « {prompt_brut} »
 
 Ta mission :
-1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation de nuit Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs mot des parents).
-2. Identifie les logiciels ou cadres concernés dans la chaîne : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation.
+1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs certificat médical, sortie 2 minibus 2 profs sans surveillance, ratio falaise escalade, responsabilité chef établissement, accident).
+2. Identifie les logiciels ou cadres juridiques concernés : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation, Loi Fauchon, L. 911-4, Circulaires de sécurité.
 3. Reformule la question sous la forme de 4 à 8 mots-clés techniques exacts pour maximiser la pertinence de la recherche vectorielle.
 
 Renvoie UNIQUEMENT les mots-clés séparés par des espaces, sans phrase d'introduction ni ponctuation :"""
@@ -635,7 +635,7 @@ for m in st.session_state.messages_hub:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
-  # 🔄 AUTOMATISATION : Remise à zéro pour traiter chaque question de manière isolée
+  # 🔄 Remise à zéro pour traiter chaque question de manière isolée
   st.session_state.messages_hub = []
 
   st.session_state.messages_hub.append({
@@ -643,7 +643,7 @@ if prompt:
       "type": "text",
       "content": f"<span style='color: white;'>{prompt}</span>",
   })
-  with st.spinner("Je recherche les documents..."):
+  with st.spinner("Je recherche les documents et textes officiels..."):
     mode = st.session_state.active_module
 
     texte_brut = ""
@@ -879,47 +879,77 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
             " de votre IA-IPR EPS."
         )
       else:
-        consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
-Tu réponds aux enseignants avec une précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
+        consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation administrative, la responsabilité juridique et les programmes officiels de l'académie d'Aix-Marseille.
+Tu réponds à TOUTE demande ou procédure avec une précision chirurgicale, SANS DÉTOUR, EN CITANT SYSTÉMATIQUEMENT LES TEXTES OFFICIELS.
 
 CONTEXTE DE RÉFÉRENCE SOUVERAIN (SOURCE DE VÉRITÉ ABSOLUE) :
 {extraits_doc}
 {verites_terrain_pierre}
 
-QUESTION ORIGINALE DE L'ENSEIGNANT :
+QUESTION DE L'UTILISATEUR :
 {prompt}
 
-DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE : Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi à 100% sur les extraits fournis. N'invente aucune procédure. Si une information n'est pas dans le contexte, renvoie vers le Chef d'établissement ou la DEC.
-3. 🛑 CHAÎNE LOGISTIQUE & ÉLÈVES MANQUANTS DANS CYCLADES :
-   - Cause 1 : Candidat non inscrit dans la base administrative nationale SIÈCLE par le secrétariat de direction.
-   - Cause 2 : Élève présent mais « orphelin » non associé au protocole EPS. Le chef d'établissement doit injecter le fichier de groupes généré depuis iPackEPS (Generer_importer_fichier_groupes_cyclades.mp4) ou associer manuellement les élèves dans Cyclades (verification_affectation_protocoles_cyclades.mp4).
-   - Inaptes totaux : Aucune extraction Cyclades préalable, ils sont associés normalement et cochés « Inapte » dans Santorin.
-4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
+CADRE UNIVERSEL D'ANALYSE ET DE RÉPONSE (OBLIGATOIRE POUR TOUTE SITUATION) :
+
+1. 🎯 ATTAQUE DIRECTE & VERDICT OPÉRATIONNEL (Ligne 1) :
+   - Formule le verdict sans préambule :
+     * Situation / Projet de sortie : "❌ **VERDICT : NON CONFORME - REFUS OBLIGATOIRE DU CHEF D'ÉTABLISSEMENT EN L'ÉTAT**" ou "✅ **VERDICT : CONFORME SOUS RÉSERVE DES OBLIGATIONS SUIVANTES**".
+     * Procédure technique / Examen : "⚙️ **STATUT TECHNIQUE : [Nom de la procédure exacte]**".
+     * Cas médical / Inaptitude : "📋 **CADRE MÉDICAL : [Recevable / Irrecevable]**".
+
+2. ⚖️ CITATION STRICTE DES TEXTES OFFICIELS :
+   - CITE SYSTÉMATIQUEMENT les sources juridiques et réglementaires appropriées :
+     * Responsabilité civile de l'État : Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937).
+     * Responsabilité pénale / Faute non intentionnelle : Loi Fauchon du 10 juillet 2000 / Article 121-3 du Code pénal.
+     * Surveillance et sécurité : Circulaire n° 97-178 du 18 septembre 1997 (surveillance des élèves), Circulaire n° 2017-116 du 6 octobre 2017 (encadrement des APPN).
+     * Inaptitudes médicales : Articles R. 312-2 à R. 312-6 du Code de l'éducation et Décret n° 88-977 (certificat médical type).
+     * Voyages scolaires & sorties : Circulaire n° 2023-052 du 13 juin 2023 (organisation des sorties et voyages scolaires).
+     * Certifications & CCF : Circulaire du 02 avril 2025 (Bac Pro), Circulaire du 27 août 2025 (CAP), Arrêté du 28 avril 2022 (Bac GT), Article D. 312-1 (Collège/DNB), BO n°30 du 29 juillet 2021 (redoublement).
+     * Statut des enseignants / AS : Décret n° 2014-460 du 7 mai 2014 (obligations de service et forfait 3h AS).
+     * Égalité et barèmes : Jurisprudence constante du Conseil d'État sur les barèmes physiologiquement adaptés en CA1.
+
+3. 🔍 AUDIT DES RATIOS, DES COMPÉTENCES ET DES RISQUES :
+   - Calcule et vérifie systématiquement :
+     * Logistique / Transport : Nombre de conducteurs vs nombre d'adultes requis pour la surveillance des passagers à bord (ex: 2 minibus pour 2 adultes = 2 conducteurs = 0 adulte pour surveiller l'arrière et 0 relais volant = faute caractérisée).
+     * Taux d'encadrement en APPN : Compétence exclusive du professeur d'EPS sur les activités à environnement spécifique (escalade falaise, eau vive, ski, VTT). Un accompagnateur non diplômé (ex: professeur d'autre discipline) assure la co-surveillance de la vie collective mais n'a aucune qualification pour valider un amarrage, parer ou intervenir en paroi.
+     * Chaîne de secours : Respect strict du déclenchement des secours (15 / 18 / 112 à l'étranger). Interdiction formelle du transport d'élève blessé dans un véhicule personnel.
+
+4. 📋 PROTOCOLE DE MISE EN CONFORMITÉ (ÉTAPES CHIRURGICALES) :
+   - Détaille les pièces administratives et actions obligatoires :
+     * Sortie / Voyage : Vote du Conseil d'Administration (CA), Ordres de Mission (OM), Autorisation de Sortie du Territoire (AST Cerfa + CNI parent signataire), Carte Européenne d'Assurance Maladie (CEAM pour étranger), assurance transport tous risques avec rachat de franchise, 3e adulte conducteur/surveillant.
+     * Gestion d'examen : Chaîne SIÈCLE ➔ iPackEPS ➔ Cyclades ➔ Imag'in (génération du PDF) ➔ Santorin.
+     * Inaptitude : Certificat médical officiel obligatoire (mot des parents nul), aménagement ou statut DISP.
+
+5. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
    - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4. Le CA5 N'EXISTE PAS au collège. Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
    - Lycée (Voie GT & Voie Pro) = **Attendus de Fin de Lycée (AFL)** ou AFLP en Bac Pro.
-   - Si un enseignant demande des AFL pour le collège, recadre immédiatement en rappelant qu'il s'agit d'AFC.
-5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
-   - AUCUN BAVARDAGE : Interdiction de commencer par des formules vagues (« L'acrosport est effectivement... »).
-   - GABARIT OBLIGATOIRE si question sur une APSA :
-     * 📌 **Champ d'Apprentissage (CA) :** [Citer CA1, CA2, CA3, CA4 ou CA5]
-     * 🎯 **Intitulé officiel BO :** [Intitulé exact du champ]
-     * 📋 **Attendus officiels :** [Lister 2 ou 3 AFC (collège) ou AFL (lycée) extraits des documents]
-   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique » pour les activités hybrides (acrosport, gymnastique, cirque).
-6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
-   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, saisir la note de l'APSA évaluée, et préciser que le commentaire circonstancié est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
+   - Si un enseignant demande des AFL pour le collège, recadre immédiatement en précisant qu'il s'agit d'AFC.
+
+6. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
+   - Gabarit APSA obligatoire : Champ d'Apprentissage (CA), Intitulé officiel BO, Attendus officiels extraits du texte.
+   - CA3 : Rappeler obligatoirement sa double dimension « prestation artistique et/ou acrobatique ».
+
+7. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
+   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, note normale sur l'APSA évaluée + commentaire circonstancié obligatoire dans Santorin pour la CAHPN.
    - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).
    - Bac Pro : Clic préalable obligatoire sur le bouton [Choisir les AFLP] pour cocher les AFLP 3 à 6.
    - CAP : Protocole strict à 2 épreuves (rejet immédiat si 3 notes).
-   - Clôture de lot grisée : Nécessite 100 % des statuts saisis (vérifier toutes les pages du lot).
-7. 👥 ÉTABLISSEMENTS HORS-SIÈCLE & ÉTRANGER (AEFE) :
-   - Inscription et association des candidats 100 % manuelles dans Cyclades (pas d'export iPack vers Cyclades).
-   - Rythme Sud : Session décalée en fin d'année civile (la date du 30 mai ne s'applique pas).
-8. 📺 MENTION DES VIDÉOS :
-   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4"). Ne crée JAMAIS de lien Markdown local ou relatif vers un fichier .mp4.
-   - N'insère de lien Markdown [texte](https://...) QUE s'il s'agit d'une URL web absolue valide commençant par "https://".
-9. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la question est loufoque ou sans rapport avec l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+   - Raccourci clavier Santorin : Saisie directe au pavé numérique + validation [Entrée] ou passage à l'AFL suivant via [Tab] (retour via [Maj + Tab]). Statut rapide via touche [D] pour DISP ou [A] pour ABI/ABJ.
+   - Clôture de lot grisée : Nécessite 100 % des statuts saisis (astuce bascule affichage 100 candidats).
+
+8. 👥 STRUCTURES HORS-SIÈCLE & ÉTRANGER (AEFE) :
+   - Inscription et association manuelles dans Cyclades (MEMO-Associer-eleves-protocole-Etab-v1.0.pdf).
+   - Rythme Sud : Session décalée en fin d'année civile (date du 30 mai non applicable).
+
+9. 📐 FORMAT DE SORTIE VISUEL :
+   - Utilise EXCLUSIVEMENT des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>), et des balises <strong> pour les mots-clés et textes de loi. Zéro bloc de texte compact.
+
+10. 📺 MENTION DES VIDÉOS & LIENS :
+   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4"). Jamais de lien Markdown local.
+   - N'insère de lien Markdown que pour les URLs absolues en "https://".
+
+11. 🛑 BLINDAGE ANTI-HORS-SUJET :
+   - Si la question est loufoque ou sans rapport avec l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
         try:
           response = Settings.llm.complete(consigne_ia)
@@ -927,10 +957,10 @@ DIRECTIVES COMPORTEMENTALES STRICTES :
         except Exception as e:
           texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-    # Traitements de surface et filtres regex
+    # Traitements de surface et filtres regex pour les références juridiques
     texte_brut = re.sub(
-        r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
-        r" l\'éducation)",
+        r"(Article\s+L?\.?\s*\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|Loi\s+Fauchon|RGPD|Code\s+de"
+        r" l\'éducation|Code\s+pénal|Circulaire\s+du\s+\d+\s+\w+\s+\d+|Circulaire\s+n°\s*[\d-]+|Décret\s+n°\s*[\d-]+|Arrêté\s+du\s+\d+\s+\w+\s+\d+|BO\s+n°\s*\d+)",
         r'<span class="law-highlight">\1</span>',
         texte_brut,
     )

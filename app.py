@@ -623,15 +623,10 @@ with col_action_input:
   )
 
 st.markdown(
-    '<div style="background-color: #1E293B; padding: 12px 20px; border-radius:'
-    ' 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border:'
-    ' 1px solid rgba(255, 255, 255, 0.05); text-align: center; line-height:'
-    ' 1.4;"><span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️'
-    ' 💡 ATTENTION n\'oubliez pas de cliquer sur Nettoyer entre chaque'
-    ' question:</span><span style="color: #FFFFFF; font-weight: 500;'
-    ' font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"> Pour des'
-    ' raisons pratiques, votre assistant ne mémorise pas le fil de la'
-    ' conversation. Posez vos questions une par une.</span></div>',
+    """<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.5;">
+        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION n'oubliez pas de cliquer sur Nettoyer entre chaque question :</span>
+        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); margin-top: 4px;">Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span>
+    </div>""",
     unsafe_allow_html=True,
 )
 

@@ -381,3 +381,82 @@ Mots-clés : telephone satellite, zone blanche course orientation, milieu hostil
      * Le Code de l'éducation n'impose pas le mot « satellite », mais l'Article 121-3 du Code pénal et la Circulaire n° 2017-116 imposent une OBLIGATION DE MOYENS D'ALERTE IMMÉDIATS.
      * Partir en isolement total sans moyen d'alerte autonome caractérise une faute délibérée en cas d'accident grave.
      * Équipements recevables : Téléphone satellite (Iridium/Inmarsat), balise de communication satellitaire bidirectionnelle (type Garmin inReach / SPOT), balise de détresse PLB (Cospas-Sarsat) ou radio secours dédiée (Canal E montagne / VHF marine canal 16).
+================================================================================
+RÉFÉRENTIEL JURIDIQUE & PROTOCOLE : TRANSPORT ET DÉPLACEMENT D'ÉLÈVES EN EPS ET SORTIES SCOLAIRES
+================================================================================
+
+1. CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE
+--------------------------------------------------------------------------------
+• Note de service n° 86-101 du 5 mars 1986 (BOEN n° 10 du 13 mars 1986) :
+  - Objet : Utilisation des véhicules personnels des enseignants et véhicules mis à disposition pour transporter des élèves.
+  - Caractère : Dérogatoire, exceptionnel et supplétif (justifié par des motifs géographiques, d'organisation ou financiers).
+  - Principe d'autorisation : Subordonné obligatoirement à une autorisation écrite préalable du chef d'établissement (Ordre de Mission avec mention expresse de transport d'élèves).
+
+• Circulaire n° 99-136 du 21 septembre 1999 (Sorties et voyages scolaires au collège et lycée) :
+  - Encadre les sorties obligatoires (sur temps scolaire) et facultatives (voyages, séjours avec nuitées).
+  - Impose le vote préalable du voyage et de son plan de financement en Conseil d'Administration (CA).
+  - Fixe les obligations en cas de séjour à l'étranger : Autorisation de Sortie du Territoire (AST), Carte Européenne d'Assurance Maladie (CEAM), assistance rapatriement.
+
+• Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :
+  - Principe absolu de substitution civile de l'État : pour tout dommage causé ou subi par les élèves sous surveillance lors d'un déplacement autorisé par ordre de mission, la responsabilité financière de l'État se substitue à celle de l'enseignant. Aucune action civile directe des parents n'est recevable contre les deniers personnels du professeur.
+
+• Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon) :
+  - Responsabilité pénale personnelle de l'enseignant et du chef d'établissement en cas de manquement délibéré à une obligation de prudence ou de faute caractérisée exposant les élèves à un risque d'une particulière gravité (ex : absence de surveillance dans le véhicule ayant provoqué un accident).
+
+• Loi n° 85-677 du 5 juillet 1985 (Loi Badinter) & Code de la route :
+  - Port de la ceinture de sécurité homologuée obligatoire pour chaque passager.
+  - 1 élève = 1 place assise individuelle (interdiction absolue de surnombre par rapport à la carte grise).
+  - Permis de conduire B valide (autorise jusqu'à 8 passagers transportés + le conducteur, soit 9 places au total).
+
+• Articles L. 134-1 à L. 134-12 du Code général de la fonction publique :
+  - Protection fonctionnelle obligatoire accordée par le Recteur à l'agent public mis en cause ou menacé de poursuites dans le cadre de ses fonctions autorisées.
+
+
+2. LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES
+--------------------------------------------------------------------------------
+A) VÉHICULE DE LOCATION / MINIBUS DE L'ÉTABLISSEMENT (9 PLACES) :
+1. Contrat de location : Établi impérativement au nom de l'EPLE (collège/lycée) et signé par le chef d'établissement.
+2. Assurances obligatoires : Contrat tous risques avec rachat total de franchise, garantie illimitée des personnes transportées et assistance/rapatriement 24h/24 (notamment en cas de déplacement à l'étranger).
+3. Ordre de mission : Délivré à chaque enseignant conducteur précisant l'autorisation de conduire le véhicule loué.
+4. Règle de surveillance à bord (Note de service 86-101 - Section II) :
+   - Le conducteur doit pouvoir se concentrer à 100 % sur sa conduite.
+   - Dès que le nombre d'élèves transportés est supérieur à 4 (cas d'un minibus de 8 ou 9 places), LA PRÉSENCE D'UN DEUXIÈME ADULTE EST STRICTEMENT REQUISE DANS L'HABITACLE pour assurer la surveillance active des élèves.
+
+
+B) VÉHICULE PERSONNEL DE L'ENSEIGNANT :
+1. Caractère strictement volontaire : L'administration ne peut jamais contraindre un enseignant à utiliser sa voiture personnelle.
+2. Documents à fournir au chef d'établissement avant le départ :
+   - Copie du permis de conduire en cours de validité.
+   - Copie de la carte grise avec contrôle technique à jour.
+   - Attestation d'assurance mentionnant explicitement la couverture de l'usage professionnel et la garantie illimitée des tiers transportés.
+3. Règle des passagers : Maximum 4 élèves pour 1 seul adulte conducteur afin de préserver la surveillance et la concentration. Au-delà, un 2e adulte accompagnateur est requis.
+
+
+3. CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)
+--------------------------------------------------------------------------------
+• Enseignement obligatoire de l'EPS / Sorties pédagogiques :
+  - Le déplacement s'effectue sous statut d'Ordre de Mission de l'Éducation nationale délivré par le Chef d'établissement.
+  - La substitution de responsabilité civile L. 911-4 s'applique intégralement.
+
+• Association Sportive (AS) / Compétitions UNSS du mercredi :
+  - Déplacement couvert par l'assurance de l'AS / licence UNSS et autorisation de sortie AS signée par le chef d'établissement (président de l'AS).
+  - Les minibus appartenant à l'établissement ou à l'AS peuvent être utilisés sous réserve de conformité des assurances et de l'encadrement.
+
+
+4. FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT
+--------------------------------------------------------------------------------
+AVANT D'AUTORISER TOUT DÉPLACEMENT EN MINIBUS / VÉHICULE :
+[ ] 1. Vérifier la validité des permis de conduire des enseignants au volant.
+[ ] 2. Vérifier les contrats de location et assurances (garantie illimitée personnes transportées + assistance 24/7).
+[ ] 3. Signer les Ordres de Mission individuels mentionnant la conduite et le transport d'élèves.
+[ ] 4. Contrôler le taux d'encadrement dans les véhicules : si > 4 élèves par véhicule, affecter 2 adultes par minibus (1 conducteur + 1 surveillant).
+[ ] 5. Vérifier le vote du voyage au Conseil d'Administration (si voyage avec nuitée ou à l'étranger).
+[ ] 6. En cas d'APPN en milieu spécifique (falaise, eau vive, montagne) : vérifier la déclaration sur iPackEPS / validation IPR et le ratio d'encadrement qualifié sur site.
+
+EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
+1. Prise en charge immédiate : Sécuriser les lieux (gilets, triangles), prévenir les secours (15/18 ou 112 à l'étranger).
+2. Constat amiable : Remplir le constat avec les coordonnées de l'assurance du véhicule.
+3. Rapport circonstancié : Rédiger un rapport factuel transmis immédiatement au chef d'établissement.
+4. Déclaration d'accident scolaire : Établie par la direction de l'établissement.
+5. Protection fonctionnelle : Sollicitée auprès du Recteur si des menaces ou poursuites sont formulées.
+================================================================================

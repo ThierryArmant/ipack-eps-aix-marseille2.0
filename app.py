@@ -1,10 +1,7 @@
 import os
 import re
-import pandas as pd
-import requests
 import streamlit as st
-from llama_index.core import Document, Settings, SimpleDirectoryReader, VectorStoreIndex
-from llama_index.core.memory import ChatMemoryBuffer
+from llama_index.core import Document, Settings, VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
@@ -32,7 +29,7 @@ VIDEOS_TUTOS = {
 st.set_page_config(
     page_title="Hub IA - EPS",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed",
 )
 
 # ======================================================================
@@ -48,24 +45,24 @@ def incrementer_et_obtenir_visites():
     fichier_compteur = "compteur_visites.txt"
     if not os.path.exists(fichier_compteur):
         try:
-            with open(fichier_compteur, "w") as f:
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
                 f.write("1")
             return 1
-        except:
+        except Exception:
             return 1
 
     try:
-        with open(fichier_compteur, "r") as f:
+        with open(fichier_compteur, "r", encoding="utf-8") as f:
             valeur = int(f.read().strip())
 
         if "visite_comptabilisee" not in st.session_state:
             valeur += 1
-            with open(fichier_compteur, "w") as f:
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
                 f.write(str(valeur))
             st.session_state.visite_comptabilisee = True
 
         return valeur
-    except:
+    except Exception:
         return 1
 
 
@@ -79,26 +76,26 @@ img_eps = "image_6.png"
 img_droite = "image_5.png"
 img_fond = "image_8.png"
 
-github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME')}/{st.secrets.get('GITHUB_REPO')}/main/"
+github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
-css_pur = """
+css_pur = f"""
     <style>
-    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card *, .peda-card, .peda-card * { 
+    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card *, .peda-card, .peda-card * {{ 
         color: #FFFFFF !important;  
-    }
+    }}
 
-    .block-container { 
+    .block-container {{ 
         padding-top: 0.5rem !important; 
         padding-bottom: 2rem !important; 
         padding-left: 1.5rem !important; 
         padding-right: 1.5rem !important; 
         max-width: 920px !important; 
-    }
+    }}
     
-    .stApp { background-image: url('__URL_FOND__') !important; background-size: cover !important; background-attachment: fixed !important; }
-    header[data-testid="stHeader"] { display: none !important; }
+    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
+    header[data-testid="stHeader"] {{ display: none !important; }}
     
-    .hub-header { 
+    .hub-header {{ 
         background-color: #1E293B; 
         display: flex; 
         justify-content: space-between; 
@@ -108,9 +105,9 @@ css_pur = """
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
-    }
+    }}
     
-    .hub-title {
+    .hub-title {{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -118,25 +115,25 @@ css_pur = """
         text-align: center;
         flex-grow: 1;
         padding-right: 35px; 
-    }
+    }}
     
-    .title-row {
+    .title-row {{
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
-    }
+    }}
     
-    .title-row h1 { 
+    .title-row h1 {{ 
         color: white !important; 
         margin: 0 !important; 
         font-size: 28px !important; 
         font-weight: 800 !important; 
         line-height: 1.2 !important;
         letter-spacing: 0.5px;
-    }
+    }}
     
-    .badge-visiteur { 
+    .badge-visiteur {{ 
         background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
         border: 1px solid rgba(16, 185, 129, 0.45) !important; 
@@ -145,18 +142,18 @@ css_pur = """
         font-size: 13px !important; 
         font-weight: 800 !important; 
         font-family: monospace !important;
-    }
+    }}
     
-    .hub-title p { 
+    .hub-title p {{ 
         color: #94A3B8 !important; 
         margin: 0 !important; 
         margin-top: -1px !important; 
         font-size: 13px !important; 
         text-transform: uppercase; 
         font-weight: bold !important;
-    }
+    }}
 
-    .column-title-top { 
+    .column-title-top {{ 
         color: #FFFFFF; 
         text-align: center; 
         margin-bottom: 12px !important; 
@@ -164,22 +161,22 @@ css_pur = """
         border-radius: 6px !important; 
         padding: 8px 10px; 
         box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-    }
-    .column-title-top .instruction {
+    }}
+    .column-title-top .instruction {{
         font-size: 11px !important;
         font-weight: 500;
         text-transform: uppercase;
         color: #94A3B8 !important;
         display: block;
-    }
-    .column-title-top .mode-actuel {
+    }}
+    .column-title-top .mode-actuel {{
         font-size: 14px !important; 
-        font-weight: 700;
+        font-weight: 700; 
         color: #FFFFFF !important;
         display: block;
-    }
+    }}
 
-    button[kind="secondary"] { 
+    button[kind="secondary"] {{ 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
         border: 1px solid rgba(255,255,255,0.05) !important; 
@@ -190,9 +187,9 @@ css_pur = """
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
-    }
+    }}
 
-    button[kind="primary"] {
+    button[kind="primary"] {{
         background-color: rgba(16, 185, 129, 0.85) !important;
         color: #FFFFFF !important;
         border: 1px solid #10B981 !important;
@@ -204,51 +201,49 @@ css_pur = """
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-    }
+        text-align: center !important;
+    }}
     
-    .santorin-card, .general-card, .securite-card, .peda-card { 
+    .santorin-card, .general-card, .securite-card, .peda-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
         -webkit-backdrop-filter: blur(12px) !important; 
         padding: 18px; 
         border-radius: 8px; 
         margin-bottom: 16px; 
-    }
-    .santorin-card { border-left: 6px solid #38BDF8 !important; } 
-    .general-card { border-left: 6px solid #10B981 !important; } 
-    .securite-card { border-left: 6px solid #FF9F43 !important; } 
-    .peda-card { border-left: 6px solid #FFA502 !important; } 
+    }}
+    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
+    .general-card {{ border-left: 6px solid #10B981 !important; }} 
+    .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
+    .peda-card {{ border-left: 6px solid #FFA502 !important; }} 
     
-    .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {
+    .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {{
         color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 16px !important; 
         font-weight: 800 !important; 
         text-transform: uppercase; 
-    }
-    .peda-card h3 { color: #FFA502 !important; }
-    .general-card h3 { color: #10B981 !important; }
-    .securite-card h3 { color: #FF9F43 !important; }
+    }}
+    .peda-card h3 {{ color: #FFA502 !important; }}
+    .general-card h3 {{ color: #10B981 !important; }}
+    .securite-card h3 {{ color: #FF9F43 !important; }}
 
-    .law-highlight {
+    .law-highlight {{
         background-color: rgba(255, 176, 32, 0.12) !important; 
         color: #FFB020 !important; 
         padding: 2px 6px;
         border-radius: 4px;
         border: 1px solid rgba(255, 176, 32, 0.4) !important;
         font-weight: 700 !important;
-    }
+    }}
     </style> 
-""".replace(
-    '__URL_FOND__', f'{github_url}{img_fond}'
-)
+"""
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
-tavily_api_key = st.secrets.get("TAVILY_API_KEY")
 
 expressions_inutiles = [
     "de",
@@ -282,13 +277,13 @@ def obtenir_cle_fichier():
         if os.path.exists(fp):
             try:
                 mtimes.append(os.path.getmtime(fp))
-            except:
+            except Exception:
                 pass
     chemin_textes = "data/textes/base_textes_officiels.txt"
     if os.path.exists(chemin_textes):
         try:
             mtimes.append(os.path.getmtime(chemin_textes))
-        except:
+        except Exception:
             pass
     for f_peda in [
         "base_pedagogique_edubase.txt",
@@ -298,14 +293,14 @@ def obtenir_cle_fichier():
         if os.path.exists(f_peda):
             try:
                 mtimes.append(os.path.getmtime(f_peda))
-            except:
+            except Exception:
                 pass
     for dossier in ["data/peda", "data/examens", "data/ipack", "data/textes"]:
         if os.path.exists(dossier) and os.path.isdir(dossier):
             try:
                 for f in os.listdir(dossier):
                     mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
-            except:
+            except Exception:
                 pass
     return max(mtimes) if mtimes else 0.0
 
@@ -318,10 +313,11 @@ def charger_consignes_pierre():
                 with open(fp, "r", encoding="utf-8") as f:
                     documents_charges.append(
                         Document(
-                            text=f.read(), metadata={"source": f"Règles de Pierre ({fp})"}
+                            text=f.read(),
+                            metadata={"source": f"Règles de Pierre ({fp})"},
                         )
                     )
-            except:
+            except Exception:
                 pass
     return documents_charges
 
@@ -337,9 +333,12 @@ def charger_dossier_txt_securise(chemin_dossier):
                         chemin_complet, "r", encoding="utf-8", errors="ignore"
                     ) as f:
                         docs_trouves.append(
-                            Document(text=f.read(), metadata={"source": nom_fichier})
+                            Document(
+                                text=f.read(),
+                                metadata={"source": nom_fichier},
+                            )
                         )
-                except:
+                except Exception:
                     pass
     return docs_trouves
 
@@ -349,8 +348,8 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
             text=(
-                "Fiche Mémo - Correction Partagée Santorin (DEC). Spécifications"
-                " techniques sur la correction multiple."
+                "Fiche Mémo - Correction Partagée Santorin (DEC)."
+                " Spécifications techniques sur la correction multiple."
             ),
             metadata={
                 "title": "Correction Partagée",
@@ -363,7 +362,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=6
+        similarity_top_k=3
     )
 
 
@@ -372,8 +371,8 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
             text=(
-                "Guide Pratique iPackEPS - Saisie des structures trimestrielles et"
-                " imports XML."
+                "Guide Pratique iPackEPS - Saisie des structures"
+                " trimestrielles et imports XML."
             ),
             metadata={
                 "title": "Guide iPackEPS",
@@ -386,7 +385,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=5
+        similarity_top_k=3
     )
 
 
@@ -395,8 +394,8 @@ def initialiser_base_textes(cle_fremt):
     docs_textes = [
         Document(
             text=(
-                "Base de données réglementaire globale pour les textes de lois du"
-                " second degré."
+                "Base de données réglementaire globale pour les textes de lois"
+                " du second degré."
             ),
             metadata={
                 "title": "Légifrance",
@@ -407,7 +406,7 @@ def initialiser_base_textes(cle_fremt):
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-        similarity_top_k=5
+        similarity_top_k=3
     )
 
 
@@ -419,7 +418,7 @@ def initialiser_base_peda(cle_fremt):
             Document(text="Base pédagogique vide", metadata={"source": "system"})
         )
     return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-        similarity_top_k=7
+        similarity_top_k=3
     )
 
 
@@ -428,26 +427,6 @@ retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = initialiser_base_peda(timestamp_fichier)
-
-
-def qualifier_requete_rag(prompt_brut, module_actif):
-    """Agent de pré-lecture IA : traduit l'intention humaine en une requête technique chirurgicale pour le RAG."""
-    prompt_analyse = f"""Tu es l'analyseur sémantique d'un moteur documentaire expert en Éducation Physique et Sportive (EPS).
-L'utilisateur a posé cette question dans le module « {module_actif} » :
-« {prompt_brut} »
-
-Ta mission :
-1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation de nuit Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs mot des parents, accident vs sortie scolaire).
-2. Identifie les logiciels ou cadres concernés dans la chaîne : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation, Code pénal.
-3. Reformule la question sous la forme de 4 à 8 mots-clés techniques exacts pour maximiser la pertinence de la recherche vectorielle.
-
-Renvoie UNIQUEMENT les mots-clés séparés par des espaces, sans phrase d'introduction ni ponctuation :"""
-    try:
-        mots_cles = Settings.llm.complete(prompt_analyse).text.strip()
-        return mots_cles if mots_cles else prompt_brut
-    except:
-        return prompt_brut
-
 
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR REHAUSSÉ
@@ -625,7 +604,7 @@ prompt = st.chat_input(
 )
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET ARBITRAGE HYBRIDE INTÉGRAL (SÉCURISÉ)
+# 9. FLUX DE MESSAGES ET ARBITRAGE OPTIMISÉ (1 SEUL APPEL LLM)
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -644,8 +623,9 @@ if prompt:
         "type": "text",
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
-    with st.spinner("Je recherche les documents..."):
+    with st.spinner("Je recherche les documents officiels..."):
         mode = st.session_state.active_module
+        p_low = prompt.lower()
 
         texte_brut = ""
         extraits_doc = ""
@@ -669,110 +649,102 @@ if prompt:
                 if os.path.exists(fp):
                     with open(fp, "r", encoding="utf-8", errors="ignore") as f:
                         verites_terrain_pierre += (
-                            f"\n--- REGLES DIRECTES DE PIERRE ---\n" + f.read() + "\n"
+                            "\n--- REGLES DIRECTES DE PIERRE ---\n"
+                            + f.read()
+                            + "\n"
                         )
-        except:
+        except Exception:
             pass
 
-        # 🧠 AIGUILLEUR MINIMALISTE INTERCEPTANT UNIQUEMENT LES PANNES CRITIQUES BLOQUANTES
-        intention = "AUCUN_BLINDAGE"
-        if mode == "examens":
-            intent_prompt = f"""Tu es l'aiguilleur technique du Hub Examens EPS. Détermine l'intention : "{prompt}"
-            Sélectionne un mot-clé UNIQUEMENT parmi ceux-ci :
-            - DNB_COLLEGE : Toute question mentionnant le Brevet, DNB, collège, note d'examen collège, ou remontée DEC au collège.
-            - SUJET_SECOURS : Demande de sujet écrit, sujet papier, impression ou sujet de secours pour rattrapage.
-            - CAP_3_EPREUVES : Mention explicite de 3 épreuves ou 3 notes en CAP.
-            - CALENDRIER : Demande explicite de date limite pour le Lycée/Bac/Santorin (hors DNB).
-            - SANTORIN_ERREUR_VALIDATION : Le lot est déjà validé définitivement par le prof et l'écran est clos.
-            - SANTORIN_GRISE : Cases/crayons grisés, problème de co-évaluation simultanée (cadenas).
-            - JURY_REMPLACEMENT : Problème d'ordre de mission, convocation Chorus ou prof remplaçant non visible.
-            - AUCUN_BLINDAGE : Tout le reste (AFL, notation, dispense, inaptitude, élèves manquants Cyclades, cas particuliers).
-            """
-            try:
-                intention = Settings.llm.complete(intent_prompt).text.strip()
-            except:
-                intention = "AUCUN_BLINDAGE"
-        elif mode == "ipack":
-            intent_prompt = f"""Tu es l'aiguilleur d'iPackEPS. Détermine l'intention : "{prompt}"
-            - IPACK_SSS : Le dossier SSS ou le bilan annuel est verrouillé en lecture seule par la direction.
-            - IPACK_GROUPES : Procédure pas-à-pas pour configurer les classes/groupes ou imports XML Pronote.
-            - IPACK_NOUVEL_ELEVE : Procédure pour injecter un nouvel élève arrivant via SIÈCLE.
-            - AUCUN_BLINDAGE : Toute autre question.
-            """
-            try:
-                intention = Settings.llm.complete(intent_prompt).text.strip()
-            except:
-                intention = "AUCUN_BLINDAGE"
+        # ⚡ DÉTECTIONS DÉTERMINISTES INSTANTANÉES (0 TOKEN / 0 COÛT)
+        est_dnb = mode == "examens" and any(
+            w in p_low for w in ["dnb", "brevet", "collège", "college"]
+        )
+        est_sujet_secours = (
+            "sujet" in p_low
+            and any(w in p_low for w in ["secours", "papier", "imprimer"])
+        )
+        est_cap_3epreuves = mode == "examens" and "cap" in p_low and any(
+            w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]
+        )
+        est_date_notes = (
+            any(w in p_low for w in ["date limite", "calendrier", "clôture", "fermeture"])
+            and not est_dnb
+        )
+        est_erreur_val_santorin = mode == "examens" and any(
+            w in p_low for w in ["erreur après validation", "lot validé", "déverrouiller lot", "rectifier note validée"]
+        )
+        est_grise = mode == "examens" and any(
+            w in p_low for w in ["grisé", "grisée", "cadenas", "impossible de saisir", "bloqué"]
+        )
+        est_remplacement = mode == "examens" and any(
+            w in p_low for w in ["remplaçant", "remplacement", "convocation", "imag'in", "imagin", "chorus"]
+        )
+        est_sss = mode == "ipack" and ("sss" in p_low or "section sportive" in p_low) and "verrouill" in p_low
+        est_groupes = mode == "ipack" and any(
+            w in p_low for w in ["configurer classe", "importer groupe", "import pronote", "configuration classes"]
+        )
+        est_nouvel_eleve = mode == "ipack" and any(
+            w in p_low for w in ["nouvel élève", "nouvel eleve", "ajouter élève", "siècle", "siecle"]
+        )
+        est_tasa = mode == "textes" and "tasa" in p_low
 
-        est_dnb_direct = intention == "DNB_COLLEGE" or (
-            mode == "examens"
-            and ("dnb" in prompt.lower() or "brevet" in prompt.lower())
-        )
-        est_sujet_secours_direct = intention == "SUJET_SECOURS" or (
-            "sujet" in prompt.lower() and "secours" in prompt.lower()
-        )
-        est_cap_3epreuves_direct = intention == "CAP_3_EPREUVES" or (
-            mode == "examens"
-            and "cap" in prompt.lower()
-            and ("3 épreuves" in prompt.lower() or "3 notes" in prompt.lower())
-        )
-        est_date_notes_direct = intention == "CALENDRIER" and not est_dnb_direct
-        est_erreur_validation_santorin = intention == "SANTORIN_ERREUR_VALIDATION"
-        est_grise_direct = intention == "SANTORIN_GRISE"
-        est_remplacement_reunion_direct = intention == "JURY_REMPLACEMENT"
-        est_sss_direct = intention == "IPACK_SSS"
-        st_groupes_direct = intention == "IPACK_GROUPES"
-        est_nouvel_eleve_direct = intention == "IPACK_NOUVEL_ELEVE"
-        est_tasa_direct = mode == "textes" and "tasa" in prompt.lower()
-
-        est_cas_blindé_racine = (
-            est_dnb_direct
-            or est_sujet_secours_direct
-            or est_cap_3epreuves_direct
-            or est_date_notes_direct
-            or est_erreur_validation_santorin
-            or est_grise_direct
-            or est_remplacement_reunion_direct
-            or est_sss_direct
-            or st_groupes_direct
-            or est_nouvel_eleve_direct
-            or est_tasa_direct
+        # 🚀 RECHERCHE RAG CIBLÉE (TOP_K = 3)
+        est_cas_direct = (
+            est_dnb
+            or est_sujet_secours
+            or est_cap_3epreuves
+            or est_date_notes
+            or est_erreur_val_santorin
+            or est_grise
+            or est_remplacement
+            or est_sss
+            or est_groupes
+            or est_nouvel_eleve
+            or est_tasa
         )
 
-        # 🧠 PRE-PROCESSING SÉMANTIQUE & RECHERCHE VECTORIELLE RAG
-        if openai_api_key and not est_cas_blindé_racine:
-            requete_ciblee = qualifier_requete_rag(prompt, mode)
+        if openai_api_key and not est_cas_direct:
+            requete_epuree = prompt
+            for exp in expressions_inutiles:
+                requete_epuree = re.sub(rf"\b{exp}\b", "", requete_epuree, flags=re.IGNORECASE)
+            requete_epuree = " ".join(requete_epuree.split())
+
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(requete_ciblee):
+                    for n in retriever_santorin.retrieve(requete_epuree):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(requete_ciblee):
+                    for n in retriever_ipack.retrieve(requete_epuree):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
-                    mot_cle_local = requete_ciblee.lower()
-                    for exp in expressions_inutiles:
-                        mot_cle_local = mot_cle_local.replace(exp, "")
-                    for n in retriever_textes.retrieve(
-                        mot_cle_local.strip()
-                        if len(mot_cle_local.strip()) > 2
-                        else requete_ciblee
-                    ):
+                    for n in retriever_textes.retrieve(requete_epuree):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "peda":
-                    for n in retriever_peda.retrieve(requete_ciblee):
+                    for n in retriever_peda.retrieve(requete_epuree):
                         extraits_doc += f"{n.node.text}\n\n"
-            except:
+            except Exception:
                 pass
 
-        # ======================================================================
         # 🎯 ROUTAGE DU RENDU FINAL
-        # ======================================================================
-        if est_tasa_direct:
-            texte_brut = extraits_doc
+        if est_tasa:
+            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+<ul>
+  <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
+  <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
+  <li><strong>Protocole technique (100m en continu < 3 min 45 s) :</strong>
+    <ul>
+      <li>Longueur 1 (0-25m) : Départ plongé obligatoire + nage libre en surface.</li>
+      <li>Longueur 2 (25-50m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
+      <li>Longueur 3 (50-75m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
+      <li>Longueur 4 (75-100m) : Recherche d'un mannequin à 2,50m de profondeur et remorquage sur le dos sur 25m (visage hors de l'eau).</li>
+    </ul>
+  </li>
+  <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
+</ul>"""
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-        elif est_dnb_direct:
+        elif est_dnb:
             texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI NOTE D'EXAMEN SUR 20</h3>
 <ul>
   <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
@@ -781,7 +753,7 @@ if prompt:
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_sujet_secours_direct:
+        elif est_sujet_secours:
             texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
 <ul>
   <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
@@ -790,7 +762,7 @@ if prompt:
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_cap_3epreuves_direct:
+        elif est_cap_3epreuves:
             texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
 <ul>
   <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
@@ -799,7 +771,7 @@ if prompt:
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_date_notes_direct:
+        elif est_date_notes:
             texte_brut = """<h3>📊 CALENDRIER & DATES LIMITES SANTORIN 2026</h3>
 <strong>Statut administratif : Échéances officielles de clôture des serveurs.</strong><br>
 <ul>
@@ -813,7 +785,7 @@ if prompt:
                 ("santorin-card" if mode == "examens" else "general-card"),
             )
 
-        elif est_erreur_validation_santorin:
+        elif est_erreur_val_santorin:
             texte_brut = """<h3>📊 SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3>
 <strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br>
 <ul>
@@ -824,13 +796,13 @@ if prompt:
 <br>📺 <strong>Tutoriel de déblocage :</strong> Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_sss_direct:
+        elif est_sss:
             texte_brut = """<h3>🛠️ IPACKEPS : DOSSIER SSS OU BILAN VERROUILLÉ</h3>
 <strong>Statut : Lecture seule absolue.</strong><br>
 Contactez immédiatement votre Correspondant iPackEPS de bassin ou l'équipe des IA-IPR. Seuls ces profils possèdent les droits master pour appliquer la commande <strong>[Renvoyer en modification]</strong>."""
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif st_groupes_direct:
+        elif est_groupes:
             texte_brut = """<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>
 <ul>
   <li><strong>Étape 1 :</strong> Accédez au menu supérieur <strong>[Dossiers]</strong>.</li>
@@ -840,14 +812,14 @@ Contactez immédiatement votre Correspondant iPackEPS de bassin ou l'équipe des
 <br>📺 <strong>Tutoriels d'accompagnement :</strong> Configuration_classes_import_eleves.mp4 et affecter_eleves_dans_groupes.mp4"""
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif est_nouvel_eleve_direct:
+        elif est_nouvel_eleve:
             texte_brut = """<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>
 L'élève doit être obligatoirement enregistré dans <strong>SIÈCLE</strong> par le secrétariat de direction.
 Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote pour l'intégrer automatiquement dans iPackEPS sans écraser vos notes existantes.
 <br><br>📺 <strong>Tutoriel d'accompagnement :</strong> import_eleves_pronote.mp4"""
             badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
-        elif est_grise_direct:
+        elif est_grise:
             texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS (CADENAS)</h3>
 <ul>
   <li><strong>Correction partagée simultanée :</strong> Si un collègue co-évaluateur édite le lot, l'interface bascule automatiquement en lecture seule. <strong>Solution : Demandez-lui de fermer sa session Arena.</strong></li>
@@ -856,7 +828,7 @@ Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote p
 <br>📺 <strong>En cas de besoin de transfert de lot :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_remplacement_reunion_direct:
+        elif est_remplacement:
             texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY & DROITS SANTORIN</h3>
 Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Imag'in</strong> et IMPÉRATIVEMENT cliquer sur le picto <strong>[PDF]</strong> de la convocation. C'est cette action technique qui pousse instantanément l'identité et les droits d'écriture du professeur vers Santorin.
 <br><br>📺 <strong>Tutoriel de gestion des convocations :</strong> creer_convocations_enseignants.mp4"""
@@ -874,34 +846,11 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
 
             if mode == "examens" and not extraits_doc.strip():
                 texte_brut = (
-                    "Désolé, je ne trouve pas cette règle spécifique dans ma mémoire"
-                    " locale d'examen. Veuillez vous rapprocher de votre direction ou"
-                    " de votre IA-IPR EPS."
+                    "Désolé, je ne trouve pas cette règle spécifique dans ma"
+                    " mémoire locale d'examen. Veuillez vous rapprocher de"
+                    " votre direction ou de votre IA-IPR EPS."
                 )
             else:
-                # ======================================================================
-                # 🧠 PASSE 1 : RÉFLEXION & AUDIT PRÉALABLE (PUR DIAGNOSTIC SANS EXEMPLES POLLUANTS)
-                # ======================================================================
-                audit_diagnostic = ""
-                if mode == "textes":
-                    prompt_audit = f"""Tu es un inspecteur expert en droit de l'éducation et en sécurité EPS.
-Analyse la situation suivante posée par un enseignant ou un chef d'établissement :
-"{prompt}"
-
-Produis un diagnostic factuel et direct structuré ainsi :
-- TYPE_SITUATION : [Choisis STRICTEMENT : "ACCIDENT_SURVENU" ou "PROJET_EN_AMONT"]
-- FAILLE_ORGANISATION : [Identifie les manquements réels décrits dans la question : surveillance statique/active, consignes orales vs écrites/cartes, convention de site, qualification d'encadrement, matériel, autorisations, transport]
-- RESPONSABILITE_CIVILE : [Rappel de l'article L. 911-4 - substitution automatique de l'État]
-- RESPONSABILITE_PENALE : [Analyse de l'article 121-3 du Code pénal - existence ou non d'une faute caractérisée / imprudence]
-- ACTIONS_REQUISES : [Liste des démarches immédiates adaptées STRICTEMENT au TYPE_SITUATION détecté]"""
-                    try:
-                        audit_diagnostic = Settings.llm.complete(prompt_audit).text.strip()
-                    except:
-                        audit_diagnostic = ""
-
-                # ======================================================================
-                # ✍️ PASSE 2 : RÉDACTION OFFICIELLE DYNAMIQUE ET SANS CONTAMINATION
-                # ======================================================================
                 consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
 Tu réponds avec une précision juridique chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
 
@@ -909,60 +858,53 @@ CONTEXTE DOCUMENTAIRE SOUVERAIN :
 {extraits_doc}
 {verites_terrain_pierre}
 
-DIAGNOSTIC DE L'AUDIT PRÉALABLE :
-{audit_diagnostic}
-
 QUESTION ORIGINALE :
 {prompt}
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
 1. 📐 FORMAT DE SORTIE : Structure avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels et le diagnostic d'audit. N'invoque jamais d'éléments absents de la question ou non pertinents.
+2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels du contexte. N'invoque jamais d'éléments absents de la question ou non pertinents (pas de mention de transport si la question porte sur une leçon sur place).
 
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE ("textes") :
-   - Rédige la réponse selon ce gabarit strict en exploitant les conclusions de l'audit :
+   - Effectue d'abord un raisonnement interne pour déterminer s'il s'agit d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
+   - Rédige la réponse selon ce gabarit strict :
 
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
-     * Citer nommément les articles et leurs sources exactes applicables au cas précis :
+     * Citer nommément les articles applicables au cas précis :
        - <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :</strong> "La responsabilité de l'État est substituée à celle des enseignants pour tous les dommages causés ou subis par les élèves sous leur surveillance."
        - <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon) :</strong> "Il y a délit en cas de faute caractérisée et qui exposait autrui à un risque d'une particulière gravité que l'auteur ne pouvait ignorer."
-       - <strong>Circulaire n° 2017-075 du 19 avril 2017 (Sécurité en EPS & APPN) :</strong> Obligation de moyens renforcée (consignes explicites, sécurisation active, anticipation des aléas du milieu).
-       - <strong>Note de service n° 86-101 du 5 mars 1986 (Transport d'élèves en véhicule)</strong> (si transport concerné).
-       - <strong>Circulaire n° 99-136 du 21 septembre 1999 (Sorties et voyages scolaires)</strong> (si sortie/voyage concerné).
+       - <strong>Circulaire n° 2017-075 du 19 avril 2017 :</strong> Obligation de moyens renforcée en EPS et APPN.
        - <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique :</strong> Droit à la Protection fonctionnelle accordée par le Recteur.
+       - (Ajouter Note 86-101 si transport, Circulaire 99-136 si sortie avec nuitée).
 
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
      * <strong>1. Qualification des responsabilités & Analyse des failles :</strong>
-       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4). Les parents ne peuvent pas attaquer directement le patrimoine personnel de l'enseignant ou du chef d'établissement devant le juge civil.
-       - <strong>Volet pénal :</strong> Analyser si les faits reprochés (ex: consignes uniquement orales, surveillance statique vs mobile, encadrement inadapté) caractérisent ou non une faute caractérisée au sens de la Loi Fauchon.
+       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4). Pas d'action recevable contre le patrimoine de l'agent.
+       - <strong>Volet pénal :</strong> Analyser si les faits précis caractérisent ou non une faute caractérisée au sens de la Loi Fauchon.
      * <strong>2. Démarches administratives concrètes (Feuille de route) :</strong>
-       - Génère UNIQUEMENT les démarches adaptées au statut détecté par l'audit (NE FAIS AUCUN TITRE CONDITIONNEL 'S'il s'agit de...').
-       - Si ACCIDENT_SURVENU : Rapport d'incident 100% factuel pour le chef d'établissement, déclaration d'accident scolaire, demande formelle de Protection fonctionnelle au Recteur par voie hiérarchique, communication assurée exclusivement par la direction.
-       - Si PROJET_EN_AMONT : Conditions suspensives à exiger avant signature du chef d'établissement (déclaration APPN iPackEPS vers IPR, taux d'encadrement qualifié conforme, 2e adulte par véhicule si > 4 élèves, Ordres de Mission avec autorisation de conduite, vote en CA).
+       - Si ACCIDENT_SURVENU : Rapport d'accident 100% factuel sous 48h au chef d'établissement, déclaration d'accident scolaire, demande de Protection fonctionnelle au Recteur par voie hiérarchique.
+       - Si PROJET_EN_AMONT : Conditions suspensives à exiger avant signature du chef d'établissement (taux d'encadrement, déclaration iPackEPS vers IPR, 2e adulte par véhicule si > 4 élèves, ordres de mission, vote CA).
 
 4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
-   - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4. Le CA5 N'EXISTE PAS au collège. Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
+   - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4 (le CA5 n'existe pas). Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
    - Lycée (Voie GT & Voie Pro) = **Attendus de Fin de Lycée (AFL)** ou AFLP en Bac Pro.
-   - Si un enseignant demande des AFL pour le collège, recadre immédiatement en rappelant qu'il s'agit d'AFC.
 5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
-   - AUCUN BAVARDAGE : Interdiction de commencer par des formules vagues.
    - GABARIT OBLIGATOIRE si question sur une APSA :
      * 📌 **Champ d'Apprentissage (CA) :** [Citer CA1, CA2, CA3, CA4 ou CA5]
      * 🎯 **Intitulé officiel BO :** [Intitulé exact du champ]
      * 📋 **Attendus officiels :** [Lister 2 ou 3 AFC (collège) ou AFL (lycée) extraits des documents]
-   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique » pour les activités hybrides (acrosport, gymnastique, cirque).
+   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique ».
 6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
-   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, saisir la note de l'APSA évaluée, et préciser que le commentaire circonstancié est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
-   - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).
+   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, saisir la note de l'APSA évaluée, commentaire circonstancié STRICTEMENT OBLIGATOIRE pour la CAHPN.
+   - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin.
    - Bac Pro : Clic préalable obligatoire sur le bouton [Choisir les AFLP] pour cocher les AFLP 3 à 6.
    - CAP : Protocole strict à 2 épreuves (rejet immédiat si 3 notes).
-   - Clôture de lot grisée : Nécessite 100 % des statuts saisis (vérifier toutes les pages du lot).
+   - Clôture de lot grisée : Nécessite 100 % des statuts saisis sur toutes les pages.
 7. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS (ONGLET IPACK) :
-   - Donner des étapes chronologiques, concrètes et numérotées avec l'arborescence exacte des menus et boutons (ex: [Dossiers] > [Dossier EPS] > [Classes] ou [Mes Élèves] > [Visualisation] > [Inaptitudes]).
+   - Donner des étapes chronologiques concrètes et numérotées avec l'arborescence exacte des menus.
 8. 📺 MENTION DES VIDÉOS :
-   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4"). Ne crée JAMAIS de lien Markdown local ou relatif vers un fichier .mp4.
-   - N'insère de lien Markdown [texte](https://...) QUE s'il s'agit d'une URL web absolue valide commençant par "https://".
-9. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la question est loufoque ou sans rapport avec l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4").
+9. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la demande sort de l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
                 try:
                     response = Settings.llm.complete(consigne_ia)
@@ -1011,9 +953,7 @@ DIRECTIVES COMPORTEMENTALES STRICTES :
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
-        # ======================================================================
-        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS (DEPUIS TEXTE FINAL)
-        # ======================================================================
+        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
                 st.session_state.messages_hub.append(

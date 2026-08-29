@@ -204,15 +204,6 @@ css_pur = """
         justify-content: center !important;
     }
     
-    div.element-container:has(.nettoyer-wrapper) + div.element-container button {
-        background-color: rgba(220, 38, 38, 0.45) !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(220, 38, 38, 0.6) !important;
-        border-radius: 8px !important;
-        width: 100% !important;
-        height: 38px !important;
-    }
-    
     .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
@@ -297,24 +288,23 @@ def obtenir_cle_fichier():
       mtimes.append(os.path.getmtime(chemin_textes))
     except:
       pass
-  for f_peda in ["base_pedagogique_edubase.txt", "matrice_AFL_lycee.txt"]:
+  for f_peda in [
+      "base_pedagogique_edubase.txt",
+      "matrice_AFL_lycee.txt",
+      "programmes_college_2015_carte_mentale.txt",
+  ]:
     if os.path.exists(f_peda):
       try:
         mtimes.append(os.path.getmtime(f_peda))
       except:
         pass
-  if os.path.exists("data/peda") and os.path.isdir("data/peda"):
-    try:
-      for f in os.listdir("data/peda"):
-        mtimes.append(os.path.getmtime(os.path.join("data/peda", f)))
-    except:
-      pass
-  if os.path.exists("data/examens") and os.path.isdir("data/examens"):
-    try:
-      for f in os.listdir("data/examens"):
-        mtimes.append(os.path.getmtime(os.path.join("data/examens", f)))
-    except:
-      pass
+  for dossier in ["data/peda", "data/examens", "data/ipack", "data/textes"]:
+    if os.path.exists(dossier) and os.path.isdir(dossier):
+      try:
+        for f in os.listdir(dossier):
+          mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
+      except:
+        pass
   return max(mtimes) if mtimes else 0.0
 
 
@@ -371,7 +361,7 @@ def initialiser_base_santorin(cle_fremt):
   docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
   docs_santorin.extend(charger_consignes_pierre())
   return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-      similarity_top_k=5
+      similarity_top_k=6
   )
 
 
@@ -427,7 +417,7 @@ def initialiser_base_peda(cle_fremt):
         Document(text="Base pédagogique vide", metadata={"source": "system"})
     )
   return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-      similarity_top_k=5
+      similarity_top_k=7
   )
 
 
@@ -436,6 +426,26 @@ retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = initialiser_base_peda(timestamp_fichier)
+
+
+def qualifier_requete_rag(prompt_brut, module_actif):
+  """Agent de pré-lecture IA : traduit l'intention humaine en une requête technique chirurgicale pour le RAG."""
+  prompt_analyse = f"""Tu es l'analyseur sémantique d'un moteur documentaire expert en Éducation Physique et Sportive (EPS).
+L'utilisateur a posé cette question dans le module « {module_actif} » :
+« {prompt_brut} »
+
+Ta mission :
+1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation de nuit Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs mot des parents).
+2. Identifie les logiciels ou cadres concernés dans la chaîne : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation.
+3. Reformule la question sous la forme de 4 à 8 mots-clés techniques exacts pour maximiser la pertinence de la recherche vectorielle.
+
+Renvoie UNIQUEMENT les mots-clés séparés par des espaces, sans phrase d'introduction ni ponctuation :"""
+  try:
+    mots_cles = Settings.llm.complete(prompt_analyse).text.strip()
+    return mots_cles if mots_cles else prompt_brut
+  except:
+    return prompt_brut
+
 
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR REHAUSSÉ
@@ -605,28 +615,11 @@ else:
   )
 
 # ======================================================================
-# 8. ZONE D'ACTION
+# 8. ZONE D'ACTION (ÉPURÉE & 100% LARGEUR)
 # ======================================================================
-col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
-with col_action_clear:
-  st.markdown('<div class="nettoyer-wrapper"></div>', unsafe_allow_html=True)
-  if st.button("🧹 Nettoyer", key="clear_all"):
-    st.cache_resource.clear()
-    st.session_state.messages_hub = []
-    st.rerun()
-
-with col_action_input:
-  prompt = st.chat_input(
-      "Posez votre question institutionnelle, technique ou juridique ici...",
-      key="chat_main",
-  )
-
-st.markdown(
-    """<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.5;">
-        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION n'oubliez pas de cliquer sur Nettoyer entre chaque question :</span>
-        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); margin-top: 4px;">Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span>
-    </div>""",
-    unsafe_allow_html=True,
+prompt = st.chat_input(
+    "Posez votre question institutionnelle, technique ou juridique ici...",
+    key="chat_main",
 )
 
 # ======================================================================
@@ -642,7 +635,7 @@ for m in st.session_state.messages_hub:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
-  # 🔄 AUTOMATISATION : On vide l'historique pour lancer chaque question proprement de zéro
+  # 🔄 AUTOMATISATION : Remise à zéro pour traiter chaque question de manière isolée
   st.session_state.messages_hub = []
 
   st.session_state.messages_hub.append({
@@ -656,7 +649,6 @@ if prompt:
     texte_brut = ""
     extraits_doc = ""
     badge, color_card = "INFORMATION", "general-card"
-    bloc_liens_dynamique = ""
 
     # Détermination textuelle du nom de l'onglet pour la phrase de contexte
     onglets_noms = {
@@ -682,17 +674,19 @@ if prompt:
     except:
       pass
 
-    # 🧠 AIGUILLEUR MINIMALISTE INTERCEPTANT UNIQUEMENT LES PANNES TECHNIQUES D'INTERFACE
+    # 🧠 AIGUILLEUR MINIMALISTE INTERCEPTANT UNIQUEMENT LES PANNES CRITIQUES BLOQUANTES
     intention = "AUCUN_BLINDAGE"
     if mode == "examens":
-      intent_prompt = f"""Tu es l'aiguilleur technique du Hub. Détermine l'intention de cette question : "{prompt}"
-            Sélectionne un mot-clé UNIQUEMENT si la question correspond strictement à l'une de ces pannes d'interface :
-            - CALENDRIER : Demande explicite de date limite ou fermeture nationale des serveurs.
-            - SANTORIN_ERREUR_VALIDATION : Le prof a déjà cliqué sur valider son lot et l'écran est bloqué/clos.
-            - SANTORIN_GRISE : Boutons ou crayons grisés, problème de co-évaluation/correction partagée (cadenas).
-            - JURY_REMPLACEMENT : Problème d'ordre de mission (OM), convocation Chorus ou prof remplaçant invisible.
-            - SUJET_SECOURS : Demande d'impression, de téléchargement ou de recherche de sujet d'examen ou sujet écrit de secours.
-            - AUCUN_BLINDAGE : TOUT LE RESTE (Réglementation, AFL, notation, dispense, inaptitude, cas d'élèves, élèves mutés, redoublants).
+      intent_prompt = f"""Tu es l'aiguilleur technique du Hub Examens EPS. Détermine l'intention : "{prompt}"
+            Sélectionne un mot-clé UNIQUEMENT parmi ceux-ci :
+            - DNB_COLLEGE : Toute question mentionnant le Brevet, DNB, collège, note d'examen collège, ou remontée DEC au collège.
+            - SUJET_SECOURS : Demande de sujet écrit, sujet papier, impression ou sujet de secours pour rattrapage.
+            - CAP_3_EPREUVES : Mention explicite de 3 épreuves ou 3 notes en CAP.
+            - CALENDRIER : Demande explicite de date limite pour le Lycée/Bac/Santorin (hors DNB).
+            - SANTORIN_ERREUR_VALIDATION : Le lot est déjà validé définitivement par le prof et l'écran est clos.
+            - SANTORIN_GRISE : Cases/crayons grisés, problème de co-évaluation simultanée (cadenas).
+            - JURY_REMPLACEMENT : Problème d'ordre de mission, convocation Chorus ou prof remplaçant non visible.
+            - AUCUN_BLINDAGE : Tout le reste (AFL, notation, dispense, inaptitude, élèves manquants Cyclades, cas particuliers).
             """
       try:
         intention = Settings.llm.complete(intent_prompt).text.strip()
@@ -700,139 +694,172 @@ if prompt:
         intention = "AUCUN_BLINDAGE"
     elif mode == "ipack":
       intent_prompt = f"""Tu es l'aiguilleur d'iPackEPS. Détermine l'intention : "{prompt}"
-            - IPACK_SSS : Le dossier SSS ou le bilan annuel est verrouillé en lecture seule by la direction.
+            - IPACK_SSS : Le dossier SSS ou le bilan annuel est verrouillé en lecture seule par la direction.
             - IPACK_GROUPES : Procédure pas-à-pas pour configurer les classes/groupes ou imports XML Pronote.
             - IPACK_NOUVEL_ELEVE : Procédure pour injecter un nouvel élève arrivant via SIÈCLE.
-            - AUCUN_BLINDAGE : Toute autre question générale.
+            - AUCUN_BLINDAGE : Toute autre question.
             """
       try:
         intention = Settings.llm.complete(intent_prompt).text.strip()
       except:
         intention = "AUCUN_BLINDAGE"
 
-    est_date_notes_direct = intention == "CALENDRIER"
+    est_dnb_direct = intention == "DNB_COLLEGE" or (
+        mode == "examens"
+        and ("dnb" in prompt.lower() or "brevet" in prompt.lower())
+    )
+    est_sujet_secours_direct = intention == "SUJET_SECOURS" or (
+        "sujet" in prompt.lower() and "secours" in prompt.lower()
+    )
+    est_cap_3epreuves_direct = intention == "CAP_3_EPREUVES" or (
+        mode == "examens"
+        and "cap" in prompt.lower()
+        and ("3 épreuves" in prompt.lower() or "3 notes" in prompt.lower())
+    )
+    est_date_notes_direct = intention == "CALENDRIER" and not est_dnb_direct
     est_erreur_validation_santorin = intention == "SANTORIN_ERREUR_VALIDATION"
     est_grise_direct = intention == "SANTORIN_GRISE"
     est_remplacement_reunion_direct = intention == "JURY_REMPLACEMENT"
-    est_sujet_secours_direct = intention == "SUJET_SECOURS"
     est_sss_direct = intention == "IPACK_SSS"
     st_groupes_direct = intention == "IPACK_GROUPES"
     est_nouvel_eleve_direct = intention == "IPACK_NOUVEL_ELEVE"
     est_tasa_direct = mode == "textes" and "tasa" in prompt.lower()
 
     est_cas_blindé_racine = (
-        est_date_notes_direct
+        est_dnb_direct
+        or est_sujet_secours_direct
+        or est_cap_3epreuves_direct
+        or est_date_notes_direct
         or est_erreur_validation_santorin
         or est_grise_direct
         or est_remplacement_reunion_direct
-        or est_sujet_secours_direct
         or est_sss_direct
         or st_groupes_direct
         or est_nouvel_eleve_direct
         or est_tasa_direct
     )
 
-    # Interrogation vectorielle RAG
+    # 🧠 PRE-PROCESSING SÉMANTIQUE & RECHERCHE VECTORIELLE RAG
     if openai_api_key and not est_cas_blindé_racine:
+      requete_ciblee = qualifier_requete_rag(prompt, mode)
       try:
         if mode == "examens":
-          for n in retriever_santorin.retrieve(prompt):
+          for n in retriever_santorin.retrieve(requete_ciblee):
             extraits_doc += f"{n.node.text}\n\n"
         elif mode == "ipack":
-          for n in retriever_ipack.retrieve(prompt):
+          for n in retriever_ipack.retrieve(requete_ciblee):
             extraits_doc += f"{n.node.text}\n\n"
         elif mode == "textes":
-          mot_cle_local = prompt.lower()
+          mot_cle_local = requete_ciblee.lower()
           for exp in expressions_inutiles:
             mot_cle_local = mot_cle_local.replace(exp, "")
           for n in retriever_textes.retrieve(
               mot_cle_local.strip()
               if len(mot_cle_local.strip()) > 2
-              else prompt
+              else requete_ciblee
           ):
             extraits_doc += f"{n.node.text}\n\n"
         elif mode == "peda":
-          for n in retriever_peda.retrieve(prompt):
+          for n in retriever_peda.retrieve(requete_ciblee):
             extraits_doc += f"{n.node.text}\n\n"
       except:
         pass
 
     # ======================================================================
-    # 🎯 ROUTAGE FINAL DU RENDU
+    # 🎯 ROUTAGE DU RENDU FINAL
     # ======================================================================
     if est_tasa_direct:
       texte_brut = extraits_doc
       badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
+    elif est_dnb_direct:
+      texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI NOTE D'EXAMEN SUR 20</h3>
+<ul>
+  <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
+  <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
+  <li><strong>Aucun protocole Santorin :</strong> Les collèges ne sont pas concernés par les remontées de notes sur Santorin ni par les dates limites d'examen de la DEC.</li>
+</ul>"""
+      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+    elif est_sujet_secours_direct:
+      texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
+<ul>
+  <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
+  <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs.</li>
+  <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
+</ul>"""
+      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+    elif est_cap_3epreuves_direct:
+      texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
+<ul>
+  <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
+  <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
+  <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
+</ul>"""
+      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
     elif est_date_notes_direct:
-      texte_brut = (
-          "<h3>📊 CALENDRIER & DATES DE REMISE DES NOTES</h3><strong>Statut"
-          " administratif : Spécificités académiques locales.</strong><br>Les"
-          " dates limites de saisie étant différentes pour chaque académie,"
-          " rapprochez-vous de vos coordonnateurs ou de votre secrétariat de"
-          " direction. Seuls les calendriers émis par la Division des Examens"
-          " et Concours (DEC) font foi."
-      )
+      texte_brut = """<h3>📊 CALENDRIER & DATES LIMITES SANTORIN 2026</h3>
+<strong>Statut administratif : Échéances officielles de clôture des serveurs.</strong><br>
+<ul>
+  <li><strong>Académie d'Aix-Marseille :</strong> 30 mai 2026 au soir.</li>
+  <li><strong>Académie de Créteil :</strong> 9 juin 2026 au soir.</li>
+  <li><strong>Établissements en Rythme Sud (AEFE / Hémisphère Sud) :</strong> Session décalée sur octobre / novembre / décembre (la date du 30 mai ne s'applique pas).</li>
+  <li><strong>Autres académies :</strong> Se référer impérativement au calendrier émis par votre Division des Examens et Concours (DEC).</li>
+</ul>"""
       badge, color_card = (
           ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"),
           ("santorin-card" if mode == "examens" else "general-card"),
       )
 
     elif est_erreur_validation_santorin:
-      texte_brut = """<h3>📊 EXAMENS & SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3><strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br><ul><li><strong>Étape 1 :</strong> Ne tentez pas de manipuler l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement (Chef d'établissement).</li><li><strong>Étape 2 :</strong> Le chef d'établissement doit contacter le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li><li>⚠️ Après arbitrage de la commission, le chef d'établissement déverrouille le lot informatique, permettant ainsi au professeur de saisir la note définitive arrêtée.</li></ul><br>📺 <strong>Tutoriel de déblocage :</strong> Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)"""
+      texte_brut = """<h3>📊 SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3>
+<strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br>
+<ul>
+  <li><strong>Étape 1 :</strong> Ne tentez pas de forcer l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement.</li>
+  <li><strong>Étape 2 :</strong> Le chef d'établissement contacte le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li>
+  <li><strong>Étape 3 :</strong> Après déblocage DEC, le chef d'établissement déverrouille le lot dans sa console, permettant à l'enseignant de rectifier la saisie.</li>
+</ul>
+<br>📺 <strong>Tutoriel de déblocage :</strong> Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)"""
       badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
     elif est_sss_direct:
-      texte_brut = (
-          "<h3>🛠️ IPACKEPS : DOSSIER SSS OU BILAN VERROUILLÉ</h3><strong>Statut"
-          " : Lecture seule absolue.</strong><br>Contactez immédiatement votre"
-          " Correspondant iPackEPS de bassin ou l'équipe des IA-IPR. Seuls ces"
-          " profils possèdent les droits master pour appliquer la commande"
-          " <strong>[Renvoyer en modification]</strong>."
-      )
+      texte_brut = """<h3>🛠️ IPACKEPS : DOSSIER SSS OU BILAN VERROUILLÉ</h3>
+<strong>Statut : Lecture seule absolue.</strong><br>
+Contactez immédiatement votre Correspondant iPackEPS de bassin ou l'équipe des IA-IPR. Seuls ces profils possèdent les droits master pour appliquer la commande <strong>[Renvoyer en modification]</strong>."""
       badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
     elif st_groupes_direct:
-      texte_brut = (
-          "<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>➔ Étape"
-          " 1 : Accédez au menu supérieur **[Dossiers]**.<br>➔ Étape 2 : Allez"
-          " dans **[Dossier EPS]** > **[Classes]** > **[Configuration des"
-          " Classes]**.<br>➔ Étape 3 : Importez le fichier d'extraction Pronote"
-          " ou SIÈCLE dans le module **[Mes Élèves]**.<br><br>📺"
-          " <strong>Tutoriels d'accompagnement :</strong>"
-          " Configuration_classes_import_eleves.mp4 et"
-          " affecter_eleves_dans_groupes.mp4"
-      )
+      texte_brut = """<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>
+<ul>
+  <li><strong>Étape 1 :</strong> Accédez au menu supérieur <strong>[Dossiers]</strong>.</li>
+  <li><strong>Étape 2 :</strong> Allez dans <strong>[Dossier EPS]</strong> > <strong>[Classes]</strong> > <strong>[Configuration des Classes]</strong>.</li>
+  <li><strong>Étape 3 :</strong> Importez le fichier d'extraction Pronote ou SIÈCLE dans le module <strong>[Mes Élèves]</strong>.</li>
+</ul>
+<br>📺 <strong>Tutoriels d'accompagnement :</strong> Configuration_classes_import_eleves.mp4 et affecter_eleves_dans_groupes.mp4"""
       badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
     elif est_nouvel_eleve_direct:
-      texte_brut = (
-          "<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>L'élève doit être"
-          " enregistré dans <strong>SIÈCLE</strong> par le secrétariat."
-          " Effectuez ensuite une mise à jour via un nouvel import XML/CSV"
-          " depuis Pronote pour l'intégrer automatiquement sans écraser vos"
-          " notes.<br><br>📺 <strong>Tutoriel d'accompagnement :</strong>"
-          " import_eleves_pronote.mp4"
-      )
+      texte_brut = """<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>
+L'élève doit être obligatoirement enregistré dans <strong>SIÈCLE</strong> par le secrétariat de direction.
+Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote pour l'intégrer automatiquement dans iPackEPS sans écraser vos notes existantes.
+<br><br>📺 <strong>Tutoriel d'accompagnement :</strong> import_eleves_pronote.mp4"""
       badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
 
     elif est_grise_direct:
-      texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS</h3><ul><li><strong>Correction partagée :</strong> Si un collègue édite le lot, l'interface bascule en lecture seule. <strong>Solution : Attendez qu'il ferme sa session Arena.</strong></li><li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom du candidat pour activer la grille de notation.</li></ul><br>📺 <strong>En cas de besoin de co-évaluation ou de transfert :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
+      texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS (CADENAS)</h3>
+<ul>
+  <li><strong>Correction partagée simultanée :</strong> Si un collègue co-évaluateur édite le lot, l'interface bascule automatiquement en lecture seule. <strong>Solution : Demandez-lui de fermer sa session Arena.</strong></li>
+  <li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom exact du candidat pour activer les curseurs d'AFL.</li>
+</ul>
+<br>📺 <strong>En cas de besoin de transfert de lot :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
       badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
     elif est_remplacement_reunion_direct:
-      texte_brut = (
-          "<h3>📊 EXAMENS : REMPLACEMENT EN JURY</h3>L'établissement doit"
-          " enregistrer la suppléance sur **Imag'in** et générer le PDF de"
-          " convocation. C'est ce clic technique qui transmet instantanément"
-          " vos droits d'écriture vers Santorin.<br><br>📺 <strong>Tutoriel de"
-          " gestion des convocations :</strong>"
-          " creer_convocations_enseignants.mp4"
-      )
-      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-
-    elif est_sujet_secours_direct:
-      texte_brut = """<h3>⚠️ CONFIGURATION EXAMEN : PAS DE SUJET ÉCRIT EN EPS</h3><strong>Règle de gestion nationale :</strong> En Éducation Physique et Sportive (CCF ou épreuve ponctuelle), il n'existe <strong>aucun sujet de secours papier ou écrit</strong> à télécharger ou à imprimer depuis iPackEPS ou Cyclades.<br><br><ul><li><strong>S'il s'agit d'un élève absent justifié (ABJ) :</strong> Il ne faut pas lui imprimer un sujet papier, mais organiser une <strong>Épreuve de substitution</strong> (rattrapage de l'évaluation motrice sur le terrain) avant le verrouillage des notes.</li><li><strong>S'il s'agit des grilles d'évaluation de l'équipe :</strong> Elles se trouvent dans votre projet pédagogique EPS d'établissement. Aucun sujet externe n'est fourni par la DEC.</li></ul>"""
+      texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY & DROITS SANTORIN</h3>
+Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Imag'in</strong> et IMPÉRATIVEMENT cliquer sur le picto <strong>[PDF]</strong> de la convocation. C'est cette action technique qui pousse instantanément l'identité et les droits d'écriture du professeur vers Santorin.
+<br><br>📺 <strong>Tutoriel de gestion des convocations :</strong> creer_convocations_enseignants.mp4"""
       badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
     else:
@@ -853,35 +880,46 @@ if prompt:
         )
       else:
         consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
-Réponds de façon claire, structurée et chirurgicale à l'enseignant en t'appuyant STRICTEMENT sur le contexte fourni.
+Tu réponds aux enseignants avec une précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
 
-CONTEXTE DE RÉFÉRENCE LOCAL (SOURCE DE VÉRITÉ ABSOLUE) :
+CONTEXTE DE RÉFÉRENCE SOUVERAIN (SOURCE DE VÉRITÉ ABSOLUE) :
 {extraits_doc}
 {verites_terrain_pierre}
 
-QUESTION DE L'ENSEIGNANT :
+QUESTION ORIGINALE DE L'ENSEIGNANT :
 {prompt}
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE OBLIGATOIRE (AÉRATION) : Interdiction formelle de fournir un bloc de texte compact ou une dissertation. Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
-2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ta réponse doit s'aligner à 100% sur les extraits fournis. Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si une action n'est pas explicitement mentionnée comme autorisée, considère-la comme interdite et renvoie vers l'arbitrage de la CAHPN ou du Chef d'établissement.
-3. 🛑 BLINDAGE COLLÈGE & DNB (PAS DE NOTE SUR 20 NI DE CCF) : Si la question porte sur le Brevet / Collège / DNB (notes d'examen, CCF, remontée à la DEC, date limite), rappelle IMMÉDIATEMENT qu'il n'existe AUCUNE épreuve d'examen terminale, AUCUN CCF et AUCUNE note sur 20 transmise à la DEC pour l'EPS. L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun sur le Livret Scolaire Unique (LSU).
-4. 🛑 RESPECT DES CYCLES & TERMINOLOGIE :
-   - Au Collège (Cycles 3 et 4) : Utilise EXCLUSIVEMENT les termes **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
-   - Au Lycée (Voie GT & Voie Pro) : Utilise les termes **Attendus de Fin de Lycée (AFL)** ou AFLP dans le cadre du CCF.
-5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) : Si la question concerne une APSA ou un champ d'apprentissage, ne prends AUCUNE initiative philosophique. Cite précisément les Champs d'Apprentissage officiels (CA1 à CA5) et les Attendus réglementaires extraits des programmes nationaux.
+1. 📐 FORMAT DE SORTIE : Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
+2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi à 100% sur les extraits fournis. N'invente aucune procédure. Si une information n'est pas dans le contexte, renvoie vers le Chef d'établissement ou la DEC.
+3. 🛑 CHAÎNE LOGISTIQUE & ÉLÈVES MANQUANTS DANS CYCLADES :
+   - Cause 1 : Candidat non inscrit dans la base administrative nationale SIÈCLE par le secrétariat de direction.
+   - Cause 2 : Élève présent mais « orphelin » non associé au protocole EPS. Le chef d'établissement doit injecter le fichier de groupes généré depuis iPackEPS (Generer_importer_fichier_groupes_cyclades.mp4) ou associer manuellement les élèves dans Cyclades (verification_affectation_protocoles_cyclades.mp4).
+   - Inaptes totaux : Aucune extraction Cyclades préalable, ils sont associés normalement et cochés « Inapte » dans Santorin.
+4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
+   - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4. Le CA5 N'EXISTE PAS au collège. Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
+   - Lycée (Voie GT & Voie Pro) = **Attendus de Fin de Lycée (AFL)** ou AFLP en Bac Pro.
+   - Si un enseignant demande des AFL pour le collège, recadre immédiatement en rappelant qu'il s'agit d'AFC.
+5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
+   - AUCUN BAVARDAGE : Interdiction de commencer par des formules vagues (« L'acrosport est effectivement... »).
+   - GABARIT OBLIGATOIRE si question sur une APSA :
+     * 📌 **Champ d'Apprentissage (CA) :** [Citer CA1, CA2, CA3, CA4 ou CA5]
+     * 🎯 **Intitulé officiel BO :** [Intitulé exact du champ]
+     * 📋 **Attendus officiels :** [Lister 2 ou 3 AFC (collège) ou AFL (lycée) extraits des documents]
+   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique » pour les activités hybrides (acrosport, gymnastique, cirque).
 6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
-   - Note Unique (Bac GT) : Si un élève n'a qu'une seule note valide (ex: DI+DI+14), cocher [Dispensé] sur les épreuves manquantes, saisir la note de l'APSA évaluée, et préciser qu'un commentaire circonstancié de justification est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
-   - Remplacement en jury : Rappeler que le Chef d'établissement doit impérativement cliquer sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).
-   - Bac Pro : Rappeler le clic préalable obligatoire sur le bouton [Choisir les AFLP] pour débloquer la saisie des AFLP 3 à 6.
-   - CAP : Rappeler que le protocole exige strictement 2 épreuves (rejet immédiat si 3 notes).
-   - Erreur après validation : Rappeler la procédure de [Renvoi en modification] demandée par le Chef d'établissement à la DEC (Deverrouiller_lots_santorin.mp4).
-7. 👥 CAS DES ÉLÈVES HORS-SIÈCLE : Distinguer obligatoirement les établissements sous contrat (actualisation SIÈCLE) et les structures non rattachées (CFA, GRETA, MFR, AEFE / Étranger) où l'absence de liste est normale (création manuelle des groupes dans iPack et association manuelle directe dans CYCLADES).
-8. 🌍 ÉTABLISSEMENTS À L'ÉTRANGER (RYTHME SUD) : Préciser que la date métropolitaine du 30 mai ne s'applique pas et renvoyer vers la session décalée d'octobre/décembre.
-9. 📺 MENTION DES VIDÉOS & LIENS :
-   - Pour les vidéos, écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : import_eleves_pronote.mp4"). Ne crée JAMAIS de lien cliquable Markdown vers un fichier local ou relatif (pas de [Tutoriel](nom.mp4)).
+   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, saisir la note de l'APSA évaluée, et préciser que le commentaire circonstancié est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
+   - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).
+   - Bac Pro : Clic préalable obligatoire sur le bouton [Choisir les AFLP] pour cocher les AFLP 3 à 6.
+   - CAP : Protocole strict à 2 épreuves (rejet immédiat si 3 notes).
+   - Clôture de lot grisée : Nécessite 100 % des statuts saisis (vérifier toutes les pages du lot).
+7. 👥 ÉTABLISSEMENTS HORS-SIÈCLE & ÉTRANGER (AEFE) :
+   - Inscription et association des candidats 100 % manuelles dans Cyclades (pas d'export iPack vers Cyclades).
+   - Rythme Sud : Session décalée en fin d'année civile (la date du 30 mai ne s'applique pas).
+8. 📺 MENTION DES VIDÉOS :
+   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4"). Ne crée JAMAIS de lien Markdown local ou relatif vers un fichier .mp4.
    - N'insère de lien Markdown [texte](https://...) QUE s'il s'agit d'une URL web absolue valide commençant par "https://".
-10. 🛑 BLINDAGE ANTI-PIÈGE / HORS-SUJET : Si la question de l'utilisateur est loufoque, provocatrice, ou totalement déconnectée de la gestion, de la réglementation, de la sécurité ou de la pédagogie de l'EPS, réponds STRICTEMENT cette phrase exacte et rien d'autre : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+9. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la question est loufoque ou sans rapport avec l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
         try:
           response = Settings.llm.complete(consigne_ia)

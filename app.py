@@ -807,58 +807,53 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
                 if mode == "textes":
                     directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Analyse s'il s'agit d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
-   - Rédige UNIQUEMENT avec ce plan strict :
+   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
+   - Rédige STRICTEMENT selon ce plan :
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
-     * Citer nommément les articles applicables au cas précis :
+     * Citer uniquement les articles directement pertinents parmi :
        - <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :</strong> "La responsabilité de l'État est substituée à celle des enseignants pour tous les dommages causés ou subis par les élèves sous leur surveillance."
        - <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon) :</strong> "Il y a délit en cas de faute caractérisée et qui exposait autrui à un risque d'une particulière gravité que l'auteur ne pouvait ignorer."
        - <strong>Circulaire n° 2017-075 du 19 avril 2017 :</strong> Obligation de moyens renforcée en EPS et APPN.
        - <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique :</strong> Droit à la Protection fonctionnelle accordée par le Recteur.
-       - (Ajouter Note 86-101 si transport, Circulaire 99-136 si sortie avec nuitée).
-
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités & Analyse des failles :</strong>
-       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4). Pas d'action recevable contre le patrimoine de l'agent.
-       - <strong>Volet pénal :</strong> Analyser si les faits précis caractérisent ou non une faute caractérisée au sens de la Loi Fauchon.
-     * <strong>2. Démarches administratives concrètes (Feuille de route) :</strong>
-       - Si ACCIDENT_SURVENU : Rapport d'accident 100% factuel sous 48h au chef d'établissement, déclaration d'accident scolaire, demande de Protection fonctionnelle au Recteur par voie hiérarchique.
-       - Si PROJET_EN_AMONT : Conditions suspensives à exiger avant signature du chef d'établissement (taux d'encadrement, déclaration iPackEPS vers IPR, 2e adulte par véhicule si > 4 élèves, ordres de mission, vote CA).
+     * <strong>1. Qualification des responsabilités :</strong>
+       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4).
+       - <strong>Volet pénal :</strong> Application concrète de la Loi Fauchon (faute caractérisée ou absence de faute).
+     * <strong>2. Démarches administratives concrètes :</strong>
+       - Rédige EXCLUSIVEMENT la liste d'actions adaptée au cas traité. Ne mentionne JAMAIS de titres conditionnels comme 'Si accident' ou 'Si projet'.
 """
                 elif mode == "examens":
                     directive_onglet = """
 3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-   - Interdiction absolue d'aborder la responsabilité civile/pénale ou les accidents.
-   - Si Note Unique Bac GT : Cocher [Dispensé] sur les 2 autres épreuves, saisir la note de l'APSA évaluée, et rappeler que le commentaire circonstancié pour la CAHPN est STRICTEMENT OBLIGATOIRE dans Santorin.
-   - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin.
-   - Bac Pro : Clic préalable obligatoire sur le bouton [Choisir les AFLP] pour cocher les AFLP 3 à 6.
-   - CAP : Protocole strict à 2 épreuves (rejet immédiat si 3 notes).
-   - Clôture de lot grisée : Nécessite 100 % des statuts saisis sur toutes les pages du lot.
+   - Traite UNIQUEMENT le cas précis posé dans la question. Ne récite JAMAIS les règles des autres examens ou situations non mentionnées.
+   - Si la question concerne une Note Unique au Bac GT : expliquer qu'il faut cocher [Dispensé] sur les 2 épreuves non passées, saisir la note réelle sur l'épreuve réalisée, et rappeler que le commentaire circonstancié est STRICTEMENT OBLIGATOIRE dans Santorin pour transmission à la CAHPN.
+   - Si la question concerne un jury/remplaçant : rappeler le clic [PDF] dans Imag'in.
+   - Si la question concerne le Bac Pro : mentionner le bouton [Choisir les AFLP].
+   - Si la question concerne le CAP : rappeler la règle stricte des 2 épreuves.
 """
                 elif mode == "ipack":
                     directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Interdiction absolue d'aborder la responsabilité civile/pénale ou les textes juridiques généraux.
-   - Donner des étapes chronologiques, concrètes et numérotées avec l'arborescence exacte des menus et boutons ([Dossiers] > [Dossier EPS] > [Classes] ou [Mes Élèves] > [Visualisation] > [Inaptitudes]).
+   - Donne uniquement des étapes chronologiques concrètes et numérotées avec l'arborescence des menus ([Dossiers] > [Dossier EPS] > [Classes]...).
 """
 
-                consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques de l'académie d'Aix-Marseille.
-Tu réponds avec une précision juridique et technique chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
+                consigne_ia = f"""Tu es l'assistant IA expert en Éducation Physique et Sportive (EPS), examens et réglementation juridique (académie d'Aix-Marseille).
+Réponds avec concision et précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
 
 CONTEXTE DOCUMENTAIRE SOUVERAIN :
 {extraits_doc}
 {verites_terrain_pierre}
 
-QUESTION ORIGINALE :
+QUESTION DE L'ENSEIGNANT :
 {prompt}
 
-DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE : Structure avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels du contexte. N'invoque jamais d'éléments absents de la question ou non pertinents (pas de mention de transport si la question porte sur une leçon sur place).
+DIRECTIVES DE RÉDACTION :
+1. 📐 FORMAT : Utilise des puces HTML (<ul>, <li>), des retours (<br>) et des mots-clés en gras (<strong>).
+2. 🔒 CONCISION & ANCRAGE : Réponds UNIQUEMENT à la question posée. N'ajoute aucune règle hors-sujet.
 {directive_onglet}
-4. 📺 MENTION DES VIDÉOS :
-   - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4").
-5. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la demande sort de l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+4. 📺 VIDÉOS : Ne cite un nom de vidéo (.mp4) QUE s'il correspond EXACTEMENT à la manipulation demandée et s'il est mentionné dans le contexte documentaire. Si aucune vidéo ne correspond au cas précis, n'en cite aucune.
+5. 🛑 HORS-SUJET : Si la demande ne concerne pas l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 """
                 try:
                     response = Settings.llm.complete(consigne_ia)

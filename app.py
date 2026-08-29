@@ -1,4 +1,3 @@
-import base64
 import os
 import re
 import streamlit as st
@@ -76,7 +75,6 @@ img_gauche = "image_7.png"
 img_eps = "image_6.png"
 img_droite = "image_5.png"
 img_fond = "image_8.png"
-img_carte = "Gemini_Generated_Image_123hco123hco123h.jpg"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
@@ -162,20 +160,20 @@ css_pur = f"""
         background-color: #1E293B; 
         border-radius: 6px !important; 
         padding: 8px 10px; 
-        box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     }}
-    .column-title-top .instruction {{ 
-        font-size: 11px !important; 
-        font-weight: 500; 
-        text-transform: uppercase; 
-        color: #94A3B8 !important; 
-        display: block; 
+    .column-title-top .instruction {{
+        font-size: 11px !important;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #94A3B8 !important;
+        display: block;
     }}
-    .column-title-top .mode-actuel {{ 
+    .column-title-top .mode-actuel {{
         font-size: 14px !important; 
         font-weight: 700; 
-        color: #FFFFFF !important; 
-        display: block; 
+        color: #FFFFFF !important;
+        display: block;
     }}
 
     button[kind="secondary"] {{ 
@@ -184,26 +182,26 @@ css_pur = f"""
         border: 1px solid rgba(255,255,255,0.05) !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        height: 60px !important; 
-        display: inline-flex !important; 
-        align-items: center !important; 
-        justify-content: center !important; 
-        text-align: center !important; 
+        height: 60px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
     }}
 
-    button[kind="primary"] {{ 
-        background-color: rgba(16, 185, 129, 0.85) !important; 
-        color: #FFFFFF !important; 
-        border: 1px solid #10B981 !important; 
+    button[kind="primary"] {{
+        background-color: rgba(16, 185, 129, 0.85) !important;
+        color: #FFFFFF !important;
+        border: 1px solid #10B981 !important;
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important; 
-        font-weight: 700 !important; 
-        height: 60px !important; 
-        display: inline-flex !important; 
-        align-items: center !important; 
-        justify-content: center !important; 
-        text-align: center !important; 
+        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important;
+        font-weight: 700 !important;
+        height: 60px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
     }}
     
     .santorin-card, .general-card, .securite-card {{ 
@@ -218,69 +216,27 @@ css_pur = f"""
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
     .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
     
-    .santorin-card h3, .general-card h3, .securite-card h3 {{ 
+    .santorin-card h3, .general-card h3, .securite-card h3 {{
         color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 16px !important; 
         font-weight: 800 !important; 
         text-transform: uppercase; 
     }}
-    .general-card h3 {{ color: #10B981 !important; }} 
-    .securite-card h3 {{ color: #FF9F43 !important; }} 
+    .general-card h3 {{ color: #10B981 !important; }}
+    .securite-card h3 {{ color: #FF9F43 !important; }}
 
-    .law-highlight {{ 
+    .law-highlight {{
         background-color: rgba(255, 176, 32, 0.12) !important; 
         color: #FFB020 !important; 
-        padding: 2px 6px; 
-        border-radius: 4px; 
-        border: 1px solid rgba(255, 176, 32, 0.4) !important; 
-        font-weight: 700 !important; 
-    }}
-
-    /* BADGE D'ATTRIBUTION FLOTTANT */
-    .badge-flottant-attribution {{
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 230px;
-        z-index: 999999;
-        border-radius: 8px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.45);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }}
-    .badge-flottant-attribution:hover {{
-        transform: scale(1.05);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.65);
-    }}
-    @media (max-width: 768px) {{
-        .badge-flottant-attribution {{
-            width: 140px;
-            bottom: 10px;
-            right: 10px;
-        }}
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 176, 32, 0.4) !important;
+        font-weight: 700 !important;
     }}
     </style> 
 """
 st.markdown(css_pur, unsafe_allow_html=True)
-
-
-# --- INJECTION DU BADGE FLOTTANT ---
-def afficher_badge_flottant(nom_fichier: str):
-    if os.path.exists(nom_fichier):
-        with open(nom_fichier, "rb") as f:
-            encoded = base64.b64encode(f.read()).decode("utf-8")
-        source_img = f"data:image/jpeg;base64,{encoded}"
-    else:
-        source_img = f"{github_url}{nom_fichier}"
-
-    st.markdown(
-        f'<img src="{source_img}" class="badge-flottant-attribution" alt="Attribution Hub IA EPS">',
-        unsafe_allow_html=True,
-    )
-
-
-afficher_badge_flottant(img_carte)
 
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
@@ -495,9 +451,7 @@ with col_b1:
         use_container_width=True,
         key="btn_ip",
         type=(
-            "primary"
-            if st.session_state.active_module == "ipack"
-            else "secondary"
+            "primary" if st.session_state.active_module == "ipack" else "secondary"
         ),
     ):
         st.session_state.active_module = "ipack"
@@ -616,13 +570,10 @@ if prompt:
                 "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
             ),
             "textes": (
-                "l'onglet Sécurité & Responsabilité Juridique (Textes"
-                " Officiels)"
+                "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)"
             ),
         }
-        contexte_choisi_nom = onglets_noms.get(
-            mode, "un onglet de l'application"
-        )
+        contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
         verites_terrain_pierre = ""
         try:
@@ -641,27 +592,16 @@ if prompt:
         est_dnb = mode == "examens" and any(
             w in p_low for w in ["dnb", "brevet", "collège", "college"]
         )
-        est_sujet_secours = "sujet" in p_low and any(
-            w in p_low for w in ["secours", "papier", "imprimer"]
+        est_sujet_secours = (
+            "sujet" in p_low
+            and any(w in p_low for w in ["secours", "papier", "imprimer"])
         )
-        est_cap_3epreuves = (
-            mode == "examens"
-            and "cap" in p_low
-            and any(
-                w in p_low
-                for w in [
-                    "3 épreuves",
-                    "3 notes",
-                    "trois épreuves",
-                    "trois notes",
-                ]
-            )
+        est_cap_3epreuves = mode == "examens" and "cap" in p_low and any(
+            w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]
         )
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        est_cas_direct = (
-            est_dnb or est_sujet_secours or est_cap_3epreuves or est_tasa
-        )
+        est_cas_direct = est_dnb or est_sujet_secours or est_cap_3epreuves or est_tasa
 
         # 🚀 RECHERCHE RAG PROFONDE
         if openai_api_key and not est_cas_direct:
@@ -729,10 +669,7 @@ if prompt:
             elif mode == "ipack":
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             else:
-                badge, color_card = (
-                    "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
-                    "securite-card",
-                )
+                badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
             directive_onglet = ""
             if mode == "textes":
@@ -822,10 +759,9 @@ DIRECTIVES DE RESTITUTION :
         )
 
         phrase_contexte = (
-            "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
-            " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
-            " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
-            f" question dans {contexte_choisi_nom}.</em></div>"
+            "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px;"
+            " border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:"
+            f" 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
         )
         formatted_answer = (
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'

@@ -437,8 +437,8 @@ L'utilisateur a posé cette question dans le module « {module_actif} » :
 « {prompt_brut} »
 
 Ta mission :
-1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation de nuit Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs mot des parents).
-2. Identifie les logiciels ou cadres concernés dans la chaîne : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation.
+1. Détecte le problème réel sous-jacent (ex: inscription SIÈCLE, élèves orphelins non associés à un protocole, synchronisation de nuit Cyclades/Santorin, droits Imag'in PDF, cadenas co-évaluation, AFC vs AFL, dispense vs mot des parents, accident vs sortie scolaire).
+2. Identifie les logiciels ou cadres concernés dans la chaîne : SIÈCLE, Pronote, iPackEPS, Cyclades, Imag'in, Santorin, LSU/DNB, Bac GT, Bac Pro, CAP, Code de l'éducation, Code pénal.
 3. Reformule la question sous la forme de 4 à 8 mots-clés techniques exacts pour maximiser la pertinence de la recherche vectorielle.
 
 Renvoie UNIQUEMENT les mots-clés séparés par des espaces, sans phrase d'introduction ni ponctuation :"""
@@ -617,7 +617,7 @@ else:
     )
 
 # ======================================================================
-# 8. ZONE D'ACTION (ÉPURÉE & 100% LARGEUR)
+# 8. ZONE D'ACTION
 # ======================================================================
 prompt = st.chat_input(
     "Posez votre question institutionnelle, technique ou juridique ici...",
@@ -637,7 +637,6 @@ for m in st.session_state.messages_hub:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
-    # 🔄 AUTOMATISATION : Remise à zéro pour traiter chaque question de manière isolée
     st.session_state.messages_hub = []
 
     st.session_state.messages_hub.append({
@@ -652,7 +651,6 @@ if prompt:
         extraits_doc = ""
         badge, color_card = "INFORMATION", "general-card"
 
-        # Détermination textuelle du nom de l'onglet pour la phrase de contexte
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
             "examens": (
@@ -882,55 +880,65 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
                 )
             else:
                 # ======================================================================
-                # 🧠 PASSE 1 : RÉFLEXION & AUDIT PRÉALABLE (UNIQUEMENT POUR LE MODULE TEXTES)
+                # 🧠 PASSE 1 : RÉFLEXION & AUDIT PRÉALABLE (PUR DIAGNOSTIC SANS EXEMPLES POLLUANTS)
                 # ======================================================================
                 audit_diagnostic = ""
                 if mode == "textes":
-                    prompt_audit = f"""Tu es un inspecteur expert en droit de l'éducation et sécurité en EPS.
-Analyse cette situation : "{prompt}"
+                    prompt_audit = f"""Tu es un inspecteur expert en droit de l'éducation et en sécurité EPS.
+Analyse la situation suivante posée par un enseignant ou un chef d'établissement :
+"{prompt}"
 
-RÉPONDS STRICTEMENT EN 4 POINTS TRÈS COURTS ET CONCRETS :
-1. TIMING : Est-ce un projet / voyage / sortie avant départ OU un accident / litige déjà survenu ?
-2. DÉFAILLANCES RÉELLES : Liste TOUTES les anomalies concrètes (ex: ratio falaise 1 prof/16 élèves, absence 2e adulte en minibus, pas de déclaration iPack APPN, pas d'ordre de mission, séjour étranger, etc.).
-3. RESPONSABILITÉS : Qui est engagé (Chef d'établissement / Enseignant) et sur quel plan (Pénal / Faute caractérisée / L. 911-4) ?
-4. DÉCISIONS REQUISES : Quelles sont les démarches exactes à imposer (signature à bloquer, régularisations, ou déclaration d'accident) ?"""
+Produis un diagnostic factuel et direct structuré ainsi :
+- TYPE_SITUATION : [Choisis STRICTEMENT : "ACCIDENT_SURVENU" ou "PROJET_EN_AMONT"]
+- FAILLE_ORGANISATION : [Identifie les manquements réels décrits dans la question : surveillance statique/active, consignes orales vs écrites/cartes, convention de site, qualification d'encadrement, matériel, autorisations, transport]
+- RESPONSABILITE_CIVILE : [Rappel de l'article L. 911-4 - substitution automatique de l'État]
+- RESPONSABILITE_PENALE : [Analyse de l'article 121-3 du Code pénal - existence ou non d'une faute caractérisée / imprudence]
+- ACTIONS_REQUISES : [Liste des démarches immédiates adaptées STRICTEMENT au TYPE_SITUATION détecté]"""
                     try:
                         audit_diagnostic = Settings.llm.complete(prompt_audit).text.strip()
                     except:
                         audit_diagnostic = ""
 
                 # ======================================================================
-                # ✍️ PASSE 2 : RÉDACTION OFFICIELLE STRUCTURÉE
+                # ✍️ PASSE 2 : RÉDACTION OFFICIELLE DYNAMIQUE ET SANS CONTAMINATION
                 # ======================================================================
                 consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
-Tu réponds aux enseignants avec une précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
+Tu réponds avec une précision juridique chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
 
-CONTEXTE DE RÉFÉRENCE SOUVERAIN (SOURCE DE VÉRITÉ ABSOLUE) :
+CONTEXTE DOCUMENTAIRE SOUVERAIN :
 {extraits_doc}
 {verites_terrain_pierre}
 
-DIAGNOSTIC DE L'AUDIT PRÉALABLE (EXCLUSIF SÉCURITÉ/TEXTES) :
+DIAGNOSTIC DE L'AUDIT PRÉALABLE :
 {audit_diagnostic}
 
-QUESTION ORIGINALE DE L'ENSEIGNANT :
+QUESTION ORIGINALE :
 {prompt}
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE : Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi à 100% sur les extraits fournis et le diagnostic d'audit. N'invente aucune procédure. Si une information n'est pas dans le contexte, renvoie vers le Chef d'établissement ou la DEC.
+1. 📐 FORMAT DE SORTIE : Structure avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
+2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels et le diagnostic d'audit. N'invoque jamais d'éléments absents de la question ou non pertinents.
 
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE ("textes") :
-   - Structure OBLIGATOIREMENT la réponse selon ce gabarit dynamique en exploitant à 100% le diagnostic de l'audit :
+   - Rédige la réponse selon ce gabarit strict en exploitant les conclusions de l'audit :
 
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
-     * Pour chaque texte pertinent au cas, citer l'article ET sa source exacte (ex : <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937)</strong>, <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon)</strong>, <strong>Circulaire n° 2017-075 du 19 avril 2017 (Sécurité en EPS & APPN)</strong>, <strong>Note de service n° 86-101 du 5 mars 1986 (Transport d'élèves en véhicule)</strong>, <strong>Circulaire n° 99-136 du 21 septembre 1999 (Sorties et voyages scolaires)</strong>, <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique (Protection fonctionnelle)</strong>).
-     * Accompagner chaque texte de son extrait ou principe légal clé entre guillemets.
+     * Citer nommément les articles et leurs sources exactes applicables au cas précis :
+       - <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :</strong> "La responsabilité de l'État est substituée à celle des enseignants pour tous les dommages causés ou subis par les élèves sous leur surveillance."
+       - <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon) :</strong> "Il y a délit en cas de faute caractérisée et qui exposait autrui à un risque d'une particulière gravité que l'auteur ne pouvait ignorer."
+       - <strong>Circulaire n° 2017-075 du 19 avril 2017 (Sécurité en EPS & APPN) :</strong> Obligation de moyens renforcée (consignes explicites, sécurisation active, anticipation des aléas du milieu).
+       - <strong>Note de service n° 86-101 du 5 mars 1986 (Transport d'élèves en véhicule)</strong> (si transport concerné).
+       - <strong>Circulaire n° 99-136 du 21 septembre 1999 (Sorties et voyages scolaires)</strong> (si sortie/voyage concerné).
+       - <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique :</strong> Droit à la Protection fonctionnelle accordée par le Recteur.
 
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Audit des défaillances & Analyse des risques :</strong> Passer au crible TOUS les éléments concrets de la situation (qualifications d'encadrement réelles sur le terrain vs accompagnateurs passifs, ratio en milieu spécifique/falaise, conditions de transport/minibus et surveillance à bord, chaîne de déclaration administrative et assurances).
+     * <strong>1. Qualification des responsabilités & Analyse des failles :</strong>
+       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4). Les parents ne peuvent pas attaquer directement le patrimoine personnel de l'enseignant ou du chef d'établissement devant le juge civil.
+       - <strong>Volet pénal :</strong> Analyser si les faits reprochés (ex: consignes uniquement orales, surveillance statique vs mobile, encadrement inadapté) caractérisent ou non une faute caractérisée au sens de la Loi Fauchon.
      * <strong>2. Démarches administratives concrètes (Feuille de route) :</strong>
-       - S'IL S'AGIT D'UN PROJET / VOYAGE / SORTIE EN PRÉPARATION : Donner le plan d'action de régularisation obligatoire AVANT signature du chef d'établissement (ex: saisie de la déclaration APPN en milieu spécifique sur iPackEPS / validation IPR, présence d'un adulte surveillant en plus du conducteur par véhicule, formalisation des Ordres de Mission avec autorisation de conduire un véhicule loué, vote obligatoire au Conseil d'Administration, ajout d'un encadrant escalade certifié ou réduction d'effectif).
-       - S'IL S'AGIT D'UN ACCIDENT / LITIGE DÉJÀ SURVENU : Détailler la procédure post-sinistre (rapport circonstancié factuel, déclaration d'accident scolaire, demande de protection fonctionnelle au Recteur, communication via la direction).
+       - Génère UNIQUEMENT les démarches adaptées au statut détecté par l'audit (NE FAIS AUCUN TITRE CONDITIONNEL 'S'il s'agit de...').
+       - Si ACCIDENT_SURVENU : Rapport d'incident 100% factuel pour le chef d'établissement, déclaration d'accident scolaire, demande formelle de Protection fonctionnelle au Recteur par voie hiérarchique, communication assurée exclusivement par la direction.
+       - Si PROJET_EN_AMONT : Conditions suspensives à exiger avant signature du chef d'établissement (déclaration APPN iPackEPS vers IPR, taux d'encadrement qualifié conforme, 2e adulte par véhicule si > 4 élèves, Ordres de Mission avec autorisation de conduite, vote en CA).
 
 4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
    - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4. Le CA5 N'EXISTE PAS au collège. Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
@@ -989,7 +997,6 @@ DIRECTIVES COMPORTEMENTALES STRICTES :
             .replace(chr(10), "<br>")
         )
 
-        # Construction de la réponse avec la phrase de contexte en premier plan
         phrase_contexte = (
             "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px;"
             " border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:"

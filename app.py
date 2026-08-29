@@ -80,7 +80,7 @@ github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAM
 
 css_pur = f"""
     <style>
-    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card *, .peda-card, .peda-card * {{ 
+    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card * {{ 
         color: #FFFFFF !important;  
     }}
 
@@ -204,7 +204,7 @@ css_pur = f"""
         text-align: center !important;
     }}
     
-    .santorin-card, .general-card, .securite-card, .peda-card {{ 
+    .santorin-card, .general-card, .securite-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
         -webkit-backdrop-filter: blur(12px) !important; 
@@ -215,16 +215,14 @@ css_pur = f"""
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
     .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
-    .peda-card {{ border-left: 6px solid #FFA502 !important; }} 
     
-    .santorin-card h3, .general-card h3, .securite-card h3, .peda-card h3 {{
+    .santorin-card h3, .general-card h3, .securite-card h3 {{
         color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 16px !important; 
         font-weight: 800 !important; 
         text-transform: uppercase; 
     }}
-    .peda-card h3 {{ color: #FFA502 !important; }}
     .general-card h3 {{ color: #10B981 !important; }}
     .securite-card h3 {{ color: #FF9F43 !important; }}
 
@@ -285,17 +283,7 @@ def obtenir_cle_fichier():
             mtimes.append(os.path.getmtime(chemin_textes))
         except Exception:
             pass
-    for f_peda in [
-        "base_pedagogique_edubase.txt",
-        "matrice_AFL_lycee.txt",
-        "programmes_college_2015_carte_mentale.txt",
-    ]:
-        if os.path.exists(f_peda):
-            try:
-                mtimes.append(os.path.getmtime(f_peda))
-            except Exception:
-                pass
-    for dossier in ["data/peda", "data/examens", "data/ipack", "data/textes"]:
+    for dossier in ["data/examens", "data/ipack", "data/textes"]:
         if os.path.exists(dossier) and os.path.isdir(dossier):
             try:
                 for f in os.listdir(dossier):
@@ -410,23 +398,10 @@ def initialiser_base_textes(cle_fremt):
     )
 
 
-@st.cache_resource
-def initialiser_base_peda(cle_fremt):
-    docs_peda = charger_dossier_txt_securise("data/peda")
-    if not docs_peda:
-        docs_peda.append(
-            Document(text="Base pédagogique vide", metadata={"source": "system"})
-        )
-    return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-        similarity_top_k=3
-    )
-
-
 timestamp_fichier = obtenir_cle_fichier()
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
-retriever_peda = initialiser_base_peda(timestamp_fichier)
 
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR REHAUSSÉ
@@ -465,9 +440,6 @@ label_titres = {
         "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées &"
         " Jurys)"
     ),
-    "peda": (
-        "🔍 Mode Actif : Les programmes (Référentiels, CA & BO)"
-    ),
     "textes": (
         "🔒 Mode Actif : SÉCURITÉ & Responsabilité Juridique (Textes Officiels &"
         " Risques APPN)"
@@ -486,9 +458,9 @@ st.markdown(
 )
 
 # ======================================================================
-# 7. BOUTONS DE CONTEXTE
+# 7. BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================
-col_b1, col_b2, col_b3, col_b4 = st.columns(4, gap="small")
+col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 with col_b1:
     if st.button(
         "🛠️ iPackEPS",
@@ -517,18 +489,6 @@ with col_b2:
         st.rerun()
 with col_b3:
     if st.button(
-        "🔍 Les programmes",
-        use_container_width=True,
-        key="btn_ge",
-        type=(
-            "primary" if st.session_state.active_module == "peda" else "secondary"
-        ),
-    ):
-        st.session_state.active_module = "peda"
-        st.session_state.messages_hub = []
-        st.rerun()
-with col_b4:
-    if st.button(
         "🔒 Sécurité &\nCadres Règl.",
         use_container_width=True,
         key="btn_se",
@@ -551,17 +511,6 @@ if st.session_state.active_module == "textes":
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
             ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
-        </span>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-elif st.session_state.active_module == "peda":
-    st.markdown(
-        """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            💡 <strong>Rappel Institutionnel :</strong> Cet onglet extrait exclusivement les Champs d'Apprentissage (CA), compétences et Attendus des Bulletins Officiels (BO). La liberté pédagogique reste sous l'entière responsabilité des équipes d'établissement.
         </span>
     </div>
     """,
@@ -636,7 +585,6 @@ if prompt:
             "examens": (
                 "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
             ),
-            "peda": "l'onglet Les programmes (Référentiels, CA & BO)",
             "textes": (
                 "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)"
             ),
@@ -668,7 +616,16 @@ if prompt:
             w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]
         )
         est_date_notes = (
-            any(w in p_low for w in ["date limite", "calendrier", "clôture", "fermeture"])
+            any(
+                w in p_low
+                for w in [
+                    "date limite",
+                    "calendrier santorin",
+                    "clôture des serveurs",
+                    "fermeture des serveurs",
+                    "date de clôture",
+                ]
+            )
             and not est_dnb
         )
         est_erreur_val_santorin = mode == "examens" and any(
@@ -719,9 +676,6 @@ if prompt:
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
                     for n in retriever_textes.retrieve(requete_epuree):
-                        extraits_doc += f"{n.node.text}\n\n"
-                elif mode == "peda":
-                    for n in retriever_peda.retrieve(requete_epuree):
                         extraits_doc += f"{n.node.text}\n\n"
             except Exception:
                 pass
@@ -839,10 +793,8 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             elif mode == "ipack":
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-            elif mode == "textes":
-                badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
             else:
-                badge, color_card = "🔍 LES PROGRAMMES", "peda-card"
+                badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
             if mode == "examens" and not extraits_doc.strip():
                 texte_brut = (
@@ -851,24 +803,12 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
                     " votre direction ou de votre IA-IPR EPS."
                 )
             else:
-                consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
-Tu réponds avec une précision juridique chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
-
-CONTEXTE DOCUMENTAIRE SOUVERAIN :
-{extraits_doc}
-{verites_terrain_pierre}
-
-QUESTION ORIGINALE :
-{prompt}
-
-DIRECTIVES COMPORTEMENTALES STRICTES :
-1. 📐 FORMAT DE SORTIE : Structure avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels du contexte. N'invoque jamais d'éléments absents de la question ou non pertinents (pas de mention de transport si la question porte sur une leçon sur place).
-
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE ("textes") :
-   - Effectue d'abord un raisonnement interne pour déterminer s'il s'agit d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
-   - Rédige la réponse selon ce gabarit strict :
-
+                directive_onglet = ""
+                if mode == "textes":
+                    directive_onglet = """
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
+   - Analyse s'il s'agit d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
+   - Rédige UNIQUEMENT avec ce plan strict :
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
      * Citer nommément les articles applicables au cas précis :
        - <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :</strong> "La responsabilité de l'État est substituée à celle des enseignants pour tous les dommages causés ou subis par les élèves sous leur surveillance."
@@ -884,27 +824,41 @@ DIRECTIVES COMPORTEMENTALES STRICTES :
      * <strong>2. Démarches administratives concrètes (Feuille de route) :</strong>
        - Si ACCIDENT_SURVENU : Rapport d'accident 100% factuel sous 48h au chef d'établissement, déclaration d'accident scolaire, demande de Protection fonctionnelle au Recteur par voie hiérarchique.
        - Si PROJET_EN_AMONT : Conditions suspensives à exiger avant signature du chef d'établissement (taux d'encadrement, déclaration iPackEPS vers IPR, 2e adulte par véhicule si > 4 élèves, ordres de mission, vote CA).
-
-4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
-   - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4 (le CA5 n'existe pas). Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
-   - Lycée (Voie GT & Voie Pro) = **Attendus de Fin de Lycée (AFL)** ou AFLP en Bac Pro.
-5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
-   - GABARIT OBLIGATOIRE si question sur une APSA :
-     * 📌 **Champ d'Apprentissage (CA) :** [Citer CA1, CA2, CA3, CA4 ou CA5]
-     * 🎯 **Intitulé officiel BO :** [Intitulé exact du champ]
-     * 📋 **Attendus officiels :** [Lister 2 ou 3 AFC (collège) ou AFL (lycée) extraits des documents]
-   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique ».
-6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
-   - Note Unique (Bac GT) : Cocher [Dispensé] sur les 2 épreuves non évaluées, saisir la note de l'APSA évaluée, commentaire circonstancié STRICTEMENT OBLIGATOIRE pour la CAHPN.
+"""
+                elif mode == "examens":
+                    directive_onglet = """
+3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+   - Interdiction absolue d'aborder la responsabilité civile/pénale ou les accidents.
+   - Si Note Unique Bac GT : Cocher [Dispensé] sur les 2 autres épreuves, saisir la note de l'APSA évaluée, et rappeler que le commentaire circonstancié pour la CAHPN est STRICTEMENT OBLIGATOIRE dans Santorin.
    - Remplacement en jury : Clic obligatoire sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin.
    - Bac Pro : Clic préalable obligatoire sur le bouton [Choisir les AFLP] pour cocher les AFLP 3 à 6.
    - CAP : Protocole strict à 2 épreuves (rejet immédiat si 3 notes).
-   - Clôture de lot grisée : Nécessite 100 % des statuts saisis sur toutes les pages.
-7. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS (ONGLET IPACK) :
-   - Donner des étapes chronologiques concrètes et numérotées avec l'arborescence exacte des menus.
-8. 📺 MENTION DES VIDÉOS :
+   - Clôture de lot grisée : Nécessite 100 % des statuts saisis sur toutes les pages du lot.
+"""
+                elif mode == "ipack":
+                    directive_onglet = """
+3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
+   - Interdiction absolue d'aborder la responsabilité civile/pénale ou les textes juridiques généraux.
+   - Donner des étapes chronologiques, concrètes et numérotées avec l'arborescence exacte des menus et boutons ([Dossiers] > [Dossier EPS] > [Classes] ou [Mes Élèves] > [Visualisation] > [Inaptitudes]).
+"""
+
+                consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques de l'académie d'Aix-Marseille.
+Tu réponds avec une précision juridique et technique chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
+
+CONTEXTE DOCUMENTAIRE SOUVERAIN :
+{extraits_doc}
+{verites_terrain_pierre}
+
+QUESTION ORIGINALE :
+{prompt}
+
+DIRECTIVES COMPORTEMENTALES STRICTES :
+1. 📐 FORMAT DE SORTIE : Structure avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
+2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi sur les textes officiels du contexte. N'invoque jamais d'éléments absents de la question ou non pertinents (pas de mention de transport si la question porte sur une leçon sur place).
+{directive_onglet}
+4. 📺 MENTION DES VIDÉOS :
    - Écris UNIQUEMENT le nom du fichier en texte brut (ex : "📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4").
-9. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la demande sort de l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
+5. 🛑 BLINDAGE ANTI-HORS-SUJET : Si la demande sort de l'EPS, réponds STRICTEMENT : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline. Votre demande sort du cadre d'exercice et de certification des enseignants d'Éducation Physique et Sportive."
 """
                 try:
                     response = Settings.llm.complete(consigne_ia)

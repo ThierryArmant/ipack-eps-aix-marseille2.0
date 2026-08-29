@@ -769,6 +769,14 @@ DIRECTIVES DE RESTITUTION :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
+        # 🧹 NETTOYAGE STRICT : suppression de toute mention parasite "Tutoriel associé : Aucun"
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
         # Traitements de surface et filtres regex
         texte_brut = re.sub(
             r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"

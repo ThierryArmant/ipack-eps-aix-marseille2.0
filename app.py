@@ -8,19 +8,20 @@ from llama_index.llms.openai import OpenAI
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
-VIDEOS_TUTOS = {
-    "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
-    "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
-    "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
-    "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",
-    "verification_affectation_protocoles_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4",
-    "creer_convocations_enseignants.mp4": "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4",
-    "Distribution_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4",
-    "Distribution_manuelle_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4",
-    "Saisie_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4",
-    "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
-    "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
-    "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
+4. 📺 TUTO VIDÉO : Si la question correspond à l'un de ces fichiers exacts :
+   - import_eleves_pronote.mp4
+   - Configuration_classes_import_eleves.mp4
+   - affecter_eleves_dans_groupes.mp4
+   - Generer_importer_fichier_groupes_cyclades.mp4
+   - verification_affectation_protocoles_cyclades.mp4
+   - creer_convocations_enseignants.mp4
+   - Distribution_lots_santorin.mp4
+   - Distribution_manuelle_lots_santorin.mp4
+   - Saisie_notes_Santorin.mp4
+   - Verrouiller_lot_santorin.mp4
+   - Deverrouiller_lots_santorin.mp4
+   - Ajouter_evaluateur_lot_santorin.mp4
+   Cite STRICTEMENT son nom sans le modifier (ex : 📺 Tutoriel associé : Saisie_notes_Santorin.mp4). Sinon, n'en cite aucun.
 }
 
 # ======================================================================

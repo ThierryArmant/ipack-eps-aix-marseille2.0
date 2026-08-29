@@ -721,8 +721,8 @@ DIRECTIVES DE RESTITUTION :
    - Verrouiller_lot_santorin.mp4
    - Deverrouiller_lots_santorin.mp4
    - Ajouter_evaluateur_lot_santorin.mp4
-   Tu DOIS écrire textuellement à la fin de la réponse : "📺 Tutoriel associé : [nom_exact_du_fichier.mp4]".
-   Si aucun de ces fichiers ne correspond, n'écris AUCUNE mention de vidéo.
+   Tu DOIS écrire textuellement à la fin de la réponse : "📺 Tutoriel associé : nom_du_fichier.mp4".
+   Si aucun de ces fichiers ne correspond, termine immédiatement ta réponse sans ajouter de ligne finale (ne JAMAIS écrire le mot 'tutoriel', ni 'aucun').
 5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 """
             try:

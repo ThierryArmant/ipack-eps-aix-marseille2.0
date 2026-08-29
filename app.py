@@ -1,12 +1,12 @@
 import os
 import re
+import pandas as pd
+import requests
+import streamlit as st
 from llama_index.core import Document, Settings, SimpleDirectoryReader, VectorStoreIndex
 from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
-import pandas as pd
-import requests
-import streamlit as st
 
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
@@ -30,7 +30,9 @@ VIDEOS_TUTOS = {
 # 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
 # ======================================================================
 st.set_page_config(
-    page_title="Hub IA - EPS", layout="wide", initial_sidebar_state="collapsed"
+    page_title="Hub IA - EPS",
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
 # ======================================================================
@@ -879,6 +881,27 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
                     " de votre IA-IPR EPS."
                 )
             else:
+                # ======================================================================
+                # 🧠 PASSE 1 : RÉFLEXION & AUDIT PRÉALABLE (UNIQUEMENT POUR LE MODULE TEXTES)
+                # ======================================================================
+                audit_diagnostic = ""
+                if mode == "textes":
+                    prompt_audit = f"""Tu es un inspecteur expert en droit de l'éducation et sécurité en EPS.
+Analyse cette situation : "{prompt}"
+
+RÉPONDS STRICTEMENT EN 4 POINTS TRÈS COURTS ET CONCRETS :
+1. TIMING : Est-ce un projet / voyage / sortie avant départ OU un accident / litige déjà survenu ?
+2. DÉFAILLANCES RÉELLES : Liste TOUTES les anomalies concrètes (ex: ratio falaise 1 prof/16 élèves, absence 2e adulte en minibus, pas de déclaration iPack APPN, pas d'ordre de mission, séjour étranger, etc.).
+3. RESPONSABILITÉS : Qui est engagé (Chef d'établissement / Enseignant) et sur quel plan (Pénal / Faute caractérisée / L. 911-4) ?
+4. DÉCISIONS REQUISES : Quelles sont les démarches exactes à imposer (signature à bloquer, régularisations, ou déclaration d'accident) ?"""
+                    try:
+                        audit_diagnostic = Settings.llm.complete(prompt_audit).text.strip()
+                    except:
+                        audit_diagnostic = ""
+
+                # ======================================================================
+                # ✍️ PASSE 2 : RÉDACTION OFFICIELLE STRUCTURÉE
+                # ======================================================================
                 consigne_ia = f"""Tu es l'assistant IA référent expert pour l'Éducation Physique et Sportive (EPS), la réglementation des examens, les textes juridiques et les programmes officiels de l'académie d'Aix-Marseille.
 Tu réponds aux enseignants avec une précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
 
@@ -886,26 +909,28 @@ CONTEXTE DE RÉFÉRENCE SOUVERAIN (SOURCE DE VÉRITÉ ABSOLUE) :
 {extraits_doc}
 {verites_terrain_pierre}
 
+DIAGNOSTIC DE L'AUDIT PRÉALABLE (EXCLUSIF SÉCURITÉ/TEXTES) :
+{audit_diagnostic}
+
 QUESTION ORIGINALE DE L'ENSEIGNANT :
 {prompt}
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
 1. 📐 FORMAT DE SORTIE : Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>). Prohibe les blocs de texte compacts.
-2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi à 100% sur les extraits fournis. N'invente aucune procédure. Si une information n'est pas dans le contexte, renvoie vers le Chef d'établissement ou la DEC.
+2. 🔒 PRINCIPE D'ANCRAGE RAG ABSOLU : Appuie-toi à 100% sur les extraits fournis et le diagnostic d'audit. N'invente aucune procédure. Si une information n'est pas dans le contexte, renvoie vers le Chef d'établissement ou la DEC.
+
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE ("textes") :
-   - Structure OBLIGATOIREMENT la réponse selon ce gabarit strict en deux parties :
+   - Structure OBLIGATOIREMENT la réponse selon ce gabarit dynamique en exploitant à 100% le diagnostic de l'audit :
 
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
-     * Pour chaque texte cité, mentionner SYSTÉMATIQUEMENT l'article ET son texte source complet (ex : <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937)</strong>, <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon)</strong>, <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique (Protection fonctionnelle)</strong>, <strong>Circulaire n° 2017-075 du 19 avril 2017 (Sécurité en EPS)</strong>).
-     * Accompagner chaque texte de son principe juridique clé ou d'un court extrait entre guillemets pour expliciter son effet légal direct (ex: substitution de l'État au civil, faute caractérisée au pénal, obligation de moyens renforcée).
+     * Pour chaque texte pertinent au cas, citer l'article ET sa source exacte (ex : <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937)</strong>, <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon)</strong>, <strong>Circulaire n° 2017-075 du 19 avril 2017 (Sécurité en EPS & APPN)</strong>, <strong>Note de service n° 86-101 du 5 mars 1986 (Transport d'élèves en véhicule)</strong>, <strong>Circulaire n° 99-136 du 21 septembre 1999 (Sorties et voyages scolaires)</strong>, <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique (Protection fonctionnelle)</strong>).
+     * Accompagner chaque texte de son extrait ou principe légal clé entre guillemets.
 
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification & responsabilités :</strong> Distinguer nettement le volet civil (écran total de l'État, irrecevabilité de l'action directe contre l'enseignant) du volet pénal (responsabilité personnelle n'existant qu'en cas de faute caractérisée ou d'imprudence délibérée).
-     * <strong>2. Démarches administratives immédiates (Feuille de route) :</strong>
-       - Rédaction d'un rapport d'incident circonstancié 100 % factuel (sans aveu ni culpabilisation).
-       - Transmission immédiate au chef d'établissement pour déclaration d'accident scolaire.
-       - Demande formelle de <strong>Protection fonctionnelle</strong> par voie hiérarchique au Recteur d'académie.
-       - Posture de communication : neutralité et renvoi systématique des parents vers la direction.
+     * <strong>1. Audit des défaillances & Analyse des risques :</strong> Passer au crible TOUS les éléments concrets de la situation (qualifications d'encadrement réelles sur le terrain vs accompagnateurs passifs, ratio en milieu spécifique/falaise, conditions de transport/minibus et surveillance à bord, chaîne de déclaration administrative et assurances).
+     * <strong>2. Démarches administratives concrètes (Feuille de route) :</strong>
+       - S'IL S'AGIT D'UN PROJET / VOYAGE / SORTIE EN PRÉPARATION : Donner le plan d'action de régularisation obligatoire AVANT signature du chef d'établissement (ex: saisie de la déclaration APPN en milieu spécifique sur iPackEPS / validation IPR, présence d'un adulte surveillant en plus du conducteur par véhicule, formalisation des Ordres de Mission avec autorisation de conduire un véhicule loué, vote obligatoire au Conseil d'Administration, ajout d'un encadrant escalade certifié ou réduction d'effectif).
+       - S'IL S'AGIT D'UN ACCIDENT / LITIGE DÉJÀ SURVENU : Détailler la procédure post-sinistre (rapport circonstancié factuel, déclaration d'accident scolaire, demande de protection fonctionnelle au Recteur, communication via la direction).
 
 4. 🛑 RESPECT STRICT DES CYCLES & VOCABULAIRE :
    - Collège (Cycles 3 et 4) = Uniquement CA1, CA2, CA3 et CA4. Le CA5 N'EXISTE PAS au collège. Termes exclusifs : **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.

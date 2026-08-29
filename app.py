@@ -1,4 +1,3 @@
-import base64
 import os
 import re
 import streamlit as st
@@ -76,7 +75,6 @@ img_gauche = "image_7.png"
 img_eps = "image_6.png"
 img_droite = "image_5.png"
 img_fond = "image_8.png"
-img_carte = "Gemini_Generated_Image_123hco123hco123h.jpg"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
@@ -237,30 +235,6 @@ css_pur = f"""
         font-weight: 700 !important; 
     }}
 
-    /* BADGE D'ATTRIBUTION FLOTTANT */
-    .badge-flottant-attribution {{
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 230px;
-        z-index: 999999;
-        border-radius: 8px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.45);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }}
-    .badge-flottant-attribution:hover {{
-        transform: scale(1.05);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.65);
-    }}
-    @media (max-width: 768px) {{
-        .badge-flottant-attribution {{
-            width: 140px;
-            bottom: 10px;
-            right: 10px;
-        }}
-    }}
-
     /* ZOOM FLUIDE IMAGE 5 (SURVOL ET CLIC) */
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
@@ -282,24 +256,6 @@ css_pur = f"""
     </style> 
 """
 st.markdown(css_pur, unsafe_allow_html=True)
-
-
-# --- INJECTION DU BADGE FLOTTANT ---
-def afficher_badge_flottant(nom_fichier: str):
-    if os.path.exists(nom_fichier):
-        with open(nom_fichier, "rb") as f:
-            encoded = base64.b64encode(f.read()).decode("utf-8")
-        source_img = f"data:image/jpeg;base64,{encoded}"
-    else:
-        source_img = f"{github_url}{nom_fichier}"
-
-    st.markdown(
-        f'<img src="{source_img}" class="badge-flottant-attribution" alt="Attribution Hub IA EPS">',
-        unsafe_allow_html=True,
-    )
-
-
-afficher_badge_flottant(img_carte)
 
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES

@@ -8,20 +8,19 @@ from llama_index.llms.openai import OpenAI
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
-4. 📺 TUTO VIDÉO : Si la question correspond à l'un de ces fichiers exacts :
-   - import_eleves_pronote.mp4
-   - Configuration_classes_import_eleves.mp4
-   - affecter_eleves_dans_groupes.mp4
-   - Generer_importer_fichier_groupes_cyclades.mp4
-   - verification_affectation_protocoles_cyclades.mp4
-   - creer_convocations_enseignants.mp4
-   - Distribution_lots_santorin.mp4
-   - Distribution_manuelle_lots_santorin.mp4
-   - Saisie_notes_Santorin.mp4
-   - Verrouiller_lot_santorin.mp4
-   - Deverrouiller_lots_santorin.mp4
-   - Ajouter_evaluateur_lot_santorin.mp4
-   Cite STRICTEMENT son nom sans le modifier (ex : 📺 Tutoriel associé : Saisie_notes_Santorin.mp4). Sinon, n'en cite aucun.
+VIDEOS_TUTOS = {
+    "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
+    "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
+    "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
+    "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",
+    "verification_affectation_protocoles_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4",
+    "creer_convocations_enseignants.mp4": "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4",
+    "Distribution_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4",
+    "Distribution_manuelle_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4",
+    "Saisie_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4",
+    "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
+    "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
+    "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
 }
 
 # ======================================================================
@@ -604,7 +603,7 @@ if prompt:
 
         est_cas_direct = est_dnb or est_sujet_secours or est_cap_3epreuves or est_tasa
 
-        # 🚀 RECHERCHE RAG PROFONDE SANS FILTRAGE DESTRUCTEUR
+        # 🚀 RECHERCHE RAG PROFONDE
         if openai_api_key and not est_cas_direct:
             try:
                 if mode == "examens":
@@ -708,7 +707,22 @@ DIRECTIVES DE RESTITUTION :
 1. 📐 FORMAT : Rends une réponse structurée avec des puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
 2. 📖 RESPECT ET EXHAUSTIVITÉ DES SOURCES : Restitue fidèlement TOUTES les nuances, étapes et distinctions contenues dans le contexte documentaire. Ne supprime aucun cas particulier au profit d'un résumé trop court.
 {directive_onglet}
-4. 📺 TUTO VIDÉO : Si et seulement si un fichier vidéo (.mp4) présent dans le contexte correspond exactement à l'opération demandée, cite son nom textuellement (ex : "📺 Tutoriel associé : nom_du_fichier.mp4").
+4. 📺 TUTO VIDÉO (LISTE BLANCHE STRICTE) :
+   Si et seulement si la manipulation technique demandée correspond EXACTEMENT à l'un de ces fichiers :
+   - import_eleves_pronote.mp4
+   - Configuration_classes_import_eleves.mp4
+   - affecter_eleves_dans_groupes.mp4
+   - Generer_importer_fichier_groupes_cyclades.mp4
+   - verification_affectation_protocoles_cyclades.mp4
+   - creer_convocations_enseignants.mp4
+   - Distribution_lots_santorin.mp4
+   - Distribution_manuelle_lots_santorin.mp4
+   - Saisie_notes_Santorin.mp4
+   - Verrouiller_lot_santorin.mp4
+   - Deverrouiller_lots_santorin.mp4
+   - Ajouter_evaluateur_lot_santorin.mp4
+   Tu DOIS écrire textuellement à la fin de la réponse : "📺 Tutoriel associé : [nom_exact_du_fichier.mp4]".
+   Si aucun de ces fichiers ne correspond, n'écris AUCUNE mention de vidéo.
 5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 """
             try:

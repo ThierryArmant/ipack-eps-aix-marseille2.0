@@ -204,15 +204,6 @@ css_pur = """
         justify-content: center !important;
     }
     
-    div.element-container:has(.nettoyer-wrapper) + div.element-container button {
-        background-color: rgba(220, 38, 38, 0.45) !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(220, 38, 38, 0.6) !important;
-        border-radius: 8px !important;
-        width: 100% !important;
-        height: 38px !important;
-    }
-    
     .santorin-card, .general-card, .securite-card, .peda-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
@@ -297,7 +288,11 @@ def obtenir_cle_fichier():
       mtimes.append(os.path.getmtime(chemin_textes))
     except:
       pass
-  for f_peda in ["base_pedagogique_edubase.txt", "matrice_AFL_lycee.txt"]:
+  for f_peda in [
+      "base_pedagogique_edubase.txt",
+      "matrice_AFL_lycee.txt",
+      "programmes_college_2015_carte_mentale.txt",
+  ]:
     if os.path.exists(f_peda):
       try:
         mtimes.append(os.path.getmtime(f_peda))
@@ -427,7 +422,7 @@ def initialiser_base_peda(cle_fremt):
         Document(text="Base pédagogique vide", metadata={"source": "system"})
     )
   return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-      similarity_top_k=5
+      similarity_top_k=7
   )
 
 
@@ -605,28 +600,11 @@ else:
   )
 
 # ======================================================================
-# 8. ZONE D'ACTION
+# 8. ZONE D'ACTION (ÉPURÉE & 100% LARGEUR)
 # ======================================================================
-col_action_clear, col_action_input = st.columns([1, 4.5], gap="small")
-with col_action_clear:
-  st.markdown('<div class="nettoyer-wrapper"></div>', unsafe_allow_html=True)
-  if st.button("🧹 Nettoyer", key="clear_all"):
-    st.cache_resource.clear()
-    st.session_state.messages_hub = []
-    st.rerun()
-
-with col_action_input:
-  prompt = st.chat_input(
-      "Posez votre question institutionnelle, technique ou juridique ici...",
-      key="chat_main",
-  )
-
-st.markdown(
-    """<div style="background-color: #1E293B; padding: 12px 20px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.5;">
-        <span style="color: #FCD34D; font-weight: 700; font-size: 13px;">⚠️ 💡 ATTENTION n'oubliez pas de cliquer sur Nettoyer entre chaque question :</span>
-        <span style="color: #FFFFFF; font-weight: 500; font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); margin-top: 4px;">Pour des raisons pratiques, votre assistant ne mémorise pas le fil de la conversation. Posez vos questions une par une.</span>
-    </div>""",
-    unsafe_allow_html=True,
+prompt = st.chat_input(
+    "Posez votre question institutionnelle, technique ou juridique ici...",
+    key="chat_main",
 )
 
 # ======================================================================
@@ -642,7 +620,7 @@ for m in st.session_state.messages_hub:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
-  # 🔄 AUTOMATISATION : On vide l'historique pour lancer chaque question proprement de zéro
+  # 🔄 AUTOMATISATION : Remise à zéro pour traiter chaque question de manière isolée
   st.session_state.messages_hub = []
 
   st.session_state.messages_hub.append({
@@ -864,12 +842,18 @@ QUESTION DE L'ENSEIGNANT :
 
 DIRECTIVES COMPORTEMENTALES STRICTES :
 1. 📐 FORMAT DE SORTIE OBLIGATOIRE (AÉRATION) : Interdiction formelle de fournir un bloc de texte compact ou une dissertation. Structure systématiquement ta réponse avec des listes à puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
-2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ta réponse doit s'aligner à 100% sur les extraits fournis. Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef. Si une action n'est pas explicitement mentionnée comme autorisée, considère-la comme interdite et renvoie vers l'arbitrage de la CAHPN ou du Chef d'établissement.
+2. 🔒 PRINCIPE DE NON-EXTRAPOLATION : Ta réponse doit s'aligner à 100% sur les extraits fournis. Ne propose JAMAIS de solution technique, pédagogique ou de rattrapage de ton propre chef.
 3. 🛑 BLINDAGE COLLÈGE & DNB (PAS DE NOTE SUR 20 NI DE CCF) : Si la question porte sur le Brevet / Collège / DNB (notes d'examen, CCF, remontée à la DEC, date limite), rappelle IMMÉDIATEMENT qu'il n'existe AUCUNE épreuve d'examen terminale, AUCUN CCF et AUCUNE note sur 20 transmise à la DEC pour l'EPS. L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun sur le Livret Scolaire Unique (LSU).
-4. 🛑 RESPECT DES CYCLES & TERMINOLOGIE :
+4. 🛑 RESPECT STRICT DES CYCLES & TERMINOLOGIE :
    - Au Collège (Cycles 3 et 4) : Utilise EXCLUSIVEMENT les termes **Attendus de Fin de Cycle (AFC)** et **Socle Commun (SCCC)**.
    - Au Lycée (Voie GT & Voie Pro) : Utilise les termes **Attendus de Fin de Lycée (AFL)** ou AFLP dans le cadre du CCF.
-5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) : Si la question concerne une APSA ou un champ d'apprentissage, ne prends AUCUNE initiative philosophique. Cite précisément les Champs d'Apprentissage officiels (CA1 à CA5) et les Attendus réglementaires extraits des programmes nationaux.
+5. 🚫 CADRAGE PÉDAGOGIQUE STRICT (ONGLET LES PROGRAMMES) :
+   - AUCUN BAVARDAGE : Interdiction de commencer par des phrases vagues (« L'acrosport est effectivement... »).
+   - GABARIT OBLIGATOIRE si question sur une APSA :
+     * 📌 **Champ d'Apprentissage (CA) :** [Indiquer CA1, CA2, CA3, CA4 ou CA5]
+     * 🎯 **Intitulé officiel BO :** [Intitulé exact du champ]
+     * 📋 **Attendus officiels :** [Lister 2 ou 3 AFC (collège) ou AFL (lycée) extraits des documents]
+   - CA3 : Rappeler obligatoirement sa double composante « prestation artistique et/ou acrobatique » pour les activités hybrides (acrosport, gym, cirque).
 6. 📊 SPÉCIFICITÉS CCF & SANTORIN (ONGLET EXAMENS) :
    - Note Unique (Bac GT) : Si un élève n'a qu'une seule note valide (ex: DI+DI+14), cocher [Dispensé] sur les épreuves manquantes, saisir la note de l'APSA évaluée, et préciser qu'un commentaire circonstancié de justification est STRICTEMENT OBLIGATOIRE dans Santorin pour la CAHPN.
    - Remplacement en jury : Rappeler que le Chef d'établissement doit impérativement cliquer sur l'icône [PDF] dans Imag'in pour pousser les droits vers Santorin (creer_convocations_enseignants.mp4).

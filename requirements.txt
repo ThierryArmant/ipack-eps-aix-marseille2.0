@@ -1,6 +1,4 @@
 streamlit
-requests
-llama-index
+llama-index-core
 llama-index-llms-openai
-googlesearch-python
-pypdf
+llama-index-embeddings-openai

@@ -24,7 +24,7 @@ VIDEOS_TUTOS = {
 }
 
 # ======================================================================
-# 1. CONFIGURATION DE L'APPLICATION (IMPÉRATIVEMENT EN PREMIER)
+# 1. CONFIGURATION DE L'APPLICATION
 # ======================================================================
 st.set_page_config(
     page_title="Hub IA - EPS",
@@ -33,7 +33,7 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES FIABLE (PROTÉGÉ)
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
@@ -69,7 +69,7 @@ def incrementer_et_obtenir_visites():
 nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
-# 3. INTERFACE GRAPHIQUE ET CONFIGURATION DES LIENS IMAGES
+# 3. INTERFACE GRAPHIQUE ET STYLES
 # ======================================================================
 img_gauche = "image_7.png"
 img_eps = "image_6.png"
@@ -243,23 +243,6 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 
-expressions_inutiles = [
-    "de",
-    "la",
-    "le",
-    "les",
-    "des",
-    "du",
-    "un",
-    "une",
-    "pour",
-    "sur",
-    "en",
-    "dans",
-    "au",
-    "aux",
-]
-
 if openai_api_key:
     Settings.llm = OpenAI(
         model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
@@ -350,7 +333,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=3
+        similarity_top_k=6
     )
 
 
@@ -360,7 +343,8 @@ def initialiser_base_ipack(cle_fremt):
         Document(
             text=(
                 "Guide Pratique iPackEPS - Saisie des structures"
-                " trimestrielles et imports XML."
+                " trimestrielles, imports SIÈCLE / Pronote et gestion des"
+                " statuts."
             ),
             metadata={
                 "title": "Guide iPackEPS",
@@ -373,7 +357,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=3
+        similarity_top_k=6
     )
 
 
@@ -394,7 +378,7 @@ def initialiser_base_textes(cle_fremt):
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-        similarity_top_k=3
+        similarity_top_k=6
     )
 
 
@@ -404,7 +388,7 @@ retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 # ======================================================================
-# 5. BANDEAU SUPÉRIEUR REHAUSSÉ
+# 5. BANDEAU SUPÉRIEUR
 # ======================================================================
 st.markdown(
     f"""
@@ -553,7 +537,7 @@ prompt = st.chat_input(
 )
 
 # ======================================================================
-# 9. FLUX DE MESSAGES ET ARBITRAGE OPTIMISÉ (1 SEUL APPEL LLM)
+# 9. FLUX DE MESSAGES ET MOTEUR RAG COMPLET
 # ======================================================================
 st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
 for m in st.session_state.messages_hub:
@@ -572,7 +556,7 @@ if prompt:
         "type": "text",
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
-    with st.spinner("Je recherche les documents officiels..."):
+    with st.spinner("Je consulte la documentation officielle..."):
         mode = st.session_state.active_module
         p_low = prompt.lower()
 
@@ -597,14 +581,14 @@ if prompt:
                 if os.path.exists(fp):
                     with open(fp, "r", encoding="utf-8", errors="ignore") as f:
                         verites_terrain_pierre += (
-                            "\n--- REGLES DIRECTES DE PIERRE ---\n"
+                            "\n--- REGLES DE PIERRE ---\n"
                             + f.read()
                             + "\n"
                         )
         except Exception:
             pass
 
-        # ⚡ DÉTECTIONS DÉTERMINISTES INSTANTANÉES (0 TOKEN / 0 COÛT)
+        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_dnb = mode == "examens" and any(
             w in p_low for w in ["dnb", "brevet", "collège", "college"]
         )
@@ -615,72 +599,26 @@ if prompt:
         est_cap_3epreuves = mode == "examens" and "cap" in p_low and any(
             w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]
         )
-        est_date_notes = (
-            any(
-                w in p_low
-                for w in [
-                    "date limite",
-                    "calendrier santorin",
-                    "clôture des serveurs",
-                    "fermeture des serveurs",
-                    "date de clôture",
-                ]
-            )
-            and not est_dnb
-        )
-        est_erreur_val_santorin = mode == "examens" and any(
-            w in p_low for w in ["erreur après validation", "lot validé", "déverrouiller lot", "rectifier note validée"]
-        )
-        est_grise = mode == "examens" and any(
-            w in p_low for w in ["grisé", "grisée", "cadenas", "impossible de saisir", "bloqué"]
-        )
-        est_remplacement = mode == "examens" and any(
-            w in p_low for w in ["remplaçant", "remplacement", "convocation", "imag'in", "imagin", "chorus"]
-        )
-        est_sss = mode == "ipack" and ("sss" in p_low or "section sportive" in p_low) and "verrouill" in p_low
-        est_groupes = mode == "ipack" and any(
-            w in p_low for w in ["configurer classe", "importer groupe", "import pronote", "configuration classes"]
-        )
-        est_nouvel_eleve = mode == "ipack" and any(
-            w in p_low for w in ["nouvel élève", "nouvel eleve", "ajouter élève", "siècle", "siecle"]
-        )
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # 🚀 RECHERCHE RAG CIBLÉE (TOP_K = 3)
-        est_cas_direct = (
-            est_dnb
-            or est_sujet_secours
-            or est_cap_3epreuves
-            or est_date_notes
-            or est_erreur_val_santorin
-            or est_grise
-            or est_remplacement
-            or est_sss
-            or est_groupes
-            or est_nouvel_eleve
-            or est_tasa
-        )
+        est_cas_direct = est_dnb or est_sujet_secours or est_cap_3epreuves or est_tasa
 
+        # 🚀 RECHERCHE RAG PROFONDE SANS FILTRAGE DESTRUCTEUR
         if openai_api_key and not est_cas_direct:
-            requete_epuree = prompt
-            for exp in expressions_inutiles:
-                requete_epuree = re.sub(rf"\b{exp}\b", "", requete_epuree, flags=re.IGNORECASE)
-            requete_epuree = " ".join(requete_epuree.split())
-
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(requete_epuree):
+                    for n in retriever_santorin.retrieve(prompt):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(requete_epuree):
+                    for n in retriever_ipack.retrieve(prompt):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
-                    for n in retriever_textes.retrieve(requete_epuree):
+                    for n in retriever_textes.retrieve(prompt):
                         extraits_doc += f"{n.node.text}\n\n"
             except Exception:
                 pass
 
-        # 🎯 ROUTAGE DU RENDU FINAL
+        # 🎯 ROUTAGE DU RENDU
         if est_tasa:
             texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
 <ul>
@@ -725,69 +663,6 @@ if prompt:
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_date_notes:
-            texte_brut = """<h3>📊 CALENDRIER & DATES LIMITES SANTORIN 2026</h3>
-<strong>Statut administratif : Échéances officielles de clôture des serveurs.</strong><br>
-<ul>
-  <li><strong>Académie d'Aix-Marseille :</strong> 30 mai 2026 au soir.</li>
-  <li><strong>Académie de Créteil :</strong> 9 juin 2026 au soir.</li>
-  <li><strong>Établissements en Rythme Sud (AEFE / Hémisphère Sud) :</strong> Session décalée sur octobre / novembre / décembre (la date du 30 mai ne s'applique pas).</li>
-  <li><strong>Autres académies :</strong> Se référer impérativement au calendrier émis par votre Division des Examens et Concours (DEC).</li>
-</ul>"""
-            badge, color_card = (
-                ("📊 EXAMENS & SANTORIN" if mode == "examens" else "🛠️ PROTOCOLE IPACK"),
-                ("santorin-card" if mode == "examens" else "general-card"),
-            )
-
-        elif est_erreur_val_santorin:
-            texte_brut = """<h3>📊 SANTORIN : ERREUR DE SAISIE APRÈS VALIDATION</h3>
-<strong>Statut administratif : Clôture définitive du lot par le correcteur.</strong><br>
-<ul>
-  <li><strong>Étape 1 :</strong> Ne tentez pas de forcer l'interface. Prévenez immédiatement le secrétariat de direction de votre établissement.</li>
-  <li><strong>Étape 2 :</strong> Le chef d'établissement contacte le gestionnaire de la Division des Examens et Concours (DEC) pour demander un <strong>[Renvoi en modification]</strong>.</li>
-  <li><strong>Étape 3 :</strong> Après déblocage DEC, le chef d'établissement déverrouille le lot dans sa console, permettant à l'enseignant de rectifier la saisie.</li>
-</ul>
-<br>📺 <strong>Tutoriel de déblocage :</strong> Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-
-        elif est_sss:
-            texte_brut = """<h3>🛠️ IPACKEPS : DOSSIER SSS OU BILAN VERROUILLÉ</h3>
-<strong>Statut : Lecture seule absolue.</strong><br>
-Contactez immédiatement votre Correspondant iPackEPS de bassin ou l'équipe des IA-IPR. Seuls ces profils possèdent les droits master pour appliquer la commande <strong>[Renvoyer en modification]</strong>."""
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-
-        elif est_groupes:
-            texte_brut = """<h3>🛠️ IPACKEPS : CONFIGURATION DES CLASSES ET GROUPES</h3>
-<ul>
-  <li><strong>Étape 1 :</strong> Accédez au menu supérieur <strong>[Dossiers]</strong>.</li>
-  <li><strong>Étape 2 :</strong> Allez dans <strong>[Dossier EPS]</strong> > <strong>[Classes]</strong> > <strong>[Configuration des Classes]</strong>.</li>
-  <li><strong>Étape 3 :</strong> Importez le fichier d'extraction Pronote ou SIÈCLE dans le module <strong>[Mes Élèves]</strong>.</li>
-</ul>
-<br>📺 <strong>Tutoriels d'accompagnement :</strong> Configuration_classes_import_eleves.mp4 et affecter_eleves_dans_groupes.mp4"""
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-
-        elif est_nouvel_eleve:
-            texte_brut = """<h3>🛠️ IPACKEPS : AJOUTER UN ÉLÈVE ARRIVANT</h3>
-L'élève doit être obligatoirement enregistré dans <strong>SIÈCLE</strong> par le secrétariat de direction.
-Effectuez ensuite une mise à jour via un nouvel import XML/CSV depuis Pronote pour l'intégrer automatiquement dans iPackEPS sans écraser vos notes existantes.
-<br><br>📺 <strong>Tutoriel d'accompagnement :</strong> import_eleves_pronote.mp4"""
-            badge, color_card = "🛠️ PROTOCOLE IPACK", "general-card"
-
-        elif est_grise:
-            texte_brut = """<h3>📊 EXAMENS & SANTORIN : CASES OU CRAYONS GRISÉS (CADENAS)</h3>
-<ul>
-  <li><strong>Correction partagée simultanée :</strong> Si un collègue co-évaluateur édite le lot, l'interface bascule automatiquement en lecture seule. <strong>Solution : Demandez-lui de fermer sa session Arena.</strong></li>
-  <li><strong>Lot non déplié :</strong> Allez dans [Lots] > [Voir le détail] et cliquez sur le nom exact du candidat pour activer les curseurs d'AFL.</li>
-</ul>
-<br>📺 <strong>En cas de besoin de transfert de lot :</strong> Ajouter_evaluateur_lot_santorin.mp4"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-
-        elif est_remplacement:
-            texte_brut = """<h3>📊 EXAMENS : REMPLACEMENT EN JURY & DROITS SANTORIN</h3>
-Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Imag'in</strong> et IMPÉRATIVEMENT cliquer sur le picto <strong>[PDF]</strong> de la convocation. C'est cette action technique qui pousse instantanément l'identité et les droits d'écriture du professeur vers Santorin.
-<br><br>📺 <strong>Tutoriel de gestion des convocations :</strong> creer_convocations_enseignants.mp4"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-
         else:
             if mode == "examens":
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -796,70 +671,50 @@ Le secrétariat d'établissement doit enregistrer la suppléance sur <strong>Ima
             else:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
-            if mode == "examens" and not extraits_doc.strip():
-                texte_brut = (
-                    "Désolé, je ne trouve pas cette règle spécifique dans ma"
-                    " mémoire locale d'examen. Veuillez vous rapprocher de"
-                    " votre direction ou de votre IA-IPR EPS."
-                )
-            else:
-                directive_onglet = ""
-                if mode == "textes":
-                    directive_onglet = """
+            directive_onglet = ""
+            if mode == "textes":
+                directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
    - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong>
-     * Citer uniquement les articles directement pertinents parmi :
-       - <strong>Article L. 911-4 du Code de l'éducation (Loi du 5 avril 1937) :</strong> "La responsabilité de l'État est substituée à celle des enseignants pour tous les dommages causés ou subis par les élèves sous leur surveillance."
-       - <strong>Article 121-3 du Code pénal (Loi n° 2000-647 du 10 juillet 2000, dite Loi Fauchon) :</strong> "Il y a délit en cas de faute caractérisée et qui exposait autrui à un risque d'une particulière gravité que l'auteur ne pouvait ignorer."
-       - <strong>Circulaire n° 2017-075 du 19 avril 2017 :</strong> Obligation de moyens renforcée en EPS et APPN.
-       - <strong>Articles L. 134-1 à L. 134-12 du Code général de la fonction publique :</strong> Droit à la Protection fonctionnelle accordée par le Recteur.
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4, 121-3 CP / Loi Fauchon, Circulaire 2017-075, L. 134-1 CGFP).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong>
-       - <strong>Volet civil :</strong> Écran total de l'État (L. 911-4).
-       - <strong>Volet pénal :</strong> Application concrète de la Loi Fauchon (faute caractérisée ou absence de faute).
-     * <strong>2. Démarches administratives concrètes :</strong>
-       - Rédige EXCLUSIVEMENT la liste d'actions adaptée au cas traité. Ne mentionne JAMAIS de titres conditionnels comme 'Si accident' ou 'Si projet'.
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (analyse de la faute caractérisée).
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (post-accident ou mesures préventives).
 """
-                elif mode == "examens":
-                    directive_onglet = """
+            elif mode == "examens":
+                directive_onglet = """
 3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-   - Traite UNIQUEMENT le cas précis posé dans la question. Ne récite JAMAIS les règles des autres examens ou situations non mentionnées.
-   - Si la question concerne une Note Unique au Bac GT : expliquer qu'il faut cocher [Dispensé] sur les 2 épreuves non passées, saisir la note réelle sur l'épreuve réalisée, et rappeler que le commentaire circonstancié est STRICTEMENT OBLIGATOIRE dans Santorin pour transmission à la CAHPN.
-   - Si la question concerne un jury/remplaçant : rappeler le clic [PDF] dans Imag'in.
-   - Si la question concerne le Bac Pro : mentionner le bouton [Choisir les AFLP].
-   - Si la question concerne le CAP : rappeler la règle stricte des 2 épreuves.
+   - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
 """
-                elif mode == "ipack":
-                    directive_onglet = """
+            elif mode == "ipack":
+                directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Interdiction absolue d'aborder la responsabilité civile/pénale ou les textes juridiques généraux.
-   - Donne uniquement des étapes chronologiques concrètes et numérotées avec l'arborescence des menus ([Dossiers] > [Dossier EPS] > [Classes]...).
+   - Donne la procédure technique détaillée en indiquant l'arborescence exacte des menus ([Dossiers] > ...).
+   - EXHAUSTIVITÉ MÉTIER : Si le contexte documentaire distingue plusieurs statuts d'établissements (Établissements MEN public/privé, Hors MEN / MFR / Agricole, Réseau AEFE / Étranger), tu DOIS obligatoirement restituer la solution adaptée pour CHAQUE statut.
 """
 
-                consigne_ia = f"""Tu es l'assistant IA expert en Éducation Physique et Sportive (EPS), examens et réglementation juridique (académie d'Aix-Marseille).
-Réponds avec concision et précision chirurgicale en t'appuyant STRICTEMENT sur le contexte fourni.
+            consigne_ia = f"""Tu es l'assistant IA référent expert en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
-CONTEXTE DOCUMENTAIRE SOUVERAIN :
+CONTEXTE DOCUMENTAIRE OFFICIEL :
 {extraits_doc}
 {verites_terrain_pierre}
 
-QUESTION DE L'ENSEIGNANT :
+QUESTION POSÉE :
 {prompt}
 
-DIRECTIVES DE RÉDACTION :
-1. 📐 FORMAT : Utilise des puces HTML (<ul>, <li>), des retours (<br>) et des mots-clés en gras (<strong>).
-2. 🔒 CONCISION & ANCRAGE : Réponds UNIQUEMENT à la question posée. N'ajoute aucune règle hors-sujet.
+DIRECTIVES DE RESTITUTION :
+1. 📐 FORMAT : Rends une réponse structurée avec des puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
+2. 📖 RESPECT ET EXHAUSTIVITÉ DES SOURCES : Restitue fidèlement TOUTES les nuances, étapes et distinctions contenues dans le contexte documentaire. Ne supprime aucun cas particulier au profit d'un résumé trop court.
 {directive_onglet}
-4. 📺 VIDÉOS : Ne cite un nom de vidéo (.mp4) QUE s'il correspond EXACTEMENT à la manipulation demandée et s'il est mentionné dans le contexte documentaire. Si aucune vidéo ne correspond au cas précis, n'en cite aucune.
-5. 🛑 HORS-SUJET : Si la demande ne concerne pas l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+4. 📺 TUTO VIDÉO : Si et seulement si un fichier vidéo (.mp4) présent dans le contexte correspond exactement à l'opération demandée, cite son nom textuellement (ex : "📺 Tutoriel associé : nom_du_fichier.mp4").
+5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 """
-                try:
-                    response = Settings.llm.complete(consigne_ia)
-                    texte_brut = response.text
-                except Exception as e:
-                    texte_brut = f"Erreur de traitement IA : {str(e)}"
+            try:
+                response = Settings.llm.complete(consigne_ia)
+                texte_brut = response.text
+            except Exception as e:
+                texte_brut = f"Erreur de traitement IA : {str(e)}"
 
         # Traitements de surface et filtres regex
         texte_brut = re.sub(

@@ -769,7 +769,14 @@ DIRECTIVES DE RESTITUTION :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 NETTOYAGE STRICT : suppression de toute mention parasite "Tutoriel associé : Aucun"
+        # 🧹 1. Suppression des balises de code Markdown parasites
+        texte_brut = (
+            texte_brut.replace("```html", "")
+            .replace("```HTML", "")
+            .replace("```", "")
+        )
+
+        # 🧹 2. Suppression de la mention parasite "Tutoriel associé : Aucun"
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
             "",
@@ -777,7 +784,7 @@ DIRECTIVES DE RESTITUTION :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        # Traitements de surface et filtres regex
+        # 3. Traitements de surface et filtres regex
         texte_brut = re.sub(
             r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
             r" l\'éducation)",

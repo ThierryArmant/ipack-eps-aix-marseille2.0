@@ -204,7 +204,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes. Cherchez le bouton « choisir les AFLP ». Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
 
 ### [SITUATION: DATE LIMITE SAISIE SANTORIN]
-- Instruction : La date limite de saisie dans Santorin est fixée au 30 mai 2026 pour l'académie d'Aix-Marseille.
+- Instruction : Les enseignants doivent impérativement se référer au calendrier officiel publié par leur académie de rattachement pour toute confirmation ou mise à jour..
 
 ### [SITUATION: ACCÈS REMPLAÇANT SANTORIN]
 - Instruction : Pour donner accès à la saisie des notes sur Santorin à un remplaçant, l'affectation manuelle se fait dans Imag'in en générant le fichier PDF de convocation.

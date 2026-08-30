@@ -458,3 +458,8 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 3. Commission d'harmonisation (CAHN) : Téléversement dématérialisé de l'ensemble des pièces vers les jurys de l'académie de rattachement.
 4. Certificats médicaux locaux : Pleine valeur juridique pour positionner le statut DISP ou ABJ.
 5. Dérogation de co-évaluation : Si un seul professeur d'EPS dans l'établissement, dérogation accordée par l'IA-IPR de zone pour évaluer seul ou avec un personnel homologué.
+* INTERDICTION D'IMPROVISATION EN COURS D'ANNÉE : 
+  - Il est strictement INTERDIT de créer ou de bricoler un contrôle adapté (FCA) « à la volée » ou « au sifflet » en cours d'année pour un élève. 
+  - Distinction vitale : 
+    1. Inaptitude permanente (connue dès la rentrée) ➔ Contrôle adapté / FCA validée par la CAHN.
+    2. Inaptitude temporaire (survenant en cours d'année) ➔ Contrôle aménagé sur la MÊME APSA du protocole initial (pas de changement d'activité, pas de nouvelle FCA).

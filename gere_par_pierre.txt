@@ -1,8 +1,8 @@
 ======================================================================
-AJOUT MAI 2026 : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
+AJOUT date limite de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
 ======================================================================
 Quelle est la date limite de saisie des notes dans Santorin ?
-La date limite de saisie des notes dans Santorin est fixée au 30 mai 2026.
+Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement.
 
 PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
 - Il est strictement INTERDIT de créer un élève manuellement dans iPackEPS (cela brise la synchronisation, les identifiants et l'INE pour les examens comme Santorin).

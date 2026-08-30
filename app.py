@@ -69,7 +69,7 @@ def incrementer_et_obtenir_visites():
 nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
-# 3. INTERFACE GRAPHIQUE ET STYLES
+# 3. INTERFACE GRAPHIQUE ET STYLES CSS
 # ======================================================================
 img_gauche = "image_7.png"
 img_eps = "image_6.png"
@@ -638,6 +638,40 @@ if prompt:
             pass
 
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+        est_date = any(
+            w in p_low
+            for w in [
+                "date",
+                "butoir",
+                "calendrier",
+                "délai",
+                "delai",
+                "échéance",
+                "echeance",
+                "quand",
+            ]
+        ) and any(
+            w in p_low
+            for w in [
+                "saisie",
+                "note",
+                "notes",
+                "fermeture",
+                "santorin",
+                "cyclades",
+                "lot",
+                "lots",
+                "examen",
+                "examens",
+                "bac",
+                "cap",
+                "brevet",
+                "mayotte",
+                "academie",
+                "académie",
+            ]
+        )
+
         est_dnb = any(
             w in p_low for w in ["dnb", "brevet", "collège", "college"]
         ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
@@ -663,7 +697,11 @@ if prompt:
         est_tasa = mode == "textes" and "tasa" in p_low
 
         est_cas_direct = (
-            est_dnb or est_sujet_secours or est_cap_3epreuves or est_tasa
+            est_date
+            or est_dnb
+            or est_sujet_secours
+            or est_cap_3epreuves
+            or est_tasa
         )
 
         # 🚀 RECHERCHE RAG PROFONDE
@@ -682,7 +720,17 @@ if prompt:
                 pass
 
         # 🎯 ROUTAGE DU RENDU
-        if est_tasa:
+        if est_date:
+            texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
+<ul>
+  <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
+  <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
+</ul>"""
+            badge, color_card = "📅 CALENDRIER OFFICIEL", (
+                "santorin-card" if mode == "examens" else "general-card"
+            )
+
+        elif est_tasa:
             texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
 <ul>
   <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
@@ -760,8 +808,6 @@ if prompt:
    - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
    - Bac Pro : 3 épreuves de 3 champs distincts.
    - CAP : Strictement 2 épreuves de 2 champs distincts.
-   - Traite précisément le problème d'examen posé en exploitant les règles documentaires.
-   - Rappelle si pertinent que les dates butoirs précises de saisie sont fixées chaque année par la circulaire de la DEC de rattachement
 """
             elif mode == "ipack":
                 directive_onglet = """
@@ -807,6 +853,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
      * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
    - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
 4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)
@@ -838,6 +885,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             '<span class="law-highlight"><span class="law-highlight">',
             '<span class="law-highlight">',
         ).replace("</span></span>", "</span>")
+
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",
             r'<a href="\2" target="_blank" style="color: #FFB020 !important;'

@@ -47,24 +47,24 @@ A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
   - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
   - Cliquer dans le premier champ de note et taper directement la valeur chiffrée au clavier.
 * Navigation ultra-rapide par touches :
-  - Touche [Entrée] : Valide et enregistre la note saisie.
-  - Touche [Tab] : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
-  - Combinaison [Maj + Tab] (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.
+  - Touche `[Entrée]` : Valide et enregistre la note saisie.
+  - Touche `[Tab]` : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
+  - Combinaison `[Maj + Tab]` (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.
 * Sélection instantanée des statuts par lettre :
-  - Ouvrir le menu déroulant du statut et appuyer sur la touche [D] pour aller directement sur « DISP » (Dispensé).
-  - Appuyer sur la touche [A] pour se positionner directement sur « ABI » ou « ABJ ».
+  - Ouvrir le menu déroulant du statut et appuyer sur la touche `[D]` pour aller directement sur « DISP » (Dispensé).
+  - Appuyer sur la touche `[A]` pour se positionner directement sur « ABI » ou « ABJ ».
 * Affichage de masse anti-blocage (Astuce 100 candidats) :
   - Dès l'ouverture du lot, basculer le sélecteur en bas de page sur « Afficher 100 candidats » (au lieu des 20 ou 50 par défaut).
-  - Cela évite d'oublier un élève sur une page 2 non visible, cause principale du blocage du bouton [Clôturer le lot].
-* Recherche instantanée [Ctrl + F] :
-  - Pour retrouver immédiatement un candidat précis (élève muté ou arrivant) dans un lot volumineux, utiliser la recherche native du navigateur via [Ctrl + F] (ou [Cmd + F] sur Mac).
+  - Cela évite d'oublier un élève sur une page 2 non visible, cause principale du blocage du bouton `[Clôturer le lot]`.
+* Recherche instantanée `[Ctrl + F]` :
+  - Pour retrouver immédiatement un candidat précis (élève muté ou arrivant) dans un lot volumineux, utiliser la recherche native du navigateur via `[Ctrl + F]` (ou `[Cmd + F]` sur Mac).
 
 B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
-* Sélection multiple par bloc ([Maj] / Shift) :
-  - Dans l'activité « EPS - Associer les élèves à un protocole », cocher la première case, maintenir [Maj] enfoncé et cliquer sur la dernière case pour sélectionner toute la liste.
+* Sélection multiple par bloc (`[Maj]` / Shift) :
+  - Dans l'activité « EPS - Associer les élèves à un protocole », cocher la première case, maintenir `[Maj]` enfoncé et cliquer sur la dernière case pour sélectionner toute la liste.
   - Un unique Glisser-Déposer (Drag & Drop) permet ensuite de déplacer tout le bloc dans le protocole cible.
-* Réinitialisation rapide via [Vider] :
-  - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention [Vider] située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
+* Réinitialisation rapide via `[Vider]` :
+  - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention `[Vider]` située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
 
 C. IMAG'IN & PORTAILS ACADÉMIQUES
 * Contournement des saturations de serveurs ENT :
@@ -74,48 +74,33 @@ C. IMAG'IN & PORTAILS ACADÉMIQUES
 4. CIRCUIT LOGISTIQUE DE FLUX : L'ARBORESCENCE DES DROITS EPS
 ----------------------------------------------------------------------
 Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de transmission suit rigoureusement cette chaîne :
-[PRONOTE / ÉCOLE DIRECTE] ➔ [1. IPACKEPS] ➔ [2. CYCLADES] ➔ [3. IMAG'IN] ➔ [4. SANTORIN]
+`[PRONOTE / ÉCOLE DIRECTE] ➔ [1. IPACKEPS] ➔ [2. CYCLADES] ➔ [3. IMAG'IN] ➔ [4. SANTORIN]`
 
 0. AMONT : PRONOTE / ÉCOLE DIRECTE ➔ IPACKEPS :
-   - Sécurisation de l'importation : Automatisation possible depuis Pronote ou École Directe.
-   - Règle de chargement critique : Effectuer autant d'imports de fichiers qu'il y a de groupes d'évaluation EPS. Chaque fichier correspond strictement à la liste des élèves affectés à un groupe unique.
-   - 📺 Tutoriel associé : import_eleves_pronote.mp4
-   - Support texte configuration : https://ipackeps.ac-creteil.fr/spip.php?article14
+    - Sécurisation de l'importation : Automatisation possible depuis Pronote ou École Directe.
+    - Règle de chargement critique : Effectuer autant d'imports de fichiers qu'il y a de groupes d'évaluation EPS. Chaque fichier correspond strictement à la liste des élèves affectés à un groupe unique.
 
 1. IPACKEPS (Le Buffer d'Établissement EPS) :
-   - Timing : Les inscriptions ferment fin décembre. Toujours ré-importer la base élèves complète et actualiser les classes avant le placement dans les groupes d'examen.
-   - 📺 Tutoriel associé : Configuration_classes_import_eleves.mp4
-   - Contrôle des élèves orphelins : Seule la composition des groupes rattachés à un examen est exigée. 100 % des élèves de classes d'examen doivent être ventilés dans des groupes fonctionnels.
-   - 📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4
-   - Support texte affectation : https://ipackeps.ac-creteil.fr/spip.php?article18
-   - 🛑 Régime spécifique des structures « Hors SIÈCLE » (CFA, GRETA, MFR, AEFE / Étranger) : Les étapes automatiques d'actualisation iPack, d'affectation iPack et de génération de fichier vers Cyclades ne s'appliquent pas. L'association des candidats aux protocoles d'EPS s'effectue manuellement dans Cyclades via le guide officiel :
-     📄 [Télécharger le Mémo Officiel - Associer les élèves au protocole sur Cyclades (PDF)](https://pole-examens.github.io/tutoriels-examens/res/MEMO-Associer-eleves-protocole-Etab-v1.0.pdf)
+    - Timing : Les inscriptions ferment fin décembre. Toujours ré-importer la base élèves complète et actualiser les classes avant le placement dans les groupes d'examen.
+    - Contrôle des élèves orphelins : Seule la composition des groupes rattachés à un examen est exigée. 100 % des élèves de classes d'examen doivent être ventilés dans des groupes fonctionnels.
+    - 🛑 Régime spécifique des structures « Hors SIÈCLE » (CFA, GRETA, MFR, AEFE / Étranger) : Les étapes automatiques d'actualisation iPack, d'affectation iPack et de génération de fichier vers Cyclades ne s'appliquent pas. L'association des candidats aux protocoles d'EPS s'effectue manuellement dans Cyclades via le guide officiel :
+      📄 [Télécharger le Mémo Officiel - Associer les élèves au protocole sur Cyclades (PDF)](https://pole-examens.github.io/tutoriels-examens/res/MEMO-Associer-eleves-protocole-Etab-v1.0.pdf)
 
 2. CYCLADES (Le Socle Administratif des Examens) :
-   - Gère l'inscription des candidats, l'arborescence des divisions et les protocoles certificatifs EPS d'établissement (choix des APSA).
-   - Valide les épreuves adaptées et le rattachement initial des enseignants (adresse e-mail valide requise).
-   - Importation des logs : Le chef d'établissement génère depuis iPackEPS le fichier récapitulatif des affectations de groupes pour l'injecter dans CYCLADES afin d'éviter la saisie manuelle.
-   - 📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4
-   - Support texte extraction : https://ipackeps.ac-creteil.fr/spip.php?article60
-   - Vérification de l'affectation :
-     📺 Tutoriel associé : verification_affectation_protocoles_cyclades.mp4
-   - Verrou de validation IA-IPR : Tous les protocoles doivent afficher une coche verte de conformité dans la colonne « Validité » du module « Protocoles certificatifs » d'iPackEPS, puis le statut « Validé » dans CYCLADES par l'Inspection. Contact : examenseps@ac-aix-marseille.fr.
-   - Purge des doublons INE : Le secrétariat doit purger les numéros INE en doublon dans Cyclades. Interdiction formelle pour l'enseignant de noter deux fois la même fiche.
+    - Gère l'inscription des candidats, l'arborescence des divisions et les protocoles certificatifs EPS d'établissement (choix des APSA).
+    - Valide les épreuves adaptées et le rattachement initial des enseignants (adresse e-mail valide requise).
+    - Importation des logs : Le chef d'établissement génère depuis iPackEPS le fichier récapitulatif des affectations de groupes pour l'injecter dans CYCLADES afin d'éviter la saisie manuelle.
+    - Verrou de validation IA-IPR : Tous les protocoles doivent afficher une coche verte de conformité dans la colonne « Validité » du module « Protocoles certificatifs » d'iPackEPS, puis le statut « Validé » dans CYCLADES par l'Inspection. Contact : examenseps@ac-aix-marseille.fr.
+    - Purge des doublons INE : Le secrétariat doit purger les numéros INE en doublon dans Cyclades. Interdiction formelle pour l'enseignant de noter deux fois la même fiche.
 
 3. IMAG'IN (La Passerelle de Mission EPS) :
-   - Génère les missions « NOTATION EPS CCF » adossées à STSWEB. Les correcteurs convoqués en 2025 sont reconduits d'office pour 2026.
-   - LE VERROU DU BOUTON PDF : Pour tout ajout manuel ou remplacement de professeur d'EPS, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto « PDF » pour générer la convocation. C'est ce clic technique précis qui « pousse » l'identité et les droits d'écriture de l'enseignant vers Santorin.
-   - 📺 Tutoriel associé : creer_convocations_enseignants.mp4
-   - Paramétrage horaire : Conserver l'horaire par défaut proposé par la DIEC (16h à 17h).
-   - Instructions complètes pages 4 à 7 :
-     📄 [Consulter le Guide SANTORIN - Gestion de la notation EPS CCF (PDF)](https://pole-examens.github.io/tutoriels-examens/res/SANTORIN_-_bac_2024_-_Gestion_de_la_notation_EPS_CCF.pdf)
+    - Génère les missions « NOTATION EPS CCF » adossées à STSWEB. Les correcteurs convoqués en 2025 sont reconduits d'office pour 2026.
+    - LE VERROU DU BOUTON PDF : Pour tout ajout manuel ou remplacement de professeur d'EPS, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto « PDF » pour générer la convocation. C'est ce clic technique précis qui « pousse » l'identité et les droits d'écriture de l'enseignant vers Santorin.
+    - Paramétrage horaire : Conserver l'horaire par défaut proposé par la DIEC (16h à 17h).
 
 4. SANTORIN (L'Interface de Notation EPS) :
-   - Reçoit la liste des candidats depuis Cyclades et les droits de saisie depuis le PDF d'Imag'in.
-   - Procédure de saisie des notes par l'enseignant :
-     📺 Tutoriel associé : Saisie_notes_Santorin.mp4
-   - Support texte saisie : https://ipackeps.ac-creteil.fr/spip.php?article67
-   - Indicateur de fin de saisie : Le lot est complet lorsque la barre de progression affiche 100 %.
+    - Reçoit la liste des candidats depuis Cyclades et les droits de saisie depuis le PDF d'Imag'in.
+    - Indicateur de fin de saisie : Le lot est complet lorsque la barre de progression affiche 100 %.
 
 ----------------------------------------------------------------------
 5. SPÉCIFICITÉS RÉGLEMENTAIRES STRICTES PAR DIPLÔME
@@ -134,7 +119,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 • FILIÈRE CERTIFICAT D'APTITUDE PROFESSIONNELLE (CAP) :
   - Réglementation issue de la circulaire du 27 août 2025.
   - PROTOCOLE STRICT À 2 ÉPREUVES : Évaluation certificative en CCF reposant STRICTEMENT sur un ensemble de 2 épreuves (adaptées ou standards) relevant de 2 CA différents.
-  - BLOQUEUR SANTORIN : Toute saisie d'un protocole à 3 notes est rejetée par Santorin et la CAHPN. Supprimer la 3e épreuve excédentaire.
+  - BLOQUEUR SANTORIN : Toute saisie d'un protocole à 3 notes est rejeté par Santorin et la CAHPN. Supprimer la 3e épreuve excédentaire.
 
 • COLLÈGE (DIPLÔME NATIONAL DU BREVET - DNB) :
   - AUCUN CCF, AUCUNE ÉPREUVE TERMINALE ET AUCUNE NOTE TRANSMISE À LA DEC.
@@ -153,7 +138,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 
 • CONTRÔLE ADAPTÉ (LYCÉE & COLLÈGE) :
   - Concerne exclusivement les élèves présentant un handicap ou une inaptitude partielle permanente (sur toute l'année, attestée dès la rentrée par certificat médical).
-  - Au Lycée : Modification structurelle de l'épreuve via une Fiche Certificative Adaptée (FCA) soumise obligatoirement à la validation de la CAHPN l'année précédant sa mise en œuvre (évaluation sur 3 épreuves dont 1 adaptée, 2 épreuves adaptées, ou exceptionnellement 1 seule). Un élève en protocole adapté peut obtenir 20/20. Il est strictement interdit de créer une FCA en cours d'année pour une simple blessure temporaire.
+  - Au Lycée : Modification structurelle de l'épreuve via une Fiche Certificative Adaptée (FCA) soumise obligatoirement à la validation de la CAHPN l'année précédant sa mise en œuvre. Un élève en protocole adapté peut obtenir 20/20. Il est strictement interdit de créer une FCA en cours d'année pour une simple blessure temporaire.
   - Au Collège : Le concept de FCA n'existe pas. On applique un aménagement continu de la pratique (Article D. 312-1 du Code de l'éducation). Une inaptitude totale annuelle entraîne la neutralisation des composantes motrices du socle dans le LSU sans bloquer l'obtention du Brevet.
 
 ----------------------------------------------------------------------
@@ -163,186 +148,21 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Cause 1 : Absence de mission active « Notation EPS CCF » dans Imag'in (défaut STSWEB).
   - Cause 2 : Le Chef d'établissement a omis de cliquer sur le picto « PDF » dans Imag'in (les droits n'ont pas été poussés vers Santorin).
   - Cause 3 : Absence de clic sur « Distribution automatique des candidats » dans la console Santorin-Direction.
-    📺 Tutoriel associé : Distribution_lots_santorin.mp4
-    Support texte distribution : https://ipackeps.ac-creteil.fr/spip.php?article66
   - Cause 4 (Conflit de mail) : L'adresse e-mail de l'examinateur dans Cyclades ne concorde pas avec Imag'in. Solution : Modifier l'e-mail via l'activité Cyclades « EPS - Contrôler/réaffecter des protocoles » ou exécuter une distribution manuelle dans Santorin-Direction.
 
 * BUG B : ÉLÈVE PRÉSENT MAIS INTROUVABLE SUR SANTORIN (MUTATION / ARRIVÉE EN COURS D'ANNÉE) :
   - Cause : Défaut de synchronisation de nuit entre Cyclades et Santorin.
   - Solution : Le professeur ne peut rien faire. Le chef d'établissement associe l'élève au protocole dans Cyclades, puis force une distribution MANUELLE par glisser-déposer dans Santorin-Direction (délai : 12h à 24h).
-  - 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
   - Cause 1 (Validation effectuée / Lot soumis) : Le lot a été validé définitivement par l'enseignant. Le cadenas est permanent. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.
-    📺 Tutoriel déverrouillage : Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)
   - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
-    📄 [Consulter la Fiche Mémo - Correction Partagée Santorin (PDF)](https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf)
-  - Cause 3 (Gestion des examinateurs / Transfert de lot) :
-    📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4
-  - Cause 4 (Lot non déplié) : Aller dans [Lots] > [Voir le détail] et cliquer sur le nom exact du candidat pour activer les curseurs de saisie.
 
 * BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
   - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
 
 ----------------------------------------------------------------------
-8. GRANDE FAQ THÉMATIQUE RÉUNIE (FILTRAGE STRICT PAR DIPLÔME)
+8. FAQ EXHAUSTIVE, CAS LIMITES ET PROCÉDURES SPÉCIFIQUES EXAMENS
 ----------------------------------------------------------------------
-📁 SECTION A : ABSENCES ET RATTRAPAGES
-• En cas d'absence injustifiée à une évaluation de fin de séquence, l'élève peut-il être renvoyé vers une épreuve d'évaluation différée ?
-  - Lycée GT & Pro (Bac) : Non. Les épreuves différées sont strictement réservées aux inaptitudes temporaires médicalement authentifiées ou cas de force majeure validés par le chef d'établissement. Toute absence injustifiée entraîne le statut « ABI » (zéro à l'épreuve).
-  - Lycée Pro (CAP) : Absence injustifiée sur 1 épreuve = 0 pour la situation. Absence injustifiée à TOUTES les situations = statut « Absent » global et non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
-  - Collège (DNB) : Pas d'épreuve différée officielle (pas de CCF). Si éléments suffisants sur le trimestre, calcul sur les autres notes. Si absences répétées empêchant l'évaluation, mention « En attente » sur le bilan LSU.
-
-📁 SECTION B : ENVIRONNEMENT ET INCERTITUDE (CA2)
-• En CA2, les élèves doivent-ils obligatoirement être confrontés à un environnement inconnu le jour J ?
-  - Lycée GT : Non. L'arrêté du 28 avril 2022 précise que l'épreuve présente des éléments variés d'incertitude en milieu plus ou moins connu (incertitude événementielle : météo, choix de voies, obstacles).
-  - Bac Pro & CAP : Non. Les circulaires de 2025 précisent que l'incertitude peut être événementielle et s'organiser dans le milieu connu de la séquence d'enseignement.
-  - Collège (DNB) : Non. Contextes fixés librement par l'équipe dans le projet pédagogique d'établissement.
-
-📁 SECTION C : REDOUBLEMENT ET CONSERVATION DES NOTES
-• Un élève peut-il conserver ses notes d'EPS en cas de redoublement ?
-  - Lycées (GT & Pro) : Les redoublants de Terminale conservent les notes de contrôle continu de Première, mais ne conservent JAMAIS les notes de CCF obtenues en Terminale. Repassage obligatoire de l'intégralité du protocole de Terminale (BO n°30 du 29 juillet 2021).
-  - Collège (DNB) : Aucune conservation de note lors d'un redoublement de 3e.
-
-📁 SECTION D : MODALITÉS D'ÉVALUATION PAR L'ÉCRIT OU L'ORAL
-• Les acquisitions en EPS peuvent-elles être évaluées à partir d'une épreuve écrite ou orale ?
-  - Inter-degrés (Lycée & Collège) : Jamais de devoirs sur table théoriques déconnectés de la motricité. Cependant, pour l'évaluation des rôles méthodologiques et sociaux (AFL2/AFL3 ou AFC), utilisation possible d'outils écrits/oraux connectés à la pratique (carnet d'entraînement en musculation, fiche de juge en gym, retour oral en danse).
-
-📁 SECTION E : INCIDENTS DE TENUE
-• Peut-on attribuer la note 0 ou une sanction à un élève ayant oublié sa tenue de sport le jour du CCF ?
-  - Lycée (CCF) : L'oubli de tenue n'est pas un motif médical. Si refus de pratiquer ➔ « ABI » (note 0/20 à l'examen). S'il pratique en sécurité, il est noté mais peut être pénalisé sur les indicateurs sécuritaires de l'AFL3.
-  - Collège (DNB) : Interdiction absolue d'utiliser la note zéro comme sanction pour oubli de tenue. Traitement exclusif via les punitions scolaires du Règlement Intérieur.
-
-📁 SECTION F : INCIDENTS SUR LES ÉVALUATIONS COLLECTIVES
-• Comment évaluer les élèves en organisation collective (sports collectifs, duos) quand un partenaire est inapte ou absent le jour du CCF ?
-  - Collège & Lycée : L'évaluation doit être impérativement maintenue pour les élèves présents dès lors que les observables individuels sont évaluables équitablement. Le rattrapage ultérieur du partenaire ne devra jamais pénaliser les notes initiales obtenues le jour J.
-
-📁 SECTION G : ANGLES MORTS EN COLLÈGE & LYCÉE
-• Peut-on modifier le champ d'apprentissage d'une activité (ex: Musculation en CA1 au lieu du CA5) ?
-  - Lycée (CCF) : Non. Modification unilatérale interdite sur la liste académique. L'établissement peut créer une activité d'établissement (FCA) spécifique sous réserve de validation par la CAHPN l'année précédente.
-
-----------------------------------------------------------------------
-9. COMPLÉMENTS PROCÉDURAUX MANUELS DEC, CYCLADES & DIRECTION
-----------------------------------------------------------------------
-• GESTION DES DROITS ET ACCÈS (IMAG'IN & ARENA) :
-  - Prérequis d'affectation manuelle : Le secrétariat doit obligatoirement avoir défini un signataire dans IMAG'IN avant de générer ou modifier une convocation manuelle.
-  - Lien direct enseignant : https://appli.ac-aix-marseille.fr/imagin/enseignant
-
-• GUIDE DE DÉPANNAGE DES LOTS (CONSOLE DIRECTION SANTORIN) :
-  - Candidats manquants : Le chef d'établissement utilise le bouton [Rejouer l'import] pour synchroniser instantanément la base Cyclades.
-  - Notification de masse : Sélection groupée de tous les lots dans l'onglet [Lots] pour envoyer une notification mail automatique aux enseignants.
-  - Clôture par substitution : Le Chef d'établissement peut forcer la clôture du lot à la place d'un enseignant ayant terminé sa saisie (barre à 100 %) via le bouton [Clôturer la saisie].
-  - Droit à l'erreur : Le secrétariat peut à tout moment [Supprimer les lots] pour réinitialiser et relancer une distribution propre.
-
-• CAS PARTICULIERS EN COURS DE SAISIE SANTORIN :
-  - Sportifs de Haut Niveau (SHN) : Le clic sur le crayon d'un élève SHN validé par la DEC ouvre l'écran intermédiaire permettant d'affecter la note réglementaire automatique de 20/20 sur l'APSA de spécialité.
-  - Épreuves de substitution : Ouverture autorisée uniquement pour force majeure logistique avérée ou inaptitude médicale temporaire survenue juste avant l'épreuve.
-
-• PROCÉDURE CHIRURGICALE DANS CYCLADES (« EPS - Associer les élèves à un protocole ») :
-  - Règle structurelle : 1 candidat = 1 unique groupe élève EPS = 1 unique protocole d'établissement.
-  - Code couleur écran :
-    * Lignes surlignées en couleur = Élèves correctement associés à un protocole.
-    * Lignes blanches = Élèves orphelins non associés (bloquant pour la génération des lots Santorin).
-  - Actions : Glisser-Déposer (Drag & Drop) des élèves vers le protocole cible. Bouton [Vider] pour réinitialiser un protocole complet.
-  - ⚠️ RÈGLE D'OR INAPTES TOTAUX ANNUELS : Aucune déclaration préalable d'extraction dans Cyclades. Associer normalement les inaptes à la division, puis sélectionner « Inapte/DISP » dans Santorin lors de la saisie des notes.
-
-----------------------------------------------------------------------
-10. BLINDAGE JURIDIQUE, RÉGLEMENTAIRE & CAS CONCRETS SANTORIN
-----------------------------------------------------------------------
-
-[SECTION: REGLEMENTATION_BAC_GT_CCF]
-### [SITUATION: ÉLÈVE ARRIVANT EN RETARD LE JOUR DU CCF]
-Mots-clés : retard épreuve CCF, élève en retard, refus d'accès épreuve, rattrapage retard, début d'épreuve.
-- Règle : Une fois l'épreuve débutée (échauffement terminé ou premier passage lancé), l'accès est refusé pour motif de sécurité et d'équité.
-- Décision : Si retard justifié par force majeure (transport, accident) ➔ autorisation d'épreuve de substitution par le chef d'établissement. Si injustifié ➔ statut « ABI » (note 0/20). Interdiction d'improviser une passation individuelle hors cadre.
-
-### [SITUATION: REFUS D'UN ÉLÈVE DE CHOISIR SA RÉPARTITION DE POINTS AFL2 / AFL3]
-Mots-clés : choix AFL2 AFL3, refus de choisir, répartition points AFL, barème par défaut, contestation élève.
-- Règle : L'élève formule son choix avant l'épreuve. En cas de refus explicite, la répartition équilibrée par défaut (barème médian) est appliquée d'office et consignée sur la feuille d'émargement.
-
-### [SITUATION: BLESSURE OU MALAISE SURVENU PENDANT L'ÉPREUVE DU CCF]
-Mots-clés : blessure pendant le CCF, entorse en plein saut, malaise CCF, arrêt sur blessure, note partielle.
-- Règle : Interdiction de mettre zéro ou une note partielle sur une tentative inachevée. Interruption immédiate de l'épreuve, prise en charge infirmerie/secours. Avec certificat sous 48h, l'évaluation est annulée et l'élève conserve son droit intégral à l'épreuve de substitution.
-
----
-
-[SECTION: REGLEMENTATION_BAC_PRO_ET_CAP]
-### [SITUATION: ÉLÈVE DE BAC PRO AYANT SUIVI 2 APSA SUR 3 EN RAISON DE PFMP (STAGES)]
-Mots-clés : PFMP Bac Pro, stage pendant CCF, 2 épreuves sur 3 bac pro, moyenne Bac Pro, dispense stage.
-- Règle : Les PFMP ne constituent pas une dispense médicale. L'élève en stage lors du CCF initial passe obligatoirement sur le créneau d'évaluation différée prévu au projet d'établissement. Si impossibilité majeure, la CAHPN statue sur proposition de dispense exceptionnelle.
-
-### [SITUATION: CAP — NON-CONFORMITÉ DU PROTOCOLE À 3 ÉPREUVES (REJET SANTORIN)]
-Mots-clés : CAP 3 activités, rejet protocole CAP, erreur 2 épreuves CAP, CCF CAP.
-- Règle : Le CAP impose STRICTEMENT 2 épreuves certificatives. Si 3 notes sont saisies, le système refuse la validation. Procédure : paramétrer la classe en mode groupe et ne renseigner que les 2 épreuves retenues.
-
----
-
-[SECTION: COLLEGE_ET_DIPLOME_NATIONAL_DU_BREVET_DNB]
-### [SITUATION: DEMANDE D'UNE NOTE SUR 20 AU DNB POUR L'EPS]
-Mots-clés : note sur 20 DNB, moyenne EPS brevet, coefficient DNB, note examen troisième.
-- Règle : AUCUNE épreuve terminale, aucun CCF et aucune note sur 20 envoyée à la DEC. L'EPS contribue à la validation du socle commun (SCCC) dans le LSU.
-
-### [SITUATION: ÉLÈVE TOTALEMENT DISPENSÉ D'EPS EN CLASSE DE TROISIÈME (DNB)]
-Mots-clés : dispense DNB, inapte toute l'année 3ème, socle commun sans EPS, impact brevet.
-- Règle : L'inaptitude totale annuelle n'empêche pas l'obtention du DNB. Les compétences motrices sont neutralisées dans le LSU sans pénaliser l'élève.
-
----
-
-[SECTION: GESTION_AVANCEE_SANTORIN_ET_CYCLADES]
-### [SITUATION: BOUTON « CLÔTURER LE LOT » GRISÉ DANS SANTORIN]
-Mots-clés : impossible clôturer lot, bouton clôturer grisé, lot bloqué Santorin, validation finale impossible.
-- Cause : Le bouton ne se déverrouille que si 100 % des candidats du lot possèdent un statut validé (note, ABS, DISP ou CE). Parcourir toutes les pages via le sélecteur 50/100 candidats.
-
-### [SITUATION: DIFFÉRENCE ENTRE STATUT « ABS », « DISP » ET « CE » DANS SANTORIN]
-Mots-clés : code ABS, code DISP, code CE, zéro Santorin, neutraliser coefficient, différence dispense absence.
-- ABS (Injustifié) : Note 0/20 comptabilisée dans la moyenne.
-- DISP (Médical) : Neutralisation de l'épreuve (moyenne sur les autres épreuves valides).
-- CE (Cas Exceptionnel) : Neutralisation pour force majeure matérielle sur accord formel préalable de l'IA-IPR.
-
-### [SITUATION: CANDIDAT EN DOUBLE NOTATION SUR SANTORIN (CONFLIT CO-ÉVALUATION)]
-Mots-clés : deux correcteurs même copie, écrasement de note Santorin, conflit saisie co-évaluation.
-- Fonctionnement : L'ouverture de la grille par un correcteur bascule la copie en lecture seule pour le second. Attendre la fermeture de session du premier correcteur pour éditer les notes d'AFL.
-
-### [SITUATION: ÉLÈVE SPORTIF DE HAUT NIVEAU (SHN) NON RECONNU SUR SANTORIN]
-Mots-clés : SHN 20 sur 20 impossible, bouton SHN absent, liste ministérielle SHN, PPF Bac.
-- Résolution : L'enseignant alerte le chef d'établissement qui transmet l'attestation ministérielle (liste PPF de janvier) à la DEC. Après validation dans Cyclades, l'icône SHN apparaît dans Santorin.
-
----
-
-[SECTION: CONTESTATIONS_JURIDIQUES_ET_DROIT_DES_EXAMENS]
-### [SITUATION: DEMANDE DE CONSULTATION DE LA FICHE D'ÉVALUATION CCF PAR LA FAMILLE]
-Mots-clés : droit communication copie, voir ma grille CCF, contestation parents, communication document administratif.
-- Règle : Les fiches d'évaluation CCF sont communicables de plein droit UNIQUEMENT après la délibération finale du jury académique (début juillet). Secret absolu des délibérations avant les résultats officiels du Baccalauréat.
-
-### [SITUATION: DISCRIMINATION ALLÉGUÉE SUR LES BARÈMES FILLES / GARÇONS (CA1)]
-Mots-clés : égalité filles garçons, barème sexué, contestation barème CA1, discrimination barème EPS.
-- Règle : Les barèmes physiologiquement adaptés en CA1 garantissent l'égalité réelle des chances face à la certification (jurisprudence constante du Conseil d'État). Modification unilatérale interdite.
-
-### [SITUATION: ACCUSATION DE CO-ÉVALUATION NON RESPECTÉE (BAC GT)]
-Mots-clés : co-évaluation absente, un seul prof pour évaluer, nullité de l'épreuve Bac, recours co-évaluation.
-- Règle : En cas d'empêchement de force majeure du co-évaluateur le jour J, l'enseignant de la classe assure seul la passation pour ne pas léser les élèves. L'épreuve reste juridiquement valide et la situation est consignée au procès-verbal pour la CAHPN.
-
-----------------------------------------------------------------------
-11. EXAMENS ET CERTIFICATION : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE)
-----------------------------------------------------------------------
-### [SITUATION: AEFE / ÉTRANGER — ASSOCIATION CYCLADES ET REMONTÉE SANTORIN]
-Mots-clés : AEFE Cyclades, étranger Santorin, protocole élève étranger, candidats hors SIÈCLE, MEMO associer élèves, lot Santorin étranger.
-- Règle : Les établissements de l'étranger n'étant pas connectés à la base SIÈCLE, l'association des candidats aux protocoles d'EPS doit obligatoirement être effectuée manuellement dans CYCLADES via le guide :
-  📄 [Télécharger le Mémo Officiel - Associer les élèves au protocole sur Cyclades (PDF)](https://pole-examens.github.io/tutoriels-examens/res/MEMO-Associer-eleves-protocole-Etab-v1.0.pdf)
-
-### [SITUATION: AEFE / ÉTRANGER — CALENDRIERS DÉCALÉS ET RYTHME SUD]
-Mots-clés : rythme sud, hémisphère sud, date limite Santorin étranger, session novembre bac, calendrier décalé AEFE.
-- Règle : Zone Rythme Sud (Amérique du Sud, Australie, Afrique australe) ➔ session décalée sur octobre / novembre / décembre.Les enseignants doivent impérativement se référer au calendrier officiel publié par leur académie de rattachement pour toute confirmation ou mise à jour.
-
-### [SITUATION: AEFE / ÉTRANGER — COMMISSION D'HARMONISATION (CAHN) À DISTANCE]
-Mots-clés : CAHN étranger, commission harmonisation AEFE, dépôt pièces étranger, académie rattachement.
-- Procédure : Téléversement dématérialisé de l'ensemble des pièces (fiches récapitulatives, bordereaux d'émargement, FCA) vers les jurys d'harmonisation de l'académie de rattachement en fin d'année locale.
-
-### [SITUATION: AEFE / ÉTRANGER — VALIDITÉ DES CERTIFICATS MÉDICAUX LOCAUX]
-Mots-clés : médecin étranger, certificat médical ambassade, dispense bac étranger, inaptitude AEFE.
-- Règle : Les certificats médicaux délivrés par les praticiens locaux habilités ou les médecins d'Ambassade ont pleine valeur juridique pour positionner le statut DISP ou ABJ dans Santorin.
-
-### [SITUATION: AEFE / ÉTRANGER — DÉROGATION DE CO-ÉVALUATION (ISOLEMENT GÉOGRAPHIQUE)]
-Mots-clés : co-évaluation étranger, un seul professeur de lycée, isolement géographique AEFE, dérogation co-évaluateur.
-- Règle : Si l'établissement ne compte qu'un seul professeur d'EPS certifié/agrégé, dérogation formelle accordée par l'IA-IPR de zone pour évaluer seul ou avec un personnel homologué désigné.
+*(Contient l'intégralité des sections sur les absences, les retards, le contentieux juridique, la co-évaluation, les sportifs de haut niveau SHN, les candidats libres/individuels, les établissements de l'étranger AEFE, et la jurisprudence des examens nationaux).*

@@ -352,7 +352,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     docs_santorin.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=6
+        similarity_top_k=8
     )
 
 
@@ -376,7 +376,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
     docs_ipack.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=6
+        similarity_top_k=8
     )
 
 
@@ -397,7 +397,7 @@ def initialiser_base_textes(cle_fremt):
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
     docs_textes.extend(charger_consignes_pierre())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-        similarity_top_k=6
+        similarity_top_k=8
     )
 
 
@@ -614,17 +614,14 @@ if prompt:
             pass
 
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-        # 1. Détection universelle DNB / Collège (tous onglets confondus)
         est_dnb = any(
             w in p_low for w in ["dnb", "brevet", "collège", "college"]
         ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 
-        # 2. Sujet écrit de secours
         est_sujet_secours = "sujet" in p_low and any(
             w in p_low for w in ["secours", "papier", "imprimer"]
         )
 
-        # 3. CAP et protocole strict à 2 épreuves
         est_cap_3epreuves = (
             mode == "examens"
             and "cap" in p_low
@@ -639,7 +636,6 @@ if prompt:
             )
         )
 
-        # 4. TASA 2026
         est_tasa = mode == "textes" and "tasa" in p_low
 
         est_cas_direct = (
@@ -728,29 +724,32 @@ if prompt:
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
    - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4, 121-3 CP / Loi Fauchon, Circulaire 2017-075, L. 134-1 CGFP).
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (analyse de la faute caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (post-accident ou mesures préventives).
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
 """
             elif mode == "examens":
                 directive_onglet = """
 3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
    - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+   - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
+   - Bac Pro : 3 épreuves de 3 champs distincts.
+   - CAP : Strictement 2 épreuves de 2 champs distincts.
 """
             elif mode == "ipack":
                 directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Donne la procédure technique exacte en précisant les menus ([Dossiers] > ...).
-   - DISTINCTION COLLÈGE / LYCÉE :
-     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On associe simplement l'activité aux Champs d'Apprentissage (CA 1 à CA 4) pour l'évaluation du socle (LSU).
-     * Lycée : La case « Certificative » et les protocoles ne concernent QUE les classes de Terminale (Bac GT/Pro) et CAP préparant le CCF.
-   - SPÉCIFICITÉ SSS vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
+   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
+   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
+     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
+     * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
+   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 
             consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
-CONTEXTE OFFICIEL :
+CONTEXTE DOCUMENTAIRE OFFICIEL :
 {extraits_doc}
 {verites_terrain_pierre}
 
@@ -758,14 +757,26 @@ QUESTION DE L'UTILISATEUR :
 {prompt}
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE : Réponds uniquement et précisément à l'action demandée. Si la question est générale (ex : "comment créer une APSA", "construire un emploi du temps"), donne uniquement la procédure standard pas à pas. N'ajoute pas de cas particuliers non sollicités (Bac Pro 4 ans, SSS, EPPCS, Inaptitudes) sauf s'ils sont explicitement mentionnés dans la question.
-2. STRUCTURE : Rends une réponse claire avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
+1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas. N'ajoute pas de cas particuliers complexes hors-sujet sauf s'ils sont demandés ou directement utiles.
+2. STRUCTURE : Rends une réponse structurée avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
 {directive_onglet}
-3. 📺 TUTO VIDÉO (RECOPIE STRICTE DEPUIS LE CONTEXTE) :
-   - Si et seulement si un article du contexte documentaire ci-dessus contient explicitement la mention "📺 TUTORIEL COMPAGNON : nom_du_fichier.mp4", recopie textuellement cette mention à la toute fin de ta réponse sous la forme : "📺 Tutoriel associé : nom_du_fichier.mp4".
-   - Si aucun document du contexte ne contient de balise "TUTORIEL COMPAGNON" (cas des APSA, de l'emploi du temps, du matériel, etc.), NE METS STRICTEMENT AUCUN NOM DE FICHIER, n'invente aucun tutoriel et ne parle pas de vidéo. Termine directement ta réponse.
-4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
-5. 📅 CALENDRIER : Rappelle que les dates précises sont fixées chaque année par la circulaire de la DEC de rattachement.
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS SUR LE SUJET DE LA QUESTION) :
+   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question de l'utilisateur porte explicitement sur la manipulation exacte suivante :
+     * import_eleves_pronote.mp4 -> Pour l'import d'élèves ou groupes depuis Pronote / ÉcoleDirecte via CSV.
+     * Configuration_classes_import_eleves.mp4 -> Pour la configuration initiale des divisions/classes et l'import global d'élèves depuis SIÈCLE.
+     * affecter_eleves_dans_groupes.mp4 -> Pour la création de groupes ou l'affectation des élèves dans des groupes.
+     * Generer_importer_fichier_groupes_cyclades.mp4 -> Pour l'export du fichier de groupes depuis iPackEPS et son import dans Cyclades.
+     * verification_affectation_protocoles_cyclades.mp4 -> Pour la vérification des protocoles d'épreuves dans Cyclades.
+     * creer_convocations_enseignants.mp4 -> Pour la création de convocations et génération du PDF dans IMAG'IN.
+     * Distribution_lots_santorin.mp4 -> Pour la distribution automatique des lots dans Santorin.
+     * Distribution_manuelle_lots_santorin.mp4 -> Pour la distribution manuelle des lots de copies dans Santorin.
+     * Saisie_notes_Santorin.mp4 -> Pour la saisie des notes et AFL dans Santorin.
+     * Verrouiller_lot_santorin.mp4 -> Pour le verrouillage officiel d'un lot de copies dans Santorin.
+     * Deverrouiller_lots_santorin.mp4 -> Pour la demande ou procédure de déverrouillage d'un lot dans Santorin.
+     * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
+   - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, emploi du temps, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
+4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+5. 📅 CALENDRIER : Rappelle que les dates butoirs précises sont fixées chaque année par la circulaire de la DEC de rattachement.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)

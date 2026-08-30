@@ -182,7 +182,7 @@ css_pur = f"""
         border: 1px solid rgba(255,255,255,0.05) !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        height: 60px !important; 
+        height: 55px !important; 
         display: inline-flex !important; 
         align-items: center !important; 
         justify-content: center !important; 
@@ -197,7 +197,7 @@ css_pur = f"""
         font-size: 13px !important; 
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important; 
         font-weight: 700 !important; 
-        height: 60px !important; 
+        height: 55px !important; 
         display: inline-flex !important; 
         align-items: center !important; 
         justify-content: center !important; 
@@ -233,6 +233,14 @@ css_pur = f"""
         border-radius: 4px; 
         border: 1px solid rgba(255, 176, 32, 0.4) !important; 
         font-weight: 700 !important; 
+    }}
+
+    div[data-testid="stForm"] {{
+        background-color: rgba(15, 23, 42, 0.6) !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        margin-bottom: 12px !important;
     }}
 
     /* ZOOM FLUIDE IMAGE 5 */
@@ -432,7 +440,7 @@ st.markdown(
 )
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD
+# 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================
 label_titres = {
     "ipack": (
@@ -454,15 +462,12 @@ titre_affiche = label_titres.get(
     "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
 )
 st.markdown(
-    '<div class="column-title-top"><span class="instruction">⚙️ Choisissez le'
-    " contexte de votre question ci-dessous</span><span"
+    '<div class="column-title-top"><span class="instruction">⚙️ Étape 1 :'
+    " Choisissez le contexte de votre question</span><span"
     f' class="mode-actuel">{titre_affiche}</span></div>',
     unsafe_allow_html=True,
 )
 
-# ======================================================================
-# 7. BOUTONS DE CONTEXTE (3 ONGLETS)
-# ======================================================================
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 with col_b1:
     if st.button(
@@ -508,12 +513,50 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7B. MESSAGES D'AVERTISSEMENT
+# 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
+# ======================================================================
+placeholder_texte = {
+    "ipack": (
+        "Posez votre question technique iPackEPS (ex: configurer les groupes,"
+        " emploi du temps, inaptitudes...)"
+    ),
+    "examens": (
+        "Posez votre question Examens ou Santorin (ex: verrouiller un lot,"
+        " calcul note bac, dispenses...)"
+    ),
+    "textes": (
+        "Posez votre question juridique ou sécurité (ex: accident en cours,"
+        " responsabilité APPN, TASA...)"
+    ),
+}
+
+prompt = None
+with st.form(key="form_question_hub", clear_on_submit=True):
+    col_input, col_submit = st.columns([5, 1])
+    with col_input:
+        prompt_brut = st.text_input(
+            "Question :",
+            placeholder=placeholder_texte.get(
+                st.session_state.active_module,
+                "Rédigez votre question ici...",
+            ),
+            label_visibility="collapsed",
+        )
+    with col_submit:
+        bouton_envoyer = st.form_submit_button(
+            "🚀 Poser la question", use_container_width=True, type="primary"
+        )
+
+    if bouton_envoyer and prompt_brut.strip():
+        prompt = prompt_brut.strip()
+
+# ======================================================================
+# 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
             ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
@@ -524,7 +567,7 @@ if st.session_state.active_module == "textes":
 else:
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
         <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
             <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
@@ -550,26 +593,8 @@ else:
     )
 
 # ======================================================================
-# 8. ZONE D'ACTION
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
 # ======================================================================
-prompt = st.chat_input(
-    "Cliquez sur le module concerné : IpackEPS ou Examens ou Cadre"
-    " règlementaire dans les bannières et rédigez votre question ici...",
-    key="chat_main",
-)
-
-# ======================================================================
-# 9. FLUX DE MESSAGES ET MOTEUR RAG COMPLET
-# ======================================================================
-st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
-for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]):
-        if m.get("type") == "video":
-            st.video(m["content"])
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
-
 if prompt:
     st.session_state.messages_hub = []
 
@@ -774,7 +799,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
      * Verrouiller_lot_santorin.mp4 -> Pour le verrouillage officiel d'un lot de copies dans Santorin.
      * Deverrouiller_lots_santorin.mp4 -> Pour la demande ou procédure de déverrouillage d'un lot dans Santorin.
      * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
-   - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, emploi du temps, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
+   - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
 4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 5. 📅 CALENDRIER : Rappelle que les dates butoirs précises sont fixées chaque année par la circulaire de la DEC de rattachement.
 """
@@ -784,14 +809,13 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 1. Suppression des balises de code Markdown parasites
+        # 🧹 Nettoyages et filtres
         texte_brut = (
             texte_brut.replace("```html", "")
             .replace("```HTML", "")
             .replace("```", "")
         )
 
-        # 🧹 2. Suppression de toute mention parasite "Tutoriel associé : Aucun"
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
             "",
@@ -799,7 +823,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        # 3. Traitements de surface et filtres regex
         texte_brut = re.sub(
             r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
             r" l\'éducation)",
@@ -833,7 +856,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f" question dans {contexte_choisi_nom}.</em></div>"
         )
 
-        # ✉️ Pied de message avec lien assistance cliquable (iPackEPS & Examens)
         footer_assistance = ""
         if mode in ["ipack", "examens"]:
             footer_assistance = (
@@ -855,11 +877,19 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
-        # 🚀 ZONE 2 : DÉTECTEUR AUTOMATIQUE DE CAPSULES VIDÉOS
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        st.rerun()
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS (SOUS LA BANNIÈRE EXPLICATIVE)
+if st.session_state.messages_hub:
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

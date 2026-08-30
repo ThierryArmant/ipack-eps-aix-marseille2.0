@@ -854,6 +854,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
    - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
 4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
+6. ⏱️ RÈGLE ABSOLUE DE PRIORITÉ TEMPORELLE (DOUBLONS ET TEXTES OBSOLÈTES) :
+   - Analyse systématiquement les dates ou les années mentionnées dans les documents extraits de la base.
+   - Si plusieurs textes, circulaires ou notes traitent du même sujet à des dates différentes (ex: une version de 2017 et une de 2022), **tu dois impérativement écarter et ignorer la version la plus ancienne**.
+   - Appuie-toi **uniquement** sur la disposition ou la circulaire la plus récente pour formuler ta réponse, et mentionne explicitement sa date pour rassurer l'utilisateur.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)

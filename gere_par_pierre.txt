@@ -1469,3 +1469,17 @@ En cas de protocole de CCF comportant plusieurs épreuves d'examen :
 3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
 EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
 OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.
+[SECTION: AJOUTS_RECENTS_TERRAIN]
+
+### [SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]
+- Règle stricte : Il est formellement interdit de créer ou bricoler un contrôle adapté (FCA) en cours d’année « au sifflet » pour une blessure soudaine. 
+- Distinction vitale : 
+  1. Inaptitude permanente (connue dès la rentrée, handicap, pathologie lourde) ➔ Contrôle adapté et FCA validée par la CAHN en amont.
+  2. Inaptitude temporaire (blessure en cours d'année) ➔ Simple contrôle aménagé sur la MÊME APSA du protocole initial (pas de changement d'activité, pas de FCA improvisée).
+
+### [SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]
+- Cause fatale : Double-cliquer pour ouvrir un fichier CSV d'export Pronote ou ÉcoleDirecte directement dans Microsoft Excel. Excel convertit le fichier en ANSI/Windows-1252, détruit les accents (é devient Ã©) et transforme les libellés de classes de type « 1-1 » en dates (« 1er janvier »).
+- Procédure de prévention :
+  1. Ne jamais double-cliquer pour ouvrir un fichier CSV dans Excel.
+  2. Si une modification est nécessaire, l'ouvrir exclusivement avec le Bloc-notes Windows (Notepad) ou Notepad++.
+  3. Enregistrer le fichier en sélectionnant expressément l'encodage **UTF-8** avec le séparateur point-virgule (;).

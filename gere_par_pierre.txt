@@ -211,6 +211,7 @@ css_pur = f"""
         padding: 18px; 
         border-radius: 8px; 
         margin-bottom: 16px; 
+        line-height: 1.6 !important;
     }}
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
@@ -219,12 +220,25 @@ css_pur = f"""
     .santorin-card h3, .general-card h3, .securite-card h3 {{ 
         color: #38BDF8 !important; 
         font-size: 16px !important; 
-        margin-top: 16px !important; 
+        margin-top: 14px !important; 
+        margin-bottom: 8px !important;
         font-weight: 800 !important; 
         text-transform: uppercase; 
     }}
     .general-card h3 {{ color: #10B981 !important; }} 
     .securite-card h3 {{ color: #FF9F43 !important; }} 
+
+    /* STYLE AÉRÉ DES LISTES PAS À PAS */
+    .santorin-card ul, .general-card ul, .securite-card ul,
+    .santorin-card ol, .general-card ol, .securite-card ol {{
+        margin-top: 6px !important;
+        margin-bottom: 10px !important;
+        padding-left: 22px !important;
+    }}
+    .santorin-card li, .general-card li, .securite-card li {{
+        margin-bottom: 7px !important;
+        line-height: 1.5 !important;
+    }}
 
     .law-highlight {{ 
         background-color: rgba(255, 176, 32, 0.12) !important; 
@@ -783,7 +797,12 @@ QUESTION DE L'UTILISATEUR :
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas. N'ajoute pas de cas particuliers complexes hors-sujet sauf s'ils sont demandés ou directement utiles.
-2. STRUCTURE : Rends une réponse structurée avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
+2. STRUCTURE & MISE EN PAGE :
+   - Rends une réponse TRÈS AÉRÉE, pas à pas, ligne par ligne.
+   - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>) pour décomposer chaque étape technique.
+   - Chaque action/étape doit être sur sa propre ligne bien séparée.
+   - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
+   - Interdiction formelle de rédiger des pavés de texte compacts en bloc.
 {directive_onglet}
 3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS SUR LE SUJET DE LA QUESTION) :
    - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question de l'utilisateur porte explicitement sur la manipulation exacte suivante :
@@ -809,7 +828,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 Nettoyages et filtres
+        # 🧹 Nettoyages de base sans supprimer les sauts de ligne
         texte_brut = (
             texte_brut.replace("```html", "")
             .replace("```HTML", "")
@@ -841,13 +860,14 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_brut = re_links
 
+        # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
+        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
-            texte_brut.replace("\n", "")
-            .replace("\r", "")
-            .replace("<p>", "")
+            texte_nettoye.replace("<p>", "")
             .replace("</p>", "<br>")
-            .replace(chr(10), "<br>")
+            .replace("\n", "<br>")
         )
+        texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
         phrase_contexte = (
             "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"

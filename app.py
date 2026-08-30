@@ -553,7 +553,8 @@ else:
 # 8. ZONE D'ACTION
 # ======================================================================
 prompt = st.chat_input(
-    "Cliquez sur le module concerné : IpackEPS ou Examens ou Cadre règlementaire dans les bannières et rédigez votre question ici...",
+    "Cliquez sur le module concerné : IpackEPS ou Examens ou Cadre"
+    " règlementaire dans les bannières et rédigez votre question ici...",
     key="chat_main",
 )
 
@@ -832,9 +833,23 @@ DIRECTIVES DE RESTITUTION :
             " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
             f" question dans {contexte_choisi_nom}.</em></div>"
         )
+
+        # ✉️ Pied de message avec lien assistance cliquable (iPackEPS & Examens)
+        footer_assistance = ""
+        if mode in ["ipack", "examens"]:
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding-top: 8px; border-top:"
+                " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
+                " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
+                " pouvez toujours contacter l'assistance <a"
+                " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
+                " #38BDF8 !important; text-decoration:"
+                " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+            )
+
         formatted_answer = (
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
-            f" :</strong><br>{texte_final}</div>"
+            f" :</strong><br>{texte_final}{footer_assistance}</div>"
         )
 
         st.session_state.messages_hub.append(

@@ -1458,3 +1458,10 @@ Toute information contenue dans ce fichier annule et remplace les procédures an
 ## 4. RAPPEL RÉGLEMENTAIRE
 - Chaque CCF nécessite 2 notes valides (épreuves différentes).
 - Toute demande de double correction ou contestation de note est une procédure administrative qui sort du champ d'application de l'outil iPackEPS. Renvoyer systématiquement vers la Direction.
+RÈGLE ABSOLUE DE CALCUL CCF (CAS MIXTES DI / ABI / NOTES) :
+En cas de protocole de CCF comportant plusieurs épreuves d'examen :
+1. DI (Dispense / Inaptitude médicale) : Neutralise l'épreuve. L'épreuve est retirée du calcul et ne compte pas dans le diviseur.
+2. ABI (Absence non justifiée) : Si aucun rattrapage n'a été fait avant la fermeture, l'épreuve vaut 0/20.
+3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
+EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
+OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.

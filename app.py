@@ -760,25 +760,24 @@ DIRECTIVES DE RESTITUTION :
 1. 📐 FORMAT : Rends une réponse structurée avec des puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
 2. 📖 RESPECT ET EXHAUSTIVITÉ DES SOURCES : Restitue fidèlement TOUTES les nuances, étapes et distinctions contenues dans le contexte documentaire. Ne supprime aucun cas particulier au profit d'un résumé trop court.
 {directive_onglet}
-4. 📺 TUTO VIDÉO (LISTE BLANCHE STRICTE) :
-   - Associe un fichier UNIQUEMENT si la manipulation technique demandée correspond EXACTEMENT et EXPLICITEMENT à l'un de ces fichiers :
-     - import_eleves_pronote.mp4
-     - Configuration_classes_import_eleves.mp4
-     - affecter_eleves_dans_groupes.mp4
-     - Generer_importer_fichier_groupes_cyclades.mp4
-     - verification_affectation_protocoles_cyclades.mp4
-     - creer_convocations_enseignants.mp4
-     - Distribution_lots_santorin.mp4
-     - Distribution_manuelle_lots_santorin.mp4
-     - Saisie_notes_Santorin.mp4
-     - Verrouiller_lot_santorin.mp4
-     - Deverrouiller_lots_santorin.mp4
-     - Ajouter_evaluateur_lot_santorin.mp4
-   - Si la question correspond exactement à l'une de ces vidéos, écris textuellement à la fin : "📺 Tutoriel associé : nom_du_fichier.mp4".
-   - Pour toute question générale, création simple d'APSA, ou sujet sans correspondance directe : NE METTRE AUCUN TUTORIEL et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
+4. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
+   - Associe un tutoriel UNIQUEMENT si la manipulation demandée correspond EXACTEMENT à l'un de ces cas :
+     * "import_eleves_pronote.mp4" -> Uniquement pour l'import de fichier CSV Pronote.
+     * "Configuration_classes_import_eleves.mp4" -> Uniquement pour la création de classes ou l'import global d'élèves depuis SIÈCLE / fichier texte.
+     * "affecter_eleves_dans_groupes.mp4" -> Uniquement pour l'affectation ou le basculement d'élèves dans des groupes.
+     * "Generer_importer_fichier_groupes_cyclades.mp4" -> Uniquement pour l'export/import du fichier de structure des groupes vers Cyclades.
+     * "verification_affectation_protocoles_cyclades.mp4" -> Uniquement pour la vérification des protocoles dans Cyclades.
+     * "creer_convocations_enseignants.mp4" -> Uniquement pour la création de convocations jurys/enseignants dans IMAG'IN.
+     * "Distribution_lots_santorin.mp4" -> Uniquement pour la distribution automatique des lots dans Santorin.
+     * "Distribution_manuelle_lots_santorin.mp4" -> Uniquement pour la distribution manuelle des lots dans Santorin.
+     * "Saisie_notes_Santorin.mp4" -> Uniquement pour la saisie directe des notes dans Santorin.
+     * "Verrouiller_lot_santorin.mp4" -> Uniquement pour le verrouillage ou la validation d'un lot dans Santorin.
+     * "Deverrouiller_lots_santorin.mp4" -> Uniquement pour la demande ou l'action de déverrouiller un lot dans Santorin.
+     * "Ajouter_evaluateur_lot_santorin.mp4" -> Uniquement pour l'ajout d'un évaluateur / correcteur à un lot dans Santorin.
+   - Si la question correspond explicitement à l'un de ces cas, écris à la toute fin : "📺 Tutoriel associé : nom_du_fichier.mp4".
+   - ⚠️ INTERDICTION STRICTE : Pour la création simple d'une APSA, les barèmes, les inaptitudes, les textes juridiques ou toute question d'ordre général, NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'. Termine immédiatement la réponse.
 5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
-6. 📅 CALENDRIER ET DATES LIMITES : Ne jamais présenter une date précise comme immuable. Indique systématiquement que les échéances précises sont fixées chaque année par la circulaire académique de la DEC de rattachement.
-"""
+6. 📅 CALENDRIER ET DATES LIMITES : Ne jamais présenter une date précise comme immuable. Indique systématiquement que les échéances précises sont fixées chaque année par la circulaire académique de la DEC de rattachement."""
             try:
                 response = Settings.llm.complete(consigne_ia)
                 texte_brut = response.text

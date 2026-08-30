@@ -469,3 +469,13 @@ AJOUTS RÉCENTS : CAS DU CADENAS ET BLOQUAGE SANTORIN
 * EXplication précise du « Cadenas / Crayons grisés » sur Santorin :
   - Cause 1 (Lot déjà validé / clôturé) : Le lot a déjà été soumis et verrouillé définitivement par l'enseignant. Aucune modification n'est possible. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.
   - Cause 2 (Co-évaluation simultanée) : Un collègue co-évaluateur est actuellement connecté sur le même lot en même temps, ce qui verrouille l'écriture en lecture seule. Attendre la fermeture de sa session.
+======================================================================
+AJOUT échéance de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
+======================================================================
+Quelle est l'échéance de saisie des notes dans Santorin ?
+Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement.
+
+PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
+- Il est strictement INTERDIT de créer un élève manuellement dans iPackEPS (cela brise la synchronisation, les identifiants et l'INE pour les examens comme Santorin).
+- Risque : Élève invisible ou bloqué lors des remontées officielles.
+- Procédure réelle : Le coordonnateur ou l'enseignant doit demander une extraction à jour du fichier SIÈCLE/SCONET (XML/CSV) au secrétariat, puis faire un nouvel « Import » dans iPackEPS pour que l'élève soit créé proprement avec ses identifiants officiels. Ensuite, il suffit de l'affecter dans son groupe depuis l'onglet des classes/groupes.

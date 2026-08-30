@@ -554,3 +554,33 @@ CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
     * Nouveau corps (Agrégé) = Coefficient 175.
   - Formule de conversion : Ancienneté retenue dans le nouveau corps = $A \times (135 / 175)$ (soit un ratio d'environ 0,7714).
   - Le résultat obtenu détermine par correspondance directe l'échelon d'accueil dans la classe normale des agrégés et le reliquat d'ancienneté conservé.
+======================================================================
+RÉFÉRENTIEL STRUCTUREL DES BULLETINS ACADÉMIQUES (BA & BA SPÉCIAUX)
+======================================================================
+
+1. CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION
+----------------------------------------------------------------------
+* PÉRIODE AUTOMNE / HIVER (NOVEMBRE - DÉMARCHE MOBILITÉ & CARRIÈRE) :
+  - Publication des circulaires et notes de service relatives au mouvement interacadémique (SIAM / I-Prof) (généralement en novembre / décembre).
+  - Campagnes d'avancement de grade (Hors-Classe, Classe Exceptionnelle) et tableaux d'avancement.
+  - Recueil des demandes de temps partiel et de disponibilité pour l'année scolaire suivante (fin d'année civile).
+
+* PÉRIODE HIVER / PRINTEMPS (JANVIER - AVRIL) :
+  - Mouvement intra-académique (saisie des vœux et barèmes au printemps).
+  - Publication des listes d'aptitude (passage de corps, ex: certifié vers agrégé).
+  - Parution des BA Spéciaux « Mémento des examens » (DNB, CAP, Bac Pro, Bac GT) fixant les procédures académiques de gestion des notes, des jurys et des commissions d'harmonisation (CAHPN).
+
+* PÉRIODE ÉTÉ (MAI - JUILLET) :
+  - Organisation des examens terminaux et du CCF, remontée des notes via les applications académiques (Santorin, Cyclades, Esterel).
+  - Résultats d'affectation du mouvement intra-académique.
+  - Traitement des recours via l'application Colibris.
+
+* PÉRIODE RENTRÉE (AOÛT - SEPTEMBRE) :
+  - Notes de service de la DIPE relatives à la rentrée scolaire, aux prises de fonction, aux affectations des contractuels et aux dispositifs d'accompagnement.
+
+2. STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA
+----------------------------------------------------------------------
+* DIPE (Division des Personnels Enseignants) : Gestion des carrières, affectations, mutations, temps partiels, congés, avancements.
+* DRAIO (Délégation Régionale Académique d'Information et d'Orientation) : Affectation des élèves, procédures post-3e, orientation.
+* DAAC (Délégations Académiques aux Arts et à la Culture) / EAFC (École Académique de Formation Continue) : Offre de formation continue, stages, passation de dispositifs culturels et sportifs.
+* DEC (Division des Examens et Concours) : Organisation matérielle et numérique des examens (via les BA Spéciaux d'avril/mai).

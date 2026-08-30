@@ -235,7 +235,7 @@ css_pur = f"""
         font-weight: 700 !important; 
     }}
 
-    /* ZOOM FLUIDE IMAGE 5 (SURVOL ET CLIC) */
+    /* ZOOM FLUIDE IMAGE 5 */
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
         cursor: zoom-in;
@@ -553,7 +553,7 @@ else:
 # 8. ZONE D'ACTION
 # ======================================================================
 prompt = st.chat_input(
-    "Posez votre question institutionnelle, technique ou juridique ici... Attention, pour éviter les erreurs d'interprétation cliquez sur le module concerné : IpackEPS ou Examens ou sécurité",
+    "Posez votre question institutionnelle, technique ou juridique ici...",
     key="chat_main",
 )
 
@@ -613,12 +613,17 @@ if prompt:
             pass
 
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-        est_dnb = mode == "examens" and any(
+        # 1. Détection universelle DNB / Collège (tous onglets confondus)
+        est_dnb = any(
             w in p_low for w in ["dnb", "brevet", "collège", "college"]
-        )
+        ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+
+        # 2. Sujet écrit de secours
         est_sujet_secours = "sujet" in p_low and any(
             w in p_low for w in ["secours", "papier", "imprimer"]
         )
+
+        # 3. CAP et protocole strict à 2 épreuves
         est_cap_3epreuves = (
             mode == "examens"
             and "cap" in p_low
@@ -632,6 +637,8 @@ if prompt:
                 ]
             )
         )
+
+        # 4. TASA 2026
         est_tasa = mode == "textes" and "tasa" in p_low
 
         est_cas_direct = (
@@ -672,19 +679,24 @@ if prompt:
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif est_dnb:
-            texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI NOTE D'EXAMEN SUR 20</h3>
+            texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
 <ul>
-  <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
+  <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong>, <strong>aucune case certificative</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
   <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
-  <li><strong>Aucun protocole Santorin :</strong> Les collèges ne sont pas concernés par les remontées de notes sur Santorin ni par les dates limites d'examen de la DEC.</li>
+  <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
 </ul>"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            badge, color_card = (
+                "📊 COLLÈGE & DNB"
+                if mode == "examens"
+                else "🛠️ ASSISTANCE iPACKEPS",
+                "santorin-card" if mode == "examens" else "general-card",
+            )
 
         elif est_sujet_secours:
             texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
 <ul>
   <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
-  <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs.</li>
+  <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs académiques.</li>
   <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -728,8 +740,11 @@ if prompt:
             elif mode == "ipack":
                 directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Donne la procédure technique détaillée en indiquant l'arborescence exacte des menus ([Dossiers] > ...).
-   - EXHAUSTIVITÉ MÉTIER : Si le contexte documentaire distingue plusieurs statuts d'établissements (Établissements MEN public/privé, Hors MEN / MFR / Agricole, Réseau AEFE / Étranger), tu DOIS obligatoirement restituer la solution adaptée pour CHAQUE statut.
+   - Donne la procédure technique exacte en précisant les menus ([Dossiers] > ...).
+   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
+     * Collège (DNB) : AUCUNE APSA certificative. On ne coche jamais de case certificative et on ne crée aucun protocole d'examen. Les APSA sont simplement associées aux Champs d'Apprentissage (CA 1 à CA 4) pour l'évaluation continue et la validation du socle commun (LSU).
+     * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
+   - N'évoque les spécificités d'établissements (Public, Privé, Agricole, AEFE) QUE si la manipulation technique ou le mode d'import diffère réellement. Pour les manipulations universelles (ex : créer une APSA, saisir une note), donne une démarche claire et directe.
 """
 
             consigne_ia = f"""Tu es l'assistant IA référent expert en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
@@ -746,22 +761,23 @@ DIRECTIVES DE RESTITUTION :
 2. 📖 RESPECT ET EXHAUSTIVITÉ DES SOURCES : Restitue fidèlement TOUTES les nuances, étapes et distinctions contenues dans le contexte documentaire. Ne supprime aucun cas particulier au profit d'un résumé trop court.
 {directive_onglet}
 4. 📺 TUTO VIDÉO (LISTE BLANCHE STRICTE) :
-   Si et seulement si la manipulation technique demandée correspond EXACTEMENT à l'un de ces fichiers :
-   - import_eleves_pronote.mp4
-   - Configuration_classes_import_eleves.mp4
-   - affecter_eleves_dans_groupes.mp4
-   - Generer_importer_fichier_groupes_cyclades.mp4
-   - verification_affectation_protocoles_cyclades.mp4
-   - creer_convocations_enseignants.mp4
-   - Distribution_lots_santorin.mp4
-   - Distribution_manuelle_lots_santorin.mp4
-   - Saisie_notes_Santorin.mp4
-   - Verrouiller_lot_santorin.mp4
-   - Deverrouiller_lots_santorin.mp4
-   - Ajouter_evaluateur_lot_santorin.mp4
-   Tu DOIS écrire textuellement à la fin de la réponse : "📺 Tutoriel associé : nom_du_fichier.mp4".
-   Si aucun de ces fichiers ne correspond, termine immédiatement ta réponse sans ajouter de ligne finale (ne JAMAIS écrire le mot 'tutoriel', ni 'aucun').
+   - Associe un fichier UNIQUEMENT si la manipulation technique demandée correspond EXACTEMENT et EXPLICITEMENT à l'un de ces fichiers :
+     - import_eleves_pronote.mp4
+     - Configuration_classes_import_eleves.mp4
+     - affecter_eleves_dans_groupes.mp4
+     - Generer_importer_fichier_groupes_cyclades.mp4
+     - verification_affectation_protocoles_cyclades.mp4
+     - creer_convocations_enseignants.mp4
+     - Distribution_lots_santorin.mp4
+     - Distribution_manuelle_lots_santorin.mp4
+     - Saisie_notes_Santorin.mp4
+     - Verrouiller_lot_santorin.mp4
+     - Deverrouiller_lots_santorin.mp4
+     - Ajouter_evaluateur_lot_santorin.mp4
+   - Si la question correspond exactement à l'une de ces vidéos, écris textuellement à la fin : "📺 Tutoriel associé : nom_du_fichier.mp4".
+   - Pour toute question générale, création simple d'APSA, ou sujet sans correspondance directe : NE METTRE AUCUN TUTORIEL et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
 5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+6. 📅 CALENDRIER ET DATES LIMITES : Ne jamais présenter une date précise comme immuable. Indique systématiquement que les échéances précises sont fixées chaque année par la circulaire académique de la DEC de rattachement.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)
@@ -776,7 +792,7 @@ DIRECTIVES DE RESTITUTION :
             .replace("```", "")
         )
 
-        # 🧹 2. Suppression de la mention parasite "Tutoriel associé : Aucun"
+        # 🧹 2. Suppression de toute mention parasite "Tutoriel associé : Aucun"
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
             "",

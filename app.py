@@ -9,18 +9,18 @@ from llama_index.llms.openai import OpenAI
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
 VIDEOS_TUTOS = {
-    "import_eleves_pronote.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4](https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4)",
-    "Configuration_classes_import_eleves.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4](https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4)",
-    "affecter_eleves_dans_groupes.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4](https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4)",
-    "Generer_importer_fichier_groupes_cyclades.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4](https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4)",
-    "verification_affectation_protocoles_cyclades.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4](https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4)",
-    "creer_convocations_enseignants.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4](https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4)",
-    "Distribution_lots_santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4)",
-    "Distribution_manuelle_lots_santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4)",
-    "Saisie_notes_Santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4)",
-    "Verrouiller_lot_santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4)",
-    "Deverrouiller_lots_santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4)",
-    "Ajouter_evaluateur_lot_santorin.mp4": "[https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4](https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4)",
+    "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
+    "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
+    "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
+    "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",
+    "verification_affectation_protocoles_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4",
+    "creer_convocations_enseignants.mp4": "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4",
+    "Distribution_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4",
+    "Distribution_manuelle_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4",
+    "Saisie_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4",
+    "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
+    "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
+    "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
 }
 
 # ======================================================================
@@ -76,7 +76,7 @@ img_eps = "image_6.png"
 img_droite = "image_5.png"
 img_fond = "image_8.png"
 
-github_url = f"[https://raw.githubusercontent.com/](https://raw.githubusercontent.com/){st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
+github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
 css_pur = f"""
     <style>
@@ -275,29 +275,6 @@ css_pur = f"""
         transform-origin: top right;
         cursor: zoom-out;
     }}
-
-    /* ⏳ BANDEAU DE CHARGEMENT DYNAMIQUE & TRÈS VISIBLE */
-    div[data-testid="stSpinner"] {{
-        background-color: rgba(15, 23, 42, 0.95) !important;
-        border: 2px solid #38BDF8 !important;
-        border-radius: 10px !important;
-        padding: 18px 24px !important;
-        box-shadow: 0 0 25px rgba(56, 189, 248, 0.5) !important;
-        margin-top: 15px !important;
-        margin-bottom: 15px !important;
-        text-align: center !important;
-    }}
-    div[data-testid="stSpinner"] * {{
-        color: #FFFFFF !important;
-        font-size: 16px !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.4px !important;
-    }}
-    div[data-testid="stSpinner"] i {{
-        border-top-color: #38BDF8 !important;
-        width: 24px !important;
-        height: 24px !important;
-    }}
     </style> 
 """
 st.markdown(css_pur, unsafe_allow_html=True)
@@ -389,7 +366,7 @@ def initialiser_base_santorin(cle_fremt):
             metadata={
                 "title": "Correction Partagée",
                 "url": (
-                    "[https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf](https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf)"
+                    "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
                 ),
             },
         )
@@ -413,7 +390,7 @@ def initialiser_base_ipack(cle_fremt):
             metadata={
                 "title": "Guide iPackEPS",
                 "url": (
-                    "[https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf](https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf)"
+                    "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
                 ),
             },
         )
@@ -435,7 +412,7 @@ def initialiser_base_textes(cle_fremt):
             ),
             metadata={
                 "title": "Légifrance",
-                "url": "[https://www.legifrance.gouv.fr/](https://www.legifrance.gouv.fr/)",
+                "url": "https://www.legifrance.gouv.fr/",
             },
         )
     ]
@@ -625,10 +602,7 @@ if prompt:
         "type": "text",
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
-
-    with st.spinner(
-        "⏳ 🧠 Analyse réglementaire et recherche documentaire en cours..."
-    ):
+    with st.spinner("Je consulte la documentation officielle..."):
         mode = st.session_state.active_module
         p_low = prompt.lower()
 
@@ -855,7 +829,7 @@ QUESTION DE L'UTILISATEUR :
 {prompt}
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE & PROFIL : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. L'utilisateur est toujours considéré comme un enseignant ou coordonnateur EPS. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas.
+1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas. N'ajoute pas de cas particuliers complexes hors-sujet sauf s'ils sont demandés ou directement utiles.
 2. STRUCTURE & MISE EN PAGE :
    - Rends une réponse TRÈS AÉRÉE, pas à pas, ligne par ligne.
    - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>) pour décomposer chaque étape technique.
@@ -879,7 +853,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
      * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
    - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
 4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
-5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier officiel du BO et à la circulaire de la DEC.
+5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)

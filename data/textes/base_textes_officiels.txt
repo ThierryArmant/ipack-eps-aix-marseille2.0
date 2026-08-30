@@ -547,3 +547,10 @@ CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
 ----------------------------------------------------------------------
 * LA MOBILITÉ INTERACADÉMIQUE (PHASE INTER - APPLICATION SIAM / I-PROF) : Organisée chaque année au premier trimestre pour les changements d'académie. Les mutations reposent sur un barème objectif tenant compte de la situation familiale (rapprochement de conjoints, enfants à charge), de l'ancienneté de service, de l'échelon, et de bonifications spécifiques liées à l'exercice en zone prioritaire (REP/REP+) ou au handicap (bénéficiaire de l'obligation d'emploi - BOE). Le vœu préférentiel valorise par des points supplémentaires la reconduction identique de la demande d'une année sur l'autre.
 * LA MOBILITÉ INTRA-ACADÉMIQUE ET VOIES DE RECOURS (APPLICATION COLIBRIS) : Pilotée par le Rectorat au printemps pour l'affectation précise en établissement (zones de remplacement, communes, collèges/lycées). En cas de contestation de barème ou de refus de mutation, la saisine de l'administration et les recours administratifs s'effectuent obligatoirement de manière dématérialisée via l'application ministérielle Colibris dans les délais stricts fixés par les circulaires académiques.
+* MODALITÉ DE CALCUL DU RECLASSEMENT (DÉCRET N° 51-1423 DU 5 DÉCEMBRE 1951) :
+  - Le reclassement lors d'un changement de corps (ex: certifié/PEPS vers agrégé) s'appuie sur le calcul de l'ancienneté théorique cumulée (A) dans le corps d'origine.
+  - Application du coefficient caractéristique des corps (Arrêté / Décret de référence) : 
+    * Ancien corps (Certifié, PLP, PEPS) = Coefficient 135.
+    * Nouveau corps (Agrégé) = Coefficient 175.
+  - Formule de conversion : Ancienneté retenue dans le nouveau corps = $A \times (135 / 175)$ (soit un ratio d'environ 0,7714).
+  - Le résultat obtenu détermine par correspondance directe l'échelon d'accueil dans la classe normale des agrégés et le reliquat d'ancienneté conservé.

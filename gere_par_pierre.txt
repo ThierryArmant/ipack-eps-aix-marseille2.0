@@ -57,7 +57,7 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : En cas d'erreur (message incomplet, fausse manipulation), si l'utilisateur n'enregistre pas le message sur un dossier, le système ne le conserve pas. En cas de blocage ou d'anomalie sur un dossier (marqué incomplet à tort), privilégier immédiatement la communication directe par mail avec les coordonnateurs.
 
 ### [SITUATION: CORRECTION PARTAGÉE SANTORIN]
-- Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via le portail Arena / Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en « lecture seule » pour l'autre correcteur afin d'éviter les conflits de saisie.
+- Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via le portail Esterel / Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en « lecture seule » pour l'autre correcteur afin d'éviter les conflits de saisie.
 
 ### [SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]
 - Instruction : Pour signaler une page manquante ou une mauvaise numérisation, le correcteur doit utiliser exclusivement la messagerie interne (icône enveloppe) de la plateforme Santorin pour alerter le coordonnateur.

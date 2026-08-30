@@ -742,24 +742,25 @@ if prompt:
                 directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus ([Dossiers] > ...).
-   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
-     * Collège (DNB) : AUCUNE APSA certificative. On ne coche jamais de case certificative et on ne crée aucun protocole d'examen. Les APSA sont simplement associées aux Champs d'Apprentissage (CA 1 à CA 4) pour l'évaluation continue et la validation du socle commun (LSU).
-     * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
-   - N'évoque les spécificités d'établissements (Public, Privé, Agricole, AEFE) QUE si la manipulation technique ou le mode d'import diffère réellement. Pour les manipulations universelles (ex : créer une APSA, saisir une note), donne une démarche claire et directe.
+   - DISTINCTION COLLÈGE / LYCÉE :
+     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On associe simplement l'activité aux Champs d'Apprentissage (CA 1 à CA 4) pour l'évaluation du socle (LSU).
+     * Lycée : La case « Certificative » et les protocoles ne concernent QUE les classes de Terminale (Bac GT/Pro) et CAP préparant le CCF.
+   - SPÉCIFICITÉ SSS vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 
-            consigne_ia = f"""Tu es l'assistant IA référent expert en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+            consigne_ia = f"""Tu es l'assistant IA expert en EPS, examens et réglementation institutionnelle.
 
-CONTEXTE DOCUMENTAIRE OFFICIEL :
+CONTEXTE OFFICIEL :
 {extraits_doc}
 {verites_terrain_pierre}
 
-QUESTION POSÉE :
+QUESTION DE L'UTILISATEUR :
 {prompt}
 
-DIRECTIVES DE RESTITUTION :
-1. 📐 FORMAT : Rends une réponse structurée avec des puces HTML (<ul>, <li>), des retours à la ligne (<br>) et des mots-clés en gras (<strong>).
-2. 📖 RESPECT ET EXHAUSTIVITÉ DES SOURCES : Restitue fidèlement TOUTES les nuances, étapes et distinctions contenues dans le contexte documentaire. Ne supprime aucun cas particulier au profit d'un résumé trop court.
+MÉTHODE D'ANALYSE & RÈGLES DE RESTITUTION :
+1. ANALYSE DU PÉRIMÈTRE STRICT : Identifie précisément l'action demandée.
+2. RÈGLE DE NON-EXTRAPOLATION : Si la question est générale (ex : "comment créer une APSA"), donne UNIQUEMENT la procédure standard pas à pas. N'ajoute pas de cas particuliers non demandés (Bac Pro 4 ans, SSS, EPPCS, Inaptitudes) sauf si l'utilisateur les mentionne expressément dans sa question.
+3. STRUCTURE : Rends une réponse claire avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
 {directive_onglet}
 4. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
    - Associe un tutoriel UNIQUEMENT si la manipulation demandée correspond EXACTEMENT à l'un de ces cas :
@@ -777,8 +778,7 @@ DIRECTIVES DE RESTITUTION :
      * "Ajouter_evaluateur_lot_santorin.mp4" -> Uniquement pour l'ajout d'un évaluateur / correcteur à un lot dans Santorin.
    - Si la question correspond explicitement à l'un de ces cas, écris à la toute fin : "📺 Tutoriel associé : nom_du_fichier.mp4".
    - ⚠️ INTERDICTION STRICTE : Pour la création simple d'une APSA, les barèmes, les inaptitudes, les textes juridiques ou toute question d'ordre général, NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'. Termine immédiatement la réponse.
-5. 🛑 HORS-SUJET DISCIPLINAIRE : Si la demande ne concerne pas l'exercice ou la gestion de l'EPS, réponds : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
-6. 📅 CALENDRIER ET DATES LIMITES : Ne jamais présenter une date précise comme immuable. Indique systématiquement que les échéances précises sont fixées chaque année par la circulaire académique de la DEC de rattachement."""
+"""
             try:
                 response = Settings.llm.complete(consigne_ia)
                 texte_brut = response.text

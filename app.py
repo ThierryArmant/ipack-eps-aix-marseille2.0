@@ -748,7 +748,7 @@ if prompt:
    - SPÉCIFICITÉ SSS vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 
-            consigne_ia = f"""Tu es l'assistant IA expert en EPS, examens et réglementation institutionnelle.
+            consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 CONTEXTE OFFICIEL :
 {extraits_doc}
@@ -757,27 +757,15 @@ CONTEXTE OFFICIEL :
 QUESTION DE L'UTILISATEUR :
 {prompt}
 
-MÉTHODE D'ANALYSE & RÈGLES DE RESTITUTION :
-1. ANALYSE DU PÉRIMÈTRE STRICT : Identifie précisément l'action demandée.
-2. RÈGLE DE NON-EXTRAPOLATION : Si la question est générale (ex : "comment créer une APSA"), donne UNIQUEMENT la procédure standard pas à pas. N'ajoute pas de cas particuliers non demandés (Bac Pro 4 ans, SSS, EPPCS, Inaptitudes) sauf si l'utilisateur les mentionne expressément dans sa question.
-3. STRUCTURE : Rends une réponse claire avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
+MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
+1. ANALYSE DU PÉRIMÈTRE : Réponds uniquement et précisément à l'action demandée. Si la question est générale (ex : "comment créer une APSA", "construire un emploi du temps"), donne uniquement la procédure standard pas à pas. N'ajoute pas de cas particuliers non sollicités (Bac Pro 4 ans, SSS, EPPCS, Inaptitudes) sauf s'ils sont explicitement mentionnés dans la question.
+2. STRUCTURE : Rends une réponse claire avec des puces HTML (<ul>, <li>) et des mots-clés en gras (<strong>).
 {directive_onglet}
-4. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-   - Associe un tutoriel UNIQUEMENT si la manipulation demandée correspond EXACTEMENT à l'un de ces cas :
-     * "import_eleves_pronote.mp4" -> Uniquement pour l'import de fichier CSV Pronote.
-     * "Configuration_classes_import_eleves.mp4" -> Uniquement pour la création de classes ou l'import global d'élèves depuis SIÈCLE / fichier texte.
-     * "affecter_eleves_dans_groupes.mp4" -> Uniquement pour l'affectation ou le basculement d'élèves dans des groupes.
-     * "Generer_importer_fichier_groupes_cyclades.mp4" -> Uniquement pour l'export/import du fichier de structure des groupes vers Cyclades.
-     * "verification_affectation_protocoles_cyclades.mp4" -> Uniquement pour la vérification des protocoles dans Cyclades.
-     * "creer_convocations_enseignants.mp4" -> Uniquement pour la création de convocations jurys/enseignants dans IMAG'IN.
-     * "Distribution_lots_santorin.mp4" -> Uniquement pour la distribution automatique des lots dans Santorin.
-     * "Distribution_manuelle_lots_santorin.mp4" -> Uniquement pour la distribution manuelle des lots dans Santorin.
-     * "Saisie_notes_Santorin.mp4" -> Uniquement pour la saisie directe des notes dans Santorin.
-     * "Verrouiller_lot_santorin.mp4" -> Uniquement pour le verrouillage ou la validation d'un lot dans Santorin.
-     * "Deverrouiller_lots_santorin.mp4" -> Uniquement pour la demande ou l'action de déverrouiller un lot dans Santorin.
-     * "Ajouter_evaluateur_lot_santorin.mp4" -> Uniquement pour l'ajout d'un évaluateur / correcteur à un lot dans Santorin.
-   - Si la question correspond explicitement à l'un de ces cas, écris à la toute fin : "📺 Tutoriel associé : nom_du_fichier.mp4".
-   - ⚠️ INTERDICTION STRICTE : Pour la création simple d'une APSA, les barèmes, les inaptitudes, les textes juridiques ou toute question d'ordre général, NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'. Termine immédiatement la réponse.
+3. 📺 TUTO VIDÉO (RECOPIE STRICTE DEPUIS LE CONTEXTE) :
+   - Si et seulement si un article du contexte documentaire ci-dessus contient explicitement la mention "📺 TUTORIEL COMPAGNON : nom_du_fichier.mp4", recopie textuellement cette mention à la toute fin de ta réponse sous la forme : "📺 Tutoriel associé : nom_du_fichier.mp4".
+   - Si aucun document du contexte ne contient de balise "TUTORIEL COMPAGNON" (cas des APSA, de l'emploi du temps, du matériel, etc.), NE METS STRICTEMENT AUCUN NOM DE FICHIER, n'invente aucun tutoriel et ne parle pas de vidéo. Termine directement ta réponse.
+4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+5. 📅 CALENDRIER : Rappelle que les dates précises sont fixées chaque année par la circulaire de la DEC de rattachement.
 """
             try:
                 response = Settings.llm.complete(consigne_ia)

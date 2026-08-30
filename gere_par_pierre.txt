@@ -384,7 +384,11 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
   - R2 : Ce problème apparaît si vous n’avez pas encore importé les élèves de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).
   - Q3 : La liste des élèves dans les classes n’est pas à jour (élèves arrivés en cours d’année / élèves ayant quitté l’établissement / élèves ayant changé de classe).
   - R3 : Pour mettre à jour la liste des élèves, retournez dans Tableau de bord => Dossiers => Dossier EPS => Classes, puis menu [importation élèves] => [Actualiser].
-
+--- ARTICLE 20 : EMPLOIS DU TEMPS ---
+Configuration et saisie des créneaux horaires, attribution des équipements et affectation aux groupes d'élèves.
+Pour visualiser la mise en place concrète des créneaux et leur articulation avec les groupes, vous pouvez visionner le tutoriel vidéo dédié :
+📺 TUTORIEL COMPAGNON : affecter_eleves_dans_groupes.mp4
+Lien direct vers la ressource : [Voir le tutoriel sur la gestion des groupes et emplois du temps](https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4)
 ### [ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe
 - URL: spip.php?article88
 - Texte: Si vous avez déjà placé vos élèves dans des groupes sur Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...) vous pouvez depuis ces logiciels extraire vos groupes d’élèves, et les importer d’un clic dans iPackEPS. 

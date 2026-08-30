@@ -553,7 +553,7 @@ else:
 # 8. ZONE D'ACTION
 # ======================================================================
 prompt = st.chat_input(
-    "Posez votre question institutionnelle, technique ou juridique ici...",
+    "Cliquez sur le module concerné : IpackEPS ou Examens ou Cadre règlementaire dans les bannières et rédigez votre question ici...",
     key="chat_main",
 )
 

@@ -150,12 +150,12 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Cause 3 : Absence de clic sur « Distribution automatique des candidats » dans la console Santorin-Direction.
   - Cause 4 (Conflit de mail) : L'adresse e-mail de l'examinateur dans Cyclades ne concorde pas avec Imag'in. Solution : Modifier l'e-mail via l'activité Cyclades « EPS - Contrôler/réaffecter des protocoles » ou exécuter une distribution manuelle dans Santorin-Direction.
 
-* BUG B : ÉLÈVE ARRIVANT EN COURS D'ANNÉE / INTROUVABLE SUR SANTORIN :
-  - Règle absolue pour l'enseignant : Aucune action technique, aucun import de fichier SIÈCLE à réaliser. Le professeur n'a pas la main sur les listes d'examen national.
+* BUG : ÉLÈVE ARRIVANT EN COURS D'ANNÉE / INTROUVABLE SUR SANTORIN :
+  - Règle pour l'enseignant : Aucune manipulation informatique ou import de fichier n'est à faire de votre côté (iPackEPS ne gère pas les listes d'examens nationaux sur Santorin).
   - Action obligatoire (Chef d'établissement / Secrétariat) : 
-    1. Le secrétariat associe l'élève au protocole d'examen dans Cyclades.
-    2. Le chef d'établissement force une distribution manuelle (par glisser-déposer) dans la console Santorin-Direction.
-  - Délai de prise en compte : La synchronisation est effective entre 12h et 24h.
+    1. Le secrétariat doit associer l'élève au protocole d'examen dans Cyclades (via l'interface administrative).
+    2. Le chef d'établissement se connecte à la console Santorin-Direction pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot.
+  - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
   - Cause 1 (Validation effectuée / Lot soumis) : Le lot a été validé définitivement par l'enseignant. Le cadenas est permanent. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.

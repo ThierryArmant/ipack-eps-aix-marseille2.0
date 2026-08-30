@@ -221,7 +221,7 @@ css_pur = f"""
         color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 14px !important; 
-        margin-bottom: 8px !important;
+        margin-bottom: 8px !important; 
         font-weight: 800 !important; 
         text-transform: uppercase; 
     }}
@@ -529,30 +529,15 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
 # ======================================================================
-placeholder_texte = {
-    "ipack": (
-        "Posez votre question technique iPackEPS (ex: configurer les groupes,"
-        " emploi du temps, inaptitudes...)"
-    ),
-    "examens": (
-        "Posez votre question Examens ou Santorin (ex: verrouiller un lot,"
-        " calcul note bac, dispenses...)"
-    ),
-    "textes": (
-        "Posez votre question juridique ou sécurité (ex: accident en cours,"
-        " responsabilité APPN, TASA...)"
-    ),
-}
-
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
     col_input, col_submit = st.columns([5, 1])
     with col_input:
         prompt_brut = st.text_input(
             "Question :",
-            placeholder=placeholder_texte.get(
-                st.session_state.active_module,
-                "Rédigez votre question ici...",
+            placeholder=(
+                "🔺 Sélectionnez le module concerné avant de saisir votre"
+                " question..."
             ),
             label_visibility="collapsed",
         )

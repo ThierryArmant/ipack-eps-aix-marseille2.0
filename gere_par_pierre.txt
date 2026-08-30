@@ -119,3 +119,52 @@ En cas de protocole de CCF comportant plusieurs épreuves d'examen :
 3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
 EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
 OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.
+======================================================================
+               GUIDE OFFICIEL & RÉFÉRENCE ABSOLUE : IPACKEPS
+======================================================================
+
+[DIRECTIVE] : Ce document régit la gestion de terrain, les structures d'établissement, le suivi des élèves, les inaptitudes et le calcul du CCF via l'application iPackEPS. Il intègre tous les cas limites et pièges de configuration.
+
+----------------------------------------------------------------------
+1. RÈGLE D'OR DE CALCUL CCF (CAS MIXTES DI / ABI / NOTES)
+----------------------------------------------------------------------
+- DI (Dispense / Inaptitude médicale) : Neutralise l'épreuve. L'épreuve est retirée du calcul et ne compte pas dans le diviseur.
+- ABI (Absence non justifiée) : Vaut 0/20 si aucun rattrapage n'a été fait.
+- Note chiffrée : Prise en compte telle quelle.
+- Exemple : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12, la moyenne se calcule sur les épreuves restantes : (0 + 12) / 2 = 06/20.
+
+----------------------------------------------------------------------
+2. PIÈGES CRITIQUES ET PROCÉDURES DE DÉBLOCAGE (IPACKEPS)
+----------------------------------------------------------------------
+* CAS VICIEUX N°1 : L'APSA ACADÉMIQUE DE MAUVAISE CHAMP (EX: CROSS-TRAINING CA1 vs CA5)
+  - Problème : Vouloir enseigner une activité (ex: cross-training) en CA1 alors que l'APSA académique par défaut est en CA5 bloque les protocoles en erreur de CA.
+  - Procédure obligatoire : 
+    1. Dans `[Dossier EPS] > [APSA]`, créer manuellement une nouvelle APSA d'établissement (ex: « Cross-Training - CA1 ») rattachée au CA1 et la cocher « Certificative ».
+    2. Déposer le référentiel de cette APSA d'établissement.
+    3. Aller dans `[Dossier EPS] > [Groupes]` pour remplacer l'ancienne APSA CA5 par la nouvelle APSA CA1 sur le groupe concerné. Le protocole redevient instantanément valide.
+
+* CAS VICIEUX N°2 : BOUTON DE MODIFICATION GRISÉ / BLOQUÉ DANS LA FICHE ÉLÈVE
+  - Cause : Une note a déjà été saisie pour cet élève ce trimestre, verrouillant la modification de son profil, de son option ou de son inaptitude.
+  - Procédure de déblocage : 
+    1. Aller dans le menu `[Saisie des notes]`.
+    2. Effacer manuellement la note pour laisser la case **totalement vide** (pas de zéro, juste du vide).
+    3. Enregistrer. Le bouton de modification dans la fiche élève sera instantanément dégrisé.
+
+* CAS VICIEUX N°3 : CLASSES MIXTES / MULTI-NIVEAUX / FILIÈRES DIFFÉRENTES
+  - Règle iPackEPS : L'application interdit formellement de fusionner des élèves de filières différentes (Générale et Technologique) ou de niveaux multiples (2nde et 1ère) dans un même groupe d'évaluation unique.
+  - Solution : Créer des groupes distincts (ex: Menu_Secondes et Menu_Premières) et les placer sur le même créneau horaire dans l'Emploi du Temps (`[EDT]`).
+
+* CAS VICIEUX N°4 : SUPPRESSION BLOQUÉE D'UN GROUPE OU D'UN PROTOCOLE (EFFET CASCADE)
+  - Cause : Intégrité relationnelle stricte de la base de données.
+  - Ordre de suppression obligatoire à rebours : 
+    1. Effacer toutes les notes et degrés d'AFL saisis.
+    2. Supprimer le créneau de l'Emploi du Temps (`[EDT]`).
+    3. Vider le groupe de tous ses élèves (`[Élèves]`).
+    4. Supprimer la séquence d'apprentissage (`[Groupes]`).
+    5. Supprimer enfin le groupe ou l'APSA orpheline.
+
+----------------------------------------------------------------------
+3. RÈGLES STRICTES DE CONFIGURATION DES PROTOCOLES (CAP vs BAC PRO)
+----------------------------------------------------------------------
+- CAP : La réglementation impose STRICTEMENT un ensemble de DEUX (2) épreuves certificatives. Si une équipe enseigne 3 activités, configurer la classe en « Mode Groupe » et créer 3 protocoles distincts à deux épreuves (A-B, B-C, A-C).
+- Interdiction de création manuelle d'élèves : Ne jamais créer un élève à la main (cela brise l'INE). Toujours passer par un import officiel SIÈCLE/SCONET.

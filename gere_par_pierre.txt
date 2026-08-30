@@ -1,7 +1,7 @@
 ======================================================================
-AJOUT date limite de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
+AJOUT échéance de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
 ======================================================================
-Quelle est la date limite de saisie des notes dans Santorin ?
+Quelle est l'échéance de saisie des notes dans Santorin ?
 Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement.
 
 PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :

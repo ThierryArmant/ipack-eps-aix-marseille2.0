@@ -169,3 +169,50 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 8. FAQ EXHAUSTIVE, CAS LIMITES ET PROCÉDURES SPÉCIFIQUES EXAMENS
 ----------------------------------------------------------------------
 *(Contient l'intégralité des sections sur les absences, les retards, le contentieux juridique, la co-évaluation, les sportifs de haut niveau SHN, les candidats libres/individuels, les établissements de l'étranger AEFE, et la jurisprudence des examens nationaux).*
+======================================================================
+               MÉMOIRE DE RÉFÉRENCE : EXAMENS EPS & SANTORIN
+       LIAISONS CYCLADES, IMAG'IN, SANTORIN & PROTOCOLES OFFICIELS
+======================================================================
+
+[DIRECTIVE] : Ce document régit la certification nationale, les examens officiels (Bac GT, Bac Pro, CAP, DNB), la distribution des copies et la résolution des bugs sur Santorin et Cyclades.
+
+----------------------------------------------------------------------
+1. CIRCUIT LOGISTIQUE DES FLUX ET DROITS D'ACCÈS (L'ARBORESCENCE)
+----------------------------------------------------------------------
+`[PRONOTE] ➔ [1. IPACKEPS] ➔ [2. CYCLADES] ➔ [3. IMAG'IN] ➔ [4. SANTORIN]`
+- 🛑 VERROU TECHNIQUE CRITIQUE D'IMAG'IN : Pour tout ajout manuel ou remplacement de professeur d'EPS, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto « PDF » de la convocation. C'est ce clic précis qui pousse informatiquement les droits d'écriture de l'enseignant vers Santorin. Sans ce clic PDF, le lot reste inaccessible au professeur.
+
+----------------------------------------------------------------------
+2. DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF
+----------------------------------------------------------------------
+* DI / DISP (Dispensé) : Neutralise l'APSA pour le calcul du CCF (retirée du diviseur, pas de note zéro). Certificat médical conforme obligatoire.
+* ABJ (Absent Justifié) : Bloque temporairement l'épreuve en vue d'une épreuve de substitution pratique sur le terrain avant la clôture des serveurs.
+* ABI (Absent Injustifié / Sécheur) : Note de 0/20 intégrée dans le calcul. Si ABI à toutes les épreuves, non-délivrance du diplôme.
+* Note Unique (Bac GT - ex: DI + DI + Note) : Saisir les statuts DISP pour les épreuves non passées, noter l'APSA pratiquée, et **rédiger obligatoirement un commentaire circonstancié de justification dans Santorin** pour l'arbitrage de la CAHPN.
+* CE (Cas Exceptionnel) : Neutralise une épreuve pour sinistre matériel lourd (gymnase détruit) sur accord formel préalable de l'IA-IPR. Interdit d'utilisation sauvage.
+
+----------------------------------------------------------------------
+3. CAS LIMITES ET RÉSOLUTION DES BUGS D'INTERFACE (SANTORIN / CYCLADES)
+----------------------------------------------------------------------
+* BUG A : « AUCUN LOT À CORRIGER » / LOT INVISIBLE
+  - Causes : Absence de mission Imag'in, absence de clic sur le picto PDF de la convocation, ou discordance d'adresse e-mail dans Cyclades.
+  - Action : Le chef d'établissement lance une distribution automatique dans Santorin-Direction, ou corrige l'e-mail via l'activité Cyclades « EPS - Contrôler/réaffecter des protocoles ».
+
+* BUG B : NOUVEL ÉLÈVE ARRIVANT EN COURS D'ANNÉE INTROUVABLE SUR SANTORIN
+  - Règle : Le professeur ne fait aucun import iPackEPS. 
+  - Action administrative : Le secrétariat associe l'élève au protocole dans Cyclades, puis le chef d'établissement effectue une distribution manuelle par glisser-déposer dans Santorin-Direction (délai de synchro : 12h à 24h).
+
+* BUG C : CASES OU CRAYONS GRISÉS (CADENAS) SUR SANTORIN
+  - Causes : Lot déjà validé par l'enseignant (nécessite une demande de « Renvoi en modification » auprès de la DEC) ou co-évaluation simultanée par un collègue (attendre la fermeture de sa session).
+
+* BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ
+  - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note, DISP, ABJ ou ABI). 
+  - Solution : Basculer l'affichage en bas de page sur « Afficher 100 candidats » pour vérifier qu'aucun élève n'a été oublié sur une page secondaire.
+
+----------------------------------------------------------------------
+4. SPÉCIFICITÉS STRICTES PAR DIPLÔME
+----------------------------------------------------------------------
+* Bac GT : 3 épreuves de CCF (3 CA différents). Saisie : AFL1 /12 pts + choix de ventilation de l'élève (4/4, 6/2 ou 2/6) entre AFL2 et AFL3 (/8 pts). Les observables d'exigence sont identiques quelle que soit la ventilation choisie.
+* Bac Pro : 3 épreuves (3 CA). Saisie en deux blocs : fin de séquence (2 AFLP obligatoires /12 pts) + au fil de la séquence (choix préalable de 2 AFLP optionnels /8 pts via le bouton « Choisir les AFLP »).
+* CAP : Protocole strict de **DEUX (2) épreuves** (2 CA différents). Tout protocole à 3 notes est rejeté par Santorin.
+* Collège (DNB) : **Aucun CCF, aucune épreuve terminale et aucune note transmise à la DEC**. Évaluation par contrôle continu trimestriel et validation du socle commun (SCCC) dans le LSU.

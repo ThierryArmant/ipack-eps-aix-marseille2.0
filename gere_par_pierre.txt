@@ -156,7 +156,6 @@ css_pur = f"""
     .column-title-top {{ 
         color: #FFFFFF; 
         text-align: center; 
-        margin-top: 15px !important;
         margin-bottom: 12px !important; 
         background-color: #1E293B; 
         border-radius: 6px !important; 
@@ -433,19 +432,7 @@ st.markdown(
 )
 
 # ======================================================================
-# 6. HISTORIQUE DES MESSAGES & RÉPONSES (DIRECTEMENT SOUS L'EN-TÊTE)
-# ======================================================================
-st.markdown('<div style="margin-top: 10px;">', unsafe_allow_html=True)
-for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]):
-        if m.get("type") == "video":
-            st.video(m["content"])
-        else:
-            st.markdown(m["content"], unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
-
-# ======================================================================
-# 7. SÉLECTEUR DE CONTEXTE ET BANNIÈRES (JUSTE AU-DESSUS DE LA SAISIE)
+# 6. EN-TÊTE DU TABLEAU DE BORD
 # ======================================================================
 label_titres = {
     "ipack": (
@@ -473,6 +460,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# ======================================================================
+# 7. BOUTONS DE CONTEXTE (3 ONGLETS)
+# ======================================================================
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 with col_b1:
     if st.button(
@@ -517,11 +507,13 @@ with col_b3:
         st.session_state.messages_hub = []
         st.rerun()
 
-# BANNIÈRE D'AVERTISSEMENT OU D'ORIENTATION
+# ======================================================================
+# 7B. MESSAGES D'AVERTISSEMENT
+# ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 10px; margin-bottom: 10px; line-height: 1.5;">
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-bottom: 15px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
             ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
@@ -532,7 +524,7 @@ if st.session_state.active_module == "textes":
 else:
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 10px; line-height: 1.5;">
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px; line-height: 1.5;">
         <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
             <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
@@ -558,13 +550,25 @@ else:
     )
 
 # ======================================================================
-# 8. ZONE D'ACTION & TRAITEMENT RAG
+# 8. ZONE D'ACTION
 # ======================================================================
 prompt = st.chat_input(
     "Cliquez sur le module concerné : IpackEPS ou Examens ou Cadre"
     " règlementaire dans les bannières et rédigez votre question ici...",
     key="chat_main",
 )
+
+# ======================================================================
+# 9. FLUX DE MESSAGES ET MOTEUR RAG COMPLET
+# ======================================================================
+st.markdown('<div style="margin-top: 20px;">', unsafe_allow_html=True)
+for m in st.session_state.messages_hub:
+    with st.chat_message(m["role"]):
+        if m.get("type") == "video":
+            st.video(m["content"])
+        else:
+            st.markdown(m["content"], unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
     st.session_state.messages_hub = []
@@ -780,7 +784,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 1. Nettoyage du HTML
+        # 🧹 1. Suppression des balises de code Markdown parasites
         texte_brut = (
             texte_brut.replace("```html", "")
             .replace("```HTML", "")

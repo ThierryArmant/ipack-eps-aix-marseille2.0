@@ -1,348 +1,949 @@
-======================================================================
-🛑 MÉMOIRE SOUVERAINE DE RÉFÉRENCE COMPLÈTE : EXAMENS EPS & SANTORIN
-LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
-======================================================================
-[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les fiches Scenari/Dokiel de l'académie de Créteil, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS, les retours d'expérience et les cas concrets de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
+import os
+import re
+import streamlit as st
+from llama_index.core import Document, Settings, VectorStoreIndex
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.llms.openai import OpenAI
 
-----------------------------------------------------------------------
-1. CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS
-----------------------------------------------------------------------
-* DATES LIMITES ABSOLUES DE VERROUILLAGE DES NOTES DU CCF EPS :
-  - Les dates de remontée des notes et de fermeture des serveurs Santorin/Cyclades évoluant chaque année, les équipes doivent obligatoirement se référer au calendrier officiel diffusé par la circulaire académique de leur DEC.
-  - Établissements en Rythme Sud (Hémisphère Sud / AEFE) : Les épreuves pratiques et la saisie sont décalées sur la session d'octobre / novembre / décembre. La date métropolitaine ne s'applique pas.
-  - Autres académies : Se rapprocher immédiatement des interlocuteurs iPackEPS locaux et de la Division des Examens et Concours (DEC).
+# ======================================================================
+# 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
+# ======================================================================
+VIDEOS_TUTOS = {
+    "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
+    "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
+    "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
+    "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",
+    "verification_affectation_protocoles_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4",
+    "creer_convocations_enseignants.mp4": "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4",
+    "Distribution_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4",
+    "Distribution_manuelle_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4",
+    "Saisie_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4",
+    "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
+    "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
+    "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
+}
 
-* RÈGLE D'OR DES APPRÉCIATIONS DANS SANTORIN EPS :
-  - Les appréciations textuelles ne sont JAMAIS obligatoires dans Santorin pour un protocole de CCF EPS standard. La note chiffrée issue des AFL/AFLP se suffit à elle-même.
-  - Comportement de l'interface / Risque technique : Aucun. Procédure recommandée : Laissez la case appréciation vide si la grille d'évaluation motrice est complète.
+# ======================================================================
+# 1. CONFIGURATION DE L'APPLICATION
+# ======================================================================
+st.set_page_config(
+    page_title="Hub IA - EPS",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
 
-* ABSENCE TOTALE DE SUJET ÉCRIT OU PAPIER EN EPS :
-  - En EPS (CCF ou examen ponctuel), il n'existe STRICTEMENT AUCUN sujet d'examen papier ou sujet écrit de secours à télécharger ou à imprimer depuis iPackEPS, Cyclades ou Santorin.
-  - Tout rattrapage d'un élève absent justifié (ABJ) prend obligatoirement la forme d'une « Épreuve de substitution » motrice sur le terrain avant la clôture des serveurs.
+# ======================================================================
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES
+# ======================================================================
+if "messages_hub" not in st.session_state:
+    st.session_state.messages_hub = []
+if "active_module" not in st.session_state:
+    st.session_state.active_module = "ipack"
 
-----------------------------------------------------------------------
-2. DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF EPS
-----------------------------------------------------------------------
-* ÉLÈVE INAPTE / DISPENSÉ MÉDICAL (« DISP » / « DI ») :
-  - Sélectionner « DI » (Dispensé) ou « Inapte » dans le menu déroulant Santorin sur l'épreuve concernée.
-  - Conséquence : Neutralisation de l'APSA pour le calcul du CCF (pas de note zéro). Nécessite obligatoirement un certificat médical conforme (le simple mot des parents est nul et non avenu).
 
-* ÉLÈVE ABSENT JUSTIFIÉ (« ABJ ») :
-  - Sélectionner « ABJ » pour bloquer temporairement l'épreuve en vue d'une épreuve de substitution pratique sur le terrain (avant la clôture des serveurs Santorin).
+def incrementer_et_obtenir_visites():
+    fichier_compteur = "compteur_visites.txt"
+    if not os.path.exists(fichier_compteur):
+        try:
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
+                f.write("1")
+            return 1
+        except Exception:
+            return 1
 
-* ÉLÈVE ABSENT INJUSTIFIÉ (« ABI » / SÉCHEUR DU CCF) :
-  - Sélectionner « ABI » sur l'APSA manquée.
-  - Conséquence : Attribution automatique de la note 0/20 pour cette épreuve, intégrée dans le calcul de la moyenne du CCF. Si l'élève est ABI à toutes les épreuves, statut « Absent » global et non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
+    try:
+        with open(fichier_compteur, "r", encoding="utf-8") as f:
+            valeur = int(f.read().strip())
 
-* CAS PARTICULIER DE LA « NOTE UNIQUE » AU BAC GT :
-  - Formules et formulations associées : DI+DI+note | AB+DI+note | Note unique | Une seule note valide.
-  - Procédure : Sélectionner [Dispensé] (ou ABJ/ABI selon le cas) pour les deux épreuves non évaluées, puis saisir normalement les notes d'AFL pour l'unique APSA pratiquée.
-  - Obligation technique absolue : Rédiger un commentaire circonstancié de justification STRICTEMENT OBLIGATOIRE dans l'interface Santorin pour éclairer l'arbitrage de la CAHPN.
+        if "visite_comptabilisee" not in st.session_state:
+            valeur += 1
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
+                f.write(str(valeur))
+            st.session_state.visite_comptabilisee = True
 
-----------------------------------------------------------------------
-3. BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER
-----------------------------------------------------------------------
-A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
-* Saisie directe au pavé numérique (sans menu déroulant) :
-  - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
-  - Cliquer dans le premier champ de note et taper directement la valeur chiffrée au clavier.
-* Navigation ultra-rapide par touches :
-  - Touche [Entrée] : Valide et enregistre la note saisie.
-  - Touche [Tab] : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
-  - Combinaison [Maj + Tab] (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.
-* Sélection instantanée des statuts par lettre :
-  - Ouvrir le menu déroulant du statut et appuyer sur la touche [D] pour aller directement sur « DISP » (Dispensé).
-  - Appuyer sur la touche [A] pour se positionner directement sur « ABI » ou « ABJ ».
-* Affichage de masse anti-blocage (Astuce 100 candidats) :
-  - Dès l'ouverture du lot, basculer le sélecteur en bas de page sur « Afficher 100 candidats » (au lieu des 20 ou 50 par défaut).
-  - Cela évite d'oublier un élève sur une page 2 non visible, cause principale du blocage du bouton [Clôturer le lot].
-* Recherche instantanée [Ctrl + F] :
-  - Pour retrouver immédiatement un candidat précis (élève muté ou arrivant) dans un lot volumineux, utiliser la recherche native du navigateur via [Ctrl + F] (ou [Cmd + F] sur Mac).
+        return valeur
+    except Exception:
+        return 1
 
-B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
-* Sélection multiple par bloc ([Maj] / Shift) :
-  - Dans l'activité « EPS - Associer les élèves à un protocole », cocher la première case, maintenir [Maj] enfoncé et cliquer sur la dernière case pour sélectionner toute la liste.
-  - Un unique Glisser-Déposer (Drag & Drop) permet ensuite de déplacer tout le bloc dans le protocole cible.
-* Réinitialisation rapide via [Vider] :
-  - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention [Vider] située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
 
-C. IMAG'IN & PORTAILS ACADÉMIQUES
-* Contournement des saturations de serveurs ENT :
-  - En période de pointe (fin mai), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier : https://appli.ac-aix-marseille.fr/imagin/enseignant
+nb_visites_reel = incrementer_et_obtenir_visites()
 
-----------------------------------------------------------------------
-4. CIRCUIT LOGISTIQUE DE FLUX : L'ARBORESCENCE DES DROITS EPS
-----------------------------------------------------------------------
-Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de transmission suit rigoureusement cette chaîne :
-[PRONOTE / ÉCOLE DIRECTE] ➔ [1. IPACKEPS] ➔ [2. CYCLADES] ➔ [3. IMAG'IN] ➔ [4. SANTORIN]
+# ======================================================================
+# 3. INTERFACE GRAPHIQUE ET STYLES CSS
+# ======================================================================
+img_gauche = "image_7.png"
+img_eps = "image_6.png"
+img_droite = "image_5.png"
+img_fond = "image_8.png"
 
-0. AMONT : PRONOTE / ÉCOLE DIRECTE ➔ IPACKEPS :
-   - Sécurisation de l'importation : Automatisation possible depuis Pronote ou École Directe.
-   - Règle de chargement critique : Effectuer autant d'imports de fichiers qu'il y a de groupes d'évaluation EPS. Chaque fichier correspond strictement à la liste des élèves affectés à un groupe unique.
-   - 📺 Tutoriel associé : import_eleves_pronote.mp4
-   - Support texte configuration : https://ipackeps.ac-creteil.fr/spip.php?article14
+github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
-1. IPACKEPS (Le Buffer d'Établissement EPS) :
-   - Timing : Les inscriptions ferment fin décembre. Toujours ré-importer la base élèves complète et actualiser les classes avant le placement dans les groupes d'examen.
-   - 📺 Tutoriel associé : Configuration_classes_import_eleves.mp4
-   - Contrôle des élèves orphelins : Seule la composition des groupes rattachés à un examen est exigée. 100 % des élèves de classes d'examen doivent être ventilés dans des groupes fonctionnels.
-   - 📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4
-   - Support texte affectation : https://ipackeps.ac-creteil.fr/spip.php?article18
-   - 🛑 Régime spécifique des structures « Hors SIÈCLE » (CFA, GRETA, MFR, AEFE / Étranger) : Les étapes automatiques d'actualisation iPack, d'affectation iPack et de génération de fichier vers Cyclades ne s'appliquent pas. L'association des candidats aux protocoles d'EPS s'effectue manuellement dans Cyclades via le guide officiel :
-     📄 [Télécharger le Mémo Officiel - Associer les élèves au protocole sur Cyclades (PDF)](https://pole-examens.github.io/tutoriels-examens/res/MEMO-Associer-eleves-protocole-Etab-v1.0.pdf)
+css_pur = f"""
+    <style>
+    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card * {{ 
+        color: #FFFFFF !important;  
+    }}
 
-2. CYCLADES (Le Socle Administratif des Examens) :
-   - Gère l'inscription des candidats, l'arborescence des divisions et les protocoles certificatifs EPS d'établissement (choix des APSA).
-   - Valide les épreuves adaptées et le rattachement initial des enseignants (adresse e-mail valide requise).
-   - Importation des logs : Le chef d'établissement génère depuis iPackEPS le fichier récapitulatif des affectations de groupes pour l'injecter dans CYCLADES afin d'éviter la saisie manuelle.
-   - 📺 Tutoriel associé : Generer_importer_fichier_groupes_cyclades.mp4
-   - Support texte extraction : https://ipackeps.ac-creteil.fr/spip.php?article60
-   - Vérification de l'affectation :
-     📺 Tutoriel associé : verification_affectation_protocoles_cyclades.mp4
-   - Verrou de validation IA-IPR : Tous les protocoles doivent afficher une coche verte de conformité dans la colonne « Validité » du module « Protocoles certificatifs » d'iPackEPS, puis le statut « Validé » dans CYCLADES par l'Inspection. Contact : examenseps@ac-aix-marseille.fr.
-   - Purge des doublons INE : Le secrétariat doit purger les numéros INE en doublon dans Cyclades. Interdiction formelle pour l'enseignant de noter deux fois la même fiche.
+    .block-container {{ 
+        padding-top: 0.5rem !important; 
+        padding-bottom: 2rem !important; 
+        padding-left: 1.5rem !important; 
+        padding-right: 1.5rem !important; 
+        max-width: 920px !important; 
+    }}
+    
+    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
+    header[data-testid="stHeader"] {{ display: none !important; }}
+    
+    .hub-header {{ 
+        background-color: #1E293B; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 10px 20px; 
+        height: 85px !important; 
+        margin-bottom: 15px !important; 
+        border-radius: 8px; 
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
+    }}
+    
+    .hub-title {{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-grow: 1;
+        padding-right: 35px; 
+    }}
+    
+    .title-row {{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }}
+    
+    .title-row h1 {{ 
+        color: white !important; 
+        margin: 0 !important; 
+        font-size: 28px !important; 
+        font-weight: 800 !important; 
+        line-height: 1.2 !important;
+        letter-spacing: 0.5px;
+    }}
+    
+    .badge-visiteur {{ 
+        background-color: rgba(16, 185, 129, 0.2) !important; 
+        color: #10B981 !important; 
+        border: 1px solid rgba(16, 185, 129, 0.45) !important; 
+        padding: 3px 12px !important; 
+        border-radius: 20px !important; 
+        font-size: 13px !important; 
+        font-weight: 800 !important; 
+        font-family: monospace !important;
+    }}
+    
+    .hub-title p {{ 
+        color: #94A3B8 !important; 
+        margin: 0 !important; 
+        margin-top: -1px !important; 
+        font-size: 13px !important; 
+        text-transform: uppercase; 
+        font-weight: bold !important;
+    }}
 
-3. IMAG'IN (La Passerelle de Mission EPS) :
-   - Génère les missions « NOTATION EPS CCF » adossées à STSWEB. Les correcteurs convoqués en 2025 sont reconduits d'office pour 2026.
-   - LE VERROU DU BOUTON PDF : Pour tout ajout manuel ou remplacement de professeur d'EPS, le Chef d'établissement doit IMPÉRATIVEMENT cliquer sur le picto « PDF » pour générer la convocation. C'est ce clic technique précis qui « pousse » l'identité et les droits d'écriture de l'enseignant vers Santorin.
-   - 📺 Tutoriel associé : creer_convocations_enseignants.mp4
-   - Paramétrage horaire : Conserver l'horaire par défaut proposé par la DIEC (16h à 17h).
-   - Instructions complètes pages 4 à 7 :
-     📄 [Consulter le Guide SANTORIN - Gestion de la notation EPS CCF (PDF)](https://pole-examens.github.io/tutoriels-examens/res/SANTORIN_-_bac_2024_-_Gestion_de_la_notation_EPS_CCF.pdf)
+    .column-title-top {{ 
+        color: #FFFFFF; 
+        text-align: center; 
+        margin-bottom: 12px !important; 
+        background-color: #1E293B; 
+        border-radius: 6px !important; 
+        padding: 8px 10px; 
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
+    }}
+    .column-title-top .instruction {{ 
+        font-size: 11px !important; 
+        font-weight: 500; 
+        text-transform: uppercase; 
+        color: #94A3B8 !important; 
+        display: block; 
+    }}
+    .column-title-top .mode-actuel {{ 
+        font-size: 14px !important; 
+        font-weight: 700; 
+        color: #FFFFFF !important; 
+        display: block; 
+    }}
 
-4. SANTORIN (L'Interface de Notation EPS) :
-   - Reçoit la liste des candidats depuis Cyclades et les droits de saisie depuis le PDF d'Imag'in.
-   - Procédure de saisie des notes par l'enseignant :
-     📺 Tutoriel associé : Saisie_notes_Santorin.mp4
-   - Support texte saisie : https://ipackeps.ac-creteil.fr/spip.php?article67
-   - Indicateur de fin de saisie : Le lot est complet lorsque la barre de progression affiche 100 %.
+    button[kind="secondary"] {{ 
+        background-color: rgba(15, 23, 42, 0.9) !important; 
+        color: #94A3B8 !important; 
+        border: 1px solid rgba(255,255,255,0.05) !important; 
+        border-radius: 8px !important; 
+        font-size: 13px !important; 
+        height: 55px !important; 
+        display: inline-flex !important; 
+        align-items: center !important; 
+        justify-content: center !important; 
+        text-align: center !important; 
+    }}
 
-----------------------------------------------------------------------
-5. SPÉCIFICITÉS RÉGLEMENTAIRES STRICTES PAR DIPLÔME
-----------------------------------------------------------------------
-• FILIÈRE LYCÉE GÉNÉRAL ET TECHNOLOGIQUE (BAC GT) :
-  - Protocole : 3 épreuves de CCF en classe de Terminale sur 3 APSA issues de 3 Champs d'Apprentissage (CA) distincts.
-  - Saisie de la grille : AFL1 (moteur) noté sur 12 points. Sélection obligatoire de la ventilation choisie par l'élève (4/4, 6/2 ou 2/6) entre l'AFL2 et l'AFL3 (notés sur 8 points).
-  - Règle critique : Les exigences et observables de maîtrise sont strictement identiques quel que soit le choix de répartition de l'élève (2 ou 6 points). Seuls les coefficients changent. En cas de refus de formulation du candidat, application d'office du barème médian par défaut consigné sur la feuille d'émargement.
+    button[kind="primary"] {{ 
+        background-color: rgba(16, 185, 129, 0.85) !important; 
+        color: #FFFFFF !important; 
+        border: 1px solid #10B981 !important; 
+        border-radius: 8px !important; 
+        font-size: 13px !important; 
+        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important; 
+        font-weight: 700 !important; 
+        height: 55px !important; 
+        display: inline-flex !important; 
+        align-items: center !important; 
+        justify-content: center !important; 
+        text-align: center !important; 
+    }}
+    
+    .santorin-card, .general-card, .securite-card {{ 
+        background-color: rgba(15, 23, 42, 0.45) !important; 
+        backdrop-filter: blur(12px) !important; 
+        -webkit-backdrop-filter: blur(12px) !important; 
+        padding: 18px; 
+        border-radius: 8px; 
+        margin-bottom: 16px; 
+        line-height: 1.6 !important;
+    }}
+    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
+    .general-card {{ border-left: 6px solid #10B981 !important; }} 
+    .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
+    
+    .santorin-card h3, .general-card h3, .securite-card h3 {{ 
+        color: #38BDF8 !important; 
+        font-size: 16px !important; 
+        margin-top: 14px !important; 
+        margin-bottom: 8px !important; 
+        font-weight: 800 !important; 
+        text-transform: uppercase; 
+    }}
+    .general-card h3 {{ color: #10B981 !important; }} 
+    .securite-card h3 {{ color: #FF9F43 !important; }} 
 
-• FILIÈRE LYCÉE PROFESSIONNEL (BAC PROFESSIONNEL - BCP) :
-  - Réglementation issue de la circulaire du 02 avril 2025. 3 épreuves sur 3 APSA de 3 CA différents.
-  - Déroulé de saisie dans Santorin :
-    1. Bloc fin de séquence : Saisie des notes obligatoires pour 2 AFLP prédéfinis (AFLP1 et AFLP2), notés sur 12 points.
-    2. Bloc au fil de la séquence : L'enseignant doit obligatoirement cliquer en amont sur le bouton « Choisir les AFLP » pour configurer et cocher les 2 AFLP optionnels retenus par l'équipe (parmi AFLP3, AFLP4, AFLP5 ou AFLP6), notés sur 8 points.
+    /* STYLE AÉRÉ DES LISTES PAS À PAS */
+    .santorin-card ul, .general-card ul, .securite-card ul,
+    .santorin-card ol, .general-card ol, .securite-card ol {{
+        margin-top: 6px !important;
+        margin-bottom: 10px !important;
+        padding-left: 22px !important;
+    }}
+    .santorin-card li, .general-card li, .securite-card li {{
+        margin-bottom: 7px !important;
+        line-height: 1.5 !important;
+    }}
 
-• FILIÈRE CERTIFICAT D'APTITUDE PROFESSIONNELLE (CAP) :
-  - Réglementation issue de la circulaire du 27 août 2025.
-  - PROTOCOLE STRICT À 2 ÉPREUVES : Évaluation certificative en CCF reposant STRICTEMENT sur un ensemble de 2 épreuves (adaptées ou standards) relevant de 2 CA différents.
-  - BLOQUEUR SANTORIN : Toute saisie d'un protocole à 3 notes est rejetée par Santorin et la CAHPN. Supprimer la 3e épreuve excédentaire.
+    .law-highlight {{ 
+        background-color: rgba(255, 176, 32, 0.12) !important; 
+        color: #FFB020 !important; 
+        padding: 2px 6px; 
+        border-radius: 4px; 
+        border: 1px solid rgba(255, 176, 32, 0.4) !important; 
+        font-weight: 700 !important; 
+    }}
 
-• COLLÈGE (DIPLÔME NATIONAL DU BREVET - DNB) :
-  - AUCUN CCF, AUCUNE ÉPREUVE TERMINALE ET AUCUNE NOTE TRANSMISE À LA DEC.
-  - L'évaluation en EPS au DNB résulte exclusivement du contrôle continu trimestriel et de la validation des compétences du socle commun (SCCC / AFC sur les champs CA1 à CA4) reportées dans le Livret Scolaire Unique (LSU). Le CA5 n'existe pas au collège.
+    div[data-testid="stForm"] {{
+        background-color: rgba(15, 23, 42, 0.6) !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        margin-bottom: 12px !important;
+    }}
 
-• CAS EXCEPTIONNEL GLOBAL (BOUTON « DÉCLARER CE ») :
-  - Neutralise une épreuve d'EPS pour cause de sinistre matériel lourd (gymnase ou piscine détruits). Équivaut à une dispense.
-  - ⚠️ INTERDICTION ABSOLUE de l'utiliser sans l'autorisation écrite préalable du Recteur après avis de l'inspection (IA-IPR).
+    /* ZOOM FLUIDE IMAGE 5 */
+    .img-zoomable {{
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+        cursor: zoom-in;
+        border-radius: 6px;
+    }}
+    .img-zoomable:hover {{
+        transform: scale(3);
+        transform-origin: top right;
+        z-index: 999999;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }}
+    .img-zoomable:active {{
+        transform: scale(4.5);
+        transform-origin: top right;
+        cursor: zoom-out;
+    }}
+    </style> 
+"""
+st.markdown(css_pur, unsafe_allow_html=True)
 
-----------------------------------------------------------------------
-6. MANUEL DES INAPTITUDES ET CONTRÔLES AMÉNAGÉS / ADAPTÉS EN EPS
-----------------------------------------------------------------------
-• CONTRÔLE AMÉNAGÉ (LYCÉE & COLLÈGE) :
-  - Concerne les inaptitudes partielles temporaires.
-  - Aménagement des conditions matérielles ou temporelles de l'épreuve sur la MÊME APSA (pas de modification de la nature de l'épreuve, pas de changement d'activité). L'enjeu est de maintenir la pratique adaptée. En collège, possibilité de pondérer un critère.
+# ======================================================================
+# 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
+# ======================================================================
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
 
-• CONTRÔLE ADAPTÉ (LYCÉE & COLLÈGE) :
-  - Concerne exclusivement les élèves présentant un handicap ou une inaptitude partielle permanente (sur toute l'année, attestée dès la rentrée par certificat médical).
-  - Au Lycée : Modification structurelle de l'épreuve via une Fiche Certificative Adaptée (FCA) soumise obligatoirement à la validation de la CAHPN l'année précédant sa mise en œuvre (évaluation sur 3 épreuves dont 1 adaptée, 2 épreuves adaptées, ou exceptionnellement 1 seule). Un élève en protocole adapté peut obtenir 20/20. Il est strictement interdit de créer une FCA en cours d'année pour une simple blessure temporaire.
-  - Au Collège : Le concept de FCA n'existe pas. On applique un aménagement continu de la pratique (Article D. 312-1 du Code de l'éducation). Une inaptitude totale annuelle entraîne la neutralisation des composantes motrices du socle dans le LSU sans bloquer l'obtention du Brevet.
+if openai_api_key:
+    Settings.llm = OpenAI(
+        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
+    )
+    Settings.embed_model = OpenAIEmbedding(
+        model="text-embedding-3-small", api_key=openai_api_key
+    )
 
-----------------------------------------------------------------------
-7. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN
-----------------------------------------------------------------------
-* BUG A : « AUCUN LOT À CORRIGER » / LOT INVISIBLE
-  - Cause 1 : Absence de mission active « Notation EPS CCF » dans Imag'in (défaut STSWEB).
-  - Cause 2 : Le Chef d'établissement a omis de cliquer sur le picto « PDF » dans Imag'in (les droits n'ont pas été poussés vers Santorin).
-  - Cause 3 : Absence de clic sur « Distribution automatique des candidats » dans la console Santorin-Direction.
-    📺 Tutoriel associé : Distribution_lots_santorin.mp4
-    Support texte distribution : https://ipackeps.ac-creteil.fr/spip.php?article66
-  - Cause 4 (Conflit de mail) : L'adresse e-mail de l'examinateur dans Cyclades ne concorde pas avec Imag'in. Solution : Modifier l'e-mail via l'activité Cyclades « EPS - Contrôler/réaffecter des protocoles » ou exécuter une distribution manuelle dans Santorin-Direction.
 
-* BUG B : ÉLÈVE PRÉSENT MAIS INTROUVABLE SUR SANTORIN (MUTATION / ARRIVÉE EN COURS D'ANNÉE) :
-  - Cause : Défaut de synchronisation de nuit entre Cyclades et Santorin.
-  - Solution : Le professeur ne peut rien faire. Le chef d'établissement associe l'élève au protocole dans Cyclades, puis force une distribution MANUELLE par glisser-déposer dans Santorin-Direction (délai : 12h à 24h).
-  - 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
+def obtenir_cle_fichier():
+    mtimes = []
+    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+        if os.path.exists(fp):
+            try:
+                mtimes.append(os.path.getmtime(fp))
+            except Exception:
+                pass
+    chemin_textes = "data/textes/base_textes_officiels.txt"
+    if os.path.exists(chemin_textes):
+        try:
+            mtimes.append(os.path.getmtime(chemin_textes))
+        except Exception:
+            pass
+    for dossier in ["data/examens", "data/ipack", "data/textes"]:
+        if os.path.exists(dossier) and os.path.isdir(dossier):
+            try:
+                for f in os.listdir(dossier):
+                    mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
+            except Exception:
+                pass
+    return max(mtimes) if mtimes else 0.0
 
-* BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
-  - Cause 1 (Validation effectuée / Lot soumis) : Le lot a été validé définitivement par l'enseignant. Le cadenas est permanent. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.
-    📺 Tutoriel déverrouillage : Deverrouiller_lots_santorin.mp4 (Processus inverse de clôture : Verrouiller_lot_santorin.mp4)
-  - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
-    📄 [Consulter la Fiche Mémo - Correction Partagée Santorin (PDF)](https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf)
-  - Cause 3 (Gestion des examinateurs / Transfert de lot) :
-    📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4
-  - Cause 4 (Lot non déplié) : Aller dans [Lots] > [Voir le détail] et cliquer sur le nom exact du candidat pour activer les curseurs de saisie.
 
-* BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
-  - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
-  - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
+def charger_consignes_pierre():
+    documents_charges = []
+    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+        if os.path.exists(fp):
+            try:
+                with open(fp, "r", encoding="utf-8") as f:
+                    documents_charges.append(
+                        Document(
+                            text=f.read(),
+                            metadata={"source": f"Règles de Pierre ({fp})"},
+                        )
+                    )
+            except Exception:
+                pass
+    return documents_charges
 
-----------------------------------------------------------------------
-8. GRANDE FAQ THÉMATIQUE RÉUNIE (FILTRAGE STRICT PAR DIPLÔME)
-----------------------------------------------------------------------
-📁 SECTION A : ABSENCES ET RATTRAPAGES
-• En cas d'absence injustifiée à une évaluation de fin de séquence, l'élève peut-il être renvoyé vers une épreuve d'évaluation différée ?
-  - Lycée GT & Pro (Bac) : Non. Les épreuves différées sont strictement réservées aux inaptitudes temporaires médicalement authentifiées ou cas de force majeure validés par le chef d'établissement. Toute absence injustifiée entraîne le statut « ABI » (zéro à l'épreuve).
-  - Lycée Pro (CAP) : Absence injustifiée sur 1 épreuve = 0 pour la situation. Absence injustifiée à TOUTES les situations = statut « Absent » global et non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
-  - Collège (DNB) : Pas d'épreuve différée officielle (pas de CCF). Si éléments suffisants sur le trimestre, calcul sur les autres notes. Si absences répétées empêchant l'évaluation, mention « En attente » sur le bilan LSU.
 
-📁 SECTION B : ENVIRONNEMENT ET INCERTITUDE (CA2)
-• En CA2, les élèves doivent-ils obligatoirement être confrontés à un environnement inconnu le jour J ?
-  - Lycée GT : Non. L'arrêté du 28 avril 2022 précise que l'épreuve présente des éléments variés d'incertitude en milieu plus ou moins connu (incertitude événementielle : météo, choix de voies, obstacles).
-  - Bac Pro & CAP : Non. Les circulaires de 2025 précisent que l'incertitude peut être événementielle et s'organiser dans le milieu connu de la séquence d'enseignement.
-  - Collège (DNB) : Non. Contextes fixés librement par l'équipe dans le projet pédagogique d'établissement.
+def charger_dossier_txt_securise(chemin_dossier):
+    docs_trouves = []
+    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+        for nom_fichier in os.listdir(chemin_dossier):
+            if nom_fichier.lower().endswith(".txt"):
+                chemin_complet = os.path.join(chemin_dossier, nom_fichier)
+                try:
+                    with open(
+                        chemin_complet, "r", encoding="utf-8", errors="ignore"
+                    ) as f:
+                        docs_trouves.append(
+                            Document(
+                                text=f.read(),
+                                metadata={"source": nom_fichier},
+                            )
+                        )
+                except Exception:
+                    pass
+    return docs_trouves
 
-📁 SECTION C : REDOUBLEMENT ET CONSERVATION DES NOTES
-• Un élève peut-il conserver ses notes d'EPS en cas de redoublement ?
-  - Lycées (GT & Pro) : Les redoublants de Terminale conservent les notes de contrôle continu de Première, mais ne conservent JAMAIS les notes de CCF obtenues en Terminale. Repassage obligatoire de l'intégralité du protocole de Terminale (BO n°30 du 29 juillet 2021).
-  - Collège (DNB) : Aucune conservation de note lors d'un redoublement de 3e.
 
-📁 SECTION D : MODALITÉS D'ÉVALUATION PAR L'ÉCRIT OU L'ORAL
-• Les acquisitions en EPS peuvent-elles être évaluées à partir d'une épreuve écrite ou orale ?
-  - Inter-degrés (Lycée & Collège) : Jamais de devoirs sur table théoriques déconnectés de la motricité. Cependant, pour l'évaluation des rôles méthodologiques et sociaux (AFL2/AFL3 ou AFC), utilisation possible d'outils écrits/oraux connectés à la pratique (carnet d'entraînement en musculation, fiche de juge en gym, retour oral en danse).
+@st.cache_resource
+def initialiser_base_santorin(cle_fremt):
+    docs_santorin = [
+        Document(
+            text=(
+                "Fiche Mémo - Correction Partagée Santorin (DEC)."
+                " Spécifications techniques sur la correction multiple."
+            ),
+            metadata={
+                "title": "Correction Partagée",
+                "url": (
+                    "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
+                ),
+            },
+        )
+    ]
+    docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
+    docs_santorin.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
+        similarity_top_k=8
+    )
 
-📁 SECTION E : INCIDENTS DE TENUE
-• Peut-on attribuer la note 0 ou une sanction à un élève ayant oublié sa tenue de sport le jour du CCF ?
-  - Lycée (CCF) : L'oubli de tenue n'est pas un motif médical. Si refus de pratiquer ➔ « ABI » (note 0/20 à l'examen). S'il pratique en sécurité, il est noté mais peut être pénalisé sur les indicateurs sécuritaires de l'AFL3.
-  - Collège (DNB) : Interdiction absolue d'utiliser la note zéro comme sanction pour oubli de tenue. Traitement exclusif via les punitions scolaires du Règlement Intérieur.
 
-📁 SECTION F : INCIDENTS SUR LES ÉVALUATIONS COLLECTIVES
-• Comment évaluer les élèves en organisation collective (sports collectifs, duos) quand un partenaire est inapte ou absent le jour du CCF ?
-  - Collège & Lycée : L'évaluation doit être impérativement maintenue pour les élèves présents dès lors que les observables individuels sont évaluables équitablement. Le rattrapage ultérieur du partenaire ne devra jamais pénaliser les notes initiales obtenues le jour J.
+@st.cache_resource
+def initialiser_base_ipack(cle_fremt):
+    docs_ipack = [
+        Document(
+            text=(
+                "Guide Pratique iPackEPS - Saisie des structures"
+                " trimestrielles, imports SIÈCLE / Pronote et gestion des"
+                " statuts."
+            ),
+            metadata={
+                "title": "Guide iPackEPS",
+                "url": (
+                    "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
+                ),
+            },
+        )
+    ]
+    docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
+    docs_ipack.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
+        similarity_top_k=8
+    )
 
-📁 SECTION G : ANGLES MORTS EN COLLÈGE & LYCÉE
-• Peut-on modifier le champ d'apprentissage d'une activité (ex: Musculation en CA1 au lieu du CA5) ?
-  - Lycée (CCF) : Non. Modification unilatérale interdite sur la liste académique. L'établissement peut créer une activité d'établissement (FCA) spécifique sous réserve de validation par la CAHPN l'année précédente.
 
-----------------------------------------------------------------------
-9. COMPLÉMENTS PROCÉDURAUX MANUELS DEC, CYCLADES & DIRECTION
-----------------------------------------------------------------------
-• GESTION DES DROITS ET ACCÈS (IMAG'IN & ARENA) :
-  - Prérequis d'affectation manuelle : Le secrétariat doit obligatoirement avoir défini un signataire dans IMAG'IN avant de générer ou modifier une convocation manuelle.
-  - Lien direct enseignant : https://appli.ac-aix-marseille.fr/imagin/enseignant
+@st.cache_resource
+def initialiser_base_textes(cle_fremt):
+    docs_textes = [
+        Document(
+            text=(
+                "Base de données réglementaire globale pour les textes de lois"
+                " du second degré."
+            ),
+            metadata={
+                "title": "Légifrance",
+                "url": "https://www.legifrance.gouv.fr/",
+            },
+        )
+    ]
+    docs_textes.extend(charger_dossier_txt_securise("data/textes"))
+    docs_textes.extend(charger_consignes_pierre())
+    return VectorStoreIndex.from_documents(docs_textes).as_retriever(
+        similarity_top_k=8
+    )
 
-• GUIDE DE DÉPANNAGE DES LOTS (CONSOLE DIRECTION SANTORIN) :
-  - Candidats manquants : Le chef d'établissement utilise le bouton [Rejouer l'import] pour synchroniser instantanément la base Cyclades.
-  - Notification de masse : Sélection groupée de tous les lots dans l'onglet [Lots] pour envoyer une notification mail automatique aux enseignants.
-  - Clôture par substitution : Le Chef d'établissement peut forcer la clôture du lot à la place d'un enseignant ayant terminé sa saisie (barre à 100 %) via le bouton [Clôturer la saisie].
-  - Droit à l'erreur : Le secrétariat peut à tout moment [Supprimer les lots] pour réinitialiser et relancer une distribution propre.
 
-• CAS PARTICULIERS EN COURS DE SAISIE SANTORIN :
-  - Sportifs de Haut Niveau (SHN) : Le clic sur le crayon d'un élève SHN validé par la DEC ouvre l'écran intermédiaire permettant d'affecter la note réglementaire automatique de 20/20 sur l'APSA de spécialité.
-  - Épreuves de substitution : Ouverture autorisée uniquement pour force majeure logistique avérée ou inaptitude médicale temporaire survenue juste avant l'épreuve.
+timestamp_fichier = obtenir_cle_fichier()
+retriever_santorin = initialiser_base_santorin(timestamp_fichier)
+retriever_ipack = initialiser_base_ipack(timestamp_fichier)
+retriever_textes = initialiser_base_textes(timestamp_fichier)
 
-• PROCÉDURE CHIRURGICALE DANS CYCLADES (« EPS - Associer les élèves à un protocole ») :
-  - Règle structurelle : 1 candidat = 1 unique groupe élève EPS = 1 unique protocole d'établissement.
-  - Code couleur écran :
-    * Lignes surlignées en couleur = Élèves correctement associés à un protocole.
-    * Lignes blanches = Élèves orphelins non associés (bloquant pour la génération des lots Santorin).
-  - Actions : Glisser-Déposer (Drag & Drop) des élèves vers le protocole cible. Bouton [Vider] pour réinitialiser un protocole complet.
-  - ⚠️ RÈGLE D'OR INAPTES TOTAUX ANNUELS : Aucune déclaration préalable d'extraction dans Cyclades. Associer normalement les inaptes à la division, puis sélectionner « Inapte/DISP » dans Santorin lors de la saisie des notes.
+# ======================================================================
+# 5. BANDEAU SUPÉRIEUR
+# ======================================================================
+st.markdown(
+    f"""
+    <div class="hub-header">
+        <div style="display: flex; align-items: center; width: 20%;">
+            <img src="{github_url}{img_gauche}" height="60">
+        </div>
+        <div class="hub-title">
+            <div class="title-row">
+                <h1>HUB IA - EPS</h1>
+                <span class="badge-visiteur">👁️ {nb_visites_reel}</span>
+            </div>
+            <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
+        </div>
+        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
+            <img src="{github_url}{img_eps}" height="55">
+            <img src="{github_url}{img_droite}" class="img-zoomable" height="55">
+        </div>
+    </div>
+""",
+    unsafe_allow_html=True,
+)
 
-----------------------------------------------------------------------
-10. BLINDAGE JURIDIQUE, RÉGLEMENTAIRE & CAS CONCRETS SANTORIN
-----------------------------------------------------------------------
+# ======================================================================
+# 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
+# ======================================================================
+label_titres = {
+    "ipack": (
+        "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF &"
+        " Inaptitudes)"
+    ),
+    "examens": (
+        "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées &"
+        " Jurys)"
+    ),
+    "textes": (
+        "🔒 Mode Actif : SÉCURITÉ & Responsabilité Juridique (Textes Officiels &"
+        " Risques APPN)"
+    ),
+}
 
-[SECTION: REGLEMENTATION_BAC_GT_CCF]
-### [SITUATION: ÉLÈVE ARRIVANT EN RETARD LE JOUR DU CCF]
-Mots-clés : retard épreuve CCF, élève en retard, refus d'accès épreuve, rattrapage retard, début d'épreuve.
-- Règle : Une fois l'épreuve débutée (échauffement terminé ou premier passage lancé), l'accès est refusé pour motif de sécurité et d'équité.
-- Décision : Si retard justifié par force majeure (transport, accident) ➔ autorisation d'épreuve de substitution par le chef d'établissement. Si injustifié ➔ statut « ABI » (note 0/20). Interdiction d'improviser une passation individuelle hors cadre.
+titre_affiche = label_titres.get(
+    st.session_state.active_module,
+    "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+)
+st.markdown(
+    '<div class="column-title-top"><span class="instruction">⚙️ Étape 1 :'
+    " Choisissez le contexte de votre question</span><span"
+    f' class="mode-actuel">{titre_affiche}</span></div>',
+    unsafe_allow_html=True,
+)
 
-### [SITUATION: REFUS D'UN ÉLÈVE DE CHOISIR SA RÉPARTITION DE POINTS AFL2 / AFL3]
-Mots-clés : choix AFL2 AFL3, refus de choisir, répartition points AFL, barème par défaut, contestation élève.
-- Règle : L'élève formule son choix avant l'épreuve. En cas de refus explicite, la répartition équilibrée par défaut (barème médian) est appliquée d'office et consignée sur la feuille d'émargement.
+col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+with col_b1:
+    if st.button(
+        "🛠️ iPackEPS",
+        use_container_width=True,
+        key="btn_ip",
+        type=(
+            "primary"
+            if st.session_state.active_module == "ipack"
+            else "secondary"
+        ),
+    ):
+        st.session_state.active_module = "ipack"
+        st.session_state.messages_hub = []
+        st.rerun()
+with col_b2:
+    if st.button(
+        "📊 Examens &\nSantorin",
+        use_container_width=True,
+        key="btn_ex",
+        type=(
+            "primary"
+            if st.session_state.active_module == "examens"
+            else "secondary"
+        ),
+    ):
+        st.session_state.active_module = "examens"
+        st.session_state.messages_hub = []
+        st.rerun()
+with col_b3:
+    if st.button(
+        "🔒 Sécurité &\nCadres Règl.",
+        use_container_width=True,
+        key="btn_se",
+        type=(
+            "primary"
+            if st.session_state.active_module == "textes"
+            else "secondary"
+        ),
+    ):
+        st.session_state.active_module = "textes"
+        st.session_state.messages_hub = []
+        st.rerun()
 
-### [SITUATION: BLESSURE OU MALAISE SURVENU PENDANT L'ÉPREUVE DU CCF]
-Mots-clés : blessure pendant le CCF, entorse en plein saut, malaise CCF, arrêt sur blessure, note partielle.
-- Règle : Interdiction de mettre zéro ou une note partielle sur une tentative inachevée. Interruption immédiate de l'épreuve, prise en charge infirmerie/secours. Avec certificat sous 48h, l'évaluation est annulée et l'élève conserve son droit intégral à l'épreuve de substitution.
+# ======================================================================
+# 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
+# ======================================================================
+prompt = None
+with st.form(key="form_question_hub", clear_on_submit=True):
+    col_input, col_submit = st.columns([5, 1])
+    with col_input:
+        prompt_brut = st.text_input(
+            "Question :",
+            placeholder=(
+                "🔺 Sélectionnez le module concerné avant de saisir votre"
+                " question..."
+            ),
+            label_visibility="collapsed",
+        )
+    with col_submit:
+        bouton_envoyer = st.form_submit_button(
+            "🚀 Poser la question", use_container_width=True, type="primary"
+        )
 
----
+    if bouton_envoyer and prompt_brut.strip():
+        prompt = prompt_brut.strip()
 
-[SECTION: REGLEMENTATION_BAC_PRO_ET_CAP]
-### [SITUATION: ÉLÈVE DE BAC PRO AYANT SUIVI 2 APSA SUR 3 EN RAISON DE PFMP (STAGES)]
-Mots-clés : PFMP Bac Pro, stage pendant CCF, 2 épreuves sur 3 bac pro, moyenne Bac Pro, dispense stage.
-- Règle : Les PFMP ne constituent pas une dispense médicale. L'élève en stage lors du CCF initial passe obligatoirement sur le créneau d'évaluation différée prévu au projet d'établissement. Si impossibilité majeure, la CAHPN statue sur proposition de dispense exceptionnelle.
+# ======================================================================
+# 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
+# ======================================================================
+if st.session_state.active_module == "textes":
+    st.markdown(
+        """
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+        </span>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        """
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
+        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
+        <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
+            <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+                <span style="color: #FCD34D !important;">Technique de terrain : configuration modules professeurs, classes, élèves, groupes, APPN, SSS...</span><br>
+                <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
+                    <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
+                    <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici !</span>
+                </div>
+            </div>
+            <div style="flex: 1; padding-left: 5px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
+                <span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Arena, arbitrages de la CAHPN.</span><br>
+                <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(56, 189, 248, 0.15); border-left: 3px solid #38BDF8; border-radius: 4px;">
+                    <span style="color: #38BDF8 !important; font-weight: 800;">💡 Déblocage situation complexe &amp; Besoin d'informations :</span><br>
+                    <span style="color: #FFFFFF !important; font-size: 12px;">Boutons grisés, lots bloqués ou questions de calcul de notes ? L'IA s'appuie sur les fiches de la DEC pour vous guider sereinement.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
 
-### [SITUATION: CAP — NON-CONFORMITÉ DU PROTOCOLE À 3 ÉPREUVES (REJET SANTORIN)]
-Mots-clés : CAP 3 activités, rejet protocole CAP, erreur 2 épreuves CAP, CCF CAP.
-- Règle : Le CAP impose STRICTEMENT 2 épreuves certificatives. Si 3 notes sont saisies, le système refuse la validation. Procédure : paramétrer la classe en mode groupe et ne renseigner que les 2 épreuves retenues.
+# ======================================================================
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
+# ======================================================================
+if prompt:
+    st.session_state.messages_hub = []
 
----
+    st.session_state.messages_hub.append({
+        "role": "user",
+        "type": "text",
+        "content": f"<span style='color: white;'>{prompt}</span>",
+    })
+    with st.spinner("Je consulte la documentation officielle..."):
+        mode = st.session_state.active_module
+        p_low = prompt.lower()
 
-[SECTION: COLLEGE_ET_DIPLOME_NATIONAL_DU_BREVET_DNB]
-### [SITUATION: DEMANDE D'UNE NOTE SUR 20 AU DNB POUR L'EPS]
-Mots-clés : note sur 20 DNB, moyenne EPS brevet, coefficient DNB, note examen troisième.
-- Règle : AUCUNE épreuve terminale, aucun CCF et aucune note sur 20 envoyée à la DEC. L'EPS contribue à la validation du socle commun (SCCC) dans le LSU.
+        texte_brut = ""
+        extraits_doc = ""
+        badge, color_card = "INFORMATION", "general-card"
 
-### [SITUATION: ÉLÈVE TOTALEMENT DISPENSÉ D'EPS EN CLASSE DE TROISIÈME (DNB)]
-Mots-clés : dispense DNB, inapte toute l'année 3ème, socle commun sans EPS, impact brevet.
-- Règle : L'inaptitude totale annuelle n'empêche pas l'obtention du DNB. Les compétences motrices sont neutralisées dans le LSU sans pénaliser l'élève.
+        onglets_noms = {
+            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+            "examens": (
+                "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
+            ),
+            "textes": (
+                "l'onglet Sécurité & Responsabilité Juridique (Textes"
+                " Officiels)"
+            ),
+        }
+        contexte_choisi_nom = onglets_noms.get(
+            mode, "un onglet de l'application"
+        )
 
----
+        verites_terrain_pierre = ""
+        try:
+            for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+                if os.path.exists(fp):
+                    with open(fp, "r", encoding="utf-8", errors="ignore") as f:
+                        verites_terrain_pierre += (
+                            "\n--- REGLES DE PIERRE ---\n"
+                            + f.read()
+                            + "\n"
+                        )
+        except Exception:
+            pass
 
-[SECTION: GESTION_AVANCEE_SANTORIN_ET_CYCLADES]
-### [SITUATION: BOUTON « CLÔTURER LE LOT » GRISÉ DANS SANTORIN]
-Mots-clés : impossible clôturer lot, bouton clôturer grisé, lot bloqué Santorin, validation finale impossible.
-- Cause : Le bouton ne se déverrouille que si 100 % des candidats du lot possèdent un statut validé (note, ABS, DISP ou CE). Parcourir toutes les pages via le sélecteur 50/100 candidats.
+        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+        est_date = any(
+            w in p_low
+            for w in [
+                "date",
+                "butoir",
+                "calendrier",
+                "délai",
+                "delai",
+                "échéance",
+                "echeance",
+                "quand",
+            ]
+        ) and any(
+            w in p_low
+            for w in [
+                "saisie",
+                "note",
+                "notes",
+                "fermeture",
+                "santorin",
+                "cyclades",
+                "lot",
+                "lots",
+                "examen",
+                "examens",
+                "bac",
+                "cap",
+                "brevet",
+                "mayotte",
+                "academie",
+                "académie",
+            ]
+        )
 
-### [SITUATION: DIFFÉRENCE ENTRE STATUT « ABS », « DISP » ET « CE » DANS SANTORIN]
-Mots-clés : code ABS, code DISP, code CE, zéro Santorin, neutraliser coefficient, différence dispense absence.
-- ABS (Injustifié) : Note 0/20 comptabilisée dans la moyenne.
-- DISP (Médical) : Neutralisation de l'épreuve (moyenne sur les autres épreuves valides).
-- CE (Cas Exceptionnel) : Neutralisation pour force majeure matérielle sur accord formel préalable de l'IA-IPR.
+        est_dnb = any(
+            w in p_low for w in ["dnb", "brevet", "collège", "college"]
+        ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 
-### [SITUATION: CANDIDAT EN DOUBLE NOTATION SUR SANTORIN (CONFLIT CO-ÉVALUATION)]
-Mots-clés : deux correcteurs même copie, écrasement de note Santorin, conflit saisie co-évaluation.
-- Fonctionnement : L'ouverture de la grille par un correcteur bascule la copie en lecture seule pour le second. Attendre la fermeture de session du premier correcteur pour éditer les notes d'AFL.
+        est_sujet_secours = "sujet" in p_low and any(
+            w in p_low for w in ["secours", "papier", "imprimer"]
+        )
 
-### [SITUATION: ÉLÈVE SPORTIF DE HAUT NIVEAU (SHN) NON RECONNU SUR SANTORIN]
-Mots-clés : SHN 20 sur 20 impossible, bouton SHN absent, liste ministérielle SHN, PPF Bac.
-- Résolution : L'enseignant alerte le chef d'établissement qui transmet l'attestation ministérielle (liste PPF de janvier) à la DEC. Après validation dans Cyclades, l'icône SHN apparaît dans Santorin.
+        est_cap_3epreuves = (
+            mode == "examens"
+            and "cap" in p_low
+            and any(
+                w in p_low
+                for w in [
+                    "3 épreuves",
+                    "3 notes",
+                    "trois épreuves",
+                    "trois notes",
+                ]
+            )
+        )
 
----
+        est_tasa = mode == "textes" and "tasa" in p_low
 
-[SECTION: CONTESTATIONS_JURIDIQUES_ET_DROIT_DES_EXAMENS]
-### [SITUATION: DEMANDE DE CONSULTATION DE LA FICHE D'ÉVALUATION CCF PAR LA FAMILLE]
-Mots-clés : droit communication copie, voir ma grille CCF, contestation parents, communication document administratif.
-- Règle : Les fiches d'évaluation CCF sont communicables de plein droit UNIQUEMENT après la délibération finale du jury académique (début juillet). Secret absolu des délibérations avant les résultats officiels du Baccalauréat.
+        est_cas_direct = (
+            est_date
+            or est_dnb
+            or est_sujet_secours
+            or est_cap_3epreuves
+            or est_tasa
+        )
 
-### [SITUATION: DISCRIMINATION ALLÉGUÉE SUR LES BARÈMES FILLES / GARÇONS (CA1)]
-Mots-clés : égalité filles garçons, barème sexué, contestation barème CA1, discrimination barème EPS.
-- Règle : Les barèmes physiologiquement adaptés en CA1 garantissent l'égalité réelle des chances face à la certification (jurisprudence constante du Conseil d'État). Modification unilatérale interdite.
+        # 🚀 RECHERCHE RAG PROFONDE
+        if openai_api_key and not est_cas_direct:
+            try:
+                if mode == "examens":
+                    for n in retriever_santorin.retrieve(prompt):
+                        extraits_doc += f"{n.node.text}\n\n"
+                elif mode == "ipack":
+                    for n in retriever_ipack.retrieve(prompt):
+                        extraits_doc += f"{n.node.text}\n\n"
+                elif mode == "textes":
+                    for n in retriever_textes.retrieve(prompt):
+                        extraits_doc += f"{n.node.text}\n\n"
+            except Exception:
+                pass
 
-### [SITUATION: ACCUSATION DE CO-ÉVALUATION NON RESPECTÉE (BAC GT)]
-Mots-clés : co-évaluation absente, un seul prof pour évaluer, nullité de l'épreuve Bac, recours co-évaluation.
-- Règle : En cas d'empêchement de force majeure du co-évaluateur le jour J, l'enseignant de la classe assure seul la passation pour ne pas léser les élèves. L'épreuve reste juridiquement valide et la situation est consignée au procès-verbal pour la CAHPN.
+        # 🎯 ROUTAGE DU RENDU
+        if est_date:
+            texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
+<ul>
+  <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
+  <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
+</ul>"""
+            badge, color_card = "📅 CALENDRIER OFFICIEL", (
+                "santorin-card" if mode == "examens" else "general-card"
+            )
 
-----------------------------------------------------------------------
-11. EXAMENS ET CERTIFICATION : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE)
-----------------------------------------------------------------------
-### [SITUATION: AEFE / ÉTRANGER — ASSOCIATION CYCLADES ET REMONTÉE SANTORIN]
-Mots-clés : AEFE Cyclades, étranger Santorin, protocole élève étranger, candidats hors SIÈCLE, MEMO associer élèves, lot Santorin étranger.
-- Règle : Les établissements de l'étranger n'étant pas connectés à la base SIÈCLE, l'association des candidats aux protocoles d'EPS doit obligatoirement être effectuée manuellement dans CYCLADES via le guide :
-  📄 [Télécharger le Mémo Officiel - Associer les élèves au protocole sur Cyclades (PDF)](https://pole-examens.github.io/tutoriels-examens/res/MEMO-Associer-eleves-protocole-Etab-v1.0.pdf)
+        elif est_tasa:
+            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+<ul>
+  <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
+  <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
+  <li><strong>Protocole technique (100m en continu < 3 min 45 s) :</strong>
+    <ul>
+      <li>Longueur 1 (0-25m) : Départ plongé obligatoire + nage libre en surface.</li>
+      <li>Longueur 2 (25-50m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
+      <li>Longueur 3 (50-75m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
+      <li>Longueur 4 (75-100m) : Recherche d'un mannequin à 2,50m de profondeur et remorquage sur le dos sur 25m (visage hors de l'eau).</li>
+    </ul>
+  </li>
+  <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
+</ul>"""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-### [SITUATION: AEFE / ÉTRANGER — CALENDRIERS DÉCALÉS ET RYTHME SUD]
-Mots-clés : rythme sud, hémisphère sud, date limite Santorin étranger, session novembre bac, calendrier décalé AEFE.
-- Règle : Zone Rythme Sud (Amérique du Sud, Australie, Afrique australe) ➔ session décalée sur octobre / novembre / décembre.Les enseignants doivent impérativement se référer au calendrier officiel publié par leur académie de rattachement pour toute confirmation ou mise à jour.
+        elif est_dnb:
+            texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
+<ul>
+  <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong>, <strong>aucune case certificative</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
+  <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
+  <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
+</ul>"""
+            badge, color_card = (
+                "📊 COLLÈGE & DNB"
+                if mode == "examens"
+                else "🛠️ ASSISTANCE iPACKEPS",
+                "santorin-card" if mode == "examens" else "general-card",
+            )
 
-### [SITUATION: AEFE / ÉTRANGER — COMMISSION D'HARMONISATION (CAHN) À DISTANCE]
-Mots-clés : CAHN étranger, commission harmonisation AEFE, dépôt pièces étranger, académie rattachement.
-- Procédure : Téléversement dématérialisé de l'ensemble des pièces (fiches récapitulatives, bordereaux d'émargement, FCA) vers les jurys d'harmonisation de l'académie de rattachement en fin d'année locale.
+        elif est_sujet_secours:
+            texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
+<ul>
+  <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
+  <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs académiques.</li>
+  <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
+</ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-### [SITUATION: AEFE / ÉTRANGER — VALIDITÉ DES CERTIFICATS MÉDICAUX LOCAUX]
-Mots-clés : médecin étranger, certificat médical ambassade, dispense bac étranger, inaptitude AEFE.
-- Règle : Les certificats médicaux délivrés par les praticiens locaux habilités ou les médecins d'Ambassade ont pleine valeur juridique pour positionner le statut DISP ou ABJ dans Santorin.
+        elif est_cap_3epreuves:
+            texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
+<ul>
+  <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
+  <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
+  <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
+</ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-### [SITUATION: AEFE / ÉTRANGER — DÉROGATION DE CO-ÉVALUATION (ISOLEMENT GÉOGRAPHIQUE)]
-Mots-clés : co-évaluation étranger, un seul professeur de lycée, isolement géographique AEFE, dérogation co-évaluateur.
-- Règle : Si l'établissement ne compte qu'un seul professeur d'EPS certifié/agrégé, dérogation formelle accordée par l'IA-IPR de zone pour évaluer seul ou avec un personnel homologué désigné.
+        else:
+            if mode == "examens":
+                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            elif mode == "ipack":
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            else:
+                badge, color_card = (
+                    "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
+                    "securite-card",
+                )
+
+            directive_onglet = ""
+            if mode == "textes":
+                directive_onglet = """
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
+   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
+   - Rédige STRICTEMENT selon ce plan :
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
+     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
+"""
+            elif mode == "examens":
+                directive_onglet = """
+3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+   - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+   - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
+   - Bac Pro : 3 épreuves de 3 champs distincts.
+   - CAP : Strictement 2 épreuves de 2 champs distincts.
+"""
+            elif mode == "ipack":
+                directive_onglet = """
+3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
+   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
+   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
+     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
+     * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
+   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
+"""
+
+            consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+
+CONTEXTE DOCUMENTAIRE OFFICIEL :
+{extraits_doc}
+{verites_terrain_pierre}
+
+QUESTION DE L'UTILISATEUR :
+{prompt}
+
+MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
+1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas. N'ajoute pas de cas particuliers complexes hors-sujet sauf s'ils sont demandés ou directement utiles.
+2. STRUCTURE & MISE EN PAGE :
+   - Rends une réponse TRÈS AÉRÉE, pas à pas, ligne par ligne.
+   - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>) pour décomposer chaque étape technique.
+   - Chaque action/étape doit être sur sa propre ligne bien séparée.
+   - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
+   - Interdiction formelle de rédiger des pavés de texte compacts en bloc.
+{directive_onglet}
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS SUR LE SUJET DE LA QUESTION) :
+   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question de l'utilisateur porte explicitement sur la manipulation exacte suivante :
+     * import_eleves_pronote.mp4 -> Pour l'import d'élèves ou groupes depuis Pronote / ÉcoleDirecte via CSV.
+     * Configuration_classes_import_eleves.mp4 -> Pour la configuration initiale des divisions/classes et l'import global d'élèves depuis SIÈCLE.
+     * affecter_eleves_dans_groupes.mp4 -> Pour la création de groupes ou l'affectation des élèves dans des groupes.
+     * Generer_importer_fichier_groupes_cyclades.mp4 -> Pour l'export du fichier de groupes depuis iPackEPS et son import dans Cyclades.
+     * verification_affectation_protocoles_cyclades.mp4 -> Pour la vérification des protocoles d'épreuves dans Cyclades.
+     * creer_convocations_enseignants.mp4 -> Pour la création de convocations et génération du PDF dans IMAG'IN.
+     * Distribution_lots_santorin.mp4 -> Pour la distribution automatique des lots dans Santorin.
+     * Distribution_manuelle_lots_santorin.mp4 -> Pour la distribution manuelle des lots de copies dans Santorin.
+     * Saisie_notes_Santorin.mp4 -> Pour la saisie des notes et AFL dans Santorin.
+     * Verrouiller_lot_santorin.mp4 -> Pour le verrouillage officiel d'un lot de copies dans Santorin.
+     * Deverrouiller_lots_santorin.mp4 -> Pour la demande ou procédure de déverrouillage d'un lot dans Santorin.
+     * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
+   - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
+4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
+"""
+            try:
+                response = Settings.llm.complete(consigne_ia)
+                texte_brut = response.text
+            except Exception as e:
+                texte_brut = f"Erreur de traitement IA : {str(e)}"
+
+        # 🧹 Nettoyages de base sans supprimer les sauts de ligne
+        texte_brut = (
+            texte_brut.replace("```html", "")
+            .replace("```HTML", "")
+            .replace("```", "")
+        )
+
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+        texte_brut = re.sub(
+            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
+            r" l\'éducation)",
+            r'<span class="law-highlight">\1</span>',
+            texte_brut,
+        )
+        texte_brut = texte_brut.replace(
+            '<span class="law-highlight"><span class="law-highlight">',
+            '<span class="law-highlight">',
+        ).replace("</span></span>", "</span>")
+
+        re_links = re.sub(
+            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
+            r' text-decoration: underline;">\1</a>',
+            texte_brut,
+        )
+        texte_brut = re_links
+
+        # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
+        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+        texte_final = (
+            texte_nettoye.replace("<p>", "")
+            .replace("</p>", "<br>")
+            .replace("\n", "<br>")
+        )
+        texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
+
+        phrase_contexte = (
+            "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
+            " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
+            " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
+            f" question dans {contexte_choisi_nom}.</em></div>"
+        )
+
+        footer_assistance = ""
+        if mode in ["ipack", "examens"]:
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding-top: 8px; border-top:"
+                " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
+                " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
+                " pouvez toujours contacter l'assistance <a"
+                " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
+                " #38BDF8 !important; text-decoration:"
+                " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+            )
+
+        formatted_answer = (
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
+            f" :</strong><br>{texte_final}{footer_assistance}</div>"
+        )
+
+        st.session_state.messages_hub.append(
+            {"role": "assistant", "type": "text", "content": formatted_answer}
+        )
+
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
+                )
+
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS (SOUS LA BANNIÈRE EXPLICATIVE)
+if st.session_state.messages_hub:
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

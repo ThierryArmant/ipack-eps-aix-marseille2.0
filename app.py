@@ -529,6 +529,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# 🚨 BANDEAU DE VEILLE (Affiché uniquement si une nouveauté est détectée ce mois-ci)
+if "alerte_veille_dec" in st.session_state:
+  st.warning(st.session_state.alerte_veille_dec, icon="🚨")
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================

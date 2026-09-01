@@ -519,7 +519,7 @@ def verifier_et_alerter_dec(tavily_client):
 
 
 def envoyer_mail_iPackEPS(sujet, corps):
-  smtp_server = st.secrets.get("SMTP_SERVER", "smtp.ac-aix-marseille.fr")
+  smtp_server = st.secrets.get("SMTP_SERVER", "smtp.gmail.com")
   smtp_port = int(st.secrets.get("SMTP_PORT", 465))
   smtp_user = st.secrets.get("SMTP_USER")
   smtp_password = st.secrets.get("SMTP_PASSWORD")
@@ -530,7 +530,9 @@ def envoyer_mail_iPackEPS(sujet, corps):
   msg = MIMEText(corps, "plain", "utf-8")
   msg["Subject"] = sujet
   msg["From"] = smtp_user
-  msg["To"] = "ipackeps@ac-aix-marseille.fr"
+  msg["To"] = (
+      "thierryarmant@gmail.com"  # <--- C'est ici qu'on change pour ton test perso
+  )
 
   try:
     if smtp_port == 465:

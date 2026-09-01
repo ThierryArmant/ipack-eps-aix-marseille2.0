@@ -920,7 +920,7 @@ if prompt:
      * Collège (6e à 3e, y compris 3e prépa-métiers, SEGPA, ULIS) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
      * Lycée (Terminale, CAP) : Cadre officiel du CCF.
    - GESTION DES FAUSSES PRÉMISSES (COLLÈGE / 3e PRÉPA-MÉTIERS / SEGPA / ULIS) : Si l'utilisateur demande à tort une configuration de CCF, un protocole ou un export Santorin pour une classe de collège (6e, 5e, 4e, 3e), ce n'est PAS un hors-sujet : tu dois lui répondre en expliquant clairement qu'aucun CCF ni Santorin n'existe en collège, et lui rappeler comment fonctionne le suivi trimestriel LSU / Socle commun. N'active jamais la règle du hors-sujet global pour une question de collège.
-   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS). Ne jamais l'associer à l'EPPCS.
+   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS [INTERDICTION ABSOLUE] : L'APSA combinée (ex : "Football-Musculation") est strictement réservée aux Sections Sportives Scolaires (SSS) pour répondre à une contrainte technique de groupe unique. Il est STRICTEMENT INTERDIT de créer une APSA combinée ou de mélanger deux disciplines (ex: Football et Musculation) pour un groupe standard d'EPS ou de CCF en Terminale/CAP. Si l'utilisateur demande une telle association pour une classe ordinaire, tu dois REJETER NET LA PRÉMISSE dès la première phrase, rappeler que les APSA combinées n'existent que pour les SSS, et imposer le choix d'une APSA simple issue du référentiel officiel du CCF.
 """
 
         contexte_complet_ia = f"""

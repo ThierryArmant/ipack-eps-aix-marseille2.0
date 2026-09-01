@@ -904,7 +904,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-            ="",
+            "",
             texte_brut,
             flags=re.IGNORECASE | re.MULTILINE,
         )

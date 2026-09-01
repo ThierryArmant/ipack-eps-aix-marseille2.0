@@ -772,13 +772,15 @@ if prompt:
 
     est_tasa = mode == "textes" and "tasa" in p_low
 
+    # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
     est_cas_direct = (
-        est_date
-        or est_dnb
-        or est_sujet_secours
-        or est_cap_3epreuves
-        or est_tasa
-    )
+        (mode != "textes") and (
+            est_date
+            or est_dnb
+            or est_sujet_secours
+            or est_cap_3epreuves
+        )
+    ) or est_tasa
 
     # 🚀 RECHERCHE RAG PROFONDE LOCALE
     if openai_api_key and not est_cas_direct:

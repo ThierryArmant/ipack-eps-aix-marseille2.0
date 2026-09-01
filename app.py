@@ -726,8 +726,7 @@ if prompt:
               "date butoir de",
               "date de fermeture",
               "calendrier officiel",
-          ]
-      )
+          
         ]
     ) and any(
         w in p_low

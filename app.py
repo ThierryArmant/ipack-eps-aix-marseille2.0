@@ -1096,11 +1096,10 @@ if st.session_state.messages_hub:
       else:
         st.markdown(m["content"], unsafe_allow_html=True)
   st.markdown("</div>", unsafe_allow_html=True)
-  # ======================================================================
-# 🧪 BOUTON DE TEST E-MAIL (Provisoire)
 # ======================================================================
-with st.sidebar:
-  st.markdown("---")
+# 🧪 BOUTON DE TEST E-MAIL (Provisoire sur la page principale)
+# ======================================================================
+with st.expander("🛠️ Zone de test technique (Provisoire)"):
   if st.button("🧪 Tester l'envoi d'e-mail de veille"):
     try:
       envoyer_mail_iPackEPS(
@@ -1111,6 +1110,6 @@ with st.sidebar:
               " Streamlit fonctionnent parfaitement.\n\n---\nHub IA - EPS"
           ),
       )
-      st.success("✅ E-mail de test envoyé !")
+      st.success("✅ E-mail de test envoyé avec succès !")
     except Exception as e:
-      st.error(f"❌ Échec : {e}")
+      st.error(f"❌ Échec de l'envoi : {e}")

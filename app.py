@@ -682,155 +682,155 @@ if prompt:
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
     with st.spinner("Je consulte la documentation officielle..."):
-      mode = st.session_state.active_module
-      p_low = prompt.lower()
+        mode = st.session_state.active_module
+        p_low = prompt.lower()
 
-      texte_brut = ""
-      extraits_doc = ""
-      extraits_web = ""
-      badge, color_card = "INFORMATION", "general-card"
+        texte_brut = ""
+        extraits_doc = ""
+        extraits_web = ""
+        badge, color_card = "INFORMATION", "general-card"
 
-      onglets_noms = {
-          "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-          "examens": (
-              "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
-          ),
-          "textes": (
-              "l'onglet Sécurité & Responsabilité Juridique (Textes"
-              " Officiels)"
-          ),
-      }
-      contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+        onglets_noms = {
+            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+            "examens": (
+                "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
+            ),
+            "textes": (
+                "l'onglet Sécurité & Responsabilité Juridique (Textes"
+                " Officiels)"
+            ),
+        }
+        contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
-      verites_terrain_pierre = ""
-      try:
-        for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-          if os.path.exists(fp):
-            with open(fp, "r", encoding="utf-8", errors="ignore") as f:
-              verites_terrain_pierre += (
-                  "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
-              )
-      except Exception:
-        pass
+        verites_terrain_pierre = ""
+        try:
+            for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+                if os.path.exists(fp):
+                    with open(fp, "r", encoding="utf-8", errors="ignore") as f:
+                        verites_terrain_pierre += (
+                            "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
+                        )
+        except Exception:
+            pass
 
-      # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-      est_college = any(
-          w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
-      )
+        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+        est_college = any(
+            w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
+        )
 
-      est_date = (not est_college) and any(
-          phrase in p_low
-          for phrase in [
-              "quel est le calendrier",
-              "quelles sont les dates",
-              "date butoir de",
-              "date de fermeture",
-              "calendrier officiel",
-          ]
-      ) and any(
-          w in p_low
-          for w in [
-              "saisie",
-              "note",
-              "notes",
-              "fermeture",
-              "santorin",
-              "cyclades",
-              "lot",
-              "lots",
-              "examen",
-              "examens",
-              "bac",
-              "cap",
-              "brevet",
-              "mayotte",
-              "academie",
-              "académie",
-          ]
-      )
+        est_date = (not est_college) and any(
+            phrase in p_low
+            for phrase in [
+                "quel est le calendrier",
+                "quelles sont les dates",
+                "date butoir de",
+                "date de fermeture",
+                "calendrier officiel",
+            ]
+        ) and any(
+            w in p_low
+            for w in [
+                "saisie",
+                "note",
+                "notes",
+                "fermeture",
+                "santorin",
+                "cyclades",
+                "lot",
+                "lots",
+                "examen",
+                "examens",
+                "bac",
+                "cap",
+                "brevet",
+                "mayotte",
+                "academie",
+                "académie",
+            ]
+        )
 
-      est_dnb = (mode != "textes") and any(
-          w in p_low for w in ["dnb", "brevet", "collège", "college"]
-      ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+        est_dnb = (mode != "textes") and any(
+            w in p_low for w in ["dnb", "brevet", "collège", "college"]
+        ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 
-      est_sujet_secours = "sujet" in p_low and any(
-          w in p_low for w in ["secours", "papier", "imprimer"]
-      )
+        est_sujet_secours = "sujet" in p_low and any(
+            w in p_low for w in ["secours", "papier", "imprimer"]
+        )
 
-      est_cap_3epreuves = (
-          mode == "examens"
-          and "cap" in p_low
-          and any(
-              w in p_low
-              for w in [
-                  "3 épreuves",
-                  "3 notes",
-                  "trois épreuves",
-                  "trois notes",
-              ]
-          )
-      )
+        est_cap_3epreuves = (
+            mode == "examens"
+            and "cap" in p_low
+            and any(
+                w in p_low
+                for w in [
+                    "3 épreuves",
+                    "3 notes",
+                    "trois épreuves",
+                    "trois notes",
+                ]
+            )
+        )
 
-      est_tasa = mode == "textes" and "tasa" in p_low
+        est_tasa = mode == "textes" and "tasa" in p_low
 
-      # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
-      est_cas_direct = (
-          (mode != "textes") and (
-              est_date
-              or est_dnb
-              or est_sujet_secours
-              or est_cap_3epreuves
-          )
-      ) or est_tasa
+        # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
+        est_cas_direct = (
+            (mode != "textes") and (
+                est_date
+                or est_dnb
+                or est_sujet_secours
+                or est_cap_3epreuves
+            )
+        ) or est_tasa
 
     # 🚀 RECHERCHE RAG PROFONDE LOCALE
     if openai_api_key and not est_cas_direct:
-      try:
-        if mode == "examens":
-          for n in retriever_santorin.retrieve(prompt):
-            extraits_doc += f"{n.node.text}\n\n"
-        elif mode == "ipack":
-          for n in retriever_ipack.retrieve(prompt):
-            extraits_doc += f"{n.node.text}\n\n"
-        elif mode == "textes":
-          for n in retriever_textes.retrieve(prompt):
-            extraits_doc += f"{n.node.text}\n\n"
-      except Exception:
-        pass
+        try:
+            if mode == "examens":
+                for n in retriever_santorin.retrieve(prompt):
+                    extraits_doc += f"{n.node.text}\n\n"
+            elif mode == "ipack":
+                for n in retriever_ipack.retrieve(prompt):
+                    extraits_doc += f"{n.node.text}\n\n"
+            elif mode == "textes":
+                for n in retriever_textes.retrieve(prompt):
+                    extraits_doc += f"{n.node.text}\n\n"
+        except Exception:
+            pass
 
     # 🌐 RECHERCHE WEB CIBLÉE TAVILY (Uniquement pour l'onglet Textes / Juridique si non-direct)
     if tavily_client and mode == "textes" and not est_cas_direct:
-      try:
-        response_tavily = tavily_client.search(
-            query=prompt,
-            max_results=3,
-            include_domains=[
-                "legifrance.gouv.fr",
-                "eduscol.education.fr",
-                "education.gouv.fr",
-            ],
-        )
-        for res in response_tavily.get("results", []):
-          extraits_web += (
-              f"Source Officielle Web ({res.get('title')}) -"
-              f" {res.get('url')}:\n{res.get('content')}\n\n"
-          )
-      except Exception:
-        pass
+        try:
+            response_tavily = tavily_client.search(
+                query=prompt,
+                max_results=3,
+                include_domains=[
+                    "legifrance.gouv.fr",
+                    "eduscol.education.fr",
+                    "education.gouv.fr",
+                ],
+            )
+            for res in response_tavily.get("results", []):
+                extraits_web += (
+                    f"Source Officielle Web ({res.get('title')}) -"
+                    f" {res.get('url')}:\n{res.get('content')}\n\n"
+                )
+        except Exception:
+            pass
 
     # 🎯 ROUTAGE DU RENDU
     if est_date:
-      texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
+        texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
   <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
   <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
 </ul>"""
-      badge, color_card = "📅 CALENDRIER OFFICIEL", (
-          "santorin-card" if mode == "examens" else "general-card"
-      )
+        badge, color_card = "📅 CALENDRIER OFFICIEL", (
+            "santorin-card" if mode == "examens" else "general-card"
+        )
 
     elif est_tasa:
-      texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+        texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
 <ul>
   <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
   <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
@@ -844,52 +844,52 @@ if prompt:
   </li>
   <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
 </ul>"""
-      badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+        badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
     elif est_dnb:
-      texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
+        texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
 <ul>
   <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong>, <strong>aucune case certificative</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
   <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
   <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
 </ul>"""
-      badge, color_card = (
-          "📊 COLLÈGE & DNB"
-          if mode == "examens"
-          else "🛠️ ASSISTANCE iPACKEPS",
-          "santorin-card" if mode == "examens" else "general-card",
-      )
+        badge, color_card = (
+            "📊 COLLÈGE & DNB"
+            if mode == "examens"
+            else "🛠️ ASSISTANCE iPACKEPS",
+            "santorin-card" if mode == "examens" else "general-card",
+        )
 
     elif est_sujet_secours:
-      texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
+        texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
 <ul>
   <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
   <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs académiques.</li>
   <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
 </ul>"""
-      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
     elif est_cap_3epreuves:
-      texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
+        texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
 <ul>
   <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
   <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
   <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
 </ul>"""
-      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
     else:
-      if mode == "examens":
-        badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-      elif mode == "ipack":
-        badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-      else:
-        badge, color_card = (
-            "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
-            "securite-card",
-        )
+        if mode == "examens":
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        elif mode == "ipack":
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+        else:
+            badge, color_card = (
+                "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
+                "securite-card",
+            )
 
-      directive_onglet = ""
+    directive_onglet = ""
     if mode == "textes":
         directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
@@ -911,7 +911,7 @@ if prompt:
        - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
        - Bac Pro : 3 épreuves de 3 champs distincts.
        - CAP : Strictement 2 épreuves de 2 champs distincts."""
-      elif mode == "ipack":
+    elif mode == "ipack":
         directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
@@ -922,7 +922,7 @@ if prompt:
    - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 
-      contexte_complet_ia = f"""
+    contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 
@@ -932,7 +932,7 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
-      consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+    consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 {contexte_complet_ia}
 
@@ -970,95 +970,95 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
    - Si plusieurs textes, circulaires ou notes traitent du même sujet à des dates différentes (ex: une version de 2017 et une de 2022), **tu dois impérativement écarter et ignorer la version la plus ancienne**.
    - Appuie-toi **uniquement** sur la disposition ou la circulaire la plus récente pour formuler ta réponse, et mentionne explicitement sa date pour rassurer l'utilisateur.
 """
-      try:
+    try:
         response = Settings.llm.complete(consigne_ia)
         texte_brut = response.text
-      except Exception as e:
+    except Exception as e:
         texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-    # 🧹 Nettoyages de base sans supprimer les sauts de ligne
-    texte_brut = (
-        texte_brut.replace("```html", "")
-        .replace("```HTML", "")
-        .replace("```", "")
+# 🧹 Nettoyages de base sans supprimer les sauts de ligne
+texte_brut = (
+    texte_brut.replace("```html", "")
+    .replace("```HTML", "")
+    .replace("```", "")
+)
+
+texte_brut = re.sub(
+    r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+    "",
+    texte_brut,
+    flags=re.IGNORECASE | re.MULTILINE,
+)
+
+texte_brut = re.sub(
+    r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
+    r" l\'éducation)",
+    r'<span class="law-highlight">\1</span>',
+    texte_brut,
+)
+texte_brut = texte_brut.replace(
+    '<span class="law-highlight"><span class="law-highlight">',
+    '<span class="law-highlight">',
+).replace("</span></span>", "</span>")
+
+re_links = re.sub(
+    r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+    r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
+    r' text-decoration: underline;">\1</a>',
+    texte_brut,
+)
+texte_brut = re_links
+
+# 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
+texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+texte_final = (
+    texte_nettoye.replace("<p>", "")
+    .replace("</p>", "<br>")
+    .replace("\n", "<br>")
+)
+texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
+
+phrase_contexte = (
+    "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
+    " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
+    " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
+    f" question dans {contexte_choisi_nom}.</em></div>"
+)
+
+footer_assistance = ""
+if mode in ["ipack", "examens"]:
+    footer_assistance = (
+        "<div style='margin-top: 14px; padding-top: 8px; border-top:"
+        " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
+        " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
+        " pouvez toujours contacter l'assistance <a"
+        " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
+        " #38BDF8 !important; text-decoration:"
+        " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
     )
 
-    texte_brut = re.sub(
-        r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-        "",
-        texte_brut,
-        flags=re.IGNORECASE | re.MULTILINE,
-    )
+formatted_answer = (
+    f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
+    f" :</strong><br>{texte_final}{footer_assistance}</div>"
+)
 
-    texte_brut = re.sub(
-        r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
-        r" l\'éducation)",
-        r'<span class="law-highlight">\1</span>',
-        texte_brut,
-    )
-    texte_brut = texte_brut.replace(
-        '<span class="law-highlight"><span class="law-highlight">',
-        '<span class="law-highlight">',
-    ).replace("</span></span>", "</span>")
+st.session_state.messages_hub.append(
+    {"role": "assistant", "type": "text", "content": formatted_answer}
+)
 
-    re_links = re.sub(
-        r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-        r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
-        r' text-decoration: underline;">\1</a>',
-        texte_brut,
-    )
-    texte_brut = re_links
-
-    # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
-    texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-    texte_final = (
-        texte_nettoye.replace("<p>", "")
-        .replace("</p>", "<br>")
-        .replace("\n", "<br>")
-    )
-    texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
-
-    phrase_contexte = (
-        "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
-        " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
-        " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
-        f" question dans {contexte_choisi_nom}.</em></div>"
-    )
-
-    footer_assistance = ""
-    if mode in ["ipack", "examens"]:
-      footer_assistance = (
-          "<div style='margin-top: 14px; padding-top: 8px; border-top:"
-          " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
-          " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
-          " pouvez toujours contacter l'assistance <a"
-          " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
-          " #38BDF8 !important; text-decoration:"
-          " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
-      )
-
-    formatted_answer = (
-        f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
-        f" :</strong><br>{texte_final}{footer_assistance}</div>"
-    )
-
-    st.session_state.messages_hub.append(
-        {"role": "assistant", "type": "text", "content": formatted_answer}
-    )
-
-    for video_name, video_url in VIDEOS_TUTOS.items():
-      if video_name in texte_final:
+for video_name, video_url in VIDEOS_TUTOS.items():
+    if video_name in texte_final:
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "video", "content": video_url}
         )
 
 # AFFICHAGE DES MESSAGES ET DES VIDÉOS (SOUS LA BANNIÈRE EXPLICATIVE)
 if st.session_state.messages_hub:
-  st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-  for m in st.session_state.messages_hub:
-    with st.chat_message(m["role"]):
-      if m.get("type") == "video":
-        st.video(m["content"])
-      else:
-        st.markdown(m["content"], unsafe_allow_html=True)
-  st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

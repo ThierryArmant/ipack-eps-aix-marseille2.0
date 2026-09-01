@@ -714,18 +714,21 @@ if prompt:
       pass
 
     # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-    est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
+    est_college = any(
+        w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
+    )
 
+    # La condition est_date ne se déclenche que si la question demande EXPLICITEMENT le calendrier
     est_date = (not est_college) and any(
-        w in p_low
-        for w in [
-            "date",
-            "butoir",
-            "calendrier",
-            "délai",
-            "delai",
-            "échéance",
-            "echeance",
+        phrase in p_low
+        for phrase in [
+            "quel est le calendrier",
+            "quelles sont les dates",
+            "date butoir de",
+            "date de fermeture",
+            "calendrier officiel",
+        ]
+    )
         ]
     ) and any(
         w in p_low

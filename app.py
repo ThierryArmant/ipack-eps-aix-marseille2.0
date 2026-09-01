@@ -5,65 +5,92 @@ from llama_index.core import Document, Settings, VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
+try:
+  from tavily import TavilyClient
+except ImportError:
+  TavilyClient = None
+
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
 VIDEOS_TUTOS = {
-    "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
-    "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
-    "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
-    "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",
-    "verification_affectation_protocoles_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4",
-    "creer_convocations_enseignants.mp4": "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4",
-    "Distribution_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4",
-    "Distribution_manuelle_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4",
-    "Saisie_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4",
-    "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
-    "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
-    "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
+    "import_eleves_pronote.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4"
+    ),
+    "Configuration_classes_import_eleves.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4"
+    ),
+    "affecter_eleves_dans_groupes.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4"
+    ),
+    "Generer_importer_fichier_groupes_cyclades.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4"
+    ),
+    "verification_affectation_protocoles_cyclades.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/verification_affectation_protocoles_cyclades.mp4"
+    ),
+    "creer_convocations_enseignants.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/creer_convocations_enseignants.mp4"
+    ),
+    "Distribution_lots_santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Distribution_lots_santorin.mp4"
+    ),
+    "Distribution_manuelle_lots_santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Distribution_manuelle_lots_santorin.mp4"
+    ),
+    "Saisie_notes_Santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Saisie_notes_Santorin.mp4"
+    ),
+    "Verrouiller_lot_santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4"
+    ),
+    "Deverrouiller_lots_santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4"
+    ),
+    "Ajouter_evaluateur_lot_santorin.mp4": (
+        "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4"
+    ),
 }
 
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION
 # ======================================================================
 st.set_page_config(
-    page_title="Hub IA - EPS",
-    layout="wide",
-    initial_sidebar_state="collapsed",
+    page_title="Hub IA - EPS", layout="wide", initial_sidebar_state="collapsed"
 )
 
 # ======================================================================
 # 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES
 # ======================================================================
 if "messages_hub" not in st.session_state:
-    st.session_state.messages_hub = []
+  st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
-    st.session_state.active_module = "ipack"
+  st.session_state.active_module = "ipack"
 
 
 def incrementer_et_obtenir_visites():
-    fichier_compteur = "compteur_visites.txt"
-    if not os.path.exists(fichier_compteur):
-        try:
-            with open(fichier_compteur, "w", encoding="utf-8") as f:
-                f.write("1")
-            return 1
-        except Exception:
-            return 1
-
+  fichier_compteur = "compteur_visites.txt"
+  if not os.path.exists(fichier_compteur):
     try:
-        with open(fichier_compteur, "r", encoding="utf-8") as f:
-            valeur = int(f.read().strip())
-
-        if "visite_comptabilisee" not in st.session_state:
-            valeur += 1
-            with open(fichier_compteur, "w", encoding="utf-8") as f:
-                f.write(str(valeur))
-            st.session_state.visite_comptabilisee = True
-
-        return valeur
+      with open(fichier_compteur, "w", encoding="utf-8") as f:
+        f.write("1")
+      return 1
     except Exception:
-        return 1
+      return 1
+
+  try:
+    with open(fichier_compteur, "r", encoding="utf-8") as f:
+      valeur = int(f.read().strip())
+
+    if "visite_comptabilisee" not in st.session_state:
+      valeur += 1
+      with open(fichier_compteur, "w", encoding="utf-8") as f:
+        f.write(str(valeur))
+      st.session_state.visite_comptabilisee = True
+
+    return valeur
+  except Exception:
+    return 1
 
 
 nb_visites_reel = incrementer_et_obtenir_visites()
@@ -90,7 +117,7 @@ css_pur = f"""
         padding-left: 1.5rem !important; 
         padding-right: 1.5rem !important; 
         max-width: 920px !important; 
-    }}
+    }
     
     .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
@@ -105,7 +132,7 @@ css_pur = f"""
         margin-bottom: 15px !important; 
         border-radius: 8px; 
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
-    }}
+    }
     
     .hub-title {{
         display: flex;
@@ -115,14 +142,14 @@ css_pur = f"""
         text-align: center;
         flex-grow: 1;
         padding-right: 35px; 
-    }}
+    }
     
     .title-row {{
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
-    }}
+    }
     
     .title-row h1 {{ 
         color: white !important; 
@@ -131,7 +158,7 @@ css_pur = f"""
         font-weight: 800 !important; 
         line-height: 1.2 !important;
         letter-spacing: 0.5px;
-    }}
+    }
     
     .badge-visiteur {{ 
         background-color: rgba(16, 185, 129, 0.2) !important; 
@@ -142,7 +169,7 @@ css_pur = f"""
         font-size: 13px !important; 
         font-weight: 800 !important; 
         font-family: monospace !important;
-    }}
+    }
     
     .hub-title p {{ 
         color: #94A3B8 !important; 
@@ -151,7 +178,7 @@ css_pur = f"""
         font-size: 13px !important; 
         text-transform: uppercase; 
         font-weight: bold !important;
-    }}
+    }
 
     .column-title-top {{ 
         color: #FFFFFF; 
@@ -161,20 +188,20 @@ css_pur = f"""
         border-radius: 6px !important; 
         padding: 8px 10px; 
         box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
-    }}
+    }
     .column-title-top .instruction {{ 
         font-size: 11px !important; 
         font-weight: 500; 
         text-transform: uppercase; 
         color: #94A3B8 !important; 
         display: block; 
-    }}
+    }
     .column-title-top .mode-actuel {{ 
         font-size: 14px !important; 
         font-weight: 700; 
         color: #FFFFFF !important; 
         display: block; 
-    }}
+    }
 
     button[kind="secondary"] {{ 
         background-color: rgba(15, 23, 42, 0.9) !important; 
@@ -187,7 +214,7 @@ css_pur = f"""
         align-items: center !important; 
         justify-content: center !important; 
         text-align: center !important; 
-    }}
+    }
 
     button[kind="primary"] {{ 
         background-color: rgba(16, 185, 129, 0.85) !important; 
@@ -202,7 +229,7 @@ css_pur = f"""
         align-items: center !important; 
         justify-content: center !important; 
         text-align: center !important; 
-    }}
+    }
     
     .santorin-card, .general-card, .securite-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
@@ -212,7 +239,7 @@ css_pur = f"""
         border-radius: 8px; 
         margin-bottom: 16px; 
         line-height: 1.6 !important;
-    }}
+    }
     .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
     .general-card {{ border-left: 6px solid #10B981 !important; }} 
     .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
@@ -280,147 +307,151 @@ css_pur = f"""
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================
-# 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
+# 4. CONFIGURATION DE L'IA, TAVILY & CHARGEMENT DES BASES
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
+tavily_api_key = st.secrets.get("TAVILY_API_KEY")
+
+tavily_client = None
+if tavily_api_key and TavilyClient:
+  try:
+    tavily_client = TavilyClient(api_key=tavily_api_key)
+  except Exception:
+    pass
 
 if openai_api_key:
-    Settings.llm = OpenAI(
-        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
-    )
-    Settings.embed_model = OpenAIEmbedding(
-        model="text-embedding-3-small", api_key=openai_api_key
-    )
+  Settings.llm = OpenAI(
+      model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
+  )
+  Settings.embed_model = OpenAIEmbedding(
+      model="text-embedding-3-small", api_key=openai_api_key
+  )
 
 
 def obtenir_cle_fichier():
-    mtimes = []
-    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-        if os.path.exists(fp):
-            try:
-                mtimes.append(os.path.getmtime(fp))
-            except Exception:
-                pass
-    chemin_textes = "data/textes/base_textes_officiels.txt"
-    if os.path.exists(chemin_textes):
-        try:
-            mtimes.append(os.path.getmtime(chemin_textes))
-        except Exception:
-            pass
-    for dossier in ["data/examens", "data/ipack", "data/textes"]:
-        if os.path.exists(dossier) and os.path.isdir(dossier):
-            try:
-                for f in os.listdir(dossier):
-                    mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
-            except Exception:
-                pass
-    return max(mtimes) if mtimes else 0.0
+  mtimes = []
+  for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+    if os.path.exists(fp):
+      try:
+        mtimes.append(os.path.getmtime(fp))
+      except Exception:
+        pass
+  chemin_textes = "data/textes/base_textes_officiels.txt"
+  if os.path.exists(chemin_textes):
+    try:
+      mtimes.append(os.path.getmtime(chemin_textes))
+    except Exception:
+      pass
+  for dossier in ["data/examens", "data/ipack", "data/textes"]:
+    if os.path.exists(dossier) and os.path.isdir(dossier):
+      try:
+        for f in os.listdir(dossier):
+          mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
+      except Exception:
+        pass
+  return max(mtimes) if mtimes else 0.0
 
 
 def charger_consignes_pierre():
-    documents_charges = []
-    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-        if os.path.exists(fp):
-            try:
-                with open(fp, "r", encoding="utf-8") as f:
-                    documents_charges.append(
-                        Document(
-                            text=f.read(),
-                            metadata={"source": f"Règles de Pierre ({fp})"},
-                        )
-                    )
-            except Exception:
-                pass
-    return documents_charges
+  documents_charges = []
+  for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+    if os.path.exists(fp):
+      try:
+        with open(fp, "r", encoding="utf-8") as f:
+          documents_charges.append(
+              Document(
+                  text=f.read(), metadata={"source": f"Règles de Pierre ({fp})"}
+              )
+          )
+      except Exception:
+        pass
+  return documents_charges
 
 
 def charger_dossier_txt_securise(chemin_dossier):
-    docs_trouves = []
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
-        for nom_fichier in os.listdir(chemin_dossier):
-            if nom_fichier.lower().endswith(".txt"):
-                chemin_complet = os.path.join(chemin_dossier, nom_fichier)
-                try:
-                    with open(
-                        chemin_complet, "r", encoding="utf-8", errors="ignore"
-                    ) as f:
-                        docs_trouves.append(
-                            Document(
-                                text=f.read(),
-                                metadata={"source": nom_fichier},
-                            )
-                        )
-                except Exception:
-                    pass
-    return docs_trouves
+  docs_trouves = []
+  if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+    for nom_fichier in os.listdir(chemin_dossier):
+      if nom_fichier.lower().endswith(".txt"):
+        chemin_complet = os.path.join(chemin_dossier, nom_fichier)
+        try:
+          with open(
+              chemin_complet, "r", encoding="utf-8", errors="ignore"
+          ) as f:
+            docs_trouves.append(
+                Document(text=f.read(), metadata={"source": nom_fichier})
+            )
+        except Exception:
+          pass
+  return docs_trouves
 
 
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
-    docs_santorin = [
-        Document(
-            text=(
-                "Fiche Mémo - Correction Partagée Santorin (DEC)."
-                " Spécifications techniques sur la correction multiple."
-            ),
-            metadata={
-                "title": "Correction Partagée",
-                "url": (
-                    "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
-                ),
-            },
-        )
-    ]
-    docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    docs_santorin.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=8
-    )
+  docs_santorin = [
+      Document(
+          text=(
+              "Fiche Mémo - Correction Partagée Santorin (DEC)."
+              " Spécifications techniques sur la correction multiple."
+          ),
+          metadata={
+              "title": "Correction Partagée",
+              "url": (
+                  "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
+              ),
+          },
+      )
+  ]
+  docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
+  docs_santorin.extend(charger_consignes_pierre())
+  return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
+      similarity_top_k=8
+  )
 
 
 @st.cache_resource
 def initialiser_base_ipack(cle_fremt):
-    docs_ipack = [
-        Document(
-            text=(
-                "Guide Pratique iPackEPS - Saisie des structures"
-                " trimestrielles, imports SIÈCLE / Pronote et gestion des"
-                " statuts."
-            ),
-            metadata={
-                "title": "Guide iPackEPS",
-                "url": (
-                    "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
-                ),
-            },
-        )
-    ]
-    docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
-    docs_ipack.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=8
-    )
+  docs_ipack = [
+      Document(
+          text=(
+              "Guide Pratique iPackEPS - Saisie des structures"
+              " trimestrielles, imports SIÈCLE / Pronote et gestion des"
+              " statuts."
+          ),
+          metadata={
+              "title": "Guide iPackEPS",
+              "url": (
+                  "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
+              ),
+          },
+      )
+  ]
+  docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
+  docs_ipack.extend(charger_consignes_pierre())
+  return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
+      similarity_top_k=8
+  )
 
 
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
-    docs_textes = [
-        Document(
-            text=(
-                "Base de données réglementaire globale pour les textes de lois"
-                " du second degré."
-            ),
-            metadata={
-                "title": "Légifrance",
-                "url": "https://www.legifrance.gouv.fr/",
-            },
-        )
-    ]
-    docs_textes.extend(charger_dossier_txt_securise("data/textes"))
-    docs_textes.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-        similarity_top_k=8
-    )
+  docs_textes = [
+      Document(
+          text=(
+              "Base de données réglementaire globale pour les textes de lois"
+              " du second degré."
+          ),
+          metadata={
+              "title": "Légifrance",
+              "url": "https://www.legifrance.gouv.fr/",
+          },
+      )
+  ]
+  # ISOLATION STRICTE : On charge uniquement les textes officiels sans les notes iPack/Pierre pour éviter toute confusion
+  docs_textes.extend(charger_dossier_txt_securise("data/textes"))
+  return VectorStoreIndex.from_documents(docs_textes).as_retriever(
+      similarity_top_k=8
+  )
 
 
 timestamp_fichier = obtenir_cle_fichier()
@@ -473,7 +504,8 @@ label_titres = {
 
 titre_affiche = label_titres.get(
     st.session_state.active_module,
-    "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+    "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF &"
+    " Inaptitudes)",
 )
 st.markdown(
     '<div class="column-title-top"><span class="instruction">⚙️ Étape 1 :'
@@ -484,88 +516,88 @@ st.markdown(
 
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 with col_b1:
-    if st.button(
-        "🛠️ iPackEPS",
-        use_container_width=True,
-        key="btn_ip",
-        type=(
-            "primary"
-            if st.session_state.active_module == "ipack"
-            else "secondary"
-        ),
-    ):
-        st.session_state.active_module = "ipack"
-        st.session_state.messages_hub = []
-        st.rerun()
+  if st.button(
+      "🛠️ iPackEPS",
+      use_container_width=True,
+      key="btn_ip",
+      type=(
+          "primary"
+          if st.session_state.active_module == "ipack"
+          else "secondary"
+      ),
+  ):
+    st.session_state.active_module = "ipack"
+    st.session_state.messages_hub = []
+    st.rerun()
 with col_b2:
-    if st.button(
-        "📊 Examens &\nSantorin",
-        use_container_width=True,
-        key="btn_ex",
-        type=(
-            "primary"
-            if st.session_state.active_module == "examens"
-            else "secondary"
-        ),
-    ):
-        st.session_state.active_module = "examens"
-        st.session_state.messages_hub = []
-        st.rerun()
+  if st.button(
+      "📊 Examens &\nSantorin",
+      use_container_width=True,
+      key="btn_ex",
+      type=(
+          "primary"
+          if st.session_state.active_module == "examens"
+          else "secondary"
+      ),
+  ):
+    st.session_state.active_module = "examens"
+    st.session_state.messages_hub = []
+    st.rerun()
 with col_b3:
-    if st.button(
-        "🔒 Sécurité &\nCadres Règl.",
-        use_container_width=True,
-        key="btn_se",
-        type=(
-            "primary"
-            if st.session_state.active_module == "textes"
-            else "secondary"
-        ),
-    ):
-        st.session_state.active_module = "textes"
-        st.session_state.messages_hub = []
-        st.rerun()
+  if st.button(
+      "🔒 Sécurité &\nCadres Règl.",
+      use_container_width=True,
+      key="btn_se",
+      type=(
+          "primary"
+          if st.session_state.active_module == "textes"
+          else "secondary"
+      ),
+  ):
+    st.session_state.active_module = "textes"
+    st.session_state.messages_hub = []
+    st.rerun()
 
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
 # ======================================================================
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
-    col_input, col_submit = st.columns([5, 1])
-    with col_input:
-        prompt_brut = st.text_input(
-            "Question :",
-            placeholder=(
-                "🔺 Sélectionnez le module concerné avant de saisir votre"
-                " question..."
-            ),
-            label_visibility="collapsed",
-        )
-    with col_submit:
-        bouton_envoyer = st.form_submit_button(
-            "🚀 Poser la question", use_container_width=True, type="primary"
-        )
+  col_input, col_submit = st.columns([5, 1])
+  with col_input:
+    prompt_brut = st.text_input(
+        "Question :",
+        placeholder=(
+            "🔺 Sélectionnez le module concerné avant de saisir votre"
+            " question..."
+        ),
+        label_visibility="collapsed",
+    )
+  with col_submit:
+    bouton_envoyer = st.form_submit_button(
+        "🚀 Poser la question", use_container_width=True, type="primary"
+    )
 
-    if bouton_envoyer and prompt_brut.strip():
-        prompt = prompt_brut.strip()
+  if bouton_envoyer and prompt_brut.strip():
+    prompt = prompt_brut.strip()
 
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
 # ======================================================================
 if st.session_state.active_module == "textes":
-    st.markdown(
-        """
+  st.markdown(
+      """
     <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
             ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
     </div>
     """,
-        unsafe_allow_html=True,
-    )
+      unsafe_allow_html=True,
+  )
 else:
-    st.markdown(
-        """
+  st.markdown(
+      """
     <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
         <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
@@ -588,150 +620,164 @@ else:
         </div>
     </div>
     """,
-        unsafe_allow_html=True,
-    )
+      unsafe_allow_html=True,
+  )
 
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
 # ======================================================================
 if prompt:
-    st.session_state.messages_hub = []
+  st.session_state.messages_hub = []
 
-    st.session_state.messages_hub.append({
-        "role": "user",
-        "type": "text",
-        "content": f"<span style='color: white;'>{prompt}</span>",
-    })
-    with st.spinner("Je consulte la documentation officielle..."):
-        mode = st.session_state.active_module
-        p_low = prompt.lower()
+  st.session_state.messages_hub.append({
+      "role": "user",
+      "type": "text",
+      "content": f"<span style='color: white;'>{prompt}</span>",
+  })
+  with st.spinner("Je consulte la documentation officielle..."):
+    mode = st.session_state.active_module
+    p_low = prompt.lower()
 
-        texte_brut = ""
-        extraits_doc = ""
-        badge, color_card = "INFORMATION", "general-card"
+    texte_brut = ""
+    extraits_doc = ""
+    extraits_web = ""
+    badge, color_card = "INFORMATION", "general-card"
 
-        onglets_noms = {
-            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-            "examens": (
-                "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
-            ),
-            "textes": (
-                "l'onglet Sécurité & Responsabilité Juridique (Textes"
-                " Officiels)"
-            ),
-        }
-        contexte_choisi_nom = onglets_noms.get(
-            mode, "un onglet de l'application"
-        )
+    onglets_noms = {
+        "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+        "examens": (
+            "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
+        ),
+        "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
+    }
+    contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
-        verites_terrain_pierre = ""
-        try:
-            for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-                if os.path.exists(fp):
-                    with open(fp, "r", encoding="utf-8", errors="ignore") as f:
-                        verites_terrain_pierre += (
-                            "\n--- REGLES DE PIERRE ---\n"
-                            + f.read()
-                            + "\n"
-                        )
-        except Exception:
-            pass
-
-        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-        est_date = any(
-            w in p_low
-            for w in [
-                "date",
-                "butoir",
-                "calendrier",
-                "délai",
-                "delai",
-                "échéance",
-                "echeance",
-                "quand",
-            ]
-        ) and any(
-            w in p_low
-            for w in [
-                "saisie",
-                "note",
-                "notes",
-                "fermeture",
-                "santorin",
-                "cyclades",
-                "lot",
-                "lots",
-                "examen",
-                "examens",
-                "bac",
-                "cap",
-                "brevet",
-                "mayotte",
-                "academie",
-                "académie",
-            ]
-        )
-
-        est_dnb = any(
-            w in p_low for w in ["dnb", "brevet", "collège", "college"]
-        ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
-
-        est_sujet_secours = "sujet" in p_low and any(
-            w in p_low for w in ["secours", "papier", "imprimer"]
-        )
-
-        est_cap_3epreuves = (
-            mode == "examens"
-            and "cap" in p_low
-            and any(
-                w in p_low
-                for w in [
-                    "3 épreuves",
-                    "3 notes",
-                    "trois épreuves",
-                    "trois notes",
-                ]
+    verites_terrain_pierre = ""
+    try:
+      for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+        if os.path.exists(fp):
+          with open(fp, "r", encoding="utf-8", errors="ignore") as f:
+            verites_terrain_pierre += (
+                "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
             )
+    except Exception:
+      pass
+
+    # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+    est_date = any(
+        w in p_low
+        for w in [
+            "date",
+            "butoir",
+            "calendrier",
+            "délai",
+            "delai",
+            "échéance",
+            "echeance",
+            "quand",
+        ]
+    ) and any(
+        w in p_low
+        for w in [
+            "saisie",
+            "note",
+            "notes",
+            "fermeture",
+            "santorin",
+            "cyclades",
+            "lot",
+            "lots",
+            "examen",
+            "examens",
+            "bac",
+            "cap",
+            "brevet",
+            "mayotte",
+            "academie",
+            "académie",
+        ]
+    )
+
+    est_dnb = any(
+        w in p_low for w in ["dnb", "brevet", "collège", "college"]
+    ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+
+    est_sujet_secours = "sujet" in p_low and any(
+        w in p_low for w in ["secours", "papier", "imprimer"]
+    )
+
+    est_cap_3epreuves = (
+        mode == "examens"
+        and "cap" in p_low
+        and any(
+            w in p_low
+            for w in [
+                "3 épreuves",
+                "3 notes",
+                "trois épreuves",
+                "trois notes",
+            ]
         )
+    )
 
-        est_tasa = mode == "textes" and "tasa" in p_low
+    est_tasa = mode == "textes" and "tasa" in p_low
 
-        est_cas_direct = (
-            est_date
-            or est_dnb
-            or est_sujet_secours
-            or est_cap_3epreuves
-            or est_tasa
+    est_cas_direct = (
+        est_date
+        or est_dnb
+        or est_sujet_secours
+        or est_cap_3epreuves
+        or est_tasa
+    )
+
+    # 🚀 RECHERCHE RAG PROFONDE LOCALE
+    if openai_api_key and not est_cas_direct:
+      try:
+        if mode == "examens":
+          for n in retriever_santorin.retrieve(prompt):
+            extraits_doc += f"{n.node.text}\n\n"
+        elif mode == "ipack":
+          for n in retriever_ipack.retrieve(prompt):
+            extraits_doc += f"{n.node.text}\n\n"
+        elif mode == "textes":
+          for n in retriever_textes.retrieve(prompt):
+            extraits_doc += f"{n.node.text}\n\n"
+      except Exception:
+        pass
+
+    # 🌐 RECHERCHE WEB CIBLÉE TAVILY (Uniquement pour l'onglet Textes / Juridique si non-direct)
+    if tavily_client and mode == "textes" and not est_cas_direct:
+      try:
+        response_tavily = tavily_client.search(
+            query=prompt,
+            max_results=3,
+            include_domains=[
+                "legifrance.gouv.fr",
+                "eduscol.education.fr",
+                "education.gouv.fr",
+            ],
         )
+        for res in response_tavily.get("results", []):
+          extraits_web += (
+              f"Source Officielle Web ({res.get('title')}) -"
+              f" {res.get('url')}:\n{res.get('content')}\n\n"
+          )
+      except Exception:
+        pass
 
-        # 🚀 RECHERCHE RAG PROFONDE
-        if openai_api_key and not est_cas_direct:
-            try:
-                if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt):
-                        extraits_doc += f"{n.node.text}\n\n"
-                elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt):
-                        extraits_doc += f"{n.node.text}\n\n"
-                elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt):
-                        extraits_doc += f"{n.node.text}\n\n"
-            except Exception:
-                pass
-
-        # 🎯 ROUTAGE DU RENDU
-        if est_date:
-            texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
+    # 🎯 ROUTAGE DU RENDU
+    if est_date:
+      texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
   <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
   <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
 </ul>"""
-            badge, color_card = "📅 CALENDRIER OFFICIEL", (
-                "santorin-card" if mode == "examens" else "general-card"
-            )
+      badge, color_card = "📅 CALENDRIER OFFICIEL", (
+          "santorin-card" if mode == "examens" else "general-card"
+      )
 
-        elif est_tasa:
-            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+    elif est_tasa:
+      texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
 <ul>
   <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
   <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
@@ -745,72 +791,73 @@ if prompt:
   </li>
   <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
 </ul>"""
-            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+      badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-        elif est_dnb:
-            texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
+    elif est_dnb:
+      texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
 <ul>
   <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong>, <strong>aucune case certificative</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
   <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
   <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
 </ul>"""
-            badge, color_card = (
-                "📊 COLLÈGE & DNB"
-                if mode == "examens"
-                else "🛠️ ASSISTANCE iPACKEPS",
-                "santorin-card" if mode == "examens" else "general-card",
-            )
+      badge, color_card = (
+          "📊 COLLÈGE & DNB"
+          if mode == "examens"
+          else "🛠️ ASSISTANCE iPACKEPS",
+          "santorin-card" if mode == "examens" else "general-card",
+      )
 
-        elif est_sujet_secours:
-            texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
+    elif est_sujet_secours:
+      texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
 <ul>
   <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
   <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs académiques.</li>
   <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
 </ul>"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_cap_3epreuves:
-            texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
+    elif est_cap_3epreuves:
+      texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
 <ul>
   <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
   <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
   <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
 </ul>"""
-            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+      badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        else:
-            if mode == "examens":
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-            elif mode == "ipack":
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-            else:
-                badge, color_card = (
-                    "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
-                    "securite-card",
-                )
+    else:
+      if mode == "examens":
+        badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+      elif mode == "ipack":
+        badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+      else:
+        badge, color_card = (
+            "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
+            "securite-card",
+        )
 
-            directive_onglet = ""
-            if mode == "textes":
-                directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
+      directive_onglet = ""
+      if mode == "textes":
+        directive_onglet = """
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (RÈGLE STRICTE) :
+   - Appuie-toi prioritairement sur les sources officielles Web (Légifrance, Éduscol) et les documents locaux fournis.
+   - INTERDICTION FORMELLE d'utiliser des menus logiciels ou des procédures iPackEPS pour répondre à une question juridique ou de responsabilité.
    - Rédige STRICTEMENT selon ce plan :
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité.
 """
-            elif mode == "examens":
-                directive_onglet = """
+      elif mode == "examens":
+        directive_onglet = """
 3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
    - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
    - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
    - Bac Pro : 3 épreuves de 3 champs distincts.
    - CAP : Strictement 2 épreuves de 2 champs distincts.
 """
-            elif mode == "ipack":
-                directive_onglet = """
+      elif mode == "ipack":
+        directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
    - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
@@ -819,11 +866,19 @@ if prompt:
    - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 
-            consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
-
-CONTEXTE DOCUMENTAIRE OFFICIEL :
+      contexte_complet_ia = f"""
+CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
+
+SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
+{extraits_web}
+
 {verites_terrain_pierre}
+"""
+
+      consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+
+{contexte_complet_ia}
 
 QUESTION DE L'UTILISATEUR :
 {prompt}
@@ -855,99 +910,99 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
 5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
 6. ⏱️ RÈGLE ABSOLUE DE PRIORITÉ TEMPORELLE (DOUBLONS ET TEXTES OBSOLÈTES) :
-   - Analyse systématiquement les dates ou les années mentionnées dans les documents extraits de la base.
+   - Analyse systématiquement les dates ou les années mentionnées dans les documents extraits de la base ou du web.
    - Si plusieurs textes, circulaires ou notes traitent du même sujet à des dates différentes (ex: une version de 2017 et une de 2022), **tu dois impérativement écarter et ignorer la version la plus ancienne**.
    - Appuie-toi **uniquement** sur la disposition ou la circulaire la plus récente pour formuler ta réponse, et mentionne explicitement sa date pour rassurer l'utilisateur.
 """
-            try:
-                response = Settings.llm.complete(consigne_ia)
-                texte_brut = response.text
-            except Exception as e:
-                texte_brut = f"Erreur de traitement IA : {str(e)}"
+      try:
+        response = Settings.llm.complete(consigne_ia)
+        texte_brut = response.text
+      except Exception as e:
+        texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 Nettoyages de base sans supprimer les sauts de ligne
-        texte_brut = (
-            texte_brut.replace("```html", "")
-            .replace("```HTML", "")
-            .replace("```", "")
-        )
+    # 🧹 Nettoyages de base sans supprimer les sauts de ligne
+    texte_brut = (
+        texte_brut.replace("```html", "")
+        .replace("```HTML", "")
+        .replace("```", "")
+    )
 
-        texte_brut = re.sub(
-            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-            "",
-            texte_brut,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
+    texte_brut = re.sub(
+        r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+        "",
+        texte_brut,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
 
-        texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
-            r" l\'éducation)",
-            r'<span class="law-highlight">\1</span>',
-            texte_brut,
-        )
-        texte_brut = texte_brut.replace(
-            '<span class="law-highlight"><span class="law-highlight">',
-            '<span class="law-highlight">',
-        ).replace("</span></span>", "</span>")
+    texte_brut = re.sub(
+        r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
+        r" l\'éducation)",
+        r'<span class="law-highlight">\1</span>',
+        texte_brut,
+    )
+    texte_brut = texte_brut.replace(
+        '<span class="law-highlight"><span class="law-highlight">',
+        '<span class="law-highlight">',
+    ).replace("</span></span>", "</span>")
 
-        re_links = re.sub(
-            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-            r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
-            r' text-decoration: underline;">\1</a>',
-            texte_brut,
-        )
-        texte_brut = re_links
+    re_links = re.sub(
+        r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+        r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
+        r' text-decoration: underline;">\1</a>',
+        texte_brut,
+    )
+    texte_brut = re_links
 
-        # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
-        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-        texte_final = (
-            texte_nettoye.replace("<p>", "")
-            .replace("</p>", "<br>")
-            .replace("\n", "<br>")
-        )
-        texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
+    # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
+    texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+    texte_final = (
+        texte_nettoye.replace("<p>", "")
+        .replace("</p>", "<br>")
+        .replace("\n", "<br>")
+    )
+    texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
-        phrase_contexte = (
-            "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
-            " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
-            " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
-            f" question dans {contexte_choisi_nom}.</em></div>"
-        )
+    phrase_contexte = (
+        "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
+        " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
+        " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
+        f" question dans {contexte_choisi_nom}.</em></div>"
+    )
 
-        footer_assistance = ""
-        if mode in ["ipack", "examens"]:
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top:"
-                " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
-                " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
-                " pouvez toujours contacter l'assistance <a"
-                " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
-                " #38BDF8 !important; text-decoration:"
-                " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
-            )
+    footer_assistance = ""
+    if mode in ["ipack", "examens"]:
+      footer_assistance = (
+          "<div style='margin-top: 14px; padding-top: 8px; border-top:"
+          " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
+          " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
+          " pouvez toujours contacter l'assistance <a"
+          " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
+          " #38BDF8 !important; text-decoration:"
+          " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+      )
 
-        formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
-            f" :</strong><br>{texte_final}{footer_assistance}</div>"
-        )
+    formatted_answer = (
+        f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
+        f" :</strong><br>{texte_final}{footer_assistance}</div>"
+    )
 
+    st.session_state.messages_hub.append(
+        {"role": "assistant", "type": "text", "content": formatted_answer}
+    )
+
+    for video_name, video_url in VIDEOS_TUTOS.items():
+      if video_name in texte_final:
         st.session_state.messages_hub.append(
-            {"role": "assistant", "type": "text", "content": formatted_answer}
+            {"role": "assistant", "type": "video", "content": video_url}
         )
-
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
 
 # AFFICHAGE DES MESSAGES ET DES VIDÉOS (SOUS LA BANNIÈRE EXPLICATIVE)
 if st.session_state.messages_hub:
-    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-    for m in st.session_state.messages_hub:
-        with st.chat_message(m["role"]):
-            if m.get("type") == "video":
-                st.video(m["content"])
-            else:
-                st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+  st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+  for m in st.session_state.messages_hub:
+    with st.chat_message(m["role"]):
+      if m.get("type") == "video":
+        st.video(m["content"])
+      else:
+        st.markdown(m["content"], unsafe_allow_html=True)
+  st.markdown("</div>", unsafe_allow_html=True)

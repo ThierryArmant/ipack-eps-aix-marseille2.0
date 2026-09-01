@@ -902,6 +902,7 @@ if prompt:
 """
       elif mode == "examens":
         directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+   - GESTION DES DIVERGENCES & TIERCE CORRECTION (BAC / CAP) [RÈGLE ABSOLUE ANTI-HALLUCINATION] : Pour tout examen national (Bac GT, Bac Pro, CAP), la gestion, le signalement et la validation d'un troisième correcteur (tierce correction) en cas d'écart critique ne relèvent JAMAIS du chef d'établissement (qui n'a aucune compétence ni autorité sur les jurys de bac), mais STRICTEMENT de la Division des Examens et Concours (DEC) sous l'autorité du Président du jury. Si les documents récupérés suggèrent l'intervention du chef d'établissement, ignore-les formellement.
    - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
    - DISTINCTION IMPÉRATIVE SUR LES VERROUILLAGES : 
      * Verrouillage interne / avant transmission : Géré au niveau de l'établissement par le professeur coordonnateur ou le chef d'établissement. Ne jamais conseiller de contacter la DEC pour un blocage entre co-correcteurs avant la date limite.

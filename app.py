@@ -1,6 +1,9 @@
+import datetime
 import os
 import re
+import smtplib
 import streamlit as st
+from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
@@ -310,142 +313,142 @@ if tavily_api_key and TavilyClient:
     pass
 
 if openai_api_key:
-    Settings.llm = OpenAI(
-        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
-    )
-    Settings.embed_model = OpenAIEmbedding(
-        model="text-embedding-3-small", api_key=openai_api_key
-    )
+  Settings.llm = OpenAI(
+      model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
+  )
+  Settings.embed_model = OpenAIEmbedding(
+      model="text-embedding-3-small", api_key=openai_api_key
+  )
 
 
 def obtenir_cle_fichier():
-    mtimes = []
-    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-        if os.path.exists(fp):
-            try:
-                mtimes.append(os.path.getmtime(fp))
-            except Exception:
-                pass
-    chemin_textes = "data/textes/base_textes_officiels.txt"
-    if os.path.exists(chemin_textes):
-        try:
-            mtimes.append(os.path.getmtime(chemin_textes))
-        except Exception:
-            pass
-    for dossier in ["data/examens", "data/ipack", "data/textes"]:
-        if os.path.exists(dossier) and os.path.isdir(dossier):
-            try:
-                for f in os.listdir(dossier):
-                    mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
-            except Exception:
-                pass
-    return max(mtimes) if mtimes else 0.0
+  mtimes = []
+  for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+    if os.path.exists(fp):
+      try:
+        mtimes.append(os.path.getmtime(fp))
+      except Exception:
+        pass
+  chemin_textes = "data/textes/base_textes_officiels.txt"
+  if os.path.exists(chemin_textes):
+    try:
+      mtimes.append(os.path.getmtime(chemin_textes))
+    except Exception:
+      pass
+  for dossier in ["data/examens", "data/ipack", "data/textes"]:
+    if os.path.exists(dossier) and os.path.isdir(dossier):
+      try:
+        for f in os.listdir(dossier):
+          mtimes.append(os.path.getmtime(os.path.join(dossier, f)))
+      except Exception:
+        pass
+  return max(mtimes) if mtimes else 0.0
 
 
 def charger_consignes_pierre():
-    documents_charges = []
-    for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-        if os.path.exists(fp):
-            try:
-                with open(fp, "r", encoding="utf-8") as f:
-                    documents_charges.append(
-                        Document(
-                            text=f.read(),
-                            metadata={"source": f"Règles de Pierre ({fp})"},
-                        )
-                    )
-            except Exception:
-                pass
-    return documents_charges
+  documents_charges = []
+  for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+    if os.path.exists(fp):
+      try:
+        with open(fp, "r", encoding="utf-8") as f:
+          documents_charges.append(
+              Document(
+                  text=f.read(),
+                  metadata={"source": f"Règles de Pierre ({fp})"},
+              )
+          )
+      except Exception:
+        pass
+  return documents_charges
 
 
 def charger_dossier_txt_securise(chemin_dossier):
-    docs_trouves = []
-    if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
-        for nom_fichier in os.listdir(chemin_dossier):
-            if nom_fichier.lower().endswith(".txt"):
-                chemin_complet = os.path.join(chemin_dossier, nom_fichier)
-                try:
-                    with open(
-                        chemin_complet, "r", encoding="utf-8", errors="ignore"
-                    ) as f:
-                        docs_trouves.append(
-                            Document(
-                                text=f.read(),
-                                metadata={"source": nom_fichier},
-                            )
-                        )
-                except Exception:
-                    pass
-    return docs_trouves
+  docs_trouves = []
+  if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
+    for nom_fichier in os.listdir(chemin_dossier):
+      if nom_fichier.lower().endswith(".txt"):
+        chemin_complet = os.path.join(chemin_dossier, nom_fichier)
+        try:
+          with open(
+              chemin_complet, "r", encoding="utf-8", errors="ignore"
+          ) as f:
+            docs_trouves.append(
+                Document(
+                    text=f.read(),
+                    metadata={"source": nom_fichier},
+                )
+            )
+        except Exception:
+          pass
+  return docs_trouves
 
 
 @st.cache_resource
 def initialiser_base_santorin(cle_fremt):
-    docs_santorin = [
-        Document(
-            text=(
-                "Fiche Mémo - Correction Partagée Santorin (DEC)."
-                " Spécifications techniques sur la correction multiple."
-            ),
-            metadata={
-                "title": "Correction Partagée",
-                "url": (
-                    "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
-                ),
-            },
-        )
-    ]
-    docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    docs_santorin.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=8
-    )
+  docs_santorin = [
+      Document(
+          text=(
+              "Fiche Mémo - Correction Partagée Santorin (DEC)."
+              " Spécifications techniques sur la correction multiple."
+          ),
+          metadata={
+              "title": "Correction Partagée",
+              "url": (
+                  "https://assistance.ac-noumea.nc/IMG/pdf/fm_correction_partagee.pdf"
+              ),
+          },
+      )
+  ]
+  docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
+  docs_santorin.extend(charger_consignes_pierre())
+  return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
+      similarity_top_k=8
+  )
 
 
 @st.cache_resource
 def initialiser_base_ipack(cle_fremt):
-    docs_ipack = [
-        Document(
-            text=(
-                "Guide Pratique iPackEPS - Saisie des structures"
-                " trimestrielles, imports SIÈCLE / Pronote et gestion des"
-                " statuts."
-            ),
-            metadata={
-                "title": "Guide iPackEPS",
-                "url": (
-                    "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
-                ),
-            },
-        )
-    ]
-    docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
-    docs_ipack.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=8
-    )
+  docs_ipack = [
+      Document(
+          text=(
+              "Guide Pratique iPackEPS - Saisie des structures"
+              " trimestrielles, imports SIÈCLE / Pronote et gestion des"
+              " statuts."
+          ),
+          metadata={
+              "title": "Guide iPackEPS",
+              "url": (
+                  "https://eps.ac-normandie.fr/IMG/pdf/guide_utilisateur_professeur-2.pdf"
+              ),
+          },
+      )
+  ]
+  docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
+  docs_ipack.extend(charger_consignes_pierre())
+  return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
+      similarity_top_k=8
+  )
 
 
 @st.cache_resource
 def initialiser_base_textes(cle_fremt):
-    docs_textes = [
-        Document(
-            text=(
-                "Base de données réglementaire globale pour les textes de lois"
-                " du second degré."
-            ),
-            metadata={
-                "title": "Légifrance",
-                "url": "https://www.legifrance.gouv.fr/",
-            },
-        )
-    ]
-    docs_textes.extend(charger_dossier_txt_securise("data/textes"))
-    docs_textes.extend(charger_consignes_pierre())
-    return VectorStoreIndex.from_documents(docs_textes).as_retriever(
-        similarity_top_k=8
-    )
+  docs_textes = [
+      Document(
+          text=(
+              "Base de données réglementaire globale pour les textes de lois"
+              " du second degré."
+          ),
+          metadata={
+              "title": "Légifrance",
+              "url": "https://www.legifrance.gouv.fr/",
+          },
+      )
+  ]
+  docs_textes.extend(charger_dossier_txt_securise("data/textes"))
+  docs_textes.extend(charger_consignes_pierre())
+  return VectorStoreIndex.from_documents(docs_textes).as_retriever(
+      similarity_top_k=8
+  )
 
 
 timestamp_fichier = obtenir_cle_fichier()
@@ -453,6 +456,98 @@ retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 
+
+# ======================================================================
+# 🔔 VEILLE AUTOMATIQUE & ENVOI D'E-MAIL iPackEPS
+# ======================================================================
+def verifier_et_alerter_dec(tavily_client):
+  if not tavily_client:
+    return
+
+  fichier_suivi = "dernier_check_dec.txt"
+  mois_actuel = datetime.datetime.now().strftime("%Y-%m")
+
+  a_deja_ete_fait = False
+  if os.path.exists(fichier_suivi):
+    try:
+      with open(fichier_suivi, "r", encoding="utf-8") as f:
+        if f.read().strip() == mois_actuel:
+          a_deja_ete_fait = True
+    except Exception:
+      pass
+
+  if not a_deja_ete_fait:
+    try:
+      recherche_veille = tavily_client.search(
+          query=(
+              "circulaire examen EPS DEC Aix-Marseille mise à jour"
+              f" {datetime.datetime.now().year}"
+          ),
+          max_results=2,
+          include_domains=["eduscol.education.fr", "education.gouv.fr"],
+      )
+
+      with open(fichier_suivi, "w", encoding="utf-8") as f:
+        f.write(mois_actuel)
+
+      if recherche_veille.get("results"):
+        texte_alerte = (
+            "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+            " mises à jour ont été détectées sur les sites officiels concernant"
+            " les examens ou l'EPS. Pensez à vérifier si une nouvelle"
+            " circulaire DEC a été publiée."
+        )
+        st.session_state.alerte_veille_dec = texte_alerte
+
+        envoyer_mail_iPackEPS(
+            sujet=(
+                "[Hub IA EPS] 🔔 Veille réglementaire - Mise à jour potentielle"
+                " DEC"
+            ),
+            corps=(
+                "Bonjour l'équipe iPackEPS,\n\nLe script de veille automatique"
+                " mensuelle du Hub IA vient d'interroger les sources"
+                f" officielles en ce début de mois ({mois_actuel}).\n\nDes"
+                " signaux ou mises à jour ont été détectés :\n\n"
+                f"{texte_alerte}\n\n"
+                "Veuillez vérifier les nouveautés sur les sites académiques ou"
+                " le BO.\n\n---\nMessage automatique généré par le Hub IA - EPS"
+            ),
+        )
+    except Exception:
+      pass
+
+
+def envoyer_mail_iPackEPS(sujet, corps):
+  smtp_server = st.secrets.get("SMTP_SERVER", "smtp.ac-aix-marseille.fr")
+  smtp_port = int(st.secrets.get("SMTP_PORT", 465))
+  smtp_user = st.secrets.get("SMTP_USER")
+  smtp_password = st.secrets.get("SMTP_PASSWORD")
+
+  if not smtp_user or not smtp_password:
+    return
+
+  msg = MIMEText(corps, "plain", "utf-8")
+  msg["Subject"] = sujet
+  msg["From"] = smtp_user
+  msg["To"] = "ipackeps@ac-aix-marseille.fr"
+
+  try:
+    if smtp_port == 465:
+      with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+        server.login(smtp_user, smtp_password)
+        server.send_message(msg)
+    else:
+      with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()
+        server.login(smtp_user, smtp_password)
+        server.send_message(msg)
+  except Exception as e:
+    st.error(f"Erreur d'envoi de mail : {e}")
+
+
+# Lancement du contrôle mensuel automatique au démarrage
+verifier_et_alerter_dec(tavily_client)
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================

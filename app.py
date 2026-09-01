@@ -885,12 +885,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
    - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>).
    - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
 {directive_onglet}
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur les scripts reconnus (import Pronote, fichiers groupes Cyclades, lots Santorin, etc.). Sinon, ne mets rien.
-4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
-5. 📅 RÈGLE STRICTE DATES : Ne jamais inventer de dates chiffrées précises. Renvoie au calendrier du BO et à la DEC.
-6. ⏱️ PRIORITÉ TEMPORELLE : Appuie-toi uniquement sur la disposition ou la circulaire la plus récente.
-"""
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS - INTERDICTION FORMELLE D'INVENTER) :
+   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur l'une de ces manipulations exactes : import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4.
+   - INTERDICTION ABSOLUE d'inventer, de deviner ou de modifier un nom de fichier vidéo. Si la question ne correspond pas rigoureusement à l'un de ces cas techniques précis, n'affiche absolument aucun tutoriel.
 
         if not est_cas_direct:
             try:

@@ -692,13 +692,8 @@ if prompt:
 
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-            "examens": (
-                "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
-            ),
-            "textes": (
-                "l'onglet Sécurité & Responsabilité Juridique (Textes"
-                " Officiels)"
-            ),
+            "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+            "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
@@ -707,83 +702,42 @@ if prompt:
             for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
                 if os.path.exists(fp):
                     with open(fp, "r", encoding="utf-8", errors="ignore") as f:
-                        verites_terrain_pierre += (
-                            "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
-                        )
+                        verites_terrain_pierre += f"\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
         except Exception:
             pass
 
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-        est_college = any(
-            w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
-        )
+        est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
         est_date = (not est_college) and any(
-            phrase in p_low
-            for phrase in [
-                "quel est le calendrier",
-                "quelles sont les dates",
-                "date butoir de",
-                "date de fermeture",
-                "calendrier officiel",
+            phrase in p_low for phrase in [
+                "quel est le calendrier", "quelles sont les dates", "date butoir de", 
+                "date de fermeture", "calendrier officiel"
             ]
         ) and any(
-            w in p_low
-            for w in [
-                "saisie",
-                "note",
-                "notes",
-                "fermeture",
-                "santorin",
-                "cyclades",
-                "lot",
-                "lots",
-                "examen",
-                "examens",
-                "bac",
-                "cap",
-                "brevet",
-                "mayotte",
-                "academie",
-                "académie",
+            w in p_low for w in [
+                "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
+                "lot", "lots", "examen", "examens", "bac", "cap", "brevet", 
+                "mayotte", "academie", "académie"
             ]
         )
 
-        est_dnb = (mode != "textes") and any(
-            w in p_low for w in ["dnb", "brevet", "collège", "college"]
-        ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+        est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 
-        est_sujet_secours = "sujet" in p_low and any(
-            w in p_low for w in ["secours", "papier", "imprimer"]
-        )
+        est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
 
         est_cap_3epreuves = (
             mode == "examens"
             and "cap" in p_low
-            and any(
-                w in p_low
-                for w in [
-                    "3 épreuves",
-                    "3 notes",
-                    "trois épreuves",
-                    "trois notes",
-                ]
-            )
+            and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"])
         )
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
-        est_cas_direct = (
-            (mode != "textes") and (
-                est_date
-                or est_dnb
-                or est_sujet_secours
-                or est_cap_3epreuves
-            )
-        ) or est_tasa
+        # ⚡ ROUTAGE RACCOURCI
+        est_cas_direct = ((mode != "textes") and (est_date or est_dnb or est_sujet_secours or est_cap_3epreuves)) or est_tasa
 
-        # 🚀 RECHERCHE RAG PROFONDE LOCALE
+        # 🚀 RECHERCHE RAG LOCALE
         if openai_api_key and not est_cas_direct:
             try:
                 if mode == "examens":
@@ -798,36 +752,27 @@ if prompt:
             except Exception:
                 pass
 
-        # 🌐 RECHERCHE WEB CIBLÉE TAVILY (Uniquement pour l'onglet Textes / Juridique si non-direct)
+        # 🌐 RECHERCHE WEB TAVILY
         if tavily_client and mode == "textes" and not est_cas_direct:
             try:
                 response_tavily = tavily_client.search(
                     query=prompt,
                     max_results=3,
-                    include_domains=[
-                        "legifrance.gouv.fr",
-                        "eduscol.education.fr",
-                        "education.gouv.fr",
-                    ],
+                    include_domains=["legifrance.gouv.fr", "eduscol.education.fr", "education.gouv.fr"],
                 )
                 for res in response_tavily.get("results", []):
-                    extraits_web += (
-                        f"Source Officielle Web ({res.get('title')}) -"
-                        f" {res.get('url')}:\n{res.get('content')}\n\n"
-                    )
+                    extraits_web += f"Source Officielle Web ({res.get('title')}) - {res.get('url')}:\n{res.get('content')}\n\n"
             except Exception:
                 pass
 
-        # 🎯 ROUTAGE DU RENDU
+        # 🎯 ROUTAGE DU RENDU DIRECT
         if est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
   <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
   <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
 </ul>"""
-            badge, color_card = "📅 CALENDRIER OFFICIEL", (
-                "santorin-card" if mode == "examens" else "general-card"
-            )
+            badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
 
         elif est_tasa:
             texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
@@ -853,12 +798,7 @@ if prompt:
   <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
   <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
 </ul>"""
-            badge, color_card = (
-                "📊 COLLÈGE & DNB"
-                if mode == "examens"
-                else "🛠️ ASSISTANCE iPACKEPS",
-                "santorin-card" if mode == "examens" else "general-card",
-            )
+            badge, color_card = ("📊 COLLÈGE & DNB" if mode == "examens" else "🛠️ ASSISTANCE iPACKEPS"), ("santorin-card" if mode == "examens" else "general-card")
 
         elif est_sujet_secours:
             texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
@@ -884,43 +824,29 @@ if prompt:
             elif mode == "ipack":
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             else:
-                badge, color_card = (
-                    "⚖️ SÉCURITÉ & CADRE JURIDIQUE",
-                    "securite-card",
-                )
+                badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
+        # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLETS
         directive_onglet = ""
-    if mode == "textes":
-        directive_onglet = """
+        if mode == "textes":
+            directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC) plutôt que de s'en remettre au supérieur hiérarchique direct impliqué dans le litige.
+   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC).
    - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil et Volet pénal.
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité.
 """
-    elif mode == "examens":
-        directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-       - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-       - DISTINCTION IMPÉRATIVE SUR LES VERROUILLAGES : 
-         * Verrouillage interne / avant transmission : Géré au niveau de l'établissement par le professeur coordonnateur ou le chef d'établissement. Ne jamais conseiller de contacter la DEC pour un blocage entre co-correcteurs avant la date limite.
-         * Verrouillage académique définitif : Lots transmis ou serveur clos. Seul ce cas nécessite une intervention de la DEC.
-       - GESTION DES DIVERGENCES & TIERCE CORRECTION (BAC / CAP) [RÈGLE ABSOLUE ANTI-HALLUCINATION] : Pour tout examen national (Bac GT, Bac Pro, CAP), la gestion, le signalement et la validation d'un troisième correcteur (tierce correction) en cas d'écart critique ne relèvent JAMAIS du chef d'établissement (qui n'a aucune compétence ni autorité sur les jurys de bac), mais STRICTEMENT de la Division des Examens et Concours (DEC) sous l'autorité du Président du jury. Si les documents récupérés suggèrent l'intervention du chef d'établissement, ignore-les formellement.
-       - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
-       - Bac Pro : 3 épreuves de 3 champs distincts.
-       - CAP : Strictement 2 épreuves de 2 champs distincts."""
-    elif mode == "ipack":
-        directive_onglet = """
+        elif mode == "examens":
+            directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+        - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+        - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
+        elif mode == "ipack":
+            directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
-   - RÈGLE D'OR PUBLICS & CCF : Les classes de Terminale (Bac GT, Bac Pro, CAP) et les CAP préparent le CCF. Pour ces publics, la création de protocoles et la déclaration d'APSA certificatives sont TOTALEMENT VALIDES et attendues.
-   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉES SUR LES APSA :
-     * Collège (6e à 3e, y compris 3e prépa-métiers, SEGPA, ULIS) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
-     * Lycée (Terminale, CAP) : Cadre officiel du CCF.
-   - GESTION DES FAUSSES PRÉMISSES (COLLÈGE / 3e PRÉPA-MÉTIERS / SEGPA / ULIS) [RÈGLE ABSOLUE DE LOCALISATION] : L'hébergement physique ou administratif d'une classe (ex : une 3e prépa-métiers, une SEGPA ou une ULIS hébergée dans un Lycée Professionnel) ne change RIEN à son statut réglementaire. Une classe de 3e (quels que soient son intitulé et son établissement d'attache) ne fait JAMAIS de CCF, n'a AUCUNE APSA certificative, et ne génère AUCUN export ni protocole pour Cyclades ou Santorin. Si l'utilisateur évoque une classe de 3e (ou prépa-métiers/SEGPA), tu dois REJETER NET la demande d'export Cyclades/CCF, rappeler que ces classes relèvent exclusivement du Livret Scolaire Unique (LSU) et du socle commun, et interdire formellement de lister des étapes de CCF ou de donner un nom de tutoriel Cyclades.
-   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS [INTERDICTION ABSOLUE] : L'APSA combinée (ex : "Football-Musculation") est strictement réservée aux Sections Sportives Scolaires (SSS) pour répondre à une contrainte technique de groupe unique. Il est STRICTEMENT INTERDIT de créer une APSA combinée ou de mélanger deux disciplines (ex: Football et Musculation) pour un groupe standard d'EPS ou de CCF en Terminale/CAP. Si l'utilisateur demande une telle association pour une classe ordinaire, tu dois REJETER NET LA PRÉMISSE dès la première phrase, rappeler que les APSA combinées n'existent que pour les SSS, et imposer le choix d'une APSA simple issue du référentiel officiel du CCF.
 """
 
         contexte_complet_ia = f"""
@@ -933,7 +859,19 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
+        # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+
+🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
+1. PRINCIPE DE RÉALITÉ DES PUBLICS :
+   - Collège (6e, 5e, 4e, 3e, y compris 3e prépa-métiers, SEGPA, ULIS, peu importe l'établissement d'hébergement) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin ou Cyclades. Évaluation exclusivement par contrôle continu et LSU (Socle commun). Si l'utilisateur évoque une 3e (même en Lycée Pro), rejette l'export Cyclades/CCF et impose le LSU.
+   - Lycée (Terminale Bac GT, Bac Pro, CAP) : Cadre réglementaire strict du CCF.
+2. INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
+   - Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction formelle d'en proposer pour une classe ordinaire.
+3. INCOMPÉTENCE HIÉRARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
+   - Le chef d'établissement n'a AUCUNE autorité ni compétence sur les jurys de bac, la modification des notes d'examens nationaux ou la gestion des tiers correcteurs (tierce correction). Tout litige relève de la Division des Examens et Concours (DEC).
+4. GESTION DES FAUSSES PRÉMISSES :
+   - Si un utilisateur demande une action impossible (CCF en collège, APSA combinée en classe normale, validation de correcteur de bac par le proviseur), rectifie la prémisse dès la première phrase, rappelle la règle réglementaire exacte, et donne la bonne marche à suivre. N'active jamais la règle du hors-sujet global pour une question d'EPS erronée.
 
 {contexte_complet_ia}
 
@@ -941,36 +879,19 @@ QUESTION DE L'UTILISATEUR :
 {prompt}
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle à la question posée. Si la question est générale (ex : "comment créer une APSA", "comment créer un emploi du temps"), donne la procédure standard complète pas à pas. N'ajoute pas de cas particuliers complexes hors-sujet sauf s'ils sont demandés ou directement utiles.
+1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
 2. STRUCTURE & MISE EN PAGE :
    - Rends une réponse TRÈS AÉRÉE, pas à pas, ligne par ligne.
-   - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>) pour décomposer chaque étape technique.
-   - Chaque action/étape doit être sur sa propre ligne bien séparée.
+   - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>).
    - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
-   - Interdiction formelle de rédiger des pavés de texte compacts en bloc.
 {directive_onglet}
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS SUR LE SUJET DE LA QUESTION) :
-   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question de l'utilisateur porte explicitement sur la manipulation exacte suivante :
-     * import_eleves_pronote.mp4 -> Pour l'import d'élèves ou groupes depuis Pronote / ÉcoleDirecte via CSV.
-     * Configuration_classes_import_eleves.mp4 -> Pour la configuration initiale des divisions/classes et l'import global d'élèves depuis SIÈCLE.
-     * affecter_eleves_dans_groupes.mp4 -> Pour la création de groupes ou l'affectation des élèves dans des groupes.
-     * Generer_importer_fichier_groupes_cyclades.mp4 -> Pour l'export du fichier de groupes depuis iPackEPS et son import dans Cyclades.
-     * verification_affectation_protocoles_cyclades.mp4 -> Pour la vérification des protocoles d'épreuves dans Cyclades.
-     * creer_convocations_enseignants.mp4 -> Pour la création de convocations et génération du PDF dans IMAG'IN.
-     * Distribution_lots_santorin.mp4 -> Pour la distribution automatique des lots dans Santorin.
-     * Distribution_manuelle_lots_santorin.mp4 -> Pour la distribution manuelle des lots de copies dans Santorin.
-     * Saisie_notes_Santorin.mp4 -> Pour la saisie des notes et AFL dans Santorin.
-     * Verrouiller_lot_santorin.mp4 -> Pour le verrouillage officiel d'un lot de copies dans Santorin.
-     * Deverrouiller_lots_santorin.mp4 -> Pour la demande ou procédure de déverrouillage d'un lot dans Santorin.
-     * Ajouter_evaluateur_lot_santorin.mp4 -> Pour l'ajout d'un deuxième correcteur / évaluateur sur un lot Santorin.
-   - Si la question porte sur un sujet sans vidéo dédiée (création d'APSA, inaptitudes médicales, matériel EPI, textes juridiques), NE METTRE AUCUN NOM DE FICHIER et ne JAMAIS écrire le mot 'tutoriel' ni 'aucun'.
-4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens (ex: cuisine, météo, code informatique sans rapport), réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline." ATTENTION : Une question portant sur l'EPS mais contenant une erreur réglementaire ou une fausse prémisse (comme demander du CCF ou un protocole pour une classe de collège / 4e) N'EST PAS un hors-sujet : tu dois impérativement y répondre normalement en corrigeant la prémisse, en expliquant qu'aucun CCF n'existe au collège, et en détaillant le suivi LSU.
-5. 📅 RÈGLE STRICTE DATES & CALENDRIER : Ne jamais inventer de dates chiffrées précises (bannir '30 mai'). Renvoie systématiquement au calendrier du BO et à la circulaire de la DEC.
-6. ⏱️ RÈGLE ABSOLUE DE PRIORITÉ TEMPORELLE (DOUBLONS ET TEXTES OBSOLÈTES) :
-   - Analyse systématiquement les dates ou les années mentionnées dans les documents extraits de la base ou du web.
-   - Si plusieurs textes, circulaires ou notes traitent du même sujet à des dates différentes (ex: une version de 2017 et une de 2022), **tu dois impérativement écarter et ignorer la version la plus ancienne**.
-   - Appuie-toi **uniquement** sur la disposition ou la circulaire la plus récente pour formuler ta réponse, et mentionne explicitement sa date pour rassurer l'utilisateur.
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
+   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur les scripts reconnus (import Pronote, fichiers groupes Cyclades, lots Santorin, etc.). Sinon, ne mets rien.
+4. 🛑 HORS-SUJET STRICT : Si la question est totalement étrangère à l'EPS, à l'enseignement ou aux examens, réponds uniquement : "Le Hub IA - EPS est un outil exclusivement dédié à l'accompagnement réglementaire, technique et pédagogique de la discipline."
+5. 📅 RÈGLE STRICTE DATES : Ne jamais inventer de dates chiffrées précises. Renvoie au calendrier du BO et à la DEC.
+6. ⏱️ PRIORITÉ TEMPORELLE : Appuie-toi uniquement sur la disposition ou la circulaire la plus récente.
 """
+
         if not est_cas_direct:
             try:
                 response = Settings.llm.complete(consigne_ia)
@@ -978,12 +899,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 Nettoyages de base sans supprimer les sauts de ligne
-        texte_brut = (
-            texte_brut.replace("```html", "")
-            .replace("```HTML", "")
-            .replace("```", "")
-        )
+        # 🧹 NETTOYAGES & FORMATAGE HTML
+        texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
@@ -993,25 +910,19 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
 
         texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de"
-            r" l\'éducation)",
+            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
             r'<span class="law-highlight">\1</span>',
             texte_brut,
         )
-        texte_brut = texte_brut.replace(
-            '<span class="law-highlight"><span class="law-highlight">',
-            '<span class="law-highlight">',
-        ).replace("</span></span>", "</span>")
+        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-            r'<a href="\2" target="_blank" style="color: #FFB020 !important;'
-            r' text-decoration: underline;">\1</a>',
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
             texte_brut,
         )
         texte_brut = re_links
 
-        # 🚀 CONVERSION PROPRE DES SAUTS DE LIGNE (PAS D'ÉCRASEMENT EN BLOC)
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
             texte_nettoye.replace("<p>", "")
@@ -1021,27 +932,17 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
         phrase_contexte = (
-            "<div style='font-size: 12.5px; color: #94A3B8; margin-bottom:"
-            " 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);"
-            " padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre"
-            f" question dans {contexte_choisi_nom}.</em></div>"
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
         )
 
         footer_assistance = ""
         if mode in ["ipack", "examens"]:
             footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top:"
-                " 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color:"
-                " #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous"
-                " pouvez toujours contacter l'assistance <a"
-                " href='mailto:ipackeps@ac-aix-marseille.fr' style='color:"
-                " #38BDF8 !important; text-decoration:"
-                " underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
             )
 
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge}'
-            f" :</strong><br>{texte_final}{footer_assistance}</div>"
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
         st.session_state.messages_hub.append(
@@ -1054,7 +955,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-# AFFICHAGE DES MESSAGES ET DES VIDÉOS (SOUS LA BANNIÈRE EXPLICATIVE)
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS
 if st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:

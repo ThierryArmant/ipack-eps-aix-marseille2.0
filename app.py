@@ -860,7 +860,7 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
-        # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
+       # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
 consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
@@ -892,68 +892,69 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
    - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur l'une de ces manipulations techniques exactes (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4).
    - INTERDICTION FORMELLE d'écrire le mot "tutoriel", "aucun", "néant" ou d'afficher une ligne vidéo si le sujet n'est pas l'une de ces manipulations techniques. Le texte doit s'arrêter net après la conclusion.
 """
+
 if not est_cas_direct:
-            try:
-                response = Settings.llm.complete(consigne_ia)
-                texte_brut = response.text
-            except Exception as e:
-                texte_brut = f"Erreur de traitement IA : {str(e)}"
+    try:
+        response = Settings.llm.complete(consigne_ia)
+        texte_brut = response.text
+    except Exception as e:
+        texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 NETTOYAGES & FORMATAGE HTML
-        texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
+# 🧹 NETTOYAGES & FORMATAGE HTML
+texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        texte_brut = re.sub(
-            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-            "",
-            texte_brut,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
+texte_brut = re.sub(
+    r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+    "",
+    texte_brut,
+    flags=re.IGNORECASE | re.MULTILINE,
+)
 
-        texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
-            r'<span class="law-highlight">\1</span>',
-            texte_brut,
-        )
-        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
+texte_brut = re.sub(
+    r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
+    r'<span class="law-highlight">\1</span>',
+    texte_brut,
+)
+texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
-        re_links = re.sub(
-            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
-            texte_brut,
-        )
-        texte_brut = re_links
+re_links = re.sub(
+    r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+    r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
+    texte_brut,
+)
+texte_brut = re_links
 
-        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-        texte_final = (
-            texte_nettoye.replace("<p>", "")
-            .replace("</p>", "<br>")
-            .replace("\n", "<br>")
-        )
-        texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
+texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+texte_final = (
+    texte_nettoye.replace("<p>", "")
+    .replace("</p>", "<br>")
+    .replace("\n", "<br>")
+)
+texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
-        phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
-        )
+phrase_contexte = (
+    f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+)
 
-        footer_assistance = ""
-        if mode in ["ipack", "examens"]:
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
-            )
+footer_assistance = ""
+if mode in ["ipack", "examens"]:
+    footer_assistance = (
+        "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+    )
 
-        formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
-        )
+formatted_answer = (
+    f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+)
 
+st.session_state.messages_hub.append(
+    {"role": "assistant", "type": "text", "content": formatted_answer}
+)
+
+for video_name, video_url in VIDEOS_TUTOS.items():
+    if video_name in texte_final:
         st.session_state.messages_hub.append(
-            {"role": "assistant", "type": "text", "content": formatted_answer}
+            {"role": "assistant", "type": "video", "content": video_url}
         )
-
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
 
 # AFFICHAGE DES MESSAGES ET DES VIDÉOS
 if st.session_state.messages_hub:

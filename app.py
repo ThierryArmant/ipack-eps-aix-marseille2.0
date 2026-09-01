@@ -909,13 +909,14 @@ if prompt:
    - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
    - Bac Pro : 3 épreuves de 3 champs distincts.
    - CAP : Strictement 2 épreuves de 2 champs distincts."""
-      elif mode == "ipack":
+     elif mode == "ipack":
         directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
-   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
+   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉES SUR LES APSA :
      * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
      * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
+   - INTERDICTION COLLÈGE : Pour toute classe de collège (6e, 5e, 4e, 3e), il est STRICTEMENT INTERDIT de mentionner un "Dossier Certificatif" ou du "CCF". Utilise exclusivement les termes "Dossier EPS trimestriel" et "Suivi LSU / Socle commun".
    - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 

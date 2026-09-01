@@ -682,53 +682,52 @@ if prompt:
       "content": f"<span style='color: white;'>{prompt}</span>",
   })
   with st.spinner("Je consulte la documentation officielle..."):
-    mode = st.session_state.active_module
-    p_low = prompt.lower()
+      mode = st.session_state.active_module
+      p_low = prompt.lower()
 
-    texte_brut = ""
-    extraits_doc = ""
-    extraits_web = ""
-    badge, color_card = "INFORMATION", "general-card"
+      texte_brut = ""
+      extraits_doc = ""
+      extraits_web = ""
+      badge, color_card = "INFORMATION", "general-card"
 
-    onglets_noms = {
-        "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-        "examens": (
-            "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
-        ),
-        "textes": (
-            "l'onglet Sécurité & Responsabilité Juridique (Textes"
-            " Officiels)"
-        ),
-    }
-    contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+      onglets_noms = {
+          "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+          "examens": (
+              "l'onglet Réglementation Examens & Santorin (Copies Numérisées)"
+          ),
+          "textes": (
+              "l'onglet Sécurité & Responsabilité Juridique (Textes"
+              " Officiels)"
+          ),
+      }
+      contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
-    verites_terrain_pierre = ""
-    try:
-      for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-        if os.path.exists(fp):
-          with open(fp, "r", encoding="utf-8", errors="ignore") as f:
-            verites_terrain_pierre += (
-                "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
-            )
-    except Exception:
-      pass
+      verites_terrain_pierre = ""
+      try:
+        for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+          if os.path.exists(fp):
+            with open(fp, "r", encoding="utf-8", errors="ignore") as f:
+              verites_terrain_pierre += (
+                  "\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
+              )
+      except Exception:
+        pass
 
-    # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-    est_college = any(
-        w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
-    )
+      # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+      est_college = any(
+          w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"]
+      )
 
-    # La condition est_date ne se déclenche que si la question demande EXPLICITEMENT le calendrier
-    est_date = (not est_college) and any(
-        phrase in p_low
-        for phrase in [
-            "quel est le calendrier",
-            "quelles sont les dates",
-            "date butoir de",
-            "date de fermeture",
-            "calendrier officiel",
-        ]
-    )
+      est_date = (not est_college) and any(
+          phrase in p_low
+          for phrase in [
+              "quel est le calendrier",
+              "quelles sont les dates",
+              "date butoir de",
+              "date de fermeture",
+              "calendrier officiel",
+          ]
+      )
         ]
     ) and any(
         w in p_low

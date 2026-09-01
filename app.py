@@ -714,7 +714,9 @@ if prompt:
       pass
 
     # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
-    est_date = any(
+    est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
+
+    est_date = (not est_college) and any(
         w in p_low
         for w in [
             "date",
@@ -724,7 +726,7 @@ if prompt:
             "delai",
             "échéance",
             "echeance",
-                    ]
+        ]
     ) and any(
         w in p_low
         for w in [

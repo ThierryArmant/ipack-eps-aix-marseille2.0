@@ -724,8 +724,7 @@ if prompt:
             "delai",
             "échéance",
             "echeance",
-            "quand",
-        ]
+                    ]
     ) and any(
         w in p_low
         for w in [

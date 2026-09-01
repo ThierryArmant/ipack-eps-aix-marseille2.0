@@ -827,7 +827,7 @@ if prompt:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
         # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLETS
-        directive_onglet = ""
+       directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
@@ -837,7 +837,7 @@ if prompt:
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat), et non auprès de la DEC.
+     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
 """
         elif mode == "examens":
             directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :

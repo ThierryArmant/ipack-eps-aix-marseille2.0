@@ -105,13 +105,13 @@ img_fond = "image_8.png"
 
 github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
 
-css_pur = f"""
+css_pur = """
     <style>
-    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card * {{ 
+    .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card * { 
         color: #FFFFFF !important;  
-    }}
+    }
 
-    .block-container {{ 
+    .block-container { 
         padding-top: 0.5rem !important; 
         padding-bottom: 2rem !important; 
         padding-left: 1.5rem !important; 
@@ -119,10 +119,10 @@ css_pur = f"""
         max-width: 920px !important; 
     }
     
-    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
-    header[data-testid="stHeader"] {{ display: none !important; }}
+    .stApp { background-image: url('__URL_FOND__') !important; background-size: cover !important; background-attachment: fixed !important; }
+    header[data-testid="stHeader"] { display: none !important; }
     
-    .hub-header {{ 
+    .hub-header { 
         background-color: #1E293B; 
         display: flex; 
         justify-content: space-between; 
@@ -134,7 +134,7 @@ css_pur = f"""
         box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
     }
     
-    .hub-title {{
+    .hub-title {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -144,14 +144,14 @@ css_pur = f"""
         padding-right: 35px; 
     }
     
-    .title-row {{
+    .title-row {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
     }
     
-    .title-row h1 {{ 
+    .title-row h1 { 
         color: white !important; 
         margin: 0 !important; 
         font-size: 28px !important; 
@@ -160,7 +160,7 @@ css_pur = f"""
         letter-spacing: 0.5px;
     }
     
-    .badge-visiteur {{ 
+    .badge-visiteur { 
         background-color: rgba(16, 185, 129, 0.2) !important; 
         color: #10B981 !important; 
         border: 1px solid rgba(16, 185, 129, 0.45) !important; 
@@ -171,7 +171,7 @@ css_pur = f"""
         font-family: monospace !important;
     }
     
-    .hub-title p {{ 
+    .hub-title p { 
         color: #94A3B8 !important; 
         margin: 0 !important; 
         margin-top: -1px !important; 
@@ -180,7 +180,7 @@ css_pur = f"""
         font-weight: bold !important;
     }
 
-    .column-title-top {{ 
+    .column-title-top { 
         color: #FFFFFF; 
         text-align: center; 
         margin-bottom: 12px !important; 
@@ -189,21 +189,21 @@ css_pur = f"""
         padding: 8px 10px; 
         box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
     }
-    .column-title-top .instruction {{ 
+    .column-title-top .instruction { 
         font-size: 11px !important; 
         font-weight: 500; 
         text-transform: uppercase; 
         color: #94A3B8 !important; 
         display: block; 
     }
-    .column-title-top .mode-actuel {{ 
+    .column-title-top .mode-actuel { 
         font-size: 14px !important; 
         font-weight: 700; 
         color: #FFFFFF !important; 
         display: block; 
     }
 
-    button[kind="secondary"] {{ 
+    button[kind="secondary"] { 
         background-color: rgba(15, 23, 42, 0.9) !important; 
         color: #94A3B8 !important; 
         border: 1px solid rgba(255,255,255,0.05) !important; 
@@ -216,7 +216,7 @@ css_pur = f"""
         text-align: center !important; 
     }
 
-    button[kind="primary"] {{ 
+    button[kind="primary"] { 
         background-color: rgba(16, 185, 129, 0.85) !important; 
         color: #FFFFFF !important; 
         border: 1px solid #10B981 !important; 
@@ -231,7 +231,7 @@ css_pur = f"""
         text-align: center !important; 
     }
     
-    .santorin-card, .general-card, .securite-card {{ 
+    .santorin-card, .general-card, .securite-card { 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 
         -webkit-backdrop-filter: blur(12px) !important; 
@@ -240,70 +240,71 @@ css_pur = f"""
         margin-bottom: 16px; 
         line-height: 1.6 !important;
     }
-    .santorin-card {{ border-left: 6px solid #38BDF8 !important; }} 
-    .general-card {{ border-left: 6px solid #10B981 !important; }} 
-    .securite-card {{ border-left: 6px solid #FF9F43 !important; }} 
+    .santorin-card { border-left: 6px solid #38BDF8 !important; } 
+    .general-card { border-left: 6px solid #10B981 !important; } 
+    .securite-card { border-left: 6px solid #FF9F43 !important; } 
     
-    .santorin-card h3, .general-card h3, .securite-card h3 {{ 
+    .santorin-card h3, .general-card h3, .securite-card h3 { 
         color: #38BDF8 !important; 
         font-size: 16px !important; 
         margin-top: 14px !important; 
         margin-bottom: 8px !important; 
         font-weight: 800 !important; 
         text-transform: uppercase; 
-    }}
-    .general-card h3 {{ color: #10B981 !important; }} 
-    .securite-card h3 {{ color: #FF9F43 !important; }} 
+    }
+    .general-card h3 { color: #10B981 !important; } 
+    .securite-card h3 { color: #FF9F43 !important; } 
 
     /* STYLE AÉRÉ DES LISTES PAS À PAS */
     .santorin-card ul, .general-card ul, .securite-card ul,
-    .santorin-card ol, .general-card ol, .securite-card ol {{
+    .santorin-card ol, .general-card ol, .securite-card ol {
         margin-top: 6px !important;
         margin-bottom: 10px !important;
         padding-left: 22px !important;
-    }}
-    .santorin-card li, .general-card li, .securite-card li {{
+    }
+    .santorin-card li, .general-card li, .securite-card li {
         margin-bottom: 7px !important;
         line-height: 1.5 !important;
-    }}
+    }
 
-    .law-highlight {{ 
+    .law-highlight { 
         background-color: rgba(255, 176, 32, 0.12) !important; 
         color: #FFB020 !important; 
         padding: 2px 6px; 
         border-radius: 4px; 
         border: 1px solid rgba(255, 176, 32, 0.4) !important; 
         font-weight: 700 !important; 
-    }}
+    }
 
-    div[data-testid="stForm"] {{
+    div[data-testid="stForm"] {
         background-color: rgba(15, 23, 42, 0.6) !important;
         border: 1px solid #334155 !important;
         border-radius: 8px !important;
         padding: 10px !important;
         margin-bottom: 12px !important;
-    }}
+    }
 
     /* ZOOM FLUIDE IMAGE 5 */
-    .img-zoomable {{
+    .img-zoomable {
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
         cursor: zoom-in;
         border-radius: 6px;
-    }}
-    .img-zoomable:hover {{
+    }
+    .img-zoomable:hover {
         transform: scale(3);
         transform-origin: top right;
         z-index: 999999;
         position: relative;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }}
-    .img-zoomable:active {{
+    }
+    .img-zoomable:active {
         transform: scale(4.5);
         transform-origin: top right;
         cursor: zoom-out;
-    }}
+    }
     </style> 
-"""
+""".replace("__URL_FOND__", f"{github_url}{img_fond}")
+
 st.markdown(css_pur, unsafe_allow_html=True)
 
 # ======================================================================

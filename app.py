@@ -830,8 +830,7 @@ if prompt:
             texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN</h3>
 <ul>
   <li><strong>Règle absolue :</strong> Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes sont gérées par l'administration.</li>
-  <li><strong>Rôle du Chef d'établissement :</strong> Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle via la console <strong>Santorin-Direction</strong>.</li>
-  <li><strong>Action en amont (Secrétariat) :</strong> Le rattachement initial ou la modification de groupe relève d'une mise à jour dans <strong>Cyclades</strong> par le secrétariat.</li>
+  <li><strong>Rôle de la Direction :</strong> Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle d'un lot à un autre directement via la console <strong>Santorin-Direction</strong>, de manière autonome et <strong>sans avoir à repasser par Cyclades</strong>.</li>
   <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
   <li>👉 <a href="https://ipackeps.ac-creteil.fr/spip.php?article73" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel officiel de référence (Académie de Créteil)</a></li>
 </ul>"""

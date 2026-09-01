@@ -584,3 +584,13 @@ RÉFÉRENTIEL STRUCTUREL DES BULLETINS ACADÉMIQUES (BA & BA SPÉCIAUX)
 * DRAIO (Délégation Régionale Académique d'Information et d'Orientation) : Affectation des élèves, procédures post-3e, orientation.
 * DAAC (Délégations Académiques aux Arts et à la Culture) / EAFC (École Académique de Formation Continue) : Offre de formation continue, stages, passation de dispositifs culturels et sportifs.
 * DEC (Division des Examens et Concours) : Organisation matérielle et numérique des examens (via les BA Spéciaux d'avril/mai).
+----------------------------------------------------------------------
+ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE
+----------------------------------------------------------------------
+* OBLIGATIONS STATUTAIRES DE L'AGENT (ART. L. 121-1 À L. 121-6 DU CODE GÉNÉRAL DE LA FONCTION PUBLIQUE - CGFP) : 
+  - Exercice des fonctions avec dignité, impartialité, intégrité et probité.
+  - Obligation stricte de neutralité et respect du principe de laïcité.
+  - Respect du secret professionnel et de la discrétion professionnelle pour toutes les informations recueillies dans l'exercice ou à l'occasion de l'exercice des fonctions (ex: notes de jurys, situations de handicap des élèves, données administratives).
+
+* PROCÉDURE DÉMATÉRIALISÉE D'ACCIDENT DE SERVICE (AGENT) : 
+  - En cas d'accident survenu à l'enseignant dans l'exercice de ses fonctions ou sur le trajet, la déclaration initiale de reconnaissance d'accident de service (ainsi que les demandes de prolongation d'arrêts ou de remboursement de soins) ne transite plus par des formulaires papier traditionnels : elle s'effectue obligatoirement par voie numérique via l'espace personnel de l'agent sur la plateforme académique **Colibris** dans les délais réglementaires.

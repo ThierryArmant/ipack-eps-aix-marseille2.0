@@ -827,7 +827,7 @@ if prompt:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
         # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLETS
-       directive_onglet = ""
+        directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :

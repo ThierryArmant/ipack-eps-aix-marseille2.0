@@ -836,7 +836,6 @@ if prompt:
    - Rédige STRICTEMENT selon ce plan :
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
      * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat), et non auprès de la DEC.
 """
@@ -860,8 +859,8 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
-       # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
-consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+        # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
+        consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
 1. PRINCIPE DE RÉALITÉ DES PUBLICS :
@@ -869,7 +868,7 @@ consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sporti
    - Lycée (Terminale Bac GT, Bac Pro, CAP) : Cadre réglementaire strict du CCF.
 2. INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
    - Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction formelle d'en proposer pour une classe ordinaire.
-3. INCOMPÉTENCE HIZRARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
+3. INCOMPÉTENCE HIERARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
    - Le chef d'établissement n'a AUCUNE autorité ni compétence sur les jurys de bac, la modification des notes d'examens nationaux ou la gestion des tiers correcteurs (tierce correction). Tout litige relève de la Division des Examens et Concours (DEC).
 4. GESTION DES FAUSSES PRÉMISSES :
    - Si un utilisateur demande une action impossible (CCF en collège, APSA combinée en classe normale, validation de correcteur de bac par le proviseur), rectifie la prémisse dès la première phrase, rappelle la règle réglementaire exacte, et donne la bonne marche à suivre. N'active jamais la règle du hors-sujet global pour une question d'EPS erronée.

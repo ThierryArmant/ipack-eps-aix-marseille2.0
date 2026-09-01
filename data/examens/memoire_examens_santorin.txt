@@ -479,3 +479,5 @@ PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
 - Il est strictement INTERDIT de créer un élève manuellement dans iPackEPS (cela brise la synchronisation, les identifiants et l'INE pour les examens comme Santorin).
 - Risque : Élève invisible ou bloqué lors des remontées officielles.
 - Procédure réelle : Le coordonnateur ou l'enseignant doit demander une extraction à jour du fichier SIÈCLE/SCONET (XML/CSV) au secrétariat, puis faire un nouvel « Import » dans iPackEPS pour que l'élève soit créé proprement avec ses identifiants officiels. Ensuite, il suffit de l'affecter dans son groupe depuis l'onglet des classes/groupes.
+- DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN : 
+  L'enseignant ne peut en aucun cas déplacer lui-même un candidat d'un lot à un autre. Les listes de candidats sont gérées par l'administration. Le déplacement relève soit d'une modification du protocole dans Cyclades par le secrétariat, soit d'une réaffectation (distribution manuelle) par le Chef d'établissement dans la console Santorin-Direction. Aucun doublon n'est possible en raison de l'unicité du numéro INE.

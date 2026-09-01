@@ -158,7 +158,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
-  - Cause 1 (Validation effectuée / Lot soumis) : Le lot a été validé définitivement par l'enseignant. Le cadenas est permanent. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.
+  - Cause 1 (Validation effectuée / Lot verrouillé) : Le lot a été validé ou verrouillé par l'enseignant. Le chef d'établissement se connecte directement à la console Santorin-Direction, va dans le menu « Liste des lots », et clique sur le cadenas pour basculer le statut de fermé à ouvert en toute autonomie. Aucune intervention ni demande à la DEC n'est requise.
   - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
 
 * BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
@@ -466,9 +466,9 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 ----------------------------------------------------------------------
 AJOUTS RÉCENTS : CAS DU CADENAS ET BLOQUAGE SANTORIN
 ----------------------------------------------------------------------
-* EXplication précise du « Cadenas / Crayons grisés » sur Santorin :
-  - Cause 1 (Lot déjà validé / clôturé) : Le lot a déjà été soumis et verrouillé définitivement par l'enseignant. Aucune modification n'est possible. Seul le Chef d'établissement peut demander formellement un « Renvoi en modification » à la DEC pour déverrouiller la grille.
-  - Cause 2 (Co-évaluation simultanée) : Un collègue co-évaluateur est actuellement connecté sur le même lot en même temps, ce qui verrouille l'écriture en lecture seule. Attendre la fermeture de sa session.
+* Explication précise du « Cadenas / Crayons grisés » sur Santorin :
+  - Le déverrouillage d'un lot de copies numériques ou l'affectation d'un évaluateur se fait EXCLUSIVEMENT en autonomie locale par le Chef d'établissement dans Santorin (Menu « Liste des lots » ➔ clic direct sur le cadenas pour basculer de fermé à ouvert). 
+  - La DEC n'intervient jamais pour modifier ou déverrouiller un lot en cours de route.
 ======================================================================
 AJOUT échéance de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
 ======================================================================

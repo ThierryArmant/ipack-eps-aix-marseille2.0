@@ -916,8 +916,7 @@ if prompt:
    - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉES SUR LES APSA :
      * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
      * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
-   - INTERDICTION COLLÈGE : Pour toute classe de collège (6e, 5e, 4e, 3e), il est STRICTEMENT INTERDIT de mentionner un "Dossier Certificatif" ou du "CCF". Utilise exclusivement les termes "Dossier EPS trimestriel" et "Suivi LSU / Socle commun".
-   - RÈGLE DISPOSITIFS SPÉCIFIQUES (3e PRÉPA-MÉTIERS, SEGPA, ULIS) : Même si elles sont hébergées dans un lycée professionnel, ces classes relèvent STRICTEMENT du COLLÈGE (DNB / LSU). Interdiction absolue de leur associer un protocole de CCF ou un export Santorin.
+   - GESTION DES FAUSSES PRÉMISSES (COLLÈGE / 3e PRÉPA-MÉTIERS / SEGPA / ULIS) : Si l'utilisateur demande à tort une configuration de CCF, un protocole ou un export Santorin pour une classe de collège (y compris 3e prépa-métiers, SEGPA ou ULIS hébergée en lycée pro), tu dois REJETER NET LA PRÉMISSE dès la première phrase, rappeler qu'aucun CCF ni Santorin n'existe pour ces classes, et expliquer comment gérer le suivi trimestriel LSU / Socle commun à la place. Interdiction absolue de lister des étapes de CCF.
    - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
 """
 

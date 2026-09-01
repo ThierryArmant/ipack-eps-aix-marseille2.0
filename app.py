@@ -734,8 +734,16 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN)
+        est_deplacer_candidat = (
+            mode == "examens"
+            and "déplacer" in p_low
+            and any(w in p_low for w in ["candidat", "élève", "eleve"])
+            and "lot" in p_low
+        )
+
         # ⚡ ROUTAGE RACCOURCI
-        est_cas_direct = ((mode != "textes") and (est_date or est_dnb or est_sujet_secours or est_cap_3epreuves)) or est_tasa
+        est_cas_direct = ((mode != "textes") and (est_date or est_dnb or est_sujet_secours or est_cap_3epreuves or est_deplacer_candidat)) or est_tasa
 
         # 🚀 RECHERCHE RAG LOCALE
         if openai_api_key and not est_cas_direct:
@@ -815,6 +823,17 @@ if prompt:
   <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
   <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
   <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
+</ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_deplacer_candidat:
+            texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN</h3>
+<ul>
+  <li><strong>Règle absolue :</strong> Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes sont gérées par l'administration.</li>
+  <li><strong>Rôle du Chef d'établissement :</strong> Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle via la console <strong>Santorin-Direction</strong>.</li>
+  <li><strong>Action en amont (Secrétariat) :</strong> Le rattachement initial ou la modification de groupe relève d'une mise à jour dans <strong>Cyclades</strong> par le secrétariat.</li>
+  <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
+  <li>👉 <a href="https://ipackeps.ac-creteil.fr/spip.php?article73" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel officiel de référence (Académie de Créteil)</a></li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 

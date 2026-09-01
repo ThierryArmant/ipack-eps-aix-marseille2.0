@@ -157,6 +157,13 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
     2. Le chef d'établissement se connecte à la console Santorin-Direction pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot.
   - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
 
+* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN :
+  - Règle absolue : Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes de candidats sont gérées par l'administration.
+  - Rôle du Chef d'établissement : Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle via la console Santorin-Direction.
+  - Action en amont (Secrétariat) : Le rattachement initial ou la modification de groupe relève d'une mise à jour dans Cyclades par le secrétariat.
+  - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
+  - Ressource officielle de référence : Tutoriel technique (Académie de Créteil) : https://ipackeps.ac-creteil.fr/spip.php?article73
+
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
   - Cause 1 (Validation effectuée / Lot verrouillé) : Le lot a été validé ou verrouillé par l'enseignant. Le chef d'établissement se connecte directement à la console Santorin-Direction, va dans le menu « Liste des lots », et clique sur le cadenas pour basculer le statut de fermé à ouvert en toute autonomie. Aucune intervention ni demande à la DEC n'est requise.
   - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
@@ -213,7 +220,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 
 ### Thématique : Évaluer et Noter (4 séquences d'enseignement)
 - **Question** : Lorsque l'organisation de l'établissement prévoit 4 séquences d'enseignement différentes dans l'année, comment sont identifiées les 3 APSA support de la certification ?
-- **Réponse Collège DNB** : La note certificative prise en compte pour le contrôle continu au collège est la moyenne des moyennes obtenues pour chacun des trimestres (semestres) lors de l’évaluation d’au moins trois activités physiques et sportives. Ces APSA doivent relever, autant que faire se peut, de trois champs d’apprentissage différents. Les modalités d’évaluation dans les APSA sont définies par l’équipe des enseignants d’EPS et communes à toutes les classes de troisième : elles sont décrites dans un protocole d’évaluation annexé au projet pédagogique EPS. Toutes les APSA pratiquées en classe de troisième sont potentiellement certificatives (à condition d’avoir bénéficié d’un nombre d’heures d’enseignement jugé suffisant par l’équipe EPS de l’établissement). Dans ce cas, les notes obtenues au cours des 4 séquences de 4 APSA différentes peuvent être prises en compte pour proposer une moyenne pour chacun des trimestres.
+- **Réponse Collège DNB** : La note certificative prise en compte pour le contrôle continu au collège est la moyenne des moyennes obtenues pour chacun des trimestres (semestres) lors de l’évaluation d’au moins trois activités physiques et sportives. Ces APSA doivent relever, autant que faire se peu, de trois champs d’apprentissage différents. Les modalités d’évaluation dans les APSA sont définies par l’équipe des enseignants d’EPS et communes à toutes les classes de troisième : elles sont décrites dans un protocole d’évaluation annexé au projet pédagogique EPS. Toutes les APSA pratiquées en classe de troisième sont potentiellement certificatives (à condition d’avoir bénéficié d’un nombre d’heures d’enseignement jugé suffisant par l’équipe EPS de l’établissement). Dans ce cas, les notes obtenues au cours des 4 séquences de 4 APSA différentes peuvent être prises en compte pour proposer une moyenne pour chacun des trimestres.
 
 ### Thématique : Évaluer et Noter (Épreuves écrites ou orales)
 - **Question** : Les acquisitions en EPS peuvent-elles être évaluées à partir d'une épreuve écrite ou orale ?
@@ -480,4 +487,4 @@ PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
 - Risque : Élève invisible ou bloqué lors des remontées officielles.
 - Procédure réelle : Le coordonnateur ou l'enseignant doit demander une extraction à jour du fichier SIÈCLE/SCONET (XML/CSV) au secrétariat, puis faire un nouvel « Import » dans iPackEPS pour que l'élève soit créé proprement avec ses identifiants officiels. Ensuite, il suffit de l'affecter dans son groupe depuis l'onglet des classes/groupes.
 - DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN : 
-  L'enseignant ne peut en aucun cas déplacer lui-même un candidat d'un lot à un autre. Les listes de candidats sont gérées par l'administration. Le déplacement relève soit d'une modification du protocole dans Cyclades par le secrétariat, soit d'une réaffectation (distribution manuelle) par le Chef d'établissement dans la console Santorin-Direction. Aucun doublon n'est possible en raison de l'unicité du numéro INE.
+  L'enseignant ne peut en aucun cas déplacer lui-même un candidat d'un lot à un autre. Les listes de candidats sont gérées par l'administration. Le déplacement relève soit d'une modification du protocole dans Cyclades par le secrétariat, soit d'une réaffectation (distribution manuelle) par le Chef d'établissement dans la console Santorin-Direction. Aucun doublon n'est possible en raison de l'unicité du numéro INE. Tutoriel technique de référence : https://ipackeps.ac-creteil.fr/spip.php?article73

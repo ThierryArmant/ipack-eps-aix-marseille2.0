@@ -919,7 +919,7 @@ if prompt:
    - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉES SUR LES APSA :
      * Collège (6e à 3e, y compris 3e prépa-métiers, SEGPA, ULIS) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
      * Lycée (Terminale, CAP) : Cadre officiel du CCF.
-   - GESTION DES FAUSSES PRÉMISSES : Ne rejeter la demande d'un utilisateur que si la classe mentionnée explicitement est un collège (6e, 5e, 4e, 3e). Si l'utilisateur parle de Terminales ou de lycéens, réponds aux étapes techniques de configuration du CCF.
+   - GESTION DES FAUSSES PRÉMISSES (COLLÈGE / 3e PRÉPA-MÉTIERS / SEGPA / ULIS) : Si l'utilisateur demande à tort une configuration de CCF, un protocole ou un export Santorin pour une classe de collège (6e, 5e, 4e, 3e), ce n'est PAS un hors-sujet : tu dois lui répondre en expliquant clairement qu'aucun CCF ni Santorin n'existe en collège, et lui rappeler comment fonctionne le suivi trimestriel LSU / Socle commun. N'active jamais la règle du hors-sujet global pour une question de collège.
    - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS). Ne jamais l'associer à l'EPPCS.
 """
 

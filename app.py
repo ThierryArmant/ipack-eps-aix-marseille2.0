@@ -912,14 +912,15 @@ if prompt:
            - Bac Pro : 3 épreuves de 3 champs distincts.
            - CAP : Strictement 2 épreuves de 2 champs distincts."""
         elif mode == "ipack":
-            directive_onglet = """
+        directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
+   - RÈGLE D'OR PUBLICS & CCF : Les classes de Terminale (Bac GT, Bac Pro, CAP) et les CAP préparent le CCF. Pour ces publics, la création de protocoles et la déclaration d'APSA certificatives sont TOTALEMENT VALIDES et attendues.
    - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉES SUR LES APSA :
-     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
-     * Lycée (Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
-   - GESTION DES FAUSSES PRÉMISSES (COLLÈGE / 3e PRÉPA-MÉTIERS / SEGPA / ULIS) : Si l'utilisateur demande à tort une configuration de CCF, un protocole ou un export Santorin pour une classe de collège (y compris 3e prépa-métiers, SEGPA ou ULIS hébergée en lycée pro), tu dois REJETER NET LA PRÉMISSE dès la première phrase, rappeler qu'aucun CCF ni Santorin n'existe pour ces classes, et expliquer comment gérer le suivi trimestriel LSU / Socle commun à la place. Interdiction absolue de lister des étapes de CCF.
-   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
+     * Collège (6e à 3e, y compris 3e prépa-métiers, SEGPA, ULIS) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
+     * Lycée (Terminale, CAP) : Cadre officiel du CCF.
+   - GESTION DES FAUSSES PRÉMISSES : Ne rejeter la demande d'un utilisateur que si la classe mentionnée explicitement est un collège (6e, 5e, 4e, 3e). Si l'utilisateur parle de Terminales ou de lycéens, réponds aux étapes techniques de configuration du CCF.
+   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS). Ne jamais l'associer à l'EPPCS.
 """
 
         contexte_complet_ia = f"""

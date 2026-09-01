@@ -172,6 +172,12 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
   - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
 
+* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN :
+  - Règle absolue : Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes sont gérées par l'administration.
+  - Rôle de la Direction : Si un déplacement est nécessaire, seul le chef d'établissement peut procéder à la réaffectation manuelle d'un lot à un autre directement via la console Santorin-Direction, sans avoir à repasser par Cyclades.
+  - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
+  - Ressource officielle de référence : Tutoriel technique (Académie de Créteil) : https://ipackeps.ac-creteil.fr/spip.php?article73
+
 ----------------------------------------------------------------------
 8. FAQ EXHAUSTIVE, CAS LIMITES ET PROCÉDURES SPÉCIFIQUES EXAMENS
 ----------------------------------------------------------------------

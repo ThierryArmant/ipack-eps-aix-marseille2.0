@@ -674,14 +674,14 @@ else:
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
 # ======================================================================
 if prompt:
-  st.session_state.messages_hub = []
+    st.session_state.messages_hub = []
 
-  st.session_state.messages_hub.append({
-      "role": "user",
-      "type": "text",
-      "content": f"<span style='color: white;'>{prompt}</span>",
-  })
-  with st.spinner("Je consulte la documentation officielle..."):
+    st.session_state.messages_hub.append({
+        "role": "user",
+        "type": "text",
+        "content": f"<span style='color: white;'>{prompt}</span>",
+    })
+    with st.spinner("Je consulte la documentation officielle..."):
       mode = st.session_state.active_module
       p_low = prompt.lower()
 
@@ -726,63 +726,62 @@ if prompt:
               "date butoir de",
               "date de fermeture",
               "calendrier officiel",
-          
-        ]
-    ) and any(
-        w in p_low
-        for w in [
-            "saisie",
-            "note",
-            "notes",
-            "fermeture",
-            "santorin",
-            "cyclades",
-            "lot",
-            "lots",
-            "examen",
-            "examens",
-            "bac",
-            "cap",
-            "brevet",
-            "mayotte",
-            "academie",
-            "académie",
-        ]
-    )
+          ]
+      ) and any(
+          w in p_low
+          for w in [
+              "saisie",
+              "note",
+              "notes",
+              "fermeture",
+              "santorin",
+              "cyclades",
+              "lot",
+              "lots",
+              "examen",
+              "examens",
+              "bac",
+              "cap",
+              "brevet",
+              "mayotte",
+              "academie",
+              "académie",
+          ]
+      )
 
-    est_dnb = (mode != "textes") and any(
-        w in p_low for w in ["dnb", "brevet", "collège", "college"]
-    ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+      est_dnb = (mode != "textes") and any(
+          w in p_low for w in ["dnb", "brevet", "collège", "college"]
+      ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 
-    est_sujet_secours = "sujet" in p_low and any(
-        w in p_low for w in ["secours", "papier", "imprimer"]
-    )
+      est_sujet_secours = "sujet" in p_low and any(
+          w in p_low for w in ["secours", "papier", "imprimer"]
+      )
 
-    est_cap_3epreuves = (
-        mode == "examens"
-        and "cap" in p_low
-        and any(
-            w in p_low
-            for w in [
-                "3 épreuves",
-                "3 notes",
-                "trois épreuves",
-                "trois notes",
-            ]
-        )
-    )
+      est_cap_3epreuves = (
+          mode == "examens"
+          and "cap" in p_low
+          and any(
+              w in p_low
+              for w in [
+                  "3 épreuves",
+                  "3 notes",
+                  "trois épreuves",
+                  "trois notes",
+              ]
+          )
+      )
 
-    est_tasa = mode == "textes" and "tasa" in p_low
+      est_tasa = mode == "textes" and "tasa" in p_low
 
-    # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
-    est_cas_direct = (
-        (mode != "textes") and (
-            est_date
-            or est_dnb
-            or est_sujet_secours
-            or est_cap_3epreuves
-        )
-    ) or est_tasa
+      # ⚡ MODIFICATION DU ROUTAGE : On bloque les raccourcis si on est dans l'onglet Sécurité/Textes
+      est_cas_direct = (
+          (mode != "textes") and (
+              est_date
+              or est_dnb
+              or est_sujet_secours
+              or est_cap_3epreuves
+          )
+      ) or est_tasa
 
     # 🚀 RECHERCHE RAG PROFONDE LOCALE
     if openai_api_key and not est_cas_direct:

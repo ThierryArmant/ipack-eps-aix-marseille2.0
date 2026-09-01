@@ -748,7 +748,7 @@ if prompt:
         ]
     )
 
-    est_dnb = any(
+    est_dnb = (mode != "textes") and any(
         w in p_low for w in ["dnb", "brevet", "collège", "college"]
     ) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
 

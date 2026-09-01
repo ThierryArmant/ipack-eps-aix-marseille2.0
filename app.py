@@ -890,10 +890,11 @@ if prompt:
         )
 
       directive_onglet = ""
-      if mode == "textes":
+    if mode == "textes":
         directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
+   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC) plutôt que de s'en remettre au supérieur hiérarchique direct impliqué dans le litige.
    - Rédige STRICTEMENT selon ce plan :
      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>

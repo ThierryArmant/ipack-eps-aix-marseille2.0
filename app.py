@@ -902,6 +902,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # 🧹 NETTOYAGES & FORMATAGE HTML
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
+        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE : Supprime tout ce qui ressemble à un tuto si on est en mode texte
+        if mode == "textes":
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
         texte_brut = re.sub(
             r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
             "",

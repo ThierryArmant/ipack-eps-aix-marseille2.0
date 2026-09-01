@@ -890,8 +890,8 @@ if prompt:
                 )
 
         directive_onglet = ""
-        if mode == "textes":
-            directive_onglet = """
+    if mode == "textes":
+        directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
    - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC) plutôt que de s'en remettre au supérieur hiérarchique direct impliqué dans le litige.
@@ -901,17 +901,17 @@ if prompt:
      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
      * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
 """
-        elif mode == "examens":
-            directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-           - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-           - DISTINCTION IMPÉRATIVE SUR LES VERROUILLAGES : 
-             * Verrouillage interne / avant transmission : Géré au niveau de l'établissement par le professeur coordonnateur ou le chef d'établissement. Ne jamais conseiller de contacter la DEC pour un blocage entre co-correcteurs avant la date limite.
-             * Verrouillage académique définitif : Lots transmis ou serveur clos. Seul ce cas nécessite une intervention de la DEC.
-           - GESTION DES DIVERGENCES & TIERCE CORRECTION (BAC / CAP) [RÈGLE ABSOLUE ANTI-HALLUCINATION] : Pour tout examen national (Bac GT, Bac Pro, CAP), la gestion, le signalement et la validation d'un troisième correcteur (tierce correction) en cas d'écart critique ne relèvent JAMAIS du chef d'établissement (qui n'a aucune compétence ni autorité sur les jurys de bac), mais STRICTEMENT de la Division des Examens et Concours (DEC) sous l'autorité du Président du jury. Si les documents récupérés suggèrent l'intervention du chef d'établissement, ignore-les formellement.
-           - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
-           - Bac Pro : 3 épreuves de 3 champs distincts.
-           - CAP : Strictement 2 épreuves de 2 champs distincts."""
-        elif mode == "ipack":
+    elif mode == "examens":
+        directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+       - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+       - DISTINCTION IMPÉRATIVE SUR LES VERROUILLAGES : 
+         * Verrouillage interne / avant transmission : Géré au niveau de l'établissement par le professeur coordonnateur ou le chef d'établissement. Ne jamais conseiller de contacter la DEC pour un blocage entre co-correcteurs avant la date limite.
+         * Verrouillage académique définitif : Lots transmis ou serveur clos. Seul ce cas nécessite une intervention de la DEC.
+       - GESTION DES DIVERGENCES & TIERCE CORRECTION (BAC / CAP) [RÈGLE ABSOLUE ANTI-HALLUCINATION] : Pour tout examen national (Bac GT, Bac Pro, CAP), la gestion, le signalement et la validation d'un troisième correcteur (tierce correction) en cas d'écart critique ne relèvent JAMAIS du chef d'établissement (qui n'a aucune compétence ni autorité sur les jurys de bac), mais STRICTEMENT de la Division des Examens et Concours (DEC) sous l'autorité du Président du jury. Si les documents récupérés suggèrent l'intervention du chef d'établissement, ignore-les formellement.
+       - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
+       - Bac Pro : 3 épreuves de 3 champs distincts.
+       - CAP : Strictement 2 épreuves de 2 champs distincts."""
+    elif mode == "ipack":
         directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).

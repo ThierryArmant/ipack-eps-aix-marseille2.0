@@ -458,9 +458,9 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLE AUTOMATIQUE & ENVOI D'E-MAIL iPackEPS
+# 🔔 VEILLE AUTOMATIQUE TAVILY (Sans e-mail - Alerte visuelle)
 # ======================================================================
-def verifier_et_alerter_dec(tavily_client):
+def verifier_veille_dec(tavily_client):
   if not tavily_client:
     return
 
@@ -498,58 +498,12 @@ def verifier_et_alerter_dec(tavily_client):
             " circulaire DEC a été publiée."
         )
         st.session_state.alerte_veille_dec = texte_alerte
-
-        envoyer_mail_iPackEPS(
-            sujet=(
-                "[Hub IA EPS] 🔔 Veille réglementaire - Mise à jour potentielle"
-                " DEC"
-            ),
-            corps=(
-                "Bonjour l'équipe iPackEPS,\n\nLe script de veille automatique"
-                " mensuelle du Hub IA vient d'interroger les sources"
-                f" officielles en ce début de mois ({mois_actuel}).\n\nDes"
-                " signaux ou mises à jour ont été détectés :\n\n"
-                f"{texte_alerte}\n\n"
-                "Veuillez vérifier les nouveautés sur les sites académiques ou"
-                " le BO.\n\n---\nMessage automatique généré par le Hub IA - EPS"
-            ),
-        )
     except Exception:
       pass
 
 
-def envoyer_mail_iPackEPS(sujet, corps):
-  smtp_server = st.secrets.get("SMTP_SERVER", "smtp.gmail.com")
-  smtp_port = int(st.secrets.get("SMTP_PORT", 465))
-  smtp_user = st.secrets.get("SMTP_USER")
-  smtp_password = st.secrets.get("SMTP_PASSWORD")
-
-  if not smtp_user or not smtp_password:
-    return
-
-  msg = MIMEText(corps, "plain", "utf-8")
-  msg["Subject"] = sujet
-  msg["From"] = smtp_user
-  msg["To"] = (
-      "thierryarmant@gmail.com"  # <--- C'est ici qu'on change pour ton test perso
-  )
-
-  try:
-    if smtp_port == 465:
-      with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
-        server.login(smtp_user, smtp_password)
-        server.send_message(msg)
-    else:
-      with smtplib.SMTP(smtp_server, smtp_port) as server:
-        server.starttls()
-        server.login(smtp_user, smtp_password)
-        server.send_message(msg)
-  except Exception as e:
-    st.error(f"Erreur d'envoi de mail : {e}")
-
-
 # Lancement du contrôle mensuel automatique au démarrage
-verifier_et_alerter_dec(tavily_client)
+verifier_veille_dec(tavily_client)
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================

@@ -909,7 +909,7 @@ if prompt:
    - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
    - Bac Pro : 3 épreuves de 3 champs distincts.
    - CAP : Strictement 2 épreuves de 2 champs distincts."""
-     elif mode == "ipack":
+    elif mode == "ipack":
         directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).

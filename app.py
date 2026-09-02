@@ -709,17 +709,21 @@ if prompt:
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        est_date = (not est_college) and any(
-            phrase in p_low for phrase in [
-                "quel est le calendrier", "quelles sont les dates", "date butoir de", 
-                "date de fermeture", "calendrier officiel"
-            ]
-        ) and any(
-            w in p_low for w in [
-                "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
-                "lot", "lots", "examen", "examens", "bac", "cap", "brevet", 
-                "mayotte", "academie", "académie"
-            ]
+        est_date = (
+            (not est_college) 
+            and any(
+                phrase in p_low for phrase in [
+                    "quel est le calendrier", "quelles sont les dates", "date butoir de", 
+                    "date de fermeture", "calendrier officiel"
+                ]
+            ) 
+            and any(
+                w in p_low for w in [
+                    "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
+                    "lot", "lots", "examen", "examens", "bac", "cap", "brevet", 
+                    "mayotte", "academie", "académie"
+                ]
+            )
         )
 
         est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
@@ -734,7 +738,7 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN)
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -743,8 +747,16 @@ if prompt:
         )
 
         # ⚡ ROUTAGE RACCOURCI
-        est_cas_direct = ((mode != "textes") and (est_date or est_dnb or est_sujet_secours or est_cap_3epreuves or est_deplacer_candidat)) or est_tasa
-
+        est_cas_direct = (
+            (mode != "textes") 
+            and (
+                est_date 
+                or est_dnb 
+                or est_sujet_secours 
+                or est_cap_3epreuves 
+                or est_deplacer_candidat
+            )
+        ) or est_tasa
         # 🚀 RECHERCHE RAG LOCALE
         if openai_api_key and not est_cas_direct:
             try:

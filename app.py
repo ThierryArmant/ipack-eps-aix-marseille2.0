@@ -741,7 +741,6 @@ if prompt:
             and any(w in p_low for w in ["candidat", "élève", "eleve"])
             and "lot" in p_low
         )
-        )
 
         # ⚡ ROUTAGE RACCOURCI
         est_cas_direct = ((mode != "textes") and (est_date or est_dnb or est_sujet_secours or est_cap_3epreuves or est_deplacer_candidat)) or est_tasa

@@ -734,12 +734,13 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DE L'ONGLET)
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
         est_deplacer_candidat = (
             mode != "textes"
-            and "déplacer" in p_low
+            and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
             and any(w in p_low for w in ["candidat", "élève", "eleve"])
             and "lot" in p_low
+        )
         )
 
         # ⚡ ROUTAGE RACCOURCI

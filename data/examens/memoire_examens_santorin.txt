@@ -157,12 +157,14 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
     2. Le chef d'établissement se connecte à la console Santorin-Direction pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot.
   - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
 
-* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN :
-  - Règle absolue : Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes de candidats sont gérées par l'administration.
-  - Rôle du Chef d'établissement : Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle via la console Santorin-Direction.
-  - Action en amont (Secrétariat) : Le rattachement initial ou la modification de groupe relève d'une mise à jour dans Cyclades par le secrétariat.
+* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN :
+  - Distinction clé : Ne pas confondre la « réaffectation d'un lot » (qui attribue la totalité des copies d'un lot à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.
+  - Règle absolue : L'enseignant n'a aucun droit de déplacer lui-même un candidat d'un lot à un autre sur Santorin.
+  - Cas 1 & 2 (Arrivée tardive, élève non listé ou erreur de protocole dans Cyclades) : Corriger l'affectation du candidat ou du protocole dans Cyclades, puis effectuer une nouvelle **distribution automatique** des candidats/lots dans Santorin.
+  - Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) : Deux solutions directes dans Santorin :
+    * Option A : Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur « Affecter à un autre lot » ou « Affecter à un nouveau lot » en désignant le correcteur chargé de la notation. (Réf : https://pole-examens.github.io/tutoriels-examens/co/deplacer_candidat_vers_autre_lot.html)
+    * Option B : Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève. (Réf : https://pole-examens.github.io/tutoriels-examens/co/procedures_complementaires.html)
   - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
-  - Ressource officielle de référence : Tutoriel technique (Académie de Créteil) : https://ipackeps.ac-creteil.fr/spip.php?article73
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
   - Cause 1 (Validation effectuée / Lot verrouillé) : Le lot a été validé ou verrouillé par l'enseignant. Le chef d'établissement se connecte directement à la console Santorin-Direction, va dans le menu « Liste des lots », et clique sur le cadenas pour basculer le statut de fermé à ouvert en toute autonomie. Aucune intervention ni demande à la DEC n'est requise.
@@ -171,12 +173,6 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 * BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
   - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
-
-* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN :
-  - Règle absolue : Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes sont gérées par l'administration.
-  - Rôle de la Direction : Si un déplacement est nécessaire, seul le chef d'établissement peut procéder à la réaffectation manuelle d'un lot à un autre directement via la console Santorin-Direction, sans avoir à repasser par Cyclades.
-  - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
-  - Ressource officielle de référence : Tutoriel technique (Académie de Créteil) : https://ipackeps.ac-creteil.fr/spip.php?article73
 
 ----------------------------------------------------------------------
 8. FAQ EXHAUSTIVE, CAS LIMITES ET PROCÉDURES SPÉCIFIQUES EXAMENS
@@ -385,7 +381,7 @@ Pour résoudre les problèmes d'accès, l'ordre technique de vérification et de
 ### Thématique : L'évaluation en EPS (Nombre d'activités pour la certification)
 - **Question** : La note proposée à l'examen doit-elle être obligatoirement construite à partir de 3 APSA différentes ? De 3 Champs d'Apprentissage différents ?
 - **Réponse Lycée GT Bac** : Le candidat doit réaliser trois épreuves. Ces dernières visent à évaluer le degré d'acquisition des compétences attendues fixées par le programme d'EPS du lycée. Pour constituer des ensembles certificatifs de trois épreuves à proposer aux candidats, l'établissement doit tenir compte de plusieurs impératifs : les trois épreuves doivent relever de trois compétences propres à l'EPS.
-- **Réponse Collège DNB** : Pour rappel, le principe du CCF n'existe pas au collège. L'évaluation au DNB se réalise sous la forme du contrôle continu en classe de 3ème à partir d'un ensemble d'évaluations de formes et natures différentes permettant de proposer pour chacun des trimestres une note représentative des acquisitions des élèves en référence aux attendus de fin de cycle des programmes. Il peut être convenu que la note finale prise en compte pour le contrôle continu, de 0 à 20, est la moyenne des notes obtenues lors de l’évaluation d’au moins trois activités physiques et sportives. Ces APSA doivent pouvoir relever de trois champs d’apprentissage différents. Les modalités d’évaluation dans les APSA sont définies par l’équipe des enseignants d’EPS et communes à toutes les classes de troisième : elles sont décrites dans un protocole d’évaluation annexé au projet pédagogique EPS et doivent être connues des élèves. Toutes les APSA pratiquées en classe de troisième sont potentiellement certificatives (à condition d’avoir bénéficié d’un nombre d’heures d’enseignement jugé suffisant par l’équipe EPS de l’établissement).
+- **Réponse Collège DNB** : Pour rappel, le principe du CCF n'existe pas au collège. L'évaluation au DNB se réalise sous la forme du contrôle continu en classe de 3ème à partir d'un ensemble d'évaluations de formes et natures différentes permettant de proposer pour chacun des trimestres une note représentative des acquisitions des élèves en référence aux attendus de fin de cycle des programmes. Il peut être convenu que la note finale prise en compte pour le contrôle continu, de 0 à 20, est la moyenne des notes obtenues lors de l’évaluation d’au moins trois activités physiques et sportive. Ces APSA doivent pouvoir relever de trois champs d’apprentissage différents. Les modalités d’évaluation dans les APSA sont définies par l’équipe des enseignants d’EPS et communes à toutes les classes de troisième : elles sont décrites dans un protocole d’évaluation annexé au projet pédagogique EPS et doivent être connues des élèves. Toutes les APSA pratiquées en classe de troisième sont potentiellement certificatives (à condition d’avoir bénéficié d’un nombre d’heures d’enseignement jugé suffisant par l’équipe EPS de l’établissement).
 
 ### Thématique : L'évaluation en EPS (Sportifs de Haut Niveau / SHN)
 - **Question** : Un élève reconnu sportif de haut niveau bénéficie-t-il d'aménagements spécifiques pour la certification aux examens ?
@@ -482,15 +478,3 @@ AJOUTS RÉCENTS : CAS DU CADENAS ET BLOQUAGE SANTORIN
 * Explication précise du « Cadenas / Crayons grisés » sur Santorin :
   - Le déverrouillage d'un lot de copies numériques ou l'affectation d'un évaluateur se fait EXCLUSIVEMENT en autonomie locale par le Chef d'établissement dans Santorin (Menu « Liste des lots » ➔ clic direct sur le cadenas pour basculer de fermé à ouvert). 
   - La DEC n'intervient jamais pour modifier ou déverrouiller un lot en cours de route.
-======================================================================
-AJOUT échéance de saisie des notes : VÉRITÉS BOUTONS ET PROCÉDURES STRICTES (CRASH-TEST)
-======================================================================
-Quelle est l'échéance de saisie des notes dans Santorin ?
-Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement.
-
-PROTOCOLE IPACKEPS - NOUVEL ÉLÈVE :
-- Il est strictement INTERDIT de créer un élève manuellement dans iPackEPS (cela brise la synchronisation, les identifiants et l'INE pour les examens comme Santorin).
-- Risque : Élève invisible ou bloqué lors des remontées officielles.
-- Procédure réelle : Le coordonnateur ou l'enseignant doit demander une extraction à jour du fichier SIÈCLE/SCONET (XML/CSV) au secrétariat, puis faire un nouvel « Import » dans iPackEPS pour que l'élève soit créé proprement avec ses identifiants officiels. Ensuite, il suffit de l'affecter dans son groupe depuis l'onglet des classes/groupes.
-- DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN : 
-  L'enseignant ne peut en aucun cas déplacer lui-même un candidat d'un lot à un autre. Les listes de candidats sont gérées par l'administration. Le déplacement relève soit d'une modification du protocole dans Cyclades par le secrétariat, soit d'une réaffectation (distribution manuelle) par le Chef d'établissement dans la console Santorin-Direction. Aucun doublon n'est possible en raison de l'unicité du numéro INE. Tutoriel technique de référence : https://ipackeps.ac-creteil.fr/spip.php?article73

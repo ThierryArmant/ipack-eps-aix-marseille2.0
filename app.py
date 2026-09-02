@@ -738,7 +738,7 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN)
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -757,6 +757,7 @@ if prompt:
                 or est_deplacer_candidat
             )
         ) or est_tasa
+
         # 🚀 RECHERCHE RAG LOCALE
         if openai_api_key and not est_cas_direct:
             try:
@@ -858,7 +859,9 @@ if prompt:
     </ul>
   </li>
   <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
-</ul>"""
+</ul>
+📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
+📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         else:

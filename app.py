@@ -734,9 +734,9 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN)
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DE L'ONGLET)
         est_deplacer_candidat = (
-            mode == "examens"
+            mode != "textes"
             and "déplacer" in p_low
             and any(w in p_low for w in ["candidat", "élève", "eleve"])
             and "lot" in p_low
@@ -827,12 +827,25 @@ if prompt:
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_deplacer_candidat:
-            texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT D'UN LOT À UN AUTRE SUR SANTORIN</h3>
+            texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
 <ul>
-  <li><strong>Règle absolue :</strong> Il est formellement interdit et techniquement impossible pour un enseignant de déplacer lui-même un candidat d'un lot à un autre sur Santorin. Les listes sont gérées par l'administration.</li>
-  <li><strong>Rôle de la Direction :</strong> Si un déplacement est nécessaire au sein de l'établissement, seul le chef d'établissement peut procéder à la réaffectation manuelle d'un lot à un autre directement via la console <strong>Santorin-Direction</strong>, de manière autonome et <strong>sans avoir à repasser par Cyclades</strong>.</li>
+  <li><strong>Distinction clé :</strong> Ne pas confondre la « réaffectation d'un lot » entier (qui attribue la totalité des copies à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.</li>
+  <li><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</li>
+  <li><strong>Cas 1 &amp; 2 (Arrivée tardive ou erreur de protocole dans Cyclades) :</strong> 
+    <ul>
+      <li>Corriger l'affectation du candidat ou du protocole dans <strong>Cyclades</strong>.</li>
+      <li>Effectuer ensuite une nouvelle <strong>distribution automatique</strong> des candidats/lots dans Santorin.</li>
+    </ul>
+  </li>
+  <li><strong>Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) :</strong> Deux solutions directes dans Santorin :
+    <ul>
+      <li><strong>Option A :</strong> Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur <strong>« Affecter à un autre lot »</strong> ou <strong>« Affecter à un nouveau lot »</strong> en désignant le correcteur chargé de la notation.<br>
+      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/deplacer_candidat_vers_autre_lot.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel dédié</a></li>
+      <li><strong>Option B :</strong> Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève.<br>
+      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/procedures_complementaires.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel des procédures complémentaires</a></li>
+    </ul>
+  </li>
   <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
-  <li>👉 <a href="https://ipackeps.ac-creteil.fr/spip.php?article73" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel officiel de référence (Académie de Créteil)</a></li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 

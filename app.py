@@ -943,7 +943,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
    - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
 {directive_onglet}
 3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS - SILENCE ABSOLU SI HORS SUJET) :
-   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur l'une de ces manipulations techniques exactes (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4).
+   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur l'une de ces manipulations techniques exactes (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4).
    - INTERDICTION FORMELLE d'écrire le mot "tutoriel", "aucun", "néant" ou d'afficher une ligne vidéo si le sujet n'est pas l'une de ces manipulations techniques. Le texte doit s'arrêter net après la conclusion.
 """
 

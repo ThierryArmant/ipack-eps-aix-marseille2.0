@@ -478,3 +478,5 @@ AJOUTS RÉCENTS : CAS DU CADENAS ET BLOQUAGE SANTORIN
 * Explication précise du « Cadenas / Crayons grisés » sur Santorin :
   - Le déverrouillage d'un lot de copies numériques ou l'affectation d'un évaluateur se fait EXCLUSIVEMENT en autonomie locale par le Chef d'établissement dans Santorin (Menu « Liste des lots » ➔ clic direct sur le cadenas pour basculer de fermé à ouvert). 
   - La DEC n'intervient jamais pour modifier ou déverrouiller un lot en cours de route.
+RÈGLE D'OR - INAPTITUDE À L'APPROCHE DU CCF :
+Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative est une inaptitude temporaire. Elle n'ouvre jamais droit à un statut "DISP" immédiat. Elle impose obligatoirement l'organisation d'une épreuve différée (session de substitution) avant la clôture des serveurs académiques. Le statut "DISP" est proscrit pour un cas de dernière minute.

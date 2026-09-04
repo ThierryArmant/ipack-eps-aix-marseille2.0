@@ -361,16 +361,16 @@ def obtenir_cle_fichier():
     return max(mtimes) if mtimes else 0.0
 
 
-def charger_consignes_pierre():
+def charger_consignes_ipack():
     documents_charges = []
-    for fp in ["get_par_pierre.txt", "ipack.txt"]:
+    for fp in ["ipack.txt"]:
         if os.path.exists(fp):
             try:
                 with open(fp, "r", encoding="utf-8") as f:
                     documents_charges.append(
                         Document(
                             text=f.read(),
-                            metadata={"source": f"Règles de Pierre ({fp})"},
+                            metadata={"source": f"Règles ipack ({fp})"},
                         )
                     )
             except Exception:

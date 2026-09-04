@@ -4,7 +4,7 @@
                       (SOURCE DE VÉRITÉ ABSOLUE)
 ======================================================================
 
-[SECTION: CADRE_REGLEMENTAIRE_GENERAL]
+[SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
 
 [SITUATION: DÉFINITION DEC]
 Instruction : DEC = Division des Examens et Concours. Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion administrative des examens et concours. C'est l'autorité qui valide les affectations dans Cyclades, gère les convocations via IMAG'IN et traite les dossiers de force majeure.

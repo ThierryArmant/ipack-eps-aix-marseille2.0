@@ -416,7 +416,7 @@ def initialiser_base_santorin(cle_fremt):
         )
     ]
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    docs_santorin.extend(charger_consignes_pierre())
+    docs_santorin.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
     )
@@ -440,7 +440,7 @@ def initialiser_base_ipack(cle_fremt):
         )
     ]
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
-    docs_ipack.extend(charger_consignes_pierre())
+    docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
         similarity_top_k=8
     )
@@ -461,7 +461,7 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
-    docs_textes.extend(charger_consignes_pierre())
+    docs_textes.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_textes).as_retriever(
         similarity_top_k=8
     )

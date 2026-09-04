@@ -319,10 +319,28 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
 # ======================================================================
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
+tavily_api_key = st.secrets.get("TAVILY_API_KEY")
+tavily_client = None
+if tavily_api_key and TavilyClient:
+    try:
+        tavily_client = TavilyClient(api_key=tavily_api_key)
+    except Exception:
+        pass
+
+if openai_api_key:
+    Settings.llm = OpenAI(
+        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
+    )
+    Settings.embed_model = OpenAIEmbedding(
+        model="text-embedding-3-small", api_key=openai_api_key
+    )
+
 
 def obtenir_cle_fichier():
     mtimes = []
-    for fp in ["examens.txt", "ipack.txt"]:
+    # Surveillance des fichiers de consignes principaux
+    for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt"]:
         if os.path.exists(fp):
             try:
                 mtimes.append(os.path.getmtime(fp))
@@ -345,25 +363,23 @@ def obtenir_cle_fichier():
 
 
 def charger_consignes_examens():
-    """Charge les règles spécifiques aux examens et à Santorin."""
     documents_charges = []
-    for fp in ["examens.txt"]:
-        if os.path.exists(fp):
-            try:
-                with open(fp, "r", encoding="utf-8") as f:
-                    documents_charges.append(
-                        Document(
-                            text=f.read(),
-                            metadata={"source": f"Règles Examens ({fp})"},
-                        )
+    fp = "data/examens/memoire_examens_santorin.txt"
+    if os.path.exists(fp):
+        try:
+            with open(fp, "r", encoding="utf-8") as f:
+                documents_charges.append(
+                    Document(
+                        text=f.read(),
+                        metadata={"source": f"Mémoire Examens & Santorin ({fp})"},
                     )
-            except Exception:
-                pass
+                )
+        except Exception:
+            pass
     return documents_charges
 
 
 def charger_consignes_ipack():
-    """Charge les règles spécifiques à iPackEPS."""
     documents_charges = []
     for fp in ["ipack.txt"]:
         if os.path.exists(fp):
@@ -418,7 +434,7 @@ def initialiser_base_santorin(cle_fremt):
         )
     ]
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    # La base Santorin charge la mémoire spécifique aux examens :
+    # Charge la mémoire souveraine spécifique aux examens & Santorin
     docs_santorin.extend(charger_consignes_examens())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
@@ -443,7 +459,6 @@ def initialiser_base_ipack(cle_fremt):
         )
     ]
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
-    # La base iPack charge la mémoire spécifique à iPackEPS :
     docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
         similarity_top_k=8

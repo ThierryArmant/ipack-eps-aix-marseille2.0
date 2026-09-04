@@ -743,7 +743,7 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -885,15 +885,15 @@ if prompt:
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
    - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC).
    - Rédige STRICTEMENT selon ce plan :
-      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
-      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
-      * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
+     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
+     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
 """
         elif mode == "examens":
             directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-                - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-                - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
+        - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+        - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
         elif mode == "ipack":
             directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
@@ -957,7 +957,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # 🧹 NETTOYAGES & FORMATAGE HTML
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE
+        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE : Supprime tout ce qui ressemble à un tuto si on est en mode texte
         if mode == "textes":
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 
@@ -990,43 +990,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
-        # 📺 INTÉGRATION DIRECTE ET ROBUSTE DU LECTEUR VIDÉO HTML
-        video_a_inserer = None
-        
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            v_low = video_name.lower()
-            
-            # Correspondance élargie avec prise en compte des synonymes (ex: reconduction -> SSS)
-            if (v_low in texte_final.lower()) or \
-               ("sss" in v_low and any(w in p_low for w in ["sss", "section", "sportive", "reconduction"])) or \
-               ("inventaire" in v_low and any(w in p_low for w in ["inventaire", "epi", "materiel"])) or \
-               ("eleve" in v_low and any(w in p_low for w in ["eleve", "elève", "synchro", "importer"])) or \
-               ("glisser" in v_low and any(w in p_low for w in ["depot", "dépôt", "glisser", "drop"])) or \
-               ("equipe" in v_low and any(w in p_low for w in ["equipe", "équipe", "classe"])) or \
-               ("cm" in v_low and any(w in p_low for w in ["cm", "certificat", "cahpn"])) or \
-               ("zip" in v_low and any(w in p_low for w in ["zip", "export"])) or \
-               ("cyclades" in v_low and any(w in p_low for w in ["cyclades", "externe"])):
-                
-                video_a_inserer = video_url
-                texte_final = re.sub(rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}", "", texte_final, flags=re.IGNORECASE)
-                break
-
-        # Nettoyage de toute ligne tuto résiduelle
-        texte_final = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_final, flags=re.IGNORECASE)
-
-        # Construction du bloc HTML de la vidéo si une vidéo a été trouvée
-        video_html_block = ""
-        if video_a_inserer:
-            video_html_block = f"""
-            <div style='margin-top: 15px; margin-bottom: 5px;'>
-                <p style='font-size: 13px; color: #38BDF8; margin-bottom: 5px;'>📺 <strong>Tutoriel vidéo associé :</strong></p>
-                <video controls style='width: 100%; max-height: 350px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: #000;'>
-                    <source src='{video_a_inserer}' type='video/mp4'>
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-            </div>
-            """
-
         phrase_contexte = (
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
         )
@@ -1038,17 +1001,26 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             )
 
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{video_html_block}{footer_assistance}</div>'
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
-# AFFICHAGE DES MESSAGES DU HUB (Simplifié puisque tout est dans le HTML)
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
+                )
+
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Désormais hors du if prompt pour persister à l'écran)
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:
         with st.chat_message(m["role"]):
-            st.markdown(m["content"], unsafe_allow_html=True)
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)

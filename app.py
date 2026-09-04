@@ -319,27 +319,10 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
 # ======================================================================
-openai_api_key = st.secrets.get("OPENAI_API_KEY")
-tavily_api_key = st.secrets.get("TAVILY_API_KEY")
-tavily_client = None
-if tavily_api_key and TavilyClient:
-    try:
-        tavily_client = TavilyClient(api_key=tavily_api_key)
-    except Exception:
-        pass
-
-if openai_api_key:
-    Settings.llm = OpenAI(
-        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
-    )
-    Settings.embed_model = OpenAIEmbedding(
-        model="text-embedding-3-small", api_key=openai_api_key
-    )
-
 
 def obtenir_cle_fichier():
     mtimes = []
-    for fp in ["get_par_pierre.txt", "ipack.txt"]:
+    for fp in ["examens.txt", "ipack.txt"]:
         if os.path.exists(fp):
             try:
                 mtimes.append(os.path.getmtime(fp))
@@ -361,7 +344,26 @@ def obtenir_cle_fichier():
     return max(mtimes) if mtimes else 0.0
 
 
+def charger_consignes_examens():
+    """Charge les règles spécifiques aux examens et à Santorin."""
+    documents_charges = []
+    for fp in ["examens.txt"]:
+        if os.path.exists(fp):
+            try:
+                with open(fp, "r", encoding="utf-8") as f:
+                    documents_charges.append(
+                        Document(
+                            text=f.read(),
+                            metadata={"source": f"Règles Examens ({fp})"},
+                        )
+                    )
+            except Exception:
+                pass
+    return documents_charges
+
+
 def charger_consignes_ipack():
+    """Charge les règles spécifiques à iPackEPS."""
     documents_charges = []
     for fp in ["ipack.txt"]:
         if os.path.exists(fp):
@@ -370,7 +372,7 @@ def charger_consignes_ipack():
                     documents_charges.append(
                         Document(
                             text=f.read(),
-                            metadata={"source": f"Règles ipack ({fp})"},
+                            metadata={"source": f"Règles iPackEPS ({fp})"},
                         )
                     )
             except Exception:
@@ -416,7 +418,8 @@ def initialiser_base_santorin(cle_fremt):
         )
     ]
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    docs_santorin.extend(charger_consignes_ipack())
+    # La base Santorin charge la mémoire spécifique aux examens :
+    docs_santorin.extend(charger_consignes_examens())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
     )
@@ -440,6 +443,7 @@ def initialiser_base_ipack(cle_fremt):
         )
     ]
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
+    # La base iPack charge la mémoire spécifique à iPackEPS :
     docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
         similarity_top_k=8

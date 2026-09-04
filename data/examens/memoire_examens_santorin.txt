@@ -507,3 +507,7 @@ Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve cert
   2. Se connecter à **Imag'in Établissement**, créer ou rattacher la mission « Notation EPS CCF ».
   3. **L'action critique :** Cliquer impérativement sur le picto **« PDF »** de la convocation. Ce clic est l'action informatique obligatoire qui transmet (pousse) les droits d'écriture de l'enseignant vers la base Santorin (délai de synchronisation de 12h à 24h).
   4. Procéder ensuite à la distribution des lots dans la console Santorin-Direction.
+## 5. LA FAusse PISTE DES "CONDITIONS EXCEPTIONNELLES" (CE)
+- **Règle absolue :** Le dispositif de Conditions Exceptionnelles (CE) est **strictement collectif**. 
+- Il s'applique uniquement à la **totalité d'un groupe ou d'une classe** en raison de conditions de pratique et d'évaluation rendues impossibles pour l'ensemble du groupe (ex: intempéries majeures, destruction d'un équipement le jour J).
+- Il est **formellement interdit** d'invoquer ou de demander une procédure de CE pour le cas particulier d'un **élève isolé** (pour un élève isolé, voir l'épreuve différée ou le traitement des absences/dispenses).

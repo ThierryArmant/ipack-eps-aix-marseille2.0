@@ -1004,23 +1004,51 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
+       # 📺 INTÉGRATION DIRECTE DU LECTEUR VIDÉO HTML DANS LA RÉPONSE
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                pattern = rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}"
+                video_html = f"""
+                <div style='margin-top: 15px; margin-bottom: 5px;'>
+                    <p style='font-size: 13px; color: #38BDF8; margin-bottom: 5px;'>📺 <strong>Tutoriel vidéo associé :</strong></p>
+                    <video controls style='width: 100%; max-height: 350px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: #000;'>
+                        <source src='{video_url}' type='video/mp4'>
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                </div>
+                """
+                texte_final = re.sub(pattern, video_html, texte_final, flags=re.IGNORECASE)
+
+        # 🧹 NETTOYAGE DES LIGNES TUTO RESTANTES SI NON CONVERTIES
+        texte_final = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*.*",
+            "",
+            texte_final,
+            flags=re.IGNORECASE,
+        )
+
+        phrase_contexte = (
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+        )
+
+        footer_assistance = ""
+        if mode in ["ipack", "examens"]:
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+            )
+
+        formatted_answer = (
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+        )
+
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
-
-# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Désormais hors du if prompt pour persister à l'écran)
+# AFFICHAGE DES MESSAGES DU HUB (Simplifié puisque tout est dans le HTML)
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:
         with st.chat_message(m["role"]):
-            if m.get("type") == "video":
-                st.video(m["content"])
-            else:
-                st.markdown(m["content"], unsafe_allow_html=True)
+            st.markdown(m["content"], unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)

@@ -1004,28 +1004,34 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
-       # 📺 INTÉGRATION DIRECTE DU LECTEUR VIDÉO HTML DANS LA RÉPONSE
+       # 📺 INTÉGRATION DIRECTE ET ROBUSTE DU LECTEUR VIDÉO HTML
+        video_a_inserer = None
+        
+        # Détection par correspondance dans le texte généré OU par mots-clés dans la question
         for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                pattern = rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}"
-                video_html = f"""
-                <div style='margin-top: 15px; margin-bottom: 5px;'>
-                    <p style='font-size: 13px; color: #38BDF8; margin-bottom: 5px;'>📺 <strong>Tutoriel vidéo associé :</strong></p>
-                    <video controls style='width: 100%; max-height: 350px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: #000;'>
-                        <source src='{video_url}' type='video/mp4'>
-                        Votre navigateur ne supporte pas la lecture de vidéos.
-                    </video>
-                </div>
-                """
-                texte_final = re.sub(pattern, video_html, texte_final, flags=re.IGNORECASE)
+            if video_name in texte_final or (
+                ("sss" in video_name.lower() or "section" in video_name.lower()) and ("sss" in prompt.lower() or "sportive" in prompt.lower() or "reconduction" in prompt.lower())
+            ):
+                video_a_inserer = video_url
+                # Nettoyage si le texte contenait la ligne brute
+                texte_final = re.sub(rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}", "", texte_final, flags=re.IGNORECASE)
+                break
 
-        # 🧹 NETTOYAGE DES LIGNES TUTO RESTANTES SI NON CONVERTIES
-        texte_final = re.sub(
-            r"📺\s*Tutoriel\s+associé\s*:\s*.*",
-            "",
-            texte_final,
-            flags=re.IGNORECASE,
-        )
+        # Nettoyage de toute ligne tuto résiduelle
+        texte_final = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_final, flags=re.IGNORECASE)
+
+        # Construction du bloc HTML de la vidéo si une vidéo a été trouvée
+        video_html_block = ""
+        if video_a_inserer:
+            video_html_block = f"""
+            <div style='margin-top: 15px; margin-bottom: 5px;'>
+                <p style='font-size: 13px; color: #38BDF8; margin-bottom: 5px;'>📺 <strong>Tutoriel vidéo associé :</strong></p>
+                <video controls style='width: 100%; max-height: 350px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: #000;'>
+                    <source src='{video_a_inserer}' type='video/mp4'>
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            """
 
         phrase_contexte = (
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
@@ -1038,7 +1044,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             )
 
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{video_html_block}{footer_assistance}</div>'
         )
 
         st.session_state.messages_hub.append(

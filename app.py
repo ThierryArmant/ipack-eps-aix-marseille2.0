@@ -994,13 +994,19 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         video_a_inserer = None
         
         for video_name, video_url in VIDEOS_TUTOS.items():
-            cles_recherche = video_name.lower().replace(".mp4", "").split("_")
-            mots_cles_pertinents = [c for c in cles_recherche if len(c) > 3]
+            v_low = video_name.lower()
             
-            correspondance_texte = video_name.lower() in texte_final.lower()
-            correspondance_mots_cles = any(mot in p_low for mot in mots_cles_pertinents) and any(mot in texte_final.lower() for mot in mots_cles_pertinents)
-            
-            if correspondance_texte or correspondance_mots_cles:
+            # Correspondance élargie avec prise en compte des synonymes (ex: reconduction -> SSS)
+            if (v_low in texte_final.lower()) or \
+               ("sss" in v_low and any(w in p_low for w in ["sss", "section", "sportive", "reconduction"])) or \
+               ("inventaire" in v_low and any(w in p_low for w in ["inventaire", "epi", "materiel"])) or \
+               ("eleve" in v_low and any(w in p_low for w in ["eleve", "elève", "synchro", "importer"])) or \
+               ("glisser" in v_low and any(w in p_low for w in ["depot", "dépôt", "glisser", "drop"])) or \
+               ("equipe" in v_low and any(w in p_low for w in ["equipe", "équipe", "classe"])) or \
+               ("cm" in v_low and any(w in p_low for w in ["cm", "certificat", "cahpn"])) or \
+               ("zip" in v_low and any(w in p_low for w in ["zip", "export"])) or \
+               ("cyclades" in v_low and any(w in p_low for w in ["cyclades", "externe"])):
+                
                 video_a_inserer = video_url
                 texte_final = re.sub(rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}", "", texte_final, flags=re.IGNORECASE)
                 break

@@ -1478,3 +1478,44 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
   1. Ne jamais double-cliquer pour ouvrir un fichier CSV dans Excel.
   2. Si une modification est nécessaire, l'ouvrir exclusivement avec le Bloc-notes Windows (Notepad) ou Notepad++.
   3. Enregistrer le fichier en sélectionnant expressément l'encodage **UTF-8** avec le séparateur point-virgule (;).
+======================================================================
+📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS (VERSION 2026.2.x / 2026-2027)
+======================================================================
+
+----------------------------------------------------------------------
+1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE
+----------------------------------------------------------------------
+* Imports améliorés : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer / drag 'n drop, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko)[cite: 1].
+* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente de validation académique, validé avec ajustements, non valide, validé)[cite: 1].
+* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves est effectuée pour intégrer les entrées/sorties sans intervention manuelle dans la gestion des classes[cite: 1].
+
+----------------------------------------------------------------------
+2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
+----------------------------------------------------------------------
+* Description enrichie du matériel : Possibilité d'ajouter des photos, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois)[cite: 1].
+* Édition papier : La version papier de l'inventaire EPI intègre désormais la photo du matériel[cite: 1].
+
+----------------------------------------------------------------------
+3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
+----------------------------------------------------------------------
+* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS[cite: 1].
+* Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves[cite: 1].
+* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence[cite: 1].
+* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes[cite: 1].
+* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département[cite: 1].
+* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée[cite: 1].
+
+----------------------------------------------------------------------
+4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
+----------------------------------------------------------------------
+* Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR[cite: 1]. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation[cite: 1].
+* Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS[cite: 1].
+* Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements[cite: 1].
+
+----------------------------------------------------------------------
+5. DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE
+----------------------------------------------------------------------
+* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import[cite: 1] et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe[cite: 1].
+* Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution)[cite: 1].
+* Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
+* Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].

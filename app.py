@@ -743,7 +743,7 @@ if prompt:
 
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
+        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -885,15 +885,15 @@ if prompt:
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
    - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC).
    - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
-     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
+      🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
+      ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
+      * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
+      * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
 """
         elif mode == "examens":
             directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-        - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-        - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
+                - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+                - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
         elif mode == "ipack":
             directive_onglet = """
 3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
@@ -957,7 +957,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # 🧹 NETTOYAGES & FORMATAGE HTML
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE : Supprime tout ce qui ressemble à un tuto si on est en mode texte
+        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE
         if mode == "textes":
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 
@@ -990,30 +990,18 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
 
-        phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
-        )
-
-        footer_assistance = ""
-        if mode in ["ipack", "examens"]:
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
-            )
-
-        formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
-        )
-
-       # 📺 INTÉGRATION DIRECTE ET ROBUSTE DU LECTEUR VIDÉO HTML
+        # 📺 INTÉGRATION DIRECTE ET ROBUSTE DU LECTEUR VIDÉO HTML
         video_a_inserer = None
         
-        # Détection par correspondance dans le texte généré OU par mots-clés dans la question
         for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final or (
-                ("sss" in video_name.lower() or "section" in video_name.lower()) and ("sss" in prompt.lower() or "sportive" in prompt.lower() or "reconduction" in prompt.lower())
-            ):
+            cles_recherche = video_name.lower().replace(".mp4", "").split("_")
+            mots_cles_pertinents = [c for c in cles_recherche if len(c) > 3]
+            
+            correspondance_texte = video_name.lower() in texte_final.lower()
+            correspondance_mots_cles = any(mot in p_low for mot in mots_cles_pertinents) and any(mot in texte_final.lower() for mot in mots_cles_pertinents)
+            
+            if correspondance_texte or correspondance_mots_cles:
                 video_a_inserer = video_url
-                # Nettoyage si le texte contenait la ligne brute
                 texte_final = re.sub(rf"📺\s*Tutoriel\s+associé\s*:\s*{re.escape(video_name)}", "", texte_final, flags=re.IGNORECASE)
                 break
 

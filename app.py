@@ -956,6 +956,11 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
    - Un enseignant n'a PAS les droits de déverrouiller un lot de copies numériques depuis son profil de correcteur.
    - La manipulation relève EXCLUSIVEMENT du Chef d'établissement depuis sa console de direction sur Santorin (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).
    - INTERDICTION FORMELLE ET ABSOLUE de mentionner la DEC (Division des Examens et Concours) pour ce cas. C'est une action locale et autonome de l'établissement. L'assistant doit explicitement dire à l'enseignant de se rapprocher de sa direction.
+7. GESTION STRICTE DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF) :
+   - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative (CCF) est une INAPTITUDE TEMPORAIRE.
+   - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" (Dispensé) dans Santorin pour un cas de dernière minute.
+   - L'élève conserve son obligation d'être évalué : l'organisation d'une ÉPREUVE DIFFÉRÉE (session de substitution sur le terrain avant la clôture des serveurs académiques) est OBLIGATOIRE.
+   - Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes permanentes de début d'année validées en amont par la Commission Académique (CAHN).   
 
 {contexte_complet_ia}
 

@@ -762,18 +762,14 @@ if prompt:
         )
 
         est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
-
         est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
-
         est_cap_3epreuves = (
             mode == "examens"
             and "cap" in p_low
             and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"])
         )
-
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # ⚡ DÉTECTION DU DÉPLACEMENT DE CANDIDAT (SANTORIN - INDÉPENDANT DES ACCENTS ET DE L'ONGLET)
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -781,7 +777,9 @@ if prompt:
             and "lot" in p_low
         )
 
-        # ⚡ ROUTAGE RACCOURCI
+        # ⚡ DÉTECTION SSS (SÉCURITÉ VIDÉO AUTOMATIQUE)
+        est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
+
         est_cas_direct = (
             (mode != "textes") 
             and (
@@ -907,7 +905,7 @@ if prompt:
             else:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
-        # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLETS
+        # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLET
         directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
@@ -940,7 +938,6 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
-        # 🛡️ LE SOCLE DE SÉCURITÉ INVARIABLE ET CENTRALISÉ
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
@@ -968,13 +965,13 @@ QUESTION DE L'UTILISATEUR :
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
 2. STRUCTURE & MISE EN PAGE :
-   - Rends une réponse TRÈS AÉRÉE, pas à pas, ligne par ligne.
-   - Utilise impérativement des listes à puces ou ordonnées HTML (<ol>, <ul>, <li>).
-   - Mettre les éléments d'interface et mots-clés en gras (<strong>...</strong>).
+   - Rends une réponse bien structurée et claire.
+   - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
 {directive_onglet}
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS - SILENCE ABSOLU SI HORS SUJET) :
-   - Termine par "📺 Tutoriel associé : nom_du_fichier.mp4" UNIQUEMENT si la question porte explicitement sur l'une de ces manipulations techniques exactes (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4, Export_profs_externes_cyclades.mp4).
-   - INTERDICTION FORMELLE d'écrire le mot "tutoriel", "aucun", "néant" ou d'afficher une ligne vidéo si le sujet n'est pas l'une de ces manipulations techniques. Le texte doit s'arrêter net après la conclusion.
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
+   - Si la question porte explicitement sur les SSS (reconduction, fermeture, projet), termine obligatoirement par : 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4
+   - Si elle porte sur la signature SSS, termine par : 📺 Tutoriel associé : Signature_chef_etablissement_SSS.mp4
+   - Pour les autres manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 """
 
         if not est_cas_direct:
@@ -984,10 +981,13 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🧹 NETTOYAGES & FORMATAGE HTML
+        # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS (FORCE L'AFFICHAGE DU TUTO SI OUBLI DE L'IA)
+        if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
+            texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
+
+        # 🧹 NETTOYAGES & FORMATAGE HTML CORRIGÉ (CORRECTION DE L'ESPACEMENT GÉANT)
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        # 🛑 GUILLOTINE ANTI-TUTO POUR L'ONGLET JURIDIQUE : Supprime tout ce qui ressemble à un tuto si on est en mode texte
         if mode == "textes":
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 
@@ -1012,13 +1012,16 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_brut = re_links
 
+        # 🔧 CORRECTION CRITIQUE DES ESPACES : On ne convertit plus aveuglément les \n en <br> 
+        # pour éviter de casser les listes HTML et créer des interlignages géants.
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
             texte_nettoye.replace("<p>", "")
             .replace("</p>", "<br>")
-            .replace("\n", "<br>")
         )
-        texte_final = re.sub(r"(<br>\s*){3,}", "<br><br>", texte_final)
+        # Nettoyage propre des sauts de ligne superflus sans doubler les balises de listes
+        texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
+        texte_final = texte_final.replace("\n", "<br>")
 
         phrase_contexte = (
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
@@ -1044,7 +1047,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Désormais hors du if prompt pour persister à l'écran)
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Hors du if prompt pour persister à l'écran)
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:

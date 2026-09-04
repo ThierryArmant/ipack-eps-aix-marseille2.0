@@ -480,3 +480,30 @@ AJOUTS RÉCENTS : CAS DU CADENAS ET BLOQUAGE SANTORIN
   - La DEC n'intervient jamais pour modifier ou déverrouiller un lot en cours de route.
 RÈGLE D'OR - INAPTITUDE À L'APPROCHE DU CCF :
 Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative est une inaptitude temporaire. Elle n'ouvre jamais droit à un statut "DISP" immédiat. Elle impose obligatoirement l'organisation d'une épreuve différée (session de substitution) avant la clôture des serveurs académiques. Le statut "DISP" est proscrit pour un cas de dernière minute.
+# RÉFÉRENTIEL OFFICIEL - EXAMENS EPS, SANTORIN & iPACKEPS (DOCTROCINE ACADÉMIQUE)
+
+## 1. RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)
+- **Principe absolu :** Le CCF (Voie Pro et Voie GT) impose obligatoirement que les 3 épreuves de l'ensemble certificatif relèvent de **3 Champs d'Apprentissage (CA) distincts**.
+- **Exemple de blocage iPackEPS :** Programmer Volley-ball, Basket-ball et Badminton déclenche un rejet car ces trois activités appartiennent toutes au **CA4** (*Conduire et maîtriser un affrontement collectif ou interindividuel*).
+- **Solution :** Diversifier impérativement en piochant dans le CA1 (athlétisme/natation), CA2 (escalade/CO), CA3 (danse/gym) ou CA5 (musculation).
+
+## 2. GESTION DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF)
+- **Inaptitude temporaire (blessure survenant à l'approche ou le jour de l'épreuve) :** 
+  - Il est **formellement interdit** de renseigner immédiatement le statut "DISP" (Dispensé) dans Santorin.
+  - L'élève conserve son obligation d'être évalué : l'organisation d'une **épreuve différée** (session de substitution sur le terrain avant la clôture des serveurs académiques) est **obligatoire**.
+- **Inaptitude permanente / Handicap :** Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes de début d'année validées en amont par la Commission Académique (CAHN).
+
+## 3. PROFILS DE NOTATION PARTICULIERS (CAS "DI + DI + NOTE")
+- **Définition du sigle :** En notation EPS (Santorin), **DI** signifie **Dispensé(e)** suite à une inaptitude médicale (ce n'est en aucun cas une dispense injustifiée).
+- **Procédure face à un profil type `DI + DI + 14` :**
+  1. Saisir le statut **[Dispensé] (DI)** pour les deux épreuves manquées.
+  2. Saisir la note réelle (ex: 14/20) sur l'unique APSA évaluée.
+  3. **Rédiger obligatoirement un commentaire circonstancié** dans Santorin à destination de la commission d'harmonisation pour expliciter la situation et demander soit le maintien de la note unique, soit la neutralisation.
+
+## 4. CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT
+- **Le piège du portail Imag'in :** Si un enseignant remplaçant (arrivé en cours d'année suite à un long arrêt) ne voit pas ses lots dans Santorin, le problème ne vient pas de Santorin mais d'Imag'in.
+- **Procédure exacte :**
+  1. Saisir/vérifier l'affectation administrative dans STSWEB.
+  2. Se connecter à **Imag'in Établissement**, créer ou rattacher la mission « Notation EPS CCF ».
+  3. **L'action critique :** Cliquer impérativement sur le picto **« PDF »** de la convocation. Ce clic est l'action informatique obligatoire qui transmet (pousse) les droits d'écriture de l'enseignant vers la base Santorin (délai de synchronisation de 12h à 24h).
+  4. Procéder ensuite à la distribution des lots dans la console Santorin-Direction.

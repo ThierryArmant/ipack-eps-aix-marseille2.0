@@ -871,8 +871,7 @@ if prompt:
         est_cas_direct = (
             (mode != "textes") 
             and (
-                est_date 
-                or est_dnb 
+                est_date                 
                 or est_sujet_secours 
                 or est_cap_3epreuves 
                 or est_deplacer_candidat

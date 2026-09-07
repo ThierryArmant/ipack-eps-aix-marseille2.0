@@ -613,19 +613,41 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 🚨 BANDEAU D'ALERTE DE VEILLE (Avec affichage de la date de détection)
+# 🚨 BANDEAU D'ALERTE DE VEILLE (Avec documents trouvés et liens directs vers les sites)
 if "alerte_veille_dec" in st.session_state:
   date_alerte = st.session_state.get("date_veille_dec", "Récemment")
+  liens = st.session_state.get("liens_veille_dec", [])
+
+  # Génération des liens spécifiques trouvés par la recherche
+  liens_html = ""
+  for item in liens:
+    titre = item.get("title", "Document officiel")
+    url = item.get("url", "#")
+    liens_html += f'<li><a href="{url}" target="_blank" style="color: #60A5FA; text-decoration: underline; font-weight: 500;">{titre}</a></li>'
+
+  if not liens_html:
+    liens_html = (
+        "<li>Aucun lien direct extrait, consultez les portails ci-dessous.</li>"
+    )
 
   st.markdown(
       f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 22px;">🚨</span>
-            <div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 22px; margin-top: 2px;">🚨</span>
+            <div style="width: 100%;">
                 <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Veille réglementaire mensuelle — Détectée le {date_alerte}</strong>
-                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 4px; line-height: 1.5;">
-                    De nouvelles informations ou mises à jour ont été détectées sur les sites officiels concernant les examens ou l'EPS. Pensez à vérifier si une nouvelle circulaire DEC a été publiée.
+                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px; line-height: 1.5;">
+                    De nouvelles informations ou mises à jour ont été détectées. 
+                    <div style="margin-top: 4px; font-weight: 600; color: #F8FAFC;">Documents ciblés :</div>
+                    <ul style="margin: 4px 0 8px 20px; padding: 0;">
+                        {liens_html}
+                    </ul>
+                    <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px;">
+                        🌐 <b>Accès rapides aux portails :</b> 
+                        <a href="https://eduscol.education.fr" target="_blank" style="color: #38BDF8; text-decoration: underline; margin-right: 8px;">Eduscol</a> | 
+                        <a href="https://www.education.gouv.fr" target="_blank" style="color: #38BDF8; text-decoration: underline; margin-left: 8px;">Ministère de l'Éducation Nationale</a>
+                    </div>
                 </div>
             </div>
         </div>

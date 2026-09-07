@@ -871,12 +871,10 @@ if prompt:
             )
         ) or est_tasa
 
-        # 🚀 RECHERCHE RAG LOCALE (AVEC CONTEXTE CIBLÉ DNB POUR ÉVITER LA POLLUTION LYCÉE)
+       # 🚀 RECHERCHE RAG LOCALE (Laisser le retriever interroger les fichiers)
         if openai_api_key and not est_cas_direct:
             try:
-                if est_dnb:
-                    extraits_doc = "RÈGLE OFFICIELLE COLLÈGE & DNB : L'évaluation de l'EPS au Diplôme National du Brevet (DNB) repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le Livret Scolaire Unique (LSU). Il n'y a aucun CCF, aucune note sur 20 transmise à la DEC, et aucun protocole Santorin. Les positionnements de 1 à 4 sont utilisés.\n\n"
-                elif mode == "examens":
+                if mode == "examens":
                     for n in retriever_santorin.retrieve(prompt):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":

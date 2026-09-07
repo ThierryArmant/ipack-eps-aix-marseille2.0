@@ -5,6 +5,9 @@ on:
     - cron: '0 2 * * *' # S'exécute tous les soirs à 2h00 du matin
   workflow_dispatch: # Permet aussi de lancer le script manuellement depuis GitHub quand tu veux
 
+permissions:
+  contents: write
+
 jobs:
   run-patcher:
     runs-on: ubuntu-latest

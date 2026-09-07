@@ -2,8 +2,8 @@ name: Auto-Patch RAG Assistant
 
 on:
   schedule:
-    - cron: '0 2 * * *' # S'exécute tous les soirs à 2h00 du matin
-  workflow_dispatch: # Permet aussi de lancer le script manuellement depuis GitHub quand tu veux
+    - cron: '0 2 * * *' # Tous les soirs à 2h00
+  workflow_dispatch: # Lancement manuel possible
 
 permissions:
   contents: write
@@ -23,13 +23,13 @@ jobs:
       - name: Installation des dépendances
         run: pip install requests google-generativeai
 
-      - name: Exécution du script d'analyse
+      - name: Exécution du script d'analyse multi-RAG
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/auto_patch_rag.py
 
-      - name: Commit et Push automatique si le fichier a changé
+      - name: Commit et Push automatique si un fichier a changé
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 [Auto-Patch] Mise à jour intelligente du RAG via les logs"
-          file_pattern: "data/examens/regles_dnb_eps.txt"
+          commit_message: "🤖 [Auto-Patch Multi-RAG] Mise à jour intelligente des bases de connaissances"
+          file_pattern: "ipack.txt data/examens/regles_dnb_eps.txt"

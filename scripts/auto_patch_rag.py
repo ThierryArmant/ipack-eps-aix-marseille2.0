@@ -4,7 +4,7 @@ import google.generativeai as genai
 
 # Configuration de l'API Gemini
 genai.api_key = os.environ["GEMINI_API_KEY"]
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-3.6-flash")
 
 # Ton URL Google Apps Script
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"

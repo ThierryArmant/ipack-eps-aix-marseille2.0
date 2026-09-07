@@ -23,3 +23,45 @@ CADRE OFFICIEL, NOUVEAUTÉS & GESTION DES ABSENCES DE L'EPS AU DNB (COLLÈGE)
 
 5. ABSENCE DE PROTOCOLE CERTIFICATIF EXTERNE (SANTORIN / CYCLADES) :
 - Les collèges ne paramètrent aucun protocole CCF sur Santorin et ne sont soumis à aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC). L'évaluation demeure un processus interne à l'établissement.
+
+
+======================================================================
+AJOUT AUTOMATIQUE (ANALYSE DES LOGS)
+======================================================================
+Voici l'analyse des questions posées et la proposition de complément à intégrer dans la base de connaissances.
+
+---
+
+### Analyse des requêtes
+
+L'analyse des questions révèle deux grandes catégories d'interrogations :
+
+1. **Incompréhensions et doutes réglementaires récurrents (EPS au DNB) :**
+   * **Question massivement récurrente :** *"Y a-t-il des nouveautés en EPS au DNB ?"* (posée près de 10 fois sous différentes formes). Cela traduit une inquiétude ou une rumeur d'enseignants sur un potentiel changement de texte officiel.
+   * **Zone d'ombre précise :** La confusion entre le **positionnement par compétences (niveaux 1 à 4)** du Socle Commun (Cycle 4) et le **retour éventuel à une note sur 20** pour le DNB. Les enseignants demandent explicitement s'il faut revenir à une notation chiffrée sur 20.
+
+2. **Questions techniques / support (iPackEPS & Métadonnées du Chatbot) :**
+   * Questions sur le fonctionnement d'iPackEPS (drag & drop, date de mise en service).
+   * Questions système / RGPD (hébergement des données, modèle LLM utilisé).
+
+---
+
+### Bloc RAG à ajouter dans `regles_dnb_eps.txt`
+
+Pour répondre précisément aux doutes récurrents des enseignants sur l'évaluation du DNB et clarifier l'absence de retour à la notation sur 20, voici le paragraphe à insérer dans votre fichier :
+
+```markdown
+### ÉVALUATION ET MODALITÉS DE NOTATION DE L'EPS AU DNB (CYCLE 4)
+
+**Modalités d'évaluation :**
+- L'évaluation de l'EPS pour le Diplôme National du Brevet (DNB) repose exclusivement sur l'évaluation continue des compétences du Socle commun de connaissances, de compétences et de culture à la fin du Cycle 4 (classe de 3ème).
+- **Positionnement sur 4 niveaux :** L'évaluation ne nécessite pas de notation chiffrée sur 20. Elle s'appuie réglementairement sur l'échelle de maîtrise à 4 niveaux :
+  1. Maîtrise insuffisante
+  2. Maîtrise fragile
+  3. Maîtrise satisfaisante
+  4. Très bonne maîtrise
+- **Absence de retour à la note sur 20 :** Il n'y a aucune obligation ni recommandation institutionnelle exigeant le retour à une notation sur 20 en EPS pour la validation du DNB. Les bilans périodiques et le bilan de fin de cycle prévalent.
+
+**Nouveautés réglementaires :**
+- Aucune modification réglementaire récente ne vient modifier les modalités d'évaluation de l'EPS au DNB. L'évaluation reste adossée au projet d'EPS de l'établissement et aux attendus de fin de cycle 4.
+```

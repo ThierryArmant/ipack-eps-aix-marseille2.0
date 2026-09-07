@@ -583,9 +583,24 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 🚨 BANDEAU DE VEILLE (Affiché uniquement si une nouveauté est détectée ce mois-ci)
+# 🚨 BANDEAU D'ALERTE DE VEILLE (S'affiche s'il y a une nouveauté détectée)
 if "alerte_veille_dec" in st.session_state:
-  st.warning(st.session_state.alerte_veille_dec, icon="🚨")
+  st.markdown(
+      """
+    <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 22px;">🚨</span>
+            <div>
+                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Veille réglementaire mensuelle</strong>
+                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 4px; line-height: 1.5;">
+                    De nouvelles informations ou mises à jour ont été détectées sur les sites officiels concernant les examens ou l'EPS. Pensez à vérifier si une nouvelle circulaire DEC a été publiée.
+                </div>
+            </div>
+        </div>
+    </div>
+    """,
+      unsafe_allow_html=True,
+  )
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================

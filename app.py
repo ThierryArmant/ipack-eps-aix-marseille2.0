@@ -1127,6 +1127,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
+                # 🛡️ SÉCURITÉ : Interdire les tutos Santorin pour le collège/DNB
+                if est_dnb and "santorin" in video_name.lower():
+                    continue
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )

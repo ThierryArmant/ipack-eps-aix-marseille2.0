@@ -2,11 +2,27 @@ import datetime
 import os
 import re
 import smtplib
+import requests  # 👈 Ajouté ici
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
+
+# ======================================================================
+# 📊 CONFIGURATION GOOGLE SHEETS LOGS (QUESTIONS HUB)
+# ======================================================================
+WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
+
+
+def log_interaction(question, reponse):
+  payload = {"question": question, "reponse": reponse}
+  try:
+    requests.post(WEBHOOK_URL, json=payload, timeout=2)
+  except Exception:
+    pass  # Empêche l'app de planter si le réseau a un raté
+
+
 # ======================================================================
 # 🛡️ CONTOURNEMENT NLTK & IMPORT TAVILY
 # ======================================================================

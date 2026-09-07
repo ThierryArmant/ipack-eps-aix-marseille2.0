@@ -1,15 +1,25 @@
 ======================================================================
-CADRE OFFICIEL ET MODALITÉS D'ÉVALUATION DE L'EPS AU DNB (COLLÈGE)
+CADRE OFFICIEL, NOUVEAUTÉS & GESTION DES ABSENCES DE L'EPS AU DNB (COLLÈGE)
 ======================================================================
 
-1. PRINCIPE DE LA NOTE CHIFFRÉE SUR 20 :
-- Contrairement aux idées reçues, la validation de l'EPS pour le Diplôme National du Brevet (DNB) repose sur une note chiffrée sur 20.
-- Cette note annuelle de contrôle continu est calculée à partir des évaluations menées en classe de troisième dans au moins trois Activités Physiques, Sportives et Artistiques (APSA) relevant de champs d'apprentissage distincts.
+1. LA GRANDE NOUVEAUTÉ DE LA RÉFORME DU DNB :
+- Fin définitive du système de notation sur 800 points basé sur les composantes globales du socle commun.
+- Le DNB est désormais délivré sur une moyenne finale sur 20 (60 % pour les épreuves terminales, 40 % pour le contrôle continu).
+- Le contrôle continu en EPS se traduit par une note annuelle sur 20 (moyenne d'au moins 3 APSA de champs d'apprentissage distincts en classe de troisième). Cette note intègre la moyenne générale de troisième au même titre que les autres disciplines, remontée via le Livret Scolaire Unique (LSU).
 
 2. ARTICULATION AVEC LES POSITIONNEMENTS (1 À 4) ET LE LSU :
 - Au quotidien, les apprentissages et le suivi du cycle 4 s'appuient sur les positionnements de 1 à 4 (maîtrise insuffisante, fragile, satisfaisante, très bonne maîtrise) du socle commun.
-- Pour l'examen du DNB, ces acquisitions se traduisent par une note annuelle sur 20 qui est remontée et officialisée via le Livret Scolaire Unique (LSU).
+- Pour l'examen du DNB, ces acquisitions se traduisent par une note annuelle sur 20 formalisée dans le LSU.
 
-3. ABSENCE DE PROTOCOLE CERTIFICATIF EXTERNE (SANTORIN / CYCLADES) :
-- Les collèges ne paramètrent aucun protocole CCF sur Santorin et ne sont soumis à aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC).
-- L'évaluation demeure un processus interne à l'établissement piloté par l'équipe pédagogique d'EPS et validé par le conseil de classe / chef d'établissement dans le cadre du contrôle continu du brevet.
+3. GESTION DES ÉLÈVES ABSENTS EN COURS D'ANNÉE :
+- Absence justifiée (ABJ) à une ou plusieurs séquences d'APSA : L'équipe pédagogique doit s'efforcer de proposer des rattrapages ou d'évaluer l'élève sur les autres APSA réalisées dans l'année, dès lors que le seuil réglementaire d'au moins 3 APSA validées peut être atteint.
+- Absence prolongée / Année incomplète : Si l'élève n'a pu valider le nombre minimal d'APSA requis en raison d'une absence médicale longue mais couverte ou d'un parcours atypique, le conseil de classe, sur proposition de l'équipe d'EPS, examine la situation au cas par cas pour statuer sur la note de contrôle continu ou prononcer une dispense partielle justifiée.
+- Absence injustifiée (ABI) : L'élève s'expose à la note de 0 pour l'évaluation concernée, conformément au règlement intérieur de l'établissement et aux textes sur l'obligation d'assiduité scolaire.
+
+4. RÈGLES DE RATTRAPAGE ET ÉPREUVES DE SUBSTITUTION :
+- Absence de dernière minute ou inaptitude ponctuelle justifiée le jour d'une évaluation sommative : Il n'existe aucun sujet écrit ou devoir papier de secours en EPS (l'évaluation est 100 % pratique). 
+- Organisation obligatoire d'une session de rattrapage (épreuve de substitution sur le terrain) avant la clôture des notes du trimestre et la validation du LSU de troisième.
+- Inaptitude médicale totale et définitive de l'année : Saisie du statut dispensé [DISP] sur présentation d'un certificat médical officiel conforme transmis en début d'année ou validé selon les procédures de l'établissement.
+
+5. ABSENCE DE PROTOCOLE CERTIFICATIF EXTERNE (SANTORIN / CYCLADES) :
+- Les collèges ne paramètrent aucun protocole CCF sur Santorin et ne sont soumis à aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC). L'évaluation demeure un processus interne à l'établissement.

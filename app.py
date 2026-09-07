@@ -976,7 +976,7 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
    - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative (CCF) est une INAPTITUDE TEMPORAIRE.
    - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" (Dispensé) dans Santorin pour un cas de dernière minute.
    - L'élève conserve son obligation d'être évalué : l'organisation d'une ÉPREUVE DIFFÉRÉE (session de substitution sur le terrain avant la clôture des serveurs académiques) est OBLIGATOIRE.
-   - Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes permanentes de début d'année validées en amont par la Commission Académique (CAHN).   
+   - Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes permanentes de début d'année validées en amont par la Commission Académique (CAHN).    
 
 {contexte_complet_ia}
 
@@ -1057,6 +1057,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         formatted_answer = (
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
+
+        # 🚀 ENREGISTREMENT DISCRET DANS LE GOOGLE SHEET "Questions Hub"
+        log_interaction(prompt, texte_brut)
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}

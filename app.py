@@ -1069,7 +1069,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # 🧹 NETTOYAGES & FORMATAGE HTML CORRIGÉ (CORRECTION DE L'ESPACEMENT GÉANT)
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        if mode == "textes":
+        if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 
         texte_brut = re.sub(

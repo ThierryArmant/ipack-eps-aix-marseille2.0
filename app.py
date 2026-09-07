@@ -12,15 +12,18 @@ from llama_index.llms.openai import OpenAI
 # ======================================================================
 # 📊 CONFIGURATION GOOGLE SHEETS LOGS (QUESTIONS HUB)
 # ======================================================================
-WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
+WEBHOOK_URL = (
+    "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
+)
 
 
 def log_interaction(question, reponse):
   payload = {"question": question, "reponse": reponse}
   try:
-    requests.post(WEBHOOK_URL, json=payload, timeout=2)
-  except Exception:
-    pass  # Empêche l'app de planter si le réseau a un raté
+    requests.post(WEBHOOK_URL, json=payload, timeout=10)
+  except Exception as e:
+    # Affiche l'erreur dans la console si le réseau bloque
+    print(f"Erreur de log Google Sheet : {e}")
 
 
 # ======================================================================

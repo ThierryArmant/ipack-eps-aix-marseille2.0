@@ -512,48 +512,76 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLE AUTOMATIQUE TAVILY (Sans e-mail - Alerte visuelle)
+# 🔔 VEILLE AUTOMATIQUE TAVILY (Avec expiration automatique après 7 jours)
 # ======================================================================
 def verifier_veille_dec(tavily_client):
-    if not tavily_client:
-        return
+  if not tavily_client:
+    return
 
-    fichier_suivi = "dernier_check_dec.txt"
-    mois_actuel = datetime.datetime.now().strftime("%Y-%m")
+  fichier_suivi = "dernier_check_dec.txt"
+  fichier_date_alerte = "date_alerte_dec.txt"
+  mois_actuel = datetime.datetime.now().strftime("%Y-%m")
+  aujourdhui = datetime.date.today()
 
-    a_deja_ete_fait = False
-    if os.path.exists(fichier_suivi):
-        try:
-            with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel:
-                    a_deja_ete_fait = True
-        except Exception:
-            pass
+  # 1. Vérifier si une alerte est active et si elle a moins de 7 jours
+  if os.path.exists(fichier_date_alerte):
+    try:
+      with open(fichier_date_alerte, "r", encoding="utf-8") as f:
+        date_alerte_str = f.read().strip()
+        date_alerte = datetime.datetime.strptime(
+            date_alerte_str, "%Y-%m-%d"
+        ).date()
 
-    if not a_deja_ete_fait:
-        try:
-            recherche_veille = tavily_client.search(
-                query=(
-                    "circulaire examen EPS DEC Aix-Marseille mise à jour"
-                    f" {datetime.datetime.now().year}"
-                ),
-                max_results=2,
-                include_domains=["eduscol.education.fr", "education.gouv.fr"],
-            )
+        # Si l'alerte a 7 jours ou moins, on l'affiche
+        if (aujourdhui - date_alerte).days <= 7:
+          st.session_state.alerte_veille_dec = (
+              "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+              " mises à jour ont été détectées sur les sites officiels"
+              " concernant les examens ou l'EPS. Pensez à vérifier si une"
+              " nouvelle circulaire DEC a été publiée."
+          )
+          return  # On sort, pas besoin de relancer de recherche
+    except Exception:
+      pass
 
-            with open(fichier_suivi, "w", encoding="utf-8") as f:
-                f.write(mois_actuel)
+  # 2. Sinon, on effectue le contrôle mensuel habituel pour ne pas saturer l'API
+  a_deja_ete_fait = False
+  if os.path.exists(fichier_suivi):
+    try:
+      with open(fichier_suivi, "r", encoding="utf-8") as f:
+        if f.read().strip() == mois_actuel:
+          a_deja_ete_fait = True
+    except Exception:
+      pass
 
-            if recherche_veille.get("results"):
-                texte_alerte = (
-                    "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-                    " mises à jour ont été détectées sur les sites officiels concernant"
-                    " les examens ou l'EPS. Pensez à vérifier si une nouvelle"
-                    " circulaire DEC a été publiée."
-                )
-                st.session_state.alerte_veille_dec = texte_alerte
-        except Exception:
-            pass
+  if not a_deja_ete_fait:
+    try:
+      recherche_veille = tavily_client.search(
+          query=(
+              "circulaire examen EPS DEC Aix-Marseille mise à jour"
+              f" {datetime.datetime.now().year}"
+          ),
+          max_results=2,
+          include_domains=["eduscol.education.fr", "education.gouv.fr"],
+      )
+
+      # On marque le mois comme vérifié
+      with open(fichier_suivi, "w", encoding="utf-8") as f:
+        f.write(mois_actuel)
+
+      # Si des résultats sont trouvés, on enregistre la date exacte du jour
+      if recherche_veille.get("results"):
+        with open(fichier_date_alerte, "w", encoding="utf-8") as f:
+          f.write(aujourdhui.strftime("%Y-%m-%d"))
+
+        st.session_state.alerte_veille_dec = (
+            "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+            " mises à jour ont été détectées sur les sites officiels"
+            " concernant les examens ou l'EPS. Pensez à vérifier si une"
+            " nouvelle circulaire DEC a été publiée."
+        )
+    except Exception:
+      pass
 
 
 # Lancement du contrôle mensuel automatique au démarrage

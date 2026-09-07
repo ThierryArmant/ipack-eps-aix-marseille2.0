@@ -26,36 +26,63 @@ def analyser_et_patcher():
         
     logs_texte = "\n".join(f"- {q}" for q in dernier_logs)
 
-    print("2. Analyse des questions par Gemini...")
+    print("2. Analyse intelligente et routage par Gemini...")
     prompt = f"""
     Voici les dernières questions posées par des enseignants d'EPS dans le Hub IA :
     {logs_texte}
     
-    Analyse ces questions. Identifie s'il y a des zones d'ombre, des incompréhensions récurrentes ou des règles réglementaires qui manquent dans notre base de connaissances.
-    Si une correction ou un complément précis est nécessaire, rédige un court paragraphe au format Markdown (style bloc RAG) prêt à être ajouté dans un fichier de règles institutionnelles (`regles_dnb_eps.txt`). 
-    Si tout est déjà parfaitement couvert et qu'aucun ajout n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
+    Analyse ces questions. Tu dois déterminer si elles nécessitent de mettre à jour l'une de nos bases de connaissances (RAG). 
+    Nous avons deux fichiers cibles possibles :
+    1. `ipack` -> Concerne le fonctionnement de l'application iPackEPS, ses outils, ses tableaux, ses scripts ou son utilisation pratique.
+    2. `examens` -> Concerne la réglementation, les textes officiels, les épreuves ou les règles du DNB EPS.
+
+    Si une correction ou un complément est nécessaire, réponds STRICTEMENT selon ce format précis :
+    CIBLE: [ipack ou examens]
+    CONTENU:
+    [Le paragraphe au format Markdown prêt à être ajouté]
+
+    Si tout est déjà couvert ou que les questions ne nécessitent pas de modification, réponds strictement par : "RIEN_A_SIGNALER".
     """
     
     response = model.generate_content(prompt)
-    texte_corrige = response.text.strip()
+    texte_reponse = response.text.strip()
     
-    if "RIEN_A_SIGNALER" in texte_corrige or len(texte_corrige) < 20:
+    if "RIEN_A_SIGNALER" in texte_reponse or len(texte_reponse) < 20:
         print("Aucun nouveau patch nécessaire. Tout est carré !")
         return
 
-    print("3. Écriture de la correction dans le fichier RAG...")
-    rag_path = "data/examens/regles_dnb_eps.txt"
+    # Identification de la cible
+    cible = None
+    if "CIBLE: ipack" in texte_reponse:
+        cible = "ipack.txt"
+    elif "CIBLE: examens" in texte_reponse:
+        cible = "data/examens/regles_dnb_eps.txt"
+    else:
+        print("Format de routage non reconnu par l'IA.")
+        return
+
+    # Extraction du contenu du patch
+    if "CONTENU:" in texte_reponse:
+        contenu_patch = texte_reponse.split("CONTENU:")[1].strip()
+    else:
+        print("Balise CONTENU introuvable.")
+        return
+
+    if not contenu_patch:
+        print("Le patch généré est vide.")
+        return
+
+    print(f"3. Écriture de la correction dans le fichier cible : {cible}...")
     
-    with open(rag_path, "r", encoding="utf-8") as f:
+    with open(cible, "r", encoding="utf-8") as f:
         contenu_actuel = f.read()
 
-    # Ajout de la nouvelle règle générée par l'IA à la fin du fichier
-    nouveau_contenu = contenu_actuel + f"\n\n======================================================================\nAJOUT AUTOMATIQUE (ANALYSE DES LOGS)\n======================================================================\n{texte_corrige}\n"
+    nouveau_contenu = contenu_actuel + f"\n\n======================================================================\nAJOUT AUTOMATIQUE (MULTIRAG - {cible})\n======================================================================\n{contenu_patch}\n"
 
-    with open(rag_path, "w", encoding="utf-8") as f:
+    with open(cible, "w", encoding="utf-8") as f:
         f.write(nouveau_contenu)
     
-    print("Fichier RAG mis à jour avec succès !")
+    print(f"Fichier {cible} mis à jour avec succès !")
 
 if __name__ == "__main__":
     analyser_et_patcher()

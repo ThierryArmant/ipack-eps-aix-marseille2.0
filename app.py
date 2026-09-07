@@ -512,7 +512,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLE AUTOMATIQUE TAVILY (Avec expiration automatique après 7 jours)
+# 🔔 VEILLE AUTOMATIQUE TAVILY (Avec gestion de la date et expiration 7 jours)
 # ======================================================================
 def verifier_veille_dec(tavily_client):
   if not tavily_client:
@@ -532,8 +532,9 @@ def verifier_veille_dec(tavily_client):
             date_alerte_str, "%Y-%m-%d"
         ).date()
 
-        # Si l'alerte a 7 jours ou moins, on l'affiche
+        # Si l'alerte a 7 jours ou moins, on l'affiche et on stocke la date formatée
         if (aujourdhui - date_alerte).days <= 7:
+          st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
           st.session_state.alerte_veille_dec = (
               "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
               " mises à jour ont été détectées sur les sites officiels"
@@ -574,6 +575,7 @@ def verifier_veille_dec(tavily_client):
         with open(fichier_date_alerte, "w", encoding="utf-8") as f:
           f.write(aujourdhui.strftime("%Y-%m-%d"))
 
+        st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
         st.session_state.alerte_veille_dec = (
             "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
             " mises à jour ont été détectées sur les sites officiels"
@@ -611,15 +613,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 🚨 BANDEAU D'ALERTE DE VEILLE (S'affiche s'il y a une nouveauté détectée)
+# 🚨 BANDEAU D'ALERTE DE VEILLE (Avec affichage de la date de détection)
 if "alerte_veille_dec" in st.session_state:
+  date_alerte = st.session_state.get("date_veille_dec", "Récemment")
+
   st.markdown(
-      """
+      f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
         <div style="display: flex; align-items: center; gap: 12px;">
             <span style="font-size: 22px;">🚨</span>
             <div>
-                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Veille réglementaire mensuelle</strong>
+                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Veille réglementaire mensuelle — Détectée le {date_alerte}</strong>
                 <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 4px; line-height: 1.5;">
                     De nouvelles informations ou mises à jour ont été détectées sur les sites officiels concernant les examens ou l'EPS. Pensez à vérifier si une nouvelle circulaire DEC a été publiée.
                 </div>

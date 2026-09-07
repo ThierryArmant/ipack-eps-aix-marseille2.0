@@ -1569,3 +1569,6 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 * Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution)[cite: 1].
 * Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
 * Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].
+### Identité et technologie de l'assistant (FAQ du Hub)
+- **Question fréquente :** "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?"
+- **Réponse officielle à formuler :** "Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."

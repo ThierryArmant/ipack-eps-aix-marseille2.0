@@ -18,12 +18,12 @@ WEBHOOK_URL = (
 
 
 def log_interaction(question, reponse):
-  payload = {"question": question, "reponse": reponse}
-  try:
-    requests.post(WEBHOOK_URL, json=payload, timeout=10)
-  except Exception as e:
-    # Affiche l'erreur dans la console si le réseau bloque
-    print(f"Erreur de log Google Sheet : {e}")
+    payload = {"question": question, "reponse": reponse}
+    try:
+        requests.post(WEBHOOK_URL, json=payload, timeout=10)
+    except Exception as e:
+        # Affiche l'erreur dans la console si le réseau bloque
+        print(f"Erreur de log Google Sheet : {e}")
 
 
 # ======================================================================
@@ -32,18 +32,18 @@ def log_interaction(question, reponse):
 import nltk
 
 try:
-  nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
-  os.makedirs(nltk_data_dir, exist_ok=True)
-  nltk.data.path.append(nltk_data_dir)
-  nltk.download("punkt", download_dir=nltk_data_dir, quiet=True)
-  nltk.download("stopwords", download_dir=nltk_data_dir, quiet=True)
+    nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
+    os.makedirs(nltk_data_dir, exist_ok=True)
+    nltk.data.path.append(nltk_data_dir)
+    nltk.download("punkt", download_dir=nltk_data_dir, quiet=True)
+    nltk.download("stopwords", download_dir=nltk_data_dir, quiet=True)
 except Exception:
-  pass
+    pass
 
 try:
-  from tavily import TavilyClient
+    from tavily import TavilyClient
 except ImportError:
-  TavilyClient = None
+    TavilyClient = None
 
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
@@ -515,78 +515,72 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 # 🔔 VEILLE AUTOMATIQUE TAVILY (Avec gestion de la date et expiration 7 jours)
 # ======================================================================
 def verifier_veille_dec(tavily_client):
-  if not tavily_client:
-    return
+    if not tavily_client:
+        return
 
-  fichier_suivi = "dernier_check_dec.txt"
-  fichier_date_alerte = "date_alerte_dec.txt"
-  mois_actuel = datetime.datetime.now().strftime("%Y-%m")
-  aujourdhui = datetime.date.today()
+    fichier_suivi = "dernier_check_dec.txt"
+    fichier_date_alerte = "date_alerte_dec.txt"
+    mois_actuel = datetime.datetime.now().strftime("%Y-%m")
+    aujourdhui = datetime.date.today()
 
-  # 1. Vérifier si une alerte est active et si elle a moins de 7 jours
-  if os.path.exists(fichier_date_alerte):
-    try:
-      with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-        date_alerte_str = f.read().strip()
-        date_alerte = datetime.datetime.strptime(
-            date_alerte_str, "%Y-%m-%d"
-        ).date()
+    if os.path.exists(fichier_date_alerte):
+        try:
+            with open(fichier_date_alerte, "r", encoding="utf-8") as f:
+                date_alerte_str = f.read().strip()
+                date_alerte = datetime.datetime.strptime(
+                    date_alerte_str, "%Y-%m-%d"
+                ).date()
 
-        # Si l'alerte a 7 jours ou moins, on l'affiche et on stocke la date formatée
-        if (aujourdhui - date_alerte).days <= 7:
-          st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
-          st.session_state.alerte_veille_dec = (
-              "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-              " mises à jour ont été détectées sur les sites officiels"
-              " concernant les examens ou l'EPS. Pensez à vérifier si une"
-              " nouvelle circulaire DEC a été publiée."
-          )
-          return  # On sort, pas besoin de relancer de recherche
-    except Exception:
-      pass
+                if (aujourdhui - date_alerte).days <= 7:
+                    st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
+                    st.session_state.alerte_veille_dec = (
+                        "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+                        " mises à jour ont été détectées sur les sites officiels"
+                        " concernant les examens ou l'EPS. Pensez à vérifier si une"
+                        " nouvelle circulaire DEC a été publiée."
+                    )
+                    return
+        except Exception:
+            pass
 
-  # 2. Sinon, on effectue le contrôle mensuel habituel pour ne pas saturer l'API
-  a_deja_ete_fait = False
-  if os.path.exists(fichier_suivi):
-    try:
-      with open(fichier_suivi, "r", encoding="utf-8") as f:
-        if f.read().strip() == mois_actuel:
-          a_deja_ete_fait = True
-    except Exception:
-      pass
+    a_deja_ete_fait = False
+    if os.path.exists(fichier_suivi):
+        try:
+            with open(fichier_suivi, "r", encoding="utf-8") as f:
+                if f.read().strip() == mois_actuel:
+                    a_deja_ete_fait = True
+        except Exception:
+            pass
 
-  if not a_deja_ete_fait:
-    try:
-      recherche_veille = tavily_client.search(
-          query=(
-              "circulaire examen EPS DEC Aix-Marseille mise à jour"
-              f" {datetime.datetime.now().year}"
-          ),
-          max_results=2,
-          include_domains=["eduscol.education.fr", "education.gouv.fr"],
-      )
+    if not a_deja_ete_fait:
+        try:
+            recherche_veille = tavily_client.search(
+                query=(
+                    "circulaire examen EPS DEC Aix-Marseille mise à jour"
+                    f" {datetime.datetime.now().year}"
+                ),
+                max_results=2,
+                include_domains=["eduscol.education.fr", "education.gouv.fr"],
+            )
 
-      # On marque le mois comme vérifié
-      with open(fichier_suivi, "w", encoding="utf-8") as f:
-        f.write(mois_actuel)
+            with open(fichier_suivi, "w", encoding="utf-8") as f:
+                f.write(mois_actuel)
 
-      # Si des résultats sont trouvés, on enregistre la date exacte du jour
-      if recherche_veille.get("results"):
-        with open(fichier_date_alerte, "w", encoding="utf-8") as f:
-          f.write(aujourdhui.strftime("%Y-%m-%d"))
+            if recherche_veille.get("results"):
+                with open(fichier_date_alerte, "w", encoding="utf-8") as f:
+                    f.write(aujourdhui.strftime("%Y-%m-%d"))
 
-        st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
-        st.session_state.alerte_veille_dec = (
-            "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-            " mises à jour ont été détectées sur les sites officiels"
-            " concernant les examens ou l'EPS. Pensez à vérifier si une"
-            " nouvelle circulaire DEC a été publiée."
-        )
-    except Exception:
-      pass
+                st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
+                st.session_state.alerte_veille_dec = (
+                    "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+                    " mises à jour ont été détectées sur les sites officiels"
+                    " concernant les examens ou l'EPS. Pensez à vérifier si une"
+                    " nouvelle circulaire DEC a été publiée."
+                )
+        except Exception:
+            pass
 
 
-# Lancement du contrôle mensuel automatique au démarrage
 verifier_veille_dec(tavily_client)
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
@@ -613,25 +607,23 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 🚨 BANDEAU D'ALERTE DE VEILLE (Avec documents trouvés et liens directs vers les sites)
 if "alerte_veille_dec" in st.session_state:
-  date_alerte = st.session_state.get("date_veille_dec", "Récemment")
-  liens = st.session_state.get("liens_veille_dec", [])
+    date_alerte = st.session_state.get("date_veille_dec", "Récemment")
+    liens = st.session_state.get("liens_veille_dec", [])
 
-  # Génération des liens spécifiques trouvés par la recherche
-  liens_html = ""
-  for item in liens:
-    titre = item.get("title", "Document officiel")
-    url = item.get("url", "#")
-    liens_html += f'<li><a href="{url}" target="_blank" style="color: #60A5FA; text-decoration: underline; font-weight: 500;">{titre}</a></li>'
+    liens_html = ""
+    for item in liens:
+        titre = item.get("title", "Document officiel")
+        url = item.get("url", "#")
+        liens_html += f'<li><a href="{url}" target="_blank" style="color: #60A5FA; text-decoration: underline; font-weight: 500;">{titre}</a></li>'
 
-  if not liens_html:
-    liens_html = (
-        "<li>Aucun lien direct extrait, consultez les portails ci-dessous.</li>"
-    )
+    if not liens_html:
+        liens_html = (
+            "<li>Aucun lien direct extrait, consultez les portails ci-dessous.</li>"
+        )
 
-  st.markdown(
-      f"""
+    st.markdown(
+        f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
         <div style="display: flex; align-items: flex-start; gap: 12px;">
             <span style="font-size: 22px; margin-top: 2px;">🚨</span>
@@ -653,8 +645,8 @@ if "alerte_veille_dec" in st.session_state:
         </div>
     </div>
     """,
-      unsafe_allow_html=True,
-  )
+        unsafe_allow_html=True,
+    )
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================
@@ -868,20 +860,23 @@ if prompt:
         # ⚡ DÉTECTION SSS (SÉCURITÉ VIDÉO AUTOMATIQUE)
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
+        # ⚠️ RETRAIT DE 'or est_dnb' POUR LAISSER L'IA TRAITER LE DNB DYNAMIQUEMENT
         est_cas_direct = (
             (mode != "textes") 
             and (
-                est_date                 
+                est_date 
                 or est_sujet_secours 
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
             )
         ) or est_tasa
 
-        # 🚀 RECHERCHE RAG LOCALE
+        # 🚀 RECHERCHE RAG LOCALE (AVEC CONTEXTE CIBLÉ DNB POUR ÉVITER LA POLLUTION LYCÉE)
         if openai_api_key and not est_cas_direct:
             try:
-                if mode == "examens":
+                if est_dnb:
+                    extraits_doc = "RÈGLE OFFICIELLE COLLÈGE & DNB : L'évaluation de l'EPS au Diplôme National du Brevet (DNB) repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le Livret Scolaire Unique (LSU). Il n'y a aucun CCF, aucune note sur 20 transmise à la DEC, et aucun protocole Santorin. Les positionnements de 1 à 4 sont utilisés.\n\n"
+                elif mode == "examens":
                     for n in retriever_santorin.retrieve(prompt):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
@@ -931,15 +926,6 @@ if prompt:
   <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
 </ul>"""
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
-
-        elif est_dnb:
-            texte_brut = """<h3>📊 COLLÈGE & DNB : AUCUN CCF NI PROTOCOLE CERTIFICATIF</h3>
-<ul>
-  <li><strong>Règle d'or nationale :</strong> Il n'existe <strong>aucune épreuve terminale</strong>, <strong>aucun CCF</strong>, <strong>aucune case certificative</strong> et <strong>aucune note sur 20 transmise à la DEC</strong> pour l'EPS au Diplôme National du Brevet.</li>
-  <li><strong>Modalités d'évaluation :</strong> L'évaluation repose exclusivement sur le contrôle continu trimestriel et la validation des compétences du socle commun (SCCC / AFC) enregistrées sur le <strong>Livret Scolaire Unique (LSU)</strong>.</li>
-  <li><strong>Sur iPackEPS &amp; Santorin :</strong> Les collèges ne paramètrent aucun protocole certificatif et ne sont concernés par aucune remontée de copies ou de lots sur Santorin.</li>
-</ul>"""
-            badge, color_card = ("📊 COLLÈGE & DNB" if mode == "examens" else "🛠️ ASSISTANCE iPACKEPS"), ("santorin-card" if mode == "examens" else "general-card")
 
         elif est_sujet_secours:
             texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>

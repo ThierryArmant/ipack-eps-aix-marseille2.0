@@ -65,3 +65,12 @@ Pour répondre précisément aux doutes récurrents des enseignants sur l'évalu
 **Nouveautés réglementaires :**
 - Aucune modification réglementaire récente ne vient modifier les modalités d'évaluation de l'EPS au DNB. L'évaluation reste adossée au projet d'EPS de l'établissement et aux attendus de fin de cycle 4.
 ```
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - data/examens/regles_dnb_eps.txt)
+======================================================================
+### Modalités d'évaluation et nouveautés pour l'EPS au DNB (Diplôme National du Brevet)
+
+- **Système de notation (Positionnement vs Note sur 20)** : L'évaluation de l'EPS au DNB continue de s'appuyer sur l'évaluation par compétences et le positionnement sur les 4 niveaux de maîtrise du socle commun (1. Maîtrise insuffisante, 2. Maîtrise fragile, 3. Maîtrise satisfaisante, 4. Très bonne maîtrise). Il n'y a pas de retour à une notation chiffrée sur 20.
+- **Nouveautés réglementaires** : Il n'y a pas de modification majeure ni d'épreuve terminale spécifique réintroduite pour l'EPS au DNB. La validation des acquis s'effectue dans le cadre du contrôle continu et de l'évaluation des compétences du bilan de fin de cycle 4.

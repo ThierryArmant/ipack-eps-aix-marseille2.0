@@ -1,0 +1,32 @@
+name: Auto-Patch RAG Assistant
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # S'exécute tous les soirs à 2h00 du matin
+  workflow_dispatch: # Permet aussi de lancer le script manuellement depuis GitHub quand tu veux
+
+jobs:
+  run-patcher:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Installation des dépendances
+        run: pip install requests google-generativeai
+
+      - name: Exécution du script d'analyse
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/auto_patch_rag.py
+
+      - name: Commit et Push automatique si le fichier a changé
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 [Auto-Patch] Mise à jour intelligente du RAG via les logs"
+          file_pattern: "data/examens/regles_dnb_eps.txt"

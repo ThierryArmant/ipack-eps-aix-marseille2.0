@@ -1043,4 +1043,4 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 st.video(m["content"])
             else:
                 st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True) 

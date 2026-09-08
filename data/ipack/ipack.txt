@@ -1,7 +1,6 @@
-
 ======================================================================
-                  CONSIGNES ET DICTIONNAIRE IA Ipack
-                      (SOURCE DE VÉRITÉ ABSOLUE)
+                 CONSIGNES ET DICTIONNAIRE IA Ipack
+                     (SOURCE DE VÉRITÉ ABSOLUE)
 ======================================================================
 
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
@@ -104,10 +103,11 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 
 ### [SITUATION: MISE À JOUR DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]
 - Instruction : L'application iPackEPS extrait automatiquement ses données de contacts (Chef d'établissement, Adjoints, Secrétaire général, Agent comptable) depuis le référentiel national RAMSESE. L'assistance iPackEPS n'a pas la main pour modifier ces fiches. En cas d'erreur ou de personnel non mis à jour (ex : ancien adjoint resté dans la base), le chef d'établissement doit obligatoirement contacter le service de la DIASEP au Rectorat pour mettre à jour RAMSESE. Les modifications se synchroniseront automatiquement sous 24h.
-  -> Exemple [Lycée Romane] : Chef d’établissement : Mr LEAU Olivier | Adjoint 1 : Mr Le MEUR Alan | Adjoint 2 : Aucun.
-  -> Exemple [Lycée Pierre-Gilles de Gennes - RNE 0040490L] : Adjoint 1 : Mme DAUBRESSE Claire (Proviseure adjointe) | Adjoint 2 : Mme LEDOUX Laurence (Agent Comptable / Secrétaire Générale).
-  -> Exemple [Lycée Sévigné - RNE 0131348V] : Cheffe d'établissement : Mme GORLIER Christelle (en remplacement de M. Cortes).
-  -> Exemple [Lycée Jean Monnet] : Secrétaire général / Agent comptable : M. Raphaël MORENO (en remplacement de Mme AZAIS-BOYER Caroline).
+  -> Exemples d'illustration (données RAMSESE) :
+  -> [Lycée Romane] : Chef d’établissement : Mr LEAU Olivier | Adjoint 1 : Mr Le MEUR Alan | Adjoint 2 : Aucun.
+  -> [Lycée Pierre-Gilles de Gennes - RNE 0040490L] : Adjoint 1 : Mme DAUBRESSE Claire (Proviseure adjointe) | Adjoint 2 : Mme LEDOUX Laurence (Agent Comptable / Secrétaire Générale).
+  -> [Lycée Sévigné - RNE 0131348V] : Cheffe d'établissement : Mme GORLIER Christelle.
+  -> [Lycée Jean Monnet] : Secrétaire général / Agent comptable : M. Raphaël MORENO.
 
 ### [SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]
 - Instruction : L'accès à iPackEPS est strictement conditionné par les données de paie et d'affectation RH du Rectorat (DRASI). Si un enseignant (ex : M. Damien LUPI, intervenant au Lycée Charles Privat d'Arles 0130171R mais administrativement rattaché au Collège Van Gogh 0131610E) n'apparaît pas dans l'équipe EPS d'un établissement, la DSI ne peut pas le forcer. Le chef d'établissement doit obligatoirement procéder à son installation administrative et déclarer son affectation sur le lycée pour que ses droits Arena redescendent automatiquement.
@@ -194,14 +194,14 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes. Cherchez le bouton « choisir les AFLP ». Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
 
 ### [SITUATION: DATE LIMITE SAISIE SANTORIN]
-- Instruction : Les enseignants doivent impérativement se référer au calendrier officiel publié par leur académie de rattachement pour toute confirmation ou mise à jour..
+- Instruction : Les enseignants doivent impérativement se référer au calendrier officiel et aux instructions publiées par la DEC de leur académie de rattachement.
 
 ### [SITUATION: ACCÈS REMPLAÇANT SANTORIN]
 - Instruction : Pour donner accès à la saisie des notes sur Santorin à un remplaçant, l'affectation manuelle se fait dans Imag'in en générant le fichier PDF de convocation.
 
 ### [SITUATION: MESSAGE AUCUN LOT A CORRIGER]
 - Instruction : Si Santorin affiche « Aucun lot à corriger » :
- Il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
+  Il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
 
 ### [SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
 - Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. Comment adapter les protocoles au choix des élèves ?
@@ -295,7 +295,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - 📺 TUTORIEL COMPAGNON : Configuration_classes_import_eleves.mp4
 - QUESTIONS / RÉPONSES :
   - Q1 : Une alerte m’informe que je ne suis pas coordonnateur EPS, je ne peux pas actualiser la liste des classes.
-  - R1 : Chaque année scolaire les fonctions déclarées des enseignants sont réinitialisées, vu que les fonctions peuvent changer chaque année. Si vous êtes coordonnateur, il suffit de retourner sur votre fiche professeur et redéclarer vos diverses fonctions. Si un autre enseignant est coordonnateur et que vous constatez que la liste des classes / élèves est incomplète, il suffit de demander à votre coordonnateur de se connecter à l’application puis : aller dans [gestion Classes] ==> [Actualiser] (puis dans [importation élèves] => [Actualiser]). Si jamais le coordinateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte). Vous pourrez alors faire toutes les manipulations d’import profs/élèves. Pensez à décocher votre statut coordonnateur après ces manipulations.
+  - R1 : Chaque année scolaire les fonctions déclarées des enseignants sont réinitialisées, vu que les fonctions peuvent changer chaque année. Si vous êtes coordonnateur, il suffit de retourner sur votre fiche professeur et redéclarer vos diverses fonctions. Si un autre enseignant est coordonnateur et que vous constatez que la liste des classes / élèves est incomplète, il suffit de demander à votre coordonnateur de se connecter à l’application puis : aller dans [gestion Classes] ==> [Actualiser] (puis dans [importation élèves] => [Actualiser]). Si jamais le coordonnateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte). Vous pourrez alors faire toutes les manipulations d’import profs/élèves. Pensez à décocher votre statut coordonnateur après ces manipulations.
   - Q2 : Lors du clic sur [actualiser les classes], j’obtiens le message d’erreur : « Votre administration n’a pas encore déclaré les élèves de cet établissement »
   - R2 : Si vous êtes dans un établissement public, prenez contact avec le correspondant iPackeps pour qu’il investigue auprès des services du rectorat. Si vous êtes dans un établissement privé, le chef d’établissement doit suivre une procédure pour faire remonter la liste de ses élèves sur la base SIECLE du rectorat. Son éditeur de logiciel (Charlemagne, École Directe...) doit pouvoir l’accompagner dans cette procédure. Le transfert doit normalement se faire d’un clic via l’application omogen. Un transfert manuel est également possible sur [Charlemagne administratif], en passant par le menu [modules]/[Éducation Nationale]/[SIECLE]/type établissement/Envoi des élèves].
   - Q3 : Ma liste d’élèves dans les classes est vide.
@@ -569,11 +569,11 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [ARTICLE 90] [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement
 - URL: spip.php?article90
-- Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Mes Élèves]/[Inaptitudes]. Retrouvez sur cette page les certificats médicaux présentés pour les inaptitudes partielles et totales des élèves. Pour ajouter des certificats médicaux, allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes] (Article 82). Pour consulter vos statistiques d’Inaptitudes, allez dans le module [Statistiques / Offre de Formation] / [Statistiques Inaptitudes].
+- Texte: Accès à cette fonctionnalité : interface Professeur ou chef d’Établissement : module : [Mes Élèves]/[Inaptitudes]. Retrouvez sur cette page les certificats médicaux présentés pour les inaptitudes partielles et totales des élèves. Pour ajouter des certificats médicaux, allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes] (Article 82). Pour consulter vos statistiques d’Inaptitudes, allez dans le module [Statistiques / Offre de Formation] / [Statistiques Inaptitudes].
 
 ### [ARTICLE 54] [MesDocuments]/[Documents] Enregistrement et Impression de documents
 - URL: spip.php?article54
-- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents. iPackEPS permet d’éditer, imprimer et stocker divers documents, notamment des bordereaux de présence ou des bordereaux de notes pour les épreuves de certification. Vous pouvez ainsi générer des documents officiels, les faire signer par vos élèves afin de garder une trace des notes et présences des élèves aux examens.
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents. iPackEPS permet d’éditer, imprimer et stocker divers documents, notamment des bordereaux de présence ou des bordereaux de notes pour les épreuves de certification. Vous pouvez ainsi générer des documents officiels, les faire signer par élèves afin de garder une trace des notes et présences des élèves aux examens.
 
 ### [ARTICLE 56] [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève
 - URL: spip.php?article56
@@ -601,11 +601,11 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [ARTICLE 86] [Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement
 - URL: spip.php?article86
-- Texte: Accès à la fonctionnalité : [statistiques et Offre de Formation] / [Statistiques Inaptitudes].
+- Texte: Accès à cette fonctionnalité : [statistiques et Offre de Formation] / [Statistiques Inaptitudes].
 
 ### [ARTICLE 89] [Outils]/[Export Fichier Elèves vers d’autres logiciels]
 - URL: spip.php?article89
-- Texte: Accès à la fonctionnalité : interface Professeur : module : [Outils]/[Export Fichier Elèves vers d’autres logiciels]. iPackEPS vous permet d’exporter la liste des élèves de vos divers groupes et classes pour les logiciels de gestion d’élèves, comme Idoceo ou Additio. iPackEPS génère un dossier zip, dans lequel vous trouverez un fichier par groupe. Chaque fichier contient la liste des élèves du groupe.
+- Texte: Accès à cette fonctionnalité : interface Professeur : module : [Outils]/[Export Fichier Elèves vers d’autres logiciels]. iPackEPS vous permet d’exporter la liste des élèves de vos divers groupes et classes pour les logiciels de gestion d’élèves, comme Idoceo ou Additio. iPackEPS génère un dossier zip, dans lequel vous trouverez un fichier par groupe. Chaque fichier contient la liste des élèves du groupe.
 
 ### [ARTICLE 58] Interface chef d’établissement : description de l’interface complète
 - URL: spip.php?article58
@@ -651,7 +651,7 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Lycée GT Bac** : Les candidats qui bénéficient d'une épreuve différée sont uniquement ceux qui attestent de blessures ou de problèmes de santé temporaires le jour d'un CCF prévu dans le projet certificatif de l'établissement, authentifiés par l'autorité médicale scolaire. Peuvent également en bénéficier les candidats assidus qui, en cas de force majeure, ne peuvent être présents à la date fixée pour les épreuves du CCF, sous réserve de l'obtention de l'accord du chef d'établissement, après consultation des équipes pédagogiques. Toute absence non justifiée à la date de l'une des épreuves prévues pour le CCF ou différées entraîne l'attribution de la note « ABS » (elle sera traduite en « zéro » par Santorin) pour l'épreuve correspondante.
 - **Réponse Lycée Pro Bac** : Les candidats qui bénéficient d'une épreuve différée sont uniquement ceux qui attestent de blessures ou de problèmes de santé temporaires le jour d'un CCF prévu dans le projet certificatif de l'établissement, authentifiés par l'autorité médicale scolaire. Peuvent également en bénéficier les candidats assidus qui, en cas de force majeure, ne peuvent être présents à la date fixée pour les épreuves du CCF, sous réserve de l'obtention de l'accord du chef d'établissement, après consultation des équipes pédagogiques. Toute absence non justifiée à la date de l'une des épreuves prévues pour le CCF ou différées entraîne l'attribution de la note « ABS » (elle sera traduite en « zéro » par Santorin) pour l'épreuve correspondante.
 - **Réponse Lycée Pro CAP** : Lorsqu’un candidat évalué en CCF est absent à une des situations de fin de séquence sans justification valable, la note zéro lui est attribuée. La note finale sera la moyenne des notes obtenues. En revanche, s'il est absent sans justification à toutes les situations d'évaluation, il est déclaré « absent », ce qui entraîne, comme lorsqu'un candidat évalué par examen terminal est absent sans justification valable, la non-délivrance du diplôme (cf. règle générale prévue au sixième alinéa de l'article D. 337-16 du Code de l'éducation). Seuls les candidats qui attestent de blessures ou de problèmes de santé temporaires, authentifiés par l'autorité médicale scolaire, peuvent bénéficier de situations d'évaluation différée. Peuvent également en bénéficier les candidats assidus qui, en cas de force majeure, ne peuvent être présents à la date fixée pour les épreuves du CCF, sous réserve de l'obtention de l'accord du chef d'établissement, après consultation des équipes pédagogiques.
-- **Réponse Collège DNB** : Le principe des épreuves différées et du CCF n'existe pas au collège. Dans la mesure où l'évaluation au collège est construite sur le contrôle continu, et que l'enseignant dispose de suffisamment d'indications pour attribuer une note trimestrielle ou semestrielle représentative des acquisitions d'un élève, le renvoi vers une évaluation différée dans le temps n'est pas nécessaire. Pour être réellement représentative du niveau d'un élève, la moyenne doit nécessairement être construite à partir d'une pluralité de notes. Le contrôle continu implique un respect scrupuleux de l'obligation d'assiduité prévue par l'article L. 511-1 du Code de l'éducation, qui impose aux élèves de suivre l'intégralité des enseignements obligatoires et facultatifs auxquels ils sont inscrits. À ce titre, les élèves doivent accomplir les travaux qui leur sont demandés par les enseignants et se soumettre aux modalités du contrôle continu qui leur sont imposées. Ils sont tenus de suivre les enseignements correspondant au programme et figurant dans leur emploi du temps établi par l'établissement scolaire. Un suivi attentif de l'assiduité des élèves est mis en place dans chaque établissement afin d'anticiper les difficultés éventuelles de constitution de moyennes. Lorsque l'absence répétée d'un élève aux évaluations est jugée par son professeur comme faisant peser un risque sur la représentativité de sa moyenne, une nouvelle évaluation est spécifiquement organisée à son intention. Dans l’hypothèse où une moyenne périodique n’est pas jugée « représentative », celle-ci peut être remplacée par la mention « En attente » sur le bilan périodique de l’élève.
+- **Réponse Collège DNB** : Le principe des épreuves différées et du CCF n'existe pas au collège. Dans la mesure où l'évaluation au collège est construite sur le contrôle continu, et que l'enseignant dispose de suffisamment d'indications pour attribuer une note trimestrielle ou semestrielle représentative des acquisitions d'un élève, le renvoi vers une évaluation différée dans le temps n'est pas nécessaire. Pour être réellement représentative du niveau d'un élève, la moyenne doit nécessairement être construite à partir d'une pluralité de notes. Le contrôle continu implique un respect scrupuleux de l'obligation d'assiduité prévue par l'article L. 511-1 du Code de l'éducation, qui impose aux élèves de suivre l'intégralité des enseignements obligatoires et facultatifs auxquels ils sont inscrits. À ce titre, les élèves doivent accomplir les travaux qui leur sont demandés par les enseignants et se soumettre aux modalités du contrôle continu qui leur sont imposées. Ils sont tenus de suivre les enseignements correspondant au programme et figurant dans leur emploi du temps établi par l'établissement scolaire. Un suivi attentif de l'assiduité des élèves est mis en place dans chaque établissement afin d'anticiper les difficultés éventuelles de constitution de moyennes. Lorsque l'absence répétée d’un élève aux évaluations est jugée par son professeur comme faisant peser un risque sur la représentativité de sa moyenne, une nouvelle évaluation est spécifiquement organisée à son intention. Dans l’hypothèse où une moyenne périodique n’est pas jugée « représentative », celle-ci peut être remplacée par la mention « En attente » sur le bilan périodique de l’élève.
 
 ### Thématique : Contexte de l'épreuve (Incertitude CA2)
 - **Question** : Dans le cadre d'une évaluation en CA2, les élèves doivent-ils obligatoirement être confrontés à un environnement ou contexte inconnu ?
@@ -748,7 +748,7 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 
 ### Thématique : Inaptitudes et dispenses (Concept du Contrôle Adapté)
 - **Question** : Quels sont les élèves concernés par une ou des épreuves en contrôle adapté ?
-- **Réponse Lycée GT Bac** : Le contrôle adapté est destiné aux candidats reconnus en situation de handicap ou présentant une aptitude partielle permanente. Il peut être effectué soit en CCF selon des modalités proposées par l'établissement, soit en examen ponctuel terminal selon des modalités définies par le recteur d'académie dans le cas où l'établissement ne proposerait pas d'épreuve adaptée. Seuls les handicaps ne permettant pas une pratique adaptée au sens de la circulaire n° 94-137 du 30 mars 1994 donnent lieu à une dispense d'épreuve. Un handicap attesté en début d'année par l'autorité médicale peut empêcher une pratique régulière ou complète des enseignements de l'EPS sans pour autant interdire une pratique adaptée. Dans le cadre du contrôle en cours de formation, plusieurs cas peuvent se présenter : le candidat peut être évalué sur un ensemble certificatif de trois épreuves, relevant de trois champs d'apprentissage différents, dont l'une au moins est adaptée ; le candidat peut être évalué sur un ensemble certificatif de deux épreuves adaptées relevant, autant que possible, de deux champs d'apprentissages différents ; pour des cas très particuliers, on pourra proposer une seule épreuve adaptée. Les adaptations sont proposées après concertation au sein de l'établissement des professeurs d'EPS et des services de santé scolaire, en tenant compte des projets personnalisés de scolarisation (PPS) ou des projets d'accueil individualisé (PAI) encadrant la scolarité du candidat. Les propositions d'adaptation sont soumises à l'approbation du recteur. Les épreuves adaptées sont, de préférence, issues des listes d'activités nationale, académique ou d'établissement. En cas d'impossibilité de pratique de ces activités par l'élève, l'établissement peut adresser à la commission académique d'harmonisation et de proposition de notes la proposition d'une nouvelle activité respectueuse des exigences de l'examen. Le contrôle adapté ne concerne pas les élèves en situation d'inaptitude temporaire (partielle ou totale).
+- **Réponse Lycée GT Bac** : Le contrôle adapté est destiné aux candidats reconnus en situation de handicap ou présentant une aptitude partielle permanente. Il peut être effectué soit en CCF selon des modalités proposées par l'établissement, soit en examen ponctuel terminal selon des modalités définies par le recteur d'académie dans le cas où l'établissement ne proposerait pas d'épreuve adaptée. Seuls les handicaps ne permettant pas une pratique adaptée au sens de la circulaire n° 94-137 du 30 mars 1994 donnent lieu à une dispense d'épreuve. Un handicap attesté en début d'année par l'autorité médicale peut empêcher une pratique régulière ou complète des enseignements de l'EPS sans pour autant interdire une pratique adaptée. Dans le cadre du contrôle en cours de formation, plusieurs cas peuvent se présenter : le candidat peut être évalué sur un ensemble certificatif de trois épreuves, relevant de trois champs d’apprentissage différents, dont l'une au moins est adaptée ; le candidat peut être évalué sur un ensemble certificatif de deux épreuves adaptées relevant, autant que possible, de deux champs d’apprentissages différents ; pour des cas très particuliers, on pourra proposer une seule épreuve adaptée. Les adaptations sont proposées après concertation au sein de l'établissement des professeurs d'EPS et des services de santé scolaire, en tenant compte des projets personnalisés de scolarisation (PPS) ou des projets d'accueil individualisé (PAI) encadrant la scolarité du candidat. Les propositions d'adaptation sont soumises à l'approbation du recteur. Les épreuves adaptées sont, de préférence, issues des listes d'activités nationale, académique ou d'établissement. En cas d'impossibilité de pratique de ces activités par l'élève, l'établissement peut adresser à la commission académique d'harmonisation et de proposition de notes la proposition d'une nouvelle activité respectueuse des exigences de l'examen. Le contrôle adapté ne concerne pas les élèves en situation d'inaptitude temporaire (partielle ou totale).
 - **Réponse Collège DNB** : Les élèves présentant un handicap ou une inaptitude partielle permanente peuvent bénéficier d’évaluations adaptées (le concept « d'épreuve » n'existe pas dans le cadre du contrôle continu en collège). Un handicap ou une inaptitude totale ne permettant pas une pratique physique, attestée par l’autorité médicale, entraîne une dispense d’évaluation dans le cadre de la certification. Cependant, il est de la responsabilité de l'enseignant de proposer des formes d'évaluation aménagées qui permettent à l'élève de s'engager dans ses apprentissages. Le code de l'éducation rappelle dans son Article D. 312-1 : « L'éducation physique et sportive figure au programme et dans les horaires, à tous les degrés de l'enseignement public. Elle s'adresse à l'ensemble des élèves. Elle doit être adaptée à l'âge et aux possibilités individuelles, déterminées par un contrôle médical. »
 
 ### Thématique : Inaptitudes et dispenses (Pratique/Évaluation Aménagée)
@@ -929,9 +929,9 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 * CAUSE RÉELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCÉDURE INCOMPLÈTE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
 * RÉSOLUTION : Le coordonnateur doit impérativement valider le choix des AFLP dans les paramètres du protocole de l'établissement pour débloquer et rendre actives les cases de saisie des notes pour tous les correcteurs.
 
-[SANTORIN] DATE LIMITE DE SAISIE DES NOTES 2026
+[SANTORIN] DATE LIMITE DE SAISIE DES NOTES
 ----------------------------------------------------------------------
-* DATE NATIONALE & ACADÉMIQUE : La date limite absolue et impérative de saisie des notes dans Santorin pour la session 2026 est fixée au 30 mai 2026 au soir. Toute date comme le 09 juin ou le 11 mai est fausse.
+* CADRE ACADÉMIQUE : La date limite de saisie des notes dans Santorin et Cyclades n'est jamais universelle à l'échelle nationale. Elle relève de la compétence exclusive de chaque Division des Examens et Concours (DEC) via la circulaire ou le calendrier des examens propre à l'académie de rattachement. L'utilisateur doit impérativement se référer aux instructions officielles de son rectorat.
 
 [SANTORIN] ACCÈS REMPLAÇANT (CHRONOLOGIE)
 ----------------------------------------------------------------------
@@ -1016,9 +1016,11 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 ======================================================================
 [ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
 ======================================================================
-Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation.
+Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation, collège, lycée.
 
-Sur iPackEPS, la saisie dépend de la nature de l'évaluation :
+RÈGLE D'ÉTANCHÉITÉ PRÉALABLE : 
+- AU COLLÈGE (DNB / Contrôle continu) : iPackEPS sert d'outil de suivi, de construction des séquences et de calcul pour l'équipe, mais la saisie définitive des notes pour les bulletins trimestriels et le Livret Scolaire Unique (LSU) s'effectue exclusivement dans Pronote ou ÉcoleDirecte. Il n'y a ni CCF ni Santorin.
+- AU LYCÉE (Bac GT, Pro, CAP) : La saisie dépend de la nature de l'évaluation :
 
 1. Évaluations formatives et bilans d'APSA (au fil de l'année) :
    - Chemin : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou directement via la séquence dans le menu [Groupes]).
@@ -1422,8 +1424,8 @@ Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges f
 3. Calendriers d'Examens, Sessions Décalées & Hémisphère Sud :
    - Rythme Nord : Verrouillage standard en mai/juin selon l'académie partenaire.
    - Rythme Sud (Hémisphère Sud : Amérique du Sud, Océanie, Afrique australe...) : Les épreuves certificatives et les dates limites de saisie Santorin sont décalées (session d'octobre / novembre / décembre).
-   - Règle d'or : La date du 30 mai ne s'applique pas au rythme Sud. Les enseignants doivent se référer impérativement au calendrier officiel publié par leur académie de rattachement / centre d'examen pilote.
-
+   - Règle d'or : La date de fin de saisie dépend exclusivement du calendrier académique de rattachement.
+   
 4. Référentiels d'Évaluation (FCA) & Académie de Rattachement :
    - Chaque zone ou pays est adossé à une académie partenaire en France métropolitaine pour la gestion du Baccalauréat.
    - Règle : Les fiches d'évaluation (FCA) déposées dans le [Dossier Certificatif] doivent respecter les listes et cadrages de l'académie de rattachement désignée par la DEC / l'AEFE.
@@ -1445,7 +1447,7 @@ Toute information contenue dans ce fichier annule et remplace les procédures an
 - Coche Verte : Vérifier systématiquement la présence de la coche verte après chaque import d'effectif ou de dossier. Sans cette coche, les données ne sont pas consolidées pour Santorin.
 - Référentiels : En cas de modification d'un référentiel après saisie, la procédure obligatoire est la suppression totale de l'ensemble certificatif concerné, suivie d'une nouvelle saisie complète. Toute modification partielle est prohibée.
 - Cache Navigateur : En cas de page figée ou de menu grisé, vider le cache du navigateur avant toute autre action technique.
-- Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin (début juin 2026). Aucun import ne sera possible après cette date sans intervention du SIEC.
+- Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin selon le calendrier académique officiel de la DEC. Aucun import ne sera possible après cette date sans intervention des services.
 
 ## 3. GESTION DES BLOCAGES
 - Si une note bloque l'interface ou le bouton de validation : effacer la note concernée pour libérer le bouton avant de tenter une nouvelle saisie.
@@ -1464,7 +1466,7 @@ En cas de protocole de CCF comportant plusieurs épreuves d'examen :
 3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
 EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
 OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.
-[SECTION: AJOUTS_RECENTS_TERRAIN]
+[SECTION: AJouts_RECENTS_TERRAIN]
 
 ### [SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]
 - Règle stricte : Il est formellement interdit de créer ou bricoler un contrôle adapté (FCA) en cours d’année « au sifflet » pour une blessure soudaine. 
@@ -1485,90 +1487,49 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 ----------------------------------------------------------------------
 1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE
 ----------------------------------------------------------------------
-* Imports améliorés : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer / drag 'n drop, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko)[cite: 1].
-* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente de validation académique, validé avec ajustements, non valide, validé)[cite: 1].
-* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves est effectuée pour intégrer les entrées/sorties sans intervention manuelle dans la gestion des classes[cite: 1].
-
-----------------------------------------------------------------------
-2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
-----------------------------------------------------------------------
-* Description enrichie du matériel : Possibilité d'ajouter des photos, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois)[cite: 1].
-* Édition papier : La version papier de l'inventaire EPI intègre désormais la photo du matériel[cite: 1].
-
-----------------------------------------------------------------------
-3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
-----------------------------------------------------------------------
-* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS[cite: 1].
-* Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves[cite: 1].
-* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence[cite: 1].
-* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes[cite: 1].
-* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département[cite: 1].
-* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée[cite: 1].
-
-----------------------------------------------------------------------
-4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
-----------------------------------------------------------------------
-* Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR[cite: 1]. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation[cite: 1].
-* Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS[cite: 1].
-* Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements[cite: 1].
-
-----------------------------------------------------------------------
-5. DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE
-----------------------------------------------------------------------
-* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import[cite: 1] et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe[cite: 1].
-* Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution)[cite: 1].
-* Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
-* Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].
-======================================================================
-📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS (VERSION 2026.2.x / 2026-2027)
-======================================================================
-
-----------------------------------------------------------------------
-1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE
-----------------------------------------------------------------------
-* Imports améliorés : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer / drag 'n drop, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko)[cite: 1].
+* Imports améliorés : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer / drag 'n drop, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko).
   📺 Tutoriel associé : Import_documents_glisser_deposer.mp4
-* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente de validation académique, validé avec ajustements, non valide, validé)[cite: 1].
-* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves est effectuée pour intégrer les entrées/sorties sans intervention manuelle dans la gestion des classes[cite: 1].
+* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente de validation académique, validé avec ajustements, non valide, validé).
+* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves est effectuée pour intégrer les entrées/sorties sans intervention manuelle dans la gestion des classes.
   📺 Tutoriel associé : Import_automatique_eleves.mp4
 
 ----------------------------------------------------------------------
 2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
 ----------------------------------------------------------------------
-* Description enrichie du matériel : Possibilité d'ajouter des photos, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois)[cite: 1].
+* Description enrichie du matériel : Possibilité d'ajouter des photos, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois).
   📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
-* Édition papier : La version papier de l'inventaire EPI intègre désormais la photo du matériel[cite: 1].
+* Édition papier : La version papier de l'inventaire EPI intègre désormais la photo du matériel.
 
 ----------------------------------------------------------------------
 3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
 ----------------------------------------------------------------------
-* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS[cite: 1].
-* Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves[cite: 1].
+* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS.
+* Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves.
   📺 Tutoriel associé : Actualisation_equipe_classes.mp4
-* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage[cite: 1]. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence[cite: 1].
+* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence.
   📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
-* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes[cite: 1].
-* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département[cite: 1].
+* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes.
+* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département.
   📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
-* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée[cite: 1].
+* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée.
   📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
 
 ----------------------------------------------------------------------
 4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
 ----------------------------------------------------------------------
-* Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture)[cite: 1]. Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR[cite: 1]. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation[cite: 1].
+* Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation.
   📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4
   📺 Tutoriel associé : Signature_chef_etablissement_SSS.mp4
-* Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS[cite: 1].
-* Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements[cite: 1].
+* Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS.
+* Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements.
 
 ----------------------------------------------------------------------
 5. DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE
 ----------------------------------------------------------------------
-* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import[cite: 1] et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe[cite: 1].
-* Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution)[cite: 1].
-* Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
-* Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].
+* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
+* Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution).
+* Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN.
+* Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro.
 ### Identité et technologie de l'assistant (FAQ du Hub)
 - **Question fréquente :** "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?"
 - **Réponse officielle à formuler :** "Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."

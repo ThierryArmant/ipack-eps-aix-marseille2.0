@@ -725,24 +725,36 @@ with col_b3:
 # ======================================================================
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
-    col_input, col_submit = st.columns([5, 1])
-    with col_input:
-        prompt_brut = st.text_input(
-            "Question :",
-            placeholder=(
-                "🔺 Sélectionnez le module concerné avant de saisir votre"
-                " question..."
-            ),
-            label_visibility="collapsed",
-        )
-    with col_submit:
-        bouton_envoyer = st.form_submit_button(
-            "🚀 Poser la question", use_container_width=True, type="primary"
-        )
+  st.markdown(
+      "🎯 **Étape 2 : Précisez votre public/niveau (Obligatoire pour éviter les"
+      " confusions) :**"
+  )
+  niveau_scolaire = st.radio(
+      "Niveau scolaire ciblé",
+      ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+      horizontal=True,
+      key="select_niveau_scolaire",
+  )
 
-    if bouton_envoyer and prompt_brut.strip():
-        prompt = prompt_brut.strip()
+  col_input, col_submit = st.columns([5, 1])
+  with col_input:
+    prompt_brut = st.text_input(
+        "Question :",
+        placeholder=(
+            "🔺 Saisissez votre question ici en tenant compte du niveau"
+            " sélectionné..."
+        ),
+        label_visibility="collapsed",
+    )
+  with col_submit:
+    bouton_envoyer = st.form_submit_button(
+        "🚀 Poser la question", use_container_width=True, type="primary"
+    )
 
+  if bouton_envoyer and prompt_brut.strip():
+    prompt = prompt_brut.strip()
+    # On mémorise le niveau sélectionné dans la session pour l'exploiter dans l'IA
+    st.session_state.niveau_actif_form = niveau_scolaire
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
 # ======================================================================
@@ -999,7 +1011,7 @@ if prompt:
    - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
 """
 
-        contexte_complet_ia = f"""
+       contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 
@@ -1009,7 +1021,20 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
-        consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+        # Récupération sécurisée du niveau choisi par l'utilisateur dans l'interface
+        niveau_actuel_form = st.session_state.get(
+            "niveau_actif_form", "Collège (DNB)"
+        )
+
+        consigne_ia = f"""Tu es un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques.
+
+🚨 RÈGLE D'IDENTITÉ ABSOLUE :
+Si l'utilisateur pose la question "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?", tu dois formuler exactement cette réponse :
+"Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
+
+🎯 NIVEAU SCOLAIRE CIBLÉ PAR L'UTILISATEUR : {niveau_actuel_form}
+- Applique STRICTEMENT les règles réglementaires et techniques correspondant à ce niveau précis.
+- Étanchéité absolue : Ne mélange jamais les règles du Collège/DNB (contrôle continu, pas de CCF, pas de Santorin) et celles du Lycée (CCF, Santorin, Cyclades).
 
 🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
 1. PRINCIPE DE RÉALITÉ DES PUBLICS :

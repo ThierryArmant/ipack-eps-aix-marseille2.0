@@ -511,3 +511,8 @@ Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve cert
 - **Règle absolue :** Le dispositif de Conditions Exceptionnelles (CE) est **strictement collectif**. 
 - Il s'applique uniquement à la **totalité d'un groupe ou d'une classe** en raison de conditions de pratique et d'évaluation rendues impossibles pour l'ensemble du groupe (ex: intempéries majeures, destruction d'un équipement le jour J).
 - Il est **formellement interdit** d'invoquer ou de demander une procédure de CE pour le cas particulier d'un **élève isolé** (pour un élève isolé, voir l'épreuve différée ou le traitement des absences/dispenses).
+======================================================================
+AVERTISSEMENT RAG : CHAMP D'APPLICATION EXCLUSIF DE SANTORIN / CYCLADES
+======================================================================
+- **Public cible et niveau :** Les procédures, protocoles et tutoriels liés à **Santorin** et **Cyclades** concernent **exclusivement les examens du second degré au lycée** (Baccalauréat général, technologique, professionnel, BTS) et les examens professionnels.
+- **Interdiction formelle d'application au collège :** Ces plateformes et outils de correction numérique de copies **ne s'appliquent en aucun cas au Diplôme National du Brevet (DNB)** ni à la gestion des notes de contrôle continu des collèges. Toute question portant sur la notation, les absences ou le contrôle continu en classe de 3ème relève du cadre interne du collège et du LSU, et ne doit jamais faire référence à Santorin.

@@ -86,3 +86,20 @@ L'évaluation de l'EPS pour le Diplôme National du Brevet (DNB) s'inscrit dans 
 - **Échelle de maîtrise (1 à 4) :** L'évaluation continue repose sur le positionnement des élèves selon les 4 niveaux de maîtrise du socle (1 : Maîtrise insuffisante, 2 : Maîtrise fragile, 3 : Maîtrise satisfaisante, 4 : Très bonne maîtrise).
 - **Absence de note sur 20 :** Il n'y a pas de retour à une notation chiffrée sur 20 obligatoire pour l'EPS au DNB. L'évaluation globale de la discipline alimente le bilan de fin de cycle et les bilans périodiques dans le Livret Scolaire Unique (LSU).
 - **Nouveautés :** Les modalités d'évaluation de l'EPS au DNB restent alignées sur les repères de progressivité du cycle 4 et le suivi des attendus de fin de cycle définis par les programmes nationaux.
+### Cadre réglementaire du contrôle continu en EPS au DNB
+
+#### 1. Modalités générales du contrôle continu en EPS
+- **Poids dans l'examen :** L'évaluation de l'EPS s'inscrit dans le cadre du contrôle continu (comptant pour 40 % de la note finale du DNB).
+- **Appui sur la classe de troisième :** La note de contrôle continu proposée en EPS s'appuie sur les évaluations réalisées lors de la classe de troisième et rend compte de l'acquisition des attendus du programme. Elle se fonde sur la moyenne des moyennes annuelles issues des trimestres ou semestres, portant généralement sur au moins trois Activités Physiques, Sportives et Artistiques (APSA).
+- **Validation :** La moyenne annuelle des élèves en EPS est validée à l'issue de la commission d'harmonisation et renseignée dans le Livret Scolaire Unique (LSU).
+
+#### 2. Assiduité, absences ponctuelles et représentativité de la moyenne
+- **Obligation d'assiduité :** Le contrôle continu implique le respect strict de l'obligation d'assiduité prévue par l'article L. 511-1 du Code de l'éducation. Les élèves doivent suivre l'intégralité des enseignements et se soumettre aux évaluations obligatoires.
+- **Alerte sur la représentativité :** Lorsque l'absence répétée d'un élève aux évaluations fait peser un risque sur la représentativité de sa moyenne, une évaluation de remplacement peut être spécifiquement organisée à son intention.
+- **Mention « En attente » :** Dans l'hypothèse où une moyenne périodique n'est pas jugée représentative en raison d'absences, elle peut être remplacée par la mention « En attente » sur le bilan périodique.
+- **Évaluation de remplacement et sanctions :** En fin d'année, pour s'assurer que l'élève dispose d'une moyenne sur 20, il peut être fait recours à une évaluation de remplacement. En cas d'absence **injustifiée** à cette évaluation de remplacement, la note de zéro est attribuée pour cet enseignement.
+
+#### 3. Gestion des dispenses et inaptitudes
+- **Caractère obligatoire de l'enseignement :** L'EPS est un enseignement obligatoire pour tous les élèves. Un certificat médical d'inaptitude ne dispense pas l'élève d'assister aux cours, sauf contre-indication médicale majeure nécessitant une exclusion du lieu de pratique.
+- **Inaptitude partielle :** L'élève inapte partiellement est évalué sur des rôles sociaux et méthodologiques (juge, arbitre, observateur, organisateur) ou sur des apprentissages adaptés définis par l'équipe pédagogique.
+- **Dispense réglementaire totale :** Seules les dispenses réglementaires relatives à l'enseignement de l'EPS (inaptitude totale et durable attestée par l'autorité médicale) sont autorisées. La situation est alors renseignée avec la mention **« Dispensé »** dans le LSU. Une dispense médicale ne doit en aucun cas se traduire par l'attribution arbitraire d'une note de 0/20.

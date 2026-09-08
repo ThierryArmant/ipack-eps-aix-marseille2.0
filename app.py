@@ -313,6 +313,13 @@ css_pur = f"""
         margin-bottom: 12px !important;
     }}
 
+    /* FORCER LE TEXTE DU FORMULAIRE EN BLANC ÉCLATANT */
+    div[data-testid="stForm"] label p, div[data-testid="stForm"] span, div[data-testid="stForm"] label {{
+        color: #FFFFFF !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+    }}
+
     /* ZOOM FLUIDE IMAGE 5 */
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;

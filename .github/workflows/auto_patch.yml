@@ -31,5 +31,5 @@ jobs:
       - name: Commit et Push automatique si un fichier a changé
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 [Auto-Patch Multi-RAG] Mise à jour intelligente des bases de connaissances"
-          file_pattern: "ipack.txt data/examens/regles_dnb_eps.txt"
+          commit_message: "🤖 [Auto-Patch Multi-RAG] Mise à jour intelligente (Ipack, Examens ou Santorin)"
+          file_pattern: "ipack.txt data/examens/regles_dnb_eps.txt data/examens/memoire_examens_santorin.txt"

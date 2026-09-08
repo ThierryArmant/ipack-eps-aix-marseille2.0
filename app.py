@@ -462,6 +462,10 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     # Charge la mémoire souveraine spécifique aux examens & Santorin
     docs_santorin.extend(charger_consignes_examens())
+    
+    # 🌟 AJOUT : On injecte aussi ipack.txt pour que les correctifs de nuit profitent à Santorin !
+    docs_santorin.extend(charger_consignes_ipack())
+    
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
     )

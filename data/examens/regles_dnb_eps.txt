@@ -1,105 +1,31 @@
 ======================================================================
-CADRE OFFICIEL, NOUVEAUTÉS & GESTION DES ABSENCES DE L'EPS AU DNB (COLLÈGE)
+CADRE RÉGLEMENTAIRE OFFICIEL : EPS AU DNB & CONTRÔLE CONTINU (CYCLE 4)
 ======================================================================
 
-1. LA GRANDE NOUVEAUTÉ DE LA RÉFORME DU DNB :
-- Fin définitive du système de notation sur 800 points basé sur les composantes globales du socle commun.
-- Le DNB est désormais délivré sur une moyenne finale sur 20 (60 % pour les épreuves terminales, 40 % pour le contrôle continu).
-- Le contrôle continu en EPS se traduit par une note annuelle sur 20 (moyenne d'au moins 3 APSA de champs d'apprentissage distincts en classe de troisième). Cette note intègre la moyenne générale de troisième au même titre que les autres disciplines, remontée via le Livret Scolaire Unique (LSU).
+### 1. MODALITÉS GÉNÉRALES ET STRUCTURATION DU DNB
+- **Barème global :** Le Diplôme National du Brevet (DNB) est délivré sur une note finale sur 20, articulant 40 % pour le contrôle continu et 60 % pour les épreuves terminales.
+- **Place de l'EPS :** L'EPS fait partie intégrante du contrôle continu de la classe de troisième et compte parmi les disciplines obligatoires de l'examen.
+- **Note annuelle sur 20 :** La note de contrôle continu en EPS est une note sur 20, fondée sur la moyenne des notes obtenues lors de l'évaluation d'au moins **trois Activités Physiques, Sportives et Artistiques (APSA)** relevant de champs d'apprentissage distincts au cours de l'année de troisième.
 
-2. ARTICULATION AVEC LES POSITIONNEMENTS (1 À 4) ET LE LSU :
-- Au quotidien, les apprentissages et le suivi du cycle 4 s'appuient sur les positionnements de 1 à 4 (maîtrise insuffisante, fragile, satisfaisante, très bonne maîtrise) du socle commun.
-- Pour l'examen du DNB, ces acquisitions se traduisent par une note annuelle sur 20 formalisée dans le LSU.
-
-3. GESTION DES ÉLÈVES ABSENTS EN COURS D'ANNÉE :
-- Absence justifiée (ABJ) à une ou plusieurs séquences d'APSA : L'équipe pédagogique doit s'efforcer de proposer des rattrapages ou d'évaluer l'élève sur les autres APSA réalisées dans l'année, dès lors que le seuil réglementaire d'au moins 3 APSA validées peut être atteint.
-- Absence prolongée / Année incomplète : Si l'élève n'a pu valider le nombre minimal d'APSA requis en raison d'une absence médicale longue mais couverte ou d'un parcours atypique, le conseil de classe, sur proposition de l'équipe d'EPS, examine la situation au cas par cas pour statuer sur la note de contrôle continu ou prononcer une dispense partielle justifiée.
-- Absence injustifiée (ABI) : L'élève s'expose à la note de 0 pour l'évaluation concernée, conformément au règlement intérieur de l'établissement et aux textes sur l'obligation d'assiduité scolaire.
-
-4. RÈGLES DE RATTRAPAGE ET ÉPREUVES DE SUBSTITUTION :
-- Absence de dernière minute ou inaptitude ponctuelle justifiée le jour d'une évaluation sommative : Il n'existe aucun sujet écrit ou devoir papier de secours en EPS (l'évaluation est 100 % pratique). 
-- Organisation obligatoire d'une session de rattrapage (épreuve de substitution sur le terrain) avant la clôture des notes du trimestre et la validation du LSU de troisième.
-- Inaptitude médicale totale et définitive de l'année : Saisie du statut dispensé [DISP] sur présentation d'un certificat médical officiel conforme transmis en début d'année ou validé selon les procédures de l'établissement.
-
-5. ABSENCE DE PROTOCOLE CERTIFICATIF EXTERNE (SANTORIN / CYCLADES) :
-- Les collèges ne paramètrent aucun protocole CCF sur Santorin et ne sont soumis à aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC). L'évaluation demeure un processus interne à l'établissement.
-
-
-======================================================================
-AJOUT AUTOMATIQUE (ANALYSE DES LOGS)
-======================================================================
-Voici l'analyse des questions posées et la proposition de complément à intégrer dans la base de connaissances.
-
----
-
-### Analyse des requêtes
-
-L'analyse des questions révèle deux grandes catégories d'interrogations :
-
-1. **Incompréhensions et doutes réglementaires récurrents (EPS au DNB) :**
-   * **Question massivement récurrente :** *"Y a-t-il des nouveautés en EPS au DNB ?"* (posée près de 10 fois sous différentes formes). Cela traduit une inquiétude ou une rumeur d'enseignants sur un potentiel changement de texte officiel.
-   * **Zone d'ombre précise :** La confusion entre le **positionnement par compétences (niveaux 1 à 4)** du Socle Commun (Cycle 4) et le **retour éventuel à une note sur 20** pour le DNB. Les enseignants demandent explicitement s'il faut revenir à une notation chiffrée sur 20.
-
-2. **Questions techniques / support (iPackEPS & Métadonnées du Chatbot) :**
-   * Questions sur le fonctionnement d'iPackEPS (drag & drop, date de mise en service).
-   * Questions système / RGPD (hébergement des données, modèle LLM utilisé).
-
----
-
-### Bloc RAG à ajouter dans `regles_dnb_eps.txt`
-
-Pour répondre précisément aux doutes récurrents des enseignants sur l'évaluation du DNB et clarifier l'absence de retour à la notation sur 20, voici le paragraphe à insérer dans votre fichier :
-
-```markdown
-### ÉVALUATION ET MODALITÉS DE NOTATION DE L'EPS AU DNB (CYCLE 4)
-
-**Modalités d'évaluation :**
-- L'évaluation de l'EPS pour le Diplôme National du Brevet (DNB) repose exclusivement sur l'évaluation continue des compétences du Socle commun de connaissances, de compétences et de culture à la fin du Cycle 4 (classe de 3ème).
-- **Positionnement sur 4 niveaux :** L'évaluation ne nécessite pas de notation chiffrée sur 20. Elle s'appuie réglementairement sur l'échelle de maîtrise à 4 niveaux :
+### 2. ARTICULATION ENTRE COMPÉTENCES (NIVEAUX 1 À 4) ET NOTE SUR 20
+- **Suivi des apprentissages (Cycle 4) :** Tout au long du cycle 4, les acquisitions, les progrès et le suivi quotidien des élèves s'appuient sur le positionnement selon les **4 niveaux de maîtrise du socle commun** :
   1. Maîtrise insuffisante
   2. Maîtrise fragile
   3. Maîtrise satisfaisante
   4. Très bonne maîtrise
-- **Absence de retour à la note sur 20 :** Il n'y a aucune obligation ni recommandation institutionnelle exigeant le retour à une notation sur 20 en EPS pour la validation du DNB. Les bilans périodiques et le bilan de fin de cycle prévalent.
+- **Transcription certificative :** Pour l'examen du DNB, ces acquisitions font l'objet d'une traduction chiffrée sur 20 transmise via le Livret Scolaire Unique (LSU), conformément au projet pédagogique d'EPS de l'établissement.
 
-**Nouveautés réglementaires :**
-- Aucune modification réglementaire récente ne vient modifier les modalités d'évaluation de l'EPS au DNB. L'évaluation reste adossée au projet d'EPS de l'établissement et aux attendus de fin de cycle 4.
-```
+### 3. ASSIDUITÉ, ABSENCES ET REPRÉSENTATIVITÉ DE LA MOYENNE
+- **Obligation d'assiduité :** L'EPS est un enseignement obligatoire pour tous les élèves (article L. 511-1 du Code de l'éducation). La participation aux cours et aux séquences d'évaluation est requise.
+- **Absence justifiée (ABJ) et rattrapage :** En cas d'absence justifiée (motif médical ou force majeure) à une évaluation certificative, l'équipe pédagogique s'efforce de proposer une **session de rattrapage** (épreuve de substitution sur le terrain) avant la clôture des notes, afin d'atteindre le seuil réglementaire d'au moins 3 APSA validées.
+- **Absence injustifiée (ABI) :** Une absence injustifiée à une évaluation sommative conduit à l'attribution de la note de 0 pour l'évaluation concernée, dans le respect du règlement intérieur.
+- **Parcours atypique / Absence prolongée :** Si un élève ne peut valider le nombre minimal d'APSA requis en raison d'une absence médicale longue et couverte, la situation est examinée collégialement en conseil de classe sur proposition de l'équipe d'EPS pour statuer sur la moyenne de contrôle continu.
 
-
-======================================================================
-AJOUT AUTOMATIQUE (MULTIRAG - data/examens/regles_dnb_eps.txt)
-======================================================================
-### Modalités d'évaluation et nouveautés pour l'EPS au DNB (Diplôme National du Brevet)
-
-- **Système de notation (Positionnement vs Note sur 20)** : L'évaluation de l'EPS au DNB continue de s'appuyer sur l'évaluation par compétences et le positionnement sur les 4 niveaux de maîtrise du socle commun (1. Maîtrise insuffisante, 2. Maîtrise fragile, 3. Maîtrise satisfaisante, 4. Très bonne maîtrise). Il n'y a pas de retour à une notation chiffrée sur 20.
-- **Nouveautés réglementaires** : Il n'y a pas de modification majeure ni d'épreuve terminale spécifique réintroduite pour l'EPS au DNB. La validation des acquis s'effectue dans le cadre du contrôle continu et de l'évaluation des compétences du bilan de fin de cycle 4.
-
-
-======================================================================
-AJOUT AUTOMATIQUE (MULTIRAG - data/examens/regles_dnb_eps.txt)
-======================================================================
-### Modalités d'évaluation et notation de l'EPS au DNB
-
-L'évaluation de l'EPS pour le Diplôme National du Brevet (DNB) s'inscrit dans l'évaluation du contrôle continu et la validation des compétences du **socle commun de connaissances, de compétences et de culture** (fin de Cycle 4) :
-
-- **Échelle de maîtrise (1 à 4) :** L'évaluation continue repose sur le positionnement des élèves selon les 4 niveaux de maîtrise du socle (1 : Maîtrise insuffisante, 2 : Maîtrise fragile, 3 : Maîtrise satisfaisante, 4 : Très bonne maîtrise).
-- **Absence de note sur 20 :** Il n'y a pas de retour à une notation chiffrée sur 20 obligatoire pour l'EPS au DNB. L'évaluation globale de la discipline alimente le bilan de fin de cycle et les bilans périodiques dans le Livret Scolaire Unique (LSU).
-- **Nouveautés :** Les modalités d'évaluation de l'EPS au DNB restent alignées sur les repères de progressivité du cycle 4 et le suivi des attendus de fin de cycle définis par les programmes nationaux.
-### Cadre réglementaire du contrôle continu en EPS au DNB
-
-#### 1. Modalités générales du contrôle continu en EPS
-- **Poids dans l'examen :** L'évaluation de l'EPS s'inscrit dans le cadre du contrôle continu (comptant pour 40 % de la note finale du DNB).
-- **Appui sur la classe de troisième :** La note de contrôle continu proposée en EPS s'appuie sur les évaluations réalisées lors de la classe de troisième et rend compte de l'acquisition des attendus du programme. Elle se fonde sur la moyenne des moyennes annuelles issues des trimestres ou semestres, portant généralement sur au moins trois Activités Physiques, Sportives et Artistiques (APSA).
-- **Validation :** La moyenne annuelle des élèves en EPS est validée à l'issue de la commission d'harmonisation et renseignée dans le Livret Scolaire Unique (LSU).
-
-#### 2. Assiduité, absences ponctuelles et représentativité de la moyenne
-- **Obligation d'assiduité :** Le contrôle continu implique le respect strict de l'obligation d'assiduité prévue par l'article L. 511-1 du Code de l'éducation. Les élèves doivent suivre l'intégralité des enseignements et se soumettre aux évaluations obligatoires.
-- **Alerte sur la représentativité :** Lorsque l'absence répétée d'un élève aux évaluations fait peser un risque sur la représentativité de sa moyenne, une évaluation de remplacement peut être spécifiquement organisée à son intention.
-- **Mention « En attente » :** Dans l'hypothèse où une moyenne périodique n'est pas jugée représentative en raison d'absences, elle peut être remplacée par la mention « En attente » sur le bilan périodique.
-- **Évaluation de remplacement et sanctions :** En fin d'année, pour s'assurer que l'élève dispose d'une moyenne sur 20, il peut être fait recours à une évaluation de remplacement. En cas d'absence **injustifiée** à cette évaluation de remplacement, la note de zéro est attribuée pour cet enseignement.
-
-#### 3. Gestion des dispenses et inaptitudes
-- **Caractère obligatoire de l'enseignement :** L'EPS est un enseignement obligatoire pour tous les élèves. Un certificat médical d'inaptitude ne dispense pas l'élève d'assister aux cours, sauf contre-indication médicale majeure nécessitant une exclusion du lieu de pratique.
+### 4. GESTION DES DISPENSES ET INAPTITUDES
+- **Caractère obligatoire de l'enseignement :** Un certificat médical d'inaptitude ne dispense pas par principe l'élève d'assister aux cours d'EPS, sauf contre-indication médicale majeure motivant une exclusion du lieu de pratique.
 - **Inaptitude partielle :** L'élève inapte partiellement est évalué sur des rôles sociaux et méthodologiques (juge, arbitre, observateur, organisateur) ou sur des apprentissages adaptés définis par l'équipe pédagogique.
-- **Dispense réglementaire totale :** Seules les dispenses réglementaires relatives à l'enseignement de l'EPS (inaptitude totale et durable attestée par l'autorité médicale) sont autorisées. La situation est alors renseignée avec la mention **« Dispensé »** dans le LSU. Une dispense médicale ne doit en aucun cas se traduire par l'attribution arbitraire d'une note de 0/20.
+- **Dispense totale (Inaptitude totale et durable) :** Seule une dispense médicale totale et officielle entraîne la saisie de la mention réglementaire **« Dispensé »** [DISP] dans le LSU. Aucune note arbitraire (type 0/20) ne doit être attribuée en raison d'une dispense médicale régulière.
+
+### 5. PROTOCOLE INTERNE ET PLATEFORMES (SANTORIN / CYCLADES)
+- **Processus interne :** L'évaluation de l'EPS au DNB relève d'un processus interne à l'établissement, encadré par le projet pédagogique d'EPS et les protocoles validés en équipe.
+- **Absence de protocole externe :** Les collèges ne paramètrent aucun protocole d'examen externe de type CCF sur Santorin et ne réalisent aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC) pour le DNB.

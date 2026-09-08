@@ -365,8 +365,8 @@ if openai_api_key:
 
 def obtenir_cle_fichier():
     mtimes = []
-    # Surveillance des fichiers de consignes principaux (chemin mis à jour dans data/)
-    for fp in ["data/examens/memoire_examens_santorin.txt", "data/ipack.txt"]:
+    # Surveillance des fichiers de consignes principaux
+    for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt"]:
         if os.path.exists(fp):
             try:
                 mtimes.append(os.path.getmtime(fp))
@@ -407,7 +407,7 @@ def charger_consignes_examens():
 
 def charger_consignes_ipack():
     documents_charges = []
-    for fp in ["data/ipack.txt"]:
+    for fp in ["ipack.txt"]:
         if os.path.exists(fp):
             try:
                 with open(fp, "r", encoding="utf-8") as f:
@@ -460,6 +460,7 @@ def initialiser_base_santorin(cle_fremt):
         )
     ]
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
+    # Charge la mémoire souveraine spécifique aux examens & Santorin
     docs_santorin.extend(charger_consignes_examens())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
@@ -1043,4 +1044,4 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 st.video(m["content"])
             else:
                 st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True) 
+    st.markdown("</div>", unsafe_allow_html=True)

@@ -803,7 +803,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (INTÉGRALITÉ DES TUTOS & RÈGLES)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -819,7 +819,6 @@ if prompt:
 
         texte_brut = ""
         extraits_doc = ""
-        extraits_web = ""
         badge, color_card = "INFORMATION", "general-card"
 
         onglets_noms = {
@@ -874,7 +873,6 @@ if prompt:
             and "lot" in p_low
         )
 
-        # ⚡ DÉTECTION SSS (SÉCURITÉ VIDÉO AUTOMATIQUE)
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
         est_cas_direct = (
@@ -902,20 +900,7 @@ if prompt:
             except Exception:
                 pass
 
-        # 🌐 RECHERCHE WEB TAVILY
-        if tavily_client and mode == "textes" and not est_cas_direct:
-            try:
-                response_tavily = tavily_client.search(
-                    query=prompt,
-                    max_results=3,
-                    include_domains=["legifrance.gouv.fr", "eduscol.education.fr", "education.gouv.fr"],
-                )
-                for res in response_tavily.get("results", []):
-                    extraits_web += f"Source Officielle Web ({res.get('title')}) - {res.get('url')}:\n{res.get('content')}\n\n"
-            except Exception:
-                pass
-
-        # 🎯 ROUTAGE DU RENDU DIRECT
+        # 🎯 BLOCS DE CONTENU POINTU EN DUR
         if est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
@@ -925,18 +910,11 @@ if prompt:
             badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
 
         elif est_tasa:
-            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)</h3>
 <ul>
-  <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
+  <li><strong>Texte de référence officiel :</strong> Circulaire en vigueur.</li>
   <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
-  <li><strong>Protocole technique (100m en continu < 3 min 45 s) :</strong>
-    <ul>
-      <li>Longueur 1 (0-25m) : Départ plongé obligatoire + nage libre en surface.</li>
-      <li>Longueur 2 (25-50m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
-      <li>Longueur 3 (50-75m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
-      <li>Longueur 4 (75-100m) : Recherche d'un mannequin à 2,50m de profondeur et remorquage sur le dos sur 25m (visage hors de l'eau).</li>
-    </ul>
-  </li>
+  <li><strong>Protocole technique (100m en continu) :</strong> Respect strict des exigences réglementaires (nage libre, apnées et recherche de mannequin).</li>
   <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
 </ul>"""
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
@@ -953,7 +931,7 @@ if prompt:
         elif est_cap_3epreuves:
             texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
 <ul>
-  <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
+  <li><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
   <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
   <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
 </ul>"""
@@ -962,26 +940,10 @@ if prompt:
         elif est_deplacer_candidat:
             texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
 <ul>
-  <li><strong>Distinction clé :</strong> Ne pas confondre la « réaffectation d'un lot » entier (qui attribue la totalité des copies à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.</li>
+  <li><strong>Distinction clé :</strong> Ne pas confondre la « réaffectation d'un lot » entier et le « déplacement d'un candidat » d'un lot vers un autre.</li>
   <li><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</li>
-  <li><strong>Cas 1 &amp; 2 (Arrivée tardive ou erreur de protocole dans Cyclades) :</strong> 
-    <ul>
-      <li>Corriger l'affectation du candidat ou du protocole dans <strong>Cyclades</strong>.</li>
-      <li>Effectuer ensuite une nouvelle <strong>distribution automatique</strong> des candidats/lots dans Santorin.</li>
-    </ul>
-  </li>
-  <li><strong>Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) :</strong> Deux solutions directes dans Santorin :
-    <ul>
-      <li><strong>Option A :</strong> Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur <strong>« Affecter à un autre lot »</strong> ou <strong>« Affecter à un nouveau lot »</strong> en désignant le correcteur chargé de la notation.<br>
-      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/deplacer_candidat_vers_autre_lot.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel dédié</a></li>
-      <li><strong>Option B :</strong> Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève.<br>
-      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/procedures_complementaires.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel des procédures complémentaires</a></li>
-    </ul>
-  </li>
-  <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
-</ul>
-📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
-📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
+  <li><strong>Procédure :</strong> Corrigé via <strong>Cyclades</strong> pour l'affectation ou manipulation directe du correcteur dans Santorin.</li>
+</ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         else:
@@ -992,127 +954,45 @@ if prompt:
             else:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
-        # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLET
-        directive_onglet = ""
-        if mode == "textes":
-            directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC).
-   - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
-     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
-"""
-        elif mode == "examens":
-            directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-        - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-        - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
-        elif mode == "ipack":
-            directive_onglet = """
-3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
-"""
-
-        contexte_complet_ia = f"""
+            contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 
-SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
-{extraits_web}
-
 {verites_terrain_pierre}
 """
+            niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
-        # Récupération sécurisée du niveau choisi par l'utilisateur dans l'interface
-        niveau_actuel_form = st.session_state.get(
-            "niveau_actif_form", "Collège (DNB)"
-        )
+            consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
+NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}
 
-        consigne_ia = f"""Tu es un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques.
+Règles impératives :
+1. Réponds en t'appuyant rigoureusement sur les extraits documentaires fournis.
+2. Si l'information est totalement absente des documents, réponds mot pour mot par cette phrase exacte et rien d'autre :
+"Désolé, je ne suis pas en mesure de vous répondre avec certitude sur ce point précis. Je vous propose de vous rapprocher directement du SAV à l'adresse : ipackeps@ac-aix-marseille.fr"
 
-🚨 RÈGLE D'IDENTITÉ ABSOLUE :
-Si l'utilisateur pose la question "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?", tu dois formuler exactement cette réponse :
-"Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
-
-🎯 NIVEAU SCOLAIRE CIBLÉ PAR L'UTILISATEUR : {niveau_actuel_form}
-- Applique STRICTEMENT les règles réglementaires et techniques correspondant à ce niveau précis.
-- Étanchéité absolue : Ne mélange jamais les règles du Collège/DNB (contrôle continu, pas de CCF, pas de Santorin) et celles du Lycée (CCF, Santorin, Cyclades).
-
-🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
-1. PRINCIPE DE RÉALITÉ DES PUBLICS :
-    - Collège (6e, 5e, 4e, 3e, y compris 3e prépa-métiers, SEGPA, ULIS, peu importe l'établissement d'hébergement) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin ou Cyclades. Évaluation exclusivement par contrôle continu et LSU (Socle commun). Si l'utilisateur évoque une 3e (même en Lycée Pro), rejette l'export Cyclades/CCF et impose le LSU.
-    - Lycée (Terminale Bac GT, Bac Pro, CAP) : Cadre réglementaire strict du CCF.
-2. INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
-    - Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction formelle d'en proposer pour une classe ordinaire.
-3. INCOMPÉTENCE HIERARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
-    - Le chef d'établissement n'a AUCUNE autorité ni compétence sur les jurys de bac, la modification des notes d'examens nationaux ou la gestion des tiers correcteurs (tierce correction). Tout litige relève de la Division des Examens et Concours (DEC).
-4. GESTION DES FAUSSES PRÉMISSES :
-    - Si un utilisateur demande une action impossible (CCF en collège, APSA combinée en classe normale, validation de correcteur de bac par le proviseur), rectifie la prémisse dès la première phrase, rappelle la règle réglementaire exacte, et donne la bonne marche à suivre. N'active jamais la règle du hors-sujet global pour une question d'EPS erronée.
-5. CLOISONNEMENT STRICT DES ACTEURS INSTITUTIONNELS :
-    - Dans l'onglet "Sécurité & Cadre Juridique", INTERDICTION ABSOLUE de mentionner la DEC (Division des Examens et Concours), que ce soit pour dire de la contacter ou de ne pas la contacter. La DEC n'a aucun rôle dans les accidents, la responsabilité ou les sorties scolaires (seuls le Chef d'établissement, le Recteur et la DSDEN sont compétents).
-6. GESTION OPÉRATIONNELLE DES LOTS ET VERROUILLAGES SUR SANTORIN (HABILITATION & CADENAS) :
-    - Un enseignant n'a PAS les droits de déverrouiller un lot de copies numériques depuis son profil de correcteur.
-    - La manipulation relève EXCLUSIVEMENT du Chef d'établissement depuis sa console de direction sur Santorin (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).
-    - INTERDICTION FORMELLE ET ABSOLUE de mentionner la DEC (Division des Examens et Concours) pour ce cas. C'est une action locale et autonome de l'établissement. L'assistant doit explicitement dire à l'enseignant de se rapprocher de sa direction.
-7. GESTION STRICTE DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF) :
-    - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative (CCF) est une INAPTITUDE TEMPORAIRE.
-    - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" (Dispensé) dans Santorin pour un cas de dernière minute.
-    - L'élève conserve son obligation d'être évalué : l'organisation d'une ÉPREUVE DIFFÉRÉE (session de substitution sur le terrain avant la clôture des serveurs académiques) est OBLIGATOIRE.
-    - Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes permanentes de début d'année validées en amont par la Commission Académique (CAHN).
-8. 🧠 FLEXIBILITÉ CONTEXTUELLE & ARBITRAGE INTELLIGENT :
-    - L'utilisateur a posé sa question dans {contexte_choisi_nom}. Cependant, analyse toujours en priorité la nature intrinsèque de la question (par exemple : si la question concerne le collège ou le DNB, elle relève du contrôle continu et du LSU, même si l'onglet actif est par erreur celui des examens/lycée).
-    - En cas de décalage entre l'onglet sélectionné et le domaine réel de la question, ne t'enferme pas aveuglément dans l'erreur de l'onglet : recadre le sujet avec souplesse et pédagogie, sans blocage.
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS) :
+- Si la question porte sur les SSS, termine par : Evolution_et_fermeture_SSS.mp4 ou Signature_chef_etablissement_SSS.mp4
+- Pour les autres manipulations, inclus le nom exact du fichier associé parmi la liste officielle si pertinent : (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 
 {contexte_complet_ia}
 
-QUESTION DE L'UTILISATEUR :
+QUESTION :
 {prompt}
-
-MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
-2. STRUCTURE & MISE EN PAGE :
-    - Rends une réponse bien structurée et claire.
-    - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
-{directive_onglet}
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-    - Si la question porte explicitement sur les SSS (reconduction, fermeture, projet), termine obligatoirement par : 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4
-    - Si elle porte sur la signature SSS, termine par : 📺 Tutoriel associé : Signature_chef_etablissement_SSS.mp4
-    - Pour les autres manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 """
+            if not est_cas_direct:
+                try:
+                    response = Settings.llm.complete(consigne_ia)
+                    texte_brut = response.text
+                except Exception as e:
+                    texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        if not est_cas_direct:
-            try:
-                response = Settings.llm.complete(consigne_ia)
-                texte_brut = response.text
-            except Exception as e:
-                texte_brut = f"Erreur de traitement IA : {str(e)}"
-
-        # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS (FORCE L'AFFICHAGE DU TUTO SI OUBLI DE L'IA)
+        # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-        # 🧹 NETTOYAGES & FORMATAGE HTML CORRIGÉ (CORRECTION DE L'ESPACEMENT GÉANT)
+        # 🧹 NETTOYAGES HTML
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
-
-        if mode == "textes" or est_dnb:
-            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
-
-        texte_brut = re.sub(
-            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-            "",
-            texte_brut,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
-
-        texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
-            r'<span class="law-highlight">\1</span>',
-            texte_brut,
-        )
-        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
-
+        
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",
             r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
@@ -1120,14 +1000,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_brut = re_links
 
-        # 🔧 CORRECTION CRITIQUE DES ESPACES : On ne convertit plus aveuglément les \n en <br> 
-        # pour éviter de casser les listes HTML et créer des interlignages géants.
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-        texte_final = (
-            texte_nettoye.replace("<p>", "")
-            .replace("</p>", "<br>")
-        )
-        # Nettoyage propre des sauts de ligne superflus sans doubler les balises de listes
+        texte_final = texte_nettoye.replace("<p>", "").replace("</p>", "<br>")
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
 
@@ -1145,23 +1019,22 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
-        # 🚀 ENREGISTREMENT DISCRET DANS LE GOOGLE SHEET "Questions Hub"
         log_interaction(prompt, texte_brut)
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
+        # 📺 INTÉGRATION DES VIDÉOS TUTOS ASSOCIÉES
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
-                # 🛡️ SÉCURITÉ : Interdire les tutos Santorin pour le collège/DNB
                 if est_dnb and "santorin" in video_name.lower():
                     continue
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Hors du if prompt pour persister à l'écran)
+# AFFICHAGE DES MESSAGES (PERSISTANCE)
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:

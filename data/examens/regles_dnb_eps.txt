@@ -8,24 +8,25 @@ CADRE RÉGLEMENTAIRE OFFICIEL : EPS AU DNB & CONTRÔLE CONTINU (CYCLE 4)
 - **Note annuelle sur 20 :** La note de contrôle continu en EPS est une note sur 20, fondée sur la moyenne des notes obtenues lors de l'évaluation d'au moins **trois Activités Physiques, Sportives et Artistiques (APSA)** relevant de champs d'apprentissage distincts au cours de l'année de troisième.
 
 ### 2. ARTICULATION ENTRE COMPÉTENCES (NIVEAUX 1 À 4) ET NOTE SUR 20
-- **Suivi des apprentissages (Cycle 4) :** Tout au long du cycle 4, les acquisitions, les progrès et le suivi quotidien des élèves s'appuient sur le positionnement selon les **4 niveaux de maîtrise du socle commun** :
-  1. Maîtrise insuffisante
-  2. Maîtrise fragile
-  3. Maîtrise satisfaisante
-  4. Très bonne maîtrise
+- **Suivi des apprentissages (Cycle 4) :** Tout au long du cycle 4, les acquisitions, les progrès et le suivi quotidien des élèves s'appuient sur le positionnement selon les **4 niveaux de maîtrise du socle commun** : 1. Maîtrise insuffisante, 2. Maîtrise fragile, 3. Maîtrise satisfaisante, 4. Très bonne maîtrise.
 - **Transcription certificative :** Pour l'examen du DNB, ces acquisitions font l'objet d'une traduction chiffrée sur 20 transmise via le Livret Scolaire Unique (LSU), conformément au projet pédagogique d'EPS de l'établissement.
 
 ### 3. ASSIDUITÉ, ABSENCES ET REPRÉSENTATIVITÉ DE LA MOYENNE
 - **Obligation d'assiduité :** L'EPS est un enseignement obligatoire pour tous les élèves (article L. 511-1 du Code de l'éducation). La participation aux cours et aux séquences d'évaluation est requise.
 - **Absence justifiée (ABJ) et rattrapage :** En cas d'absence justifiée (motif médical ou force majeure) à une évaluation certificative, l'équipe pédagogique s'efforce de proposer une **session de rattrapage** (épreuve de substitution sur le terrain) avant la clôture des notes, afin d'atteindre le seuil réglementaire d'au moins 3 APSA validées.
 - **Absence injustifiée (ABI) :** Une absence injustifiée à une évaluation sommative conduit à l'attribution de la note de 0 pour l'évaluation concernée, dans le respect du règlement intérieur.
-- **Parcours atypique / Absence prolongée :** Si un élève ne peut valider le nombre minimal d'APSA requis en raison d'une absence médicale longue et couverte, la situation est examinée collégialement en conseil de classe sur proposition de l'équipe d'EPS pour statuer sur la moyenne de contrôle continu.
 
-### 4. GESTION DES DISPENSES ET INAPTITUDES
+### 4. CAS PARTICULIER : ÉLÈVE DE 3ÈME AVEC UNE SEULE NOTE OU ABSENT EN FIN D'ANNÉE
+- **Interdiction du "bricolage" de moyenne :** Disposer d'une seule note au premier semestre ou d'un trimestre partiel ne permet pas de satisfaire aux exigences réglementaires du contrôle continu du DNB (qui impose une pluralité d'évaluations sur au moins 3 APSA de champs d'apprentissage distincts). Il est strictement interdit d'inventer une moyenne ou de valider un trimestre de complaisance.
+- **Procédure réglementaire :** 
+  1. Signalement immédiat de la rupture de l'obligation d'assiduité auprès de la vie scolaire et du chef d'établissement.
+  2. Programmation d'une épreuve de rattrapage si l'élève réapparaît avant les jurys.
+  3. Saisine collégiale du conseil de classe : si l'absence est définitive et injustifiée, l'équipe d'EPS et le conseil de classe statuent sur l'impossibilité de valider la composante de contrôle continu de la discipline pour l'examen.
+
+### 5. GESTION DES DISPENSES ET INAPTITUDES
 - **Caractère obligatoire de l'enseignement :** Un certificat médical d'inaptitude ne dispense pas par principe l'élève d'assister aux cours d'EPS, sauf contre-indication médicale majeure motivant une exclusion du lieu de pratique.
 - **Inaptitude partielle :** L'élève inapte partiellement est évalué sur des rôles sociaux et méthodologiques (juge, arbitre, observateur, organisateur) ou sur des apprentissages adaptés définis par l'équipe pédagogique.
-- **Dispense totale (Inaptitude totale et durable) :** Seule une dispense médicale totale et officielle entraîne la saisie de la mention réglementaire **« Dispensé »** [DISP] dans le LSU. Aucune note arbitraire (type 0/20) ne doit être attribuée en raison d'une dispense médicale régulière.
+- **Dispense totale :** Seule une dispense médicale totale et officielle entraîne la saisie de la mention réglementaire **« Dispensé »** [DISP] dans le LSU. Aucune note arbitraire (type 0/20) ne doit être attribuée en raison d'une dispense médicale régulière.
 
-### 5. PROTOCOLE INTERNE ET PLATEFORMES (SANTORIN / CYCLADES)
-- **Processus interne :** L'évaluation de l'EPS au DNB relève d'un processus interne à l'établissement, encadré par le projet pédagogique d'EPS et les protocoles validés en équipe.
-- **Absence de protocole externe :** Les collèges ne paramètrent aucun protocole d'examen externe de type CCF sur Santorin et ne réalisent aucune remontée de notes de type lycée auprès de la Division des Examens et Concours (DEC) pour le DNB.
+### 6. CHAMP D'APPLICATION (EXCLUSION DE SANTORIN AU COLLÈGE)
+- L'évaluation de l'EPS au DNB relève exclusivement d'un processus interne à l'établissement (collège). **Aucun paramétrage sur la plateforme Santorin ni aucune remontée de notes de type lycée (DEC) n'interviennent pour le DNB.**

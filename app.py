@@ -803,7 +803,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION DÉFINITIVE & COMPLÈTE)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION DÉFINITIVE & SÉCURISÉE)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []

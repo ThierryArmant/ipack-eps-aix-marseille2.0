@@ -74,3 +74,15 @@ AJOUT AUTOMATIQUE (MULTIRAG - data/examens/regles_dnb_eps.txt)
 
 - **Système de notation (Positionnement vs Note sur 20)** : L'évaluation de l'EPS au DNB continue de s'appuyer sur l'évaluation par compétences et le positionnement sur les 4 niveaux de maîtrise du socle commun (1. Maîtrise insuffisante, 2. Maîtrise fragile, 3. Maîtrise satisfaisante, 4. Très bonne maîtrise). Il n'y a pas de retour à une notation chiffrée sur 20.
 - **Nouveautés réglementaires** : Il n'y a pas de modification majeure ni d'épreuve terminale spécifique réintroduite pour l'EPS au DNB. La validation des acquis s'effectue dans le cadre du contrôle continu et de l'évaluation des compétences du bilan de fin de cycle 4.
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - data/examens/regles_dnb_eps.txt)
+======================================================================
+### Modalités d'évaluation et notation de l'EPS au DNB
+
+L'évaluation de l'EPS pour le Diplôme National du Brevet (DNB) s'inscrit dans l'évaluation du contrôle continu et la validation des compétences du **socle commun de connaissances, de compétences et de culture** (fin de Cycle 4) :
+
+- **Échelle de maîtrise (1 à 4) :** L'évaluation continue repose sur le positionnement des élèves selon les 4 niveaux de maîtrise du socle (1 : Maîtrise insuffisante, 2 : Maîtrise fragile, 3 : Maîtrise satisfaisante, 4 : Très bonne maîtrise).
+- **Absence de note sur 20 :** Il n'y a pas de retour à une notation chiffrée sur 20 obligatoire pour l'EPS au DNB. L'évaluation globale de la discipline alimente le bilan de fin de cycle et les bilans périodiques dans le Livret Scolaire Unique (LSU).
+- **Nouveautés :** Les modalités d'évaluation de l'EPS au DNB restent alignées sur les repères de progressivité du cycle 4 et le suivi des attendus de fin de cycle définis par les programmes nationaux.

@@ -728,40 +728,38 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
+# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
-  st.markdown(
-      "🎯 **Étape 2 : Précisez votre public/niveau (Obligatoire pour éviter les"
-      " confusions) :**"
-  )
-  niveau_scolaire = st.radio(
-      "Niveau scolaire ciblé",
-      ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-      horizontal=True,
-      key="select_niveau_scolaire",
-  )
-
-  col_input, col_submit = st.columns([5, 1])
-  with col_input:
-    prompt_brut = st.text_input(
-        "Question :",
-        placeholder=(
-            "🔺 Saisissez votre question ici en tenant compte du niveau"
-            " sélectionné..."
-        ),
+    st.markdown(
+        "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE NIVEAU (OBLIGATOIRE)</div>",
+        unsafe_allow_html=True
+    )
+    niveau_scolaire = st.radio(
+        "Niveau",
+        ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+        horizontal=True,
         label_visibility="collapsed",
     )
-  with col_submit:
-    bouton_envoyer = st.form_submit_button(
-        "🚀 Poser la question", use_container_width=True, type="primary"
-    )
 
-  if bouton_envoyer and prompt_brut.strip():
-    prompt = prompt_brut.strip()
-    # On mémorise le niveau sélectionné dans la session pour l'exploiter dans l'IA
-    st.session_state.niveau_actif_form = niveau_scolaire
+    col_input, col_submit = st.columns([5, 1])
+    with col_input:
+        prompt_brut = st.text_input(
+            "Question :",
+            placeholder=(
+                "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
+            ),
+            label_visibility="collapsed",
+        )
+    with col_submit:
+        bouton_envoyer = st.form_submit_button(
+            "🚀 Poser", use_container_width=True, type="primary"
+        )
+
+    if bouton_envoyer and prompt_brut.strip():
+        prompt = prompt_brut.strip()
+        st.session_state.niveau_actif_form = niveau_scolaire
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
 # ======================================================================

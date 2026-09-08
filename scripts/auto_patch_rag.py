@@ -26,18 +26,19 @@ def analyser_et_patcher():
         
     logs_texte = "\n".join(f"- {q}" for q in dernier_logs)
 
-    print("2. Analyse intelligente et routage par Gemini...")
+    print("2. Analyse intelligente et routage par Gemini (Multi-RAG à 3 branches)...")
     prompt = f"""
     Voici les dernières questions posées par des enseignants d'EPS dans le Hub IA :
     {logs_texte}
     
     Analyse ces questions. Tu dois déterminer si elles nécessitent de mettre à jour l'une de nos bases de connaissances (RAG). 
-    Nous avons deux fichiers cibles possibles :
+    Nous avons trois fichiers cibles possibles :
     1. `ipack` -> Concerne le fonctionnement de l'application iPackEPS, ses outils, ses tableaux, ses scripts ou son utilisation pratique.
     2. `examens` -> Concerne la réglementation, les textes officiels, les épreuves ou les règles du DNB EPS.
+    3. `santorin` -> Concerne la gestion des examens, des copies, des notes et l'utilisation des plateformes Santorin ou Cyclades.
 
     Si une correction ou un complément est nécessaire, réponds STRICTEMENT selon ce format précis :
-    CIBLE: [ipack ou examens]
+    CIBLE: [ipack, examens ou santorin]
     CONTENU:
     [Le paragraphe au format Markdown prêt à être ajouté]
 
@@ -51,12 +52,14 @@ def analyser_et_patcher():
         print("Aucun nouveau patch nécessaire. Tout est carré !")
         return
 
-    # Identification de la cible
+    # Identification de la cible parmi les 3 modules
     cible = None
     if "CIBLE: ipack" in texte_reponse:
         cible = "ipack.txt"
     elif "CIBLE: examens" in texte_reponse:
         cible = "data/examens/regles_dnb_eps.txt"
+    elif "CIBLE: santorin" in texte_reponse:
+        cible = "data/examens/memoire_examens_santorin.txt"
     else:
         print("Format de routage non reconnu par l'IA.")
         return

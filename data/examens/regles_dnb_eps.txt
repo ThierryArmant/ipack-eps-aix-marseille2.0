@@ -21,7 +21,9 @@ CADRE RÉGLEMENTAIRE OFFICIEL : EPS AU DNB & CONTRÔLE CONTINU (CYCLE 4)
 - **Assiduité et signalement :** L'EPS étant un enseignement obligatoire (article L. 511-1 du Code de l'éducation), toute rupture d'assiduité fait l'objet d'un signalement immédiat à la vie scolaire et au chef d'établissement.
 - **Représentativité et mention « En attente » :** Le chef d'établissement étant garant de la représentativité des moyennes portées au livret, une note unique ne permettant pas d'établir une moyenne conforme peut être remplacée par la mention « En attente » sur le bilan périodique.
 - **Évaluation de remplacement et sanctions :** Afin de donner une chance à l'élève, une évaluation de remplacement (épreuve de substitution sur le terrain) peut être organisée en fin d'année. En cas d'absence **injustifiée** à cette épreuve de remplacement, la note de zéro est attribuée pour cet enseignement.
-- **Arbitrage collégial en Conseil de classe :** Si l'élève demeure absent et ne se soumet à aucune évaluation, la situation est examinée en conseil de classe sous la responsabilité du chef d'établissement pour acter collégialement l'impossibilité de délivrer une moyenne de contrôle continu conforme au référentiel du DNB, protégeant ainsi l'équipe et l'établissement de tout recours.
+- **Traitement de la note et arbitrage :** 
+  - **Absence de note de complaisance :** S'il est impossible de réunir le seuil réglementaire d'au moins 3 APSA en raison de l'absentéisme, aucune note fictive ne peut être attribuée. 
+  - **Arbitrage en Conseil de classe :** Le chef d'établissement, garant de la représentativité des moyennes, statue avec l'équipe pédagogique en conseil de classe pour acter l'impossibilité de délivrer une moyenne de contrôle continu conforme pour le DNB, protégeant ainsi l'équipe et l'établissement de tout recours.
 
 ### 5. GESTION DES DISPENSES ET INAPTITUDES
 - **Caractère obligatoire de l'enseignement :** Un certificat médical d'inaptitude ne dispense pas par principe l'élève d'assister aux cours d'EPS, sauf contre-indication médicale majeure motivant une exclusion du lieu de pratique.

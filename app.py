@@ -803,7 +803,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (INTÉGRALITÉ DES TUTOS & RÈGLES)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION DÉFINITIVE & COMPLÈTE)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -837,7 +837,7 @@ if prompt:
         except Exception:
             pass
 
-        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
+        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES (EN DUR)
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
         est_date = (
@@ -885,7 +885,7 @@ if prompt:
             )
         ) or est_tasa
 
-        # 🚀 RECHERCHE RAG LOCALE
+        # 🚀 RECHERCHE RAG LOCALE (SI PAS DE CAS DIRECT)
         if openai_api_key and not est_cas_direct:
             try:
                 if mode == "examens":
@@ -900,7 +900,7 @@ if prompt:
             except Exception:
                 pass
 
-        # 🎯 BLOCS DE CONTENU POINTU EN DUR
+        # 🎯 TRAITEMENT DES INVARIANTS EN DUR
         if est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
@@ -965,18 +965,18 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
             consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
 NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}
 
-Règles impératives :
-1. Réponds en t'appuyant rigoureusement sur les extraits documentaires fournis.
-2. Si l'information est totalement absente des documents, réponds mot pour mot par cette phrase exacte et rien d'autre :
+RÈGLES IMPÉRATIVES DE SÉCURITÉ :
+1. Tu dois t'appuyer EXCLUSIVEMENT et STRICTEMENT sur les extraits documentaires fournis ci-dessous. Il est FORMELLEMENT INTERDIT d'utiliser tes connaissances générales, tes suppositions ou ta mémoire d'entraînement pour inventer des menus, des fonctionnalités ou des procédures qui n'apparaissent pas dans les documents.
+2. CLAUSE DE REPLI STRICTE : Si les extraits documentaires ne contiennent pas explicitement la réponse exacte et vérifiable, tu as l'interdiction absolue d'inventer ou de rédiger une explication. Tu dois répondre mot pour mot et UNIQUEMENT par cette phrase exacte, sans rien ajouter d'autre :
 "Désolé, je ne suis pas en mesure de vous répondre avec certitude sur ce point précis. Je vous propose de vous rapprocher directement du SAV à l'adresse : ipackeps@ac-aix-marseille.fr"
 
 3. 📺 TUTO VIDÉO (DÉCLENCHEURS) :
-- Si la question porte sur les SSS, termine par : Evolution_et_fermeture_SSS.mp4 ou Signature_chef_etablissement_SSS.mp4
-- Pour les autres manipulations, inclus le nom exact du fichier associé parmi la liste officielle si pertinent : (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
+- Si la question porte sur les SSS, inclus si pertinent : Evolution_et_fermeture_SSS.mp4 ou Signature_chef_etablissement_SSS.mp4
+- Pour les autres manipulations techniques, inclus le nom exact du fichier associé si pertinent parmi la liste officielle : (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 
 {contexte_complet_ia}
 
-QUESTION :
+QUESTION DE L'UTILISATEUR :
 {prompt}
 """
             if not est_cas_direct:
@@ -1019,6 +1019,7 @@ QUESTION :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
+        # Enregistrement pour la ronde de nuit de 2h du matin
         log_interaction(prompt, texte_brut)
 
         st.session_state.messages_hub.append(

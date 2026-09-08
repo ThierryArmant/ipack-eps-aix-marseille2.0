@@ -1029,7 +1029,7 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 
 🚨 RÈGLE D'IDENTITÉ ABSOLUE :
 Si l'utilisateur pose la question "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?", tu dois formuler exactement cette réponse :
-"Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
+"Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
 
 🎯 NIVEAU SCOLAIRE CIBLÉ PAR L'UTILISATEUR : {niveau_actuel_form}
 - Applique STRICTEMENT les règles réglementaires et techniques correspondant à ce niveau précis.
@@ -1083,3 +1083,86 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 texte_brut = response.text
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
+
+        # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS (FORCE L'AFFICHAGE DU TUTO SI OUBLI DE L'IA)
+        if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
+            texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
+
+        # 🧹 NETTOYAGES & FORMATAGE HTML CORRIGÉ (CORRECTION DE L'ESPACEMENT GÉANT)
+        texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
+
+        if mode == "textes" or est_dnb:
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+        texte_brut = re.sub(
+            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
+            r'<span class="law-highlight">\1</span>',
+            texte_brut,
+        )
+        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
+
+        re_links = re.sub(
+            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
+            texte_brut,
+        )
+        texte_brut = re_links
+
+        # 🔧 CORRECTION CRITIQUE DES ESPACES : On ne convertit plus aveuglément les \n en <br> 
+        # pour éviter de casser les listes HTML et créer des interlignages géants.
+        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+        texte_final = (
+            texte_nettoye.replace("<p>", "")
+            .replace("</p>", "<br>")
+        )
+        # Nettoyage propre des sauts de ligne superflus sans doubler les balises de listes
+        texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
+        texte_final = texte_final.replace("\n", "<br>")
+
+        phrase_contexte = (
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+        )
+
+        footer_assistance = ""
+        if mode in ["ipack", "examens"]:
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance <a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a></div>"
+            )
+
+        formatted_answer = (
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+        )
+
+        # 🚀 ENREGISTREMENT DISCRET DANS LE GOOGLE SHEET "Questions Hub"
+        log_interaction(prompt, texte_brut)
+
+        st.session_state.messages_hub.append(
+            {"role": "assistant", "type": "text", "content": formatted_answer}
+        )
+
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                # 🛡️ SÉCURITÉ : Interdire les tutos Santorin pour le collège/DNB
+                if est_dnb and "santorin" in video_name.lower():
+                    continue
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
+                )
+
+# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Hors du if prompt pour persister à l'écran)
+if "messages_hub" in st.session_state and st.session_state.messages_hub:
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

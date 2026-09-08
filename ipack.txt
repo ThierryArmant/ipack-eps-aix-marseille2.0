@@ -1569,3 +1569,14 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 * Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution)[cite: 1].
 * Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
 * Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)
+======================================================================
+### Utilisation du glisser-déposer (Drag & Drop) pour les justificatifs et certificats médicaux
+iPackEPS intègre une fonctionnalité de glisser-déposer permettant d'importer rapidement les certificats médicaux et documents justificatifs des élèves sans passer par la recherche manuelle dans l'arborescence de vos dossiers :
+1. Rendez-vous dans le module de suivi des élèves ou la section des dispenses/inaptitudes.
+2. Épinglez ou sélectionnez l'élève concerné.
+3. Faites glisser le fichier (PDF, JPG, PNG) directement depuis votre ordinateur vers la zone de dépôt ou la fiche de l'élève.
+4. Le document est automatiquement rattaché au dossier numérique de l'élève et archivé au bon endroit.

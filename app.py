@@ -733,7 +733,7 @@ with col_b3:
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
     st.markdown(
-        "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE NIVEAU (OBLIGATOIRE)</div>",
+        "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE 🎓 PUBLIC CIBLE (OBLIGATOIRE)</div>",
         unsafe_allow_html=True
     )
     niveau_scolaire = st.radio(

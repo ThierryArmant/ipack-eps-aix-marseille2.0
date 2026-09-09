@@ -812,6 +812,9 @@ if prompt:
     with st.spinner("Je consulte la documentation officielle..."):
         mode = st.session_state.active_module
         p_low = prompt.lower()
+        
+        # 🎯 Récupération sécurisée du niveau actif sélectionné à l'étape 2
+        niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
         texte_brut = ""
         extraits_doc = ""
@@ -1023,6 +1026,12 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 """
 
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}
+
+⚠️ RIGUEUR LEXICALE & FILTRAGE PAR NIVEAU :
+- SI COLLÈGE (DNB) : Utilise exclusivement les termes "contrôle continu", "moyenne" et "acquisition des compétences". Interdiction formelle d'employer les mots "certification", "CCF", "épreuve certificative" ou "Santorin".
+- SI LYCÉES / CAP : Utilise les termes "certification", "CCF", "protocoles d'examens", "Cyclades" et "Santorin".
+- Si la documentation contient des informations pour plusieurs publics, focalise ta réponse **uniquement** sur le **NIVEAU SCOLAIRE CIBLÉ ({niveau_actuel_form})**.
 
 🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
 1. PRINCIPE DE RÉALITÉ DES PUBLICS :
@@ -1116,7 +1125,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         texte_final = texte_final.replace("\n", "<br>")
 
         phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
         )
 
         footer_assistance = ""

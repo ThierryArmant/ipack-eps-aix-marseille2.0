@@ -95,6 +95,8 @@ if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
     st.session_state.active_module = "ipack"
+if "niveau_actif_form" not in st.session_state:
+    st.session_state.niveau_actif_form = "Collège (DNB)"
 
 
 def incrementer_et_obtenir_visites():
@@ -721,8 +723,20 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
+# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
+st.markdown(
+    "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</div>",
+    unsafe_allow_html=True
+)
+niveau_scolaire = st.radio(
+    "Niveau",
+    ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+    horizontal=True,
+    label_visibility="collapsed",
+    key="niveau_actif_form",
+)
+
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
     col_input, col_submit = st.columns([5, 1])
@@ -730,8 +744,7 @@ with st.form(key="form_question_hub", clear_on_submit=True):
         prompt_brut = st.text_input(
             "Question :",
             placeholder=(
-                "🔺 Sélectionnez le module concerné avant de saisir votre"
-                " question..."
+                "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
             ),
             label_visibility="collapsed",
         )

@@ -2,7 +2,7 @@ import datetime
 import os
 import re
 import smtplib
-import requests  # 👈 Ajouté ici
+import requests
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -22,7 +22,6 @@ def log_interaction(question, reponse):
     try:
         requests.post(WEBHOOK_URL, json=payload, timeout=10)
     except Exception as e:
-        # Affiche l'erreur dans la console si le réseau bloque
         print(f"Erreur de log Google Sheet : {e}")
 
 
@@ -49,7 +48,6 @@ except ImportError:
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
 VIDEOS_TUTOS = {
-    # Tutos historiques / examens :
     "import_eleves_pronote.mp4": "https://pole-examens.github.io/tutoriels-examens/res/import_eleves_pronote.mp4",
     "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
     "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
@@ -62,12 +60,10 @@ VIDEOS_TUTOS = {
     "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
     "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
     "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
-    # Tutos amont & cas complexes iPackEPS :
     "Depot_referentiels_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Depot_referentiels_iPackEPS.mp4",
     "Saisie_protocoles_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_protocoles_iPackEPS.mp4",
     "Protocoles_adaptes_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Protocoles_adaptes_iPackEPS.mp4",
     "Extraction_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Extraction_notes_Santorin.mp4",
-    # 🆕 Nouveaux tutos version 2026.2.x :
     "Import_documents_glisser_deposer.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_documents_glisser_deposer.mp4",
     "Import_automatique_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_automatique_eleves.mp4",
     "Actualisation_equipe_classes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Actualisation_equipe_classes.mp4",
@@ -234,7 +230,6 @@ css_pur = f"""
         display: block; 
     }}
 
-    /* BOUTONS SOLIDES (NON TRANSPARENTS) */
     button[kind="secondary"] {{ 
         background-color: #1E293B !important; 
         color: #94A3B8 !important; 
@@ -263,7 +258,6 @@ css_pur = f"""
         text-align: center !important; 
     }}
     
-    /* FOND SOLIDE ET TEXTE BLANC POUR LE SÉLECTEUR DE NIVEAU (RADIO) */
     div[data-testid="stRadio"] {{
         background-color: rgba(15, 23, 42, 0.9) !important;
         border: 1px solid #334155 !important;
@@ -305,7 +299,6 @@ css_pur = f"""
     .general-card h3 {{ color: #10B981 !important; }} 
     .securite-card h3 {{ color: #FF9F43 !important; }} 
 
-    /* STYLE AÉRÉ DES LISTES PAS À PAS */
     .santorin-card ul, .general-card ul, .securite-card ul,
     .santorin-card ol, .general-card ol, .securite-card ol {{
         margin-top: 6px !important;
@@ -334,7 +327,6 @@ css_pur = f"""
         margin-bottom: 12px !important;
     }}
 
-    /* ZOOM FLUIDE IMAGE 5 */
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
         cursor: zoom-in;
@@ -379,7 +371,6 @@ if openai_api_key:
 
 def obtenir_cle_fichier():
     mtimes = []
-    # Surveillance des fichiers de consignes principaux
     for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt"]:
         if os.path.exists(fp):
             try:
@@ -474,7 +465,6 @@ def initialiser_base_santorin(cle_fremt):
         )
     ]
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    # Charge la mémoire souveraine spécifique aux examens & Santorin
     docs_santorin.extend(charger_consignes_examens())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
@@ -533,7 +523,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLE AUTOMATIQUE TAVILY (Avec gestion de la date et expiration 7 jours)
+# 🔔 VEILLE AUTOMATIQUE TAVILY
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -556,9 +546,7 @@ def verifier_veille_dec(tavily_client):
                     st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
                     st.session_state.alerte_veille_dec = (
                         "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-                        " mises à jour ont été détectées sur les sites officiels"
-                        " concernant les examens ou l'EPS. Pensez à vérifier si une"
-                        " nouvelle circulaire DEC a été publiée."
+                        " mises à jour ont été détectées sur les sites officiels."
                     )
                     return
         except Exception:
@@ -594,15 +582,14 @@ def verifier_veille_dec(tavily_client):
                 st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
                 st.session_state.alerte_veille_dec = (
                     "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-                    " mises à jour ont été détectées sur les sites officiels"
-                    " concernant les examens ou l'EPS. Pensez à vérifier si une"
-                    " nouvelle circulaire DEC a été publiée."
+                    " mises à jour ont été détectées sur les portails officiels."
                 )
         except Exception:
             pass
 
 
 verifier_veille_dec(tavily_client)
+
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================
@@ -630,37 +617,15 @@ st.markdown(
 
 if "alerte_veille_dec" in st.session_state:
     date_alerte = st.session_state.get("date_veille_dec", "Récemment")
-    liens = st.session_state.get("liens_veille_dec", [])
-
-    liens_html = ""
-    for item in liens:
-        titre = item.get("title", "Document officiel")
-        url = item.get("url", "#")
-        liens_html += f'<li><a href="{url}" target="_blank" style="color: #60A5FA; text-decoration: underline; font-weight: 500;">{titre}</a></li>'
-
-    if not liens_html:
-        liens_html = (
-            "<li>Aucun lien direct extrait, consultez les portails ci-dessous.</li>"
-        )
-
     st.markdown(
         f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
         <div style="display: flex; align-items: flex-start; gap: 12px;">
             <span style="font-size: 22px; margin-top: 2px;">🚨</span>
             <div style="width: 100%;">
-                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Veille réglementaire mensuelle — Détectée le {date_alerte}</strong>
-                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px; line-height: 1.5;">
-                    De nouvelles informations ou mises à jour ont été détectées. 
-                    <div style="margin-top: 4px; font-weight: 600; color: #F8FAFC;">Documents ciblés :</div>
-                    <ul style="margin: 4px 0 8px 20px; padding: 0;">
-                        {liens_html}
-                    </ul>
-                    <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px;">
-                        🌐 <b>Accès rapides aux portails :</b> 
-                        <a href="https://eduscol.education.fr" target="_blank" style="color: #38BDF8; text-decoration: underline; margin-right: 8px;">Eduscol</a> | 
-                        <a href="https://www.education.gouv.fr" target="_blank" style="color: #38BDF8; text-decoration: underline; margin-left: 8px;">Ministère de l'Éducation Nationale</a>
-                    </div>
+                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire mensuelle — Détectée le {date_alerte}</strong>
+                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
+                    De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
                 </div>
             </div>
         </div>
@@ -668,6 +633,7 @@ if "alerte_veille_dec" in st.session_state:
     """,
         unsafe_allow_html=True,
     )
+
 # ======================================================================
 # 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
 # ======================================================================
@@ -776,14 +742,14 @@ with st.form(key="form_question_hub", clear_on_submit=True):
         prompt = prompt_brut.strip()
 
 # ======================================================================
-# 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
+# 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px;">
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement –</strong> Bien que basées sur les textes officiels, ces réponses ne remplacent pas les autorités académiques. En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+            ⚠️ <strong>Avertissement –</strong> En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
     </div>
     """,
@@ -792,24 +758,16 @@ if st.session_state.active_module == "textes":
 else:
     st.markdown(
         """
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px; line-height: 1.5;">
-        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px;">
+        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
         <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
             <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
                 <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-                <span style="color: #FCD34D !important;">Technique de terrain : configuration modules professeurs, classes, élèves, groupes, APPN, SSS...</span><br>
-                <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(248, 113, 113, 0.15); border-left: 3px solid #F87171; border-radius: 4px;">
-                    <span style="color: #F87171 !important; font-weight: 800;">⚠️ IMPORTANT INAPTITUDES :</span><br>
-                    <span style="color: #FFFFFF !important; font-size: 12px;">Toutes les questions sur les certificats médicaux, dispenses et saisies d'inaptitude se posent TOUJOURS ici !</span>
-                </div>
+                <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
             </div>
             <div style="flex: 1; padding-left: 5px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens & Santorin (Fin d'année)</strong><br>
-                <span style="color: #FCD34D !important;">Administration des examens : remontée officielle du Bac/DNB, correction numérique sur Esterel/Arena, arbitrages de la CAHPN.</span><br>
-                <div style="margin-top: 8px; padding: 5px 8px; background-color: rgba(56, 189, 248, 0.15); border-left: 3px solid #38BDF8; border-radius: 4px;">
-                    <span style="color: #38BDF8 !important; font-weight: 800;">💡 Déblocage situation complexe &amp; Besoin d'informations :</span><br>
-                    <span style="color: #FFFFFF !important; font-size: 12px;">Boutons grisés, lots bloqués ou questions de calcul de notes ? L'IA s'appuie sur les fiches de la DEC pour vous guider sereinement.</span>
-                </div>
+                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin (Fin d'année)</strong><br>
+                <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
             </div>
         </div>
     </div>
@@ -818,7 +776,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (AFFICHÉ SOUS LA SAISIE)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -875,8 +833,7 @@ if prompt:
             and any(
                 w in p_low for w in [
                     "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
-                    "lot", "lots", "examen", "examens", "bac", "cap", "brevet", 
-                    "mayotte", "academie", "académie"
+                    "lot", "lots", "examen", "examens", "bac", "cap", "brevet"
                 ]
             )
         )
@@ -897,6 +854,13 @@ if prompt:
             and "lot" in p_low
         )
 
+        # ⚡ DÉTECTION PROGRAMMATIQUE : EXCLUSION DISCIPLINAIRE (CCF)
+        est_exclusion = (
+            mode != "textes"
+            and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
+            and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
+        )
+
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
         est_cas_direct = (
@@ -907,6 +871,7 @@ if prompt:
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
                 or est_saisir_notes
+                or est_exclusion
             )
         ) or est_tasa
 
@@ -939,77 +904,60 @@ if prompt:
             except Exception:
                 pass
 
+        # ROUTAGE DES CAS DIRECTS (ZONE 9)
         if est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
   <li><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
-  <li><strong>Outil dédié :</strong> Pour la gestion des notes, des moyennes ou de l'évaluation chiffrée, utilisez exclusivement le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte) ou le livret scolaire (LSU) selon votre niveau.</li>
+  <li><strong>Outil dédié :</strong> Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.</li>
 </ul>"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
         elif est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
-  <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>
-  <li>👉 <strong>Consultez le calendrier officiel</strong> publié par votre académie de rattachement pour toute confirmation ou mise à jour.</li>
+  <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au Bulletin Officiel (BO) et précisées par la circulaire DEC de votre académie.</li>
 </ul>"""
             badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
 
         elif est_tasa:
-            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA 2026)</h3>
+            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)</h3>
 <ul>
-  <li><strong>Texte de référence officiel :</strong> Circulaire du 9 mars 2026 (abrogeant celle de 2019).</li>
-  <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS (concours, contractuels, détachements) dès la nomination.</li>
-  <li><strong>Protocole technique (100m en continu < 3 min 45 s) :</strong>
-    <ul>
-      <li>Longueur 1 (0-25m) : Départ plongé obligatoire + nage libre en surface.</li>
-      <li>Longueur 2 (25-50m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
-      <li>Longueur 3 (50-75m) : Nage libre avec 7,50m d'apnée complète sous l'eau.</li>
-      <li>Longueur 4 (75-100m) : Recherche d'un mannequin à 2,50m de profondeur et remorquage sur le dos sur 25m (visage hors de l'eau).</li>
-    </ul>
-  </li>
-  <li><strong>Tenue stricte :</strong> Maillot de bain uniquement (combinaison, lunettes et pince-nez formellement interdits).</li>
+  <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS dès sa nomination.</li>
+  <li><strong>Protocole technique :</strong> 100m en continu < 3 min 45 s avec parcours spécifique et recherche de mannequin.</li>
 </ul>"""
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         elif est_sujet_secours:
             texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
 <ul>
-  <li><strong>Règle nationale absolue :</strong> En EPS (CCF ou ponctuel), il n'existe <strong>aucun sujet écrit ou papier</strong> à imprimer sur iPackEPS, Santorin ou Cyclades. L'évaluation est 100 % pratique.</li>
-  <li><strong>Élève absent justifié (ABJ) :</strong> Organisation obligatoire d'une <strong>Épreuve de substitution</strong> (rattrapage de l'épreuve motrice sur le terrain) avant la fermeture des serveurs académiques.</li>
-  <li><strong>Élève inapte médicalement :</strong> Saisie du statut <strong>[DISP]</strong> sur présentation d'un certificat médical officiel conforme.</li>
+  <li><strong>Règle nationale absolue :</strong> En EPS, il n'existe <strong>aucun sujet écrit ou papier</strong>. L'évaluation est 100 % pratique.</li>
+  <li><strong>Élève absent :</strong> Organisation obligatoire d'une épreuve de substitution (rattrapage de l'épreuve motrice) avant fermeture des serveurs.</li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_cap_3epreuves:
             texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
 <ul>
-  <li><strong>Réglementation stricte (Circulaire du 27 août 2025) :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
-  <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée par l'interface et entraînera le rejet immédiat du protocole par la CAHPN.</li>
-  <li><strong>Procédure :</strong> Configurez votre classe en mode groupe sur iPackEPS et supprimez la 3ᵉ épreuve excédentaire.</li>
+  <li><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
+  <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée automatiquement par l'interface. Nettoyez le protocole dans iPackEPS.</li>
+</ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_exclusion:
+            texte_brut = """<h3>⚠️ EXCLUSION TEMPORAIRE EN PÉRIODE DE CCF (ABSENCE CONTRAINTE)</h3>
+<ul>
+  <li><strong>Cadre juridique :</strong> Une exclusion temporaire prononcée par un conseil de discipline n'est en aucun cas une inaptitude médicale. Elle ne doit jamais être assimilée à un statut <strong>[DISP]</strong> ni sanctionnée par un zéro éliminatoire pour absence injustifiée.</li>
+  <li><strong>Nature de l'absence :</strong> Il s'agit d'une absence administrative et disciplinaire contrainte par l'institution.</li>
+  <li><strong>Obligation de rattrapage :</strong> L'équipe pédagogique a l'obligation légale de programmer une <strong>épreuve différée</strong> dès le retour de l'élève, impérativement avant la date de clôture des serveurs académiques (Santorin / Cyclades).</li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_deplacer_candidat:
             texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
 <ul>
-  <li><strong>Distinction clé :</strong> Ne pas confondre la « réaffectation d'un lot » entier (qui attribue la totalité des copies à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.</li>
   <li><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</li>
-  <li><strong>Cas 1 &amp; 2 (Arrivée tardive ou erreur de protocole dans Cyclades) :</strong> 
-    <ul>
-      <li>Corriger l'affectation du candidat ou du protocole dans <strong>Cyclades</strong>.</li>
-      <li>Effectuer ensuite une nouvelle <strong>distribution automatique</strong> des candidats/lots dans Santorin.</li>
-    </ul>
-  </li>
-  <li><strong>Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) :</strong> Deux solutions directes dans Santorin :
-    <ul>
-      <li><strong>Option A :</strong> Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur <strong>« Affecter à un autre lot »</strong> ou <strong>« Affecter à un nouveau lot »</strong> en désignant le correcteur chargé de la notation.<br>
-      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/deplacer_candidat_vers_autre_lot.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel dédié</a></li>
-      <li><strong>Option B :</strong> Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève.<br>
-      👉 <a href="https://pole-examens.github.io/tutoriels-examens/co/procedures_complementaires.html" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">Consulter le tutoriel des procédures complémentaires</a></li>
-    </ul>
-  </li>
-  <li><strong>Gestion des doublons :</strong> Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.</li>
+  <li>Corriger l'affectation dans <strong>Cyclades</strong> puis relancer une distribution automatique, ou utiliser l'option d'affectation directe depuis le lot si l'habilitation le permet.</li>
 </ul>
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
 📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
@@ -1028,47 +976,33 @@ if prompt:
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
    - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : En cas de tentative de modification unilatérale des notes de CCF ou d'évaluation par la direction, rappeler que l'enseignant ne doit pas céder, consigner les faits par écrit, et saisir directement l'autorité académique compétente (IA-IPR EPS / DEC).
-   - Rédige STRICTEMENT selon ce plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP).
-     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution de l'État) et Volet pénal (faute caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Saisir le chef d'établissement, rédiger un rapport circonstancié, et demander la protection fonctionnelle auprès du Recteur d'académie (via le service juridique du rectorat).
+   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : Rappeler que l'enseignant ne doit pas céder et saisir directement l'autorité académique (IA-IPR EPS / DEC).
 """
         elif mode == "examens":
-            directive_onglet = """3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-        - Traite précisément le problème d'examen posé en exploitant les règles de gestion (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-        - DISTINCTION SUR LES VERROUILLAGES : Verrouillage interne (établissement) vs Verrouillage académique définitif (DEC)."""
+            directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
         elif mode == "ipack":
-            directive_onglet = """
-3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
-"""
+            directive_onglet = "3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS : Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...)."
 
         contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 
-SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
+SOURCES OFFICIELLES WEB :
 {extraits_web}
 
 {verites_terrain_pierre}
 """
 
-        # 🚨 PROMPT SYSTÈME CORRIGÉ AVEC RÈGLE ZÉRO EN TÊTE DE LISTE
+        # 🚨 PROMPT SYSTÈME AVEC TON SOCLE DE SÉCURITÉ INTÉGRÉ EXACTEMENT EN 8 POINTS
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
     🎯 PUBLIC CIBLE SÉLECTIONNÉ PAR L'UTILISATEUR : {niveau_actuel_form}
-    (Tu dois impérativement adapter ta réponse, tes références réglementaires et ton analyse en fonction de ce niveau précis : Collège, Lycée Général & Techno ou Lycée Pro/CAP).
+    (Tu dois impérativement adapter ta réponse, tes références réglementaires et ton analyse en fonction de ce niveau précis).
 
     🚨 [ RÈGLE ZÉRO - PRIORITÉ ABSOLUE & ANTIDOTE AUX RÉPONSES BATEAUX ] :
     Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'erreur ou une impossibilité de saisir des notes (Santorin / Cyclades) :
     - INTERDICTION FORMELLE DE DIRE "contactez la direction" ou "vérifiez vos notes" si la cause est un blocage structurel ou réglementaire.
-    - Tu dois IMMÉDIATEMENT analyser la contradiction mathématique de la réglementation (ex: CAP = 2 épreuves max, toute tentative de mettre 3 APSA bloque et est rejetée automatiquement) et donner la procédure technique exacte de nettoyage dans iPackEPS / Cyclades.
-
-    🔍 RÈGLE D'OR DE FIDÉLITÉ DOCUMENTAIRE :
-    - Tu disposes d'un "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" ci-dessous. 
-    - Si la question de l'utilisateur correspond à un cas technique ou réglementaire présent dans ces documents (dispenses multiples, notes uniques, bugs Santorin, etc.), **tu dois impérativement t'appuyer en priorité absolue sur ces règles et procédures exactes**, sans inventer de conseils génériques. Donne la procédure concrète pas à pas.
+    - Tu dois IMMÉDIATEMENT analyser la contradiction mathématique de la réglementation (ex: CAP = 2 épreuves max) et donner la procédure technique exacte de nettoyage dans iPackEPS / Cyclades.
 
     🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
     1. PRINCIPE DE RÉALITÉ DES PUBLICS :
@@ -1107,9 +1041,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
 {directive_onglet}
 3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-    - Si la question porte explicitement sur les SSS (reconduction, fermeture, projet), termine obligatoirement par : 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4
-    - Si elle porte sur la signature SSS, termine par : 📺 Tutoriel associé : Signature_chef_etablissement_SSS.mp4
-    - Pour les autres manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
+    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 """
 
         if not est_cas_direct:

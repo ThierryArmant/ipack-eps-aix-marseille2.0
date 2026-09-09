@@ -3,11 +3,31 @@ import requests
 import google.generativeai as genai
 
 # Configuration de l'API Gemini
-genai.api_key = os.environ["GEMINI_API_KEY"]
-model = genai.GenerativeModel("gemini-3.6-flash")
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise ValueError("La clé API GEMINI_API_KEY est manquante.")
 
-# Ton URL Google Apps Script
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-pro") # Ajuste selon ton modèle (ex: gemini-2.5-flash)
+
+# Ton URL Google Apps Script pour récupérer les logs
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
+
+def load_file(filepath):
+    if os.path.exists(filepath):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return f.read()
+    return ""
+
+def sauver_patch(cible, contenu_patch):
+    print(f"3. Écriture de la correction dans le fichier cible : {cible}...")
+    contenu_actuel = load_file(cible)
+    
+    nouveau_contenu = contenu_actuel + f"\n\n======================================================================\nAJOUT AUTOMATIQUE (MULTIRAG - {cible})\n======================================================================\n{contenu_patch}\n"
+
+    with open(cible, "w", encoding="utf-8") as f:
+        f.write(nouveau_contenu)
+    print(f"Fichier {cible} mis à jour avec succès !")
 
 def analyser_et_patcher():
     print("1. Récupération des logs depuis Google Sheets...")
@@ -18,32 +38,48 @@ def analyser_et_patcher():
         print(f"Erreur de lecture du Sheet : {e}")
         return
 
-    # Extraire les 30 dernières questions posées
-    dernier_logs = [row.get("question", "") for row in lignes[-30:] if row.get("question")]
-    if not dernier_logs:
+    # Extraire les derniers logs (questions et cas de repli SAV)
+    derniers_logs = [row.get("question", "") for row in lignes[-30:] if row.get("question")]
+    if not derniers_logs:
         print("Aucune question trouvée dans les logs.")
         return
         
-    logs_texte = "\n".join(f"- {q}" for q in dernier_logs)
+    logs_texte = "\n".join(f"- {q}" for q in derniers_logs)
 
-    print("2. Analyse intelligente et routage par Gemini (Multi-RAG à 3 branches)...")
+    # Fichiers de référence à disposition pour vérification anti-doublon
+    fichiers_ref = {
+        "ipack": "ipack.txt",
+        "examens": "data/examens/regles_dnb_eps.txt",
+        "santorin": "data/examens/memoire_examens_santorin.txt"
+    }
+
+    print("2. Analyse intelligente et routage chirurgical par Gemini (Multi-RAG à 3 branches)...")
     prompt = f"""
-    Voici les dernières questions posées par des enseignants d'EPS dans le Hub IA :
-    {logs_texte}
-    
-    Analyse ces questions. Tu dois déterminer si elles nécessitent de mettre à jour l'une de nos bases de connaissances (RAG). 
-    Nous avons trois fichiers cibles possibles :
-    1. `ipack` -> Concerne le fonctionnement de l'application iPackEPS, ses outils, ses tableaux, ses scripts ou son utilisation pratique.
-    2. `examens` -> Concerne la réglementation, les textes officiels, les épreuves ou les règles du DNB EPS.
-    3. `santorin` -> Concerne la gestion des examens, des copies, des notes et l'utilisation des plateformes Santorin ou Cyclades.
+[CONTEXTE]
+Tu es l'IA auditrice de la "Ronde de nuit" pour Le Hub (assistant EPS, Collège, Lycée, iPackEPS, Santorin).
+Ton rôle unique est d'analyser les logs récents pour corriger, enrichir et combler les angles morts de nos bases de connaissances.
 
-    Si une correction ou un complément est nécessaire, réponds STRICTEMENT selon ce format précis :
-    CIBLE: [ipack, examens ou santorin]
-    CONTENU:
-    [Le paragraphe au format Markdown prêt à être ajouté]
+[RÈGLES D'OR DE LA RONDE DE NUIT]
+1. FILTRE DES ÉCHECS EN PRIORITÉ ABSOLUE : Analyse d'abord les interactions où le Hub a déclenché la clause de repli vers le SAV (ipackeps@ac-aix-marseille.fr) ou a émis une réponse d'incertitude. Ce sont les zones de friction critiques de terrain.
+2. RÉSOLUTION OBLIGATOIRE : Pour chaque échec identifié, formule clairement la question bloquante, rédige la réponse technique, administrative ou procédurale exacte (en respectant l'étanchéité Collège/Lycée), et formate-la sous la forme d'un article ou d'une situation normée.
+3. FILTRE ANTI-DOUBLON : Ne duplique pas une information déjà présente dans nos bases. 
 
-    Si tout est déjà couvert ou que les questions ne nécessitent pas de modification, réponds strictement par : "RIEN_A_SIGNALER".
-    """
+[DERNIERS LOGS UTILISATEURS]
+{logs_texte}
+
+[CONSIGNES DE ROUTAGE ET DE SORTIE]
+Tu dois déterminer si une mise à jour est nécessaire dans l'une de nos 3 cibles :
+- `ipack` (application iPackEPS, outils, tableaux, scripts)
+- `examens` (réglementation, textes officiels, épreuves, DNB, CCF)
+- `santorin` (gestion des examens, copies, notes, plateformes Santorin/Cyclades)
+
+Si une correction est indispensable, réponds STRICTEMENT selon ce format précis :
+CIBLE: [ipack, examens ou santorin]
+CONTENU:
+[Le paragraphe au format Markdown propre prêt à être ajouté]
+
+Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
+"""
     
     response = model.generate_content(prompt)
     texte_reponse = response.text.strip()
@@ -52,17 +88,19 @@ def analyser_et_patcher():
         print("Aucun nouveau patch nécessaire. Tout est carré !")
         return
 
-    # Identification de la cible parmi les 3 modules
-    cible = None
+    # Identification de la cible
+    cle_cible = None
     if "CIBLE: ipack" in texte_reponse:
-        cible = "ipack.txt"
+        cle_cible = "ipack"
     elif "CIBLE: examens" in texte_reponse:
-        cible = "data/examens/regles_dnb_eps.txt"
+        cle_cible = "examens"
     elif "CIBLE: santorin" in texte_reponse:
-        cible = "data/examens/memoire_examens_santorin.txt"
+        cle_cible = "santorin"
     else:
         print("Format de routage non reconnu par l'IA.")
         return
+
+    cible_fichier = fichiers_ref.get(cle_cible)
 
     # Extraction du contenu du patch
     if "CONTENU:" in texte_reponse:
@@ -75,17 +113,7 @@ def analyser_et_patcher():
         print("Le patch généré est vide.")
         return
 
-    print(f"3. Écriture de la correction dans le fichier cible : {cible}...")
-    
-    with open(cible, "r", encoding="utf-8") as f:
-        contenu_actuel = f.read()
-
-    nouveau_contenu = contenu_actuel + f"\n\n======================================================================\nAJOUT AUTOMATIQUE (MULTIRAG - {cible})\n======================================================================\n{contenu_patch}\n"
-
-    with open(cible, "w", encoding="utf-8") as f:
-        f.write(nouveau_contenu)
-    
-    print(f"Fichier {cible} mis à jour avec succès !")
+    sauver_patch(cible_fichier, contenu_patch)
 
 if __name__ == "__main__":
     analyser_et_patcher()

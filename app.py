@@ -861,6 +861,18 @@ if prompt:
             and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
         )
 
+        # ⚡ DÉTECTION PROGRAMMATIQUE : PROBLÈME IMPORT SIÈCLE / AUCUN ÉLÈVE (RENTRÉE)
+        est_aucun_eleve = (
+            mode == "ipack"
+            and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
+        )
+
+        # ⚡ DÉTECTION PROGRAMMATIQUE : DÉPÔT RÉFÉRENTIELS & APSA (RENTRÉE)
+        est_referentiels_rentree = (
+            mode == "ipack"
+            and any(w in p_low for w in ["référentiel", "referentiel", "apsa certificative", "déclarer apsa", "dépôt référentiel"])
+        )
+
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
         est_cas_direct = (
@@ -872,6 +884,8 @@ if prompt:
                 or est_deplacer_candidat
                 or est_saisir_notes
                 or est_exclusion
+                or est_aucun_eleve
+                or est_referentiels_rentree
             )
         ) or est_tasa
 
@@ -952,6 +966,26 @@ if prompt:
   <li><strong>Obligation de rattrapage :</strong> L'équipe pédagogique a l'obligation légale de programmer une <strong>épreuve différée</strong> dès le retour de l'élève, impérativement avant la date de clôture des serveurs académiques (Santorin / Cyclades).</li>
 </ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_aucun_eleve:
+            texte_brut = """<h3>⚠️ PROBLÈMES D'IMPORT SIÈCLE / ARENA À LA RENTRÉE</h3>
+<ul>
+  <li><strong>Origine du blocage :</strong> Le message "Aucun élève dans cet établissement" au mois de septembre provient généralement d'un décalage de synchronisation entre la base administrative de l'établissement (SIÈCLE) et le portail académique ARENA.</li>
+  <li><strong>Vérification amont :</strong> Assurez-vous auprès du secrétariat de direction que la bascule administrative de rentrée a bien été effectuée et validée au niveau académique.</li>
+  <li><strong>Action iPackEPS :</strong> Rendez-vous dans <strong>[Dossiers] > [Dossier EPS] > [Élèves]</strong> et lancez une actualisation manuelle de l'importation.</li>
+</ul>
+📺 Tutoriel associé : Import_automatique_eleves.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+        elif est_referentiels_rentree:
+            texte_brut = """<h3>📋 CONFIGURATION DES RÉFÉRENTIELS ET APSA CERTIFICATIVES (RENTRÉE)</h3>
+<ul>
+  <li><strong>Impératif de septembre :</strong> Dès les premiers jours de la rentrée, vous devez déclarer et configurer les APSA certificatives de vos classes de lycée (CAP, Bac Pro, Bac GT) dans iPackEPS.</li>
+  <li><strong>Procédure iPackEPS :</strong> Accédez au menu <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>, cochez les champs d'apprentissage et les épreuves retenues pour vos cycles de certification annuels.</li>
+  <li><strong>Sécurisation :</strong> Cette étape en amont est indispensable pour valider la structure des groupes avant le dépôt officiel des référentiels auprès des services académiques à l'automne.</li>
+</ul>
+📺 Tutoriel associé : Depot_referentiels_iPackEPS.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
         elif est_deplacer_candidat:
             texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>

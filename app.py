@@ -976,7 +976,7 @@ RÈGLES DE LECTURE INTELLIGENTE & SÉCURITÉ :
 4. CLAUSE DE REPLI STRICTE : La phrase de repli ci-dessous ne doit être déclenchée QUE si le sujet abordé est totalement absent des documents fournis ou sans rapport avec l'application. Si elle doit être déclenchée, réponds mot pour mot et UNIQUEMENT par cette phrase exacte :
 "Désolé, je ne suis pas en mesure de vous répondre avec certitude sur ce point précis. Je vous propose de vous rapprocher directement du SAV à l'adresse : ipackeps@ac-aix-marseille.fr"
 
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS) :
+5. 📺 TUTO VIDÉO (DÉCLENCHEURS) :
 - Si la question porte sur les SSS, inclus si pertinent : Evolution_et_fermeture_SSS.mp4 ou Signature_chef_etablissement_SSS.mp4
 - Pour les autres manipulations techniques, inclus le nom exact du fichier associé si pertinent parmi la liste officielle : (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
 
@@ -984,7 +984,7 @@ RÈGLES DE LECTURE INTELLIGENTE & SÉCURITÉ :
 
 QUESTION DE L'UTILISATEUR :
 {prompt}
-"""
+""""
             if not est_cas_direct:
                 try:
                     response = Settings.llm.complete(consigne_ia)

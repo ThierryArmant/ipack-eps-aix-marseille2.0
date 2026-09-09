@@ -23,7 +23,7 @@ jobs:
       - name: Installation des dépendances
         run: pip install requests google-generativeai
 
-      - name: Exécution du script d'analyse multi-RAG intelligent
+      - name: Exécution du script d'analyse multi-RAG
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/auto_patch_rag.py
@@ -31,5 +31,5 @@ jobs:
       - name: Commit et Push automatique si un fichier a changé
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 [Auto-Patch Multi-RAG] Correction intelligente des angles morts et échecs SAV"
+          commit_message: "🤖 [Auto-Patch Multi-RAG] Mise à jour intelligente (Ipack, Examens ou Santorin)"
           file_pattern: "ipack.txt data/examens/regles_dnb_eps.txt data/examens/memoire_examens_santorin.txt"

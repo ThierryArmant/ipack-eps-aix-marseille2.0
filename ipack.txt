@@ -1580,3 +1580,13 @@ iPackEPS intègre une fonctionnalité de glisser-déposer permettant d'importer 
 2. Épinglez ou sélectionnez l'élève concerné.
 3. Faites glisser le fichier (PDF, JPG, PNG) directement depuis votre ordinateur vers la zone de dépôt ou la fiche de l'élève.
 4. Le document est automatiquement rattaché au dossier numérique de l'élève et archivé au bon endroit.
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)
+======================================================================
+### Fonctionnalités avancées et gestion des dossiers dans iPackEPS
+
+* **Glisser-déposer (Drag & Drop) des justificatifs :** Vous pouvez intégrer directement les certificats médicaux et pièces justificatives des élèves sans parcourir l'arborescence des dossiers. Glissez simplement le fichier (PDF, image) depuis votre poste de travail et déposez-le dans la zone dédiée sur la fiche ou le suivi de l'élève concerné.
+* **Accès depuis les centres étrangers :** Les enseignants d'EPS exerçant dans les établissements homologués à l'étranger (AEFE, OSUI, etc.) peuvent se connecter et utiliser iPackEPS via les modalités d'accès distants sécurisés ou leur identifiant académique de rattachement.
+* **Gestion des protocoles d'évaluation :** Il est possible d'affecter temporairement un élève dans plusieurs protocoles (ex: demi-fond et saut en longueur) en début de cycle pour faciliter son orientation, avant de valider son protocole définitif lors de la saisie finale des évaluations.

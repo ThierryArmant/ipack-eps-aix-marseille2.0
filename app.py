@@ -873,17 +873,20 @@ if prompt:
             )
         ) or est_tasa
 
-        # 🚀 RECHERCHE RAG LOCALE (SI PAS DE CAS DIRECT)
+       # 🚀 RECHERCHE RAG LOCALE (ENRICHIE AVEC LE NIVEAU ACTIF)
         if openai_api_key and not est_cas_direct:
             try:
+                # On associe la question au niveau actif pour que le RAG cible les bons chunks
+                query_rag = f"{prompt} - Niveau: {niveau_actuel_form}"
+                
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt):
+                    for n in retriever_santorin.retrieve(query_rag):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt):
+                    for n in retriever_ipack.retrieve(query_rag):
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt):
+                    for n in retriever_textes.retrieve(query_rag):
                         extraits_doc += f"{n.node.text}\n\n"
             except Exception:
                 pass

@@ -859,11 +859,11 @@ if prompt:
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        # 🛑 VERROU DUR : Interception immédiate des questions sur la saisie des notes
-        est_saisir_notes = any(phrase in p_low for phrase in [
-            "saisir des notes", "saisir note", "saisir notes", "noter", 
-            "carnet de notes", "saisie des notes", "saisir une note", "comment noter"
-        ])
+        # 🛑 VERROU DUR : Interception infaillible de toute question sur les notes
+        est_saisir_notes = (
+            any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
+            and any(w in p_low for w in ["note", "notes"])
+        )
 
         est_date = (
             (not est_college) 

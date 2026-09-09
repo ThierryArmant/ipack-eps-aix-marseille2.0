@@ -263,6 +263,24 @@ css_pur = f"""
         text-align: center !important; 
     }}
     
+    /* FOND SOLIDE ET TEXTE BLANC POUR LE SÉLECTEUR DE NIVEAU (RADIO) */
+    div[data-testid="stRadio"] {{
+        background-color: rgba(15, 23, 42, 0.9) !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        padding: 12px 15px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+    }}
+
+    div[data-testid="stRadio"] label p, 
+    div[data-testid="stRadio"] label span, 
+    div[data-testid="stRadio"] label {{
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        font-size: 13.5px !important;
+    }}
+    
     .santorin-card, .general-card, .securite-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 
         backdrop-filter: blur(12px) !important; 

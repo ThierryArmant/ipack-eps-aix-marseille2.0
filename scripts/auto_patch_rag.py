@@ -1,15 +1,14 @@
 import os
 import requests
-import google.generativeai as genai
+from google import genai
 
-# Configuration de l'API Gemini
+# Configuration de l'API Gemini avec le nouveau SDK officiel
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("La clé API GEMINI_API_KEY est manquante.")
 
-genai.configure(api_key=api_key)
-# Correction ici : utilisation d'un modèle flash supporté
-model = genai.GenerativeModel("gemini-1.5-flash")
+client = genai.Client(api_key=api_key)
+MODEL_ID = "gemini-2.5-flash"  # Modèle standard moderne supporté par le nouveau SDK
 
 # Ton URL Google Apps Script pour récupérer les logs
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
@@ -77,10 +76,14 @@ CIBLE: [ipack, examens ou santorin]
 CONTENU:
 [Le paragraphe au format Markdown propre prêt à être ajouté]
 
-If tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
+Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
 """
     
-    response = model.generate_content(prompt)
+    # Appel de l'API avec la nouvelle syntaxe moderne du SDK google-genai
+    response = client.models.generate_content(
+        model=MODEL_ID,
+        contents=prompt
+    )
     texte_reponse = response.text.strip()
     
     if "RIEN_A_SIGNALER" in texte_reponse or len(texte_reponse) < 20:

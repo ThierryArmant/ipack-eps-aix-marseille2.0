@@ -864,7 +864,7 @@ if prompt:
             any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
             and any(w in p_low for w in ["note", "notes"])
             and not any(w in p_low for w in ["santorin", "cyclades"])
-        ))
+        )
 
         est_date = (
             (not est_college) 

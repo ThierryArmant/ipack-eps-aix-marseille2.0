@@ -859,11 +859,12 @@ if prompt:
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        # 🛑 VERROU DUR : Interdiction des notes sur iPackEPS, MAIS autorisé sur Santorin/Cyclades
+        # 🛑 VERROU DUR : Interdiction des notes sur iPackEPS, MAIS autorisé sur Examens/Santorin
         est_saisir_notes = (
             any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
             and any(w in p_low for w in ["note", "notes"])
             and not any(w in p_low for w in ["santorin", "cyclades"])
+            and mode != "examens"  # <--- Ajouté ici pour ne pas bloquer l'onglet examens
         )
 
         est_date = (

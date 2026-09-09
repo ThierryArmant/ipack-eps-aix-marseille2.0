@@ -1,7 +1,6 @@
 import os
 import requests
 from google import genai
-from google.genai import types
 
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
@@ -21,7 +20,7 @@ def load_file(filepath):
 def save_file(filepath, content):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Fichier {filepath} mis à jour et validé via les sources officielles !")
+    print(f"Fichier {filepath} mis à jour et validé avec succès !")
 
 def analyser_et_patcher():
     print("1. Récupération des logs depuis le Google Sheet...")
@@ -40,17 +39,16 @@ def analyser_et_patcher():
         
     logs_texte = "\n".join(f"- {q}" for q in derniers_logs)
 
-    # Chargement des 3 bases de connaissances pour que l'IA ait tout en tête
     ipack_content = load_file("ipack.txt")
     examens_content = load_file("data/examens/regles_dnb_eps.txt")
     santorin_content = load_file("data/examens/memoire_examens_santorin.txt")
 
-    print("2. Analyse globale, recherche web et routage unique par Gemini...")
+    print("2. Analyse globale et audit strict par Gemini...")
     
     prompt = f"""
 [CONTEXTE INSTITUTIONNEL]
-Tu es le gardien expert et certificateur de la base de connaissances du Hub EPS.
-Tu dois analyser les interrogations de terrain et les **croiser obligatoirement avec les textes officiels et sources institutionnelles vérifiées** (Eduscol, Ministère de l'Éducation Nationale, sites académiques officiels).
+Tu es le gardien expert, rigoureux et certificateur de la base de connaissances du Hub EPS.
+Ton rôle est d'analyser les interrogations de terrain sans jamais céder aux erreurs ou aux fausses rumeurs formulées par les utilisateurs.
 
 [BASES DE CONNAISSANCES ACTUELLES]
 --- FICHIER IPACK (ipack.txt) ---
@@ -65,33 +63,28 @@ Tu dois analyser les interrogations de terrain et les **croiser obligatoirement 
 [DERNIERS LOGS / QUESTIONS DE TERRAIN]
 {logs_texte}
 
-[INSTRUCTIONS DE ROUTAGE ET DE SORTIE]
-1. Identifie si une correction ou une mise à jour est nécessaire dans l'un de ces trois fichiers en te basant sur le web officiel.
-2. Si tout est correct et qu'aucun changement n'est requis, réponds STRICTEMENT par : "RIEN_A_SIGNALER".
-3. Si une modification est indispensable, réponds STRICTEMENT selon ce format précis pour désigner la cible et fournir le contenu mis à jour du fichier concerné :
+[INSTRUCTIONS DE CONTRÔLE ET DE ROUTAGE]
+1. **FILTRE ANTI-ERREUR** : Si un utilisateur exprime une idée fausse (ex: demande d'autoriser la pluri-affectation interdite en CCF), rejette-la catégoriquement. Ne modifie les fichiers qu'en cas de vrai vide technique ou réglementaire avéré et conforme aux textes officiels.
+2. **ZÉRO CONTRADICTION** : Toute modification doit s'intégrer harmonieusement sans contredire la doctrine en place.
+3. **SORTIE** : Si tout est correct ou si les logs ne nécessitent aucun correctif officiel, réponds STRICTEMENT par : "RIEN_A_SIGNALER".
+4. Sinon, réponds STRICTEMENT selon ce format précis :
 
 CIBLE: [ipack, examens ou santorin]
 CONTENU:
-[L'intégralité du fichier cible mis à jour et nettoyé au format Markdown propre]
+[L'intégralité du fichier cible mis à jour, unifié et nettoyé au format Markdown propre]
 """
 
-    # Un seul appel API propre et sécurisé avec l'outil de recherche web
     response = client.models.generate_content(
         model=MODEL_ID,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            tools=[types.Tool(google_search=types.GoogleSearch())],
-            temperature=0.1
-        )
+        contents=prompt
     )
     
     texte_reponse = response.text.strip()
 
     if "RIEN_A_SIGNALER" in texte_reponse or len(texte_reponse) < 20:
-        print("✅ Aucun changement requis après vérification officielle.")
+        print("✅ Aucun changement requis. Tout est carré !")
         return
 
-    # Routage vers la bonne cible
     if "CIBLE: ipack" in texte_reponse:
         cible_fichier = "ipack.txt"
     elif "CIBLE: examens" in texte_reponse:

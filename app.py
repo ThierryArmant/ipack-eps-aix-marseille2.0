@@ -810,16 +810,21 @@ else:
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION DÉFINITIVE & SÉCURISÉE)
 # ======================================================================
 if prompt:
-    st.session_state.messages_hub = []
+    if "messages_hub" not in st.session_state:
+        st.session_state.messages_hub = []
 
     st.session_state.messages_hub.append({
         "role": "user",
         "type": "text",
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
+    
     with st.spinner("Je consulte la documentation officielle..."):
-        mode = st.session_state.active_module
+        mode = st.session_state.get("active_module", "ipack")
         p_low = prompt.lower()
+        
+        # Récupération dynamique et propre du niveau actuel
+        niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
         texte_brut = ""
         extraits_doc = ""
@@ -904,7 +909,7 @@ if prompt:
             except Exception:
                 pass
 
-        # 🎯 TRAITEMENT DES INVARIANTS EN DUR
+        # 🎯 TRAITEMENT DES INVARIANTS EN DUR OU APPEL IA
         if est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
@@ -964,9 +969,8 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 
 {verites_terrain_pierre}
 """
-niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
-consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
+            consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
 NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}
 
 ⚠️ RIGUEUR LEXICALE PAR NIVEAU :
@@ -991,12 +995,12 @@ RÈGLES DE LECTURE INTELLIGENTE & SÉCURITÉ :
 QUESTION DE L'UTILISATEUR :
 {prompt}
 """
-            if not est_cas_direct:
-                try:
-                    response = Settings.llm.complete(consigne_ia)
-                    texte_brut = response.text
-                except Exception as e:
-                    texte_brut = f"Erreur de traitement IA : {str(e)}"
+
+            try:
+                response = Settings.llm.complete(consigne_ia)
+                texte_brut = response.text
+            except Exception as e:
+                texte_brut = f"Erreur de traitement IA : {str(e)}"
 
         # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
@@ -1016,9 +1020,6 @@ QUESTION DE L'UTILISATEUR :
         texte_final = texte_nettoye.replace("<p>", "").replace("</p>", "<br>")
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
-
-        # 🎯 Récupération dynamique du niveau sélectionné dans le formulaire
-        niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
         phrase_contexte = (
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
@@ -1047,7 +1048,7 @@ QUESTION DE L'UTILISATEUR :
                 if est_dnb and "santorin" in video_name.lower():
                     continue
                 st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
+                    {"role": "video", "content": video_url}
                 )
 
 # AFFICHAGE DES MESSAGES (PERSISTANCE)

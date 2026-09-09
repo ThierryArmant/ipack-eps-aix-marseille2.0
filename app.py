@@ -313,13 +313,6 @@ css_pur = f"""
         margin-bottom: 12px !important;
     }}
 
-    /* FORCER LE TEXTE DU FORMULAIRE EN BLANC ÉCLATANT */
-    div[data-testid="stForm"] label p, div[data-testid="stForm"] span, div[data-testid="stForm"] label {{
-        color: #FFFFFF !important;
-        font-size: 13.5px !important;
-        font-weight: 600 !important;
-    }}
-
     /* ZOOM FLUIDE IMAGE 5 */
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
@@ -462,10 +455,6 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     # Charge la mémoire souveraine spécifique aux examens & Santorin
     docs_santorin.extend(charger_consignes_examens())
-    
-    # 🌟 AJOUT : On injecte aussi ipack.txt pour que les correctifs de nuit profitent à Santorin !
-    docs_santorin.extend(charger_consignes_ipack())
-    
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=8
     )
@@ -732,38 +721,28 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
+# 7. ZONE DE SAISIE INTÉGRÉE (DIRECTEMENT COLLÉE SOUS LES BOUTONS)
 # ======================================================================
 prompt = None
 with st.form(key="form_question_hub", clear_on_submit=True):
-    st.markdown(
-        "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE 🎓 PUBLIC CIBLE (Pour permettre une réponse ajustée)</div>",
-        unsafe_allow_html=True
-    )
-    niveau_scolaire = st.radio(
-        "Niveau",
-        ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-        horizontal=True,
-        label_visibility="collapsed",
-    )
-
     col_input, col_submit = st.columns([5, 1])
     with col_input:
         prompt_brut = st.text_input(
             "Question :",
             placeholder=(
-                "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
+                "🔺 Sélectionnez le module concerné avant de saisir votre"
+                " question..."
             ),
             label_visibility="collapsed",
         )
     with col_submit:
         bouton_envoyer = st.form_submit_button(
-            "🚀 Poser", use_container_width=True, type="primary"
+            "🚀 Poser la question", use_container_width=True, type="primary"
         )
 
     if bouton_envoyer and prompt_brut.strip():
         prompt = prompt_brut.strip()
-        st.session_state.niveau_actif_form = niveau_scolaire
+
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION (PLACÉES SOUS LA SAISIE)
 # ======================================================================
@@ -807,7 +786,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION DÉFINITIVE & SÉCURISÉE)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (VERSION CORRIGÉE & CENTRALISÉE)
 # ======================================================================
 if prompt:
     if "messages_hub" not in st.session_state:
@@ -823,7 +802,7 @@ if prompt:
         mode = st.session_state.get("active_module", "ipack")
         p_low = prompt.lower()
         
-        # Récupération dynamique et propre du niveau actuel
+        # 1. Récupération sécurisée et persistante du niveau actif
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
         texte_brut = ""
@@ -970,6 +949,7 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {verites_terrain_pierre}
 """
 
+            # 📋 CONCATÉINATION PROPRE DES RÈGLES IA ET DU CONTEXTE
             consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
 NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}
 
@@ -1035,14 +1015,12 @@ QUESTION DE L'UTILISATEUR :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
-        # Enregistrement pour la ronde de nuit de 2h du matin
         log_interaction(prompt, texte_brut)
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}
         )
 
-        # 📺 INTÉGRATION DES VIDÉOS TUTOS ASSOCIÉES
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
                 if est_dnb and "santorin" in video_name.lower():

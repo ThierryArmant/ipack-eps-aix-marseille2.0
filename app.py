@@ -984,7 +984,7 @@ RÈGLES DE LECTURE INTELLIGENTE & SÉCURITÉ :
 
 QUESTION DE L'UTILISATEUR :
 {prompt}
-""""
+"""
             if not est_cas_direct:
                 try:
                     response = Settings.llm.complete(consigne_ia)

@@ -859,6 +859,12 @@ if prompt:
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
+        # 🛑 VERROU DUR : Interception immédiate des questions sur la saisie des notes
+        est_saisir_notes = any(phrase in p_low for phrase in [
+            "saisir des notes", "saisir note", "saisir notes", "noter", 
+            "carnet de notes", "saisie des notes", "saisir une note", "comment noter"
+        ])
+
         est_date = (
             (not est_college) 
             and any(
@@ -895,7 +901,7 @@ if prompt:
         # ⚡ DÉTECTION SSS (SÉCURITÉ VIDÉO AUTOMATIQUE)
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
-        # ⚠️ RETRAIT DE 'or est_dnb' POUR LAISSER L'IA TRAITER LE DNB DYNAMIQUEMENT
+        # ⚠️ INTÉGRATION DU VERROU NOTES DANS LES CAS DIRECTS (Bypasse l'IA)
         est_cas_direct = (
             (mode != "textes") 
             and (
@@ -903,6 +909,7 @@ if prompt:
                 or est_sujet_secours 
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
+                or est_saisir_notes
             )
         ) or est_tasa
 
@@ -935,7 +942,15 @@ if prompt:
                 pass
 
         # 🎯 ROUTAGE DU RENDU DIRECT
-        if est_date:
+        if est_saisir_notes:
+            texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
+<ul>
+  <li><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
+  <li><strong>Outil dédié :</strong> Pour la gestion des notes, des moyennes ou de l'évaluation chiffrée, utilisez exclusivement le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte) ou le livret scolaire (LSU) selon votre niveau.</li>
+</ul>"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+        elif est_date:
             texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
 <ul>
   <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes, de remontée des résultats et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au <strong>Bulletin Officiel (BO)</strong> et précisées par la circulaire de la Division des Examens et Concours (DEC) de votre académie.</li>

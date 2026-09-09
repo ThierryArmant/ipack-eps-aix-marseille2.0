@@ -8,7 +8,8 @@ if not api_key:
     raise ValueError("La clé API GEMINI_API_KEY est manquante.")
 
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-1.5-pro") # Ajuste selon ton modèle (ex: gemini-2.5-flash)
+# Correction ici : utilisation d'un modèle flash supporté
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Ton URL Google Apps Script pour récupérer les logs
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
@@ -38,7 +39,6 @@ def analyser_et_patcher():
         print(f"Erreur de lecture du Sheet : {e}")
         return
 
-    # Extraire les derniers logs (questions et cas de repli SAV)
     derniers_logs = [row.get("question", "") for row in lignes[-30:] if row.get("question")]
     if not derniers_logs:
         print("Aucune question trouvée dans les logs.")
@@ -46,7 +46,6 @@ def analyser_et_patcher():
         
     logs_texte = "\n".join(f"- {q}" for q in derniers_logs)
 
-    # Fichiers de référence à disposition pour vérification anti-doublon
     fichiers_ref = {
         "ipack": "ipack.txt",
         "examens": "data/examens/regles_dnb_eps.txt",
@@ -78,7 +77,7 @@ CIBLE: [ipack, examens ou santorin]
 CONTENU:
 [Le paragraphe au format Markdown propre prêt à être ajouté]
 
-Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
+If tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
 """
     
     response = model.generate_content(prompt)
@@ -88,7 +87,6 @@ Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds str
         print("Aucun nouveau patch nécessaire. Tout est carré !")
         return
 
-    # Identification de la cible
     cle_cible = None
     if "CIBLE: ipack" in texte_reponse:
         cle_cible = "ipack"
@@ -102,7 +100,6 @@ Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds str
 
     cible_fichier = fichiers_ref.get(cle_cible)
 
-    # Extraction du contenu du patch
     if "CONTENU:" in texte_reponse:
         contenu_patch = texte_reponse.split("CONTENU:")[1].strip()
     else:

@@ -914,17 +914,23 @@ if prompt:
             )
         ) or est_tasa
 
-       # 🚀 RECHERCHE RAG LOCALE (Laisser le retriever interroger les fichiers)
+        # 🚀 RECHERCHE RAG LOCALE + RERANKING CHIRURGICAL (FLASHRANK)
         if openai_api_key and not est_cas_direct:
             try:
                 if mode == "examens":
-                    for n in retriever_santorin.retrieve(prompt):
+                    nodes_bruts = retriever_santorin.retrieve(prompt)
+                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
+                    for n in nodes_filtres:
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
-                    for n in retriever_ipack.retrieve(prompt):
+                    nodes_bruts = retriever_ipack.retrieve(prompt)
+                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
+                    for n in nodes_filtres:
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
-                    for n in retriever_textes.retrieve(prompt):
+                    nodes_bruts = retriever_textes.retrieve(prompt)
+                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
+                    for n in nodes_filtres:
                         extraits_doc += f"{n.node.text}\n\n"
             except Exception:
                 pass

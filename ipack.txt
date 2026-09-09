@@ -1590,3 +1590,20 @@ AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)
 * **Glisser-déposer (Drag & Drop) des justificatifs :** Vous pouvez intégrer directement les certificats médicaux et pièces justificatives des élèves sans parcourir l'arborescence des dossiers. Glissez simplement le fichier (PDF, image) depuis votre poste de travail et déposez-le dans la zone dédiée sur la fiche ou le suivi de l'élève concerné.
 * **Accès depuis les centres étrangers :** Les enseignants d'EPS exerçant dans les établissements homologués à l'étranger (AEFE, OSUI, etc.) peuvent se connecter et utiliser iPackEPS via les modalités d'accès distants sécurisés ou leur identifiant académique de rattachement.
 * **Gestion des protocoles d'évaluation :** Il est possible d'affecter temporairement un élève dans plusieurs protocoles (ex: demi-fond et saut en longueur) en début de cycle pour faciliter son orientation, avant de valider son protocole définitif lors de la saisie finale des évaluations.
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)
+======================================================================
+### Affectation d'un élève dans plusieurs protocoles (Choix d'épreuve)
+
+**Question :** Puis-je affecter un élève dans plusieurs protocoles simultanément pour lui laisser le choix en début de cycle (ex. entre Demi-fond et Saut en longueur) ?
+
+**Réponse :**  
+Non. Dans iPackEPS, **un élève ne peut être affecté qu'à un seul protocole à la fois** pour une même session d'évaluation.
+
+* **Raisonnement :** La pluri-affectation génère des incohérences lors du calcul des bilans, du suivi des évaluations et de l'exportation finale des notes.
+* **Procédure recommandée :**
+  1. Fixez le choix de l'épreuve avec l'élève au terme de la phase d'orientation/découverte en début de cycle.
+  2. Procédez à son affectation définitive dans le protocole correspondant dans iPackEPS.
+  3. En cas de changement exceptionnel en cours de cycle (motif médical ou réorientation validée), modifiez directement le protocole rattaché à l'élève depuis l'interface de gestion de la classe.

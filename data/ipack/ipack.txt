@@ -1534,18 +1534,21 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 - **Question fréquente :** "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?"
 - **Réponse officielle à formuler :** "Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
 ======================================================================
-RÈGLE FONDAMENTALE DE GESTION DES RÉSULTATS DANS IPACKEPS
+FICHE RAG - GESTION DES NOTES ET RÉSULTATS DANS IPACKEPS
 ======================================================================
-1. PRINCIPE GÉNÉRAL ABSOLU :
-iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) permettant la saisie libre ou brute de notes chiffrées au fil de l'eau. 
+[MOTS CLÉS ASSOCIÉS] : saisir des notes, note, carnet de notes, évaluation, bulletins, Pronote, DNB, CCF, Santorin, Cyclades.
+
+1. PRINCIPE FONDAMENTAL ABSOLU :
+iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) permettant la saisie libre ou brute de notes chiffrées au fil de l'eau. Il est techniquement impossible de "saisir des notes" brutes dans l'application.
 
 2. POUR LE CONTEXTE COLLÈGE (DNB) :
-- iPackEPS gère le paramétrage des cycles d'APSA, des grilles d'évaluation et le suivi des degrés d'acquisition des composantes (AFL - Attendus de Fin de Ligne / Apprentissages Fondamentaux).
-- L'évaluation formative et sommative s'appuie sur la validation de niveaux d'acquisition (Maîtrise insuffisante, fragile, satisfaisante, très bonne) et non sur une note chiffrée sommative pour le DNB.
-- Aucune note ou calcul direct pour le DNB n'est réalisé ou saisi sur l'outil. Les bilans périodiques alimentent les bulletins via le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte).
+- Chemin d'accès dans l'outil : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou via les séquences dans le menu [Groupes]).
+- Fonctionnement : L'outil gère le paramétrage des cycles d'APSA et le suivi des degrés d'acquisition des compétences (AFL - Apprentissages Fondamentaux).
+- Pas de notes chiffrées DNB : L'évaluation repose sur la validation de niveaux d'acquisition (maîtrise insuffisante, fragile, satisfaisante, très bonne). 
+- Bulletins : Les bilans périodiques sont exportés ou reportés dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte).
 
 3. POUR LE CONTEXTE LYCÉE & PRO / CAP (CCF & EXAMENS) :
-- iPackEPS sert à paramétrer et structurer les protocoles de Contrôle en Cours de Formation (CCF) conformément aux textes réglementaires (champs d'apprentissage, épreuves, barèmes, critères).
-- Il ne s'agit pas d'y « saisir des notes » brutes au sens traditionnel, mais d'enseigner et de renseigner les grilles d'évaluation institutionnelles et de préparer les protocoles officiels.
-- L'outil permet d'extraire, de formater et de vérifier les données validées avant leur transmission définitive vers les plateformes académiques officielles (Santorin ou Cyclades).
-- La saisie finale et officielle des notes pour les bulletins ou les examens s'effectue toujours dans le logiciel de l'établissement ou sur les portails dédiés de l'Éducation Nationale.
+- Chemin d'accès dans l'outil : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Examens] / [CCF].
+- Fonctionnement : L'outil sert à structurer et paramétrer les protocoles de Contrôle en Cours de Formation (CCF) conformément aux textes réglementaires (champs d'apprentissage, épreuves, barèmes, critères).
+- Pas de notes brutes : On y renseigne les grilles d'évaluation institutionnelles et on prépare les protocoles officiels en vue d'un export ou d'une vérification avant transmission vers les plateformes académiques (Santorin ou Cyclades).
+- Saisie officielle : La saisie finale des notes certificatives s'effectue toujours en dehors de l'outil, sur les portails institutionnels dédiés.

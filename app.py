@@ -859,11 +859,12 @@ if prompt:
         # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        # 🛑 VERROU DUR : Interception infaillible de toute question sur les notes
+        # 🛑 VERROU DUR : Interdiction des notes sur iPackEPS, MAIS autorisé sur Santorin/Cyclades
         est_saisir_notes = (
             any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
             and any(w in p_low for w in ["note", "notes"])
-        )
+            and not any(w in p_low for w in ["santorin", "cyclades"])
+        ))
 
         est_date = (
             (not est_college) 

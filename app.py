@@ -1074,8 +1074,7 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 
     🔍 ÉTAPE PRÉLIMINAIRE OBLIGATOIRE (ANALYSE DE LA CLARTÉ DE LA QUESTION) :
     Avant toute recherche ou rédaction, analyse la question de l'utilisateur :
-    - Si la question est un pur charabia, un mot isolé sans rapport (ex: "test", "ok", des suites de lettres aléatoires) ou totalement vide de sens : réponds sobrement : *"Votre question est trop elliptique ou manque de contexte réglementaire. Merci d'apporter plus d'informations à votre demande."*
-    - Si c'est une vraie question de terrain (même formulée avec des abréviations ou du jargon métier), **interdiction de bloquer** : utilise la documentation et tes connaissances institutionnelles pour y répondre au mieux.
+    - Si la question est un pur charabia... réponds sobrement : "Votre question est trop elliptique..."
 
     🔍 RÈgle D'OR DE FIDÉLITÉ DOCUMENTAIRE :
     - Tu disposes d'un "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" ci-dessous. 

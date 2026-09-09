@@ -1009,8 +1009,11 @@ QUESTION DE L'UTILISATEUR :
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
 
+        # 🎯 Récupération dynamique du niveau sélectionné dans le formulaire
+        niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+
         phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom}.</em></div>"
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
         )
 
         footer_assistance = ""

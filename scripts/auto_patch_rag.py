@@ -8,7 +8,7 @@ if not api_key:
     raise ValueError("La clé API GEMINI_API_KEY est manquante.")
 
 client = genai.Client(api_key=api_key)
-MODEL_ID = "gemini-2.5-flash"  # Modèle standard moderne supporté par le nouveau SDK
+MODEL_ID = "gemini-3.6-flash"  # Modèle standard moderne supporté par le nouveau SDK
 
 # Ton URL Google Apps Script pour récupérer les logs
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"

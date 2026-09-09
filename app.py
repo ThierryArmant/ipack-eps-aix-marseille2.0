@@ -832,7 +832,6 @@ if prompt:
         mode = st.session_state.active_module
         p_low = prompt.lower()
         
-        # 🎯 Récupération sécurisée du niveau actif sélectionné à l'étape 2
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
         texte_brut = ""
@@ -856,15 +855,13 @@ if prompt:
         except Exception:
             pass
 
-        # ⚡ DÉTECTIONS D'INVARIANTS INSTITUTIONNELS CRITIQUES
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        # 🛑 VERROU DUR : Interdiction des notes sur iPackEPS, MAIS autorisé sur Examens/Santorin
         est_saisir_notes = (
             any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
             and any(w in p_low for w in ["note", "notes"])
             and not any(w in p_low for w in ["santorin", "cyclades"])
-            and mode != "examens"  # <--- Ajouté ici pour ne pas bloquer l'onglet examens
+            and mode != "examens" 
         )
 
         est_date = (
@@ -900,10 +897,8 @@ if prompt:
             and "lot" in p_low
         )
 
-        # ⚡ DÉTECTION SSS (SÉCURITÉ VIDÉO AUTOMATIQUE)
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
 
-        # ⚠️ INTÉGRATION DU VERROU NOTES DANS LES CAS DIRECTS (Bypasse l'IA)
         est_cas_direct = (
             (mode != "textes") 
             and (
@@ -915,28 +910,23 @@ if prompt:
             )
         ) or est_tasa
 
-        # 🚀 RECHERCHE RAG LOCALE + RERANKING CHIRURGICAL (FLASHRANK)
         if openai_api_key and not est_cas_direct:
             try:
                 if mode == "examens":
                     nodes_bruts = retriever_santorin.retrieve(prompt)
-                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
-                    for n in nodes_filtres:
+                    for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "ipack":
                     nodes_bruts = retriever_ipack.retrieve(prompt)
-                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
-                    for n in nodes_filtres:
+                    for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
                 elif mode == "textes":
                     nodes_bruts = retriever_textes.retrieve(prompt)
-                    nodes_filtres = reranker.postprocess_nodes(nodes_bruts, query_bundle=QueryBundle(query_str=prompt))
-                    for n in nodes_filtres:
+                    for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
             except Exception:
                 pass
 
-        # 🌐 RECHERCHE WEB TAVILY
         if tavily_client and mode == "textes" and not est_cas_direct:
             try:
                 response_tavily = tavily_client.search(
@@ -949,7 +939,6 @@ if prompt:
             except Exception:
                 pass
 
-        # 🎯 ROUTAGE DU RENDU DIRECT
         if est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
@@ -1034,7 +1023,6 @@ if prompt:
             else:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
-        # 📋 DIRECTIVES SPÉCIFIQUES PAR ONGLET
         directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
@@ -1067,39 +1055,43 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
 {verites_terrain_pierre}
 """
 
+        # 🚨 PROMPT SYSTÈME CORRIGÉ AVEC RÈGLE ZÉRO EN TÊTE DE LISTE
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
     🎯 PUBLIC CIBLE SÉLECTIONNÉ PAR L'UTILISATEUR : {niveau_actuel_form}
     (Tu dois impérativement adapter ta réponse, tes références réglementaires et ton analyse en fonction de ce niveau précis : Collège, Lycée Général & Techno ou Lycée Pro/CAP).
 
-   
-    🔍 RÈgle D'OR DE FIDÉLITÉ DOCUMENTAIRE :
+    🚨 [ RÈGLE ZÉRO - PRIORITÉ ABSOLUE & ANTIDOTE AUX RÉPONSES BATEAUX ] :
+    Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'erreur ou une impossibilité de saisir des notes (Santorin / Cyclades) :
+    - INTERDICTION FORMELLE DE DIRE "contactez la direction" ou "vérifiez vos notes" si la cause est un blocage structurel ou réglementaire.
+    - Tu dois IMMÉDIATEMENT analyser la contradiction mathématique de la réglementation (ex: CAP = 2 épreuves max, toute tentative de mettre 3 APSA bloque et est rejetée automatiquement) et donner la procédure technique exacte de nettoyage dans iPackEPS / Cyclades.
+
+    🔍 RÈGLE D'OR DE FIDÉLITÉ DOCUMENTAIRE :
     - Tu disposes d'un "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" ci-dessous. 
-    - Si la question de l'utilisateur correspond à un cas technique ou réglementaire présent dans ces documents (dispenses multiples, notes uniques, bugs Santorin, etc.), **tu dois impérativement t'appuyer en priorité absolue sur ces règles et procédures exactes**, sans inventer de conseils génériques de type "consultez votre direction". Donne la procédure concrète pas à pas.
+    - Si la question de l'utilisateur correspond à un cas technique ou réglementaire présent dans ces documents (dispenses multiples, notes uniques, bugs Santorin, etc.), **tu dois impérativement t'appuyer en priorité absolue sur ces règles et procédures exactes**, sans inventer de conseils génériques. Donne la procédure concrète pas à pas.
 
     🚨 SOCLE DE SÉCURITÉ ET INVARIANTS INSTITUTIONNELS (RÈGLES ABSOLUES - ZÉRO TOLÉRANCE) :
     1. PRINCIPE DE RÉALITÉ DES PUBLICS :
-    ... (la suite de ton code habituel)
     - Collège (6e, 5e, 4e, 3e, y compris 3e prépa-métiers, SEGPA, ULIS, peu importe l'établissement d'hébergement) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin ou Cyclades. Évaluation exclusivement par contrôle continu et LSU (Socle commun). Si l'utilisateur évoque une 3e (même en Lycée Pro), rejette l'export Cyclades/CCF et impose le LSU.
     - Lycée (Terminale Bac GT, Bac Pro, CAP) : Cadre réglementaire strict du CCF.
-2. INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
+    2. INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
     - Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction formelle d'en proposer pour une classe ordinaire.
-3. INCOMPÉTENCE HIERARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
+    3. INCOMPÉTENCE HIERARCHIQUE DES CHEFS D'ÉTABLISSEMENT :
     - Le chef d'établissement n'a AUCUNE autorité ni compétence sur les jurys de bac, la modification des notes d'examens nationaux ou la gestion des tiers correcteurs (tierce correction). Tout litige relève de la Division des Examens et Concours (DEC).
-4. GESTION DES FAUSSES PRÉMISSES :
+    4. GESTION DES FAUSSES PRÉMISSES :
     - Si un utilisateur demande une action impossible (CCF en collège, APSA combinée en classe normale, validation de correcteur de bac par le proviseur), rectifie la prémisse dès la première phrase, rappelle la règle réglementaire exacte, et donne la bonne marche à suivre. N'active jamais la règle du hors-sujet global pour une question d'EPS erronée.
-5. CLOISONNEMENT STRICT DES ACTEURS INSTITUTIONNELS :
+    5. CLOISONNEMENT STRICT DES ACTEURS INSTITUTIONNELS :
     - Dans l'onglet "Sécurité & Cadre Juridique", INTERDICTION ABSOLUE de mentionner la DEC (Division des Examens et Concours), que ce soit pour dire de la contacter ou de ne pas la contacter. La DEC n'a aucun rôle dans les accidents, la responsabilité ou les sorties scolaires (seuls le Chef d'établissement, le Recteur et la DSDEN sont compétents).
-6. GESTION OPÉRATIONNELLE DES LOTS ET VERROUILLAGES SUR SANTORIN (HABILITATION & CADENAS) :
+    6. GESTION OPÉRATIONNELLE DES LOTS ET VERROUILLAGES SUR SANTORIN (HABILITATION & CADENAS) :
     - Un enseignant n'a PAS les droits de déverrouiller un lot de copies numériques depuis son profil de correcteur.
     - La manipulation relève EXCLUSIVEMENT du Chef d'établissement depuis sa console de direction sur Santorin (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).
     - INTERDICTION FORMELLE ET ABSOLUE de mentionner la DEC (Division des Examens et Concours) pour ce cas. C'est une action locale et autonome de l'établissement. L'assistant doit explicitement dire à l'enseignant de se rapprocher de sa direction.
-7. GESTION STRICTE DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF) :
+    7. GESTION STRICTE DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF) :
     - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour d'une épreuve certificative (CCF) unique est une INAPTITUDE TEMPORAIRE.
     - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" de dernière minute : l'organisation d'une ÉPREUVE DIFFÉRÉE est obligatoire.
     - ⚠️ EXCEPTION VITALE (PROFIL NOTE UNIQUE / DISPENSES MULTIPLES) : Cette règle de l'épreuve différée de dernière minute ne s'applique PAS lorsqu'un dossier présente un profil de dispenses multiples combinées à une note unique (ex: DI + DI + 14). Dans ce cas, l'élève a raté deux épreuves en amont (couvertes par des DI officiels) et a une note valide sur la troisième : on applique strictement la procédure de la note unique (saisir les deux statuts DISP/DI, saisir la note réelle, et rédiger le commentaire obligatoire pour la CAHPN).
     - 🛡️ DÉFINITION OFFICIELLE : CAHPN / CAHN = Commission Académique d'Harmonisation et de Proposition de Notes (interdiction stricte de toute autre interprétation).
-8. 🧠 FLEXIBILITÉ CONTEXTUELLE & ARBITRAGE INTELLIGENT :
+    8. 🧠 FLEXIBILITÉ CONTEXTUELLE & ARBITRAGE INTELLIGENT :
     - L'utilisateur a posé sa question dans {contexte_choisi_nom}. Cependant, analyse toujours en priorité la nature intrinsèque de la question (par exemple : si la question concerne le collège ou le DNB, elle relève du contrôle continu et du LSU, même si l'onglet actif est par erreur celui des examens/lycée).
     - En cas de décalage entre l'onglet sélectionné et le domaine réel de la question, ne t'enferme pas aveuglément dans l'erreur de l'onglet : recadre le sujet avec souplesse et pédagogie, sans blocage.
 
@@ -1127,11 +1119,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-        # 🛡️ SÉCURITÉ PROGRAMMATIQUE SSS (FORCE L'AFFICHAGE DU TUTO SI OUBLI DE L'IA)
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-        # 🧹 NETTOYAGES & FORMATAGE HTML CORRIGÉ (CORRECTION DE L'ESPACEMENT GÉANT)
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
         if mode == "textes" or est_dnb:
@@ -1158,14 +1148,11 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_brut = re_links
 
-        # 🔧 CORRECTION CRITIQUE DES ESPACES : On ne convertit plus aveuglément les \n en <br> 
-        # pour éviter de casser les listes HTML et créer des interlignages géants.
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
             texte_nettoye.replace("<p>", "")
             .replace("</p>", "<br>")
         )
-        # Nettoyage propre des sauts de ligne superflus sans doubler les balises de listes
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
 
@@ -1183,7 +1170,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
-        # 🚀 ENREGISTREMENT DISCRET DANS LE GOOGLE SHEET "Questions Hub"
         log_interaction(prompt, texte_brut)
 
         st.session_state.messages_hub.append(
@@ -1192,14 +1178,12 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
-                # 🛡️ SÉCURITÉ : Interdire les tutos Santorin pour le collège/DNB
                 if est_dnb and "santorin" in video_name.lower():
                     continue
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-# AFFICHAGE DES MESSAGES ET DES VIDÉOS (Hors du if prompt pour persister à l'écran)
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     for m in st.session_state.messages_hub:

@@ -234,10 +234,11 @@ css_pur = f"""
         display: block; 
     }}
 
+    /* BOUTONS SOLIDES (NON TRANSPARENTS) */
     button[kind="secondary"] {{ 
-        background-color: rgba(15, 23, 42, 0.9) !important; 
+        background-color: #1E293B !important; 
         color: #94A3B8 !important; 
-        border: 1px solid rgba(255,255,255,0.05) !important; 
+        border: 1px solid #334155 !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
         height: 55px !important; 
@@ -248,12 +249,12 @@ css_pur = f"""
     }}
 
     button[kind="primary"] {{ 
-        background-color: rgba(16, 185, 129, 0.85) !important; 
+        background-color: #10B981 !important; 
         color: #FFFFFF !important; 
-        border: 1px solid #10B981 !important; 
+        border: 1px solid #059669 !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
-        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.6) !important; 
+        box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.4) !important; 
         font-weight: 700 !important; 
         height: 55px !important; 
         display: inline-flex !important; 

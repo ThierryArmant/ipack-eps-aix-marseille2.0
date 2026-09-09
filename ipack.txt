@@ -1570,6 +1570,11 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 * Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN[cite: 1].
 * Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie[cite: 1] et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro[cite: 1].
 
+### [SITUATION: LA VRAIE RÉALITÉ D'IPACKEPS POUR LES COLLÈGES]
+- Origine de l'outil : iPackEPS a été initialement pensé et structuré pour répondre à la complexité administrative du lycée et des examens nationaux (CCF, Santorin, Cyclades, protocoles, fiches de vœux).
+- Absence de protocoles lourds (DNB) : Pour un collège, la donne est différente. L'outil n'a pas vocation à générer des fichiers de notes pour le DNB, puisque le Brevet repose sur le contrôle continu global géré directement au sein de l'établissement.
+- Rôle réel au collège : L'outil sert principalement de support de structuration pour l'équipe pédagogique (séquences d'apprentissage, suivi des APSA, gestion des groupes, suivi des inaptitudes et du registre EPI).
+- Point de chute des notes : Pour la saisie des notes de collège et des bulletins trimestriels, iPackEPS s'efface totalement au profit de Pronote ou ÉcoleDirecte.
 
 ======================================================================
 AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)

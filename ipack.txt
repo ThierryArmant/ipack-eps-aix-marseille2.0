@@ -1607,3 +1607,16 @@ Non. Dans iPackEPS, **un élève ne peut être affecté qu'à un seul protocole 
   1. Fixez le choix de l'épreuve avec l'élève au terme de la phase d'orientation/découverte en début de cycle.
   2. Procédez à son affectation définitive dans le protocole correspondant dans iPackEPS.
   3. En cas de changement exceptionnel en cours de cycle (motif médical ou réorientation validée), modifiez directement le protocole rattaché à l'élève depuis l'interface de gestion de la classe.
+
+
+======================================================================
+AJOUT AUTOMATIQUE (MULTIRAG - ipack.txt)
+======================================================================
+### Accès à iPackEPS pour les enseignants des Centres Étrangers (réseau AEFE)
+
+**Problématique :** Un enseignant exerçant dans un centre étranger ou un établissement homologué AEFE peut-il accéder à iPackEPS et y gérer ses évaluations ?
+
+**Règles d'accès et procédure :**
+- **Mode d'authentification standard :** L'accès principal à iPackEPS s'effectue via l'authentification centralisée (SSO) du portail académique ARENA.
+- **Accès depuis l'étranger :** Les enseignants des centres étrangers ne disposant pas d'un compte académique rattaché à une académie partenaire ne peuvent pas se connecter automatiquement via le guichet SSO classique.
+- **Démarche à effectuer :** Pour obtenir un accès dérogatoire ou configurer votre établissement hors-métropole, vous devez contacter directement l'assistance technique en précisant votre établissement, votre pays et votre identifiant de messagerie professionnelle à l'adresse : `ipackeps@ac-aix-marseille.fr`.

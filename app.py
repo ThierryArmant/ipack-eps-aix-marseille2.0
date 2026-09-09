@@ -964,7 +964,7 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 
 {verites_terrain_pierre}
 """
-           niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
 consigne_ia = f"""Tu es un expert institutionnel chevronné, type IA-IPR EPS, rigoureux et pragmatique.
 NIVEAU SCOLAIRE CIBLÉ : {niveau_actuel_form}

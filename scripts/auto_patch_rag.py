@@ -1,16 +1,17 @@
 import os
 import requests
 from google import genai
+from google.genai import types
 
-# Configuration de l'API Gemini avec le nouveau SDK officiel
+# 1. Configuration de l'API
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("La clé API GEMINI_API_KEY est manquante.")
 
 client = genai.Client(api_key=api_key)
-MODEL_ID = "gemini-3.6-flash"  # Modèle standard moderne supporté par le nouveau SDK
+MODEL_ID = "gemini-3.6-flash"
 
-# Ton URL Google Apps Script pour récupérer les logs
+# URL de ton Google Apps Script
 URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyVq8_DCLnAyrr7xEUw1Xbdze0Lm1S-P6RHlXJPE2CmaBD39lpFfQjpuHQhxmL0z3bJ/exec"
 
 def load_file(filepath):
@@ -19,18 +20,13 @@ def load_file(filepath):
             return f.read()
     return ""
 
-def sauver_patch(cible, contenu_patch):
-    print(f"3. Écriture de la correction dans le fichier cible : {cible}...")
-    contenu_actuel = load_file(cible)
-    
-    nouveau_contenu = contenu_actuel + f"\n\n======================================================================\nAJOUT AUTOMATIQUE (MULTIRAG - {cible})\n======================================================================\n{contenu_patch}\n"
-
-    with open(cible, "w", encoding="utf-8") as f:
-        f.write(nouveau_contenu)
-    print(f"Fichier {cible} mis à jour avec succès !")
+def save_file(filepath, content):
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f"Fichier {filepath} mis à jour et validé via les sources officielles !")
 
 def analyser_et_patcher():
-    print("1. Récupération des logs depuis Google Sheets...")
+    print("1. Récupération des logs depuis le Google Sheet...")
     try:
         response = requests.get(URL_APPS_SCRIPT)
         lignes = response.json()
@@ -38,7 +34,9 @@ def analyser_et_patcher():
         print(f"Erreur de lecture du Sheet : {e}")
         return
 
-    derniers_logs = [row.get("question", "") for row in lignes[-30:] if row.get("question")]
+    # Nettoyage et déduplication des questions récentes
+    brut_logs = [row.get("question", "") for row in lignes[-50:] if row.get("question")]
+    derniers_logs = list(dict.fromkeys(brut_logs))[-15:]
     if not derniers_logs:
         print("Aucune question trouvée dans les logs.")
         return
@@ -51,69 +49,48 @@ def analyser_et_patcher():
         "santorin": "data/examens/memoire_examens_santorin.txt"
     }
 
-    print("2. Analyse intelligente et routage chirurgical par Gemini (Multi-RAG à 3 branches)...")
-    prompt = f"""
-[CONTEXTE]
-Tu es l'IA auditrice de la "Ronde de nuit" pour Le Hub (assistant EPS, Collège, Lycée, iPackEPS, Santorin).
-Ton rôle unique est d'analyser les logs récents pour corriger, enrichir et combler les angles morts de nos bases de connaissances.
+    print("2. Analyse, recherche web officielle et audit global par Gemini...")
+    for cle_cible, cible_fichier in fichiers_ref.items():
+        contenu_actuel = load_file(cible_fichier)
+        if not contenu_actuel:
+            continue
 
-[RÈGLES D'OR DE LA RONDE DE NUIT]
-1. FILTRE DES ÉCHECS EN PRIORITÉ ABSOLUE : Analyse d'abord les interactions où le Hub a déclenché la clause de repli vers le SAV (ipackeps@ac-aix-marseille.fr) ou a émis une réponse d'incertitude. Ce sont les zones de friction critiques de terrain.
-2. RÉSOLUTION OBLIGATOIRE : Pour chaque échec identifié, formule clairement la question bloquante, rédige la réponse technique, administrative ou procédurale exacte (en respectant l'étanchéité Collège/Lycée), et formate-la sous la forme d'un article ou d'une situation normée.
-3. FILTRE ANTI-DOUBLON : Ne duplique pas une information déjà présente dans nos bases. 
+        prompt = f"""
+[CONTEXTE INSTITUTIONNEL]
+Tu es le gardien expert et certificateur de la base de connaissances du Hub EPS (Fichier cible : {cle_cible}).
+Ton rôle est d'analyser les interrogations de terrain et de les **croiser obligatoirement avec les textes officiels et sources institutionnelles vérifiées** (Eduscol, Ministère de l'Éducation Nationale, circulaires et ressources académiques - ex: Créteil, Normandie, Aix-Marseille, etc.).
 
-[DERNIERS LOGS UTILISATEURS]
+[ÉTAT ACTUEL DE LA BASE DE CONNAISSANCES]
+{contenu_actuel}
+
+[DERNIERS LOGS / QUESTIONS DE TERRAIN]
 {logs_texte}
 
-[CONSIGNES DE ROUTAGE ET DE SORTIE]
-Tu dois déterminer si une mise à jour est nécessaire dans l'une de nos 3 cibles :
-- `ipack` (application iPackEPS, outils, tableaux, scripts)
-- `examens` (réglementation, textes officiels, épreuves, DNB, CCF)
-- `santorin` (gestion des examens, copies, notes, plateformes Santorin/Cyclades)
-
-Si une correction est indispensable, réponds STRICTEMENT selon ce format précis :
-CIBLE: [ipack, examens ou santorin]
-CONTENU:
-[Le paragraphe au format Markdown propre prêt à être ajouté]
-
-Si tout est déjà couvert ou qu'aucun correctif n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER".
+[INSTRUCTIONS STRICTES DE VÉRIFICATION ET DE CROISEMENT]
+1. **OBLIGATION DE RECHERCHE WEB OFFICIELLE** : Pour chaque règle réglementaire, administrative ou liée aux examens/CCF/DNB présente dans les logs, tu DOIS déclencher une recherche sur le web pour valider le texte officiel en vigueur via des sources sures (`eduscol.education.fr`, `education.gouv.fr`, sites académiques officiels).
+2. **FILTRE ANTI-ERREUR DE TERRAIN** : Ne prends jamais la formulation ou le doute d'un utilisateur pour argent comptant. Si un utilisateur exprime une idée fausse ou une interdiction (comme la pluri-affectation interdite en CCF), va chercher la source officielle pour le démontrer et figer la doctrine exacte.
+3. **ZÉRO CONTRADICTION** : Assure-toi que toute modification affine ou clarifie la règle sans jamais contredire les principes fondamentaux déjà ancrés.
+4. **SORTIE** : Si aucune modification n'est nécessaire, réponds strictement par : "RIEN_A_SIGNALER". Sinon, renvoie **l'intégralité du fichier mis à jour et nettoyé** en format Markdown propre, prêt à remplacer l'ancien.
 """
-    
-    # Appel de l'API avec la nouvelle syntaxe moderne du SDK google-genai
-    response = client.models.generate_content(
-        model=MODEL_ID,
-        contents=prompt
-    )
-    texte_reponse = response.text.strip()
-    
-    if "RIEN_A_SIGNALER" in texte_reponse or len(texte_reponse) < 20:
-        print("Aucun nouveau patch nécessaire. Tout est carré !")
-        return
 
-    cle_cible = None
-    if "CIBLE: ipack" in texte_reponse:
-        cle_cible = "ipack"
-    elif "CIBLE: examens" in texte_reponse:
-        cle_cible = "examens"
-    elif "CIBLE: santorin" in texte_reponse:
-        cle_cible = "santorin"
-    else:
-        print("Format de routage non reconnu par l'IA.")
-        return
+        # Appel de l'API avec activation de l'outil de recherche Google (Grounding)
+        response = client.models.generate_content(
+            model=MODEL_ID,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                temperature=0.1 # Température basse pour maximiser la rigueur administrative
+            )
+        )
+        
+        texte_reponse = response.text.strip()
 
-    cible_fichier = fichiers_ref.get(cle_cible)
+        if "RIEN_A_SIGNALER" in texte_reponse or len(texte_reponse) < 50:
+            print(f"✅ {cible_fichier} : Aucun changement requis après vérification officielle.")
+            continue
 
-    if "CONTENU:" in texte_reponse:
-        contenu_patch = texte_reponse.split("CONTENU:")[1].strip()
-    else:
-        print("Balise CONTENU introuvable.")
-        return
-
-    if not contenu_patch:
-        print("Le patch généré est vide.")
-        return
-
-    sauver_patch(cible_fichier, contenu_patch)
+        print(f"🛠️ Mise à jour et validation officielle de {cible_fichier}...")
+        save_file(cible_fichier, texte_reponse)
 
 if __name__ == "__main__":
     analyser_et_patcher()

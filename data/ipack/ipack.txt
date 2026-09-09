@@ -1534,21 +1534,10 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 - **Question fréquente :** "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?"
 - **Réponse officielle à formuler :** "Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
 ======================================================================
-FICHE RAG - GESTION DES NOTES ET RÉSULTATS DANS IPACKEPS
+GUIDE DE GESTION DES RÉSULTATS ET ÉVALUATIONS DANS IPACKEPS
 ======================================================================
-[MOTS CLÉS ASSOCIÉS] : saisir des notes, note, carnet de notes, évaluation, bulletins, Pronote, DNB, CCF, Santorin, Cyclades.
+[MOTS CLÉS] : saisir des notes, note, carnet de notes, évaluation, bulletins, Pronote, DNB, CCF, Santorin, Cyclades.
 
-1. PRINCIPE FONDAMENTAL ABSOLU :
-iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) permettant la saisie libre ou brute de notes chiffrées au fil de l'eau. Il est techniquement impossible de "saisir des notes" brutes dans l'application.
-
-2. POUR LE CONTEXTE COLLÈGE (DNB) :
-- Chemin d'accès dans l'outil : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou via les séquences dans le menu [Groupes]).
-- Fonctionnement : L'outil gère le paramétrage des cycles d'APSA et le suivi des degrés d'acquisition des compétences (AFL - Apprentissages Fondamentaux).
-- Pas de notes chiffrées DNB : L'évaluation repose sur la validation de niveaux d'acquisition (maîtrise insuffisante, fragile, satisfaisante, très bonne). 
-- Bulletins : Les bilans périodiques sont exportés ou reportés dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte).
-
-3. POUR LE CONTEXTE LYCÉE & PRO / CAP (CCF & EXAMENS) :
-- Chemin d'accès dans l'outil : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Examens] / [CCF].
-- Fonctionnement : L'outil sert à structurer et paramétrer les protocoles de Contrôle en Cours de Formation (CCF) conformément aux textes réglementaires (champs d'apprentissage, épreuves, barèmes, critères).
-- Pas de notes brutes : On y renseigne les grilles d'évaluation institutionnelles et on prépare les protocoles officiels en vue d'un export ou d'une vérification avant transmission vers les plateformes académiques (Santorin ou Cyclades).
-- Saisie officielle : La saisie finale des notes certificatives s'effectue toujours en dehors de l'outil, sur les portails institutionnels dédiés.
+- PRécision sur les "notes" : iPackEPS n'est pas un carnet de notes traditionnel (type Pronote) permettant une saisie libre de notes chiffrées. Cependant, selon le public cible sélectionné par l'utilisateur, voici comment l'outil gère les résultats :
+- En contexte Collège (DNB) : L'évaluation ne passe pas par des notes chiffrées mais par la saisie des degrés d'acquisition des compétences (AFL). Le chemin d'accès dans l'outil est : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou via les séquences dans le menu [Groupes]).
+- En contexte Lycée & Pro / CAP : L'outil gère le paramétrage et le suivi des protocoles de Contrôle en Cours de Formation (CCF). Le chemin d'accès est : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Examens] / [CCF] pour renseigner les grilles et préparer les transmissions vers Santorin ou Cyclades.

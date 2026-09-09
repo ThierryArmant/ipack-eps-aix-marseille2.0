@@ -1099,10 +1099,9 @@ SOURCES OFFICIELLES WEB (LÉGIFRANCE / ÉDUSCOL) :
     - La manipulation relève EXCLUSIVEMENT du Chef d'établissement depuis sa console de direction sur Santorin (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).
     - INTERDICTION FORMELLE ET ABSOLUE de mentionner la DEC (Division des Examens et Concours) pour ce cas. C'est une action locale et autonome de l'établissement. L'assistant doit explicitement dire à l'enseignant de se rapprocher de sa direction.
 7. GESTION STRICTE DES INAPTITUDES MÉDICALES DE DERNIÈRE MINUTE (INTERDICTION DU "DISP" HÂTIF) :
-    - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative (CCF) est une INAPTITUDE TEMPORAIRE.
-    - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" (Dispensé) dans Santorin pour un cas de dernière minute.
-    - L'élève conserve son obligation d'être évalué : l'organisation d'une ÉPREUVE DIFFÉRÉE (session de substitution sur le terrain avant la clôture des serveurs académiques) est OBLIGATOIRE.
-    - Le statut "DISP" ou les aménagements par Fiche Certificative Adaptée (FCA) sont strictement réservés aux inaptitudes permanentes de début d'année validées en amont par la Commission Académique (CAHN).
+    - Toute blessure ou inaptitude médicale survenant à l'approche ou le jour d'une épreuve certificative (CCF) unique est une INAPTITUDE TEMPORAIRE.
+    - Il est FORMELLEMENT INTERDIT d'attribuer immédiatement le statut "DISP" de dernière minute : l'organisation d'une ÉPREUVE DIFFÉRÉE est obligatoire.
+    - ⚠️ EXCEPTION VITALE (PROFIL NOTE UNIQUE / DISPENSES MULTIPLES) : Cette règle de l'épreuve différée de dernière minute ne s'applique PAS lorsqu'un dossier présente un profil de dispenses multiples combinées à une note unique (ex: DI + DI + 14). Dans ce cas, l'élève a raté deux épreuves en amont (couvertes par des DI officiels) et a une note valide sur la troisième : on applique strictement la procédure de la note unique (saisir les deux statuts DISP/DI, saisir la note réelle, et rédiger le commentaire obligatoire pour la CAHPN).
 8. 🧠 FLEXIBILITÉ CONTEXTUELLE & ARBITRAGE INTELLIGENT :
     - L'utilisateur a posé sa question dans {contexte_choisi_nom}. Cependant, analyse toujours en priorité la nature intrinsèque de la question (par exemple : si la question concerne le collège ou le DNB, elle relève du contrôle continu et du LSU, même si l'onglet actif est par erreur celui des examens/lycée).
     - En cas de décalage entre l'onglet sélectionné et le domaine réel de la question, ne t'enferme pas aveuglément dans l'erreur de l'onglet : recadre le sujet avec souplesse et pédagogie, sans blocage.

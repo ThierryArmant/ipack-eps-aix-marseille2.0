@@ -1081,14 +1081,17 @@ if prompt:
         if mode == "textes":
             directive_onglet = ""
         if mode == "textes":
+            directive_onglet = ""
+        if mode == "textes":
             directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (ANALYSE ADAPTATIVE) :
-   - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, ou d'une INGÉRENCE DE TIERS.
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
+   - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'une INGÉRENCE DE TIERS ou d'un LITIGE APPN.
    - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse s'ouvre systématiquement sur le double rappel protecteur :
-     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des conditions de pratique).
-     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon exigeant impérativement une faute caractérisée pour engager la responsabilité pénale).
-   - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés dans la question de l'utilisateur. Traite les risques juridiques spécifiques à la situation décrite (ex: gestion des groupes en autonomie en station de ski, taux d'encadrement, choix des pistes, respect des consignes). Interdiction absolue d'injecter des exemples génériques hors-sujet (comme des baudriers ou des inaptitudes) s'ils ne concernent pas le cas posé.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE : En cas de pression, rappeler les voies de recours et la saisine des autorités compétentes (IA-IPR EPS).
+     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des conditions de pratique et des EPI).
+     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État sous l'art. L. 911-4, protection fonctionnelle, et bouclier de la Loi n° 2000-647 / Loi Fauchon exigeant une faute caractérisée pour l'auteur indirect).
+   - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). **Règle d'or absolue** : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.
+   - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés, en traitant les risques juridiques spécifiques (gestion de groupes en autonomie, choix des sites, alertes météo). Interdiction absolue d'injecter des exemples génériques hors-sujet.
+   - CONFLIT HIERARCHIQUE / INGÉRENCE & TRABILITÉ : En cas de pression, d'agression ou d'ingérence de tiers, rappeler l'obligation de saisir la hiérarchie par écrit (rapport circonstancié sous 48h) et de consigner les faits (Registre des faits / RSST) pour activer la protection fonctionnelle.
    - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
 """
         elif mode == "examens":

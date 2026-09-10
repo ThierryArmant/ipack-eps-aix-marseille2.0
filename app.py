@@ -800,15 +800,10 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
-st.markdown(
-    "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</div>",
-    unsafe_allow_html=True
-)
 niveau_scolaire = st.radio(
-    "Niveau",
+    "🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)",
     ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
     horizontal=True,
-    label_visibility="collapsed",
     key="niveau_actif_form",
 )
 
@@ -943,17 +938,20 @@ if prompt:
             and "lot" in p_low
         )
 
+        # ⚡ DÉTECTION PROGRAMMATIQUE : EXCLUSION DISCIPLINAIRE (CCF)
         est_exclusion = (
             mode != "textes"
             and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
             and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
         )
 
+        # ⚡ DÉTECTION PROGRAMMATIQUE : PROBLÈME IMPORT SIÈCLE / AUCUN ÉLÈVE (RENTRÉE)
         est_aucun_eleve = (
             mode == "ipack"
             and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
         )
 
+        # ⚡ DÉTECTION PROGRAMMATIQUE : DÉPÔT RÉFÉRENTIELS & APSA (RENTRÉE)
         est_referentiels_rentree = (
             mode == "ipack"
             and any(w in p_low for w in ["référentiel", "referentiel", "apsa certificative", "déclarer apsa", "dépôt référentiel"])
@@ -992,6 +990,7 @@ if prompt:
             except Exception:
                 pass
 
+        # ROUTAGE DES CAS DIRECTS (ZONE 9)
         if est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
@@ -1086,8 +1085,7 @@ if prompt:
    - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse DOIT s'ouvrir sur un double rappel équilibré :
      1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des EPI).
      2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon qualifiant l'enseignant d'auteur indirect exigeant impérativement une faute caractérisée).
-   - GESTION DES INAPTITUDES PARTIELLES & AUTORITÉ PÉDAGOGIQUE : Rappeler fermement qu'un élève inapte partiel est soumis à l'obligation de présence et n'a aucun droit de refus arbitraire de participer aux tâches d'observation, d'arbitrage ou de codification fixées par l'enseignant. L'enseignant est le seul juge de la déclinaison didactique de sa leçon, sous réserve du respect strict des contre-indications formelles inscrites sur le certificat médical.
-   - ANALYSE SÉMANTIQUE CIBLÉE & DÉMONTAGE DES ATTAQUES DE TIERS : Réponds point par point aux reproches en démontrant l'impossibilité matérielle d'assurer individuellement 30 élèves et la légitimité des choix pédagogiques.
+   - ANALYSE SÉMANTIQUE CIBLÉE & DÉMONTAGE DES ATTAQUES DE TIERS : Réponds point par point aux reproches (ex: port du baudrier par l'enseignant, distance à l'agrès) en démontrant l'impossibilité matérielle d'assurer individuellement 30 élèves et la légitimité de l'assurage croisé par les pairs selon les programmes officiels.
    - CONFLIT HIERARCHIQUE / INGÉRENCE : En cas de pression, rappeler les voies de recours et la saisine des autorités compétentes (IA-IPR EPS).
    - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
 """
@@ -1182,6 +1180,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
+        # 🌟 REGEX ÉLARGIE : Surlignage automatique des références juridiques
         texte_brut = re.sub(
             r"("
             r"Articles?\s+[\dLRDABab\.\-\s,–]+"

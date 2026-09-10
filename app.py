@@ -1014,9 +1014,10 @@ if prompt:
         directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : Rappeler que l'enseignant ne doit pas céder et saisir directement l'autorité académique (IA-IPR EPS / DEC).
+3. ⚖️ SPÉCIFICITÉ ABSOLUE ONGLET SÉCURITÉ & JURIDIQUE :
+   - Détermine si la situation relève d'un accident survenu, d'une responsabilité ou d'un cadre réglementaire amont.
+   - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin (ce module traite exclusivement de droit, de jurisprudences et de textes officiels).
+   - CONFLIT HIÉRARCHIQUE / PRESSION : Rappeler les voies de recours et la saisine des autorités compétentes (IA-IPR EPS).
 """
         elif mode == "examens":
             directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."

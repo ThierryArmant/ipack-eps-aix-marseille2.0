@@ -795,6 +795,7 @@ if prompt:
         texte_brut = ""
         extraits_doc = ""
         extraits_web = ""
+        tavily_sources_list = []
         badge, color_card = "INFORMATION", "general-card"
 
         onglets_noms = {
@@ -914,7 +915,10 @@ if prompt:
                     include_domains=["legifrance.gouv.fr", "eduscol.education.fr", "education.gouv.fr"],
                 )
                 for res in response_tavily.get("results", []):
-                    extraits_web += f"Source Officielle Web ({res.get('title')}) - {res.get('url')}:\n{res.get('content')}\n\n"
+                    title = res.get('title', 'Référence officielle')
+                    url = res.get('url', '#')
+                    extraits_web += f"Source Officielle Web ({title}) - {url}:\n{res.get('content')}\n\n"
+                    tavily_sources_list.append((title, url))
             except Exception:
                 pass
 
@@ -1022,7 +1026,6 @@ if prompt:
         elif mode == "ipack":
             directive_onglet = "3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS : Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...)."
 
-        # Bloc vidéo dynamique : masqué totalement en mode textes
         if mode != "textes":
             bloc_video_consigne = """
 3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
@@ -1112,11 +1115,31 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
+        # 🔗 INJECTION PROPRE DES SOURCES WEB TAVILY À LA FIN DE LA RÉPONSE (MODE TEXTES)
+        if tavily_sources_list:
+            texte_brut += "<br><br><strong>🔗 Sources officielles consultées :</strong><ul>"
+            for t, u in tavily_sources_list:
+                texte_brut += f'<li><a href="{u}" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">{t}</a></li>'
+            texte_brut += "</ul>"
+
+        # 🌟 REGEX ÉLARGIE : Surlignage automatique des références juridiques
         texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
+            r"("
+            r"Articles?\s+[\dLRDABab\.\-\s,–]+"
+            r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
+            r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
+            r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+            r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
+            r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+            r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+            r"|Bulletin\s+officiel"
+            r"|RGPD"
+            r")",
             r'<span class="law-highlight">\1</span>',
             texte_brut,
+            flags=re.IGNORECASE
         )
+        
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(

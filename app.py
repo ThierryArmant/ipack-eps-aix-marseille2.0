@@ -267,16 +267,6 @@ css_pur = f"""
         box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
     }}
 
-    /* Injection automatique du titre turquoise tout en haut de la bannière des choix */
-    div[data-testid="stRadio"]::before {{
-        content: "🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)";
-        display: block;
-        color: #38BDF8 !important;
-        font-weight: 700 !important;
-        font-size: 13px !important;
-        margin-bottom: 8px !important;
-    }}
-
     div[data-testid="stRadio"] label p, 
     div[data-testid="stRadio"] label span, 
     div[data-testid="stRadio"] label {{
@@ -720,6 +710,10 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
+st.markdown(
+    "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</div>",
+    unsafe_allow_html=True
+)
 niveau_scolaire = st.radio(
     "Niveau",
     ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
@@ -1015,34 +1009,13 @@ if prompt:
         if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation est un ACCIDENT SURVENU ou UN PROJET EN AMONT.
-   - Pour toute question de responsabilité ou d'accident, la réponse DOIT s'ouvrir sur :
-     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes, contrôle des EPI).
-     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon qualifiant l'enseignant d'auteur indirect exigeant une faute caractérisée).
-   - Analyse chirurgicalement chaque attaque de tiers (ex: reproche sur le baudrier du prof ou sa distance) : démontre l'impossibilité matérielle d'assurer individuellement 30 élèves et rappelle la légitimité de l'assurage croisé par les pairs selon les programmes officiels.
-   - Rédige ensuite selon le plan :
-     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
-     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
-     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
-     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
+   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
+   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : Rappeler que l'enseignant ne doit pas céder et saisir directement l'autorité académique (IA-IPR EPS / DEC).
 """
         elif mode == "examens":
-            directive_onglet = """
-3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
-   - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
-   - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
-   - Bac Pro : 3 épreuves de 3 champs distincts.
-   - CAP : Strictement 2 épreuves de 2 champs distincts.
-"""
+            directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
         elif mode == "ipack":
-            directive_onglet = """
-3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
-   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
-   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
-     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
-     * Lycée (Terminale Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
-   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
-"""
+            directive_onglet = "3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS : Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...)."
 
         contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
@@ -1054,7 +1027,7 @@ SOURCES OFFICIELLES WEB :
 {verites_terrain_pierre}
 """
 
-        # 🚨 PROMPT SYSTÈMES ET RÈGLES DE SÉCURITÉ INTÉGRÉES (1 À 11)
+        # 🚨 PROMPT SYSTÈME AVEC TON SOCLE DE SÉCURITÉ INTÉGRÉ EXACTEMENT EN 8 POINTS
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
     🎯 PUBLIC CIBLE SÉLECTIONNÉ PAR L'UTILISATEUR : {niveau_actuel_form}
@@ -1089,19 +1062,6 @@ SOURCES OFFICIELLES WEB :
     8. 🧠 FLEXIBILITÉ CONTEXTUELLE & ARBITRAGE INTELLIGENT :
     - L'utilisateur a posé sa question dans {contexte_choisi_nom}. Cependant, analyse toujours en priorité la nature intrinsèque de la question (par exemple : si la question concerne le collège ou le DNB, elle relève du contrôle continu et du LSU, même si l'onglet actif est par erreur celui des examens/lycée).
     - En cas de décalage entre l'onglet sélectionné et le domaine réel de la question, ne t'enferme pas aveuglément dans l'erreur de l'onglet : recadre le sujet avec souplesse et pédagogie, sans blocage.
-    9. 📜 OBLIGATION D'ANCRAGE JURIDIQUE & LOI FAUCHON :
-    - Pour toute question d'accident corporel ou de mise en cause de la responsabilité, tu DOIS obligatoirement citer la Loi n° 2000-647 du 10 juillet 2000 (dite Loi Fauchon) modifiant l'article 121-3 du Code pénal.
-    - Rappelle systématiquement le statut d'auteur indirect de l'enseignant et l'obligation légale de prouver une "faute caractérisée" pour engager sa responsabilité pénale, le protégeant ainsi contre l'aléa normal de la pratique sportive.
-    - INTERDICTION FORMELLE d'inventer des décisions de tribunaux fictives. Appuie-toi exclusivement sur la Circulaire n° 2004-138 du 13 juillet 2004 et le Code de l'éducation.
-    10. 🛡️ ÉQUILIBRE OBLIGATIONS & PROTECTIONS DE L'AGENT :
-    - Pour toute question relevant de la responsabilité ou d'un incident, la réponse doit impérativement s'ouvrir sur un double rappel systématique :
-      1️⃣ Le cadre strict des obligations de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, conformité des EPI).
-      2️⃣ Le cadre protecteur des garanties de l'agent (obligation pour l'État de couvrir les risques inhérents au service public, substitution de la responsabilité de l'État, et bénéfice de la protection fonctionnelle en l'absence de faute personnelle détachable du service).
-    - Le droit protège autant qu'il oblige.
-    11. 🎯 ANALYSE SÉMANTIQUE CIBLÉE & DÉMONTAGE DES ATTAQUES DE TIERS :
-    - Analyse chirurgicalement chaque reproche ou mise en cause formulée par des tiers (parents, direction). Réponds point par point et directement à l'argument précis soulevé (ex: reproche sur le port du baudrier par l'enseignant).
-    - DISTINCTION PÉDAGOGIQUE & MATÉRIELLE STRICTE : Ne confonds jamais l'équipement de sécurité des élèves (ex: port du baudrier par le grimpeur) avec le rôle de l'enseignant (qui encadre un groupe classe de 24 à 30 élèves et ne peut matériellement pas se substituer aux élèves pour assurer individuellement chaque grimpeur).
-    - Rappelle que l'assurage croisé (par les pairs) fait partie intégrante des programmes officiels et des apprentissages validés en EPS (ex: cycle d'escalade au collège/DNB), sous la conception sécuritaire et la surveillance active de l'enseignant. Interdiction de suggérer qu'un enseignant devrait porter un baudrier pour assurer lui-même les élèves.
 
 {contexte_complet_ia}
 
@@ -1130,10 +1090,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        # 🔒 NEUTRALISATION TOTALE DES VIDÉOS SI ON EST DANS L'ONGLET TEXTES
-        if mode == "textes":
-            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
-
         if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 
@@ -1144,25 +1100,11 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        # 🌟 REGEX ÉLARGIE : Surlignage automatique de TOUTES les références juridiques et officielles
         texte_brut = re.sub(
-            r"("
-            r"Articles?\s+[\dLRDABab\.\-\s,–]+" # Capture "Article L121-1", "Articles R-212...", etc.
-            r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)" # Capture les grands codes
-            r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Loi n°..." ou "Loi du..."
-            r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Décret n°..."
-            r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?" # Capture "Arrêté du..."
-            r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Circulaire n°..."
-            r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "BO n°...", "B.O. n°..."
-            r"|Bulletin\s+officiel"
-            r"|RGPD"
-            r")",
+            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
             r'<span class="law-highlight">\1</span>',
             texte_brut,
-            flags=re.IGNORECASE
         )
-        
-        # Sécurité pour éviter les balises imbriquées en double
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(

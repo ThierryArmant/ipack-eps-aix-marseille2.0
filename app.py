@@ -1009,8 +1009,13 @@ if prompt:
         if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation est un ACCIDENT SURVENU ou un PROJET EN AMONT.
-   - CONFLIT HIERARCHIQUE / INGÉRENCE DU CHEF D'ÉTABLISSEMENT : Rappeler que l'enseignant ne doit pas céder et saisir directement l'autorité académique (IA-IPR EPS / DEC).
+   - Détermine si la situation relève d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
+   - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse DOIT s'ouvrir sur un double rappel équilibré :
+     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des EPI).
+     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon qualifiant l'enseignant d'auteur indirect exigeant impérativement une faute caractérisée).
+   - ANALYSE SÉMANTIQUE CIBLÉE & DÉMONTAGE DES ATTAQUES DE TIERS : Réponds point par point aux reproches (ex: port du baudrier par l'enseignant, distance à l'agrès) en démontrant l'impossibilité matérielle d'assurer individuellement 30 élèves et la légitimité de l'assurage croisé par les pairs selon les programmes officiels.
+   - CONFLIT HIERARCHIQUE / INGÉRENCE : En cas de pression, rappeler les voies de recours et la saisine des autorités compétentes (IA-IPR EPS).
+   - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
 """
         elif mode == "examens":
             directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
@@ -1090,6 +1095,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
+        # 🔒 NETTOYAGE STRICT DES VIDÉOS SI MODE TEXTES OU DNB
         if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 

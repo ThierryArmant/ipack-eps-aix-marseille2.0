@@ -523,7 +523,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLE AUTOMATIQUE TAVILY
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL)
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -545,8 +545,8 @@ def verifier_veille_dec(tavily_client):
                 if (aujourdhui - date_alerte).days <= 7:
                     st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
                     st.session_state.alerte_veille_dec = (
-                        "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
-                        " mises à jour ont été détectées sur les sites officiels."
+                        "🔔 Veille réglementaire DEC : De nouvelles informations ou"
+                        " mises à jour ont été détectées."
                     )
                     return
         except Exception:
@@ -581,14 +581,76 @@ def verifier_veille_dec(tavily_client):
 
                 st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
                 st.session_state.alerte_veille_dec = (
-                    "🔔 Veille réglementaire mensuelle : De nouvelles informations ou"
+                    "🔔 Veille réglementaire DEC : De nouvelles informations ou"
                     " mises à jour ont été détectées sur les portails officiels."
                 )
         except Exception:
             pass
 
 
+def verifier_veille_eduscol(tavily_client):
+    if not tavily_client:
+        return
+
+    fichier_suivi = "dernier_check_eduscol.txt"
+    fichier_date_alerte = "date_alerte_eduscol.txt"
+    mois_actuel = datetime.datetime.now().strftime("%Y-%m")
+    aujourdhui = datetime.date.today()
+
+    if os.path.exists(fichier_date_alerte):
+        try:
+            with open(fichier_date_alerte, "r", encoding="utf-8") as f:
+                date_alerte_str = f.read().strip()
+                date_alerte = datetime.datetime.strptime(
+                    date_alerte_str, "%Y-%m-%d"
+                ).date()
+
+                if (aujourdhui - date_alerte).days <= 7:
+                    st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
+                    st.session_state.alerte_veille_eduscol = (
+                        "🔔 Veille Éduscol : De nouveaux textes ou ressources officielles en EPS ont été détectés."
+                    )
+                    return
+        except Exception:
+            pass
+
+    a_deja_ete_fait = False
+    if os.path.exists(fichier_suivi):
+        try:
+            with open(fichier_suivi, "r", encoding="utf-8") as f:
+                if f.read().strip() == mois_actuel:
+                    a_deja_ete_fait = True
+        except Exception:
+            pass
+
+    if not a_deja_ete_fait:
+        try:
+            recherche_veille = tavily_client.search(
+                query=(
+                    "EPS éducation physique et sportive nouveau texte officiel Eduscol"
+                    f" {datetime.datetime.now().year}"
+                ),
+                max_results=2,
+                include_domains=["eduscol.education.fr", "education.gouv.fr"],
+            )
+
+            with open(fichier_suivi, "w", encoding="utf-8") as f:
+                f.write(mois_actuel)
+
+            if recherche_veille.get("results"):
+                with open(fichier_date_alerte, "w", encoding="utf-8") as f:
+                    f.write(aujourdhui.strftime("%Y-%m-%d"))
+
+                st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
+                st.session_state.alerte_veille_eduscol = (
+                    "🔔 Veille Éduscol : De nouveaux textes ou ressources officielles en EPS ont été détectés."
+                )
+        except Exception:
+            pass
+
+
 verifier_veille_dec(tavily_client)
+verifier_veille_eduscol(tavily_client)
 
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
@@ -623,9 +685,28 @@ if "alerte_veille_dec" in st.session_state:
         <div style="display: flex; align-items: flex-start; gap: 12px;">
             <span style="font-size: 22px; margin-top: 2px;">🚨</span>
             <div style="width: 100%;">
-                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire mensuelle — Détectée le {date_alerte}</strong>
+                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire DEC — Détectée le {date_alerte}</strong>
                 <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
                     De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
+                </div>
+            </div>
+        </div>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+
+if "alerte_veille_eduscol" in st.session_state:
+    date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
+    st.markdown(
+        f"""
+    <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #38BDF8; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 22px; margin-top: 2px;">📘</span>
+            <div style="width: 100%;">
+                <strong style="color: #38BDF8 !important; font-size: 14px; text-transform: uppercase;">Veille Éduscol (EPS) — Détectée le {date_alerte_edu}</strong>
+                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
+                    De nouveaux textes ou ressources officielles ont été mis en ligne.
                 </div>
             </div>
         </div>
@@ -776,7 +857,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (100% LOCAL STABLE)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -794,8 +875,6 @@ if prompt:
 
         texte_brut = ""
         extraits_doc = ""
-        extraits_web = ""
-        tavily_sources_list = []
         badge, color_card = "INFORMATION", "general-card"
 
         onglets_noms = {
@@ -904,21 +983,6 @@ if prompt:
                     nodes_bruts = retriever_textes.retrieve(prompt)
                     for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
-            except Exception:
-                pass
-
-        if tavily_client and mode == "textes" and not est_cas_direct:
-            try:
-                response_tavily = tavily_client.search(
-                    query=prompt,
-                    max_results=3,
-                    include_domains=["legifrance.gouv.fr", "eduscol.education.fr", "education.gouv.fr"],
-                )
-                for res in response_tavily.get("results", []):
-                    title = res.get('title', 'Référence officielle')
-                    url = res.get('url', '#')
-                    extraits_web += f"Source Officielle Web ({title}) - {url}:\n{res.get('content')}\n\n"
-                    tavily_sources_list.append((title, url))
             except Exception:
                 pass
 
@@ -1038,9 +1102,6 @@ if prompt:
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 
-SOURCES OFFICIELLES WEB :
-{extraits_web}
-
 {verites_terrain_pierre}
 """
 
@@ -1114,13 +1175,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             texte_brut,
             flags=re.IGNORECASE | re.MULTILINE,
         )
-
-        # 🔗 INJECTION PROPRE DES SOURCES WEB TAVILY À LA FIN DE LA RÉPONSE (MODE TEXTES)
-        if tavily_sources_list:
-            texte_brut += "<br><br><strong>🔗 Sources officielles consultées :</strong><ul>"
-            for t, u in tavily_sources_list:
-                texte_brut += f'<li><a href="{u}" target="_blank" style="color: #38BDF8 !important; text-decoration: underline;">{t}</a></li>'
-            texte_brut += "</ul>"
 
         # 🌟 REGEX ÉLARGIE : Surlignage automatique des références juridiques
         texte_brut = re.sub(

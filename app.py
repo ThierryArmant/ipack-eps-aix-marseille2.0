@@ -1014,17 +1014,35 @@ if prompt:
         directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ABSOLUE ONGLET SÉCURITÉ & JURIDIQUE :
-   - Pour toute question d'accident corporel ou de mise en cause de la responsabilité, la réponse DOIT s'ouvrir sur :
-     1️⃣ Les obligations de l'agent (obligation de moyens renforcée, respect des normes, contrôle des EPI).
-     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la **Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon** qualifiant l'enseignant d'auteur indirect exigeant une faute caractérisée).
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
+   - Détermine si la situation est un ACCIDENT SURVENU ou UN PROJET EN AMONT.
+   - Pour toute question de responsabilité ou d'accident, la réponse DOIT s'ouvrir sur :
+     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes, contrôle des EPI).
+     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon qualifiant l'enseignant d'auteur indirect exigeant une faute caractérisée).
    - Analyse chirurgicalement chaque attaque de tiers (ex: reproche sur le baudrier du prof ou sa distance) : démontre l'impossibilité matérielle d'assurer individuellement 30 élèves et rappelle la légitimité de l'assurage croisé par les pairs selon les programmes officiels.
-   - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
+   - Rédige ensuite selon le plan :
+     🏛️ <strong>Textes officiels de référence & Extraits applicables :</strong> Citer nommément les articles pertinents (L. 911-4 du Code de l'éducation, art. 121-3 du Code Pénal / Loi Fauchon, Circulaire APPN 2017-075, L. 134-1 CGFP pour la protection fonctionnelle).
+     ⚖️ <strong>Analyse de la situation & Conduite à tenir :</strong>
+     * <strong>1. Qualification des responsabilités :</strong> Volet civil (substitution automatique de l'État pour réparer les dommages) et Volet pénal (analyse de la faute délibérée ou caractérisée).
+     * <strong>2. Démarches administratives concrètes :</strong> Les actions précises selon le cas traité (déclaration d'accident, rapport circonstancié ou mesures préventives d'organisation).
 """
         elif mode == "examens":
-            directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
+            directive_onglet = """
+3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN :
+   - Traite précisément le problème d'examen posé en exploitant l'ensemble des règles de gestion issues du contexte documentaire (Bac GT, Bac Pro, CAP, dispenses, CAHPN, jurys, calendrier DEC).
+   - Bac GT : 3 épreuves obligatoires de 3 champs distincts. Si 2 notes sur 3 suite à inaptitude sur la 3e, moyenne sur 2 notes avec statut DISP sur Santorin. Si 1 note sur 3, arbitrage obligatoire CAHPN via fiche individuelle.
+   - Bac Pro : 3 épreuves de 3 champs distincts.
+   - CAP : Strictement 2 épreuves de 2 champs distincts.
+"""
         elif mode == "ipack":
-            directive_onglet = "3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS : Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...)."
+            directive_onglet = """
+3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS :
+   - Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...).
+   - DISTINCTION FONDAMENTALE COLLÈGE / LYCÉE SUR LES APSA :
+     * Collège (DNB) : Aucune APSA certificative (pas de CCF). On ne coche jamais de case certificative. L'évaluation continue alimente le socle commun (LSU).
+     * Lycée (Terminale Bac GT, Bac Pro, CAP) : La déclaration d'APSA « Certificative » et la création de protocoles concernent STRICTEMENT les classes de Terminale et CAP préparant le CCF.
+   - CAS DES SECTIONS SPORTIVES (SSS) vs EPPCS : L'APSA combinée (ex : "Football-Musculation") concerne EXCLUSIVEMENT les Sections Sportives Scolaires (SSS) en raison de la contrainte technique d'une seule APSA par groupe SSS. Ne jamais l'associer à l'EPPCS.
+"""
 
         contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :

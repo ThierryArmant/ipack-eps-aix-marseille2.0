@@ -1022,6 +1022,15 @@ if prompt:
         elif mode == "ipack":
             directive_onglet = "3. 🛠️ ASSISTANCE TECHNIQUE iPACKEPS : Donne la procédure technique exacte en précisant les menus réels ([Dossiers] > [Dossier EPS] > ...)."
 
+        # Bloc vidéo dynamique : masqué totalement en mode textes
+        if mode != "textes":
+            bloc_video_consigne = """
+3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
+    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
+"""
+        else:
+            bloc_video_consigne = ""
+
         contexte_complet_ia = f"""
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
@@ -1032,7 +1041,6 @@ SOURCES OFFICIELLES WEB :
 {verites_terrain_pierre}
 """
 
-        # 🚨 PROMPT SYSTÈME AVEC TON SOCLE DE SÉCURITÉ INTÉGRÉ EXACTEMENT EN 8 POINTS
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
     🎯 PUBLIC CIBLE SÉLECTIONNÉ PAR L'UTILISATEUR : {niveau_actuel_form}
@@ -1079,8 +1087,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
     - Rends une réponse bien structurée et claire.
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
 {directive_onglet}
-3. 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
+{bloc_video_consigne}
 """
 
         if not est_cas_direct:
@@ -1095,7 +1102,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
-        # 🔒 NETTOYAGE STRICT DES VIDÉOS SI MODE TEXTES OU DNB
         if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 

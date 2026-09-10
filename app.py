@@ -1130,6 +1130,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
+        # 🔒 NEUTRALISATION TOTALE DES VIDÉOS SI ON EST DANS L'ONGLET TEXTES
+        if mode == "textes":
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
         if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
 

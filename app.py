@@ -1114,10 +1114,26 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
+        # 🌟 REGEX ÉLARGIE : Surlignage automatique de TOUTES les références juridiques et officielles
         texte_brut = re.sub(
-            r"(Article\s+\d+[-–\w]*|Loi\s+du\s+\d+\s+\w+\s+\d+|RGPD|Code\s+de l\'éducation)",
+            r"("
+            r"Articles?\s+[\dLRDABab\.\-\s,–]+" # Capture "Article L121-1", "Articles R-212...", etc.
+            r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)" # Capture les grands codes
+            r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Loi n°..." ou "Loi du..."
+            r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Décret n°..."
+            r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?" # Capture "Arrêté du..."
+            r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "Circulaire n°..."
+            r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+" # Capture "BO n°...", "B.O. n°..."
+            r"|Bulletin\s+officiel"
+            r"|RGPD"
+            r")",
             r'<span class="law-highlight">\1</span>',
             texte_brut,
+            flags=re.IGNORECASE
+        )
+        
+        # Sécurité pour éviter les balises imbriquées en double
+        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
         )
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 

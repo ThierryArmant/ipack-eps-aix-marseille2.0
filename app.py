@@ -1114,7 +1114,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        # 🌟 REGEX ÉLARGIE : Surlignage automatique de TOUTES les références juridiques et officielles
+       # 🌟 REGEX ÉLARGIE : Surlignage automatique de TOUTES les références juridiques et officielles
         texte_brut = re.sub(
             r"("
             r"Articles?\s+[\dLRDABab\.\-\s,–]+" # Capture "Article L121-1", "Articles R-212...", etc.
@@ -1133,8 +1133,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         
         # Sécurité pour éviter les balises imbriquées en double
-        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
-        )
         texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(

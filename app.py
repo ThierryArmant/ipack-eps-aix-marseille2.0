@@ -267,6 +267,16 @@ css_pur = f"""
         box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
     }}
 
+    /* Injection automatique du titre turquoise tout en haut de la bannière des choix */
+    div[data-testid="stRadio"]::before {{
+        content: "🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)";
+        display: block;
+        color: #38BDF8 !important;
+        font-weight: 700 !important;
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+    }}
+
     div[data-testid="stRadio"] label p, 
     div[data-testid="stRadio"] label span, 
     div[data-testid="stRadio"] label {{
@@ -710,10 +720,6 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
-st.markdown(
-    "<div style='color: #38BDF8; font-weight: 700; font-size: 13px; margin-bottom: 2px;'>🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</div>",
-    unsafe_allow_html=True
-)
 niveau_scolaire = st.radio(
     "Niveau",
     ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],

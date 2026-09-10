@@ -594,3 +594,46 @@ ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE
 
 * PROCÉDURE DÉMATÉRIALISÉE D'ACCIDENT DE SERVICE (AGENT) : 
   - En cas d'accident survenu à l'enseignant dans l'exercice de ses fonctions ou sur le trajet, la déclaration initiale de reconnaissance d'accident de service (ainsi que les demandes de prolongation d'arrêts ou de remboursement de soins) ne transite plus par des formulaires papier traditionnels : elle s'effectue obligatoirement par voie numérique via l'espace personnel de l'agent sur la plateforme académique **Colibris** dans les délais réglementaires.
+======================================================================
+RÉFÉRENTIEL EXPERT NATIONAL - HUB EPS (2026)
+BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
+======================================================================
+
+1. RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION DE L'AGENT
+----------------------------------------------------------------------
+* RESPONSABILITÉ CIVILE & SUBSTITUTION DE L'ÉTAT (Art. L. 911-4 Code de l'éducation / Loi du 5 avril 1937) : 
+  La responsabilité civile de l'enseignant public est irrévocablement couverte par l'État pour tout dommage subi ou causé par un élève sous sa surveillance. L'action en responsabilité est menée exclusivement devant les tribunaux civils contre le Recteur. L'action récursoire de l'État contre l'agent n'est possible qu'en cas de faute personnelle détachable du service (ex: violences volontaires, abandon de poste caractérisé). L'erreur technique ou didactique est une faute de service non détachable.
+* RESPONSABILITÉ PÉNALE INDIVIDUELLE (Art. 121-3 Code pénal / Loi n° 2000-647 dite "Loi Fauchon") : 
+  La responsabilité pénale est personnelle. En cas d'accident grave, l'enseignant auteur indirect est poursuivi pour blessures ou homicide involontaires. Sa responsabilité pénale exige impérativement la preuve d'une FAUTE CARACTÉRISÉE (manquement d'une particulière gravité à une obligation de sécurité que l'agent ne pouvait ignorer, exposant autrui à un risque d'une particulière gravité).
+* OBLIGATION DE MOYENS RENFORCÉE EN EPS : 
+  L'enseignant n'est pas soumis à une obligation de résultat (le risque zéro n'existe pas), mais à une obligation de moyens "renforcée" reposant sur 4 piliers : anticipation des risques, contrôle des EPI/matériel, consignes de sécurité explicites, et maintien d'une surveillance continue, active et visuelle.
+* PROTECTION FONCTIONNELLE (Art. L. 134-1 à L. 134-4 Code de la fonction publique) : 
+  Le Rectorat est tenu d'accorder la protection fonctionnelle à l'enseignant victime de violences, menaces, outrages ou lynchage numérique dans l'exercice de ses fonctions (prise en charge des frais de défense et assistance juridique).
+
+2. DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)
+----------------------------------------------------------------------
+* EXIGENCES DE SÉCURITÉ EN MILIEU SPÉCIFIQUE : 
+  L'organisation des Activités Physiques de Pleine Nature (escalade, ski, voile, VTT, course d'orientation, canoë-kayak) impose le respect strict des fiches Eduscol et la tenue d'un "registre de suivi des EPI" (casques, baudriers, cordes) mis à jour et signé.
+* SOUVERAINETÉ DE CONTRÔLE ET INTERDICTION DE SUBSTITUTION : 
+  Règle d'or absolue : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité (ex: double check des nœuds d'assurage). L'enseignant conserve en permanence la responsabilité pédagogique et juridique exclusive de la classe, même en présence d'intervenants extérieurs qualifiés (professionnels diplômés d'État agréés par le DASEN).
+* MOYENS D'ALERTE EN MILIEU ISOLÉ (ZONES BLANCHES) : 
+  En milieu hostile ou isolement total (haute montagne, course d'orientation en zone blanche), l'obligation de moyens impose de disposer d'un moyen d'alerte autonome et immédiat (téléphone satellite, balise bidirectionnelle type inReach, ou radio secours).
+
+3. CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)
+----------------------------------------------------------------------
+* RÈGLES STRICTES D'ARRONDI AUX EXAMENS :
+  - BAC PRO & BMA (Circulaire n° 2019-129 / Circulaire 2020) : La note finale est la moyenne arithmétique des 3 activités, obligatoirement ARRONDIE AU POINT ENTIER SUPÉRIEUR (ex: 10,33/20 devient 11/20 sur Cyclades).
+  - CAP (Circulaire du 27-08-2025 / Session 2026) : La note finale est la moyenne des 2 activités, arrondie au point entier le plus proche selon la règle mathématique des 0,50 (ex: 10,49 devient 10, et 10,50 devient 11).
+* GESTION DES LOTS SANTORIN ET PROCÉDURES : 
+  Le verrouillage et le déverrouillage des lots de notes dans Santorin relèvent exclusivement de la compétence technique du Chef d'établissement depuis sa console de direction. La DEC ne gère pas les accidents de terrain.
+* CADRE DES INAPTITUDES MÉDICALES (Décret n° 2016-1052) : 
+  La notion de "dispense de cours" est abrogée. Le médecin constate des inaptitudes (totales ou partielles, temporaires ou annuelles) avec contre-indications fonctionnelles. L'élève inapte partiel est soumis à l'obligation de présence et participe via des rôles d'observation, d'arbitrage ou de codification fixés par l'enseignant.
+
+4. GESTION DES CRISES ET PROTOCOLES D'URGENCE
+----------------------------------------------------------------------
+* DÉCLENCHEMENT DE LA CHAÎNE DE SECOURS (BO n° 1 / 2000) : 
+  En cas d'accident grave, alerte immédiate des services de secours extérieurs (SAMU 15 / Pompiers 18 ou 112), application des premiers gestes de secours (PSC1) et mise en sécurité du reste de la classe.
+* INTERDICTION ABSOLUE DE TRANSPORT PERSONNEL : 
+  Il est formellement interdit à un enseignant de transporter un élève blessé dans son véhicule personnel. Le transport sanitaire relève exclusivement des services de secours officiels.
+* RAPPORT D'ACCIDENT ADMINISTRATIF : 
+  Rédaction obligatoire d'un rapport circonstancié et strictement factuel, transmis au Chef d'établissement dans les 48 heures pour sécuriser la couverture juridique de l'agent.

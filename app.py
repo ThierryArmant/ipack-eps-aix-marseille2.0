@@ -258,31 +258,31 @@ css_pur = f"""
         text-align: center !important; 
     }}
     
-    div[data-testid="stRadio"] {
+    div[data-testid="stRadio"] {{
         background-color: rgba(15, 23, 42, 0.9) !important;
         border: 1px solid #334155 !important;
         border-radius: 8px !important;
         padding: 12px 15px !important;
         margin-bottom: 12px !important;
         box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-    }
+    }}
 
     /* 🎯 LE TITRE DU RADIO (INTÉGRÉ DANS LA BOÎTE) */
-    div[data-testid="stRadio"] > label {
+    div[data-testid="stRadio"] > label {{
         color: #38BDF8 !important;
         font-weight: 700 !important;
         font-size: 13px !important;
         margin-bottom: 8px !important;
-    }
+    }}
 
     /* LES OPTIONS DE CHOIX (COLLÈGE, LYCÉE, ETC.) */
     div[data-testid="stRadio"] div[role="radiogroup"] label p, 
     div[data-testid="stRadio"] div[role="radiogroup"] label span, 
-    div[data-testid="stRadio"] div[role="radiogroup"] label {
+    div[data-testid="stRadio"] div[role="radiogroup"] label {{
         color: #FFFFFF !important;
         font-weight: 600 !important;
         font-size: 13.5px !important;
-    }
+    }}
     
     .santorin-card, .general-card, .securite-card {{ 
         background-color: rgba(15, 23, 42, 0.45) !important; 

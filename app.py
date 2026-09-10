@@ -1079,14 +1079,15 @@ if prompt:
 
         directive_onglet = ""
         if mode == "textes":
+            directive_onglet = ""
+        if mode == "textes":
             directive_onglet = """
-3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE :
-   - Détermine si la situation relève d'un ACCIDENT SURVENU ou d'un PROJET EN AMONT.
-   - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse DOIT s'ouvrir sur un double rappel équilibré :
-     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des EPI).
-     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon qualifiant l'enseignant d'auteur indirect exigeant impérativement une faute caractérisée).
-   - GESTION DES INAPTITUDES PARTIELLES & AUTORITÉ PÉDAGOGIQUE : Rappeler fermement qu'un élève inapte partiel est soumis à l'obligation de présence et n'a **aucun droit de refus arbitraire** de se rendre sur les installations (stade) ou de participer aux tâches d'observation, d'arbitrage ou de codification fixées par l'enseignant. L'enseignant est le **seul juge de la déclinaison didactique de sa leçon**, sous réserve du respect strict des contre-indications formelles inscrites sur le certificat médical.
-   - ANALYSE SÉMANTIQUE CIBLÉE & DÉMONTAGE DES ATTAQUES DE TIERS : Réponds point par point aux reproches (ex: port du baudrier par l'enseignant, distance à l'agrès, maintien en extérieur) en démontrant l'impossibilité matérielle d'assurer individuellement 30 élèves et la légitimité des choix pédagogiques.
+3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (ANALYSE ADAPTATIVE) :
+   - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, ou d'une INGÉRENCE DE TIERS.
+   - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse s'ouvre systématiquement sur le double rappel protecteur :
+     1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des conditions de pratique).
+     2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État, protection fonctionnelle, et bouclier de la Loi n° 2000-647 du 10 juillet 2000 / Loi Fauchon exigeant impérativement une faute caractérisée pour engager la responsabilité pénale).
+   - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés dans la question de l'utilisateur. Traite les risques juridiques spécifiques à la situation décrite (ex: gestion des groupes en autonomie en station de ski, taux d'encadrement, choix des pistes, respect des consignes). Interdiction absolue d'injecter des exemples génériques hors-sujet (comme des baudriers ou des inaptitudes) s'ils ne concernent pas le cas posé.
    - CONFLIT HIERARCHIQUE / INGÉRENCE : En cas de pression, rappeler les voies de recours et la saisine des autorités compétentes (IA-IPR EPS).
    - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
 """

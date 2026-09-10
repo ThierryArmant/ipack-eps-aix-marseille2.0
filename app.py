@@ -1077,6 +1077,9 @@ SOURCES OFFICIELLES WEB :
       1️⃣ Le cadre strict des **obligations de l'agent** (obligation de moyens renforcée, respect des normes d'encadrement et des EPI).
       2️⃣ Le cadre protecteur des **garanties de l'agent** (obligation pour l'État de couvrir les risques inhérents au service public, substitution de responsabilité, et bénéfice de la protection fonctionnelle en l'absence de faute personnelle détachable du service).
     - Interdiction de faire un réquisitoire unilatéral : le droit protège autant qu'il oblige.
+    11. 🎯 ANALYSE SÉMANTIQUE STRICTE ET CIBLAGE DU CŒUR DU LITIGE :
+    - Tu dois analyser chirurgicalement chaque mot de la question de l'utilisateur. Si un reproche précis ou une mise en cause spécifique est formulée (ex: "pourquoi n'avez-vous pas mis de baudrier vous-même ?", "pourquoi n'avez-vous pas assuré ?"), tu dois impérativement répondre point par point à CET argument précis.
+    - Interdiction absolue de noyer une objection concrète dans un catalogue de rappels réglementaires généraux. Le traitement doit apporter une réponse directe à l'attaque formulée.
 {contexte_complet_ia}
 
 QUESTION DE L'UTILISATEUR :

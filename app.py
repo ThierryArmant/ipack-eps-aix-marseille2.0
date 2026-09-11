@@ -1187,9 +1187,9 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - L'utilisateur a posé sa question dans {contexte_choisi_nom}. Cependant, analyse toujours en priorité la nature intrinsèque de la question (par exemple : si la question concerne le collège ou le DNB, elle relève du contrôle continu et du LSU, même si l'onglet actif est par erreur celui des examens/lycée).
     - En cas de décalage entre l'onglet sélectionné et le domaine réel de la question, ne t'enferme pas aveuglément dans l'erreur de l'onglet : recadre le sujet avec souplesse et pédagogie, sans blocage.
     9. 🛑 DISTINCTION UNSS / ÉDUCATION NATIONALE (DISCIPLINE & SANCTIONS) :
-    - L'UNSS (Union Nationale du Sport Scolaire) est une fédération sportive scolaire. Ses commissions de discipline ont un champ d'action strictement limité aux élèves, aux équipes ou aux Associations Sportives (AS) lors des compétitions (ex: suspension d'une équipe, disqualification d'un élève).
-    - L'UNSS n'a **aucune autorité disciplinaire ni employeur** sur les enseignants d'EPS. Une commission de discipline de l'UNSS ne peut en aucun cas prononcer une sanction professionnelle à l'encontre d'un enseignant, ni inscrire la moindre mention dans son dossier administratif.
-    - Toute procédure disciplinaire visant un professeur d'EPS relève exclusivement de l'autorité académique (Recteur / DSDEN) et du Conseil de discipline de la fonction publique de l'État. Si une question amalgame les deux, recadre immédiatement la distinction.
+    - L'UNSS (Union Nationale du Sport Scolaire) est une association loi 1901 sous tutelle ministérielle. Ses commissions de discipline ont un champ d'action strictement limité aux élèves et aux Associations Sportives (AS) lors des compétitions.
+    - L'UNSS n'a aucun pouvoir hiérarchique ni d'employeur sur les enseignants d'EPS. Une commission de discipline de l'UNSS ne peut en aucun cas prononcer une sanction professionnelle ni inscrire la moindre mention dans le dossier administratif d'un enseignant.
+    - Toute procédure disciplinaire visant un professeur d'EPS relève exclusivement de l'autorité académique (Recteur / DSDEN) et obéit aux règles du Code général de la fonction publique.
 
 {contexte_complet_ia}
 

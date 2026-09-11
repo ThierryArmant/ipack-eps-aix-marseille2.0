@@ -532,7 +532,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - PERSISTANTES
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - CORRIGÉES
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -544,9 +544,9 @@ def verifier_veille_dec(tavily_client):
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
-    url_defaut = "https://www.education.gouv.fr"
+    # 🔗 Lien par défaut ciblant l'académie d'Aix-Marseille
+    url_defaut = "https://www.ac-aix-marseille.fr"
 
-    # 1. S'il existe une alerte enregistrée, on l'affiche TOUJOURS (plus de limite de 7 jours)
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
@@ -558,12 +558,11 @@ def verifier_veille_dec(tavily_client):
             st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
             st.session_state.alerte_veille_dec = (
                 f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées. "
-                f"[🔗 Accéder à la page officielle]({url_sauvegardee})"
+                f"[🔗 Accéder à la page académique]({url_sauvegardee})"
             )
         except Exception:
             pass
 
-    # 2. Vérification mensuelle pour voir si une NOUVELLE recherche doit être lancée
     a_deja_ete_fait = False
     if os.path.exists(fichier_suivi):
         try:
@@ -573,7 +572,6 @@ def verifier_veille_dec(tavily_client):
         except Exception:
             pass
 
-    # 3. Si le mois a changé, on relance Tavily pour chercher du nouveau
     if not a_deja_ete_fait:
         url_trouvee = url_defaut
         try:
@@ -583,7 +581,8 @@ def verifier_veille_dec(tavily_client):
                     f" {datetime.datetime.now().year}"
                 ),
                 max_results=2,
-                include_domains=["eduscol.education.fr", "education.gouv.fr"],
+                # 🎯 Cible prioritaire sur l'académie d'Aix-Marseille
+                include_domains=["ac-aix-marseille.fr", "education.gouv.fr"],
             )
             results = recherche_veille.get("results")
             if results:
@@ -603,8 +602,8 @@ def verifier_veille_dec(tavily_client):
 
         st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
         st.session_state.alerte_veille_dec = (
-            f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées sur les portails officiels. "
-            f"[🔗 Accéder à la page officielle]({url_trouvee})"
+            f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées sur le portail académique. "
+            f"[🔗 Accéder à la page académique]({url_trouvee})"
         )
 
 

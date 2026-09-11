@@ -707,6 +707,15 @@ st.markdown(
 
 if "alerte_veille_dec" in st.session_state:
     date_alerte = st.session_state.get("date_veille_dec", "Récemment")
+    texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
+    
+    # Extraction propre du lien markdown [texte](url) s'il existe
+     lien_html_dec = ""
+    match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
+    if match_dec:
+        libelle_lien, url_lien = match_dec.groups()
+        lien_html_dec = f'<br><a href="{url_lien}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien}</a>'
+
     st.markdown(
         f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
@@ -716,6 +725,7 @@ if "alerte_veille_dec" in st.session_state:
                 <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire DEC — Détectée le {date_alerte}</strong>
                 <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
                     De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
+                    {lien_html_dec}
                 </div>
             </div>
         </div>
@@ -726,6 +736,15 @@ if "alerte_veille_dec" in st.session_state:
 
 if "alerte_veille_eduscol" in st.session_state:
     date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
+    texte_alerte_edu = st.session_state.get("alerte_veille_eduscol", "")
+
+    # Extraction propre du lien markdown [texte](url) s'il existe
+    lien_html_edu = ""
+    match_edu = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_edu)
+    if match_edu:
+        libelle_lien_edu, url_lien_edu = match_edu.groups()
+        lien_html_edu = f'<br><a href="{url_lien_edu}" target="_blank" style="color: #38BDF8 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien_edu}</a>'
+
     st.markdown(
         f"""
     <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #38BDF8; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
@@ -735,6 +754,7 @@ if "alerte_veille_eduscol" in st.session_state:
                 <strong style="color: #38BDF8 !important; font-size: 14px; text-transform: uppercase;">Veille Éduscol (EPS) — Détectée le {date_alerte_edu}</strong>
                 <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
                     De nouveaux textes ou ressources officielles ont été mis en ligne.
+                    {lien_html_edu}
                 </div>
             </div>
         </div>

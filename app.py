@@ -532,7 +532,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL)
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - AVEC LIENS
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -540,24 +540,27 @@ def verifier_veille_dec(tavily_client):
 
     fichier_suivi = "dernier_check_dec.txt"
     fichier_date_alerte = "date_alerte_dec.txt"
+    fichier_url_alerte = "url_alerte_dec.txt" # 👈 Nouveau fichier pour stocker l'URL
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
-    if os.path.exists(fichier_date_alerte):
+    # 1. Vérification si une alerte récente existe déjà
+    if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
                 date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(
-                    date_alerte_str, "%Y-%m-%d"
-                ).date()
+                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
 
-                if (aujourdhui - date_alerte).days <= 7:
-                    st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
-                    st.session_state.alerte_veille_dec = (
-                        "🔔 Veille réglementaire DEC : De nouvelles informations ou"
-                        " mises à jour ont été détectées."
-                    )
-                    return
+            with open(fichier_url_alerte, "r", encoding="utf-8") as f:
+                url_sauvegardee = f.read().strip()
+
+            if (aujourdhui - date_alerte).days <= 7:
+                st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
+                st.session_state.url_veille_dec = url_sauvegardee # 👈 On stocke l'URL dans la session
+                st.session_state.alerte_veille_dec = (
+                    "🔔 Veille réglementaire DEC : De nouvelles informations ou mises à jour ont été détectées."
+                )
+                return
         except Exception:
             pass
 
@@ -584,14 +587,21 @@ def verifier_veille_dec(tavily_client):
             with open(fichier_suivi, "w", encoding="utf-8") as f:
                 f.write(mois_actuel)
 
-            if recherche_veille.get("results"):
+            results = recherche_veille.get("results")
+            if results:
+                # 👈 On récupère l'URL du premier résultat pertinent trouvé par Tavily
+                url_trouvee = results[0].get("url", "https://www.education.gouv.fr")
+
                 with open(fichier_date_alerte, "w", encoding="utf-8") as f:
                     f.write(aujourdhui.strftime("%Y-%m-%d"))
 
+                with open(fichier_url_alerte, "w", encoding="utf-8") as f:
+                    f.write(url_trouvee) # 👈 On sauvegarde l'URL dans un fichier
+
                 st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
+                st.session_state.url_veille_dec = url_trouvee
                 st.session_state.alerte_veille_dec = (
-                    "🔔 Veille réglementaire DEC : De nouvelles informations ou"
-                    " mises à jour ont été détectées sur les portails officiels."
+                    "🔔 Veille réglementaire DEC : De nouvelles informations ou mises à jour ont été détectées sur les portails officiels."
                 )
         except Exception:
             pass
@@ -603,23 +613,26 @@ def verifier_veille_eduscol(tavily_client):
 
     fichier_suivi = "dernier_check_eduscol.txt"
     fichier_date_alerte = "date_alerte_eduscol.txt"
+    fichier_url_alerte = "url_alerte_eduscol.txt" # 👈 Nouveau fichier pour stocker l'URL
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
-    if os.path.exists(fichier_date_alerte):
+    if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
                 date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(
-                    date_alerte_str, "%Y-%m-%d"
-                ).date()
+                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
 
-                if (aujourdhui - date_alerte).days <= 7:
-                    st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
-                    st.session_state.alerte_veille_eduscol = (
-                        "🔔 Veille Éduscol : De nouveaux textes ou ressources officielles en EPS ont été détectés."
-                    )
-                    return
+            with open(fichier_url_alerte, "r", encoding="utf-8") as f:
+                url_sauvegardee = f.read().strip()
+
+            if (aujourdhui - date_alerte).days <= 7:
+                st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
+                st.session_state.url_veille_eduscol = url_sauvegardee
+                st.session_state.alerte_veille_eduscol = (
+                    "🔔 Veille Éduscol : De nouveaux textes ou ressources officielles en EPS ont été détectés."
+                )
+                return
         except Exception:
             pass
 
@@ -646,21 +659,26 @@ def verifier_veille_eduscol(tavily_client):
             with open(fichier_suivi, "w", encoding="utf-8") as f:
                 f.write(mois_actuel)
 
-            if recherche_veille.get("results"):
+            results = recherche_veille.get("results")
+            if results:
+                url_trouvee = results[0].get("url", "https://eduscol.education.fr")
+
                 with open(fichier_date_alerte, "w", encoding="utf-8") as f:
                     f.write(aujourdhui.strftime("%Y-%m-%d"))
 
+                with open(fichier_url_alerte, "w", encoding="utf-8") as f:
+                    f.write(url_trouvee)
+
                 st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
+                st.session_state.url_veille_eduscol = url_trouvee
                 st.session_state.alerte_veille_eduscol = (
                     "🔔 Veille Éduscol : De nouveaux textes ou ressources officielles en EPS ont été détectés."
                 )
         except Exception:
             pass
 
-
 verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)
-
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================

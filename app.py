@@ -710,7 +710,7 @@ if "alerte_veille_dec" in st.session_state:
     texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
     
     # Extraction propre du lien markdown [texte](url) s'il existe
-     lien_html_dec = ""
+    lien_html_dec = ""
     match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
     if match_dec:
         libelle_lien, url_lien = match_dec.groups()

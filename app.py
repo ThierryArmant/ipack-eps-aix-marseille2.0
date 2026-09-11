@@ -889,7 +889,7 @@ else:
                 <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
             </div>
             <div style="flex: 1; padding-left: 5px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin (Fin d'année)</strong><br>
+                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
                 <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
             </div>
         </div>

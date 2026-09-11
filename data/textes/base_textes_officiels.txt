@@ -637,3 +637,18 @@ BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
   Il est formellement interdit à un enseignant de transporter un élève blessé dans son véhicule personnel. Le transport sanitaire relève exclusivement des services de secours officiels.
 * RAPPORT D'ACCIDENT ADMINISTRATIF : 
   Rédaction obligatoire d'un rapport circonstancié et strictement factuel, transmis au Chef d'établissement dans les 48 heures pour sécuriser la couverture juridique de l'agent.
+======================================================================
+CADRE JURIDIQUE : DISTINCTION ENTRE COMMISSION DE DISCIPLINE UNSS ET DOSSIER ADMINISTRATIF DE L'ENSEIGNANT D'EPS
+======================================================================
+
+1. Nature juridique de l'UNSS et de ses instances :
+- Bien qu'elle soit placée sous la tutelle du ministère chargé de l'Éducation nationale pour accomplir une mission de service public, l'Union Nationale du Sport Scolaire (UNSS) est juridiquement une association déclarée (régie par la loi du 1er juillet 1901).
+- Les commissions de discipline créées au sein de l'UNSS ont un champ de compétence strictement limité aux élèves, aux équipes ou aux Associations Sportives (AS) scolaires lors des compétitions et rencontres sportives.
+
+2. Incompétence disciplinaire absolue vis-à-vis des enseignants :
+- L'UNSS n'exerce aucun rôle d'employeur ni de pouvoir hiérarchique sur les professeurs d'EPS, qui sont des fonctionnaires de l'État relevant du Ministère de l'Éducation Nationale.
+- Une commission de discipline de l'UNSS ne dispose d'aucune base légale pour prononcer une sanction professionnelle à l'encontre d'un enseignant d'EPS, ni pour porter une mention, un avertissement ou une trace quelconque dans son dossier administratif.
+
+3. Exclusivité du pouvoir disciplinaire de l'État :
+- La gestion de la carrière, de la discipline professionnelle et l'attribution de sanctions à l'encontre d'un agent public relèvent exclusivement de l'autorité académique (Recteur ou DSDEN).
+- Toute mesure disciplinaire visant un enseignant obéit strictement aux règles de la fonction publique de l'État et aux conseils de discipline habilités, garantissant une étanchéité totale face aux instances associatives sportives.

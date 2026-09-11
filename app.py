@@ -532,7 +532,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - LIEN INTÉGRÉ
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - VERSION BLINDÉE
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -544,19 +544,18 @@ def verifier_veille_dec(tavily_client):
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
-    # 1. Vérification si une alerte récente existe déjà
+    url_defaut = "https://www.education.gouv.fr"
+
+    # 1. Si les fichiers d'alerte existent déjà et sont récents (< 7 jours)
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
-
+                date_alerte = datetime.datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
             with open(fichier_url_alerte, "r", encoding="utf-8") as f:
                 url_sauvegardee = f.read().strip()
 
             if (aujourdhui - date_alerte).days <= 7:
                 st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
-                # 👇 Le lien est injecté directement dans le texte de l'alerte
                 st.session_state.alerte_veille_dec = (
                     f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées. "
                     f"[🔗 Accéder à la page officielle]({url_sauvegardee})"
@@ -565,16 +564,19 @@ def verifier_veille_dec(tavily_client):
         except Exception:
             pass
 
+    # 2. Sinon, on vérifie si le check mensuel a déjà été fait
     a_deja_ete_fait = False
     if os.path.exists(fichier_suivi):
         try:
             with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel:
+                if f.read().strip() == mois_actuel and os.path.exists(fichier_url_alerte):
                     a_deja_ete_fait = True
         except Exception:
             pass
 
+    # 3. Si pas fait (ou première installation des fichiers de liens), on interroge Tavily ou on initialise
     if not a_deja_ete_fait:
+        url_trouvee = url_defaut
         try:
             recherche_veille = tavily_client.search(
                 query=(
@@ -584,28 +586,27 @@ def verifier_veille_dec(tavily_client):
                 max_results=2,
                 include_domains=["eduscol.education.fr", "education.gouv.fr"],
             )
-
-            with open(fichier_suivi, "w", encoding="utf-8") as f:
-                f.write(mois_actuel)
-
             results = recherche_veille.get("results")
             if results:
-                url_trouvee = results[0].get("url", "https://www.education.gouv.fr")
-
-                with open(fichier_date_alerte, "w", encoding="utf-8") as f:
-                    f.write(aujourdhui.strftime("%Y-%m-%d"))
-
-                with open(fichier_url_alerte, "w", encoding="utf-8") as f:
-                    f.write(url_trouvee)
-
-                st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
-                # 👇 Le lien est injecté ici aussi lors de la première détection
-                st.session_state.alerte_veille_dec = (
-                    f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées sur les portails officiels. "
-                    f"[🔗 Accéder à la page officielle]({url_trouvee})"
-                )
+                url_trouvee = results[0].get("url", url_defaut)
         except Exception:
             pass
+
+        try:
+            with open(fichier_suivi, "w", encoding="utf-8") as f:
+                f.write(mois_actuel)
+            with open(fichier_date_alerte, "w", encoding="utf-8") as f:
+                f.write(aujourdhui.strftime("%Y-%m-%d"))
+            with open(fichier_url_alerte, "w", encoding="utf-8") as f:
+                f.write(url_trouvee)
+        except Exception:
+            pass
+
+        st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
+        st.session_state.alerte_veille_dec = (
+            f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées sur les portails officiels. "
+            f"[🔗 Accéder à la page officielle]({url_trouvee})"
+        )
 
 
 def verifier_veille_eduscol(tavily_client):
@@ -618,12 +619,12 @@ def verifier_veille_eduscol(tavily_client):
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
+    url_defaut = "https://eduscol.education.fr"
+
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
-
+                date_alerte = datetime.datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
             with open(fichier_url_alerte, "r", encoding="utf-8") as f:
                 url_sauvegardee = f.read().strip()
 
@@ -641,12 +642,13 @@ def verifier_veille_eduscol(tavily_client):
     if os.path.exists(fichier_suivi):
         try:
             with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel:
+                if f.read().strip() == mois_actuel and os.path.exists(fichier_url_alerte):
                     a_deja_ete_fait = True
         except Exception:
             pass
 
     if not a_deja_ete_fait:
+        url_trouvee = url_defaut
         try:
             recherche_veille = tavily_client.search(
                 query=(
@@ -656,27 +658,27 @@ def verifier_veille_eduscol(tavily_client):
                 max_results=2,
                 include_domains=["eduscol.education.fr", "education.gouv.fr"],
             )
-
-            with open(fichier_suivi, "w", encoding="utf-8") as f:
-                f.write(mois_actuel)
-
             results = recherche_veille.get("results")
             if results:
-                url_trouvee = results[0].get("url", "https://eduscol.education.fr")
-
-                with open(fichier_date_alerte, "w", encoding="utf-8") as f:
-                    f.write(aujourdhui.strftime("%Y-%m-%d"))
-
-                with open(fichier_url_alerte, "w", encoding="utf-8") as f:
-                    f.write(url_trouvee)
-
-                st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
-                st.session_state.alerte_veille_eduscol = (
-                    f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
-                    f"[🔗 Consulter la ressource]({url_trouvee})"
-                )
+                url_trouvee = results[0].get("url", url_defaut)
         except Exception:
             pass
+
+        try:
+            with open(fichier_suivi, "w", encoding="utf-8") as f:
+                f.write(mois_actuel)
+            with open(fichier_date_alerte, "w", encoding="utf-8") as f:
+                f.write(aujourdhui.strftime("%Y-%m-%d"))
+            with open(fichier_url_alerte, "w", encoding="utf-8") as f:
+                f.write(url_trouvee)
+        except Exception:
+            pass
+
+        st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
+        st.session_state.alerte_veille_eduscol = (
+            f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
+            f"[🔗 Consulter la ressource]({url_trouvee})"
+        )
 
 verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)

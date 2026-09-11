@@ -532,7 +532,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - VERSION BLINDÉE
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - PERSISTANTES
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -546,35 +546,34 @@ def verifier_veille_dec(tavily_client):
 
     url_defaut = "https://www.education.gouv.fr"
 
-    # 1. Si les fichiers d'alerte existent déjà et sont récents (< 7 jours)
+    # 1. S'il existe une alerte enregistrée, on l'affiche TOUJOURS (plus de limite de 7 jours)
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte = datetime.datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
+                date_alerte_str = f.read().strip()
+                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
             with open(fichier_url_alerte, "r", encoding="utf-8") as f:
                 url_sauvegardee = f.read().strip()
 
-            if (aujourdhui - date_alerte).days <= 7:
-                st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
-                st.session_state.alerte_veille_dec = (
-                    f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées. "
-                    f"[🔗 Accéder à la page officielle]({url_sauvegardee})"
-                )
-                return
+            st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
+            st.session_state.alerte_veille_dec = (
+                f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées. "
+                f"[🔗 Accéder à la page officielle]({url_sauvegardee})"
+            )
         except Exception:
             pass
 
-    # 2. Sinon, on vérifie si le check mensuel a déjà été fait
+    # 2. Vérification mensuelle pour voir si une NOUVELLE recherche doit être lancée
     a_deja_ete_fait = False
     if os.path.exists(fichier_suivi):
         try:
             with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel and os.path.exists(fichier_url_alerte):
+                if f.read().strip() == mois_actuel:
                     a_deja_ete_fait = True
         except Exception:
             pass
 
-    # 3. Si pas fait (ou première installation des fichiers de liens), on interroge Tavily ou on initialise
+    # 3. Si le mois a changé, on relance Tavily pour chercher du nouveau
     if not a_deja_ete_fait:
         url_trouvee = url_defaut
         try:
@@ -624,17 +623,16 @@ def verifier_veille_eduscol(tavily_client):
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
         try:
             with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte = datetime.datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
+                date_alerte_str = f.read().strip()
+                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
             with open(fichier_url_alerte, "r", encoding="utf-8") as f:
                 url_sauvegardee = f.read().strip()
 
-            if (aujourdhui - date_alerte).days <= 7:
-                st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
-                st.session_state.alerte_veille_eduscol = (
-                    f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
-                    f"[🔗 Consulter la ressource]({url_sauvegardee})"
-                )
-                return
+            st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
+            st.session_state.alerte_veille_eduscol = (
+                f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
+                f"[🔗 Consulter la ressource]({url_sauvegardee})"
+            )
         except Exception:
             pass
 
@@ -642,7 +640,7 @@ def verifier_veille_eduscol(tavily_client):
     if os.path.exists(fichier_suivi):
         try:
             with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel and os.path.exists(fichier_url_alerte):
+                if f.read().strip() == mois_actuel:
                     a_deja_ete_fait = True
         except Exception:
             pass

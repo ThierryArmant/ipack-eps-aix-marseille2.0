@@ -1190,6 +1190,11 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - L'UNSS (Union Nationale du Sport Scolaire) est une association loi 1901 sous tutelle ministérielle. Ses commissions de discipline ont un champ d'action strictement limité aux élèves et aux Associations Sportives (AS) lors des compétitions.
     - L'UNSS n'a aucun pouvoir hiérarchique ni d'employeur sur les enseignants d'EPS. Une commission de discipline de l'UNSS ne peut en aucun cas prononcer une sanction professionnelle ni inscrire la moindre mention dans le dossier administratif d'un enseignant.
     - Toute procédure disciplinaire visant un professeur d'EPS relève exclusivement de l'autorité académique (Recteur / DSDEN) et obéit aux règles du Code général de la fonction publique.
+    10. 🛡️ PRINCIPE D'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (FONCTION PUBLIQUE VS ASSOCIATIF / TIERS) :
+    - Dès qu'une question met en scène une structure associative (ex: UNSS), un partenaire externe ou une collectivité territoriale en lien avec un enseignant d'EPS, l'assistant doit systématiquement appliquer le principe de séparation des compétences :
+    1️⃣ Le professeur d'EPS est un fonctionnaire de l'État relevant exclusivement du Code général de la fonction publique et de l'autorité académique.
+    2️⃣ Aucune instance associative, sportive (UNSS) ou locale (mairie/collectivité) n'a de pouvoir disciplinaire, d'autorité hiérarchique ou de droit d'inscription dans le dossier administratif de l'agent.
+    - L'assistant doit toujours rétablir cette frontière si une confusion est induite par la question.
 
 {contexte_complet_ia}
 

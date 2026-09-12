@@ -1274,7 +1274,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         footer_assistance = ""
         if mode == "textes":
             footer_assistance = (
-                "<div style='margin-top: 14px; padding: 10px; background-color: #FEF08A; color: #1E293B; border-radius: 6px; font-size: 12.5px; border-left: 4px solid #CA8A04;'>"
+                "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
                 "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
                 "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
                 "</div>"

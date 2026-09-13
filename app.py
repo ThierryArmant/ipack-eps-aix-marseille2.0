@@ -1,3 +1,4 @@
+import base64
 import datetime
 import os
 import re
@@ -123,14 +124,19 @@ def incrementer_et_obtenir_visites():
 nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
-# 3. INTERFACE GRAPHIQUE ET STYLES CSS
+# 3. INTERFACE GRAPHIQUE ET CHARGEMENT LOCAL DES IMAGES (BASE64)
 # ======================================================================
-img_gauche = "image_7.png"
-img_eps = "image_6.png"
-img_droite = "image_5.png"
-img_fond = "image_8.png"
+def get_base64_image(image_path):
+    if os.path.exists(image_path):
+        with open(image_path, "rb") as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+    return ""
 
-github_url = f"https://raw.githubusercontent.com/{st.secrets.get('GITHUB_USERNAME', '')}/{st.secrets.get('GITHUB_REPO', '')}/main/"
+img_gauche = get_base64_image("image_7.png")
+img_eps = get_base64_image("image_6.png")
+img_droite = get_base64_image("image_5.png")
+img_fond = get_base64_image("image_8.png")
 
 css_pur = f"""
     <style>
@@ -146,7 +152,7 @@ css_pur = f"""
         max-width: 920px !important; 
     }}
     
-    .stApp {{ background-image: url('{github_url}{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
+    .stApp {{ background-image: url('data:image/png;base64,{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
     
     .hub-header {{ 
@@ -267,7 +273,6 @@ css_pur = f"""
         box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
     }}
 
-    /* 🎯 LE TITRE DU RADIO (INTÉGRÉ DANS LA BOÎTE) */
     div[data-testid="stRadio"] > label {{
         color: #38BDF8 !important;
         font-weight: 700 !important;
@@ -275,7 +280,6 @@ css_pur = f"""
         margin-bottom: 8px !important;
     }}
 
-    /* LES OPTIONS DE CHOIX (COLLÈGE, LYCÉE, ETC.) */
     div[data-testid="stRadio"] div[role="radiogroup"] label p, 
     div[data-testid="stRadio"] div[role="radiogroup"] label span, 
     div[data-testid="stRadio"] div[role="radiogroup"] label {{
@@ -532,7 +536,7 @@ retriever_textes = initialiser_base_textes(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL) - CORRIGÉES
+# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL)
 # ======================================================================
 def verifier_veille_dec(tavily_client):
     if not tavily_client:
@@ -544,7 +548,6 @@ def verifier_veille_dec(tavily_client):
     mois_actuel = datetime.datetime.now().strftime("%Y-%m")
     aujourdhui = datetime.date.today()
 
-    # 🔗 Lien par défaut ciblant l'académie d'Aix-Marseille
     url_defaut = "https://www.ac-aix-marseille.fr"
 
     if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
@@ -581,7 +584,6 @@ def verifier_veille_dec(tavily_client):
                     f" {datetime.datetime.now().year}"
                 ),
                 max_results=2,
-                # 🎯 Cible prioritaire sur l'académie d'Aix-Marseille
                 include_domains=["ac-aix-marseille.fr", "education.gouv.fr"],
             )
             results = recherche_veille.get("results")
@@ -673,20 +675,21 @@ def verifier_veille_eduscol(tavily_client):
 
         st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
         st.session_state.alerte_veille_eduscol = (
-            f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
+            f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles ont été détectés. "
             f"[🔗 Consulter la ressource]({url_trouvee})"
         )
 
 verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)
+
 # ======================================================================
-# 5. BANDEAU SUPÉRIEUR
+# 5. BANDEAU SUPÉRIEUR (UTILISANT LE BASE64)
 # ======================================================================
 st.markdown(
     f"""
     <div class="hub-header">
         <div style="display: flex; align-items: center; width: 20%;">
-            <img src="{github_url}{img_gauche}" height="60">
+            <img src="data:image/png;base64,{img_gauche}" height="60">
         </div>
         <div class="hub-title">
             <div class="title-row">
@@ -696,8 +699,8 @@ st.markdown(
             <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
         </div>
         <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
-            <img src="{github_url}{img_eps}" height="55">
-            <img src="{github_url}{img_droite}" class="img-zoomable" height="55">
+            <img src="data:image/png;base64,{img_eps}" height="55">
+            <img src="data:image/png;base64,{img_droite}" class="img-zoomable" height="55">
         </div>
     </div>
 """,
@@ -708,7 +711,6 @@ if "alerte_veille_dec" in st.session_state:
     date_alerte = st.session_state.get("date_veille_dec", "Récemment")
     texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
     
-    # Extraction propre du lien markdown [texte](url) s'il existe
     lien_html_dec = ""
     match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
     if match_dec:
@@ -737,7 +739,6 @@ if "alerte_veille_eduscol" in st.session_state:
     date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
     texte_alerte_edu = st.session_state.get("alerte_veille_eduscol", "")
 
-    # Extraction propre du lien markdown [texte](url) s'il existe
     lien_html_edu = ""
     match_edu = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_edu)
     if match_edu:
@@ -899,7 +900,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (100% LOCAL STABLE)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -976,20 +977,17 @@ if prompt:
             and "lot" in p_low
         )
 
-        # ⚡ DÉTECTION PROGRAMMATIQUE : EXCLUSION DISCIPLINAIRE (CCF)
         est_exclusion = (
             mode != "textes"
             and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
             and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
         )
 
-        # ⚡ DÉTECTION PROGRAMMATIQUE : PROBLÈME IMPORT SIÈCLE / AUCUN ÉLÈVE (RENTRÉE)
         est_aucun_eleve = (
             mode == "ipack"
             and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
         )
 
-        # ⚡ DÉTECTION PROGRAMMATIQUE : DÉPÔT RÉFÉRENTIELS & APSA (RENTRÉE)
         est_referentiels_rentree = (
             mode == "ipack"
             and any(w in p_low for w in ["référentiel", "referentiel", "apsa certificative", "déclarer apsa", "dépôt référentiel"])
@@ -1028,7 +1026,6 @@ if prompt:
             except Exception:
                 pass
 
-        # ROUTAGE DES CAS DIRECTS (ZONE 9)
         if est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
@@ -1116,10 +1113,6 @@ if prompt:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
         directive_onglet = ""
-        if mode == "textes":
-            directive_onglet = ""
-        if mode == "textes":
-            directive_onglet = ""
         if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
@@ -1232,7 +1225,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        # 🌟 REGEX ÉLARGIE : Surlignage automatique des références juridiques
         texte_brut = re.sub(
             r"("
             r"Articles?\s+[\dLRDABab\.\-\s,–]+"

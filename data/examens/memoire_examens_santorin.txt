@@ -147,3 +147,28 @@ AVERTISSEMENT RAG : CHAMP D'APPLICATION EXCLUSIF DE SANTORIN / CYCLADES
   * Bac GT / Pro = Strictement 3 épreuves / 3 Champs d'Apprentissage distincts.
   * Collège (DNB) = Zéro CCF, zéro protocole d'examen (Contrôle continu / LSU uniquement).
 - Action corrective obligatoire : Ne jamais proposer de "déverrouiller" ou de "forcer" la saisie. Exiger le nettoyage de la structure dans iPackEPS et l'alignement dans Cyclades.
+======================================================================
+BASE DE CONNAISSANCES RAG : EXAMENS, CERTIFICATION ET PLATEFORMES (CYCLADES, SANTORIN, IMAG'IN)
+======================================================================
+
+### 1. Acteurs et Rôles Institutionnels
+* **DEC (Division des Examens et Concours) :** Service académique du Rectorat chargé de l'organisation administrative, de la validation des affectations dans Cyclades, de la gestion des convocations via Imag'in et du traitement des dossiers de force majeure.
+* **Ordre de mission :** Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission hiérarchiquement supérieur à toute autorisation d'absence pour convenance personnelle. Seule la DEC peut l'annuler.
+
+### 2. Logistique Santorin et Distribution des Lots
+* **Distribution des lots :** Étape indispensable où le chef d'établissement génère les lots de correction à partir des protocoles dans l'onglet « Distribution de l'épreuve ». Sans distribution, les correcteurs ne voient pas leurs copies.
+* **Erreur « Aucun lot à corriger » :** Due à une rupture de synchronisation entre Cyclades et Santorin. Procédure : vérifier l'affectation dans Cyclades, forcer la synchronisation via « Rejouer l'import » dans Santorin, ou faire un signalement à la DEC.
+* **Convocations Imag'in -> Santorin :** Le chef d'établissement doit créer les missions d'évaluation dans Imag'in. L'édition impérative de la convocation au format **PDF** dans Imag'in est l'action technique qui déclenche la transmission des droits vers Santorin.
+
+### 3. Saisie des Notes et Cas Particuliers (Santorin / CCF)
+* **Règle des deux notes minimales :** Pour valider le CCF au Baccalauréat, l'élève doit disposer d'au moins deux notes valides dans deux APSA relevant de deux Champs d'Apprentissage (CA) distincts.
+* **Cas Exceptionnels (CE) :** Utilisé lorsqu'une APSA ne peut être évaluée pour des raisons techniques ou matérielles (hors inaptitude médicale), après accord de la commission académique. Neutralise l'activité.
+* **Sportifs de Haut Niveau (SHN) :** Attribue automatiquement la note de 20/20 sur l'APSA de spécialité si le statut (SHN/PPF) est validé et rattaché au bon CA.
+* **Gestion des notes et statuts (DI / ABI / Notes) :** 
+  * *DI (Dispense / Inaptitude médicale) :* Neutralise l'épreuve (retirée du calcul du diviseur).
+  * *ABI (Absence injustifiée) :* Vaut 0/20 si aucun rattrapage n'a lieu.
+* **Cases AFLP inactives :** Si les cases de saisie sont grisées dans Santorin, c'est que le bouton « Choisir les AFLP » n'a pas été validé en amont par le coordonnateur.
+
+### 4. Réglementation des Absences et Épreuves Différées
+* **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
+* **Collège (DNB) :** Pas de CCF ni d'épreuve différée réglementaire. L'évaluation repose sur le contrôle continu des trimestres de 3ème à partir d'une pluralité d'évaluations. Une absence non justifiée ne se sanctionne pas par un zéro disciplinaire arbitraire, mais nécessite une régularisation si la moyenne n'est pas représentative.

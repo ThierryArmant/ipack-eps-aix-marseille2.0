@@ -402,7 +402,7 @@ def obtenir_cle_fichier():
             mtimes.append(os.path.getmtime(chemin_textes))
         except Exception:
             pass
-    for dossier in ["data/examens", "data/ipack", "data/textes"]:
+    for dossier in ["data/examens", "data/ipack", "data/textes", "data/peda"]:
         if os.path.exists(dossier) and os.path.isdir(dossier):
             try:
                 for f in os.listdir(dossier):
@@ -535,10 +535,30 @@ def initialiser_base_textes(cle_fremt):
     )
 
 
+@st.cache_resource
+def initialiser_base_peda(cle_fremt):
+    docs_peda = [
+        Document(
+            text=(
+                "Base pédagogique officielle - Programmes collège, AFL lycée et ressources Edubase."
+            ),
+            metadata={
+                "title": "Base Pédagogique EPS",
+                "url": "https://eduscol.education.fr",
+            },
+        )
+    ]
+    docs_peda.extend(charger_dossier_txt_securise("data/peda"))
+    return VectorStoreIndex.from_documents(docs_peda).as_retriever(
+        similarity_top_k=8
+    )
+
+
 timestamp_fichier = obtenir_cle_fichier()
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
+retriever_peda = initialiser_base_peda(timestamp_fichier)
 
 
 # ======================================================================
@@ -1029,6 +1049,12 @@ if prompt:
                     nodes_bruts = retriever_textes.retrieve(prompt)
                     for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
+                
+                # Injection systématique des programmes et référentiels pédagogiques (data/peda)
+                if retriever_peda:
+                    nodes_peda = retriever_peda.retrieve(prompt)
+                    for n in nodes_peda:
+                        extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
             except Exception:
                 pass
 

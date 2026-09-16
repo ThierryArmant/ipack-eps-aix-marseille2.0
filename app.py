@@ -18,8 +18,14 @@ WEBHOOK_URL = (
 )
 
 
-def log_interaction(question, reponse):
-    payload = {"question": question, "reponse": reponse}
+def log_interaction(question, reponse, mode="", contexte="", niveau=""):
+    payload = {
+        "question": question, 
+        "reponse": reponse,
+        "mode": mode,
+        "contexte": contexte,
+        "niveau": niveau
+    }
     try:
         requests.post(WEBHOOK_URL, json=payload, timeout=10)
     except Exception as e:
@@ -1213,7 +1219,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-        texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
+       texte_brut = texte_brut.replace("```html", "").replace("```HTML", "").replace("```", "")
 
         if mode == "textes" or est_dnb:
             texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
@@ -1235,7 +1241,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
                 r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
                 r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
                 r"|Bulletin\s+officiel"
                 r"|RGPD"
                 r")",
@@ -1285,7 +1291,13 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
         )
 
-        log_interaction(prompt, texte_brut)
+        log_interaction(
+            question=prompt, 
+            reponse=texte_brut, 
+            mode=mode, 
+            contexte=contexte_choisi_nom, 
+            niveau=niveau_actuel_form
+        )
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer}

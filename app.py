@@ -1146,10 +1146,15 @@ if prompt:
 
         directive_onglet = ""
         if mode == "textes":
+            directive_onglet = ""
+        if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
+   - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
+     * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
+     * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'une INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
    - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'une INGÉRENCE DE TIERS ou d'un LITIGE APPN.
-   - OUVERTURE OBLIGATOIRE DE LA RÉPONSE : La réponse s'ouvre systématiquement sur le double rappel protecteur :
+   - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Uniquement pour les questions juridiques/sécurité) : La réponse s'ouvre systématiquement sur le double rappel protecteur :
      1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des conditions de pratique et des EPI).
      2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État sous l'art. L. 911-4, protection fonctionnelle, et bouclier de la Loi n° 2000-647 / Loi Fauchon exigeant une faute caractérisée pour l'auteur indirect).
    - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). **Règle d'or absolue** : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.

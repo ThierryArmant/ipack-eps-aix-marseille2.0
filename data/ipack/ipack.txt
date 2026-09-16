@@ -1799,3 +1799,36 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 * Rôle du chef d'établissement : Exerce un contrôle de conformité avant validation de la CAHN (vérification du nombre d'APSA selon la voie, présence des FCA et des commentaires d'équipe en cas d'écarts).
 * Interdiction d'improviser un contrôle adapté (FCA) à la volée : Formellement interdit en cours d'année pour une blessure soudaine. L'inaptitude temporaire relève d'un simple contrôle aménagé sur la MÊME APSA du protocole initial, sans changer d'activité.
 ======================================================================
+======================================================================
+BASE DE CONNAISSANCES RAG : IPACKEPS (FONCTIONNALITÉS ET NOUVEAUTÉS)
+======================================================================
+
+### 1. Définition et Périmètre de l'Application
+iPackEPS est l'outil académique officiel dédié au pilotage pédagogique, à la gestion des structures EPS (classes, groupes, infrastructures) et au paramétrage des protocoles d'examens (CCF, CAHPN, SSS, APPN) pour les enseignants et chefs d'établissement. Il ne s'agit pas d'un carnet de notes de type Pronote, mais d'un outil de structuration et de préparation des dossiers réglementaires avant transmission vers les plateformes nationales (Cyclades).
+
+### 2. Ergonomie et Interface Générale (UI)
+* **Imports de documents unifiés :** Les fenêtres de dépôt utilisent une ergonomie standardisée par glisser-déposer (drag 'n drop) acceptant les formats `pdf`, `doc`, `docx`, `odt`, `zip` dans la limite d'une taille maximale de 5000 Ko[cite: 1, 2].
+* **Bouton Légende :** Un bouton `[légende]` est intégré à côté des interfaces comportant des icônes de statut (dossier en attente, validé, modifications demandées, rejeté)[cite: 1, 2].
+
+### 3. Tableau de Bord et Gestion des Élèves
+* **Import automatique des élèves :** À l'authentification dans iPackEPS, une synchronisation automatique des bases s'exécute pour intégrer les mouvements (entrées/sorties) de l'établissement sans nécessiter d'intervention manuelle[cite: 1, 2].
+* **Actualisation élargie :** L'actualisation des classes, des élèves et de l'équipe EPS peut être effectuée par l'ensemble des enseignants, et non plus exclusivement par le coordonnateur[cite: 1, 2].
+
+### 4. Modules de Gestion du Matériel (Inventaire EPI)
+* **Description enrichie du matériel :** Le module EPI permet l'ajout de photos du matériel, l'importation de notices techniques et la personnalisation de la fréquence des contrôles (fixée par défaut à 12 mois)[cite: 1, 2].
+* **Édition papier :** Le registre papier édité intègre désormais directement la photo du matériel[cite: 1, 2].
+
+### 5. Dossiers Certificatifs (CAHPN) et Examens (Cyclades)
+* **Filtres et Alertes CAHPN :** Intégration d'un filtrage par sous-commission, affichage des certificats médicaux (CM) manquants et déclenchement d'alertes en cas de discordance entre les dates d'un CM et les bornes de la séquence d'apprentissage[cite: 1, 2].
+* **Export ZIP structuré :** Les documents du dossier certificatif sont triés et exportés sous forme d'une arborescence organisée par établissement (Public/Privé)[cite: 1, 2].
+* **Professeurs externes (Cyclades) :** Le fichier d'export à destination de la DEC intègre une colonne `[examen]` dédiée pour faciliter le traitement des comptes Imag'In, avec possibilité d'activation ou de désactivation rapide des accès en un clic[cite: 1, 2].
+
+### 6. Sections Sportives Scolaires (SSS) et Dossiers APPN
+* **Module d'évolution SSS :** Espace dédié pour formaliser chaque année les demandes de reconduction ou de fermeture d'une SSS, soumis à la signature obligatoire du chef d'établissement et validé par les IPR[cite: 1, 2].
+* **Modèles de documents SSS dissociés :** Possibilité de verser des documents modèles distincts selon qu'il s'agit d'une demande d'ouverture, d'un projet SSS ou d'un bilan SSS[cite: 1, 2].
+* **Messagerie et Communication :** Les membres des commissions et les IPR peuvent envoyer directement des messages de validation ou d'invalidation ciblés aux établissements pour les dossiers SSS et APPN[cite: 1, 2].
+* **Amélioration du dossier APPN :** Suppression des colonnes superflues, mémorisation des filtres et envoi de e-mails récapitulatifs de validation[cite: 1, 2].
+
+### 7. Administration, Rapports et Paramétrage Technique
+* **État des serveurs :** Le module de rapport technique restitue l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque disponible ainsi que les versions logicielles (PHP, bases de données)[cite: 1, 2].
+* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*[cite: 1, 2].

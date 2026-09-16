@@ -1225,24 +1225,26 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        texte_brut = re.sub(
-            r"("
-            r"Articles?\s+[\dLRDABab\.\-\s,–]+"
-            r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
-            r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
-            r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-            r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
-            r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-            r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
-            r"|Bulletin\s+officiel"
-            r"|RGPD"
-            r")",
-            r'<span class="law-highlight">\1</span>',
-            texte_brut,
-            flags=re.IGNORECASE
-        )
-        
-        texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
+        # 🛡️ Surlignage juridique actif EXCLUSIVEMENT dans le module Sécurité & Cadre Juridique (mode "textes")
+        if mode == "textes":
+            texte_brut = re.sub(
+                r"("
+                r"Articles?\s+[\dLRDABab\.\-\s,–]+"
+                r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
+                r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
+                r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
+                r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|B\.?O\.?\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Bulletin\s+officiel"
+                r"|RGPD"
+                r")",
+                r'<span class="law-highlight">\1</span>',
+                texte_brut,
+                flags=re.IGNORECASE
+            )
+            
+            texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",

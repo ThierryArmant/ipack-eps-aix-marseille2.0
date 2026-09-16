@@ -1740,5 +1740,62 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 
 ### [SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]
 - Rôle : Le chef d'établissement exerce un **contrôle de conformité** avant la transmission à la CAHN. Avant de signer et valider le dossier certificatif, il doit s'assurer que les protocoles soumis respectent les structures de la voie (3 APSA pour le Bac GT/Pro, 2 pour le CAP) et que les fiches d'évaluation (FCA) sont bien rattachées. Si une alerte bloque la signature, vérifier la présence des commentaires obligatoires d'équipe en cas d'écarts.
+======================================================================
+📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS & AJOUTS TERRAIN (v2026.2.x)
+======================================================================
 
+----------------------------------------------------------------------
+1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE (UI)
+----------------------------------------------------------------------
+* Imports améliorés (Drag 'n drop) : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko).
+  📺 Tutoriel associé : Import_documents_glisser_deposer.mp4
+* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente, validé avec ajustements, non valide, validé).
+* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves s'effectue pour intégrer instantanément les entrées/sorties sans intervention manuelle dans la gestion des classes.
+  📺 Tutoriel associé : Import_automatique_eleves.mp4
+* Actualisation élargie : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser directement la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves.
+  📺 Tutoriel associé : Actualisation_equipe_classes.mp4
+
+----------------------------------------------------------------------
+2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
+----------------------------------------------------------------------
+* Description enrichie du matériel : Possibilité d'ajouter des photos du matériel, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois).
+  📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
+* Édition papier : La version papier de l'inventaire EPI intègre désormais automatiquement la photo du matériel.
+
+----------------------------------------------------------------------
+3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
+----------------------------------------------------------------------
+* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS.
+* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence.
+  📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
+* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes.
+* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département.
+  📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
+* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée.
+  📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
+
+----------------------------------------------------------------------
+4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
+----------------------------------------------------------------------
+* Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation.
+  📺 Tutoriels associés : Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4
+* Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS.
+* Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements.
+
+----------------------------------------------------------------------
+5. DONNÉES ACADÉMIQUES, RAPPORTS & CONFIGURATION TECHNIQUE
+----------------------------------------------------------------------
+* État des serveurs : Rapport technique affichant l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque libre, les versions PHP et de base de données.
+* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
+* Paramétrage des Dossiers SSS & Communications : Activation ou désactivation granulaire des sous-dossiers SSS et gestion des autorisations d'utilisation de la messagerie par les commissions.
+* Annuaire et Publipostage : Transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour faciliter le publipostage via CommissionBac et CommissionPro.
+
+----------------------------------------------------------------------
+6. CAS COMPLÉMENTAIRES & RÈGLES TERRAIN STRICTES
+----------------------------------------------------------------------
+* Gestion des PAI, PAP ou PPS : Un PAI, un PAP ou un PPS formalisant une pathologie chronique (asthme, allergies, troubles DYS) n'est pas une dispense d'EPS. L'élève participe avec des aménagements pédagogiques et matériels. Ne jamais saisir de statut DI ou IN dans iPackEPS sur la seule base d'un PAI/PAP.
+* Enseignants TZR ou partagés (Multi-établissements) : Utiliser le sélecteur d'établissement en haut de page sur l'accueil d'iPackEPS (après connexion ARENA) pour basculer vers l'entité souhaitée. Si l'établissement n'apparaît pas, l'affectation RAMSESE n'est pas redescendue ; contacter le secrétariat.
+* Élève exclu (Sanction disciplinaire) pendant un CCF : Une exclusion temporaire n'est ni une inaptitude médicale ni un cas de force majeure. L'établissement doit organiser une session de rattrapage (épreuve différée) dès son retour. Si absence injustifiée au rattrapage, attribution de la note zéro (0/20 ou ABS).
+* Rôle du chef d'établissement : Exerce un contrôle de conformité avant validation de la CAHN (vérification du nombre d'APSA selon la voie, présence des FCA et des commentaires d'équipe en cas d'écarts).
+* Interdiction d'improviser un contrôle adapté (FCA) à la volée : Formellement interdit en cours d'année pour une blessure soudaine. L'inaptitude temporaire relève d'un simple contrôle aménagé sur la MÊME APSA du protocole initial, sans changer d'activité.
 ======================================================================

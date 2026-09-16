@@ -652,3 +652,18 @@ CADRE JURIDIQUE : DISTINCTION ENTRE COMMISSION DE DISCIPLINE UNSS ET DOSSIER ADM
 3. Exclusivité du pouvoir disciplinaire de l'État :
 - La gestion de la carrière, de la discipline professionnelle et l'attribution de sanctions à l'encontre d'un agent public relèvent exclusivement de l'autorité académique (Recteur ou DSDEN).
 - Toute mesure disciplinaire visant un enseignant obéit strictement aux règles de la fonction publique de l'État et aux conseils de discipline habilités, garantissant une étanchéité totale face aux instances associatives sportives.
+=== DOCTRINE : SORTIES SCOLAIRES, APPN, ÉLÈVES NON-PARTICIPANTS ET TIERS ACCOMPAGNATEURS ===
+
+1. INTERDICTION DE DÉLÉGATION DE LA SURVEILLANCE :
+- En application de l'article L. 911-4 du Code de l'éducation, l'enseignant d'EPS ne peut en aucun cas déléguer sa responsabilité de surveillance, d'encadrement et de sécurité à un accompagnateur bénévole, un parent d'élève ou un tiers. La surveillance doit rester effective et sous la maîtrise exclusive des professeurs.
+
+2. STATUT EXCLUSIF DES ACCOMPAGNATEURS ULIS / MDPH :
+- Un accompagnateur (parent ou AESH) présent pour un élève bénéficiant d'un dispositif ULIS a une mission exclusive, individuelle et ciblée sur cet élève. Il est strictement interdit de l'utiliser comme variable d'ajustement ou de lui confier la surveillance d'autres élèves de la classe.
+
+3. GESTION DES ÉLÈVES NON-PARTICIPANTS EN APPN / MILIEU AQUATIQUE :
+- Un élève dispensé ou non-participant ne doit jamais être isolé sur la berge, sur le bord d'une base nautique ou à l'écart du groupe sous la garde d'un tiers non professionnel ou d'un parent.
+- Solution réglementaire : L'élève non-participant reste sous la responsabilité directe de l'équipe pédagogique (intégration au rôle d'observation, de régulation ou de secrétariat pédagogique encadré par un enseignant) ou pris en charge selon le protocole de l'établissement, mais jamais confié seul à un accompagnateur bénévole.
+
+4. EXIGENCES LIÉES AUX ACTIVITÉS PHYSIQUES DE PLEINE NATURE (APPN) & BASES NAUTIQUES :
+- Le milieu aquatique et les APPN imposent des normes de sécurité et de vigilance renforcées (risques de noyade, dispersion, conditions météorologiques). 
+- Toute dispersion de l'encadrement professionnel ou isolement d'un élève hors du champ de vision direct et permanent des professeurs d'EPS constitue un manquement grave aux obligations de sécurité.

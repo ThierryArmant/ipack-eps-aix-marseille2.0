@@ -67,7 +67,6 @@ VIDEOS_TUTOS = {
     "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
     "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
     "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
-    "Saisie_protocoles_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Saisie_protocoles_iPackEPS.mp4",
     "Protocoles_adaptes_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Protocoles_adaptes_iPackEPS.mp4",
     "Extraction_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Extraction_notes_Santorin.mp4",
     "Import_documents_glisser_deposer.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_documents_glisser_deposer.mp4",
@@ -85,6 +84,8 @@ VIDEOS_TUTOS = {
     "Configuration_modules_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_modules_SSS.mp4",
     "Depot_referentiels_iPackEPS.mp4": "https://youtu.be/T_-j01ovoA4",
     "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8"
+    "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
+    "Saisie_protocoles_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
 }
 
 # ======================================================================

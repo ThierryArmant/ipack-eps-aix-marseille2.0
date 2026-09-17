@@ -26,6 +26,7 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
 * ÉLÈVE INAPTE / DISPENSÉ MÉDICAL (« DISP » / « DI ») :
   - Sélectionner « DI » (Dispensé) ou « Inapte » dans le menu déroulant Santorin sur l'épreuve concernée.
   - Conséquence : Neutralisation de l'APSA pour le calcul du CCF (pas de note zéro). Nécessite obligatoirement un certificat médical conforme (le simple mot des parents est nul et non avenu).
+  - ⚠️ [NUANCE TEMPORELLE IMPORTANTE] : Le statut DISP est réglementaire pour une inaptitude de longue durée couvrant tout le cycle ou dans le cadre de dispenses multiples (note unique). Il est formellement interdit de l'utiliser en urgence pour une inaptitude de dernière minute (veille ou jour de l'épreuve), qui impose obligatoirement une épreuve différée.
 
 * ÉLÈVE ABSENT JUSTIFIÉ (« ABJ ») :
   - Sélectionner « ABJ » pour bloquer temporairement l'épreuve en vue d'une épreuve de substitution pratique sur le terrain (avant la clôture des serveurs Santorin).
@@ -80,6 +81,7 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 - Exemple de blocage iPackEPS : Programmer Volley-ball, Basket-ball et Badminton déclenche un rejet car ces trois activités appartiennent toutes au CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel).
 - Solution : Diversifier impérativement en piochant dans le CA1 (athlétisme/natation), CA2 (escalade/CO), CA3 (danse/gym) ou CA5 (musculation).
 - INTERDICTION FORMELLE DE FORCER UN REJET : Tout rejet technique provient d'une contradiction structurelle. Il faut nettoyer la structure dans iPackEPS et l'aligner dans Cyclades.
+- ⚠️ [NUANCE PÉDAGOGIQUE - APSA COMBINÉES] : L'interdiction formelle d'associer des APSA au sein d'un même champ ou de créer des noms combinés (ex: *Football-Musculation*) s'applique strictement à toutes les classes ordinaires. Cette règle souffre d'une unique exception technique tolérée : la création manuelle d'une APSA combinée sur iPackEPS est **exclusivement réservée aux groupes de type SSS (Section Sportive Scolaire)** en raison d'une limitation de l'interface qui ne gère qu'une seule APSA par groupe SSS.
 
 --------------------------------------------------------------------------------
 5. CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT
@@ -178,10 +180,12 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 ### 4. Réglementation des Absences et Épreuves Différées
 * **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
 * **Collège (DNB) :** Pas de CCF ni d'épreuve différée réglementaire. L'évaluation repose sur le contrôle continu des trimestres de 3ème à partir d'une pluralité d'évaluations. Une absence non justifiée ne se sanctionne pas par un zéro disciplinaire arbitraire, mais nécessite une régularisation si la moyenne n'est pas représentative.
+
 --- FAQ OFFICIELLE iPACKEPS : RÉFÉRENTIELS ET APSA ---
 
 Question 1 : En EPPCS, j’enseigne des APSA que je ne veux pas évaluer aux examens. Cependant iPackEPS me demande des référentiels pour toutes les APSAs du groupe, même si je décoche la case [certificative].
-Réponse : Dans la configuration des APSAs, la case [certificative] ne concerne que l’enseignement commun. Par défaut, iPackEPS considère que toutes les APSAs enseignées dans les groupes de type EPPCS pourront être évaluées et demande donc un dépôt de référentiel pour chacune. Si vous ne voulez pas déposer de référentiel pour certaines APSA, ajoutez simplement un commentaire explicatif et ignorez les alertes d’iPackEPS.
+Réponse : Dans la configuration des APSAs, la case [certificative] ne concerne que l’enseignement commun. Par défaut, iPackEPS considère que toutes les APSAs enseignées dans les groupes de type EPPCS pourront être évaluées et demande donc un dépôt de référentiel pour chacune. Si vous ne voulez pas déposer de référentiel pour certaines APSA, ajoutez simplement un commentaire explicatif et ignorez les alertes d’iPackEPS. 
+*(Nuance technique : Contrairement au fonctionnement standard où décocher la case suffit à s'affranchir du dépôt, l'architecture des groupes EPPCS force ce contrôle, d'où la nécessité de passer outre l'alerte par un commentaire).*
 
 Question 2 : Notre équipe propose plusieurs référentiels pour une même APSA (contrôle adapté…), mais iPackEPS ne me propose de déposer qu’un seul référentiel.
 Réponse : Il suffit de regrouper vos divers référentiels sur un seul et même document PDF, répartis sur plusieurs pages différentes (ex: page 1 : course de vitesse, page 2 : relais, page 3 : version contrôle adapté).
@@ -197,6 +201,7 @@ Réponse : Allez dans [Tableau de bord] / [Dossiers] / [Dossier EPS] / [APSA], s
 
 Question 6 : J’ai déclaré certificative une APSA académique, pourquoi ne la vois-je pas dans la zone de dépôt des référentiels ?
 Réponse : Cyclades considère que pour les APSAs académiques, c’est le référentiel académique national/académique qui fait foi. L’établissement n’a donc pas à déposer de référentiel local.
+
 --- FAQ OFFICIELLE iPACKEPS : GESTION DES GROUPES (EPS, AS, SSS, ETC.) ---
 
 MODULE CONCERNÉ : Tableau de bord => Dossiers => Dossier EPS ==> Groupes
@@ -248,6 +253,7 @@ Solution :
 - Pour les élèves de 3ème année, déclarez leur cycle scolaire en 1ère Bac Pro.
 - Pour les élèves de 4ème année, déclarez leur cycle scolaire en Terminale Bac Pro.
 iPackEPS considérera qu'ils font une 2nde, puis deux fois une 1ère, puis une terminale. Pour les terminales (4ème année), déclarez à nouveau les séquences d'apprentissage pour la 3ème APSA déjà évaluée l'année précédente (même si elle n'est pas enseignée cette année-là) afin de générer un fichier valide de 3 APSAs pour Cyclades.
+*(Précision méthodologique : Cette manipulation sur les cycles scolaires est un contournement technique exceptionnel dicté par la rigidité des serveurs nationaux et ne constitue pas une norme pédagogique standard).*
 
 Question 9 : J’enseigne plusieurs APSA dans le cadre de ma SSS, mais iPackEPS ne me permet de déclarer qu’une seule APSA dans le groupe SSS.
 Réponse : Par contrainte technique, un groupe SSS n'associe qu'une seule APSA. La solution est de créer manuellement une APSA personnalisée dans le module [dossiers]/[dossier EPS]/[APSA] en lui donnant un nom combiné (ex: "Football-Musculation").

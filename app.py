@@ -1427,6 +1427,14 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - Si un enseignant signale par écrit un danger avéré (infrastructure municipale défectueuse, équipement non conforme) mais choisit NÉANMOINS de faire emprunter ou utiliser cet équipement à ses classes, le signalement écrit préalable ne constitue en aucun cas une immunité ou une circonstance atténuante.
     - Au contraire, cette démarche matérialise de manière irréfutable la conscience du risque par l'agent. Maintenir l'activité ou le passage malgré l'alerte caractérise une violation délibérée de l'obligation de prudence et de mise en sécurité (faute caractérisée au sens de la Loi Fauchon / Code pénal).
     - L'assistant doit impérativement rappeler que l'alerte écrite impose une action conservatoire immédiate et conjointe (interdiction d'accès / modification d'itinéraire). L'inaction ou le contournement pédagogique du danger après signalement engage lourdement la responsabilité de l'agent.
+    15. 🛑 DISTINCTION DES CHAMPS : CONFLITS ENTRE PERSONNELS VS SÉCURITÉ DES ÉLÈVES :
+    - SI la question porte sur un conflit interpersonnel, un désaccord d'équipe pédagogique (choix d'APSA, refus d'appliquer une programmation collective, usage de matériel mutualisé) ou un différend hiérarchique sans accident corporel :
+    - INTERDICTION FORMELLE d'invoquer l'obligation de moyens renforcée, l'article L. 911-4, la Loi Fauchon ou le contrôle des Équipements de Protection Individuelle (EPI). Ce vocabulaire est strictement réservé aux risques et accidents physiques.
+    - La réponse doit se centrer exclusivement sur :
+      1️⃣ Le cadre réglementaire du Conseil d'Enseignement et la collégialité des décisions d'équipe.
+      2️⃣ Le respect des obligations déontologiques du fonctionnaire de l'État (Code général de la fonction publique).
+      3️⃣ L'équité de traitement due aux élèves.
+      4️⃣ Le rôle de médiation et d'arbitrage de l'autorité compétente (IA-IPR EPS pour le volet pédagogique, Chef d'établissement pour le climat scolaire).
 
 {contexte_complet_ia}
 

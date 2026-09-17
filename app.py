@@ -1012,6 +1012,12 @@ if prompt:
             and "lot" in p_low
         )
 
+        est_eleve_arrivant = (
+            mode != "textes"
+            and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"])
+            and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe", "protocole"])
+        )
+
         est_exclusion = (
             mode != "textes"
             and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
@@ -1038,6 +1044,7 @@ if prompt:
                 or est_sujet_secours 
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
+                or est_eleve_arrivant
                 or est_saisir_notes
                 or est_exclusion
                 or est_aucun_eleve
@@ -1079,7 +1086,7 @@ if prompt:
         elif est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
-  <li><strong>Règle absolue :</strong> iPackEPS n'en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
+  <li><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
   <li><strong>Outil dédié :</strong> Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.</li>
 </ul>"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
@@ -1113,6 +1120,21 @@ if prompt:
   <li><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</li>
   <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée automatiquement par l'interface. Nettoyez le protocole dans iPackEPS.</li>
 </ul>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_eleve_arrivant:
+            texte_brut = """<h3>📋 GESTION D'UN ÉLÈVE ARRIVANT EN COURS D'ANNÉE</h3>
+<ul>
+  <li><strong>Règle d'or pour l'enseignant :</strong> Aucune manipulation informatique, aucun "bricolage" local ni import de fichier n'est à faire de votre côté dans iPackEPS pour les examens nationaux. iPackEPS ne gère pas les listes d'examens nationaux sur Santorin.</li>
+  <li><strong>Action obligatoire (Secrétariat / Direction) :</strong> 
+    <ol>
+      <li>Le secrétariat de l'établissement doit associer l'élève au protocole d'examen dans <strong>Cyclades</strong> (via l'interface administrative).</li>
+      <li>Le chef d'établissement se connecte à la console <strong>Santorin-Direction</strong> pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot de correction.</li>
+    </ol>
+  </li>
+  <li><strong>Délai de synchronisation :</strong> La prise en compte est effective sous 12h à 24h après l'action administrative en amont.</li>
+</ul>
+📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_exclusion:

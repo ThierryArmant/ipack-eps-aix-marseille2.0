@@ -1061,9 +1061,17 @@ if prompt:
             and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
         )
 
+        # Condition resserrée pour éviter d'intercepter les questions pointues (ex: EPPCS)
         est_referentiels_rentree = (
             mode == "ipack"
-            and any(w in p_low for w in ["référentiel", "referentiel", "apsa certificative", "déclarer apsa", "dépôt référentiel"])
+            and any(
+                phrase in p_low for phrase in [
+                    "configurer les référentiels de rentrée",
+                    "déclarer les apsa de rentrée",
+                    "dépôt initial des référentiels",
+                    "campagne de rentrée"
+                ]
+            )
         )
 
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
@@ -1195,7 +1203,7 @@ if prompt:
 <ul>
   <li><strong>Règle d'or absolue :</strong> L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.</li>
   <li><strong>Action obligatoire (Direction) :</strong> La manipulation relève exclusivement du Chef d'établissement depuis sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).</li>
-  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'es une action locale et autonome de l'établissement.</li>
+  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'est une action locale et autonome de l'établissement.</li>
 </ul>
 📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"

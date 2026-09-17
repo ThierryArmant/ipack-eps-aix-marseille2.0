@@ -1040,9 +1040,8 @@ if prompt:
 
         est_verrouiller_lot = (
             mode == "examens"
-            and "verrouiller" in p_low
-            and not any(w in p_low for w in ["déverrouiller", "deverrouiller"])
-            and any(w in p_low for w in ["santorin", "lot"])
+            and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"])
+            and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"])
         )
 
         est_deverrouiller_lot = (
@@ -1407,7 +1406,7 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - Si la question concerne une validation, un blocage rectoral ou une action externe (ex: SSS), INTERDICTION ABSOLUE de rédiger une procédure en étapes (1, 2, 3...). 
     - La réponse doit être rédigée sous forme de paragraphes explicatifs factuels pour casser le réflexe d'hallucination de menus.
     14. 🛑 RESTRICTION RELATIVE AUX DISPOSITIFS ET TEXTES UNSS (DROITS D'AUTEUR) :
-    - Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.
+    - Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence spécifique lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.
     - Par conséquent, aucune question portant sur l'UNSS (valorisation des championnats, podiums, notes, compétitions) ne peut être traitée de manière réglementaire tant que l'UNSS n'aura pas accordé son autorisation formelle d'exploitation.
     - Face à toute sollicitation sur ce sujet, l'assistant doit obligatoirement informer l'utilisateur de cette absence documentaire et de l'impossibilité de traiter la demande en l'état, en s'abstenant strictement de formuler toute interprétation ou règle juridique.
 

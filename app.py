@@ -932,7 +932,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (Version Intégrale & Sécurisée)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (Version Définitive & Blindée)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -1444,6 +1444,11 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 texte_brut = response.text
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
+
+        # 🛡️ PURGE RADICALE DES RÉFÉRENCES SANTORIN EN CONTEXTE COLLÈGE / DNB
+        if est_college or est_dnb:
+            texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
+            texte_brut = re.sub(r"Saisie_notes_Santorin\.mp4", "", texte_brut, flags=re.IGNORECASE)
 
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"

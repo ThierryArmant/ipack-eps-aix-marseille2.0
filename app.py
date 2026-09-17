@@ -1283,7 +1283,7 @@ if prompt:
 <ul>
   <li><strong>Cadre réglementaire et droits d'auteur :</strong> Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence spécifique lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.</li>
   <li><strong>Impossibilité de traitement :</strong> Aucune question portant sur l'UNSS (valorisation des championnats, podiums, notes, compétitions, Jeunes Juges) ne peut être traitée de manière réglementaire par l'assistant tant que l'UNSS n'aura pas accordé son autorisation formelle d'exploitation.</li>
-  <li><strong>Recommandation :</strong> Pour toute question relative aux équivalences ou bonifications liées à l'sport scolaire, veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie (IA-IPR EPS / chef d'établissement).</li>
+  <li><strong>Recommandation :</strong> Pour toute question relative aux équivalences ou bonifications liées au sport scolaire, veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie (IA-IPR EPS / chef d'établissement).</li>
 </ul>"""
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
@@ -1332,6 +1332,10 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 """
 
         consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+
+    🎯 DÉFINITION DES ESPACES ET OUTILS DE LA PLATEFORME :
+    - **iPackEPS et Santorin** sont des **assistants techniques et logiciels de gestion** (dédiés à l'assistance informatique, aux interfaces de CCF, à la configuration des groupes, aux notes et aux copies numériques d'examens).
+    - L'onglet **"Sécurité & Responsabilité Juridique (Textes Officiels)"** est l'espace dédié aux textes réglementaires, aux programmes, au droit, à la pédagogie et aux conditions d'enseignement.
 
     🎯 PUBLIC CIBLE SÉLECTIONNÉ PAR L'UTILISATEUR : {niveau_actuel_form}
     (Tu dois impérativement adapter ta réponse, tes références réglementaires et ton analyse en fonction de ce niveau précis).

@@ -1,12 +1,12 @@
-======================================================================
-🛑 MÉMOIRE SOUVERAINE DE RÉFÉRENCE COMPLÈTE : EXAMENS EPS & SANTORIN
+================================================================================
+🛑 MÉMOIRE SOUVERAINE DE RÉFÉRENCE COMPLÈTE & MULTI-ACADÉMIQUE : EXAMENS EPS & SANTORIN
 LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
-======================================================================
-[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les fiches Scenari/Dokiel de l'académie de Créteil, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS, les retours d'expérience et les cas concrets de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
+================================================================================
+[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les modules Dokiel/Scenari de l'académie de Créteil, les FAQ des académies de Lyon, Grenoble et Normandie, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS et les retours d'terrain pour la session 2026. Il prévaut sur toute autre interprétation.
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 1. CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 * DATES LIMITES ABSOLUES DE VERROUILLAGE DES NOTES DU CCF EPS :
   - Les dates de remontée des notes et de fermeture des serveurs Santorin/Cyclades évoluant chaque année, les équipes doivent obligatoirement se référer au calendrier officiel diffusé par la circulaire académique de leur DEC.
   - Établissements en Rythme Sud (Hémisphère Sud / AEFE) : Les épreuves pratiques et la saisie sont décalées sur la session d'octobre / novembre / décembre. La date métropolitaine ne s'applique pas.
@@ -20,9 +20,9 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
   - En EPS (CCF ou examen ponctuel), il n'existe STRICTEMENT AUCUN sujet d'examen papier ou sujet écrit de secours à télécharger ou à imprimer depuis iPackEPS, Cyclades ou Santorin.
   - Tout rattrapage d'un élève absent justifié (ABJ) prend obligatoirement la forme d'une « Épreuve de substitution » motrice sur le terrain avant la clôture des serveurs.
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 2. DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF EPS
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 * ÉLÈVE INAPTE / DISPENSÉ MÉDICAL (« DISP » / « DI ») :
   - Sélectionner « DI » (Dispensé) ou « Inapte » dans le menu déroulant Santorin sur l'épreuve concernée.
   - Conséquence : Neutralisation de l'APSA pour le calcul du CCF (pas de note zéro). Nécessite obligatoirement un certificat médical conforme (le simple mot des parents est nul et non avenu).
@@ -39,9 +39,9 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
   - Procédure : Saisir le statut [Dispensé] (DI) pour les deux épreuves non pratiquées, puis saisir normalement la note réelle (ex: 14/20) pour l'unique APSA évaluée.
   - Obligation technique absolue : Rédiger un commentaire circonstancié de justification STRICTEMENT OBLIGATOIRE dans l'interface Santorin pour éclairer l'arbitrage de la CAHPN (demande de maintien de la note unique ou de neutralisation).
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 3. BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
 * Saisie directe au pavé numérique (sans menu déroulant) :
   - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
@@ -68,20 +68,22 @@ B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
 
 C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 * RÈGLE ABSOLUE DE CONNEXION (ANTI-SITE PUBLIC) :
-  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public (type site grand public de l'académie). L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet académique de type Esterel) via les identifiants professionnels (e-mail académique + mot de passe).
+  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet académique de type Esterel) via les identifiants professionnels (e-mail académique + mot de passe).
 * Contournement des saturations de serveurs ENT :
-  - En période de pointe (fin mai), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier : https://appli.ac-aix-marseille.fr/imagin/enseignant
+  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier (ex: https://appli.ac-aix-marseille.fr/imagin/enseignant ou équivalent académique).
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 4. RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 - Principe absolu : Le CCF (Voie Pro et Voie GT) impose obligatoirement que les 3 épreuves de l'ensemble certificatif relèvent de 3 Champs d'Apprentissage (CA) distincts.
+- CAP = Strictement 2 épreuves / 2 Champs d'Apprentissage (Toute 3e épreuve bloque).
 - Exemple de blocage iPackEPS : Programmer Volley-ball, Basket-ball et Badminton déclenche un rejet car ces trois activités appartiennent toutes au CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel).
 - Solution : Diversifier impérativement en piochant dans le CA1 (athlétisme/natation), CA2 (escalade/CO), CA3 (danse/gym) ou CA5 (musculation).
+- INTERDICTION FORMELLE DE FORCER UN REJET : Tout rejet technique provient d'une contradiction structurelle. Il faut nettoyer la structure dans iPackEPS et l'aligner dans Cyclades.
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 5. CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 - Le piège du portail Imag'in : Si un enseignant remplaçant (arrivé en cours d'année suite à un long arrêt) ne voit pas ses lots dans Santorin, le problème ne vient pas de Santorin mais d'Imag'in.
 - Procédure exacte :
   1. Saisir/vérifier l'affectation administrative dans STSWEB.
@@ -89,16 +91,16 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   3. L'action critique : Cliquer impérativement sur le picto « PDF » de la convocation. Ce clic est l'action informatique obligatoire qui transmet (pousse) les droits d'écriture de l'enseignant vers la base Santorin (délai de synchronisation de 12h à 24h).
   4. Procéder ensuite à la distribution des lots dans la console Santorin-Direction.
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 6. LA FAUSSE PISTE DES "CONDITIONS EXCEPTIONNELLES" (CE)
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 - Règle absolue : Le dispositif de Conditions Exceptionnelles (CE) est strictement collectif. 
 - Il s'applique uniquement à la totalité d'un groupe ou d'une classe en raison de conditions de pratique et d'évaluation rendues impossibles pour l'ensemble du groupe (ex: intempéries majeures, destruction d'un équipement le jour J).
 - Il est formellement interdit d'invoquer ou de demander une procédure de CE pour le cas particulier d'un élève isolé (pour un élève isolé, voir l'épreuve différée ou le traitement des absences/dispenses).
 
-----------------------------------------------------------------------
-7. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
+7. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION
+--------------------------------------------------------------------------------
 * BUG A : « AUCUN LOT À CORRIGER » / LOT INVISIBLE
   - Cause 1 : Absence de mission active « Notation EPS CCF » dans Imag'in (défaut STSWEB).
   - Cause 2 : Le Chef d'établissement a omis de cliquer sur le picto « PDF » dans Imag'in (les droits n'ont pas été poussés vers Santorin).
@@ -106,19 +108,19 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   - Cause 4 (Conflit de mail) : L'adresse e-mail de l'examinateur dans Cyclades ne concorde pas avec Imag'in. Solution : Modifier l'e-mail via l'activité Cyclades « EPS - Contrôler/réaffecter des protocoles » ou exécuter une distribution manuelle dans Santorin-Direction.
 
 * BUG B : ÉLÈVE ARRIVANT EN COURS D'ANNÉE / INTROUVABLE SUR SANTORIN :
-  - Règle pour l'enseignant : Aucune manipulation informatique ou import de fichier n'est à faire de votre côté (iPackEPS ne gère pas les listes d'examens nationaux sur Santorin).
+  - Règle pour l'enseignant : Aucune manipulation informatique ou import local n'est à faire de votre côté (iPackEPS ne gère pas les listes d'examens nationaux sur Santorin).
   - Action obligatoire (Chef d'établissement / Secrétariat) : 
     1. Le secrétariat doit associer l'élève au protocole d'examen dans Cyclades (via l'interface administrative).
     2. Le chef d'établissement se connecte à la console Santorin-Direction pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot.
   - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
 
-* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN :
+* PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN (MULTIMÉTHODE FAQ) :
   - Distinction clé : Ne pas confondre la « réaffectation d'un lot » (qui attribue la totalité des copies d'un lot à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.
   - Règle absolue : L'enseignant n'a aucun droit de déplacer lui-même un candidat d'un lot à un autre sur Santorin.
   - Cas 1 & 2 (Arrivée tardive, élève non listé ou erreur de protocole dans Cyclades) : Corriger l'affectation du candidat ou du protocole dans Cyclades, puis effectuer une nouvelle **distribution automatique** des candidats/lots dans Santorin.
   - Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) : Deux solutions directes dans Santorin :
-    * Option A : Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur « Affecter à un autre lot » ou « Affecter à un nouveau lot » en désignant le correcteur chargé de la notation. (Réf : https://pole-examens.github.io/tutoriels-examens/co/deplacer_candidat_vers_autre_lot.html)
-    * Option B : Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève. (Réf : https://pole-examens.github.io/tutoriels-examens/co/procedures_complementaires.html)
+    * Option A : Depuis la liste des candidats du lot, sélectionner l'élève et cliquer sur « Affecter à un autre lot » ou « Affecter à un nouveau lot » en désignant le correcteur chargé de la notation.
+    * Option B : Ajouter un évaluateur supplémentaire/correcteur au lot pour permettre à l'enseignant de noter son élève (Correction partagée / Co-évaluation).
   - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
@@ -129,9 +131,9 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).
   - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 8. RÈGLE D'OR - INAPTITUDE À L'APPROCHE DU CCF (URGENCE DERNIÈRE MINUTE)
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 - Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative est une inaptitude temporaire.
 - Interdiction formelle d'attribuer un statut "DISP" (Dispensé) immédiat dans Santorin.
 - Obligation absolue d'organiser une épreuve différée (session de substitution sur le terrain avant la clôture des serveurs académiques). Le statut DISP est proscrit pour ces cas de dernière minute.
@@ -141,6 +143,7 @@ AVERTISSEMENT RAG : CHAMP D'APPLICATION EXCLUSIF DE SANTORIN / CYCLADES
 ======================================================================
 - Public cible et niveau : Les procédures, protocoles et tutoriels liés à Santorin et Cyclades concernent exclusivement les examens du second degré au lycée (Baccalauréat général, technologique, professionnel, BTS) et les examens professionnels.
 - Interdiction formelle d'application au collège : Ces plateformes et outils de correction numérique de copies ne s'appliquent en aucun cas au Diplôme National du Brevet (DNB) ni à la gestion des notes de contrôle continu des collèges. Toute question portant sur la notation, les absences ou le contrôle continu en classe de 3ème relève du cadre interne du collège et du LSU, et ne doit jamais faire référence à Santorin.
+
 [BLOC_CONTRADICTION_REGLEMENTAIRE]
 - Contexte : Tout rejet de protocole sur Santorin ou Cyclades.
 - Analyse automatique : Un rejet technique provient TOUJOURS d'une contradiction entre la structure déclarée dans iPackEPS et la règle nationale de l'examen.
@@ -149,8 +152,9 @@ AVERTISSEMENT RAG : CHAMP D'APPLICATION EXCLUSIF DE SANTORIN / CYCLADES
   * Bac GT / Pro = Strictement 3 épreuves / 3 Champs d'Apprentissage distincts.
   * Collège (DNB) = Zéro CCF, zéro protocole d'examen (Contrôle continu / LSU uniquement).
 - Action corrective obligatoire : Ne jamais proposer de "déverrouiller" ou de "forcer" la saisie. Exiger le nettoyage de la structure dans iPackEPS et l'alignement dans Cyclades.
+
 ======================================================================
-BASE DE CONNAISSANCES RAG : EXAMENS, CERTIFICATION ET PLATEFORMES (CYCLADES, SANTORIN, IMAG'IN)
+BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 ======================================================================
 
 ### 1. Acteurs et Rôles Institutionnels

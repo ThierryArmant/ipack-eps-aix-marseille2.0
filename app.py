@@ -969,7 +969,6 @@ if prompt:
 
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
 
-        # --- NOUVEAU COURT-CIRCUIT : Import Pronote prioritaire pour éviter le faux positif ---
         est_import_pronote = (
             mode == "ipack"
             and "pronote" in p_low
@@ -1342,4 +1341,105 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-        texte_brut = texte_brut.replace("```html", "").replace("
+        texte_brut = texte_brut.replace("```html", "")
+        texte_brut = texte_brut.replace("```HTML", "")
+        texte_brut = texte_brut.replace("```", "")
+
+        if mode == "textes" or est_dnb:
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+        if mode == "textes":
+            texte_brut = re.sub(
+                r"("
+                r"Articles?\s+[\dLRDABab\.\-\s,–]+"
+                r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
+                r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
+                r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
+                r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Bulletin\s+officiel"
+                r"|RGPD"
+                r")",
+                r'<span class="law-highlight">\1</span>',
+                texte_brut,
+                flags=re.IGNORECASE
+            )
+            
+            texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
+
+        re_links = re.sub(
+            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
+            texte_brut,
+        )
+        texte_brut = re_links
+
+        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+        texte_final = (
+            texte_nettoye.replace("<p>", "")
+            .replace("</p>", "<br>")
+        )
+        texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
+        texte_final = texte_final.replace("\n", "<br>")
+
+        phrase_contexte = (
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
+        )
+
+        footer_assistance = ""
+        if mode == "textes":
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
+                "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
+                "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
+                "</div>"
+            )
+        elif mode in ["ipack", "examens"]:
+            footer_assistance = (
+                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
+                "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
+                "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
+                "</div>"
+            )
+
+        formatted_answer = (
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+        )
+
+        log_interaction(
+            question=prompt, 
+            reponse=texte_brut, 
+            mode=mode, 
+            contexte=contexte_choisi_nom, 
+            niveau=niveau_actuel_form
+        )
+
+        st.session_state.messages_hub.append(
+            {"role": "assistant", "type": "text", "content": formatted_answer}
+        )
+
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                if est_dnb and "santorin" in video_name.lower():
+                    continue
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
+                )
+
+if "messages_hub" in st.session_state and st.session_state.messages_hub:
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

@@ -66,7 +66,9 @@ B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
 * Réinitialisation rapide via `[Vider]` :
   - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention `[Vider]` située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
 
-C. IMAG'IN & PORTAILS ACADÉMIQUES
+C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
+* RÈGLE ABSOLUE DE CONNEXION (ANTI-SITE PUBLIC) :
+  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public (type site grand public de l'académie). L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet académique de type Esterel) via les identifiants professionnels (e-mail académique + mot de passe).
 * Contournement des saturations de serveurs ENT :
   - En période de pointe (fin mai), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier : https://appli.ac-aix-marseille.fr/imagin/enseignant
 

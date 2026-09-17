@@ -1018,6 +1018,18 @@ if prompt:
             and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe", "protocole"])
         )
 
+        est_lot_verrouille = (
+            mode == "examens"
+            and any(w in p_low for w in ["cadenas", "verrouillé", "verrouille", "fermé", "ferme", "modifier note"])
+            and any(w in p_low for w in ["santorin", "lot", "copie"])
+        )
+
+        est_dispense_totale = (
+            mode != "textes"
+            and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"])
+            and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"])
+        )
+
         est_exclusion = (
             mode != "textes"
             and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
@@ -1045,6 +1057,8 @@ if prompt:
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
                 or est_eleve_arrivant
+                or est_lot_verrouille
+                or est_dispense_totale
                 or est_saisir_notes
                 or est_exclusion
                 or est_aucun_eleve
@@ -1135,6 +1149,25 @@ if prompt:
   <li><strong>Délai de synchronisation :</strong> La prise en compte est effective sous 12h à 24h après l'action administrative en amont.</li>
 </ul>
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_lot_verrouille:
+            texte_brut = """<h3>🔒 CADENAS ET VERROUILLAGE DE LOT SUR SANTORIN</h3>
+<ul>
+  <li><strong>Règle d'or absolue :</strong> L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.</li>
+  <li><strong>Action obligatoire (Direction) :</strong> La manipulation relève exclusivement du Chef d'établissement depuis sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).</li>
+  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'est une action locale et autonome de l'établissement.</li>
+</ul>
+📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_dispense_totale:
+            texte_brut = """<h3>🏥 GESTION D'UNE INAPTITUDE / DISPENSE TOTALE DE CERTIFICATION</h3>
+<ul>
+  <li><strong>Cadre réglementaire :</strong> Une inaptitude médicale couvrant <strong>l'intégralité du cycle de certification</strong> (dispense totale) ne relève pas d'une absence ponctuelle ni d'une épreuve différée.</li>
+  <li><strong>Saisie administrative :</strong> Le dossier doit faire l'objet du statut réglementaire de dispense globale (ex: <code>DISP</code> sur les blocs concernés) conformément aux directives de la note de service des examens.</li>
+  <li><strong>Attention au zéro :</strong> Ne jamais assimiler une dispense totale et officielle à une absence injustifiée (pas de zéro éliminatoire). Le dossier sera examiné par la CAHPN.</li>
+</ul>"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
         elif est_exclusion:

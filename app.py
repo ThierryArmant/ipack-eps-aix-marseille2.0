@@ -1061,7 +1061,6 @@ if prompt:
             and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
         )
 
-        # Condition resserrée pour éviter d'intercepter les questions pointues (ex: EPPCS)
         est_referentiels_rentree = (
             mode == "ipack"
             and any(
@@ -1346,6 +1345,8 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     11. 🌐 [ RÈGLE ABSOLUE - ACCÈS AUX PLATEFORMES & INTERDICTION DES URLS FICTIVES ] :
     - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
     - ACCÈS PAR PORTAIL PRO UNIQUEMENT : Rappeler systématiquement que l'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) ne se fait jamais via un site public mais par le portail professionnel ARENA.
+    12. 🛑 INTERDICTION D'INVENTER DES MENUS POUR LES BLOCS ADMINISTRATIFS :
+    - Si la question concerne un blocage externe ou une validation administrative (comme l'activation d'une SSS par le recteur ou l'académie), l'assistant ne doit jamais inventer de chemin de menu iPackEPS fictif (ex: "Allez dans Équipe EPS"). Il doit indiquer clairement qu'aucune action locale dans les menus n'est possible et rappeler la démarche externe (signalement IPR/responsable).
 
 {contexte_complet_ia}
 

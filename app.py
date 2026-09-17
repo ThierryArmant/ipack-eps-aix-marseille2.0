@@ -1026,10 +1026,21 @@ if prompt:
             and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe", "protocole"])
         )
 
-        est_lot_verrouille = (
+        est_verrouiller_lot = (
             mode == "examens"
-            and any(w in p_low for w in ["cadenas", "verrouillé", "verrouille", "fermé", "ferme", "modifier note"])
+            and "verrouiller" in p_low
+            and not any(w in p_low for w in ["déverrouiller", "deverrouiller"])
+            and any(w in p_low for w in ["santorin", "lot"])
+        )
+
+        est_deverrouiller_lot = (
+            mode == "examens"
+            and (
+                any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"])
+                or "verrouillé" in p_low
+            )
             and any(w in p_low for w in ["santorin", "lot", "copie"])
+            and not est_verrouiller_lot
         )
 
         est_dispense_totale = (
@@ -1065,7 +1076,8 @@ if prompt:
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
                 or est_eleve_arrivant
-                or est_lot_verrouille
+                or est_verrouiller_lot
+                or est_deverrouiller_lot
                 or est_dispense_totale
                 or est_saisir_notes
                 or est_exclusion
@@ -1168,12 +1180,21 @@ if prompt:
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-        elif est_lot_verrouille:
-            texte_brut = """<h3>🔒 CADENAS ET VERROUILLAGE DE LOT SUR SANTORIN</h3>
+        elif est_verrouiller_lot:
+            texte_brut = """<h3>🔒 VERROUILLAGE D'UN LOT DE CORRECTION SUR SANTORIN</h3>
+<ul>
+  <li><strong>Principe :</strong> Une fois la saisie de toutes les notes et des statuts terminée et vérifiée, vous devez procéder au verrouillage de votre lot pour figer les données avant transmission définitive.</li>
+  <li><strong>Manipulation :</strong> Depuis votre espace de correction sur Santorin, accédez au lot concerné et validez l'action de clôture/verrouillage.</li>
+</ul>
+📺 Tutoriel associé : Verrouiller_lot_santorin.mp4"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_deverrouiller_lot:
+            texte_brut = """<h3>🔒 CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN</h3>
 <ul>
   <li><strong>Règle d'or absolue :</strong> L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.</li>
   <li><strong>Action obligatoire (Direction) :</strong> La manipulation relève exclusivement du Chef d'établissement depuis sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).</li>
-  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'est une action locale et autonome de l'établissement.</li>
+  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'es une action locale et autonome de l'établissement.</li>
 </ul>
 📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -1240,8 +1261,8 @@ if prompt:
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
    - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
      * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
-     * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'une INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
-   - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'une INGÉRENCE DE TIERS ou d'un LITIGE APPN.
+     * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
+   - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS ou d'un LITIGE APPN.
    - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Uniquement pour les questions juridiques/sécurité) : La réponse s'ouvre systématiquement sur le double rappel protecteur :
      1️⃣ Les obligations strictes de l'agent (obligation de moyens renforcée, respect des normes d'encadrement, contrôle des conditions de pratique et des EPI).
      2️⃣ Les garanties protectrices de l'agent (substitution de la responsabilité de l'État sous l'art. L. 911-4, protection fonctionnelle, et bouclier de la Loi n° 2000-647 / Loi Fauchon exigeant une faute caractérisée pour l'auteur indirect).

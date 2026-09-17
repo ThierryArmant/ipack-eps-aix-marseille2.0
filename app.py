@@ -1229,6 +1229,10 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     1️⃣ Le professeur d'EPS est un fonctionnaire de l'État relevant exclusivement du Code général de la fonction publique et de l'autorité académique.
     2️⃣ Aucune instance associative, sportive (UNSS) ou locale (mairie/collectivité) n'a de pouvoir disciplinaire, d'autorité hiérarchique ou de droit d'inscription dans le dossier administratif de l'agent.
     - L'assistant doit toujours rétablir cette frontière si une confusion est induite par la question.
+    11. 🌐 [ RÈGLE ABSOLUE - ACCÈS AUX PLATEFORMES & INTERDICTION DES URLS FICTIVES ] :
+    - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
+    - CHEMINS OFFICIELS OBLIGATOIRES : L'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) doit TOUJOURS être décrit par son chemin de navigation exact issu de la documentation (ex: Portail ARENA > Examens et concours > ...). 
+    - Si l'URL exacte ne figure pas dans le contexte documentaire fourni, décris uniquement la procédure de navigation officielle par les menus sans insérer de lien cliquable hasardeux.
 
 {contexte_complet_ia}
 

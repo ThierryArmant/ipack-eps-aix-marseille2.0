@@ -83,7 +83,7 @@ VIDEOS_TUTOS = {
     "Gestion_dossier_APPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Gestion_dossier_APPN.mp4",
     "Configuration_modules_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_modules_SSS.mp4",
     "Depot_referentiels_iPackEPS.mp4": "https://youtu.be/T_-j01ovoA4",
-    "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8"
+    "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8",
     "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
     "Saisie_protocoles_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
 }

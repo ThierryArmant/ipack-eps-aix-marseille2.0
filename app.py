@@ -975,6 +975,11 @@ if prompt:
             and mode != "examens" 
         )
 
+        est_connexion = (
+            any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) 
+            and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"])
+        )
+
         est_date = (
             (not est_college) 
             and any(
@@ -1028,7 +1033,8 @@ if prompt:
         est_cas_direct = (
             (mode != "textes") 
             and (
-                est_date 
+                est_connexion
+                or est_date 
                 or est_sujet_secours 
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
@@ -1062,10 +1068,18 @@ if prompt:
             except Exception:
                 pass
 
-        if est_saisir_notes:
+        if est_connexion:
+            texte_brut = """<h3>🌐 ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)</h3>
+<ul>
+  <li><strong>Règle d'or absolue :</strong> Aucun enseignant ou personnel ne se connecte par un site web académique public (type site grand public de l'académie).</li>
+  <li><strong>Portail d'accès unique :</strong> L'accès à TOUTES les applications professionnelles et d'examen se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel <strong>ARENA</strong> (ou l'intranet académique de type Esterel) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).</li>
+</ul>"""
+            badge, color_card = "🌐 ACCÈS INSTITUTIONNEL", ("santorin-card" if mode == "examens" else "general-card")
+
+        elif est_saisir_notes:
             texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
 <ul>
-  <li><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
+  <li><strong>Règle absolue :</strong> iPackEPS n'en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
   <li><strong>Outil dédié :</strong> Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.</li>
 </ul>"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
@@ -1150,8 +1164,6 @@ if prompt:
 
         directive_onglet = ""
         if mode == "textes":
-            directive_onglet = ""
-        if mode == "textes":
             directive_onglet = """
 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
    - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
@@ -1231,8 +1243,7 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - L'assistant doit toujours rétablir cette frontière si une confusion est induite par la question.
     11. 🌐 [ RÈGLE ABSOLUE - ACCÈS AUX PLATEFORMES & INTERDICTION DES URLS FICTIVES ] :
     - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
-    - CHEMINS OFFICIELS OBLIGATOIRES : L'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) doit TOUJOURS être décrit par son chemin de navigation exact issu de la documentation (ex: Portail ARENA > Examens et concours > ...). 
-    - Si l'URL exacte ne figure pas dans le contexte documentaire fourni, décris uniquement la procédure de navigation officielle par les menus sans insérer de lien cliquable hasardeux.
+    - ACCÈS PAR PORTAIL PRO UNIQUEMENT : Rappeler systématiquement que l'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) ne se fait jamais via un site public mais par le portail professionnel ARENA.
 
 {contexte_complet_ia}
 

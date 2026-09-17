@@ -1074,6 +1074,13 @@ if prompt:
         )
 
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
+        
+        # Blocage SSS non autorisé (cas direct pour éviter les hallucinations de menus)
+        est_sss_bloque = (
+            mode == "ipack"
+            and any(w in p_low for w in ["sss", "section sportive"])
+            and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "autorise", "bloque", "pas"])
+        )
 
         est_cas_direct = (
             (mode != "textes") 
@@ -1092,6 +1099,7 @@ if prompt:
                 or est_aucun_eleve
                 or est_referentiels_rentree
                 or est_import_pronote
+                or est_sss_bloque
             )
         ) or est_tasa
 
@@ -1254,6 +1262,16 @@ if prompt:
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
 📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_sss_bloque:
+            texte_brut = """<h3>⚠️ BLOCAGE CRÉATION GROUPE SSS</h3>
+<ul>
+  <li><strong>Règle institutionnelle :</strong> La création d’un groupe de type SSS (Section Sportive Scolaire) nécessite obligatoirement que le recteur ait validé la demande d’ouverture de votre section. Par défaut, iPackEPS n’autorise pas la création de ce type de groupe.</li>
+  <li><strong>Mise à jour académique :</strong> Chaque année, le responsable iPackEPS de l'académie met à jour la liste des nouvelles SSS autorisées.</li>
+  <li><strong>Action requise :</strong> Si votre dossier a bien été validé par le recteur mais que l'application bloque toujours, <strong>faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR</strong> pour que votre établissement soit activé dans le système. Aucune action locale dans les menus ne pourra contourner ce verrouillage.</li>
+</ul>
+📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
         else:
             if mode == "examens":

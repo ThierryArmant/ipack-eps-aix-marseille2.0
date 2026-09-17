@@ -1014,6 +1014,12 @@ if prompt:
         )
         est_tasa = mode == "textes" and "tasa" in p_low
 
+        # Détection UNSS (Blocage direct pour droits d'auteur)
+        est_unss = any(w in p_low for w in [
+            "unss", "championnat de france", "championnats de france", 
+            "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"
+        ])
+
         est_deplacer_candidat = (
             mode != "textes"
             and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
@@ -1075,7 +1081,6 @@ if prompt:
 
         est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
         
-        # Blocage SSS non autorisé (cas direct pour éviter les hallucinations de menus)
         est_sss_bloque = (
             mode == "ipack"
             and any(w in p_low for w in ["sss", "section sportive"])
@@ -1101,7 +1106,7 @@ if prompt:
                 or est_import_pronote
                 or est_sss_bloque
             )
-        ) or est_tasa
+        ) or est_tasa or est_unss
 
         if openai_api_key and not est_cas_direct:
             try:
@@ -1272,6 +1277,15 @@ if prompt:
 </ul>
 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+        elif est_unss:
+            texte_brut = """<h3>🛑 RESTRICTION DOCUMENTAIRE - DISPOSITIFS UNSS</h3>
+<ul>
+  <li><strong>Cadre réglementaire et droits d'auteur :</strong> Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence spécifique lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.</li>
+  <li><strong>Impossibilité de traitement :</strong> Aucune question portant sur l'UNSS (valorisation des championnats, podiums, notes, compétitions, Jeunes Juges) ne peut être traitée de manière réglementaire par l'assistant tant que l'UNSS n'aura pas accordé son autorisation formelle d'exploitation.</li>
+  <li><strong>Recommandation :</strong> Pour toute question relative aux équivalences ou bonifications liées à l'sport scolaire, veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie (IA-IPR EPS / chef d'établissement).</li>
+</ul>"""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         else:
             if mode == "examens":

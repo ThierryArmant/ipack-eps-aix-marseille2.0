@@ -932,7 +932,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES (Version Intégrale & Sécurisée)
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -968,7 +968,14 @@ if prompt:
         except Exception:
             pass
 
-        est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college"])
+        est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
+        est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
+
+        # 🛡️ DISJONCTEUR DE SÉCURITÉ : Sémantique > Interface UI
+        if est_college and not est_clairement_lycee:
+            contexte_actif = "college"
+        else:
+            contexte_actif = mode
 
         est_import_pronote = (
             mode == "ipack"
@@ -1014,7 +1021,6 @@ if prompt:
         )
         est_tasa = mode == "textes" and "tasa" in p_low
 
-        # Détection UNSS (Blocage direct pour droits d'auteur)
         est_unss = any(w in p_low for w in [
             "unss", "championnat de france", "championnats de france", 
             "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"
@@ -1113,9 +1119,15 @@ if prompt:
             )
         ) or est_tasa or est_unss
 
+        # 🛡️ ROUTAGE DU RETRIEVER SÉCURISÉ PAR CONTEXTE ACTIF
         if openai_api_key and not est_cas_direct:
             try:
-                if mode == "examens":
+                if contexte_actif == "college":
+                    if retriever_peda:
+                        nodes_peda = retriever_peda.retrieve(prompt)
+                        for n in nodes_peda:
+                            extraits_doc += f"[Référentiel Collège / Programmes] {n.node.text}\n\n"
+                elif mode == "examens":
                     nodes_bruts = retriever_santorin.retrieve(prompt)
                     for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
@@ -1128,7 +1140,7 @@ if prompt:
                     for n in nodes_bruts:
                         extraits_doc += f"{n.node.text}\n\n"
                 
-                if retriever_peda:
+                if contexte_actif != "college" and retriever_peda:
                     nodes_peda = retriever_peda.retrieve(prompt)
                     for n in nodes_peda:
                         extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
@@ -1307,7 +1319,9 @@ if prompt:
             badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
         else:
-            if mode == "examens":
+            if contexte_actif == "college":
+                badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
+            elif mode == "examens":
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
             elif mode == "ipack":
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
@@ -1401,14 +1415,14 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
     - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
     - ACCÈS PAR PORTAIL PRO UNIQUEMENT : Rappeler systématiquement que l'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) ne se fait jamais via un site public mais par le portail professionnel ARENA.
     12. 🛑 INTERDICTION D'INVENTER DES MENUS POUR LES BLOCS ADMINISTRATIFS :
-    - Si la question concerne un blocage externe ou une validation administrative (comme l'activation d'une SSS par le recteur ou l'académie), l'assistant ne doit jamais inventer de chemin de menu iPackEPS fictif (ex: "Allez dans Équipe EPS"). Il doit indiquer clairement qu'aucune action locale dans les menus n'est possible et rappeler la démarche externe (signalement IPR/responsable).
+    - Si la question concerne un blocage externe ou une validation administrative (comme l'activation d'une SSS par le recteur ou l'académie), l'assistant ne doit jamais inventer de chemin de menu iPackEPS fictif (ex: "Allez dans Équipe EPS"). Il doit indiquer clairement qu'aucun menu local ne permet de contourner cela et rappeler la démarche externe.
     13. 🛑 INTERDICTION FORMELLE D'UTILISER DES ÉTAPES NUMÉROTÉES POUR LES BLOCS ADMINISTRATIFS :
     - Si la question concerne une validation, un blocage rectoral ou une action externe (ex: SSS), INTERDICTION ABSOLUE de rédiger une procédure en étapes (1, 2, 3...). 
     - La réponse doit être rédigée sous forme de paragraphes explicatifs factuels pour casser le réflexe d'hallucination de menus.
     14. 🛑 RESTRICTION RELATIVE AUX DISPOSITIFS ET TEXTES UNSS (DROITS D'AUTEUR) :
     - Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence spécifique lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.
     - Par conséquent, aucune question portant sur l'UNSS (valorisation des championnats, podiums, notes, compétitions) ne peut être traitée de manière réglementaire tant que l'UNSS n'aura pas accordé son autorisation formelle d'exploitation.
-    - Face à toute sollicitation sur ce sujet, l'assistant doit obligatoirement informer l'utilisateur de cette absence documentaire et de l'impossibilité de traiter la demande en l'état, en s'abstenant strictement de formuler toute interprétation ou règle juridique.
+    - Face à toute sollicitation sur ce sujet, l'assistant doit obligatoirement informer l'utilisateur de cette absence documentaire et de l'impossibilité de traiter la demande en l'état.
 
 {contexte_complet_ia}
 

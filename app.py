@@ -1030,7 +1030,12 @@ if prompt:
         est_eleve_arrivant = (
             mode != "textes"
             and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"])
-            and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe", "protocole"])
+            and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"])
+        )
+
+        est_apsa_etablissement_vs_nationale = (
+            any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"])
+            and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"])
         )
 
         est_verrouiller_lot = (
@@ -1096,6 +1101,7 @@ if prompt:
                 or est_cap_3epreuves 
                 or est_deplacer_candidat
                 or est_eleve_arrivant
+                or est_apsa_etablissement_vs_nationale
                 or est_verrouiller_lot
                 or est_deverrouiller_lot
                 or est_dispense_totale
@@ -1200,6 +1206,20 @@ if prompt:
 </ul>
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
             badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+        elif est_apsa_etablissement_vs_nationale:
+            texte_brut = """<h3>⚠️ ERREUR DE SAISIE : APSA ÉTABLISSEMENT VS LISTE NATIONALE (BAC GT)</h3>
+<ul>
+  <li><strong>Le problème :</strong> Déclarer une activité en "APSA établissement" au lieu de l'activité de la "liste nationale" (ex: Courses, Sauts, Lancers) bloque la validation du protocole par iPackEPS (exigence d'a minima 2 ou 3 activités de la liste nationale selon la voie) et fausse les statistiques académiques sur Cyclades.</li>
+  <li><strong>Procédure de résolution exacte :</strong>
+    <ol>
+      <li>Retournez dans le module <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>.</li>
+      <li>Sélectionnez dans le tableau de gauche l'activité de la liste nationale correspondante (ex: <em>[Courses]</em>).</li>
+      <li>Déclarez-la certificative en Lycée pour remplacer l'APSA établissement erronée.</li>
+    </ol>
+  </li>
+</ul>"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
         elif est_verrouiller_lot:
             texte_brut = """<h3>🔒 VERROUILLAGE D'UN LOT DE CORRECTION SUR SANTORIN</h3>

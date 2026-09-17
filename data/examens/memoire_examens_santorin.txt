@@ -178,3 +178,76 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 ### 4. Réglementation des Absences et Épreuves Différées
 * **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
 * **Collège (DNB) :** Pas de CCF ni d'épreuve différée réglementaire. L'évaluation repose sur le contrôle continu des trimestres de 3ème à partir d'une pluralité d'évaluations. Une absence non justifiée ne se sanctionne pas par un zéro disciplinaire arbitraire, mais nécessite une régularisation si la moyenne n'est pas représentative.
+--- FAQ OFFICIELLE iPACKEPS : RÉFÉRENTIELS ET APSA ---
+
+Question 1 : En EPPCS, j’enseigne des APSA que je ne veux pas évaluer aux examens. Cependant iPackEPS me demande des référentiels pour toutes les APSAs du groupe, même si je décoche la case [certificative].
+Réponse : Dans la configuration des APSAs, la case [certificative] ne concerne que l’enseignement commun. Par défaut, iPackEPS considère que toutes les APSAs enseignées dans les groupes de type EPPCS pourront être évaluées et demande donc un dépôt de référentiel pour chacune. Si vous ne voulez pas déposer de référentiel pour certaines APSA, ajoutez simplement un commentaire explicatif et ignorez les alertes d’iPackEPS.
+
+Question 2 : Notre équipe propose plusieurs référentiels pour une même APSA (contrôle adapté…), mais iPackEPS ne me propose de déposer qu’un seul référentiel.
+Réponse : Il suffit de regrouper vos divers référentiels sur un seul et même document PDF, répartis sur plusieurs pages différentes (ex: page 1 : course de vitesse, page 2 : relais, page 3 : version contrôle adapté).
+
+Question 3 : Je veux déposer un référentiel, mais l’APSA n’apparait pas dans le tableau.
+Réponse : Pour qu’une APSA apparaisse, il faut impérativement qu'elle soit déclarée Certificative ([Dossier EPS] / [APSA]) ET qu'elle soit déclarée dans l’offre de formation d’au moins un groupe d’examen ([Dossier EPS] / [Groupes]).
+
+Question 4 : Comment déposer des référentiels pour les APSAs adaptées ?
+Réponse : Il n'y a pas de gestion spécifique native des référentiels adaptés. Pour une APSA spécifique (ex: Marche Nordique Adaptée au lieu d'une course de liste nationale), rajoutez des pages supplémentaires au fichier du référentiel principal de l'APSA pour y inclure votre version adaptée.
+
+Question 5 : J’ai déclaré par erreur le Badminton en APSA certificative, j’ai donc une alerte sur le dépôt de référentiel.
+Réponse : Allez dans [Tableau de bord] / [Dossiers] / [Dossier EPS] / [APSA], sélectionnez le badminton, et décochez [Certificative]. Si une alerte indique que l’APSA est déjà liée à des séquences d’apprentissage, allez dans [Dossier EPS] / [Groupes], recherchez les groupes d’examens concernés, et modifiez la séquence en cochant [NON] sur l’option d'évaluation à l'examen.
+
+Question 6 : J’ai déclaré certificative une APSA académique, pourquoi ne la vois-je pas dans la zone de dépôt des référentiels ?
+Réponse : Cyclades considère que pour les APSAs académiques, c’est le référentiel académique national/académique qui fait foi. L’établissement n’a donc pas à déposer de référentiel local.
+--- FAQ OFFICIELLE iPACKEPS : GESTION DES GROUPES (EPS, AS, SSS, ETC.) ---
+
+MODULE CONCERNÉ : Tableau de bord => Dossiers => Dossier EPS ==> Groupes
+
+1. TYPES DE GROUPES GÉRÉS DANS iPACKEPS :
+- [EPS] (les classes par défaut + groupes spécifiques : terminales, savoir-nager, etc.)
+- [Enseignement Optionnel]
+- [EPPCS] (Enseignement de Spécialité)
+- [AS] (Association Sportive)
+- [SSS] (Section Sportive Scolaire - nécessite une habilitation rectorale)
+- [UF2S]
+- [Sport-Études]
+- [Accompagnement Personnalisé] (avec ou sans APSA)
+- [Autres Dispositifs Sportifs] (dispositifs hors SSS validée)
+- [divers sans APSA] (secourisme, vie de classe, etc.)
+
+---
+
+QUESTIONS / RÉPONSES OFFICIELLES :
+
+Question 1 : En Terminale CAP, mes élèves sont évalués en Badminton et Danse. Cependant ils pratiquent le Badminton au 1er trimestre, puis un long stage, et reprennent le badminton plus tard. J’ai donc créé 2 périodes, et ajouté 2 fois l’APSA pour le groupe. Comme j’ai indiqué 2 fois le badminton certifiable + 1 fois la danse certifiable, le test du protocole indique que je n’ai pas le bon nombre d’APSAs certifiables.
+Réponse : Le test des protocoles est strict pour assurer un bon interfaçage avec Cyclades. Comme le badminton ne sera évalué qu’à l’issue de la 2ème période de pratique, il faut indiquer que pour la 1ère période, le badminton n’est pas certifiable. Il y aura au final un protocole avec seulement 2 séquences certifiables, et le test sera valide.
+
+Question 2 : Je veux créer un groupe de type SSS, mais l’application m’indique que je n’ai pas le droit de créer ce type de groupe.
+Réponse : La création d’un groupe SSS nécessite que le recteur ait validé l’ouverture de votre section. Par défaut, iPackEPS bloque ce type de groupe. Chaque année, le responsable iPackEPS de l'académie met à jour la liste. Si votre dossier a été validé mais que iPackEPS bloque, faites un signalement par mail à votre responsable iPackEPS ou à votre IPR pour activer votre établissement.
+
+Question 3 : Comment placer des groupes sur l’Emploi du Temps, s’il s’agit de groupes sans APSA (vie de classe, cours théorique, formation secourisme…) ?
+Réponse : Pour les cours sans APSA, utilisez le type de groupe [divers sans APSA]. 
+Attention : même sans APSA, il faut cliquer sur [attribuer une S.A.] pour indiquer la période de travail. Il sera ensuite possible de placer le groupe et la séquence d'apprentissage sur l'emploi du temps.
+
+Question 4 : Pour mes classes de Terminale Bac Pro, je propose 5 APSA différentes, le protocole sera choisi parmi les meilleures notes en fin d’année. iPackEPS indique que le protocole est invalide puisque j’ai déclaré les 5 APSAs certificatives dans mon groupe.
+Réponse : Un groupe ne doit proposer que 3 APSAs certificatives (ou 2 pour les CAP). 
+2 solutions possibles :
+1. Si l'enseignant sait déjà quelles seront les 3 APSAs certificatives, le groupe garde les 5 APSAs mais on décoche [NON] à l'option [Les élèves seront évalués sur cette APSA pour l’Examen] pour les 2 autres lors de la sélection.
+2. Si on ne connait pas d'avance le protocole, la seule solution est de créer autant de groupes que de cas possibles de protocoles (inutile d'y mettre les élèves à l'intérieur pour l'instant, comme cela se faisait sur EPSnet).
+
+Question 5 : Dans une classe de terminale les élèves sont séparés en 2 groupes. Ils partent 2 fois 4 semaines en stage par an (16 semaines au total avec la moitié des élèves). Je ne peux pas les évaluer ensemble sur les 2 premiers CCF ; seul le 3ème CCF sera fait ensemble. Les dates d’évaluation diffèrent.
+Réponse : Si les dates diffèrent, vous devez créer des protocoles distincts. Créez 2 groupes avec les mêmes APSAs mais des dates de fin de séquence différentes (ex: Groupe Term 1 et Groupe Term 2), puis placez les élèves dans le bon groupe selon leurs dates.
+
+Question 6 : Mes élèves ULIS sont répartis sur des classes avec des niveaux différents. Lorsque je crée un groupe je suis bloqué car il faut indiquer le niveau de classe. Une solution ?
+Réponse : Par défaut, un groupe EPS ne peut avoir qu'un seul niveau de classe. Si les élèves ULIS sont en 5e, 4e et 3e, créez 3 groupes distincts (ex: [ULIS 5eme], [ULIS 4eme], [ULIS 3eme]) en renseignant leur niveau, puis placez les élèves dans leur groupe respectif. Pour les regrouper sur le même créneau, placez-les ensemble dans l'agenda.
+
+Question 7 : Dans un groupe EPS, je mélange des élèves de nde et de 1ères. Cependant à la création du groupe je ne peux déclarer qu’un seul cycle scolaire.
+Réponse : Un groupe EPS ne peut être associé qu'à un seul niveau de classe. Pour contourner cela, créez 2 groupes distincts (ex: "menu1_Secondes" et "menu1-Premières"), placez les élèves concernés dans chacun, et déclarez les 2 groupes sur le même créneau d'emploi du temps.
+
+Question 8 : Dans notre établissement, les BAC PRO n’ont que 2 APSA programmées et certificatives en raison d’un cursus sur 4 ans. Nous évaluons en 3ème année (1ère/Term) et en 4ème année (Term) pour arriver à 3 APSA. Sur iPackEPS, cette particularité coince. Comment faire ?
+Réponse : Pour la gestion des examens, iPackEPS doit se conformer à Cyclades et Santorin (qui exigent un protocole de 3 APSAs en Terminale). 
+Solution : 
+- Pour les élèves de 3ème année, déclarez leur cycle scolaire en 1ère Bac Pro.
+- Pour les élèves de 4ème année, déclarez leur cycle scolaire en Terminale Bac Pro.
+iPackEPS considérera qu'ils font une 2nde, puis deux fois une 1ère, puis une terminale. Pour les terminales (4ème année), déclarez à nouveau les séquences d'apprentissage pour la 3ème APSA déjà évaluée l'année précédente (même si elle n'est pas enseignée cette année-là) afin de générer un fichier valide de 3 APSAs pour Cyclades.
+
+Question 9 : J’enseigne plusieurs APSA dans le cadre de ma SSS, mais iPackEPS ne me permet de déclarer qu’une seule APSA dans le groupe SSS.
+Réponse : Par contrainte technique, un groupe SSS n'associe qu'une seule APSA. La solution est de créer manuellement une APSA personnalisée dans le module [dossiers]/[dossier EPS]/[APSA] en lui donnant un nom combiné (ex: "Football-Musculation").

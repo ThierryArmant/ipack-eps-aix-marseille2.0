@@ -381,13 +381,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-niveau_actuel_form = st.radio(
-    "Public cible",
-    options=["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-    key="niveau_actif_form",
-    horizontal=True,
-    label_visibility="collapsed"
-)
 
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES

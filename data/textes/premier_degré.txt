@@ -228,3 +228,19 @@ BASE DOCUMENTAIRE OFFICIELLE - PREMIER DEGRÉ (MATERNELLE & ÉLÉMENTAIRE)
 - Obligation de surveillance renforcée : Proportionnelle à l'âge et au risque. En maternelle, la surveillance doit être continue et rapprochée (sanction quasi-systématique du défaut de surveillance en cas d'isolement momentané de l'enseignant).
 - Substitution de responsabilité (Loi de 1937 / Art. L. 911-4) : L'État se substitue à l'enseignant pour indemniser les victimes en cas de faute de service. L'action récursoire de l'État contre l'agent n'existe qu'en cas de faute personnelle détachable des fonctions.
 - La conscience du risque et la Loi Fauchon : L'enseignant qui décèle un danger avéré (ex: équipement défectueux) et se contente d'un signalement passif sans prendre de mesure conservatoire immédiate (interdiction d'accès) caractérise sa pleine conscience du risque et engage lourdement sa responsabilité pénale en cas d'accident.
+======================================================================
+COMPLÉMENTS LÉGISLATIFS, RÉGLEMENTAIRES ET DISPOSITIFS SPÉCIFIQUES
+======================================================================
+
+1. TEXTES LÉGISLATIFS ET RÉGLEMENTAIRES FONDATEURS (RÉFÉRENCES EXACTES)
+- Protection fonctionnelle des agents : Article L. 134-1 et suivants du Code général de la fonction publique (CGFP) régissant l'obligation de protection, d'assistance juridique et de réparation de l'administration envers l'agent victime d'attaques ou de menaces.
+- Responsabilité pénale et faute non intentionnelle : Article 121-3 du Code pénal (cadre de la "loi Fauchon") définissant les conditions de mise en cause pénale des auteurs indirects (nécessité d'une faute caractérisée ou d'une violation manifestement délibérée d'une règle de sécurité).
+- Statut et missions du directeur d'école : Décret n° 89-122 du 24 février 1989 modifié, couplé aux apports de la loi dite "Rilhac" (2021) renforçant l'emploi fonctionnel de direction et l'autorité de coordination du directeur, sans pour autant lui conférer de pouvoir hiérarchique sur les enseignants.
+- Cadre actualisé des sorties et voyages scolaires : Circulaire n° 2023-132 du 13 décembre 2023 relative aux sorties et voyages scolaires à l'école primaire, fixant le cadre réglementaire unifié des autorisations et des taux d'encadrement.
+
+2. SUBTILITÉS PÉDAGOGIQUES ET DISPOSITIFS D'ACCOMPAGNEMENT (EBEP & PEAC)
+- Le PEAC (Parcours d'Éducation Artistique et Culturelle) : En EPS, les activités d'expression (danse, arts du cirque, jeux d'imitation) s'articulent institutionnellement avec le PEAC, croisant pratiques physiques, sens de l'esthétique et culture artistique.
+- Élèves à besoins éducatifs particuliers (EBEP) et handicap :
+  * Le PPRE (Programme Personnalisé de Réussite Éducative) : Outil pédagogique de remédiation en cas de difficultés scolaires avérées.
+  * Le PPS (Projet Personnalisé de Scolarisation) et les AESH : Pour les élèves en situation de handicap notifiés par la MDPH. L'accompagnant d'élèves en situation de handicap (AESH) peut intervenir pendant les séances d'EPS pour faciliter la participation ou sécuriser certains aspects, sous la responsabilité pédagogique exclusive de l'enseignant.
+- Validation du SRAV (Savoir Rouler à Vélo) : Lorsque l'apprentissage sort de l'enceinte de l'école (blocs 2 et 3), l'intervention de tiers ou de structures extérieures nécessite des qualifications validées et une coordination étroite avec l'équipe pédagogique.

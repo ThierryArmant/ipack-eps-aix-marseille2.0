@@ -1469,7 +1469,6 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 {bloc_video_consigne}
 
 {contexte_complet_ia}
-"""
 
 QUESTION DE L'UTILISATEUR :
 {prompt}

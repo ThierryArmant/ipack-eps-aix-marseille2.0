@@ -43,6 +43,36 @@
 8. Suivi Pédagogique et Évaluation (Règles spécifiques par niveau) :
    - Au Collège (DNB) : iPackEPS sert au pilotage, aux séquences et au suivi des compétences (AFL). La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
    - Au Lycée (CCF / Examens) : Paramétrage des protocoles certificatifs et préparation des dossiers pour Cyclades et Santorin.
+
+[SECTION: SUITE_CERTIFICATION_LYCEE_CCF]
+
+### [OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]
+- Mots-clés : suite lycée, étape apres edt lycée, ccf, fiches certificatives, fca, depot referentiels, cahn, cyclades, santorin, bac general, bac technologique, bac pro, cap.
+- Instruction de routage : Si l'utilisateur est en lycée ou gère des classes à examens (Bac GT, Bac Pro, CAP), ignorer les procédures de collège et appliquer strictement la suite chronologique ci-dessous après la saisie des emplois du temps :
+
+1. Vérification et validation des protocoles d'évaluation (CCF) :
+   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Protocoles d'évaluation].
+   - Règle d'or : L'application croise groupes et programmations. Vérifier la conformité des ensembles certificatifs : 
+     * Voie GT et Pro : Stricte obligation de 3 APSA relevant de 3 Champs d'Apprentissage (CA) distincts.
+     * Voie CAP : Stricte obligation de 2 APSA relevant de 2 Champs d'Apprentissage (CA) distincts.
+   - En cas d'erreur (signalée en rouge), rectifier la séquence dans le groupe associé.
+
+2. Dépôt des référentiels (Fiches Certificatives d'Activités - FCA) :
+   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Référentiels].
+   - Action : Téléverser les fiches d'évaluation et grilles critériées (AFL1, AFL2, AFL3) pour chaque APSA certificative. Étape obligatoire pour l'analyse et la validation de l'inspection avant les épreuves.
+
+3. Soumission du dossier à la Commission Académique (CAHN) :
+   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Dépôt des documents pour la commission].
+   - Action : Lancer la vérification globale, ajouter un commentaire explicatif en cas d'alertes orange, puis valider la soumission pour transmission à la CAHN.
+
+4. Gestion des cas particuliers et inaptitudes permanentes :
+   - Vérifier le rattachement des certificats médicaux pour les inaptitudes de l'année ou les demandes d'épreuves adaptées dans [Mes Élèves] => [Visualisation] => [Inaptitudes].
+   - Déposer les fiches individuelles spécifiques (cas complexes d'élèves) si demandées par l'académie.
+
+5. Export des groupes pour Cyclades :
+   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Protocoles] (ou onglet d'export).
+   - Action : Générer et télécharger le fichier d'export des groupes iPackEPS. Le transmettre au secrétariat des examens pour l'import dans Cyclades (module Gestion des épreuves EPS => Importation des structures).
+   - Fin de chaîne (Hors iPackEPS) : La distribution des lots de copies et la saisie finale des notes se poursuivent ensuite sur la plateforme nationale Santorin.
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
 
 [SITUATION: DÉFINITION DEC]

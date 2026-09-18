@@ -1147,31 +1147,41 @@ if prompt:
             )
         ) or est_tasa or est_unss
 
-        # 🛡️ ROUTAGE DU RETRIEVER SÉCURISÉ PAR CONTEXTE ACTIF
+        # 🛡️ ROUTAGE DU RETRIEVER SÉCURISÉ PAR CONTEXTE ACTIF & PUBLIC CIBLE
         if openai_api_key and not est_cas_direct:
             try:
-                if contexte_actif == "college":
+                if niveau_actuel_form == "1er degré":
+                    if retriever_textes:
+                        nodes_bruts = retriever_textes.retrieve(prompt)
+                        for n in nodes_bruts:
+                            extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
                     if retriever_peda:
                         nodes_peda = retriever_peda.retrieve(prompt)
                         for n in nodes_peda:
-                            extraits_doc += f"[Référentiel Collège / Programmes] {n.node.text}\n\n"
-                elif mode == "examens":
-                    nodes_bruts = retriever_santorin.retrieve(prompt)
-                    for n in nodes_bruts:
-                        extraits_doc += f"{n.node.text}\n\n"
-                elif mode == "ipack":
-                    nodes_bruts = retriever_ipack.retrieve(prompt)
-                    for n in nodes_bruts:
-                        extraits_doc += f"{n.node.text}\n\n"
-                elif mode == "textes":
-                    nodes_bruts = retriever_textes.retrieve(prompt)
-                    for n in nodes_bruts:
-                        extraits_doc += f"{n.node.text}\n\n"
-                 
-                if contexte_actif != "college" and retriever_peda:
-                    nodes_peda = retriever_peda.retrieve(prompt)
-                    for n in nodes_peda:
-                        extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
+                            extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
+                else:
+                    if contexte_actif == "college":
+                        if retriever_peda:
+                            nodes_peda = retriever_peda.retrieve(prompt)
+                            for n in nodes_peda:
+                                extraits_doc += f"[Référentiel Collège / Programmes] {n.node.text}\n\n"
+                    elif mode == "examens":
+                        nodes_bruts = retriever_santorin.retrieve(prompt)
+                        for n in nodes_bruts:
+                            extraits_doc += f"{n.node.text}\n\n"
+                    elif mode == "ipack":
+                        nodes_bruts = retriever_ipack.retrieve(prompt)
+                        for n in nodes_bruts:
+                            extraits_doc += f"{n.node.text}\n\n"
+                    elif mode == "textes":
+                        nodes_bruts = retriever_textes.retrieve(prompt)
+                        for n in nodes_bruts:
+                            extraits_doc += f"{n.node.text}\n\n"
+                     
+                    if contexte_actif != "college" and retriever_peda:
+                        nodes_peda = retriever_peda.retrieve(prompt)
+                        for n in nodes_peda:
+                            extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
             except Exception:
                 pass
 

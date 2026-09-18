@@ -1328,7 +1328,7 @@ if prompt:
             else:
                 badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
-       if mode == "textes":
+        if mode == "textes":
             directive_onglet = """
             3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
                - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :

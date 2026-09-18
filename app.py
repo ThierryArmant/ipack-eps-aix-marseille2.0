@@ -1503,7 +1503,15 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
   4️⃣ Le rôle de médiation et d'arbitrage de l'autorité compétente (IA-IPR EPS pour le volet pédagogique, Chef d'établissement pour le climat scolaire).
 
 {bloc_video_consigne}
+======================================================================
+🛑 INSTRUCTION DE STRUCTURE FINALE (CAS DU MATÉRIEL DÉFECTUEUX)
+======================================================================
+Si la question implique un matériel défectueux signalé mais maintenu en usage, la structure classique des "Recommandations" de fin de réponse est TOTALEMENT INTERDITE. 
+Tu dois obligatoirement remplacer la dernière section par ce bloc textuel figé, sans un mot de plus ni de moins :
 
+### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
+- Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
+- Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
 {contexte_complet_ia}
 
 QUESTION DE L'UTILISATEUR :

@@ -890,11 +890,21 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
+
+# Bannière personnalisée en blanc et gras
+st.markdown(
+    '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
+    '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
+    '</div>', 
+    unsafe_allow_html=True
+)
+
 niveau_scolaire = st.radio(
-    "🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)",
-    ["Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+    "Public cible",
+    ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
     horizontal=True,
     key="niveau_actif_form",
+    label_visibility="collapsed"
 )
 
 prompt = None

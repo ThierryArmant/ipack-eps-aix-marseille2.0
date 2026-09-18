@@ -1515,6 +1515,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
+- 🛑 TERMINOLOGIE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
 ======================================================================
 {contexte_complet_ia}
 

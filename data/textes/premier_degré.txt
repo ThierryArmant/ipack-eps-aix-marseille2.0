@@ -25,3 +25,206 @@ DOCTRINE JURIDIQUE, INSTITUTIONNELLE ET PÉDAGOGIQUE - PREMIER DEGRÉ
 - La notion de défaut de surveillance : La jurisprudence sanctionne l'enseignant en cas de lien de causalité direct entre un défaut de surveillance caractérisé (inattention, absence prolongée du champ de vision) et l'accident corporel. L'obligation de surveillance est continue et rigoureuse, particulièrement en école maternelle (y compris durant les temps d'habillage, de sommeil ou de récréation).
 - La conscience du risque et la Loi Fauchon (Loi n° 2000-647) : Pour engager la responsabilité pénale d'un enseignant en tant qu'auteur indirect d'un dommage, il faut caractériser une violation manifestement délibérée d'une règle de prudence ou une faute d'une exceptionnelle gravité. 
 - Avertissement et signalement : Signaler par écrit un danger avéré à sa hiérarchie (ex: matériel ou structure défectueuse) mais maintenir l'activité sans mesure conservatoire immédiate caractérise la pleine conscience du risque par l'agent et engage lourdement sa responsabilité en cas d'accident.
+======================================================================
+JURISPRUDENCE DE RÉFÉRENCE - RESPONSABILITÉ ET SURVEILLANCE (1ER DEGRÉ)
+======================================================================
+
+1. L'OBLIGATION DE SURVEILLANCE ET LA GRADUATION SELON L'ÂGE DES ÉLÈVES
+- Jurisprudence constante de la Cour de cassation (Chambre civile) : L'obligation de surveillance qui pèse sur l'instituteur ou le professeur des écoles est une obligation de moyens renforcée, dont l'intensité varie de manière proportionnelle à l'âge des enfants et aux risques inhérents à l'activité ou au lieu.
+- En école maternelle (Cycle 1) : La surveillance doit être continue et rapprochée. La jurisprudence retient presque systématiquement le défaut de surveillance dès lors que l'enseignant s'isole ou perd de vue un élève, même un instant, si un accident corporel survient (ex : chute dans un escalier, manipulation d'un objet contondant, incident lors du temps de sieste ou d'habillage).
+- En école élémentaire (Cycles 2 et 3) : Une autonomie mesurée est tolérée selon l'âge et la maturité des élèves, mais toute défaillance caractérisée dans le contrôle des déplacements, des consignes de sécurité ou de l'utilisation de matériels scolaires engage la responsabilité civile ou pénale.
+
+2. LA LIMITATION DE LA RESPONSABILITÉ FINANCIÈRE (LA LOI DE 1937 / ART. L. 911-4)
+- Principe jurisprudentiel d'exclusivité de la substitution : Lorsqu'un dommage est causé par un élève ou subi par lui par suite d'une imprudence ou d'une négligence de l'enseignant (faute de service), la victime (ou ses représentants) ne peut assigner directement l'agent devant les tribunaux civils pour obtenir des dommages-intérêts. L'action doit être dirigée contre l'État.
+- L'action récursoire de l'État : L'État ne peut se retourner contre son agent pour recouvrer les sommes versées qu'en cas de "faute personnelle détachable des fonctions" (intention de nuire, infraction pénale volontaire ou acte commis hors du service à des fins personnelles). Une simple erreur d'appréciation pédagogique ou une maladresse involontaire ne constitue pas une faute détachable.
+
+3. LES TEMPS ANNEXES ET LES LIMITES DU CHAMP SCOLAIRE
+- La récréation : Jurisprudence stricte sur l'encadrement des cours de récréation. Le nombre d'accompagnateurs et la répartition spatiale de la surveillance doivent couvrir l'ensemble de la zone pour éviter les angles morts. Un enseignant seul gérant une classe trop importante ou une cour non sécurisée peut voir sa responsabilité engagée en cas de bousculade grave.
+- La transition scolaire / périscolaire : Les juges opèrent une distinction nette entre le temps scolaire (sous la responsabilité de l'Éducation nationale) et le temps périscolaire ou extrascolaire (cantine gérée par la commune, garderie municipale). En cas de transfert de responsabilité à l'intervenant périscolaire, un procès-verbal ou un registre de passation explicite doit prouver la transition effective, sous peine de voir l'enseignant tenu pour responsable d'un accident survenu "entre deux portes".
+
+4. LA RESPONSABILITÉ PÉNALE ET LA "CONSCIENCE DU RISQUE" (LOI FAUCHON)
+- Jurisprudence répressive (Tribunaux correctionnels / Cours d'appel) : Sur le plan pénal (homicides ou blessures involontaires), la loi n° 2000-647 (dite loi Fauchon) protège l'auteur indirect (l'enseignant) sauf s'il a commis une "faute caractérisée" ou violé de façon manifestement délibérée une règle particulière de sécurité.
+- Application jurisprudentielle majeure : La jurisprudence considère de manière constante que l'enseignant qui décèle un danger avéré (ex: équipement sportif municipal défectueux, branche menaçante, sol glissant) et se contente d'un signalement passif ou d'un simple avertissement verbal sans prendre de mesure conservatoire immédiate (interdiction d'accès à la zone), démontre sa "conscience du risque". S'il maintient l'activité et qu'un accident survient, la relaxe pénale est généralement écartée au profit d'une condamnation pour manquement délibéré aux obligations de mise en sécurité.
+======================================================================
+PROGRAMMES OFFICIELS D'EPS - PREMIER DEGRÉ (CYCLES 1, 2 ET 3)
+======================================================================
+
+1. CYCLE 1 : ÉCOLE MATERNELLE (TPS, PS, MS, GS)
+Domaine : "Agir, s'exprimer, comprendre à travers l'activité physique"
+- Finalité : L'enfant explore ses possibilités corporelles, développe ses capacités motrices et apprend à interagir avec les autres et l'espace.
+- Objectifs d'apprentissage fondamentaux :
+  * Courir, sauter, lancer : Diversifier les modes de locomotion, franchir des obstacles, projeter et recevoir des objets.
+  * Ajuster et enchaîner ses actions : S'équilibrer, grimper, ramper, rouler, se déplacer dans des environnements variés.
+  * Collaborer, coopérer, s'opposer : Partager des jeux collectifs, comprendre les règles simples de vie en commun et d'opposition mesurée.
+  * S'exprimer à travers une prestation corporelle ou artistique : Concevoir des rondes, des jeux joués, des danses ou des saynètes mimées, explorer des postures et des mouvements expressifs.
+  * Connaître son corps et l'espace : Situer les parties de son corps, nommer les sensations, s'orienter dans un espace balisé.
+
+2. CYCLE 2 : ÉCOLE ÉLÉMENTAIRE (CP, CE1, CE2)
+- Finalité : Entrée dans l'apprentissage structuré des activités physiques et sportives. Le cycle 2 pose les bases techniques, méthodologiques et sociales de l'effort et de la règle.
+- Déclinaison par les 4 champs d'apprentissage nationaux :
+  * Champ 1 : Produire une performance optimale, mesurable à une échéance donnée (courir vite, courir longtemps, sauter loin/haut, lancer loin). Apprendre à mesurer, chronométrer et s'engager dans un effort soutenu.
+  * Champ 2 : Adapter ses déplacements à des environnements variés (activités aquatiques et d'aisance, activités d'orientation simples, randonnée, premiers franchissements en sécurité).
+  * Champ 3 : S'exprimer devant les autres par une prestation artistique ou acrobatique (danses, rondes structurées, jeux gymniques de base, exprimer un thème ou une émotion par le corps).
+  * Champ 4 : Conduire et maîtriser un jeu ou un sport collectif ou de combat (jeux traditionnels, jeux de coopération, jeux d'affrontement duel ou collectif avec ballon, respect des règles et de l'adversaire).
+
+3. CYCLE 3 : ÉCOLE ÉLÉMENTAIRE (CM1, CM2) & CONTINUITÉ COLLÈGE (6E)
+- Finalité : Consolidation des acquis moteurs, entrée dans l'autonomie, responsabilisation dans les rôles sociaux (juge, arbitre, observateur, organisateur). Le cycle 3 est un pont institutionnel majeur entre l'élémentaire et le collège.
+- Exigences par champ d'apprentissage :
+  * Champ 1 (Performance mesurable) : Perfectionnement de la foulée, gestion de l'allure sur des efforts continus, optimisation des techniques de saut et de lancer avec prise de repères mesurés.
+  * Champ 2 (Environnements variés) : Maîtrise du milieu aquatique (validation du savoir-nager sécuritaire / ASSN), lecture de cartes et orientation en autonomie sur des espaces connus ou semi-ouverts, respect des règles de sécurité en milieu naturel.
+  * Champ 3 (Prestation artistique/acrobatique) : Construction d'enchaînements collectifs ou individuels en danse ou en arts du cirque / gymnastique, respect d'un code de composition, regard critique et esthétique sur la prestation d'autrui.
+  * Champ 4 (Jeux collectifs et de combat) : Construction de stratégies d'équipe, choix tactiques en situation d'attaque/défense, respect absolu des règles de non-violence et de l'intégrité d'autrui dans les duels.
+
+4. L'ÉVALUATION DANS LE PREMIER DEGRÉ (CYCLE 3 - LSU)
+- Absence de CCF (Contrôle Continu de Formation) normé par des examens nationaux (type CAP ou Bac).
+- L'évaluation des compétences en EPS en fin de cycle 3 s'inscrit dans le cadre du Livret Scolaire Unique (LSU) et du Socle commun de connaissances, de compétences et de culture (notamment le domaine 1 sur le langage et le corps, et le domaine 5 sur les comportements citoyens et la santé).
+======================================================================
+COMPLÉMENTS : PAI, PAP, INAPTITUDES, ACCOMPAGNANTS ET USEP (1ER DEGRÉ)
+======================================================================
+
+1. GESTION DES PAI, PAP ET INAPTITUDES MÉDICALES EN EPS (1ER DEGRÉ)
+- Le PAI (Projet d'Accueil Individualisé) : Concerne les enfants souffrant de maladies chroniques (asthme, allergies alimentaires, diabète). Rédigé par le médecin scolaire en lien avec la famille et l'équipe éducative, il fixe les protocoles d'urgence et les adaptations indispensables, y compris en EPS et en sortie. L'enseignant a l'obligation de connaître le PAI et de stocker les trousses d'urgence de manière accessible mais sécurisée.
+- Le PAP (Plan d'Accompagnement Personnalisé) : Concerne les élèves présentant des troubles des apprentissages durables (troubles "dys", TDAH, etc.). Il prévoit des aménagements pédagogiques (adaptation des supports, des consignes ou de la complexité motrice), mais ne dispense pas l'élève de l'EPS.
+- Les inaptitudes et dispenses en EPS (École Maternelle et Élémentaire) : 
+  * Contrairement au second degré, il n'existe pas de dispositif de CCF au primaire. 
+  * Un certificat médical d'inaptitude (partielle ou totale) peut être délivré par un médecin.
+  * Inaptitude partielle : L'élève ne réalise pas certaines actions motrices mais **reste obligatoirement présent** et se voit confier des rôles adaptés au sein de la classe (observation, arbitrage, rôle d'aide, gestion du matériel, tenue de scores). Il n'est jamais exclu du groupe.
+  * Inaptitude totale : Dispensé de la pratique physique, l'élève est pris en charge au sein de l'école (dans une autre classe si l'enseignant est seul en EPS sur un créneau externe, ou avec la classe selon les dispositions locales). Aucune note ni sanction n'intervient à ce niveau (évaluation formative uniquement dans le LSU).
+
+2. LES ACCOMPAGNANTS ET TAUX D'ENCADREMENT SUR LES SORTIES SCOLAIRES
+- Statut des parents accompagnateurs : Ils sont considérés comme des "collaborateurs bénévoles occasionnels du service public d'enseignement". À ce titre, ils sont soumis au secret professionnel pour les informations concernant les élèves et doivent respecter le cadre fixé par l'enseignant.
+- Autorité et discipline : Les parents accompagnateurs **n'ont aucun pouvoir disciplinaire** ni d'autorité hiérarchique sur les élèves autres que le groupe qui leur est explicitement confié. En cas de problème de comportement, seul l'enseignant référent de la classe intervient.
+- Règles de vie et interdictions : Il est strictement interdit aux accompagnateurs de fumer ou de vapoter en présence des élèves, d'isoler un enfant, ou de modifier l'itinéraire prévu sans l'accord de l'enseignant.
+- Taux d'encadrement réglementaire (indicatif selon les circulaires départementales) :
+  * En école maternelle : L'encadrement doit être fortement renforcé (recommandation fréquente : au moins 2 à 3 adultes en plus de l'enseignant pour une sortie de classe, modulé selon les lieux).
+  * En école élémentaire : Un taux d'encadrement minimal est requis pour les sorties nécessitant des déplacements ou des activités spécifiques (ex: randonnée, sortie en milieu naturel, natation).
+
+3. FONCTIONNEMENT ET CADRE DES SORTIES USEP (UNION SPORTIVE DE L'ENSEIGNEMENT DU PREMIER DEGRÉ)
+- Définition institutionnelle : L'USEP est la fédération sportive scolaire de l'école publique, régie par la loi de 1901 et reconnue par le Ministère de l'Éducation nationale. Elle constitue le prolongement naturel de l'enseignement de l'EPS à l'école primaire.
+- Statut des rencontres et activités :
+  * Les rencontres USEP organisées **pendant le temps scolaire** font partie intégrante des programmes d'EPS. Elles engagent la responsabilité de l'Éducation nationale et sont obligatoires pour les classes affiliées inscrites, sous la responsabilité des enseignants.
+  * Les activités proposées le mercredi après-midi ou en périscolaire relèvent du champ associatif et extrascolaire, fonctionnant sous couvert des licences et des assurances spécifiques de la fédération (MAIF / USEP).
+- Encadrement et responsabilité lors d'une rencontre USEP : 
+  * L'enseignant conserve la charge de ses élèves et sa responsabilité pédagogique et de surveillance. Les animateurs USEP ou les bénévoles agréés apportent un concours technique à l'encadrement des ateliers, mais l'autorité de l'Éducation nationale et les règles de sécurité du service public continuent de s'appliquer strictement.
+======================================================================
+COMPLÉMENTS EXHAUSTIFS : MAIRIE/ÉCOLE, PISCINE, VÉLO ET ENCADREMENT
+======================================================================
+
+1. RÉPARTITION DES COMPÉTENCES : MAIRIE (COMMUNE) VS ÉCOLE (ÉTAT)
+- L'État (Éducation nationale) : Compétence exclusive sur la pédagogie, les programmes officiels, le recrutement, la gestion, l'inspection et la rémunération des enseignants, ainsi que la définition des orientations du service public d'enseignement.
+- La Commune (Mairie) : 
+  * Propriété et bâtiments : Propriétaire des locaux scolaires publics, la commune assure la construction, l'extension, la rénovation et les grosses réparations (bâti, mobilier, chauffage, électricité), ainsi que les crédits de fonctionnement de base.
+  * Personnels non enseignants : Gestion exclusive des ATSEM (Agents Territoriaux Spécialisés des Écoles Maternelles) et du personnel d'entretien/restauration.
+  * Équipements sportifs et transports : Mise à disposition et entretien des équipements sportifs communaux (gymnases, stades, bassins de natation). Prise en charge ou organisation financière des transports collectifs locaux (acheminement des élèves vers les piscines ou les stades).
+  * Services annexes : Organisation de la restauration scolaire (cantine), du périscolaire (garderie, études surveillées) et des activités éducatives complémentaires.
+
+2. NATATION SCOLAIRE ET ACTIVITÉS AQUATIQUES (TEXTES & SPÉCIFICITÉS)
+- Textes de référence majeurs : Note de service du 28 février 2022 (sur la contribution de l'École à l'aisance aquatique, l'ASNS et le Pass-nautique).
+- L'Aisance Aquatique (Dès la Maternelle / Cycle 1) : Démarche fondamentale visant à faire perdre aux jeunes enfants la panique et à leur enseigner les réflexes de survie (entrer dans l'eau, flotter, se déplacer sans matériel).
+- L'Attestation du Savoir-Nager en Sécurité (ASNS) : 
+  * Étape clé validée prioritairement du CP à la fin du cycle 3 (CM2 / 6e). Elle atteste de la capacité à nager en sécurité dans un milieu aquatique surveillé.
+  * Épreuve normative (définie par l'arrêté du 28 février 2022) : saut, flottaison, sustentation, parcours de nage de 20 mètres et franchissement d'obstacle.
+- Le « Pass-nautique » : Ancien test d'aisance aquatique requis pour accéder aux activités nautiques (voile, canoë, paddle) en accueil collectif. Il peut être passé et validé directement par le professeur des écoles.
+- Organisation et encadrement à la piscine :
+  * Durée optimale : 40 à 45 minutes de pratique effective dans l'eau par séance.
+  * Taux d'encadrement renforcé : Association obligatoire de l'enseignant de la classe, de Maîtres Nageurs Sauveteurs (MNS) municipaux et de parents bénévoles agréés. L'enseignant conserve la responsabilité pédagogique globale et la sécurité générale.
+
+3. LES ATTESTATIONS DE MOBILITÉ ET SORTIES VÉLO (SRAV & APER)
+- Le Savoir Rouler à Vélo (SRAV) : 
+  * Dispositif national interministériel visant à généraliser l'apprentissage de la pratique du vélo autonome pour tous les enfants avant l'entrée au collège.
+  * Structuré en 3 blocs progressifs : Savoir pédaler (maîtriser le vélo), Savoir circuler (découvrir la mobilité en milieu sécurisé) et Savoir rouler à vélo (circuler en autonomie sur la voie publique lors de sorties scolaires encadrées).
+- L'APER (Attestation de Première Éducation à la Route) :
+  * Obligatoire en fin d'école primaire (cycle 3). Elle valide l'acquisition de comportements sécurisés et de règles de circulation de base pour le piéton et le cycliste.
+- Encadrement des sorties vélo : Nécessite un taux d'encadrement d'adultes très strict, des gilets de haute visibilité, un itinéraire préalablement reconnu et validé, et l'interdiction formelle de rouler en îlot dispersé (maîtrise du groupe en file indienne avec serre-file).
+
+4. TAUX D'ENCADREMENT GÉNÉRAUX ET TYPOLOGIE DES SORTIES
+- Sorties scolaires sans nuitée (régulières ou occasionnelles) :
+  * Sorties obligatoires (sur le temps scolaire, gratuites) : Aucun taux d'encadrement national figé et unique pour toutes les activités, mais des seuils fixés par les circulaires départementales (DASEN) selon l'âge des élèves et la nature du milieu (plus exigeant en maternelle qu'en élémentaire).
+  * Sorties facultatives (dépassement d'horaires) : Soumises à l'accord du directeur d'école et au respect des participations financières plafonnées.
+- Voyages scolaires avec nuitée (classes de découverte, classes de mer, de neige) :
+  * Nécessitent obligatoirement l'autorisation préalable et expresse de l'IEN de circonscription.
+  * Taux d'encadrement renforcé de nuit comme de jour (précisé par les notes de service annuelles de l'académie, prévoyant souvent un ratio adulte/élèves abaissé, par exemple 1 adulte pour 8 à 10 élèves en élémentaire, et 1 pour 5 ou 6 en maternelle, avec des quotas stricts d'intervenants qualifiés selon les activités de pleine nature pratiquées).
+======================================================================
+COMPLÉMENTS EXHAUSTIFS : MAIRIE/ÉCOLE, PISCINE, VÉLO ET ENCADREMENT
+======================================================================
+
+1. RÉPARTITION DES COMPÉTENCES : MAIRIE (COMMUNE) VS ÉCOLE (ÉTAT)
+- L'État (Éducation nationale) : Compétence exclusive sur la pédagogie, les programmes officiels, le recrutement, la gestion, l'inspection et la rémunération des enseignants, ainsi que la définition des orientations du service public d'enseignement.
+- La Commune (Mairie) : 
+  * Propriété et bâtiments : Propriétaire des locaux scolaires publics, la commune assure la construction, l'extension, la rénovation et les grosses réparations (bâti, mobilier, chauffage, électricité), ainsi que les crédits de fonctionnement de base.
+  * Personnels non enseignants : Gestion exclusive des ATSEM (Agents Territoriaux Spécialisés des Écoles Maternelles) et du personnel d'entretien/restauration.
+  * Équipements sportifs et transports : Mise à disposition et entretien des équipements sportifs communaux (gymnases, stades, bassins de natation). Prise en charge ou organisation financière des transports collectifs locaux (acheminement des élèves vers les piscines ou les stades).
+  * Services annexes : Organisation de la restauration scolaire (cantine), du périscolaire (garderie, études surveillées) et des activités éducatives complémentaires.
+
+2. NATATION SCOLAIRE ET ACTIVITÉS AQUATIQUES (TEXTES & SPÉCIFICITÉS)
+- Textes de référence majeurs : Note de service du 28 février 2022 (sur la contribution de l'École à l'aisance aquatique, l'ASNS et le Pass-nautique).
+- L'Aisance Aquatique (Dès la Maternelle / Cycle 1) : Démarche fondamentale visant à faire perdre aux jeunes enfants la panique et à leur enseigner les réflexes de survie (entrer dans l'eau, flotter, se déplacer sans matériel).
+- L'Attestation du Savoir-Nager en Sécurité (ASNS) : 
+  * Étape clé validée prioritairement du CP à la fin du cycle 3 (CM2 / 6e). Elle atteste de la capacité à nager en sécurité dans un milieu aquatique surveillé.
+  * Épreuve normative (définie par l'arrêté du 28 février 2022) : saut, flottaison, sustentation, parcours de nage de 20 mètres et franchissement d'obstacle.
+- Le « Pass-nautique » : Ancien test d'aisance aquatique requis pour accéder aux activités nautiques (voile, canoë, paddle) en accueil collectif. Il peut être passé et validé directement par le professeur des écoles.
+- Organisation et encadrement à la piscine :
+  * Durée optimale : 40 à 45 minutes de pratique effective dans l'eau par séance.
+  * Taux d'encadrement renforcé : Association obligatoire de l'enseignant de la classe, de Maîtres Nageurs Sauveteurs (MNS) municipaux et de parents bénévoles agréés. L'enseignant conserve la responsabilité pédagogique globale et la sécurité générale.
+
+3. LES ATTESTATIONS DE MOBILITÉ ET SORTIES VÉLO (SRAV & APER)
+- Le Savoir Rouler à Vélo (SRAV) : 
+  * Dispositif national interministériel visant à généraliser l'apprentissage de la pratique du vélo autonome pour tous les enfants avant l'entrée au collège.
+  * Structuré en 3 blocs progressifs : Savoir pédaler (maîtriser le vélo), Savoir circuler (découvrir la mobilité en milieu sécurisé) et Savoir rouler à vélo (circuler en autonomie sur la voie publique lors de sorties scolaires encadrées).
+- L'APER (Attestation de Première Éducation à la Route) :
+  * Obligatoire en fin d'école primaire (cycle 3). Elle valide l'acquisition de comportements sécurisés et de règles de circulation de base pour le piéton et le cycliste.
+- Encadrement des sorties vélo : Nécessite un taux d'encadrement d'adultes très strict, des gilets de haute visibilité, un itinéraire préalablement reconnu et validé, et l'interdiction formelle de rouler en îlot dispersé (maîtrise du groupe en file indienne avec serre-file).
+
+4. TAUX D'ENCADREMENT GÉNÉRAUX ET TYPOLOGIE DES SORTIES
+- Sorties scolaires sans nuitée (régulières ou occasionnelles) :
+  * Sorties obligatoires (sur le temps scolaire, gratuites) : Aucun taux d'encadrement national figé et unique pour toutes les activités, mais des seuils fixés par les circulaires départementales (DASEN) selon l'âge des élèves et la nature du milieu (plus exigeant en maternelle qu'en élémentaire).
+  * Sorties facultatives (dépassement d'horaires) : Soumises à l'accord du directeur d'école et au respect des participations financières plafonnées.
+- Voyages scolaires avec nuitée (classes de découverte, classes de mer, de neige) :
+  * Nécessitent obligatoirement l'autorisation préalable et expresse de l'IEN de circonscription.
+  * Taux d'encadrement renforcé de nuit comme de jour (précisé par les notes de service annuelles de l'académie, prévoyant souvent un ratio adulte/élèves abaissé, par exemple 1 adulte pour 8 à 10 élèves en élémentaire, et 1 pour 5 ou 6 en maternelle, avec des quotas stricts d'intervenants qualifiés selon les activités de pleine nature pratiquées).
+======================================================================
+BASE DOCUMENTAIRE OFFICIELLE - PREMIER DEGRÉ (MATERNELLE & ÉLÉMENTAIRE)
+======================================================================
+
+1. CADRE INSTITUTIONNEL, HIÉRARCHIE ET ACTEURS DE PROXIMITÉ
+- L'autorité hiérarchique directe (L'IEN) : L'Inspecteur de l'Éducation Nationale est le supérieur hiérarchique direct des enseignants du premier degré. Il conduit les inspections, les rendez-vous de carrière, évalue les agents et gère les situations disciplinaires ou contentieuses par délégation du DASEN.
+- Le directeur d'école ("primus inter pares") : Il n'a aucun pouvoir hiérarchique, d'évaluation ou de sanction sur les enseignants de son équipe. Il assure la coordination administrative, le lien avec la commune, la sécurité des locaux et anime le conseil d'école.
+- Les conseillers pédagogiques (CPC et CPD) : Les CPC de circonscription et les conseillers départementaux (CPD EPS) ont une mission exclusive d'accompagnement, de formation et de conseil pédagogique. Ils n'ont aucun pouvoir hiérarchique ni d'évaluation.
+- Répartition Mairie (Commune) vs École (État) : L'État gère la pédagogie, les programmes et les enseignants. La commune est propriétaire des bâtiments, gère les ATSEM, le périscolaire, la restauration et entretient les équipements sportifs ainsi que les transports vers les installations (piscines, stades).
+
+2. PROGRAMMES OFFICIELS D'EPS (CYCLES 1, 2 ET 3)
+- Cycle 1 (Maternelle - TPS à GS) : "Agir, s'exprimer, comprendre à travers l'activité physique". Exploration corporelle, courses, sauts, lancers, équilibres, grimpades, coopération et expression artistique/corporelle.
+- Cycle 2 (Élémentaire - CP à CE2) : Entrée structurée dans les 4 champs d'apprentissage : performance mesurable (courir, sauter, lancer), environnement varié (natation, orientation), prestation artistique/acrobatique, et sport collectif/combat.
+- Cycle 3 (Élémentaire - CM1, CM2 & 6e) : Consolidation des habiletés motrices, autonomie, rôles sociaux (arbitre, juge, organisateur). Évaluation formative intégrée au Livret Scolaire Unique (LSU) et au Socle commun.
+
+3. NATATION SCOLAIRE, VÉLO ET ACTIVITÉS SPÉCIFIQUES
+- Natation scolaire (Note de service 2022) : Objectif d'aisance aquatique dès la maternelle et validation de l'Attestation du Savoir-Nager en Sécurité (ASNS) du CP à la fin du cycle 3. Encadrement renforcé associant l'enseignant (responsabilité pédagogique et de sécurité globale), des Maîtres Nageurs Sauveteurs (MNS) et des parents agréés.
+- Mobilité et vélo (SRAV & APER) : Le Savoir Rouler à Vélo (3 blocs progressifs : pédaler, circuler, rouler en autonomie) et l'Attestation de Première Éducation à la Route en fin de cycle 3.
+
+4. SORTIES SCOLAIRES, VOYAGES ET ENCADREMENT
+- Typologie des déplacements (Circulaire cadre) :
+  * Sorties sans nuitée : Obligatoires (sur le temps scolaire, gratuites) ou facultatives (dépassement d'horaires, accord des familles, participation modérée). Autorisation par le directeur d'école.
+  * Voyages avec nuitée : Impliquent au moins une nuitée, soumis à l'autorisation préalable et expresse de l'IEN.
+- Pause méridienne : Une sortie incluant le midi reste obligatoire si elle prolonge l'action pédagogique. Si elle couvre toute la pause, l'enseignant conserve la responsabilité sauf transfert formel et acté avec les services périscolaires.
+- Parents accompagnateurs : Collaborateurs bénévoles occasionnels soumis au secret professionnel. Ils n'ont aucun pouvoir disciplinaire ni autorité sur les élèves autres que ceux explicitement confiés. Interdiction de fumer ou de modifier l'itinéraire. Taux d'encadrement renforcé en maternelle.
+- USEP : Rencontres sportives scolaires sur le temps scolaire adossées aux programmes d'EPS, engagées sous la responsabilité de l'Éducation nationale et des enseignants.
+
+5. PAI, PAP, INAPTITUDES ET DISPENSES
+- PAI (Projet d'Accueil Individualisé) : Protocoles d'urgence pour maladies chroniques ou allergies. L'enseignant doit connaître les consignes et sécuriser l'accès aux trousses de secours.
+- PAP (Plan d'Accompagnement Personnalisé) : Aménagements pédagogiques pour troubles des apprentissages (dys, TDAH), sans dispense automatique de la pratique EPS.
+- Inaptitudes médicales : Pas de CCF au primaire. En cas d'inaptitude partielle, l'élève reste présent et se voit confier des rôles adaptés (observation, arbitrage, gestion du matériel). En cas d'inaptitude totale, prise en charge sécurisée sans sanction ni note (évaluation formative LSU).
+
+6. PROTECTION DES AGENTS ET CONDUITE À TENIR EN CAS D'AGRESSION
+- Protection fonctionnelle (CGFP) : Obligation pour l'État de protéger, assister juridiquement (frais d'avocat) et réparer les préjudices subis par un agent victime d'agression ou de menaces dans ou à l'occasion de ses fonctions.
+- Gravité pénale : Les outrages, menaces et violences commis à l'encontre d'un professeur des écoles (personne chargée d'une mission de service public) sont sévèrement réprimés par le Code pénal.
+- Procédure d'urgence : 
+  1. Mise en sécurité des élèves et appel des forces de l'ordre (17/112) si urgence.
+  2. Rapport circonstancié écrit sous 48h adressé à l'IEN.
+  3. Inscription de l'événement sur le Registre de Santé et de Sécurité au Travail (RSST).
+  4. Dépôt de plainte en commissariat/gendarmerie (avec domiciliation administrative possible).
+  5. Saisine formelle du DASEN via l'IEN pour l'octroi de la protection fonctionnelle.
+
+7. JURISPRUDENCE DE RÉFÉRENCE (RESPONSABILITÉ ET SURVEILLANCE)
+- Obligation de surveillance renforcée : Proportionnelle à l'âge et au risque. En maternelle, la surveillance doit être continue et rapprochée (sanction quasi-systématique du défaut de surveillance en cas d'isolement momentané de l'enseignant).
+- Substitution de responsabilité (Loi de 1937 / Art. L. 911-4) : L'État se substitue à l'enseignant pour indemniser les victimes en cas de faute de service. L'action récursoire de l'État contre l'agent n'existe qu'en cas de faute personnelle détachable des fonctions.
+- La conscience du risque et la Loi Fauchon : L'enseignant qui décèle un danger avéré (ex: équipement défectueux) et se contente d'un signalement passif sans prendre de mesure conservatoire immédiate (interdiction d'accès) caractérise sa pleine conscience du risque et engage lourdement sa responsabilité pénale en cas d'accident.

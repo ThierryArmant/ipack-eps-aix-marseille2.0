@@ -970,6 +970,12 @@ if prompt:
 
         est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
         est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
+        
+        # 🆕 DÉTECTION DU 1ER DEGRÉ (Maternelle & Élémentaire - TPS à CM2)
+        est_premier_degre = any(w in p_low for w in [
+            "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
+            "maternelle", "élémentaire", "elementaire", "atsem", "directeur d'école", "ien"
+        ])
 
         # 🛡️ DISJONCTEUR DE SÉCURITÉ : Sémantique > Interface UI
         if est_college and not est_clairement_lycee:
@@ -1331,18 +1337,18 @@ if prompt:
         if mode == "textes":
             directive_onglet = """
             3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
-               - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
-                 * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
-                 * SI la question relève d'une INSPECTION, d'UN RENDEZ-VOUS DE CARRIÈRE, D'UNE CONTESTATION DE NOTE ou d'un LITIGE ADMINISTRATIF PUR : N'applique PAS les règles de sécurité ci-dessous, n'ouvre pas sur l'article L. 911-4, et applique strictement le droit de la fonction publique (CGFP).
-                 * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
-               - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS ou d'un LITIGE APPN.
-               - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Strictement limitée aux risques physiques et accidents) : 
-                 * SI ET SEULEMENT SI la question concerne un accident corporel, un litige APPN ou une sécurité physique : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4, Loi Fauchon).
-                 * SI la question concerne une inspection, une note ou la carrière : INTERDICTION ABSOLUE d'ouvrir par ce rappel protecteur et interdiction absolue de mentionner le RSST.
-               - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). Règle d'or absolue : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.
-               - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés, en traitant les risques juridiques spécifiques (gestion de groupes en autonomie, choix des sites, alertes météo). Interdiction absolue d'injecter des exemples génériques hors-sujet.
-               - CONFLIT HIERARCHIQUE / INGÉRENCE & TRAÇABILITÉ : En cas de pression, d'agression ou d'ingérence de tiers, rappeler l'obligation de saisir la hiérarchie par écrit (rapport circonstancié sous 48h) et de consigner les faits (Registre des faits / RSST) pour activer la protection fonctionnelle.
-               - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
+                - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
+                  * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
+                  * SI la question relève d'une INSPECTION, d'UN RENDEZ-VOUS DE CARRIÈRE, D'UNE CONTESTATION DE NOTE ou d'un LITIGE ADMINISTRATIF PUR : N'applique PAS les règles de sécurité ci-dessous, n'ouvre pas sur l'article L. 911-4, et applique strictement le droit de la fonction publique (CGFP).
+                  * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
+                - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS ou d'un LITIGE APPN.
+                - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Strictement limitée aux risques physiques et accidents) : 
+                  * SI ET SEULEMENT SI la question concerne un accident corporel, un litige APPN ou une sécurité physique : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4, Loi Fauchon).
+                  * SI la question concerne une inspection, une note ou la carrière : INTERDICTION ABSOLUE d'ouvrir par ce rappel protecteur et interdiction absolue de mentionner le RSST.
+                - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). Règle d'or absolue : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.
+                - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés, en traitant les risques juridiques spécifiques (gestion de groupes en autonomie, choix des sites, alertes météo). Interdiction absolue d'injecter des exemples génériques hors-sujet.
+                - CONFLIT HIERARCHIQUE / INGÉRENCE & TRAÇABILITÉ : En cas de pression, d'agression ou d'ingérence de tiers, rappeler l'obligation de saisir la hiérarchie par écrit (rapport circonstancié sous 48h) et de consigner les faits (Registre des faits / RSST) pour activer la protection fonctionnelle.
+                - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
             """
         elif mode == "examens":
             directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
@@ -1386,6 +1392,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 
 1. PRINCIPE DE RÉALITÉ DES PUBLICS :
 - Collège (6e, 5e, 4e, 3e, y compris 3e prépa-métiers, SEGPA, ULIS, peu importe l'établissement d'hébergement) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin ou Cyclades. Évaluation exclusivement par contrôle continu et LSU (Socle commun). Si l'utilisateur évoque une 3e (même en Lycée Pro), rejette l'export Cyclades/CCF et impose le LSU.
+- Premier Degré (Maternelle : TPS, PS, MS, GS & Élémentaire : CP, CE1, CE2, CM1, CM2) : AUCUN CCF, AUCUN Santorin, AUCUN Cyclades, AUCUN DNB. L'évaluation se fait via le Livret Scolaire Unique (LSU) et le Socle commun. Encadrement et surveillance continue/rapprochée (très stricte en maternelle). Rôle hiérarchique de l'IEN, directeur "primus inter pares", distinction État/Mairie.
 - Lycée (Terminale Bac GT, Bac Pro, CAP) : Cadre réglementaire strict du CCF.
 
 2. 🛑 CLOISONNEMENT STRICT (VÉTO LEXICAL ADMINISTRATIF ET CARRIÈRE) :
@@ -1472,8 +1479,8 @@ QUESTION DE L'UTILISATEUR :
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
 2. STRUCTURE & MISE EN PAGE :
-   - Rends une réponse bien structurée et claire.
-   - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
+    - Rends une réponse bien structurée et claire.
+    - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
 """

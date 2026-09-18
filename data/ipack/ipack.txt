@@ -3,6 +3,46 @@
                      (SOURCE DE VÉRITÉ ABSOLUE)
 ======================================================================
 
+[SECTION: ETAPES_CONFIGURATION_CHRONOLOGIQUE_IPACKEPS]
+
+### [PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]
+- Mots-clés : étapes d'installation iPackEPS, ordre de configuration, espace établissement, équipe eps, classes, groupes, inaptitudes, emploi du temps, dnb, collège.
+- Instruction absolue : Toute configuration d'iPackEPS doit impérativement respecter la chronologie administrative et technique en 8 étapes strictes, de l'amont (établissement) vers l'aval (suivi pédagogique) :
+
+1. Connexion institutionnelle :
+   - Accès au portail professionnel ARENA avec les identifiants académiques officiels (e-mail et mot de passe).
+   - Lancement de l'application iPackEPS depuis le tableau de bord (utiliser la synchronisation manuelle d'Esterel en cas de besoin).
+
+2. Configuration de l'Espace Établissement :
+   - Accès : Tableau de bord => [Établissement].
+   - Rôle : Vérification et validation des données administratives générales (les contacts du chef d'établissement et des adjoints proviennent de la base RAMSESE).
+
+3. Paramétrage de l'Espace Professeurs (Équipe EPS) :
+   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Équipe EPS].
+   - Manipulation : Cliquer sur [Actualiser] pour forcer la mise à jour de l'équipe pédagogique extraite des bases du rectorat. Actualisation de la [Fiche Professeur] pour les fonctions spécifiques.
+
+4. Configuration des Classes et Importation des Élèves :
+   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Classes].
+   - Étape A : Déclarer et configurer les structures de classes (attribution des cycles scolaires, ex: 6e à 3e au collège).
+   - Étape B : Importer les effectifs (synchronisation Siècle ou import direct CSV/Pronote/ÉcoleDirecte en encodage UTF-8).
+   - Étape C : En cas de mouvement en cours d'année, actualiser via [Gestion Classes] => [Actualiser] puis [importation élèves] => [Actualiser].
+
+5. Organisation des Groupes et Programmation :
+   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Groupes].
+   - Manipulation : Création des groupes d'enseignement (EPS, options, dispositifs spécifiques) et attribution des séquences d'apprentissage et des APSA.
+   - Placement des élèves : Menu [Mes Élèves] => [Classes / Groupes] pour répartir individuellement chaque élève.
+
+6. Gestion des Inaptitudes et Dispenses :
+   - Accès : Tableau de bord => [Mes Élèves] => [Visualisation] => onglet [Inaptitudes].
+   - Manipulation : Sélectionner l'élève, cliquer sur [Saisir une inaptitude], renseigner les dates exactes et téléverser le certificat médical officiel (rappel : un mot des parents n'est pas une inaptitude médicale).
+
+7. Saisie des Emplois du Temps (EDT) et Équipements :
+   - Équipements : Déclaration des infrastructures sportives avec leur code RES dans [Matériel / Équipements].
+   - EDT : Positionnement des groupes et séquences sur les créneaux horaires dans [Dossiers] => [Dossier EPS] => [Emploi du Temps].
+
+8. Suivi Pédagogique et Évaluation (Règles spécifiques par niveau) :
+   - Au Collège (DNB) : iPackEPS sert au pilotage, aux séquences et au suivi des compétences (AFL). La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
+   - Au Lycée (CCF / Examens) : Paramétrage des protocoles certificatifs et préparation des dossiers pour Cyclades et Santorin.
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
 
 [SITUATION: DÉFINITION DEC]

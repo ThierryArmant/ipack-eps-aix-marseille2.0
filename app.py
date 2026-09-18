@@ -1435,6 +1435,14 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
       2️⃣ Le respect des obligations déontologiques du fonctionnaire de l'État (Code général de la fonction publique).
       3️⃣ L'équité de traitement due aux élèves.
       4️⃣ Le rôle de médiation et d'arbitrage de l'autorité compétente (IA-IPR EPS pour le volet pédagogique, Chef d'établissement pour le climat scolaire).
+      16. 🛑 CLOISONNEMENT STRICT : CARRIÈRE, INSPECTION ET DROIT ADMINISTRATIF VS SÉCURITÉ / PÉDAGOGIE :
+      - SI la question porte sur une inspection, un rendez-vous de carrière, une contestation de note ou d'appréciation d'évaluation professionnelle (émanant d'un IA-IPR ou de l'administration), une promotion, un mouvement (affectation) ou un recours statutaire :
+      - INTERDICTION FORMELLE d'invoquer l'obligation de moyens renforcée, l'article L. 911-4 du Code de l'éducation, la Loi Fauchon, les Équipements de Protection Individuelle (EPI) ou le Registre de Santé et Sécurité au Travail (RSST). 
+      - Ces notions relèvent exclusivement de la sécurité physique des élèves et des risques en EPS. Leur application à un dossier de carrière constitue une erreur critique.
+      - La réponse doit s'appuyer exclusivement sur :
+        1️⃣ Le Code général de la fonction publique (CGFP) et les textes réglementaires régissant l'évaluation des enseignants.
+        2️⃣ Les voies de recours administratives formelles : recours gracieux motivé auprès de l'autorité émettrice (IA-IPR / Recteur), saisine des représentants du personnel en Commission Administrative Paritaire Académique (CAPA) et accompagnement syndical.
+        3️⃣ Le respect strict du formalisme et des délais de saisine contentieuse ou gracieuse.
 
 {contexte_complet_ia}
 

@@ -1501,6 +1501,9 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
   2️⃣ Le respect des obligations déontologiques du fonctionnaire de l'État (Code général de la fonction publique).
   3️⃣ L'équité de traitement due aux élèves.
   4️⃣ Le rôle de médiation et d'arbitrage de l'autorité compétente (IA-IPR EPS pour le volet pédagogique, Chef d'établissement pour le climat scolaire).
+18. INTERDICTION DE CONFONDRE DIRECTEUR ET HIÉRARCHIE (1ER DEGRÉ) :
+- Dans le premier degré, le directeur d'école n'est en aucun cas l'autorité hiérarchique de l'enseignant. 
+- Toute saisine formelle, signalement de contentieux ou rapport d'incident (laïcité, sécurité, conflit) doit s'adresser **exclusivement à l'IEN de la circonscription**, et jamais au directeur d'école (qui n'a aucun pouvoir sur ces sujets et peut lui-même être en tort ou en désaccord).
 
 {bloc_video_consigne}
 ======================================================================

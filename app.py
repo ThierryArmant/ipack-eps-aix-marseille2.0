@@ -105,7 +105,7 @@ if "messages_hub" not in st.session_state:
 if "active_module" not in st.session_state:
     st.session_state.active_module = "ipack"
 if "niveau_actif_form" not in st.session_state:
-    st.session_state.niveau_actif_form = "Collège (DNB)"
+    st.session_state.niveau_actif_form = "1er degré"
 
 
 def incrementer_et_obtenir_visites():
@@ -286,7 +286,7 @@ css_pur = f"""
     }}
 
     div[data-testid="stRadio"] > label {{
-        color: #38BDF8 !important;
+        color: #FFFFFF !important;
         font-weight: 700 !important;
         font-size: 13px !important;
         margin-bottom: 8px !important;
@@ -373,6 +373,22 @@ css_pur = f"""
 """
 st.markdown(css_pur, unsafe_allow_html=True)
 
+# 🎯 BANNIÈRE ET SÉLECTEUR DE PUBLIC CIBLE (Mis en blanc et gras avec "1er degré")
+st.markdown(
+    '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
+    '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
+    '</div>', 
+    unsafe_allow_html=True
+)
+
+niveau_actuel_form = st.radio(
+    "Public cible",
+    options=["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+    key="niveau_actif_form",
+    horizontal=True,
+    label_visibility="collapsed"
+)
+
 # ======================================================================
 # 4. CONFIGURATION DE L'IA & CHARGEMENT DES BASES
 # ======================================================================
@@ -408,7 +424,7 @@ def obtenir_cle_fichier():
             mtimes.append(os.path.getmtime(chemin_textes))
         except Exception:
             pass
-    for dossier in ["data/examens", "data/ipack", "data/textes", "data/peda"]:
+    for dossier in ["data/examens", "data/ipack", "data/textes", "data/peda", "data/textes/premier_degré"]:
         if os.path.exists(dossier) and os.path.isdir(dossier):
             try:
                 for f in os.listdir(dossier):
@@ -526,7 +542,7 @@ def initialiser_base_textes(cle_fremt):
         Document(
             text=(
                 "Base de données réglementaire globale pour les textes de lois"
-                " du second degré."
+                " du second degré et du premier degré."
             ),
             metadata={
                 "title": "Légifrance",
@@ -535,8 +551,11 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
+    # Inclusion récursive pour capter le dossier 'premier_degré' s'il y est
+    if os.path.exists("data/textes/premier_degré"):
+        docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())
-    return VectorStoreIndex.from_documents(docs_textes).as_retriever(
+    return VectorStoreIndex.from_documents(docs_textes,, recursive=True).as_retriever(
         similarity_top_k=8
     )
 

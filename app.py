@@ -1507,14 +1507,15 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 
 {bloc_video_consigne}
 ======================================================================
-🛑 INSTRUCTION DE STRUCTURE FINALE (CAS DU MATÉRIEL DÉFECTUEUX)
+🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
 ======================================================================
-Si la question implique un matériel défectueux signalé mais maintenu en usage, la structure classique des "Recommandations" de fin de réponse est TOTALEMENT INTERDITE. 
-Tu dois obligatoirement remplacer la dernière section par ce bloc textuel figé, sans un mot de plus ni de moins :
-
+- Cette instruction ne s'applique QUE si la question évoque explicitement un matériel, un équipement ou une infrastructure signalé(e) défectueux et maintenu(e) en usage. 
+- Si la question traite d'un autre sujet (laïcité, inaptitude, surveillance, conflit, sortie sans matériel), CE BLOC EST STRICTEMENT INTERDIT et ne doit jamais apparaître.
+- Lorsque la condition est remplie, la section finale doit obligatoirement être ce texte figé et rien d'autre :
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
+======================================================================
 {contexte_complet_ia}
 
 QUESTION DE L'UTILISATEUR :

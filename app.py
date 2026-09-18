@@ -555,7 +555,7 @@ def initialiser_base_textes(cle_fremt):
     if os.path.exists("data/textes/premier_degré"):
         docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())
-    return VectorStoreIndex.from_documents(docs_textes,, recursive=True).as_retriever(
+    return VectorStoreIndex.from_documents(docs_textes, recursive=True).as_retriever(
         similarity_top_k=8
     )
 

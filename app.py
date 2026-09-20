@@ -988,7 +988,8 @@ if prompt:
             "responsabilité", "responsabilite", "circulaire", "officiel", 
             "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
             "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-            "compétence", "competence", "fonction publique", "direction", "chef d'établissement"
+            "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
+            "psc1", "psc", "secourisme", "secours"
         ]
         
         est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
@@ -1539,6 +1540,11 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
   -> INTERDICTION FORMELLE ET ABSOLUE d'inventer des menus logiciels, des boutons, des liens ou des procédures iPackEPS / Santorin à la fin de la réponse.
   -> Conclus simplement en indiquant que cette thématique pédagogique ou de terrain relève de la conduite de classe et ne fait l'objet d'aucun module de saisie ou de gestion dans iPackEPS.
 
+20. VÉRITÉ RÉGLEMENTAIRE SUR LE PSC1 / SECOURISME AU COLLÈGE :
+- La formation PSC1 (Prévention et Secours Civiques de niveau 1) ou toute formation aux premiers secours n'est **en aucun cas un prérequis, une condition ni un critère bloquant pour l'obtention du DNB (Diplôme National du Brevet)** ou pour le passage en classe supérieure.
+- S'il est fortement encouragé et mis en œuvre par les établissements dans le cadre du **Parcours Citoyen** (souvent en classe de 4e ou 3e), il ne constitue pas une obligation individuelle sanctionnée par la non-délivrance du diplôme national.
+- Toute affirmation contraire (liant l'obtention du brevet au PSC1) constitue une hallucination réglementaire qu'il est formellement interdit de produire.
+
 {bloc_video_consigne}
 ======================================================================
 🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
@@ -1549,7 +1555,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
-- 🛑 TERMINOLOGIE DOCTRINALE DOCTRINALE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
+- 🛑 TERMINOLOGIE DOCTRINALE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
 ======================================================================
 {contexte_complet_ia}
 

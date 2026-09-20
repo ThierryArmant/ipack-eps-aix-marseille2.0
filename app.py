@@ -78,7 +78,6 @@ VIDEOS_TUTOS = {
     "Evolution_et_fermeture_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Evolution_et_fermeture_SSS.mp4",
     "Signature_chef_etablissement_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Signature_chef_etablissement_SSS.mp4",
     "Export_profs_externes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Export_profs_externes_cyclades.mp4",
-    # --- Ajouts complémentaires (Rapports, APPN & Paramétrage SSS) ---
     "Rapport_etat_serveurs.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Rapport_etat_serveurs.mp4",
     "Gestion_dossier_APPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Gestion_dossier_APPN.mp4",
     "Configuration_modules_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_modules_SSS.mp4",
@@ -372,14 +371,6 @@ css_pur = f"""
     </style> 
 """
 st.markdown(css_pur, unsafe_allow_html=True)
-
-# 🎯 BANNIÈRE ET SÉLECTEUR DE PUBLIC CIBLE
-st.markdown(
-    '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
-    '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
-    '</div>', 
-    unsafe_allow_html=True
-)
 
 
 # ======================================================================
@@ -967,7 +958,6 @@ if prompt:
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
-        # Définition précoce pour éviter les NameError
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
             "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
@@ -1004,7 +994,12 @@ if prompt:
         est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
 
         if est_totalement_hors_sujet:
-            texte_brut = """<h3>🛑 HORS PÉRIMÈTRE INSTITUTIONNEL</h3>
+            rappel_hs = (
+                "<div style='margin-bottom: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
+                "⚠️ <strong>Rappel :</strong> Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessous devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC)."
+                "</div>"
+            )
+            texte_brut = rappel_hs + """<h3>🛑 HORS PÉRIMÈTRE INSTITUTIONNEL</h3>
 <ul>
   <li><strong>Champ de compétence :</strong> Votre question semble étrangère aux domaines traités par cet assistant (Éducation Physique et Sportive, gestion administrative iPackEPS, examens et concours, ou réglementation juridique et institutionnelle).</li>
   <li><strong>Restriction d'usage :</strong> En tant qu'assistant numérique spécialisé, je ne suis pas programmé pour traiter des requêtes extérieures à ces périmètres professionnels.</li>
@@ -1522,8 +1517,8 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 16. PIÈGE DU SIGNALEMENT PRÉALABLE & CONSCIENCE DU RISQUE :
 - Si un enseignant signale par écrit un danger avéré (infrastructure municipale défectueuse, équipement non conforme) mais choisit NÉANMOINS de faire emprunter ou utiliser cet équipement à ses classes, le signalement écrit préalable ne constitue en aucun cas une immunité ou une circonstance atténuante.
 - Au contraire, cette démarche matérialise de manière irréfutable la conscience du risque par l'agent. Maintenir l'activité ou le passage malgré l'alerte caractérise une violation délibérée de l'obligation de prudence et de mise en sécurité (faute caractérisée au sens de la Loi Fauchon / Code pénal).
-- L'assistant doit impérativement rappeler que l'alerte écrite impose une action conservatoire immédiate et conjonte (interdiction d'accès / modification d'itinéraire). L'inaction ou le contournement pédagogique du danger après signalement engage lourdement la responsabilité de l'agent.
-- 🛑 SUPPRESSION RADICALE DU RÉFLEXE ADMINISTRATIF ET DU TEMPLATE DE FIN : Dès qu'un cas implique un matériel défectueux déjà signalé et maintenu en usage, IL EST STRICTEMENT INTERDIT de rédiger des recommandations sur la traçabilité, les registres ou les courriers futurs. La section finale de la réponse ne doit en aucun cas suggérer de "consigner" ou de "documenter", mais doit impérativement s'achever par l'interdiction immédiate de l'activité et le rappel de la Loi Fauchon.
+- L'assistant doit impérativement rappeler que l'alerte écrite impose une action conservatoire immédiate et conjointe (interdiction d'accès / modification d'itinéraire). L'inaction ou le contournement pédagogique du danger après signalement engage lourdement la responsabilité de l'agent.
+- 🛑 SUPPRESSION RADICALE DU RÉFLEXE ADMINISTRATIF ET DES CONSEILS FUTURS : Dès qu'un cas implique un matériel défectueux déjà signalé et maintenu en usage, IL EST STRICTEMENT INTERDIT de rédiger des recommandations sur la traçabilité, les registres ou les courriers futurs. La section finale de la réponse ne doit en aucun cas suggérer de "consigner" ou de "documenter", mais doit impérativement s'achever par l'interdiction immédiate de l'activité et le rappel de la Loi Fauchon.
 
 17. DISTINCTION DES CHAMPS : CONFLITS ENTRE PERSONNELS VS SÉCURITÉ DES ÉLÈVES :
 - SI la question porte sur un conflit interpersonnel, un désaccord d'équipe pédagogique (choix d'APSA, refus d'appliquer une programmation collective, usage de matériel mutualisé) ou un différend hiérarchique sans accident corporel :
@@ -1536,18 +1531,13 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 
 18. INTERDICTION DE CONFONDRE DIRECTEUR ET HIÉRARCHIE (1ER DEGRÉ) :
 - Dans le premier degré, le directeur d'école n'est en aucun cas l'autorité hiérarchique de l'enseignant. 
-- Toute saisine formelle, signalement de contentieux ou rapport d'incident (laïcité, sécurité, conflit) doit s'adresser **exclusivement à l'IEN de la circonscription**, et jamais au directeur d'école.
+- Toute saisine formelle, signalement de contentieux ou rapport d'incident doit s'adresser **exclusivement à l'IEN de la circonscription**, et jamais au directeur d'école.
 
 19. APPROCHE HYBRIDE ET QUALITATIVE (VIE LYCÉENNE & TERRAIN) :
-    - Si la question porte sur une thématique pédagogique générale, un cycle d'APSA, une action de vie lycéenne ou un projet :
-      -> Fournis une réponse qualitative, structurée et professionnelle pour aider l'équipe.
-      -> INTERDICTION FORMELLE ET ABSOLUE d'inventer des menus logiciels, des boutons, des liens ou des procédures iPackEPS / Santorin à la fin de la réponse (pas de "Dossier EPS > Gestion des évaluations" ou autres).
-      -> Conclus simplement en indiquant que cette thématique pédagogique ou de terrain relève de la conduite de classe et ne fait l'objet d'aucun module de saisie ou de gestion dans iPackEPS.
-
-20. OBLIGATION DE CLAUSE DE VÉRIFICATION FINALE :
-- À la toute fin absolue de ta réponse (après la liste d'actions ou les conseils, et juste avant le pied de page standard), tu dois obligatoirement terminer par une phrase de réserve et de vérification institutionnelle.
-- Utilise systématiquement cette formulation exacte :
-  "---<br>⚠️ *Rappel : Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessus devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC).* "
+- Si la question porte sur une thématique pédagogique générale, un cycle d'APSA, une action de vie lycéenne ou un projet :
+  -> Fournis une réponse qualitative, structurée et professionnelle pour aider l'équipe.
+  -> INTERDICTION FORMELLE ET ABSOLUE d'inventer des menus logiciels, des boutons, des liens ou des procédures iPackEPS / Santorin à la fin de la réponse.
+  -> Conclus simplement en indiquant que cette thématique pédagogique ou de terrain relève de la conduite de classe et ne fait l'objet d'aucun module de saisie ou de gestion dans iPackEPS.
 
 {bloc_video_consigne}
 ======================================================================
@@ -1559,7 +1549,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
-- 🛑 TERMINOLOGIE DOCTRINALE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
+- 🛑 TERMINOLOGIE DOCTRINALE DOCTRINALE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
 ======================================================================
 {contexte_complet_ia}
 

@@ -373,7 +373,7 @@ css_pur = f"""
 """
 st.markdown(css_pur, unsafe_allow_html=True)
 
-# 🎯 BANNIÈRE ET SÉLECTEUR DE PUBLIC CIBLE (Mis en blanc et gras avec "1er degré")
+# 🎯 BANNIÈRE ET SÉLECTEUR DE PUBLIC CIBLE
 st.markdown(
     '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
     '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
@@ -544,7 +544,6 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
-    # Inclusion récursive pour capter le dossier 'premier_degré' s'il y est
     if os.path.exists("data/textes/premier_degré"):
         docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())
@@ -727,7 +726,7 @@ verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)
 
 # ======================================================================
-# 5. BANDEAU SUPÉRIEUR (UTILISANT LE BASE64)
+# 5. BANDEAU SUPÉRIEUR
 # ======================================================================
 st.markdown(
     f"""
@@ -883,8 +882,6 @@ with col_b3:
 # ======================================================================
 # 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
 # ======================================================================
-
-# Bannière personnalisée en blanc et gras
 st.markdown(
     '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
     '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
@@ -954,7 +951,7 @@ else:
     )
 
 # ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES (Version Définitive & Blindée)
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
 if prompt:
     st.session_state.messages_hub = []
@@ -970,34 +967,33 @@ if prompt:
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
+        # Définition précoce pour éviter les NameError
+        onglets_noms = {
+            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+            "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+            "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
+        }
+        contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+
         # ==================================================================
         # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
         # ==================================================================
         mots_cles_eps_admin = [
-            # --- 1. OUTILS ET PLATEFORMES INSTITUTIONNELLES ---
             "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
             "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
-            
-            # --- 2. EXAMENS, CERTIFICATION & PROCÉDURES ---
             "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
             "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
             "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
             "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
             "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
-            
-            # --- 3. NIVEAUX SCOLAIRES & STRUCTURES ---
             "collège", "college", "lycée", "lycee", "maternelle", 
             "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
             "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
             "sss", "section sportive", "prépa-métiers", "prepa-metiers",
-            
-            # --- 4. EPS, APSA & PÉDAGOGIE ---
             "eps", "sport", "sports", "apsa", "relais", "handball", 
             "activite", "activites", "sauts", "lancers", "courses", 
             "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
             "programme", "programmes", "afl", "afc", "socle",
-            
-            # --- 5. CADRE JURIDIQUE, SÉCURITÉ & HIÉRARCHIE ---
             "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
             "responsabilité", "responsabilite", "circulaire", "officiel", 
             "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
@@ -1020,13 +1016,6 @@ if prompt:
             extraits_doc = ""
             badge, color_card = "INFORMATION", "general-card"
 
-            onglets_noms = {
-                "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-                "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
-                "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
-            }
-            contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
-
             verites_terrain_pierre = ""
             try:
                 for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
@@ -1039,13 +1028,11 @@ if prompt:
             est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
             est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
             
-            # 🆕 DÉTECTION DU 1ER DEGRÉ (Maternelle & Élémentaire - TPS à CM2)
             est_premier_degre = any(w in p_low for w in [
                 "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
                 "maternelle", "élémentaire", "elementaire", "atsem", "directeur d'école", "ien"
             ])
 
-            # 🛡️ DISJONCTEUR DE SÉCURITÉ : Sémantique > Interface UI
             if est_college and not est_clairement_lycee:
                 contexte_actif = "college"
             else:
@@ -1193,7 +1180,6 @@ if prompt:
                 )
             ) or est_tasa or est_unss
 
-            # 🛡️ ROUTAGE DU RETRIEVER SÉCURISÉ PAR CONTEXTE ACTIF & PUBLIC CIBLE
             if openai_api_key and not est_cas_direct:
                 try:
                     if niveau_actuel_form == "1er degré":
@@ -1536,7 +1522,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 16. PIÈGE DU SIGNALEMENT PRÉALABLE & CONSCIENCE DU RISQUE :
 - Si un enseignant signale par écrit un danger avéré (infrastructure municipale défectueuse, équipement non conforme) mais choisit NÉANMOINS de faire emprunter ou utiliser cet équipement à ses classes, le signalement écrit préalable ne constitue en aucun cas une immunité ou une circonstance atténuante.
 - Au contraire, cette démarche matérialise de manière irréfutable la conscience du risque par l'agent. Maintenir l'activité ou le passage malgré l'alerte caractérise une violation délibérée de l'obligation de prudence et de mise en sécurité (faute caractérisée au sens de la Loi Fauchon / Code pénal).
-- L'assistant doit impérativement rappeler que l'alerte écrite impose une action conservatoire immédiate et conjointe (interdiction d'accès / modification d'itinéraire). L'inaction ou le contournement pédagogique du danger après signalement engage lourdement la responsabilité de l'agent.
+- L'assistant doit impérativement rappeler que l'alerte écrite impose une action conservatoire immédiate et conjonte (interdiction d'accès / modification d'itinéraire). L'inaction ou le contournement pédagogique du danger après signalement engage lourdement la responsabilité de l'agent.
 - 🛑 SUPPRESSION RADICALE DU RÉFLEXE ADMINISTRATIF ET DU TEMPLATE DE FIN : Dès qu'un cas implique un matériel défectueux déjà signalé et maintenu en usage, IL EST STRICTEMENT INTERDIT de rédiger des recommandations sur la traçabilité, les registres ou les courriers futurs. La section finale de la réponse ne doit en aucun cas suggérer de "consigner" ou de "documenter", mais doit impérativement s'achever par l'interdiction immédiate de l'activité et le rappel de la Loi Fauchon.
 
 17. DISTINCTION DES CHAMPS : CONFLITS ENTRE PERSONNELS VS SÉCURITÉ DES ÉLÈVES :
@@ -1550,38 +1536,30 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 
 18. INTERDICTION DE CONFONDRE DIRECTEUR ET HIÉRARCHIE (1ER DEGRÉ) :
 - Dans le premier degré, le directeur d'école n'est en aucun cas l'autorité hiérarchique de l'enseignant. 
-- Toute saisine formelle, signalement de contentieux ou rapport d'incident (laïcité, sécurité, conflit) doit s'adresser **exclusivement à l'IEN de la circonscription**, et jamais au directeur d'école (qui n'a aucun pouvoir sur ces sujets et peut lui-même être en tort ou en désaccord).
+- Toute saisine formelle, signalement de contentieux ou rapport d'incident (laïcité, sécurité, conflit) doit s'adresser **exclusivement à l'IEN de la circonscription**, et jamais au directeur d'école.
 
-19. REFUS STRICT ET NET DES SITUATIONS D'APPRENTISSAGE ET DE LA PÉDAGOGIE DE TERRAIN :
-    - iPackEPS et Santorin sont des outils techniques, administratifs et de gestion de structures/examens. 
-    - SI L'UTILISATEUR DEMANDE une situation d'apprentissage, une fiche de séquence, un exercice pratique (ex: handball, relais, athlétisme, etc.) ou une correction didactique de terrain :
-      -> TU DOIS REFUSER NETTEMENT ET CLAIREMENT.
-      -> Utilise obligatoirement cette formulation de refus : 
-      "⚠️ iPackEPS est un assistant technique et réglementaire dédié à la gestion des structures, des groupes et de la certification (CCF/DNB). Je ne suis pas conçu pour concevoir ou générer des situations d'apprentissage de terrain. Pour vos séances, veuillez vous référer aux programmes officiels. Souhaitez-vous de l'aide sur le paramétrage de vos groupes dans l'application ?"
-      -> N'invente aucun menu logiciel iPackEPS pour l'occasion.
+19. APPROCHE HYBRIDE ET QUALITATIVE (VIE LYCÉENNE & TERRAIN) :
+- Si la question porte sur une action de vie lycéenne, un projet (ex: ambassadeurs du sport, animations) ou une thématique pédagogique générale :
+  -> Fournis une réponse qualitative, structurée et professionnelle pour aider l'équipe.
+  -> INTERDICTION FORMELLE D'INVENTER DES MENUS LOGICIELS ou des procédures d'import/export fictives dans iPackEPS pour l'occasion.
+  -> Rappelle simplement que cette thématique relève de la vie de l'établissement et des initiatives libres, sans faire l'objet d'un module de saisie spécifique dans iPackEPS.
 
-20. APPROCHE HYBRIDE ET QUALITATIVE (VIE LYCÉENNE & TERRAIN) :
-    - Si la question porte sur une action de vie lycéenne, un projet (ex: ambassadeurs du sport, animations) ou une thématique pédagogique générale :
-      -> Fournis une réponse qualitative, structurée et professionnelle pour aider l'équipe.
-      -> INTERDICTION FORMELLE D'INVENTER DES MENUS LOGICIELS ou des procédures d'import/export fictives dans iPackEPS pour l'occasion.
-      -> Rappelle simplement que cette thématique relève de la vie de l'établissement et des initiatives libres, sans faire l'objet d'un module de saisie spécifique dans iPackEPS.
+20. OBLIGATION DE CLAUSE DE VÉRIFICATION FINALE :
+- À la toute fin absolue de ta réponse (après la liste d'actions ou les conseils, et juste avant le pied de page standard), tu dois obligatoirement terminer par une phrase de réserve et de vérification institutionnelle.
+- Utilise systématiquement cette formulation exacte :
+  "---<br>⚠️ *Rappel : Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessus devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC).* "
 
-21. OBLIGATION DE CLAUSE DE VÉRIFICATION FINALE :
-    - À la toute fin absolue de ta réponse (après la liste d'actions ou les conseils, et juste avant le pied de page standard), tu dois obligatoirement terminer par une phrase de réserve et de vérification institutionnelle.
-    - Utilise systématiquement cette formulation exacte :
-      "---<br>⚠️ *Rappel : Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessus devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC).* "    20. PRINCIPE DE DISTINCTION ENTRE TERRAIN PÉDAGOGIQUE ET OUTIL TECHNIQUE (CAS DES PROJETS / ACTIONS) :
-    - Si la question porte sur une action de vie lycéenne ou un projet d'établissement (ex: ambassadeurs du sport, animations, événements), réponds de manière qualitative et professionnelle sur le plan général, mais INTERDICTION FORMELLE D'INVENTER DES MENUS LOGICIELS ou des procédures d'import/export fictives dans iPackEPS (pas de faux menus de gestion de projets ou autres). Conclus en rappelant que cela relève de la vie de l'établissement et ne fait l'objet d'aucun module de saisie spécifique dans iPackEPS.
 {bloc_video_consigne}
 ======================================================================
 🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
 ======================================================================
 - Cette instruction ne s'applique QUE si la question évoque explicitement un matériel, un équipement ou une infrastructure signalé(e) défectueux et maintenu(e) en usage. 
-- Si la question traite d'un autre sujet (laïcité, inaptitude, surveillance, conflit, sortie sans matériel), CE BLOC EST STRICTEMENT INTERDIT et ne doit jamais apparaître.
+- Si la question traite d'un autre sujet, CE BLOC EST STRICTEMENT INTERDIT.
 - Lorsque la condition est remplie, la section finale doit obligatoirement être ce texte figé et rien d'autre :
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
-- 🛑 TERMINOLOGIE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
+- 🛑 TERMINOLOGIE DOCTRINALE DU 1ER DEGRÉ : L'agent exerçant en école primaire est un **professeur des écoles** (ou un **enseignant**). L'emploi des termes « professeur d'EPS » ou « professeur d'éducation physique » est STRICTEMENT INTERDIT, l'EPS étant enseignée par le professeur des écoles dans le cadre de sa polyvalence.
 ======================================================================
 {contexte_complet_ia}
 
@@ -1604,7 +1582,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 except Exception as e:
                     texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-            # 🛡️ PURGE RADICALE DES RÉFÉRENCES SANTORIN EN CONTEXTE COLLÈGE / DNB
             if est_college or est_dnb:
                 texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
                 texte_brut = re.sub(r"Saisie_notes_Santorin\.mp4", "", texte_brut, flags=re.IGNORECASE)

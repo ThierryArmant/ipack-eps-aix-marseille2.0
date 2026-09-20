@@ -989,7 +989,7 @@ if prompt:
             "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
             "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
             "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
-            "psc1", "psc", "secourisme", "secours"
+            "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
         ]
         
         est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
@@ -1176,6 +1176,7 @@ if prompt:
                 )
             ) or est_tasa or est_unss
 
+            # 🛠️ CORRECTION DU ROUTAGE RAG : On interroge en priorité la base des textes si l'onglet "textes" est actif, sans se faire piéger par la mention du collège.
             if openai_api_key and not est_cas_direct:
                 try:
                     if niveau_actuel_form == "1er degré":
@@ -1188,28 +1189,30 @@ if prompt:
                             for n in nodes_peda:
                                 extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
                     else:
-                        if contexte_actif == "college":
+                        if mode == "textes":
+                            if retriever_textes:
+                                nodes_bruts = retriever_textes.retrieve(prompt)
+                                for n in nodes_bruts:
+                                    extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
+                            if retriever_peda and any(w in p_low for w in ["programme", "cycle", "competence", "afl", "afc", "socle", "pedagogie"]):
+                                nodes_peda = retriever_peda.retrieve(prompt)
+                                for n in nodes_peda:
+                                    extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
+                        elif mode == "examens":
+                            if retriever_santorin:
+                                nodes_bruts = retriever_santorin.retrieve(prompt)
+                                for n in nodes_bruts:
+                                    extraits_doc += f"{n.node.text}\n\n"
+                        elif mode == "ipack":
+                            if retriever_ipack:
+                                nodes_bruts = retriever_ipack.retrieve(prompt)
+                                for n in nodes_bruts:
+                                    extraits_doc += f"{n.node.text}\n\n"
+                        else:
                             if retriever_peda:
                                 nodes_peda = retriever_peda.retrieve(prompt)
                                 for n in nodes_peda:
-                                    extraits_doc += f"[Référentiel Collège / Programmes] {n.node.text}\n\n"
-                        elif mode == "examens":
-                            nodes_bruts = retriever_santorin.retrieve(prompt)
-                            for n in nodes_bruts:
-                                extraits_doc += f"{n.node.text}\n\n"
-                        elif mode == "ipack":
-                            nodes_bruts = retriever_ipack.retrieve(prompt)
-                            for n in nodes_bruts:
-                                extraits_doc += f"{n.node.text}\n\n"
-                        elif mode == "textes":
-                            nodes_bruts = retriever_textes.retrieve(prompt)
-                            for n in nodes_bruts:
-                                extraits_doc += f"{n.node.text}\n\n"
-                         
-                        if contexte_actif != "college" and retriever_peda:
-                            nodes_peda = retriever_peda.retrieve(prompt)
-                            for n in nodes_peda:
-                                extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
+                                    extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
                 except Exception:
                     pass
 
@@ -1542,7 +1545,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 
 20. VÉRITÉ RÉGLEMENTAIRE SUR LE PSC1 / SECOURISME AU COLLÈGE :
 - La formation PSC1 (Prévention et Secours Civiques de niveau 1) ou toute formation aux premiers secours n'est **en aucun cas un prérequis, une condition ni un critère bloquant pour l'obtention du DNB (Diplôme National du Brevet)** ou pour le passage en classe supérieure.
-- S'il est fortement encouragé et mis en œuvre par les établissements dans le cadre du **Parcours Citoyen** (souvent en classe de 4e ou 3e), il ne constitue pas une obligation individuelle sanctionnée par la non-délivrance du diplôme national.
+- S'il est fortement encouragé et mis en œuvre par les établissements dans le cadre du **Parcours Citoyen** (souvent en classe de 4e ou de 3e), il ne constitue pas une obligation individuelle sanctionnée par la non-délivrance du diplôme national.
 - Toute affirmation contraire (liant l'obtention du brevet au PSC1) constitue une hallucination réglementaire qu'il est formellement interdit de produire.
 
 {bloc_video_consigne}

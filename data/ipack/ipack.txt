@@ -1,4 +1,39 @@
 ======================================================================
+[SECTION: NOUVEAUTÉS_IPACKEPS_VERSION_2026_2_X]
+======================================================================
+
+### [PROCÉDURE : ÉVOLUTIONS MAJEURES INTERFACE ET MODULES (2026)]
+
+1. Élargissement des droits d'actualisation (Classes & Équipe EPS) :
+- MODULE [DOSSIERS] / [DOSSIER EPS] / [CLASSES] & [ÉQUIPE EPS] : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique directement depuis l'interface.
+
+2. Gestion enrichie du Matériel et de l'Inventaire EPI :
+- MODULE [GESTION DU MATÉRIEL] / [INVENTAIRE EPI] : 
+  * Possibilité d'ajouter des photos de chaque équipement dans la fiche matériel.
+  * Possibilité d'importer la notice technique du constructeur.
+  * Possibilité de modifier la fréquence des contrôles (définie par défaut à 12 mois).
+  * L'édition papier du registre EPI intègre désormais automatiquement la photo du matériel.
+  * 📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
+
+3. Dépôts multiples et Suivi des Certificats Médicaux (CM) :
+- MODULE [DOSSIERS] / [DOSSIER EPS] / [AXES DES PROJETS] : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS.
+- MODULE [MES ÉLÈVES] / [VISUALISATION] / [INAPTITUDES] : Contrôle de conformité croisé entre les dates des Certificats Médicaux (CM) et les dates des Séquences d'Apprentissage (alerte si un CM se situe en dehors des bornes de la séquence).
+  * 📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
+
+4. Modules Sections Sportives Scolaires (SSS) - Évolution SSS :
+- MODULE [DOSSIERS] / [DOSSIER SSS] / [ÉVOLUTION SSS] : Nouveau module permettant d'exprimer et de suivre les demandes de reconduction ou de fermeture de SSS pour l'année suivante.
+  * Intégration de la signature électronique du chef d'établissement pour les demandes de fermeture / reconduction.
+  * Messagerie intégrée permettant à l'IPR ou à la commission d'envoyer des notifications de validation ou d'invalidation aux établissements.
+  * Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS.
+  * 📺 Tutoriels associés : Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4
+
+5. Administration et Rapports techniques :
+- MODULE [RAPPORT] : Permet d'afficher un rapport complet sur l'état de fonctionnement d'iPackEPS (état des connexions aux bases RAMSESE, SIÈCLE, EPP, espace disque libre, versions PHP/SGBD).
+- EXPORT ZIP STRUCTURÉ DU DOSSIER CERTIFICATIF : Les documents de la commission CAHPN sont désormais triés de manière automatisée dans une arborescence claire par département et par type (Public / Privé).
+  * 📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
+- EXPORT CYCLADES PROFESSEURS EXTERNES : Le fichier exporté à destination de la DEC intègre désormais une colonne dédiée [examen].
+  * 📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
+======================================================================
                  CONSIGNES ET DICTIONNAIRE IA Ipack
                      (SOURCE DE VÉRITÉ ABSOLUE)
 ======================================================================

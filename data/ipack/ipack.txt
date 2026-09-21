@@ -1901,4 +1901,33 @@ iPackEPS est l'outil académique officiel dédié au pilotage pédagogique, à l
 
 ### 7. Administration, Rapports et Paramétrage Technique
 * **État des serveurs :** Le module de rapport technique restitue l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque disponible ainsi que les versions logicielles (PHP, bases de données)[cite: 1, 2].
-* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*[cite: 1, 2].
+* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*[cite: 1, 2].ù
+
+TITRE : Guide iPackEPS - Gestion des Emplois du Temps (EDT) et des Créneaux
+
+ACCÈS AU MODULE :
+- La visualisation et la gestion des emplois du temps de l'équipe EPS se font depuis le module [Dossiers] > [Dossier EPS] > [Emploi du Temps].
+- Le module s'articule autour de l'agenda (équipe, enseignant, type de groupe), de l'édition de la liste des créneaux et d'un outil de vérification des alertes.
+
+QUESTIONS FRÉQUENTES & CAS PRATIQUES (FAQ EDT) :
+
+1. Affichage des créneaux en 2 colonnes :
+- L'affichage de l'emploi du temps se fait sur des tranches horaires de 30 minutes. Lorsqu'un créneau se termine et qu'un autre commence sur la même tranche horaire, l'interface graphique crée automatiquement 2 colonnes pour éviter les chevauchements (il s'agit d'une adaptation purement graphique).
+
+2. Suppression d'un créneau existant :
+- Il suffit de faire un clic droit sur le créneau concerné et de sélectionner l'option [Supprimer].
+
+3. Déplacement ou modification d'un créneau :
+- Il suffit de faire un clic droit sur le créneau et de sélectionner [Modifier] (ou de double-cliquer directement sur le créneau). Les paramètres s'affichent alors, permettant d'ajuster le jour, l'heure de début et de fin, l'équipement, etc.
+
+4. Gestion de plusieurs groupes ou enseignants simultanés sur le même créneau :
+- Si l'un des créneaux est déjà créé, faites un clic droit sur ce créneau et cliquez sur l'option [Ajouter un créneau] pour superposer un second groupe ou un second enseignant sur la même plage horaire.
+
+5. Saisie en cité scolaire (Collège et Lycée) :
+- NON : Il est impossible de tout saisir sur une seule entité. L'emploi du temps du collège doit être complété sur l'entité collège et celui du lycée sur l'entité lycée correspondante.
+
+6. Gestion des créneaux en Semaine A et Semaine B :
+- Double-cliquez sur le créneau, renseignez la classe, l'activité et l'équipement, puis cochez l'option "Répéter toutes les deux semaines". Veillez à bien pointer sur la date de début de la première leçon et à respecter le décalage de semaine (A ou B) lors de la saisie des classes alternées.
+
+7. Vérification et alertes sur les créneaux :
+- Le menu "Vérification agenda" permet de détecter automatiquement les séquences d'apprentissage manquantes (non placées sur l'EDT), les saisies erronées pendant les vacances scolaires ou en dehors des plages horaires classiques, ainsi que les doublons de créneaux.

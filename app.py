@@ -1515,7 +1515,7 @@ if prompt:
             if mode != "textes":
                 bloc_video_consigne = """
                 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-                - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4).
+                - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4).
                 """
             else:
                 bloc_video_consigne = ""
@@ -1772,22 +1772,4 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
-                if est_dnb and "santorin" in video_name.lower():
-                    continue
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
-
-        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE (RETOUR ÉTAPE 1)
-        st.session_state.reset_steps = True
-        st.rerun()
-
-if "messages_hub" in st.session_state and st.session_state.messages_hub:
-    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-    for m in st.session_state.messages_hub:
-        with st.chat_message(m["role"]):
-            if m.get("type") == "video":
-                st.video(m["content"])
-            else:
-                st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+                if est_dnb and "santorin" in video

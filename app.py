@@ -111,6 +111,16 @@ if "public_valide" not in st.session_state:
     st.session_state.public_valide = False
 if "is_admin" not in st.session_state:
     st.session_state.is_admin = False
+if "reset_steps" not in st.session_state:
+    st.session_state.reset_steps = False
+
+# 🔄 NETTOYAGE PROPRE DES ÉTAPES AVANT L'INSTANCIATION DES WIDGETS
+if st.session_state.reset_steps:
+    st.session_state.contexte_valide = False
+    st.session_state.public_valide = False
+    st.session_state.active_module = None
+    st.session_state.niveau_actif_form = None
+    st.session_state.reset_steps = False
 
 
 def incrementer_et_obtenir_visites():
@@ -1585,7 +1595,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
 - ACCÈS PAR PORTAIL PRO UNIQUEMENT : Rappeler systématiquement que l'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) ne se fait jamais via un site public mais par le portail professionnel ARENA.
 
-13. INTERDICTION D'INVENTER DES MENUS POUR LES BLOCS ADMINISTRATIFS :
+13. INTERDICTION D'INVENTER des menus pour les blocs administratifs :
 - Si la question concerne un blocage externe ou une validation administrative (comme l'activation d'une SSS par le recteur ou l'académie), l'assistant ne doit jamais inventer de chemin de menu iPackEPS fictif (ex: "Allez dans Équipe EPS"). Il doit indiquer clairement qu'aucun menu local ne permet de contourner cela et rappeler la démarche externe.
 
 14. INTERDICTION FORMELLE D'UTILISER DES ÉTAPES NUMÉROTÉES POUR LES BLOCS ADMINISTRATIFS :
@@ -1725,53 +1735,4 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             footer_assistance = (
                 "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
                 "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
-                "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
-                "</div>"
-            )
-        elif mode in ["ipack", "examens"]:
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
-                "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-                "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
-                "</div>"
-            )
-
-        formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
-        )
-
-        log_interaction(
-            question=prompt, 
-            reponse=texte_brut, 
-            mode=mode, 
-            contexte=contexte_choisi_nom, 
-            niveau=niveau_actuel_form
-        )
-
-        st.session_state.messages_hub.append(
-            {"role": "assistant", "type": "text", "content": formatted_answer}
-        )
-
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                if est_dnb and "santorin" in video_name.lower():
-                    continue
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
-
-        # 🔄 RÉINITIALISATION AUTOMATIQUE DES ÉTAPES APRÈS CHAQUE QUESTION
-        st.session_state.contexte_valide = False
-        st.session_state.public_valide = False
-        st.session_state.active_module = None
-        st.session_state.niveau_actif_form = None
-
-if "messages_hub" in st.session_state and st.session_state.messages_hub:
-    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-    for m in st.session_state.messages_hub:
-        with st.chat_message(m["role"]):
-            if m.get("type") == "video":
-                st.video(m["content"])
-            else:
-                st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+                "À l'image de mes aînés, je vous invite

@@ -1772,4 +1772,22 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         for video_name, video_url in VIDEOS_TUTOS.items():
             if video_name in texte_final:
-                if est_dnb and "santorin" in video
+                if est_dnb and "santorin" in video_name.lower():
+                    continue
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
+                )
+
+        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE (RETOUR ÉTAPE 1)
+        st.session_state.reset_steps = True
+        st.rerun()
+
+if "messages_hub" in st.session_state and st.session_state.messages_hub:
+    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    for m in st.session_state.messages_hub:
+        with st.chat_message(m["role"]):
+            if m.get("type") == "video":
+                st.video(m["content"])
+            else:
+                st.markdown(m["content"], unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)

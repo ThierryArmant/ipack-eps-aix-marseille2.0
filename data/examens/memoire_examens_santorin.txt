@@ -271,3 +271,12 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
   - Si un lot entier est concerné par une indisponibilité technique d'installation ou un enseignant non remplacé : utiliser le bouton `[Déclarer CE]` avant la saisie des notes pour neutraliser l'APSA.
   - Si un seul élève est concerné : il est conseillé de créer un lot spécifique (réservé au chef d'établissement ou référent évaluation Santorin) et d'y placer l'élève concerné.
   - Si les boutons de CE restent bloqués (non réactifs) : cela arrive souvent si le nom du protocole contient des caractères spéciaux `/` ou `.`. Solution : recréer un protocole propre en faisant désvalider/revalider par l'I-IPR/DEC.
+TITRE : Gestion et identification des Sportifs de Haut Niveau (SHN) - Examens nationaux
+RÔLE ET LIMITES DE SANTORIN :
+- Santorin est exclusivement la plateforme institutionnelle de numérisation, de distribution et de correction des copies d'examens (Bac, DNB, CAP). 
+- Santorin N'EST PAS un logiciel de gestion des dossiers scolaires, ni une base de données permettant de filtrer, rechercher ou identifier des profils particuliers d'élèves (tels que les Sportifs de Haut Niveau - SHN ou ESHN).
+
+PROCÉDURE ADMINISTRATIVE RÉGLEMENTAIRE :
+- En amont : Le statut officiel de Sportif de Haut Niveau est géré lors de l'inscription aux examens via Cyclades et validé par la DEC (Division des Examens et Concours) sur la base des listes ministérielles.
+- Rôle de l'établissement : Le secrétariat d'examen et la direction gèrent les aménagements d'épreuves et veillent à la transmission des pièces justificatives.
+- Rôle de l'enseignant / correcteur : L'enseignant n'a aucune action d'identification de SHN à mener depuis Santorin. Si un candidat bénéficie de modalités particulières de notation ou d'une neutralisation/note de référence, ces éléments sont encadrés par les services académiques et appliqués lors des jurys (CAHPN), et non par une recherche active dans l'interface de correction Santorin.

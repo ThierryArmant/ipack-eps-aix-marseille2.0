@@ -249,8 +249,8 @@ css_pur = f"""
     }}
     .column-title-top .mode-actuel {{ 
         font-size: 14px !important; 
-        font-weight: 700; 
-        color: #38BDF8 !important; 
+        font-weight: 800 !important; 
+        color: #FFFFFF !important; 
         display: block; 
     }}
 
@@ -385,7 +385,7 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
-admin_secret_key = st.secrets.get("ADMIN_PASSWORD", "thierryAdmin2026") # Mot de passe par défaut modifiable dans secrets
+admin_secret_key = st.secrets.get("ADMIN_PASSWORD", "thierryAdmin2026")
 tavily_client = None
 if tavily_api_key and TavilyClient:
     try:
@@ -725,7 +725,7 @@ verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)
 
 # ======================================================================
-# 🔑 ZONE SECrÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
+# 🔑 ZONE SECRÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
 # ======================================================================
 with st.sidebar:
     st.markdown("### ⚙️ Espace Administration")
@@ -761,7 +761,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 🔒 LES VEILLES NE S'AFFICHENT QUE SI ST.SESSION_STATE.IS_ADMIN EST VRAI
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:
         date_alerte = st.session_state.get("date_veille_dec", "Récemment")

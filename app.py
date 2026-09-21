@@ -109,6 +109,8 @@ if "contexte_valide" not in st.session_state:
     st.session_state.contexte_valide = False
 if "public_valide" not in st.session_state:
     st.session_state.public_valide = False
+if "is_admin" not in st.session_state:
+    st.session_state.is_admin = False
 
 
 def incrementer_et_obtenir_visites():
@@ -383,6 +385,7 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
+admin_secret_key = st.secrets.get("ADMIN_PASSWORD", "thierryAdmin2026") # Mot de passe par défaut modifiable dans secrets
 tavily_client = None
 if tavily_api_key and TavilyClient:
     try:
@@ -722,6 +725,18 @@ verifier_veille_dec(tavily_client)
 verifier_veille_eduscol(tavily_client)
 
 # ======================================================================
+# 🔑 ZONE SECrÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
+# ======================================================================
+with st.sidebar:
+    st.markdown("### ⚙️ Espace Administration")
+    mot_de_passe_entre = st.text_input("Mot de passe admin", type="password")
+    if mot_de_passe_entre == admin_secret_key:
+        st.session_state.is_admin = True
+        st.success("Mode Admin activé (Veilles visibles)")
+    elif mot_de_passe_entre:
+        st.error("Mot de passe incorrect")
+
+# ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================
 st.markdown(
@@ -746,61 +761,63 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if "alerte_veille_dec" in st.session_state:
-    date_alerte = st.session_state.get("date_veille_dec", "Récemment")
-    texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
-    
-    lien_html_dec = ""
-    match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
-    if match_dec:
-        libelle_lien, url_lien = match_dec.groups()
-        lien_html_dec = f'<br><a href="{url_lien}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien}</a>'
+# 🔒 LES VEILLES NE S'AFFICHENT QUE SI ST.SESSION_STATE.IS_ADMIN EST VRAI
+if st.session_state.get("is_admin", False):
+    if "alerte_veille_dec" in st.session_state:
+        date_alerte = st.session_state.get("date_veille_dec", "Récemment")
+        texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
+        
+        lien_html_dec = ""
+        match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
+        if match_dec:
+            libelle_lien, url_lien = match_dec.groups()
+            lien_html_dec = f'<br><a href="{url_lien}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien}</a>'
 
-    st.markdown(
-        f"""
-    <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span style="font-size: 22px; margin-top: 2px;">🚨</span>
-            <div style="width: 100%;">
-                <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire DEC — Détectée le {date_alerte}</strong>
-                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
-                    De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
-                    {lien_html_dec}
+        st.markdown(
+            f"""
+        <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 22px; margin-top: 2px;">🚨</span>
+                <div style="width: 100%;">
+                    <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire DEC (Admin) — Détectée le {date_alerte}</strong>
+                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
+                        De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
+                        {lien_html_dec}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
+        """,
+            unsafe_allow_html=True,
+        )
 
-if "alerte_veille_eduscol" in st.session_state:
-    date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
-    texte_alerte_edu = st.session_state.get("alerte_veille_eduscol", "")
+    if "alerte_veille_eduscol" in st.session_state:
+        date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
+        texte_alerte_edu = st.session_state.get("alerte_veille_eduscol", "")
 
-    lien_html_edu = ""
-    match_edu = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_edu)
-    if match_edu:
-        libelle_lien_edu, url_lien_edu = match_edu.groups()
-        lien_html_edu = f'<br><a href="{url_lien_edu}" target="_blank" style="color: #38BDF8 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien_edu}</a>'
+        lien_html_edu = ""
+        match_edu = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_edu)
+        if match_edu:
+            libelle_lien_edu, url_lien_edu = match_edu.groups()
+            lien_html_edu = f'<br><a href="{url_lien_edu}" target="_blank" style="color: #38BDF8 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien_edu}</a>'
 
-    st.markdown(
-        f"""
-    <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #38BDF8; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span style="font-size: 22px; margin-top: 2px;">📘</span>
-            <div style="width: 100%;">
-                <strong style="color: #38BDF8 !important; font-size: 14px; text-transform: uppercase;">Veille Éduscol (EPS) — Détectée le {date_alerte_edu}</strong>
-                <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
-                    De nouveaux textes ou ressources officielles ont été mis en ligne.
-                    {lien_html_edu}
+        st.markdown(
+            f"""
+        <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #38BDF8; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="font-size: 22px; margin-top: 2px;">📘</span>
+                <div style="width: 100%;">
+                    <strong style="color: #38BDF8 !important; font-size: 14px; text-transform: uppercase;">Veille Éduscol (Admin) — Détectée le {date_alerte_edu}</strong>
+                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
+                        De nouveaux textes ou ressources officielles ont été mis en ligne.
+                        {lien_html_edu}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
+        """,
+            unsafe_allow_html=True,
+        )
 
 # ======================================================================
 # 6. ÉTAPE 1 : CHOIX DU CONTEXTE (3 ONGLETS)
@@ -844,6 +861,7 @@ with col_b1:
     ):
         st.session_state.active_module = "ipack"
         st.session_state.contexte_valide = True
+        st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
 with col_b2:
@@ -859,6 +877,7 @@ with col_b2:
     ):
         st.session_state.active_module = "examens"
         st.session_state.contexte_valide = True
+        st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
 with col_b3:
@@ -874,11 +893,12 @@ with col_b3:
     ):
         st.session_state.active_module = "textes"
         st.session_state.contexte_valide = True
+        st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
 
 # ======================================================================
-# 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (VÉRIFICATION SÉQUENTIELLE)
+# 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (PARCOURS EN CASCADE)
 # ======================================================================
 prompt = None
 
@@ -897,7 +917,7 @@ if not st.session_state.contexte_valide:
         unsafe_allow_html=True
     )
 else:
-    # 🎯 BANNIÈRE FLAMBIANTE / FLASHIE POUR LE PUBLIC CIBLE (ÉTAPE 2)
+    # 🎯 ÉTAPE 2 : SÉLECTION DU PUBLIC CIBLE (DÉVERROUILLÉE)
     st.markdown(
         """
         <div style="background: linear-gradient(135deg, #F59E0B, #D97706); padding: 14px 18px; border-radius: 8px; border: 2px solid #FCD34D; margin-top: 15px; margin-bottom: 10px; box-shadow: 0px 4px 15px rgba(245, 158, 11, 0.4);">
@@ -918,35 +938,50 @@ else:
         label_visibility="collapsed",
         on_change=valider_public
     )
-    st.session_state.public_valide = True
 
-    # 🚀 ÉTAPE 3 : BARRE DE SAISIE DE LA QUESTION (DÉVERROUILLÉE)
-    st.markdown(
-        """
-        <div style="margin-top: 15px; margin-bottom: 5px;">
-            <strong style="color: #38BDF8; font-size: 13.5px; text-transform: uppercase;">🚀 ÉTAPE 3 : POSEZ VOTRE QUESTION</strong>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    if st.session_state.get("niveau_actif_form"):
+        st.session_state.public_valide = True
 
-    with st.form(key="form_question_hub", clear_on_submit=True):
-        col_input, col_submit = st.columns([5, 1])
-        with col_input:
-            prompt_brut = st.text_input(
-                "Question :",
-                placeholder=(
-                    "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
-                ),
-                label_visibility="collapsed",
-            )
-        with col_submit:
-            bouton_envoyer = st.form_submit_button(
-                "🚀 Poser la question", use_container_width=True, type="primary"
-            )
+    if not st.session_state.public_valide:
+        st.markdown(
+            """
+            <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
+                <span style="color: #FCD34D; font-weight: bold; font-size: 13.5px;">
+                    👆 Veuillez cocher votre <strong>Public Cible (Étape 2)</strong> ci-dessus pour déverrouiller la zone de question.
+                </span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        # 🚀 ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
+        st.markdown(
+            """
+            <div class="column-title-top" style="margin-top: 15px;">
+                <span class="instruction">🚀 ÉTAPE 3</span>
+                <span class="mode-actuel">POSEZ VOTRE QUESTION</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-        if bouton_envoyer and prompt_brut.strip():
-            prompt = prompt_brut.strip()
+        with st.form(key="form_question_hub", clear_on_submit=True):
+            col_input, col_submit = st.columns([5, 1])
+            with col_input:
+                prompt_brut = st.text_input(
+                    "Question :",
+                    placeholder=(
+                        "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
+                    ),
+                    label_visibility="collapsed",
+                )
+            with col_submit:
+                bouton_envoyer = st.form_submit_button(
+                    "🚀 Poser la question", use_container_width=True, type="primary"
+                )
+
+            if bouton_envoyer and prompt_brut.strip():
+                prompt = prompt_brut.strip()
 
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION
@@ -1724,6 +1759,12 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
+
+        # 🔄 RÉINITIALISATION AUTOMATIQUE DES ÉTAPES APRÈS CHAQUE QUESTION
+        st.session_state.contexte_valide = False
+        st.session_state.public_valide = False
+        st.session_state.active_module = None
+        st.session_state.niveau_actif_form = None
 
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)

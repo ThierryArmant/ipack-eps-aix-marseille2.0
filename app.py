@@ -256,10 +256,11 @@ css_pur = f"""
 
     button[kind="secondary"] {{ 
         background-color: #1E293B !important; 
-        color: #94A3B8 !important; 
+        color: #FFFFFF !important; 
         border: 1px solid #334155 !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
+        font-weight: 800 !important; 
         height: 55px !important; 
         display: inline-flex !important; 
         align-items: center !important; 
@@ -273,8 +274,8 @@ css_pur = f"""
         border: 1px solid #059669 !important; 
         border-radius: 8px !important; 
         font-size: 13px !important; 
+        font-weight: 800 !important; 
         box-shadow: 0px 0px 15px rgba(16, 185, 129, 0.4) !important; 
-        font-weight: 700 !important; 
         height: 55px !important; 
         display: inline-flex !important; 
         align-items: center !important; 

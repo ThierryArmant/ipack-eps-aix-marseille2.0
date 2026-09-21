@@ -114,9 +114,11 @@ if "is_admin" not in st.session_state:
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
 
-# 🔄 NETTOYAGE PROPRE DES ÉTAPES (SAUF LE MODULE ACTIF POUR GARDER LE VERT)
+# 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
 if st.session_state.reset_steps:
+    st.session_state.contexte_valide = False
     st.session_state.public_valide = False
+    st.session_state.active_module = None
     st.session_state.niveau_actif_form = None
     st.session_state.reset_steps = False
 
@@ -906,26 +908,38 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 🎯 BANNIÈRE D'ORIENTATION PLACÉE SOUS LES 3 CONTEXTES
+# 🎯 BANNIÈRE DYNAMIQUE (REMPLACE "OÙ POSER" SI MODE TEXTES ACTIF)
 # ======================================================================
-st.markdown(
-    """
-<div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 12px;">
-    <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 10px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
-    <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
-        <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
-            <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-            <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
-        </div>
-        <div style="flex: 1; padding-left: 5px;">
-            <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
-            <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
+if st.session_state.active_module == "textes":
+    st.markdown(
+        """
+    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 10px; margin-bottom: 12px;">
+        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
+            ⚠️ <strong>Avertissement –</strong> En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
+        </span>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        """
+    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 12px;">
+        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
+        <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
+            <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+                <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
+            </div>
+            <div style="flex: 1; padding-left: 5px;">
+                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
+                <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
+            </div>
         </div>
     </div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
+    """,
+        unsafe_allow_html=True,
+    )
 
 # ======================================================================
 # 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (PARCOURS EN CASCADE)
@@ -937,10 +951,10 @@ if not st.session_state.contexte_valide:
         """
         <div style="background: linear-gradient(135deg, #1E293B, #0F172A); border: 2px dashed #38BDF8; padding: 20px; border-radius: 8px; text-align: center; margin-top: 15px; margin-bottom: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
             <span style="color: #38BDF8; font-weight: 800; font-size: 15px; display: block; margin-bottom: 6px;">
-                🔒 ÉTAPE 2 ET 3 VERROUILLÉES
+                🔒 SI VOUS AVEZ UNE AUTRE QUESTION
             </span>
             <span style="color: #F1F5F9; font-size: 13.5px;">
-                Veuillez d'abord cliquer sur l'un des <strong>3 boutons de contexte (Étape 1)</strong> ci-dessus pour déverrouiller le choix du public et la zone de saisie.
+                Veuillez sélectionner le <strong>contexte (Étape 1)</strong> puis le public cible pour poser une nouvelle question.
             </span>
         </div>
         """,
@@ -1014,21 +1028,6 @@ else:
                 prompt = prompt_brut.strip()
 
 # ======================================================================
-# 8. BANNIÈRES D'AVERTISSEMENT JURIDIQUE (SI MODE TEXTES)
-# ======================================================================
-if st.session_state.active_module == "textes":
-    st.markdown(
-        """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 5px; margin-bottom: 12px;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement –</strong> En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
-        </span>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-
-# ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
 if prompt:
@@ -1054,32 +1053,35 @@ if prompt:
 
         # ==================================================================
         # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
+        # (DÉSACTIVÉ POUR iPACKEPS ET EXAMENS POUR ÉVITER TOUT BLOCAGE)
         # ==================================================================
-        mots_cles_eps_admin = [
-            "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
-            "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
-            "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
-            "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
-            "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
-            "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
-            "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
-            "collège", "college", "lycée", "lycee", "maternelle", 
-            "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
-            "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
-            "sss", "section sportive", "prépa-métiers", "prepa-metiers",
-            "eps", "sport", "sports", "apsa", "relais", "handball", 
-            "activite", "activites", "sauts", "lancers", "courses", 
-            "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
-            "programme", "programmes", "afl", "afc", "socle",
-            "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
-            "responsabilité", "responsabilite", "circulaire", "officiel", 
-            "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
-            "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-            "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
-            "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
-        ]
-        
-        est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
+        if mode in ["ipack", "examens"]:
+            est_totalement_hors_sujet = False
+        else:
+            mots_cles_eps_admin = [
+                "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
+                "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
+                "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
+                "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
+                "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
+                "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
+                "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
+                "collège", "college", "lycée", "lycee", "maternelle", 
+                "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
+                "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
+                "sss", "section sportive", "prépa-métiers", "prepa-metiers",
+                "eps", "sport", "sports", "apsa", "relais", "handball", 
+                "activite", "activites", "sauts", "lancers", "courses", 
+                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
+                "programme", "programmes", "afl", "afc", "socle",
+                "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
+                "responsabilité", "responsabilite", "circulaire", "officiel", 
+                "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
+                "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
+                "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
+                "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
+            ]
+            est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
 
         if est_totalement_hors_sujet:
             rappel_hs = (
@@ -1772,7 +1774,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION PARTIELLE (GARDE LE CONTEXTE VERT)
+        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE (RETOUR ÉTAPE 1)
         st.session_state.reset_steps = True
         st.rerun()
 

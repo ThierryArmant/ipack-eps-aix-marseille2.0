@@ -114,11 +114,9 @@ if "is_admin" not in st.session_state:
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
 
-# 🔄 NETTOYAGE PROPRE DES ÉTAPES AVANT L'INSTANCIATION DES WIDGETS
+# 🔄 NETTOYAGE PROPRE DES ÉTAPES (SAUF LE MODULE ACTIF POUR GARDER LE VERT)
 if st.session_state.reset_steps:
-    st.session_state.contexte_valide = False
     st.session_state.public_valide = False
-    st.session_state.active_module = None
     st.session_state.niveau_actif_form = None
     st.session_state.reset_steps = False
 
@@ -908,6 +906,28 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
+# 🎯 BANNIÈRE D'ORIENTATION PLACÉE SOUS LES 3 CONTEXTES
+# ======================================================================
+st.markdown(
+    """
+<div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 12px;">
+    <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 10px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
+    <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
+        <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
+            <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
+            <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
+        </div>
+        <div style="flex: 1; padding-left: 5px;">
+            <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
+            <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
+        </div>
+    </div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
+
+# ======================================================================
 # 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (PARCOURS EN CASCADE)
 # ======================================================================
 prompt = None
@@ -994,7 +1014,7 @@ else:
                 prompt = prompt_brut.strip()
 
 # ======================================================================
-# 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION
+# 8. BANNIÈRES D'AVERTISSEMENT JURIDIQUE (SI MODE TEXTES)
 # ======================================================================
 if st.session_state.active_module == "textes":
     st.markdown(
@@ -1003,25 +1023,6 @@ if st.session_state.active_module == "textes":
         <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
             ⚠️ <strong>Avertissement –</strong> En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
         </span>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-elif st.session_state.active_module in ["ipack", "examens"]:
-    st.markdown(
-        """
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px;">
-        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
-        <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
-            <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-                <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
-            </div>
-            <div style="flex: 1; padding-left: 5px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
-                <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
-            </div>
-        </div>
     </div>
     """,
         unsafe_allow_html=True,
@@ -1595,7 +1596,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 - INTERDICTION FORMELLE D'INVENTER DES URLS : Ne jamais deviner, inventer ou générer d'adresses web génériques ou fictives (comme 'cyclades.academie.fr' ou des liens web non présents dans le contexte).
 - ACCÈS PAR PORTAIL PRO UNIQUEMENT : Rappeler systématiquement que l'accès aux outils institutionnels (Cyclades, Santorin, Imag'in) ne se fait jamais via un site public mais par le portail professionnel ARENA.
 
-13. INTERDICTION D'INVENTER des menus pour les blocs administratifs :
+13. INTERDICTION D'INVENTER DES MENUS POUR LES BLOCS ADMINISTRATIFS :
 - Si la question concerne un blocage externe ou une validation administrative (comme l'activation d'une SSS par le recteur ou l'académie), l'assistant ne doit jamais inventer de chemin de menu iPackEPS fictif (ex: "Allez dans Équipe EPS"). Il doit indiquer clairement qu'aucun menu local ne permet de contourner cela et rappeler la démarche externe.
 
 14. INTERDICTION FORMELLE D'UTILISER DES ÉTAPES NUMÉROTÉES POUR LES BLOCS ADMINISTRATIFS :
@@ -1636,6 +1637,7 @@ Dès qu'un utilisateur signale un blocage, un rejet de protocole, un message d'e
 - La formation PSC1 (Prévention et Secours Civiques de niveau 1) ou toute formation aux premiers secours n'est **en aucun cas un prérequis, une condition ni un critère bloquant pour l'obtention du DNB (Diplôme National du Brevet)** ou pour le passage en classe supérieure.
 - S'il est fortement encouragé et mis en œuvre par les établissements dans le cadre du **Parcours Citoyen** (souvent en classe de 4e ou de 3e), il ne constitue pas une obligation individuelle sanctionnée par la non-délivrance du diplôme national.
 - Toute affirmation contraire (liant l'obtention du brevet au PSC1) constitue une hallucination réglementaire qu'il est formellement interdit de produire.
+
 21. PIÈGE DE SANTORIN & STATUTS PARTICULIERS (SHN, HANDICAP, ETC.) :
 - Santorin est exclusivement l'outil de numérisation et de correction des copies d'examens (DEC). 
 - Santorin ne gère aucun profil d'élève, aucune base de données, aucun filtre de recherche d'élèves, et aucun statut particulier (tels que Sportif de Haut Niveau - SHN, aménagements de handicap, etc.). 
@@ -1734,21 +1736,17 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
         )
 
-        footer_assistance = ""
-        if mode == "textes":
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-                "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
-                "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
-                "</div>"
-            )
-        elif mode in ["ipack", "examens"]:
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
-                "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-                "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
-                "</div>"
-            )
+        footer_assistance = (
+            "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
+            "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
+            "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
+            "</div>"
+        ) if mode == "textes" else (
+            "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
+            "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
+            "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
+            "</div>"
+        )
 
         formatted_answer = (
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
@@ -1774,7 +1772,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION POUR LE PROCHAIN TOUR
+        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION PARTIELLE (GARDE LE CONTEXTE VERT)
         st.session_state.reset_steps = True
         st.rerun()
 

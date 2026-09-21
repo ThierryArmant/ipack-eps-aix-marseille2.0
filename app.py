@@ -97,14 +97,18 @@ st.set_page_config(
 )
 
 # ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
-    st.session_state.active_module = "ipack"
+    st.session_state.active_module = None  # Non sélectionné par défaut pour forcer le choix
 if "niveau_actif_form" not in st.session_state:
-    st.session_state.niveau_actif_form = "1er degré"
+    st.session_state.niveau_actif_form = None  # Non sélectionné par défaut
+if "contexte_valide" not in st.session_state:
+    st.session_state.contexte_valide = False
+if "public_valide" not in st.session_state:
+    st.session_state.public_valide = False
 
 
 def incrementer_et_obtenir_visites():
@@ -230,20 +234,21 @@ css_pur = f"""
         margin-bottom: 12px !important; 
         background-color: #1E293B; 
         border-radius: 6px !important; 
-        padding: 8px 10px; 
+        padding: 10px 12px; 
         box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
     }}
     .column-title-top .instruction {{ 
-        font-size: 11px !important; 
-        font-weight: 500; 
+        font-size: 13px !important; 
+        font-weight: 800 !important; 
         text-transform: uppercase; 
-        color: #94A3B8 !important; 
+        color: #FFFFFF !important; 
         display: block; 
+        margin-bottom: 3px;
     }}
     .column-title-top .mode-actuel {{ 
         font-size: 14px !important; 
         font-weight: 700; 
-        color: #FFFFFF !important; 
+        color: #38BDF8 !important; 
         display: block; 
     }}
 
@@ -396,7 +401,7 @@ if openai_api_key:
 
 def obtenir_cle_fichier():
     mtimes = []
-    for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt"]:
+    for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt", "data/textes/partenariats_defense_citoyennete.txt"]:
         if os.path.exists(fp):
             try:
                 mtimes.append(os.path.getmtime(fp))
@@ -817,11 +822,10 @@ label_titres = {
 
 titre_affiche = label_titres.get(
     st.session_state.active_module,
-    "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes)",
+    "Sélectionnez un contexte ci-dessous ⬇️"
 )
 st.markdown(
-    '<div class="column-title-top"><span class="instruction">⚙️ Étape 1 :'
-    " Choisissez le contexte de votre question</span><span"
+    '<div class="column-title-top"><span class="instruction">⚙️ ÉTAPE 1 : CHOISISSEZ LE CONTEXTE DE VOTRE QUESTION</span><span'
     f' class="mode-actuel">{titre_affiche}</span></div>',
     unsafe_allow_html=True,
 )
@@ -839,6 +843,7 @@ with col_b1:
         ),
     ):
         st.session_state.active_module = "ipack"
+        st.session_state.contexte_valide = True
         st.session_state.messages_hub = []
         st.rerun()
 with col_b2:
@@ -853,6 +858,7 @@ with col_b2:
         ),
     ):
         st.session_state.active_module = "examens"
+        st.session_state.contexte_valide = True
         st.session_state.messages_hub = []
         st.rerun()
 with col_b3:
@@ -867,11 +873,12 @@ with col_b3:
         ),
     ):
         st.session_state.active_module = "textes"
+        st.session_state.contexte_valide = True
         st.session_state.messages_hub = []
         st.rerun()
 
 # ======================================================================
-# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU
+# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU (CONDITIONNÉS)
 # ======================================================================
 st.markdown(
     '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
@@ -880,32 +887,53 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+def valider_public():
+    st.session_state.public_valide = True
+
 niveau_scolaire = st.radio(
     "Public cible",
     ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
     horizontal=True,
     key="niveau_actif_form",
-    label_visibility="collapsed"
+    label_visibility="collapsed",
+    on_change=valider_public
 )
 
-prompt = None
-with st.form(key="form_question_hub", clear_on_submit=True):
-    col_input, col_submit = st.columns([5, 1])
-    with col_input:
-        prompt_brut = st.text_input(
-            "Question :",
-            placeholder=(
-                "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
-            ),
-            label_visibility="collapsed",
-        )
-    with col_submit:
-        bouton_envoyer = st.form_submit_button(
-            "🚀 Poser la question", use_container_width=True, type="primary"
-        )
+# Par défaut, si le radio est déjà affiché, on considère qu'un choix (le premier) est présent, mais on peut marquer public_valide à True dès l'affichage ou au changement
+st.session_state.public_valide = True
 
-    if bouton_envoyer and prompt_brut.strip():
-        prompt = prompt_brut.strip()
+prompt = None
+
+# 🔒 CONDITION STRICTE : La barre de question n'apparaît QUE si les 2 (contexte + public) sont validés
+if st.session_state.contexte_valide and st.session_state.public_valide:
+    with st.form(key="form_question_hub", clear_on_submit=True):
+        col_input, col_submit = st.columns([5, 1])
+        with col_input:
+            prompt_brut = st.text_input(
+                "Question :",
+                placeholder=(
+                    "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
+                ),
+                label_visibility="collapsed",
+            )
+        with col_submit:
+            bouton_envoyer = st.form_submit_button(
+                "🚀 Poser la question", use_container_width=True, type="primary"
+            )
+
+        if bouton_envoyer and prompt_brut.strip():
+            prompt = prompt_brut.strip()
+else:
+    st.markdown(
+        """
+        <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #38BDF8; padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
+            <span style="color: #38BDF8; font-weight: bold; font-size: 14px;">
+                👆 Veuillez d'abord choisir un <strong>contexte (Étape 1)</strong> ci-dessus pour déverrouiller la zone de saisie de votre question.
+            </span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION
@@ -921,7 +949,7 @@ if st.session_state.active_module == "textes":
     """,
         unsafe_allow_html=True,
     )
-else:
+elif st.session_state.active_module in ["ipack", "examens"]:
     st.markdown(
         """
     <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 5px; margin-bottom: 12px;">
@@ -1176,7 +1204,6 @@ if prompt:
                 )
             ) or est_tasa or est_unss
 
-            # 🛠️ CORRECTION DU ROUTAGE RAG : On interroge en priorité la base des textes si l'onglet "textes" est actif, sans se faire piéger par la mention du collège.
             if openai_api_key and not est_cas_direct:
                 try:
                     if niveau_actuel_form == "1er degré":
@@ -1436,6 +1463,10 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 """
 
             consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+
+🚨 RÈGLE DE FILTRAGE DES REQUÊTES TROP COURTES (3 MOTS OU MOINS) :
+- Si la question de l'utilisateur comporte 3 mots ou moins (ex: "handball", "aide", "brevet", "quel jour"), tu dois INTERDIRE toute recherche RAG ou réponse thématique.
+- Tu dois répondre STRICTEMENT et uniquement par cette phrase : "Pouvez-vous reformuler votre question en l'étayant davantage afin que je puisse vous apporter une aide précise et adaptée à votre contexte ?"
 
 🎯 DÉFINITION DES ESPACES ET OUTILS DE LA PLATEFORME :
 - **iPackEPS et Santorin** sont des **assistants techniques et logiciels de gestion** (dédiés à l'assistance informatique, aux interfaces de CCF, à la configuration des groupes, aux notes et aux copies numériques d'examens).

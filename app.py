@@ -85,6 +85,10 @@ VIDEOS_TUTOS = {
     "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8",
     "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
     "Saisie_protocoles_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
+    "EDT_Introduction.mp4": "https://youtu.be/uCF9kxUDaI8",
+    "EDT_Creation_Suppression.mp4": "https://youtu.be/8pHcZ4gw6go",
+    "EDT_Semaines_A_B.mp4": "https://youtu.be/zi7K-hkYzig",
+    "EDT_Verification_Alertes.mp4": "https://youtu.be/vnY5hfKzN08",
 }
 
 # ======================================================================

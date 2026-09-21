@@ -102,9 +102,9 @@ st.set_page_config(
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
 if "active_module" not in st.session_state:
-    st.session_state.active_module = None  # Non sélectionné par défaut pour forcer le choix
+    st.session_state.active_module = None
 if "niveau_actif_form" not in st.session_state:
-    st.session_state.niveau_actif_form = None  # Non sélectionné par défaut
+    st.session_state.niveau_actif_form = None
 if "contexte_valide" not in st.session_state:
     st.session_state.contexte_valide = False
 if "public_valide" not in st.session_state:
@@ -803,7 +803,7 @@ if "alerte_veille_eduscol" in st.session_state:
     )
 
 # ======================================================================
-# 6. EN-TÊTE DU TABLEAU DE BORD & BOUTONS DE CONTEXTE (3 ONGLETS)
+# 6. ÉTAPE 1 : CHOIX DU CONTEXTE (3 ONGLETS)
 # ======================================================================
 label_titres = {
     "ipack": (
@@ -822,7 +822,7 @@ label_titres = {
 
 titre_affiche = label_titres.get(
     st.session_state.active_module,
-    "Sélectionnez un contexte ci-dessous ⬇️"
+    "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
 st.markdown(
     '<div class="column-title-top"><span class="instruction">⚙️ ÉTAPE 1 : CHOISISSEZ LE CONTEXTE DE VOTRE QUESTION</span><span'
@@ -878,34 +878,58 @@ with col_b3:
         st.rerun()
 
 # ======================================================================
-# 7. ZONE DE SAISIE INTÉGRÉE & SÉLECTEUR DE NIVEAU (CONDITIONNÉS)
+# 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (VÉRIFICATION SÉQUENTIELLE)
 # ======================================================================
-st.markdown(
-    '<div style="background-color: rgba(15, 23, 42, 0.9); padding: 12px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.4);">'
-    '<span style="color: white; font-weight: bold; font-size: 13px;">🎯 SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>'
-    '</div>', 
-    unsafe_allow_html=True
-)
-
-def valider_public():
-    st.session_state.public_valide = True
-
-niveau_scolaire = st.radio(
-    "Public cible",
-    ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-    horizontal=True,
-    key="niveau_actif_form",
-    label_visibility="collapsed",
-    on_change=valider_public
-)
-
-# Par défaut, si le radio est déjà affiché, on considère qu'un choix (le premier) est présent, mais on peut marquer public_valide à True dès l'affichage ou au changement
-st.session_state.public_valide = True
-
 prompt = None
 
-# 🔒 CONDITION STRICTE : La barre de question n'apparaît QUE si les 2 (contexte + public) sont validés
-if st.session_state.contexte_valide and st.session_state.public_valide:
+if not st.session_state.contexte_valide:
+    st.markdown(
+        """
+        <div style="background: linear-gradient(135deg, #1E293B, #0F172A); border: 2px dashed #38BDF8; padding: 20px; border-radius: 8px; text-align: center; margin-top: 15px; margin-bottom: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
+            <span style="color: #38BDF8; font-weight: 800; font-size: 15px; display: block; margin-bottom: 6px;">
+                🔒 ÉTAPE 2 ET 3 VERROUILLÉES
+            </span>
+            <span style="color: #F1F5F9; font-size: 13.5px;">
+                Veuillez d'abord cliquer sur l'un des <strong>3 boutons de contexte (Étape 1)</strong> ci-dessus pour déverrouiller le choix du public et la zone de saisie.
+            </span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    # 🎯 BANNIÈRE FLAMBIANTE / FLASHIE POUR LE PUBLIC CIBLE (ÉTAPE 2)
+    st.markdown(
+        """
+        <div style="background: linear-gradient(135deg, #F59E0B, #D97706); padding: 14px 18px; border-radius: 8px; border: 2px solid #FCD34D; margin-top: 15px; margin-bottom: 10px; box-shadow: 0px 4px 15px rgba(245, 158, 11, 0.4);">
+            <span style="color: #0F172A; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    def valider_public():
+        st.session_state.public_valide = True
+
+    niveau_scolaire = st.radio(
+        "Public cible",
+        ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+        horizontal=True,
+        key="niveau_actif_form",
+        label_visibility="collapsed",
+        on_change=valider_public
+    )
+    st.session_state.public_valide = True
+
+    # 🚀 ÉTAPE 3 : BARRE DE SAISIE DE LA QUESTION (DÉVERROUILLÉE)
+    st.markdown(
+        """
+        <div style="margin-top: 15px; margin-bottom: 5px;">
+            <strong style="color: #38BDF8; font-size: 13.5px; text-transform: uppercase;">🚀 ÉTAPE 3 : POSEZ VOTRE QUESTION</strong>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     with st.form(key="form_question_hub", clear_on_submit=True):
         col_input, col_submit = st.columns([5, 1])
         with col_input:
@@ -923,17 +947,6 @@ if st.session_state.contexte_valide and st.session_state.public_valide:
 
         if bouton_envoyer and prompt_brut.strip():
             prompt = prompt_brut.strip()
-else:
-    st.markdown(
-        """
-        <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #38BDF8; padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
-            <span style="color: #38BDF8; font-weight: bold; font-size: 14px;">
-                👆 Veuillez d'abord choisir un <strong>contexte (Étape 1)</strong> ci-dessus pour déverrouiller la zone de saisie de votre question.
-            </span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
 # ======================================================================
 # 8. BANNIÈRES D'AVERTISSEMENT OU D'ORIENTATION

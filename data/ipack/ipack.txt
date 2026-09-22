@@ -1551,6 +1551,15 @@ Mots-clés : import Idoceo, Additio vers iPackEPS, structure colonnes tableur, e
 Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes CCF, contrôle inspection, destruction documents.
 - Obligation légale : Les feuilles d'émargement signées par les candidats lors des épreuves de CCF, ainsi que les grilles d'évaluation individuelles (AFL), doivent être obligatoirement conservées dans l'établissement sous la responsabilité du chef d'établissement pendant une durée minimale d'UN (1) AN après la proclamation officielle des résultats du Baccalauréat (délai de recours contentieux).
 - En cas de contestation : Seuls ces documents originaux font foi devant la commission de recours ou le tribunal administratif.
+======================================================================
+[ARTICLE 110] VŒUX DE FORMATION : RECHERCHE DE BASSIN ET DE DISTRICT
+======================================================================
+- Mots-clés : vœux de formation, trouver mon bassin, trouver mon district, carte académique, UNSS.
+- Règle technique : L'application iPackEPS ne stocke pas, n'affiche pas et ne gère pas la carte géographique des bassins et des districts. Ce sont des données administratives externes à l'application.
+- Procédure officielle pour l'enseignant qui cherche ces informations :
+  1. Pour le Bassin (Bassin d'éducation et de formation) : L'enseignant doit consulter la carte académique des bassins sur le site web institutionnel de son Rectorat (ex: portail de l'Académie d'Aix-Marseille), ou demander l'information directement au secrétariat de direction de son établissement.
+  2. Pour le District (District UNSS) : Le district est le découpage géographique utilisé pour les compétitions sportives scolaires. L'enseignant doit se rapprocher du coordonnateur EPS de son établissement (qui gère souvent l'Association Sportive) ou consulter la documentation du service départemental de l'UNSS de son département.
+- Interdiction : Le Hub ne doit proposer aucune manipulation technique ou menu dans iPackEPS pour trouver cette information, puisqu'elle n'y existe pas. Ne pas proposer de tutoriel vidéo.
 
 ======================================================================
 [ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]

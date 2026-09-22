@@ -1544,7 +1544,7 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {verites_terrain_pierre}
 """
 
-           consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 ======================================================================
 ÉTAPE 1 : FILTRAGE PRIMAIRE, STATUTS ET GESTION DES PRÉMISSES (URGENCE ABSOLUE)

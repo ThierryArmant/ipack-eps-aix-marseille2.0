@@ -549,20 +549,34 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - URL: spip.php?article19
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Dossier EPS ==> Équipements Sportifs. Déclaration des infrastructures avec leur code RES (Répertoire des Équipements Sportifs) avant affectation sur l'emploi du temps..
 
-### [ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie des Emplois du Temps
-- URL: spip.php?article20
-- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers ==> Dossier EPS ==> Emplois du Temps.
-- QUESTIONS / RÉPONSES :
-  - Q1 : Pourquoi dans certains cas les créneaux apparaissent-ils en 2 colonnes comme ici ?
-  - R1 : L’affichage de l’emploi du temps se fait sur des « tranches horaires » de 30 minutes. Lorsqu’un créneau se termine dans une tranche horaire et qu’un autre créneau commence sur la même tranche horaire, l’interface graphique crée automatiquement 2 colonnes pour éviter les éventuels chevauchements. Il s’agit donc juste d’une adaptation graphique.
-  - Q2 : Comment supprimer un créneau existant ?
-  - R2 : Il suffit de faire un clic droit sur ce créneau et de sélectionner l’option [Supprimer].
-  - Q3 : Comment déplacer un créneau existant ?
-  - R3 : Il suffit de faire un clic droit sur ce créneau et de sélectionner l’option [Modifier] (vous pouvez aussi double-cliquer sur ce créneau). Les paramètres du créneau s’affichent alors, vous pouvez modifier le jour et l’heure de début et fin, l’équipement, etc.
-  - Q4 : J’encadre 2 groupes sur un même créneau, comment faire apparaître 2 créneaux simultanément ?
-  - R4 : Si un des 2 créneaux est déjà créé, il suffit de faire un clic droit sur le créneau, et de cliquer sur l’option [ajouter un créneau].
-  - Q5 : Je suis en cité scolaire et j’enseigne sur le collège et le lycée. Puis-je saisir tout mon emploi du temps sur une seule entité ?
-  - R5 : NON : l’emploi du temps collège doit être complété sur le collège et celui du lycée sur l’autre entité correspondante.
+[SECTION: ARTICLE_20_EDT_ET_VERIFICATION]
+
+### [ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie et Gestion des Emplois du Temps (EDT)
+- **URL :** spip.php?article20
+- **Accès à cette fonctionnalité :** Tableau de bord => Dossiers ==> Dossier EPS ==> Emploi du Temps. Le module s'articule autour de l'agenda global (équipe, enseignant, type de groupe), de l'édition de la liste des créneaux et d'un outil de vérification des alertes.
+
+#### QUESTIONS FRÉQUENTES & CAS PRATIQUES (FAQ EDT) :
+
+* **Q1 : Pourquoi dans certains cas les créneaux apparaissent-ils en 2 colonnes ?**
+  * **R1 :** L'affichage de l'emploi du temps se fait sur des « tranches horaires » de 30 minutes. Lorsqu'un créneau se termine et qu'un autre commence sur la même tranche horaire, l'interface graphique crée automatiquement 2 colonnes pour éviter les chevauchements. Il s'agit d'une adaptation purement graphique.
+
+* **Q2 : Comment supprimer un créneau existant ?**
+  * **R2 :** Il suffit de faire un clic droit sur le créneau concerné et de sélectionner l'option `[Supprimer]`.
+
+* **Q3 : Comment déplacer ou modifier un créneau existant ?**
+  * **R3 :** Il suffit de faire un clic droit sur le créneau et de sélectionner `[Modifier]` (ou de double-cliquer directement sur le créneau). Les paramètres s'affichent alors, permettant d'ajuster le jour, l'heure de début et de fin, l'équipement, etc.
+
+* **Q4 : J'encadre 2 groupes sur un même créneau, comment faire apparaître 2 créneaux simultanément ?**
+  * **R4 :** Si un des créneaux est déjà créé, faites un clic droit sur ce créneau et cliquez sur l'option `[Ajouter un créneau]` pour superposer un second groupe ou un second enseignant sur la même plage horaire.
+
+* **Q5 : Je suis en cité scolaire et j'enseigne sur le collège et le lycée. Puis-je tout saisir sur une seule entité ?**
+  * **R5 :** **NON.** L'emploi du temps du collège doit impérativement être complété sur l'entité collège et celui du lycée sur l'entité lycée correspondante.
+
+* **Q6 : Comment gérer les créneaux en Semaine A et Semaine B ?**
+  * **R6 :** Double-cliquez sur le créneau, renseignez la classe, l'activité et l'équipement, puis cochez l'option **« Répéter toutes les deux semaines »**. Veillez à bien pointer sur la date de début de la première leçon et à respecter le décalage de semaine (A ou B) lors de la saisie des classes alternées.
+
+* **Q7 : Comment utiliser l'outil de contrôle et de vérification des emplois du temps ?**
+  * **R7 :** Le menu **« Vérification agenda »** permet de détecter automatiquement les anomalies : séquences d'apprentissage (S.A.) non placées sur l'EDT, saisies erronées pendant les vacances scolaires ou en dehors des plages horaires classiques, ainsi que les doublons de créneaux à éliminer.
 
 ### [ARTICLE 42] [Dossiers]/[Dossier Certificatif]/[Protocoles] Configuration des Protocoles des Épreuves certificatives
 - URL: spip.php?article42

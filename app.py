@@ -92,6 +92,20 @@ VIDEOS_TUTOS = {
     "Actualisation_equipe_classes.mp4": "https://youtu.be/7WVCGZ5fLqA",
     "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
     "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
+    # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
+    "Depot_documents_commission.mp4": "https://youtu.be/FZ1KSuuKkEA",
+    "Proposer_dossier_commission.mp4": "https://youtu.be/JmhwQNyagOI",
+    "Demande_ouverture_SSS.mp4": "https://youtu.be/SizZ4vGQ4nU",
+    "Projet_annuel_SSS.mp4": "https://youtu.be/7yr1bFlvlFg",
+    "Bilan_annuel_SSS.mp4": "https://youtu.be/iH54YEF_2XY",
+    "Export_eleves_cyclades.mp4": "https://youtu.be/YoOC_CdOQ_I",
+    "Controler_reaffecter_protocoles_cyclades.mp4": "https://youtu.be/0njoZigh_5w",
+    "Creer_protocole_cours_annee.mp4": "https://youtu.be/57xZDq_vyDE",
+    "Deplacer_eleves_lots_santorin.mp4": "https://youtu.be/WKbg51eUQVs",
+    "Attribuer_second_correcteur_santorin.mp4": "https://youtu.be/fmMl82KkZt4",
+    "Gestion_cas_exceptionnels_santorin.mp4": "https://youtu.be/E2VMoq7sLgI",
+    "Export_fichier_notes_santorin.mp4": "https://youtu.be/KooSwcy4gAA",
+    "Extraire_liste_inaptes_santorin.mp4": "https://youtu.be/3ThO5nLNzJg",
 }
 
 # ======================================================================

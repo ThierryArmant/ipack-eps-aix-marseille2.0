@@ -1555,8 +1555,12 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 ### [ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT
 - Mots-clés : vœux de formation, statistiques, trouver mon bassin, trouver mon district, réseau, académie.
 - Contexte technique : Dans le module des vœux de formation, l'interface d'iPackEPS exige de filtrer par "Bassin" et "District". Cette nomenclature est héritée de l'académie de Créteil (conceptrice de l'application).
-- Spécificité Aix-Marseille : L'académie d'Aix-Marseille fonctionne différemment, avec un découpage territorial en "Réseaux" d'établissements. L'interface nationale d'iPackEPS n'a pas été modifiée pour s'adapter à ce vocabulaire local.
-- Consigne de réponse pour l'IA : Si un enseignant demande ce qu'il doit renseigner dans ces champs, explique-lui cette différence de vocabulaire entre académies (Créteil vs Aix-Marseille). Fournis-lui OBLIGATOIREMENT ce lien vers la carte des réseaux de l'académie : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447. Conseille-lui ensuite de contacter son correspondant académique ou le SAV iPackEPS pour savoir quelle équivalence sélectionner dans les menus déroulants d'iPackEPS pour son réseau.
+- Spécificité Aix-Marseille : L'académie d'Aix-Marseille fonctionne avec un découpage en "Réseaux" d'établissements.
+- Consigne de réponse STRICTE pour l'IA : 
+  1. NE DONNE AUCUNE définition générique des mots "bassin" ou "district".
+  2. Explique DÈS LE DÉBUT que ces termes sont présents car iPackEPS a été conçu par l'académie de Créteil, qui utilise ce vocabulaire.
+  3. Précise qu'Aix-Marseille fonctionne en "Réseaux" et fournis OBLIGATOIREMENT ce lien : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447.
+  4. Conclus en conseillant de contacter le correspondant académique iPackEPS pour savoir quelle équivalence sélectionner dans le menu déroulant.
 
 ======================================================================
 [ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]

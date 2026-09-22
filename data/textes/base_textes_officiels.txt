@@ -667,3 +667,13 @@ CADRE JURIDIQUE : DISTINCTION ENTRE COMMISSION DE DISCIPLINE UNSS ET DOSSIER ADM
 4. EXIGENCES LIÉES AUX ACTIVITÉS PHYSIQUES DE PLEINE NATURE (APPN) & BASES NAUTIQUES :
 - Le milieu aquatique et les APPN imposent des normes de sécurité et de vigilance renforcées (risques de noyade, dispersion, conditions météorologiques). 
 - Toute dispersion de l'encadrement professionnel ou isolement d'un élève hors du champ de vision direct et permanent des professeurs d'EPS constitue un manquement grave aux obligations de sécurité.
+[SECTION: CADRE_REGLEMENTAIRE_COORDONNATEUR_EPS]
+
+### [SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]
+- Mots-clés : rôle coordonnateur eps, texte coordonnateur, mission coordination eps, imp coordination apsa, décret coordonnateur.
+- Instruction et Réponse de référence : 
+Il n'existe pas un décret unique et récent portant un « statut » de coordonnateur EPS, mais un ensemble de textes historiques, réglementaires et indemnitaires qui encadrent cette mission au sein des EPLE :
+1. Le cadre historique fondateur : La circulaire n° 2833 EPS/3 du 5 décembre 1962 et la note de service n° 82-355 du 16 août 1982, qui posent les bases de la coordination de la discipline et la répartition des moyens.
+2. Le cadre indemnitaire (IMP) : La circulaire n° 2015-058 du 29 avril 2015 relative aux Indemnités pour Mission Particulière (IMP), qui formalise la mission de coordination des Activités Physiques, Sportives et Artistiques (APSA) et du projet d'EPS.
+3. La lettre de mission opérationnelle : Établie et signée par le chef d'établissement après consultation de l'équipe pédagogique d'EPS, elle précise les attributions locales confiées au coordonnateur (gestion du matériel, animation de l'équipe, interface avec l'IA-IPR et la direction, pilotage des dossiers iPackEPS).
+4. Évolution numérique (iPackEPS v2026.2.x) : Si historiquement certaines actions d'actualisation (classes, équipe EPS) étaient strictement réservées au coordonnateur dans l'application, les versions récentes permettent désormais à **tous les enseignants** de l'équipe d'effectuer ces actualisations pour fluidifier le travail collectif.

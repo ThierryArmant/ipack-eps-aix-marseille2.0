@@ -89,6 +89,9 @@ VIDEOS_TUTOS = {
     "EDT_Creation_Suppression.mp4": "https://youtu.be/8pHcZ4gw6go",
     "EDT_Semaines_A_B.mp4": "https://youtu.be/zi7K-hkYzig",
     "EDT_Verification_Alertes.mp4": "https://youtu.be/vnY5hfKzN08",
+    "Actualisation_equipe_classes.mp4": "https://youtu.be/7WVCGZ5fLqA",
+    "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
+    "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
 }
 
 # ======================================================================

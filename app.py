@@ -1649,7 +1649,6 @@ BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
 
 ======================================================================
 {contexte_complet_ia}
-"""
 
 QUESTION DE L'UTILISATEUR :
 {prompt}

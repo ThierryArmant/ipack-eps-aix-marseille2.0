@@ -280,3 +280,18 @@ PROCÉDURE ADMINISTRATIVE RÉGLEMENTAIRE :
 - En amont : Le statut officiel de Sportif de Haut Niveau est géré lors de l'inscription aux examens via Cyclades et validé par la DEC (Division des Examens et Concours) sur la base des listes ministérielles.
 - Rôle de l'établissement : Le secrétariat d'examen et la direction gèrent les aménagements d'épreuves et veillent à la transmission des pièces justificatives.
 - Rôle de l'enseignant / correcteur : L'enseignant n'a aucune action d'identification de SHN à mener depuis Santorin. Si un candidat bénéficie de modalités particulières de notation ou d'une neutralisation/note de référence, ces éléments sont encadrés par les services académiques et appliqués lors des jurys (CAHPN), et non par une recherche active dans l'interface de correction Santorin.
+======================================================================
+[SECTION: GESTION_SHN_ET_LIMITES_SANTORIN]
+======================================================================
+
+### [ARTICLE : GESTION ET IDENTIFICATION DES SPORTIFS DE HAUT NIVEAU (SHN) - EXAMENS NATIONAUX]
+- Mots-clés : sportif de haut niveau, SHN, ESHN, liste ministérielle, aménagement d'épreuve, Santorin SHN, recherche profil élève, DEC, CAHPN.
+
+1. Rôles et limites de Santorin :
+- Santorin est exclusivement la plateforme institutionnelle de numérisation, de distribution et de correction des copies d'examens (Bac, CAP).
+- Santorin N'EST PAS un logiciel de gestion des dossiers scolaires, ni une base de données permettant de filtrer, rechercher ou identifier des profils particuliers d'élèves (tels que les Sportifs de Haut Niveau - SHN ou ESHN).
+
+2. Procédure administrative et réglementaire :
+- En amont : Le statut officiel de Sportif de Haut Niveau est géré lors de l'inscription aux examens via Cyclades et validé par la DEC (Division des Examens et Concours) sur la base des listes ministérielles.
+- Rôle de l'établissement : Le secrétariat d'examen et la direction gèrent les aménagements d'épreuves et veillent à la transmission des pièces justificatives.
+- Rôle de l'enseignant / correcteur : L'enseignant n'a aucune action d'identification de SHN à mener depuis Santorin. Si un candidat bénéficie de modalités particulières de notation ou d'une neutralisation/note de référence, ces éléments sont encadrés par les services académiques et appliqués lors des jurys (CAHPN), et non par une recherche active dans l'interface de correction Santorin.

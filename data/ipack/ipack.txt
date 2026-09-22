@@ -1551,6 +1551,14 @@ Mots-clés : import Idoceo, Additio vers iPackEPS, structure colonnes tableur, e
 Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes CCF, contrôle inspection, destruction documents.
 - Obligation légale : Les feuilles d'émargement signées par les candidats lors des épreuves de CCF, ainsi que les grilles d'évaluation individuelles (AFL), doivent être obligatoirement conservées dans l'établissement sous la responsabilité du chef d'établissement pendant une durée minimale d'UN (1) AN après la proclamation officielle des résultats du Baccalauréat (délai de recours contentieux).
 - En cas de contestation : Seuls ces documents originaux font foi devant la commission de recours ou le tribunal administratif.
+
+======================================================================
+[ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT
+======================================================================
+- Mots-clés : vœux de formation, statistiques, trouver mon bassin, trouver mon district, réseau, académie.
+- Contexte technique : Dans le module des vœux de formation, l'interface d'iPackEPS exige de filtrer par "Bassin" et "District". Cette nomenclature est héritée de l'académie de Créteil (conceptrice de l'application).
+- Différence académique : Dans d'autres académies (comme Aix-Marseille), le maillage territorial repose sur des "Réseaux" d'établissements et non sur des bassins ou districts. L'interface d'iPackEPS ne s'adapte pas dynamiquement à ce vocabulaire local.
+- Instruction de réponse IA : Si un enseignant demande ce qu'il doit renseigner dans ces champs, explique-lui brièvement cette différence de vocabulaire entre académies. Conseille-lui ensuite de contacter directement le correspondant / SAV iPackEPS de son académie de rattachement pour connaître l'équivalence exacte à sélectionner dans le menu déroulant.
 ======================================================================
 [ARTICLE 110] VŒUX DE FORMATION : RECHERCHE DE BASSIN ET DE DISTRICT
 ======================================================================

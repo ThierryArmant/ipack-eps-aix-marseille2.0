@@ -33,6 +33,28 @@
   * 📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
 - EXPORT CYCLADES PROFESSEURS EXTERNES : Le fichier exporté à destination de la DEC intègre désormais une colonne dédiée [examen].
   * 📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
+
+======================================================================
+[SECTION: MISE_A_JOUR_OFFICIELLE_IPACKEPS_2026_2_X]
+======================================================================
+- Nouveautés de l'Interface Professeur / Chef d'établissement (Version 2026.2.x) :
+  * **Imports de documents unifiés** : Généralisation de l'ergonomie par glisser-déposer (drag 'n drop) sur toutes les fenêtres de dépôt de documents[cite: 1].
+  * **Bouton Légende** : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut de dossier pour éviter d'avoir à survoler chaque icône[cite: 1].
+  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel[cite: 1].
+  * **Inventaire EPI enrichi** : Ajout possible de photos du matériel, importation des notices techniques, modification de la fréquence des contrôles (fixée par défaut à 12 mois) et présence automatique de la photo sur la version papier du registre[cite: 1].
+  * **Dépôts multiples (Axes des projets EPS)** : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS[cite: 1].
+  * **Actualisation élargie (Classes et Équipe EPS)** : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique[cite: 1].
+  * **Contrôle de conformité Dates CM et Séquences** : Affichage croisé des dates de début et de fin des Certificats Médicaux et des Séquences d'Apprentissage, avec une colonne d'alerte signalant si un CM se situe en dehors de la période de la séquence[cite: 1].
+  * **Module Évolution SSS** : Module dédié pour indiquer chaque année l'évolution d'une Section Sportive Scolaire (demande de reconduction ou de fermeture), soumis à la signature électronique obligatoire du chef d'établissement et validé via une messagerie intégrée par l'IPR/commission[cite: 1].
+  * **Documents modèles SSS dissociés** : Possibilité de verser des documents modèles distincts selon qu'il s'agit d'une demande d'ouverture SSS, d'un projet SSS ou d'un bilan SSS[cite: 1].
+
+- Nouveautés Interface IPR & Correspondant :
+  * **Module Rapport (État des serveurs)** : Permet d'afficher un rapport complet sur l'état des connexions aux bases (Ramsese, Siècle, EPP Public/Privé), l'espace disque libre et les versions PHP/SGBD[cite: 1].
+  * **Export Cyclades des professeurs externes** : Intégration d'une colonne [examen] dédiée dans le fichier transmis à la DEC pour faciliter la création des comptes Imag'In[cite: 1].
+  * **Export ZIP structuré CAHPN** : Tri automatisé des documents du dossier certificatif dans une arborescence par établissement (Public/Privé)[cite: 1].
+  * **Configuration granulaire des dossiers SSS** : Possibilité d'activer ou désactiver les sous-dossiers SSS (demande d'ouverture, projet, bilan, évolution)[cite: 1].
+  * **Autorisations de messagerie pour les commissions** : Paramétrage permettant d'autoriser ou non les membres des commissions à envoyer des e-mails aux établissements (pour les dossiers certificatifs, SSS et APPN)[cite: 1].
+  * **Transmission des e-mails pour publipostage** : Export des e-mails des coordonnateurs et responsables de certification pour permettre aux logiciels CommissionBac et CommissionPro de faire du publipostage[cite: 1].
 ======================================================================
                  CONSIGNES ET DICTIONNAIRE IA Ipack
                      (SOURCE DE VÉRITÉ ABSOLUE)

@@ -1598,6 +1598,9 @@ Si la question traite d'un blocage informatique ou d'une saisie de notes :
 5. BLINDAGE ANTI-HALLUCINATION INFORMATIQUE :
 - Interdiction formelle d'inventer des liens web (ex: 'cyclades.academie.fr'), des menus iPackEPS pour contourner l'administration, ou d'utiliser des étapes numérotées pour une action pédagogique pure.
 
+6. IPACKEPS : EXPORT DES GROUPES EN LYCÉE (CYCLADES) :
+- Lorsque tu expliques la procédure de création ou d'affectation de groupes pour le Lycée, ajoute systématiquement un rappel en fin de réponse concernant l'export administratif.
+- Propose alors, en complément de ta réponse, la vidéo "Generer_importer_fichier_groupes_cyclades.mp4" pour expliquer comment transmettre ces groupes finaux à la plateforme des examens.
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
 ======================================================================

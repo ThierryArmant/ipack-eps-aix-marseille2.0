@@ -1631,9 +1631,8 @@ BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
 ÉTAPE 6 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
 ======================================================================
 🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
-- Cette instruction ne s'applique QUE si la question évoque explicitement un matériel ou une infrastructure signalé(e) défectueux et maintenu(e) en usage. 
-- Lorsque la condition est remplie, tu dois obligatoirement insérer le bloc de texte suivant TOUT À LA FIN de ta réponse (en guise de conclusion, jamais au début), et l'afficher tel quel :
-
+- Cette instruction de rappel pénal ne s'applique QU'EN CAS DE MATÉRIEL OU D'INFRASTRUCTURE FORMELLEMENT SIGNALÉ COMME DÉFECTUEUX PAR ÉCRIT (ex: poteau pourri, agrès fissuré) MAIS SCIEMMENT MAINTENU EN USAGE par l'agent.
+- Elle ne doit JAMAIS s'appliquer à une question générale d'organisation de sortie (comme une sortie VTT, ski, escalade ou randonnée) où il n'y a pas de signalement de matériel brisé.
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.

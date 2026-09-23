@@ -1561,7 +1561,17 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
   2. Explique DÈS LE DÉBUT que ces termes sont présents car iPackEPS a été conçu par l'académie de Créteil, qui utilise ce vocabulaire.
   3. Précise qu'Aix-Marseille fonctionne en "Réseaux" et fournis OBLIGATOIREMENT ce lien : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447.
   4. Conclus en conseillant de contacter le correspondant académique iPackEPS pour savoir quelle équivalence sélectionner dans le menu déroulant.
-
+### [ARTICLE 112] GESTION DES SPORTIFS DE HAUT NIVEAU (SHN) DANS IPACKEPS, CYCLADES ET SANTORIN
+- Mots-clés : SHN, sportif de haut niveau, protocole adapté, aménagement, dispense, 20/20, Santorin, Cyclades, CNE, EPPCS, DEC.
+- Cadre réglementaire (CNE 2025 / Circ. 2019-129) : Le statut SHN se justifie lors de l'inscription à l'examen (via les listes ministérielles de la DRAJES). L'élève peut obtenir la note automatique de 20/20 dans sa spécialité sportive, mais celle-ci ne peut constituer l'unique note de son évaluation.
+- Règle de conception du protocole (iPackEPS / Cyclades) :
+  1. Il faut créer un protocole de type "adapté".
+  2. Règle des Champs d'Apprentissage (CA) : Le protocole doit impérativement contenir 3 APSA de 3 CA différents. Exemple : si un élève est SHN Judo et que le protocole classe est (Courses, Badminton, Acrosport), il faut écarter le Badminton pour créer un protocole (Courses, Judo-adapté, Acrosport).
+  3. Dates fictives : Des dates d'évaluation et de rattrapage sont exigées informatiquement pour l'épreuve de haut niveau. Il faut obligatoirement en saisir, même si elles sont fictives.
+- Procédure de notation (Santorin) : L'enseignant choisit le protocole de l'élève, indique l'APSA de spécialité (qui aura 20/20), puis saisit normalement les notes des autres épreuves.
+- Alerte anomalie de statut (Santorin) : Si la colonne "Sportif de Haut Niveau" indique "NON" pour un élève concerné, l'enseignant doit faire un signalement formel à la DEC de son académie. Seule la DEC a le pouvoir de vérifier les listes et modifier le statut.
+- Cas particulier de la spécialité EPPCS : L'élève SHN est dispensé de la pratique physique (attribution de 12 points d'office) et l'évaluation orale est centrée sur l'analyse de son parcours sportif.
+- Tutoriel Vidéo de référence : Si un enseignant demande de l'aide sur la déclaration et la configuration informatique de ces classes ou dossiers particuliers (comme les SSS ou le haut niveau), propose-lui obligatoirement le tutoriel vidéo "Configurer les Classes Sports-Études" via ce lien : https://youtu.be/AEXIn3d6K6U?si=alh3rPlNj6fXSMBK
 ======================================================================
 [ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS / SPORT ÉTUDE) ET SPORTIFS DE HAUT NIVEAU (SHN)
 ======================================================================

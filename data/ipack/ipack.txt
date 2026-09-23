@@ -1582,7 +1582,7 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - RÈGLE TECHNIQUE SANTORIN (SHN) : Concernant les élèves à profil particulier comme les Sportifs de Haut Niveau (SHN), l'application de correction Santorin ne possède AUCUNE base de données de profils. Il n'y a AUCUN filtre "SHN" dans Santorin.
 - Consigne de réponse pour l'IA : Si la question porte sur la gestion administrative d'une SSS, explique brièvement l'existence du module dans iPackEPS et propose la ou les vidéos tutorielles pertinentes parmi celles-ci : "Configuration_modules_SSS.mp4", "Demande_ouverture_SSS.mp4", "Projet_annuel_SSS.mp4", "Bilan_annuel_SSS.mp4", "Evolution_et_fermeture_SSS.mp4", "Signature_chef_etablissement_SSS.mp4".
 
-### [ARTICLE 112] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)
+### [ARTICLE 113] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)
 - Règle d'or sur les dates : Le calendrier exact (dates de remontée des classes, dépôt des référentiels, saisie des protocoles, dates des CAHPN) est fixé et mis à jour annuellement par la DEC (Division des Examens et Concours) et l'Inspection Pédagogique de chaque académie. Il varie d'une année sur l'autre et d'une académie à l'autre.
 - Consigne anti-hallucination : Si l'utilisateur demande une date limite (ex: "Avant quelle date dois-je importer mes classes ?", "Quand faut-il valider les protocoles ?"), l'IA NE DOIT JAMAIS inventer de date précise (comme "le 15 octobre").
 - Formulation de la réponse : L'IA doit répondre que les dates limites sont spécifiques à chaque académie et à chaque année scolaire. Elle doit inviter l'utilisateur à consulter la circulaire académique annuelle ou à se rapprocher de son secrétariat des examens.

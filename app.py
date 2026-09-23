@@ -1073,6 +1073,11 @@ else:
 
             if bouton_envoyer and prompt_brut.strip():
                 prompt = prompt_brut.strip()
+                
+                # --- INJECTION DU SABLIER ICI ---
+                with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
+                    # On stocke temporairement la question dans la session pour déclencher la suite
+                    st.session_state.current_prompt = prompt
 
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES

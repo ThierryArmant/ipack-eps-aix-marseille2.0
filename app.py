@@ -56,6 +56,7 @@ except ImportError:
 # ======================================================================
 VIDEOS_TUTOS = {
     "import_eleves_pronote.mp4": "https://www.youtube.com/watch?v=RlScDjd8kHk",
+    "Configurer_Classes_Sports_Etudes.mp4": "https://youtu.be/AEXIn3d6K6U",
     "Configuration_classes_import_eleves.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_classes_import_eleves.mp4",
     "affecter_eleves_dans_groupes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/affecter_eleves_dans_groupes.mp4",
     "Generer_importer_fichier_groupes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Generer_importer_fichier_groupes_cyclades.mp4",

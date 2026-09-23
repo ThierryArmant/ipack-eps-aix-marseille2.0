@@ -895,58 +895,53 @@ label_titres = {
 }
 
 titre_affiche = label_titres.get(
-    st.session_state.active_module,
+    st.session_state.get("active_module"),
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
 st.markdown(
-    '<div class="column-title-top"><span class="instruction">⚙️ ÉTAPE 1 : CHOISISSEZ LE CONTEXTE DE VOTRE QUESTION</span><span'
-    f' class="mode-actuel">{titre_affiche}</span></div>',
+    f'<div class="column-title-top"><span class="instruction">⚙️ ÉTAPE 1 : CHOISISSEZ LE CONTEXTE DE VOTRE QUESTION</span><span class="mode-actuel">{titre_affiche}</span></div>',
     unsafe_allow_html=True,
 )
 
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+
+# On vérifie quel module est actif dans la session pour verrouiller le type du bouton
+btn_ip_type = "primary" if st.session_state.get("active_module") == "ipack" else "secondary"
+btn_ex_type = "primary" if st.session_state.get("active_module") == "examens" else "secondary"
+btn_se_type = "primary" if st.session_state.get("active_module") == "textes" else "secondary"
+
 with col_b1:
     if st.button(
         "🛠️ iPackEPS",
         use_container_width=True,
         key="btn_ip",
-        type=(
-            "primary"
-            if st.session_state.active_module == "ipack"
-            else "secondary"
-        ),
+        type=btn_ip_type,
     ):
         st.session_state.active_module = "ipack"
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
+
 with col_b2:
     if st.button(
         "📊 Examens &\nSantorin",
         use_container_width=True,
         key="btn_ex",
-        type=(
-            "primary"
-            if st.session_state.active_module == "examens"
-            else "secondary"
-        ),
+        type=btn_ex_type,
     ):
         st.session_state.active_module = "examens"
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
+
 with col_b3:
     if st.button(
         "🔒 Sécurité &\nCadres Règl.",
         use_container_width=True,
         key="btn_se",
-        type=(
-            "primary"
-            if st.session_state.active_module == "textes"
-            else "secondary"
-        ),
+        type=btn_se_type,
     ):
         st.session_state.active_module = "textes"
         st.session_state.contexte_valide = True

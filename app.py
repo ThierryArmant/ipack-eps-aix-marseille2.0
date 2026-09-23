@@ -83,13 +83,11 @@ VIDEOS_TUTOS = {
     "Configuration_modules_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_modules_SSS.mp4",
     "Depot_referentiels_iPackEPS.mp4": "https://youtu.be/T_-j01ovoA4",
     "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8",
-    "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
     "Saisie_protocoles_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
     "EDT_Introduction.mp4": "https://youtu.be/uCF9kxUDaI8",
     "EDT_Creation_Suppression.mp4": "https://youtu.be/8pHcZ4gw6go",
     "EDT_Semaines_A_B.mp4": "https://youtu.be/zi7K-hkYzig",
     "EDT_Verification_Alertes.mp4": "https://youtu.be/vnY5hfKzN08",
-    "Actualisation_equipe_classes.mp4": "https://youtu.be/7WVCGZ5fLqA",
     "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
     "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
     # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
@@ -110,6 +108,33 @@ VIDEOS_TUTOS = {
 
 # ======================================================================
 # 1. CONFIGURATION DE L'APPLICATION
+# ======================================================================
+st.set_page_config(
+    page_title="Hub IA - EPS",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# --- INJECTION CSS POUR HARMONISER LES BULLES DE CHAT ---
+st.markdown("""
+<style>
+/* Cibler toutes les bulles de chat (Utilisateur et IA) pour harmoniser le fond */
+div[data-testid="stChatMessage"] {
+    background-color: rgba(45, 45, 45, 0.85) !important; /* Couleur sombre translucide */
+    color: white !important; /* Texte en blanc */
+    border-radius: 10px; /* Bords arrondis */
+    padding: 15px; /* Espace à l'intérieur de la bulle */
+}
+
+/* Forcer le texte de la question de l'utilisateur en blanc */
+div[data-testid="stChatMessage"] p {
+    color: white !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ======================================================================
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
 # ======================================================================
 st.set_page_config(
     page_title="Hub IA - EPS",

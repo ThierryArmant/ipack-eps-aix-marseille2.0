@@ -894,8 +894,11 @@ label_titres = {
     ),
 }
 
+# On lit l'état actuel de la session (sécurisé)
+module_actif = st.session_state.get("active_module")
+
 titre_affiche = label_titres.get(
-    st.session_state.get("active_module"),
+    module_actif,
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
 st.markdown(
@@ -905,10 +908,10 @@ st.markdown(
 
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 
-# On vérifie quel module est actif dans la session pour verrouiller le type du bouton
-btn_ip_type = "primary" if st.session_state.get("active_module") == "ipack" else "secondary"
-btn_ex_type = "primary" if st.session_state.get("active_module") == "examens" else "secondary"
-btn_se_type = "primary" if st.session_state.get("active_module") == "textes" else "secondary"
+# 🔒 LE VERROU EST ICI : On définit la couleur en dur AVANT de créer les boutons
+btn_ip_type = "primary" if module_actif == "ipack" else "secondary"
+btn_ex_type = "primary" if module_actif == "examens" else "secondary"
+btn_se_type = "primary" if module_actif == "textes" else "secondary"
 
 with col_b1:
     if st.button(
@@ -922,7 +925,7 @@ with col_b1:
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
-
+        
 with col_b2:
     if st.button(
         "📊 Examens &\nSantorin",
@@ -935,7 +938,7 @@ with col_b2:
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
-
+        
 with col_b3:
     if st.button(
         "🔒 Sécurité &\nCadres Règl.",
@@ -948,40 +951,6 @@ with col_b3:
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
         st.rerun()
-
-# ======================================================================
-# 🎯 BANNIÈRE DYNAMIQUE (REMPLACE "OÙ POSER" SI MODE TEXTES ACTIF)
-# ======================================================================
-if st.session_state.active_module == "textes":
-    st.markdown(
-        """
-    <div style="background-color: #1e293b; padding: 12px; border-radius: 8px; border: 1px solid #334155; text-align: center; margin-top: 10px; margin-bottom: 12px;">
-        <span style="color: #fbbf24; font-weight: 500; font-size: 14px;">
-            ⚠️ <strong>Avertissement –</strong> En cas de doute juridique ou de sinistre, contactez impérativement : <strong>Votre Chef d'établissement, votre Secrétariat d'examen, ou votre IA-IPR.</strong>
-        </span>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-else:
-    st.markdown(
-        """
-    <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 12px;">
-        <div style="color: #38BDF8; font-weight: 800; font-size: 14px; text-align: center; margin-bottom: 12px;">🎯 OÙ POSER VOTRE QUESTION ?</div>
-        <div style="display: flex; gap: 20px; color: #FCD34D; font-size: 13px;">
-            <div style="flex: 1; border-right: 1px solid #334155; padding-right: 20px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">🛠️ Menu iPackEPS (Toute l'année)</strong><br>
-                <span>Configuration modules, classes, élèves, groupes, inaptitudes, dispenses...</span>
-            </div>
-            <div style="flex: 1; padding-left: 5px;">
-                <strong style="color: #FFFFFF !important; font-size: 14px;">📊 Menu Examens &amp; Santorin</strong><br>
-                <span>Remontée officielle Bac/DNB, correction numérique, arbitrages CAHPN, blocs de lots.</span>
-            </div>
-        </div>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
 
 # ======================================================================
 # 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (PARCOURS EN CASCADE)

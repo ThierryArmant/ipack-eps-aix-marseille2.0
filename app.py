@@ -91,6 +91,8 @@ VIDEOS_TUTOS = {
     "EDT_Verification_Alertes.mp4": "https://youtu.be/vnY5hfKzN08",
     "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
     "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
+    "Gestion_dossier_APPN.mp4": "https://youtu.be/RUlrS0a1YA0",
+    "Validation_chef_APPN.mp4": "https://youtu.be/2iSTkzR0fns",
     # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
     "Depot_documents_commission.mp4": "https://youtu.be/FZ1KSuuKkEA",
     "Proposer_dossier_commission.mp4": "https://youtu.be/JmhwQNyagOI",

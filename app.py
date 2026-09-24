@@ -1060,7 +1060,7 @@ if prompt_a_traiter:
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
     
-    # --- SABLIER 100% SÉCURISÉ ET LISIBLE (Remplacement total de st.spinner) ---
+    # --- SABLIER 100% SÉCURISÉ ET LISIBLE ---
     zone_chargement = st.empty()
     zone_chargement.markdown(
         """
@@ -1282,7 +1282,13 @@ if prompt_a_traiter:
             ]
         )
         
-        # --- DÉTECTIONS ASSOUPLIES POUR LE TERRAIN ---
+        # --- NOUVEAU DISJONCTEUR : CRÉATION DE GROUPES MIXTES ---
+        est_creation_groupe = (
+            mode == "ipack"
+            and any(w in p_low for w in ["groupe", "groupes"])
+            and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas"])
+        )
+
         est_gestion_sss_ou_sport = (
             mode == "ipack"
             and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"])
@@ -1330,6 +1336,7 @@ if prompt_a_traiter:
                 or est_sss_bloque
                 or est_gestion_sss_ou_sport  
                 or est_dossier_peda
+                or est_creation_groupe  # Ajout de notre nouveau disjoncteur ici !
             )
         ) or est_tasa or est_unss
 
@@ -1526,6 +1533,20 @@ if prompt_a_traiter:
   <li><strong>[Étape 2]</strong> Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.</li>
 </ol>
 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            
+        elif est_creation_groupe:
+            texte_brut = """<h3>👥 CRÉATION DE GROUPES COMPLEXES (INTER-CLASSES)</h3>
+<p><strong>Principe :</strong> iPackEPS permet de créer des groupes d'apprentissage ou des alignements en piochant des élèves issus de différentes classes (ex: mélanger deux classes de Terminale pour faire des groupes de 24).</p>
+<p><strong>Procédure exacte :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Allez dans le menu <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Cliquez sur <strong>Créer un groupe</strong> et donnez-lui un nom explicite (ex: "Term_Groupe_A").</li>
+  <li><strong>[Étape 3]</strong> Cochez le niveau concerné (ex: Lycée / Terminale) et enregistrez cette structure vide.</li>
+  <li><strong>[Étape 4]</strong> Basculez ensuite sur l'onglet <strong>[Mes Élèves]</strong>.</li>
+  <li><strong>[Étape 5]</strong> Utilisez le menu déroulant en haut pour afficher votre première classe, cochez les élèves concernés, puis sélectionnez votre deuxième classe pour compléter votre groupe jusqu'à atteindre vos 24 élèves.</li>
+</ol>
+📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
         elif est_unss:

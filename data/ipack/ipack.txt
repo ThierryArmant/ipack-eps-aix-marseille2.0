@@ -711,10 +711,6 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - URL: spip.php?article94
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Évolution. Chaque année vous pouvez faire une demande de Fermeture ou de Reconduction de votre Section Sportive Scolaire.
 
-### [ARTICLE 53] [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique
-- URL: spip.php?article53
-- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier APPN.
-
 ### [ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études
 - URL: spip.php?article91
 - Texte: Accès à la fonctionnalité : Dossiers => Dossier Sports-Études.

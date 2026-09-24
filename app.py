@@ -1107,13 +1107,14 @@ if prompt:
                 "⚠️ <strong>Rappel :</strong> Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessous devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC)."
                 "</div>"
             )
-            texte_brut = rappel_hs + """<h3>🛑 HORS PÉRIMÈTRE INSTITUTIONNEL</h3>
+            # 👇 NOUVEAU MESSAGE PÉDAGOGIQUE ET GUIDANT
+            texte_brut = rappel_hs + """<h3>💡 QUESTION AMBIGÜE OU MULTIDOMAINE</h3>
 <ul>
-  <li><strong>Champ de compétence :</strong> Votre question semble étrangère aux domaines traités par cet assistant (Éducation Physique et Sportive, gestion administrative iPackEPS, examens et concours, ou réglementation juridique et institutionnelle).</li>
-  <li><strong>Restriction d'usage :</strong> En tant qu'assistant numérique spécialisé, je ne suis pas programmé pour traiter des requêtes extérieures à ces périmètres professionnels.</li>
-  <li><strong>Recommandation :</strong> Pour toute autre thématique, veuillez utiliser un outil généraliste ou vous référer directement aux services compétents de votre hiérarchie.</li>
+  <li><strong>Analyse de la requête :</strong> Votre question semble ambigüe ou couvre plusieurs domaines à la fois (technique, administratif, réglementaire ou pédagogique).</li>
+  <li><strong>Conseil pour un accompagnement optimal :</strong> Pour que le Hub puisse vous apporter une réponse parfaitement ajustée, je vous invite à reformuler et à recentrer votre question en l'associant au contexte approprié (sélection de l'onglet et du public cible).</li>
+  <li><strong>Périmètres du Hub :</strong> L'assistant est spécialisé sur l'utilisation d'iPackEPS, la gestion des examens (Santorin/Cyclades) et le cadre juridique/sécuritaire en EPS.</li>
 </ul>"""
-            badge, color_card = "⚖️ HORS-SUJET", "securite-card"
+            badge, color_card = "💡 GUIDAGE HUB", "securite-card"
         else:
             texte_brut = ""
             extraits_doc = ""

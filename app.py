@@ -11,6 +11,15 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
 # ======================================================================
+# 1. CONFIGURATION DE L'APPLICATION (UNIQUE ET EN PREMIER)
+# ======================================================================
+st.set_page_config(
+    page_title="Hub IA - EPS",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# ======================================================================
 # 📊 CONFIGURATION GOOGLE SHEETS LOGS (QUESTIONS HUB)
 # ======================================================================
 WEBHOOK_URL = (
@@ -71,7 +80,6 @@ VIDEOS_TUTOS = {
     "Protocoles_adaptes_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Protocoles_adaptes_iPackEPS.mp4",
     "Extraction_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Extraction_notes_Santorin.mp4",
     "Import_documents_glisser_deposer.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_documents_glisser_deposer.mp4",
-    "Configuration_classes_import_eleves.mp4": "https://www.youtube.com/watch?v=tu8J1RBUTwk",
     "Actualisation_equipe_classes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Actualisation_equipe_classes.mp4",
     "Gestion_inventaire_EPI_photos.mp4": "https://www.youtube.com/watch?v=dpijdybbbWo",
     "Controle_dates_CM_CAHPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Controle_dates_CM_CAHPN.mp4",
@@ -91,9 +99,7 @@ VIDEOS_TUTOS = {
     "EDT_Verification_Alertes.mp4": "https://youtu.be/vnY5hfKzN08",
     "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
     "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
-    "Gestion_dossier_APPN.mp4": "https://youtu.be/RUlrS0a1YA0",
     "Validation_chef_APPN.mp4": "https://youtu.be/2iSTkzR0fns",
-    # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
     "Depot_documents_commission.mp4": "https://youtu.be/FZ1KSuuKkEA",
     "Proposer_dossier_commission.mp4": "https://youtu.be/JmhwQNyagOI",
     "Demande_ouverture_SSS.mp4": "https://youtu.be/SizZ4vGQ4nU",
@@ -109,41 +115,22 @@ VIDEOS_TUTOS = {
     "Extraire_liste_inaptes_santorin.mp4": "https://youtu.be/3ThO5nLNzJg",
 }
 
-# ======================================================================
-# 1. CONFIGURATION DE L'APPLICATION
-# ======================================================================
-st.set_page_config(
-    page_title="Hub IA - EPS",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
-
-# --- INJECTION CSS POUR HARMONISER LES BULLES DE CHAT ---
+# --- INJECTION CSS POUR HARMONISER LES BULLES DE CHAT ET ELEMENTS ---
 st.markdown("""
 <style>
 /* Cibler toutes les bulles de chat (Utilisateur et IA) pour harmoniser le fond */
 div[data-testid="stChatMessage"] {
-    background-color: rgba(45, 45, 45, 0.85) !important; /* Couleur sombre translucide */
-    color: white !important; /* Texte en blanc */
-    border-radius: 10px; /* Bords arrondis */
-    padding: 15px; /* Espace à l'intérieur de la bulle */
+    background-color: rgba(45, 45, 45, 0.85) !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 15px;
 }
 
-/* Forcer le texte de la question de l'utilisateur en blanc */
 div[data-testid="stChatMessage"] p {
     color: white !important;
 }
 </style>
 """, unsafe_allow_html=True)
-
-# ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
-# ======================================================================
-st.set_page_config(
-    page_title="Hub IA - EPS",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
 
 # ======================================================================
 # 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
@@ -163,7 +150,7 @@ if "is_admin" not in st.session_state:
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
 
-# 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
+# 🔄 RÉINITIALISATION TOTALE DES ÉTAPES
 if st.session_state.reset_steps:
     st.session_state.contexte_valide = False
     st.session_state.public_valide = False
@@ -896,7 +883,6 @@ label_titres = {
     ),
 }
 
-# On lit l'état actuel de la session (sécurisé)
 module_actif = st.session_state.get("active_module")
 
 titre_affiche = label_titres.get(
@@ -910,7 +896,6 @@ st.markdown(
 
 col_b1, col_b2, col_b3 = st.columns(3, gap="small")
 
-# 🔒 LE VERROU EST ICI : On définit la couleur en dur AVANT de créer les boutons
 btn_ip_type = "primary" if module_actif == "ipack" else "secondary"
 btn_ex_type = "primary" if module_actif == "examens" else "secondary"
 btn_se_type = "primary" if module_actif == "textes" else "secondary"
@@ -1040,10 +1025,18 @@ else:
             if bouton_envoyer and prompt_brut.strip():
                 prompt = prompt_brut.strip()
                 
-                # --- INJECTION DU SABLIER AVEC STYLE PERSONNALISÉ ---
-                with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
-                    st.session_state.current_prompt = prompt
-
+                # --- CONTENEUR DE CHARGEMENT GARANTI AVEC FOND SOMBRE ET TEXTE BLANC ---
+                zone_chargement = st.empty()
+                zone_chargement.markdown(
+                    """
+                    <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; margin: 15px 0; color: #FFFFFF; font-weight: 600; font-size: 14px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
+                        ⏳ Recherche dans la base documentaire et analyse de la réponse en cours...
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
+                st.session_state.current_prompt = prompt
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================

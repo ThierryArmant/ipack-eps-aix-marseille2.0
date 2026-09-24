@@ -1048,7 +1048,10 @@ else:
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
-if prompt:
+prompt_a_traiter = st.session_state.get("current_prompt", None)
+
+if prompt_a_traiter:
+    prompt = prompt_a_traiter
     st.session_state.messages_hub = []
 
     st.session_state.messages_hub.append({
@@ -1056,488 +1059,524 @@ if prompt:
         "type": "text",
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
-    with st.spinner("Je consulte la documentation officielle..."):
-        mode = st.session_state.active_module
-        p_low = prompt.lower()
-        
-        niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+    
+    # --- SABLIER 100% SÉCURISÉ ET LISIBLE (Remplacement total de st.spinner) ---
+    zone_chargement = st.empty()
+    zone_chargement.markdown(
+        """
+        <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; color: #FFFFFF; font-weight: 600; margin-top: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
+            ⏳ Recherche dans la base documentaire et analyse en cours...
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    mode = st.session_state.active_module
+    p_low = prompt.lower()
+    
+    niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
-        onglets_noms = {
-            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-            "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
-            "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
-        }
-        contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+    onglets_noms = {
+        "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+        "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+        "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
+    }
+    contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
-        # ==================================================================
-        # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
-        # (DÉSACTIVÉ POUR iPACKEPS ET EXAMENS POUR ÉVITER TOUT BLOCAGE)
-        # ==================================================================
-        if mode in ["ipack", "examens"]:
-            est_totalement_hors_sujet = False
-        else:
-            mots_cles_eps_admin = [
-                "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
-                "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
-                "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
-                "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
-                "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
-                "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
-                "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
-                "collège", "college", "lycée", "lycee", "maternelle", 
-                "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
-                "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
-                "sss", "section sportive", "prépa-métiers", "prepa-metiers",
-                "eps", "sport", "sports", "apsa", "relais", "handball", 
-                "activite", "activites", "sauts", "lancers", "courses", 
-                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
-                "programme", "programmes", "afl", "afc", "socle",
-                "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
-                "responsabilité", "responsabilite", "circulaire", "officiel", 
-                "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
-                "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-                "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
-                "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
-            ]
-            est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
+    # ==================================================================
+    # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
+    # ==================================================================
+    if mode in ["ipack", "examens"]:
+        est_totalement_hors_sujet = False
+    else:
+        mots_cles_eps_admin = [
+            "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
+            "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
+            "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
+            "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
+            "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
+            "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
+            "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
+            "collège", "college", "lycée", "lycee", "maternelle", 
+            "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
+            "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
+            "sss", "section sportive", "prépa-métiers", "prepa-metiers",
+            "eps", "sport", "sports", "apsa", "relais", "handball", 
+            "activite", "activites", "sauts", "lancers", "courses", 
+            "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
+            "programme", "programmes", "afl", "afc", "socle",
+            "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
+            "responsabilité", "responsabilite", "circulaire", "officiel", 
+            "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
+            "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
+            "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
+            "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
+        ]
+        est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
 
-        if est_totalement_hors_sujet:
-            rappel_hs = (
-                "<div style='margin-bottom: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-                "⚠️ <strong>Rappel :</strong> Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessous devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC)."
-                "</div>"
-            )
-            texte_brut = rappel_hs + """<h3>🛑 HORS PÉRIMÈTRE INSTITUTIONNEL</h3>
+    if est_totalement_hors_sujet:
+        rappel_hs = (
+            "<div style='margin-bottom: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
+            "⚠️ <strong>Rappel :</strong> Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessous devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC)."
+            "</div>"
+        )
+        texte_brut = rappel_hs + """<h3>🛑 HORS PÉRIMÈTRE INSTITUTIONNEL</h3>
 <ul>
   <li><strong>Champ de compétence :</strong> Votre question semble étrangère aux domaines traités par cet assistant (Éducation Physique et Sportive, gestion administrative iPackEPS, examens et concours, ou réglementation juridique et institutionnelle).</li>
   <li><strong>Restriction d'usage :</strong> En tant qu'assistant numérique spécialisé, je ne suis pas programmé pour traiter des requêtes extérieures à ces périmètres professionnels.</li>
   <li><strong>Recommandation :</strong> Pour toute autre thématique, veuillez utiliser un outil généraliste ou vous référer directement aux services compétents de votre hiérarchie.</li>
 </ul>"""
-            badge, color_card = "⚖️ HORS-SUJET", "securite-card"
+        badge, color_card = "⚖️ HORS-SUJET", "securite-card"
+    else:
+        texte_brut = ""
+        extraits_doc = ""
+        badge, color_card = "INFORMATION", "general-card"
+
+        verites_terrain_pierre = ""
+        try:
+            for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
+                if os.path.exists(fp):
+                    with open(fp, "r", encoding="utf-8", errors="ignore") as f:
+                        verites_terrain_pierre += f"\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
+        except Exception:
+            pass
+
+        est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
+        est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
+        
+        est_premier_degre = any(w in p_low for w in [
+            "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
+            "maternelle", "élémentaire", "elementaire", "atsem", "directeur d'école", "ien"
+        ])
+
+        if est_college and not est_clairement_lycee:
+            contexte_actif = "college"
         else:
-            texte_brut = ""
-            extraits_doc = ""
-            badge, color_card = "INFORMATION", "general-card"
+            contexte_actif = mode
 
-            verites_terrain_pierre = ""
-            try:
-                for fp in ["get_par_pierre.txt", "gere_par_pierre.txt"]:
-                    if os.path.exists(fp):
-                        with open(fp, "r", encoding="utf-8", errors="ignore") as f:
-                            verites_terrain_pierre += f"\n--- REGLES DE PIERRE ---\n" + f.read() + "\n"
-            except Exception:
-                pass
+        est_import_pronote = (
+            mode == "ipack"
+            and "pronote" in p_low
+            and any(w in p_low for w in ["import", "élève", "eleve", "classe", "classes"])
+        )
 
-            est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
-            est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
-            
-            est_premier_degre = any(w in p_low for w in [
-                "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
-                "maternelle", "élémentaire", "elementaire", "atsem", "directeur d'école", "ien"
-            ])
+        est_saisir_notes = (
+            not est_import_pronote
+            and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
+            and any(w in p_low for w in ["note", "notes"])
+            and not any(w in p_low for w in ["santorin", "cyclades"])
+            and mode != "examens" 
+        )
 
-            if est_college and not est_clairement_lycee:
-                contexte_actif = "college"
-            else:
-                contexte_actif = mode
+        est_connexion = (
+            any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) 
+            and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"])
+        )
 
-            est_import_pronote = (
-                mode == "ipack"
-                and "pronote" in p_low
-                and any(w in p_low for w in ["import", "élève", "eleve", "classe", "classes"])
-            )
-
-            est_saisir_notes = (
-                not est_import_pronote
-                and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
-                and any(w in p_low for w in ["note", "notes"])
-                and not any(w in p_low for w in ["santorin", "cyclades"])
-                and mode != "examens" 
-            )
-
-            est_connexion = (
-                any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) 
-                and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"])
-            )
-
-            est_date = (
-                (not est_college) 
-                and any(
-                    phrase in p_low for phrase in [
-                        "quel est le calendrier", "quelles sont les dates", "date butoir de", 
-                        "date de fermeture", "calendrier officiel"
-                    ]
-                ) 
-                and any(
-                    w in p_low for w in [
-                        "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
-                        "lot", "lots", "examen", "examens", "bac", "cap", "brevet"
-                    ]
-                )
-            )
-
-            est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
-            est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
-            est_cap_3epreuves = (
-                mode == "examens"
-                and "cap" in p_low
-                and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"])
-            )
-            est_tasa = mode == "textes" and "tasa" in p_low
-
-            est_unss = any(w in p_low for w in [
-                "unss", "championnat de france", "championnats de france", 
-                "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"
-            ])
-
-            est_deplacer_candidat = (
-                mode != "textes"
-                and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
-                and any(w in p_low for w in ["candidat", "élève", "eleve"])
-                and "lot" in p_low
-            )
-
-            est_eleve_arrivant = (
-                mode != "textes"
-                and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"])
-                and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"])
-            )
-
-            est_apsa_etablissement_vs_nationale = (
-                any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"])
-                and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"])
-            )
-
-            est_verrouiller_lot = (
-                mode == "examens"
-                and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"])
-                and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"])
-            )
-
-            est_deverrouiller_lot = (
-                mode == "examens"
-                and (
-                    any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"])
-                    or "verrouillé" in p_low
-                )
-                and any(w in p_low for w in ["santorin", "lot", "copie"])
-                and not est_verrouiller_lot
-            )
-
-            est_dispense_totale = (
-                mode != "textes"
-                and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"])
-                and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"])
-            )
-
-            est_exclusion = (
-                mode != "textes"
-                and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
-                and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
-            )
-
-            est_aucun_eleve = (
-                mode == "ipack"
-                and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
-            )
-
-            est_referentiels_rentree = (
-                mode == "ipack"
-                and any(
-                    phrase in p_low for phrase in [
-                        "configurer les référentiels de rentrée",
-                        "déclarer les apsa de rentrée",
-                        "dépôt initial des référentiels",
-                        "campagne de rentrée"
-                    ]
-                )
-            )
-
-            est_sss = any(
-                w in p_low
-                for w in ["sss", "section sportive", "reconduction", "fermeture sss"]
-            )
-
-            est_shn = any(
-                w in p_low
-                for w in [
-                    "shn",
-                    "sportif de haut niveau",
-                    "haut niveau",
-                    "ppf",
-                    "sportifs de haut niveau",
+        est_date = (
+            (not est_college) 
+            and any(
+                phrase in p_low for phrase in [
+                    "quel est le calendrier", "quelles sont les dates", "date butoir de", 
+                    "date de fermeture", "calendrier officiel"
+                ]
+            ) 
+            and any(
+                w in p_low for w in [
+                    "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
+                    "lot", "lots", "examen", "examens", "bac", "cap", "brevet"
                 ]
             )
+        )
 
-            est_sss_bloque = (
-                mode == "ipack"
-                and any(w in p_low for w in ["sss", "section sportive"])
-                and any(
-                    w in p_low
-                    for w in [
-                        "droit",
-                        "créer",
-                        "creer",
-                        "autorise",
-                        "bloque",
-                        "pas",
-                    ]
-                )
+        est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
+        est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
+        est_cap_3epreuves = (
+            mode == "examens"
+            and "cap" in p_low
+            and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"])
+        )
+        est_tasa = mode == "textes" and "tasa" in p_low
+
+        est_unss = any(w in p_low for w in [
+            "unss", "championnat de france", "championnats de france", 
+            "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"
+        ])
+
+        est_deplacer_candidat = (
+            mode != "textes"
+            and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
+            and any(w in p_low for w in ["candidat", "élève", "eleve"])
+            and "lot" in p_low
+        )
+
+        est_eleve_arrivant = (
+            mode != "textes"
+            and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"])
+            and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"])
+        )
+
+        est_apsa_etablissement_vs_nationale = (
+            any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"])
+            and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"])
+        )
+
+        est_verrouiller_lot = (
+            mode == "examens"
+            and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"])
+            and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"])
+        )
+
+        est_deverrouiller_lot = (
+            mode == "examens"
+            and (
+                any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"])
+                or "verrouillé" in p_low
             )
+            and any(w in p_low for w in ["santorin", "lot", "copie"])
+            and not est_verrouiller_lot
+        )
 
-            est_cas_direct = (
-                (mode != "textes") 
-                and (
-                    est_connexion
-                    or est_date 
-                    or est_sujet_secours 
-                    or est_cap_3epreuves 
-                    or est_deplacer_candidat
-                    or est_eleve_arrivant
-                    or est_apsa_etablissement_vs_nationale
-                    or est_verrouiller_lot
-                    or est_deverrouiller_lot
-                    or est_dispense_totale
-                    or est_saisir_notes
-                    or est_exclusion
-                    or est_aucun_eleve
-                    or est_referentiels_rentree
-                    or est_import_pronote
-                    or est_sss_bloque
-                )
-            ) or est_tasa or est_unss
+        est_dispense_totale = (
+            mode != "textes"
+            and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"])
+            and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"])
+        )
 
-            if openai_api_key and not est_cas_direct:
-                try:
-                    if niveau_actuel_form == "1er degré":
+        est_exclusion = (
+            mode != "textes"
+            and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
+            and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
+        )
+
+        est_aucun_eleve = (
+            mode == "ipack"
+            and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
+        )
+
+        est_referentiels_rentree = (
+            mode == "ipack"
+            and any(
+                phrase in p_low for phrase in [
+                    "configurer les référentiels de rentrée",
+                    "déclarer les apsa de rentrée",
+                    "dépôt initial des référentiels",
+                    "campagne de rentrée"
+                ]
+            )
+        )
+
+        est_sss = any(
+            w in p_low
+            for w in ["sss", "section sportive", "reconduction", "fermeture sss"]
+        )
+
+        est_shn = any(
+            w in p_low
+            for w in [
+                "shn",
+                "sportif de haut niveau",
+                "haut niveau",
+                "ppf",
+                "sportifs de haut niveau",
+            ]
+        )
+        
+        # --- DÉTECTIONS ASSOUPLIES POUR LE TERRAIN ---
+        est_gestion_sss_ou_sport = (
+            mode == "ipack"
+            and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"])
+            and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer", "mettre", "faire"])
+        )
+
+        est_dossier_peda = any(
+            w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"]
+        )
+        
+        est_sss_bloque = (
+            mode == "ipack"
+            and any(w in p_low for w in ["sss", "section sportive"])
+            and any(
+                w in p_low
+                for w in [
+                    "droit",
+                    "créer",
+                    "creer",
+                    "autorise",
+                    "bloque",
+                    "pas",
+                ]
+            )
+        )
+
+        est_cas_direct = (
+            (mode != "textes") 
+            and (
+                est_connexion
+                or est_date 
+                or est_sujet_secours 
+                or est_cap_3epreuves 
+                or est_deplacer_candidat
+                or est_eleve_arrivant
+                or est_apsa_etablissement_vs_nationale
+                or est_verrouiller_lot
+                or est_deverrouiller_lot
+                or est_dispense_totale
+                or est_saisir_notes
+                or est_exclusion
+                or est_aucun_eleve
+                or est_referentiels_rentree
+                or est_import_pronote
+                or est_sss_bloque
+                or est_gestion_sss_ou_sport  
+                or est_dossier_peda
+            )
+        ) or est_tasa or est_unss
+
+        if openai_api_key and not est_cas_direct:
+            try:
+                if niveau_actuel_form == "1er degré":
+                    if retriever_textes:
+                        nodes_bruts = retriever_textes.retrieve(prompt)
+                        for n in nodes_bruts:
+                            extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
+                    if retriever_peda:
+                        nodes_peda = retriever_peda.retrieve(prompt)
+                        for n in nodes_peda:
+                            extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
+                else:
+                    if mode == "textes":
                         if retriever_textes:
                             nodes_bruts = retriever_textes.retrieve(prompt)
                             for n in nodes_bruts:
-                                extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
+                                extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
+                        if retriever_peda and any(w in p_low for w in ["programme", "cycle", "competence", "afl", "afc", "socle", "pedagogie"]):
+                            nodes_peda = retriever_peda.retrieve(prompt)
+                            for n in nodes_peda:
+                                extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
+                    elif mode == "examens":
+                        if retriever_santorin:
+                            nodes_bruts = retriever_santorin.retrieve(prompt)
+                            for n in nodes_bruts:
+                                extraits_doc += f"{n.node.text}\n\n"
+                    elif mode == "ipack":
+                        if retriever_ipack:
+                            nodes_bruts = retriever_ipack.retrieve(prompt)
+                            for n in nodes_bruts:
+                                extraits_doc += f"{n.node.text}\n\n"
+                    else:
                         if retriever_peda:
                             nodes_peda = retriever_peda.retrieve(prompt)
                             for n in nodes_peda:
-                                extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
-                    else:
-                        if mode == "textes":
-                            if retriever_textes:
-                                nodes_bruts = retriever_textes.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
-                            if retriever_peda and any(w in p_low for w in ["programme", "cycle", "competence", "afl", "afc", "socle", "pedagogie"]):
-                                nodes_peda = retriever_peda.retrieve(prompt)
-                                for n in nodes_peda:
-                                    extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
-                        elif mode == "examens":
-                            if retriever_santorin:
-                                nodes_bruts = retriever_santorin.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"{n.node.text}\n\n"
-                        elif mode == "ipack":
-                            if retriever_ipack:
-                                nodes_bruts = retriever_ipack.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"{n.node.text}\n\n"
-                        else:
-                            if retriever_peda:
-                                nodes_peda = retriever_peda.retrieve(prompt)
-                                for n in nodes_peda:
-                                    extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
-                except Exception:
-                    pass
+                                extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
+            except Exception:
+                pass
 
-            if est_import_pronote:
-                texte_brut = """<h3>📥 IMPORTATION DES LISTES D'ÉLÈVES DEPUIS PRONOTE</h3>
-<ul>
-  <li><strong>Principe :</strong> L'importation des données d'élèves depuis Pronote permet d'initialiser vos classes rapidement en début d'année dans iPackEPS.</li>
-  <li><strong>Manipulation :</strong> Rendez-vous dans les paramètres d'importation de votre établissement pour charger le fichier exporté.</li>
-</ul>
+        if est_import_pronote:
+            texte_brut = """<h3>📥 IMPORTATION DES LISTES D'ÉLÈVES DEPUIS PRONOTE</h3>
+<p><strong>Principe :</strong> L'importation des données d'élèves depuis Pronote permet d'initialiser vos classes rapidement en début d'année dans iPackEPS.</p>
+<p><strong>Procédure :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Rendez-vous dans les paramètres d'importation de votre établissement sur iPackEPS.</li>
+  <li><strong>[Étape 2]</strong> Chargez le fichier d'export généré par votre logiciel de vie scolaire (Pronote).</li>
+  <li><strong>[Étape 3]</strong> Validez l'importation pour peupler vos listes d'élèves.</li>
+</ol>
 📺 Tutoriel associé : import_eleves_pronote.mp4"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_connexion:
-                texte_brut = """<h3>🌐 ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)</h3>
-<ul>
-  <li><strong>Règle d'or absolue :</strong> Aucun enseignant ou personnel ne se connecte par un site web académique public (type site grand public de l'académie).</li>
-  <li><strong>Portail d'accès unique :</strong> L'accès à TOUTES les applications professionnelles et d'examen se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel <strong>ARENA</strong> (ou l'intranet académique de type Esterel) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).</li>
-</ul>"""
-                badge, color_card = "🌐 ACCÈS INSTITUTIONNEL", ("santorin-card" if mode == "examens" else "general-card")
+        elif est_connexion:
+            texte_brut = """<h3>🌐 ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)</h3>
+<p><strong>Règle d'or absolue :</strong> Aucun enseignant ou personnel ne se connecte par un site web académique public (type site grand public de l'académie).</p>
+<p><strong>Portail d'accès unique :</strong> L'accès à TOUTES les applications professionnelles et d'examen se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel <strong>ARENA</strong> (ou l'intranet académique) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).</p>"""
+            badge, color_card = "🌐 ACCÈS INSTITUTIONNEL", ("santorin-card" if mode == "examens" else "general-card")
 
-            elif est_saisir_notes:
-                texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
-<ul>
-  <li><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</li>
-  <li><strong>Outil dédié :</strong> Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.</li>
-</ul>"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+        elif est_saisir_notes:
+            texte_brut = """<h3>⚠️ RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES</h3>
+<p><strong>Règle absolue :</strong> iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est <strong>strictement impossible</strong> d'y saisir des notes.</p>
+<p><strong>Outil dédié :</strong> Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.</p>"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_date:
-                texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
-<ul>
-  <li><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au Bulletin Officiel (BO) et précisées par la circulaire DEC de votre académie.</li>
-</ul>"""
-                badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
+        elif est_date:
+            texte_brut = """<h3>📅 CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES</h3>
+<p><strong>Principe réglementaire :</strong> Les dates butoirs de saisie des notes et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au Bulletin Officiel (BO) et précisées par la circulaire DEC de votre académie.</p>"""
+            badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
 
-            elif est_tasa:
-                texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)</h3>
-<ul>
-  <li><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS dès sa nomination.</li>
-  <li><strong>Protocole technique :</strong> 100m en continu < 3 min 45 s avec parcours spécifique et recherche de mannequin.</li>
-</ul>"""
-                badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+        elif est_tasa:
+            texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)</h3>
+<p><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS dès sa nomination.</p>
+<p><strong>Protocole technique :</strong> 100m en continu < 3 min 45 s avec parcours spécifique et recherche de mannequin.</p>"""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
-            elif est_sujet_secours:
-                texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
-<ul>
-  <li><strong>Règle nationale absolue :</strong> En EPS, il n'existe <strong>aucun sujet écrit ou papier</strong>. L'évaluation est 100 % pratique.</li>
-  <li><strong>Élève absent :</strong> Organisation obligatoire d'une épreuve de substitution (rattrapage de l'épreuve motrice) avant fermeture des serveurs.</li>
-</ul>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        elif est_sujet_secours:
+            texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
+<p><strong>Règle nationale absolue :</strong> En EPS, il n'existe <strong>aucun sujet écrit ou papier</strong>. L'évaluation est 100 % pratique.</p>
+<p><strong>Élève absent :</strong> L'organisation d'une épreuve de substitution (rattrapage de l'épreuve motrice) est obligatoire avant la fermeture des serveurs.</p>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_cap_3epreuves:
-                texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
-<ul>
-  <li><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issus de 2 champs d'apprentissage distincts.</li>
-  <li><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée automatiquement par l'interface. Nettoyez le protocole dans iPackEPS.</li>
-</ul>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        elif est_cap_3epreuves:
+            texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
+<p><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</p>
+<p><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée automatiquement par l'interface. Nettoyez le protocole directement dans iPackEPS.</p>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_eleve_arrivant:
-                texte_brut = """<h3>📋 GESTION D'UN ÉLÈVE ARRIVANT EN COURS D'ANNÉE</h3>
-<ul>
-  <li><strong>Règle d'or pour l'enseignant :</strong> Aucune manipulation informatique, aucun "bricolage" local ni import de fichier n'est à faire de votre côté dans iPackEPS pour les examens nationaux. iPackEPS ne gère pas les listes d'examens nationaux sur Santorin.</li>
-  <li><strong>Action obligatoire (Secrétariat / Direction) :</strong> 
-    <ol>
-      <li>Le secrétariat de l'établissement doit associer l'élève au protocole d'examen dans <strong>Cyclades</strong> (via l'interface administrative).</li>
-      <li>Le chef d'établissement se connecte à la console <strong>Santorin-Direction</strong> pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot de correction.</li>
-    </ol>
-  </li>
-  <li><strong>Délai de synchronisation :</strong> La prise en compte est effective sous 12h à 24h après l'action administrative en amont.</li>
-</ul>
+        elif est_eleve_arrivant:
+            texte_brut = """<h3>📋 GESTION D'UN ÉLÈVE ARRIVANT EN COURS D'ANNÉE</h3>
+<p><strong>Règle d'or pour l'enseignant :</strong> Aucune manipulation informatique ni "bricolage" local n'est à faire de votre côté. iPackEPS ne gère pas les listes d'examens nationaux sur Santorin.</p>
+<p><strong>Procédure obligatoire (Secrétariat / Direction) :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Le secrétariat de l'établissement doit associer l'élève au protocole d'examen dans <strong>Cyclades</strong>.</li>
+  <li><strong>[Étape 2]</strong> Le chef d'établissement se connecte à sa console <strong>Santorin-Direction</strong>.</li>
+  <li><strong>[Étape 3]</strong> Il effectue une distribution manuelle (glisser-déposer) du candidat vers votre lot de correction.</li>
+</ol>
+<p><em>Note : La prise en compte est effective sous 12h à 24h après l'action administrative.</em></p>
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_apsa_etablissement_vs_nationale:
-                texte_brut = """<h3>⚠️ ERREUR DE SAISIE : APSA ÉTABLISSEMENT VS LISTE NATIONALE (BAC GT)</h3>
-<ul>
-  <li><strong>Le problème :</strong> Déclarer une activité en "APSA établissement" au lieu de l'activité de la "liste nationale" (ex: Courses, Sauts, Lancers) bloque la validation du protocole par iPackEPS (exigence d'a minima 2 ou 3 activités de la liste nationale selon la voie) et fausse les statistiques académiques sur Cyclades.</li>
-  <li><strong>Procédure de résolution exacte :</strong>
-    <ol>
-      <li>Retournez dans le module <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>.</li>
-      <li>Sélectionnez dans le tableau de gauche l'activité de la liste nationale correspondante (ex: <em>[Courses]</em>).</li>
-      <li>Déclarez-la certificative en Lycée pour remplacer l'APSA établissement erronée.</li>
-    </ol>
-  </li>
-</ul>"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+        elif est_apsa_etablissement_vs_nationale:
+            texte_brut = """<h3>⚠️ ERREUR DE SAISIE : APSA ÉTABLISSEMENT VS LISTE NATIONALE (BAC GT)</h3>
+<p><strong>Le problème :</strong> Déclarer une activité en "APSA établissement" au lieu de l'activité de la "liste nationale" bloque la validation du protocole par iPackEPS et fausse les statistiques académiques sur Cyclades.</p>
+<p><strong>Procédure de résolution exacte :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Retournez dans le module <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Sélectionnez dans le tableau de gauche l'activité de la liste nationale correspondante (ex: <em>[Courses]</em>).</li>
+  <li><strong>[Étape 3]</strong> Déclarez-la certificative en Lycée pour remplacer l'APSA établissement erronée.</li>
+</ol>"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_verrouiller_lot:
-                texte_brut = """<h3>🔒 VERROUILLAGE D'UN LOT DE CORRECTION SUR SANTORIN</h3>
-<ul>
-  <li><strong>Principe :</strong> Une fois la saisie de toutes les notes et des statuts terminée et vérifiée, vous devez procéder au verrouillage de votre lot pour figer les données avant transmission définitive.</li>
-  <li><strong>Manipulation :</strong> Depuis votre espace de correction sur Santorin, accédez au lot concerné et validez l'action de clôture/verrouillage.</li>
-</ul>
+        elif est_verrouiller_lot:
+            texte_brut = """<h3>🔒 VERROUILLAGE D'UN LOT DE CORRECTION SUR SANTORIN</h3>
+<p><strong>Principe :</strong> Une fois la saisie de toutes les notes et des statuts terminée, vous devez verrouiller votre lot pour figer les données avant transmission.</p>
+<p><strong>Procédure :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Depuis votre espace de correction sur Santorin, accédez au lot concerné.</li>
+  <li><strong>[Étape 2]</strong> Revérifiez que toutes vos notes et statuts d'absence sont correctement saisis.</li>
+  <li><strong>[Étape 3]</strong> Validez l'action de clôture/verrouillage du lot en bas de l'interface.</li>
+</ol>
 📺 Tutoriel associé : Verrouiller_lot_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_deverrouiller_lot:
-                texte_brut = """<h3>🔒 CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN</h3>
-<ul>
-  <li><strong>Règle d'or absolue :</strong> L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.</li>
-  <li><strong>Action obligatoire (Direction) :</strong> La manipulation relève exclusivement du Chef d'établissement depuis sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots" -> clic direct sur le cadenas pour basculer de fermé à ouvert).</li>
-  <li><strong>Interdiction formelle :</strong> Ne contactez surtout pas la DEC (Division des Examens et Concours) pour cela, c'est une action locale et autonome de l'établissement.</li>
-</ul>
+        elif est_deverrouiller_lot:
+            texte_brut = """<h3>🔒 CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN</h3>
+<p><strong>Règle d'or absolue :</strong> L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.</p>
+<p><strong>Procédure de déverrouillage (Direction) :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Signalez l'erreur à votre Chef d'établissement ou au secrétariat d'examen.</li>
+  <li><strong>[Étape 2]</strong> La direction se connecte à sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots").</li>
+  <li><strong>[Étape 3]</strong> Elle clique directement sur le cadenas pour le basculer de "fermé" à "ouvert".</li>
+</ol>
+<p><em>Interdiction formelle : Ne contactez surtout pas la DEC pour cela, c'est une action locale de l'établissement.</em></p>
 📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_dispense_totale:
-                texte_brut = """<h3>🏥 GESTION D'UNE INAPTITUDE / DISPENSE TOTALE DE CERTIFICATION</h3>
-<ul>
-  <li><strong>Cadre réglementaire :</strong> Une inaptitude médicale couvrant <strong>l'intégralité du cycle de certification</strong> (dispense totale) ne relève pas d'une absence ponctuelle ni d'une épreuve différée.</li>
-  <li><strong>Saisie administrative :</strong> Le dossier doit faire l'objet du statut réglementaire de dispense globale (ex: <code>DISP</code> sur les blocs concernés) conformément aux directives de la note de service des examens.</li>
-  <li><strong>Attention au zéro :</strong> Ne jamais assimiler une dispense totale et officielle à une absence injustifiée (pas de zéro éliminatoire). Le dossier sera examiné par la CAHPN.</li>
-</ul>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        elif est_dispense_totale:
+            texte_brut = """<h3>🏥 GESTION D'UNE INAPTITUDE / DISPENSE TOTALE DE CERTIFICATION</h3>
+<p><strong>Cadre réglementaire :</strong> Une inaptitude médicale couvrant <strong>l'intégralité du cycle de certification</strong> (dispense totale) ne relève pas d'une absence ponctuelle ni d'une épreuve différée.</p>
+<p><strong>Saisie administrative :</strong> Le dossier doit faire l'objet du statut réglementaire de dispense globale (ex: <code>DISP</code> sur les blocs concernés) conformément aux directives de la note de service des examens.</p>
+<p><strong>Attention au zéro :</strong> Ne jamais assimiler une dispense totale et officielle à une absence injustifiée (pas de zéro éliminatoire).</p>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_exclusion:
-                texte_brut = """<h3>⚠️ EXCLUSION TEMPORAIRE EN PÉRIODE DE CCF (ABSENCE CONTRAINTE)</h3>
-<ul>
-  <li><strong>Cadre juridique :</strong> Une exclusion temporaire prononcée par un conseil de discipline n'est en aucun cas une inaptitude médicale. Elle ne doit jamais être assimilée à un statut <strong>[DISP]</strong> ni sanctionnée par un zéro éliminatoire pour absence injustifiée.</li>
-  <li><strong>Nature de l'absence :</strong> Il s'agit d'une absence administrative et disciplinaire contrainte par l'institution.</li>
-  <li><strong>Obligation de rattrapage :</strong> L'équipe pédagogique a l'obligation légale de programmer une <strong>épreuve différée</strong> dès le retour de l'élève, impérativement avant la date de clôture des serveurs académiques (Santorin / Cyclades).</li>
-</ul>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+        elif est_exclusion:
+            texte_brut = """<h3>⚠️ EXCLUSION TEMPORAIRE EN PÉRIODE DE CCF (ABSENCE CONTRAINTE)</h3>
+<p><strong>Cadre juridique :</strong> Une exclusion temporaire prononcée par un conseil de discipline n'est en aucun cas une inaptitude médicale. Elle ne doit jamais être assimilée à un statut <strong>[DISP]</strong> ni sanctionnée par un zéro éliminatoire.</p>
+<p><strong>Obligation de rattrapage :</strong> L'équipe pédagogique a l'obligation légale de programmer une <strong>épreuve différée</strong> dès le retour de l'élève, impérativement avant la date de clôture des serveurs académiques.</p>"""
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_aucun_eleve:
-                texte_brut = """<h3>⚠️ PROBLÈMES D'IMPORT SIÈCLE / ARENA À LA RENTRÉE</h3>
-<ul>
-  <li><strong>Origine du blocage :</strong> Le message "Aucun élève dans cet établissement" au mois de septembre provient généralement d'un décalage de synchronisation entre la base administrative de l'établissement (SIÈCLE) et le portail académique ARENA.</li>
-  <li><strong>Vérification amont :</strong> Assurez-vous auprès du secrétariat de direction que la bascule administrative de rentrée a bien été effectuée et validée au niveau académique.</li>
-  <li><strong>Action iPackEPS :</strong> Rendez-vous dans <strong>[Dossiers] > [Dossier EPS] > [Élèves]</strong> et lancez une actualisation manuelle de l'importation.</li>
-</ul>
+        elif est_aucun_eleve:
+            texte_brut = """<h3>⚠️ PROBLÈMES D'IMPORT SIÈCLE / ARENA À LA RENTRÉE</h3>
+<p><strong>Origine du blocage :</strong> Le message "Aucun élève dans cet établissement" provient généralement d'un décalage de synchronisation entre la base administrative (SIÈCLE) et le portail ARENA.</p>
+<p><strong>Procédure de résolution :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Assurez-vous auprès du secrétariat que la bascule administrative de rentrée a bien été validée au niveau académique.</li>
+  <li><strong>[Étape 2]</strong> Rendez-vous dans <strong>[Dossiers] > [Dossier EPS] > [Élèves]</strong>.</li>
+  <li><strong>[Étape 3]</strong> Cliquez sur le bouton pour lancer une actualisation manuelle de l'importation.</li>
+</ol>
 📺 Tutoriel associé : Import_automatique_eleves.mp4"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_referentiels_rentree:
-                texte_brut = """<h3>📋 CONFIGURATION DES RÉFÉRENTIELS ET APSA CERTIFICATIVES (RENTRÉE)</h3>
-<ul>
-  <li><strong>Impératif de septembre :</strong> Dès les premiers jours de la rentrée, vous devez déclarer et configurer les APSA certificatives de vos classes de lycée (CAP, Bac Pro, Bac GT) dans iPackEPS.</li>
-  <li><strong>Procédure iPackEPS :</strong> Accédez au menu <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>, cochez les champs d'apprentissage et les épreuves retenues pour vos cycles de certification annuels.</li>
-  <li><strong>Sécurisation :</strong> Cette étape en amont est indispensable pour valider la structure des groupes avant le dépôt officiel des référentiels auprès des services académiques à l'automne.</li>
-</ul>
+        elif est_referentiels_rentree:
+            texte_brut = """<h3>📋 CONFIGURATION DES RÉFÉRENTIELS ET APSA CERTIFICATIVES (RENTRÉE)</h3>
+<p><strong>Impératif de septembre :</strong> Dès la rentrée, vous devez configurer les APSA certificatives de vos classes de lycée.</p>
+<p><strong>Procédure iPackEPS :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Accédez au menu <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Cochez les champs d'apprentissage correspondant à votre établissement.</li>
+  <li><strong>[Étape 3]</strong> Cochez les épreuves retenues pour vos cycles de certification annuels.</li>
+</ol>
 📺 Tutoriel associé : Depot_referentiels_iPackEPS.mp4"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_deplacer_candidat:
-                texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
-<ul>
-  <li><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</li>
-  <li>Corriger l'affectation dans <strong>Cyclades</strong> puis relancer une distribution automatique, ou utiliser l'option d'affectation directe depuis le lot si l'habilitation le permet.</li>
-</ul>
+        elif est_deplacer_candidat:
+            texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
+<p><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</p>
+<p><strong>Procédure de correction :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Le secrétariat doit corriger l'affectation directement dans la base <strong>Cyclades</strong>.</li>
+  <li><strong>[Étape 2]</strong> La direction relance une distribution automatique, ou utilise l'option d'affectation directe depuis le lot si l'habilitation le permet.</li>
+</ol>
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
 📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
-            elif est_sss_bloque:
-                texte_brut = """<h3>⚠️ BLOCAGE CRÉATION GROUPE SSS</h3>
-<ul>
-  <li><strong>Règle institutionnelle :</strong> La création d’un groupe de type SSS (Section Sportive Scolaire) nécessite obligatoirement que le recteur ait validé la demande d’ouverture de votre section. Par défaut, iPackEPS n’autorise pas la création de ce type de groupe.</li>
-  <li><strong>Mise à jour académique :</strong> Chaque année, le responsable iPackEPS de l'académie met à jour la liste des nouvelles SSS autorisées.</li>
-  <li><strong>Action requise :</strong> Si votre dossier a bien été validé par le recteur mais que l'application bloque toujours, <strong>faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR</strong> pour que votre établissement soit activé dans le système. Aucune action locale dans les menus ne pourra contourner ce verrouillage.</li>
-</ul>
+        elif est_sss_bloque:
+            texte_brut = """<h3>⚠️ BLOCAGE CRÉATION GROUPE SSS</h3>
+<p><strong>Règle institutionnelle :</strong> La création d’un groupe de type SSS nécessite obligatoirement que le recteur ait validé la demande. Par défaut, iPackEPS bloque la création de ce type de groupe.</p>
+<p><strong>Procédure de déblocage :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Vérifiez que votre dossier a bien été validé et envoyé par votre direction.</li>
+  <li><strong>[Étape 2]</strong> Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.</li>
+</ol>
 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+        elif est_unss:
+            texte_brut = """<h3>🛑 RESTRICTION DOCUMENTAIRE - DISPOSITIFS UNSS</h3>
+<p><strong>Règlement :</strong> Pour des raisons de droits d'auteur, aucun texte, circulaire ou document spécifique à l'UNSS ne figure dans la base de cet assistant.</p>
+<p><strong>Recommandation :</strong> Pour toute question relative aux équivalences (Jeunes Juges, podiums), veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie.</p>"""
+            badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+
+        elif est_gestion_sss_ou_sport:
+            texte_brut = """<h3>⚙️ GESTION TECHNIQUE ET ADMINISTRATIVE DES SSS ET SPORT-ÉTUDES</h3>
+<p><strong>Règle fondamentale :</strong> iPackEPS distingue rigoureusement la gestion administrative des SSS de la configuration des groupes Sport-Études.</p>
+<p><strong>Procédure 1 : Gestion administrative des SSS</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Accédez à <strong>[Dossiers] > [Dossier SSS]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Complétez les ouvertures, projets annuels ou bilans.</li>
+</ol>
+<p><strong>Procédure 2 : Configuration des groupes Sport-Études</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Accédez à <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Affectez vos élèves dans l'onglet <strong>[Mes Élèves]</strong>.</li>
+</ol>
+📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+        elif est_dossier_peda:
+            texte_brut = """<h3>📂 ACCÈS AUX RESSOURCES ET DOSSIERS PÉDAGOGIQUES</h3>
+<p><strong>Emplacement :</strong> Les documents et cadrages pédagogiques de référence sont centralisés dans l'onglet <strong>[Sécurité & Cadre Réglementaire / Pédagogie]</strong> de l'application.</p>
+<p><strong>Rappel d'usage :</strong> Pour interroger le Hub sur les programmes, utilisez des mots-clés ciblés (ex: programmes, cycles, compétences).</p>"""
+            badge, color_card = "📚 ESPACE PÉDAGOGIQUE", "general-card"
+
+        else:
+            if contexte_actif == "college":
+                badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
+            elif mode == "examens":
+                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+            elif mode == "ipack":
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-
-            elif est_unss:
-                texte_brut = """<h3>🛑 RESTRICTION DOCUMENTAIRE - DISPOSITIFS UNSS</h3>
-<ul>
-  <li><strong>Cadre réglementaire et droits d'auteur :</strong> Pour des raisons de droits d'auteur, aucun texte, circulaire, règlement ou document de référence spécifique lié à l'UNSS ne figure dans la base documentaire ou la mémoire du hub.</li>
-  <li><strong>Impossibilité de traitement :</strong> Aucune question portant sur l'UNSS (valorisation des championnats, podiums, notes, compétitions, Jeunes Juges) ne peut être traitée de manière réglementaire par l'assistant tant que l'UNSS n'aura pas accordé son autorisation formelle d'exploitation.</li>
-  <li><strong>Recommandation :</strong> Pour toute question relative aux équivalences ou bonifications liées au sport scolaire, veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie (IA-IPR EPS / chef d'établissement).</li>
-</ul>"""
-                badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
-
             else:
-                if contexte_actif == "college":
-                    badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
-                elif mode == "examens":
-                    badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
-                elif mode == "ipack":
-                    badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-                else:
-                    badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
+                badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
 
             if mode == "textes":
                 directive_onglet = """
                 3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
                     - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
-                      * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
-                      * SI la question relève d'une INSPECTION, d'UN RENDEZ-VOUS DE CARRIÈRE, D'UNE CONTESTATION DE NOTE ou d'un LITIGE ADMINISTRATIF PUR : N'applique PAS les règles de sécurité ci-dessous, n'ouvre pas sur l'article L. 911-4, et applique strictement le droit de la fonction publique (CGFP).
-                      * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
+                        * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
+                        * SI la question relève d'une INSPECTION, d'UN RENDEZ-VOUS DE CARRIÈRE, D'UNE CONTESTATION DE NOTE ou d'un LITIGE ADMINISTRATIF PUR : N'applique PAS les règles de sécurité ci-dessous, n'ouvre pas sur l'article L. 911-4, et applique strictement le droit de la fonction publique (CGFP).
+                        * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
                     - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS ou d'un LITIGE APPN.
                     - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Strictement limitée aux risques physiques et accidents) : 
-                      * SI ET SEULEMENT SI la question concerne un accident corporel, un litige APPN ou une sécurité physique : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4, Loi Fauchon).
-                      * SI la question concerne une inspection, une note ou la carrière : INTERDICTION ABSOLUE d'ouvrir par ce rappel protecteur et interdiction absolue de mentionner le RSST.
+                        * SI ET SEULEMENT SI la question concerne un accident corporel, un litige APPN ou une sécurité physique : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4, Loi Fauchon).
+                        * SI la question concerne une inspection, une note ou la carrière : INTERDICTION ABSOLUE d'ouvrir par ce rappel protecteur et interdiction absolue de mentionner le RSST.
                     - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). Règle d'or absolue : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.
                     - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés, en traitant les risques juridiques spécifiques (gestion de groupes en autonomie, choix des sites, alertes météo). Interdiction absolue d'injecter des exemples génériques hors-sujet.
                     - CONFLIT HIERARCHIQUE / INGÉRENCE & TRAÇABILITÉ : En cas de pression, d'agression ou d'ingérence de tiers, rappeler l'obligation de saisir la hiérarchie par écrit (rapport circonstancié sous 48h) et de consigner les faits (Registre des faits / RSST) pour activer la protection fonctionnelle.
@@ -1568,38 +1607,19 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
             consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
 
 ======================================================================
-ÉTAPE 1 : FILTRAGE PRIMAIRE, STATUTS ET GESTION DES PRÉMISSES (URGENCE ABSOLUE)
+ÉTAPE 1 : FILTRAGE PRIMAIRE ET GESTION DES PRÉMISSES (PRIORITÉ ABSOLUE)
 ======================================================================
-Avant d'analyser le fond, tu dois impérativement passer la question au crible de ces filtres. Une règle de cette section écrase toutes les autres.
+Avant d'analyser le fond, tu dois impérativement passer la question au crible de ces deux filtres. Une règle de cette section écrase toutes les autres.
 
 1. LE FILTRE DE LONGUEUR (ANTI-REQUÊTE VIDE) :
 - Si la question comporte 3 mots ou moins, tu dois répondre STRICTEMENT et uniquement par cette phrase : "Pouvez-vous reformuler votre question en l'étayant davantage afin que je puisse vous apporter une aide précise et adaptée à votre contexte ?"
 
-2. LE CONTRÔLE STATUTAIRE DU PREMIER DEGRÉ (Ciblé) :
-- Si et seulement si la question du Premier Degré aborde explicitement l'évaluation, les examens, le CCF, ou un désaccord hiérarchique/administratif, rappelle alors le cadre (absence de CCF, statut de professeur des écoles, rôle de l'IEN). 
-- Si la question porte sur de la logistique pure, une sortie, du matériel ou une activité (ex: VTT), réponds directement et naturellement à la question sans ce préambule réglementaire.
+2. LE FILTRE DES FAUSSES PRÉMISSES ET QUESTIONS PIÈGES (ANTI-ÉVITEMENT) :
+- Si l'utilisateur pose une question fermée ou orientée basée sur une fausse vérité (ex: "Quel texte oblige le coordonnateur à remplir iPack seul ?", "Comment faire un CCF en 4ème ?", "Comment valider un prof de bac par le proviseur ?") :
+- 🛑 INTERDICTION ABSOLUE d'utiliser la phrase de repli ("Pouvez-vous reformuler...").
+- 🛑 INTERDICTION ABSOLUE d'esquiver.
+- DÉMARCHE EXIGÉE : Tu dois "détruire" la fausse prémisse dès la première phrase de ta réponse (ex: "Aucun texte réglementaire n'impose cette obligation...", "Le CCF n'existe pas au collège...") et enchaîner directement avec la règle factuelle issue de ta base.
 
-3. LE FILTRE DES FAUSSES PRÉMISSES (ANTI-ÉVITEMENT ET INTERDICTION DU TIC) :
-- 🛑 INTERDICTION ABSOLUE d'esquiver ou d'utiliser la phrase de repli.
-- 🛑 INTERDICTION FORMELLE d'utiliser la phrase "Aucun texte réglementaire n'impose..." si la question traite d'un logiciel (iPackEPS, Santorin) ou d'un bug d'interface. Pour l'informatique, l'amorce obligatoire est : "Le fonctionnement du logiciel ne permet pas de..." ou "Aucune manipulation technique ne permet de...".
-
-4. VERROUILLAGE PÉDAGOGIQUE ET DIDACTIQUE : 
-- Ton rôle est STRICTEMENT limité à l'assistance administrative, technique et juridique (iPackEPS, Santorin, Cyclades, textes officiels des examens).
-- INTERDICTION FORMELLE de répondre à des questions portant sur la pédagogie, la didactique, les contenus d'enseignement, les situations d'apprentissage ou les programmes scolaires (ex: "programme 3ème", "cycle de natation", "comment évaluer le volley").
-- Si l'utilisateur pose une question de cette nature, tu ne DOIS PAS essayer d'y répondre ni inventer de procédure. Tu DOIS OBLIGATOIREMENT déclencher la procédure de rejet avec la balise "HORS PÉRIMÈTRE INSTITUTIONNEL".
-
-5. SÉCURITÉ TECHNIQUE ET ANTI-HALLUCINATION DES MENUS :
-- 🛑 RÈGLE D'OR : Tu ne peux décrire une procédure de clics QUE SI elle est EXPLICITEMENT détaillée étape par étape dans les documents fournis.
-- SI la procédure n'est pas dans le texte, 🛑 INTERDICTION ABSOLUE d'inventer, de déduire ou de simuler des menus avec des crochets ou des flèches. 
-- Dans ce cas (procédure absente du texte), limite-toi STRICTEMENT à la phrase suivante : "Pour la manipulation technique détaillée, veuillez vous référer au tutoriel vidéo suivant :" et cite UNIQUEMENT le nom de la vidéo.
-- 🛑 INTERDICTION d'utiliser des formules d'excuses conversationnelles (ex: "Je suis désolé")..
-======================================================================
-RÈGLE DE FRANCHISE ET BOUCLIER ANTI-HALLUCINATION (LIMITES DE COMPÉTENCE)
-======================================================================
-- FACTUEL STRICT : Si la réponse ne figure pas expressément dans ta base de connaissances (ex: questions syndicales, RH hors iPackEPS, problèmes UNSS), tu dois refuser d'inventer une procédure.
-- INTERDICTION DE REMPLISSAGE : Interdiction absolue d'utiliser des formules évasives telles que "Cherchez un onglet qui pourrait...", "Naviguez dans les menus", ou "Demandez à un collègue".
-- ZÉRO VIDÉO ALÉATOIRE : Si tu ne connais pas la réponse ou que la question est hors périmètre, tu as l'interdiction formelle d'associer un tutoriel vidéo à ta réponse.
-- FORMULATION EXIGÉE EN CAS D'INCONNU : Utilise une touche d'humour et d'humilité pour avouer ton ignorance. Déclare par exemple : "Mon jeune âge ne me permet pas encore d'avoir la mémoire nécessaire pour vous répondre sur ce point précis !" ou "Oups, je sèche ! Ma base de données n'est pas encore assez musclée sur ce sujet."
 ======================================================================
 ÉTAPE 2 : IDENTIFICATION DU PUBLIC ET DU CONTEXTE CIBLE
 ======================================================================
@@ -1608,73 +1628,81 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 {directive_onglet}
 
 1. LE PRINCIPE DE FLEXIBILITÉ INTELLIGENTE :
-- Le sujet réel de la question prime toujours sur l'erreur de choix d'onglet de l'utilisateur.
+- Si l'utilisateur pose une question sur le DNB alors qu'il est dans l'onglet "Examens/Lycée", traite la question sous l'angle du DNB. Le sujet réel de la question prime toujours sur l'erreur de choix d'onglet de l'utilisateur.
 
-2. LES INVARIANTS INSTITUTIONNELS DES PUBLICS :
-- PREMIER DEGRÉ (Maternelle/Élémentaire) : AUCUN CCF, AUCUN Santorin/Cyclades, AUCUN DNB. Évaluation via le LSU. Autorité hiérarchique = IEN. 
-- COLLÈGE (6e à 3e, SEGPA, ULIS, Prépa-métiers) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin/Cyclades. Le PSC1 n'est EN AUCUN CAS obligatoire pour obtenir le DNB.
+2. LE PRINCIPE DE RÉALITÉ DES PUBLICS (INVARIANTS INSTITUTIONNELS) :
+- PREMIER DEGRÉ (Maternelle/Élémentaire) : AUCUN CCF, AUCUN Santorin/Cyclades, AUCUN DNB. Évaluation via le LSU. 🛑 VOCABULAIRE : L'agent est un "professeur des écoles" ou "enseignant", JAMAIS un "professeur d'EPS". Autorité hiérarchique = IEN. Le directeur n'est PAS un supérieur hiérarchique (saisine IEN obligatoire pour tout conflit/incident).
+- COLLÈGE (6e à 3e, SEGPA, ULIS, Prépa-métiers) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin/Cyclades. Évaluation exclusivement par contrôle continu et LSU. Le PSC1 n'est EN AUCUN CAS obligatoire pour obtenir le DNB.
 - LYCÉE (Voie GT, Pro, CAP) : Cadre strict du CCF. Évaluation via Cyclades et Santorin.
 
 ======================================================================
 ÉTAPE 3 : ARBRE DE DÉCISION DES LOGICIELS (IPACKEPS, SANTORIN, CYCLADES)
 ======================================================================
-Si la question traite d'un blocage informatique ou d'une saisie de notes :
+Si la question traite d'un blocage, d'une erreur informatique ou d'une saisie de notes, applique cette logique descendante :
 
 1. LA RÈGLE ZÉRO DES BLOCAGES STRUCTURELS :
-- Interdiction de répondre "contactez la direction" pour un rejet de protocole (ex: 3 APSA en CAP = rejet). Donne la procédure de nettoyage dans iPackEPS et l'alignement Cyclades.
+- Si l'utilisateur signale un rejet de protocole, un blocage d'export ou une impossibilité de saisir : INTERDICTION de répondre "contactez la direction".
+- Analyse la contradiction mathématique (ex: 3 APSA en CAP = rejet). Donne la procédure de nettoyage dans iPackEPS et l'alignement dans Cyclades.
 
 2. SANTORIN : CADENAS ET VERROUILLAGES :
 - Un enseignant ne peut PAS déverrouiller un lot.
-- 🛑 Cette action relève EXCLUSIVEMENT du Chef d'établissement (Santorin-Direction). INTERDICTION ABSOLUE de conseiller de contacter la DEC.
+- 🛑 Cette action relève EXCLUSIVEMENT du Chef d'établissement depuis sa console "Santorin-Direction". INTERDICTION ABSOLUE de conseiller de contacter la DEC pour un cadenas fermé.
 
 3. SANTORIN : LE PIÈGE DES PROFILS ET STATUTS (SHN, HANDICAP) :
-- Santorin ne possède AUCUNE base de données de profils, AUCUN filtre SHN. 
+- Santorin est UNIQUEMENT un outil de numérisation et correction de copies.
+- Il ne possède AUCUNE base de données de profils, AUCUN filtre SHN. Le suivi des statuts particuliers se gère dans Cyclades et administrativement par la direction.
 
 4. IPACKEPS : INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
 - Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction d'en proposer pour des classes ordinaires.
 
 5. BLINDAGE ANTI-HALLUCINATION INFORMATIQUE :
-- Interdiction formelle d'inventer des liens web (ex: 'cyclades.academie.fr'), des menus iPackEPS pour contourner l'administration, ou d'utiliser des étapes numérotées pour une action pédagogique pure.
+- URLS : Interdiction formelle d'inventer des liens web (ex: 'cyclades.academie.fr'). Accès toujours par le portail ARENA.
+- MENUS ADMINISTRATIFS : Pour les validations externes (ex: SSS validée par le Recteur), interdiction d'inventer des menus iPackEPS pour contourner l'administration.
+- FORMATAGE : Interdiction d'utiliser des étapes numérotées (1, 2, 3) pour expliquer une action administrative ou externe (pour éviter l'hallucination de clics). Utiliser des paragraphes factuels.
+- PÉDAGOGIE PURE : Si la question est purement pédagogique (gestion d'un cycle), interdiction d'inventer des boutons iPackEPS à la fin. Conclus que cela relève de la conduite de classe hors logiciel.
 
-6. IPACKEPS : EXPORT DES GROUPES EN LYCÉE (CYCLADES) :
-- Lorsque tu expliques la procédure de création ou d'affectation de groupes pour le Lycée, ajoute systématiquement un rappel en fin de réponse concernant l'export administratif.
-- Propose alors, en complément de ta réponse, la vidéo "Generer_importer_fichier_groupes_cyclades.mp4" pour expliquer comment transmettre ces groupes finaux à la plateforme des examens.
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
 ======================================================================
-Dès qu'une situation pose un problème de droit, tu dois identifier le domaine :
+Dès qu'une situation pose un problème de droit, tu dois impérativement identifier s'il s'agit d'un danger physique ou d'un conflit administratif pour appliquer le bon vocabulaire.
 
 BRANCHE A : LE CONFLIT ADMINISTRATIF, PÉDAGOGIQUE OU RH
-- CONDITION : Inspection, notation, désaccord d'équipe, mouvement, conflit sans blessure.
-- 🛑 CORRECTION LEXICALE ABSOLUE : Si l'utilisateur emploie à tort un vocabulaire pénal (ex: "Loi Fauchon", "faute caractérisée", "mise en danger psychologique") pour qualifier un désaccord RH, NE REFUSE PAS de répondre. Tu dois formellement lui expliquer que ce vocabulaire est juridiquement inapplicable à cette situation. 
-- CADRE À APPLIQUER : Code général de la fonction publique (CGFP). Recours gracieux, CAPA. Zéro ton "coach" ou psychologique.
+- CONDITION : La question traite d'une inspection, d'une notation, d'un désaccord d'équipe, d'un mouvement, d'un conflit sans blessure.
+- 🛑 VÉTO LEXICAL ABSOLU : Interdiction stricte de prononcer les mots "L. 911-4", "obligation de moyens renforcée", "Loi Fauchon", "faute caractérisée", "EPI" ou "RSST".
+- CADRE À APPLIQUER : Code général de la fonction publique (CGFP). Recours gracieux, CAPA, médiation par l'IA-IPR (pédagogie) ou le Chef d'établissement (climat). Zéro ton "coach" ou psychologique.
 
 BRANCHE B : LE DANGER PHYSIQUE ET LE MATÉRIEL DÉFECTUEUX
-- CONDITION : Équipement défectueux signalé mais maintenu en usage, ou risque d'accident.
-- LE PIÈGE DES SIGNALEMENT : Rappelle qu'un signalement écrit ne protège pas si l'activité est maintenue. Il prouve la conscience du risque (faute caractérisée).
-- 🛑 INTERDICTION DES CONSEILS FUTURS : L'action exigée est l'arrêt immédiat de l'activité.
+- CONDITION : La question mentionne un équipement défectueux signalé mais maintenu en usage, ou un risque d'accident.
+- LE PIÈGE DU SIGNALEMENT : Rappelle qu'un signalement écrit ne protège pas si l'activité est maintenue. Il prouve la conscience du risque (faute caractérisée).
+- 🛑 INTERDICTION DES CONSEILS FUTURS : Dans ce cas précis, interdiction de suggérer de "documenter" ou "consigner" pour plus tard. L'action est l'arrêt immédiat de l'activité.
 
 BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
-- L'UNSS est une association sans pouvoir disciplinaire. Interdiction de traiter réglementairement des questions sur les championnats ou règlements UNSS.
+- L'UNSS est une association. Elle n'a AUCUN pouvoir disciplinaire, hiérarchique ou d'inscription au dossier administratif d'un fonctionnaire de l'État (qui relève du Recteur/DSDEN).
+- DROITS D'AUTEUR UNSS : La base ne contient aucun texte UNSS. Interdiction de traiter réglementairement des questions sur les championnats, podiums ou règlements UNSS. Informer l'utilisateur de cette restriction légale.
 
 ======================================================================
 ÉTAPE 5 : LOGISTIQUE DES EXAMENS ET CAS MÉDICAUX
 ======================================================================
 
 1. LE RÔLE DE LA DEC (Division des Examens et Concours) :
-- Compétente uniquement pour les examens. 🛑 INTERDICTION de la mentionner pour des questions d'accidents ou de sorties (aucune compétence sécuritaire).
+- Compétente uniquement pour les examens (Cyclades, Imag'in, litiges de bac).
+- 🛑 INTERDICTION de la mentionner dans l'onglet "Sécurité & Cadre Juridique" pour des questions d'accidents ou de sorties. Elle n'a aucune compétence sécuritaire.
+- Le Chef d'établissement n'a, à l'inverse, aucune compétence sur la modification d'une note d'examen national ou sur la souveraineté du jury.
 
 2. GESTION DES INAPTITUDES DE DERNIÈRE MINUTE (LE PIÈGE DU "DISP") :
 - Toute blessure la veille ou le jour du CCF est une INAPTITUDE TEMPORAIRE.
-- 🛑 INTERDICTION d'attribuer le statut "DISP". L'organisation d'une épreuve différée est obligatoire (sauf règle de la Note Unique si 2 DI préalables).
+- 🛑 INTERDICTION d'attribuer le statut "DISP". L'organisation d'une épreuve différée est obligatoire.
+- EXCEPTION VITALE (Note Unique) : Si un élève a déjà 2 dispenses officielles antérieures (DI) et une note valide, on applique la procédure de "Note Unique" (DI + DI + Note + Commentaire pour la CAHPN).
 
 {bloc_video_consigne}
 ======================================================================
 ÉTAPE 6 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
 ======================================================================
 🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
-- Cette instruction de rappel pénal ne s'applique QU'EN CAS DE MATÉRIEL OU D'INFRASTRUCTURE FORMELLEMENT SIGNALÉ COMME DÉFECTUEUX PAR ÉCRIT (ex: poteau pourri, agrès fissuré) MAIS SCIEMMENT MAINTENU EN USAGE par l'agent.
-- Elle ne doit JAMAIS s'appliquer à une question générale d'organisation de sortie (comme une sortie VTT, ski, escalade ou randonnée) où il n'y a pas de signalement de matériel brisé.
+- Cette instruction ne s'applique QUE si la question évoque explicitement un matériel, un équipement ou une infrastructure signalé(e) défectueux et maintenu(e) en usage. 
+- Si la question traite d'un autre sujet, CE BLOC EST STRICTEMENT INTERDIT.
+- Lorsque la condition est remplie, la section finale doit obligatoirement être ce texte figé et rien d'autre :
+
 ### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
 - Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
 - Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
@@ -1682,65 +1710,72 @@ BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
 ======================================================================
 {contexte_complet_ia}
 
-QUESTION DE LA PERSONNE :
+QUESTION DE L'UTILISATEUR :
 {prompt}
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
 2. STRUCTURE & MISE EN PAGE :
     - Rends une réponse bien structurée et claire.
-    - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<li>`).
+    - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, tu dois IMPÉRATIVEMENT guider l'utilisateur en utilisant des balises explicites entre crochets et en gras, par exemple : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
+    - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
 """
 
-            if not est_cas_direct:
-                try:
-                    response = Settings.llm.complete(consigne_ia)
-                    texte_brut = response.text
-                except Exception as e:
-                    texte_brut = f"Erreur de traitement IA : {str(e)}"
+            try:
+                response = Settings.llm.complete(consigne_ia)
+                texte_brut = response.text
+            except Exception as e:
+                texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-            if est_college or est_dnb:
-                texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
-                texte_brut = re.sub(r"Saisie_notes_Santorin\.mp4", "", texte_brut, flags=re.IGNORECASE)
+        if est_college or est_dnb:
+            texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
+            texte_brut = re.sub(r"Saisie_notes_Santorin\.mp4", "", texte_brut, flags=re.IGNORECASE)
 
-            if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
-                texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
+        if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
+            texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-            texte_brut = texte_brut.replace("```html", "")
-            texte_brut = texte_brut.replace("```HTML", "")
-            texte_brut = texte_brut.replace("```", "")
+        # 🎯 FILET DE SÉCURITÉ SHN INTÉGRÉ ICI
+        if est_shn:
+            texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
+            texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
+            if "Configurer_Classes_Sports_Etudes.mp4" not in texte_brut:
+                texte_brut += "\n\n📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"
 
-            if mode == "textes" or est_dnb:
-                texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+        texte_brut = texte_brut.replace("```html", "")
+        texte_brut = texte_brut.replace("```HTML", "")
+        texte_brut = texte_brut.replace("```", "")
 
+        if mode == "textes" or est_dnb:
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+        if mode == "textes":
             texte_brut = re.sub(
-                r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-                "",
+                r"("
+                r"Articles?\s+[\dLRDABab\.\-\s,–]+"
+                r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
+                r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
+                r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
+                r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Bulletin\s+officiel"
+                r"|RGPD"
+                r")",
+                r'<span class="law-highlight">\1</span>',
                 texte_brut,
-                flags=re.IGNORECASE | re.MULTILINE,
+                flags=re.IGNORECASE
             )
-
-            if mode == "textes":
-                texte_brut = re.sub(
-                    r"("
-                    r"Articles?\s+[\dLRDABab\.\-\s,–]+"
-                    r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
-                    r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
-                    r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
-                    r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|Bulletin\s+officiel"
-                    r"|RGPD"
-                    r")",
-                    r'<span class="law-highlight">\1</span>',
-                    texte_brut,
-                    flags=re.IGNORECASE
-                )
-                
-                texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
+            
+            texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",
@@ -1797,8 +1832,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE (RETOUR ÉTAPE 1)
+        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE ET SUPPRESSION DU SABLIER
+        del st.session_state.current_prompt
         st.session_state.reset_steps = True
+        zone_chargement.empty()
         st.rerun()
 
 if "messages_hub" in st.session_state and st.session_state.messages_hub:

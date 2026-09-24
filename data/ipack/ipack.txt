@@ -1588,13 +1588,16 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - Cas particulier de la spécialité EPPCS : L'élève SHN est dispensé de la pratique physique (attribution de 12 points d'office) et l'évaluation orale est centrée sur l'analyse de son parcours sportif.
 - Tutoriel Vidéo de référence : Si un enseignant demande de l'aide sur la déclaration et la configuration informatique de ces classes ou dossiers particuliers (comme les SSS ou le haut niveau), propose-lui obligatoirement le tutoriel vidéo "Configurer les Classes Sports-Études" via ce lien : https://youtu.be/AEXIn3d6K6U?si=alh3rPlNj6fXSMBK
 ======================================================================
-[ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS / SPORT ÉTUDE) ET SPORTIFS DE HAUT NIVEAU (SHN)
+[ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN)
 ======================================================================
-- Mots-clés : sport étude, section sportive, SSS, SHN, sportif de haut niveau, pôle espoir, apsa combinée, haut niveau.
-- Clarification sémantique : Ce que les utilisateurs appellent couramment "sport étude" correspond institutionnellement aux Sections Sportives Scolaires (SSS).
+- Mots-clés : sport étude, classes sports-études, section sportive, SSS, SHN, sportif de haut niveau, pôle espoir, apsa combinée, haut niveau.
+- Clarification sémantique indispensable : Il ne faut JAMAIS confondre les dispositifs "Sports-Études" et les "Sections Sportives Scolaires (SSS)". Ce sont deux structures distinctes dans iPackEPS :
+  1. GESTION DES SPORTS-ÉTUDES : Gérés via le module dédié [Dossiers] > [Dossier Sports-Études] (Article 91) et le type de groupe [Sport-Études] ou [Autres Dispositifs Sportifs].
+  2. GESTION ADMINISTRATIVE DES SSS : Dispositifs officiels habilités par le recteur, gérés via le module [Dossiers] > [Dossier SSS] (ouvertures, bilans, reconductions, signature du chef d'établissement).
+
 - RÈGLE TECHNIQUE SANTORIN (SHN) : Concernant les élèves à profil particulier comme les Sportifs de Haut Niveau (SHN), l'application de correction Santorin ne possède AUCUNE base de données de profils. Il n'y a AUCUN filtre "SHN" dans Santorin.
 
-- DISTINCTON FONDAMENTALE SUR LA GESTION SSS DANS IPACKEPS :
+- DISTINCTION FONDAMENTALE SUR LA GESTION SSS DANS IPACKEPS :
   Il existe DEUX niveaux de gestion bien distincts pour les Sections Sportives. Tu dois OBLIGATOIREMENT déterminer lequel correspond à la question avant de répondre et de proposer une vidéo :
 
   1. GESTION ADMINISTRATIVE (Ouverture, Bilan, Reconduction) :

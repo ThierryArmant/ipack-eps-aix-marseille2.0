@@ -999,7 +999,7 @@ else:
     if st.session_state.get("niveau_actif_form"):
         st.session_state.public_valide = True
 
-    if not st.session_state.public_valide:
+    if not st.session_state.get("public_valide", False):
         st.markdown(
             """
             <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
@@ -1040,9 +1040,8 @@ else:
             if bouton_envoyer and prompt_brut.strip():
                 prompt = prompt_brut.strip()
                 
-                # --- INJECTION DU SABLIER (avec style CSS personnalisé appliqué) ---
+                # --- INJECTION DU SABLIER AVEC STYLE PERSONNALISÉ ---
                 with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
-                    # On stocke temporairement la question dans la session pour déclencher la suite
                     st.session_state.current_prompt = prompt
 
 # ======================================================================

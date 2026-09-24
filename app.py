@@ -1253,12 +1253,37 @@ if prompt:
                 )
             )
 
-            est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
-            
+           est_sss = any(
+                w in p_low
+                for w in ["sss", "section sportive", "reconduction", "fermeture sss"]
+            )
+
+            # 👉 Colle ton est_shn ici, bien à plat, sans parenthèse tordue :
+            est_shn = any(
+                w in p_low
+                for w in [
+                    "shn",
+                    "sportif de haut niveau",
+                    "haut niveau",
+                    "ppf",
+                    "sportifs de haut niveau",
+                ]
+            )
+
             est_sss_bloque = (
                 mode == "ipack"
                 and any(w in p_low for w in ["sss", "section sportive"])
-                and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "autorise", "bloque", "pas"])
+                and any(
+                    w in p_low
+                    for w in [
+                        "droit",
+                        "créer",
+                        "creer",
+                        "autorise",
+                        "bloque",
+                        "pas",
+                    ]
+                )
             )
 
             est_cas_direct = (

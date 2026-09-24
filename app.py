@@ -1114,7 +1114,7 @@ if prompt:
   <li><strong>Conseil pour un accompagnement optimal :</strong> Pour que le Hub puisse vous apporter une réponse parfaitement ajustée, je vous invite à reformuler et à recentrer votre question en l'associant au contexte approprié (sélection de l'onglet et du public cible).</li>
   <li><strong>Périmètres du Hub :</strong> L'assistant est spécialisé sur l'utilisation d'iPackEPS, la gestion des examens (Santorin/Cyclades) et le cadre juridique/sécuritaire en EPS.</li>
 </ul>"""
-            badge, color_card = "💡 GUIDAGE HUB", "securite-card"
+            badge, color_card = "💡 GUIDAGE HUB", "securite-card" 
         else:
             texte_brut = ""
             extraits_doc = ""

@@ -136,6 +136,68 @@ div[data-testid="stChatMessage"] p {
 </style>
 """, unsafe_allow_html=True)
 
+# ======================================================================
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
+# ======================================================================
+st.set_page_config(
+    page_title="Hub IA - EPS",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# ======================================================================
+# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
+# ======================================================================
+if "messages_hub" not in st.session_state:
+    st.session_state.messages_hub = []
+if "active_module" not in st.session_state:
+    st.session_state.active_module = None
+if "niveau_actif_form" not in st.session_state:
+    st.session_state.niveau_actif_form = None
+if "contexte_valide" not in st.session_state:
+    st.session_state.contexte_valide = False
+if "public_valide" not in st.session_state:
+    st.session_state.public_valide = False
+if "is_admin" not in st.session_state:
+    st.session_state.is_admin = False
+if "reset_steps" not in st.session_state:
+    st.session_state.reset_steps = False
+
+# 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
+if st.session_state.reset_steps:
+    st.session_state.contexte_valide = False
+    st.session_state.public_valide = False
+    st.session_state.active_module = None
+    st.session_state.niveau_actif_form = None
+    st.session_state.reset_steps = False
+
+
+def incrementer_et_obtenir_visites():
+    fichier_compteur = "compteur_visites.txt"
+    if not os.path.exists(fichier_compteur):
+        try:
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
+                f.write("1")
+            return 1
+        except Exception:
+            return 1
+
+    try:
+        with open(fichier_compteur, "r", encoding="utf-8") as f:
+            valeur = int(f.read().strip())
+
+        if "visite_comptabilisee" not in st.session_state:
+            valeur += 1
+            with open(fichier_compteur, "w", encoding="utf-8") as f:
+                f.write(str(valeur))
+            st.session_state.visite_comptabilisee = True
+
+        return valeur
+    except Exception:
+        return 1
+
+
+nb_visites_reel = incrementer_et_obtenir_visites()
 
 # ======================================================================
 # 3. INTERFACE GRAPHIQUE ET CHARGEMENT LOCAL DES IMAGES (BASE64)
@@ -154,25 +216,6 @@ img_fond = get_base64_image("image_8.png")
 
 css_pur = f"""
     <style>
-    /* ⏳ SPINNER / CHARGEMENT (Fond sombre garanti) */
-    div[data-testid="stSpinner"] {{
-        background-color: rgba(15, 23, 42, 0.95) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border: 1px solid #334155 !important;
-        border-radius: 8px !important;
-        padding: 15px 20px !important;
-        margin: 15px 0 !important;
-        box-shadow: 0px 4px 15px rgba(0,0,0,0.5) !important;
-    }}
-    div[data-testid="stSpinner"] p, 
-    div[data-testid="stSpinner"] span, 
-    div[data-testid="stSpinner"] div {{
-        color: #FFFFFF !important;
-        font-weight: 600 !important;
-        font-size: 14px !important;
-    }}
-
     .santorin-card, .santorin-card *, .general-card, .general-card *, .securite-card, .securite-card * {{ 
         color: #FFFFFF !important;  
     }}

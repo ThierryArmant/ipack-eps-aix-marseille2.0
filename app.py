@@ -1253,12 +1253,11 @@ if prompt:
                 )
             )
 
-           est_sss = any(
+            est_sss = any(
                 w in p_low
                 for w in ["sss", "section sportive", "reconduction", "fermeture sss"]
             )
 
-            # 👉 Colle ton est_shn ici, bien à plat, sans parenthèse tordue :
             est_shn = any(
                 w in p_low
                 for w in [

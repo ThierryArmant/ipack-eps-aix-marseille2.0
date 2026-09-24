@@ -1620,6 +1620,24 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - Formulation de la réponse : L'IA doit répondre que les dates limites sont spécifiques à chaque académie et à chaque année scolaire. Elle doit inviter l'utilisateur à consulter la circulaire académique annuelle ou à se rapprocher de son secrétariat des examens.
 - Aide technique proactive : L'IA doit obligatoirement profiter de la question pour proposer son aide technique sur l'action demandée. Par exemple, si la question porte sur la date de remontée des classes, l'IA proposera les tutoriels vidéo d'importation des élèves (ex: "Configuration_classes_import_eleves.mp4" ou "Import_automatique_eleves.mp4").
 ======================================================================
+[ARTICLE 115] CONFIGURATION DES GROUPES DÉCLOISONNÉS (BARRETTES / MÉLANGE DE CLASSES)
+======================================================================
+- Mots-clés : barrette, groupes décloisonnés, mélanger des classes, groupes mixtes, diviser des classes, 32 élèves, groupe eps, mode groupe, iPackEPS.
+- Règle technique fondamentale : Pour créer des groupes EPS qui ne correspondent pas aux classes d'origine (ex: regrouper une classe de 32 élèves et une de 16 élèves pour faire deux groupes de 24), iPackEPS impose une chronologie stricte en amont, sous peine de blocage ou d'interdiction de mélange par l'application.
+
+- PROCÉDURE OBLIGATOIRE PAS-À-PAS :
+  1. ÉTAPE PRÉALABLE ABSOLUE (Passage en Mode Groupe des classes sources) :
+     - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Classes] => [Organisation des classes].
+     - Action : Ouvrir les classes d'origine concernées et modifier leur mode de fonctionnement pour les passer impérativement en mode **[Groupe]** (et non "Classe entière" ou "Seule ou mixte"). C'est cette action indispensable qui lève le verrou informatique empêchant de ventiler les élèves dans de nouveaux groupes transversaux. *(Note : si l'application bloque en raison de notes ou d'EDT déjà saisis, nettoyer les séquences au préalable).*
+  2. CRÉATION DES NOUVEAUX GROUPES :
+     - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Groupes].
+     - Action : Créer les groupes d'enseignement réels (ex : "Terminale - Groupe EPS 1", "Terminale - Groupe EPS 2"), leur attribuer les séquences d'apprentissage et les APSA correspondantes.
+  3. VENTILATION DES ÉLÈVES :
+     - Chemin : [Tableau de bord] => [Mes Élèves].
+     - Action : Répartir manuellement les élèves issus des différentes classes d'origine dans leurs nouveaux groupes respectifs en cochant les cases et en validant l'affectation.
+  - 📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4
+
+======================================================================
 [ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]
 ======================================================================
 Mots-clés : AEFE, MLF, étranger, hors de France, établissement étranger, rythme Sud, hémisphère Sud, lycée français étranger, homologué, zone AEFE, académie de rattachement, calendrier décalé, élèves introuvables étranger.

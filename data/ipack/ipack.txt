@@ -682,27 +682,26 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 ### [ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire
 - URL: spip.php?article28
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Demande d’ouverture SSS. NOTE : voici les informations minimales qui doivent nécessairement avoir été renseignées au prérequis, afin de pouvoir renseigner une demande d’ouverture de section sportive : Dossiers/dossier EPS/projets (Axes) ; Dossiers/dossier EPS/équipe (fiche actualisée) ; Dossiers/dossier EPS/apsa (activités pratiquées) ; Dossiers/dossier EPS/équipements (matériel déclaré).
-- QUESTIONS / RÉPONSES :
-  - Q1 : Lorsque je veux visualiser / télécharger le document modèle ou mes conventions/annexes, rien ne se passe.
+- QUESTIONS / RÉPONSES [CONTEXTE STRICTEMENT SSS] :
+  - Q1 : Lorsque je veux visualiser / télécharger le document modèle ou mes conventions/annexes pour ma SSS, rien ne se passe.
   - R1 : Les documents téléchargés s’ouvrent dans un nouvel onglet : il est possible que certains navigateurs refusent d’ouvrir ces documents. Il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document.
-  - Q2 : Je veux créer une SSS baseball, mais iPackEPS ne me propose pas cette APSA lorsque je fais une demande d’ouverture.
+  - Q2 : Je veux créer une SSS baseball, mais iPackEPS ne me propose pas cette APSA lorsque je fais une demande d’ouverture de section.
   - R2 : Il faut au préalable déclarer l’APSA Baseball dans [dossiers] / [dossier EPS] / [APSA].
   - Q3 : La liste des axes de projet pour la SSS est vide.
   - R3 : La saisie des Axes de projets se fait dans [Dossiers] / [dossier EPS] / [Axes des projets].
-  - Q4 : Mon chef d'établissement a signé le dossier, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
-  - R4 : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature. Vous pourrez alors modifier le dossier. Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
+  - Q4 : Mon chef d'établissement a signé le dossier de SSS, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
+  - R4 : Il suffit de demander à votre chef d’établissement de réouvrir le dossier SSS, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature. Vous pourrez alors modifier le dossier. Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
 
 ### [ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire
 - URL: spip.php?article31
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Projet Annuel.
-- QUESTIONS / RÉPONSES :
-  - Q1 : Mon chef d'établissement a signé le dossier, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
-  - R1 : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature. Vous pourrez alors modifier le dossier. Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
-  - Q2 : Je veux créer mon projet SSS, mais ma SSS n’apparaît pas dans le module [Projet Annuel SSS] ?
+- QUESTIONS / RÉPONSES [CONTEXTE STRICTEMENT SSS] :
+  - Q1 : Mon chef d'établissement a signé le projet annuel SSS, mais je veux y apporter des modifications. Comment réactiver la modification ?
+  - R1 : Il suffit de demander au chef d’établissement de réouvrir le dossier, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature. Vous pourrez alors modifier le document.
+  - Q2 : Je veux créer mon projet SSS, mais ma section sportive n’apparaît pas dans le module [Projet Annuel SSS] ?
   - R2 : Les rubriques [Projets Annuels SSS] et [Bilan SSS] ne sont actives que si iPackEPS trouve au moins un groupe de type SSS dans l’établissement. L’équipe doit donc configurer l’intégralité du Dossier EPS avant de se pencher sur le Projet de Section. Car le projet de section va reprendre la liste des élèves placés dans la SSS, les créneaux de SSS trouvés dans l’emploi du temps, les profs qui encadrent, etc… Donc si une équipe tente de saisir un projet SSS avant d’avoir finalisé le dossier EPS (groupes, APSA, élèves, équipements sportifs, EDT), le projet SSS sera incomplet.
-  - Q3 : J’ai oublié de saisir mon projet (ou bilan) pour l’année précédente, comment compléter les informations ?
+  - Q3 : J’ai oublié de saisir mon projet ou mon bilan de SSS pour l’année précédente, comment compléter les informations ?
   - R3 : Il suffit, depuis le tableau de bord, de modifier l’année scolaire. Vous pourrez ensuite retourner dans [dossiers] / [dossier SSS] / [projet (ou bilan)], et vous retrouverez les projets et bilans de l’année dernière pour les compléter. Le chef d’établissement fera la même manipulation pour pouvoir signer ces documents.
-
 ### [ARTICLE 39] [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire
 - URL: spip.php?article39
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Bilan. Toutes les questions de réouverture par le chef d'établissement suivent le protocole d'annulation de signature via l'enregistrement en brouillon.

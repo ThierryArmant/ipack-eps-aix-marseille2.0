@@ -1282,11 +1282,11 @@ if prompt_a_traiter:
             ]
         )
         
-        # --- NOUVEAU DISJONCTEUR : CRÉATION DE GROUPES MIXTES ---
+        # --- DISJONCTEUR CORRIGÉ : GESTION DES GROUPES INTER-CLASSES ---
         est_creation_groupe = (
             mode == "ipack"
             and any(w in p_low for w in ["groupe", "groupes"])
-            and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas"])
+            and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"])
         )
 
         est_gestion_sss_ou_sport = (
@@ -1336,7 +1336,7 @@ if prompt_a_traiter:
                 or est_sss_bloque
                 or est_gestion_sss_ou_sport  
                 or est_dossier_peda
-                or est_creation_groupe  # Ajout de notre nouveau disjoncteur ici !
+                or est_creation_groupe
             )
         ) or est_tasa or est_unss
 
@@ -1536,15 +1536,14 @@ if prompt_a_traiter:
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
         elif est_creation_groupe:
-            texte_brut = """<h3>👥 CRÉATION DE GROUPES COMPLEXES (INTER-CLASSES)</h3>
-<p><strong>Principe :</strong> iPackEPS permet de créer des groupes d'apprentissage ou des alignements en piochant des élèves issus de différentes classes (ex: mélanger deux classes de Terminale pour faire des groupes de 24).</p>
+            texte_brut = """<h3>👥 CRÉATION DE GROUPES INTER-CLASSES (EX: 2 GROUPES DE 24 POUR 48 ÉLÈVES)</h3>
+<p><strong>Principe iPackEPS :</strong> iPackEPS gère les groupes d'enseignement en s'appuyant sur les structures importées. Pour répartir vos élèves de deux classes (ex: 32 et 16) en deux groupes équilibrés de 24, la gestion des effectifs se fait via la ventilation des listes d'élèves.</p>
 <p><strong>Procédure exacte :</strong></p>
 <ol>
-  <li><strong>[Étape 1]</strong> Allez dans le menu <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong>.</li>
-  <li><strong>[Étape 2]</strong> Cliquez sur <strong>Créer un groupe</strong> et donnez-lui un nom explicite (ex: "Term_Groupe_A").</li>
-  <li><strong>[Étape 3]</strong> Cochez le niveau concerné (ex: Lycée / Terminale) et enregistrez cette structure vide.</li>
-  <li><strong>[Étape 4]</strong> Basculez ensuite sur l'onglet <strong>[Mes Élèves]</strong>.</li>
-  <li><strong>[Étape 5]</strong> Utilisez le menu déroulant en haut pour afficher votre première classe, cochez les élèves concernés, puis sélectionnez votre deuxième classe pour compléter votre groupe jusqu'à atteindre vos 24 élèves.</li>
+  <li><strong>[Étape 1]</strong> Allez dans le module <strong>[Dossiers] > [Dossier EPS] > [Classes / Groupes]</strong> pour vérifier que vos classes d'origine (Terminale) sont bien toutes importées.</li>
+  <li><strong>[Étape 2]</strong> Créez vos deux structures de groupes personnalisées (ex: <em>Groupe EPS 1</em> et <em>Groupe EPS 2</em>) en leur assignant le niveau Terminale.</li>
+  <li><strong>[Étape 3]</strong> Rendez-vous dans le sous-menu d'affectation des élèves (ou module de répartition des effectifs selon votre version).</li>
+  <li><strong>[Étape 4]</strong> Sélectionnez tour à tour les élèves de vos classes d'origine pour les basculer et les répartir manuellement dans <em>Groupe EPS 1</em> (24 élèves) et <em>Groupe EPS 2</em> (24 élèves) jusqu'à épuisement des effectifs.</li>
 </ol>
 📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"

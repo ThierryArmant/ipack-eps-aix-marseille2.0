@@ -1090,8 +1090,9 @@ if prompt:
                 "sss", "section sportive", "prépa-métiers", "prepa-metiers",
                 "eps", "sport", "sports", "apsa", "relais", "handball", 
                 "activite", "activites", "sauts", "lancers", "courses", 
-                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
-                "programme", "programmes", "afl", "afc", "socle",
+                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", "peda", 
+                "programme", "programmes", "afl", "afc", "socle", "dossier",
+                "sport etude", "sport-etude", "section", "gestion", # 👈 Ajoutés pour tolérer tes requêtes
                 "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
                 "responsabilité", "responsabilite", "circulaire", "officiel", 
                 "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
@@ -1107,14 +1108,14 @@ if prompt:
                 "⚠️ <strong>Rappel :</strong> Cette assistance numérique est fournie à titre indicatif. La réponse ci-dessous devra être vérifiée et croisée avec les textes officiels en vigueur ou validée par votre hiérarchie (Chef d'établissement / IA-IPR / DEC)."
                 "</div>"
             )
-            # 👇 NOUVEAU MESSAGE PÉDAGOGIQUE ET GUIDANT
+            # 👇 NOUVEAU MESSAGE PÉDAGOGIQUE ET GUIDANT (Remplace l'ancienne alerte froide)
             texte_brut = rappel_hs + """<h3>💡 QUESTION AMBIGÜE OU MULTIDOMAINE</h3>
 <ul>
   <li><strong>Analyse de la requête :</strong> Votre question semble ambigüe ou couvre plusieurs domaines à la fois (technique, administratif, réglementaire ou pédagogique).</li>
   <li><strong>Conseil pour un accompagnement optimal :</strong> Pour que le Hub puisse vous apporter une réponse parfaitement ajustée, je vous invite à reformuler et à recentrer votre question en l'associant au contexte approprié (sélection de l'onglet et du public cible).</li>
   <li><strong>Périmètres du Hub :</strong> L'assistant est spécialisé sur l'utilisation d'iPackEPS, la gestion des examens (Santorin/Cyclades) et le cadre juridique/sécuritaire en EPS.</li>
 </ul>"""
-            badge, color_card = "💡 GUIDAGE HUB", "securite-card" 
+            badge, color_card = "💡 GUIDAGE HUB", "securite-card"  
         else:
             texte_brut = ""
             extraits_doc = ""

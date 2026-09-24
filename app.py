@@ -1070,35 +1070,17 @@ if prompt:
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
         # ==================================================================
-        # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
-        # (DÉSACTIVÉ POUR iPACKEPS ET EXAMENS POUR ÉVITER TOUT BLOCAGE)
+        # 🛡️ DISJONCTEUR DE SÉCURITÉ ASSOUPLI POUR LES COLLÈGUES
         # ==================================================================
-        if mode in ["ipack", "examens"]:
-            est_totalement_hors_sujet = False
+        if mode in ["ipack", "examens", "college"]:
+            est_totalement_hors_sujet = False  # Zéro blocage intempestif pour la technique et les examens !
         else:
+            # Pour l'onglet Sécurité/Juridique uniquement, on garde un filet léger
             mots_cles_eps_admin = [
-                "ipack", "iPackEPS", "santorin", "cyclades", "arena", "pronote", 
-                "ecoledirecte", "lsu", "imag'in", "imagin", "esterel", "siècle", "siecle",
-                "dnb", "brevet", "bac", "cap", "ccf", "cahpn", "cahn", 
-                "protocole", "protocoles", "lot", "lots", "saisie", "saisir", 
-                "verrouillage", "verrouiller", "déverrouillage", "deverrouiller", 
-                "évaluation", "evaluation", "note", "notes", "dispense", "dispensé",
-                "inaptitude", "inapte", "candidat", "candidats", "jury", "jurys",
-                "collège", "college", "lycée", "lycee", "maternelle", 
-                "élémentaire", "elementaire", "segpa", "ulis", "terminale", 
-                "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
-                "sss", "section sportive", "prépa-métiers", "prepa-metiers",
-                "eps", "sport", "sports", "apsa", "relais", "handball", 
-                "activite", "activites", "sauts", "lancers", "courses", 
-                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", "peda", 
-                "programme", "programmes", "afl", "afc", "socle", "dossier",
-                "sport etude", "sport-etude", "section", "gestion", # 👈 Ajoutés pour tolérer tes requêtes
-                "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
-                "responsabilité", "responsabilite", "circulaire", "officiel", 
-                "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
-                "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-                "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
-                "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
+                "ipack", "santorin", "cyclades", "pronote", "dnb", "bac", "cap", 
+                "ccf", "protocole", "lot", "saisie", "verrouillage", "dispense", 
+                "inaptitude", "eps", "sport", "apsa", "appn", "tasa", "securite", 
+                "responsabilite", "loi", "decret", "arrete", "circulaire", "accident", "unss"
             ]
             est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
 
@@ -1270,7 +1252,16 @@ if prompt:
                     "sportifs de haut niveau",
                 ]
             )
+            # --- DÉTECTIONS ASSOUPLIES POUR LE TERRAIN ---
+            est_gestion_sss_ou_sport = (
+                mode == "ipack"
+                and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"])
+                and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer", "mettre", "faire"])
+            )
 
+            est_dossier_peda = any(
+                w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"]
+            )
             est_sss_bloque = (
                 mode == "ipack"
                 and any(w in p_low for w in ["sss", "section sportive"])
@@ -1306,6 +1297,8 @@ if prompt:
                     or est_referentiels_rentree
                     or est_import_pronote
                     or est_sss_bloque
+                    or est_gestion_sss_ou_sport  # 👈 Ajouté ici
+                    or est_dossier_peda
                 )
             ) or est_tasa or est_unss
 
@@ -1518,6 +1511,34 @@ if prompt:
   <li><strong>Recommandation :</strong> Pour toute question relative aux équivalences ou bonifications liées au sport scolaire, veuillez vous référer directement aux textes officiels en vigueur ou consulter votre hiérarchie (IA-IPR EPS / chef d'établissement).</li>
 </ul>"""
                 badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+
+            elif est_gestion_sss_ou_sport:
+                texte_brut = """<h3>⚙️ GESTION TECHNIQUE ET ADMINISTRATIVE DES SSS ET SPORT-ÉTUDES</h3>
+<ul>
+  <li><strong>Règle fondamentale :</strong> iPackEPS distingue rigoureusement la gestion administrative des SSS (Sections Sportives Scolaires) de la configuration des groupes Sport-Études.</li>
+  <li><strong>1. Gestion administrative des SSS :</strong>
+    <ul>
+      <li>Accès : <strong>[Dossiers] > [Dossier SSS]</strong>.</li>
+      <li>Réservé aux sections officielles habilitées par le recteur (ouvertures, projets annuels, bilans et signature électronique du chef d'établissement).</li>
+    </ul>
+  </li>
+  <li><strong>2. Configuration des groupes Sport-Études (Année en cours) :</strong>
+    <ul>
+      <li>Accès : <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong> puis affectation des élèves dans <strong>[Mes Élèves]</strong>.</li>
+      <li>Règle APSA combinées : Les protocoles avec des activités combinées (ex: Football-Musculation) sont strictement réservés à ces groupes.</li>
+    </ul>
+  </li>
+</ul>
+📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+            elif est_dossier_peda:
+                texte_brut = """<h3>📂 ACCÈS AUX RESSOURCES ET DOSSIERS PÉDAGOGIQUES</h3>
+<ul>
+  <li><strong>Emplacement :</strong> Les documents et cadrages pédagogiques de référence sont centralisés dans l'onglet <strong>[Sécurité & Cadre Réglementaire / Pédagogie]</strong> de l'application, ou directement accessibles via les liens vers la base institutionnelle.</li>
+  <li><strong>Rappel d'usage :</strong> Pour toute question portant purement sur les programmes, les cycles ou les fiches ressources par APSA, veillez à utiliser les mots-clés ciblés (ex: programmes, cycles, compétences).</li>
+</ul>"""
+                badge, color_card = "📚 ESPACE PÉDAGOGIQUE", "general-card"
 
             else:
                 if contexte_actif == "college":

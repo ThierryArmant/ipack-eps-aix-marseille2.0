@@ -1729,9 +1729,12 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             except Exception as e:
                 texte_brut = f"Erreur de traitement IA : {str(e)}"
 
+        # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
         if est_college or est_dnb:
+            # 1. On purge TOUTES les références de vidéos (car aucune n'est valide pour le DNB)
+            texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
+            # 2. SEULEMENT ENSUITE, on transforme le mot "santorin" en "LSU"
             texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
-            texte_brut = re.sub(r"Saisie_notes_Santorin\.mp4", "", texte_brut, flags=re.IGNORECASE)
 
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"

@@ -1284,11 +1284,18 @@ if prompt_a_traiter:
             ]
         )
         
-        # --- DISJONCTEUR CORRIGÉ : GESTION DES GROUPES INTER-CLASSES ---
+        # --- DISJONCTEUR : GESTION DES GROUPES INTER-CLASSES ---
         est_creation_groupe = (
             mode == "ipack"
             and any(w in p_low for w in ["groupe", "groupes"])
             and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"])
+        )
+
+        # --- DISJONCTEUR : RESSAISIE / TOUT REFAIRE À LA RENTRÉE ---
+        est_ressaisie_rentree = (
+            mode == "ipack"
+            and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"])
+            and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"])
         )
 
         est_gestion_sss_ou_sport = (
@@ -1339,6 +1346,7 @@ if prompt_a_traiter:
                 or est_gestion_sss_ou_sport  
                 or est_dossier_peda
                 or est_creation_groupe
+                or est_ressaisie_rentree
             )
         ) or est_tasa or est_unss
 
@@ -1537,6 +1545,25 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
             badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
+        elif est_ressaisie_rentree:
+            texte_brut = """<h3>🔄 FAUT-IL TOUT RESAISIR CHAQUE ANNÉE DANS iPACKEPS ?</h3>
+<p><strong>Règle d'or iPackEPS :</strong> <strong>NON, il ne faut pas tout resaisir !</strong> L'essentiel des données saisies l'année précédente est automatiquement conservé par l'application.</p>
+<p><strong>Ce qui est conservé :</strong></p>
+<ul>
+  <li>Les données générales de l'établissement et la structure globale.</li>
+  <li>Vos compétences, spécialités sportives et l'historique des référentiels.</li>
+  <li>La liste générale des APSA programmées.</li>
+</ul>
+<p><strong>Ce qu'il faut actualiser (ou réinitialiser) pour la rentrée :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Votre service et vos fonctions (remis à zéro à chaque rentrée : nombre d'heures, décharges, choix du rôle de coordonnateur).</li>
+  <li><strong>[Étape 2]</strong> L'équipe EPS (actualisation de la liste des collègues connectés).</li>
+  <li><strong>[Étape 3]</strong> L'organisation des classes et l'importation des nouveaux élèves.</li>
+  <li><strong>[Étape 4]</strong> Les dates de séquences des APSA et la configuration des groupes pour l'année en cours.</li>
+</ol>
+📺 Tutoriel vidéo associé : Manipulations_Nouvelle_Annee_iPackEPS.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
         elif est_creation_groupe:
             texte_brut = """<h3>👥 CRÉATION DE GROUPES INTER-CLASSES (EX: 2 GROUPES DE 24 POUR 48 ÉLÈVES)</h3>
 <p><strong>Principe iPackEPS :</strong> iPackEPS gère les groupes d'enseignement en s'appuyant sur les structures importées. Pour répartir vos élèves de deux classes (ex: 32 et 16) en deux groupes équilibrés de 24, la gestion des effectifs se fait via la ventilation des listes d'élèves.</p>
@@ -1614,7 +1641,7 @@ if prompt_a_traiter:
             if mode != "textes":
                 bloc_video_consigne = """
                 📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-                - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4).
+                - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
                 """
             else:
                 bloc_video_consigne = ""
@@ -1698,7 +1725,7 @@ BRANCHE B : LE DANGER PHYSIQUE ET LE MATÉRIEL DÉFECTUEUX
 - LE PIÈGE DU SIGNALEMENT : Rappelle qu'un signalement écrit ne protège pas si l'activité est maintenue. Il prouve la conscience du risque (faute caractérisée).
 - 🛑 INTERDICTION DES CONSEILS FUTURS : Dans ce cas précis, interdiction de suggérer de "documenter" ou "consigner" pour plus tard. L'action est l'arrêt immédiat de l'activité.
 
-BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
+BRANCHE C : L'ÉTANCHÉITÉ des ORDRES JURIDIQUES (UNSS & PARTENAIRES)
 - L'UNSS est une association. Elle n'a AUCUN pouvoir disciplinaire, hiérarchique ou d'inscription au dossier administratif d'un fonctionnaire de l'État (qui relève du Recteur/DSDEN).
 - DROITS D'AUTEUR UNSS : La base ne contient aucun texte UNSS. Interdiction de traiter réglementairement des questions sur les championnats, podiums ou règlements UNSS. Informer l'utilisateur de cette restriction légale.
 

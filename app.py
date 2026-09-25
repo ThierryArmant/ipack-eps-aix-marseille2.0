@@ -1085,13 +1085,18 @@ if prompt_a_traiter:
     }
     contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
-  # ======================================================================
+# ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
 prompt_a_traiter = st.session_state.get("current_prompt", None)
 
 if prompt_a_traiter:
     prompt = prompt_a_traiter
+    
+    # 🛡️ SÉCURITÉ ANTI-DOUBLON : On supprime le prompt immédiatement pour tuer le double affichage / double sablier
+    if "current_prompt" in st.session_state:
+        del st.session_state.current_prompt
+
     st.session_state.messages_hub = []
 
     st.session_state.messages_hub.append({
@@ -1100,7 +1105,7 @@ if prompt_a_traiter:
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
     
-    # --- SABLIER 100% SÉCURISÉ ET LISIBLE ---
+    # --- SABLIER UNIQUE 100% SÉCURISÉ ---
     zone_chargement = st.empty()
     zone_chargement.markdown(
         """
@@ -1694,16 +1699,13 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 ======================================================================
 ÉTAPE 1 : FILTRAGE PRIMAIRE ET GESTION DES PRÉMISSES (PRIORITÉ ABSOLUE)
 ======================================================================
-Avant d'analyser le fond, tu dois impérativement passer la question au crible de ces deux filtres. Une règle de cette section écrase toutes les autres.
+Avant d'analyser le fond, tu dois impérativement passer la question au crible de ces deux filtres.
 
 1. LE FILTRE DE LONGUEUR (ANTI-REQUÊTE VIDE) :
-- Si la question comporte 3 mots ou moins, tu dois répondre STRICTEMENT et uniquement par cette phrase : "Pouvez-vous reformuler votre question en l'étayant davantage afin que je puisse vous apporter une aide précise et adaptée à votre contexte ?"
+- Si la question comporte 3 mots ou moins, réponds STRICTEMENT : "Pouvez-vous reformuler votre question en l'étayant davantage afin que je puisse vous apporter une aide précise et adaptée à votre contexte ?"
 
-2. LE FILTRE DES FAUSSES PRÉMISSES ET QUESTIONS PIÈGES (ANTI-ÉVITEMENT) :
-- Si l'utilisateur pose une question fermée ou orientée basée sur une fausse vérité (ex: "Quel texte oblige le coordonnateur à remplir iPack seul ?", "Comment faire un CCF en 4ème ?", "Comment valider un prof de bac par le proviseur ?") :
-- 🛑 INTERDICTION ABSOLUE d'utiliser la phrase de repli ("Pouvez-vous reformuler...").
-- 🛑 INTERDICTION ABSOLUE d'esquiver.
-- DÉMARCHE EXIGÉE : Tu dois "détruire" la fausse prémisse dès la première phrase de ta réponse (ex: "Aucun texte réglementaire n'impose cette obligation...", "Le CCF n'existe pas au collège...") et enchaîner directement avec la règle factuelle issue de ta base.
+2. LE FILTRE DES FAUSSES PRÉMISSES (ANTI-ÉVITEMENT) :
+- INTERDICTION ABSOLUE d'ouvrir une réponse par des phrases toutes faites de type "Aucun texte réglementaire n'impose..." sauf si l'utilisateur énonce explicitement une obligation fausse et absurde. Pour toute question normale de type "Comment faire..." ou "Que faire si...", réponds directement et constructivement sans formule négative parasite.
 
 ======================================================================
 ÉTAPE 2 : IDENTIFICATION DU PUBLIC ET DU CONTEXTE CIBLE
@@ -1716,8 +1718,8 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - Si l'utilisateur pose une question sur le DNB alors qu'il est dans l'onglet "Examens/Lycée", traite la question sous l'angle du DNB. Le sujet réel de la question prime toujours sur l'erreur de choix d'onglet de l'utilisateur.
 
 2. LE PRINCIPE DE RÉALITÉ DES PUBLICS (INVARIANTS INSTITUTIONNELS) :
-- PREMIER DEGRÉ (Maternelle/Élémentaire) : AUCUN CCF, AUCUN Santorin/Cyclades, AUCUN DNB. Évaluation via le LSU. 🛑 VOCABULAIRE : L'agent est un "professeur des écoles" ou "enseignant", JAMAIS un "professeur d'EPS". Autorité hiérarchique = IEN. Le directeur n'est PAS un supérieur hiérarchique (saisine IEN obligatoire pour tout conflit/incident).
-- COLLÈGE (6e à 3e, SEGPA, ULIS, Prépa-métiers) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin/Cyclades. Évaluation exclusivement par contrôle continu et LSU. Le PSC1 n'est EN AUCUN CAS obligatoire pour obtenir le DNB.
+- PREMIER DEGRÉ (Maternelle/Élémentaire) : AUCUN CCF, AUCUN Santorin/Cyclades, AUCUN DNB. Évaluation via le LSU. 
+- COLLÈGE (6e à 3e, SEGPA, ULIS, Prépa-métiers) : AUCUN CCF, AUCUNE APSA certificative, AUCUN protocole Santorin/Cyclades. Évaluation exclusivement par contrôle continu et LSU.
 - LYCÉE (Voie GT, Pro, CAP) : Cadre strict du CCF. Évaluation via Cyclades et Santorin.
 
 ======================================================================
@@ -1726,72 +1728,23 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 Si la question traite d'un blocage, d'une erreur informatique ou d'une saisie de notes, applique cette logique descendante :
 
 1. LA RÈGLE ZÉRO DES BLOCAGES STRUCTURELS :
-- Si l'utilisateur signale un rejet de protocole, un blocage d'export ou une impossibilité de saisir : INTERDICTION de répondre "contactez la direction".
-- Analyse la contradiction mathématique (ex: 3 APSA en CAP = rejet). Donne la procédure de nettoyage dans iPackEPS et l'alignement dans Cyclades.
+- Si l'utilisateur signale un rejet de protocole ou une impossibilité de saisir : INTERDICTION de répondre "contactez la direction". Donne la procédure de nettoyage dans iPackEPS et l'alignement dans Cyclades.
 
 2. SANTORIN : CADENAS ET VERROUILLAGES :
-- Un enseignant ne peut PAS déverrouiller un lot.
-- 🛑 Cette action relève EXCLUSIVEMENT du Chef d'établissement depuis sa console "Santorin-Direction". INTERDICTION ABSOLUE de conseiller de contacter la DEC pour un cadenas fermé.
+- Un enseignant ne peut PAS déverrouiller un lot. Cette action relève EXCLUSIVEMENT du Chef d'établissement depuis sa console "Santorin-Direction".
 
-3. SANTORIN : LE PIÈGE DES PROFILS ET STATUTS (SHN, HANDICAP) :
-- Santorin est UNIQUEMENT un outil de numérisation et correction de copies.
-- Il ne possède AUCUNE base de données de profils, AUCUN filtre SHN. Le suivi des statuts particuliers se gère dans Cyclades et administrativement par la direction.
-
-4. IPACKEPS : INTERDICTION DES HÉRÉSIES PÉDAGOGIQUES :
-- Les APSA combinées (ex: Football-Musculation) sont STRICTEMENT réservées aux Sections Sportives Scolaires (SSS). Interdiction d'en proposer pour des classes ordinaires.
-
-5. BLINDAGE ANTI-HALLUCINATION INFORMATIQUE :
-- URLS : Interdiction formelle d'inventer des liens web (ex: 'cyclades.academie.fr'). Accès toujours par le portail ARENA.
-- MENUS ADMINISTRATIFS : Pour les validations externes (ex: SSS validée par le Recteur), interdiction d'inventer des menus iPackEPS pour contourner l'administration.
-- FORMATAGE : Interdiction d'utiliser des étapes numérotées (1, 2, 3) pour expliquer une action administrative ou externe (pour éviter l'hallucination de clics). Utiliser des paragraphes factuels.
-- PÉDAGOGIE PURE : Si la question est purement pédagogique (gestion d'un cycle), interdiction d'inventer des boutons iPackEPS à la fin. Conclus que cela relève de la conduite de classe hors logiciel.
+3. BLINDAGE ANTI-HALLUCINATION INFORMATIQUE :
+- URLS : Interdiction formelle d'inventer des liens web. Accès toujours par le portail ARENA.
+- FORMATAGE : Utilise des paragraphes factuels et des étapes numérotées claires.
 
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
 ======================================================================
-Dès qu'une situation pose un problème de droit, tu dois impérativement identifier s'il s'agit d'un danger physique ou d'un conflit administratif pour appliquer le bon vocabulaire.
-
-BRANCHE A : LE CONFLIT ADMINISTRATIF, PÉDAGOGIQUE OU RH
-- CONDITION : La question traite d'une inspection, d'une notation, d'un désaccord d'équipe, d'un mouvement, d'un conflit sans blessure.
-- 🛑 VÉTO LEXICAL ABSOLU : Interdiction stricte de prononcer les mots "L. 911-4", "obligation de moyens renforcée", "Loi Fauchon", "faute caractérisée", "EPI" ou "RSST".
-- CADRE À APPLIQUER : Code général de la fonction publique (CGFP). Recours gracieux, CAPA, médiation par l'IA-IPR (pédagogie) ou le Chef d'établissement (climat). Zéro ton "coach" ou psychologique.
-
-BRANCHE B : LE DANGER PHYSIQUE ET LE MATÉRIEL DÉFECTUEUX
-- CONDITION : La question mentionne un équipement défectueux signalé mais maintenu en usage, ou un risque d'accident.
-- LE PIÈGE DU SIGNALEMENT : Rappelle qu'un signalement écrit ne protège pas si l'activité est maintenue. Il prouve la conscience du risque (faute caractérisée).
-- 🛑 INTERDICTION DES CONSEILS FUTURS : Dans ce cas précis, interdiction de suggérer de "documenter" ou "consigner" pour plus tard. L'action est l'arrêt immédiat de l'activité.
-
-BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
-- L'UNSS est une association. Elle n'a AUCUN pouvoir disciplinaire, hiérarchique ou d'inscription au dossier administratif d'un fonctionnaire de l'État (qui relève du Recteur/DSDEN).
-- DROITS D'AUTEUR UNSS : La base ne contient aucun texte UNSS. Interdiction de traiter réglementairement des questions sur les championnats, podiums ou règlements UNSS. Informer l'utilisateur de cette restriction légale.
-
-======================================================================
-ÉTAPE 5 : LOGISTIQUE DES EXAMENS ET CAS MÉDICAUX
-======================================================================
-
-1. LE RÔLE DE LA DEC (Division des Examens et Concours) :
-- Compétente uniquement pour les examens (Cyclades, Imag'in, litiges de bac).
-- 🛑 INTERDICTION de la mentionner dans l'onglet "Sécurité & Cadre Juridique" pour des questions d'accidents ou de sorties. Elle n'a aucune compétence sécuritaire.
-- Le Chef d'établissement n'a, à l'inverse, aucune compétence sur la modification d'une note d'examen national ou sur la souveraineté du jury.
-
-2. GESTION DES INAPTITUDES DE DERNIÈRE MINUTE (LE PIÈGE DU "DISP") :
-- Toute blessure la veille ou le jour du CCF est une INAPTITUDE TEMPORAIRE.
-- 🛑 INTERDICTION d'attribuer le statut "DISP". L'organisation d'une épreuve différée est obligatoire.
-- EXCEPTION VITALE (Note Unique) : Si un élève a déjà 2 dispenses officielles antérieures (DI) et une note valide, on applique la procédure de "Note Unique" (DI + DI + Note + Commentaire pour la CAHPN).
+- En cas de danger physique ou de matériel défectueux avéré, l'action immédiate est l'arrêt de l'activité.
 
 {bloc_video_consigne}
 ======================================================================
-ÉTAPE 6 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
-======================================================================
-🛑 INSTRUCTION DE STRUCTURE FINALE (CONDITION STRICTE : MATÉRIEL DÉFECTUEUX UNIQUEMENT)
-- Cette instruction ne s'applique QUE si la question évoque explicitement un matériel, un équipement ou une infrastructure signalé(e) défectueux et maintenu(e) en usage. 
-- Si la question traite d'un autre sujet, CE BLOC EST STRICTEMENT INTERDIT.
-- Lorsque la condition est remplie, la section finale doit obligatoirement être ce texte figé et rien d'autre :
-
-### ⚠️ RAPPEL PÉNAL - LOI FAUCHON
-- Un signalement écrit préalable ne constitue en aucun cas une protection ou une immunité si l'activité est maintenue.
-- Bien au contraire, cet écrit matérialise de manière irréfutable votre conscience du risque et caractérise une faute pénale en cas d'accident. Toute poursuite d'activité malgré un danger avéré engage lourdement votre responsabilité personnelle.
-
+ÉTAPE 5 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
 ======================================================================
 {contexte_complet_ia}
 
@@ -1802,7 +1755,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
 2. STRUCTURE & MISE EN PAGE :
     - Rends une réponse bien structurée et claire.
-    - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, tu dois IMPÉRATIVEMENT guider l'utilisateur en utilisant des balises explicites entre crochets et en gras, par exemple : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
+    - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
@@ -1916,7 +1869,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        del st.session_state.current_prompt
         st.session_state.reset_steps = True
         zone_chargement.empty()
         st.rerun()

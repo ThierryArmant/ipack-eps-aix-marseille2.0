@@ -1,5 +1,42 @@
 
+TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque nouvelle année scolaire
 
+1. PRINCIPE DE NAVIGATION SÉQUENTIELLE SUR LE TABLEAU DE BORD :
+- Règle d'or absolue : Le processus de saisie dans iPackEPS consiste systématiquement à partir de chaque tableau de bord en haut à gauche, puis à avancer module par module de gauche à droite, et à passer ensuite à la ligne suivante.
+- Interdiction absolue de remplir un module tant que les modules précédents ne sont pas complétés, car les données d'un module dépendent directement des saisies en amont.
+
+2. FICHE PROFESSEUR ET SERVICE :
+- Les données de l'établissement et de la fiche professeur de l'année précédente sont pour l'essentiel conservées.
+- Les informations de service et de fonctions sont réinitialisées à zéro chaque année : l'enseignant doit obligatoirement recompléter son nombre d'heures EPS, ses heures de décharge d'établissement, et réactualiser ses fonctions (coordonnateur, secrétaire, etc.).
+- Si l'on se déclare temporairement coordonnateur EPS, cela octroie les droits pour rafraîchir la liste de l'équipe EPS, des classes et des élèves.
+- Les compétences et spécialités sportives déclarées sont conservées. Il faut en revanche refaire ses vœux de jury, ses vœux de formation, et préciser les souhaits d'inspection (conseiller pédagogique).
+
+3. DOSSIERS, PROJETS ET ÉQUIPE EPS :
+- Les axes des projets pédagogiques inscrits dans le dossier EPS sont conservés.
+- L'équipe EPS est réinitialisée : chaque enseignant réapparaît dans l'application dès sa première connexion. Le coordonnateur clique ensuite sur le bouton "Actualiser" pour mettre à jour la liste complète de l'équipe. Chaque enseignant reste individuellement responsable de remplir sa propre fiche professeur.
+
+4. GESTION DES CLASSES ET IMPORTATION DES ÉLÈVES :
+- La première étape consiste à actualiser la liste des classes. Les classes existant déjà l'année précédente conservent leur configuration. En cas d'apparition de nouvelles classes, celles-ci doivent être configurées.
+- Dans le menu "Organisation des classes", il est obligatoire de repréciser pour chaque classe le ou les enseignants qui l'encadrent.
+- Ce n'est qu'une fois les classes configurées que l'on peut procéder à l'importation des élèves pour la nouvelle année scolaire (les élèves importés correspondant strictement aux classes configurées).
+
+5. DOSSIER APSA ET GROUPES :
+- La liste des APSA programmées est conservée. Il faut simplement compléter les nouvelles APSA pratiquées cette année.
+- Les dates de début et de fin de séquences d'apprentissage doivent être redéfinies.
+- Pour la gestion des groupes, il faut impérativement reconfigurer les groupes de l'année en cours, indiquer les séquences pratiquées par chaque groupe, puis répartir les élèves.
+- Les équipements sportifs déjà configurés sont conservés ; il suffit d'ajouter les nouveaux équipements pris en charge pour l'année.
+
+6. SPÉCIFICITÉS DU LYCÉE (DOSSIER CERTIFICATIF ET SSS) :
+- En lycée, il est obligatoire de reconfigurer le dossier certificatif en y indiquant les nouvelles dates d'évaluation et de rattrapage.
+- Les référentiels d'APSA déposés les années précédentes sont conservés, mais de nouveaux référentiels peuvent être déposés si nécessaire.
+- Le projet de section sportive (SSS) doit également être mis à jour pour l'année en cours si l'établissement en est doté.
+
+7. GESTION DU MATÉRIEL ET DES INVENTAIRES EPI (ESCALADE) :
+- Pour le matériel soumis à traçabilité (EPI d'escalade), l'enseignant doit se rendre dans l'inventaire pour repérer le matériel obsolète dont la date limite d'utilisation est dépassée afin de le renouveler.
+- L'application génère automatiquement des alertes pour les contrôles réglementaires arrivés à échéance (contrôle annuel obligatoire).
+
+8. EXPORT VERS COLLÈGE-EPS OU LYCÉE-EPS :
+- Une fois l'intégralité des données de rentrée saisie et validée dans iPackEPS, l'utilisateur peut, via le module "Outils", exporter l'ensemble de ces données vers les applications Collège-EPS ou Lycée-EPS.
 2. Cadre technique, logiciel et règles d'utilisation d'iPackEPS :
    - Absence d'obligation textuelle nationale d'utilisation : Aucun texte législatif ou réglementaire (Code de l'éducation) n'impose l'utilisation de l'outil iPackEPS à un enseignant en particulier, et aucun texte n'oblige le coordonnateur à supporter seul la charge administrative de toute l'équipe.
    - Levée du monopole d'actualisation (Version 2026.2.x) : Si les anciennes versions de l'application centralisaient certaines actions, les mises à jour récentes permettent désormais explicitement à **tous les enseignants** de l'équipe d'actualiser les classes, les élèves et la liste des membres de l'équipe EPS pour fluidifier le travail collectif.

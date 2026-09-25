@@ -1093,7 +1093,7 @@ prompt_a_traiter = st.session_state.get("current_prompt", None)
 if prompt_a_traiter:
     prompt = prompt_a_traiter
     
-    # 🛡️ SÉCURITÉ ANTI-DOUBLON : On supprime le prompt immédiatement pour tuer le double affichage / double sablier
+    # 🛡️ SÉCURITÉ ANTI-DOUBLON ABSOLUE : On supprime le prompt dès la première micro-seconde
     if "current_prompt" in st.session_state:
         del st.session_state.current_prompt
 
@@ -1105,16 +1105,17 @@ if prompt_a_traiter:
         "content": f"<span style='color: white;'>{prompt}</span>",
     })
     
-    # --- SABLIER UNIQUE 100% SÉCURISÉ ---
-    zone_chargement = st.empty()
-    zone_chargement.markdown(
-        """
-        <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; color: #FFFFFF; font-weight: 600; margin-top: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
-            ⏳ Recherche dans la base documentaire et analyse en cours...
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # --- CONTENEUR DE CHARGEMENT UNIQUE ET NON DUPLICABLE ---
+    zone_chargement = st.container()
+    with zone_chargement:
+        st.markdown(
+            """
+            <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; color: #FFFFFF; font-weight: 600; margin-top: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
+                ⏳ Recherche dans la base documentaire et analyse en cours...
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
     
     mode = st.session_state.active_module
     p_low = prompt.lower()
@@ -1869,7 +1870,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        st.session_state.reset_steps = True
+        # Nettoyage et suppression propre du bloc de chargement
         zone_chargement.empty()
         st.rerun()
 

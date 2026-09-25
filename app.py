@@ -543,7 +543,7 @@ def charger_dossier_txt_securise(chemin_dossier):
     return docs_trouves
 
 
-@st.cache_resource
+@st.cache_resource(max_entries=1, show_spinner=False)
 def initialiser_base_santorin(cle_fremt):
     docs_santorin = [
         Document(
@@ -566,7 +566,7 @@ def initialiser_base_santorin(cle_fremt):
     )
 
 
-@st.cache_resource
+@st.cache_resource(max_entries=1, show_spinner=False)
 def initialiser_base_ipack(cle_fremt):
     docs_ipack = [
         Document(
@@ -590,7 +590,7 @@ def initialiser_base_ipack(cle_fremt):
     )
 
 
-@st.cache_resource
+@st.cache_resource(max_entries=1, show_spinner=False)
 def initialiser_base_textes(cle_fremt):
     docs_textes = [
         Document(
@@ -613,7 +613,7 @@ def initialiser_base_textes(cle_fremt):
     )
 
 
-@st.cache_resource
+@st.cache_resource(max_entries=1, show_spinner=False)
 def initialiser_base_peda(cle_fremt):
     docs_peda = [
         Document(

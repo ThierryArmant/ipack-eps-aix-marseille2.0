@@ -1085,6 +1085,44 @@ if prompt_a_traiter:
     }
     contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
+  # ======================================================================
+# 9. TRAITEMENT RAG & FLUX DE MESSAGES
+# ======================================================================
+prompt_a_traiter = st.session_state.get("current_prompt", None)
+
+if prompt_a_traiter:
+    prompt = prompt_a_traiter
+    st.session_state.messages_hub = []
+
+    st.session_state.messages_hub.append({
+        "role": "user",
+        "type": "text",
+        "content": f"<span style='color: white;'>{prompt}</span>",
+    })
+    
+    # --- SABLIER 100% SÉCURISÉ ET LISIBLE ---
+    zone_chargement = st.empty()
+    zone_chargement.markdown(
+        """
+        <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; color: #FFFFFF; font-weight: 600; margin-top: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
+            ⏳ Recherche dans la base documentaire et analyse en cours...
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    mode = st.session_state.active_module
+    p_low = prompt.lower()
+    
+    niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+
+    onglets_noms = {
+        "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+        "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+        "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
+    }
+    contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+
     # ==================================================================
     # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
     # ==================================================================
@@ -1284,14 +1322,12 @@ if prompt_a_traiter:
             ]
         )
         
-        # --- DISJONCTEUR : GESTION DES GROUPES INTER-CLASSES ---
         est_creation_groupe = (
             mode == "ipack"
             and any(w in p_low for w in ["groupe", "groupes"])
             and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"])
         )
 
-        # --- DISJONCTEUR : RESSAISIE / TOUT REFAIRE À LA RENTRÉE ---
         est_ressaisie_rentree = (
             mode == "ipack"
             and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"])
@@ -1725,7 +1761,7 @@ BRANCHE B : LE DANGER PHYSIQUE ET LE MATÉRIEL DÉFECTUEUX
 - LE PIÈGE DU SIGNALEMENT : Rappelle qu'un signalement écrit ne protège pas si l'activité est maintenue. Il prouve la conscience du risque (faute caractérisée).
 - 🛑 INTERDICTION DES CONSEILS FUTURS : Dans ce cas précis, interdiction de suggérer de "documenter" ou "consigner" pour plus tard. L'action est l'arrêt immédiat de l'activité.
 
-BRANCHE C : L'ÉTANCHÉITÉ des ORDRES JURIDIQUES (UNSS & PARTENAIRES)
+BRANCHE C : L'ÉTANCHÉITÉ DES ORDRES JURIDIQUES (UNSS & PARTENAIRES)
 - L'UNSS est une association. Elle n'a AUCUN pouvoir disciplinaire, hiérarchique ou d'inscription au dossier administratif d'un fonctionnaire de l'État (qui relève du Recteur/DSDEN).
 - DROITS D'AUTEUR UNSS : La base ne contient aucun texte UNSS. Interdiction de traiter réglementairement des questions sur les championnats, podiums ou règlements UNSS. Informer l'utilisateur de cette restriction légale.
 
@@ -1780,15 +1816,12 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
         if est_college or est_dnb:
-            # 1. On purge TOUTES les références de vidéos (car aucune n'est valide pour le DNB)
             texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
-            # 2. SEULEMENT ENSUITE, on transforme le mot "santorin" en "LSU"
             texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
 
         if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
             texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-        # 🎯 FILET DE SÉCURITÉ SHN INTÉGRÉ ICI
         if est_shn:
             texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
             texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
@@ -1826,7 +1859,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 texte_brut,
                 flags=re.IGNORECASE
             )
-            
             texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
         re_links = re.sub(
@@ -1884,7 +1916,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
-        # 🔄 ACTIVATION DU DRAPEAU DE RÉINITIALISATION TOTALE ET SUPPRESSION DU SABLIER
         del st.session_state.current_prompt
         st.session_state.reset_steps = True
         zone_chargement.empty()

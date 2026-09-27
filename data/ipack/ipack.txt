@@ -2147,3 +2147,6 @@ Pour toute démarche technique dans iPackEPS, respectez scrupuleusement ces chem
 - Pour créer des groupes inter-classes et répartir les effectifs : Allez dans [Dossiers] > [Dossier EPS] > [Classes / Groupes].
 - Pour déposer le Fichier Synthèse Établissement ou les référentiels : Allez dans [Dossiers] > [Dossier EPS] > [Dépôt des référentiels] (ou [Dépôts]).
 - Pour la gestion spécifique des SSS (Sections Sportives) : Allez dans [Dossiers] > [Dossier SSS].
+- Fichier d'export Cyclades (Groupes) : Fichier informatique généré par iPackEPS pour remonter la structure vers Cyclades. RÈGLE ABSOLUE : L'enseignant ne doit JAMAIS ouvrir ce fichier avec un tableur (Excel, Calc) avant de l'importer, sous peine de corrompre définitivement le formatage des données. Il doit être téléchargé puis directement importé brut.
+- Grilles de terrain (Calculatrices Excel) : L'application iPackEPS ne fournit aucun fichier Excel pré-calculé ou automatisé pour la notation sur le terrain. Seuls les référentiels certificatifs au format PDF (textes officiels) sont téléchargeables.
+- Certificat Médical d'inaptitude (CM) : L'application ne fournit aucun modèle vierge à télécharger. Le certificat médical est un document papier (souvent intégré au carnet de liaison ou fourni par la vie scolaire). L'enseignant ne fait que consigner l'inaptitude dans le logiciel (statut DISP).

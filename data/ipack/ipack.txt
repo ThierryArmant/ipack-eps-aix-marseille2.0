@@ -2128,3 +2128,22 @@ QUESTIONS FRÉQUENTES & CAS PRATIQUES (FAQ EDT) :
 
 7. Vérification et alertes sur les créneaux :
 - Le menu "Vérification agenda" permet de détecter automatiquement les séquences d'apprentissage manquantes (non placées sur l'EDT), les saisies erronées pendant les vacances scolaires ou en dehors des plages horaires classiques, ainsi que les doublons de créneaux.
+======================================================================
+CARTOGRAPHIE DES MENUS ET LEXIQUE OFFICIEL - IPACKEPS
+======================================================================
+
+1. LEXIQUE DES DOCUMENTS ET TERMES TECHNIQUES (ANTI-HALLUCINATION)
+- Fichier Synthèse Établissement : Il s'agit du document officiel académique (souvent un export PDF généré automatiquement ou une trame tableur fournie par la DEC) qui récapitule les protocoles d'évaluation de l'établissement. L'enseignant ne doit en aucun cas créer ou rédiger ce document manuellement sur un traitement de texte (Word/PDF). Il se dépose dans le menu de dépôt des référentiels.
+- APSA Établissement : Activité physique spécifique au projet local. À ne surtout pas confondre avec la liste nationale certificative pour le Baccalauréat.
+- SSS (Section Sportive Scolaire) : Structure nécessitant une validation rectorale. L'application bloque sa création par défaut si l'établissement n'a pas les droits activés.
+- Options Travaillées : Les déclinaisons spécifiques des activités (ex: type d'agrès en gymnastique, type de relais) qui doivent être paramétrées avant la saisie des séquences.
+
+2. CARTOGRAPHIE DES MENUS (CHEMINS DE NAVIGATION EXACTS)
+Pour toute démarche technique dans iPackEPS, respectez scrupuleusement ces chemins de navigation :
+- Pour configurer les activités certificatives (liste nationale) : Allez dans [Dossiers] > [Dossier EPS] > [APSA].
+- Pour configurer les options d'une activité : Allez dans [Dossiers] > [Dossier EPS] > [Options].
+- Pour gérer les dates de CCF et les séquences d'évaluation : Allez dans [Dossiers] > [Dossier EPS] > [Séquences] (ou [Protocoles] selon la mise à jour).
+- Pour vérifier ou importer les listes d'élèves (SIÈCLE / Pronote) : Allez dans [Dossiers] > [Dossier EPS] > [Élèves].
+- Pour créer des groupes inter-classes et répartir les effectifs : Allez dans [Dossiers] > [Dossier EPS] > [Classes / Groupes].
+- Pour déposer le Fichier Synthèse Établissement ou les référentiels : Allez dans [Dossiers] > [Dossier EPS] > [Dépôt des référentiels] (ou [Dépôts]).
+- Pour la gestion spécifique des SSS (Sections Sportives) : Allez dans [Dossiers] > [Dossier SSS].

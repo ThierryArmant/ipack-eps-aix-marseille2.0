@@ -1083,7 +1083,18 @@ if prompt_a_traiter:
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
 
         # ==================================================================
-        # 🛡️ DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
+        # 1. DÉFINITION DES MOTS-CLÉS PÉDAGOGIQUES (DÉCLENCHEURS RAG)
+        # ==================================================================
+        mots_cles_intention_peda = [
+            "cycle", "séance", "seance", "situation", "apprentissage", "échauffement", "echauffement",
+            "barème", "bareme", "grille", "afl", "afc", "compétence", "competence",
+            "socle", "programme", "programmes", "didactique", "pédagogie", "pedagogie",
+            "comment enseigner", "comment évaluer", "comment evaluer", "comment noter sur le terrain",
+            "quel exercice", "quels exercices", "critère", "critères", "repère", "repères"
+        ]
+
+        # ==================================================================
+        # 2. DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
         # ==================================================================
         if mode in ["ipack", "examens"]:
             est_totalement_hors_sujet = False
@@ -1102,15 +1113,15 @@ if prompt_a_traiter:
                 "sss", "section sportive", "prépa-métiers", "prepa-metiers",
                 "eps", "sport", "sports", "apsa", "relais", "handball", 
                 "activite", "activites", "sauts", "lancers", "courses", 
-                "appn", "tasa", "sauvetage", "pédagogie", "pedagogie", 
-                "programme", "programmes", "afl", "afc", "socle",
+                "appn", "tasa", "sauvetage", 
                 "sécurité", "securite", "matériel", "materiel", "epi", "fauchon", 
                 "responsabilité", "responsabilite", "circulaire", "officiel", 
                 "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
                 "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-                "compétence", "competence", "fonction publique", "direction", "chef d'établissement",
+                "fonction publique", "direction", "chef d'établissement",
                 "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
-            ]
+            ] + mots_cles_intention_peda
+            
             est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
 
         if est_totalement_hors_sujet:
@@ -1153,226 +1164,60 @@ if prompt_a_traiter:
             else:
                 contexte_actif = mode
 
-            est_import_pronote = (
-                mode == "ipack"
-                and "pronote" in p_low
-                and any(w in p_low for w in ["import", "élève", "eleve", "classe", "classes"])
-            )
-
-            est_saisir_notes = (
-                not est_import_pronote
-                and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) 
-                and any(w in p_low for w in ["note", "notes"])
-                and not any(w in p_low for w in ["santorin", "cyclades"])
-                and mode != "examens" 
-            )
-
-            est_connexion = (
-                any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) 
-                and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"])
-            )
-
-            est_date = (
-                (not est_college) 
-                and any(
-                    phrase in p_low for phrase in [
-                        "quel est le calendrier", "quelles sont les dates", "date butoir de", 
-                        "date de fermeture", "calendrier officiel"
-                    ]
-                ) 
-                and any(
-                    w in p_low for w in [
-                        "saisie", "note", "notes", "fermeture", "santorin", "cyclades", 
-                        "lot", "lots", "examen", "examens", "bac", "cap", "brevet"
-                    ]
-                )
-            )
-
+            # ==================================================================
+            # 3. LISTE DES DISJONCTEURS PYTHON
+            # ==================================================================
+            est_import_pronote = (mode == "ipack" and "pronote" in p_low and any(w in p_low for w in ["import", "élève", "eleve", "classe", "classes"]))
+            est_saisir_notes = (not est_import_pronote and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) and any(w in p_low for w in ["note", "notes"]) and not any(w in p_low for w in ["santorin", "cyclades"]) and mode != "examens")
+            est_connexion = (any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"]))
+            est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
             est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
-            est_cap_3epreuves = (
-                mode == "examens"
-                and "cap" in p_low
-                and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"])
-            )
+            est_cap_3epreuves = (mode == "examens" and "cap" in p_low and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]))
             est_tasa = mode == "textes" and "tasa" in p_low
-
-            est_unss = any(w in p_low for w in [
-                "unss", "championnat de france", "championnats de france", 
-                "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"
-            ])
-
-            est_deplacer_candidat = (
-                mode != "textes"
-                and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"])
-                and any(w in p_low for w in ["candidat", "élève", "eleve"])
-                and "lot" in p_low
-            )
-
-            est_eleve_arrivant = (
-                mode != "textes"
-                and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"])
-                and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"])
-            )
-
-            est_apsa_etablissement_vs_nationale = (
-                any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"])
-                and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"])
-            )
-
-            est_verrouiller_lot = (
-                mode == "examens"
-                and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"])
-                and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"])
-            )
-
-            est_deverrouiller_lot = (
-                mode == "examens"
-                and (
-                    any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"])
-                    or "verrouillé" in p_low
-                )
-                and any(w in p_low for w in ["santorin", "lot", "copie"])
-                and not est_verrouiller_lot
-            )
-
-            est_dispense_totale = (
-                mode != "textes"
-                and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"])
-                and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"])
-            )
-
-            est_exclusion = (
-                mode != "textes"
-                and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"])
-                and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"])
-            )
-
-            est_aucun_eleve = (
-                mode == "ipack"
-                and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"])
-            )
-
-            est_referentiels_rentree = (
-                mode == "ipack"
-                and any(
-                    phrase in p_low for phrase in [
-                        "configurer les référentiels de rentrée",
-                        "déclarer les apsa de rentrée",
-                        "dépôt initial des référentiels",
-                        "campagne de rentrée"
-                    ]
-                )
-            )
-
-            est_sss = any(
-                w in p_low
-                for w in ["sss", "section sportive", "reconduction", "fermeture sss"]
-            )
-
-            est_shn = any(
-                w in p_low
-                for w in [
-                    "shn",
-                    "sportif de haut niveau",
-                    "haut niveau",
-                    "ppf",
-                    "sportifs de haut niveau",
-                ]
-            )
+            est_unss = any(w in p_low for w in ["unss", "championnat de france", "championnats de france", "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"])
+            est_deplacer_candidat = (mode != "textes" and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"]) and any(w in p_low for w in ["candidat", "élève", "eleve"]) and "lot" in p_low)
+            est_eleve_arrivant = (mode != "textes" and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"]) and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"]))
+            est_apsa_etablissement_vs_nationale = (any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"]) and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"]))
+            est_verrouiller_lot = (mode == "examens" and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"]) and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"]))
+            est_deverrouiller_lot = (mode == "examens" and (any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"]) or "verrouillé" in p_low) and any(w in p_low for w in ["santorin", "lot", "copie"]) and not est_verrouiller_lot)
+            est_dispense_totale = (mode != "textes" and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"]) and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"]))
+            est_exclusion = (mode != "textes" and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"]) and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"]))
+            est_aucun_eleve = (mode == "ipack" and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"]))
+            est_referentiels_rentree = (mode == "ipack" and any(phrase in p_low for phrase in ["configurer les référentiels de rentrée", "déclarer les apsa de rentrée", "dépôt initial des référentiels", "campagne de rentrée"]))
+            est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
+            est_shn = any(w in p_low for w in ["shn", "sportif de haut niveau", "haut niveau", "ppf", "sportifs de haut niveau"])
+            est_creation_groupe = (mode == "ipack" and any(w in p_low for w in ["groupe", "groupes"]) and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"]))
+            est_ressaisie_rentree = (mode == "ipack" and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"]) and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"]))
+            est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer", "mettre", "faire"]))
+            est_dossier_peda = any(w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"])
+            est_sss_bloque = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"]))
+            est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
+            est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
+            est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
             
-            est_creation_groupe = (
-                mode == "ipack"
-                and any(w in p_low for w in ["groupe", "groupes"])
-                and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"])
-            )
-
-            est_ressaisie_rentree = (
-                mode == "ipack"
-                and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"])
-                and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"])
-            )
-
-            est_gestion_sss_ou_sport = (
-                mode == "ipack"
-                and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"])
-                and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer", "mettre", "faire"])
-            )
-
-            est_dossier_peda = any(
-                w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"]
-            )
-            
-            est_sss_bloque = (
-                mode == "ipack"
-                and any(w in p_low for w in ["sss", "section sportive"])
-                and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"])
-            )
-            
-            est_dates_ccf = (
-                mode in ["ipack", "examens"]
-                and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"])
-                and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"])
-            )
-
-            est_equipe_eps = (
-                mode == "ipack"
-                and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"])
-                and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"])
-            )
-
-            # --- DISJONCTEUR : BLOCAGE 97% ET DOC SYNTHÈSE ---
-            est_doc_synthese = (
-                mode == "ipack"
-                and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"])
-                and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"])
-            )
-
-            mots_cles_intention_peda = [
-                "cycle", "séance", "seance", "situation", "apprentissage", "échauffement", "echauffement",
-                "barème", "bareme", "grille", "afl", "afc", "compétence", "competence",
-                "socle", "programme", "programmes", "didactique", "pédagogie", "pedagogie",
-                "comment enseigner", "comment évaluer", "comment evaluer", "comment noter sur le terrain",
-                "quel exercice", "quels exercices"
-            ]
-            
+            # 🛑 Le disjoncteur qui redirige la pédagogie hors des onglets techniques :
             est_question_pedagogique = (
                 mode != "textes" 
                 and any(w in p_low for w in mots_cles_intention_peda)
                 and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa"])
             )
 
-            # ✅ ICI, LE DISJONCTEUR 'est_doc_synthese' EST BIEN INCLUS !
             est_cas_direct = (
                 (mode != "textes") 
                 and (
-                    est_connexion
-                    or est_date 
-                    or est_sujet_secours 
-                    or est_cap_3epreuves 
-                    or est_deplacer_candidat
-                    or est_eleve_arrivant
-                    or est_apsa_etablissement_vs_nationale
-                    or est_verrouiller_lot
-                    or est_deverrouiller_lot
-                    or est_dispense_totale
-                    or est_saisir_notes
-                    or est_exclusion
-                    or est_aucun_eleve
-                    or est_referentiels_rentree
-                    or est_import_pronote
-                    or est_sss_bloque
-                    or est_gestion_sss_ou_sport  
-                    or est_dossier_peda
-                    or est_creation_groupe
-                    or est_ressaisie_rentree
-                    or est_dates_ccf
-                    or est_equipe_eps
-                    or est_doc_synthese 
-                    or est_question_pedagogique
+                    est_connexion or est_date or est_sujet_secours or est_cap_3epreuves or est_deplacer_candidat
+                    or est_eleve_arrivant or est_apsa_etablissement_vs_nationale or est_verrouiller_lot
+                    or est_deverrouiller_lot or est_dispense_totale or est_saisir_notes or est_exclusion
+                    or est_aucun_eleve or est_referentiels_rentree or est_import_pronote or est_sss_bloque
+                    or est_gestion_sss_ou_sport or est_dossier_peda or est_creation_groupe or est_ressaisie_rentree
+                    or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_question_pedagogique
                 )
             ) or est_tasa or est_unss
 
+            # ==================================================================
+            # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
+            # ==================================================================
             if openai_api_key and not est_cas_direct:
                 try:
                     if niveau_actuel_form == "1er degré":
@@ -1390,10 +1235,12 @@ if prompt_a_traiter:
                                 nodes_bruts = retriever_textes.retrieve(prompt)
                                 for n in nodes_bruts:
                                     extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
-                            if retriever_peda and any(w in p_low for w in ["programme", "cycle", "competence", "afl", "afc", "socle", "pedagogie"]):
+                            
+                            if retriever_peda and any(w in p_low for w in mots_cles_intention_peda):
                                 nodes_peda = retriever_peda.retrieve(prompt)
                                 for n in nodes_peda:
                                     extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
+                                    
                         elif mode == "examens":
                             if retriever_santorin:
                                 nodes_bruts = retriever_santorin.retrieve(prompt)
@@ -1412,6 +1259,9 @@ if prompt_a_traiter:
                 except Exception:
                     pass
 
+            # ==================================================================
+            # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
+            # ==================================================================
             if est_import_pronote:
                 texte_brut = """<h3>📥 IMPORTATION DES LISTES D'ÉLÈVES DEPUIS PRONOTE</h3>
 <p><strong>Principe :</strong> L'importation des données d'élèves depuis Pronote permet d'initialiser vos classes rapidement en début d'année dans iPackEPS.</p>
@@ -1589,7 +1439,7 @@ if prompt_a_traiter:
 
             elif est_creation_groupe:
                 texte_brut = """<h3>👥 CRÉATION DE GROUPES INTER-CLASSES (EX: 2 GROUPES DE 24 POUR 48 ÉLÈVES)</h3>
-<p><strong>Principe iPackEPS :</strong> iPackEPS gère les groupes d'enseignement en s'appuyant sur les structures importées. Pour répartir vos élèves de deux classes (ex: 32 et 16) en deux groupes équilibrés de 24, la gestion des effectifs se fait via la ventilation des listes d'élèves.</p>
+<p><strong>Principe iPackEPS :</strong> iPackEPS gère les groupes d'enseignement en s'appuyant sur structures importées. Pour répartir vos élèves de deux classes (ex: 32 et 16) en deux groupes équilibrés de 24, la gestion des effectifs se fait via la ventilation des listes d'élèves.</p>
 <p><strong>Procédure exacte :</strong></p>
 <ol>
   <li><strong>[Étape 1]</strong> Allez dans le module <strong>[Dossiers] > [Dossier EPS] > [Classes / Groupes]</strong> pour vérifier que vos classes d'origine (Terminale) sont bien toutes importées.</li>
@@ -1654,7 +1504,6 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Actualisation_equipe_classes.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            # ✅ ICI, LE BLOC TEXTE DU DISJONCTEUR 'est_doc_synthese'
             elif est_doc_synthese:
                 texte_brut = """<h3>⚠️ BLOCAGE À 97% : FICHIER SYNTHÈSE ÉTABLISSEMENT</h3>
 <p><strong>Explication du message d'erreur :</strong> L'affichage "0 0 1 Doc Synthèse en attente" et un dossier bloqué à 97% est un <strong>comportement tout à fait normal</strong> d'iPackEPS. Cela signifie que l'intégralité de vos saisies pédagogiques est correcte.</p>
@@ -1675,6 +1524,9 @@ if prompt_a_traiter:
 <p>👉 Veuillez reposer votre question dans l'onglet <strong>[Sécurité & Responsabilité Juridique (Textes Officiels)]</strong> dans le menu de gauche. Cet espace est connecté à la base documentaire des programmes officiels et des ressources Éduscol.</p>"""
                 badge, color_card = "⚖️ HORS PÉRIMÈTRE TECHNIQUE", "securite-card"
 
+            # ==================================================================
+            # 6. GESTION DE LA RÉPONSE DE L'IA (LLM) SI AUCUN DISJONCTEUR NE S'EST ACTIVÉ
+            # ==================================================================
             else:
                 if contexte_actif == "college":
                     badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
@@ -1683,23 +1535,16 @@ if prompt_a_traiter:
                 elif mode == "ipack":
                     badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
                 else:
-                    badge, color_card = "⚖️ SÉCURITÉ & CADRE JURIDIQUE", "securite-card"
+                    badge, color_card = "⚖️ SÉCURITÉ, JURIDIQUE & PÉDAGOGIE", "securite-card"
 
                 if mode == "textes":
                     directive_onglet = """
-                    3. ⚖️ SPÉCIFICITÉ ONGLET SÉCURITÉ & JURIDIQUE (CADRE APPN & RESPONSABILITÉS) :
-                        - 🧠 CONDITION D'ACTIVATION / ARBITRAGE D'INTENTION :
-                            * SI la question porte sur les programmes officiels, la programmation des APSA, les champs d'apprentissage, les AFC, les AFL ou la pédagogie : Ignore complètement le template de sécurité ci-dessous, n'inclus pas l'article L. 911-4, et réponds strictement en tant qu'expert des programmes et de la pédagogie EPS.
-                            * SI la question relève d'une INSPECTION, d'UN RENDEZ-VOUS DE CARRIÈRE, D'UNE CONTESTATION DE NOTE ou d'un LITIGE ADMINISTRATIF PUR : N'applique PAS les règles de sécurité ci-dessous, n'ouvre pas sur l'article L. 911-4, et applique strictement le droit de la fonction publique (CGFP).
-                            * SI la question relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS, d'un LITIGE APPN ou d'une RESPONSABILITÉ JURIDIQUE : Applique rigoureusement les règles ci-dessous.
-                        - Qualification initiale : Détermine immédiatement si la situation relève d'un ACCIDENT CORPOREL GRAVE, d'un CONFLIT DISCIPLINAIRE, d'UNE INGÉRENCE DE TIERS ou d'un LITIGE APPN.
-                        - OUVERTURE OBLIGATOIRE DE LA RÉPONSE (Strictement limitée aux risques physiques et accidents) : 
-                            * SI ET SEULEMENT SI la question concerne un accident corporel, un litige APPN ou une sécurité physique : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4, Loi Fauchon).
-                            * SI la question concerne une inspection, une note ou la carrière : INTERDICTION ABSOLUE d'ouvrir par ce rappel protecteur et interdiction absolue de mentionner le RSST.
-                        - DOCTRINE APPN & TAUX D'ENCADREMENT (Circulaires n° 2017-075 et n° 2017-116) : Pour toute activité de pleine nature (escalade, ski, voile, VTT, etc.), rappeler que l'encadrement obéit à des exigences strictes de qualification des intervenants extérieurs (professionnels diplômés d'État) et de traçabilité matérielle (registre des EPI). Règle d'or absolue : l'élève ou le bénévole ne peut jamais se substituer à l'enseignant pour le contrôle final de sécurité. L'enseignant d'EPS conserve en permanence la souveraineté pédagogique et la responsabilité juridique exclusive de la classe.
-                        - ANALYSE FACTUELLE CIBLÉE (ADAPTATION STRICTE AU CAS) : Analyse précisément les faits rapportés, en traitant les risques juridiques spécifiques (gestion de groupes en autonomie, choix des sites, alertes météo). Interdiction absolue d'injecter des exemples génériques hors-sujet.
-                        - CONFLIT HIERARCHIQUE / INGÉRENCE & TRAÇABILITÉ : En cas de pression, d'agression ou d'ingérence de tiers, rappeler l'obligation de saisir la hiérarchie par écrit (rapport circonstancié sous 48h) et de consigner les faits (Registre des faits / RSST) pour activer la protection fonctionnelle.
-                        - INTERDICTION FORMELLE ET ABSOLUE de mentionner le moindre tutoriel vidéo, logiciel, ou fichier technique iPackEPS/Santorin.
+                    3. ⚖️ SPÉCIFICITÉ ONGLET TEXTES, SÉCURITÉ ET PÉDAGOGIE :
+                        - 🧠 ARBITRAGE D'INTENTION (TRÈS IMPORTANT) :
+                            * 📚 SI la question est PÉDAGOGIQUE (comment enseigner, barèmes, situations, programmes, gestion de classe) : Réponds EN TANT QU'EXPERT PÉDAGOGIQUE. Donne des conseils concrets de terrain, des repères didactiques, des exemples d'exercices ou d'AFL. Ne parle PAS de textes juridiques ou d'accidents si ce n'est pas le sujet.
+                            * ⚖️ SI la question est JURIDIQUE ou SÉCURITAIRE (Accident, APPN, litige) : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4).
+                            * 👔 SI la question concerne la CARRIÈRE (Inspection, note) : Applique le droit de la fonction publique, sans mentionner l'art. L. 911-4.
+                        - DOCTRINE APPN & TAUX D'ENCADREMENT : Pour toute activité de pleine nature, encadrement strict et registre des EPI.
                     """
                 elif mode == "examens":
                     directive_onglet = "3. 📊 SPÉCIFICITÉS EXAMENS & SANTORIN : Traite précisément le problème d'examen (Bac, CAP, dispenses, CAHPN)."
@@ -1723,7 +1568,17 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {verites_terrain_pierre}
 """
 
-                consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS), examens et réglementation institutionnelle.
+                # ✅ AJOUT DE L'ÉTAPE 0 : VÉROUILLAGE ABSOLU DE LA RECHERCHE WEB
+                consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS).
+Ton expertise couvre deux grands domaines :
+1. L'ingénierie pédagogique et didactique (programmes, évaluation, construction de cycles).
+2. La réglementation institutionnelle, juridique et logicielle (iPackEPS, Santorin, examens).
+
+======================================================================
+ÉTAPE 0 : RESTRICTION DE RECHERCHE (ZÉRO INTERNET / ZÉRO TAVILY)
+======================================================================
+INTERDICTION ABSOLUE d'utiliser des outils de recherche web externes (Tavily, Google, bing, etc.).
+Tu dois construire ta réponse STRICTEMENT et UNIQUEMENT à partir du "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous. Si la réponse n'y est pas, dis simplement que tu ne disposes pas de l'information dans ta base locale.
 
 ======================================================================
 ÉTAPE 1 : FILTRAGE PRIMAIRE ET GESTION DES PRÉMISSES (PRIORITÉ ABSOLUE)
@@ -1785,7 +1640,7 @@ QUESTION DE L'UTILISATEUR :
 {prompt}
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur institutionnelle.
+1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur.
 2. STRUCTURE & MISE EN PAGE :
     - Rends une réponse bien structurée et claire.
     - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
@@ -1868,7 +1723,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
             footer_assistance = (
                 "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-                "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques malgré le soin apporté à ma copie. "
+                "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques ou didactiques malgré le soin apporté à ma copie. "
                 "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
                 "</div>"
             ) if mode == "textes" else (

@@ -1141,7 +1141,8 @@ if prompt_a_traiter:
                 pass
 
             est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
-            est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap"])
+            # ✅ CORRECTION 1 : Ajout des mots-clés lycée pour sécuriser le badge
+            est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap", "lycée", "lycee", "lgt", "lp"])
             
             est_premier_degre = any(w in p_low for w in [
                 "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
@@ -1326,6 +1327,13 @@ if prompt_a_traiter:
                 and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"])
             )
 
+            # ✅ CORRECTION 2 : DISJONCTEUR POUR L'ÉQUIPE EPS (Prof manquants / Cité scolaire)
+            est_equipe_eps = (
+                mode == "ipack"
+                and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"])
+                and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"])
+            )
+
             # --- DISJONCTEUR AFFINÉ : DÉTECTION DES QUESTIONS PUREMENT PÉDAGOGIQUES ---
             mots_cles_intention_peda = [
                 "cycle", "séance", "seance", "situation", "apprentissage", "échauffement", "echauffement",
@@ -1341,6 +1349,7 @@ if prompt_a_traiter:
                 and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa"])
             )
 
+            # ✅ CORRECTION 4 : Ajout de 'est_equipe_eps' dans les conditions de blocage direct
             est_cas_direct = (
                 (mode != "textes") 
                 and (
@@ -1365,6 +1374,7 @@ if prompt_a_traiter:
                     or est_creation_groupe
                     or est_ressaisie_rentree
                     or est_dates_ccf
+                    or est_equipe_eps # <-- AJOUT ICI
                     or est_question_pedagogique
                 )
             ) or est_tasa or est_unss
@@ -1636,6 +1646,19 @@ if prompt_a_traiter:
   <li><strong>[Étape 5]</strong> Enregistrez vos modifications.</li>
 </ol>
 📺 Tutoriel associé : Saisie_protocoles_iPackEPS.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+                
+            # ✅ CORRECTION 3 : Le texte brut du nouveau disjoncteur "Équipe EPS"    
+            elif est_equipe_eps:
+                texte_brut = """<h3>👥 ACTUALISATION DE L'ÉQUIPE EPS (ENSEIGNANT MANQUANT)</h3>
+<p><strong>Règle institutionnelle :</strong> Il est strictement impossible de créer "manuellement" un profil enseignant (en tapant son nom) dans iPackEPS. Les comptes remontent obligatoirement de la base académique (STS-Web).</p>
+<p><strong>Procédure de mise à jour :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Allez dans le menu <strong>[Dossiers] > [Dossier EPS] > [Équipe EPS]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Cliquez sur le bouton d'actualisation ou d'importation des enseignants.</li>
+  <li><strong>[Étape 3]</strong> Si l'enseignant n'apparaît toujours pas (cas très fréquent en cité scolaire), c'est que le secrétariat de l'établissement ne l'a pas affecté à la bonne structure dans <strong>STS-Web</strong>. Contactez votre direction pour régulariser l'affectation.</li>
+</ol>
+📺 Tutoriel associé : Actualisation_equipe_classes.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_question_pedagogique:

@@ -315,3 +315,30 @@ Pour toute démarche technique sur Santorin, respectez ces chemins et contrainte
 - Pour déverrouiller un lot (Cadenas rouge/fermé) : L'enseignant n'a pas les droits informatiques pour cette action. Il faut contacter la direction qui ira dans [Santorin-Direction] > [Liste des lots] > Clic sur le cadenas.
 - Pour déplacer un candidat vers un autre lot ou gérer un élève arrivant : L'enseignant n'a pas les droits pour cette action. Le secrétariat doit affecter l'élève dans Cyclades, puis la direction gère la répartition dans [Santorin-Direction] via une distribution manuelle.
 - Pour extraire les notes saisies : Allez dans [Mes lots] > [Saisie des notes] > Cliquez sur le bouton d'exportation (généralement une icône de téléchargement ou "Exporter").
+======================================================================
+CARTOGRAPHIE, LEXIQUE ET RÉSOLUTION D'ERREURS - IPACKEPS
+======================================================================
+
+1. MESSAGES D'ERREUR FRÉQUENTS ET BLOCAGES (RÉSOLUTION)
+- Blocage à 97% / "0 0 1 Doc Synthèse Voie Générale & Technologique 0 en attente" (ou Voie Pro) : C'est un comportement normal. Cela signifie que l'intégralité des saisies pédagogiques est correcte. Le système attend simplement le téléversement final du document académique pour débloquer les 100% et autoriser la transmission. Ce document se dépose exclusivement dans le menu [Dossiers] > [Dossier EPS] > [Dépôt des référentiels] (ou [Dépôts]).
+- "Aucun élève dans cet établissement" (Importation) : Ce message d'erreur survient à la rentrée lorsqu'il y a un décalage de synchronisation entre la base administrative (SIÈCLE) et le portail ARENA. Le secrétariat doit valider la bascule de rentrée, puis l'enseignant doit lancer une actualisation manuelle dans [Dossiers] > [Dossier EPS] > [Élèves].
+- "APSA Établissement" vs "Liste Nationale" : Déclarer une activité en "APSA établissement" au lieu de la "liste nationale" bloque la validation du protocole certificatif pour le Baccalauréat. Il faut retourner dans [Dossiers] > [Dossier EPS] > [APSA] pour sélectionner la bonne activité dans la liste nationale.
+
+2. LEXIQUE DES FICHIERS ET STRUCTURES (ANTI-HALLUCINATION)
+- Fichier Synthèse Établissement : Document officiel académique (souvent un export PDF ou une trame tableur fournie par la DEC) récapitulant les protocoles. L'enseignant ne doit JAMAIS créer ce document manuellement sur un traitement de texte (Word).
+- Fichier d'export Cyclades (XML/CSV) : Fichier informatique généré par iPackEPS pour remonter les groupes d'élèves vers Cyclades. RÈGLE ABSOLUE : L'enseignant ne doit JAMAIS ouvrir ce fichier avec un tableur (Excel, Calc) avant de l'importer, sous peine de corrompre définitivement le formatage des données. Il doit être téléchargé puis directement importé brut.
+- Grilles de terrain (Calculatrices Excel) : iPackEPS ne fournit aucun fichier Excel pré-calculé pour la notation. Seuls les référentiels PDF sont téléchargeables.
+- SSS (Section Sportive Scolaire) : La création d'un groupe SSS est bloquée par défaut si le rectorat n'a pas validé la demande. Il faut contacter la direction ou l'IPR pour débloquer les droits.
+
+3. CAS PARTICULIER DES CITÉS SCOLAIRES (COLLÈGE + LYCÉE)
+- Principe des deux UAI : Une cité scolaire est scindée informatiquement en deux établissements (un numéro UAI pour le Collège, un UAI pour le Lycée). L'enseignant doit impérativement sélectionner le bon UAI dans le menu déroulant du portail ARENA avant de lancer iPackEPS.
+- Équipe EPS et Enseignants manquants : Il est strictement impossible de créer un compte enseignant manuellement (pas de bouton "Ajouter"). Les comptes remontent par synchronisation avec STS-Web. Si un enseignant est sur le Collège mais n'apparaît pas sur le Lycée, c'est que le secrétariat ne l'a pas affecté en "Service partagé" sur la structure du Lycée dans STS-Web. Une fois régularisé par la direction, cliquez sur le bouton d'actualisation dans [Dossiers] > [Dossier EPS] > [Équipe EPS].
+- Étanchéité des bases : Il est impossible de fusionner des groupes d'élèves du collège avec des élèves du lycée, les bases SIÈCLE étant séparées.
+
+4. CARTOGRAPHIE DES MENUS (CHEMINS DE NAVIGATION EXACTS)
+Pour toute démarche technique, respectez scrupuleusement ces chemins :
+- Configurer les activités (liste nationale) : [Dossiers] > [Dossier EPS] > [APSA].
+- Définir les dates de CCF et séquences : [Dossiers] > [Dossier EPS] > [Séquences] (ou [Protocoles]).
+- Configurer les options d'une activité : [Dossiers] > [Dossier EPS] > [Options].
+- Créer des groupes inter-classes : [Dossiers] > [Dossier EPS] > [Classes / Groupes].
+- Gérer les sections sportives : [Dossiers] > [Dossier SSS].

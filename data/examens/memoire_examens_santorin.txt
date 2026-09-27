@@ -295,3 +295,23 @@ PROCÉDURE ADMINISTRATIVE RÉGLEMENTAIRE :
 - En amont : Le statut officiel de Sportif de Haut Niveau est géré lors de l'inscription aux examens via Cyclades et validé par la DEC (Division des Examens et Concours) sur la base des listes ministérielles.
 - Rôle de l'établissement : Le secrétariat d'examen et la direction gèrent les aménagements d'épreuves et veillent à la transmission des pièces justificatives.
 - Rôle de l'enseignant / correcteur : L'enseignant n'a aucune action d'identification de SHN à mener depuis Santorin. Si un candidat bénéficie de modalités particulières de notation ou d'une neutralisation/note de référence, ces éléments sont encadrés par les services académiques et appliqués lors des jurys (CAHPN), et non par une recherche active dans l'interface de correction Santorin.
+======================================================================
+CARTOGRAPHIE DES MENUS ET LEXIQUE OFFICIEL - SANTORIN & CYCLADES
+======================================================================
+
+1. LEXIQUE DES EXAMENS (ANTI-HALLUCINATION)
+- Lot de correction : Regroupement numérique des candidats affectés à un correcteur. 
+- Statut DISP (Dispensé) : À saisir impérativement pour une inaptitude médicale totale sur l'ensemble du cycle.
+- Statut ABS (Absent) : À saisir pour une absence non justifiée. Attention : génère un zéro éliminatoire à l'examen. Ne jamais confondre avec une dispense médicale.
+- Sujet de secours : N'existe pas en Éducation Physique et Sportive. Toute absence contrainte nécessite l'organisation d'une épreuve de rattrapage différée.
+- Bordereau de notation (ou bordereau de retour) : C'est le document PDF récapitulatif officiel. Dans Santorin, le bouton pour télécharger ou imprimer ce bordereau n'apparaît et ne se génère qu'APRÈS le verrouillage définitif du lot par le correcteur. Il est impossible de le télécharger tant que la saisie est en cours ou ouverte.
+- DEC : Direction des Examens et Concours. C'est le service académique responsable de l'organisation des examens (Baccalauréat, DNB, CAP, etc.).
+- CCF : Contrôle en Cours de Formation. Modalité d'évaluation certificative propre à l'EPS au lycée et en voie professionnelle.
+
+2. CARTOGRAPHIE DES MENUS ET DROITS (SANTORIN)
+Pour toute démarche technique sur Santorin, respectez ces chemins et contraintes de droits :
+- Pour saisir les notes et les statuts (DISP/ABS) : Allez dans le menu [Mes lots] > [Saisie des notes].
+- Pour verrouiller et transmettre ses notes définitivement : Cliquez sur le bouton de validation/verrouillage situé en bas de l'interface de votre lot.
+- Pour déverrouiller un lot (Cadenas rouge/fermé) : L'enseignant n'a pas les droits informatiques pour cette action. Il faut contacter la direction qui ira dans [Santorin-Direction] > [Liste des lots] > Clic sur le cadenas.
+- Pour déplacer un candidat vers un autre lot ou gérer un élève arrivant : L'enseignant n'a pas les droits pour cette action. Le secrétariat doit affecter l'élève dans Cyclades, puis la direction gère la répartition dans [Santorin-Direction] via une distribution manuelle.
+- Pour extraire les notes saisies : Allez dans [Mes lots] > [Saisie des notes] > Cliquez sur le bouton d'exportation (généralement une icône de téléchargement ou "Exporter").

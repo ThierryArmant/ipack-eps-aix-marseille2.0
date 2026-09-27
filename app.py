@@ -1054,44 +1054,6 @@ prompt_a_traiter = st.session_state.get("current_prompt", None)
 
 if prompt_a_traiter:
     prompt = prompt_a_traiter
-    st.session_state.messages_hub = []
-
-    st.session_state.messages_hub.append({
-        "role": "user",
-        "type": "text",
-        "content": f"<span style='color: white;'>{prompt}</span>",
-    })
-    
-    # --- SABLIER 100% SÉCURISÉ ET LISIBLE ---
-    zone_chargement = st.empty()
-    zone_chargement.markdown(
-        """
-        <div style="background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid #334155; border-radius: 8px; padding: 15px 20px; color: #FFFFFF; font-weight: 600; margin-top: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
-            ⏳ Recherche dans la base documentaire et analyse en cours...
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    
-    mode = st.session_state.active_module
-    p_low = prompt.lower()
-    
-    niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
-
-    onglets_noms = {
-        "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-        "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
-        "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
-    }
-    contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
-
-# ======================================================================
-# 9. TRAITEMENT RAG & FLUX DE MESSAGES
-# ======================================================================
-prompt_a_traiter = st.session_state.get("current_prompt", None)
-
-if prompt_a_traiter:
-    prompt = prompt_a_traiter
     
     # 🛡️ SÉCURITÉ ANTI-DOUBLON ABSOLUE
     if "current_prompt" in st.session_state:
@@ -1356,6 +1318,28 @@ if prompt_a_traiter:
                     ]
                 )
             )
+            
+            # --- DISJONCTEUR : SAISIE DES DATES DE CCF ET SÉQUENCES ---
+            est_dates_ccf = (
+                mode in ["ipack", "examens"]
+                and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"])
+                and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"])
+            )
+
+            # --- DISJONCTEUR AFFINÉ : DÉTECTION DES QUESTIONS PUREMENT PÉDAGOGIQUES ---
+            mots_cles_intention_peda = [
+                "cycle", "séance", "seance", "situation", "apprentissage", "échauffement", "echauffement",
+                "barème", "bareme", "grille", "afl", "afc", "compétence", "competence",
+                "socle", "programme", "programmes", "didactique", "pédagogie", "pedagogie",
+                "comment enseigner", "comment évaluer", "comment evaluer", "comment noter sur le terrain",
+                "quel exercice", "quels exercices"
+            ]
+            
+            est_question_pedagogique = (
+                mode != "textes" 
+                and any(w in p_low for w in mots_cles_intention_peda)
+                and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa"])
+            )
 
             est_cas_direct = (
                 (mode != "textes") 
@@ -1380,6 +1364,8 @@ if prompt_a_traiter:
                     or est_dossier_peda
                     or est_creation_groupe
                     or est_ressaisie_rentree
+                    or est_dates_ccf
+                    or est_question_pedagogique
                 )
             ) or est_tasa or est_unss
 
@@ -1638,6 +1624,27 @@ if prompt_a_traiter:
 <p><strong>Rappel d'usage :</strong> Pour interroger le Hub sur les programmes, utilisez des mots-clés ciblés (ex: programmes, cycles, compétences).</p>"""
                 badge, color_card = "📚 ESPACE PÉDAGOGIQUE", "general-card"
 
+            elif est_dates_ccf:
+                texte_brut = """<h3>📅 CONFIGURATION DES DATES DE CCF ET DES SÉQUENCES</h3>
+<p><strong>Principe iPackEPS :</strong> Pour que les protocoles de certification de vos classes soient valides, vous devez définir les dates de vos séquences d'enseignement et d'évaluation pour chaque groupe.</p>
+<p><strong>Procédure exacte :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Connectez-vous à iPackEPS via le portail ARENA.</li>
+  <li><strong>[Étape 2]</strong> Allez dans le menu <strong>[Dossiers] > [Dossier EPS] > [Séquences]</strong> (ou <strong>[Protocoles]</strong> selon l'affichage).</li>
+  <li><strong>[Étape 3]</strong> Sélectionnez le groupe ou la classe concernée.</li>
+  <li><strong>[Étape 4]</strong> Saisissez les dates de début et de fin pour chaque séquence ou période de CCF.</li>
+  <li><strong>[Étape 5]</strong> Enregistrez vos modifications.</li>
+</ol>
+📺 Tutoriel associé : Saisie_protocoles_iPackEPS.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+            elif est_question_pedagogique:
+                texte_brut = """<h3>🛑 REDIRECTION REQUISE : QUESTION PÉDAGOGIQUE</h3>
+<p>Votre question relève de la pédagogie de terrain, de l'animation d'une séance ou de la didactique d'une APSA.</p>
+<p>L'onglet actuel est <strong>strictement réservé à la configuration technique et informatique</strong> des logiciels (iPackEPS, Santorin, Cyclades).</p>
+<p>👉 Veuillez reposer votre question dans l'onglet <strong>[Sécurité & Responsabilité Juridique (Textes Officiels)]</strong> dans le menu de gauche. Cet espace est connecté à la base documentaire des programmes officiels et des ressources Éduscol.</p>"""
+                badge, color_card = "⚖️ HORS PÉRIMÈTRE TECHNIQUE", "securite-card"
+
             else:
                 if contexte_actif == "college":
                     badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
@@ -1698,11 +1705,6 @@ Avant d'analyser le fond, tu dois impérativement passer la question au crible d
 
 2. LE FILTRE DES FAUSSES PRÉMISSES (ANTI-ÉVITEMENT) :
 - INTERDICTION ABSOLUE d'ouvrir une réponse par des phrases toutes faites de type "Aucun texte réglementaire n'impose..." sauf si l'utilisateur énonce explicitement une obligation fausse et absurde. Pour toute question normale de type "Comment faire..." ou "Que faire si...", réponds directement et constructivement sans formule négative parasite.
-
-3. 🛑 FILTRE ANTI-PÉDAGOGIE EN ZONE TECHNIQUE (RÈGLE D'OR) :
-- SI le contexte actif est 'iPackEPS' ou 'Examens/Santorin' ET que la question porte sur la pédagogie de terrain (comment enseigner, animer ou évaluer une séance).
-- ALORS : INTERDICTION ABSOLUE de répondre avec tes connaissances pédagogiques.
-- RÉPONSE EXIGÉE (strictement ce texte) : "<h3>🛑 REDIRECTION REQUISE</h3><p>Votre question relève de la pédagogie de terrain. L'onglet actuel est strictement réservé à la configuration technique et informatique des logiciels.</p><p>👉 Veuillez poser votre question dans l'onglet <strong>[Sécurité & Responsabilité Juridique (Textes Officiels)]</strong> dans le menu de gauche.</p>"
 
 ======================================================================
 ÉTAPE 2 : IDENTIFICATION DU PUBLIC ET DU CONTEXTE CIBLE

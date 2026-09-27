@@ -2150,3 +2150,18 @@ Pour toute démarche technique dans iPackEPS, respectez scrupuleusement ces chem
 - Fichier d'export Cyclades (Groupes) : Fichier informatique généré par iPackEPS pour remonter la structure vers Cyclades. RÈGLE ABSOLUE : L'enseignant ne doit JAMAIS ouvrir ce fichier avec un tableur (Excel, Calc) avant de l'importer, sous peine de corrompre définitivement le formatage des données. Il doit être téléchargé puis directement importé brut.
 - Grilles de terrain (Calculatrices Excel) : L'application iPackEPS ne fournit aucun fichier Excel pré-calculé ou automatisé pour la notation sur le terrain. Seuls les référentiels certificatifs au format PDF (textes officiels) sont téléchargeables.
 - Certificat Médical d'inaptitude (CM) : L'application ne fournit aucun modèle vierge à télécharger. Le certificat médical est un document papier (souvent intégré au carnet de liaison ou fourni par la vie scolaire). L'enseignant ne fait que consigner l'inaptitude dans le logiciel (statut DISP).
+======================================================================
+RÈGLES SPÉCIFIQUES - CITÉS SCOLAIRES (COLLÈGE + LYCÉE)
+======================================================================
+
+1. LE PRINCIPE DES DEUX UAI (UNITÉS ADMINISTRATIVES)
+- Une cité scolaire n'existe pas informatiquement en tant qu'entité unique. Elle est obligatoirement scindée en deux établissements virtuels distincts possédant chacun son propre numéro UAI (un UAI pour le Collège, un UAI pour le Lycée).
+- Conséquence d'accès : Sur le portail ARENA, l'enseignant ou le personnel de direction doit impérativement sélectionner le bon établissement (le bon UAI) dans le menu déroulant en haut à droite AVANT de cliquer sur iPackEPS, Santorin ou Cyclades.
+
+2. GESTION DES ENSEIGNANTS SUR DEUX STRUCTURES (SERVICE PARTAGÉ)
+- Un enseignant nommé au collège (UAI 1) n'apparaîtra jamais automatiquement dans l'équipe EPS de l'interface iPackEPS du Lycée (UAI 2), même s'il y donne des cours.
+- Résolution : Le secrétariat de l'établissement doit obligatoirement déclarer l'enseignant en "Service partagé" ou l'affecter manuellement sur la structure du Lycée dans la base de données académique STS-Web. Une fois l'action réalisée par l'administration, l'équipe EPS pourra cliquer sur "Actualiser l'équipe" dans iPackEPS.
+
+3. SÉPARATION DES PROTOCOLES ET DES EXPORTS CYCLADES
+- L'importation des élèves (depuis Pronote ou Siècle) et l'exportation des groupes vers Cyclades doivent se faire indépendamment pour chaque structure. 
+- Il est impossible de fusionner un groupe d'élèves de 3ème (Collège) avec un groupe de 2nde (Lycée) dans iPackEPS, les bases de données (UAI) étant hermétiques entre elles.

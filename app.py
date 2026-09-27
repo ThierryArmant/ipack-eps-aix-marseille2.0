@@ -1141,7 +1141,6 @@ if prompt_a_traiter:
                 pass
 
             est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
-            # ✅ CORRECTION 1 : Ajout des mots-clés lycée pour sécuriser le badge
             est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap", "lycée", "lycee", "lgt", "lp"])
             
             est_premier_degre = any(w in p_low for w in [
@@ -1307,34 +1306,28 @@ if prompt_a_traiter:
             est_sss_bloque = (
                 mode == "ipack"
                 and any(w in p_low for w in ["sss", "section sportive"])
-                and any(
-                    w in p_low
-                    for w in [
-                        "droit",
-                        "créer",
-                        "creer",
-                        "autorise",
-                        "bloque",
-                        "pas",
-                    ]
-                )
+                and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"])
             )
             
-            # --- DISJONCTEUR : SAISIE DES DATES DE CCF ET SÉQUENCES ---
             est_dates_ccf = (
                 mode in ["ipack", "examens"]
                 and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"])
                 and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"])
             )
 
-            # ✅ CORRECTION 2 : DISJONCTEUR POUR L'ÉQUIPE EPS (Prof manquants / Cité scolaire)
             est_equipe_eps = (
                 mode == "ipack"
                 and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"])
                 and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"])
             )
 
-            # --- DISJONCTEUR AFFINÉ : DÉTECTION DES QUESTIONS PUREMENT PÉDAGOGIQUES ---
+            # --- DISJONCTEUR : BLOCAGE 97% ET DOC SYNTHÈSE ---
+            est_doc_synthese = (
+                mode == "ipack"
+                and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"])
+                and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"])
+            )
+
             mots_cles_intention_peda = [
                 "cycle", "séance", "seance", "situation", "apprentissage", "échauffement", "echauffement",
                 "barème", "bareme", "grille", "afl", "afc", "compétence", "competence",
@@ -1349,7 +1342,7 @@ if prompt_a_traiter:
                 and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa"])
             )
 
-            # ✅ CORRECTION 4 : Ajout de 'est_equipe_eps' dans les conditions de blocage direct
+            # ✅ ICI, LE DISJONCTEUR 'est_doc_synthese' EST BIEN INCLUS !
             est_cas_direct = (
                 (mode != "textes") 
                 and (
@@ -1374,7 +1367,8 @@ if prompt_a_traiter:
                     or est_creation_groupe
                     or est_ressaisie_rentree
                     or est_dates_ccf
-                    or est_equipe_eps # <-- AJOUT ICI
+                    or est_equipe_eps
+                    or est_doc_synthese 
                     or est_question_pedagogique
                 )
             ) or est_tasa or est_unss
@@ -1648,7 +1642,6 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Saisie_protocoles_iPackEPS.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
                 
-            # ✅ CORRECTION 3 : Le texte brut du nouveau disjoncteur "Équipe EPS"    
             elif est_equipe_eps:
                 texte_brut = """<h3>👥 ACTUALISATION DE L'ÉQUIPE EPS (ENSEIGNANT MANQUANT)</h3>
 <p><strong>Règle institutionnelle :</strong> Il est strictement impossible de créer "manuellement" un profil enseignant (en tapant son nom) dans iPackEPS. Les comptes remontent obligatoirement de la base académique (STS-Web).</p>
@@ -1659,6 +1652,20 @@ if prompt_a_traiter:
   <li><strong>[Étape 3]</strong> Si l'enseignant n'apparaît toujours pas (cas très fréquent en cité scolaire), c'est que le secrétariat de l'établissement ne l'a pas affecté à la bonne structure dans <strong>STS-Web</strong>. Contactez votre direction pour régulariser l'affectation.</li>
 </ol>
 📺 Tutoriel associé : Actualisation_equipe_classes.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+            # ✅ ICI, LE BLOC TEXTE DU DISJONCTEUR 'est_doc_synthese'
+            elif est_doc_synthese:
+                texte_brut = """<h3>⚠️ BLOCAGE À 97% : FICHIER SYNTHÈSE ÉTABLISSEMENT</h3>
+<p><strong>Explication du message d'erreur :</strong> L'affichage "0 0 1 Doc Synthèse en attente" et un dossier bloqué à 97% est un <strong>comportement tout à fait normal</strong> d'iPackEPS. Cela signifie que l'intégralité de vos saisies pédagogiques est correcte.</p>
+<p><strong>Que manque-t-il ?</strong> Le système attend simplement le téléversement final du document académique de synthèse (généralement un export PDF officiel ou une trame tableur fournie par la DEC). <strong>Vous ne devez en aucun cas créer un document vous-même.</strong></p>
+<p><strong>Procédure de dépôt :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Récupérez le document officiel généré pour votre établissement.</li>
+  <li><strong>[Étape 2]</strong> Allez dans le menu <strong>[Dossiers] > [Dossier EPS] > [Dépôt des référentiels]</strong> (ou [Dépôts]).</li>
+  <li><strong>[Étape 3]</strong> Téléversez le fichier. Votre dossier passera alors à 100% et pourra être transmis.</li>
+</ol>
+📺 Tutoriel associé : Depot_referentiels_iPackEPS.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_question_pedagogique:

@@ -490,8 +490,34 @@ if openai_api_key:
     )
 
 
+# ✅ Liens officiels affichés sous les réponses de l'onglet Textes (aucun appel à l'IA, aucun token).
+# Clé = nom du fichier dans data/ ; valeur = (libellé affiché, [(texte du lien, adresse), ...]).
+# Pour ajouter un lien : ajouter une ligne ici. Sans entrée, le document s'affiche en texte simple.
+SOURCES_REFERENCE = {
+    "programmes_officiels_eps.txt": (
+        "Programmes officiels d'EPS (collège et lycée)",
+        [
+            ("Programmes cycles 2, 3 et 4 (BO spécial n°11, 26 nov. 2015)", "https://www.education.gouv.fr/bo/15/Special11/MENE1526483A.htm"),
+            ("Programme EPS lycée GT (BO spécial n°1, 22 janv. 2019)", "https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm"),
+        ],
+    ),
+    "matrice_AFL_lycee.txt": (
+        "Matrice des AFL du lycée (programmes 2019)",
+        [("Programme EPS lycée GT (BO spécial n°1, 22 janv. 2019)", "https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm")],
+    ),
+    "prog_apsa_lycee_tronc_commun.txt": (
+        "Programmation des APSA au lycée (tronc commun)",
+        [("Programme EPS lycée GT (BO spécial n°1, 22 janv. 2019)", "https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm")],
+    ),
+    "programmes_college_2015_carte_mentale.txt": (
+        "Programmes du collège 2015 (carte mentale)",
+        [("Programmes cycles 2, 3 et 4 (BO spécial n°11, 26 nov. 2015)", "https://www.education.gouv.fr/bo/15/Special11/MENE1526483A.htm")],
+    ),
+}
+
+
 def libelle_source(node_with_score):
-    """Nom lisible du document d'où provient un extrait (affiché sous la réponse, onglet Textes)."""
+    """Nom lisible (avec liens officiels si connus) du document d'où provient un extrait."""
     try:
         md = node_with_score.node.metadata or {}
     except Exception:
@@ -504,7 +530,20 @@ def libelle_source(node_with_score):
         return str(titre)
     src = md.get("source")
     if src:
-        nom = re.sub(r"\.txt$", "", str(src), flags=re.IGNORECASE).replace("_", " ").strip()
+        cle = str(src)
+        m = re.search(r"\(([^()]+\.txt)\)\s*$", cle)
+        if m:
+            cle = m.group(1)
+        if cle in SOURCES_REFERENCE:
+            libelle, liens = SOURCES_REFERENCE[cle]
+            html = libelle
+            if liens:
+                html += " — " + " · ".join(
+                    f'<a href="{u}" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">{t}</a>'
+                    for t, u in liens
+                )
+            return html
+        nom = re.sub(r"\.txt$", "", cle, flags=re.IGNORECASE).replace("_", " ").strip()
         return nom[:1].upper() + nom[1:]
     return None
 
@@ -661,7 +700,7 @@ def initialiser_base_textes(cle_fremt):
                 docs_textes.append(
                     Document(
                         text=f.read(),
-                        metadata={"source": "Programmes officiels EPS (programmes_officiels_eps.txt)"},
+                        metadata={"source": "programmes_officiels_eps.txt"},
                     )
                 )
         except Exception:
@@ -1323,25 +1362,25 @@ if prompt_a_traiter:
                             nodes_bruts = retriever_textes.retrieve(prompt)
                             for n in nodes_bruts:
                                 extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
-                                sources_consultees.append(libelle_source(n))
+                                sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
                         if retriever_peda:
                             nodes_peda = retriever_peda.retrieve(prompt)
                             for n in nodes_peda:
                                 extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
-                                sources_consultees.append(libelle_source(n))
+                                sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
                     else:
                         if mode == "textes":
                             if retriever_textes:
                                 nodes_bruts = retriever_textes.retrieve(prompt)
                                 for n in nodes_bruts:
                                     extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
-                                    sources_consultees.append(libelle_source(n))
+                                    sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
                             
                             if retriever_peda and any(w in p_low for w in mots_cles_intention_peda):
                                 nodes_peda = retriever_peda.retrieve(prompt)
                                 for n in nodes_peda:
                                     extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
-                                    sources_consultees.append(libelle_source(n))
+                                    sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
                                     
                         elif mode == "examens":
                             if retriever_santorin:
@@ -1861,10 +1900,16 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
         bloc_sources = ""
         if mode == "textes":
+            # On ne garde que les documents proches du meilleur résultat (évite d'afficher des sources peu pertinentes)
+            scores = [sc for _, sc in sources_consultees if sc is not None]
+            meilleur = max(scores) if scores else None
             vus = []
-            for lib in sources_consultees:
-                if lib and lib not in vus:
-                    vus.append(lib)
+            for lib, sc in sources_consultees:
+                if not lib or lib in vus:
+                    continue
+                if meilleur is not None and sc is not None and sc < 0.9 * meilleur:
+                    continue
+                vus.append(lib)
             if vus:
                 bloc_sources = (
                     "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #38BDF8; font-size: 12.5px; color: #CBD5E1;'>"

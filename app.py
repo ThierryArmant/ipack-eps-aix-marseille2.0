@@ -498,6 +498,9 @@ def obtenir_cle_fichier():
                 mtimes.append(os.path.getmtime(fp))
             except Exception:
                 pass
+    for fp in ["data/programmes_officiels_eps.txt"]:
+        if os.path.exists(fp):
+            mtimes.append(os.path.getmtime(fp))
     chemin_textes = "data/textes/base_textes_officiels.txt"
     if os.path.exists(chemin_textes):
         try:
@@ -631,6 +634,19 @@ def initialiser_base_textes(cle_fremt):
         )
     ]
     docs_textes.extend(charger_dossier_txt_securise("data/textes"))
+    # ✅ AJOUT : programmes officiels d'EPS (collège & lycées) rattachés à la partie Réglementation
+    fp_prog = "data/programmes_officiels_eps.txt"
+    if os.path.exists(fp_prog):
+        try:
+            with open(fp_prog, "r", encoding="utf-8", errors="ignore") as f:
+                docs_textes.append(
+                    Document(
+                        text=f.read(),
+                        metadata={"source": "Programmes officiels EPS (programmes_officiels_eps.txt)"},
+                    )
+                )
+        except Exception:
+            pass
     if os.path.exists("data/textes/premier_degré"):
         docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())

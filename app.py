@@ -1055,7 +1055,7 @@ prompt_a_traiter = st.session_state.get("current_prompt", None)
 if prompt_a_traiter:
     prompt = prompt_a_traiter
     
-    # 🛡️ SÉCURITÉ ANTI-DOUBLON ABSOLUE
+    # 🛡️️ SÉCURITÉ ANTI-DOUBLON ABSOLUE
     if "current_prompt" in st.session_state:
         del st.session_state.current_prompt
 
@@ -1136,7 +1136,7 @@ if prompt_a_traiter:
   <li><strong>Restriction d'usage :</strong> En tant qu'assistant numérique spécialisé, je ne suis pas programmé pour traiter des requêtes extérieures à ces périmètres professionnels.</li>
   <li><strong>Recommandation :</strong> Pour toute autre thématique, veuillez utiliser un outil généraliste ou vous référer directement aux services compétents de votre hiérarchie.</li>
 </ul>"""
-            badge, color_card = "⚖️ HORS-SUJET", "securite-card"
+            badge, color_card = "⚖️️ HORS-SUJET", "securite-card"
         else:
             texte_brut = ""
             extraits_doc = ""
@@ -1167,7 +1167,8 @@ if prompt_a_traiter:
             # ==================================================================
             # 3. LISTE DES DISJONCTEURS PYTHON
             # ==================================================================
-            est_import_pronote = (mode == "ipack" and "pronote" in p_low and any(w in p_low for w in ["import", "élève", "eleve", "classe", "classes"]))
+            # ✅ CORRECTION 1 : Le disjoncteur Pronote/Ecole Directe est élargi aux mots "extraire" et "groupes"
+            est_import_pronote = (mode == "ipack" and any(w in p_low for w in ["pronote", "ecole directe", "ecoledirecte", "ecole direct"]) and any(w in p_low for w in ["import", "importer", "extraire", "extraction", "élève", "eleve", "classe", "classes", "groupe", "groupes"]))
             est_saisir_notes = (not est_import_pronote and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) and any(w in p_low for w in ["note", "notes"]) and not any(w in p_low for w in ["santorin", "cyclades"]) and mode != "examens")
             est_connexion = (any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"]))
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
@@ -1196,7 +1197,6 @@ if prompt_a_traiter:
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
             
-            # 🛑 Le disjoncteur qui redirige la pédagogie hors des onglets techniques :
             est_question_pedagogique = (
                 mode != "textes" 
                 and any(w in p_low for w in mots_cles_intention_peda)
@@ -1263,12 +1263,12 @@ if prompt_a_traiter:
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
             # ==================================================================
             if est_import_pronote:
-                texte_brut = """<h3>📥 IMPORTATION DES LISTES D'ÉLÈVES DEPUIS PRONOTE</h3>
-<p><strong>Principe :</strong> L'importation des données d'élèves depuis Pronote permet d'initialiser vos classes rapidement en début d'année dans iPackEPS.</p>
+                texte_brut = """<h3>📥 IMPORTATION DES GROUPES ET ÉLÈVES DEPUIS PRONOTE / ECOLE DIRECTE</h3>
+<p><strong>Principe :</strong> L'importation des données d'élèves depuis votre logiciel de vie scolaire permet d'initialiser vos classes rapidement dans iPackEPS.</p>
 <p><strong>Procédure :</strong></p>
 <ol>
   <li><strong>[Étape 1]</strong> Rendez-vous dans les paramètres d'importation de votre établissement sur iPackEPS.</li>
-  <li><strong>[Étape 2]</strong> Chargez le fichier d'export généré par votre logiciel de vie scolaire (Pronote).</li>
+  <li><strong>[Étape 2]</strong> Chargez le fichier d'export généré par votre logiciel de vie scolaire (Pronote, École Directe).</li>
   <li><strong>[Étape 3]</strong> Validez l'importation pour peupler vos listes d'élèves.</li>
 </ol>
 📺 Tutoriel associé : import_eleves_pronote.mp4"""
@@ -1568,7 +1568,6 @@ CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {verites_terrain_pierre}
 """
 
-                # ✅ AJOUT DE L'ÉTAPE 0 : VÉROUILLAGE ABSOLU DE LA RECHERCHE WEB
                 consigne_ia = f"""Tu es l'assistant IA officiel en Éducation Physique et Sportive (EPS).
 Ton expertise couvre deux grands domaines :
 1. L'ingénierie pédagogique et didactique (programmes, évaluation, construction de cycles).
@@ -1607,23 +1606,19 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - LYCÉE (Voie GT, Pro, CAP) : Cadre strict du CCF. Évaluation via Cyclades et Santorin.
 
 ======================================================================
-ÉTAPE 3 : ARBRE DE DÉCISION DES LOGICIELS (IPACKEPS, SANTORIN, CYCLADES)
+ÉTAPE 3 : ARBRE DE DÉCISION DES LOGICIELS ET RÈGLE DE MORT
 ======================================================================
-Si la question traite d'un blocage, d'une erreur informatique ou d'une saisie de notes, applique cette logique descendante :
-
 1. LA RÈGLE ZÉRO DES BLOCAGES STRUCTURELS :
 - Si l'utilisateur signale un rejet de protocole ou une impossibilité de saisir : INTERDICTION de répondre "contactez la direction". Donne la procédure de nettoyage dans iPackEPS et l'alignement dans Cyclades.
 
 2. SANTORIN : CADENAS ET VERROUILLAGES :
 - Un enseignant ne peut PAS déverrouiller un lot. Cette action relève EXCLUSIVEMENT du Chef d'établissement depuis sa console "Santorin-Direction".
 
-3. BLINDAGE ANTI-HALLUCINATION INFORMATIQUE :
-- URLS : Interdiction formelle d'inventer des liens web. Accès toujours par le portail ARENA.
-- FORMATAGE : Utilise des paragraphes factuels et des étapes numérotées claires.
-
-4. GESTION DES INTERFACES (GUIDAGE POSITIF) :
-- Pour toute manipulation logicielle, utilise **uniquement** les chemins de navigation (ex: [Dossiers] > [Dossier EPS]) qui sont explicitement documentés dans les textes fournis.
-- Si le chemin exact est absent de ton contexte documentaire, explique le principe général de l'action et recommande simplement à l'utilisateur de se fier aux intitulés de son écran, sans citer de nom de bouton ou de menu spécifique.
+3. GESTION DES INTERFACES ET ZÉRO INVENTION (RÈGLE DE MORT ABSOLUE) :
+- Tu as l'INTERDICTION FORMELLE d'inventer des noms de menus, des boutons, des cases à cocher ou des onglets.
+- Si le chemin de navigation exact ou la procédure de clic n'est PAS textuellement écrit dans le "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous, TU NE DOIS RIEN INVENTER.
+- Si tu ne trouves pas la procédure exacte dans le contexte, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
+- Il est strictement interdit d'utiliser tes connaissances générales pour deviner comment fonctionne iPackEPS, Santorin ou Cyclades.
 
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)

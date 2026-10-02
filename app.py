@@ -1338,7 +1338,7 @@ if prompt_a_traiter:
             est_ressaisie_rentree = (mode == "ipack" and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"]) and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"]))
             est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer"]))
             est_dossier_peda = any(w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"])
-            est_sss_bloque = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"]))
+            est_sss_bloque = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"]) and not any(w in p_low for w in ["projet annuel", "projet", "bilan", "apsa"]))
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
@@ -1584,7 +1584,7 @@ if prompt_a_traiter:
 <p><strong>Règle institutionnelle :</strong> La création d’un groupe de type SSS nécessite obligatoirement que le recteur ait validé la demande. Par défaut, iPackEPS bloque la création de ce type de groupe.</p>
 <p><strong>Procédure de déblocage :</strong></p>
 <ol>
-  <li><strong>[Étape 1]</strong> Vérifiez que votre dossier a bien été validé et envoyé par votre direction.</li>
+  <li><strong>[Étape 1]</strong> Vérifiez que le recteur a bien validé la demande d'ouverture de votre section sportive.</li>
   <li><strong>[Étape 2]</strong> Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.</li>
 </ol>
 📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""

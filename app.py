@@ -588,7 +588,7 @@ def initialiser_base_santorin(cle_fremt):
     docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
     docs_santorin.extend(charger_consignes_examens())
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=8
+        similarity_top_k=12
     )
 
 
@@ -612,7 +612,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
     docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=8
+        similarity_top_k=12
     )
 
 
@@ -635,7 +635,7 @@ def initialiser_base_textes(cle_fremt):
         docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_textes, recursive=True).as_retriever(
-        similarity_top_k=8
+        similarity_top_k=12
     )
 
 
@@ -654,7 +654,7 @@ def initialiser_base_peda(cle_fremt):
     ]
     docs_peda.extend(charger_dossier_txt_securise("data/peda"))
     return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-        similarity_top_k=8
+        similarity_top_k=12
     )
 
 
@@ -1209,7 +1209,7 @@ if prompt_a_traiter:
             # ==================================================================
             # ✅ CORRECTION 1 : Le disjoncteur Pronote/Ecole Directe est élargi aux mots "extraire" et "groupes"
             est_import_pronote = (mode == "ipack" and any(w in p_low for w in ["pronote", "ecole directe", "ecoledirecte", "ecole direct"]) and any(w in p_low for w in ["import", "importer", "extraire", "extraction", "élève", "eleve", "classe", "classes", "groupe", "groupes"]))
-            est_saisir_notes = (not est_import_pronote and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) and any(w in p_low for w in ["note", "notes"]) and not any(w in p_low for w in ["santorin", "cyclades"]) and mode != "examens")
+            est_saisir_notes = (not est_import_pronote and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) and any(w in p_low for w in ["note", "notes"]) and not any(w in p_low for w in ["santorin", "cyclades", "protocole", "sequence", "séquence", "référentiel", "referentiel", "bloqu"]) and mode != "examens")
             est_connexion = (any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"]))
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
@@ -1218,20 +1218,20 @@ if prompt_a_traiter:
             est_tasa = mode == "textes" and "tasa" in p_low
             est_unss = any(w in p_low for w in ["unss", "championnat de france", "championnats de france", "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"])
             est_deplacer_candidat = (mode != "textes" and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"]) and any(w in p_low for w in ["candidat", "élève", "eleve"]) and "lot" in p_low)
-            est_eleve_arrivant = (mode != "textes" and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee", "nouvel", "nouvelle"]) and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"]))
+            est_eleve_arrivant = (mode != "textes" and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee"]) and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"]))
             est_apsa_etablissement_vs_nationale = (any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"]) and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"]))
             est_verrouiller_lot = (mode == "examens" and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"]) and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"]))
             est_deverrouiller_lot = (mode == "examens" and (any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"]) or "verrouillé" in p_low) and any(w in p_low for w in ["santorin", "lot", "copie"]) and not est_verrouiller_lot)
-            est_dispense_totale = (mode != "textes" and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"]) and any(w in p_low for w in ["total", "année", "annee", "toutes les épreuves", "toutes les epreuves"]))
+            est_dispense_totale = (mode != "textes" and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"]) and any(w in p_low for w in ["total", "toute l'année", "toute l'annee", "pour l'année", "pour l'annee", "toutes les épreuves", "toutes les epreuves"]))
             est_exclusion = (mode != "textes" and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"]) and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"]))
-            est_aucun_eleve = (mode == "ipack" and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"]))
+            est_aucun_eleve = (mode == "ipack" and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "liste vide", "aucun candidat"]))
             est_referentiels_rentree = (mode == "ipack" and any(phrase in p_low for phrase in ["configurer les référentiels de rentrée", "déclarer les apsa de rentrée", "dépôt initial des référentiels", "campagne de rentrée"]))
             est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
             est_eppcs = (mode == "ipack" and any(w in p_low for w in ["eppcs", "specialite eps", "spécialité eps"]) and any(w in p_low for w in ["depot", "déposer", "fiche", "fiches", "certificative", "certificatives", "premiere", "première"]))
             est_shn = any(w in p_low for w in ["shn", "sportif de haut niveau", "haut niveau", "ppf", "sportifs de haut niveau"])
-            est_creation_groupe = (mode == "ipack" and any(w in p_low for w in ["groupe", "groupes"]) and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"]))
+            est_creation_groupe = (mode == "ipack" and any(w in p_low for w in ["groupe", "groupes"]) and any(w in p_low for w in ["mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe", "interclasse", "barrette", "décloison", "decloison"]) and not any(w in p_low for w in ["eppcs", "sss", "ulis", "section sportive", "association sportive"]))
             est_ressaisie_rentree = (mode == "ipack" and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"]) and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"]))
-            est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer", "mettre", "faire"]))
+            est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer"]))
             est_dossier_peda = any(w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"])
             est_sss_bloque = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"]))
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
@@ -1251,10 +1251,17 @@ if prompt_a_traiter:
                 ])
                 and not contient(p_norm, [r"groupes?\b"])
             )
+            # ✅ CORRECTION : seuls les mots vraiment pédagogiques bloquent le RAG
+            # (avant : "cycle", "situation", "programme", "grille"... bloquaient des questions iPackEPS légitimes)
+            mots_peda_stricts = [
+                "séance", "seance", "échauffement", "echauffement", "didactique", "pédagogie", "pedagogie",
+                "comment enseigner", "comment évaluer", "comment evaluer", "quel exercice", "quels exercices",
+                "comment noter sur le terrain",
+            ]
             est_question_pedagogique = (
                 mode != "textes" 
-                and any(w in p_low for w in mots_cles_intention_peda)
-                and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa"])
+                and any(w in p_low for w in mots_peda_stricts)
+                and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa", "sequence", "séquence", "référentiel", "referentiel", "certificati", "dossier"])
             )
 
             est_cas_direct = (

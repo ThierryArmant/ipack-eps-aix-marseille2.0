@@ -1504,7 +1504,7 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Actualisation_equipe_classes.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-            elif est_doc_synthese:
+           elif est_doc_synthese:
                 texte_brut = """<h3>⚠️ BLOCAGE À 97% : FICHIER SYNTHÈSE ÉTABLISSEMENT</h3>
 <p><strong>Explication du message d'erreur :</strong> L'affichage "0 0 1 Doc Synthèse en attente" et un dossier bloqué à 97% est un <strong>comportement tout à fait normal</strong> d'iPackEPS. Cela signifie que l'intégralité de vos saisies pédagogiques est correcte.</p>
 <p><strong>Que manque-t-il ?</strong> Le système attend simplement le téléversement final du document académique de synthèse (généralement un export PDF officiel ou une trame tableur fournie par la DEC). <strong>Vous ne devez en aucun cas créer un document vous-même.</strong></p>
@@ -1518,7 +1518,7 @@ if prompt_a_traiter:
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
             elif est_eleves_inactifs:
-            texte_brut = """<h3>📋 GESTION DES ÉLÈVES INACTIFS OU PARTIS</h3>
+                texte_brut = """<h3>📋 GESTION DES ÉLÈVES INACTIFS OU PARTIS</h3>
 <p><strong>Règle fondamentale :</strong> Ne cherchez jamais à supprimer, masquer ou décocher manuellement la fiche d'un élève inactif ou parti depuis l'interface ou l'onglet de visualisation. iPackEPS ne comporte aucune option de suppression manuelle individuelle.</p>
 <p><strong>Procédure de mise à jour :</strong></p>
 <ol>

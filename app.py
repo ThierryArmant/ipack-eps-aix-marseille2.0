@@ -1806,6 +1806,7 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - Tu as l'INTERDICTION FORMELLE d'inventer des noms de menus, des boutons, des cases à cocher ou des onglets.
 - Tu dois t'appuyer en priorité sur le "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous pour répondre aux procédures. 
 - Si l'information figure dans le contexte (même avec des synonymes comme "départ", "inactif" ou "actualisation"), utilise-la pour guider l'utilisateur.
+- Si plusieurs procédures du contexte semblent proches, choisis UNIQUEMENT celle dont la cause correspond exactement au symptôme décrit par l'utilisateur. Ne mélange jamais deux procédures différentes dans une même réponse et n'ajoute aucune étape (menu, bouton, vérification) qui ne figure pas mot pour mot dans le contexte.
 - Si et seulement si la réponse est totalement absente du contexte fourni, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
 - Il est strictement interdit d'utiliser tes connaissances générales extérieures pour deviner comment fonctionne iPackEPS.
 

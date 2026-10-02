@@ -1,0 +1,9 @@
+=== PRÉCISION : « PROJET ANNUEL SSS » QUI DIT QU'IL N'Y A PAS DE GROUPE SSS OU PAS D'APSA ASSOCIÉE (reformulation de fiches existantes, aucune information nouvelle) ===
+Ce fichier ne contient aucune procédure nouvelle. Il relie le symptôme décrit par les enseignants aux fiches déjà présentes dans la base (articles 17 et 31, Dossier SSS).
+
+### [DIAGNOSTIC : JE CRÉE MES GROUPES DE SECTION SPORTIVE MAIS LE PROJET ANNUEL SSS DIT QU'IL N'Y A PAS DE GROUPE DE TYPE SSS OU PAS D'APSA ASSOCIÉE]
+- Règle du Projet Annuel SSS : les rubriques [Projets Annuels SSS] et [Bilan SSS] ne sont actives que si iPackEPS trouve au moins un groupe de TYPE SSS dans l'établissement. Un groupe créé avec le type EPS ne compte pas comme groupe SSS.
+- Si le type SSS n'est pas proposé ou refusé à la création du groupe : la création d'un groupe de type SSS nécessite que le recteur ait validé la demande d'ouverture de la section sportive. Par défaut iPackEPS n'autorise pas ce type de groupe. Chaque année, le responsable iPackEPS de l'académie met à jour la liste des SSS autorisées. Si le dossier a été validé par le recteur mais que la création reste impossible, faire un simple signalement par mail au responsable iPackEPS ou à l'IPR pour que l'établissement soit activé.
+- APSA associée : un groupe SSS ne peut être associé qu'à une seule APSA. Pour une section qui travaille plusieurs APSA, créer manuellement une APSA portant le nom de l'ensemble (par exemple « Football-Musculation ») dans [Dossiers] / [Dossier EPS] / [APSA], puis l'associer au groupe SSS.
+- Ordre de travail : l'équipe doit d'abord configurer l'ensemble du Dossier EPS (groupes, APSA, élèves, équipements sportifs, emploi du temps), car le projet de section reprend les élèves placés dans la SSS, les créneaux de SSS de l'emploi du temps et les professeurs qui encadrent.
+- Ne pas répondre uniquement « signalez-vous à votre IPR » : vérifier d'abord le type du groupe (SSS et non EPS) et l'APSA associée.

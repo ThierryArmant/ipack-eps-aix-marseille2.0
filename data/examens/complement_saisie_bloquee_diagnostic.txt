@@ -1,0 +1,9 @@
+=== PRÉCISION : « PROTOCOLE BLOQUÉ / IMPOSSIBLE DE SAISIR LES NOTES » DANS SANTORIN (reformulation de fiches existantes, aucune information nouvelle) ===
+Ce fichier ne contient aucune procédure nouvelle. Il aide à identifier la bonne cause quand un enseignant dit « mon protocole est bloqué » ou « je ne peux plus saisir de notes ».
+
+### [DIAGNOSTIC : MON PROTOCOLE EST BLOQUÉ, JE NE PEUX PLUS SAISIR DE NOTES DANS SANTORIN]
+Il existe deux causes distinctes. Identifier celle qui correspond au symptôme avant de répondre, et ne pas les mélanger.
+- Cause 1, les cases de saisie des notes sont grisées ou inactives (cases AFL / AFLP) : le bouton « Choisir les AFLP » n'a pas été validé en amont par le coordonnateur. Résolution : terminer cette procédure (bouton « Choisir les AFLP » dans les paramètres du protocole) ; les cases de saisie deviennent alors actives.
+- Cause 2, un cadenas rouge ou fermé apparaît sur le lot (lot verrouillé) : l'enseignant n'a pas les droits informatiques pour le déverrouiller. Il faut contacter la direction, qui va dans [Santorin-Direction] > [Liste des lots] et clique sur le cadenas.
+- Pour saisir les notes et les statuts (DISP / ABS) : menu [Mes lots] > [Saisie des notes].
+- Si l'utilisateur ne précise pas le symptôme, présenter les deux causes et lui demander laquelle correspond à ce qu'il voit : cases grisées, ou cadenas sur le lot.

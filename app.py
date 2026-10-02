@@ -490,6 +490,25 @@ if openai_api_key:
     )
 
 
+def libelle_source(node_with_score):
+    """Nom lisible du document d'où provient un extrait (affiché sous la réponse, onglet Textes)."""
+    try:
+        md = node_with_score.node.metadata or {}
+    except Exception:
+        return None
+    titre = md.get("title")
+    url = md.get("url")
+    if titre and url:
+        return f'<a href="{url}" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">{titre}</a>'
+    if titre:
+        return str(titre)
+    src = md.get("source")
+    if src:
+        nom = re.sub(r"\.txt$", "", str(src), flags=re.IGNORECASE).replace("_", " ").strip()
+        return nom[:1].upper() + nom[1:]
+    return None
+
+
 def obtenir_cle_fichier():
     mtimes = []
     for fp in ["data/examens/memoire_examens_santorin.txt", "ipack.txt", "data/textes/partenariats_defense_citoyennete.txt"]:
@@ -1195,6 +1214,7 @@ if prompt_a_traiter:
         else:
             texte_brut = ""
             extraits_doc = ""
+            sources_consultees = []
             badge, color_card = "INFORMATION", "general-card"
 
             verites_terrain_pierre = ""
@@ -1303,21 +1323,25 @@ if prompt_a_traiter:
                             nodes_bruts = retriever_textes.retrieve(prompt)
                             for n in nodes_bruts:
                                 extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
+                                sources_consultees.append(libelle_source(n))
                         if retriever_peda:
                             nodes_peda = retriever_peda.retrieve(prompt)
                             for n in nodes_peda:
                                 extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
+                                sources_consultees.append(libelle_source(n))
                     else:
                         if mode == "textes":
                             if retriever_textes:
                                 nodes_bruts = retriever_textes.retrieve(prompt)
                                 for n in nodes_bruts:
                                     extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
+                                    sources_consultees.append(libelle_source(n))
                             
                             if retriever_peda and any(w in p_low for w in mots_cles_intention_peda):
                                 nodes_peda = retriever_peda.retrieve(prompt)
                                 for n in nodes_peda:
                                     extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
+                                    sources_consultees.append(libelle_source(n))
                                     
                         elif mode == "examens":
                             if retriever_santorin:
@@ -1807,6 +1831,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
         texte_brut = re_links
 
+        # ✅ CORRECTION D'AFFICHAGE : le gras Markdown **texte** de l'IA devenait des astérisques visibles
+        texte_brut = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", texte_brut, flags=re.DOTALL)
+
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
             texte_nettoye.replace("<p>", "")
@@ -1831,8 +1858,23 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             "</div>"
         )
 
+        # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
+        bloc_sources = ""
+        if mode == "textes":
+            vus = []
+            for lib in sources_consultees:
+                if lib and lib not in vus:
+                    vus.append(lib)
+            if vus:
+                bloc_sources = (
+                    "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #38BDF8; font-size: 12.5px; color: #CBD5E1;'>"
+                    "<strong>📚 Documents de référence consultés pour cette réponse :</strong><br>"
+                    + "<br>".join("• " + v for v in vus[:5])
+                    + "</div>"
+                )
+
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{footer_assistance}</div>'
         )
 
         log_interaction(

@@ -1,0 +1,17 @@
+=== COMPLÉMENT SOURCÉ : INTERFAÇAGE iPackEPS / CYCLADES / SANTORIN (document 2024-2025) ===
+Source : « Interfaçage iPackEPS / Cyclades » (version minimale iPackEPS 2024.2.X), document diffusé par l'académie de Corse :
+https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_SaisiesCycladesSantorin.pdf
+ATTENTION : ce document date de l'année 2024-2025. Les intitulés de menus peuvent avoir évolué depuis (versions 2025 et 2026.2.x d'iPackEPS). En cas de doute, renvoyer vers l'assistance iPackEPS ou la DEC.
+
+### [SITUATION: INTERFAÇAGE iPackEPS -> CYCLADES -> SANTORIN, ÉTAPES DANS L'ORDRE (document 2024-2025)]
+- Calendrier : les saisies débutent à partir du mois de janvier, lorsque la commission académique a validé les protocoles des établissements.
+- Étape 1, export depuis iPackEPS : menu [Dossiers] / [Dossier Certificatif] / [Cyclades]. Vérifier que tous les élèves sont affectés à un groupe, puis générer le fichier d'élèves. Action réservée au chef d'établissement.
+- Étape 2, import dans Cyclades : menu d'import des élèves, accessible depuis le portail du chef d'établissement uniquement.
+- Étape 3, vérification des protocoles dans Cyclades : menu [EPS] / [Associer les élèves à un protocole], accessible au chef d'établissement et à l'enseignant. Les élèves sans protocole doivent être réaffectés manuellement.
+- Étape 4, réaffectation des enseignants si nécessaire : menu [EPS] / [Contrôler / Réaffecter des protocoles], réservé au chef d'établissement.
+- Étape 5, distribution dans Santorin : menu [Distribution]. Une distribution automatique transforme chaque protocole en lot de correction.
+- Étape 6, saisie des notes dans Santorin : accessible à l'enseignant ou au référent d'établissement, élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP.
+- Erreur fréquente : ignorer l'export lorsque l'établissement n'a pas de base d'élèves connue (CFA notamment).
+
+### [SITUATION: QUI PEUT EXPORTER LE FICHIER D'ÉLÈVES VERS CYCLADES ? (document 2024-2025)]
+- Selon ce document, l'export du fichier d'élèves depuis iPackEPS et son import dans Cyclades sont des actions du chef d'établissement (ou de son secrétariat), pas de l'enseignant. L'enseignant intervient pour vérifier l'association élève / protocole dans Cyclades.

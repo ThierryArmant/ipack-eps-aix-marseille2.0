@@ -1504,7 +1504,7 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Actualisation_equipe_classes.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
-           elif est_doc_synthese:
+            elif est_doc_synthese:
                 texte_brut = """<h3>⚠️ BLOCAGE À 97% : FICHIER SYNTHÈSE ÉTABLISSEMENT</h3>
 <p><strong>Explication du message d'erreur :</strong> L'affichage "0 0 1 Doc Synthèse en attente" et un dossier bloqué à 97% est un <strong>comportement tout à fait normal</strong> d'iPackEPS. Cela signifie que l'intégralité de vos saisies pédagogiques est correcte.</p>
 <p><strong>Que manque-t-il ?</strong> Le système attend simplement le téléversement final du document académique de synthèse (généralement un export PDF officiel ou une trame tableur fournie par la DEC). <strong>Vous ne devez en aucun cas créer un document vous-même.</strong></p>

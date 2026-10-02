@@ -501,6 +501,17 @@ SOURCES_REFERENCE = {
             ("Programme EPS lycée GT (BO spécial n°1, 22 janv. 2019)", "https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm"),
         ],
     ),
+    "complement_obligations_service_eps.txt": (
+        "Obligations de service des professeurs d'EPS (décret 2014-940)",
+        [("Circulaire d'application (BO)", "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm")],
+    ),
+    "complement_natation_scolaire.txt": (
+        "Natation scolaire et savoir-nager",
+        [
+            ("Circulaire 2017-127 (natation)", "https://ent2d.ac-bordeaux.fr/disciplines/eps/wp-content/uploads/sites/33/2018/09/Enseignement-de-la-natation-Circulaire-n%C2%B0-2017-127-du-22-8-2017.pdf"),
+            ("Aisance aquatique (BO 2022)", "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"),
+        ],
+    ),
     "matrice_AFL_lycee.txt": (
         "Matrice des AFL du lycée (programmes 2019)",
         [("Programme EPS lycée GT (BO spécial n°1, 22 janv. 2019)", "https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm")],

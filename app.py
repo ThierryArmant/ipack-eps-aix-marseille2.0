@@ -1196,6 +1196,7 @@ if prompt_a_traiter:
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
+            est_eleves_inactifs = (mode == "ipack" and any(w in p_low for w in ["inactif", "inactifs", "parti", "partis", "quitte"]) and any(w in p_low for w in ["sortir", "retirer", "supprimer", "enlever", "disparaître", "disparaitre", "liste", "élèves", "eleves"]))
             
             est_question_pedagogique = (
                 mode != "textes" 
@@ -1516,6 +1517,18 @@ if prompt_a_traiter:
 </ol>
 📺 Tutoriel associé : Depot_referentiels_iPackEPS.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+            elif est_eleves_inactifs:
+                texte_brut = """<h3>📋 GESTION DES ÉLÈVES INACTIFS OU PARTIS</h3>
+<p><strong>Règle fondamentale :</strong> Ne cherchez jamais à supprimer, masquer ou décocher manuellement la fiche d'un élève inactif ou parti depuis l'interface ou l'onglet de visualisation. iPackEPS ne comporte aucune option de suppression manuelle individuelle.</p>
+<p><strong>Procédure de mise à jour :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> La liste des élèves dans iPackEPS est le reflet strict de la base administrative de l'établissement (SIÈCLE, Pronote ou École Directe).</li>
+  <li><strong>[Étape 2]</strong> L'actualisation de la base administrative (ou un nouvel import / actualisation de la liste des élèves via iPackEPS) régularisera automatiquement l'effectif.</li>
+  <li><strong>[Étape 3]</strong> L'élève inactif ou parti disparaîtra alors de vos listes de manière totalement automatisée.</li>
+</ol>
+📺 Tutoriel associé : Import_automatique_eleves.mp4"""
+            badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"            
 
             elif est_question_pedagogique:
                 texte_brut = """<h3>🛑 REDIRECTION REQUISE : QUESTION PÉDAGOGIQUE</h3>

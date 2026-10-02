@@ -5,6 +5,7 @@ Ce fichier ne contient aucune procédure nouvelle. Il rapproche, avec les mots q
 - Symptôme : les cases de saisie des notes (AFL / AFLP) sont inactives ou grisées, on ne peut pas saisir les notes d'un protocole.
 - Cause (fiche « CASES DE SAISIE AFLP INACTIVES ») : ce n'est pas un problème de droits ni un bug informatique. La procédure est incomplète : le bouton « Choisir les AFLP » n'a pas été activé et validé en amont.
 - Résolution : chercher le bouton « Choisir les AFLP » et terminer la procédure. D'après la fiche existante, le coordonnateur valide le choix des AFLP dans les paramètres du protocole de l'établissement ; les cases de saisie deviennent alors actives pour tous les correcteurs.
+- Où se fait la saisie : la saisie des notes des protocoles de CCF se fait dans Santorin, pas dans iPackEPS (iPackEPS n'est pas un carnet de notes). Si la question est posée dans l'onglet iPackEPS, le dire clairement et inviter l'utilisateur à reposer sa question dans la bannière « Examens & Santorin » du hub pour la suite de la procédure.
 - Si le symptôme est différent (message d'erreur, élève sans protocole, lot verrouillé), ne pas appliquer cette fiche et poser la question à nouveau avec le message exact affiché.
 
 ### [NE PAS CONFONDRE : « BOUTON DE CHANGEMENT D'ACTIVITÉ GRISÉ » ET « CASES DE SAISIE DES NOTES INACTIVES »]

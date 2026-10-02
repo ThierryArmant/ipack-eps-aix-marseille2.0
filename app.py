@@ -1529,15 +1529,8 @@ if prompt_a_traiter:
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_eppcs:
-                texte_brut = """<h3>📋 EPPCS (ENSEIGNEMENT DE SPÉCIALITÉ) : RÈGLE DE PREMIÈRE</h3>
-<p><strong>Règle fondamentale :</strong> L'EPPCS (Éducation Physique, Pratiques et Culture Sportives) est un enseignement de spécialité de la voie générale. Il ne fonctionne <strong>pas par CCF</strong> et ne relève pas du tronc commun géré par iPackEPS.</p>
-<p><strong>Procédure en classe de Première :</strong></p>
-<ol>
-  <li><strong>[Étape 1]</strong> Aucune commission académique de certification et <strong>aucun dépôt de fiches certificatives</strong> de type CCF n'est attendu en classe de Première pour cette spécialité.</li>
-  <li><strong>[Étape 2]</strong> Vous ne devez absolument rien déposer sur iPackEPS concernant l'EPPCS en Première.</li>
-  <li><strong>[Étape 3]</strong> L'évaluation certificative interviendra exclusivement en fin de classe de Terminale sous forme d'une épreuve terminale nationale (écrit + oral avec prestation physique).</li>
-</ol>"""
-                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+                texte_brut = """<h3>📋 EPPCS (ENSEIGNEMENT DE SPÉCIALITÉ) : RÈGLE DE PREMIÈRE</h3><p><strong>Règle fondamentale :</strong> L'EPPCS (Éducation Physique, Pratiques et Culture Sportives) est un enseignement de spécialité de la voie générale. Il ne fonctionne <strong>pas par CCF</strong> et ne relève pas du tronc commun géré par iPackEPS.</p><p><strong>Procédure en classe de Première :</strong></p><ol><li><strong>[Étape 1]</strong> Aucune commission académique de certification et <strong>aucun dépôt de fiches certificatives</strong> de type CCF n'est attendu en classe de Première pour cette spécialité.</li><li><strong>[Étape 2]</strong> Vous ne devez absolument rien déposer sur iPackEPS concernant l'EPPCS en Première.</li><li><strong>[Étape 3]</strong> L'évaluation certificative interviendra exclusivement en fin de classe de Terminale sous forme d'une épreuve terminale nationale (écrit + oral avec prestation physique).</li></ol>"""
+                badge, color_card = "🛠️️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_dossier_peda:
                 texte_brut = """<h3>📂 ACCÈS AUX RESSOURCES ET DOSSIERS PÉDAGOGIQUES</h3>

@@ -3,12 +3,43 @@ import datetime
 import os
 import re
 import smtplib
+import unicodedata
 import requests
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
+
+# ======================================================================
+# 🔧 OUTILS DE NORMALISATION ET DE DÉTECTION DE MOTS-CLÉS
+# ======================================================================
+def normaliser(txt):
+    """Minuscule + suppression des accents (é -> e, ù -> u, etc.)."""
+    txt = unicodedata.normalize("NFD", txt.lower())
+    return "".join(c for c in txt if unicodedata.category(c) != "Mn")
+
+
+def contient(txt, motifs):
+    """True si au moins un motif (expression régulière) est trouvé dans txt."""
+    return any(re.search(m, txt) for m in motifs)
+
+
+def contient_mot_cle(texte, mots):
+    """
+    Recherche de mots-clés sans faux positifs :
+    - les mots courts (3 caractères ou moins : ps, ms, cp, cap, bac, loi, eps...)
+      doivent être des mots entiers (évite que "ps" matche "temps" ou "cap" matche "capacité") ;
+    - les mots plus longs sont cherchés en sous-chaîne (tolère pluriels et variantes).
+    """
+    for m in mots:
+        if len(m) <= 3:
+            if re.search(r"(?<!\w)" + re.escape(m) + r"(?!\w)", texte):
+                return True
+        elif m in texte:
+            return True
+    return False
+
 
 # ======================================================================
 # 📊 CONFIGURATION GOOGLE SHEETS LOGS (QUESTIONS HUB)
@@ -54,6 +85,10 @@ except ImportError:
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
+# NB : "Import_automatique_eleves.mp4" est cité dans certains textes ci-dessous
+# mais n'a pas encore d'URL dans ce dictionnaire. Ajoutez la ligne suivante
+# quand vous aurez le lien :
+#     "Import_automatique_eleves.mp4": "https://...",
 VIDEOS_TUTOS = {
 
     "Manipulations_Nouvelle_Annee_iPackEPS.mp4": "https://youtu.be/do_8PVQDuqE",
@@ -137,15 +172,6 @@ div[data-testid="stChatMessage"] p {
 }
 </style>
 """, unsafe_allow_html=True)
-
-# ======================================================================
-# 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
-# ======================================================================
-st.set_page_config(
-    page_title="Hub IA - EPS",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
 
 # ======================================================================
 # 2. GESTION DE LA MÉMOIRE ET DU COMPTEUR DE VISITES & ÉTATS DE VALIDATION
@@ -1072,6 +1098,8 @@ if prompt_a_traiter:
         
         mode = st.session_state.active_module
         p_low = prompt.lower()
+        # Version sans accents, utilisée par les détections robustes (singulier/pluriel, accents oubliés)
+        p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
 
@@ -1081,6 +1109,15 @@ if prompt_a_traiter:
             "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+
+        # Valeurs par défaut : ces variables sont utilisées dans la mise en forme finale,
+        # y compris dans le cas "hors-sujet" où elles ne sont pas recalculées plus bas.
+        est_college = False
+        est_dnb = False
+        est_sss = False
+        est_shn = False
+        texte_brut = ""
+        badge, color_card = "INFORMATION", "general-card"
 
         # ==================================================================
         # 1. DÉFINITION DES MOTS-CLÉS PÉDAGOGIQUES (DÉCLENCHEURS RAG)
@@ -1122,7 +1159,9 @@ if prompt_a_traiter:
                 "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
             ] + mots_cles_intention_peda
             
-            est_totalement_hors_sujet = not any(mot in p_low for mot in mots_cles_eps_admin)
+            # ✅ CORRECTION : les mots courts (ps, ms, cp, cap, bac, loi, eps...) sont cherchés
+            # en mots entiers, pour qu'ils ne matchent plus à l'intérieur d'autres mots ("temps", "capacité"...)
+            est_totalement_hors_sujet = not contient_mot_cle(p_low, [m.lower() for m in mots_cles_eps_admin])
 
         if est_totalement_hors_sujet:
             rappel_hs = (
@@ -1151,10 +1190,11 @@ if prompt_a_traiter:
             except Exception:
                 pass
 
-            est_college = any(w in p_low for w in ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
-            est_clairement_lycee = any(w in p_low for w in ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap", "lycée", "lycee", "lgt", "lp"])
+            # ✅ CORRECTION : mots courts (6e, 5e, cap, bac, lp, lgt...) cherchés en mots entiers
+            est_college = contient_mot_cle(p_low, ["6e", "5e", "4e", "3e", "collège", "college", "dnb", "brevet", "lsu"])
+            est_clairement_lycee = contient_mot_cle(p_low, ["santorin", "ccf", "terminale", "cyclades", "epxcs", "bac", "cap", "lycée", "lycee", "lgt", "lp"])
             
-            est_premier_degre = any(w in p_low for w in [
+            est_premier_degre = contient_mot_cle(p_low, [
                 "tps", "ps", "ms", "gs", "cp", "ce1", "ce2", "cm1", "cm2", 
                 "maternelle", "élémentaire", "elementaire", "atsem", "directeur d'école", "ien"
             ])
@@ -1196,7 +1236,20 @@ if prompt_a_traiter:
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
-            est_eleves_inactifs = (mode == "ipack" and any(w in p_low for w in ["inactif", "inactifs", "parti", "partis", "quitte"]) and any(w in p_low for w in ["sortir", "retirer", "supprimer", "enlever", "disparaître", "disparaitre", "liste", "élèves", "eleves"]))
+            # ✅ CORRECTION : détection robuste des élèves inactifs / partis / inexistants.
+            # - texte sans accents (p_norm), radicaux et mots entiers (singulier ET pluriel : "eleve" / "eleves")
+            # - ajout de "inexistant", "fantôme", "radié", "n'est plus", "sortir", etc.
+            # - exclusion des questions de groupe (déjà traitées ailleurs)
+            est_eleves_inactifs = (
+                mode == "ipack"
+                and contient(p_norm, [r"\beleves?\b", r"\bcandidats?\b", r"\bfiches?\b"])
+                and contient(p_norm, [
+                    r"inexist", r"inactif", r"\bpartis?\b", r"quitt", r"radie",
+                    r"fantome", r"en trop", r"n'?est plus", r"plus dans",
+                    r"sortir", r"\bsorti", r"retirer", r"enlever", r"supprim", r"disparai"
+                ])
+                and not contient(p_norm, [r"groupes?\b"])
+            )
             est_question_pedagogique = (
                 mode != "textes" 
                 and any(w in p_low for w in mots_cles_intention_peda)
@@ -1211,7 +1264,8 @@ if prompt_a_traiter:
                     or est_deverrouiller_lot or est_dispense_totale or est_saisir_notes or est_exclusion
                     or est_aucun_eleve or est_referentiels_rentree or est_import_pronote or est_sss_bloque
                     or est_gestion_sss_ou_sport or est_dossier_peda or est_creation_groupe or est_ressaisie_rentree
-                    or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_question_pedagogique
+                    or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_eleves_inactifs
+                    or est_question_pedagogique
                 )
             ) or est_tasa or est_unss
 
@@ -1292,9 +1346,10 @@ if prompt_a_traiter:
                 badge, color_card = "📅 CALENDRIER OFFICIEL", ("santorin-card" if mode == "examens" else "general-card")
 
             elif est_tasa:
+                # ✅ CORRECTION : le "<" est remplacé par "&lt;" pour ne pas être interprété comme une balise HTML
                 texte_brut = """<h3>🏊 CADRE RÉGLEMENTAIRE - TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA)</h3>
 <p><strong>Obligation de qualification :</strong> Obligatoire pour tout enseignant d'EPS dès sa nomination.</p>
-<p><strong>Protocole technique :</strong> 100m en continu < 3 min 45 s avec parcours spécifique et recherche de mannequin.</p>"""
+<p><strong>Protocole technique :</strong> 100m en continu &lt; 3 min 45 s avec parcours spécifique et recherche de mannequin.</p>"""
                 badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
             elif est_sujet_secours:
@@ -1663,107 +1718,114 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 except Exception as e:
                     texte_brut = f"Erreur de traitement IA : {str(e)}"
 
-            # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
-            if est_college or est_dnb:
-                texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
-                texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
+        # ==================================================================
+        # 7. MISE EN FORME FINALE, LOG ET AFFICHAGE
+        # ✅ CORRECTION MAJEURE : ce bloc était auparavant DANS le "else" (cas non hors-sujet).
+        # Résultat : la réponse "HORS PÉRIMÈTRE INSTITUTIONNEL" n'était jamais affichée
+        # ni enregistrée dans le Google Sheet. Il est maintenant exécuté dans tous les cas.
+        # ==================================================================
 
-            if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
-                texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
+        # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
+        if est_college or est_dnb:
+            texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
+            texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
 
-            if est_shn:
-                texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
-                texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
-                if "Configurer_Classes_Sports_Etudes.mp4" not in texte_brut:
-                    texte_brut += "\n\n📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"
+        if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
+            texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
 
-            texte_brut = texte_brut.replace("```html", "")
-            texte_brut = texte_brut.replace("```HTML", "")
-            texte_brut = texte_brut.replace("```", "")
+        if est_shn:
+            texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
+            texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
+            if "Configurer_Classes_Sports_Etudes.mp4" not in texte_brut:
+                texte_brut += "\n\n📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"
 
-            if mode == "textes" or est_dnb:
-                texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+        texte_brut = texte_brut.replace("```html", "")
+        texte_brut = texte_brut.replace("```HTML", "")
+        texte_brut = texte_brut.replace("```", "")
 
+        if mode == "textes" or est_dnb:
+            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
+
+        texte_brut = re.sub(
+            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
+            "",
+            texte_brut,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+        if mode == "textes":
             texte_brut = re.sub(
-                r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-                "",
+                r"("
+                r"Articles?\s+[\dLRDABab\.\-\s,–]+"
+                r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
+                r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
+                r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
+                r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
+                r"|Bulletin\s+officiel"
+                r"|RGPD"
+                r")",
+                r'<span class="law-highlight">\1</span>',
                 texte_brut,
-                flags=re.IGNORECASE | re.MULTILINE,
+                flags=re.IGNORECASE
             )
+            texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
-            if mode == "textes":
-                texte_brut = re.sub(
-                    r"("
-                    r"Articles?\s+[\dLRDABab\.\-\s,–]+"
-                    r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
-                    r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
-                    r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
-                    r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                    r"|Bulletin\s+officiel"
-                    r"|RGPD"
-                    r")",
-                    r'<span class="law-highlight">\1</span>',
-                    texte_brut,
-                    flags=re.IGNORECASE
+        re_links = re.sub(
+            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
+            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
+            texte_brut,
+        )
+        texte_brut = re_links
+
+        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
+        texte_final = (
+            texte_nettoye.replace("<p>", "")
+            .replace("</p>", "<br>")
+        )
+        texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
+        texte_final = texte_final.replace("\n", "<br>")
+
+        phrase_contexte = (
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
+        )
+
+        footer_assistance = (
+            "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
+            "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques ou didactiques malgré le soin apporté à ma copie. "
+            "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
+            "</div>"
+        ) if mode == "textes" else (
+            "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
+            "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
+            "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
+            "</div>"
+        )
+
+        formatted_answer = (
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
+        )
+
+        log_interaction(
+            question=prompt, 
+            reponse=texte_brut, 
+            mode=mode, 
+            contexte=contexte_choisi_nom, 
+            niveau=niveau_actuel_form
+        )
+
+        st.session_state.messages_hub.append(
+            {"role": "assistant", "type": "text", "content": formatted_answer}
+        )
+
+        for video_name, video_url in VIDEOS_TUTOS.items():
+            if video_name in texte_final:
+                if est_dnb and "santorin" in video_name.lower():
+                    continue
+                st.session_state.messages_hub.append(
+                    {"role": "assistant", "type": "video", "content": video_url}
                 )
-                texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
-
-            re_links = re.sub(
-                r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-                r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
-                texte_brut,
-            )
-            texte_brut = re_links
-
-            texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-            texte_final = (
-                texte_nettoye.replace("<p>", "")
-                .replace("</p>", "<br>")
-            )
-            texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
-            texte_final = texte_final.replace("\n", "<br>")
-
-            phrase_contexte = (
-                f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
-            )
-
-            footer_assistance = (
-                "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-                "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques ou didactiques malgré le soin apporté à ma copie. "
-                "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
-                "</div>"
-            ) if mode == "textes" else (
-                "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
-                "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-                "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
-                "</div>"
-            )
-
-            formatted_answer = (
-                f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{footer_assistance}</div>'
-            )
-
-            log_interaction(
-                question=prompt, 
-                reponse=texte_brut, 
-                mode=mode, 
-                contexte=contexte_choisi_nom, 
-                niveau=niveau_actuel_form
-            )
-
-            st.session_state.messages_hub.append(
-                {"role": "assistant", "type": "text", "content": formatted_answer}
-            )
-
-            for video_name, video_url in VIDEOS_TUTOS.items():
-                if video_name in texte_final:
-                    if est_dnb and "santorin" in video_name.lower():
-                        continue
-                    st.session_state.messages_hub.append(
-                        {"role": "assistant", "type": "video", "content": video_url}
-                    )
 
         st.session_state.reset_steps = True
         st.rerun()

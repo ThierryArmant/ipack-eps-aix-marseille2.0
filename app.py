@@ -1528,7 +1528,7 @@ if prompt_a_traiter:
 </ol>
 📺 Tutoriel associé : Import_automatique_eleves.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
-           
+            
             elif est_question_pedagogique:
                 texte_brut = """<h3>🛑 REDIRECTION REQUISE : QUESTION PÉDAGOGIQUE</h3>
 <p>Votre question relève de la pédagogie de terrain, de l'animation d'une séance ou de la didactique d'une APSA.</p>

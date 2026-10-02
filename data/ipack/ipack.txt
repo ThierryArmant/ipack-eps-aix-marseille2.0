@@ -1280,13 +1280,13 @@ Mots-clés : pas de wifi, stade sans 4G, hors-ligne, batterie vide, perte de don
 ======================================================================
 [ARTICLE : SUPPRESSION D'ÉLÈVE DISPENSÉ À L'ANNÉE OU CHANGEMENT DE CLASSE]
 ======================================================================
-Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, corbeille, effacer la base du lycée.
+Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, corbeille, effacer la base du lycée, élève inactif, retirer inactifs.
 
 - Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
 - Portée des suppressions :
   -> Si un enseignant non-coordonnateur supprime un affichage de groupe dans son profil, cela ne supprime pas la base SIÈCLE globale de l'établissement.
   -> Seul le coordonnateur ou l'administrateur peut modifier la structure des classes de l'établissement.
-- En cas de départ d'élève : Si un élève quitte définitivement l'établissement, ne créez pas de manipulation manuelle destructrice ; l'actualisation de la base SIÈCLE lors du prochain import régularisera automatiquement l'effectif.
+- En cas de départ d'élève ou d'élève inactif : Si un élève quitte définitivement l'établissement ou est noté "inactif", ne cherchez pas de case à cocher pour le supprimer manuellement. L'actualisation de la base SIÈCLE (ou import Pronote / École Directe) lors du prochain import régularisera automatiquement l'effectif et l'élève disparaîtra de vos listes.
 
 ======================================================================
 [ARTICLE : DEMANDE DE PROTOCOLE CCF AU COLLÈGE (6E, 5E, 4E, 3E)]

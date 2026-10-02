@@ -1854,8 +1854,19 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
             texte_brut = re.sub(r"santorin", "LSU / dossier scolaire", texte_brut, flags=re.IGNORECASE)
 
-        if est_sss and "Evolution_et_fermeture_SSS.mp4" not in texte_brut:
-            texte_brut += "\n\n📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"
+        # ✅ CORRECTION : le tuto ajouté dépend du sujet (avant : toujours « Evolution_et_fermeture_SSS »,
+        # un fichier introuvable sur le site des tutoriels, et sans rapport avec un projet annuel ou un bilan)
+        if est_sss:
+            if "projet annuel" in p_low or "projet" in p_low:
+                video_sss = "Projet_annuel_SSS.mp4"
+            elif "bilan" in p_low:
+                video_sss = "Bilan_annuel_SSS.mp4"
+            elif "ouverture" in p_low:
+                video_sss = "Demande_ouverture_SSS.mp4"
+            else:
+                video_sss = "Evolution_et_fermeture_SSS.mp4"
+            if not re.search(r"[A-Za-z0-9_]+_SSS\.mp4", texte_brut):
+                texte_brut += "\n\n📺 Tutoriel associé : " + video_sss
 
         if est_shn:
             texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")

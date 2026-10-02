@@ -1192,11 +1192,30 @@ if prompt_a_traiter:
                 "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
                 "fonction publique", "direction", "chef d'établissement",
                 "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
-            ] + mots_cles_intention_peda
+            ] + mots_cles_intention_peda + [
+                # ✅ AJOUT : vocabulaire de la réglementation / sécurité EPS (évite de bloquer des questions légitimes)
+                "élève", "élèves", "professeur", "professeurs", "enseignant", "enseignants", "stagiaire", "titulaire",
+                "contractuel", "remplaçant", "remplacement", "absence", "congé", "inspection", "inspecteur", "carrière",
+                "gymnase", "vestiaire", "vestiaires", "piscine", "natation", "nager", "baignade", "bassin", "plongée",
+                "voile", "escalade", "ski", "vtt", "vélo", "randonnée", "montagne", "course d'orientation", "orientation",
+                "canoë", "kayak", "équitation", "boxe", "judo", "combat", "tir à l'arc", "trampoline", "gymnastique",
+                "acrosport", "danse", "athlétisme", "rugby", "football", "basket", "volley", "badminton", "tennis", "golf",
+                "sortie", "sorties", "voyage", "séjour", "encadrement", "encadrer", "surveillance", "surveiller",
+                "assurance", "assurer", "agrément", "autorisation", "parents", "famille", "intervenant", "intervenants",
+                "bénévole", "vacataire", "blessure", "blessé", "blessée", "défibrillateur", "dae", "vol", "perte",
+                "dégradation", "règlement", "réglementation", "réglementaire", "juridique", "tribunal", "faute", "pénal",
+                "obligation", "obligations", "décharge", "association sportive", "établissement", "chef", "cpe",
+                "inapte", "inaptitude", "dispense", "dispensé", "certificat", "médical", "handicap", "ulis", "inclusion",
+                "harcèlement", "laïcité", "tenue", "religieux", "discipline", "exclu", "exclure", "évaluation", "notation",
+                "programme", "programmes", "socle", "enseignement", "option", "spécialité", "installation", "équipement",
+                "entretien", "vérification", "agrès", "savoir nager", "savoir rouler", "stage", "formation", "concours",
+                "capeps", "agrégation", "médecin", "infirmier", "infirmière", "premiers secours", "protocole",
+            ]
             
             # ✅ CORRECTION : les mots courts (ps, ms, cp, cap, bac, loi, eps...) sont cherchés
             # en mots entiers, pour qu'ils ne matchent plus à l'intérieur d'autres mots ("temps", "capacité"...)
-            est_totalement_hors_sujet = not contient_mot_cle(p_low, [m.lower() for m in mots_cles_eps_admin])
+            # Comparaison sans accents : "eleve" ou "élève" donnent le même résultat
+            est_totalement_hors_sujet = not contient_mot_cle(p_norm, [normaliser(m) for m in mots_cles_eps_admin])
 
         if est_totalement_hors_sujet:
             rappel_hs = (

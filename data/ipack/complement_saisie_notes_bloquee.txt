@@ -1,0 +1,13 @@
+=== PRÉCISION : « PROTOCOLE BLOQUÉ / IMPOSSIBLE DE SAISIR LES NOTES » (reformulation des fiches existantes, aucune information nouvelle) ===
+Ce fichier ne contient aucune procédure nouvelle. Il rapproche, avec les mots que les enseignants emploient, deux fiches déjà présentes dans la base, pour éviter de les confondre.
+
+### [QUESTIONS FRÉQUENTES : MON PROTOCOLE EST BLOQUÉ, JE NE PEUX PLUS SAISIR DE NOTES / LES CASES DE NOTES SONT GRISÉES OU INACTIVES / IMPOSSIBLE DE SAISIR LES NOTES DU CCF]
+- Symptôme : les cases de saisie des notes (AFL / AFLP) sont inactives ou grisées, on ne peut pas saisir les notes d'un protocole.
+- Cause (fiche « CASES DE SAISIE AFLP INACTIVES ») : ce n'est pas un problème de droits ni un bug informatique. La procédure est incomplète : le bouton « Choisir les AFLP » n'a pas été activé et validé en amont.
+- Résolution : chercher le bouton « Choisir les AFLP » et terminer la procédure. D'après la fiche existante, le coordonnateur valide le choix des AFLP dans les paramètres du protocole de l'établissement ; les cases de saisie deviennent alors actives pour tous les correcteurs.
+- Si le symptôme est différent (message d'erreur, élève sans protocole, lot verrouillé), ne pas appliquer cette fiche et poser la question à nouveau avec le message exact affiché.
+
+### [NE PAS CONFONDRE : « BOUTON DE CHANGEMENT D'ACTIVITÉ GRISÉ » ET « CASES DE SAISIE DES NOTES INACTIVES »]
+- Bouton de modification d'activité ou d'option d'un élève grisé pour le trimestre : fiche « BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ » (une note est déjà enregistrée pour cet élève ce trimestre).
+- Cases de saisie des notes AFLP inactives pour un protocole : fiche « CASES DE SAISIE AFLP INACTIVES » (bouton « Choisir les AFLP » non validé).
+- Ce sont deux situations distinctes avec deux résolutions distinctes : ne jamais les combiner dans une même réponse.

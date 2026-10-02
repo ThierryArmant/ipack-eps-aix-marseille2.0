@@ -1577,7 +1577,7 @@ if prompt_a_traiter:
 <p><strong>Règle fondamentale :</strong> Ne cherchez jamais à supprimer, masquer ou décocher manuellement la fiche d'un élève inactif ou parti depuis l'interface ou l'onglet de visualisation. iPackEPS ne comporte aucune option de suppression manuelle individuelle.</p>
 <p><strong>Procédure de mise à jour :</strong></p>
 <ol>
-  <li><strong>[Étape 1]</strong> La liste des élèves dans iPackEPS est le reflet strict de la base administrative de l'établissement (SIÈCLE, Pronote ou École Directe).</li>
+  <li><strong>[Étape 1]</strong> La liste des élèves dans iPackEPS est le reflet strict de la base administrative de l'établissement (SIÈCLE).</li>
   <li><strong>[Étape 2]</strong> L'actualisation de la base administrative (ou un nouvel import / actualisation de la liste des élèves via iPackEPS) régularisera automatiquement l'effectif.</li>
   <li><strong>[Étape 3]</strong> L'élève inactif ou parti disparaîtra alors de vos listes de manière totalement automatisée.</li>
 </ol>

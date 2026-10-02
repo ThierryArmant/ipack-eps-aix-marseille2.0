@@ -1227,6 +1227,7 @@ if prompt_a_traiter:
             est_aucun_eleve = (mode == "ipack" and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "siècle", "siecle", "arena"]))
             est_referentiels_rentree = (mode == "ipack" and any(phrase in p_low for phrase in ["configurer les référentiels de rentrée", "déclarer les apsa de rentrée", "dépôt initial des référentiels", "campagne de rentrée"]))
             est_sss = any(w in p_low for w in ["sss", "section sportive", "reconduction", "fermeture sss"])
+            est_eppcs = (mode == "ipack" and any(w in p_low for w in ["eppcs", "specialite eps", "spécialité eps"]) and any(w in p_low for w in ["depot", "déposer", "fiche", "fiches", "certificative", "certificatives", "premiere", "première"]))
             est_shn = any(w in p_low for w in ["shn", "sportif de haut niveau", "haut niveau", "ppf", "sportifs de haut niveau"])
             est_creation_groupe = (mode == "ipack" and any(w in p_low for w in ["groupe", "groupes"]) and any(w in p_low for w in ["créer", "creer", "mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe"]))
             est_ressaisie_rentree = (mode == "ipack" and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"]) and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"]))
@@ -1525,6 +1526,17 @@ if prompt_a_traiter:
   <li><strong>[Étape 2]</strong> Affectez vos élèves dans l'onglet <strong>[Mes Élèves]</strong>.</li>
 </ol>
 📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
+
+            elif est_eppcs:
+                texte_brut = """<h3>📋 EPPCS (ENSEIGNEMENT DE SPÉCIALITÉ) : RÈGLE DE PREMIÈRE</h3>
+<p><strong>Règle fondamentale :</strong> L'EPPCS (Éducation Physique, Pratiques et Culture Sportives) est un enseignement de spécialité de la voie générale. Il ne fonctionne <strong>pas par CCF</strong> et ne relève pas du tronc commun géré par iPackEPS.</p>
+<p><strong>Procédure en classe de Première :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> Aucune commission académique de certification et <strong>aucun dépôt de fiches certificatives</strong> de type CCF n'est attendu en classe de Première pour cette spécialité.</li>
+  <li><strong>[Étape 2]</strong> Vous ne devez absolument rien déposer sur iPackEPS concernant l'EPPCS en Première.</li>
+  <li><strong>[Étape 3]</strong> L'évaluation certificative interviendra exclusivement en fin de classe de Terminale sous forme d'une épreuve terminale nationale (écrit + oral avec prestation physique).</li>
+</ol>"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_dossier_peda:

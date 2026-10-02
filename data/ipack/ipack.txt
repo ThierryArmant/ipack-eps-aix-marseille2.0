@@ -7,12 +7,11 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
 2. FICHE PROFESSEUR ET SERVICE :
 - Les données de l'établissement et de la fiche professeur de l'année précédente sont pour l'essentiel conservées.
 - Les informations de service et de fonctions sont réinitialisées à zéro chaque année : l'enseignant doit obligatoirement recompléter son nombre d'heures EPS, ses heures de décharge d'établissement, et réactualiser ses fonctions (coordonnateur, secrétaire, etc.).
-- Si l'on se déclare temporairement coordonnateur EPS, cela octroie les droits pour rafraîchir la liste de l'équipe EPS, des classes et des élèves.
 - Les compétences et spécialités sportives déclarées sont conservées. Il faut en revanche refaire ses vœux de jury, ses vœux de formation, et préciser les souhaits d'inspection (conseiller pédagogique).
 
 3. DOSSIERS, PROJETS ET ÉQUIPE EPS :
 - Les axes des projets pédagogiques inscrits dans le dossier EPS sont conservés.
-- L'équipe EPS est réinitialisée : chaque enseignant réapparaît dans l'application dès sa première connexion. Le coordonnateur clique ensuite sur le bouton "Actualiser" pour mettre à jour la liste complète de l'équipe. Chaque enseignant reste individuellement responsable de remplir sa propre fiche professeur.
+- L'équipe EPS est réinitialisée : chaque enseignant réapparaît dans l'application dès sa première connexion. Tout enseignant de l'équipe peut ensuite cliquer sur le bouton "Actualiser" pour mettre à jour la liste complète de l'équipe (depuis la version 2026.2.x). Chaque enseignant reste individuellement responsable de remplir sa propre fiche professeur.
 
 4. GESTION DES CLASSES ET IMPORTATION DES ÉLÈVES :
 - La première étape consiste à actualiser la liste des classes. Les classes existant déjà l'année précédente conservent leur configuration. En cas d'apparition de nouvelles classes, celles-ci doivent être configurées.
@@ -487,8 +486,6 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - URL: spip.php?article13
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Équipe EPS. La liste des enseignants de l’équipe EPS est extraite directement des bases du rectorat (EPP Public et IPP Privé). Si la liste est incomplète, pensez à cliquer sur [Actualiser] pour forcer une recherche de mise à jour. Si en début d’année un enseignant nouvellement affecté n’apparaît toujours pas après le clic sur [Actualiser], c’est que les affectations au sein du rectorat ne sont toujours pas à jour. Il convient dans ce cas de patienter quelques jours puis redemander une actualisation.
 - QUESTIONS / RÉPONSES :
-  - Q1 : Je ne suis pas coordonnateur, je ne peux pas actualiser la liste des enseignants.
-  - R1 : Si vous constatez que la liste des enseignants est incomplète, il suffit de demander à votre coordinateur de se connecter à l’application puis : aller dans [équipe EPS] ==> [Actualiser]. Si jamais le coordinateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte). Vous pourrez alors faire toutes les manipulations d’import profs/élèves. Pensez à décocher votre statut coordonnateur après ces manipulations.
   - Q2 : Nous avons créé par erreur un intervenant extérieur, comment le supprimer ?
   - R2 : Retournez dans Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Équipe EPS. Dans le tableau [intervenants extérieurs], cliquer sur l’icône [modifier] de cet intervenant. Dans la fenêtre qui s’ouvre, cliquez sur [Supprimer].
 
@@ -497,14 +494,12 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier EPS => Classes. 
 - 📺 TUTORIEL COMPAGNON : Configuration_classes_import_eleves.mp4
 - QUESTIONS / RÉPONSES :
-  - Q1 : Une alerte m’informe que je ne suis pas coordonnateur EPS, je ne peux pas actualiser la liste des classes.
-  - R1 : Chaque année scolaire les fonctions déclarées des enseignants sont réinitialisées, vu que les fonctions peuvent changer chaque année. Si vous êtes coordonnateur, il suffit de retourner sur votre fiche professeur et redéclarer vos diverses fonctions. Si un autre enseignant est coordonnateur et que vous constatez que la liste des classes / élèves est incomplète, il suffit de demander à votre coordonnateur de se connecter à l’application puis : aller dans [gestion Classes] ==> [Actualiser] (puis dans [importation élèves] => [Actualiser]). Si jamais le coordonnateur ne peut faire ces manipulations, vous pouvez simplement vous rendre sur votre propre fiche professeur, et vous déclarer [coordonnateur] dans la liste de vos fonctions (pensez à enregistrer pour que ce soit pris en compte). Vous pourrez alors faire toutes les manipulations d’import profs/élèves. Pensez à décocher votre statut coordonnateur après ces manipulations.
   - Q2 : Lors du clic sur [actualiser les classes], j’obtiens le message d’erreur : « Votre administration n’a pas encore déclaré les élèves de cet établissement »
   - R2 : Si vous êtes dans un établissement public, prenez contact avec le correspondant iPackeps pour qu’il investigue auprès des services du rectorat. Si vous êtes dans un établissement privé, le chef d’établissement doit suivre une procédure pour faire remonter la liste de ses élèves sur la base SIECLE du rectorat. Son éditeur de logiciel (Charlemagne, École Directe...) doit pouvoir l’accompagner dans cette procédure. Le transfert doit normalement se faire d’un clic via l’application omogen. Un transfert manuel est également possible sur [Charlemagne administratif], en passant par le menu [modules]/[Éducation Nationale]/[SIECLE]/type établissement/Envoi des élèves].
   - Q3 : Ma liste d’élèves dans les classes est vide.
   - R3 : Il faut impérativement suivre les 2 étapes de Configuration des Classes puis d’Organisation des Classes avant de demander l’import des élèves. Tant que les classes ne sont pas complètement configurées, les élèves de ces classes ne seront pas importés. NOTE : si vous êtes en CFA, ou établissement privé particulier ou dans un établissement à l’étranger (AEFE), les élèves ne sont pas connus dans les bases du rectorat. Dans ce cas, il est normal qu’iPackEPS ne vous affiche aucune classe. Dans ce cas, effectuez le reste de la configuration de iPackEPS sans vous préoccuper des classes/élèves (Vous devrez donc créer les classes directement dans la gestion des groupes (menu [Dossiers] / [Dossier EPS] / [Groupes])). Pour plus de détails, vous pouvez consulter la vidéo associée à la configuration des classes : Configuration_classes_import_eleves.mp4
   - Q4 : Des élèves ont changé de classe, ils apparaissent toujours dans les anciennes classes OR des élèves n’apparaissent pas dans certaines classes.
-  - R4 : Il suffit de demander à votre coordonnateur de se connecter à l’application puis : aller dans [gestion Classes] ==> [Actualiser], puis dans [importation élèves] => [Actualiser].
+  - R4 : Tout enseignant peut aller dans [gestion Classes] ==> [Actualiser], puis dans [importation élèves] => [Actualiser].
   - Q5 : J’ai des élèves ULIS / UPE2A, qui sont intégrés dans diverses classes. Comment configurer iPackEPS pour prendre en compte ces élèves ?
     - SOLUTION 1 - Gérer un seul groupe : Dans [dossier EPS] / [Classes] / [organisation des Classes] : configurer la classe 61 en mode [groupe] (si vous avez déjà attribué des séquences d’apprentissages ou créé des créneaux d’emploi du temps pour ce groupe, une alerte vous empêchera de faire cette manipulation. Dans ce cas, vous devrez suivre la solution 2 pour éviter de devoir effacer vos créneaux et séquences). Dans [dossier EPS] / [groupes] / [eps] créer un groupe [61 - ULIS], et attribuer les séquences d’apprentissage. Dans [dossier EPS] / [élèves] : placer dans le groupe [61 - ULIS] les élèves d’ULIS et ceux de 61. Dans [dossier EPS] / [Emploi du temps] : placer le groupe [61 - ULIS] sur les créneaux EDT.
     - SOLUTION 2 - Gérer 2 groupes : Dans [dossier EPS] / [Classes] / [organisation des Classes] : configurer la classe 61 en mode [seul ou mixte], et attribuer l’enseignant. Dans [dossier EPS] / [groupes] / [eps], attribuer les séquences d’apprentissages à la classe 61. Créer également un groupe [61 - ULIS], et attribuer les mêmes séquences d’apprentissages. Dans [dossier EPS] / [Élèves] : placer les élèves d’ULIS dans le groupe [61 - ULIS]. Dans [dossier EPS] / [Emploi du temps] : placer le groupe [61] sur les créneaux EDT, puis sur le même créneau placer le groupe [61 - ULIS] ==> l’application considère donc que vous encadrez 2 groupes en simultané.
@@ -1397,7 +1392,7 @@ Mots-clés : prénom d'usage, changement de nom, transition de genre, identité 
 - Procédure :
   1. L'enseignant ne doit rien modifier manuellement dans iPackEPS.
   2. Le secrétariat de scolarité doit mettre à jour la base SIÈCLE de l'établissement.
-  3. Le coordonnateur effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
+  3. Un enseignant de l'équipe EPS effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
   4. L'identifiant national (INE) garantit la continuité des évaluations déjà enregistrées sans perte d'historique.
 
 [SECTION: COMPORTEMENT_ET_DIAGNOSTIC_DE_L_ENSEIGNANT_DEBUTANT]
@@ -1467,7 +1462,7 @@ Mots-clés : changement de remplaçant, contractuel parti, historique des saisie
 - Règle de conservation : Les données saisies dans iPackEPS sont rattachées à la structure de la classe/groupe et à l'établissement, jamais au compte personnel de l'enseignant.
 - Procédure d'installation du remplaçant :
   1. Dès notification du contrat RH, le chef d'établissement affecte le remplaçant sur STSWEB.
-  2. Le coordonnateur clique sur [Équipe EPS] > [Actualiser].
+  2. Un enseignant de l'équipe EPS clique sur [Équipe EPS] > [Actualiser].
   3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
   4. Le nouveau professeur accède immédiatement à l'ensemble des séquences, AFL et évaluations précédemment enregistrés par son prédécesseur sans aucune perte de données.
 
@@ -1951,7 +1946,7 @@ iPackEPS est l'outil académique officiel dédié au pilotage pédagogique, à l
 
 ### 7. Administration, Rapports et Paramétrage Technique
 * **État des serveurs :** Le module de rapport technique restitue l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque disponible ainsi que les versions logicielles (PHP, bases de données).
-* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*.ù
+* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*.
 
 TITRE : Guide iPackEPS - Gestion des Emplois du Temps (EDT) et des Créneaux
 

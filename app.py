@@ -105,8 +105,8 @@ VIDEOS_TUTOS = {
     "Verrouiller_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Verrouiller_lot_santorin.mp4",
     "Deverrouiller_lots_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Deverrouiller_lots_santorin.mp4",
     "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
-    "Protocoles_adaptes_iPackEPS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Protocoles_adaptes_iPackEPS.mp4",
-    "Extraction_notes_Santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Extraction_notes_Santorin.mp4",
+    "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/CUybrlkTtJ0",
+    "Extraction_notes_Santorin.mp4": "https://youtu.be/KooSwcy4gAA",
     "Import_documents_glisser_deposer.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_documents_glisser_deposer.mp4",
     "Configuration_classes_import_eleves.mp4": "https://www.youtube.com/watch?v=tu8J1RBUTwk",
     "Actualisation_equipe_classes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Actualisation_equipe_classes.mp4",
@@ -129,6 +129,10 @@ VIDEOS_TUTOS = {
     "Gestion_remplacements.mp4": "https://youtu.be/C3gSSacJxNo",
     "Etablissements_etrangers_AEFE.mp4": "https://youtu.be/x8DzrCRL_D8",
     "Gestion_dossier_APPN.mp4": "https://youtu.be/RUlrS0a1YA0",
+    "Gestion_groupes_iPackEPS.mp4": "https://youtu.be/4mqx_sWqSbE",
+    "Sequences_apprentissage_groupes.mp4": "https://youtu.be/y4Woi0RY50I",
+    "Apsa_certificatives_CAP.mp4": "https://youtu.be/zypGSbpJFnU",
+    "Declaration_projet_APPN.mp4": "https://youtu.be/f_BVPpLeC8w",
     "Validation_chef_APPN.mp4": "https://youtu.be/2iSTkzR0fns",
     # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
     "Depot_documents_commission.mp4": "https://youtu.be/FZ1KSuuKkEA",
@@ -1746,7 +1750,7 @@ if prompt_a_traiter:
                 if mode != "textes":
                     bloc_video_consigne = """
                     📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-                    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
+                    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Gestion_groupes_iPackEPS.mp4 (gestion des groupes EPS/AS/SSS), Sequences_apprentissage_groupes.mp4 (séquences d'apprentissage des groupes), Apsa_certificatives_CAP.mp4 (APSA certificatives en CAP), Declaration_projet_APPN.mp4 (déclaration d'un projet APPN), Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
                     """
                 else:
                     bloc_video_consigne = ""
@@ -1863,6 +1867,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 video_sss = "Bilan_annuel_SSS.mp4"
             elif "ouverture" in p_low:
                 video_sss = "Demande_ouverture_SSS.mp4"
+            elif "groupe" in p_low:
+                video_sss = "Gestion_groupes_iPackEPS.mp4"
             else:
                 video_sss = "Evolution_et_fermeture_SSS.mp4"
             if not re.search(r"[A-Za-z0-9_]+_SSS\.mp4", texte_brut):

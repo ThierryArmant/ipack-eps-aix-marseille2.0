@@ -1337,6 +1337,7 @@ if prompt_a_traiter:
             niveau_actuel_form = relance_ctx["niveau"]
         origine_reponse = "ia"
         bloc_echange_precedent = ""
+        consigne_relance_finale = ""
 
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
@@ -1566,9 +1567,16 @@ if prompt_a_traiter:
                 bloc_echange_precedent = (
                     "RÉPONSE DÉJÀ DONNÉE À CET UTILISATEUR JUSTE AVANT (elle ne l'a pas débloqué) :\n"
                     + relance_ctx["reponse"]
-                    + "\n\nCONSIGNE DE RELANCE : ne répète pas cette réponse. Tiens compte de la précision apportée par l'utilisateur "
-                    "et complète ou corrige uniquement à partir du CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL ci-dessus. "
-                    "Si le contexte n'apporte rien de plus, dis-le simplement et renvoie vers l'assistance.\n"
+                    + "\n"
+                )
+                # Placée tout à la fin des consignes : c'est là que l'IA en tient le mieux compte.
+                consigne_relance_finale = (
+                    "\n3. RÈGLE DE RELANCE (PRIORITAIRE) : l'utilisateur a déjà reçu la « RÉPONSE DÉJÀ DONNÉE » ci-dessus et elle ne l'a pas débloqué. "
+                    "INTERDICTION de la répéter ou de la reformuler. Réponds uniquement à la précision qu'il vient d'apporter, "
+                    "à partir du CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL. "
+                    "Si le contexte ne contient aucune information nouvelle par rapport à la réponse déjà donnée, réponds STRICTEMENT : "
+                    "\"Je n'ai pas d'information plus précise dans ma base sur ce point. Plutôt que de répéter la réponse précédente, "
+                    "je vous invite à contacter l'assistance en indiquant ce que vous avez déjà essayé et le message exact affiché.\"\n"
                 )
 
             if est_question_trop_courte:
@@ -2068,7 +2076,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
-"""
+{consigne_relance_finale}"""
 
                 try:
                     response = Settings.llm.complete(consigne_ia)

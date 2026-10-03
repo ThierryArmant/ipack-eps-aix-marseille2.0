@@ -1269,7 +1269,7 @@ else:
                 prompt_brut = st.text_input(
                     "Question :",
                     placeholder=(
-                        "🔺 Saisissez votre question ici en tenant compte du niveau sélectionné..."
+                        "🔺 Décrivez votre problème en une phrase complète : ce que vous faites, où ça bloque, le message affiché..."
                     ),
                     label_visibility="collapsed",
                 )
@@ -1523,6 +1523,13 @@ if prompt_a_traiter:
                 )
             ) or est_tasa or est_unss or est_mauvais_onglet
 
+            # ✅ AJOUT : question trop courte (3 mots ou moins) sans réponse directe connue.
+            # Avant, ce filtre était confié à l'IA : un appel complet (consignes + 10 passages) pour répondre « reformulez ».
+            # Il est maintenant fait ici, sans appel à l'IA, donc sans coût.
+            est_question_trop_courte = (not est_cas_direct) and len(prompt.split()) <= 3
+            if est_question_trop_courte:
+                est_cas_direct = True
+
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
             # ==================================================================
@@ -1574,7 +1581,18 @@ if prompt_a_traiter:
             # ==================================================================
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
             # ==================================================================
-            if est_mauvais_onglet and not (est_tasa or est_unss):
+            if est_question_trop_courte:
+                texte_brut = """<h3>✍️ POUVEZ-VOUS PRÉCISER VOTRE QUESTION ?</h3>
+<p>Votre demande est trop courte pour que je retrouve la bonne fiche. Pour une réponse précise du premier coup, décrivez en une ou deux phrases :</p>
+<ul>
+  <li><strong>ce que vous cherchez à faire</strong> (par exemple : créer un groupe, saisir des notes, exporter vers Cyclades) ;</li>
+  <li><strong>ce que vous avez déjà fait</strong> et à quel endroit vous êtes bloqué ;</li>
+  <li><strong>le message exact affiché</strong> à l'écran, s'il y en a un.</li>
+</ul>
+<p><strong>Exemple :</strong> « J'ai créé mes groupes de section sportive, mais le projet annuel SSS m'indique qu'il n'y a aucun groupe de type SSS. »</p>"""
+                badge, color_card = "INFORMATION", "general-card"
+
+            elif est_mauvais_onglet and not (est_tasa or est_unss):
                 if est_mauvais_onglet_examens:
                     onglet_conseille = "Réglementation Examens & Santorin"
                     objet_onglet = "la saisie des notes, les lots et les copies dans Santorin"

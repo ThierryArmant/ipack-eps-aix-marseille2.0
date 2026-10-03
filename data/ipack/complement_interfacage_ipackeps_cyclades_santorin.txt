@@ -5,7 +5,7 @@ ATTENTION : ce document date de l'année 2024-2025. Les intitulés de menus peuv
 
 ### [SITUATION: INTERFAÇAGE iPackEPS -> CYCLADES -> SANTORIN, ÉTAPES DANS L'ORDRE (document 2024-2025)]
 - Calendrier : les saisies débutent à partir du mois de janvier, lorsque la commission académique a validé les protocoles des établissements.
-- Étape 1, export depuis iPackEPS : menu [Dossiers] / [Dossier Certificatif] / [Cyclades]. Vérifier que tous les élèves sont affectés à un groupe, puis générer le fichier d'élèves. Action réservée au chef d'établissement.
+- Étape 1, export depuis iPackEPS : menu [Dossiers] > [Dossier Certificatif] > [Protocoles] > « Générer le fichier d'export » (chemin mis à jour : version actuelle d'iPackEPS). Vérifier que tous les élèves sont affectés à un groupe, puis générer le fichier d'élèves. Action réservée au chef d'établissement.
 - Étape 2, import dans Cyclades : menu d'import des élèves, accessible depuis le portail du chef d'établissement uniquement.
 - Étape 3, vérification des protocoles dans Cyclades : menu [EPS] / [Associer les élèves à un protocole], accessible au chef d'établissement et à l'enseignant. Les élèves sans protocole doivent être réaffectés manuellement.
 - Étape 4, réaffectation des enseignants si nécessaire : menu [EPS] / [Contrôler / Réaffecter des protocoles], réservé au chef d'établissement.

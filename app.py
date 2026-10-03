@@ -20,6 +20,36 @@ def normaliser(txt):
     return "".join(c for c in txt if unicodedata.category(c) != "Mn")
 
 
+_MOTS_NEUTRES_SUJET = {
+    "ipack", "ipackeps", "comment", "pourquoi", "quand", "alors", "aussi", "avoir", "faire", "faut", "dois", "doit",
+    "peux", "peut", "veux", "vous", "nous", "elle", "elles", "leur", "leurs", "mais", "avec", "sans", "dans", "pour",
+    "cette", "cela", "celui", "cette", "mes", "tous", "tout", "toute", "toutes", "merci", "bonjour", "cordialement",
+    "question", "probleme", "trouve", "toujours", "encore", "apres", "avant", "puis", "etre", "sont", "suis", "etait",
+    # mots présents dans presque toutes les fiches : ils ne prouvent pas qu'on parle du même sujet
+    "eleve", "eleves", "groupe", "groupes", "classe", "classes", "apsa", "apsas", "dossier", "dossiers",
+}
+
+
+def _mots_sujet(txt):
+    """Mots porteurs de sens d'un texte, ramenés à leurs 4 premières lettres (sans accents) pour tolérer pluriels et conjugaisons."""
+    mots = re.findall(r"[a-z0-9]+", normaliser(re.sub(r"<[^>]+>", " ", txt)))
+    return {m[:4] for m in mots if len(m) >= 4 and m not in _MOTS_NEUTRES_SUJET}
+
+
+def sujet_different(precision, question_precedente, reponse_precedente):
+    """
+    True si le texte saisi dans la zone de précision est en réalité une NOUVELLE question,
+    sans rapport avec l'échange précédent (aucun mot porteur de sens en commun).
+    Dans ce cas on la traite comme une question neuve, sans lui accoler l'ancien échange.
+    """
+    mots_precision = _mots_sujet(precision)
+    if len(mots_precision) < 3:
+        return False  # trop court pour juger : on considère que c'est bien une précision
+    mots_avant = _mots_sujet(question_precedente + " " + reponse_precedente)
+    communs = mots_precision & mots_avant
+    return len(communs) == 0 or (len(communs) / len(mots_precision)) < 0.15
+
+
 def contient(txt, motifs):
     """True si au moins un motif (expression régulière) est trouvé dans txt."""
     return any(re.search(m, txt) for m in motifs)
@@ -1312,6 +1342,11 @@ if prompt_a_traiter:
     # à neuf (les passages de la question précédente ne sont pas réutilisés).
     relance_ctx = st.session_state.pop("relance_ctx", None)
     question_affichee = prompt
+    ctx_onglet = relance_ctx  # onglet et public de la question précédente (conservés dans tous les cas)
+    if relance_ctx and relance_ctx.get("origine") != "courte" and sujet_different(prompt, relance_ctx["question"], relance_ctx["reponse"]):
+        # Le collègue a tapé une NOUVELLE question dans la zone de précision : on la traite comme une question neuve,
+        # dans le même onglet et pour le même public, sans lui accoler l'ancien échange (ni coût supplémentaire, ni mélange).
+        relance_ctx = None
     if relance_ctx:
         prompt = f"{relance_ctx['question']} — Précision : {prompt}"
 
@@ -1325,16 +1360,16 @@ if prompt_a_traiter:
     with st.spinner("⏳ Recherche dans la base documentaire et analyse en cours..."):
         
         mode = st.session_state.active_module
-        if relance_ctx:
-            # une relance reste dans l'onglet de la question d'origine
-            mode = relance_ctx["mode"]
+        if ctx_onglet:
+            # une relance (ou une nouvelle question saisie dans la zone de précision) reste dans l'onglet de la question d'origine
+            mode = ctx_onglet["mode"]
         p_low = prompt.lower()
         # Version sans accents, utilisée par les détections robustes (singulier/pluriel, accents oubliés)
         p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
-        if relance_ctx:
-            niveau_actuel_form = relance_ctx["niveau"]
+        if ctx_onglet:
+            niveau_actuel_form = ctx_onglet["niveau"]
         origine_reponse = "ia"
         bloc_echange_precedent = ""
         consigne_relance_finale = ""
@@ -2271,12 +2306,12 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
         _titre_relance = (
             "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
             if _echange["origine"] == "courte"
-            else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation (même sujet)"
+            else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation, ou posez une autre question sur ce même onglet"
         )
         st.markdown(
             f"<div style='margin-top: 12px; font-size: 13px; color: #CBD5E1;'><strong>{_titre_relance}</strong> — "
             f"{_restantes} précision{'s' if _restantes > 1 else ''} possible{'s' if _restantes > 1 else ''}. "
-            "Pour un autre sujet, choisissez de nouveau un contexte à l'étape 1.</div>",
+            "Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
             unsafe_allow_html=True,
         )
         with st.form(key="form_relance_hub", clear_on_submit=True):

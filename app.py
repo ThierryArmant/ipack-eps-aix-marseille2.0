@@ -2291,15 +2291,15 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
+    # 1) La question et la réponse d'abord (les vidéos sont affichées plus bas, après la zone de précision)
     for m in st.session_state.messages_hub:
+        if m.get("type") == "video":
+            continue
         with st.chat_message(m["role"]):
-            if m.get("type") == "video":
-                st.video(m["content"])
-            else:
-                st.markdown(m["content"], unsafe_allow_html=True)
+            st.markdown(m["content"], unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
-    # 💬 RELANCE BORNÉE : proposée sous la réponse, à l'initiative du collègue uniquement.
+    # 2) 💬 RELANCE BORNÉE : proposée juste sous la réponse, à l'initiative du collègue uniquement.
     _echange = st.session_state.get("dernier_echange")
     if _echange:
         _restantes = NB_RELANCES_MAX - _echange["relances"]
@@ -2331,3 +2331,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 st.session_state.dernier_echange = None
                 st.session_state.current_prompt = relance_brute.strip()
                 st.rerun()
+
+    # 3) Les tutoriels vidéo en dernier : ainsi la zone de précision reste visible juste sous la réponse
+    for m in st.session_state.messages_hub:
+        if m.get("type") == "video":
+            with st.chat_message(m["role"]):
+                st.video(m["content"])

@@ -194,6 +194,10 @@ if "is_admin" not in st.session_state:
     st.session_state.is_admin = False
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
+# 💬 RELANCE BORNÉE : on ne garde QUE le dernier échange (jamais le fil entier), 2 relances au maximum.
+NB_RELANCES_MAX = 2
+if "dernier_echange" not in st.session_state:
+    st.session_state.dernier_echange = None
 
 # 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
 if st.session_state.reset_steps:
@@ -1167,6 +1171,7 @@ with col_b1:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
+        st.session_state.dernier_echange = None
         st.rerun()
         
 with col_b2:
@@ -1180,6 +1185,7 @@ with col_b2:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
+        st.session_state.dernier_echange = None
         st.rerun()
         
 with col_b3:
@@ -1193,6 +1199,7 @@ with col_b3:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
+        st.session_state.dernier_echange = None
         st.rerun()
 
 # ======================================================================
@@ -1300,21 +1307,36 @@ if prompt_a_traiter:
 
     st.session_state.messages_hub = []
 
+    # 💬 RELANCE : le collègue a choisi de préciser sa question précédente.
+    # On réunit sa question d'origine et sa précision : la recherche dans la base se fait sur les deux,
+    # à neuf (les passages de la question précédente ne sont pas réutilisés).
+    relance_ctx = st.session_state.pop("relance_ctx", None)
+    question_affichee = prompt
+    if relance_ctx:
+        prompt = f"{relance_ctx['question']} — Précision : {prompt}"
+
     st.session_state.messages_hub.append({
         "role": "user",
         "type": "text",
-        "content": f"<span style='color: white;'>{prompt}</span>",
+        "content": f"<span style='color: white;'>{question_affichee}</span>",
     })
     
     # --- SPINNER NATIF STREAMLIT (ZÉRO DOUBLE BARRE / ZÉRO GLITCH) ---
     with st.spinner("⏳ Recherche dans la base documentaire et analyse en cours..."):
         
         mode = st.session_state.active_module
+        if relance_ctx:
+            # une relance reste dans l'onglet de la question d'origine
+            mode = relance_ctx["mode"]
         p_low = prompt.lower()
         # Version sans accents, utilisée par les détections robustes (singulier/pluriel, accents oubliés)
         p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+        if relance_ctx:
+            niveau_actuel_form = relance_ctx["niveau"]
+        origine_reponse = "ia"
+        bloc_echange_precedent = ""
 
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
@@ -1408,6 +1430,7 @@ if prompt_a_traiter:
   <li><strong>Recommandation :</strong> Pour toute autre thématique, veuillez utiliser un outil généraliste ou vous référer directement aux services compétents de votre hiérarchie.</li>
 </ul>"""
             badge, color_card = "⚖️️ HORS-SUJET", "securite-card"
+            origine_reponse = "hors"
         else:
             texte_brut = ""
             extraits_doc = ""
@@ -1529,6 +1552,29 @@ if prompt_a_traiter:
             est_question_trop_courte = (not est_cas_direct) and len(prompt.split()) <= 3
             if est_question_trop_courte:
                 est_cas_direct = True
+
+            # 💬 RELANCE après une réponse en dur ou une réponse de l'IA : resservir la même réponse fixe ne servirait à rien.
+            # On coupe donc les disjoncteurs pour ce tour et on laisse l'IA compléter, avec la réponse précédente sous les yeux.
+            # (Après un simple « pouvez-vous préciser ? », les disjoncteurs restent actifs : la question complétée peut en déclencher un, gratuitement.)
+            if relance_ctx and relance_ctx.get("origine") in ("direct", "ia"):
+                for _nom_flag in [k for k in list(globals()) if k.startswith("est_")]:
+                    if _nom_flag not in ("est_college", "est_dnb", "est_premier_degre", "est_clairement_lycee", "est_sss", "est_shn", "est_totalement_hors_sujet", "est_mauvais_onglet", "est_mauvais_onglet_examens"):
+                        globals()[_nom_flag] = False
+                est_cas_direct = est_mauvais_onglet
+                bloc_echange_precedent = (
+                    "RÉPONSE DÉJÀ DONNÉE À CET UTILISATEUR JUSTE AVANT (elle ne l'a pas débloqué) :\n"
+                    + relance_ctx["reponse"]
+                    + "\n\nCONSIGNE DE RELANCE : ne répète pas cette réponse. Tiens compte de la précision apportée par l'utilisateur "
+                    "et complète ou corrige uniquement à partir du CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL ci-dessus. "
+                    "Si le contexte n'apporte rien de plus, dis-le simplement et renvoie vers l'assistance.\n"
+                )
+
+            if est_question_trop_courte:
+                origine_reponse = "courte"
+            elif est_mauvais_onglet:
+                origine_reponse = "onglet"
+            elif est_cas_direct:
+                origine_reponse = "direct"
 
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
@@ -2008,6 +2054,7 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 ======================================================================
 {contexte_complet_ia}
 
+{bloc_echange_precedent}
 QUESTION DE L'UTILISATEUR :
 {prompt}
 
@@ -2160,7 +2207,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         )
 
         log_interaction(
-            question=prompt, 
+            question=("[RELANCE] " + prompt) if relance_ctx else prompt, 
             reponse=texte_brut, 
             mode=mode, 
             contexte=contexte_choisi_nom, 
@@ -2179,6 +2226,21 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
+        # 💬 On mémorise uniquement cet échange (texte brut, tronqué), pour une éventuelle relance.
+        _nb_relances = (relance_ctx["relances"] + 1) if relance_ctx else 0
+        if origine_reponse in ("ia", "direct", "courte") and _nb_relances < NB_RELANCES_MAX:
+            _reponse_texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()
+            st.session_state.dernier_echange = {
+                "question": prompt[:1200],
+                "reponse": _reponse_texte[:1500],
+                "mode": mode,
+                "niveau": niveau_actuel_form,
+                "origine": origine_reponse,
+                "relances": _nb_relances,
+            }
+        else:
+            st.session_state.dernier_echange = None
+
         st.session_state.reset_steps = True
         st.rerun()
 
@@ -2191,3 +2253,34 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             else:
                 st.markdown(m["content"], unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
+    # 💬 RELANCE BORNÉE : proposée sous la réponse, à l'initiative du collègue uniquement.
+    _echange = st.session_state.get("dernier_echange")
+    if _echange:
+        _restantes = NB_RELANCES_MAX - _echange["relances"]
+        _titre_relance = (
+            "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
+            if _echange["origine"] == "courte"
+            else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation (même sujet)"
+        )
+        st.markdown(
+            f"<div style='margin-top: 12px; font-size: 13px; color: #CBD5E1;'><strong>{_titre_relance}</strong> — "
+            f"{_restantes} précision{'s' if _restantes > 1 else ''} possible{'s' if _restantes > 1 else ''}. "
+            "Pour un autre sujet, choisissez de nouveau un contexte à l'étape 1.</div>",
+            unsafe_allow_html=True,
+        )
+        with st.form(key="form_relance_hub", clear_on_submit=True):
+            col_rel_input, col_rel_submit = st.columns([5, 1])
+            with col_rel_input:
+                relance_brute = st.text_input(
+                    "Précision :",
+                    placeholder="Ce que vous avez fait, où ça bloque, le message exact affiché...",
+                    label_visibility="collapsed",
+                )
+            with col_rel_submit:
+                bouton_relance = st.form_submit_button("💬 Préciser", use_container_width=True)
+            if bouton_relance and relance_brute.strip():
+                st.session_state.relance_ctx = dict(_echange)
+                st.session_state.dernier_echange = None
+                st.session_state.current_prompt = relance_brute.strip()
+                st.rerun()

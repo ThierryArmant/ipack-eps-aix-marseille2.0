@@ -1348,6 +1348,14 @@ if prompt_a_traiter:
             # ✅ AJOUT : « j'ai créé mes groupes de section mais le Projet Annuel SSS dit qu'il n'y a pas de groupe SSS / pas d'APSA ».
             # Réponse fixe tirée des articles 17 (R2, R9), 31 (R2) et 111 d'ipack.txt : le RAG oubliait la cause principale (type SSS non activé).
             est_sss_projet_sans_groupe = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["projet annuel", "projet sss", "projet de section", "bilan sss", "bilan annuel"]) and any(w in p_low for w in ["groupe", "apsa"]) and any(w in p_low for w in ["pas cr", "pas de groupe", "aucun groupe", "aucune apsa", "pas d'apsa", "n'apparaît", "n'apparait", "apparaît pas", "apparait pas", "me dit", "m'indique", "bug", "tourne en rond", "pas fonctionn", "inactif", "inactive", "grisé", "grise"]))
+            # ✅ AJOUT : question technique (iPackEPS / Cyclades / Santorin) posée par erreur dans l'onglet Textes.
+            # La base « Textes » ne contient pas ces procédures : l'IA répondait quand même, à côté. On renvoie vers le bon onglet.
+            _logiciel_cite = any(w in p_low for w in ["ipack", "cyclades", "santorin"])
+            _geste_logiciel = any(w in p_low for w in ["bouton", "menu", "grisé", "grise", "cliquer", "clique", "importer", "import ", "exporter", "export ", "générer", "generer", "fichier", "configurer", "paramétrer", "parametrer", "message d'erreur", "bug", "connexion", "connecter"])
+            _protocole_technique = ("protocole" in p_low and any(w in p_low for w in ["test du protocole", "test de protocole", "invalide", "rejeté", "rejete", "bloqué", "bloque", "certifiable", "certificative", "déclaré", "declare"]))
+            _signal_fort = any(w in p_low for w in ["dossier eps", "dossier certificatif", "mon lot", "mes lots", "cadenas", "emploi du temps ipack"])
+            est_mauvais_onglet = (mode == "textes" and (_signal_fort or _protocole_technique or (_logiciel_cite and _geste_logiciel)))
+            est_mauvais_onglet_examens = est_mauvais_onglet and any(w in p_low for w in ["santorin", "mon lot", "mes lots", "cadenas", "copie", "saisie des notes", "saisir les notes", "saisir mes notes"])
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
@@ -1389,7 +1397,7 @@ if prompt_a_traiter:
                     or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_eleves_inactifs
                     or est_question_pedagogique
                 )
-            ) or est_tasa or est_unss
+            ) or est_tasa or est_unss or est_mauvais_onglet
 
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
@@ -1442,7 +1450,19 @@ if prompt_a_traiter:
             # ==================================================================
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
             # ==================================================================
-            if est_import_pronote:
+            if est_mauvais_onglet and not (est_tasa or est_unss):
+                if est_mauvais_onglet_examens:
+                    onglet_conseille = "Réglementation Examens & Santorin"
+                    objet_onglet = "la saisie des notes, les lots et les copies dans Santorin"
+                else:
+                    onglet_conseille = "Assistance Technique iPackEPS"
+                    objet_onglet = "la configuration d'iPackEPS (groupes, APSA, protocoles, export vers Cyclades)"
+                texte_brut = f"""<h3>🔀 CETTE QUESTION RELÈVE D'UN AUTRE ONGLET</h3>
+<p><strong>Pourquoi je ne réponds pas ici :</strong> vous êtes dans l'onglet « Sécurité & Responsabilité Juridique (Textes Officiels) », qui ne consulte que les textes réglementaires. Votre question porte sur {objet_onglet} : les procédures correspondantes ne sont pas dans cette base, et une réponse donnée ici risquerait d'être fausse.</p>
+<p><strong>Que faire :</strong> revenez à l'étape 1, choisissez l'onglet <strong>« {onglet_conseille} »</strong>, gardez le même public, et reposez la même question.</p>"""
+                badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
+
+            elif est_import_pronote:
                 texte_brut = """<h3>📥 IMPORTATION DES GROUPES ET ÉLÈVES DEPUIS PRONOTE / ECOLE DIRECTE</h3>
 <p><strong>Principe :</strong> L'importation des données d'élèves depuis votre logiciel de vie scolaire permet d'initialiser vos classes rapidement dans iPackEPS.</p>
 <p><strong>Procédure :</strong></p>

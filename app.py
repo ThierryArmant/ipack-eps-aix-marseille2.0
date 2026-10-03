@@ -1348,6 +1348,8 @@ if prompt_a_traiter:
         # Valeurs par défaut : ces variables sont utilisées dans la mise en forme finale,
         # y compris dans le cas "hors-sujet" où elles ne sont pas recalculées plus bas.
         est_college = False
+        # ✅ CORRECTION : sans cette valeur par défaut, une question hors-sujet posée dans l'onglet Textes faisait planter le hub
+        sources_consultees = []
         est_dnb = False
         est_sss = False
         est_shn = False

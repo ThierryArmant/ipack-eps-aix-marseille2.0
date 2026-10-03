@@ -224,8 +224,9 @@ if "is_admin" not in st.session_state:
     st.session_state.is_admin = False
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
-# 💬 RELANCE BORNÉE : on ne garde QUE le dernier échange (jamais le fil entier), 2 relances au maximum.
-NB_RELANCES_MAX = 2
+# 💬 PRÉCISION UNIQUE : le hub répond à une question, il ne converse pas.
+# Si la question était mal formulée, le collègue peut la préciser UNE fois ; on ne garde que cet échange.
+NB_RELANCES_MAX = 1
 if "dernier_echange" not in st.session_state:
     st.session_state.dernier_echange = None
 
@@ -2306,7 +2307,6 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
     # 2) 💬 RELANCE BORNÉE : proposée juste sous la réponse, à l'initiative du collègue uniquement.
     _echange = st.session_state.get("dernier_echange")
     if _echange:
-        _restantes = NB_RELANCES_MAX - _echange["relances"]
         _titre_relance = (
             "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
             if _echange["origine"] == "courte"
@@ -2316,8 +2316,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             f"<div style='margin-top: 14px; margin-bottom: 8px; padding: 12px 14px; background: linear-gradient(135deg, #1E293B, #0F172A); "
             f"border: 1px solid #38BDF8; border-radius: 8px; font-size: 13.5px; color: #F1F5F9; line-height: 1.5;'>"
             f"<strong style='color: #38BDF8;'>{_titre_relance}</strong><br>"
-            f"{_restantes} précision{'s' if _restantes > 1 else ''} possible{'s' if _restantes > 1 else ''}. "
-            "Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
+            "Une seule précision est possible. Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
             unsafe_allow_html=True,
         )
         with st.form(key="form_relance_hub", clear_on_submit=True):

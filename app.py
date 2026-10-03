@@ -2091,6 +2091,12 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             texte_nettoye.replace("<p>", "")
             .replace("</p>", "<br>")
         )
+        # ✅ CORRECTION D'AFFICHAGE : les retours à la ligne situés entre les balises de liste
+        # (<ol>, <ul>, <li>) devenaient des <br> placés dans la liste, que le navigateur affichait
+        # comme des puces ou des numéros vides. On les retire avant la conversion en <br>.
+        _balises_bloc = r"(?:ol|ul|li|h3|h4)"
+        texte_final = re.sub(r"[ \t]*\n\s*(?=</?" + _balises_bloc + r"\b)", "", texte_final)
+        texte_final = re.sub(r"(</?" + _balises_bloc + r"\b[^>]*>)[ \t]*\n\s*", r"\1", texte_final)
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
 

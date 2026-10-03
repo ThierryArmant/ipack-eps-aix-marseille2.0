@@ -1874,9 +1874,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 2. STRUCTURE & MISE EN PAGE :
     - Rends une réponse bien structurée et claire.
     - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
-    - NOMBRE D'ÉTAPES : écris exactement autant d'étapes qu'il y a d'actions décrites dans le contexte pour le cas de l'utilisateur, pas une de plus. Si la solution tient en une seule action, donne une seule étape.
-    - INTERDICTION d'ajouter une étape de vérification, de validation, de test ou de finalisation qui ne figure pas dans le contexte pour ce cas précis.
-    - INTERDICTION de conclure par une formule de type « Si le problème persiste... » ou par un conseil général qui ne figure pas dans le contexte.
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}

@@ -1345,6 +1345,9 @@ if prompt_a_traiter:
             est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer"]) and len(prompt) < 200 and not any(w in p_low for w in ["projet", "bilan", "apsa", "bug", "erreur", "message", "fonctionn", "me dit", "tourne en rond"]))
             est_dossier_peda = any(w in p_low for w in ["dossier peda", "dossier pédagogique", "ou est mon dossier", "où est mon dossier"])
             est_sss_bloque = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["droit", "créer", "creer", "autorise", "bloque", "pas"]) and not any(w in p_low for w in ["projet annuel", "projet", "bilan", "apsa"]))
+            # ✅ AJOUT : « j'ai créé mes groupes de section mais le Projet Annuel SSS dit qu'il n'y a pas de groupe SSS / pas d'APSA ».
+            # Réponse fixe tirée des articles 17 (R2, R9), 31 (R2) et 111 d'ipack.txt : le RAG oubliait la cause principale (type SSS non activé).
+            est_sss_projet_sans_groupe = (mode == "ipack" and any(w in p_low for w in ["sss", "section sportive"]) and any(w in p_low for w in ["projet annuel", "projet sss", "projet de section", "bilan sss", "bilan annuel"]) and any(w in p_low for w in ["groupe", "apsa"]) and any(w in p_low for w in ["pas cr", "pas de groupe", "aucun groupe", "aucune apsa", "pas d'apsa", "n'apparaît", "n'apparait", "apparaît pas", "apparait pas", "me dit", "m'indique", "bug", "tourne en rond", "pas fonctionn", "inactif", "inactive", "grisé", "grise"]))
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
@@ -1381,7 +1384,7 @@ if prompt_a_traiter:
                     est_connexion or est_date or est_sujet_secours or est_cap_3epreuves or est_deplacer_candidat
                     or est_eleve_arrivant or est_apsa_etablissement_vs_nationale or est_verrouiller_lot
                     or est_deverrouiller_lot or est_dispense_totale or est_saisir_notes or est_exclusion
-                    or est_aucun_eleve or est_referentiels_rentree or est_import_pronote or est_sss_bloque
+                    or est_aucun_eleve or est_referentiels_rentree or est_import_pronote or est_sss_bloque or est_sss_projet_sans_groupe
                     or est_gestion_sss_ou_sport or est_dossier_peda or est_creation_groupe or est_ressaisie_rentree
                     or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_eleves_inactifs
                     or est_question_pedagogique
@@ -1584,6 +1587,20 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
 📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+
+            elif est_sss_projet_sans_groupe:
+                texte_brut = """<h3>🧩 PROJET ANNUEL SSS : « AUCUN GROUPE DE TYPE SSS » OU « AUCUNE APSA ASSOCIÉE »</h3>
+<p><strong>Ce n'est pas un bug :</strong> les rubriques [Projets Annuels SSS] et [Bilan SSS] ne s'activent que si iPackEPS trouve au moins un groupe dont le <strong>type est SSS</strong>, avec <strong>une APSA associée</strong>. Un groupe créé avec le type EPS ne compte pas : inutile d'essayer cette voie.</p>
+<p><strong>Vérifications à faire dans l'ordre :</strong></p>
+<ol>
+  <li><strong>[Étape 1] Le type SSS vous est-il proposé ?</strong> Dans <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong>, ouvrez votre groupe de section et regardez son type. Si le type [SSS] n'est pas proposé ou est refusé, la cause est là : ce type est bloqué par défaut tant que le recteur n'a pas validé l'ouverture de la section et que le responsable iPackEPS de l'académie n'a pas activé votre établissement (liste mise à jour chaque année). Faites alors un simple signalement par mail à votre responsable iPackEPS ou à votre IPR pour que l'établissement soit activé.</li>
+  <li><strong>[Étape 2] Une seule APSA par groupe SSS.</strong> iPackEPS n'accepte qu'une APSA par groupe SSS. Si votre section travaille plusieurs activités, créez manuellement une APSA portant le nom de l'ensemble (par exemple « Football-Musculation ») dans <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>, puis associez-la au groupe SSS.</li>
+  <li><strong>[Étape 3] La bonne année scolaire.</strong> Les groupes, élèves et APSA ne sont pas conservés d'une année sur l'autre : ils doivent être recréés à chaque rentrée. Vérifiez sur le tableau de bord que vous êtes bien sur l'année en cours.</li>
+  <li><strong>[Étape 4] Terminer le Dossier EPS avant le projet.</strong> Le projet de section reprend les élèves placés dans la SSS, les créneaux SSS de l'emploi du temps et les professeurs qui encadrent. Complétez donc groupes, APSA, élèves, équipements sportifs et emploi du temps, puis retournez dans <strong>[Dossiers] > [Dossier SSS] > [Projet Annuel]</strong>.</li>
+</ol>
+<p><strong>Si tout est conforme et que le message persiste :</strong> écrivez à votre responsable iPackEPS en précisant le nom du groupe, son type et l'APSA associée.</p>
+📺 Tutoriel associé : Gestion_groupes_iPackEPS.mp4"""
+                badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_sss_bloque:
                 texte_brut = """<h3>⚠️ BLOCAGE CRÉATION GROUPE SSS</h3>

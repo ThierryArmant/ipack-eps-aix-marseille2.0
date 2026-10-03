@@ -624,7 +624,121 @@ def charger_consignes_ipack():
     return documents_charges
 
 
-def charger_dossier_txt_securise(chemin_dossier):
+# ======================================================================
+# DÉCOUPAGE DE LA MÉMOIRE PAR FICHE (iPackEPS et Examens)
+# Avant : les fichiers étaient coupés en gros blocs de longueur fixe, chaque bloc mêlant plusieurs
+# questions-réponses sans rapport. L'IA recevait 10 blocs fourre-tout et piochait la mauvaise fiche.
+# Maintenant : une question-réponse (ou une situation) = un passage, précédé du titre de son article.
+# Rien ne change dans la façon de remplir les fichiers .txt.
+# ======================================================================
+_RE_SEP = re.compile(r"^\s*[=\-]{10,}\s*$")
+_RE_TITRE = re.compile(r"^(#{2,4}\s+\S|=== .+|\[(ARTICLE|SITUATION|SECTION|PROCÉDURE|PROCEDURE|DOC_REF|ERREUR|DIAGNOSTIC|OPTION)\b)")
+_RE_QR = re.compile(r"^\s*-\s*Q\d+\b")
+_RE_UNITE = re.compile(r"^([*\-•]\s+\S|\d+\.\s+\S|\s+[*\-]\s+\*\*Question\s*\d+)")
+
+
+def decouper_en_fiches(texte, taille_bloc_entier=2200, taille_cible=1200):
+    """
+    Découpe une base documentaire en « fiches » cohérentes au lieu de blocs de longueur fixe :
+    - un titre (###, [ARTICLE ...], [SITUATION ...], ligne soulignée) ouvre une nouvelle fiche ;
+    - dans un article à questions/réponses (- Q1 / - R1), chaque question-réponse devient une fiche ;
+    - un long passage sans questions/réponses est regroupé par puces, sans jamais couper une puce ;
+    - chaque fiche commence par le titre de son article, pour rester compréhensible seule.
+    """
+    lignes = texte.replace("\r\n", "\n").split("\n")
+    n = len(lignes)
+
+    # 1) Repérage des titres
+    est_titre = [False] * n
+    for i, l in enumerate(lignes):
+        if _RE_SEP.match(l):
+            continue
+        if _RE_TITRE.match(l):
+            est_titre[i] = True
+        elif l.strip() and i + 1 < n and _RE_SEP.match(lignes[i + 1]) and (i == 0 or _RE_SEP.match(lignes[i - 1]) or not lignes[i - 1].strip()):
+            est_titre[i] = True
+
+    # 2) Blocs = un titre + son contenu (les lignes de séparation sont ignorées)
+    blocs, titre, corps = [], "", []
+    for i, l in enumerate(lignes):
+        if _RE_SEP.match(l):
+            continue
+        if est_titre[i]:
+            if any(c.strip() for c in corps):
+                blocs.append((titre, corps))
+            elif titre:
+                # titre sans contenu (ex. [SECTION ...]) : il sert de chapeau au titre suivant
+                l = titre + " — " + l.lstrip("# ").strip()
+            titre, corps = l.lstrip("# ").strip(), []
+        else:
+            corps.append(l)
+    if any(c.strip() for c in corps):
+        blocs.append((titre, corps))
+
+    def _fiche(titre, lignes_corps):
+        corps_txt = "\n".join(lignes_corps).strip()
+        if not corps_txt:
+            return None
+        return (titre + "\n" + corps_txt).strip() if titre else corps_txt
+
+    fiches = []
+    for titre, corps in blocs:
+        a_des_qr = any(_RE_QR.match(l) for l in corps)
+        longueur = sum(len(l) + 1 for l in corps)
+
+        if not a_des_qr and longueur <= taille_bloc_entier:
+            f = _fiche(titre, corps)
+            if f:
+                fiches.append(f)
+            continue
+
+        # Découpage en unités
+        unites, courante = [], []
+        for l in corps:
+            debut = _RE_QR.match(l) if a_des_qr else _RE_UNITE.match(l)
+            if debut and any(c.strip() for c in courante):
+                unites.append(courante)
+                courante = []
+            courante.append(l)
+        if any(c.strip() for c in courante):
+            unites.append(courante)
+
+        if a_des_qr:
+            # une question-réponse = une fiche ; le texte d'introduction de l'article = une fiche
+            for u in unites:
+                f = _fiche(titre, u)
+                if f:
+                    fiches.append(f)
+        else:
+            # Fiche « Question / Réponses par public » trop longue : la question est rappelée en tête de chaque morceau
+            rappel = []
+            if unites and "**Question**" in "\n".join(unites[0]) and len(unites) > 1:
+                rappel, unites = unites[0], unites[1:]
+            paquet, taille = list(rappel), 0
+            for u in unites:
+                t = sum(len(l) + 1 for l in u)
+                if taille and taille + t > taille_cible:
+                    f = _fiche(titre, paquet)
+                    if f:
+                        fiches.append(f)
+                    paquet, taille = list(rappel), 0
+                paquet.extend(u)
+                taille += t
+            f = _fiche(titre, paquet)
+            if f:
+                fiches.append(f)
+
+    # 3) Suppression des doublons exacts
+    vues, uniques = set(), []
+    for f in fiches:
+        cle = re.sub(r"\s+", " ", f)
+        if cle not in vues:
+            vues.add(cle)
+            uniques.append(f)
+    return uniques
+
+
+def charger_dossier_txt_securise(chemin_dossier, par_fiche=False):
     docs_trouves = []
     if os.path.exists(chemin_dossier) and os.path.isdir(chemin_dossier):
         for nom_fichier in os.listdir(chemin_dossier):
@@ -634,9 +748,18 @@ def charger_dossier_txt_securise(chemin_dossier):
                     with open(
                         chemin_complet, "r", encoding="utf-8", errors="ignore"
                     ) as f:
+                        contenu = f.read()
+                    morceaux = [contenu]
+                    if par_fiche:
+                        try:
+                            morceaux = decouper_en_fiches(contenu) or [contenu]
+                        except Exception:
+                            # En cas de souci de découpage, on retombe sur l'ancien fonctionnement (fichier entier)
+                            morceaux = [contenu]
+                    for morceau in morceaux:
                         docs_trouves.append(
                             Document(
-                                text=f.read(),
+                                text=morceau,
                                 metadata={"source": nom_fichier},
                             )
                         )
@@ -661,8 +784,9 @@ def initialiser_base_santorin(cle_fremt):
             },
         )
     ]
-    docs_santorin.extend(charger_dossier_txt_securise("data/examens"))
-    docs_santorin.extend(charger_consignes_examens())
+    docs_santorin.extend(charger_dossier_txt_securise("data/examens", par_fiche=True))
+    # memoire_examens_santorin.txt est déjà dans data/examens : on ne le recharge plus une 2e fois en un seul bloc
+    # (il apparaissait en double dans les passages transmis à l'IA).
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
         similarity_top_k=10
     )
@@ -685,7 +809,7 @@ def initialiser_base_ipack(cle_fremt):
             },
         )
     ]
-    docs_ipack.extend(charger_dossier_txt_securise("data/ipack"))
+    docs_ipack.extend(charger_dossier_txt_securise("data/ipack", par_fiche=True))
     docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
         similarity_top_k=10

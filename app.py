@@ -2309,7 +2309,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation, ou posez une autre question sur ce même onglet"
         )
         st.markdown(
-            f"<div style='margin-top: 12px; font-size: 13px; color: #CBD5E1;'><strong>{_titre_relance}</strong> — "
+            f"<div style='margin-top: 14px; margin-bottom: 8px; padding: 12px 14px; background: linear-gradient(135deg, #1E293B, #0F172A); "
+            f"border: 1px solid #38BDF8; border-radius: 8px; font-size: 13.5px; color: #F1F5F9; line-height: 1.5;'>"
+            f"<strong style='color: #38BDF8;'>{_titre_relance}</strong><br>"
             f"{_restantes} précision{'s' if _restantes > 1 else ''} possible{'s' if _restantes > 1 else ''}. "
             "Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
             unsafe_allow_html=True,

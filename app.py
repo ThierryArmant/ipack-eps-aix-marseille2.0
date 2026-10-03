@@ -1335,6 +1335,7 @@ if prompt_a_traiter:
     if "current_prompt" in st.session_state:
         del st.session_state.current_prompt
 
+    _messages_precedents = list(st.session_state.get("messages_hub") or [])
     st.session_state.messages_hub = []
 
     # 💬 RELANCE : le collègue a choisi de préciser sa question précédente.
@@ -1349,6 +1350,9 @@ if prompt_a_traiter:
         relance_ctx = None
     if relance_ctx:
         prompt = f"{relance_ctx['question']} — Précision : {prompt}"
+        # AFFICHAGE UNIQUEMENT : la question et la réponse précédentes restent à l'écran au-dessus de la précision
+        # (sans leurs vidéos). Cela ne change rien à ce qui est envoyé à l'IA, qui ne reçoit que le dernier échange.
+        st.session_state.messages_hub = [m for m in _messages_precedents if m.get("type") != "video"]
 
     st.session_state.messages_hub.append({
         "role": "user",

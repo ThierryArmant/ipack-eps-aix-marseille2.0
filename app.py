@@ -97,6 +97,7 @@ def log_interaction(question, reponse, mode="", contexte="", niveau=""):
 # 🛡️ CONTOURNEMENT NLTK & IMPORT TAVILY
 # ======================================================================
 import nltk
+import html as html_lib
 
 try:
     nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
@@ -1391,6 +1392,8 @@ if prompt_a_traiter:
         est_college = False
         # ✅ CORRECTION : sans cette valeur par défaut, une question hors-sujet posée dans l'onglet Textes faisait planter le hub
         sources_consultees = []
+        fiches_diag = []   # (titre de la fiche, score) : passages transmis à l'IA, affichés en mode admin uniquement
+        erreur_rag = ""
         est_dnb = False
         est_sss = False
         est_shn = False
@@ -1517,6 +1520,9 @@ if prompt_a_traiter:
                 and not any(w in p_low for w in ["santorin", "cyclades", "protocole", "sequence", "séquence", "référentiel", "referentiel", "bloqu", "unss", "podium", "championnat", "texte officiel"])
             )
             est_connexion = (any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"]))
+            # ✅ CORRECTION : « je me connecte à Santorin mais je ne vois aucun lot » recevait la fiche « accès par ARENA ».
+            # La personne est déjà connectée : son problème (lots, élèves, protocoles absents) part à la recherche documentaire.
+            est_connexion = est_connexion and not contient(p_norm, [r"\blots?\b", r"ne vois", r"vois (aucun|pas|rien|plus)", r"\baucune?s?\b", r"n'?apparai", r"apparai(t|ssent) pas"])
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
             est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
@@ -1605,6 +1611,10 @@ if prompt_a_traiter:
                 mode != "textes" 
                 and any(w in p_low for w in mots_peda_stricts)
                 and not any(w in p_low for w in ["groupe", "classe", "import", "pronote", "lot", "santorin", "cyclades", "paramètre", "configurer", "protocole", "dossier eps", "apsa", "sequence", "séquence", "référentiel", "referentiel", "certificati", "dossier"])
+                # ✅ CORRECTION : « comment évaluer un sportif de haut niveau au bac ? » était renvoyé comme question pédagogique.
+                # Une question d'examen (bac, CAP, CCF, épreuve, haut niveau, dispense) n'est pas de la pédagogie de terrain.
+                and not est_shn
+                and not contient(p_norm, [r"\bbac\b", r"baccalaur", r"\bcap\b", r"\bccf\b", r"\bexamens?\b", r"\bepreuves?\b", r"dispens", r"inapt"])
             )
 
             est_cas_direct = (
@@ -1695,18 +1705,23 @@ if prompt_a_traiter:
                                 nodes_bruts = retriever_santorin.retrieve(prompt)
                                 for n in nodes_bruts:
                                     extraits_doc += f"{n.node.text}\n\n"
+                                    fiches_diag.append(((n.node.text or "").strip().split("\n")[0][:110], getattr(n, "score", None)))
                         elif mode == "ipack":
                             if retriever_ipack:
                                 nodes_bruts = retriever_ipack.retrieve(prompt)
                                 for n in nodes_bruts:
                                     extraits_doc += f"{n.node.text}\n\n"
+                                    fiches_diag.append(((n.node.text or "").strip().split("\n")[0][:110], getattr(n, "score", None)))
                         else:
                             if retriever_peda:
                                 nodes_peda = retriever_peda.retrieve(prompt)
                                 for n in nodes_peda:
                                     extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
-                except Exception:
-                    pass
+                except Exception as e_rag:
+                    # ✅ CORRECTION : l'erreur était avalée en silence ; l'IA recevait alors un contexte vide et répondait
+                    # « je ne dispose pas de la procédure ». Elle est maintenant notée (visible en mode admin et dans les journaux).
+                    erreur_rag = str(e_rag)
+                    print(f"Erreur de recherche documentaire : {erreur_rag}")
 
             # ==================================================================
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
@@ -2027,7 +2042,7 @@ if prompt_a_traiter:
                 texte_brut = """<h3>🛑 REDIRECTION REQUISE : QUESTION PÉDAGOGIQUE</h3>
 <p>Votre question relève de la pédagogie de terrain, de l'animation d'une séance ou de la didactique d'une APSA.</p>
 <p>L'onglet actuel est <strong>strictement réservé à la configuration technique et informatique</strong> des logiciels (iPackEPS, Santorin, Cyclades).</p>
-<p>👉 Veuillez reposer votre question dans l'onglet <strong>[Sécurité & Responsabilité Juridique (Textes Officiels)]</strong> dans le menu de gauche. Cet espace est connecté à la base documentaire des programmes officiels et des ressources Éduscol.</p>"""
+<p>👉 Veuillez reposer votre question dans l'onglet <strong>[Sécurité & Cadres Régl.]</strong> (Étape 1, en haut de la page). Cet espace est connecté à la base documentaire des programmes officiels et des ressources Éduscol.</p>"""
                 badge, color_card = "⚖️ HORS PÉRIMÈTRE TECHNIQUE", "securite-card"
 
             # ==================================================================
@@ -2127,6 +2142,11 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - Si plusieurs procédures du contexte semblent proches, choisis UNIQUEMENT celle dont la cause correspond exactement au symptôme décrit par l'utilisateur. Ne mélange jamais deux procédures différentes dans une même réponse et n'ajoute aucune étape (menu, bouton, vérification) qui ne figure pas mot pour mot dans le contexte.
 - Si et seulement si la réponse est totalement absente du contexte fourni, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
 - Il est strictement interdit d'utiliser tes connaissances générales extérieures pour deviner comment fonctionne iPackEPS.
+
+4. SIGLES (ZÉRO INVENTION) :
+- Écris les sigles tels quels (DEC, AFLP, APSA...). N'ajoute JAMAIS entre parenthèses la signification d'un sigle, sauf si elle figure mot pour mot dans le glossaire ci-dessous ou dans le contexte documentaire.
+- Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; DNB = Diplôme National du Brevet.
+- En voie générale et technologique on parle d'AFL ; en voie professionnelle et en CAP on parle d'AFLP. N'emploie pas l'un pour l'autre.
 
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
@@ -2235,6 +2255,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 
         # ✅ CORRECTION D'AFFICHAGE : le gras Markdown **texte** de l'IA devenait des astérisques visibles
         texte_brut = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", texte_brut, flags=re.DOTALL)
+        # ✅ CORRECTION D'AFFICHAGE : un mot entre balises <code> apparaissait en pavé blanc illisible (ex. « DISP »),
+        # et les accents graves `[Menu]` de l'IA restaient visibles. Les deux deviennent du gras.
+        texte_brut = re.sub(r"<code>(.*?)</code>", r"<strong>\1</strong>", texte_brut, flags=re.DOTALL | re.IGNORECASE)
+        texte_brut = re.sub(r"`([^`\n]+)`", r"<strong>\1</strong>", texte_brut)
 
         texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
         texte_final = (
@@ -2287,8 +2311,24 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     + "</div>"
                 )
 
+        # 🔎 DIAGNOSTIC (MODE ADMIN UNIQUEMENT) : quelles fiches la recherche a transmises à l'IA pour cette question.
+        # Sert à comprendre un « je ne dispose pas de la procédure » : fiche absente de la liste = problème de recherche ;
+        # fiche présente = l'IA l'a reçue mais ne s'en est pas servie. Les collègues ne voient jamais ce bloc.
+        bloc_diag = ""
+        if st.session_state.get("is_admin", False) and origine_reponse == "ia":
+            lignes_diag = [
+                "• " + html_lib.escape(t) + (f" <em>({sc:.2f})</em>" if isinstance(sc, (int, float)) else "")
+                for t, sc in fiches_diag
+            ] or ["Aucune fiche transmise à l'IA."]
+            if erreur_rag:
+                lignes_diag.insert(0, "⚠️ Erreur pendant la recherche : " + html_lib.escape(erreur_rag))
+            bloc_diag = (
+                "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #F59E0B; font-size: 12px; color: #CBD5E1;'>"
+                "<strong>🔎 Admin — fiches transmises à l'IA :</strong><br>" + "<br>".join(lignes_diag) + "</div>"
+            )
+
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{footer_assistance}</div>'
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{bloc_diag}{footer_assistance}</div>'
         )
 
         log_interaction(

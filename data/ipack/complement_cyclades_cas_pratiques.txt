@@ -1,0 +1,90 @@
+=== COMPLÉMENT SOURCÉ : DE iPackEPS À CYCLADES, CAS PRATIQUES RELEVÉS DANS LES GUIDES D'AUTRES ACADÉMIES ===
+Sources (guides publics d'autres académies, sessions 2024 et 2025) :
+- Académie de Strasbourg, « FAQ iPackEPS / Cyclades / Santorin » du 29 mars 2024 : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf
+- Académie de Normandie, « Guide des examens EPS — Session 2025 » : https://codimd.apps.education.fr/s/sCi9raCjJ
+- Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » (interface professeur et saisies Cyclades / Santorin) : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_InterfaceProfesseur.pdf
+- Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf
+ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, mais ces documents datent de 2024 et 2025 : certains intitulés de menus ont pu évoluer avec les versions 2025 et 2026.2.x d'iPackEPS. Quand un chemin de menu de ce fichier diffère d'une fiche plus récente de la base, c'est la fiche la plus récente qui prévaut. Les DATES et les ADRESSES DE CONTACT des autres académies ne s'appliquent pas à Aix-Marseille : renvoyer au calendrier de la DEC d'Aix-Marseille et à l'assistance iPackEPS de l'académie.
+
+### [SITUATION: ALERTE CYCLADES « LE GROUPE ÉLÈVE IMPORTÉ NE CORRESPOND À AUCUN GROUPE LIÉ AUX PROTOCOLES »]
+- Mots-clés : alerte import Cyclades, groupe élève importé, aucun groupe lié aux protocoles, nom de groupe différent, protocole créé après l'export, invalider les protocoles, revalider.
+- Formulations courantes des collègues : Cyclades me dit que le groupe élève importé ne correspond à aucun groupe lié aux protocoles ; l'import des élèves dans Cyclades est refusé ; mes groupes ne sont pas reconnus dans Cyclades ; j'ai ajouté un protocole après coup et l'import ne marche plus.
+- Cause : le nom d'un groupe importé n'existe pas dans la liste des protocoles que la commission académique a exportée pour l'établissement. Le plus souvent, l'établissement a créé de nouveaux protocoles APRÈS l'export des données par la commission académique.
+- Résolution, dans l'ordre :
+  1. Contacter la commission académique (ou la DEC) pour qu'elle invalide les protocoles de l'établissement.
+  2. Dans Cyclades, créer les protocoles manquants avec [EPS] / [Créer un protocole], en choisissant le type [standard], et en les nommant EXACTEMENT comme dans iPackEPS.
+  3. Aller dans [EPS] / [Tableau de Bord], cliquer sur [OUI] dans [soumettre les protocoles], puis sur [Enregistrer].
+  4. Prévenir à nouveau la commission académique pour qu'elle revalide les protocoles.
+- Ces actions dans Cyclades relèvent du chef d'établissement (ou de son secrétariat). L'enseignant signale le problème et vérifie le nom exact des groupes dans iPackEPS. (Sources concordantes : FAQ Strasbourg 2024, guide Normandie 2025, document Corse 2024-2025.)
+- Règle à retenir : le nom du groupe doit être strictement identique dans iPackEPS et dans Cyclades.
+
+### [SITUATION: L'EXPORT VERS CYCLADES EST BLOQUÉ CAR DES ÉLÈVES NE SONT AFFECTÉS À AUCUN GROUPE]
+- Mots-clés : export bloqué, élèves sans groupe, fichier d'export non généré, tous les élèves affectés à un groupe.
+- Formulations courantes des collègues : je n'arrive pas à générer le fichier pour Cyclades ; l'export dit que des élèves ne sont dans aucun groupe ; le fichier d'élèves ne se crée pas.
+- Avant de générer le fichier, tous les élèves des classes à examen doivent être affectés à un groupe DANS iPackEPS. Tant qu'un élève de classe à examen reste sans groupe, le fichier ne peut pas être généré.
+- La correction se fait donc dans iPackEPS (placement des élèves dans les groupes), pas dans Cyclades. Une fois tous les élèves placés, le chef d'établissement génère le fichier d'export puis l'importe dans Cyclades. (Source : document Corse 2024-2025.)
+
+### [SITUATION: LES ÉLÈVES APPARAISSENT DANS CYCLADES MAIS SANS PROTOCOLE]
+- Mots-clés : élèves sans protocole, import non fait, associer les élèves à un protocole, réaffectation manuelle.
+- Formulations courantes des collègues : dans Cyclades mes élèves n'ont pas de protocole ; tous les élèves sont là mais aucun n'est rattaché ; comment rattacher un élève à son protocole.
+- Cause : le fichier Groupes / Élèves issu d'iPackEPS n'a pas été importé avant cette étape. Tous les élèves apparaissent alors, mais sans protocole affecté.
+- Résolution : soit le chef d'établissement importe le fichier d'élèves généré par iPackEPS, soit les élèves sont rattachés manuellement aux protocoles existants dans Cyclades, activité [EPS] / [Associer les élèves à un protocole] (accessible au chef d'établissement et à l'enseignant). (Sources : document Corse 2024-2025, support Besançon 2025.)
+- Chaque enseignant doit vérifier dans Cyclades que ses groupes d'élèves sont bien constitués avant la saisie des notes.
+
+### [SITUATION: UN ÉLÈVE EST DANS iPackEPS MAIS MANQUE AU MOMENT DE L'IMPORT]
+- Mots-clés : élève manquant, élève absent de la liste, réimporter, base élèves SIECLE, Pronote.
+- Formulations courantes des collègues : il me manque un élève dans iPackEPS ; un nouvel élève n'apparaît pas ; l'élève est dans Pronote mais pas dans iPackEPS.
+- Relancer l'import des élèves dans iPackEPS (bouton d'import / d'actualisation des élèves).
+- Si l'élève manque toujours, vérifier avec le secrétariat qu'il figure bien dans la base élèves SIECLE de l'établissement : c'est SIECLE qui alimente iPackEPS, et non le logiciel de vie scolaire (Pronote ou autre). Un élève présent dans Pronote mais pas encore dans SIECLE n'apparaîtra pas. (Source : guide Normandie 2025.)
+
+### [SITUATION: CFA, LYCÉE AGRICOLE, ÉTABLISSEMENT À L'ÉTRANGER — PAS D'ÉLÈVES DANS iPackEPS]
+- Mots-clés : CFA, apprentis, lycée agricole, établissement à l'étranger, pas de base élèves, aucun élève, export impossible, groupes sans élèves.
+- Formulations courantes des collègues : nous sommes un CFA et nos apprentis n'apparaissent pas dans iPackEPS ; pas d'élèves à importer dans notre lycée agricole ; comment faire le CCF sans base élèves.
+- Certains établissements (CFA notamment, lycées agricoles, établissements à l'étranger) n'ont pas de base d'élèves connue du rectorat. iPackEPS ne contient alors aucun élève : c'est normal, et l'export des élèves vers Cyclades est impossible.
+- Marche à suivre pour ces établissements : ne pas chercher à importer les classes et les élèves ; dans iPackEPS, déposer les référentiels et créer les groupes et les protocoles SANS élèves ; les élèves sont ensuite inscrits manuellement dans leurs protocoles directement dans Cyclades, activité [EPS] / [Associer les élèves à un protocole]. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+- L'ouverture des accès pour ces établissements dépend de chaque académie : s'adresser à l'assistance iPackEPS et à la DEC d'Aix-Marseille.
+
+### [SITUATION: UN ÉVALUATEUR A CHANGÉ (REMPLACEMENT, DÉPART) — RÉAFFECTER LE PROTOCOLE DANS CYCLADES]
+- Mots-clés : changement d'enseignant, remplaçant, réaffecter un protocole, Contrôler / Réaffecter des protocoles, adresse mail de l'évaluateur.
+- Formulations courantes des collègues : mon collègue est remplacé, comment donner son protocole au remplaçant ; le remplaçant ne voit pas les élèves du titulaire ; comment changer l'évaluateur d'un protocole.
+- Cette étape n'est nécessaire que si un enseignant affecté à un protocole a été remplacé par un autre.
+- C'est le chef d'établissement qui agit, dans Cyclades, activité [EPS] / [Contrôler / Réaffecter des protocoles] : il remplace l'adresse mail de l'évaluateur par celle du nouvel enseignant. La réaffectation reste possible toute l'année.
+- L'enseignant remplaçant ne peut pas le faire lui-même : il le demande à son chef d'établissement. (Sources concordantes : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+
+### [SITUATION: CRÉER UN PROTOCOLE ADAPTÉ EN COURS D'ANNÉE POUR UN ÉLÈVE BLESSÉ]
+- Mots-clés : protocole adapté, élève blessé en cours d'année, inaptitude partielle, sous-protocole, conserver la note déjà obtenue, TG1 A.
+- Formulations courantes des collègues : un élève se blesse en mars, comment lui faire un protocole adapté ; il a déjà une note, est-ce qu'il la perd en passant en adapté ; peut-on créer un protocole adapté après la validation de la commission.
+- Un protocole de type adapté peut être créé à tout moment, notamment pour un élève blessé en cours d'année, sans avoir à faire invalider les protocoles par la commission (contrairement à un protocole standard). C'est le chef d'établissement qui le crée dans Cyclades, activité [EPS] / [Créer un protocole], type adapté.
+- Un protocole adapté comporte de 1 à 3 APSA, sans contrôle des champs d'apprentissage, et n'exige pas de référentiel. Il peut combiner des épreuves ordinaires et des épreuves adaptées.
+- Si l'élève a DÉJÀ une note dans une APSA : créer le protocole adapté avec un nom légèrement différent de celui du groupe (exemple : « TG1 A »), en y CONSERVANT l'APSA déjà notée, puis associer l'élève à ce nouveau protocole. Dans Santorin, l'élève reste dans le même lot, conserve sa note, et l'activité adaptée s'ajoute. Exemple : un élève en danse / musculation / course d'orientation, noté 12 en danse, bascule en adapté : on crée un protocole adapté qui garde la danse.
+- Si l'inaptitude était prévisible avant l'envoi des protocoles, prévoir le protocole adapté dès l'automne et y affecter l'élève dès janvier. (Sources : support Besançon 2025, document Corse 2024-2025, guide Normandie 2025.)
+
+### [SITUATION: AJOUTER UN PROTOCOLE STANDARD APRÈS LA VALIDATION DE LA COMMISSION]
+- Mots-clés : nouveau protocole standard, oubli de protocole, protocole tardif, après validation, invalidation, revalidation.
+- Formulations courantes des collègues : j'ai oublié un protocole, puis-je l'ajouter maintenant ; nous avons créé un groupe en plus après la commission ; modifier un protocole déjà validé.
+- Contrairement au protocole adapté, un protocole de type standard ajouté ou modifié après la validation oblige à repasser par la commission académique : demander l'invalidation des protocoles, créer le protocole ([EPS] / [Créer un protocole], type [standard]), le soumettre ([EPS] / [Tableau de Bord] > [OUI] dans [soumettre les protocoles] > [Enregistrer]), puis demander la revalidation.
+- Ne pas créer de protocole standard dans Cyclades sans prévenir la commission : c'est la cause de l'alerte « le groupe élève importé ne correspond à aucun groupe lié aux protocoles ». (Sources : document Corse 2024-2025, FAQ Strasbourg 2024.)
+
+### [SITUATION: POURQUOI UNE APSA OU UN PROTOCOLE N'EST PAS TRANSFÉRÉ VERS CYCLADES]
+- Mots-clés : APSA non transférée, protocole absent de Cyclades, non certificative, référentiel refusé, protocole incomplet, dates de rattrapage, co-évaluateur.
+- Formulations courantes des collègues : une de mes activités n'apparaît pas dans Cyclades ; mon protocole n'est pas remonté ; pourquoi mon ensemble n'est pas valide.
+- Ne sont PAS transférés vers Cyclades :
+  * une APSA qui n'a pas été déclarée comme certificative dans [Dossiers] > [Dossier EPS] > [APSA] ;
+  * une APSA sans référentiel déposé, ou dont le référentiel a été refusé par la commission académique (exception : les APSA adaptées n'exigent pas de référentiel) ;
+  * un protocole incomplet, par exemple sans dates de rattrapage ou sans co-évaluateur renseigné.
+- Conditions de validité d'un ensemble standard : 3 APSA relevant de 3 champs d'apprentissage différents, dont au moins 2 de la liste nationale, chacune avec son référentiel. Pour le CAP : 2 APSA.
+- Le statut à obtenir dans iPackEPS est l'étiquette verte ; sans elle, les données ne basculent pas vers Cyclades. (Sources : document Corse 2024-2025, guide Normandie 2025.)
+
+### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE AVEC DES ÉPREUVES DÉJÀ PASSÉES DANS SON ANCIEN ÉTABLISSEMENT]
+- Mots-clés : élève arrivant, changement d'établissement, épreuve déjà passée, note de l'ancien lycée, protocole spécifique.
+- Formulations courantes des collègues : un élève arrive en février avec une note de CCF de son ancien lycée ; comment reprendre ses épreuves déjà passées ; quel protocole pour un élève qui a déjà une APSA évaluée ailleurs.
+- Il faut lui créer un protocole spécifique qui respecte les exigences de l'examen en tenant compte de ce qu'il a déjà passé. Exemple : une première APSA de CA1 a été évaluée dans l'ancien établissement ; on crée un protocole comprenant cette APSA de CA1 et deux autres APSA de champs d'apprentissage différents, à réaliser dans le nouvel établissement. (Source : guide Normandie 2025.)
+- Le rattachement de l'élève au protocole dans Cyclades puis sa distribution dans un lot Santorin relèvent du secrétariat et du chef d'établissement.
+
+### [SITUATION: QUI FAIT QUOI ENTRE iPackEPS, CYCLADES ET SANTORIN]
+- Mots-clés : qui fait quoi, rôle du coordonnateur, rôle du chef d'établissement, rôle de l'enseignant, accès Cyclades.
+- Formulations courantes des collègues : est-ce à moi ou au proviseur de faire l'export ; je n'ai pas accès à Cyclades, est-ce normal ; qui distribue les lots.
+- Coordonnateur EPS / responsable de la certification : déclare les APSA certificatives, dépose les référentiels, crée les groupes et les protocoles dans iPackEPS.
+- Chef d'établissement (ou son secrétariat) : génère le fichier d'export dans iPackEPS, l'importe dans Cyclades, réaffecte les protocoles en cas de changement d'enseignant, crée un protocole adapté en cours d'année, distribue les lots dans Santorin, déverrouille un lot.
+- Enseignant d'EPS : vérifie dans Cyclades que ses élèves sont bien rattachés à leurs protocoles, saisit ses notes dans Santorin par AFL ou AFLP, verrouille son lot.
+- Il est normal qu'un enseignant n'ait pas les mêmes accès que le chef d'établissement dans Cyclades : l'enseignant accède à ses activités par sa mission dans Imag'in. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)

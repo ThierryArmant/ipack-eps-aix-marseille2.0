@@ -1,0 +1,79 @@
+=== COMPLÉMENT SOURCÉ : SAISIE DES NOTES DANS SANTORIN, CAS PRATIQUES RELEVÉS DANS LES GUIDES D'AUTRES ACADÉMIES ===
+Sources (guides publics d'autres académies, sessions 2024 et 2025) :
+- Académie de Normandie, « Guide des examens EPS — Session 2025 » : https://codimd.apps.education.fr/s/sCi9raCjJ
+- Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf
+- Académie de Strasbourg, « FAQ iPackEPS / Cyclades / Santorin » du 29 mars 2024 : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf
+- Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_SaisiesCycladesSantorin.pdf
+ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulations décrites sont donc les mêmes partout. En revanche, les DATES, les ADRESSES DE CONTACT et l'organisation des commissions sont propres à chaque académie : pour l'académie d'Aix-Marseille, toujours renvoyer au calendrier et aux circulaires de la DEC d'Aix-Marseille. Ne jamais donner à un collègue une date ou une adresse d'une autre académie.
+
+### [SITUATION: SANTORIN REFUSE LA NOTE DE L'AFL2 OU DE L'AFL3 — IL FAUT D'ABORD L'AFL1]
+- Mots-clés : AFL2 bloqué, AFL3 impossible, AFLP2, ordre de saisie, case refuse la note, je ne peux pas saisir l'AFL2.
+- Formulations courantes des collègues : je n'arrive pas à saisir la note de l'AFL2 ; Santorin ne prend pas ma note d'AFL3 ; la case de l'AFLP2 reste vide ; pourquoi je ne peux pas mettre la deuxième note.
+- Règle de saisie : s'il n'y a pas de note en AFL1 (ou AFLP1), il n'est pas possible de mettre une note pour les autres AFL (ou AFLP). Il faut donc toujours commencer par saisir l'AFL1 / AFLP1 de l'activité, puis les suivants. (Source : guide Normandie 2025.)
+- À ne pas confondre avec des cases grisées pour tout le lot (bouton « Choisir les AFLP » non validé) ni avec un cadenas (lot verrouillé) : voir la fiche de diagnostic « mon protocole est bloqué ».
+
+### [SITUATION: SAISIE DES NOTES DANS SANTORIN — LES GESTES QUI ÉVITENT DE PERDRE SA SAISIE]
+- Mots-clés : virgule, point décimal, 6.5, bouton Enregistrer, réinitialiser, notes effacées, saisie perdue, entrée.
+- Formulations courantes des collègues : Santorin refuse ma note à virgule ; mes notes ont disparu ; j'ai cliqué sur réinitialiser ; faut-il enregistrer à chaque élève ; comment valider une note.
+- Décimales : utiliser le point « . » et non la virgule (exemple : 6.5).
+- Appuyer sur la touche Entrée pour valider la note et passer à l'AFL (ou AFLP) suivant.
+- Enregistrer obligatoirement, avec le bouton situé en bas à droite, après chaque APSA.
+- Ne pas cliquer sur « Réinitialiser » quand plusieurs APSA sont déjà saisies : la saisie serait effacée.
+- La saisie se fait élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP, et non une note globale. (Sources : support Besançon 2025, document Corse 2024-2025.)
+
+### [SITUATION: QUAND REMPLIR LE CHAMP « APPRÉCIATIONS » DANS SANTORIN ?]
+- Mots-clés : appréciation, commentaire, justification, note zéro, AB, absent, DI + DI + note, cas particulier, commission.
+- Formulations courantes des collègues : dois-je mettre une appréciation pour chaque élève ; que mettre dans le champ appréciation ; faut-il justifier un zéro.
+- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.)
+- La commission académique lit cette appréciation pour valider ou non la situation.
+
+### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]
+- Mots-clés : inapte à l'année, DI DI DI, DI DI note, deux dispenses une note, note conservée, note non conservée.
+- Formulations courantes des collègues : mon élève est dispensé toute l'année, que saisir ; il n'a qu'une note sur trois, je la garde ou pas ; comment saisir deux dispenses et une note.
+- Élève inapte toute l'année : saisir DI + DI + DI, avec l'appréciation « inapte à l'année ».
+- Élève qui n'a qu'une seule note, que l'enseignant CONSERVE : saisir « Dispensé » (DI) pour les deux APSA non évaluées, puis la note pour l'APSA évaluée (DI + DI + Note). Un avertissement s'affiche à l'écran ; une appréciation peut être ajoutée.
+- Élève qui n'a qu'une seule note, que l'enseignant ne souhaite PAS conserver : transformer cette note en DI (DI + DI + DI) et indiquer dans l'appréciation la note qui a été retirée. La commission académique voit l'appréciation et statue.
+- C'est l'enseignant d'EPS qui propose de conserver ou non la note ; la commission académique valide. (Sources : guide Normandie 2025, support Besançon 2025.)
+- Les certificats médicaux correspondant aux statuts DI doivent être transmis selon la procédure de l'académie (voir la DEC d'Aix-Marseille pour la date limite).
+
+### [SITUATION: FAUT-IL VERROUILLER SON LOT TOUT DE SUITE APRÈS LA SAISIE ?]
+- Mots-clés : verrouiller le lot, valider le lot, clôturer, commission d'établissement, correction après verrouillage.
+- Formulations courantes des collègues : quand verrouiller mon lot ; j'ai fini de saisir, je verrouille ; peut-on encore corriger après avoir verrouillé.
+- C'est l'enseignant qui verrouille son lot.
+- Conseil : attendre que l'équipe se soit réunie pour examiner les notes et les cas particuliers (commission ou concertation d'établissement) avant de verrouiller, car une fois le lot verrouillé, seul le chef d'établissement peut le déverrouiller. (Source : support Besançon 2025.)
+- La date limite de verrouillage est fixée chaque année par l'académie : se reporter au calendrier de la DEC d'Aix-Marseille.
+
+### [SITUATION: PEUT-ON OUVRIR CYCLADES OU SANTORIN DANS PLUSIEURS ONGLETS ?]
+- Mots-clés : plusieurs onglets, deux fenêtres, mauvaise session, import dans le mauvais examen, protocoles Bac Pro importés dans la session CAP.
+- Formulations courantes des collègues : puis-je ouvrir deux onglets Cyclades pour aller plus vite ; j'ai importé mon fichier dans le mauvais examen ; les protocoles du bac pro sont partis dans le CAP.
+- Non. Il ne faut surtout pas ouvrir Cyclades (ni Santorin) dans plusieurs onglets du navigateur en même temps : l'application peut se tromper d'onglet et importer un fichier dans la mauvaise base. Cas constaté : des protocoles de Bac Pro importés dans la session CAP.
+- Bonne pratique : n'ouvrir qu'une seule fenêtre, importer dans le bon examen, fermer, puis recommencer pour un autre examen. (Sources : FAQ Strasbourg 2024, guide Normandie 2025.)
+- Si un fichier a déjà été importé dans la mauvaise session, les documents consultés ne décrivent pas de correction que l'établissement puisse faire seul : il faut le signaler sans attendre à la DEC (ou à la commission académique) pour qu'elle intervienne.
+
+### [SITUATION: QUI SAISIT LES NOTES DE CCF, ET QUE FAIRE SI L'ÉVALUATEUR EST ABSENT ?]
+- Mots-clés : qui saisit les notes, évaluateur absent, collègue en arrêt, chef d'établissement saisit, mission Imag'in, réaffecter le protocole, référent établissement.
+- Formulations courantes des collègues : est-ce que je peux saisir les notes de mon collègue ; le professeur évaluateur est en arrêt, qui saisit ; le chef d'établissement peut-il saisir les notes d'EPS.
+- La saisie revient à l'enseignant désigné comme évaluateur du groupe concerné. (Source : FAQ Strasbourg 2024.)
+- Un enseignant ne voit dans Santorin que les lots des protocoles qui lui sont affectés. Pour qu'un autre enseignant saisisse, le chef d'établissement doit lui réaffecter le protocole dans Cyclades, activité [EPS] / [Contrôler / Réaffecter des protocoles].
+- Si l'enseignant affecté est absent et que personne ne peut le remplacer, le chef d'établissement peut se créer lui-même une mission d'évaluateur dans Imag'in, puis se réaffecter le protocole dans Cyclades pour saisir les notes. (Source : guide Normandie 2025.)
+- « Mon collègue a créé les protocoles, donc je ne peux pas saisir mes notes » : demander au chef d'établissement la réaffectation des protocoles ; elle reste possible toute l'année. (Source : support Besançon 2025.)
+
+### [SITUATION: EXTRAIRE LES NOTES SAISIES DANS SANTORIN]
+- Mots-clés : extraction des notes, export, récapitulatif, tableur, préparer la commission.
+- Formulations courantes des collègues : comment récupérer un tableau de mes notes ; peut-on exporter toutes les notes de l'établissement.
+- Le chef d'établissement peut extraire toutes les notes de l'établissement depuis Santorin. Un enseignant ne peut extraire que ses propres notes. (Source : support Besançon 2025.)
+
+### [SITUATION: VOCABULAIRE — ÉPREUVE DE SUBSTITUTION, DE RATTRAPAGE, DIFFÉRÉE]
+- Mots-clés : épreuve de substitution, rattrapage, épreuve différée, vocabulaire.
+- Dans les guides académiques, « épreuve de substitution » désigne l'épreuve de rattrapage proposée à un élève qui n'a pas pu passer son CCF à la date prévue pour un motif justifié. Les dates de rattrapage figurent dans le protocole de l'établissement.
+
+### [SITUATION: UNE ACTIVITÉ N'A PAS PU ÊTRE ÉVALUÉE POUR TOUT UN GROUPE — CAS EXCEPTIONNEL (CE)]
+- Mots-clés : cas exceptionnel, CE, installation indisponible, tout le groupe, activité non évaluée.
+- Formulations courantes des collègues : la piscine a fermé, je n'ai pas pu évaluer la natation pour ma classe ; que faire si une épreuve est impossible pour tout le groupe.
+- Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe, l'établissement sollicite l'inspection pédagogique et la DEC, qui valident ou non le cas exceptionnel. Ce dispositif est collectif : il ne s'applique jamais à un élève isolé. (Source : support Besançon 2025.)
+
+### [SITUATION: NOTE DE L'ENSEIGNEMENT OPTIONNEL D'EPS (OPTION EPS) — OÙ SE SAISIT-ELLE ?]
+- Mots-clés : option EPS, enseignement optionnel, option facultative, note de l'option, LSU, livret scolaire, bulletin.
+- Formulations courantes des collègues : où saisir la note de l'option EPS ; l'option EPS passe-t-elle par Santorin ; comment remonte la note d'option.
+- La note de l'enseignement optionnel d'EPS ne se saisit pas dans Santorin avec le CCF : elle se saisit dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent) et remonte par le livret scolaire, selon les modalités de l'établissement. (Source : guide Normandie 2025.)
+- Certaines académies demandent en plus le dépôt d'un tableau récapitulatif des notes d'option dans iPackEPS pour la commission. Cette demande est propre à chaque académie : vérifier auprès de la DEC ou de l'inspection d'Aix-Marseille si elle s'applique.

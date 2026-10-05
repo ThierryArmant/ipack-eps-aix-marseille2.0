@@ -1508,7 +1508,14 @@ if prompt_a_traiter:
             # ==================================================================
             # ✅ CORRECTION 1 : Le disjoncteur Pronote/Ecole Directe est élargi aux mots "extraire" et "groupes"
             est_import_pronote = (mode == "ipack" and any(w in p_low for w in ["pronote", "ecole directe", "ecoledirecte", "ecole direct"]) and any(w in p_low for w in ["import", "importer", "extraire", "extraction", "élève", "eleve", "classe", "classes", "groupe", "groupes"]))
-            est_saisir_notes = (not est_import_pronote and any(w in p_low for w in ["saisir", "saisie", "noter", "note", "notes", "carnet"]) and any(w in p_low for w in ["note", "notes"]) and not any(w in p_low for w in ["santorin", "cyclades", "protocole", "sequence", "séquence", "référentiel", "referentiel", "bloqu"]) and mode != "examens")
+            # ✅ CORRECTION : la règle se déclenchait dès que la question contenait le mot « note » (ex. « note minimum de 16/20 »),
+            # y compris dans l'onglet Textes. Il faut maintenant une vraie intention de saisie, dans l'onglet iPackEPS.
+            est_saisir_notes = (
+                mode == "ipack" and not est_import_pronote
+                and contient(p_norm, [r"\bsaisi", r"\brentrer\b", r"\bentrer\b", r"\bmettre\b", r"carnet", r"coefficient", r"ponderation", r"\bnoter\b"])
+                and contient(p_norm, [r"\bnotes?\b"])
+                and not any(w in p_low for w in ["santorin", "cyclades", "protocole", "sequence", "séquence", "référentiel", "referentiel", "bloqu", "unss", "podium", "championnat", "texte officiel"])
+            )
             est_connexion = (any(w in p_low for w in ["connecter", "connexion", "accéder", "acceder"]) and any(w in p_low for w in ["cyclades", "santorin", "imag'in", "imagin", "arena", "plateforme"]))
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
@@ -1520,7 +1527,15 @@ if prompt_a_traiter:
             est_eleve_arrivant = (mode != "textes" and any(w in p_low for w in ["arrive", "arrivant", "arrivée", "en cours d'année", "cours d annee"]) and any(w in p_low for w in ["élève", "eleve", "ccf", "examen", "groupe"]))
             est_apsa_etablissement_vs_nationale = (any(w in p_low for w in ["apsa établissement", "apsa etablissement", "liste nationale"]) and any(w in p_low for w in ["valide", "invalide", "relais", "sauts", "lancers", "statistiques", "cyclades"]))
             est_verrouiller_lot = (mode == "examens" and any(w in p_low for w in ["comment verrouiller", "je veux verrouiller", "pour verrouiller", "verrouiller mon lot", "verrouiller mes lots"]) and not any(w in p_low for w in ["déverrouiller", "deverrouiller", "incohérences", "incoherence", "erreur", "impossible", "candidature"]))
-            est_deverrouiller_lot = (mode == "examens" and (any(w in p_low for w in ["déverrouiller", "deverrouiller", "cadenas", "fermé", "ferme", "modifier note"]) or "verrouillé" in p_low) and any(w in p_low for w in ["santorin", "lot", "copie"]) and not est_verrouiller_lot)
+            # ✅ CORRECTION : « ferme » se déclenchait sur « fermeture des serveurs » ; mots entiers désormais, et une demande
+            # d'extraction / export des notes n'est pas une demande de déverrouillage.
+            est_deverrouiller_lot = (
+                mode == "examens"
+                and (contient(p_norm, [r"deverrouill", r"cadenas", r"\bferme(e|s|es)?\b", r"modifier (une |la |ma |mes )?notes?", r"\bverrouille(e|s|es)?\b"]))
+                and any(w in p_low for w in ["santorin", "lot", "copie"])
+                and not contient(p_norm, [r"extrai", r"extraction", r"\bexport", r"telecharg", r"\bcsv\b", r"excel", r"tableur", r"recapitulatif"])
+                and not est_verrouiller_lot
+            )
             est_dispense_totale = (mode != "textes" and any(w in p_low for w in ["dispensé", "dispense", "inapte", "inaptitude"]) and any(w in p_low for w in ["total", "toute l'année", "toute l'annee", "pour l'année", "pour l'annee", "toutes les épreuves", "toutes les epreuves"]))
             est_exclusion = (mode != "textes" and any(w in p_low for w in ["exclusion", "conseil de discipline", "exclu", "sanction"]) and any(w in p_low for w in ["ccf", "épreuve", "epreuve", "note", "rattrapage"]))
             est_aucun_eleve = (mode == "ipack" and any(w in p_low for w in ["aucun élève", "aucun eleve", "pas d'élève", "pas d'eleve", "liste vide", "aucun candidat"]))
@@ -1557,6 +1572,14 @@ if prompt_a_traiter:
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
+            # ✅ AJOUT (historique des questions) : 5 questions sur ce document, 1 seule déclenchait la réponse.
+            # « en quoi consiste », « où trouver le modèle », « qu'est-ce que le fichier synthèse »... et aussi dans l'onglet Examens.
+            est_doc_synthese = est_doc_synthese or (
+                mode in ("ipack", "examens")
+                and contient(p_norm, [r"synthese"])
+                and contient(p_norm, [r"\bdoc\b", r"document", r"fichier", r"dossier", r"modele"])
+                and contient(p_norm, [r"voie (general|techno|pro)", r"etablissement", r"ipack", r"referen", r"depot", r"deposer", r"97"])
+            )
             # ✅ CORRECTION : détection robuste des élèves inactifs / partis / inexistants.
             # - texte sans accents (p_norm), radicaux et mots entiers (singulier ET pluriel : "eleve" / "eleves")
             # - ajout de "inexistant", "fantôme", "radié", "n'est plus", "sortir", etc.
@@ -1567,7 +1590,7 @@ if prompt_a_traiter:
                 and contient(p_norm, [
                     r"inexist", r"inactif", r"\bpartis?\b", r"quitt", r"radie",
                     r"fantome", r"en trop", r"n'?est plus", r"plus dans",
-                    r"sortir", r"\bsorti", r"retirer", r"enlever", r"supprim", r"disparai"
+                    r"\bsortir\b", r"\bsortis?\b", r"retirer", r"enlever", r"supprim", r"disparai"
                 ])
                 and not contient(p_norm, [r"groupes?\b"])
             )
@@ -1975,7 +1998,8 @@ if prompt_a_traiter:
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_doc_synthese:
-                texte_brut = """<h3>⚠️ BLOCAGE À 97% : FICHIER SYNTHÈSE ÉTABLISSEMENT</h3>
+                texte_brut = """<h3>⚠️ FICHIER SYNTHÈSE ÉTABLISSEMENT (« DOC SYNTHÈSE ») ET BLOCAGE À 97%</h3>
+<p><strong>De quoi s'agit-il ?</strong> C'est le document officiel académique qui récapitule les protocoles d'évaluation de votre établissement. Il n'y a pas de modèle à remplir : il se présente comme un export PDF généré automatiquement ou une trame tableur fournie par la DEC.</p>
 <p><strong>Explication du message d'erreur :</strong> L'affichage "0 0 1 Doc Synthèse en attente" et un dossier bloqué à 97% est un <strong>comportement tout à fait normal</strong> d'iPackEPS. Cela signifie que l'intégralité de vos saisies pédagogiques est correcte.</p>
 <p><strong>Que manque-t-il ?</strong> Le système attend simplement le téléversement final du document académique de synthèse (généralement un export PDF officiel ou une trame tableur fournie par la DEC). <strong>Vous ne devez en aucun cas créer un document vous-même.</strong></p>
 <p><strong>Procédure de dépôt :</strong></p>

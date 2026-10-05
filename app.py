@@ -667,7 +667,7 @@ def charger_consignes_ipack():
 # Rien ne change dans la façon de remplir les fichiers .txt.
 # ======================================================================
 _RE_SEP = re.compile(r"^\s*[=\-]{10,}\s*$")
-_RE_TITRE = re.compile(r"^(#{2,4}\s+\S|=== .+|\[(ARTICLE|SITUATION|SECTION|PROCÉDURE|PROCEDURE|DOC_REF|ERREUR|DIAGNOSTIC|OPTION)\b)")
+_RE_TITRE = re.compile(r"^(#{2,4}\s+\S|=== .+|TITRE\s*:\s*\S|\[(ARTICLE|SITUATION|SECTION|PROCÉDURE|PROCEDURE|DOC_REF|ERREUR|DIAGNOSTIC|OPTION)\b)")
 _RE_QR = re.compile(r"^\s*-\s*Q\d+\b")
 _RE_UNITE = re.compile(r"^([*\-•]\s+\S|\d+\.\s+\S|\s+[*\-]\s+\*\*Question\s*\d+)")
 
@@ -1530,6 +1530,14 @@ if prompt_a_traiter:
             est_shn = any(w in p_low for w in ["shn", "sportif de haut niveau", "haut niveau", "ppf", "sportifs de haut niveau"])
             est_creation_groupe = (mode == "ipack" and any(w in p_low for w in ["groupe", "groupes"]) and any(w in p_low for w in ["mélanger", "melanger", "plusieurs classes", "pas à la classe", "correspondent pas", "inter-classe", "interclasse", "barrette", "décloison", "decloison"]) and not any(w in p_low for w in ["eppcs", "sss", "ulis", "section sportive", "association sportive"]))
             est_ressaisie_rentree = (mode == "ipack" and any(w in p_low for w in ["resaisir", "ressaisir", "tout refaire", "effacer", "année dernière", "annee derniere", "recommencer"]) and any(w in p_low for w in ["données", "donnees", "l'an dernier", "an dernier", "tout"]))
+            # ✅ AJOUT : même question posée autrement (« la structure est-elle reconduite d'une année sur l'autre ? », « est-ce conservé ? »).
+            # Les questions sur la reconduction d'une SSS ou d'un protocole ne sont pas concernées.
+            est_ressaisie_rentree = est_ressaisie_rentree or (
+                mode == "ipack"
+                and contient(p_norm, [r"reconduit", r"d.une annee (sur|a) l.autre", r"chaque (nouvelle )?annee", r"annee suivante", r"\bconserv", r"\bgarde(e|es|s)?\b", r"\bresaisi", r"\bressaisi"])
+                and contient(p_norm, [r"structure", r"donnee", r"\bsaisi", r"etablissement", r"\beple\b", r"configuration", r"parametrage", r"\btout\b"])
+                and not contient(p_norm, [r"\bsss\b", r"section sportive", r"protocole", r"referentiel", r"\bnotes?\b", r"appn"])
+            )
             # ✅ CORRECTION : une question longue ou qui décrit un problème (projet annuel, APSA, bug, message d'erreur)
             # n'est pas une demande générale « comment gérer une SSS » : elle part au RAG pour une réponse précise.
             est_gestion_sss_ou_sport = (mode == "ipack" and any(w in p_low for w in ["sport etude", "sport-etude", "section sportive", "sss"]) and any(w in p_low for w in ["gerer", "gérer", "configurer", "créer", "creer"]) and len(prompt) < 200 and not any(w in p_low for w in ["projet", "bilan", "apsa", "bug", "erreur", "message", "fonctionn", "me dit", "tourne en rond"]))
@@ -1596,14 +1604,17 @@ if prompt_a_traiter:
             if est_question_trop_courte:
                 est_cas_direct = True
 
-            # 💬 RELANCE après une réponse en dur ou une réponse de l'IA : resservir la même réponse fixe ne servirait à rien.
+            # 💬 RELANCE après une réponse EN DUR : resservir la même réponse fixe ne servirait à rien.
             # On coupe donc les disjoncteurs pour ce tour et on laisse l'IA compléter, avec la réponse précédente sous les yeux.
-            # (Après un simple « pouvez-vous préciser ? », les disjoncteurs restent actifs : la question complétée peut en déclencher un, gratuitement.)
-            if relance_ctx and relance_ctx.get("origine") in ("direct", "ia"):
+            # (Après « pouvez-vous préciser ? » ou « je ne dispose pas de l'information », rien n'est coupé et rien n'est rappelé à l'IA.)
+            # ✅ CORRECTION : après une réponse de l'IA, les réponses en dur restent ACTIVES. Si la précision en déclenche une
+            # (ex. « ...ou je dois tout resaisir ? »), c'est une information nouvelle, fiable et gratuite : on la sert.
+            if relance_ctx and relance_ctx.get("origine") == "direct":
                 for _nom_flag in [k for k in list(globals()) if k.startswith("est_")]:
                     if _nom_flag not in ("est_college", "est_dnb", "est_premier_degre", "est_clairement_lycee", "est_sss", "est_shn", "est_totalement_hors_sujet", "est_mauvais_onglet", "est_mauvais_onglet_examens"):
                         globals()[_nom_flag] = False
                 est_cas_direct = est_mauvais_onglet
+            if relance_ctx and relance_ctx.get("origine") in ("direct", "ia") and not est_cas_direct:
                 bloc_echange_precedent = (
                     "RÉPONSE DÉJÀ DONNÉE À CET UTILISATEUR JUSTE AVANT (elle ne l'a pas débloqué) :\n"
                     + relance_ctx["reponse"]
@@ -1853,7 +1864,7 @@ if prompt_a_traiter:
 <ol>
   <li><strong>[Étape 1] Le type SSS vous est-il proposé ?</strong> Dans <strong>[Dossiers] > [Dossier EPS] > [Groupes]</strong>, ouvrez votre groupe de section et regardez son type. Si le type [SSS] n'est pas proposé ou est refusé, la cause est là : ce type est bloqué par défaut tant que le recteur n'a pas validé l'ouverture de la section et que le responsable iPackEPS de l'académie n'a pas activé votre établissement (liste mise à jour chaque année). Faites alors un simple signalement par mail à votre responsable iPackEPS ou à votre IPR pour que l'établissement soit activé.</li>
   <li><strong>[Étape 2] Une seule APSA par groupe SSS.</strong> iPackEPS n'accepte qu'une APSA par groupe SSS. Si votre section travaille plusieurs activités, créez manuellement une APSA portant le nom de l'ensemble (par exemple « Football-Musculation ») dans <strong>[Dossiers] > [Dossier EPS] > [APSA]</strong>, puis associez-la au groupe SSS.</li>
-  <li><strong>[Étape 3] La bonne année scolaire.</strong> Les groupes, élèves et APSA ne sont pas conservés d'une année sur l'autre : ils doivent être recréés à chaque rentrée. Vérifiez sur le tableau de bord que vous êtes bien sur l'année en cours.</li>
+  <li><strong>[Étape 3] La bonne année scolaire.</strong> Les groupes ne sont pas reconduits d'une année sur l'autre : ils doivent être reconfigurés à chaque rentrée, puis les élèves répartis dedans (la liste des APSA, elle, est conservée). Vérifiez sur le tableau de bord que vous êtes bien sur l'année en cours.</li>
   <li><strong>[Étape 4] Terminer le Dossier EPS avant le projet.</strong> Le projet de section reprend les élèves placés dans la SSS, les créneaux SSS de l'emploi du temps et les professeurs qui encadrent. Complétez donc groupes, APSA, élèves, équipements sportifs et emploi du temps, puis retournez dans <strong>[Dossiers] > [Dossier SSS] > [Projet Annuel]</strong>.</li>
 </ol>
 <p><strong>Si tout est conforme et que le message persiste :</strong> écrivez à votre responsable iPackEPS en précisant le nom du groupe, son type et l'APSA associée.</p>
@@ -2276,9 +2287,14 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
 
+        # Une réponse « je ne dispose pas... » n'est pas une réponse à compléter : la précision sera traitée comme
+        # une question complétée, sans consigne « ne répète pas » (qui poussait l'IA à refuser une seconde fois).
+        if origine_reponse == "ia" and re.search(r"je ne dispose pas|pouvez-vous reformuler|je n'ai pas d'information plus pr", texte_brut, flags=re.IGNORECASE):
+            origine_reponse = "vide"
+
         # 💬 On mémorise uniquement cet échange (texte brut, tronqué), pour une éventuelle relance.
         _nb_relances = (relance_ctx["relances"] + 1) if relance_ctx else 0
-        if origine_reponse in ("ia", "direct", "courte") and _nb_relances < NB_RELANCES_MAX:
+        if origine_reponse in ("ia", "direct", "courte", "vide") and _nb_relances < NB_RELANCES_MAX:
             _reponse_texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()
             st.session_state.dernier_echange = {
                 "question": prompt[:1200],
@@ -2309,7 +2325,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
     if _echange:
         _titre_relance = (
             "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
-            if _echange["origine"] == "courte"
+            if _echange["origine"] in ("courte", "vide")
             else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation, ou posez une autre question sur ce même onglet"
         )
         st.markdown(

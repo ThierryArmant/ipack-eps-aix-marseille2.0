@@ -2223,8 +2223,10 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 {contexte_complet_ia}
 
 {bloc_echange_precedent}
-QUESTION DE L'UTILISATEUR :
+QUESTION DE L'UTILISATEUR (public sélectionné : {niveau_actuel_form}) :
 {prompt}
+
+RAPPEL AVANT DE RÉPONDRE : réponds pour CE public. Si un passage du contexte donne des réponses différentes selon le public (« Réponse Lycée GT Bac », « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Collège DNB »), utilise uniquement celle qui correspond au public sélectionné ou à l'examen cité dans la question. Une règle prévue pour un autre examen ne s'applique pas.
 
 MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur.

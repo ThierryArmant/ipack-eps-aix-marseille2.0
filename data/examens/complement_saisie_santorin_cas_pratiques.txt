@@ -77,3 +77,10 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Formulations courantes des collègues : où saisir la note de l'option EPS ; l'option EPS passe-t-elle par Santorin ; comment remonte la note d'option.
 - La note de l'enseignement optionnel d'EPS ne se saisit pas dans Santorin avec le CCF : elle se saisit dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent) et remonte par le livret scolaire, selon les modalités de l'établissement. (Source : guide Normandie 2025.)
 - Certaines académies demandent en plus le dépôt d'un tableau récapitulatif des notes d'option dans iPackEPS pour la commission. Cette demande est propre à chaque académie : vérifier auprès de la DEC ou de l'inspection d'Aix-Marseille si elle s'applique.
+
+### [SITUATION: CO-ÉVALUATION — OBLIGATOIRE OU NON SELON L'EXAMEN (BAC GT, BAC PRO, CAP, DNB)]
+- Mots-clés : co-évaluation, co-évaluateur absent, évaluer seul, deux enseignants, bac pro, CAP, voie professionnelle, DNB, collège.
+- Formulations courantes des collègues : mon co-évaluateur est absent, puis-je évaluer seul ; faut-il être deux pour le CCF en bac pro ; la co-évaluation est-elle obligatoire en CAP ; doit-on être deux au collège.
+- Baccalauréats général et technologique : la co-évaluation est obligatoire. Elle est réalisée par deux enseignants d'EPS de l'établissement, dont l'un est l'enseignant du groupe classe (note de service du 20 février 2026). Si le co-évaluateur prévu est absent, l'épreuve ne peut pas être évaluée par un seul enseignant : il faut en informer le chef d'établissement, qui organise son remplacement ou le report de l'épreuve.
+- Baccalauréat professionnel et CAP : la co-évaluation n'est PAS réglementaire pour la certification. L'enseignant de la classe peut donc évaluer seul. (FAQ nationale « Évaluer et noter », réponse voie professionnelle.)
+- Collège (DNB) : ni le CCF ni la co-évaluation ne sont réglementés. Les élèves sont notés par l'enseignant de leur classe ; une co-évaluation éventuelle relève de l'organisation de l'établissement et doit être validée par l'autorité hiérarchique.

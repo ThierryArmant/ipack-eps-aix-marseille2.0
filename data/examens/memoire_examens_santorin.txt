@@ -86,6 +86,8 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 --------------------------------------------------------------------------------
 5. CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT
 --------------------------------------------------------------------------------
+- Formulations courantes des collègues : je suis remplaçant ou contractuel, je n'ai pas mes codes, mes identifiants ou mon mot de passe pour accéder à mes lots de correction ; le professeur que je remplace ne m'a pas donné ses codes ; comment obtenir mes accès à Santorin.
+- Rappel (règle de connexion déjà énoncée dans ce document, aucune information nouvelle) : il n'existe pas de codes propres à Santorin à récupérer auprès du collègue remplacé. L'accès se fait par le portail ARENA avec ses propres identifiants professionnels (e-mail académique + mot de passe). Ce qui manque à un remplaçant, ce sont les droits, que la direction de l'établissement doit lui ouvrir par la procédure ci-dessous.
 - Le piège du portail Imag'in : Si un enseignant remplaçant (arrivé en cours d'année suite à un long arrêt) ne voit pas ses lots dans Santorin, le problème ne vient pas de Santorin mais d'Imag'in.
 - Procédure exacte :
   1. Saisir/vérifier l'affectation administrative dans STSWEB.
@@ -314,7 +316,7 @@ Pour toute démarche technique sur Santorin, respectez ces chemins et contrainte
 - Pour verrouiller et transmettre ses notes définitivement : Cliquez sur le bouton de validation/verrouillage situé en bas de l'interface de votre lot.
 - Pour déverrouiller un lot (Cadenas rouge/fermé) : L'enseignant n'a pas les droits informatiques pour cette action. Il faut contacter la direction qui ira dans [Santorin-Direction] > [Liste des lots] > Clic sur le cadenas.
 - Pour déplacer un candidat vers un autre lot ou gérer un élève arrivant : L'enseignant n'a pas les droits pour cette action. Le secrétariat doit affecter l'élève dans Cyclades, puis la direction gère la répartition dans [Santorin-Direction] via une distribution manuelle.
-- Pour extraire les notes saisies : Allez dans [Mes lots] > [Saisie des notes] > Cliquez sur le bouton d'exportation (généralement une icône de téléchargement ou "Exporter").
+- Pour extraire les notes saisies : Allez dans [Mes lots] > [Saisie des notes] > Cliquez sur le bouton d'exportation (généralement une icône de téléchargement ou "Exporter"). Formulations courantes des collègues : extraire, exporter, télécharger ou récupérer le récapitulatif des notes ; obtenir un fichier tableur (CSV / Excel) de mes notes depuis Santorin ; garder une trace des notes avant la fermeture des serveurs.
 ======================================================================
 CARTOGRAPHIE, LEXIQUE ET RÉSOLUTION D'ERREURS - IPACKEPS
 ======================================================================

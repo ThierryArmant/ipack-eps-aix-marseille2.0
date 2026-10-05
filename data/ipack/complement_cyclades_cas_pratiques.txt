@@ -88,3 +88,10 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Chef d'établissement (ou son secrétariat) : génère le fichier d'export dans iPackEPS, l'importe dans Cyclades, réaffecte les protocoles en cas de changement d'enseignant, crée un protocole adapté en cours d'année, distribue les lots dans Santorin, déverrouille un lot.
 - Enseignant d'EPS : vérifie dans Cyclades que ses élèves sont bien rattachés à leurs protocoles, saisit ses notes dans Santorin par AFL ou AFLP, verrouille son lot.
 - Il est normal qu'un enseignant n'ait pas les mêmes accès que le chef d'établissement dans Cyclades : l'enseignant accède à ses activités par sa mission dans Imag'in. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+
+### [SITUATION: SE DÉCLARER COORDONNATEUR EPS OU RESPONSABLE DE LA CERTIFICATION DANS iPackEPS]
+- Mots-clés : coordonnateur EPS, responsable de la certification, fonctions EPS, fiche professeur, nouveau coordonnateur, droits insuffisants, menus grisés.
+- Formulations courantes des collègues : je deviens coordonnateur cette année, où le déclarer ; je n'ai pas accès au dossier certificatif ; comment cocher coordonnateur EPS ; mes fonctions ont disparu à la rentrée.
+- La déclaration se fait dans la Fiche Professeur de l'enseignant (accès : Tableau de bord => Fiche Professeur), rubrique des fonctions : cocher « Coordonnateur EPS » et, pour gérer les examens, « Responsable de la Certification ».
+- Cette déclaration est un préalable : sans elle, les modules de préparation des examens (APSA certificatives, référentiels, protocoles) ne sont pas accessibles en modification. Ordre conseillé à la rentrée : fiche Établissement, puis Fiche Professeur, puis les dossiers et projets.
+- Les fonctions sont à redéclarer à chaque rentrée scolaire. (Source : guide Normandie 2025 ; accès à la Fiche Professeur : article 11 du manuel iPackEPS.)

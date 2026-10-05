@@ -18,11 +18,13 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 - Deux de ces épreuves au moins s'appuient sur des activités de la liste nationale fixée par le programme.
 - Chaque épreuve évalue les trois attendus de fin de lycée (AFL1, AFL2, AFL3) et donne lieu à une note de 0 à 20.
 - La note finale est la moyenne des trois notes, arrondie à l'entier le plus proche, après harmonisation académique.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: CO-ÉVALUATION AU BAC GT — QUI ÉVALUE ? (note de service du 20 février 2026)]
 - Mots-clés : co-évaluation, deux enseignants, évaluateur, enseignant du groupe, co-évaluateur.
 - Formulations courantes des collègues : faut-il être deux pour évaluer le CCF ; le co-évaluateur doit-il être de l'établissement ; puis-je évaluer seul ma classe.
 - La co-évaluation est réalisée par deux enseignants d'EPS de l'établissement, dont l'un est l'enseignant du groupe classe.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: PROTOCOLE D'ÉVALUATION DE L'ÉTABLISSEMENT — CE QU'IL DOIT CONTENIR (note de service du 20 février 2026)]
 - Mots-clés : protocole d'évaluation, projet pédagogique, validation recteur, commission académique, calendrier, évaluateurs, aménagements.
@@ -30,28 +32,33 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 - Le protocole d'évaluation est un document obligatoire, annexé au projet pédagogique d'EPS et transmis au recteur pour validation.
 - Il précise les ensembles certificatifs proposés, le calendrier des épreuves, les noms des évaluateurs, les aménagements prévus et les informations données aux candidats.
 - La déclinaison locale des référentiels nationaux est validée par la commission académique d'harmonisation et de proposition de notes (CAHPN), présidée par le recteur. Cette commission valide les protocoles, harmonise les notes et établit les rapports statistiques.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: ABSENCE NON JUSTIFIÉE À UNE ÉPREUVE DE CCF AU BAC GT (note de service du 20 février 2026)]
 - Mots-clés : absence injustifiée, zéro, non éliminatoire, ABI, absent sans justificatif.
 - Formulations courantes des collègues : un élève absent sans motif à son CCF a-t-il zéro ; le zéro est-il éliminatoire.
 - Toute absence non justifiée à la date d'une des épreuves entraîne l'attribution de la note 0 (zéro). Ce zéro n'est pas éliminatoire.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: INAPTITUDE PARTIELLE OU TOTALE AU BAC GT — QUELLES POSSIBILITÉS ? (note de service du 20 février 2026)]
 - Mots-clés : inaptitude partielle, inaptitude totale, épreuve adaptée, contrôle adapté, dispense d'épreuve, handicap, circulaire 94-137.
 - Formulations courantes des collègues : un élève inapte partiel peut-il passer une épreuve adaptée ; combien d'épreuves adaptées au maximum ; quand un élève est-il réellement dispensé de l'épreuve d'EPS.
 - Selon la situation de l'élève, plusieurs organisations sont possibles : trois épreuves dont une adaptée ; deux épreuves adaptées, relevant si possible de deux champs d'apprentissage différents ; une seule épreuve adaptée dans les cas particuliers.
 - Seuls les handicaps ne permettant pas une pratique adaptée (au sens de la circulaire n° 94-137 du 30 mars 1994) donnent lieu à une dispense d'épreuve.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: ÉPREUVE DIFFÉRÉE AU BAC GT — DANS QUELS CAS ? (note de service du 20 février 2026)]
 - Mots-clés : épreuve différée, blessure, certificat médical, force majeure, chef d'établissement, rattrapage.
 - Formulations courantes des collègues : un élève blessé peut-il repasser son CCF plus tard ; qui autorise une épreuve différée ; cas de force majeure.
 - Une évaluation différée est possible en cas de blessure ou de problème de santé attesté médicalement, ou en cas de force majeure, avec l'accord du chef d'établissement.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: SPORTIF DE HAUT NIVEAU AU BAC GT — LA NOTE DE 20/20 (note de service du 20 février 2026)]
 - Mots-clés : SHN, sportif de haut niveau, 20/20, spécialité sportive, unique note.
 - Formulations courantes des collègues : un sportif de haut niveau a-t-il 20 d'office ; le 20 du SHN peut-il être sa seule note ; SHN et examen ponctuel.
 - En CCF, la note de 20/20 est attribuée automatiquement au sportif de haut niveau sur sa spécialité sportive, à condition qu'elle ne soit pas l'unique note retenue au titre du CCF.
 - La même règle s'applique à l'examen ponctuel terminal : 20/20 sur la spécialité, à condition que ce ne soit pas l'unique note retenue.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: EXAMEN PONCTUEL TERMINAL D'EPS AU BAC GT — CANDIDATS INDIVIDUELS ET CNED (note de service du 20 février 2026)]
 - Mots-clés : examen ponctuel terminal, candidat individuel, candidat libre, CNED, deux épreuves, absence justifiée, coefficient neutralisé, épreuve de remplacement.
@@ -60,3 +67,4 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 - Il porte sur deux activités, évaluées, si l'organisation le permet, au cours d'une seule journée. Chacune est notée sur 20 ; la note d'EPS est la moyenne de ces deux notes.
 - En cas d'absence justifiée, le coefficient de l'épreuve est neutralisé : l'examen ponctuel d'EPS ne fait pas l'objet d'une épreuve de remplacement.
 - En cas d'inaptitude survenant en cours d'épreuve, la certification peut porter sur une seule épreuve, ou le candidat est dispensé si les éléments d'appréciation sont insuffisants.
+- PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.

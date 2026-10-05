@@ -2199,6 +2199,18 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - N'ajoute aucune étape de remplissage (« vérifiez votre connexion », « contactez votre correspondant », « assurez-vous que tout est correct ») si elle ne figure pas dans le contexte. Une réponse courte et exacte vaut mieux qu'une procédure rallongée.
 - Pour un texte réglementaire (décret, circulaire, note de service), rapporte ce que dit le contexte sans commenter ses intentions ni ses bénéfices supposés (« plus de flexibilité », « plus équitable »...).
 - Les passages du contexte précédés de [Base iPackEPS] ou [Base Examens & Santorin] viennent de l'autre base documentaire : ils ont la même valeur que les autres.
+- CHEMINS DE MENU : ne donne un chemin de menu que s'il figure dans le contexte, et donne-le sans le nuancer. Les formules « généralement », « en général », « normalement », « il se peut que » devant un menu ou un bouton sont interdites : si le chemin exact n'est pas dans le contexte, dis ce que le contexte permet de dire et précise que le chemin exact n'est pas dans ta base.
+- Ne recopie pas une phrase du contexte qui traite d'un cas particulier que le professeur n'a pas évoqué (autre examen, autre nombre d'épreuves, autre logiciel).
+- SYMPTÔME À PLUSIEURS CAUSES : si les détails de la question désignent une seule cause, ne donne que celle-là. Si plusieurs causes du contexte peuvent expliquer ce que décrit le professeur (exemple : une note refusée peut venir de la virgule à la place du point, ou de l'AFL1 non saisi), présente-les toutes, une ligne chacune, avec ce qu'il faut vérifier, sans mélanger leurs étapes.
+
+7. PORTÉE DES RÈGLES (NE PAS TRANSPOSER D'UN EXAMEN À L'AUTRE) :
+- Le public sélectionné par le professeur figure à l'ÉTAPE 2. Une règle du contexte qui précise sa portée (baccalauréat général et technologique, baccalauréat professionnel, CAP, DNB, collège) ne vaut que pour cette portée.
+- Ne transpose jamais une règle du bac général et technologique à la voie professionnelle ou au CAP (ni l'inverse) : AFL / AFLP, nombre d'épreuves, co-évaluation, textes de référence diffèrent. Si le contexte ne contient la règle que pour un autre public que celui du professeur, dis-le clairement (« le texte dont je dispose concerne le bac général et technologique ; je n'ai pas le texte équivalent pour la voie professionnelle ») et renvoie à la DEC ou à l'inspection, sans affirmer que la règle s'applique.
+
+8. MÉMO PERMANENT (VRAI MÊME SI LE CONTEXTE N'EN PARLE PAS) :
+- DATES ET DÉLAIS : toute date limite (dépôt des référentiels, saisie des protocoles, import des classes, saisie ou verrouillage des notes, commissions) est fixée chaque année par la DEC et l'inspection pédagogique de l'académie d'Aix-Marseille. À une question « jusqu'à quand », « avant quelle date », « date limite », ne réponds JAMAIS que tu ne disposes pas de la procédure et n'invente JAMAIS de date : explique que la date est fixée chaque année par la circulaire académique et le calendrier de la DEC d'Aix-Marseille, qu'il faut les consulter ou interroger le secrétariat des examens de l'établissement, puis, si le contexte la contient, rappelle la manipulation concernée. Ne cite jamais la date d'une autre académie.
+- ACCÈS : iPackEPS, Cyclades, Imag'in et Santorin s'ouvrent uniquement depuis le portail ARENA, avec les identifiants académiques. Il n'existe pas de compte ni de mot de passe propre à iPackEPS ou à Santorin.
+- RÉPARTITION DES RÔLES POUR LES EXAMENS : le coordonnateur EPS prépare APSA, référentiels, groupes et protocoles dans iPackEPS ; le chef d'établissement (ou son secrétariat) exporte vers Cyclades, importe, réaffecte les protocoles, distribue et déverrouille les lots ; l'enseignant vérifie ses élèves, saisit ses notes par AFL ou AFLP et verrouille son lot.
 
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
@@ -2249,7 +2261,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 video_sss = "Projet_annuel_SSS.mp4"
             elif "bilan" in p_low:
                 video_sss = "Bilan_annuel_SSS.mp4"
-            elif "ouverture" in p_low:
+            elif "ouvr" in p_low:
+                # ✅ CORRECTION : « nous voulons ouvrir une section » (sans le mot « ouverture ») recevait le tutoriel de fermeture
                 video_sss = "Demande_ouverture_SSS.mp4"
             elif "groupe" in p_low:
                 video_sss = "Gestion_groupes_iPackEPS.mp4"
@@ -2258,7 +2271,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             if not re.search(r"[A-Za-z0-9_]+_SSS\.mp4", texte_brut):
                 texte_brut += "\n\n📺 Tutoriel associé : " + video_sss
 
-        if est_shn:
+        # ✅ CORRECTION : le tutoriel « classes Sports-Études » était ajouté à toute réponse parlant de haut niveau,
+        # y compris dans l'onglet Examens (saisie du 20/20 dans Santorin), où il n'a aucun rapport. Onglet iPackEPS seulement.
+        if est_shn and mode == "ipack":
             texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
             texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
             if "Configurer_Classes_Sports_Etudes.mp4" not in texte_brut:

@@ -1394,6 +1394,7 @@ if prompt_a_traiter:
         sources_consultees = []
         fiches_diag = []   # (titre de la fiche, score) : passages transmis à l'IA, affichés en mode admin uniquement
         erreur_rag = ""
+        reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
         est_shn = False
@@ -1673,55 +1674,58 @@ if prompt_a_traiter:
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
             # ==================================================================
-            if openai_api_key and not est_cas_direct:
+            def _recherche_documentaire():
+                """Cherche les passages utiles dans les bases pour la question en cours.
+                Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
+                _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
+
+                def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
+                    if not retriever:
+                        return
+                    _nodes = retriever.retrieve(prompt)
+                    if maximum:
+                        _nodes = _nodes[:maximum]
+                    for n in _nodes:
+                        _txt = n.node.text or ""
+                        _cle = re.sub(r"\s+", " ", _txt)[:300]
+                        if _cle in _vus:
+                            continue  # même passage présent dans deux bases : transmis une seule fois
+                        _vus.add(_cle)
+                        _extraits.append((etiquette + " " if etiquette else "") + _txt)
+                        if avec_sources:
+                            _sources.append((libelle_source(n), getattr(n, "score", None)))
+                        if avec_diag:
+                            _diag.append(((etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:110], getattr(n, "score", None)))
+
                 try:
                     if niveau_actuel_form == "1er degré":
-                        if retriever_textes:
-                            nodes_bruts = retriever_textes.retrieve(prompt)
-                            for n in nodes_bruts:
-                                extraits_doc += f"[Référentiel Textes Officiels 1er Degré] {n.node.text}\n\n"
-                                sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
-                        if retriever_peda:
-                            nodes_peda = retriever_peda.retrieve(prompt)
-                            for n in nodes_peda:
-                                extraits_doc += f"[Référentiel Pédagogique 1er Degré] {n.node.text}\n\n"
-                                sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
+                        _ajouter(retriever_textes, "[Référentiel Textes Officiels 1er Degré]", avec_sources=True)
+                        _ajouter(retriever_peda, "[Référentiel Pédagogique 1er Degré]", avec_sources=True)
+                    elif mode == "textes":
+                        _ajouter(retriever_textes, "[Textes Officiels & Juridiques / Partenariats]", avec_sources=True)
+                        if any(w in p_low for w in mots_cles_intention_peda):
+                            _ajouter(retriever_peda, "[Référentiel Pédagogique]", avec_sources=True)
+                    elif mode == "examens":
+                        _ajouter(retriever_santorin, avec_diag=True)
+                        # ✅ AJOUT : beaucoup de fiches Santorin / Cyclades sont rangées dans ipack.txt (livret Santorin, FAQ examens).
+                        # Depuis l'onglet Examens elles étaient introuvables : l'IA inventait alors des menus. On va aussi les chercher.
+                        _ajouter(retriever_ipack, "[Base iPackEPS]", avec_diag=True, maximum=5)
+                    elif mode == "ipack":
+                        _ajouter(retriever_ipack, avec_diag=True)
+                        _ajouter(retriever_santorin, "[Base Examens & Santorin]", avec_diag=True, maximum=4)
                     else:
-                        if mode == "textes":
-                            if retriever_textes:
-                                nodes_bruts = retriever_textes.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"[Textes Officiels & Juridiques / Partenariats] {n.node.text}\n\n"
-                                    sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
-                            
-                            if retriever_peda and any(w in p_low for w in mots_cles_intention_peda):
-                                nodes_peda = retriever_peda.retrieve(prompt)
-                                for n in nodes_peda:
-                                    extraits_doc += f"[Référentiel Pédagogique] {n.node.text}\n\n"
-                                    sources_consultees.append((libelle_source(n), getattr(n, "score", None)))
-                                    
-                        elif mode == "examens":
-                            if retriever_santorin:
-                                nodes_bruts = retriever_santorin.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"{n.node.text}\n\n"
-                                    fiches_diag.append(((n.node.text or "").strip().split("\n")[0][:110], getattr(n, "score", None)))
-                        elif mode == "ipack":
-                            if retriever_ipack:
-                                nodes_bruts = retriever_ipack.retrieve(prompt)
-                                for n in nodes_bruts:
-                                    extraits_doc += f"{n.node.text}\n\n"
-                                    fiches_diag.append(((n.node.text or "").strip().split("\n")[0][:110], getattr(n, "score", None)))
-                        else:
-                            if retriever_peda:
-                                nodes_peda = retriever_peda.retrieve(prompt)
-                                for n in nodes_peda:
-                                    extraits_doc += f"[Référentiel Pédagogique & Programmes] {n.node.text}\n\n"
+                        _ajouter(retriever_peda, "[Référentiel Pédagogique & Programmes]")
                 except Exception as e_rag:
                     # ✅ CORRECTION : l'erreur était avalée en silence ; l'IA recevait alors un contexte vide et répondait
                     # « je ne dispose pas de la procédure ». Elle est maintenant notée (visible en mode admin et dans les journaux).
-                    erreur_rag = str(e_rag)
-                    print(f"Erreur de recherche documentaire : {erreur_rag}")
+                    _erreur = str(e_rag)
+                    print(f"Erreur de recherche documentaire : {_erreur}")
+                return ("".join(e + "\n\n" for e in _extraits), _sources, _diag, _erreur)
+
+            if openai_api_key and not est_cas_direct:
+                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire()
+
+            besoin_ia = False  # passe à True si aucune réponse en dur ne convient : c'est alors l'IA qui répond
 
             # ==================================================================
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
@@ -2049,6 +2053,42 @@ if prompt_a_traiter:
             # 6. GESTION DE LA RÉPONSE DE L'IA (LLM) SI AUCUN DISJONCTEUR NE S'EST ACTIVÉ
             # ==================================================================
             else:
+                besoin_ia = True
+
+            # ==================================================================
+            # 5 bis. ARBITRE DES RÉPONSES EN DUR
+            # ✅ AJOUT : une réponse en dur se déclenche sur des mots-clés. Elle partait donc aussi quand la question
+            # portait sur AUTRE CHOSE (ex. « au stade sans wifi, est-ce que je perds mes notes ? » recevait
+            # « iPackEPS n'est pas un carnet de notes » ; « puis-je supprimer un élève dispensé toute l'année ? »
+            # recevait la fiche sur le statut DISP). Un contrôle très court demande à l'IA si la réponse en dur
+            # traite bien la demande. Si non, la question part à la recherche documentaire. En cas d'erreur du
+            # contrôle, la réponse en dur est conservée (comportement d'avant).
+            # ==================================================================
+            if (not besoin_ia) and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet:
+                try:
+                    _resume_dur = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()[:900]
+                    _verdict = Settings.llm.complete(
+                        "Tu contrôles un assistant destiné aux professeurs d'EPS.\n"
+                        "QUESTION DU PROFESSEUR :\n" + prompt + "\n\n"
+                        "RÉPONSE TOUTE PRÊTE ENVISAGÉE :\n" + _resume_dur + "\n\n"
+                        "Cette réponse toute prête traite-t-elle précisément ce que le professeur demande "
+                        "(même sujet ET même difficulté) ?\n"
+                        "Réponds NON si la question porte sur un autre problème, sur un message d'erreur, un cas particulier "
+                        "ou une conséquence que la réponse toute prête n'aborde pas, ou si elle ne répond pas à ce qui est demandé.\n"
+                        "Réponds par un seul mot : OUI ou NON."
+                    ).text.strip().upper()
+                    if _verdict.startswith("NON"):
+                        reponse_en_dur_ecartee = _resume_dur[:90]
+                        texte_brut = ""
+                        besoin_ia = True
+                        origine_reponse = "ia"
+                except Exception as e_arbitre:
+                    print(f"Erreur de l'arbitre des réponses en dur : {e_arbitre}")
+
+            if besoin_ia and openai_api_key and not extraits_doc:
+                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire()
+
+            if besoin_ia:
                 if contexte_actif == "college":
                     badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
                 elif mode == "examens":
@@ -2077,7 +2117,7 @@ if prompt_a_traiter:
                 if mode != "textes":
                     bloc_video_consigne = """
                     📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
-                    - Pour les manipulations techniques, termine par le fichier associé exact parmi la liste officielle (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Gestion_groupes_iPackEPS.mp4 (gestion des groupes EPS/AS/SSS), Sequences_apprentissage_groupes.mp4 (séquences d'apprentissage des groupes), Apsa_certificatives_CAP.mp4 (APSA certificatives en CAP), Declaration_projet_APPN.mp4 (déclaration d'un projet APPN), Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
+                    - Ne cite un tutoriel vidéo QUE si son nom correspond clairement à la manipulation que ta réponse explique. Dans le doute, ou si ta réponse n'est pas une manipulation dans un logiciel (règle, explication, réponse négative, renvoi vers un service), n'en cite AUCUN : un tutoriel sans rapport induit le collègue en erreur. Jamais plus d'un tutoriel. Liste officielle des fichiers (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Gestion_groupes_iPackEPS.mp4 (gestion des groupes EPS/AS/SSS), Sequences_apprentissage_groupes.mp4 (séquences d'apprentissage des groupes), Apsa_certificatives_CAP.mp4 (APSA certificatives en CAP), Declaration_projet_APPN.mp4 (déclaration d'un projet APPN), Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
                     """
                 else:
                     bloc_video_consigne = ""
@@ -2140,7 +2180,9 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - Tu dois t'appuyer en priorité sur le "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous pour répondre aux procédures. 
 - Si l'information figure dans le contexte (même avec des synonymes comme "départ", "inactif" ou "actualisation"), utilise-la pour guider l'utilisateur.
 - Si plusieurs procédures du contexte semblent proches, choisis UNIQUEMENT celle dont la cause correspond exactement au symptôme décrit par l'utilisateur. Ne mélange jamais deux procédures différentes dans une même réponse et n'ajoute aucune étape (menu, bouton, vérification) qui ne figure pas mot pour mot dans le contexte.
-- Si et seulement si la réponse est totalement absente du contexte fourni, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
+- UNE RÉPONSE NÉGATIVE EST UNE RÉPONSE : si le contexte dit que l'action est impossible, que l'enseignant ne peut pas la faire lui-même, qu'il n'existe pas de bouton / de compte / de procédure, que le problème est connu et sans conséquence, ou qu'il faut s'adresser à un autre service ou consulter un autre document (circulaire, calendrier de la DEC...), alors c'est LA réponse : donne-la clairement, avec l'explication du contexte. Ne réponds surtout pas que tu ne disposes pas de la procédure.
+- La phrase d'absence est réservée au cas où AUCUN passage du contexte ne parle du sujet de la question. Dans ce seul cas, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
+- N'écris JAMAIS cette phrase d'absence après avoir donné une réponse, même partielle : soit tu réponds, soit tu écris cette phrase seule.
 - Il est strictement interdit d'utiliser tes connaissances générales extérieures pour deviner comment fonctionne iPackEPS.
 
 4. SIGLES (ZÉRO INVENTION) :
@@ -2148,12 +2190,21 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 - Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; DNB = Diplôme National du Brevet.
 - En voie générale et technologique on parle d'AFL ; en voie professionnelle et en CAP on parle d'AFLP. N'emploie pas l'un pour l'autre.
 
+5. QUI FAIT QUOI (NE JAMAIS INVERSER LES RÔLES) :
+- Attribue chaque action à la personne indiquée par le contexte : enseignant, coordonnateur EPS, secrétariat, chef d'établissement, DEC. Ne fais jamais faire à l'enseignant une action que le contexte réserve au chef d'établissement ou au secrétariat (créer une mission dans Imag'in, cliquer sur le picto PDF, distribuer ou déverrouiller un lot, importer dans Cyclades...). Dis à l'enseignant ce qu'il doit DEMANDER et à qui.
+- Si le contexte précise ce que l'enseignant n'a PAS à faire ou ne peut pas faire, dis-le en premier.
+
+6. FIDÉLITÉ AU CONTEXTE (ZÉRO BRODERIE) :
+- Commence par répondre à la question posée. Si c'est une question fermée (« est-ce que je peux... », « faut-il... », « est-ce que je perds... »), la première phrase commence par Oui ou Non, suivie de la raison.
+- N'ajoute aucune étape de remplissage (« vérifiez votre connexion », « contactez votre correspondant », « assurez-vous que tout est correct ») si elle ne figure pas dans le contexte. Une réponse courte et exacte vaut mieux qu'une procédure rallongée.
+- Pour un texte réglementaire (décret, circulaire, note de service), rapporte ce que dit le contexte sans commenter ses intentions ni ses bénéfices supposés (« plus de flexibilité », « plus équitable »...).
+- Les passages du contexte précédés de [Base iPackEPS] ou [Base Examens & Santorin] viennent de l'autre base documentaire : ils ont la même valeur que les autres.
+
 ======================================================================
 ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
 ======================================================================
 - En cas de danger physique ou de matériel défectueux avéré, l'action immédiate est l'arrêt de l'activité.
 
-{bloc_video_consigne}
 ======================================================================
 ÉTAPE 5 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
 ======================================================================
@@ -2167,7 +2218,7 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
 1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur.
 2. STRUCTURE & MISE EN PAGE :
     - Rends une réponse bien structurée et claire.
-    - FORMAT PAS-À-PAS OBLIGATOIRE : Pour toute procédure technique ou administrative, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc.
+    - FORMAT PAS-À-PAS : uniquement quand le contexte décrit une manipulation en plusieurs étapes, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc., en reprenant les étapes du contexte, dans l'ordre, sans en ajouter. Quand la réponse est une règle, une explication ou une réponse négative, réponds en quelques phrases, SANS étapes.
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
@@ -2322,6 +2373,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             ] or ["Aucune fiche transmise à l'IA."]
             if erreur_rag:
                 lignes_diag.insert(0, "⚠️ Erreur pendant la recherche : " + html_lib.escape(erreur_rag))
+            if reponse_en_dur_ecartee:
+                lignes_diag.insert(0, "↪️ Réponse en dur écartée par l'arbitre : " + html_lib.escape(reponse_en_dur_ecartee) + "…")
             bloc_diag = (
                 "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #F59E0B; font-size: 12px; color: #CBD5E1;'>"
                 "<strong>🔎 Admin — fiches transmises à l'IA :</strong><br>" + "<br>".join(lignes_diag) + "</div>"

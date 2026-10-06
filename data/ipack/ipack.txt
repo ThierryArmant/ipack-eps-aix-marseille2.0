@@ -580,6 +580,8 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
   - R2 : Ce problème apparaît si vous n’avez pas encore importé les élèves de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).
   - Q3 : La liste des élèves dans les classes n’est pas à jour (élèves arrivés en cours d’année / élèves ayant quitté l’établissement / élèves ayant changé de classe).
   - R3 : Pour mettre à jour la liste des élèves, retournez dans Tableau de bord => Dossiers => Dossier EPS => Classes, puis menu [importation élèves] => [Actualiser].
+  - Q4 : Lorsque je veux placer des élèves dans un groupe, l’erreur suivante apparaît : « le groupe de destination n’autorise pas le Cycle Scolaire de : nom de l’élève ».
+  - R4 : L’erreur apparaît si le cycle scolaire du groupe de départ n’est pas le même que celui du groupe de destination. Par exemple, il n’est pas possible de placer des élèves de 3e dans un groupe EPS de niveau 6e. Ces contrôles ne concernent que les groupes de type EPS et SSS : on peut mélanger plusieurs niveaux en AS. Il est possible qu’un mauvais cycle scolaire ait été déclaré pour la classe : vérifier dans [Dossiers] / [Dossier EPS] / [Classes] => Configuration des classes.
 
 ### [ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe
 - URL: spip.php?article88

@@ -513,3 +513,50 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Dossiers à signer : l'enquête natation (si l'académie l'a mise en place) ; pour les sections sportives, la demande d'ouverture, le projet annuel en début d'année, le bilan en fin d'année, la demande de reconduction ou de fermeture ; l'enquête sur les équipements sportifs (si l'académie l'a mise en place) ; les projets APPN à environnement spécifique (vérifier la présence du projet pédagogique, du protocole de sécurité et des conventions).
 - Le chef peut signer même si le dossier est signalé incomplet, en ajoutant un commentaire.
 - EFFET DE LA SIGNATURE : dès qu'un dossier est signé, l'équipe EPS ne peut plus le modifier. Pour permettre une correction, le chef rouvre le dossier et l'enregistre en mode brouillon : la signature est retirée, l'équipe corrige, puis le chef signe à nouveau.
+
+### [SITUATION: NAVIGUER DANS iPackEPS — TABLEAUX DE BORD IMBRIQUÉS, FIL D'ARIANE, VÉRIFICATION DES DONNÉES, MODULE GRISÉ (vidéo)]
+- Mots-clés : tableau de bord, fil d'Ariane, revenir en arrière, vérification des données, jauge, 100 %, rapport détaillé, module désactivé, campagne fermée.
+- Formulations courantes des collègues : comment revenir au menu précédent ; comment savoir ce qu'il me reste à saisir ; un module est grisé ou inactif ; l'enquête natation n'est pas accessible.
+- Vidéo : https://www.youtube.com/watch?v=HtFmE-6rCl4
+- iPackEPS fonctionne par tableaux de bord imbriqués : accueil, puis Dossiers et Projets, puis Dossier EPS. En haut de chaque fenêtre, le fil d'Ariane permet de remonter d'un, deux ou trois niveaux.
+- La plupart des tableaux de bord ont un bouton « vérification des données » : une jauge apparaît sur chaque module (100 % ou non), avec un rapport détaillé de ce qui manque.
+- Un module inactif n'est pas une panne : soit l'académie n'utilise pas ce module, soit il n'est ouvert que pendant sa campagne de saisie (exemple : l'enquête natation).
+
+### [SITUATION: CLASSES SPORTS-ÉTUDES — DÉPOSER LE PROJET ET DÉCLARER LES GROUPES (vidéo)]
+- Mots-clés : sports-études, dossier sports-études, projet de classe, document modèle, groupe de type sports-études.
+- Formulations courantes des collègues : où déclarer ma classe sports-études ; où déposer le projet ; mon groupe sports-études n'apparaît pas.
+- Vidéo : https://www.youtube.com/watch?v=AEXIn3d6K6U
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Sports-Études.
+- Première partie : dépôt du projet de la classe (modèle académique téléchargeable s'il existe) avec [Envoyer], glisser le fichier ou [Parcourir], puis [Télécharger]. On peut le visualiser, le supprimer, le remplacer.
+- En bas de fenêtre : la liste des groupes de type sports-études déjà déclarés, avec leurs effectifs filles et garçons. S'il n'y en a pas, les créer dans Dossier EPS > Groupes en choisissant le type « sports-études » (un lien y mène).
+
+### [SITUATION: CROSS — ENVOYER LES DOSSARDS D'iPackEPS VERS UN LOGICIEL DE CHRONOMÉTRAGE (CrossEPS ou LogiCross) (vidéos)]
+- Mots-clés : cross, exporter, fichier dossards, CrossEPS, EPSoft, LogiCross, import automatique, douchette, Excel bloqué, débloquer, activer le contenu.
+- Formulations courantes des collègues : comment récupérer mes dossards dans mon logiciel de cross ; le fichier Excel de cross est bloqué ; faut-il ressaisir les élèves.
+- Vidéos : https://www.youtube.com/watch?v=IvKjTl6AjHw et https://www.youtube.com/watch?v=z5OR9Q_67Dk
+- Dans iPackEPS (Mes Documents > Documents > Dossards), une fois les élèves numérotés, le bouton [Exporter] enregistre un fichier des dossards. Inutile de l'ouvrir pour l'import automatique.
+- Avec CrossEPS (logiciel Windows de l'association EPSoft ; la version complète demande une adhésion) : créer la course (nom, distance), aller dans la gestion des coureurs, [Importation automatique], choisir le fichier exporté. À l'arrivée, valider chaque passage au bouton ou à la touche F1, puis scanner le dossard à la douchette ou taper son numéro.
+- Avec LogiCross (classeur Excel) : décompresser le dossier téléchargé ; si Excel bloque le fichier parce qu'il vient d'internet, le fermer, clic droit > Propriétés > cocher « Débloquer », puis rouvrir et « activer le contenu ». Ouvrir le fichier d'import prévu pour iPackEPS, y copier-coller les colonnes du fichier exporté (du numéro de dossard jusqu'au sexe, sans la ligne d'en-têtes), enregistrer ; ouvrir le classeur LogiCross vierge et lancer l'importation automatique.
+- Ces logiciels ne font pas partie d'iPackEPS : pour leur fonctionnement détaillé, s'adresser à leurs auteurs.
+
+### [SITUATION: TROUVER UN ÉQUIPEMENT SPORTIF OU UN SITE NATUREL AUTOUR D'UNE COMMUNE (vidéo)]
+- Mots-clés : recherche d'équipements, périmètre, catégorie, escalade, site naturel, sortie scolaire, coordonnées GPS, recherche trop large.
+- Formulations courantes des collègues : comment trouver un site d'escalade pour une sortie ; la recherche d'équipements tourne sans fin.
+- Vidéo : https://www.youtube.com/watch?v=60ewmvjwQqs
+- Dossier EPS > Équipements sportifs > Recherche d'équipements. Par défaut : toutes catégories, intérieur et extérieur, à 1 km autour de l'établissement, triés par distance.
+- Affiner : choisir une catégorie (exemple : escalade), intérieur ou extérieur, une commune et un périmètre (5 ou 10 km). Cliquer sur un résultat pour le voir sur la carte ; ses coordonnées GPS figurent dans la grille.
+- Une recherche trop large (toutes catégories sur un grand périmètre) peut prendre plusieurs minutes : réduire la catégorie ou le rayon.
+
+### [SITUATION: OFFRE DE FORMATION — REPÉRER LES AS, SECTIONS OU OPTIONS DES AUTRES ÉTABLISSEMENTS (vidéo)]
+- Mots-clés : offre de formation, groupes et APSA, AS du district, sections sportives de l'académie, options, bassin, district.
+- Formulations courantes des collègues : quels établissements ont une AS tennis de table près de chez moi ; où voir les sections sportives de l'académie.
+- Vidéo : https://www.youtube.com/watch?v=c9DSvKX2Pqc
+- Chemin : Tableau de bord > Offre de formation > Groupes et APSA.
+- Choisir à gauche le type de groupe (AS, section sportive, option), puis le département, l'APSA, le bassin et le district : la liste des établissements qui proposent ce groupe dans le secteur s'affiche.
+
+### [SITUATION: BIBLIOTHÈQUE — RETROUVER LES DOCUMENTS MODÈLES DE L'ACADÉMIE (vidéo)]
+- Mots-clés : bibliothèque, documents modèles, charte SSS, modèle de certificat médical, référentiels académiques.
+- Formulations courantes des collègues : où trouver le modèle de certificat médical ; où sont les référentiels académiques ; où est la charte des sections sportives.
+- Vidéo : https://www.youtube.com/watch?v=rymsmysEhek
+- Chemin : Tableau de bord > Mes Documents > Bibliothèque.
+- On y trouve tous les documents modèles déposés par l'académie (par exemple une charte académique des sections sportives, un modèle de certificat médical, des référentiels académiques). L'icône de visualisation permet de les consulter et de les télécharger. Le contenu dépend de ce que l'académie y a déposé.

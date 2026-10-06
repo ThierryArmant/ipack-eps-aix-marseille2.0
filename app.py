@@ -1679,6 +1679,43 @@ if prompt_a_traiter:
                 Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
                 _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
 
+                # ✅ AJOUT : beaucoup de fiches de la FAQ donnent une réponse PAR EXAMEN (« Réponse Lycée GT Bac »,
+                # « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Lycée Pro CAP », « Réponse Collège DNB »), chacune dans
+                # son propre passage. L'IA piochait parfois la réponse d'un autre examen (ex. CAP : 2 épreuves, servie pour
+                # une question sur le bac pro : 3 épreuves). On écarte donc ici les réponses qui visent un autre examen que
+                # celui de la question (ou, à défaut, que celui du public sélectionné).
+                _cibles = set()
+                if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b", p_norm):
+                    _cibles.add("pro")
+                if re.search(r"\bcap\b", p_norm):
+                    _cibles.add("cap")
+                if re.search(r"\b(dnb|brevet|college|collegiens?)\b", p_norm):
+                    _cibles.add("dnb")
+                if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", p_norm):
+                    _cibles.add("gt")
+                if not _cibles:
+                    _cibles = {"Collège (DNB)": {"dnb"}, "Lycée Général & Techno": {"gt"}, "Lycée Pro / CAP": {"pro", "cap"}}.get(niveau_actuel_form, set())
+
+                def _autre_examen(txt):
+                    """Vrai si le passage ne contient que des réponses destinées à d'autres examens que celui visé."""
+                    if not _cibles:
+                        return False
+                    _etiquettes = re.findall(r"R[ée]ponse\s+((?:Lyc[ée]e|Coll[èe]ge)[^*:\n]*)", txt)
+                    if not _etiquettes:
+                        return False
+                    _vises = set()
+                    for _e in _etiquettes:
+                        _e = normaliser(_e)
+                        if "gt" in _e:
+                            _vises.add("gt")
+                        if "pro bac" in _e:
+                            _vises.add("pro")
+                        if "cap" in _e:
+                            _vises.add("cap")
+                        if "college" in _e or "dnb" in _e:
+                            _vises.add("dnb")
+                    return bool(_vises) and not (_vises & _cibles)
+
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
                     if not retriever:
                         return
@@ -1690,6 +1727,8 @@ if prompt_a_traiter:
                         _cle = re.sub(r"\s+", " ", _txt)[:300]
                         if _cle in _vus:
                             continue  # même passage présent dans deux bases : transmis une seule fois
+                        if _autre_examen(_txt):
+                            continue  # réponse rédigée pour un autre examen que celui de la question
                         _vus.add(_cle)
                         _extraits.append((etiquette + " " if etiquette else "") + _txt)
                         if avec_sources:

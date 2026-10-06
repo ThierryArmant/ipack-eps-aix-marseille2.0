@@ -122,3 +122,163 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Correction, dans l'entrée collège, dans cet ordre : 1) Dossier EPS > APSA : dans la colonne « certificative lycée », ouvrir chaque APSA cochée, la déclarer non certificative, [Enregistrer] ; décocher aussi une éventuelle APSA établissement. Il faut les décocher TOUTES avant l'étape suivante. 2) Tableau de bord > Établissement > Configuration : décocher la case « lycée général et technologique », [Enregistrer].
 - Résultat : dans Dossiers et Projets, plus rien n'est attendu pour le dossier certificatif du collège.
 - À retenir : avec le bouton de changement d'établissement, on saisit dans l'entrée collège ce qui concerne le collège, et uniquement dans l'entrée lycée les APSA certificatives, les référentiels et les protocoles.
+
+### [SITUATION: RENTRÉE — TOUT CE QU'IL FAUT REFAIRE DANS iPackEPS À CHAQUE NOUVELLE ANNÉE SCOLAIRE, DANS L'ORDRE (vidéo)]
+- Mots-clés : nouvelle année scolaire, rentrée, septembre, réinitialisé, conservé, ordre des modules, actualiser, équipe EPS, classes, import des élèves, périodes, groupes, protocoles.
+- Formulations courantes des collègues : que dois-je refaire à la rentrée ; qu'est-ce qui est gardé de l'an dernier ; par quoi commencer en septembre ; mon équipe a disparu.
+- Vidéo : https://www.youtube.com/watch?v=do_8PVQDuqE
+- Règle d'ordre : sur chaque tableau de bord, commencer par le module en haut à gauche, puis celui de droite, puis la ligne suivante. Ne jamais remplir un module avant les précédents : les données d'un module dépendent souvent du précédent.
+- Établissement : rien n'est modifié, simple vérification.
+- Ma fiche professeur : le service et les fonctions sont remis à zéro ; les compétences et les spécialités sportives sont conservées. À refaire : heures d'EPS, d'AS et de décharge ; fonctions (coordonnateur, secrétaire d'AS…) ; vœux de jury ; vœux de formation ; informations pour l'inspection. Chaque collègue remplit sa propre fiche.
+- Dossier EPS > Projets : les axes sont conservés.
+- Dossier EPS > Équipe EPS : l'équipe est réinitialisée ; cliquer sur [Actualiser] (droit réservé au coordonnateur).
+- Dossier EPS > Classes : 1) [Actualiser] la liste des classes ; les classes déjà connues gardent leur configuration, seules les nouvelles sont à configurer ; 2) Organisation des classes : réindiquer pour CHAQUE classe le ou les enseignants ; 3) seulement ensuite, importer les élèves. Seules les classes configurées sont importées.
+- APSA : la liste est conservée, ajouter seulement les nouvelles. Périodes : dates de début et de fin à redéfinir. Groupes : à reconfigurer pour l'année, avec leurs séquences d'apprentissage, puis placer les élèves (AS, classes mélangées…).
+- Équipements sportifs : conservés. Emplois du temps : à refaire.
+- Lycée : reconfigurer le Dossier Certificatif (dates d'évaluation, dates de rattrapage, co-évaluateurs) ; les référentiels déjà déposés sont conservés.
+- Enquête natation : en fin d'année. Projet de section sportive : à saisir s'il y en a une.
+- Matériel (EPI d'escalade) : consulter l'inventaire, repérer le matériel périmé à renouveler et les contrôles annuels en retard.
+
+### [SITUATION: SE CONNECTER À iPackEPS PAR LE NOUVEAU PORTAIL ARENA (2025) — PIÈGE DE LA DATE DE NAISSANCE (vidéo)]
+- Mots-clés : connexion, ARENA, nouveau portail 2025, structures et personnels, ajouter aux favoris, choisir l'accès, accès professeur, accès commission, date de naissance, mot de passe enregistré par le navigateur.
+- Formulations courantes des collègues : où est iPackEPS dans ARENA ; mon mot de passe n'est plus reconnu ; on me demande ma date de naissance ; je vois plusieurs accès.
+- Vidéo : https://www.youtube.com/watch?v=b29_2hEqzoU
+- L'accès se fait par ARENA pour tous (enseignants, chefs d'établissement, inspecteurs), avec l'identifiant académique ou l'adresse mail professionnelle. Outils « connaître son identifiant » et « mot de passe oublié » sur la page de connexion. Pour Aix-Marseille, utiliser l'adresse ARENA de l'académie.
+- Après une longue absence, ARENA redemande la date de naissance pour confirmer l'identité. PIÈGE : le navigateur peut alors proposer de « mettre à jour le mot de passe ». Refuser : sinon la date de naissance est enregistrée à la place du mot de passe et la connexion suivante échoue.
+- Dans le nouveau portail ARENA (2025), iPackEPS est dans la rubrique « Structures et personnels », en bas de page. Conseil : cliquer tout de suite sur « Ajouter aux favoris » ; il sera ensuite dans « Mes favoris » en haut à gauche.
+- Bouton « Choisir l'accès » : un enseignant voit « Accès professeur ». Un membre de commission (examens, sections sportives) voit aussi un accès commission.
+
+### [SITUATION: MA FICHE PROFESSEUR — CE QUE CONTIENT CHAQUE ONGLET ET QUI PEUT LA LIRE (vidéo)]
+- Mots-clés : fiche professeur, service, fonctions, compétences particulières, certification complémentaire, spécialités sportives, vœux de jury, vœux de formation, informations inspection, confidentialité.
+- Formulations courantes des collègues : où déclarer que je suis coordonnateur ; où faire mes vœux de jury ; mes collègues ou mon chef voient-ils ma fiche ; où demander une visite conseil.
+- Vidéo : https://www.youtube.com/watch?v=WoTtGxzawAI
+- Chemin : Tableau de bord > Ma fiche professeur. Cliquer sur [Enregistrer] après chaque modification d'onglet.
+- Premier onglet : non modifiable, rappel du statut issu des bases du rectorat.
+- Service : heures d'EPS, heures d'AS, heures diverses, missions particulières, décharges, commentaire.
+- Fonctions : cases à cocher (coordonnateur EPS, secrétaire ou trésorier d'AS, référent EPI…).
+- Compétences particulières : diplômes et formations suivies. Certification complémentaire : si on en possède une, si on l'enseigne et à quels niveaux.
+- Spécialités sportives : jusqu'à deux, avec le diplôme associé (sert à repérer des personnes ressources et des formateurs).
+- Vœux de jury : activités préférées pour les épreuves ponctuelles (candidats libres) ; candidature aux jurys de concours (CAPEPS, agrégation).
+- Vœux de formation : APSA, thématiques, formations d'initiative locale. Ce n'est pas une inscription, seulement un recueil des besoins.
+- Informations inspection : demande de visite conseil, souhait d'être ou de rester conseiller pédagogique ou tuteur de stagiaire.
+- Confidentialité : la fiche est strictement confidentielle. Ni les collègues de l'équipe ni le chef d'établissement ne peuvent la lire ; seuls les corps d'inspection y ont accès.
+
+### [SITUATION: ÉQUIPE EPS — LISTE INCOMPLÈTE, PROFESSEUR ACTIF OU NON, INTERVENANTS EXTÉRIEURS, FONCTIONS, BILAN (vidéo)]
+- Mots-clés : équipe EPS, actualiser, réservé au coordonnateur, professeur actif, icône bleue, icône grise, intervenant extérieur, fonctions, bilan, coche rouge.
+- Formulations courantes des collègues : un collègue manque dans l'équipe ; le bouton actualiser me dit que c'est réservé au coordonnateur ; comment ajouter un intervenant de section sportive ; pourquoi une coche rouge à côté d'un nom.
+- Vidéo : https://www.youtube.com/watch?v=7WVCGZ5fLqA
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Équipe EPS.
+- Menu « Membres de l'équipe » : enseignants d'EPS trouvés dans l'établissement et intervenants extérieurs. Liste incomplète : bouton [Actualiser]. Si un message dit que c'est réservé au coordonnateur : le demander au coordonnateur, ou se déclarer temporairement coordonnateur dans Ma fiche professeur > Fonctions, actualiser, puis décocher la case.
+- Colonnes « professeur actif » et « professeur remplaçant ». Icône bleue : actif, a des élèves. Icône grise : déclaré non actif. [Modifier] permet de déclarer non actif un professeur qui n'aura aucune activité de l'année ou qui est remplacé toute l'année.
+- Intervenants extérieurs (bas de fenêtre) : créer une fiche avec nom, prénom, fonction (intervenant en section sportive, référent EPI…) et commentaire. Pour un intervenant qui n'est plus là : demander la suppression ; s'il a un historique il est seulement désactivé, sinon sa fiche est supprimée.
+- Menu « Fonctions » : qui assure la coordination, le secrétariat et la trésorerie d'AS, etc. Une fonction vide se corrige dans la fiche professeur de la personne concernée.
+- Menu « Bilan » : vérifie les saisies minimales de chacun (spécialités, vœux de jury, vœux de formation). Une coche rouge = le collègue doit compléter sa propre fiche.
+
+### [SITUATION: REMPLACEMENT D'UN COLLÈGUE — TRANSFÉRER SES GROUPES ET SON EMPLOI DU TEMPS AU REMPLAÇANT EN UN CLIC (vidéo)]
+- Mots-clés : remplacement, remplaçant, TZR, contractuel, zone remplacement, aucun remplaçant, retour du titulaire.
+- Formulations courantes des collègues : un collègue est remplacé, dois-je tout ressaisir ; comment donner les groupes au remplaçant ; le titulaire revient, comment lui rendre ses classes.
+- Vidéo : https://www.youtube.com/watch?v=C3gSSacJxNo
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Équipe EPS.
+- Ne rien ressaisir. Ouvrir la fiche du REMPLAÇANT et, dans la zone « Remplacement », sélectionner la personne remplacée, puis enregistrer. Tous les groupes et tout l'emploi du temps du titulaire passent au remplaçant (l'emploi du temps du titulaire devient vide).
+- Retour du titulaire : rouvrir la fiche du remplaçant, choisir « aucun remplaçant » dans la zone remplacement. Le titulaire récupère ses groupes et son emploi du temps.
+
+### [SITUATION: CLASSES — CONFIGURATION, ORGANISATION (MODE SEUL OU MIXTE / GROUPE / SANS PROFESSEUR D'EPS) ET IMPORT DES ÉLÈVES (vidéo)]
+- Mots-clés : configuration des classes, cycle scolaire, série, organisation des classes, mode seul ou mixte, mode groupe, classe sans professeur d'EPS, importation des élèves, coche verte, actualiser.
+- Formulations courantes des collègues : ma classe n'est pas accessible ; quel mode choisir pour mes terminales en menus ; les élèves ne s'importent pas ; un élève a changé de classe.
+- Vidéo : https://www.youtube.com/watch?v=tu8J1RBUTwk
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Classes. Trois menus à faire dans l'ordre : Configuration, Organisation, Importation des élèves. Une classe non configurée est bloquée dans les deux menus suivants.
+- [Actualiser] recharge la liste des classes depuis les bases du rectorat, à tout moment de l'année. Action réservée au coordonnateur (sinon se déclarer temporairement coordonnateur dans sa fiche professeur, puis décocher).
+- Configuration (à faire UNE seule fois dans la vie de la classe) : [Modifier] ; indiquer si les élèves ont cours d'EPS ou peuvent participer à l'AS / UNSS (oui pour presque toutes les classes) ; choisir le cycle scolaire et la série. Si le cycle voulu n'est pas proposé, corriger d'abord les niveaux de formation dans la fiche Établissement.
+- Organisation (à refaire CHAQUE année) : choisir le mode. « Seul ou mixte » : la classe est en classe entière sur au moins une séquence ; on coche le ou les enseignants (possible : un le mardi, un autre le jeudi). « Groupe » : les élèves ne sont jamais tous ensemble en EPS (cas classique des menus de lycée) ; aucun enseignant n'est demandé et il faudra créer les groupes à la main dans Dossier EPS > Groupes. « Classe sans professeur d'EPS » : pas d'EPS, ou EPS encadrée par quelqu'un d'autre (post-bac, SEGPA).
+- Importation des élèves : attendre d'avoir configuré tout l'établissement (coche verte sur chaque classe), puis importer. À faire à chaque rentrée, et à refaire en cours d'année si des élèves partent ou changent de classe.
+
+### [SITUATION: DÉCLARER LES APSA PRATIQUÉES — CHAMP D'APPRENTISSAGE, CERTIFICATIVE, ADAPTÉE, APSA ÉTABLISSEMENT, CRÉATION MANUELLE (vidéo)]
+- Mots-clés : APSA, déclaration, liste nationale, liste académique, liste prédéfinie, champ d'apprentissage, certificative, enseignement adapté, APSA établissement, créer une APSA.
+- Formulations courantes des collègues : mon activité n'est pas dans la liste ; comment déclarer une activité certificative ; je ne peux pas changer le champ d'apprentissage ; comment créer une APSA adaptée.
+- Vidéo : https://www.youtube.com/watch?v=YtRkV7gmlpQ
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > APSA. Deux entrées, selon l'établissement : « APSA de collège ou voie professionnelle » (une seule liste prédéfinie) et « APSA de lycée général ou technologique » (liste nationale, puis liste académique, puis liste prédéfinie). À gauche les APSA proposées, à droite celles déjà programmées. À vérifier chaque année.
+- Ajouter une APSA : la chercher à gauche, cliquer sur [+]. Pour chaque voie de l'établissement, indiquer si elle est pratiquée et le champ d'apprentissage (CA1 à CA5). En voie GT, pour une APSA des listes nationale ou académique, le champ est imposé et non modifiable ; en collège et voie pro, on le choisit.
+- En lycée, préciser aussi : APSA établissement ou non (si elle n'est ni nationale ni académique) ; certificative ou non (si oui, un référentiel sera à déposer) ; proposée en enseignement adapté ou non. En voie pro : certificative en CAP et/ou en bac pro, adaptée en CAP et/ou en bac pro. [Enregistrer].
+- Le tableau de droite montre alors, par colonne : APSA établissement, certificative (lycée, CAP, bac pro), adaptée, champ d'apprentissage.
+- APSA introuvable : la chercher dans la liste nationale, puis académique, puis prédéfinie ; en dernier recours la créer (exemple de la vidéo : torball, CA4, certificative adaptée pour des élèves malvoyants). Une APSA créée peut être modifiée ou supprimée.
+
+### [SITUATION: PÉRIODES — CRÉER DES PÉRIODES NOMMÉES POUR NE PLUS SAISIR LES DATES, ET LA PÉRIODE « ANNÉE » (vidéo)]
+- Mots-clés : périodes, séquences d'apprentissage, dates de début et de fin, trimestre, période année entière, AS, répercuter la modification, emploi du temps.
+- Formulations courantes des collègues : à quoi servent les périodes ; je me suis trompé de date de fin de trimestre ; quelle période pour l'AS.
+- Vidéo : https://www.youtube.com/watch?v=NdaUc8WaVdU
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Périodes.
+- Une période = un nom explicite + une date de début + une date de fin. On la choisit ensuite dans une liste au lieu de retaper les dates pour chaque séquence et chaque créneau.
+- Créer : bouton [Créer], nom, dates (au clavier ou dans le calendrier), [Ajouter].
+- Toujours créer aussi une période « année » couvrant toute l'année scolaire : elle sert aux groupes d'AS, de section sportive et à tout groupe qui pratique toute l'année.
+- Erreur de date : [Modifier] la période ; iPackEPS propose de répercuter la correction sur toutes les séquences d'apprentissage et tous les créneaux d'emploi du temps qui l'utilisent.
+
+### [SITUATION: GROUPES — QUAND EN CRÉER, TYPES DE GROUPES (EPS, AS, SSS, ACCOMPAGNEMENT, DIVERS), CADENAS (vidéo)]
+- Mots-clés : gestion des groupes, créer un groupe, cadenas, groupe classe, menu de terminale, plusieurs enseignants, non-nageurs, contrôle adapté, AS, section sportive, accompagnement personnalisé, autre dispositif sportif, divers sans APSA.
+- Formulations courantes des collègues : pourquoi un cadenas sur ma classe ; faut-il créer un groupe par classe ; comment créer mes menus de terminale ; je n'ai pas l'option section sportive ; où mettre le secourisme ou l'heure de vie de classe.
+- Vidéo : https://www.youtube.com/watch?v=4mqx_sWqSbE
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Groupes. Gérer les classes AVANT les groupes.
+- Les lignes avec cadenas sont les groupes de type classe : on ne peut ni les supprimer ni les modifier ici. On ne crée un groupe que lorsque les élèves ne sont PAS en classe entière avec le même enseignant (menus de terminale, classes mélangées).
+- Créer : [Créer un groupe], nom explicite, cycle scolaire, enseignant. Plusieurs enseignants possibles sur un même groupe (exemple : un seul groupe « non-nageurs » avec trois enseignants cochés ; chacun le place dans son emploi du temps).
+- Groupe d'examen (terminale GT, terminale bac pro, 2e année de CAP) : préciser si les élèves sont en contrôle adapté ou non.
+- Autres types : AS ; section sportive scolaire (possible seulement si l'établissement est activé pour les sections — si la section est validée par le recteur mais l'option absente, écrire au support académique) ; accompagnement personnalisé en EPS (avec une APSA support) ou hors EPS ; autre dispositif sportif (sections non validées par le recteur) ; divers sans APSA (heure de vie de classe, secourisme…).
+
+### [SITUATION: SÉQUENCES D'APPRENTISSAGE D'UN GROUPE — LES SAISIR, LES COPIER D'UN AUTRE GROUPE, CAS DES CLASSES À EXAMEN (vidéo)]
+- Mots-clés : gérer les séquences d'apprentissage, importer d'un autre groupe, APSA absente de la liste, période absente, évaluée pour l'examen, activité non certificative, protocole incomplet, protocole valide, AS année entière, groupe sans APSA.
+- Formulations courantes des collègues : comment indiquer les activités de ma classe ; je ne trouve pas mon APSA dans la liste ; la liste me dit « activité non certificative » ; mon protocole est incomplet ; faut-il une séquence pour l'AS.
+- Vidéo : https://www.youtube.com/watch?v=y4Woi0RY50I
+- Chemin : Dossier EPS > Groupes, puis [Gérer les séquences d'apprentissage] sur le groupe. Choisir l'APSA, la période, [Ajouter] ; recommencer pour chaque séquence.
+- APSA absente de la liste : la déclarer d'abord dans Dossier EPS > APSA. Période absente ou fausse : corriger dans Dossier EPS > Périodes.
+- Gain de temps : l'option d'import permet de sélectionner un autre groupe et de récupérer d'un clic toutes ses séquences, puis d'ajuster (modifier ou supprimer une activité).
+- Classes à examen : pour chaque APSA, indiquer si elle sera évaluée pour l'examen. L'écran montre aussitôt l'état du référentiel (déposé, validé) et l'état du protocole.
+- « Activité non certificative » dans la liste déroulante : l'APSA n'a pas été déclarée certificative pour cette voie dans Dossier EPS > APSA ; on ne peut pas le forcer ici.
+- En terminale GT le protocole devient « valide » avec trois APSA certificatives, de trois champs d'apprentissage différents, aux référentiels déposés.
+- Faire de même pour tous les types de groupes. AS : choisir la période « année entière ». Groupe sans APSA (secourisme…) : pas d'APSA mais une séquence quand même, pour pouvoir le placer dans l'emploi du temps.
+
+### [SITUATION: ENSEIGNEMENT ADAPTÉ POUR LA CERTIFICATION — DÉCLARER L'APSA ADAPTÉE, LE GROUPE ADAPTÉ ET SES SÉQUENCES (vidéo)]
+- Mots-clés : enseignement adapté, contrôle adapté, APSA adaptée, colonne adapté lycée, groupe de type adapté, menu adapté, protocole valide dès la première activité.
+- Formulations courantes des collègues : comment créer un menu adapté ; une alerte me dit que cette activité ne peut pas être adaptée ; combien d'activités dans un protocole adapté.
+- Vidéo : https://www.youtube.com/watch?v=CUybrlkTtJ0
+- Étape 1, Dossier EPS > APSA : la colonne « adapté lycée » montre les APSA autorisées en adapté. Pour en ajouter une : la sélectionner, indiquer qu'elle est certificative en enseignement adapté (elle peut l'être en adapté sans l'être en standard), [Enregistrer].
+- Étape 2, Dossier EPS > Groupes : créer un groupe, nom explicite, cycle scolaire certificatif (terminale GT, terminale bac pro ou 2e année de CAP), cocher « contrôle adapté », choisir l'enseignant, [Enregistrer].
+- Étape 3, séquences du groupe : pour chaque activité, dire si elle est adaptée et si les élèves sont évalués dessus pour l'examen, choisir la période, [Ajouter]. Les combinaisons sont libres : activité non adaptée mais évaluée sur le référentiel standard, ou activité adaptée non évaluée.
+- Dans un menu adapté, le protocole est accepté dès la première activité (une seule activité peut suffire), et les autres activités ne sont pas forcément adaptées.
+- Alerte « cette activité ne peut pas être adaptée » : elle n'a pas été cochée adaptée à l'étape 1 ; on peut la garder comme activité évaluée non adaptée.
+
+### [SITUATION: CAP — LES ÉLÈVES CHOISISSENT LEURS DEUX APSA EN FIN D'ANNÉE : UN GROUPE PAR COMBINAISON (vidéo)]
+- Mots-clés : CAP, deux APSA certificatives, protocole refusé, choix des élèves, combinaisons, groupes vides, placer les élèves après inscription.
+- Formulations courantes des collègues : en CAP on propose quatre activités et les élèves choisissent ; mon protocole CAP est refusé ; comment faire quand le choix se fait en fin d'année.
+- Vidéo : https://www.youtube.com/watch?v=zypGSbpJFnU
+- Problème : en CAP il faut EXACTEMENT deux APSA certificatives par protocole. Déclarer trois, quatre ou cinq APSA certificatives dans un même groupe rend le protocole invalide, et il ne pourra pas être transféré vers Cyclades.
+- Solution : créer autant de groupes que de combinaisons de deux APSA réellement possibles. Les nommer avec les deux activités (exemple : « course – badminton »). On arrive vite à cinq, six ou sept groupes : c'est normal.
+- Dans chaque groupe, n'attribuer que ses deux APSA : le protocole devient valide.
+- Ces groupes peuvent rester vides d'élèves au début : Cyclades récupère d'abord seulement les protocoles.
+- Quand les élèves sont inscrits à l'examen et ont fait leur choix : Dossier EPS > Élèves, placer chaque élève dans le groupe de sa combinaison, puis exporter vers Cyclades.
+
+### [SITUATION: PLACER LES ÉLÈVES DANS LES GROUPES (AS, CLASSES MÉLANGÉES, SECTIONS…) — LES TROIS MODES DE RECHERCHE (vidéo)]
+- Mots-clés : placement des élèves, groupe de destination, ajouter, enlever, recherche par classe, par groupe, par statut, élèves dans aucun groupe, classe vide, classes absentes.
+- Formulations courantes des collègues : comment mettre mes élèves dans le groupe d'AS ; comment retrouver ceux qui ne sont dans aucun groupe ; ma classe est vide ; mes classes n'apparaissent pas.
+- Vidéo : https://www.youtube.com/watch?v=QPhqFI4czhA
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Élèves. Principe : choisir le groupe de destination, chercher les élèves dans une source, les cocher, [Ajouter].
+- Recherche par classe : une classe, un cycle, ou tout l'établissement (pratique pour l'AS).
+- Recherche par statut : affiche par exemple les élèves qui ne sont dans aucun groupe (utile après avoir fait des classes mélangées).
+- Recherche par groupe : part d'un groupe existant (exemple : toute la section sportive danse envoyée dans l'AS danse). Un clic sur l'en-tête de la grille sélectionne tous les élèves.
+- Erreur : cocher les élèves dans le groupe et cliquer sur [Enlever].
+- Les classes n'apparaissent pas : elles n'ont pas été importées (Dossier EPS > Classes). Une classe apparaît mais sans élèves : les élèves n'ont pas été importés (configurer la classe, puis importer).
+
+### [SITUATION: PROJETS — SAISIR LES AXES ET DÉPOSER LE PROJET D'ÉTABLISSEMENT, D'EPS, D'AS ; CAS DU PROJET DE SECTION SPORTIVE (vidéo)]
+- Mots-clés : projets, axes, objectifs prioritaires, projet d'établissement, projet d'EPS, projet d'AS, projet de section sportive, déposer un document, glisser, parcourir, télécharger.
+- Formulations courantes des collègues : où déposer le projet d'EPS ; qu'est-ce qu'un axe ; pourquoi je ne peux pas déposer mon projet de section ici.
+- Vidéo : https://www.youtube.com/watch?v=koUcZtmJKEM
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Projets. Un menu par projet à gauche.
+- Pour chaque projet : déclarer les axes (les grands objectifs prioritaires ; on peut les copier-coller depuis le document), les modifier ou les supprimer ; puis déposer le document complet avec [Envoyer] (glisser le fichier dans la zone ou [Parcourir]), puis [Télécharger]. Le document peut être visualisé, supprimé ou remplacé.
+- Projet de section sportive : ici on ne déclare QUE les axes, et seulement si l'établissement a déjà une section. Le document du projet de section se dépose dans le Dossier SSS (projet annuel), qui demande davantage d'éléments.
+
+### [SITUATION: FICHE ÉTABLISSEMENT — ONGLETS, NIVEAUX DE FORMATION, GESTION DES EPI, ASSOCIATION SPORTIVE (vidéo)]
+- Mots-clés : fiche établissement, coordonnées, contact, visiteurs EPS, niveaux de formation, voie professionnelle, 3e prépa-métiers, gestion EPI, escalade, référent EPI, association sportive.
+- Formulations courantes des collègues : le cycle de ma classe n'est pas proposé ; mon lycée a aussi des classes pro ; où déclarer qui contrôle le matériel d'escalade ; on ne fait que du bloc.
+- Vidéo : https://www.youtube.com/watch?v=-Ka0fNtMLBk
+- Chemin : Tableau de bord > Établissement.
+- Coordonnées et Contact : rappel des données administratives et des responsables. Visiteurs EPS : dernière année de visite d'un inspecteur et bilans de réunion d'équipe éventuels.
+- Niveaux de formation : pré-remplis, à compléter dans les cas particuliers (collège avec 3e prépa-métiers : cocher voie professionnelle ; lycée déclaré GT qui a aussi des classes professionnelles). C'est ce qui débloque les cycles proposés dans la configuration des classes.
+- Gestion EPI : indiquer « pas d'EPI » (pas d'escalade, ou bloc uniquement), ou EPI contrôlés par un intervenant extérieur, ou par un référent de l'équipe. Dans ce dernier cas, l'enseignant concerné coche « référent EPI » dans Ma fiche professeur > Fonctions (et peut déclarer sa formation dans Compétences particulières). Le contrôle du matériel est obligatoire chaque année.
+- Gestion de l'AS : indiquer s'il y a une association sportive dans l'établissement.

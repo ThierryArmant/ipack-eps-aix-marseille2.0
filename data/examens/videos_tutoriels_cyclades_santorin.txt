@@ -96,6 +96,7 @@ Source : commentaire audio des vidéos officielles associées aux tutoriels du s
 - Mots-clés : plusieurs établissements, lots mélangés, changer de contexte, deux missions, intervenant extérieur, lien direct Imag'in.
 - Formulations courantes des collègues : je suis sur deux lycées, où sont mes lots ; je ne vois que le CAP et pas le bac pro ; je ne suis pas titulaire, comment accéder à Imag'in.
 - Vidéo : https://www.youtube.com/watch?v=DyNQkjXP6p4
+- Réponse courte : pour un même examen, Santorin fusionne les lots de tous vos établissements dans la même liste : on ne peut pas les séparer par établissement. Repérez chaque lot par le NOM DU PROTOCOLE. L'icône « Changer de contexte » sert seulement à changer d'EXAMEN (CAP, bac pro…), pas d'établissement.
 - Accès à Imag'in : par ARENA pour un enseignant titulaire de l'éducation nationale ; par un lien direct envoyé par le service des examens pour un intervenant extérieur.
 - Imag'in > Portail d'accès aux missions : une ligne par mission. Pour un même examen, toutes les lignes mènent à la même interface Santorin, où les lots des différents établissements sont fusionnés. Il faut donc repérer son lot par le nom du protocole.
 - Pour passer à un autre examen (par exemple du CAP au bac pro) sans ressortir : icône « Changer de contexte » dans Santorin.

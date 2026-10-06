@@ -406,7 +406,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - Instruction : Les étudiants en stage de Master MEEF (STAPS) ou les accompagnateurs extérieurs peuvent désormais obtenir un accès de lecture ou d'écriture sur les classes si le chef d'établissement les valide dans le module d'administration.
 
 ### [SITUATION: DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE]
-- Instruction : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données d'évaluation.
+- Instruction : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données.
 
 [SECTION: MISES_A_JOUR_ET_ARBITRAGES_OFFICIELS_DE_PIERRE]
 

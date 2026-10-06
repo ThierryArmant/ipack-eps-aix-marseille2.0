@@ -104,3 +104,16 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Étape 3, déclarer les groupes et leurs APSA : menu [Dossiers] > [Dossier EPS] > [Groupes]. Pour chaque classe ou groupe d'examen, déclarer les APSA pratiquées. Ensemble standard : 3 APSA de 3 champs d'apprentissage différents, dont au moins 2 de la liste nationale (CAP : 2 APSA de 2 champs).
 - Étape 4, compléter les protocoles : dans le Dossier Certificatif, renseigner pour chaque ensemble les dates d'évaluation et de rattrapage et les évaluateurs. Un protocole incomplet n'est pas transmis à Cyclades.
 - Ces étapes sont faites par le coordonnateur EPS / responsable de la certification. Les dates limites sont fixées par la DEC d'Aix-Marseille. (Source : document Corse 2024-2025, interface professeur ; guide Normandie 2025.)
+
+### [SITUATION: ENREGISTRER UNE INAPTITUDE (TOTALE OU PARTIELLE) ET SON CERTIFICAT MÉDICAL DANS iPackEPS — PROCÉDURE DE RÉFÉRENCE]
+- Mots-clés : inaptitude, dispense, certificat médical, inapte trois mois, inaptitude temporaire, inaptitude partielle, saisir une inaptitude, Mes Élèves, téléverser le certificat.
+- Formulations courantes des collègues : un élève m'apporte un certificat d'inaptitude de trois mois, où l'enregistrer ; comment saisir une dispense ; où déposer le certificat médical ; comment déclarer une inaptitude partielle.
+- Procédure, validée par le correspondant académique iPackEPS d'Aix-Marseille :
+  1. Aller dans le menu [Mes Élèves], choisir la classe puis l'élève pour ouvrir sa fiche.
+  2. Ouvrir l'onglet [Inaptitudes] et cliquer sur le bouton [Saisir une inaptitude].
+  3. Téléverser le scan du certificat médical : il est obligatoire, au moment de la saisie. Un mot des parents ou une déclaration orale n'a aucune valeur.
+  4. Choisir le type d'inaptitude (Totale ou Partielle), renseigner les dates de début et de fin de la période, et cocher les APSA concernées.
+  5. Valider la saisie : elle enregistre les dates d'inaptitude appliquées aux APSA sélectionnées.
+- Le type se choisit simplement entre « Inaptitude Totale » et « Inaptitude Partielle » : il n'y a pas de champ « capacités préservées » à remplir dans iPackEPS.
+- Le menu s'appelle [Mes Élèves] (et non « Gestion / Suivi des élèves »).
+

@@ -282,3 +282,115 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Niveaux de formation : pré-remplis, à compléter dans les cas particuliers (collège avec 3e prépa-métiers : cocher voie professionnelle ; lycée déclaré GT qui a aussi des classes professionnelles). C'est ce qui débloque les cycles proposés dans la configuration des classes.
 - Gestion EPI : indiquer « pas d'EPI » (pas d'escalade, ou bloc uniquement), ou EPI contrôlés par un intervenant extérieur, ou par un référent de l'équipe. Dans ce dernier cas, l'enseignant concerné coche « référent EPI » dans Ma fiche professeur > Fonctions (et peut déclarer sa formation dans Compétences particulières). Le contrôle du matériel est obligatoire chaque année.
 - Gestion de l'AS : indiquer s'il y a une association sportive dans l'établissement.
+
+### [SITUATION: EMPLOIS DU TEMPS — PRÉSENTATION DU MODULE : AGENDA, LISTE DES CRÉNEAUX, VÉRIFICATION (vidéo)]
+- Mots-clés : emploi du temps, EDT, agenda, vue semaine, toute l'équipe, couleurs par équipement, par professeur, par type de groupe.
+- Formulations courantes des collègues : où voir l'emploi du temps de l'équipe ; à quoi correspondent les couleurs ; comment n'afficher que mon emploi du temps.
+- Vidéo : https://www.youtube.com/watch?v=uCF9kxUDaI8
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Emplois du temps. Trois menus : l'agenda (d'un enseignant ou de toute l'équipe), l'édition de la liste des créneaux, la vérification.
+- L'agenda se parcourt par jour, par semaine ou par mois ; la vue par semaine est conseillée.
+- Affichage « toute l'équipe » : par défaut la couleur change avec l'équipement (stade, gymnase…). On peut aussi colorer par professeur, ou par type de groupe (EPS, AS…).
+- Chaque créneau affiche le nom du groupe, l'APSA et l'équipement ; on peut réduire l'affichage au seul nom du groupe pour y voir plus clair en vue équipe.
+
+### [SITUATION: EMPLOIS DU TEMPS — CRÉER, MODIFIER, SUPPRIMER UN CRÉNEAU ; DEUX GROUPES OU PLUSIEURS ENSEIGNANTS SUR LE MÊME HORAIRE (vidéo)]
+- Mots-clés : créer un créneau, double-clic, clic droit, modifier le créneau, supprimer, séquence d'apprentissage manquante, équipement proposé, AS du mercredi, trois heures.
+- Formulations courantes des collègues : comment saisir mon emploi du temps ; ma séquence n'apparaît pas dans la liste ; comment mettre deux groupes à la même heure ; comment saisir l'AS du mercredi pour toute l'équipe.
+- Vidéo : https://www.youtube.com/watch?v=8pHcZ4gw6go
+- Créer : double-clic dans la cellule (ou clic droit sur la zone). La fenêtre préremplit l'enseignant, le jour, l'heure de début et une fin deux heures plus tard.
+- Choisir le groupe, puis la séquence d'apprentissage. Si une séquence manque, elle n'a pas été déclarée dans Dossier EPS > Groupes.
+- L'équipement habituel de cette APSA est proposé par défaut. Les dates de début et de fin sont celles de la séquence ; on peut les ajuster au jour près. Cliquer sur [Ajouter].
+- Pour aller vite : sans fermer la fenêtre, sélectionner tout de suite la séquence du trimestre suivant sur le même horaire et [Ajouter], et ainsi de suite. On peut saisir dès septembre les créneaux de toute l'année.
+- Corriger : clic droit sur le créneau > Modifier le créneau, ou Supprimer.
+- Deux groupes sur le même horaire : clic droit > créer un autre créneau sur ce même horaire.
+- Plusieurs enseignants sur un même horaire (AS du mercredi) : dans la fenêtre, choisir le premier enseignant et son groupe d'AS, mettre une durée de trois heures, [Ajouter] ; puis sélectionner le deuxième enseignant, [Ajouter], etc.
+
+### [SITUATION: EMPLOIS DU TEMPS — CRÉNEAUX EN SEMAINE A / SEMAINE B (QUINZAINE) (vidéo)]
+- Mots-clés : semaine A, semaine B, quinzaine, se répéter toutes les deux semaines, date de début, décalage d'une semaine.
+- Formulations courantes des collègues : j'ai une classe une semaine sur deux ; comment saisir un créneau en quinzaine ; mes deux classes apparaissent la même semaine.
+- Vidéo : https://www.youtube.com/watch?v=zi7K-hkYzig
+- Double-clic sur le créneau, choisir la classe, l'activité (dont les dates ont été saisies avant) et l'équipement, puis cocher « se répéter toutes les deux semaines ».
+- Un message rouge demande de vérifier la date de début : c'est elle qui fixe la semaine A ou B. Choisir la semaine de la PREMIÈRE leçon de cette classe, puis [Ajouter].
+- Pour la classe de l'autre semaine : même saisie sur le même horaire, mais en choisissant la semaine suivante comme début (décalage d'une semaine).
+- Vérifier en faisant défiler les semaines avec le bouton en haut à gauche : les deux classes doivent alterner.
+
+### [SITUATION: EMPLOIS DU TEMPS — VÉRIFIER LES OUBLIS ET LES ERREURS (SÉQUENCE NON PLACÉE, VACANCES, DOUBLON) (vidéo)]
+- Mots-clés : vérification agenda, séquences manquantes, alerte, vacances scolaires, horaires hors plage, doublon, édition des créneaux, filtres.
+- Formulations courantes des collègues : mon dossier EPS signale une séquence non placée ; comment savoir si j'ai oublié un créneau ; j'ai saisi deux fois le même créneau.
+- Vidéo : https://www.youtube.com/watch?v=vnY5hfKzN08
+- Menu « Vérification agenda » : liste les séquences d'apprentissage qui ne sont placées sur aucun créneau, et signale les dates tombant pendant les vacances scolaires ou les heures hors des plages scolaires habituelles.
+- Menu « Édition des créneaux » : liste filtrable par enseignant, classe, groupe, APSA ou date, avec les mêmes alertes visuelles. En triant par classe on repère les doublons (même créneau saisi deux fois) et on supprime celui en trop.
+- C'est cette vérification qui alimente l'alerte « séquence non placée sur un emploi du temps » lors de la proposition du Dossier EPS à la commission.
+
+### [SITUATION: ÉQUIPEMENTS SPORTIFS — LES TROIS MENUS ET L'OCCUPATION PARTAGÉE D'UN ÉQUIPEMENT ENTRE ÉTABLISSEMENTS (vidéo)]
+- Mots-clés : équipements sportifs, configuration, carte, emploi du temps des équipements, recherche d'équipements, rayon, gymnase partagé, municipalité.
+- Formulations courantes des collègues : qui utilise le gymnase en même temps que nous ; comment trouver un mur d'escalade près du collège ; à quoi sert le module équipements.
+- Vidéo : https://www.youtube.com/watch?v=mRK9rhUgL44
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Équipements sportifs.
+- Menu 1, Configuration : déclarer tous les équipements utilisés (EPS, AS, autres projets) ; une carte les affiche.
+- Menu 2, emploi du temps des équipements : agenda d'occupation de tous vos équipements. En choisissant un équipement précis, on voit son occupation par TOUS les établissements qui l'ont déclaré dans iPackEPS : utile pour discuter de la répartition des créneaux avec la municipalité ou les collègues.
+- Menu 3, Recherche d'équipements : par défaut, tous les équipements dans un rayon de 1 km autour de l'établissement ; recherche possible par catégorie et par périmètre autour d'une commune (exemple : sites d'escalade extérieurs à 6 km).
+
+### [SITUATION: ÉQUIPEMENTS SPORTIFS — AJOUTER UN ÉQUIPEMENT, EN CRÉER UN À LA MAIN, CE QUI SE PASSE SI ON LE SUPPRIME (vidéo)]
+- Mots-clés : ajouter un équipement, installation, ministère des sports, abréviation, catégorie, mode de déplacement, durée de déplacement, création manuelle, réfectoire, supprimer un équipement.
+- Formulations courantes des collègues : mon gymnase n'est pas dans la liste ; on fait du tennis de table dans le réfectoire ; que se passe-t-il si je supprime un équipement.
+- Vidéo : https://www.youtube.com/watch?v=jzk3Q5aHiuw
+- Les équipements sont reconduits d'une année sur l'autre. Nouveau : [Ajouter un équipement], choisir le département puis la commune : la liste vient du recensement du ministère des sports, classée par installation puis par équipement (même les équipements internes aux établissements scolaires y figurent).
+- Choisir l'installation et l'équipement ; saisir une abréviation (pour un affichage court) ; l'adresse et les coordonnées sont automatiques ; choisir une catégorie (exemple : escalade) ; vérifier couvert ou non couvert ; indiquer le mode de déplacement et la durée (moins de 10 minutes, 10 à 20, plus de 20) ; enregistrer.
+- Équipement absent de la liste (non remonté par la commune, ou lieu qui n'est pas sportif comme un réfectoire) : choisir la commune puis faire une création manuelle avec un libellé explicite, une adresse et la catégorie « autre type d'équipement ».
+- On peut modifier un équipement. ATTENTION en cas de suppression : il disparaît aussi de tous les emplois du temps ; les créneaux concernés se retrouvent sans équipement.
+
+### [SITUATION: SECTIONS SPORTIVES SCOLAIRES — LES QUATRE MODULES ET LEURS PÉRIODES D'OUVERTURE (vidéo)]
+- Mots-clés : section sportive scolaire, SSS, demande d'ouverture, projet annuel, bilan annuel, évolution, reconduction, fermeture, campagne, module désactivé, hors dates.
+- Formulations courantes des collègues : je ne peux pas saisir mon bilan de section ; le module d'ouverture est fermé ; quand faut-il faire le projet de section.
+- Vidéo : https://www.youtube.com/watch?v=1EothsjU1Kc
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Section Sportive Scolaire.
+- Quatre modules : Demande d'ouverture (établissements sans section qui en veulent une l'an prochain) ; Projet annuel (à déclarer en début d'année par ceux qui ont une section) ; Bilan annuel (en fin d'année) ; Évolution (en fin d'année : reconduire ou fermer).
+- Selon l'académie, un module peut être désactivé, et chaque module n'est accessible que pendant sa campagne. « Hors dates d'ouverture » n'est pas une panne. Pour le calendrier d'Aix-Marseille, se reporter aux consignes de l'inspection pédagogique.
+
+### [SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]
+- Mots-clés : demande d'ouverture SSS, questionnaire, axes retenus, recrutement, effectifs, coordonnateur de section, encadrement interne et externe, convention club, financement, brouillon, proposer dossier complet, signature du chef.
+- Formulations courantes des collègues : comment demander l'ouverture d'une section ; les tableaux d'axes sont vides ; le dossier est dit incomplet ; qui doit signer.
+- Vidéo : https://www.youtube.com/watch?v=FUJzYLskCGQ
+- Dossier Section Sportive > Demande d'ouverture : créer un dossier en choisissant l'APSA, ou rouvrir une demande existante (modifier, supprimer).
+- L'en-tête donne l'état : en cours de saisie, date du dernier enregistrement, signature du chef, avis et commentaires de la commission.
+- Contenu : axes retenus parmi ceux des projets d'établissement, d'EPS et d'AS (tableaux vides = axes non saisis dans Dossier EPS > Projets) ; axes du projet de section ; recrutement (hors secteur, liaison avec les écoles, niveau sportif requis) ; effectifs par cycle ; futur coordonnateur ; encadrants internes et heures hebdomadaires ; encadrants externes (nom, diplôme, heures) ; club partenaire et dépôt de la convention signée ; organisation par jour (section, AS, club) ; suivi des élèves en difficulté scolaire ; équipements utilisés ; financement prévisionnel (heures, euros) ; commentaires.
+- [Enregistrer] en mode brouillon tant que ce n'est pas fini. À chaque enregistrement un message dit ce qui manque (exemple : aucun axe du projet d'AS coché). Quand c'est complet : [Proposer dossier complet].
+- Le chef d'établissement doit signer : dans sa propre interface iPackEPS, il ouvre le même dossier et dispose d'un bouton [Signer] en plus.
+
+### [SITUATION: SECTION SPORTIVE — PROJET ANNUEL : PRÉREQUIS ET CE QUI SE REMPLIT TOUT SEUL (vidéo)]
+- Mots-clés : projet annuel SSS, section absente du tableau, groupe de type section sportive, élèves placés, créneaux d'emploi du temps, données automatiques, convention, poste spécifique académique.
+- Formulations courantes des collègues : ma section n'apparaît pas dans le projet annuel ; les effectifs sont faux ; l'intervenant extérieur n'apparaît pas ; où déposer la convention.
+- Vidéo : https://www.youtube.com/watch?v=SizZ4vGQ4nU
+- Dossier Section Sportive > Projet annuel. Pour que la section apparaisse, il faut AVANT : avoir créé un groupe de type section sportive, y avoir placé les élèves, et avoir saisi ses créneaux dans l'emploi du temps.
+- À remplir : date d'ouverture ; axes prioritaires cochés (tableaux vides = axes non saisis dans Projets) ; modalités de recrutement et niveau requis ; poste spécifique académique ou non et heures par semaine de chaque encadrant ; club conventionné (responsable technique, président, entraîneur) et dépôt de la convention ; organisation par jour ; suivi des élèves en difficulté ; financement prévisionnel ; commentaires.
+- Rempli automatiquement : noms des groupes, jours, périodes et horaires (tirés de l'emploi du temps) ; effectifs et liste des élèves (tirés du groupe) ; coordonnateur de section (tiré des fiches professeur) ; encadrants internes (tirés du groupe) ; équipements (tirés des créneaux).
+- Un encadrant externe absent de la liste : l'ajouter comme intervenant extérieur dans Dossier EPS > Équipe EPS.
+- Fin : brouillon ou [Proposer dossier complet], puis signature numérique du chef d'établissement dans son interface.
+
+### [SITUATION: SECTION SPORTIVE — BILAN ANNUEL : SEULS LES RÉSULTATS UNSS ET JEUNES OFFICIELS SONT NOUVEAUX (vidéo)]
+- Mots-clés : bilan SSS, fin d'année, résultats UNSS, licenciés, compétitions, niveau départemental académique national, jeunes officiels, convention, financement.
+- Formulations courantes des collègues : que faut-il ressaisir dans le bilan de section ; ma section n'apparaît pas dans le bilan ; où indiquer les résultats UNSS.
+- Vidéo : https://www.youtube.com/watch?v=iH54YEF_2XY
+- Dossier Section Sportive > Bilan. Le bilan reprend toutes les données du projet annuel ; il n'y a qu'à compléter. Section absente du tableau : groupe, élèves ou créneaux de la section non saisis.
+- À vérifier ou compléter : zone de présentation (si le contexte a changé depuis le début d'année) ; convention (à déposer si ce n'est pas fait) ; financement (chiffres à jour).
+- Seule partie réellement nouvelle : résultats à l'UNSS (nombre de licenciés de la section, nombre d'élèves ayant participé à une compétition, par catégorie le nombre d'élèves ayant atteint le niveau départemental, académique, inter-académique ou national, classements en commentaire) et tableau des jeunes officiels certifiés par niveau.
+- Brouillon tant que c'est incomplet (l'application signale les manques, par exemple le dispositif pour les élèves en difficulté) ; puis [Proposer dossier complet] ; puis signature numérique du chef d'établissement.
+
+### [SITUATION: SECTION SPORTIVE — DEMANDER LA RECONDUCTION OU LA FERMETURE (vidéo)]
+- Mots-clés : évolution des sections, reconduction, fermeture, commentaire obligatoire, signer la demande, chef d'établissement.
+- Formulations courantes des collègues : comment reconduire ma section l'an prochain ; comment fermer une section ; qui valide la demande.
+- Vidéo : https://www.youtube.com/watch?v=7yr1bFlvlFg
+- Dossier Section Sportive > Évolution des sections sportives scolaires (présent seulement si l'académie a activé ce module). À faire chaque année.
+- [Modifier] sur la section : choisir « reconduction pour l'année suivante » ou « fermeture ». En cas de fermeture, expliquer le choix en commentaire. Enregistrer : le statut change.
+- Le chef d'établissement ouvre le même écran dans son interface, clique sur [Modifier] et signe la demande ; la colonne « date de signature » se remplit. La commission donne ensuite son avis, éventuellement avec un commentaire.
+
+### [SITUATION: APPN À ENVIRONNEMENT SPÉCIFIQUE — DÉPOSER UNE DEMANDE DE VALIDATION DE PROJET (vidéo)]
+- Mots-clés : APPN, environnement spécifique, article R. 212-7 du code du sport, canyonisme, ski, alpinisme, spéléologie, escalade en grande voie, projet pédagogique, protocole de sécurité, convention, signature du chef.
+- Formulations courantes des collègues : je veux faire une sortie escalade en grande voie ; quels documents pour un stage de ski de randonnée ; je ne connais pas encore la date ; la sortie a lieu dans une autre académie.
+- Vidéo : https://www.youtube.com/watch?v=RUlrS0a1YA0
+- Rappel : les équipes doivent identifier les pratiques à haut niveau d'exigence ayant pour support des APPN à environnement spécifique (activités listées à l'article R. 212-7 du code du sport) et soumettre un dossier au corps d'inspection.
+- Chemin : Dossiers et Projets > Dossier APPN. Un dossier par activité ; plusieurs dossiers possibles. Choisir l'activité, saisir le détail, [Créer].
+- Formulaire : libellé du projet ; date, ou simple période si la date n'est pas connue ; enseignant porteur ; cadre de pratique (EPS, AS, option, spécialité, section sportive, autre — plusieurs choix possibles) ; commentaires.
+- Documents OBLIGATOIRES : le projet pédagogique et le protocole de sécurité (un modèle peut être proposé par l'académie). Facultatifs : conventions avec les organismes d'accueil (plusieurs possibles), annexes.
+- Activité dans une autre académie : respecter le protocole de sécurité de cette académie s'il existe.
+- [Enregistrer], puis demander au chef d'établissement de signer depuis son interface (même chemin, bouton [Signer]). La commission donne ensuite un avis : l'icône change (validé ou non) et ses commentaires apparaissent dans le dossier.

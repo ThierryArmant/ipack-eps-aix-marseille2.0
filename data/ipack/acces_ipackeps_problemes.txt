@@ -1,0 +1,29 @@
+=== IMPOSSIBLE D'ACCÉDER À iPackEPS — DIAGNOSTIC OFFICIEL (site iPackEPS, article « En cas d'impossibilité d'accéder à iPackEPS ») ===
+Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels ». Dans l'ancien portail, il était dans « Enquêtes et Pilotage » > « Pilotage académique ». Pour Aix-Marseille, le correspondant académique iPackEPS est l'interlocuteur à contacter.
+
+### [SITUATION: JE NE VOIS PAS LE LIEN iPackEPS – PROFESSEUR DANS ARENA]
+- Mots-clés : lien absent, iPackEPS invisible, ARENA, externet, intranet, clé OTP, portail premier degré, discipline EPS, annuaire, deux identifiants, contractuel titularisé.
+- Formulations courantes des collègues : iPackEPS n'apparaît pas dans mon ARENA ; je ne trouve pas iPackEPS ; je viens d'être titularisé et je n'ai plus iPackEPS ; depuis le poste du secrétariat je ne le vois pas.
+- Q : Je ne vois pas le lien [iPackEPS – Professeur] dans mon portail ARENA.
+- R, piste 1 — mauvais portail ARENA : le module professeur n'est accessible que par le portail externe (« externet »). Par un accès intranet (poste du chef d'établissement, accès par clé OTP), le lien n'apparaît pas. Certaines académies ont aussi plusieurs portails (premier degré, second degré) : il faut le portail du second degré.
+- R, piste 2 — vous n'êtes pas reconnu comme enseignant d'EPS : ARENA n'affiche iPackEPS que si la fiche de l'annuaire des personnels du rectorat indique la discipline EPS. Ces fiches peuvent être erronées en début d'année : contacter le correspondant académique iPackEPS.
+- R, piste 3 — mauvais identifiant : certains enseignants ont deux identifiants académiques (ancien contractuel titularisé, pour qui une nouvelle fiche a été créée). Avec l'ancien identifiant, iPackEPS n'apparaît pas : se connecter avec le nouveau.
+
+### [SITUATION: J'ACCÈDE À iPackEPS MAIS MON ÉTABLISSEMENT N'APPARAÎT PAS (OU C'EST MON ANCIEN ÉTABLISSEMENT)]
+- Mots-clés : aucun établissement proposé, ancien établissement, page vierge, adresse mail inconnue, TZR, contractuel, établissement privé, RNE, login.
+- Formulations courantes des collègues : aucun établissement dans la liste ; iPackEPS me propose mon lycée de l'an dernier ; page blanche à l'ouverture ; je suis TZR et je ne vois pas mon établissement.
+- Q : J'arrive bien dans iPackEPS – Professeur, mais mon établissement n'apparaît pas.
+- R, explication : ARENA vous reconnaît comme professeur d'EPS, mais votre adresse mail n'est pas connue dans les bases d'iPackEPS.
+- R, piste 1 — mauvais compte : avec deux identifiants académiques (cas de TZR ou de contractuels ayant reçu un nouveau compte), l'ancien identifiant renvoie à l'ancien établissement. Utiliser le nouvel identifiant.
+- R, piste 2 — établissement inconnu d'iPackEPS : certains établissements privés n'ont pas été importés, d'où une page vierge.
+- R, piste 3 — enseignant inconnu d'iPackEPS : affectation pas encore remontée dans les bases en début d'année.
+- R, dans les trois cas : écrire au correspondant académique iPackEPS en donnant l'identifiant utilisé pour se connecter à ARENA et le RNE de l'établissement d'affectation, pour qu'il fasse vérifier par les services informatiques.
+
+### [SITUATION: ERREUR 403 FORBIDDEN, NOT FOUND OU 400 BAD REQUEST EN CLIQUANT SUR iPackEPS]
+- Mots-clés : Error 403, Forbidden, Not Found, Error 400, Bad Request, cache, changer de navigateur, gérer mes favoris, recréer le favori.
+- Formulations courantes des collègues : erreur 403 en ouvrant iPackEPS ; bad request ; page not found depuis ARENA ; ça marchait hier et plus aujourd'hui.
+- Q : En cliquant sur le lien d'accès, mon navigateur affiche « Error 403 – Forbidden », « NOT FOUND » ou « Error 400 Bad Request ».
+- R : des mises à jour d'ARENA ont rendu certains accès instables. Trois essais, dans l'ordre :
+- R1 : changer de navigateur.
+- R2 : vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation »).
+- R3 : supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès.

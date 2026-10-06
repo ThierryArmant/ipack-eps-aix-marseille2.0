@@ -2557,6 +2557,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     return bool(re.search(r"(youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{11}(?![A-Za-z0-9_.-])", _l))
                 return bool(re.search(r"\.mp4", _l, flags=re.IGNORECASE))
             return True
+        # « [Titre de la vidéo](fichier.mp4) » écrit par l'IA : on ne garde que le nom du fichier, reconnu ensuite par le hub.
+        texte_brut = re.sub(r"\[[^\]\n]*\]\(([A-Za-z0-9_.-]+\.mp4)\)", r"\1", str(texte_brut))
         texte_brut = "\n".join(_l for _l in str(texte_brut).split("\n") if _garder_ligne(_l))
 
         # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)

@@ -1786,7 +1786,7 @@ if prompt_a_traiter:
                     _cibles.add("pro")
                 if re.search(r"\bcap\b", p_norm):
                     _cibles.add("cap")
-                if re.search(r"\b(dnb|brevet|college|collegiens?|sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", p_norm) or (est_college and not est_clairement_lycee):
+                if re.search(r"\b(dnb|brevet|college|collegiens?)\b|(eleves? de|classes? de|mes|nos|les) (sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", p_norm) or (est_college and not est_clairement_lycee):
                     _cibles.add("dnb")
                 if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", p_norm):
                     _cibles.add("gt")
@@ -2291,7 +2291,7 @@ if prompt_a_traiter:
                         _exams.append("cap")
                     if re.search(r"bac general|bac techno|baccalaureat general|bac gt\b|bac g\b", _qs):
                         _exams.append("gt")
-                    if re.search(r"\b(dnb|brevet|college|sixieme|cinquieme|quatrieme|troisieme|6e|5e|4e|3e)\b", _qs):
+                    if re.search(r"\b(dnb|brevet|college)\b|(eleves? de|classes? de|mes|nos|les) (sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", _qs):
                         _exams.append("dnb")
                     if not _exams and re.search(r"arrondi|note|epreuve|ccf|absen|zero|examen|\bbac\b|ponctuel|inapt|dispens|protocole|haut niveau", _qs):
                         if "coll" in _niv:
@@ -2552,7 +2552,10 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             if re.match(r"\s*(\*\*)?Texte de r[ée]f[ée]rence", _l, flags=re.IGNORECASE):
                 return bool(re.search(r"d[ée]cret|circulaire|note de service|arr[êe]t[ée]|\bloi\b|code de|article [LRD]\b|bulletin officiel|\bB\.?O\.?\b|\bNOR\b", _l, flags=re.IGNORECASE)) and "SITUATION" not in _l
             if re.search(r"Tutoriel\s+(vid[ée]o\s+)?associ[ée]\s*:", _l, flags=re.IGNORECASE):
-                return bool(re.search(r"\.mp4|youtu\.?be", _l, flags=re.IGNORECASE))
+                if "http" in _l.lower():
+                    # une adresse : seulement une vraie vidéo YouTube (identifiant de 11 caractères), jamais une adresse inventée
+                    return bool(re.search(r"(youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{11}(?![A-Za-z0-9_.-])", _l))
+                return bool(re.search(r"\.mp4", _l, flags=re.IGNORECASE))
             return True
         texte_brut = "\n".join(_l for _l in str(texte_brut).split("\n") if _garder_ligne(_l))
 

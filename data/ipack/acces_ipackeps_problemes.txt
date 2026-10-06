@@ -48,3 +48,18 @@ Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubri
 - Réponse courte : OUI, iPackEPS fonctionne sur Mac comme sur PC, car ce n'est pas un logiciel à installer : c'est une application en ligne, que l'on ouvre dans un navigateur internet depuis le portail de son académie (ARENA).
 - Il n'y a donc rien à télécharger, rien à installer et aucune mise à jour à faire soi-même : tout le monde utilise automatiquement la version en cours, et il n'existe pas de « version minimale » à vérifier. Cela vaut aussi pour l'interfaçage avec Cyclades et Santorin : aucune version particulière d'iPackEPS n'est à installer pour exporter vers Cyclades.
 - Si iPackEPS ne s'ouvre pas, le problème vient de l'accès (portail, identifiants, application absente du portail) et non de l'ordinateur : voir les fiches sur les problèmes d'accès.
+
+
+### [SITUATION: MESSAGE D'ERREUR « INSTANCE » EN ROUGE DANS iPackEPS]
+- Mots-clés : erreur instance, message rouge, instance, session, plusieurs onglets, retour au portail, déconnexion.
+- Formulations courantes des collègues : j'ai un message d'erreur Instance en rouge ; iPackEPS affiche Instance ; que faire quand iPackEPS affiche une erreur d'instance.
+- Réponse courte : fermez tous les onglets du navigateur où iPackEPS est ouvert, ou cliquez sur votre identifiant en haut à droite puis sur « Retour au portail », et rouvrez iPackEPS. Cela réinitialise la session.
+- Ce message vient d'une session ouverte dans plusieurs onglets ou restée ouverte : ce n'est pas un problème de droits, il n'y a personne à contacter.
+- (Source : guide des examens EPS de l'académie de Normandie.)
+
+### [SITUATION: JE N'AI PAS ACCÈS À CERTAINS MODULES D'iPackEPS — COMPLÉTER SA FICHE PROFESSEUR]
+- Mots-clés : pas accès, module absent, module grisé, fiche professeur, fonctions, fonctions EPS, coordonnateur EPS, responsable de la certification, droits.
+- Formulations courantes des collègues : je n'ai pas accès à certains modules d'iPackEPS ; il me manque le dossier certificatif ; je ne vois pas tous les menus ; que manque-t-il pour avoir accès.
+- Réponse courte : complétez votre fiche professeur. Dans [Ma fiche professeur], rubrique [Fonctions] > [Fonctions EPS], cochez les fonctions que vous exercez (par exemple « Coordonnateur EPS », « Responsable de la certification »), puis enregistrez. Les modules correspondants deviennent accessibles.
+- À ne pas confondre avec le cas où iPackEPS ne s'ouvre pas du tout ou ne vous connaît pas : là, c'est un problème d'affectation (base STSWEB) à voir avec la direction.
+- (Source : guide des examens EPS de l'académie de Normandie.)

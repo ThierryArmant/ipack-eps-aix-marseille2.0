@@ -78,3 +78,26 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - À ne pas confondre : l'export d'iPackEPS vers Cyclades ne crée aucun candidat. Il sert uniquement à ASSOCIER les candidats, déjà présents dans Cyclades, à leur protocole. Refaire l'import des élèves ou les groupes dans iPackEPS ne fera donc pas apparaître un candidat manquant.
 - Cas fréquent en voie professionnelle (CAP, bac pro) : certains élèves sont dispensés de l'épreuve d'EPS du fait de leur parcours. C'est une dispense administrative, liée à leur inscription, et non une dispense médicale. Ces élèves n'ont pas à être évalués en EPS pour l'examen.
 - Que faire : donner au secrétariat ou au chef d'établissement le nom des élèves concernés pour qu'il vérifie leur inscription à l'examen et une éventuelle dispense d'épreuve.
+
+
+### [SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]
+- Mots-clés : Cyclades, modifier un protocole, supprimer un protocole, protocole erroné, changer les épreuves, changer une APSA, Contrôler / Réaffecter des protocoles.
+- Formulations courantes des collègues : comment supprimer un protocole erroné dans Cyclades ; je dois changer les épreuves d'un groupe, où le faire dans Cyclades ; je me suis trompé d'activité dans un protocole.
+- Réponse courte : dans Cyclades, activité [EPS] > [Contrôler / Réaffecter des protocoles]. C'est dans ce menu que l'on modifie un protocole (ses épreuves, son évaluateur) ou qu'on le supprime.
+- Cette manipulation se fait dans Cyclades, pas dans iPackEPS.
+- Limite : le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé ; pour changer de groupe d'élèves, il faut supprimer le protocole et le recréer.
+- Si les protocoles ont déjà été transmis à la commission, le chef d'établissement doit d'abord demander leur réouverture à l'inspection pédagogique régionale.
+- (Source : guide des examens EPS de l'académie de Normandie.)
+
+### [SITUATION: CYCLADES — VÉRIFIER QUE CHAQUE ÉLÈVE EST LIÉ AU BON PROTOCOLE]
+- Mots-clés : Cyclades, vérifier les affectations, élève lié au bon protocole, Vérifier les protocoles et les affectations d'élèves, contrôle avant la saisie.
+- Formulations courantes des collègues : comment vérifier que chaque élève est lié au bon protocole dans Cyclades ; comment contrôler les affectations des élèves aux protocoles.
+- Réponse courte : dans Cyclades, activité [EPS] > [Vérifier les protocoles et les affectations d'élèves]. Ce menu sert à contrôler ; pour corriger l'affectation d'un élève, on utilise ensuite [EPS] > [Associer les élèves à un protocole].
+- (Source : guide des examens EPS de l'académie de Normandie.)
+
+### [SITUATION: LE CHEF D'ÉTABLISSEMENT PEUT-IL SAISIR LUI-MÊME LES NOTES D'UN ENSEIGNANT ABSENT OU SANS ACCÈS ?]
+- Mots-clés : chef d'établissement, saisir les notes, enseignant absent, enseignant sans accès, mission d'évaluateur, Imag'in, réaffecter le protocole, Cyclades.
+- Formulations courantes des collègues : je suis chef d'établissement et l'enseignant est absent, puis-je saisir ses notes ; mon collègue n'a pas d'accès, qui peut saisir ses notes ; personne ne peut remplacer l'évaluateur.
+- Réponse courte : OUI. Le chef d'établissement se crée lui-même une mission d'évaluateur EPS dans Imag'in, puis, dans Cyclades, activité [EPS] > [Contrôler / Réaffecter des protocoles], il met sa propre adresse mail comme évaluateur du protocole. Il peut alors saisir les notes dans Santorin.
+- Autre solution, si un collègue de l'établissement peut saisir : l'ajouter comme deuxième correcteur sur le lot.
+- (Source : guide des examens EPS de l'académie de Normandie.)

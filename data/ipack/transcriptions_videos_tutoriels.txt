@@ -1,0 +1,13 @@
+=== CONTENU DES VIDÉOS TUTORIELS iPackEPS (chaîne EPS Créteil) ===
+Source : transcription du commentaire audio des vidéos officielles associées aux tutoriels iPackEPS. Les noms de menus sont ceux prononcés dans la vidéo.
+
+### [SITUATION: IMPORT D'ÉLÈVES DEPUIS PRONOTE — iPackEPS DIT QUE LA CLASSE N'A PAS ÉTÉ TROUVÉE (vidéo « corriger les données erronées »)]
+- Mots-clés : import Pronote, fichier CSV, classe non trouvée, nom de classe différent, préfixe, G-T, bloc-notes, rechercher remplacer, Ctrl+H, groupe vide, menus de terminale.
+- Formulations courantes des collègues : l'import Pronote me met une erreur de classe ; iPackEPS ne retrouve pas ma classe ; mes élèves n'arrivent pas dans mon groupe ; comment corriger le fichier Pronote ; comment vider un groupe pour recommencer l'import.
+- Vidéo : https://www.youtube.com/watch?v=RlScDjd8kHk (4 min 35)
+- Import normal, côté Pronote : dans Pronote (pronote.net, via l'ENT), menu [Mes données] > [Liste des élèves]. Descendre sous les classes jusqu'aux groupes, sélectionner le groupe voulu (exemple : un groupe d'EPS de terminale), puis cliquer sur le petit bouton aux deux feuillets pour copier la liste au format CSV, et enregistrer le fichier.
+- Import normal, côté iPackEPS : Tableau de bord > Dossiers et Projets > onglet [Élèves]. Les classes et les groupes doivent déjà être créés. Sélectionner d'abord le groupe d'arrivée (il doit être le bon groupe, vide), cliquer sur le bouton d'import d'un fichier d'élèves Pronote, faire [Parcourir], choisir le fichier CSV, puis [Télécharger]. La liste des élèves apparaît dans le groupe.
+- Le souci fréquent : un message d'erreur indique que la classe déclarée sur Pronote n'a pas été trouvée sur iPackEPS. Cause : le nom de la classe n'est pas écrit pareil dans les deux logiciels (dans l'exemple de la vidéo, Pronote ajoute un préfixe « G- » devant le nom de la classe, qui n'existe pas dans iPackEPS).
+- Correction du fichier : 1) aller dans le dossier où le CSV a été enregistré ; 2) clic droit > [Ouvrir avec] > Bloc-notes — surtout pas Excel ; 3) Ctrl+A pour tout sélectionner, puis Ctrl+H pour ouvrir « Rechercher / Remplacer » ; 4) dans « Rechercher », taper la partie en trop du nom de classe (celle indiquée dans le message d'erreur) ; laisser « Remplacer par » vide ; 5) cliquer sur [Remplacer tout] ; 6) Fichier > Enregistrer ; 7) refaire l'import dans iPackEPS.
+- La partie à supprimer dépend de l'établissement : il faut lire le message d'erreur pour repérer ce qui diffère entre le nom Pronote et le nom iPackEPS.
+- Pour vider un groupe avant de recommencer : dans l'onglet [Élèves], sélectionner tous les élèves du groupe puis cliquer sur [Enlever], et rafraîchir la page.

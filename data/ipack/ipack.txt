@@ -605,7 +605,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
   Si Pronote copie la liste dans le presse-papier au lieu de générer un fichier, vous pouvez le créer vous-même :
   1. Créez un fichier texte vierge sur le bureau (sur Windows : clic droit => nouveau => document texte).
   2. Ouvrez le fichier, copiez le texte suivant en ligne 1 : Nom;Prénom;Date de naissance;Sexe;Classe
-  3. En ligne 4, collez le presse-papier issu de votre logiciel de vie scolaire (clic droit => coller).
+  3. En ligne 2, collez le presse-papier issu de votre logiciel de vie scolaire (clic droit => coller).
   4. Enregistrer et fermer le fichier.
   5. Renommez-le, en remplaçant l’extension .txt en .csv.
   6. Vous pouvez maintenant importer le fichier sur iPackEPS.

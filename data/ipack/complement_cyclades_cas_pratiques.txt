@@ -157,3 +157,12 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Un remplaçant : ouvrir SA fiche dans l'équipe EPS et indiquer, dans la zone « Remplacement », qui il remplace ; il récupère les groupes et l'emploi du temps du titulaire.
 - Un enseignant sans activité dans l'établissement cette année : le déclarer « non actif » avec [Modifier].
 - Une personne qui n'est pas enseignant d'EPS dans les bases du rectorat se déclare comme intervenant extérieur, pas comme professeur.
+
+### [SITUATION: COLLÈGE — L'EPS AU BREVET (DNB) : Y A-T-IL UNE ÉPREUVE, FAUT-IL SAISIR DANS SANTORIN OU iPackEPS ?]
+- Mots-clés : DNB, brevet, collège, troisième, épreuve d'EPS, contrôle continu, moyenne annuelle, Santorin, Cyclades, protocole, saisie des notes.
+- Formulations courantes des collègues : y a-t-il une épreuve d'EPS au brevet ; comment compte l'EPS pour le DNB ; dois-je saisir quelque chose dans Santorin pour mes troisièmes ; faut-il un protocole au collège.
+- NON, il n'y a pas d'épreuve d'EPS au brevet, ni CCF, ni protocole. Il n'y a rien à saisir dans Santorin ni dans Cyclades pour le DNB, et aucune note à saisir dans iPackEPS.
+- L'EPS compte par le contrôle continu : à compter de la session 2026, le contrôle continu pèse 40 % du DNB (60 % pour les épreuves terminales). C'est une note sur 20, égale à la moyenne des moyennes annuelles de troisième de tous les enseignements obligatoires, EPS comprise, tous au même coefficient.
+- La seule chose à faire pour l'enseignant : renseigner normalement les moyennes d'EPS de ses élèves de troisième dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent), chaque trimestre ou semestre.
+- Élève inapte : inaptitude totale attestée par certificat médical = dispensé ; inaptitude partielle = évaluation adaptée.
+- Textes : décret n° 2025-328 du 10 avril 2025 et note de service du 2 septembre 2025 sur le DNB.

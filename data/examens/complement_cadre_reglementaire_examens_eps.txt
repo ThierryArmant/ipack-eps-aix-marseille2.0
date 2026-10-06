@@ -39,8 +39,9 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
 - Élève inapte : inaptitude totale attestée par certificat médical = dispensé ; inaptitude partielle = évaluation adaptée.
 
 ### [SITUATION: ENSEIGNEMENT OPTIONNEL D'EPS AU LYCÉE — COMMENT IL EST ÉVALUÉ]
-- Mots-clés : option EPS, enseignement optionnel, contrôle continu, moyennes trimestrielles, livret scolaire, pas de CCF, pas de Santorin.
-- Formulations courantes des collègues : l'option EPS a-t-elle un CCF ; où va la note de l'option ; faut-il un protocole pour l'option.
+- Mots-clés : option EPS, groupe d'option, enseignement optionnel, option facultative, protocole pour l'option, Cyclades, Santorin, contrôle continu, moyennes trimestrielles, livret scolaire, pas de CCF.
+- Formulations courantes des collègues : dois-je créer un protocole dans Cyclades pour mon groupe d'option EPS ; faut-il saisir les notes de l'option dans Santorin ; l'option EPS a-t-elle un CCF ; où va la note de l'option.
+- NON : pour un groupe d'option EPS, il ne faut créer AUCUN protocole dans Cyclades et ne saisir AUCUNE note dans Santorin. Cyclades et Santorin ne concernent que l'EPS obligatoire (les trois CCF de l'enseignement commun).
 - L'enseignement optionnel d'EPS est évalué en contrôle continu, par les moyennes trimestrielles ou semestrielles de l'élève : il n'y a ni CCF ni protocole dans Cyclades, et rien à saisir dans Santorin.
 - La note se saisit dans le logiciel de vie scolaire de l'établissement et remonte par le livret scolaire.
 - Dans iPackEPS, l'option se déclare comme un groupe ([Dossiers] > [Dossier EPS] > [Groupes]), avec ses séquences d'apprentissage.

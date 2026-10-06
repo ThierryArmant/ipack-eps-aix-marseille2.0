@@ -1685,6 +1685,21 @@ if prompt_a_traiter:
                 and not contient(p_norm, [r"\bbac\b", r"baccalaur", r"\bcap\b", r"\bccf\b", r"\bexamens?\b", r"\bepreuves?\b", r"dispens", r"inapt"])
             )
 
+            # ✅ INTERRUPTEURS MIS EN VEILLE (revue du 6 octobre 2026, validée par T. Armant).
+            # Ces réponses toutes faites étaient vagues ou donnaient un chemin de menu différent du tutoriel officiel,
+            # alors que la base documentaire contient désormais la procédure exacte. Elles passaient DEVANT la base :
+            # le collègue recevait la moins bonne des deux réponses. On laisse donc la base répondre.
+            # Pour en réactiver un : retirer simplement sa ligne ci-dessous (le texte de la réponse est conservé plus bas).
+            est_import_pronote = False        # « paramètres d'importation » -> la base donne [Dossier EPS] > [Élèves] > [Importer un fichier Pronote]
+            est_verrouiller_lot = False       # bouton « en bas » -> le tutoriel dit [Verrouiller] en haut à droite
+            est_dates_ccf = False             # « [Séquences] ou [Protocoles] selon l'affichage » -> chemin exact dans la base
+            est_creation_groupe = False       # « [Classes / Groupes] » -> [Dossier EPS] > [Groupes] puis [Élèves]
+            est_gestion_sss_ou_sport = False  # « onglet [Mes Élèves] » -> [Dossier EPS] > [Élèves] ; dossier Sports-Études à part
+            est_aucun_eleve = False           # actualisation dans [Élèves] -> en réalité [Classes] > importation des élèves
+            est_eleves_inactifs = False       # même chemin que ci-dessus
+            est_referentiels_rentree = False  # « cochez les champs d'apprentissage » -> procédure exacte dans la base
+            est_equipe_eps = False            # ne parlait pas de l'intervenant extérieur (cas du vacataire)
+
             est_cas_direct = (
                 (mode != "textes") 
                 and (

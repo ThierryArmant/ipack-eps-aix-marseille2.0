@@ -54,3 +54,18 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - NE PAS cliquer sur « Réinitialiser » si plusieurs APSA sont déjà saisies : ce bouton remet à zéro TOUTE la saisie de l'élève, et pas seulement la note fausse.
 - « Réinitialiser » ne sert que si la fiche de l'élève est bloquée et qu'il faut repartir de zéro pour cet élève.
 - Si le lot est déjà verrouillé : seul le chef d'établissement peut le déverrouiller (Santorin, [Correction] > [Liste des lots], clic sur le cadenas).
+
+### [SITUATION: SANTORIN — FAUT-IL UNE DATE DE FIN DE CORRECTION POUR DISTRIBUER LES LOTS ?]
+- Mots-clés : distribution automatique, date de fin de correction, date de début, date obligatoire, lancer la distribution, nouveau lot.
+- Formulations courantes des collègues : faut-il renseigner une date de fin pour distribuer les lots ; la date de fin de correction est-elle obligatoire ; quelle date mettre pour la distribution.
+- NON pour la distribution automatique : il n'est pas nécessaire de renseigner la date de fin de correction pour la lancer. Garder « distribution automatique » et cliquer sur [Lancer la distribution].
+- NON pour la distribution manuelle (bouton [Ajouter dans un nouveau lot]) : les dates de début et de fin ne sont pas obligatoires pour l'EPS.
+- OUI dans un seul cas : quand on sort un élève d'un lot avec [Déplacer vers un nouveau lot], Santorin exige une date de fin ; on peut y mettre la date de la commission académique.
+
+### [SITUATION: COMPTE-RENDU D'IMPORT CYCLADES — « CANDIDATS IGNORÉS » ET « INE NON INSCRITS » : EST-CE GRAVE ?]
+- Mots-clés : compte-rendu d'import, candidats ignorés, inconnus, non inscrits, INE, import des groupes et des élèves, traitement bien déroulé.
+- Formulations courantes des collègues : le compte-rendu affiche des candidats ignorés ; des INE apparaissent comme non inscrits ; l'import a-t-il marché ; est-ce grave.
+- NON, ce n'est pas grave : c'est le fonctionnement normal. Le fichier exporté d'iPackEPS contient TOUS les élèves de l'établissement, tous examens confondus. Quand on l'importe dans l'interface d'un examen (par exemple le bac pro), les élèves des autres examens (CAP, bac GT) sont « ignorés ».
+- Les INE « non inscrits » correspondent à des élèves présents dans iPackEPS mais non inscrits à cet examen dans l'établissement : contrôle ponctuel, changement d'établissement.
+- Ce qu'il faut vérifier : la phrase indiquant que le traitement s'est bien déroulé, et le nombre de candidats pris en compte, qui doit correspondre à l'effectif de l'examen.
+- Refaire l'import une fois par examen présent dans l'établissement, avec le même fichier.

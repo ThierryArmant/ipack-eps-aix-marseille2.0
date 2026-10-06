@@ -1786,7 +1786,7 @@ if prompt_a_traiter:
                     _cibles.add("pro")
                 if re.search(r"\bcap\b", p_norm):
                     _cibles.add("cap")
-                if re.search(r"\b(dnb|brevet|college|collegiens?)\b", p_norm):
+                if re.search(r"\b(dnb|brevet|college|collegiens?|sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", p_norm) or (est_college and not est_clairement_lycee):
                     _cibles.add("dnb")
                 if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", p_norm):
                     _cibles.add("gt")
@@ -2273,7 +2273,37 @@ if prompt_a_traiter:
                 else:
                     bloc_video_consigne = ""
 
+                # ✅ CHAMPS D'APPRENTISSAGE : l'IA se trompait de champ dès que la question citait plusieurs activités
+                # (« badminton, tennis de table et escalade : même champ »). Le code reconnaît donc lui-même les activités
+                # citées et donne leur champ à l'IA, qui n'a plus à deviner.
+                faits_champs = ""
+                if not est_college:
+                    _APSA_CHAMPS = [
+                        ("course en duree", 5), ("natation en duree", 5), ("musculation", 5), ("step", 5), ("yoga", 5),
+                        ("natation de vitesse", 1), ("demi-fond", 1), ("demi fond", 1), ("haies", 1), ("relais", 1), ("sprint", 1),
+                        ("javelot", 1), ("disque", 1), ("lancer du poids", 1), ("pentabond", 1), ("triple saut", 1),
+                        ("saut en hauteur", 1), ("saut en longueur", 1),
+                        ("escalade", 2), ("course d'orientation", 2), ("sauvetage", 2), ("vtt", 2), ("kayak", 2),
+                        ("danse", 3), ("cirque", 3), ("acrosport", 3), ("gymnastique", 3),
+                        ("badminton", 4), ("tennis de table", 4), ("boxe", 4), ("judo", 4), ("lutte", 4), ("basket", 4),
+                        ("football", 4), ("handball", 4), ("rugby", 4), ("volley", 4), ("ultimate", 4),
+                    ]
+                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), p_norm)]
+                    if len(_trouvees) >= 2:
+                        _par_champ = {}
+                        for nom, ca in _trouvees:
+                            _par_champ.setdefault(ca, []).append(nom)
+                        _lignes = [f"- {nom} : champ d'apprentissage {ca}" for nom, ca in _trouvees]
+                        _memes = [" et ".join(noms) + f" (champ {ca})" for ca, noms in _par_champ.items() if len(noms) > 1]
+                        if _memes:
+                            _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
+                        else:
+                            _concl = "Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble dans un protocole d'examen."
+                        faits_champs = ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste, ne les contredis jamais) — champs d'apprentissage au lycée des activités citées dans la question :\n"
+                                        + "\n".join(_lignes) + "\n" + _concl + "\n")
+
                 contexte_complet_ia = f"""
+{faits_champs}
 CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL :
 {extraits_doc}
 

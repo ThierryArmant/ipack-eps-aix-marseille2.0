@@ -97,13 +97,13 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
 
 
 ### [SITUATION: COLLÈGE / DNB — ÉLÈVE ABSENT AUX ÉVALUATIONS, MOYENNE NON REPRÉSENTATIVE, ÉVALUATION DE REMPLACEMENT, ZÉRO]
-- Mots-clés : collège, 3e, DNB, brevet, contrôle continu, absence, moyenne non représentative, NR, en attente, évaluation de remplacement, rattrapage, zéro, épreuve différée, trois activités, trois champs d'apprentissage, note de service du 2 septembre 2025.
-- Formulations courantes des collègues : mon élève de 3e n'a pas assez de notes en EPS, que faire ; peut-on faire une épreuve différée au collège ; faut-il organiser un rattrapage au collège ; que mettre sur le bulletin si la moyenne n'est pas représentative ; peut-on mettre zéro à un élève absent au rattrapage.
+- Mots-clés : collège, sixième, cinquième, quatrième, troisième, 6e, 5e, 4e, 3e, DNB, brevet, contrôle continu, absence, moyenne non représentative, NR, en attente, évaluation de remplacement, rattrapage, zéro, épreuve différée, trois activités, trois champs d'apprentissage, note de service du 2 septembre 2025.
+- Formulations courantes des collègues : mon élève de 3e n'a pas assez de notes en EPS, que faire ; peut-on faire une épreuve différée au collège ; faut-il organiser un rattrapage au collège ; que mettre sur le bulletin si la moyenne n'est pas représentative ; peut-on mettre zéro à un élève absent au rattrapage ; peut-on mettre zéro à un élève de quatrième absent à une évaluation.
 - Réponse courte : NON, il n'y a ni CCF ni « épreuve différée » au collège : ces mots sont réservés au lycée. Au collège, la note d'EPS du DNB vient du contrôle continu de 3e. Si la moyenne d'un élève n'est pas représentative, on ne la force pas : on propose des évaluations supplémentaires, puis une évaluation de remplacement ; l'élève absent sans justification à cette évaluation de remplacement a zéro.
 - La moyenne d'EPS repose sur plusieurs notes, obtenues dans au moins trois activités relevant, autant que possible, de trois champs d'apprentissage différents.
 - Si, sur une période (trimestre ou semestre), les notes manquent, la moyenne n'est pas représentative : elle est remplacée sur le bilan périodique par la mention « En attente » (souvent appelée « NR, non représentatif » dans les établissements). L'enseignant propose d'abord des évaluations supplémentaires, et l'ensemble peut être complété à la période suivante.
 - Si la moyenne reste « En attente », le conseil de classe peut décider d'une évaluation de remplacement, organisée pour les élèves dans ce cas.
-- ZÉRO : OUI, mais dans un seul cas. Si l'élève est absent SANS justification à l'évaluation de remplacement, la note zéro est attribuée pour cet enseignement. Si son absence à l'évaluation de remplacement est dûment justifiée, il est convoqué à nouveau. En dehors de l'évaluation de remplacement (évaluation ordinaire en cours d'année), on ne met pas zéro pour une absence.
+- ZÉRO : OUI, mais dans un seul cas. Si l'élève est absent SANS justification à l'évaluation de remplacement, la note zéro est attribuée pour cet enseignement. Si son absence à l'évaluation de remplacement est dûment justifiée, il est convoqué à nouveau. En dehors de l'évaluation de remplacement (évaluation ordinaire en cours d'année), on ne met PAS zéro pour une absence, quel que soit le niveau du collège (6e, 5e, 4e, 3e). Les circulaires du CAP et du bac pro (« absence non justifiée = zéro ») ne concernent pas le collège.
 - Source : note de service du 2 septembre 2025 sur l'évaluation des élèves de 3e et le DNB (Bulletin officiel du 4 septembre 2025).
 
 
@@ -126,3 +126,23 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
   - Champ 3 : s'exprimer devant les autres par une prestation artistique et/ou acrobatique.
   - Champ 4 : conduire et maîtriser un affrontement collectif ou interindividuel.
 - Attention : le demi-fond (champ 1, performance) n'est pas la course en durée (champ 5, entretien de soi) : ce sont deux activités de deux champs différents.
+
+
+### [SITUATION: SUJET DE SECOURS EN EPS — IL N'Y EN A PAS]
+- Mots-clés : sujet de secours, sujet de remplacement, sujet papier, sujet écrit, où récupérer le sujet, épreuve d'EPS, bac, CAP, CCF.
+- Formulations courantes des collègues : où est le sujet de secours pour l'épreuve d'EPS ; où récupérer le sujet de secours ; faut-il prévoir un sujet de secours ; y a-t-il un sujet écrit en EPS.
+- Réponse courte : NON, il n'existe pas de sujet de secours en EPS. Cela figurait dans d'anciens textes, ce n'est plus le cas. Il n'y a donc rien à récupérer ni à demander.
+- Il n'y a pas non plus de sujet écrit ou papier : l'évaluation de l'EPS aux examens est pratique.
+
+### [SITUATION: ÉLÈVE EXCLU DE L'ÉTABLISSEMENT PENDANT LA PÉRIODE D'ÉVALUATION — IL A MANQUÉ SON CCF]
+- Mots-clés : exclusion, exclu, élève exclu, conseil de discipline, exclusion temporaire, a raté son CCF, absent à l'épreuve, zéro, dispensé, force majeure, CAP, bac pro, bac.
+- Formulations courantes des collègues : un élève exclu a raté son CCF, je mets zéro ; élève exclu par le conseil de discipline le jour de l'épreuve ; que saisir pour un élève exclu pendant les CCF.
+- Réponse courte : NON, on ne lui met pas zéro. Un candidat exclu de l'établissement, qui n'a pas pu se présenter à l'épreuve pour cette raison, est DISPENSÉ de l'épreuve : son exclusion pendant la période d'évaluation constitue un cas de force majeure.
+- Ce n'est pas une absence non justifiée : la règle « absence non justifiée = zéro » ne s'applique pas à un élève que l'établissement a lui-même exclu.
+
+### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE — IL N'APPARAÎT PAS DANS MON LOT SANTORIN]
+- Mots-clés : élève arrivant, nouvel élève, arrivé en cours d'année, n'apparaît pas dans le lot, absent de Santorin, association des candidats au protocole, Cyclades, nouvelle distribution automatique des lots.
+- Formulations courantes des collègues : un nouvel élève est arrivé, il n'est pas dans mon lot Santorin ; élève arrivé après la création des protocoles ; comment ajouter un élève arrivé en cours d'année dans Santorin.
+- Réponse courte : si l'élève est arrivé APRÈS l'association des candidats aux protocoles, il n'a pas de protocole et n'apparaît dans aucun lot. Il faut d'abord lui affecter un protocole dans Cyclades, PUIS procéder à une nouvelle distribution automatique des lots dans Santorin.
+- [Étape 1] Dans Cyclades : affecter un protocole à l'élève.
+- [Étape 2] Dans Santorin : relancer une distribution automatique des lots. L'élève apparaît alors dans le lot de son enseignant.

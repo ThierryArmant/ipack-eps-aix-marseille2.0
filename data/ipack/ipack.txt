@@ -1468,19 +1468,16 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
 ======================================================================
 
-1. RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC
-----------------------------------------------------------------------
+### [SITUATION: RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC]
 * RÈGLES IMPÉRATIVES : Pour valider le CCF de l'épreuve d'EPS au Baccalauréat, les consignes de gestion des examens prévoient que l'élève dispose d'au moins DEUX notes valides dans deux épreuves d'APSA différentes, appartenant à DEUX Champs d'Apprentissage (CA) distincts, pour que la moyenne soit calculée sans arbitrage. Avec une seule note (cas « note unique », DI + DI + Note), la commission académique (CAHPN) statue au cas par cas : maintien de la note ou dispense.
 * ERREUR CRITIQUE À ÉVITER : Un cycle d'Athlétisme (même si l'élève a le choix entre Course, Saut ou Lancer) ne représente qu'UN SEUL ET UNIQUE cycle d'APSA (Champ d'Apprentissage 1). Un élève ne peut JAMAIS valider son CCF ou obtenir ses deux notes de Bac sur un seul cycle d'Athlétisme. La deuxième note doit obligatoirement provenir d'une autre activité d'un autre champ.
 
-2. CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE
-----------------------------------------------------------------------
+### [SITUATION: CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE]
 * STRUCTURE DE L'APPLICATION : Dans l'interface iPackEPS, un protocole d'évaluation CCF est unique et verrouillé par groupe-classe pour une APSA spécifique. L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.
 * PROCÉDURE TECHNIQUE EN CAS DE CHOIX (COURSE / SAUT / LANCER) :
   Si l'enseignant propose des options d'épreuves différentes au sein du groupe en fonction des performances initiales, il est techniquement obligatoire de configurer la classe en mode groupe.
 
-3. TRAÇABILITÉ ET PROTECTION FONCTIONNELLE
-----------------------------------------------------------------------
+### [SITUATION: TRAÇABILITÉ ET PROTECTION FONCTIONNELLE]
 * Tout arbitrage lié au choix d'une option d'épreuve par un élève doit être consigné dans le cahier de texte numérique de la classe (traçabilité pédagogique).
 * En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS se fait sans toucher à aucune note : aucune note n'est saisie dans iPackEPS.
 
@@ -1488,68 +1485,67 @@ FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
 BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 ======================================================================
 
-[SANTORIN] CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR
+### [SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]
 ----------------------------------------------------------------------
 * CAUSE RÉELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCÉDURE INCOMPLÈTE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
 * RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFL(P) qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
 
-[SANTORIN] DATE LIMITE DE SAISIE DES NOTES
+### [SITUATION: SANTORIN — DATE LIMITE DE SAISIE DES NOTES]
 ----------------------------------------------------------------------
 * CADRE ACADÉMIQUE : La date limite de saisie des notes dans Santorin et Cyclades n'est jamais universelle à l'échelle nationale. Elle relève de la compétence exclusive de chaque Division des Examens et Concours (DEC) via la circulaire ou le calendrier des examens propre à l'académie de rattachement. L'utilisateur doit impérativement se référer aux instructions officielles de son rectorat.
 
-[SANTORIN] ACCÈS REMPLAÇANT (CHRONOLOGIE)
+### [SITUATION: SANTORIN — ACCÈS REMPLAÇANT (CHRONOLOGIE)]
 ----------------------------------------------------------------------
 * CHRONOLOGIE STRICTE : 
   1. Étape 1 : Vérification et édition de la convocation officielle du remplaçant (indispensable pour justifier ses droits).
   2. Étape 2 : Déclenchement de l'ouverture des accès ARENA par le rectorat ou le chef d'établissement.
   3. Étape 3 : Attribution des droits de correction sur les lots correspondants dans Santorin.
 
-[SANTORIN] AUCUN LOT A CORRIGER (DISTRIBUTION)
+### [SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]
 ----------------------------------------------------------------------
 * PROCÉDURE TECHNIQUE : Le chef d'établissement ne doit pas chercher un bouton de création manuelle immédiate. La réalité est qu'il faut obligatoirement :
   1. Lancer d'abord une DISTRIBUTION AUTOMATIQUE des lots.
   2. Si et seulement si la distribution automatique s'avère incomplète, exécuter ensuite une DISTRIBUTION MANUELLE complémentaire pour attribuer le reliquat des copies numérisées.
 - 📺 TUTORIEL COMPAGNON : Distribution_manuelle_lots_santorin.mp4
 
-[SANTORIN / CCF] INDISPONIBILITÉ DES INSTALLATIONS SPORTIVES (CCF3)
-----------------------------------------------------------------------
+### [SITUATION: [SANTORIN / CCF] INDISPONIBILITÉ DES INSTALLATIONS SPORTIVES (CCF3)]
 * CADRE PÉDAGOGIQUE ET JURIDIQUE : L'indisponibilité des installations sportives (ex : gymnase brûlé, travaux, intempéries majeures) constitue réglementairement un « CAS EXCEPTIONNEL DE FORCE MAJEURE ».
 * INTERDICTION : Il est strictement interdit d'utiliser la procédure d'inaptitude médicale (le statut IN ou DI est réservé aux certificats médicaux).
 * ACTION : L'établissement doit acter la force majeure, organiser une session de rattrapage ou une épreuve alternative sur des installations de repli, documenter la situation via une fiche d'incident signée par le Chef d'établissement et la transmettre immédiatement au Jury Académique.
 
-[SANTORIN] LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)
+### [SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]
 ----------------------------------------------------------------------
 * PROCÉDURE IMAG'IN COMPLÈTE : Si le lot est présent dans Cyclades mais absent de Santorin, l'enseignant doit être convoqué correctement. La procédure dans IMAG'IN impose au secrétariat d'examen de vérifier l'affectation de la mission de correction à l'identifiant de l'enseignant, de valider son rattachement au groupe de correction EPS, puis de synchroniser le flux pour pousser le lot vers Santorin.
 
-[SANTORIN] ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS
+### [SITUATION: SANTORIN — ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS]
 ----------------------------------------------------------------------
 * RÉGLEMENTATION CHANGEMENT EN COURS D'ANNÉE : Un élève ne peut pas bénéficier d'un contrôle adapté décidé à la carte ou au sifflet en cours d'année selon son humeur. Le protocole adapté doit être validé en amont (commission médicale, PAI, PPS, ou décision officielle du médecin scolaire).
 * INSTRUCTION TECHNIQUE : Une fois les candidats officiellement associés à ces protocoles adaptés, il est techniquement OBLIGATOIRE DE RELANCER UNE DISTRIBUTION AUTOMATIQUE DES LOTS dans Santorin pour que les copies des épreuves spécifiques soient réparties chez les correcteurs.
 
-[SANTORIN] ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES
+### [SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]
 ----------------------------------------------------------------------
 * ERREUR INTERFACE : L'option textuelle « Ajouter un élève » dans l'interface Santorin n'est PAS fonctionnelle pour l'utilisateur.
 * DIAGNOSTIC ET RÉSOLUTION : Si l'élève est absent, c'est qu'il n'est actuellement affecté à aucun groupe de compétences (« élève sans groupe »). La seule procédure valide est de retourner dans Cyclades (ou via le secrétariat), d'affecter manuellement le candidat à son groupe/protocole EPS. Il remontera automatiquement dans Santorin sans action manuelle.
 
-[SANTORIN] ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20
+### [SITUATION: SANTORIN — ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20]
 ----------------------------------------------------------------------
 * SPORTIF DE HAUT NIVEAU (SHN) : la note de 20/20 est attribuée automatiquement sur sa spécialité sportive, même si cette activité n'est pas dans les protocoles de l'établissement. Condition : son statut doit être officiellement reconnu (listes ministérielles). Les autres épreuves relèvent de champs d'apprentissage différents.
 
-[IPACKEPS] EXPORT ET RÉCUPÉRATION DANS CYCLADES
+### [SITUATION: IPACKEPS — EXPORT ET RÉCUPÉRATION DANS CYCLADES]
 ----------------------------------------------------------------------
 * MENUS EXACTS D'EXPORT (IPACK) : Accéder au menu [Tableau de bord] > [Les Projets et Dossiers] > [Dossier Certificatif] > Onglet [Cyclades/Export]. C'est ici que l'on génère le fichier standardisé des groupes-élèves.
 * MENUS EXACTS D'IMPORT (CYCLADES) : Se connecter à Arena > [Examens et concours] > [Cyclades] > Menu [Gestion des épreuves EPS] > [Importation des structures/groupes] > Charger le fichier extrait d'iPackEPS.
 
-[IPACKEPS] PROGRAMMATION DEMI-FOND BAC GT
+### [SITUATION: IPACKEPS — PROGRAMMATION DEMI-FOND BAC GT]
 ----------------------------------------------------------------------
 * DISTINCTION IMPÉRATIVE : Il ne faut pas confondre l'épreuve nationale « Courses » (libellé officiel d'examen) et l'activité locale d'établissement « Course de demi-fond ». En Bac GT, il est strictement interdit de créer des protocoles hybrides ou inappropriés à deux épreuves. La classe doit être configurée selon la nomenclature officielle de l'APSA rattachée au CA1.
 
-[IPACKEPS] ADAPTATION ATHLÉTISME ET SAISIE DES NOTES
+### [SITUATION: IPACKEPS — ADAPTATION ATHLÉTISME]
 ----------------------------------------------------------------------
 * VERROUILLAGE DES CANDIDATS : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole précis (Course, ou Saut, ou Lancer) en début d'année. Ils ne doivent PLUS EN BOUGER en cours d'année ou au milieu du cycle selon les séances.
 * LOGIQUE INFORMATIQUE : L'application iPackEPS n'est pas un carnet de note de séance ; elle est structurée pour collecter les performances certificatives finales associées au groupe fixe défini dans le protocole validé.
 
-[IPACKEPS] COMMENT DÉPOSER UN CERTIFICAT MÉDICAL
+### [SITUATION: IPACKEPS — COMMENT DÉPOSER UN CERTIFICAT MÉDICAL]
 ----------------------------------------------------------------------
 * CHEMIN CHIRURGICAL DES MENUS :
   1. Se connecter à l'interface iPackEPS Professeur.
@@ -1560,7 +1556,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
   6. Renseigner les dates, les APSA visées par la dispense, téléverser le scan du certificat médical.
   7. Pour la réactivation des APSA lors de la commission d'arbitrage, il faut modifier la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.
 
-[IPACKEPS] COMMENT SUPPRIMER UN PROTOCOLE
+### [SITUATION: IPACKEPS — COMMENT SUPPRIMER UN PROTOCOLE]
 ----------------------------------------------------------------------
 * FAUSSE PROCÉDURE : L'option directe « Supprimer le protocole » n'existe pas dans les menus terminaux si des données y sont rattachées.
 * LA VRAIE PROCÉDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
@@ -1568,7 +1564,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
   2. Aller dans le module [Mes Élèves], vider le groupe en décochant tous les élèves affectés.
   3. Une fois le groupe totalement vide et sans aucune séquence, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
 
-[IPACKEPS] RÉPARTIR LES ÉLÈVES DANS LES GROUPES
+### [SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]
 ----------------------------------------------------------------------
 * ERREUR DE BOUTON : Le bouton ou l'option « Placement des Élèves dans les Groupes » n'existe pas sous cette forme dans les menus principaux.
 * LA VRAIE MANIPULATION : Tout s'exécute exclusivement via le module [Mes Élèves].
@@ -2118,8 +2114,7 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 ======================================================================
 
 ----------------------------------------------------------------------
-1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE
-----------------------------------------------------------------------
+### [SITUATION: ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE]
 * Imports améliorés : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer / drag 'n drop, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko).
   📺 Tutoriel associé : Import_documents_glisser_deposer.mp4
 * Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente de validation académique, validé avec ajustements, non valide, validé).
@@ -2127,15 +2122,13 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
   📺 Tutoriel associé : Import_automatique_eleves.mp4
 
 ----------------------------------------------------------------------
-2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
-----------------------------------------------------------------------
+### [SITUATION: MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI]
 * Description enrichie du matériel : Possibilité d'ajouter des photos, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois).
   📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
 * Édition papier : La version papier de l'inventaire EPI intègre désormais la photo du matériel.
 
 ----------------------------------------------------------------------
-3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
-----------------------------------------------------------------------
+### [SITUATION: MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)]
 * Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS.
 * Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves.
   📺 Tutoriel associé : Actualisation_equipe_classes.mp4
@@ -2148,8 +2141,7 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
   📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
 
 ----------------------------------------------------------------------
-4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
-----------------------------------------------------------------------
+### [SITUATION: MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN]
 * Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation.
   📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4
   📺 Tutoriel associé : Signature_chef_etablissement_SSS.mp4
@@ -2157,8 +2149,7 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 * Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements.
 
 ----------------------------------------------------------------------
-5. DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE
-----------------------------------------------------------------------
+### [SITUATION: DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE]
 * Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
 * Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution).
 * Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN.
@@ -2226,8 +2217,7 @@ iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) pe
 ======================================================================
 
 ----------------------------------------------------------------------
-1. ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE (UI)
-----------------------------------------------------------------------
+### [SITUATION: ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE (UI)]
 * Imports améliorés (Drag 'n drop) : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko).
   📺 Tutoriel associé : Import_documents_glisser_deposer.mp4
 * Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente, validé avec ajustements, non valide, validé).
@@ -2237,15 +2227,13 @@ iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) pe
   📺 Tutoriel associé : Actualisation_equipe_classes.mp4
 
 ----------------------------------------------------------------------
-2. MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI
-----------------------------------------------------------------------
+### [SITUATION: MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI]
 * Description enrichie du matériel : Possibilité d'ajouter des photos du matériel, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois).
   📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
 * Édition papier : La version papier de l'inventaire EPI intègre désormais automatiquement la photo du matériel.
 
 ----------------------------------------------------------------------
-3. MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)
-----------------------------------------------------------------------
+### [SITUATION: MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)]
 * Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS.
 * Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence.
   📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
@@ -2256,24 +2244,21 @@ iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) pe
   📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
 
 ----------------------------------------------------------------------
-4. MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN
-----------------------------------------------------------------------
+### [SITUATION: MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN]
 * Évolution des SSS (Demande, Reconduction, Fermeture) : Apparition d'un module spécifique permettant d'exprimer chaque année l'évolution souhaitée (reconduction ou fermeture). Soumis à la signature obligatoire du chef d'établissement et validé par l'IPR. Messagerie intégrée permettant à l'IPR/commission d'envoyer des notifications de validation ou d'invalidation.
   📺 Tutoriels associés : Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4
 * Documents modèles SSS séparés : Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS.
 * Amélioration du dossier APPN : Suppression des colonnes superflues, mémorisation des filtres d'affichage et possibilité d'envoyer un mail récapitulatif de validation du projet APPN aux établissements.
 
 ----------------------------------------------------------------------
-5. DONNÉES ACADÉMIQUES, RAPPORTS & CONFIGURATION TECHNIQUE
-----------------------------------------------------------------------
+### [SITUATION: DONNÉES ACADÉMIQUES, RAPPORTS & CONFIGURATION TECHNIQUE]
 * État des serveurs : Rapport technique affichant l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque libre, les versions PHP et de base de données.
 * Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
 * Paramétrage des Dossiers SSS & Communications : Activation ou désactivation granulaire des sous-dossiers SSS et gestion des autorisations d'utilisation de la messagerie par les commissions.
 * Annuaire et Publipostage : Transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour faciliter le publipostage via CommissionBac et CommissionPro.
 
 ----------------------------------------------------------------------
-6. CAS COMPLÉMENTAIRES & RÈGLES TERRAIN STRICTES
-----------------------------------------------------------------------
+### [SITUATION: CAS COMPLÉMENTAIRES & RÈGLES TERRAIN STRICTES]
 * Gestion des PAI, PAP ou PPS : Un PAI, un PAP ou un PPS formalisant une pathologie chronique (asthme, allergies, troubles DYS) n'est pas une dispense d'EPS. L'élève participe avec des aménagements pédagogiques et matériels. Ne jamais saisir de statut DI ou IN dans iPackEPS sur la seule base d'un PAI/PAP.
 * Enseignants TZR ou partagés (Multi-établissements) : Utiliser le sélecteur d'établissement en haut de page sur l'accueil d'iPackEPS (après connexion ARENA) pour basculer vers l'entité souhaitée. Si l'établissement n'apparaît pas, l'affectation RAMSESE n'est pas redescendue ; contacter le secrétariat.
 * Élève exclu (Sanction disciplinaire) pendant un CCF : Une exclusion temporaire n'est ni une inaptitude médicale ni un cas de force majeure. L'établissement doit organiser une session de rattrapage (épreuve différée) dès son retour. Si absence injustifiée au rattrapage, attribution de la note zéro (0/20 ou ABS).

@@ -12,16 +12,14 @@
 RÉFÉRENTIEL JURIDIQUE, ADMINISTRATIF ET TECHNIQUE NATIONAL - EPS (2026)
 ======================================================================
 
-1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE
-----------------------------------------------------------------------
+### [SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]
 * RESPONSABILITÉ CIVILE & SUBSTITUTION DE L'ÉTAT (ART. L. 911-4 DU CODE DE L'ÉDUCATION) : La responsabilité civile de l'enseignant public est irrévocablement couverte par l'État pour tout dommage subi ou causé par un élève sous sa surveillance. L'action en responsabilité doit être menée exclusivement devant les tribunaux civils judiciaires contre le Recteur d'académie, représentant de l'État. L'exercice d'une action récursoire de l'État contre l'agent est conditionné à la preuve d'une "Faute Personnelle" détachable du service (ex: état d'ébriété, violences volontaires, abandon de poste caractérisé). L'erreur d'appréciation technique ou didactique constitue une faute de service non détachable, juridiquement couverte.
 * RESPONSABILITÉ PÉNALE INDIVIDUELLE (ART. 121-3 DU CODE PÉNAL / LOI N° 2000-647) : La responsabilité pénale is personnelle et ne fait l'objet d'aucune substitution par l'État. En cas de décès ou de blessures graves d'un élève, l'enseignant est poursuivi au titre des délits non intentionnels (homicide ou blessures involontaires). La responsabilité pénale de l'acteur indirect (l'enseignant qui n'a pas causé directement le dommage mais a contribué à créer la situation) exige la preuve d'une FAUTE CARACTÉRISÉE : manquement d'une particulière gravité à une obligation de sécurité que l'agent ne pouvait ignorer, exposant autrui à un risque majeur.
 * OBLIGATION DE MOYENS RENFORCÉE EN EPS : L'enseignant n'est pas soumis à une obligation de résultat (le risque zéro n'existe pas), mais à une obligation de moyens qualifiée de "renforcée" en raison de la dangerosité intrinsèque de la matière. Elle repose sur quatre piliers administratifs vérifiables : 1. L'anticipation des risques environnementaux et matériels ; 2. Le contrôle technique et la conformité des équipements (EPI) ; 3. La transmission de consignes de sécurité explicites, claires et comprises ; 4. Le maintien d'une surveillance continue, active, prévoyante et visuelle du groupe.
 * PROTECTION FONCTIONNELLE DES AGENTS (ART. L. 134-1 À L. 134-4 DU CODE DE LA FONCTION PUBLIQUE) : L'autorité administrative (le Rectorat) est tenue d'accorder la protection fonctionnelle à l'enseignant victime de violences, menaces, injures, diffamations, outrages ou lynchages numériques (cyber-harcèlement par des tiers, élèves ou parents sur les réseaux sociaux) dans l'exercice de ses fonctions. La procédure exige une demande écrite motivée adressée au Recteur sous couvert du Chef d'établissement, accompagnée d'un rapport circonstancié et de preuves matérielles datées (captures d'écran). La protection de droit englobe la prise en charge des frais de procédure (avocat) et l'assistance juridique.
 * ATTEINTES À L'AUTORITÉ ET PRESSIONS (ART. L. 111-3 DU CODE DE L'ÉDUCATION) : La liberté pédagogique de l'enseignant s'exerce dans le cadre des programmes officiels et des décisions du conseil d'enseignement. Les pressions, menaces ou actes d'intimidation exercés par des parents ou des tiers pour imposer la modification d'une note, d'un barème d'examen ou l'octroi d'une dispense abusive constituent un délit d'outrage à une personne chargée d'une mission de service public, passible de sanctions pénales directes et d'un signalement immédiat sur le registre "Faits Établissement".
 
-2E SECTION : JURISPRUDENCES DE RÉFÉRENCE ET ARBITRAGES RECONNUS
-----------------------------------------------------------------------
+### [SITUATION: 2E SECTION : JURISPRUDENCES DE RÉFÉRENCE ET ARBITRAGES RECONNUS]
 * COUR D'APPEL DE LYON, 11 MAI 2004 (OBLIGATION DE SURVEILLANCE VISUELLE) : Condamnation pénale d'un enseignant d'EPS pour blessures involontaires. L'agent s'était absenté de la halle des sports pendant moins de 10 minutes pour accomplir une tâche administrative dans son bureau. Durant cette absence, un élève a réalisé un mouvement acrobatique non autorisé et a subi de graves lésions cervicales. La cour a statué que l'absence physique de l'enseignant, sans motif impérieux lié à la sécurité immédiate des élèves, caractérise une rupture fautive de la surveillance continue et active exigée par la discipline.
 * COUR D'APPEL DE VERSAILLES, 14 OCTOBRE 1999 (CONFORMITÉ DE LA DISPOSITION MATÉRIELLE) : Condamnation pénale d'un enseignant d'EPS suite à la chute d'une élève lors d'une sortie dynamique aux barres asymétriques. Le tribunal a retenu le manquement à l'obligation de moyens renforcée : l'organisation spatiale du cours n'intégrait pas un dispositif d'amortissement suffisant (épaisseur de tapis non conforme au risque de chute de hauteur) et les élèves désignés pour la parade n'avaient pas reçu de formation technique préalable spécifique.
 * TRIBUNAL CORRECTIONNEL, 2001 (APPRÉCIATION DES ALERTES CLIMATIQUES) : Condamnation pénale d'un enseignant d'EPS pour imprudence manifeste à la suite de la fracture d'un élève lors d'une sortie VTT. L'enseignant avait maintenu l'activité en milieu ouvert malgré un bulletin d'alerte météo officiel de vigilance orange (risques d'orages violents et de coulées de boue). La jurisprudence pose que si l'enseignant dispose de la souveraineté de l'évaluation sur le terrain, le maintien délibéré d'une pratique à environnement variable en violation des alertes des services de l'État caractérise une exposition fautive à un risque prévisible.
@@ -29,15 +27,13 @@ RÉFÉRENTIEL JURIDIQUE, ADMINISTRATIF ET TECHNIQUE NATIONAL - EPS (2026)
 * COUR D'APPEL DE ROUEN, 2011 (SÉCURITÉ ET HOMOGÉNÉITÉ DES GROUPES DE CONTACT) : Condamnation pour imprudence d'un enseignant ayant organisé une opposition directe en rugby entre deux élèves aux gabarits morphologiques disproportionnés (élève frêle face à un élève au développement physique très avancé). L'élève le plus léger ayant subi une lésion articulaire majeure, la cour a rappelé que dans toutes les APSA impliquant des impacts interindividuels (rugby, judo, lutte), la constitution de groupes morphologiquement homogènes is une obligation de sécurité non négociable.
 * TRIBUNAL DE BASTIA, 2014 (DÉFINITION ET APPLICATION DE LA RELAXE PÉNALE) : Relaxe pénale d'un enseignant d'EPS poursuivi par une famille après la blessure d'une élève en acrosport. L'élève avait exécuté une figure acrobatique complexe de sa propre initiative, hors projet validé, et en violation directe des consignes d'interdiction formelle dictées par l'enseignant en début de séance (qui était alors occupé à parer un autre groupe). Le tribunal a réaffirmé que l'obligation de surveillance is une obligation de moyens : l'enseignant ne peut être tenu pour responsable d'un acte instantané, imprévisible et commis en désobéissance délibérée aux règles de sécurité établies.
 
-3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE
-----------------------------------------------------------------------
+### [SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]
 * CADRE LÉGAL DE LA LAÏCITÉ (LOI DU 15 MARS 2004 / ART. L. 141-5-1 DU CODE DE L'ÉDUCATION) : Le port de signes ou tenues par lesquels les élèves manifestent ostensiblement une appartenance religieuse est strictement interdit dans les établissements scolaires publics. Cette disposition s'applique sans exception lors de toutes les activités placées sous la responsabilité de l'établissement, y compris les cours d'EPS, les compétitions de l'Association Sportive (AS) et les sorties/voyages scolaires.
 * APPLICATION OPERATIONNELLE EN EPS : Aucune dérogation vestimentaire (type couvre-chef non homologué, jupes amples non adaptées) n'est autorisée pour des motifs religieux. La tenue d'EPS doit répondre exclusivement à deux exigences impératives : 1. La neutralité religieuse au sein du service public ; 2. Les normes d'hygiène et de sécurité motrice (absence de risques de strangulation, de coincement ou de limitation de la vision périphérique).
 * OBLIGATION STATUTAIRE ET CHARTE DE LA LAÏCITÉ (CIRCULAIRE DU 6 SEPTEMBRE 2013) : Les personnels de l'Éducation nationale sont soumis à un devoir de stricte neutralité philosophique, politique et religieuse. Aucun élève ne peut invoquer des convictions religieuses ou culturelles pour refuser de participer à un cours d'EPS obligatoire, contester un enseignant, récuser un camarade de mixité, ou exiger l'adaptation des programmes ou des barèmes d'évaluation nationaux.
 * CADRE DE L'ÉCOLE INCLUSIVE (LOI N° 2013-595 / ART. L. 111-1) : Le service public de l'éducation garantit la scolarisation inclusive de tous les enfants, sans aucune distinction. L'enseignement de l'EPS doit être accessible à tous les élèves à besoins éducatifs particuliers (EBEP) à travers la mise en œuvre obligatoire des aménagements inscrits dans les plans de compensation validés (PAP, PAI, PPRE, PPS).
 
-4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN
-----------------------------------------------------------------------
+### [SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]
 * FRICTION 1 : CONTESTATIONS DE L'INAPTITUDE PARTIELLE EN CONDITIONS CLIMATIQUES DÉFAVORABLES : Cas où des familles menacent de déposer plainte pour "mise en danger d'autrui" lorsqu'un enseignant exige d'un élève inapte partiel sa présence sur le terrain (stade, installations extérieures) sous la pluie ou par basse température.
   - CADRE DE PROTECTION DE L'AGENT : L'enseignant d'EPS est le seul juge de la déclinaison didactique de sa leçon. Si l'élève est inapte partiel, la décision de le maintenir en extérieur pour des tâches d'observation ou d'arbitrage relève du pouvoir de l'enseignant, sous réserve du respect strict des contre-indications du certificat médical (ex: interdiction d'effort, maintien au sec si stipulé). L'évaluation des conditions climatiques et de la faisabilité relève de la responsabilité professionnelle exclusive de l'enseignant, validée par sa hiérarchie.
 * FRICTION 2 : RECENSER ET DÉSAMORCER LES GRIEFS D'HARCÈLEMENT OU D'HUMILIATION : Recours ou contestations de parents visant les exigences physiques d'un cycle, l'évaluation de l'engagement ("refus d'effort", "manque d'investissement") ou les interventions de régulation de l'enseignant face à une baisse d'activité.
@@ -45,14 +41,12 @@ RÉFÉRENTIEL JURIDIQUE, ADMINISTRATIF ET TECHNIQUE NATIONAL - EPS (2026)
 * FRICTION 3 : GESTION DES CONTACTS PHYSIQUES INDISPENSABLES À LA SÉCURITÉ MATÉRIELLE : Mises en cause potentielles de l'enseignant lors des interventions manuelles directes de parade ou d'aide (Gymnastique, Acrosport, Escalade) pouvant donner lieu à des surinterprétations abusives de la part de l'élève ou de la famille.
   - CADRE DE PROTECTION DE L'AGENT : L'enseignant doit privilégier, dès que la situation didactique le permet, l'utilisation de parades passives (matelas de sécurité, ceintures de guidage) ou de co-parades structurées et régulées par les élèves (pareurs préalablement formés et évalués). Si une parade manuelle directe par l'enseignant est techniquement obligatoire pour prévenir un risque de chute lourde, l'agent sanctuarise son geste en formalisant explicitement et collectivement la consigne en amont de l'exercice ("je vais intervenir manuellement au niveau de la taille/de l'épaule pour sécuriser la bascule").
 
-5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS
-----------------------------------------------------------------------
+### [SITUATION: 5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS]
 * DISPOSITIONS TEXTUELLES MAJEURES (DÉCRET N° 2016-1052 / BO N°32 DU 8 SEPTEMBRE 2016 / ART. R. 312-10 À R. 312-15 DU CODE DE L'ÉDUCATION) : La notion administrative de "dispense de cours d'EPS" est officiellement abrogée. Le médecin de santé scolaire ou le médecin traitant constate exclusivement des inaptitudes physiques (totales ou partielles, temporaires ou annuelles). Le certificat médical type national obligatoire doit formellement spécifier des contre-indications fonctionnelles (types d'efforts, contraintes articulaires, contraintes climatiques) et la durée de validité.
 * COMPÉTENCES ET SOUVERAINETÉ DE L'ENSEIGNANT D'EPS : L'élaboration des modalités d'adaptation de l'enseignement est de la compétence exclusive de l'enseignant d'EPS en lien avec l'équipe pédagogique. L'élève inapte partiel est statutairement soumis à l'obligation de présence en cours. L'enseignant l'intègre au fonctionnement de la séance en lui attribuant des fonctions d'observation, de codification, d'arbitrage ou de gestion de scores et l'évalue sur ces compétences méthodologiques et sociales.
 * CRITÈRE D'EXEMPTION PHYSIQUE DES SITES DE COURS : L'élève ne peut être légalement autorisé à ne pas se présenter sur le lieu d'enseignement (stade, gymnase, piscine) que si et seulement si le certificat médical délivré mentionne explicitement une INAPTITUDE TOTALE associée à une contre-indication médicale absolue de déplacement ou de maintien sur les installations sportives de l'établissement. La validation finale de l'autorisation de sortie ou d'absence temporaire relève du Chef d'établissement après avis de l'enseignant et de la vie scolaire.
 
-6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE
-----------------------------------------------------------------------
+### [SITUATION: 6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE]
 * ENSEIGNEMENT DE LA NATATION SCOLAIRE (NOTE DE SERVICE DU 28 FÉVRIER 2022 / BO N°9) : L'encadrement pédagogique et la direction de la séance sont assurés exclusivement par l'enseignant d'EPS responsable de la classe. La surveillance du bassin est une mission d'ordre public obligatoire, constante et exercée de façon exclusive par un personnel qualifié et titulaire d'un titre de maître-nageur sauveteur (MNS, BEESAN, BPJEPS AAN) en position d'indépendance pédagogique. L'organisation matérielle doit garantir un seuil minimal de 30 à 40 MINUTES DE PRATIQUE EFFECTIVE DANS L'EAU pour les élèves à chaque séance. Application stricte des dispositions du POSS (Plan d'Organisation de la Surveillance et des Secours) de l'infrastructure d'accueil.
 * ATTESTATION SAVOIR-NAGER EN SÉCURITÉ - ASNS (ARRÊTÉ DU 28 FÉVRIER 2022 / BO N°9) : Certification de sécurité nationale obligatoire. Elle est délivrée officiellement par le Chef d'établissement, co-signée par le professeur d'EPS, et insérée de plein droit dans le Livret Scolaire Unique (LSU). Le parcours doit être réalisé en continuité, sans aucune reprise d'appui au fond ou au bord du bassin : départ par un saut ou plongeon en grande profondeur, suivi de 15m en position ventrale avec franchissement d'un obstacle immergé, réalisation d'un surplace horizontal dorsal pendant une durée stricte de 15 secondes au signal sonore, demi-tour complet, parcours de 15m en position dorsale et stabilisation terminale sécurisée par ancrage manuel.
 ----------------------------------------------------------------------
@@ -65,16 +59,14 @@ Objet : Modalités d'organisation du test d'aptitude au sauvetage aquatique.
 Abrogation : Ce texte ABROGE la circulaire du 1er juillet 2019 (MENH1904914C).
 
 ----------------------------------------------------------------------
-1. PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT
-----------------------------------------------------------------------
+### [SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]
 * OBLIGATION DE QUALIFICATION : Les personnels enseignant l'EPS (public et privé sous contrat) doivent obligatoirement justifier d'une qualification en sauvetage aquatique et secourisme avant leur recrutement.
 * OBTENTION PAR DÉFAUT (STAPS) : Depuis la session 2021, la modalité par défaut est l'inscription de cette qualification dans le "Supplément au diplôme de licence STAPS".
 * COMPÉTENCE DU RECTORAT : Pour les candidats ne disposant pas de cette validation STAPS ou des diplômes équivalents (arrêté du 12 février 2019), le rectorat organise obligatoirement DEUX sessions annuelles.
 * ÉVALUATION CRITIQUE : La qualification s'apprécie impérativement à la date de publication des résultats d'admission du concours ou de l'examen professionnel présenté.
 
 ----------------------------------------------------------------------
-2. LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE
-----------------------------------------------------------------------
+### [SITUATION: LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE]
 * RYTHME DES SESSIONS : Deux sessions par année civile au premier semestre : une en FÉVRIER, une en JUIN.
 * CONVENTIONNEMENT STAPS : Le rectorat peut déléguer l'organisation pratique aux UFR STAPS via une convention locale.
 * AUCUN RATTRAPAGE : Il n'existe aucune session de rattrapage pour les candidats absents ou ayant échoué au test.
@@ -82,16 +74,14 @@ Abrogation : Ce texte ABROGE la circulaire du 1er juillet 2019 (MENH1904914C).
 * COMPOSITION DU JURY : Présidé par l'IA-IPR d'EPS de l'académie (ou un enseignant du supérieur nommé par le recteur). Le jury comprend au moins deux membres (professeurs agrégés ou certifiés EPS titulaires).
 
 ----------------------------------------------------------------------
-3. OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS
-----------------------------------------------------------------------
+### [SITUATION: OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS]
 Les sessions rectorales du TASA sont obligatoirement ouvertes par les services académiques :
   1. Aux fonctionnaires de catégorie A candidats à un détachement dans le corps des professeurs d'EPS ou agrégés d'EPS.
   2. Aux candidats au recrutement contractuel (contractuels d'établissement ou maîtres délégués du privé) ne disposant pas d'un titre conforme.
   Note : Ces candidats sont soumis aux mêmes obligations de certificat médical que les candidats aux concours.
 
 ----------------------------------------------------------------------
-4. PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)
-----------------------------------------------------------------------
+### [SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]
 * PARCOURS : 100 mètres à réaliser en continuité, sans reprise d'appui, dans un temps inférieur à 3 minutes et 45 secondes.
 * TENUE STRICTE : Maillot de bain uniquement. Combinaison, lunettes de piscine, masque, pince-nez ou tout autre matériel sont STRICTEMENT INTERDITS.
 * CHRONOLOGIE DES 4 LONGUEURS (4 x 25 MÈTRES) :
@@ -101,8 +91,7 @@ Les sessions rectorales du TASA sont obligatoirement ouvertes par les services a
   - Longueur 4 (75 à 100m) : Immersion pour rechercher un mannequin réglementaire adulte reposant à 2,50 mètres du bord sur le T (profondeur entre 1,80m et 3m). Remontée et remorquage sur le dos sur la totalité des 25 mètres restants (dos du mannequin contre le buste du sauveteur).
 
 ----------------------------------------------------------------------
-5. MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)
-----------------------------------------------------------------------
+### [SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]
 Le test est invalidé et arrêté si le candidat commet l'une des fautes suivantes :
   - Absence de départ plongé.
   - Reprise d'appui au sol ou sur la ligne d'eau durant la partie nagée.
@@ -116,22 +105,19 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
 ----------------------------------------------------------------------
 * TEST DU PASS-NAUTIQUE (CODE DU SPORT ART. A. 322-3-1) : Condition administrative préalable non négociable pour l'accès aux activités nautiques réglementées en milieu ouvert (Voile, Canoë-Kayak, Planche à voile). Ce test peut être préparé et validé dès le cycle 2. Le parcours s'exécute en continu sans aucun appui matériel ou humain : saut dans l'eau, flottaison en position dorsale pendant 5 secondes, maintien en sustentation verticale pendant une durée de 5 secondes, déplacement ventral sur une distance de 20 mètres, franchissement d'une ligne d'eau ou passage sous un objet flottant standardisé.
 
-7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)
-----------------------------------------------------------------------
+### [SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]
 * ORGANISATION HORAIRE ET RÉFORME DU COLLÈGE (CIRCULAIRE N° 2015-106 DU 30-06-2015) : Cadre fixant l'obligation des volumes horaires d'enseignement (4h en 6e, 3h en 5e, 4e, 3e). Définit les compétences de répartition et de consultation des instances (Conseil d'enseignement pour les choix des APSA, Conseil pédagogique pour la cohésence des cycles, Conseil d'Administration pour le vote du volet EPS du projet d'établissement). L'amplitude quotidienne d'enseignement des élèves ne peut dépasser 6h en classe de 6e et 7h au cycle 4. La pause méridienne doit être de 90 minutes minimum.
 * ACCOMPAGNEMENT PERSONNALISÉ (AP) & EPI : L'AP est obligatoire pour tous les niveaux du collège. En classe de 6e, le volume est fixé à 3h hebdomadaires intégrées. Les Enseignements Pratiques Interdisciplinaires (EPI) sont obligatoires au cycle 4 (classes de 5e, 4e, 3e). Ils reposent sur une démarche de projet débouchant sur une réalisation concrète. Chaque élève doit suivre au moins deux EPI par année scolaire, croisant obligatoirement au moins 6 des 8 thématiques nationales sur l'ensemble du cycle.
 * CONFORMITÉ DU LIVRET SCOLAIRE UNIQUE (LSU - ARRÊTÉ DU 31-12-2015) : Document officiel de transmission regroupant les bilans périodiques, l'évaluation des compétences du socle en fin de cycle 4 et les attestations réglementaires (ASNS, PSC1). Saisie administrative obligatoire du nombre de demi-journées d'absences de l'élève, en distinguant obligatoirement les absences JUSTIFIÉES et NON JUSTIFIÉES. Mention explicite des dispositifs d'appui pédagogique activés et validés par le Chef d'établissement (PAP, PAI, PPRE, PPS).
 * DISPOSITIF 2HSC (NOTE DE SERVICE DU 22-10-2024) : Déploiement du programme "2 heures de sport supplémentaires par semaine pour les collégiens" dans les établissements volontaires. Ce dispositif optionnel, calé hors du temps scolaire obligatoire, vise en priorité les élèves sédentaires non licenciés à l'Association Sportive (AS) et repose sur un partenariat avec les structures sportives locales.
 
-8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)
-----------------------------------------------------------------------
+### [SITUATION: 8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)]
 * SOCLE COMMUN SCCC (DÉCRET DU 31-03-2015) : Composé de 5 domaines de formation. L'EPS assure la contribution majeure du Domaine 1 ("les langages pour penser et communiquer - langages des arts et du corps"), évaluant la capacité de l'élève à s'exprimer par sa motricité et à assumer des rôles sociaux (arbitre, juge, observateur, spectateur critique). L'évaluation s'effectue en fin de cycle 4 sur une échelle à 4 degrés de maîtrise convertis en points : Maîtrise insuffisante (10 points), Maîtrise fragile (25 points), Maîtrise satisfaisante (40 points), Très bonne maîtrise (50 points), pour un total maximal de 400 points au titre du contrôle continu du DNB.
 * REPÈRES FIN DE CYCLE 3 (CLASSE DE 6E) & CYCLE 4 (CLASSE DE 3E) : En fin de cycle 3, l'élève doit maîtriser des techniques motrices simples, différencier les statuts de pratiquant et de juge, et accepter la rétroaction de ses pairs. En fin de cycle 4 (classe de 3e), le niveau d'exigence requiert la construction autonome d'un projet tactique ou chorégraphique collectif, la capacité à défendre un choix stratégique en situation d'opposition, l'adoption d'un arbitrage éthique et impartial, et l'aptitude à expliciter les liens entre sa pratique physique et les notions de santé et de culture sportive.
 * MODALITÉS D'ATTRIBUTION DU DNB (NOTE DE SERVICE DU 02-09-2025 / SESSION 2026) : Le diplôme est octroyé à la moyenne générale pondérée de 10 sur 20. La note finale combine le contrôle continu pour 40 % (calculé sur la base de la moyenne des moyennes annuelles des disciplines en classe de 3e, transmise par l'établissement avec une règle d'ARRONDI AU CENTIÈME DE POINT SUPÉRIEUR dans l'application Cyclades) et les épreuves terminales nationales pour 60 %. Les sujets d'examen sont basés sur le référentiel de cycle 4 pour la session 2026 (puis indexés sur le programme strict de 3e à partir de la session 2027).
 * PROCÉDURES EN CAS DE SUSPICION DE FRAUDE ET GESTION DES ABSENCES AU DNB : En cas de constatation ou suspicion de fraude lors d'une épreuve du DNB, un procès-verbal de suspicion de fraude est immédiatement dressé par les surveillants et le Chef d'établissement. RÈGLE DE SÉCURITÉ JURIDIQUE CADRÉE : Le candidat suspecté n'est en aucun cas expulsé de la salle d'examen ; il est formellement AUTORISÉ À CONTINUER l'épreuve et à terminer la session, afin de préserver ses droits administratifs dans l'attente des conclusions de la commission de discipline académique. Une absence injustifiée au contrôle continu ou à une épreuve terminale entraîne l'attribution automatique de la note ZÉRO (0/20).
 
-9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN
-----------------------------------------------------------------------
+### [SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]
 * CERTIFICATION EN CCF LYCÉE GT (CIRCULAIRE N° 2019-129 / BO N°36) : Évaluation sommative sur 20 points s'appuyant sur trois Attendus de Fin de Lycée (AFL) nationaux obligatoirement croisés : AFL1 (Dimension motrice, technique et tactique mesurée le jour de l'épreuve terminale) évalué sur 12 POINTS ; AFL2 (Dimension méthodologique, conception et régulation de l'entraînement, mesurée au fil du cycle via un carnet de suivi obligatoire) évalué sur 4 POINTS ; AFL3 (Dimension sociale, assomption des rôles de juge, d'arbitre ou d'observateur, mesurée en continu) évalué sur 4 POINTS.
 * TERMINOLOGIE DES DUELS ET SPORTS DE RAQUETTES : Le protocole national impose l'évaluation exclusive des compétences individuelles. Le barème chiffré intègre obligatoirement deux composantes étanches : 1. Le gain réel des confrontations directes (calculé au ratio victoires/défaites sur un maximum de 4 points) ; 2. L'efficience technico-tactique (choix des trajectoires, intentions de rupture dès le service, maîtrise des effets sur un maximum de 8 points). L'organisation de l'enseignement en mode massé ou sous forme de stage bloqué est autorisée sous réserve d'atteindre un seuil minimal de 20 HEURES DE PRATIQUE EFFECTIVE.
 * ENSEIGNEMENT DE SPÉCIALITÉ EPPCS (BO N°25 DU 24-06-2021) : Dotation horaire de 4h en classe de Première (144h annuelles) et de 6h en classe de Terminale (216h annuelles). La programmation annuelle doit comporter au moins 3 APSA relevant de 3 CA différents (5 CA minimum sur l'ensemble du cycle terminal, avec des séquences d'apprentissage d'un seuil minimal de 18h). La tenue d'un carnet de suivi individuel est obligatoire et sert de support réglementaire pour la soutenance du Grand Oral. Deux projets collectifs à visée professionnelle sont obligatoires : la conception et la réalisation d'un ÉVÉNEMENT SPORTIF en classe de Première, et la conduite d'une INTERVENTION PÉDAGOGIQUE (animation de séance) en classe de Terminale.
@@ -139,8 +125,7 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
 * SPORTIFS DE HAUT NIVEAU (SHN) - LYCÉE GT (CIRCULAIRE DU 17-11-2023) : Concerne exclusivement les athlètes inscrits sur les listes officielles arrêtées par le ministère des Sports, les élèves intégrés dans une structure du Projet de Performance Fédérale (PPF) ou les centres de formation des clubs professionnels. Sous le régime scolaire du CCF (évalué sur 3 épreuves de 3 CA différents), l'épreuve correspondant à la spécialité sportive de l'athlète donne lieu à l'attribution AUTOMATIQUE DE LA NOTE DE 20/20. Sous le régime de l'examen ponctuel terminal (évalué sur 2 épreuves de 2 CA différents), l'épreuve de spécialité validée est affectée d'office de la note AUTOMATIQUE DE 20/20.
 * REGLEMENT DE CONSERVATION DES NOTES AU BACCALAURÉAT (NOTE DE SERVICE DU 14-11-2023) : Pour le baccalauréat général et technologique, les candidats présentant un handicap ou un trouble de santé invalidant au sens de l'article L. 114 du CASF conservent le droit d'exiger la conservation de toutes leurs notes d'EPS (inférieures, égales ou supérieures à 10/20) pour les 5 sessions consécutives suivant la première présentation à l'examen.
 
-10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)
-----------------------------------------------------------------------
+### [SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]
 * GRILLES HORAIRES ET SEUILS DE DIVISION (ARRÊTÉ DU 22-01-2024) : Organisation des parcours de référence en 3 ans. Les heures complémentaires de dotation-professeur sont calculées strictement en fonction du seuil physique des divisions : le volume varie selon que l'effectif est supérieur ou inférieur/égal à 18 élèves pour le secteur des services. En classes de Seconde et Première professionnelles, un quota minimal obligatoire de 15 % de cette dotation horaire complémentaire globalisée doit être exclusivement affecté aux enseignements fondamentaux de français et de mathématiques.
 * CONCORDANCE DES PROGRAMMES ET INTERDISCIPLINARITÉ : La déclinaison locale des AFLP doit assurer une concordance stricte entre les aptitudes physiques requises lors des périodes de formation en milieu professionnel (PFMP / Ateliers) et les compétences de santé développées en EPS. L'interdisciplinarité est obligatoire avec le programme de Prévention-Santé-Environnement (PSE), ciblant la prévention des risques professionnels, l'ergonomie posturale et la gestion du capital santé.
 
@@ -156,8 +141,7 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
   - MC AGSS (ARRÊTÉ DU 13-04-2018) : La Mention Complémentaire "Animation-Gestion de projets dans le Secteur Sportif" est un diplôme de Niveau 4, accessible en priorité aux bacheliers professionnels des filières tertiaires et de sécurité. Elle comporte deux dominantes d'activités : APT (Activités Physiques pour Tous) et AAN (Activités Aquatiques et de la Natation). Sa validation emporte l'équivalence réglementaire avec les UC1 et UC2 de l'ensemble des spécialités du BPJEPS et valide de plein droit les exigences préalables à la mise en situation pédagogique (EPMSP).
   - MC ESS (ARRÊTÉ DU 14-01-2022) : La Mention Complémentaire "Encadrement dans le Secteur Sportif" est structurée autour de 4 options de spécialisation (APT, AAN, Cours Collectifs, Haltérophilie/Musculation). Elle est accessible aux titulaires de la MC AGSS ou d'un baccalauréat professionnel ayant validé l'unité facultative du secteur sportif. L'accès est conditionné à la réussite de tests techniques d'entrée (TEP) délivrés par la DRAJES. La durée minimale des PFMP est fixée à 18 semaines en formation continue (seuil minimal réductible à 8 semaines en cas de décision individuelle de positionnement prise par le Recteur d'académie).
 
-11E SECTION : MATRICES CRITÉRIÉES NATIONALES (AFLP4, AFLP5, DUELS)
-----------------------------------------------------------------------
+### [SITUATION: 11E SECTION : MATRICES CRITÉRIÉES NATIONALES (AFLP4, AFLP5, DUELS)]
 * MATRICE D'ÉVALUATION DES RÔLES SOCIAUX ET DE L'ARBITRAGE - AFLP4 (VOIE PRO) : Barème réglementaire sur 5 points évaluant l'impartialité, l'autorité et le respect des règles du jeu.
   - Niveau 1 (0 à 0.5 point) : L'élève manifeste de fréquents mouvements d'humeur face aux décisions ou aux remarques de ses pairs. S'implique avec passivité, s'avère peu attentif au déroulement du jeu et commet des erreurs grossières et répétées dans la tenue du score ou l'application des règles de base.
   - Niveau 2 (1 à 2 points) : Comportement généralement correct mais présente des hésitations techniques visibles lors des annonces officielles ou des changements de service. Manque d'assurance pour imposer ses décisions lors des phases de jeu litigieuses.
@@ -172,8 +156,7 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
   - Le gain des rencontres (noté sur 4 points) : Attribution des points indexée sur le ratio mathématique réel de matchs gagnés et perdus au cours de la confrontation directe entre élèves, pondérée par l'écart de points enregistré lors des sets.
   - L'efficience technico-tactique (notée sur un curseur de 6.5 à 8 points) : Évalue la construction du projet tactique offensif ou défensif. Exige la maîtrise d'un panel varié de frappes (smashs amortis, blocs passifs/actifs, effets coupés, liftés ou brossés). Le service doit être utilisé comme une arme tactique d'engagement permettant de fixer l'adversaire ou de créer une situation de rupture immédiate (schémas tactiques dès le premier coup). Les déplacements et replacements doivent être dynamiques, assurant un retour systématique en position préférentielle au centre de gravité de l'espace de jeu.
 
-12E SECTION : ASSOCIATIVE, AS, SECTIONS SPORTIVES ET DROIT DOMANIAL LOCAL
-----------------------------------------------------------------------
+### [SITUATION: 12E SECTION : ASSOCIATIVE, AS, SECTIONS SPORTIVES ET DROIT DOMANIAL LOCAL]
 * OBLIGATION DE SERVICE DU FORFAIT AS (DÉCRET N° 2014-460 / NOTE DE SERVICE DU 28-05-2014) : Tous les enseignants d'EPS du second degré (professeurs agrégés, certifiés, contractuels à temps complet) participent obligatoirement à l'animation et à l'encadrement de l'Association Sportive (AS) de leur établissement. Cette mission est une obligation de service stricte fixée à un forfait de 3 HEURES PAR SEMAINE, intégré de plein droit dans le calcul de leur maximum de service hebdomadaire statutaire. Les activités de l'AS sont placées sous l'autorité du Recteur d'académie et s'exercent sous la responsabilité juridique directe du Chef d'établissement, qui assume les fonctions de PRÉSIDENT DE DROIT de l'association.
 * SECTIONS SPORTIVES SCOLAIRES - SSS (CIRCULAIRE DU 10 AVRIL 2020 / BO N°18) : L'ouverture ou la reconduction d'une SSS est conditionnée par la signature d'une CONVENTION written tripartite liant l'établissement scolaire, la fédération sportive délégataire (ou son organe déconcentré, ligue/club local) et les collectivités territoriales de rattachement. L'admission des élèves est soumise à la vérification préalable de leur aptitude physique et de leur niveau technique. Statut de licence : les élèves inscrits en SSS ont l'obligation d'adhérer à l'AS de l'établissement et de participer aux compétitions du sport scolaire au sein de la catégorie "Excellence" de l'UNSS. Une évaluation de conformité pédagogique et matérielle est menée par les corps d'inspection (tous les 4 ans en collège, tous les 3 ans en lycée) pour autoriser la reconduction de la structure par le Recteur.
 * AMÉNAGEMENTS ET CLASSES SPORT-ÉTUDES (CIRCULAIRE DU 15 DÉCISMBRE 2023) : These structures se substituent aux anciennes sections d'excellence sportive et s'intègrent au Parcours de Performance Fédérale (PPF) validé par le ministère des Sports. Les aménagements de scolarité (allègement des horaires hebdomadaires, aménagement des emplois du temps, report ou décalage des sessions d'examens nationaux) sont accordés de droit aux élèves inscrits sur les listes nationales du sport de haut niveau ou de haut potentiel, sous réserve de la validation du protocole par le Recteur d'académie et l'Agence Nationale du Sport (ANS).
@@ -182,50 +165,43 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
 * CADRE DU DROIT DOMANIAL ET GRATUITÉ DE L'AS : Les équipements sportifs appartenant à une personne publique font partie du domaine public ou privé de la collectivité. L'utilisation de ces équipements pour les besoins de l'éducation physique et sportive obligatoire et pour l'Association Sportive scolaire (AS) peut être consentie à TITRE GRATUIT par voie de convention, en application des dispositions protectrices du Code général de la propriété des personnes publiques (CGPPP).
 * EXIGENCES DE LA CLAUSE DE PRÉCARIETÉ ET PROTOCOLE DE RÉSILIATION : Toute convention d'occupation temporaire du domaine public est juridiquement consentie à titre PRÉCAIRE ET RÉVOCABLE. La collectivité territoriale propriétaire conserve le droit de prononcer la résiliation unilatérale de la convention ou la suspension temporaire des droits d'accès à tout moment, pour un motif d'ordre public, d'intérêt général (ex: travaux de salubrité, organisation de scrutins électoraux) ou en cas de force majeure (sinistre, intempéries majeures). L'association sportive occupante ou l'établissement scolaire ne peut se prévaloir d'aucun droit au maintien dans les lieux ni prétendre à aucune indemnité financière en cas d'impossibilité d'utilisation ou d'éviction temporaire.
 
-13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS
-----------------------------------------------------------------------
+### [SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]
 * DISPOSITIONS DU CADRE DISCIPLINAIRE (DÉCRET N° 2011-728 / CIRCULAIRES DE 2011 ET 2014) : Sépare de façon stricte et étanche les "Punitions scolaires" des "Sanctions disciplinaires". 
   - Les Punitions Scolaires : Relèvent de l'ordre intérieur de l'établissement et du pouvoir direct de l'enseignant ou du personnel de surveillance pour répondre à des manquements mineurs aux obligations des élèves, des bavardages ou des actes d'impolitesse. Le catalogue des punitions comprend exclusivement : les excuses publiques écrites ou orales, le devoir supplémentaire visé et signé par les parents, ou la retenue en établissement avec exécution d'un travail écrit obligatoire.
   - Les Sanctions Disciplinaires : Relèvent de la compétence exclusive du Chef d'établissement ou du Conseil de Discipline pour répondre à des fautes graves, des atteintes physiques ou verbales aux personnes ou des dégradations de matériels. Les sanctions sont inscrites au dossier administratif de l'élève et comprennent : le blâme, l'avertissement officiel, la mesure de responsabilisation (travail d'intérêt collectif au sein de l'établissement ou d'une association partenaire d'un seuil max de 20 heures), l'exclusion temporaire de la classe ou de l'établissement (durée maximale de 8 jours), ou l'exclusion définitive prononcée par le conseil de discipline.
 * INTERDICTION ABSOLUE DES PUNITIONS COLLECTIVES : En droit administratif scolaire, la responsabilité est strictement individuelle. Il est formellement interdit de prononcer une punition collective visant l'ensemble d'une classe ou d'un groupe de cours pour sanctionner le comportement indiscipliné ou non identifié de certains de ses membres (ex: donner une heure de retenue générale à toute la classe en raison de bavardages anonymes ou supprimer la pratique d'une APSA pour l'ensemble du groupe en raison de l'insolence d'un élève).
 * SANCTUARISATION JURIDIQUE DE LA NOTATION ACADÉMIQUE : La note attribuée à un élève doit être le reflet exclusif de son niveau de maîtrise technique, tactique et des compétences académiques acquises évaluées à une date donnée. Il est strictement interdit de BAISSER LA NOTE d'un élève sur une épreuve, un devoir ou sur son bulletin trimestriel pour sanctionner un manquement disciplinaire (bavardage, insolence, tenue non réglementaire) ou en raison d'une absence (qu'elle soit justifiée ou non). Les infractions comportementales doivent être traitées exclusivement par les outils du catalogue des punitions ou des sanctions disciplinaires. Tout abaissement de note pour motif de comportement entache la décision d'illégalité administrative absolue et expose l'établissement à un recours en annulation pour abus de pouvoir devant le tribunal administratif.
 
-14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES
-----------------------------------------------------------------------
+### [SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]
 * DISPOSITIONS DES SORTIES ET VOYAGES (CIRCULAIRE N° 2023-012 DU 13-06-2023) : Sépare les sorties scolaires obligatoires des sorties facultatives.
   - Sortie Obligatoire : S'inscrit strictement dans le cadre des horaires officiels inscrits à l'emploi du temps de la classe sous statut scolaire et sur le temps officiel d'un cours (ex: déplacement pédestre ou en car vers un gymnase externalisé, cross de district se déroulant sur le créneau du cours d'EPS). Elle est obligatoirement GRATUITE pour les familles ; aucun droit d'accès ni frais de transport ne peut être exigé.
   - Sortie Facultative : Dépasse les horaires officiels fixés par la grille horaire de l'établissement ou comporte une ou plusieurs nuitées (ex: voyage d'étude, voyage culturel à l'étranger, stage de plein air APPN en montagne). La participation financière des familles est autorisée mais son montant doit être calculé au coût réel, sans possibilité pour l'établissement ou l'association support de réaliser un quelconque bénéfice commercial (principe de neutralité financière).
 * TAX D'ENCADREMENT MINIMAL DANS LE SECOND DEGRÉ : Pour l'organisation de sorties facultatives ou de voyages pédagogiques, le taux d'encadrement national obligatoire impose la présence d'un minimum strict de DEUX ADULTES ENCADRANTS, dont au moins un enseignant titulaire de l'établissement. Pour les séjours ou voyages de grande envergure (effectifs importants), le protocole impose d'adjoindre au moins 1 accompagnateur supplémentaire par tranche de 30 élèves supplémentaires engagés.
 * RESPONSABILITÉ LOGISTIQUE ET CONTINUITÉ DE LA SURVEILLANCE LORS DES NUITÉES : Lors des voyages scolaires comportant des nuitées (en France ou à l'étranger), la responsabilité d'encadrement et de garde des enseignants est continue, active et s'exerce 24h/24 sans interruption. L'équipe d'encadrement doit formaliser et communiquer aux élèves un protocole d'astreinte nocturne clair et identifiable. RÈGLE ÉTANCHE DE MIXITÉ ET CONTRÔLE DES CHAMBRES : La séparation stricte des chambres par genre (filles d'un côté, garçons de l'autre) est une obligation réglementaire absolue. L'accès aux chambres des élèves par les enseignants est strictement limité aux impératifs de sécurité, de contrôle des présences et d'urgence médicale. Ces contrôles doivent être effectués, sauf impossibilité matérielle, par un binôme d'adultes pour sécuriser la posture professionnelle des agents.
 
-15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE
-----------------------------------------------------------------------
+### [SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]
 * PROTECTION DES DONNÉES ET DROIT À L'IMAGE DES MINEURS (RGPD 2018 / ART. 9 DU CODE CIVIL) : L'image d'un élève mineur, son nom et ses données d'évaluation constituent des données à caractère personnel hautement protégées. Dans le cadre de l’enseignement de l’EPS (captation vidéo pour l'analyse sémantique et la remédiation en Gymnastique, Acrosport, Danse, Escalade), l'utilisation d'outils numériques (tablettes institutionnelles, smartphones, caméras) est strictement subordonnée à l'obtention préalable d'une AUTORISATION ÉCRITE, expresse, signée des deux responsables légaux en début d'année scolaire.
 * SÉCURISATION DU STOCKAGE ET EXCLUSION DES APPAREILS PERSONNELS : Les captations visuelles ou sonores doivent poursuivre une finalité exclusivement pédagogique et immédiate. Le stockage prolongé de vidéos ou de données nominatives d'élèves sur des terminaux ou appareils personnels non sécurisés des enseignants est formellement interdit. Toutes les données visuelles doivent être purgées et effacées dès la fin de la séance d'apprentissage, ou transférées exclusivement sur l'espace de stockage sécurisé et chiffré du réseau de l'établissement (ENT conforme).
 * CADRE DE CONFORMITÉ DRANE/DANE POUR LES APPLICATIONS CUSTOMISÉES (GLIDE, STREAMLIT, G-SHEETS) : Tout enseignant ou personnel développant ou utilisant une application numérique personnalisée en bas-code/no-code (ex: application Glide pour le suivi des EPI, script Streamlit connecté à des fichiers Google Sheets pour le suivi du bilan carbone ou du gaspillage alimentaire en self/cafétéria, outils de pilotage de notes) a l'obligation stricte d'en déclarer l'existence et les modalités de traitement au Délégué à la Protection des Données (DPD) de l'académie. 
 * CADRE JURIDIQUE DE SÉCURITÉ DES SYSTÈMES D'INFORMATION (SI) : L'application doit être inscrite au registre des activités de traitement de l'établissement. Elle doit impérativement s'intégrer dans l'écosystème sécurisé du Gestionnaire d'Accès aux Ressources (GAR) de l'ENT académique. Il est formellement interdit de faire transiter, de stocker ou d'analyser des données nominatives d'élèves mineurs sur des serveurs ou des bases de données cloud externes non homologués par les services informatiques rectoraux (DANE/DRANE), afin d'exclure tout risque de fuite, de profilage ou d'exploitation commerciale des données.
 
-16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)
-----------------------------------------------------------------------
+### [SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]
 * AMÉNAGEMENTS D'ÉPREUVES POUR ÉLÈVES À BESOINS PARTICULIERS (DÉCRET N° 2020-1632 DU 21-12-2020) : Les candidats aux examens nationaux (DNB, CAP, Bac Pro, Bac GT) présentant un handicap ou un trouble de l'apprentissage médicalement diagnostiqué et validé (troubles Dys, TDAH, déficiences motrices ou sensorielles) bénéficient d'aménagements de conditions d'examen de plein droit. Ces aménagements doivent être validés en amont par le médecin conseiller technique académique.
 * CLASSIFICATION OPÉRATIONNELLE DES AIDES DISPONIBLES : Les mesures de compensation accordées comprennent strictement, selon les préconisations médicales : l'attribution d'un TIERS-TEMPS supplémentaire (majoration d'un tiers du temps officiel pour les épreuves écrites, pratiques ou orales), l'assistance d'un secrétaire lecteur-scripteur humain, l'autorisation d'utiliser un ordinateur portable institutionnel configuré sans connexion réseau (logiciels de correction orthographique spécifiques validés), ou l'installation matérielle dans une salle d'examen individuelle ou à effectif réduit.
 * RESPONSABILITÉ JURIDIQUE ET LOGISTIQUE DU PROFESSEUR PRINCIPAL : Le Professeur Principal (PP) assume la coordination administrative de l'évaluation des besoins lors de l'année de certification (classes de 3e, Terminale, CAP2). Il collabore activement avec l'enseignant référent, l'infirmière scolaire, le médecin de santé scolaire et la famille pour compiler le dossier d'aménagement d'examen (qui doit s'appuyer strictement sur le PAP, PAI ou PPS en vigueur et opérationnel). Le PP doit impérativement veiller à la saisie, au téléversement et à la transmission complète de ce dossier sur l'application nationale d'inscription Cyclades avant le passage des dates butoirs strictes fixées par les circulaires d'examen rectorales, sous peine de forclusion et de responsabilité pour faute de service.
 
-17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ
-----------------------------------------------------------------------
+### [SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]
 * PROTOCOLE DE DÉCLENCHEMENT DE LA CHAÎNE D'URGENCE (BO SPÉCIAL N°1 DU 6 JANVIER 2000) : En cas d'accident corporel grave, de traumatisme majeur ou de détresse prononcée (arrêt cardio-respiratoire, perte de connaissance, fracture ouverte) survenant lors d'une leçon d'EPS ou d'une activité de l'AS, l'enseignant doit immédiatement déclencher la chaîne d'alerte médicale. Alerte immédiate des services de secours extérieurs régulés : le SAMU (téléphone 15) ou les Sapeurs-Pompiers (téléphone 18 ou 112 via terminal mobile), parallèlement à la transmission de l'alerte en interne vers l'infirmerie scolaire, la vie scolaire et l'équipe de direction.
 * PREMIERS GESTES ET GESTION DE LA CLASSE : L'enseignant a l'obligation statutaire de dispenser les premiers gestes de secours d'urgence (mise en position latérale de sécurité - PLS, pose de garrot compressif en cas d'hémorragie, mise en œuvre du défibrillateur automatisé externe - DAE disponible) dans la limite stricte de ses compétences et de ses formations (PSC1/sst), tout en assurant simultanément le regroupement, la mise en sécurité et le contrôle disciplinaire du reste de la classe. L'enseignant doit obligatoirement disposer sur le terrain d'une trousse de secours d'urgence et d'un moyen de communication opérationnel (téléphone, talkie-walkie).
 * INTERDICTION ABSOLUE DE TRANSPORT DANS UN VÉHICULE PERSONNEL : Il est strictement interdit à un enseignant ou à un membre du personnel de l'établissement de transporter lui-même un élève blessé ou malade dans son véhicule personnel, quelle que soit l'urgence ou la proximité des structures hospitalières. Le transport sanitaire doit être exécuté exclusivement par les véhicules des services de secours officiels (Ambulance, SMUR, VSAV des pompiers) ou, pour les cas légers non urgents et après régulation, par les responsables légaux de l'élève alertés par l'établissement.
 * OBLIGATION JURIDIQUE DE RÉDACTION DU RAPPORT D'ACCIDENT ADMINISTRATIF : Suite à tout accident corporel ayant nécessité l'intervention des secours extérieurs ou une prise en charge médicale ultérieure, l'enseignant ayant la garde du groupe au moment des faits doit obligatoirement rédiger un RAPPORT D'ACCIDENT administratif officiel. Ce document doit être exclusivement factuel et objectif, détaillant l'heure précise, le lieu géographique exact, l'APSA pratiquée, la nature de l'exercice, les consignes de sécurité explicitement dictées en amont, la disposition du matériel de protection (tapis, cordes) et la chronologie minutée du déclenchement de l'alerte. Le rapport doit être signé et transmis impérativement au Chef d'établissement dans un délai maximal de 48 heures, afin de sécuriser la couverture juridique de l'agent et de permettre la transmission obligatoire du dossier au DASEN et au service du contentieux du Rectorat.
 
-18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS
-----------------------------------------------------------------------
+### [SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]
 * DISPOSITIF DES INTERVENANTS EXTÉRIEURS (CIRCULAIRE N° 2017-116) : Encadre la participation de personnes extérieures à l'établissement (professionnels titulaires d'un diplôme d'État, moniteurs de structures privées, agents territoriaux ou parents bénévoles) pour l'encadrement ou la co-animation des séances d'EPS, notamment pour les activités nécessitant une logistique lourde (Voile, Canoë-Kayak, Escalade en milieu naturel, Équitation, Ski).
 * OBLIGATION DE CONVENTIONNEMENT ET PROCESSUS D'AGRÉMENT : La participation d'un intervenant extérieur est strictement subordonnée à la signature préalable d'une CONVENTION écrite bilatérale ou tripartite liant l'établissement scolaire (représenté par le Chef d'établissement après vote exécutoire au Conseil d'Administration) et la structure partenaire (base nautique, club). L'intervenant doit obligatoirement détenir un AGRÉMENT officiel délivré par le Directeur Académique (IA-DASEN), attestant de ses qualifications techniques et de son honorabilité (vérification automatisée du Casier Judiciaire n°2 et du fichier FIJAIS).
 * RÉPARTITION DES RESPONSABILITÉS ET SOUVERAINETÉ PÉDAGOGIQUE : L'intervention d'un tiers expert ne décharge jamais l'enseignant d'EPS de ses obligations statutaires et de sa responsabilité civile et pénale. L'intervenant extérieur assume la responsabilité technique et matérielle de la sécurité liée à sa spécialité (ex: validation de l'état de navigabilité des bateaux, conformité des gréements, choix de la route de navigation en mer selon le vent). L'ENSEIGNANT D'EPS CONSERVE EN PERMANENCE LA RESPONSABILITÉ PÉDAGOGIQUE, DISCIPLINAIRE ET JURIDIQUE DE LA CLASSE. L'enseignant valide le projet didactique, gère la distribution des groupes, régule les comportements et assume la maîtrise de l'ordre. Un intervenant extérieur (professionnel ou bénévole) ne peut en aucun cas se retrouver seul à encadrer un sous-groupe d'élèves en autonomie hors de la présence physique ou du contrôle visuel et spatial direct de l'enseignant d'EPS responsable de la classe.
 
-19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA
-----------------------------------------------------------------------
+### [SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]
 * ACTIVITÉS DE LANCERS (Javelot, Disque, Poids) : 
   - Organisation spatiale : La zone de lancer (champ d'impact) doit être strictement délimitée, balisée et interdite d'accès de façon absolue pendant toute la durée des tirs. Pas d'organisation de pas de tir face-à-face.
   - Sécurité active : Les engins de lancer ne doivent être récupérés par les élèves que de façon collective, coordonnée et sur signal sonore ou visuel explicite émis par l'enseignant, après l'arrêt complet de tous les lancers. Interdiction absolue de lancer en direction d'une zone non sécurisée ou en présence d'un élève situé en avant du pas de tir. L'enseignant doit maintenir une surveillance constante sur le pas de tir et la zone de chute.
@@ -238,8 +214,7 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
   - Parade et amortissement : Obligation d'organise des dispositifs d'amortissement (tapis de réception conformes à la hauteur de chute potentielle, tapis de liaison sans interstice). Constitution obligatoire de systèmes de parade active via des pareurs formés, évalués et positionnés aux emplacements critiques. L'enseignant doit valider la maîtrise technique de la parade par les élèves avant d'autoriser l'autonomie sur l'atelier.
   - Surveillance des flux : L'enseignant doit organiser les rotations de façon à ce que le nombre de pratiquants simultanés soit compatible avec sa surveillance visuelle globale et permette une intervention manuelle immédiate en cas de déséquilibre.
 
-20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)
-----------------------------------------------------------------------
+### [SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]
 * REQUIS JURIDIQUES ET GESTION DES EPI (CIRCULAIRE N° 2017-075 DU 19-04-2017) : L'organisation des Activités de Pleine Nature (APPN) impose une évaluation permanente des risques environnementaux (évolution météo, topographie) et humains (fatigue, niveau d'autonomie). Obligation légale de tenir au sein de l'établissement un "registre de suivi des EPI" (Équipements de Protection Individuelle : cordes, mousquetons, casques, baudriers) mis à jour, daté et signé. Interdiction absolue d'utiliser du matériel personnel non tracé ou non homologué par l'établissement pour les manœuvres de sécurité ou d'assurage.
 * 1. PROTOCOLE ÉDUSCOL - RANDONNÉE PÉDESTRE / RAQUETTES : Reconnaissance physique préalable obligatoire du parcours par l'équipe pédagogique. Analyse fine de la topographie, du dénivelé positif/négatif et des barrières horaires. Consultation obligatoire des bulletins météo locaux de Météo-France (seuil de vigilance). Exigence d'un équipement individuel conforme (chaussures de marche montantes à tige rigide, vêtements thermiques trois couches, système d'hydratation). Emport obligatoire d'une trousse de secours collective complète, de couvertures de survie et d'un système de communication opérationnel (téléphone satellite ou couverture réseau validée). Dépôt obligatoire d'une fiche de route détaillée (itinéraire, effectifs, horaires théoriques) auprès de la direction de l'établissement avant le franchissement du point de départ.
 * 2. PROTOCOLE ÉDUSCOL - ESCALADE (SAE, VOIE ET BLOC) : Application stricte du guide de positionnement diagnostic IPR et contrôle du registre des EPI. Les ouvertures de voies et l'implantation des blocs doivent éliminer les risques de réception dangereuse (vires, volumes saillants). Les espaces de réception au sol sous les structures de bloc doivent être matérialisés par des tapis de réception conformes, jointifs et exempts d'interstices. L'usage de l'espace de bloc au sol INTERDIT de façon absolue toute forme d'évolution simultanée d'élèves équipés d'une corde au-dessus de la zone (exclusion du risque de collision par chute). Le rituel de double-vérification mutuelle croisée ("Partner Check" : conformité du nœud en huit du grimpeur, verrouillage du système d'assurage et du mousqueton de l'assureur) is obligatoire et doit être validé visuellement ou physiquement par l'enseignant avant chaque départ au-dessus du premier point d'ancrage.
@@ -249,15 +224,13 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
 * 6. PROTOCOLE ÉDUSCOL - CANOË-KAYAK / STAND-UP PADDLE : Validation préalable et obligatoire du test du Pass-Nautique ou de l'ASNS pour tous les élèves avant l'embarquement. Port obligatoire, permanent et vérifié du gilet d'aide à la flottabilité (norme CE, flottabilité minimale conforme au gabarit) fermé, zippé, sangles serrées et ajustées pendant toute la durée de l'activité sur l'eau. Port de chaussures fermées obligatoire dans l'embarcation pour prévenir les blessures aux pieds. Utilisation exclusive d'embarcations insubmersibles, dotées de réserves de flottabilité vérifiées techniquement. Délimitation stricte du plan d'eau autorisé et maintien d'une surveillance visuelle constante, directe et à portée d'intervention par l'enseignant. Analyse rigoureuse des données météo (force du vent, état de la mer, débit ou courant de la rivière, température de l'eau) en amont immédiat de la séance.
 * 7. PROTOCOLE ÉDUSCOL - VOILE / PLANCHE À VOILE : Validation préalable et obligatoire du test du Pass-Nautique ou de l'ASNS pour l'ensemble des élèves. Port obligatoire et permanent du gilet de sauvetage ajusté, sangles sous-cutales verrouillées. Port d'une combinaison isotherme en néoprène obligatoire si la température de l'eau ou les conditions climatiques le requièrent. Canal de communication radio VHF opérationnel et permanent entre l'enseignant sur l'eau et la base nautique de repli. La surveillance constante et l'intervention de sécurité doivent être obligatoirement assurées depuis un bateau de sécurité motorisé dédié (type semi-rigide), piloté par un encadrant qualifié détenant les diplômes requis. Analyse météo obligatoire avant la mise à l'eau (interdiction stricte de sortie en cas d'avis de coup de vent ou si la force du vent dépasse les limites de sécurité fixées par le protocole local de l'établissement au regard du niveau technique des élèves).
 
-21E SECTION : CONFORMITÉ CCF, EXAMENS ET PROTOCOLE ANTI-RECOURS
-----------------------------------------------------------------------
+### [SITUATION: 21E SECTION : CONFORMITÉ CCF, EXAMENS ET PROTOCOLE ANTI-RECOURS]
 * CONFORMITÉ DES ÉPREUVES DE CERTIFICATION : Les modalités d'évaluation pour le BACCALAURÉAT GÉNÉRAL, TECHNOLOGIQUE et les DIPLÔMES PROFESSIONNELS (CAP/BAC PRO) sont strictement encadrées par les référentiels académiques officiels. Toute épreuve certificative doit respecter la répartition structurelle des blocs de compétences définis par les AFL nationaux (AFL1 : performance et maîtrise motrice ; AFL2 : méthodologie et carnet de suivi d'entraînement ; AFL3 : rôles sociaux et éthique).
 * GESTION ADMINISTRATIVE DES ABSENCES ET ÉPREUVES DE REMPLACEMENT : Une absence injustifiée d'un candidat à une épreuve certificative (CCF) entraîne l'attribution automatique de la note ZÉRO (0/20) pour l'APSA concernée, transmise sur Cyclades. En cas d'absence justifiée (certificat médical authentifié déposé dans les 48 heures ou cas de force majeure validé), le Chef d'établissement organise obligatoirement une épreuve de remplacement sur une période dédiée. En cas d'absence injustifiée à cette épreuve de remplacement, la note de ZÉRO is définitivement maintenue. Si, en raison d'inaptitudes successives ou d'absences répétées, aucune note valide ne peut être obtenue sur l'ensemble de l'année de certification, le candidat is administrativement déclaré "ABSENT" à l'épreuve d'EPS, ce qui bloque la délivrance globale du diplôme.
 * PROTOCOLE DE SÉCURITÉ JURIDIQUE EN CAS DE FRAUDE CONSTATÉE : Tout flagrant délit de fraude ou tentative de fraude constaté lors du déroulement d'une épreuve ponctuelle ou d'une situation d'évaluation (CCF) donne lieu à la rédaction immédiate d'un PROCÈS-VERBAL circonstancié, signé par les examinateurs et transmis au Chef d'établissement. RÈGLE JURIDIQUE IMPÉRATIVE : Le candidat suspecté n'est en aucun cas expulsé de la salle d'examen ou du plateau sportif. Il doit être formellement AUTORISÉ À TERMINER son épreuve afin de préserver l'ensemble de ses droits administratifs dans l'attente de la décision finale prise par la commission de discipline académique.
 * HARMONISATION DES NOTES ET LOGIQUE DES ARRONDIS : Les notes brutes attribuées en CCF sont indicatives et restent soumises à la validation souveraine de la commission académique d'harmonisation présidée par les IA-IPR. Après harmonisation, la note finale is arrêtée au POINT ENTIER. Pour les examens de la voie professionnelle (CAP/BAC PRO), la règle nationale stricte impose l'arrondi au point entier supérieur dès lors que le premier dixième de la note is égal ou supérieur à 5 (ex: une note harmonisée de 10,5/20 devient obligatoirement 11/20 sur le procès-verbal terminal).
 
-22E SECTION : REGISTRE RECENT DES CONDAMNATIONS PENALES (CAS D'ECOLE)
-----------------------------------------------------------------------
+### [SITUATION: 22E SECTION : REGISTRE RECENT DES CONDAMNATIONS PENALES (CAS D'ECOLE)]
 * TRIBUNAL CORRECTIONNEL DE THONON-LES-BAINS, 27 JANVIER 2026 (VIOLATION DE LA DISPENSE MÉDICALE) : Condamnation d'un professeur d'EPS à 18 mois de prison avec sursis pour homicide involontaire à la suite du décès par arrêt cardiaque d'un élève de 12 ans lors d'une séance d'endurance. L'élève présentait une cardiopathie lourde et faisait l'objet d'un certificat d'inaptitude médicale. Bien que présent au cours au titre de l'obligation d'accueil pour assurer des tâches d'observation (chronométrage), l'élève a été intégré à la pratique physique et a couru. Le tribunal a retenu la FAUTE CARACTÉRISÉE de l'enseignant qui, bien qu'informé de l'existence d'une restriction médicale, a fait courir l'élève sans avoir consulté le document médical écrit officiel de l'établissement. RÈGLE JURIDIQUE : Le certificat médical d'inaptitude is un verrou légal absolu. L'enseignant a l'obligation stricte d'en vérifier les termes écrits et ne peut s'en tenir à des tolérances ou interprétations verbales, y compris si l'élève insiste pour pratiquer.
 * TRIBUNAL CORRECTIONNEL DE TOULOUSE, 2018 (DÉFAUT DE CONTRÔLE MATÉRIEL EN ATELIER HAUT RISQUE) : Condamnation d'un professeur d'EPS à 6 mois de prison avec sursis pour blessures involontaires après la chute de 8 mètres d'un élève de troisième en SAE. L'accident résultait d'un nœud de huit défaillant commis par le grimpeur et non détecté par son assureur (un autre élève de la classe). Le juge a condamné l'enseignant pour manquement grave à son obligation de moyens renforcée : le protocole de sécurité de l'établissement imposait une vérification visuelle et matérielle directe par le professeur avant chaque départ au-dessus du premier point d'assurage. Le prof ne peut déléguer la responsabilité de la sécurité finale aux élèves.
 * TRIBUNAL CORRECTIONNEL, 2012 (RUPTURE DU PROTOCOLE DE SURVEILLANCE EN NATATION) : Condamnation pénale d'un enseignant d'EPS à une peine de prison avec sursis pour homicide involontaire suite à la noyade d'un élève retrouvé inanimé au fond du grand bassin lors d'une séance de natation scolaire. Les magistrats ont retenu que l'enseignant n'avait pas mis en œuvre les comptages visuels et physiques réguliers obligatoires (à l'entrée, au milieu et en fin de séance) dictés par la circulaire nationale natation, ce qui a retardé la détection de la disparition de l'élève. La présence conjointe d'un MNS sur le bord du bassin n'exonère pas l'enseignant de son obligation de suivi constant de son groupe.
@@ -269,29 +242,25 @@ CADRE CADRAGE RÉGLEMENTAIRE - SÉCURITÉ ET RESPONSABILITÉ EN EPS
 Objet : Risques particuliers à l'enseignement de l'EPS et au sport scolaire.
 
 ----------------------------------------------------------------------
-23. CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE
-----------------------------------------------------------------------
+### [SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]
 * PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Plus de 58 % des accidents scolaires en collège ont lieu pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
 * NATURE DES RISQUES : Aucune activité n'est dangereuse a priori, mais l'engagement physique et affectif majore les risques. Les causes majeures des accidents graves relèvent de l'environnement, de l'état des matériels et de l'inadaptation des exercices proposés.
 * EXIGENCE DE VIGILANCE : L'enseignant a l'obligation permanente de contrôler les équipements, de calibrer précisément les tâches demandées et de définir des consignes d'organisation rigoureuses.
 
 ----------------------------------------------------------------------
-24. GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES
-----------------------------------------------------------------------
+### [SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]
 * CONVETIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
 * SÉCURITÉ DES DÉPLACEMENTS : Les trajets vers les installations extérieures exigent une planification stricte. En cas d'incident, le professeur doit se référer au Protocole national des soins et des urgences (BO du 6 janvier 2000). Une qualification de premier secours valide est obligatoire au recrutement.
 * SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention et la présence physique de l'enseignant à l'intérieur du vestiaire sont légitimes et indispensables pour garantir la sécurité.
 
 ----------------------------------------------------------------------
-25. TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)
-----------------------------------------------------------------------
+### [SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]
 * HÉTÉROGÉNÉITÉ DES CLASSES : L'enseignant doit adapter ses tâches aux différences interindividuelles (poids, taille, âge, sexe, inaptitudes temporaires) pour éviter les collisions et les comportements d'exclusion générateurs de risques.
 * LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire constitue une faute professionnelle en cas de dommage corporel.
 * INTERPOSITION EN CAS DE CONFLIT : En cas de violences ou de conflits entre élèves, le professeur d'EPS a l'obligation d'intervenir, y compris en s'interposant physiquement pour préserver l'intégrité des élèves, tout en proscrivant les sévices corporels.
 
 ----------------------------------------------------------------------
-26. LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)
-----------------------------------------------------------------------
+### [SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]
 * RESPONSABILITÉ CIVILE (SUBSTITUTION DE L'ÉTAT) : Fondée sur la Loi du 5 avril 1937 (Art. L. 911-4 du Code de l'éducation). En cas d'accident subi ou causé par un élève sous la surveillance d'un enseignant, la responsabilité de l'État se substitue à celle de l'agent. L'enseignant ne peut jamais être poursuivi devant les tribunaux civils par la victime.
 * CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (en référence aux Articles 1382 et 1383 du Code civil).
 * RESPONSABILITÉ PÉNALE (STRICTEMENT PERSONNELLE) : Le principe de substitution ne s'applique pas au pénal (Art. 121-1 du Code pénal : "nul n'est responsable pénalement que de son propre fait"). Un enseignant peut être poursuivi personnellement pour délit non intentionnel (homicide involontaire, blessures involontaires).
@@ -307,8 +276,7 @@ Il couvre le bloc primaire obligatoire et les enseignements de spécialité (Art
 
 ----------------------------------------------------------------------
 27. ÉCOLE MATERNELLE - CYCLE 1
-Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015 
-----------------------------------------------------------------------
+### [SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]
 * DOMAINE D'APPRENTISSAGE : « Agir, s'exprimer, comprendre à travers l'activité physique »
 
 * LES 4 OBJECTIFS VISÉS AU CYCLE 1 :
@@ -323,8 +291,7 @@ Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015
 
 ----------------------------------------------------------------------
 28. ÉCOLE ÉLÉMENTAIRE - CYCLE 2 (CP, CE1, CE2)
-Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015
-----------------------------------------------------------------------
+### [SITUATION: Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015]
 * LES 4 CHAMPS D'APPRENTISSAGE (CA) ET ATTENDUS DE FIN DE CYCLE 2 (AFC) :
   - CA 1 : Produire une performance optimale, mesurable à une échéance donnée.
     -> AFC : Courir, sauter, lancer de façon régulière pour aller plus vite, plus haut, plus loin. Accepter de mesurer sa performance et celle des autres.
@@ -337,8 +304,7 @@ Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015
 
 ----------------------------------------------------------------------
 29. ENSEIGNEMENT DE SPÉCIALITÉ : ARTS - OPTION DANSE (LYCÉE)
-Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
-----------------------------------------------------------------------
+### [SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]
 * FINALITÉ : Cet enseignement associe étroitement la pratique physique d'auteur-chorégraphe, l'engagement sensible d'interprète et la construction d'une solide culture chorégraphique historique et contemporaine.
 
 * LES COMPÉTENCES STRUCTURELLES VISÉES AU BACCALAUREAT :
@@ -348,8 +314,7 @@ Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
 
 ----------------------------------------------------------------------
 30. ENSEIGNEMENT DE SPÉCIALITÉ : ARTS - OPTION ARTS DU CIRQUE (LYCÉE)
-Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
-----------------------------------------------------------------------
+### [SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]
 * FINALITÉ : Développer une maîtrise corporelle transversale de haut niveau combinée à une démarche de création dramaturgique propre aux arts du cirque contemporains.
 
 * LES DOMAINES TECHNIQUES ET COMPÉTENCES IMPÉRATIVES :
@@ -361,15 +326,13 @@ Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)
   - Compétence de création : Transformer une prouesse technique pure en un acte artistique théâtralisé ou poétique. Écrire une partition circassienne scénographiée.
   - Compétence de sécurité active (Parade) : Assurer la gestion absolue du risque. Maîtriser les protocoles d'assurage et de parade acrobatique pour ses partenaires (responsabilité éthique et collective).
 
-31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS
-----------------------------------------------------------------------
+### [SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]
 * L'OBLIGATION NATIONALE DE L'ENSEIGNEMENT DE L'EPS (ART. L. 312-4 DU CODE DE L'ÉDUCATION) : L'éducation physique et sportive est obligatoire à tous les niveaux de la scolarité, de l'école primaire au lycée. Elle participe directement aux missions de santé publique, développe la culture corporelle et sportive, et constitue un vecteur fondamental de l'égalité des chances entre les filles et les garçons. Aucune clause locale ou décision d'établissement ne peut restreindre ce caractère obligatoire de service public.
 * LA BASE LÉGALE IMPÉRATIVE DE L'ASSOCIATION SPORTIVE (ART. L. 552-1 DU CODE DE L'ÉDUCATION) : La création d'une Association Sportive (AS) est une obligation légale stricte dans chaque établissement d'enseignement du second degré (collèges et lycées). Cet article sanctuarise le sport scolaire comme le prolongement obligatoire de l'enseignement de l'EPS. L'intégration et l'affiliation de cette association à la fédération sportive scolaire officielle (UNSS) sont de droit public.
 * L'OBLIGATION DE FINANCEMENT ET DE MISE À DISPOSITION PAR LES COLLECTIVITÉS (ART. L. 213-2 & L. 214-6 DU CODE DE L'ÉDUCATION) : La responsabilité matérielle de la construction, de l'équipement, de l'entretien et du fonctionnement des locaux scolaires incombe exclusivement au Département pour les collèges (Art. L. 213-2) et à la Région pour les lycées (Art. L. 214-6). Cette charge publique englobe l'obligation stricte de fournir et financer les installations sportives (gymnases, plateaux, accès aux piscines) nécessaires à la mise en œuvre des programmes nationaux d'EPS obligatoires.
 * STATUT DES AMÉNAGEMENTS POUR SPORTIFS À HAUT POTENTIEL (ART. L. 331-6 DU CODE DE L'ÉDUCATION) : Le Code de l'éducation impose aux chefs d'établissement de mettre en œuvre des aménagements de scolarité, d'emploi du temps et de modalités d'évaluation pour les élèves justifiant d'une inscription sur les listes officielles de Sportifs de Haut Niveau (SHN) ou reconnus comme présentant des aptitudes sportives exceptionnelles (Sections Sportives), afin de concilier la réussite scolaire et l'excellence sportive.
 * LE POUVOIR DISCIPLINAIRE DU CHEF D'ÉTABLISSEMENT (ART. R. 421-10 DU CODE DE L'ÉDUCATION) : En tant que représentant de l'État et autorité exécutive de l'établissement, le Chef d'établissement possède la compétence exclusive pour prononcer les sanctions disciplinaires inscrites au catalogue officiel (blâme, exclusion) et pour valider les décisions d'organisation pédagogique globale (comme la banalisation d'une journée pédagogique ou l'approbation des conventions de transport).
-32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ
-----------------------------------------------------------------------
+### [SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]
 * LE PRINCIPE SUPÉRIEUR D'ÉGALITÉ (PREAMBULE DE LA CONSTITUTION DE 1946) : La loi garantit à la femme, dans tous les domaines, des droits égaux à ceux de l'homme. Ce principe constitutionnel s'impose de plein droit à l'ensemble des services publics de l'Éducation nationale et surclasse toute disposition locale.
 * MISSION PREMIÈRE DE MIXITÉ ET D'ÉGALITÉ (ART. L. 121-1 DU CODE DE L'ÉDUCATION) : Les écoles, les collèges, les lycées et les établissements d'enseignement supérieur contribuent à favoriser la mixité et l'égalité entre les hommes et les femmes, notamment en matière d'orientation. Ils assurent une formation à la vigilance contre les stéréotypes de genre et les violences sexistes.
 * L'OBLIGATION DE MIXITÉ DES CLASSES (ART. L. 311-2 DU CODE DE L'ÉDUCATION) : Les enseignements sont dispensés dans des classes mixtes, sous réserve de dérogations temporaires et motivées par des considérations pédagogiques spécifiques liées à l'organisation de certaines activités. L'organisation d'un enseignement séparé par genre de manière permanente est constitutive d'une illégalité administrative.
@@ -394,8 +357,7 @@ Mots-clés : telephone satellite, zone blanche course orientation, milieu hostil
 RÉFÉRENTIEL JURIDIQUE & PROTOCOLE : TRANSPORT ET DÉPLACEMENT D'ÉLÈVES EN EPS ET SORTIES SCOLAIRES
 ================================================================================
 
-1. CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE
---------------------------------------------------------------------------------
+### [SITUATION: CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE]
 • Note de service n° 86-101 du 5 mars 1986 (BOEN n° 10 du 13 mars 1986) :
   - Objet : Utilisation des véhicules personnels des enseignants et véhicules mis à disposition pour transporter des élèves.
   - Caractère : Dérogatoire, exceptionnel et supplétif (justifié par des motifs géographiques, d'organisation ou financiers).
@@ -421,8 +383,7 @@ RÉFÉRENTIEL JURIDIQUE & PROTOCOLE : TRANSPORT ET DÉPLACEMENT D'ÉLÈVES EN EP
   - Protection fonctionnelle obligatoire accordée par le Recteur à l'agent public mis en cause ou menacé de poursuites dans le cadre de ses fonctions autorisées.
 
 
-2. LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES
---------------------------------------------------------------------------------
+### [SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]
 A) VÉHICULE DE LOCATION / MINIBUS DE L'ÉTABLISSEMENT (9 PLACES) :
 1. Contrat de location : Établi impérativement au nom de l'EPLE (collège/lycée) et signé par le chef d'établissement.
 2. Assurances obligatoires : Contrat tous risques avec rachat total de franchise, garantie illimitée des personnes transportées et assistance/rapatriement 24h/24 (notamment en cas de déplacement à l'étranger).
@@ -441,8 +402,7 @@ B) VÉHICULE PERSONNEL DE L'ENSEIGNANT :
 3. Règle des passagers : Maximum 4 élèves pour 1 seul adulte conducteur afin de préserver la surveillance et la concentration. Au-delà, un 2e adulte accompagnateur est requis.
 
 
-3. CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)
---------------------------------------------------------------------------------
+### [SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]
 • Enseignement obligatoire de l'EPS / Sorties pédagogiques :
   - Le déplacement s'effectue sous statut d'Ordre de Mission de l'Éducation nationale délivré par le Chef d'établissement.
   - La substitution de responsabilité civile L. 911-4 s'applique intégralement.
@@ -452,8 +412,7 @@ B) VÉHICULE PERSONNEL DE L'ENSEIGNANT :
   - Les minibus appartenant à l'établissement ou à l'AS peuvent être utilisés sous réserve de conformité des assurances et de l'encadrement.
 
 
-4. FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT
---------------------------------------------------------------------------------
+### [SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]
 AVANT D'AUTORISER TOUT DÉPLACEMENT EN MINIBUS / VÉHICULE :
 [ ] 1. Vérifier la validité des permis de conduire des enseignants au volant.
 [ ] 2. Vérifier les contrats de location et assurances (garantie illimitée personnes transportées + assistance 24/7).
@@ -469,30 +428,26 @@ EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
 4. Déclaration d'accident scolaire : Établie par la direction de l'établissement.
 5. Protection fonctionnelle : Sollicitée auprès du Recteur si des menaces ou poursuites sont formulées.
 ================================================================================
-33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)
-----------------------------------------------------------------------
+### [SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]
 * CADRE RÉGLEMENTAIRE ET NORMES TECHNIQUES (DÉCRET N° 96-495 DU 4 JUIN 1996 / NORME NF S 52-400) : Ce décret encadre strictement les exigences de sécurité relatives aux cages de buts de football, de handball, de basket-ball et de hockey utilisées dans les établissements scolaires et les installations sportives publiques. 
 * OBLIGATION LÉGALE D'ANCRAGE ET DE LESTAGE : Tous les buts et structures auto-stables ou mobiles doivent être impérativement et en permanence ancrés au sol ou dotés d'un système de contrepoids inamovible fixé à la structure pour empêcher tout basculement vers l'avant ou latéral lors de l'utilisation ou de la suspension d'un élève.
 * OBLIGATION DE VÉRIFICATION PRÉALABLE PAR L'ENSEIGNANT : Avant tout début de séance utilisant des buts mobiles (Handball, Futsal, Basket), l'enseignant d'EPS a l'obligation légale de procéder personnellement au test de stabilité mécanique de chaque équipement (poussée franche pour vérifier la fixation ou l'efficacité du lestage).
 * PROTOCOLE DE MISE HORS SERVICE EN CAS DE DÉFAILLANCE : Si un but présente un défaut d'ancrage, une absence de contrepoids, un jeu excessif ou une défectuosité matérielle, l'enseignant a l'obligation stricte d'en INTERDIRE IMMÉDIATEMENT L'ACCÈS aux élèves (mise à l'écart, basculement sécurisé face contre terre ou neutralisation spatiale). L'anomalie doit être immédiatement notifiée par écrit au Chef d'établissement pour transmission urgente aux services techniques de la collectivité propriétaire.
 * INTERDICTION ABSOLUE DES COMPORTEMENTS À RISQUE : Interdiction stricte et surveillée de toute suspension délibérée aux barres transversales, aux filets ou aux arceaux de basket hors geste sportif technique maîtrisé.
 
-34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)
-----------------------------------------------------------------------
+### [SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]
 * DISPOSITIF D'ACCÈS AU SPORT SCOLAIRE (DÉCRET N° 2021-564 DU 7 MAI 2021 / ART. L. 231-2 ET L. 231-2-1 DU CODE DU SPORT) : Suppression de l'obligation de présentation systématique d'un certificat médical de non-contre-indication à la pratique sportive pour l'obtention ou le renouvellement d'une licence à l'Association Sportive (AS) de l'établissement ou à l'UNSS pour tous les élèves mineurs.
 * FONCTIONNEMENT DU QUESTIONNAIRE DE SANTÉ (QS-SPORT MINEURS) : La délivrance de la licence sportive scolaire est conditionnée à la production obligatoire d'une ATTESTATION SUR L'HONNEUR signée des personnes exerçant l'autorité parentale, certifiant que l'élève a renseigné conjointement avec eux le questionnaire de santé national officiel pour mineurs et qu'aucune réponse positive n'a été formulée.
 * CONDITION D'EXIGENCE D'UN CERTIFICAT MÉDICAL : La fourniture d'un certificat médical officiel attestant de l'absence de contre-indication à la pratique du sport (ou de la discipline concernée), datant de moins de six mois, demeure OBLIGATOIRE si et seulement si au moins une réponse du questionnaire de santé est positive.
 * CAS PARTICULIER DES DISCIPLINES À CONTRAINTES PARTICULIÈRES : Pour les activités sportives classées au titre de l'article L. 231-2-3 du Code du sport (ex : sports de combat avec K.-O., plongée subaquatique, tir sportif, sports mécaniques), la production d'un certificat médical annuel spécifique de non-contre-indication reste une obligation légale stricte non dérogeable par le questionnaire de santé.
 
-35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE
-----------------------------------------------------------------------
+### [SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]
 * GESTION DES VAGUES DE CHALEUR ET CANICULES (INSTRUCTION MINISTÉRIELLE & GUIDE CANICULE ÉDUCATION NATIONALE) :
   - Vigilance Jaune / Orange : L'enseignant d'EPS adapte impérativement le contenu de sa leçon. Obligation d'alléger substantiellement l'intensité motrice et cardio-respiratoire, de supprimer les efforts maximaux prolongés en plein soleil, de privilégier les zones d'ombre, d'aménager des pauses hydratation rapprochées et de vérifier que chaque élève dispose d'une gourde d'eau.
   - Vigilance Rouge : Interdiction formelle de toute pratique physique intense ou prolongée sur les installations extérieures. Obligation de repli vers des espaces intérieurs frais et ventilés pour des séances théoriques/méthodologiques ou suspension totale des cours d'EPS sur consigne préfectorale ou rectorale.
 * ÉPISODES DE POLLUTION DE L'AIR (OZONE O3, PARTICULES PM10, DIOXYDE D'AZOTE NO2) : En cas de déclenchement du niveau d'alerte préfectoral pour pollution atmosphérique, interdiction stricte de pratiquer des activités physiques intenses et prolongées en extérieur (ex : cycle demi-fond, test VMA). Obligation d'adapter l'enseignement vers des APSA d'intensité modérée en intérieur aéré ou d'ajuster individuellement la charge pour les élèves souffrant d'affections respiratoires chroniques (asthme, allergies, protocoles PAI).
 * CONDITIONS HIVERNALES ET GRAND FROID : Obligation pour l'enseignant de procéder à une reconnaissance visuelle préalable des plateaux sportifs et pistes extérieures (détection des plaques de verglas, sols gelés instables ou boue glissante). L'enseignant a le devoir statutaire d'annuler ou de délocaliser la pratique sur sol stabilisé afin de prévenir tout risque majeur de fracture ou de traumatisme corporel.
-23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)
-----------------------------------------------------------------------
+### [SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]
 * CADRE DU PARCOURS PROFESSIONNEL CARRIÈRES ET RÉMUNÉRATIONS - PPCR (DÉCRETS N° 2017-786 ET N° 2017-787 DU 5 MAI 2017) : Le protocole PPCR a uniformisé les rythmes d'avancement d'échelon au sein de la classe normale pour l'ensemble des corps enseignants du second degré (certifiés, agrégés, EPS, PLP) et d'éducation (CPE). La cadence d'avancement est désormais unique (rythme unique pour tous les agents), à l'exception de deux passages d'échelons spécifiques faisant l'objet d'une accélération sélective.
 * LES TROIS RENDEZ-VOUS DE CARRIÈRE (RVC) : L'évaluation professionnelle des enseignants et personnels d'éducation ne repose plus sur une inspection traditionnelle ponctuelle et notée, mais sur trois rendez-vous de carrière institutionnels se déroulant à des moments clés :
   1. **1er Rendez-vous de carrière** : Intervient lors de la 2e année du 6e échelon. Il permet d'attribuer (ou non) une **accélération d'un an** de l'ancienneté pour le passage au 7e échelon (bénéficiant à environ 30 % des promouvables).
@@ -500,8 +455,7 @@ EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
   3. **3e Rendez-vous de carrière** : Intervient lors de la 9e année du 9e échelon. Il constitue l'élément déterminant d'appréciation pour l'accès ultérieur au grade de la **Hors-Classe**.
 * COMPOSITION DE L'AVIS FINAL DU RECTEUR : Chaque rendez-vous de carrière donne lieu à une inspection conjointe (Chef d'établissement / Corps d'inspection - IPR ou IEN). À l'issue des observations et de l'entretien, l'autorité académique (le Recteur) émet une **appréciation finale de la valeur professionnelle** déclinée en quatre degrés strictement réglementaires : *« Excellent »*, *« Très satisfaisant »*, *« Satisfaisant »* ou *« Insatisfaisant »*. Cet avis est définitif et notifié à l'agent via l'application I-Prof.
 
-24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)
-----------------------------------------------------------------------
+### [SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]
 * ACCÈS AU GRADE DE LA HORS-CLASSE : L'accès à la hors-classe est un débouché de carrière normal accessible aux agents justifiant d'un seuil minimal d'ancienneté (généralement à compter du 9e échelon de la classe normale au 31 août de l'année de promotion). L'inscription au tableau d'avancement s'appuie sur le barème national combinant l'appréciation littérale de la valeur professionnelle issue du 3e rendez-vous de carrière et l'ancienneté dans le grade ou l'échelon.
 * ACCÈS AU GRADE DE LA CLASSE EXCEPTIONNELLE (DÉCRET N° 2017-786 MODIFIÉ) : Grade sommital de la grille indiciaire, la classe exceptionnelle n'est pas un avancement automatique mais un accès fondé sur le parcours professionnel, la reconnaissance de l'engagement et l'exercice de fonctions particulières. Les conditions de promouvabilité reposent sur deux voies distinctes (« viviers ») :
   - **Le Vivier 1** : Concerne les agents ayant atteint au moins le 5e échelon de la hors-classe et justifiant d'une durée d'exercice (fixée par les textes réglementaires) dans des conditions d'exercice difficiles ou des fonctions particulières (ex: éducation prioritaire, direction d'établissement, formateurs académiques, directeurs de centre, etc.).
@@ -509,8 +463,7 @@ EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
 * RÔLE DES AVIS DES ÉVALUATEURS : Pour l'établissement des tableaux d'avancement à la classe exceptionnelle, le Chef d'établissement et l'IA-IPR formulent indépendamment des avis motivés parmi quatre items : *« Très favorable »*, *« Favorable »*, *« Défavorable »*. L'obtention d'un avis « Très favorable » ou « Favorable » conditionne statistiquement les perspectives de promotion au regard des contingents académiques fixés annuellement par arrêté ministériel.
 * L'ÉCHELON SPÉCIAL DE LA CLASSE EXCEPTIONNELLE : Sommet de la hiérarchie indiciaire des corps enseignants, l'accès à l'échelon spécial de la classe exceptionnelle s'effectue au choix parmi les enseignants les plus anciens de la classe exceptionnelle, dans la limite d'un pourcentage réglementaire des effectifs du grade (souvent fixé à 20 % de l'effectif total du corps au grade de la classe exceptionnelle, hors corps des agrégés qui disposent de modalités spécifiques de pyramidage).
 
-25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS
-----------------------------------------------------------------------
+### [SITUATION: 25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS]
 * LES DIFFÉRENTS CORPS DE L'ENSEIGNEMENT DU SECOND DEGRÉ ET D'ÉDUCATION : Les personnels titulaires du second degré relèvent de la catégorie A de la fonction publique de l'État et sont répartis en corps distincts régis par des statuts particuliers :
   - **Professeurs Certifiés** (corps de référence des collèges et lycées).
   - **Professeurs Agrégés** (corps bénéficiant d'un service statutaire hebdomadaire allégé de 3 heures par rapport aux certifiés, axé sur une expertise disciplinaire approfondie).
@@ -522,8 +475,7 @@ EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
   - **Listes d'Aptitude et Examens Professionnels** : Permettent le passage d'un corps à un autre (ex: passage de professeur certifié à professeur agrégé) pour les agents justifiant de l'ancienneté et des titres requis (titulaires d'un master ou doctorat selon les corps), après étude rigoureuse des dossiers par une commission paritaire nationale.
 * LE RÉGIME DU DÉTACHEMENT : Les fonctionnaires appartenant à un corps enseignant ou d'un autre ministère peuvent solliciter un détachement de longue durée (ou de courte durée) pour exercer dans un autre corps de la fonction publique de l'État, dans l'enseignement supérieur (maître de conférences, attaché temporaire d'enseignement et de recherche), ou auprès d'organismes publics et d'établissements d'enseignement français à l'étranger (AEFE, MLF). Le détachement s'effectue sous réserve de l'avis favorable des corps d'inspection et des autorités d'origine et d'accueil.
 
-26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)
-----------------------------------------------------------------------
+### [SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]
 * LA MOBILITÉ INTERACADÉMIQUE (PHASE INTER - APPLICATION SIAM / I-PROF) : Organisée chaque année au cours du premier trimestre (saisie des vœux entre novembre et décembre), la phase interacadémique permet aux enseignants titulaires de demander un changement d'académie. 
   - **Le calcul du barème** : Les mutations reposent sur un système de barème objectif tenant compte de la situation familiale (rapprochement de conjoints, autorité parentale conjointe, enfants à charge), de l'ancienneté de service, de l'échelon, et de bonifications spécifiques liées à l'exercice en zone prioritaire (Éducation prioritaire, REP/REP+, CLA - Contrats Locaux d'Accompagnement) ou au handicap (bénéficiaire de l'obligation d'emploi - BOE).
   - **Le vœu préférentiel** : La reconduction identique et continue d'un premier vœu académique d'une année sur l'autre génère l'attribution de points de bonification d'ancienneté de vœu (vœu préférentiel) afin de valoriser l'ancienneté de la demande.
@@ -533,8 +485,7 @@ EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
 CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
 ======================================================================
 
-23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)
-----------------------------------------------------------------------
+### [SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]
 * CADRE DU PARCOURS PROFESSIONNEL CARRIÈRES ET RÉMUNÉRATIONS - PPCR (DÉCRETS N° 2017-786 ET N° 2017-787 DU 5 MAI 2017) : Le protocole PPCR a uniformisé les rythmes d'avancement d'échelon au sein de la classe normale pour l'ensemble des corps enseignants du second degré (certifiés, agrégés, EPS, PLP) et d'éducation (CPE). La cadence d'avancement est désormais unique, à l'exception de deux passages d'échelons spécifiques faisant l'objet d'une accélération sélective.
 * LES TROIS RENDEZ-VOUS DE CARRIÈRE (RVC) : L'évaluation professionnelle des enseignants et personnels d'éducation repose sur trois rendez-vous de carrière institutionnels se déroulant à des moments clés :
   1. 1er Rendez-vous de carrière : Intervient lors de la 2e année du 6e échelon. Il permet d'attribuer (ou non) une accélération d'un an de l'ancienneté pour le passage au 7e échelon.
@@ -542,19 +493,16 @@ CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
   3. 3e Rendez-vous de carrière : Intervient lors de la 9e année du 9e échelon. Il constitue l'élément déterminant d'appréciation pour l'accès ultérieur au grade de la Hors-Classe.
 * COMPOSITION DE L'AVIS FINAL DU RECTEUR : Chaque rendez-vous de carrière donne lieu à une inspection conjointe (Chef d'établissement / Corps d'inspection - IPR ou IEN). L'autorité académique (le Recteur) émet une appréciation finale de la valeur professionnelle déclinée en quatre degrés stricts : « Excellent », « Très satisfaisant », « Satisfaisant » ou « Insatisfaisant ». Cet avis est définitif et notifié à l'agent via l'application I-Prof.
 
-24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)
-----------------------------------------------------------------------
+### [SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]
 * ACCÈS AU GRADE DE LA HORS-CLASSE : L'accès à la hors-classe est un débouché de carrière accessible aux agents justifiant d'un seuil minimal d'ancienneté (généralement à compter du 9e échelon de la classe normale). L'inscription au tableau d'avancement s'appuie sur le barème national combinant l'appréciation littérale de la valeur professionnelle issue du 3e rendez-vous de carrière et l'ancienneté dans le grade ou l'échelon.
 * ACCÈS AU GRADE DE LA CLASSE EXCEPTIONNELLE (DÉCRETS N° 2017-786 ET N° 2023-720 DU 4 AOÛT 2023) : Grade sommital de la grille indiciaire, la classe exceptionnelle est fondée sur le parcours professionnel et l'ancienneté dans la hors-classe (notamment à partir du 5e échelon).
 * RÔLE DES AVIS DES ÉVALUATEURS : Pour l'établissement des tableaux d'avancement, le Chef d'établissement et l'IA-IPR formulent indépendamment des avis motivés parmi quatre items : « Très favorable », « Favorable », « Défavorable ». L'obtention d'un avis favorable conditionne les perspectives de promotion au regard des contingents académiques fixés par arrêté ministériel.
 
-25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS
-----------------------------------------------------------------------
+### [SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]
 * CADRE DU PASSAGE DE CERTIFIÉ / PLP / PEPS À AGRÉGÉ (LISTE D'APTITUDE) : Permet l'intégration dans le corps des professeurs agrégés sans passer le concours, encadrée par les statuts particuliers de chaque corps (ex: art. 5 du Décret n° 72-580 pour l'agrégation) et les notes de service annuelles publiées au Bulletin Officiel de l'Éducation Nationale (BOEN). Les conditions exigent généralement un seuil d'ancienneté (10 ans de services effectifs dont 5 dans le corps d'origine).
 * RÈGLES DE CALCUL DU RECLASSEMENT (DÉCRET N° 51-1423 DU 5 DÉCEMBRE 1951) : Le texte socle interministériel régit les conditions de classement des fonctionnaires nommés dans un emploi de hiérarchie supérieure. Le calcul s'appuie sur des coefficients spécifiques de conversion d'ancienneté appliqués à l'ancienneté acquise dans l'ancien échelon pour déterminer l'échelon d'accueil et le reliquat dans le nouveau corps.
 
-26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)
-----------------------------------------------------------------------
+### [SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]
 * LA MOBILITÉ INTERACADÉMIQUE (PHASE INTER - APPLICATION SIAM / I-PROF) : Organisée chaque année au premier trimestre pour les changements d'académie. Les mutations reposent sur un barème objectif tenant compte de la situation familiale (rapprochement de conjoints, enfants à charge), de l'ancienneté de service, de l'échelon, et de bonifications spécifiques liées à l'exercice en zone prioritaire (REP/REP+) ou au handicap (bénéficiaire de l'obligation d'emploi - BOE). Le vœu préférentiel valorise par des points supplémentaires la reconduction identique de la demande d'une année sur l'autre.
 * LA MOBILITÉ INTRA-ACADÉMIQUE ET VOIES DE RECOURS (APPLICATION COLIBRIS) : Pilotée par le Rectorat au printemps pour l'affectation précise en établissement (zones de remplacement, communes, collèges/lycées). En cas de contestation de barème ou de refus de mutation, la saisine de l'administration et les recours administratifs s'effectuent obligatoirement de manière dématérialisée via l'application ministérielle Colibris dans les délais stricts fixés par les circulaires académiques.
 * MODALITÉ DE CALCUL DU RECLASSEMENT (DÉCRET N° 51-1423 DU 5 DÉCEMBRE 1951) :
@@ -568,8 +516,7 @@ CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
 RÉFÉRENTIEL STRUCTUREL DES BULLETINS ACADÉMIQUES (BA & BA SPÉCIAUX)
 ======================================================================
 
-1. CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION
-----------------------------------------------------------------------
+### [SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]
 * PÉRIODE AUTOMNE / HIVER (NOVEMBRE - DÉMARCHE MOBILITÉ & CARRIÈRE) :
   - Publication des circulaires et notes de service relatives au mouvement interacadémique (SIAM / I-Prof) (généralement en novembre / décembre).
   - Campagnes d'avancement de grade (Hors-Classe, Classe Exceptionnelle) et tableaux d'avancement.
@@ -588,15 +535,13 @@ RÉFÉRENTIEL STRUCTUREL DES BULLETINS ACADÉMIQUES (BA & BA SPÉCIAUX)
 * PÉRIODE RENTRÉE (AOÛT - SEPTEMBRE) :
   - Notes de service de la DIPE relatives à la rentrée scolaire, aux prises de fonction, aux affectations des contractuels et aux dispositifs d'accompagnement.
 
-2. STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA
-----------------------------------------------------------------------
+### [SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]
 * DIPE (Division des Personnels Enseignants) : Gestion des carrières, affectations, mutations, temps partiels, congés, avancements.
 * DRAIO (Délégation Régionale Académique d'Information et d'Orientation) : Affectation des élèves, procédures post-3e, orientation.
 * DAAC (Délégations Académiques aux Arts et à la Culture) / EAFC (École Académique de Formation Continue) : Offre de formation continue, stages, passation de dispositifs culturels et sportifs.
 * DEC (Division des Examens et Concours) : Organisation matérielle et numérique des examens (via les BA Spéciaux d'avril/mai).
 ----------------------------------------------------------------------
-ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE
-----------------------------------------------------------------------
+### [SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]
 * OBLIGATIONS STATUTAIRES DE L'AGENT (ART. L. 121-1 À L. 121-6 DU CODE GÉNÉRAL DE LA FONCTION PUBLIQUE - CGFP) : 
   - Exercice des fonctions avec dignité, impartialité, intégrité et probité.
   - Obligation stricte de neutralité et respect du principe de laïcité.
@@ -609,8 +554,7 @@ RÉFÉRENTIEL EXPERT NATIONAL - HUB EPS (2026)
 BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
 ======================================================================
 
-1. RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION DE L'AGENT
-----------------------------------------------------------------------
+### [SITUATION: RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION DE L'AGENT]
 * RESPONSABILITÉ CIVILE & SUBSTITUTION DE L'ÉTAT (Art. L. 911-4 Code de l'éducation / Loi du 5 avril 1937) : 
   La responsabilité civile de l'enseignant public est irrévocablement couverte par l'État pour tout dommage subi ou causé par un élève sous sa surveillance. L'action en responsabilité est menée exclusivement devant les tribunaux civils contre le Recteur. L'action récursoire de l'État contre l'agent n'est possible qu'en cas de faute personnelle détachable du service (ex: violences volontaires, abandon de poste caractérisé). L'erreur technique ou didactique est une faute de service non détachable.
 * RESPONSABILITÉ PÉNALE INDIVIDUELLE (Art. 121-3 Code pénal / Loi n° 2000-647 dite "Loi Fauchon") : 
@@ -620,8 +564,7 @@ BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
 * PROTECTION FONCTIONNELLE (Art. L. 134-1 à L. 134-4 Code de la fonction publique) : 
   Le Rectorat est tenu d'accorder la protection fonctionnelle à l'enseignant victime de violences, menaces, outrages ou lynchage numérique dans l'exercice de ses fonctions (prise en charge des frais de défense et assistance juridique).
 
-2. DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)
-----------------------------------------------------------------------
+### [SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]
 * EXIGENCES DE SÉCURITÉ EN MILIEU SPÉCIFIQUE : 
   L'organisation des Activités Physiques de Pleine Nature (escalade, ski, voile, VTT, course d'orientation, canoë-kayak) impose le respect strict des fiches Eduscol et la tenue d'un "registre de suivi des EPI" (casques, baudriers, cordes) mis à jour et signé.
 * SOUVERAINETÉ DE CONTRÔLE ET INTERDICTION DE SUBSTITUTION : 
@@ -629,8 +572,7 @@ BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
 * MOYENS D'ALERTE EN MILIEU ISOLÉ (ZONES BLANCHES) : 
   En milieu hostile ou isolement total (haute montagne, course d'orientation en zone blanche), l'obligation de moyens impose de disposer d'un moyen d'alerte autonome et immédiat (téléphone satellite, balise bidirectionnelle type inReach, ou radio secours).
 
-3. CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)
-----------------------------------------------------------------------
+### [SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]
 * RÈGLES STRICTES D'ARRONDI AUX EXAMENS :
   - BAC PRO & BMA (Circulaire n° 2019-129 / Circulaire 2020) : La note finale est la moyenne arithmétique des 3 activités, obligatoirement ARRONDIE AU POINT ENTIER SUPÉRIEUR (ex: 10,33/20 devient 11/20 sur Cyclades).
   - CAP (Circulaire du 27-08-2025 / Session 2026) : La note finale est la moyenne des 2 activités, arrondie au point entier le plus proche selon la règle mathématique des 0,50 (ex: 10,49 devient 10, et 10,50 devient 11).
@@ -639,8 +581,7 @@ BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
 * CADRE DES INAPTITUDES MÉDICALES (Décret n° 2016-1052) : 
   La notion de "dispense de cours" est abrogée. Le médecin constate des inaptitudes (totales ou partielles, temporaires ou annuelles) avec contre-indications fonctionnelles. L'élève inapte partiel est soumis à l'obligation de présence et participe via des rôles d'observation, d'arbitrage ou de codification fixés par l'enseignant.
 
-4. GESTION DES CRISES ET PROTOCOLES D'URGENCE
-----------------------------------------------------------------------
+### [SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]
 * DÉCLENCHEMENT DE LA CHAÎNE DE SECOURS (BO n° 1 / 2000) : 
   En cas d'accident grave, alerte immédiate des services de secours extérieurs (SAMU 15 / Pompiers 18 ou 112), application des premiers gestes de secours (PSC1) et mise en sécurité du reste de la classe.
 * INTERDICTION ABSOLUE DE TRANSPORT PERSONNEL : 

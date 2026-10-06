@@ -4,8 +4,7 @@ Source : Carte mentale d'Anne MICHEL, Académie de La Réunion (Mars 2016)
 ================================================================================
 
 --------------------------------------------------------------------------------
-1. LES 5 DOMAINES DU SOCLE COMMUN DE CONNAISSANCES, DE COMPÉTENCES ET DE CULTURE
---------------------------------------------------------------------------------
+### [SITUATION: LES 5 DOMAINES DU SOCLE COMMUN DE CONNAISSANCES, DE COMPÉTENCES ET DE CULTURE]
 - DOMAINE 1 : Les langages pour penser et communiquer
 - DOMAINE 2 : Les méthodes et outils pour apprendre
 - DOMAINE 3 : La formation de la personne et du citoyen
@@ -13,8 +12,7 @@ Source : Carte mentale d'Anne MICHEL, Académie de La Réunion (Mars 2016)
 - DOMAINE 5 : Les représentations du monde et de l'activité humaine
 
 --------------------------------------------------------------------------------
-2. LES 5 COMPÉTENCES GÉNÉRALES VISÉES EN EPS (COLLÈGE)
---------------------------------------------------------------------------------
+### [SITUATION: LES 5 COMPÉTENCES GÉNÉRALES VISÉES EN EPS (COLLÈGE)]
 
 COMPÉTENCE GÉNÉRALE 1 : Développer sa motricité et construire un langage du corps
 * Utiliser un vocabulaire adapté pour décrire la motricité d'autrui et la sienne.
@@ -47,8 +45,7 @@ COMPÉTENCE GÉNÉRALE 5 : S'approprier une culture physique, sportive et artist
 * Connaître des éléments essentiels de l'histoire des pratiques corporelles éclairant les activités physiques contemporaines.
 
 --------------------------------------------------------------------------------
-3. LES 4 CHAMPS D'APPRENTISSAGE (CA) & COMPÉTENCES DU CYCLE 4 (COLLÈGE)
---------------------------------------------------------------------------------
+### [SITUATION: LES 4 CHAMPS D'APPRENTISSAGE (CA) & COMPÉTENCES DU CYCLE 4 (COLLÈGE)]
 
 ================================================================================
 CHAMP D'APPRENTISSAGE 1 (CA1) :
@@ -124,7 +121,6 @@ COMPÉTENCES VISÉES PENDANT LE CYCLE - CA4 :
 * Se mettre au service de l'autre pour lui permettre de progresser.
 
 --------------------------------------------------------------------------------
-4. VALIDATION & ATTESTATION DU SOCLE COMMUN
---------------------------------------------------------------------------------
+### [SITUATION: VALIDATION & ATTESTATION DU SOCLE COMMUN]
 À l'issue du cycle 4, la validation des compétences visées pendant le cycle dans chacun des champs d'apprentissage contribue à attester la maîtrise du socle commun de connaissances, de compétences et de culture.
 ```[cite: 1]

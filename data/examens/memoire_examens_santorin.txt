@@ -5,8 +5,7 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
 [DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les modules Dokiel/Scenari de l'académie de Créteil, les FAQ des académies de Lyon, Grenoble et Normandie, les arbitrages de la CAHPN/CAHPN, la réglementation du CCF EPS, la documentation technique iPackEPS/Cyclades/Santorin/Imag'in et les retours de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
 
 --------------------------------------------------------------------------------
-1. CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS
---------------------------------------------------------------------------------
+### [SITUATION: CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS]
 * DATES LIMITES ABSOLUES DE VERROUILLAGE DES NOTES DU CCF EPS :
   - Les dates de remontée des notes et de fermeture des serveurs Santorin/Cyclades évoluant chaque année, les équipes doivent obligatoirement se référer au calendrier officiel diffusé par la circulaire académique de leur DEC.
   - Établissements en Rythme Sud (Hémisphère Sud / AEFE) : Les épreuves pratiques et la saisie sont décalées sur la session d'octobre / novembre / décembre. La date métropolitaine ne s'applique pas.
@@ -21,8 +20,7 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
   - Tout rattrapage d'un élève absent justifié (ABJ) prend obligatoirement la forme d'une « Épreuve de substitution » motrice sur le terrain avant la clôture des serveurs.
 
 --------------------------------------------------------------------------------
-2. DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF EPS
---------------------------------------------------------------------------------
+### [SITUATION: DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF EPS]
 * ÉLÈVE INAPTE / DISPENSÉ MÉDICAL (« DISP » / « DI ») :
   - Sélectionner « DI » (Dispensé) ou « Inapte » dans le menu déroulant Santorin sur l'épreuve concernée.
   - Conséquence : Neutralisation de l'APSA pour le calcul du CCF (pas de note zéro). Nécessite obligatoirement un certificat médical conforme (le simple mot des parents est nul et non avenu).
@@ -41,8 +39,7 @@ LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
   - Obligation technique absolue : Rédiger un commentaire circonstancié de justification STRICTEMENT OBLIGATOIRE dans l'interface Santorin pour éclairer l'arbitrage de la CAHPN (demande de maintien de la note unique ou de neutralisation).
 
 --------------------------------------------------------------------------------
-3. BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER
---------------------------------------------------------------------------------
+### [SITUATION: BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER]
 A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
 * Saisie directe au pavé numérique (sans menu déroulant) :
   - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
@@ -75,8 +72,7 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier communiqué par votre académie.
 
 --------------------------------------------------------------------------------
-4. RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)
---------------------------------------------------------------------------------
+### [SITUATION: RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)]
 - Principe absolu : Le CCF (Voie Pro et Voie GT) impose obligatoirement que les 3 épreuves de l'ensemble certificatif relèvent de 3 Champs d'Apprentissage (CA) distincts.
 - CAP = Strictement 2 épreuves / 2 Champs d'Apprentissage (Toute 3e épreuve bloque).
 - Exemple de blocage iPackEPS : Programmer Volley-ball, Basket-ball et Badminton déclenche un rejet car ces trois activités appartiennent toutes au CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel).
@@ -85,8 +81,7 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 - ⚠️ [NUANCE PÉDAGOGIQUE - APSA COMBINÉES] : L'interdiction formelle d'associer des APSA au sein d'un même champ ou de créer des noms combinés (ex: *Football-Musculation*) s'applique strictement à toutes les classes ordinaires. Cette règle souffre d'une unique exception technique tolérée : la création manuelle d'une APSA combinée sur iPackEPS est **exclusivement réservée aux groupes de type SSS (Section Sportive Scolaire)** en raison d'une limitation de l'interface qui ne gère qu'une seule APSA par groupe SSS.
 
 --------------------------------------------------------------------------------
-5. CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT
---------------------------------------------------------------------------------
+### [SITUATION: CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT]
 - Formulations courantes des collègues : je suis remplaçant ou contractuel, je n'ai pas mes codes, mes identifiants ou mon mot de passe pour accéder à mes lots de correction ; le professeur que je remplace ne m'a pas donné ses codes ; comment obtenir mes accès à Santorin.
 - Rappel (règle de connexion déjà énoncée dans ce document, aucune information nouvelle) : il n'existe pas de codes propres à Santorin à récupérer auprès du collègue remplacé. L'accès se fait par le portail ARENA avec ses propres identifiants professionnels (e-mail académique + mot de passe). Ce qui manque à un remplaçant, ce sont les droits, que la direction de l'établissement doit lui ouvrir par la procédure ci-dessous.
 - Le piège du portail Imag'in : Si un enseignant remplaçant (arrivé en cours d'année suite à un long arrêt) ne voit pas ses lots dans Santorin, le problème ne vient pas de Santorin mais d'Imag'in.
@@ -97,15 +92,13 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   4. Procéder ensuite à la distribution des lots dans la console Santorin-Direction.
 
 --------------------------------------------------------------------------------
-6. LA FAUSSE PISTE DES "CONDITIONS EXCEPTIONNELLES" (CE)
---------------------------------------------------------------------------------
+### [SITUATION: LA FAUSSE PISTE DES "CONDITIONS EXCEPTIONNELLES" (CE)]
 - Règle absolue : Le dispositif de Conditions Exceptionnelles (CE) est strictement collectif. 
 - Il s'applique uniquement à la totalité d'un groupe ou d'une classe en raison de conditions de pratique et d'évaluation rendues impossibles pour l'ensemble du groupe (ex: intempéries majeures, destruction d'un équipement le jour J).
 - Il est formellement interdit d'invoquer ou de demander une procédure de CE pour le cas particulier d'un élève isolé (pour un élève isolé, voir l'épreuve différée ou le traitement des absences/dispenses).
 
 --------------------------------------------------------------------------------
-7. MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION
---------------------------------------------------------------------------------
+### [SITUATION: MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION]
 * BUG A : « AUCUN LOT À CORRIGER » / LOT INVISIBLE
   - Cause 1 : Absence de mission active « Notation EPS CCF » dans Imag'in (défaut STSWEB).
   - Cause 2 : Le Chef d'établissement a omis de cliquer sur le picto « PDF » dans Imag'in (les droits n'ont pas été poussés vers Santorin).
@@ -137,8 +130,7 @@ C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
   - Solution : Parcourir toutes les pages du lot (sélecteur « Afficher 100 candidats ») et renseigner chaque case manquante.
 
 --------------------------------------------------------------------------------
-8. RÈGLE D'OR - INAPTITUDE À L'APPROCHE DU CCF (URGENCE DERNIÈRE MINUTE)
---------------------------------------------------------------------------------
+### [SITUATION: RÈGLE D'OR - INAPTITUDE À L'APPROCHE DU CCF (URGENCE DERNIÈRE MINUTE)]
 - Toute inaptitude médicale survenant à l'approche ou le jour de l'épreuve certificative est une inaptitude temporaire.
 - Interdiction formelle d'attribuer un statut "DISP" (Dispensé) immédiat dans Santorin.
 - Obligation absolue d'organiser une épreuve différée (session de substitution sur le terrain avant la clôture des serveurs académiques). Le statut DISP est proscrit pour ces cas de dernière minute.

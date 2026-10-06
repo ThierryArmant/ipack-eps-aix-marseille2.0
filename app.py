@@ -2284,9 +2284,9 @@ if prompt_a_traiter:
                         ("natation de vitesse", 1), ("demi-fond", 1), ("demi fond", 1), ("haies", 1), ("relais", 1), ("sprint", 1),
                         ("javelot", 1), ("disque", 1), ("lancer du poids", 1), ("pentabond", 1), ("triple saut", 1),
                         ("saut en hauteur", 1), ("saut en longueur", 1),
-                        ("escalade", 2), ("course d'orientation", 2), ("sauvetage", 2), ("vtt", 2), ("kayak", 2),
+                        ("escalade", 2), ("course d'orientation", 2), ("sauvetage", 2), ("vtt", 2),
                         ("danse", 3), ("cirque", 3), ("acrosport", 3), ("gymnastique", 3),
-                        ("badminton", 4), ("tennis de table", 4), ("boxe", 4), ("judo", 4), ("lutte", 4), ("basket", 4),
+                        ("badminton", 4), ("tennis de table", 4), ("boxe", 4), ("judo", 4), ("basket", 4),
                         ("football", 4), ("handball", 4), ("rugby", 4), ("volley", 4), ("ultimate", 4),
                     ]
                     import unicodedata as _ud

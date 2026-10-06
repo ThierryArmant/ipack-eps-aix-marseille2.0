@@ -117,3 +117,12 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Il n'y a pas de champ libre « capacités préservées » à remplir : on coche l'une des lignes proposées (Apte ; Partielle : pratique physique adaptée ; Partielle : présent sans pratique physique ; Partielle : absent ; Totale : présent sans pratique physique ; Totale : absent). Formats acceptés pour le certificat : doc, docx, pdf, odt, jpg, jpeg, png. (Source : Nouveautés iPackEPS 2025-2026.)
 - Le menu s'appelle [Mes Élèves] (et non « Gestion / Suivi des élèves »).
 
+
+### [SITUATION: COLLÈGE — QUE REMPLIR DANS iPackEPS ET COMMENT ENVOYER LE DOSSIER EPS POUR VALIDATION ?]
+- Mots-clés : collège, dossier EPS complet, que remplir, vérification des données, dossier terminé, proposer à la commission, validation, pas de dossier certificatif.
+- Formulations courantes des collègues : je suis en collège, que dois-je saisir dans iPackEPS ; comment envoyer notre dossier EPS ; mon dossier est « en cours de saisie » ; un collège doit-il remplir les protocoles.
+- Un collège n'a PAS de dossier certificatif : ni référentiels, ni protocoles, ni export vers Cyclades, ni saisie dans Santorin. Ces étapes ne concernent que les lycées.
+- À remplir, dans l'ordre des tableaux de bord : 1) la fiche Établissement (vérification) ; 2) Ma fiche professeur, par chaque enseignant (service, fonctions, vœux) ; 3) le Dossier EPS : Projets, Équipe EPS, Classes (configuration, organisation, import des élèves), APSA, Périodes, Groupes et séquences d'apprentissage, Élèves dans les groupes, Équipements, Emplois du temps.
+- Selon les demandes de l'académie, s'y ajoutent : le savoir-nager (validations ASNS) et l'enquête natation en fin d'année, le dossier de section sportive s'il y en a une, le matériel EPI si l'escalade est pratiquée.
+- Envoi pour validation : [Dossiers] > [Dossier EPS], lancer la vérification des données, corriger les alertes signalées, puis indiquer que le dossier est terminé (un commentaire est demandé s'il reste une alerte) et cliquer sur [Enregistrer]. L'icône passe au vert « en attente de validation » ; la commission académique valide ou demande des corrections.
+- Les dates limites sont fixées chaque année par l'inspection pédagogique d'Aix-Marseille.

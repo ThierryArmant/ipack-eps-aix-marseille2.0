@@ -908,7 +908,66 @@ def initialiser_base_peda(cle_fremt):
 
 
 timestamp_fichier = obtenir_cle_fichier()
+# ✅ AJOUT : recherche complémentaire PAR MOTS. La recherche « par le sens » ratait parfois la fiche qui contient
+# pourtant les mots mêmes de la question (ex. « Santorin refuse ma note à virgule ») parce que d'autres fiches lui
+# ressemblaient davantage. On repère donc aussi les fiches dont le titre, les mots-clés ou les questions types
+# partagent des mots RARES avec la question, et on les transmet à l'IA en plus.
+def _racines_mots(txt):
+    """Mots utiles d'un texte, réduits à leurs 6 premières lettres (verrouiller / verrouillage -> verrou)."""
+    return {m[:6] for m in re.findall(r"[a-z0-9]{3,}", normaliser(txt)) if m not in _MOTS_NEUTRES_SUJET}
+
+
+@st.cache_resource(max_entries=1, show_spinner=False)
+def initialiser_recherche_mots(cle_fremt):
+    import math
+    bases = {}
+    for nom, dossier in (("santorin", "data/examens"), ("ipack", "data/ipack")):
+        fiches = []
+        try:
+            for d in charger_dossier_txt_securise(dossier, par_fiche=True):
+                lignes = (d.text or "").split("\n")
+                entete = [lignes[0]] + [l for l in lignes[1:] if re.match(r"\s*-\s*(Mots-cl|Formulations|Q\d* ?:)", l)][:8]
+                racines = _racines_mots(" ".join(entete))
+                if racines:
+                    fiches.append((d.text, racines))
+        except Exception:
+            fiches = []
+        frequence = {}
+        for _, racines in fiches:
+            for r in racines:
+                frequence[r] = frequence.get(r, 0) + 1
+        n = max(len(fiches), 1)
+        poids = {r: math.log(1 + n / c) for r, c in frequence.items()}
+        bases[nom] = (fiches, poids)
+    return bases
+
+
+def chercher_par_mots(bases, nom, question, maximum=3):
+    """Fiches de la base `nom` qui partagent le plus de mots rares avec la question (au moins deux)."""
+    fiches, poids = bases.get(nom, ([], {}))
+    q = _racines_mots(question)
+    if re.search(r"\d,\d", question):
+        q.add("virgul")  # une note écrite « 4,5 » : la fiche utile parle de « virgule »
+    q = {r for r in q if r in poids}
+    if len(q) < 2:
+        return []
+    total = sum(poids[r] for r in q)
+    resultats = []
+    for texte, racines in fiches:
+        communs = q & racines
+        if len(communs) >= 2:
+            score = sum(poids[r] for r in communs)
+            if score >= 0.35 * total:
+                resultats.append((score, texte))
+    resultats.sort(key=lambda x: -x[0])
+    return [t for _, t in resultats[:maximum]]
+
+
 retriever_santorin = initialiser_base_santorin(timestamp_fichier)
+try:
+    recherche_mots = initialiser_recherche_mots(timestamp_fichier)
+except Exception:
+    recherche_mots = {}
 retriever_ipack = initialiser_base_ipack(timestamp_fichier)
 retriever_textes = initialiser_base_textes(timestamp_fichier)
 retriever_peda = initialiser_base_peda(timestamp_fichier)
@@ -1724,6 +1783,22 @@ if prompt_a_traiter:
                             _vises.add("dnb")
                     return bool(_vises) and not (_vises & _cibles)
 
+                # ✅ AJOUT : au collège il n'y a ni Cyclades ni Santorin. Sans ce garde-fou, une question de collège sur le
+                # dossier EPS recevait des fiches d'export vers Cyclades et l'IA les recopiait.
+                _college_hors_examen = niveau_actuel_form == "Collège (DNB)" and not re.search(
+                    r"cyclades|santorin|imagin|examen|ccf|certificat|protocole|referentiel|dnb|brevet", p_norm)
+
+                def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
+                    for _txt in chercher_par_mots(recherche_mots, nom_base, prompt, maximum):
+                        _cle = re.sub(r"\s+", " ", _txt)[:300]
+                        if _cle in _vus or _autre_examen(_txt):
+                            continue
+                        if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
+                            continue
+                        _vus.add(_cle)
+                        _extraits.append((etiquette + " " if etiquette else "") + _txt)
+                        _diag.append(("[mots] " + (etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:100], None))
+
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
                     if not retriever:
                         return
@@ -1737,6 +1812,8 @@ if prompt_a_traiter:
                             continue  # même passage présent dans deux bases : transmis une seule fois
                         if _autre_examen(_txt):
                             continue  # réponse rédigée pour un autre examen que celui de la question
+                        if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
+                            continue  # question de collège sans rapport avec les examens : pas de fiche Cyclades / Santorin
                         _vus.add(_cle)
                         _extraits.append((etiquette + " " if etiquette else "") + _txt)
                         if avec_sources:
@@ -1753,14 +1830,19 @@ if prompt_a_traiter:
                         if any(w in p_low for w in mots_cles_intention_peda):
                             _ajouter(retriever_peda, "[Référentiel Pédagogique]", avec_sources=True)
                     elif mode == "examens":
+                        _ajouter_par_mots("santorin", maximum=3)
+                        _ajouter_par_mots("ipack", "[Base iPackEPS]", maximum=2)
                         _ajouter(retriever_santorin, avec_diag=True, maximum=8)
                         # ✅ AJOUT : beaucoup de fiches Santorin / Cyclades sont rangées dans ipack.txt (livret Santorin, FAQ examens,
                         # cas d'élèves : arrivée en cours d'année, 2 notes sur 3, haut niveau...). Depuis l'onglet Examens elles étaient
                         # introuvables : l'IA inventait alors des menus ou restait dans le vague. On va aussi les chercher, à parts égales.
                         _ajouter(retriever_ipack, "[Base iPackEPS]", avec_diag=True, maximum=8)
                     elif mode == "ipack":
+                        _ajouter_par_mots("ipack", maximum=3)
                         _ajouter(retriever_ipack, avec_diag=True)
-                        _ajouter(retriever_santorin, "[Base Examens & Santorin]", avec_diag=True, maximum=4)
+                        if not _college_hors_examen:
+                            _ajouter_par_mots("santorin", "[Base Examens & Santorin]", maximum=2)
+                            _ajouter(retriever_santorin, "[Base Examens & Santorin]", avec_diag=True, maximum=4)
                     else:
                         _ajouter(retriever_peda, "[Référentiel Pédagogique & Programmes]")
                 except Exception as e_rag:
@@ -1899,10 +1981,11 @@ if prompt_a_traiter:
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_dispense_totale:
-                texte_brut = """<h3>🏥 GESTION D'UNE INAPTITUDE / DISPENSE TOTALE DE CERTIFICATION</h3>
-<p><strong>Cadre réglementaire :</strong> Une inaptitude médicale couvrant <strong>l'intégralité du cycle de certification</strong> (dispense totale) ne relève pas d'une absence ponctuelle ni d'une épreuve différée.</p>
-<p><strong>Saisie administrative :</strong> Le dossier doit faire l'objet du statut réglementaire de dispense globale (ex: <code>DISP</code> sur les blocs concernés) conformément aux directives de la note de service des examens.</p>
-<p><strong>Attention au zéro :</strong> Ne jamais assimiler une dispense totale et officielle à une absence injustifiée (pas de zéro éliminatoire).</p>"""
+                texte_brut = """<h3>🏥 ÉLÈVE INAPTE SUR TOUTE LA PÉRIODE DE CERTIFICATION : QUE SAISIR ?</h3>
+<p><strong>Dans Santorin :</strong> sur la fiche de l'élève, choisissez le statut <strong>« Dispensé » (DI)</strong> pour <strong>chacune des APSA</strong> du protocole (DI + DI + DI en bac, DI + DI en CAP), puis écrivez dans le champ <strong>Appréciations</strong> la mention « inapte à l'année ». Cliquez sur <strong>[Enregistrer]</strong>.</p>
+<p><strong>À ne pas confondre :</strong> « Dispensé » (inaptitude médicale justifiée par un certificat) n'est pas « Absent ». Une absence non justifiée donne 0/20 ; une dispense ne donne aucune note.</p>
+<p><strong>Certificat médical :</strong> il se déclare et se dépose dans iPackEPS, menu <strong>[Mes Élèves] &gt; [Visualisation]</strong>, onglet <strong>[Inaptitudes]</strong> ; il sera contrôlé par la commission académique.</p>
+<p><strong>Aucune note n'est saisie dans iPackEPS :</strong> les notes et les statuts d'examen se saisissent uniquement dans Santorin.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_exclusion:

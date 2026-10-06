@@ -2263,6 +2263,7 @@ if prompt_a_traiter:
                 if mode != "textes":
                     bloc_video_consigne = """
                     📺 TUTO VIDÉO (DÉCLENCHEURS STRICTS) :
+                    - VIDÉO DE LA FICHE : si la fiche du contexte sur laquelle repose ta réponse contient une ligne « - Vidéo : » suivie d'une adresse, termine ta réponse par « 📺 Tutoriel associé : » suivi de cette adresse, recopiée telle quelle. Une seule vidéo, celle de la fiche utilisée, jamais celle d'une autre fiche.
                     - Ne cite un tutoriel vidéo QUE si son nom correspond clairement à la manipulation que ta réponse explique. Dans le doute, ou si ta réponse n'est pas une manipulation dans un logiciel (règle, explication, réponse négative, renvoi vers un service), n'en cite AUCUN : un tutoriel sans rapport induit le collègue en erreur. Jamais plus d'un tutoriel. Liste officielle des fichiers (import_eleves_pronote.mp4, Configuration_classes_import_eleves.mp4, affecter_eleves_dans_groupes.mp4, Generer_importer_fichier_groupes_cyclades.mp4, verification_affectation_protocoles_cyclades.mp4, creer_convocations_enseignants.mp4, Distribution_lots_santorin.mp4, Distribution_manuelle_lots_santorin.mp4, Saisie_notes_Santorin.mp4, Verrouiller_lot_santorin.mp4, Deverrouiller_lots_santorin.mp4, Ajouter_evaluateur_lot_santorin.mp4, Depot_referentiels_iPackEPS.mp4, Saisie_protocoles_iPackEPS.mp4, Protocoles_adaptes_iPackEPS.mp4, Gestion_groupes_iPackEPS.mp4 (gestion des groupes EPS/AS/SSS), Sequences_apprentissage_groupes.mp4 (séquences d'apprentissage des groupes), Apsa_certificatives_CAP.mp4 (APSA certificatives en CAP), Declaration_projet_APPN.mp4 (déclaration d'un projet APPN), Extraction_notes_Santorin.mp4, Import_documents_glisser_deposer.mp4, Import_automatique_eleves.mp4, Actualisation_equipe_classes.mp4, Gestion_inventaire_EPI_photos.mp4, Controle_dates_CM_CAHPN.mp4, Export_zip_documents_certificatifs.mp4, Export_profs_externes_cyclades.mp4, EDT_Introduction.mp4, EDT_Creation_Suppression.mp4, EDT_Semaines_A_B.mp4, EDT_Verification_Alertes.mp4, Manipulations_Nouvelle_Annee_iPackEPS.mp4).
                     """
                 else:
@@ -2574,6 +2575,16 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 st.session_state.messages_hub.append(
                     {"role": "assistant", "type": "video", "content": video_url}
                 )
+
+        # ✅ Les fiches rédigées d'après les vidéos donnent l'adresse de la vidéo (« - Vidéo : https://... ») et non un nom
+        # de fichier .mp4 : sans ce bloc, la vidéo n'était plus affichée sous la réponse.
+        if mode != "textes" and not est_dnb:
+            _deja = {m["content"] for m in st.session_state.messages_hub if m.get("type") == "video"}
+            for _url in re.findall(r"https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{6,}", texte_final)[:1]:
+                if _url not in _deja:
+                    st.session_state.messages_hub.append(
+                        {"role": "assistant", "type": "video", "content": _url}
+                    )
 
         # Une réponse « je ne dispose pas... » n'est pas une réponse à compléter : la précision sera traitée comme
         # une question complétée, sans consigne « ne répète pas » (qui poussait l'IA à refuser une seconde fois).

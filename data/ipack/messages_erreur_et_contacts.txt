@@ -1,0 +1,43 @@
+=== MESSAGES D'ERREUR FRÉQUENTS ET INTERLOCUTEURS — iPackEPS, CYCLADES, SANTORIN ===
+Répertoire des messages tels qu'ils s'affichent à l'écran, avec leur cause et la correction. Sources : tutoriels officiels iPackEPS et leurs vidéos.
+
+### [SITUATION: MESSAGES D'ERREUR D'iPackEPS — CE QU'ILS VEULENT DIRE]
+- Mots-clés : message d'erreur, alerte, erreur, iPackEPS, réservé au coordonnateur, cycle scolaire, colonnes non trouvées, classe non trouvée, date réservée, trois champs d'apprentissage, 403, 400, not found.
+- Formulations courantes des collègues : j'ai un message d'erreur ; une alerte s'affiche ; que veut dire ce message ; iPackEPS me bloque avec un message.
+- « Cette manipulation est réservée au coordonnateur » (bouton [Actualiser] de l'équipe ou des classes, import des élèves) : le faire faire par le coordonnateur, ou cocher temporairement « coordonnateur EPS » dans [Ma fiche professeur] > [Fonctions], faire la manipulation, puis décocher.
+- « Le groupe de destination n'autorise pas le cycle scolaire de [élève] » : on place un élève dans un groupe EPS ou SSS d'un autre niveau que le sien. Vérifier le cycle du groupe, ou celui de la classe dans [Dossier EPS] > [Classes] > Configuration.
+- « Des colonnes n'ont pas été trouvées dans l'en-tête du fichier » (import Pronote) : on a exporté une classe au lieu d'un groupe ; Pronote n'ajoute la colonne « classe » que pour un groupe.
+- « La classe … déclarée sur Pronote n'a pas été trouvée » : le nom de la classe diffère entre Pronote et iPackEPS. Corriger le fichier avec le Bloc-notes (Ctrl+H, rechercher la partie en trop, remplacer par rien), jamais avec Excel.
+- « Des élèves n'ont pas été retrouvés » (import Pronote) : noms modifiés à la main dans Pronote ; ajouter ces quelques élèves à la main dans le groupe.
+- « Il faut trois champs d'apprentissage différents » (protocole de bac GT en rouge) : retirer une APSA en double sur un champ et en ajouter une d'un troisième champ, dans [Dossier EPS] > [Groupes].
+- « Date réservée » : le jour choisi est bloqué pour les épreuves ponctuelles ; prendre une autre date.
+- « Activité non certificative » dans la liste des séquences : l'APSA n'est pas déclarée certificative pour cette voie dans [Dossier EPS] > [APSA].
+- « Hors dates d'ouverture » ou module inactif : la campagne de saisie de ce module n'est pas ouverte, ou l'académie n'utilise pas ce module. Ce n'est pas une panne.
+- « Error 403 – Forbidden », « NOT FOUND », « Error 400 Bad Request » en ouvrant iPackEPS depuis ARENA : changer de navigateur, vider le cache (Ctrl+Maj+Suppr), ou supprimer puis recréer le favori ARENA.
+- Dossier « incomplet » alors que tout semble saisi : lancer la vérification des données et lire le rapport ; on peut déclarer le dossier terminé en expliquant l'alerte en commentaire.
+
+### [SITUATION: MESSAGES D'ERREUR DE CYCLADES ET DE SANTORIN — CE QU'ILS VEULENT DIRE]
+- Mots-clés : message d'erreur, Cyclades, Santorin, candidats ignorés, INE non inscrit, adresses mail non retrouvées, incohérences de données, erreur données, passage du protocole, bouton grisé, verrouiller désactivé, cases inactives.
+- Formulations courantes des collègues : Santorin affiche une erreur ; Cyclades me met un message ; la distribution des lots plante ; je ne peux pas saisir ; le bouton est grisé.
+- Compte-rendu d'import Cyclades, « candidats ignorés car inconnus ou non inscrits » : normal, le fichier contient les élèves de tous les examens ; vérifier seulement que le traitement s'est bien déroulé.
+- Bouton d'import absent dans Cyclades : la commission n'a pas encore validé tous les protocoles de l'établissement.
+- Seule l'option « protocole adapté » est proposée à la création : les protocoles ont déjà été validés par la commission.
+- Distribution des lots, liste d'« adresses mail non retrouvées » : mission Imag'in non créée pour ces enseignants, ou adresse différente entre Cyclades et Imag'in ; créer les missions, sinon passer par la distribution manuelle.
+- Alerte « incohérences de données sur les candidats » dans Santorin : élèves ayant changé d'établissement, désinscrits ou démissionnaires ; le chef d'établissement met à jour l'inscription, sinon contacter la DEC de son académie.
+- « Erreur données : passage du protocole … vers le protocole …, des APSA sont modifiées » : des notes avaient été saisies sur une APSA remplacée ; rouvrir la fiche de chaque élève concerné et cliquer sur [Enregistrer].
+- Cases de saisie des AFL ou AFLP inactives : le professeur n'a pas cliqué sur [Choisir AFLP] pour son lot.
+- Note à virgule non prise : taper un point (4.5) puis Entrée.
+- Bouton [Verrouiller] grisé : un élève au moins n'a pas d'évaluation sur chacune des APSA.
+- Cadenas fermé, saisie impossible : lot verrouillé ; seul le chef d'établissement peut le rouvrir.
+- Menu « EPS – Gestion des épreuves EPS » ou « Portail d'accès aux missions » absent dans Imag'in : le chef d'établissement n'a pas créé la mission d'évaluation EPS.
+
+### [SITUATION: QUI CONTACTER POUR QUOI — ASSISTANCE iPackEPS, DEC, INSPECTION, CHEF D'ÉTABLISSEMENT]
+- Mots-clés : qui contacter, à qui m'adresser, assistance, correspondant académique, DEC, division des examens, inspection pédagogique, IA-IPR, chef d'établissement, secrétariat des examens, service informatique.
+- Formulations courantes des collègues : à qui écrire ; qui peut me débloquer ; est-ce la DEC ou l'inspection ; qui s'occupe de ce problème.
+- Le coordonnateur EPS de l'établissement : actualiser l'équipe et les classes, importer les élèves, envoyer le dossier pour validation.
+- Le chef d'établissement (ou le secrétariat des examens) : importer les élèves dans Cyclades, créer les missions Imag'in, réaffecter un protocole, distribuer les lots, ajouter un correcteur, déverrouiller un lot, signer les dossiers (enquête natation, section sportive, APPN).
+- Le correspondant académique iPackEPS (assistance iPackEPS de son académie) : iPackEPS n'apparaît pas dans ARENA, établissement absent, enseignant absent de l'équipe, module à activer (section sportive), bug de l'application.
+- La DEC (division des examens et concours) de son académie : inscriptions des candidats, missions et convocations Imag'in, incohérences de données, statut de sportif de haut niveau, calendrier et dates limites des examens.
+- L'inspection pédagogique régionale (IA-IPR d'EPS) et la commission académique : validation ou réouverture des protocoles, référentiels, cas exceptionnel, sections sportives, projets APPN.
+- Le rectorat, service des personnels : statut, contrat et affectation d'un enseignant ou d'un vacataire.
+- Chaque académie a ses propres adresses de contact et son propre calendrier.

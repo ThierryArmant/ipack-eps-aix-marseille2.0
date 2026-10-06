@@ -1,0 +1,61 @@
+=== CADRE RÉGLEMENTAIRE DES EXAMENS D'EPS : CERTIFICAT MÉDICAL, CAP, DNB, OPTION, SPÉCIALITÉ, CANDIDATS INDIVIDUELS ===
+Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'épreuves académiques et coefficients peuvent évoluer d'une session à l'autre et les modalités pratiques dépendent de chaque académie : pour un cas précis, se reporter au texte et à la DEC ou à l'inspection pédagogique de son académie.
+
+### [SITUATION: CERTIFICAT MÉDICAL D'INAPTITUDE EN EPS — CE QU'IL DOIT CONTENIR, SA DURÉE, LE SUIVI]
+- Mots-clés : certificat médical, inaptitude, dispense, partielle, totale, durée, année scolaire, trois mois, médecin scolaire, incapacités fonctionnelles, décret 88-977, arrêté du 13 septembre 1989, circulaire 90-107.
+- Formulations courantes des collègues : que doit contenir un certificat médical ; un certificat peut-il couvrir plusieurs années ; un élève dispensé doit-il venir en cours ; que faire d'une inaptitude de plus de trois mois ; puis-je refuser un certificat.
+- Textes : décret n° 88-977 du 11 octobre 1988, arrêté du 13 septembre 1989, circulaire n° 90-107 du 17 mai 1990.
+- Principe : tout élève est apte a priori. Il n'y a plus de « dispense » décidée à l'avance : une inaptitude doit être justifiée par un certificat médical.
+- Le certificat indique le caractère TOTAL ou PARTIEL de l'inaptitude et sa DURÉE, qui ne peut pas dépasser l'année scolaire en cours.
+- Pour une inaptitude partielle, le médecin formule les limites en termes d'incapacités fonctionnelles (types de mouvements, d'efforts), et non en interdisant une activité : c'est ce qui permet à l'enseignant d'adapter.
+- L'élève partiellement inapte reste en cours, avec un enseignement adapté. L'absence de cours ne se décide pas sur le seul certificat : elle relève du chef d'établissement.
+- Inaptitude de plus de trois mois, consécutifs ou cumulés : l'élève fait l'objet d'un suivi spécifique par le médecin de santé scolaire.
+- En pratique, pour qu'un certificat soit exploitable à l'examen, il doit être daté, lisible, identifier l'élève (nom, prénom, date de naissance) et le médecin (signature), et préciser le type et la durée de l'inaptitude. Les exigences de forme pour la commission d'examen sont fixées par chaque académie.
+- Dans iPackEPS, l'inaptitude et le certificat se déclarent dans [Mes Élèves] > [Visualisation], onglet [Inaptitudes].
+
+### [SITUATION: EPS AU CAP — CCF, EXAMEN PONCTUEL, ABSENCES, INAPTITUDES (circulaire du 17 juillet 2020)]
+- Mots-clés : CAP, CCF, deux APSA, deux champs d'apprentissage, moyenne, arrondi, examen ponctuel, une épreuve, absence, zéro, non-délivrance du diplôme, inaptitude, sportif de haut niveau, MENE2018678C.
+- Formulations courantes des collègues : combien d'épreuves d'EPS en CAP ; un absent en CAP a-t-il zéro ; que se passe-t-il si un élève de CAP est absent à tout ; un inapte temporaire en CAP ; candidats libres en CAP.
+- Texte : circulaire du 17 juillet 2020 (NOR MENE2018678C, BO n° 31 du 30 juillet 2020), prise pour l'application de l'arrêté du 30 août 2019 ; applicable depuis la session 2021.
+- CCF : deux APSA relevant de deux champs d'apprentissage différents, évaluées au cours de la dernière année de formation. Chaque APSA est notée de 0 à 20 ; la note finale est la moyenne des deux. Si la note comporte un dixième égal à 5, elle est arrondie au point supérieur.
+- Examen ponctuel terminal (candidats des établissements hors contrat, des CFA non habilités, candidats individuels) : une seule épreuve, à choisir dans la liste nationale, notée sur 20.
+- Absence non justifiée à une épreuve : la note zéro est attribuée pour cette épreuve.
+- Absence à TOUTES les épreuves : le candidat est déclaré absent, ce qui entraîne la non-délivrance du diplôme.
+- Inaptitude temporaire : l'enseignant peut renvoyer l'élève à une évaluation différée, ou permettre une certification sur une seule activité. Seuls les handicaps ne permettant pas une pratique adaptée entraînent une dispense de l'épreuve.
+- Sportif de haut niveau : évaluation sur deux APSA dont l'une est sa spécialité, où la note de 20/20 est attribuée automatiquement.
+- Commission académique : elle vérifie la déclinaison du référentiel national, valide les protocoles d'évaluation et harmonise les notes de CCF.
+- PORTÉE : ces règles valent pour le CAP uniquement, pas pour le baccalauréat professionnel ni pour le baccalauréat général et technologique.
+
+### [SITUATION: EPS AU DNB (COLLÈGE) — COMMENT L'EPS COMPTE ET CE QUI EST ATTENDU DES ÉQUIPES]
+- Mots-clés : DNB, brevet, collège, contrôle continu, moyenne annuelle de troisième, pas d'épreuve terminale d'EPS, trois APSA, trois champs d'apprentissage, inapte, absent, décret 2025-328.
+- Formulations courantes des collègues : y a-t-il une épreuve d'EPS au brevet ; comment compte l'EPS au DNB ; faut-il un protocole au collège ; que mettre à un élève dispensé en troisième ; le DNB passe-t-il par Santorin.
+- Textes : décret n° 2025-328 du 10 avril 2025 relatif aux modalités de délivrance du diplôme national du brevet, arrêté du 31 décembre 2015 modifié, note de service du 2 septembre 2025.
+- Il n'y a PAS d'épreuve terminale d'EPS au DNB et pas de CCF : l'EPS compte par le contrôle continu, c'est-à-dire par la moyenne annuelle de l'élève en EPS en classe de troisième (moyennes trimestrielles ou semestrielles), comme les autres enseignements obligatoires.
+- Conséquence pratique : rien ne se saisit dans Cyclades ni dans Santorin pour le DNB, et un collège n'a pas de dossier certificatif dans iPackEPS. La moyenne d'EPS se saisit dans le logiciel de vie scolaire de l'établissement.
+- Repères diffusés par des inspections pédagogiques pour construire cette moyenne : trois APSA de trois champs d'apprentissage différents, des évaluations communes aux classes, pas de zéro à titre disciplinaire, chaque enseignant note sa classe. Le détail (protocole d'évaluation, rattrapages) dépend des consignes de chaque académie.
+- Élève inapte : inaptitude totale attestée par certificat médical = dispensé ; inaptitude partielle = évaluation adaptée.
+
+### [SITUATION: ENSEIGNEMENT OPTIONNEL D'EPS AU LYCÉE — COMMENT IL EST ÉVALUÉ]
+- Mots-clés : option EPS, enseignement optionnel, contrôle continu, moyennes trimestrielles, livret scolaire, pas de CCF, pas de Santorin.
+- Formulations courantes des collègues : l'option EPS a-t-elle un CCF ; où va la note de l'option ; faut-il un protocole pour l'option.
+- L'enseignement optionnel d'EPS est évalué en contrôle continu, par les moyennes trimestrielles ou semestrielles de l'élève : il n'y a ni CCF ni protocole dans Cyclades, et rien à saisir dans Santorin.
+- La note se saisit dans le logiciel de vie scolaire de l'établissement et remonte par le livret scolaire.
+- Dans iPackEPS, l'option se déclare comme un groupe ([Dossiers] > [Dossier EPS] > [Groupes]), avec ses séquences d'apprentissage.
+
+### [SITUATION: ENSEIGNEMENT DE SPÉCIALITÉ EPPCS — ÉPREUVE TERMINALE]
+- Mots-clés : EPPCS, spécialité, éducation physique pratiques et culture sportives, épreuve terminale, écrit, oral, pratique, note de service du 24 mars 2022.
+- Formulations courantes des collègues : comment est évaluée la spécialité EPPCS ; y a-t-il un CCF en EPPCS ; un sportif de haut niveau en EPPCS.
+- Texte : note de service du 24 mars 2022 (BO du 14 avril 2022), modifiée par la note de service du 26 septembre 2023.
+- La spécialité est évaluée par une épreuve terminale ponctuelle en classe de terminale, et non par CCF : une partie écrite de 3 h 30 (dissertation et étude de documents) et une partie orale de 30 minutes comprenant une pratique physique observée et un entretien à partir d'une vidéo.
+- Sportif de haut niveau : la note maximale est attribuée à la partie pratique ; l'entretien peut s'appuyer sur sa spécialité sportive.
+- Ce n'est pas l'épreuve d'EPS de l'enseignement commun : un élève de spécialité passe aussi ses trois CCF d'EPS obligatoire.
+- Dans iPackEPS, les groupes d'EPPCS se déclarent dans [Dossiers] > [Dossier EPS] > [Groupes], avec un fonctionnement particulier décrit dans le tutoriel dédié.
+
+### [SITUATION: CANDIDATS INDIVIDUELS — EXAMEN PONCTUEL D'EPS, QUI S'EN OCCUPE ?]
+- Mots-clés : candidat individuel, candidat libre, CNED, examen ponctuel terminal, épreuves ponctuelles, jury, convocation, vœux de jury, date réservée.
+- Formulations courantes des collègues : comment sont évalués les candidats libres en EPS ; dois-je créer un protocole pour un candidat individuel ; pourquoi suis-je convoqué au ponctuel ; où faire mes vœux de jury.
+- Les candidats individuels (et ceux du CNED) ne passent pas de CCF : ils passent un examen ponctuel terminal organisé par l'académie. L'établissement n'a aucun protocole à créer pour eux.
+- Bac général et technologique : deux épreuves, de deux champs d'apprentissage différents, chacune notée sur 20 (voir la fiche sur la note de service du 20 février 2026). CAP : une seule épreuve.
+- La liste des épreuves proposées, les dates et les lieux sont fixés par chaque académie : se reporter à la circulaire de son académie.
+- Les enseignants d'EPS peuvent être convoqués comme jurys. Dans iPackEPS, chacun indique ses préférences dans [Ma fiche professeur], onglet des vœux de jury.
+- Les jours des épreuves ponctuelles sont des « dates réservées » : iPackEPS affiche une alerte si l'on y place une date de CCF ou de rattrapage.

@@ -24,6 +24,7 @@ Fiches rédigées à partir des textes cités. Elles donnent le cadre général 
 - L'AED en PRÉPROFESSIONNALISATION est un étudiant (au moins 60 crédits de licence) sous contrat de trois ans, 8 heures par semaine dans l'établissement, accompagné par un tuteur. Textes : décret n° 2019-981 du 24 septembre 2019 et circulaire n° 2019-156 du 6 novembre 2019.
 - Ses missions sont progressives : en L2, observation et interventions ponctuelles sur des séquences, sous la responsabilité du professeur ; en L3, s'y ajoutent d'autres activités éducatives ; en M1 seulement, enseignement de séquences pédagogiques complètes, notamment en remplacement, à raison de 6 heures hebdomadaires dans le second degré.
 - Conséquence : en L2 comme en L3, un AED en préprofessionnalisation ne prend PAS une classe seul et n'enseigne pas de séquence complète ; il intervient avec le professeur, sous sa responsabilité. C'est seulement en M1 qu'il peut enseigner des séquences complètes.
+- Évolution : le recrutement de nouveaux AED en préprofessionnalisation a été arrêté dans le cadre de la réforme de la formation des enseignants (annonce de 2024) ; les contrats déjà signés vont à leur terme. On rencontre donc encore des AED en préprofessionnalisation, mais le dispositif s'éteint.
 - Un étudiant recruté À LA FOIS comme AED et comme vacataire a deux engagements distincts : ses heures d'enseignement relèvent de la vacation, pas du contrat d'AED.
 
 ### [SITUATION: INTERVENANT EXTÉRIEUR EN EPS, À L'AS OU EN SECTION SPORTIVE — CONDITIONS ET RESPONSABILITÉ]
@@ -39,3 +40,16 @@ Fiches rédigées à partir des textes cités. Elles donnent le cadre général 
 - iPackEPS ne permet pas de créer un professeur d'EPS : la liste des enseignants vient des bases du rectorat ([Dossiers] > [Dossier EPS] > [Équipe EPS], bouton [Actualiser]).
 - Si la personne n'apparaît pas après [Actualiser], la déclarer comme intervenant extérieur, en bas de la fenêtre [Équipe EPS] ; elle peut alors être attribuée à des groupes.
 - iPackEPS décrit l'organisation de l'EPS ; il ne valide pas le statut ni le droit d'enseigner de la personne.
+
+### [SITUATION: CONCOURS À BAC+3 (CAPEPS DÈS LA L3) — UN ÉTUDIANT DE L3 A-T-IL DES CLASSES ? QUI A DES CLASSES EN RESPONSABILITÉ ?]
+- Mots-clés : réforme du concours, bac+3, L3, licence, CAPEPS, élève fonctionnaire, fonctionnaire stagiaire, master M2E, master enseignement et éducation, MEEF, stage d'observation, pratique accompagnée, responsabilité de classe, session 2026.
+- Formulations courantes des collègues : le concours est ouvert aux L3, peuvent-ils prendre des classes ; un étudiant de L3 STAPS peut-il faire cours seul ; qui a des classes en responsabilité avec la réforme ; quelle différence entre M1 et M2 ; un stagiaire M2 est-il seul devant ses élèves.
+- Depuis la session 2026, les concours de recrutement des enseignants, dont le CAPEPS, se passent à bac+3, en fin de licence. Les concours à bac+5 coexistent pendant une période de transition (jusqu'en 2027).
+- Ce que la réforme change : le MOMENT du concours. Elle ne donne pas de classes aux étudiants de L3. L'année de L3 est l'année où l'on PASSE le concours ; l'étudiant n'a pas de classe en responsabilité avant de l'avoir réussi.
+- Après la réussite au concours, deux années de master « enseignement et éducation » (M2E), qui remplace le master MEEF :
+- En M1, le lauréat est élève fonctionnaire, rémunéré ; il fait un stage d'observation et de pratique accompagnée, environ un tiers de l'année. Il n'est pas seul responsable d'une classe : il est avec un enseignant.
+- En M2, il est fonctionnaire stagiaire, rémunéré ; il passe environ la moitié de son temps en responsabilité devant des élèves.
+- Conséquence pour une équipe d'EPS : seul le fonctionnaire stagiaire de M2 (ou, dans l'ancien parcours, le stagiaire lauréat du concours à bac+5) a des classes en responsabilité. Un étudiant de L3, même candidat au CAPEPS, et un élève fonctionnaire de M1 interviennent avec un professeur.
+- Un étudiant de licence qui assure des heures d'EPS seul ne le fait donc pas au titre de la réforme, mais parce que l'établissement ou le rectorat l'a recruté par ailleurs (vacation ou contrat) : c'est ce contrat qui fixe ce qu'il peut faire.
+- Dans iPackEPS : le fonctionnaire stagiaire affecté dans l'établissement apparaît dans l'équipe EPS après [Actualiser], comme tout enseignant affecté par le rectorat.
+- Ces éléments décrivent le cadre général de la réforme ; les modalités précises d'une année donnée (quotités, calendrier) figurent dans les textes et les consignes du rectorat.

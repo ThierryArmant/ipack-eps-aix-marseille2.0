@@ -162,15 +162,21 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 ======================================================================
 
 ### 1. Acteurs et Rôles Institutionnels
+- Mots-clés : DEC, Division des Examens et Concours, rectorat, ordre de mission, convocation, convocation aux examens, Imag'in, Cyclades, affectations, autorisation d'absence, annuler une convocation, force majeure
+- Formulations courantes des collègues : c'est quoi la DEC ; qui s'occupe des convocations aux examens ; je suis convoqué mais j'ai une autorisation d'absence, laquelle prime ; qui peut annuler ma convocation ; à qui s'adresser pour un cas de force majeure ; une convocation est-elle un ordre de mission
 * **DEC (Division des Examens et Concours) :** Service académique du Rectorat chargé de l'organisation administrative, de la validation des affectations dans Cyclades, de la gestion des convocations via Imag'in et du traitement des dossiers de force majeure.
 * **Ordre de mission :** Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission hiérarchiquement supérieur à toute autorisation d'absence pour convenance personnelle. Seule la DEC peut l'annuler.
 
 ### 2. Logistique Santorin et Distribution des Lots
+- Mots-clés : distribution des lots, Distribution de l'épreuve, lots de correction, Santorin, chef d'établissement, Aucun lot à corriger, lot invisible, synchronisation Cyclades Santorin, Rejouer l'import, signalement à la DEC, Imag'in, mission d'évaluation, convocation PDF, droits Santorin, correcteur
+- Formulations courantes des collègues : je ne vois pas mes lots dans Santorin ; Santorin m'affiche aucun lot à corriger ; qui doit distribuer les lots ; pourquoi faut-il éditer la convocation en PDF dans Imag'in ; mes élèves n'apparaissent pas dans Santorin ; comment le chef d'établissement me donne accès à Santorin ; je n'ai pas de copies à corriger
 * **Distribution des lots :** Étape indispensable où le chef d'établissement génère les lots de correction à partir des protocoles dans l'onglet « Distribution de l'épreuve ». Sans distribution, les correcteurs ne voient pas leurs copies.
 * **Erreur « Aucun lot à corriger » :** Due à une rupture de synchronisation entre Cyclades et Santorin. Procédure : vérifier l'affectation dans Cyclades, forcer la synchronisation via « Rejouer l'import » dans Santorin, ou faire un signalement à la DEC.
 * **Convocations Imag'in -> Santorin :** Le chef d'établissement doit créer les missions d'évaluation dans Imag'in. L'édition impérative de la convocation au format **PDF** dans Imag'in est l'action technique qui déclenche la transmission des droits vers Santorin (Tutoriel vidéo associé : `https://ipackeps.ac-creteil.fr/spip.php?article80`).
 
 ### 3. Saisie des Notes et Cas Particuliers (Santorin / CCF)
+- Mots-clés : saisie des notes Santorin, CCF, deux notes minimales, champs d'apprentissage, cas exceptionnels, CE, sportif de haut niveau, SHN, PPF, 20/20, DI, dispense, inaptitude médicale, ABI, cases AFLP grisées, Choisir les AFLP
+- Formulations courantes des collègues : combien de notes faut-il au minimum pour valider le CCF ; quelle note pour un sportif de haut niveau ; que mettre pour un élève dispensé ; un élève absent sans justificatif a-t-il zéro ; les cases AFLP sont grisées dans Santorin ; je ne peux pas saisir les AFLP ; à quoi sert le CE ; où est le bouton choisir les AFLP
 * **Règle des deux notes minimales :** Pour valider le CCF au Baccalauréat, l'élève doit disposer d'au moins deux notes valides dans deux APSA relevant de deux Champs d'Apprentissage (CA) distincts.
 * **Cas Exceptionnels (CE) :** Utilisé lorsqu'une APSA ne peut être évaluée pour des raisons techniques ou matérielles (hors inaptitude médicale), après accord de la commission académique. Neutralise l'activité.
 * **Sportifs de Haut Niveau (SHN) :** Attribue automatiquement la note de 20/20 sur l'APSA de spécialité si le statut (SHN/PPF) est validé et rattaché au bon CA.
@@ -180,6 +186,8 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 * **Cases AFLP inactives :** Si les cases de saisie sont grisées dans Santorin, c'est que le bouton « Choisir les AFLP » n'a pas été utilisé par l'enseignant : c'est le professeur lui-même qui clique sur [choisir AFLP] dans Santorin, sur son lot, pour déclarer les AFL(P) qu'il évalue.
 
 ### 4. Réglementation des Absences et Épreuves Différées
+- Mots-clés : absence au CCF, épreuve différée, rattrapage, DNB, contrôle continu, référentiel, dépôt de référentiel, APSA certificative, EPPCS, APSA adaptée, groupes, SSS, ULIS, protocole invalide, export Cyclades, Déclarer CE
+- Formulations courantes des collègues : un élève était absent au CCF, a-t-il droit à un rattrapage ; mon APSA n'apparaît pas pour déposer le référentiel ; comment déposer plusieurs référentiels pour la même activité ; iPackEPS dit que mon protocole est invalide ; je n'ai pas le droit de créer un groupe SSS ; comment faire un groupe avec des élèves de niveaux différents ; comment envoyer mes groupes et protocoles vers Cyclades ; le bouton pour déclarer un CE ne marche pas
 * **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
 * **Collège (DNB) :** Pas de CCF ni d'épreuve différée réglementaire. L'évaluation repose sur le contrôle continu des trimestres de 3ème à partir d'une pluralité d'évaluations. Une absence non justifiée ne se sanctionne pas par un zéro disciplinaire arbitraire, mais nécessite une régularisation si la moyenne n'est pas représentative.
 
@@ -274,6 +282,8 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
   - Si un seul élève est concerné : il est conseillé de créer un lot spécifique (réservé au chef d'établissement ou référent évaluation Santorin) et d'y placer l'élève concerné.
   - Si les boutons de CE restent bloqués (non réactifs) : cela arrive souvent si le nom du protocole contient des caractères spéciaux `/` ou `.`. Solution : recréer un protocole propre en faisant désvalider/revalider par l'I-IPR/DEC.
 TITRE : Gestion et identification des Sportifs de Haut Niveau (SHN) - Examens nationaux
+- Mots-clés : sportif de haut niveau, SHN, ESHN, Santorin, Cyclades, inscription aux examens, liste ministérielle, DEC, aménagement d'épreuves, pièces justificatives, secrétariat d'examen, correcteur, note de référence, neutralisation, jury, repérer un élève sportif
+- Formulations courantes des collègues : comment trouver mes sportifs de haut niveau dans Santorin ; où voir qu'un élève est SHN ; est-ce que je dois signaler un élève sportif de haut niveau dans Santorin ; qui s'occupe du statut de sportif de haut niveau pour l'examen ; mon élève SHN a un aménagement d'épreuve, qu'est-ce que je dois faire ; peut-on filtrer les élèves dans Santorin ; à quoi sert Santorin
 RÔLE ET LIMITES DE SANTORIN :
 - Santorin est exclusivement la plateforme institutionnelle de numérisation, de distribution et de correction des copies d'examens (Bac, DNB, CAP). 
 - Santorin N'EST PAS un logiciel de gestion des dossiers scolaires, ni une base de données permettant de filtrer, rechercher ou identifier des profils particuliers d'élèves (tels que les Sportifs de Haut Niveau - SHN ou ESHN).

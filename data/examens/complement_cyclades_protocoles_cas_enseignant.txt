@@ -69,3 +69,12 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Les INE « non inscrits » correspondent à des élèves présents dans iPackEPS mais non inscrits à cet examen dans l'établissement : contrôle ponctuel, changement d'établissement.
 - Ce qu'il faut vérifier : la phrase indiquant que le traitement s'est bien déroulé, et le nombre de candidats pris en compte, qui doit correspondre à l'effectif de l'examen.
 - Refaire l'import une fois par examen présent dans l'établissement, avec le même fichier.
+
+
+### [SITUATION: IL MANQUE DES CANDIDATS DANS CYCLADES (CAP, BAC PRO, BAC) — QUE FAIRE ?]
+- Mots-clés : candidats manquants, élève absent de Cyclades, liste des inscrits, inscription à l'examen, liste de référence, export iPackEPS vers Cyclades, association au protocole, dispense d'épreuve, dispensé d'EPS, voie professionnelle, CAP, bac pro, secrétariat.
+- Formulations courantes des collègues : il me manque des candidats sur Cyclades en CAP ; un élève n'apparaît pas dans Cyclades ; je n'ai pas tous mes élèves dans la liste des candidats ; pourquoi cet élève n'est pas dans Cyclades alors qu'il est dans iPackEPS.
+- Réponse courte : la liste des candidats dans Cyclades est la LISTE DE RÉFÉRENCE : ce sont les élèves inscrits à l'examen. Un candidat qui manque dans Cyclades n'est pas un problème d'iPackEPS ni de groupes : il faut vérifier son INSCRIPTION À L'EXAMEN auprès du secrétariat ou du chef d'établissement.
+- À ne pas confondre : l'export d'iPackEPS vers Cyclades ne crée aucun candidat. Il sert uniquement à ASSOCIER les candidats, déjà présents dans Cyclades, à leur protocole. Refaire l'import des élèves ou les groupes dans iPackEPS ne fera donc pas apparaître un candidat manquant.
+- Cas fréquent en voie professionnelle (CAP, bac pro) : certains élèves sont dispensés de l'épreuve d'EPS du fait de leur parcours. C'est une dispense administrative, liée à leur inscription, et non une dispense médicale. Ces élèves n'ont pas à être évalués en EPS pour l'examen.
+- Que faire : donner au secrétariat ou au chef d'établissement le nom des élèves concernés pour qu'il vérifie leur inscription à l'examen et une éventuelle dispense d'épreuve.

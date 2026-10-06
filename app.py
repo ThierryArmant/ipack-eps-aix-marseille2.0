@@ -79,7 +79,22 @@ WEBHOOK_URL = (
 )
 
 
+def _texte_simple_pour_journal(texte):
+    """Retire la mise en forme (balises HTML, gras Markdown) pour que la réponse soit lisible dans le Google Sheet."""
+    import re as _re, html as _html
+    t = str(texte or "")
+    t = _re.sub(r"(?i)<br\s*/?>|</p>|</li>|</h[1-6]>|</div>", "\n", t)
+    t = _re.sub(r"(?i)<li[^>]*>", "- ", t)
+    t = _re.sub(r"<[^>]+>", "", t)
+    t = t.replace("**", "").replace("`", "")
+    t = _html.unescape(t)
+    t = _re.sub(r"[ \t]+\n", "\n", t)
+    t = _re.sub(r"\n{3,}", "\n\n", t)
+    return t.strip()
+
+
 def log_interaction(question, reponse, mode="", contexte="", niveau=""):
+    reponse = _texte_simple_pour_journal(reponse)
     payload = {
         "question": question, 
         "reponse": reponse,

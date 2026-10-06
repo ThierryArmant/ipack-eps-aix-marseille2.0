@@ -105,3 +105,24 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
 - Si la moyenne reste « En attente », le conseil de classe peut décider d'une évaluation de remplacement, organisée pour les élèves dans ce cas.
 - ZÉRO : OUI, mais dans un seul cas. Si l'élève est absent SANS justification à l'évaluation de remplacement, la note zéro est attribuée pour cet enseignement. Si son absence à l'évaluation de remplacement est dûment justifiée, il est convoqué à nouveau. En dehors de l'évaluation de remplacement (évaluation ordinaire en cours d'année), on ne met pas zéro pour une absence.
 - Source : note de service du 2 septembre 2025 sur l'évaluation des élèves de 3e et le DNB (Bulletin officiel du 4 septembre 2025).
+
+
+### [SITUATION: CHAMPS D'APPRENTISSAGE — DEUX ACTIVITÉS DU MÊME CHAMP DANS UN PROTOCOLE ? (EXEMPLE : DEMI-FOND ET TRIPLE SAUT)]
+- Mots-clés : champ d'apprentissage, CA1, CA2, CA3, CA4, CA5, même champ, deux activités du même champ, athlétisme, demi-fond, triple saut, pentabond, course, saut, lancer, natation de vitesse, retenir la meilleure note, meilleure des deux notes, protocole, ensemble certificatif, collège, lycée.
+- Formulations courantes des collègues : mes élèves font demi-fond et triple saut, comment retenir la meilleure note ; peut-on mettre deux activités d'athlétisme dans le protocole ; peut-on garder la meilleure de deux notes ; dans quel champ d'apprentissage est cette activité.
+- Réponse courte : NON, ce n'est pas possible. La course de demi-fond et le triple saut sont deux activités d'athlétisme, donc du MÊME champ d'apprentissage (le champ 1). Un protocole d'examen ne peut pas contenir deux épreuves du même champ, et on ne « retient » jamais la meilleure de deux notes : chaque épreuve du protocole compte.
+- Règle : chaque épreuve d'un ensemble certificatif relève d'un champ d'apprentissage DIFFÉRENT (3 épreuves de 3 champs au baccalauréat général, technologique et professionnel ; 2 épreuves de 2 champs au CAP).
+- Ce qu'il faut faire : ne garder qu'UNE des deux activités d'athlétisme dans le protocole, et compléter avec des activités d'autres champs.
+- Avant de répondre à une question qui cite plusieurs activités, toujours vérifier d'abord si elles sont dans le même champ. Si oui, le dire dès la première phrase au lieu d'expliquer comment faire.
+- Les 5 champs d'apprentissage au LYCÉE (voie générale, technologique et professionnelle) :
+  - Champ 1 : réaliser une performance motrice maximale mesurable à une échéance donnée. Ce sont les activités athlétiques (courses, sauts, lancers) et la natation de vitesse.
+  - Champ 2 : adapter son déplacement à des environnements variés ou incertains. Exemples : escalade, course d'orientation, sauvetage aquatique.
+  - Champ 3 : réaliser une prestation corporelle destinée à être vue et appréciée. Exemples : danse, arts du cirque, acrosport, gymnastique.
+  - Champ 4 : conduire et maîtriser un affrontement collectif ou interindividuel pour gagner. Exemples : sports collectifs, sports de raquette, sports de combat.
+  - Champ 5 : réaliser et orienter son activité physique pour développer ses ressources et s'entretenir. Exemples : course en durée, musculation, natation en durée, step, yoga.
+- Les 4 champs d'apprentissage au COLLÈGE :
+  - Champ 1 : produire une performance optimale, mesurable à une échéance donnée (activités athlétiques, natation).
+  - Champ 2 : adapter ses déplacements à des environnements variés.
+  - Champ 3 : s'exprimer devant les autres par une prestation artistique et/ou acrobatique.
+  - Champ 4 : conduire et maîtriser un affrontement collectif ou interindividuel.
+- Attention : le demi-fond (champ 1, performance) n'est pas la course en durée (champ 5, entretien de soi) : ce sont deux activités de deux champs différents.

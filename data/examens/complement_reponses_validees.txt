@@ -1,0 +1,23 @@
+=== RÉPONSES VALIDÉES PAR LE RESPONSABLE DU HUB (mêmes règles que les réponses directes de l'application) ===
+
+### [SITUATION: CAP : UN ENSEMBLE CERTIFICATIF À 2 ÉPREUVES, PAS 3]
+- NON : en CAP, le CCF repose sur 2 épreuves relevant de 2 champs d'apprentissage différents. Réglementairement, il n'est pas possible d'affecter des candidats de CAP sur un ensemble certificatif à 3 épreuves.
+- Pratique à ne pas suivre : inscrire les candidats sur 3 épreuves pour garder les 2 meilleures notes n'est pas autorisé.
+
+### [SITUATION: CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN]
+- Règle d'or absolue : L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.
+- Procédure de déverrouillage (Direction) :
+- [Étape 1] Signalez l'erreur à votre Chef d'établissement ou au secrétariat d'examen.
+- [Étape 2] La direction se connecte à sa console Santorin-Direction (Menu "Liste des lots").
+- [Étape 3] Elle clique directement sur le cadenas pour le basculer de "fermé" à "ouvert".
+- Ne contactez pas la DEC pour cela : le déverrouillage fait partie des prérogatives du chef d'établissement.
+
+### [SITUATION: ÉLÈVE INAPTE SUR TOUTE LA PÉRIODE DE CERTIFICATION : QUE SAISIR ?]
+- Dans Santorin : sur la fiche de l'élève, choisissez le statut « Dispensé » (DI) pour chacune des APSA du protocole (DI + DI + DI en bac, DI + DI en CAP), puis écrivez dans le champ Appréciations la mention « inapte à l'année ». Cliquez sur [Enregistrer].
+- À ne pas confondre : « Dispensé » (inaptitude médicale justifiée par un certificat) n'est pas « Absent ». Une absence non justifiée donne 0/20 ; une dispense ne donne aucune note.
+- Certificat médical : il se déclare et se dépose dans iPackEPS, menu [Mes Élèves] > [Visualisation], onglet [Inaptitudes] ; il sera contrôlé par la commission académique.
+- Aucune note n'est saisie dans iPackEPS : les notes et les statuts d'examen se saisissent uniquement dans Santorin.
+
+### [SITUATION: DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN]
+- Qui : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même.
+- Chemin : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant].

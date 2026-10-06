@@ -1,0 +1,50 @@
+=== RÉPONSES VALIDÉES PAR LE RESPONSABLE DU HUB (mêmes règles que les réponses directes de l'application) ===
+
+### [SITUATION: ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)]
+- Règle d'or absolue : Aucun enseignant ou personnel ne se connecte par un site web académique public (type site grand public de l'académie).
+- Portail d'accès unique : L'accès à TOUTES les applications professionnelles et d'examen se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel ARENA (ou l'intranet académique) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).
+
+### [SITUATION: RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES]
+- Règle absolue : iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est strictement impossible d'y saisir des notes.
+- Outil dédié : Utilisez exclusivement Pronote, ÉcoleDirecte ou le LSU selon votre niveau.
+
+### [SITUATION: CALENDRIER OFFICIEL DES EXAMENS & SAISIE DES NOTES]
+- Principe réglementaire : Les dates butoirs de saisie des notes et de clôture des serveurs (Santorin / Cyclades) sont fixées annuellement par le calendrier officiel publié au Bulletin Officiel (BO) et précisées par la circulaire DEC de votre académie.
+
+### [SITUATION: ERREUR DE SAISIE : APSA ÉTABLISSEMENT VS LISTE NATIONALE (BAC GT)]
+- Le problème : Déclarer une activité en "APSA établissement" au lieu de l'activité de la "liste nationale" bloque la validation du protocole par iPackEPS et fausse les statistiques académiques sur Cyclades.
+- Procédure de résolution exacte :
+- [Étape 1] Retournez dans le module [Dossiers] > [Dossier EPS] > [APSA].
+- [Étape 2] Sélectionnez dans le tableau de gauche l'activité de la liste nationale correspondante (ex: [Courses]).
+- [Étape 3] Déclarez-la certificative en Lycée pour remplacer l'APSA établissement erronée.
+
+### [SITUATION: PROJET ANNUEL SSS : « AUCUN GROUPE DE TYPE SSS » OU « AUCUNE APSA ASSOCIÉE »]
+- Ce n'est pas un bug : les rubriques [Projets Annuels SSS] et [Bilan SSS] ne s'activent que si iPackEPS trouve au moins un groupe dont le type est SSS, avec une APSA associée. Un groupe créé avec le type EPS ne compte pas : inutile d'essayer cette voie.
+- Vérifications à faire dans l'ordre :
+- [Étape 1] Le type SSS vous est-il proposé ? Dans [Dossiers] > [Dossier EPS] > [Groupes], ouvrez votre groupe de section et regardez son type. Si le type [SSS] n'est pas proposé ou est refusé, la cause est là : ce type est bloqué par défaut tant que le recteur n'a pas validé l'ouverture de la section et que le responsable iPackEPS de l'académie n'a pas activé votre établissement (liste mise à jour chaque année). Faites alors un simple signalement par mail à votre responsable iPackEPS ou à votre IPR pour que l'établissement soit activé.
+- [Étape 2] Une seule APSA par groupe SSS. iPackEPS n'accepte qu'une APSA par groupe SSS. Si votre section travaille plusieurs activités, créez manuellement une APSA portant le nom de l'ensemble (par exemple « Football-Musculation ») dans [Dossiers] > [Dossier EPS] > [APSA], puis associez-la au groupe SSS.
+- [Étape 3] La bonne année scolaire. Les groupes ne sont pas reconduits d'une année sur l'autre : ils doivent être reconfigurés à chaque rentrée, puis les élèves répartis dedans (la liste des APSA, elle, est conservée). Vérifiez sur le tableau de bord que vous êtes bien sur l'année en cours.
+- [Étape 4] Terminer le Dossier EPS avant le projet. Le projet de section reprend les élèves placés dans la SSS, les créneaux SSS de l'emploi du temps et les professeurs qui encadrent. Complétez donc groupes, APSA, élèves, équipements sportifs et emploi du temps, puis retournez dans [Dossiers] > [Dossier SSS] > [Projet Annuel].
+- Si tout est conforme et que le message persiste : écrivez à votre responsable iPackEPS en précisant le nom du groupe, son type et l'APSA associée.
+
+### [SITUATION: BLOCAGE CRÉATION GROUPE SSS]
+- Règle institutionnelle : La création d’un groupe de type SSS nécessite obligatoirement que le recteur ait validé la demande. Par défaut, iPackEPS bloque la création de ce type de groupe.
+- Procédure de déblocage :
+- [Étape 1] Vérifiez que le recteur a bien validé la demande d'ouverture de votre section sportive.
+- [Étape 2] Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.
+
+### [SITUATION: FAUT-IL TOUT RESAISIR CHAQUE ANNÉE DANS iPACKEPS ?]
+- Règle d'or iPackEPS : NON, il ne faut pas tout resaisir ! L'essentiel des données saisies l'année précédente est automatiquement conservé par l'application.
+- Ce qui est conservé :
+- Les données générales de l'établissement et la structure globale.
+- Vos compétences, spécialités sportives et l'historique des référentiels.
+- La liste générale des APSA programmées.
+- Ce qu'il faut actualiser (ou réinitialiser) pour la rentrée :
+- [Étape 1] Votre service et vos fonctions (remis à zéro à chaque rentrée : nombre d'heures, décharges, choix du rôle de coordonnateur).
+- [Étape 2] L'équipe EPS (actualisation de la liste des collègues connectés).
+- [Étape 3] L'organisation des classes et l'importation des nouveaux élèves.
+- [Étape 4] Les dates de séquences des APSA et la configuration des groupes pour l'année en cours.
+
+### [SITUATION: ACCÈS AUX RESSOURCES ET DOSSIERS PÉDAGOGIQUES]
+- Emplacement : Les documents et cadrages pédagogiques de référence sont centralisés dans l'onglet [Sécurité & Cadre Réglementaire / Pédagogie] de l'application.
+- Rappel d'usage : Pour interroger le Hub sur les programmes, utilisez des mots-clés ciblés (ex: programmes, cycles, compétences).

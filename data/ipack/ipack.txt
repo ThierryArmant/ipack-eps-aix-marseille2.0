@@ -91,7 +91,7 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
 - Nouveautés de l'Interface Professeur / Chef d'établissement (Version 2026.2.x) :
   * **Imports de documents unifiés** : Généralisation de l'ergonomie par glisser-déposer (drag 'n drop) sur toutes les fenêtres de dépôt de documents.
   * **Bouton Légende** : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut de dossier pour éviter d'avoir à survoler chaque icône.
-  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel.
+  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel. Si la liste des classes ou des élèves reste incomplète, le coordonnateur lance l'actualisation manuelle : [gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser].
   * **Inventaire EPI enrichi** : Ajout possible de photos du matériel, importation des notices techniques, modification de la fréquence des contrôles (fixée par défaut à 12 mois) et présence automatique de la photo sur la version papier du registre.
   * **Dépôts multiples (Axes des projets EPS)** : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS.
   * **Actualisation élargie (Classes et Équipe EPS)** : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique.
@@ -119,7 +119,7 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
 
 1. Connexion institutionnelle :
    - Accès au portail professionnel ARENA avec les identifiants académiques officiels (e-mail et mot de passe).
-   - Lancement de l'application iPackEPS depuis le tableau de bord (utiliser la synchronisation manuelle d'Esterel en cas de besoin).
+   - Lancement de l'application iPackEPS depuis le tableau de bord (utiliser la synchronisation manuelle du portail de votre académie en cas de besoin).
 
 2. Configuration de l'Espace Établissement :
    - Accès : Tableau de bord => [Établissement].
@@ -170,9 +170,9 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Référentiels].
    - Action : Téléverser les fiches d'évaluation et grilles critériées (AFL1, AFL2, AFL3) pour chaque APSA certificative. Étape obligatoire pour l'analyse et la validation de l'inspection avant les épreuves.
 
-3. Soumission du dossier à la Commission Académique (CAHN) :
+3. Soumission du dossier à la Commission Académique (CAHPN) :
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Dépôt des documents pour la commission].
-   - Action : Lancer la vérification globale, ajouter un commentaire explicatif en cas d'alertes orange, puis valider la soumission pour transmission à la CAHN.
+   - Action : Lancer la vérification globale, ajouter un commentaire explicatif en cas d'alertes orange, puis valider la soumission pour transmission à la CAHPN.
 
 4. Gestion des cas particuliers et inaptitudes permanentes :
    - Vérifier le rattachement des certificats médicaux pour les inaptitudes de l'année ou les demandes d'épreuves adaptées dans [Mes Élèves] => [Visualisation] => [Inaptitudes].
@@ -231,7 +231,7 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : En cas d'erreur (message incomplet, fausse manipulation), si l'utilisateur n'enregistre pas le message sur un dossier, le système ne le conserve pas. En cas de blocage ou d'anomalie sur un dossier (marqué incomplet à tort), privilégier immédiatement la communication directe par mail avec les coordonnateurs.
 
 ### [SITUATION: CORRECTION PARTAGÉE SANTORIN]
-- Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via le portail Esterel / Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en « lecture seule » pour l'autre correcteur afin d'éviter les conflits de saisie.
+- Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en « lecture seule » pour l'autre correcteur afin d'éviter les conflits de saisie.
 
 ### [SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]
 - Instruction : Pour signaler une page manquante ou une mauvaise numérisation, le correcteur doit utiliser exclusivement la messagerie interne (icône enveloppe) de la plateforme Santorin pour alerter le coordonnateur.
@@ -239,8 +239,8 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 [SECTION: INTERFACES_ACCES_ET_REFRESH_IPACKEPS]
 
 ### [SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]
-- Mots-clés : Esterel, Arena, synchro manuelle, bouton Aide, rafraîchir la page, F5, application introuvable, module Établissement, Enquête et pilotage
-- Formulations courantes des collègues : Je ne trouve pas iPackEPS dans Arena, que faire ? ; Le module Établissement ne s'affiche pas ; Comment faire une synchro manuelle dans Esterel ? ; Où apparaît iPackEPS dans le portail ?
+- Mots-clés : Arena, synchro manuelle, bouton Aide, rafraîchir la page, F5, application introuvable, module Établissement, Enquête et pilotage
+- Formulations courantes des collègues : Je ne trouve pas iPackEPS dans Arena, que faire ? ; Le module Établissement ne s'affiche pas ; Comment faire une synchro manuelle dans le portail académique ? ; Où apparaît iPackEPS dans le portail ?
 - Instruction : Si l'application iPackEPS est introuvable ou si le module « Établissement » ne s'affiche pas sur le portail Estérel / Arena, l'utilisateur doit forcer une synchronisation manuelle.
   -> Procédure : Depuis l'interface ESTEREL, cliquer sur le bouton « Aide » (en haut à droite) > cliquer sur « Synchro manuelle » > puis faire « Rafraîchir la page » (F5). L'application s'ajoutera alors correctement dans le module « Enquête et pilotage ».
 
@@ -268,7 +268,7 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : Pour réaliser la bascule automatique des élèves SSS dans le dossier projet annuel, tous les groupes SSS doivent être préalablement créés et rattachés aux emplois du temps. Les dénominations iPackEPS doivent être strictement identiques à celles de Pronote.
 
 ### [SITUATION: VALIDATION DU DOSSIER]
-- Instruction : Pour soumettre le dossier certificatif à la commission académique (CAHN), seule la validation des dossiers certificatifs (FCA et protocoles) est requise. Il n'est pas nécessaire de transmettre ou de finaliser le « dossier établissement » global pour valider l'envoi. Le registre EPI n'est pas obligatoire.
+- Instruction : Pour soumettre le dossier certificatif à la commission académique (CAHPN), seule la validation des dossiers certificatifs (FCA et protocoles) est requise. Il n'est pas nécessaire de transmettre ou de finaliser le « dossier établissement » global pour valider l'envoi. Le registre EPI n'est pas obligatoire.
 
 [SECTION: CAS_SPECIFIQUES_DES_APSA]
 
@@ -336,11 +336,11 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Mots-clés : inaptitude, certificat médical, dispensé, dépôt du certificat, onglet Inaptitudes, Saisir une inaptitude, Mes Élèves, Fiche élève, IN, DI, bouton de modification grisé, date de reprise
 - Formulations courantes des collègues : comment saisir une inaptitude pour un élève ; où déposer le certificat médical d'un élève ; mon élève est dispensé, que dois-je faire dans iPackEPS ; faut-il écrire IN ou DI à la main ; le bouton de modification est grisé, pourquoi
 - Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
-1. ANALYSE DES RISQUES (Bouton de modification grisé) : Si l'interface bloque, c'est qu'une note est déjà enregistrée ce trimestre pour cet élève. Procédure de déblocage : Aller dans le menu 'Saisie des notes', effacer manuellement la note pour rendre la case totalement vide (pas de zéro), enregistrer, puis revenir sur la fiche de l'élève.
+1. BOUTON DE MODIFICATION GRISÉ : la cause n'est pas une note, car aucune note n'est saisie dans iPackEPS (il n'existe pas de menu « Saisie des notes »). Vérifier que la procédure en cours est terminée et enregistrée, puis revenir sur la fiche de l'élève.
 2. PROCÉDURE TECHNIQUE :
 → Accès : Menu 'Mes Élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
 → Action : Cliquer sur le bouton 'Saisir une inaptitude'.
-→ Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans les cases de notes brutes. La validation de l'inaptitude génère le statut automatiquement.
+→ Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans une case de saisie. La validation de l'inaptitude génère le statut automatiquement.
 → Dépôt : Scanner et téléverser le certificat médical (PDF ou image) directement via l'option dédiée dans cet onglet.
 3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.
 
@@ -348,7 +348,7 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Mes Élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 
 ### [SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]
-- Instruction : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.
+- Instruction : Si l'interface refuse de modifier l'activité ou l'option d'un élève, la cause n'est pas une note : aucune note n'est saisie dans iPackEPS et il n'existe pas de menu « Saisie des notes ». Vérifier que les séquences et l'emploi du temps de l'élève sont enregistrés, puis actualiser la page.
 
 ### [SITUATION: FICHE - GESTION DE LA LEVÉE D'INAPTITUDE EN COURS DE CYCLE]
 - Mots-clés : levée d'inaptitude, reprise de l'EPS, nouveau certificat médical, inaptitude annuelle, date de fin, onglet Inaptitudes, Saisir une inaptitude, CCF, épreuve de remplacement, coordonnateur EPS, APPN, sécurité
@@ -411,7 +411,7 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 [SECTION: MISES_A_JOUR_ET_ARBITRAGES_OFFICIELS_DE_PIERRE]
 
 ### [SITUATION: CASES DE SAISIE AFLP INACTIVES]
-- Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes. Cherchez le bouton « choisir les AFLP ». Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
+- Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes dans Santorin. Cherchez le bouton « choisir les AFLP ». Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
 
 ### [SITUATION: DATE LIMITE SAISIE SANTORIN]
 - Instruction : Les enseignants doivent impérativement se référer au calendrier officiel et aux instructions publiées par la DEC de leur académie de rattachement.
@@ -995,7 +995,7 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - Si des candidats ne sont pas distribués automatiquement, c'est généralement parce que l’adresse mail de l’examinateur déclarée dans Cyclades n’a pas été retrouvée dans Imag’in. Pour résoudre ce blocage, l'établissement peut soit modifier l’adresse mail associée aux protocoles (via l'activité « EPS - Contrôler/réaffecter des protocoles »), soit effectuer une distribution manuelle des candidats restants. En cliquant sur le bouton « Lots », l'établissement visualise les structures créées. Il est possible de sélectionner tous les lots pour envoyer une notification automatique par mail aux enseignants afin de leur signaler que la notation peut débuter. En cas d’erreur, l'établissement peut supprimer les lots existants et recommencer la distribution.
 
 ### 5. Saisie des notes par les enseignants
-- L'enseignant se connecte à Imag'in via l'adresse officielle https://appli.ac-aix-marseille.fr/imagin/enseignant ou via son espace numérique de travail (Esterel). Il se rend dans « Portail d’accès aux missions », puis clique sur la ligne de la mission « Notation EPS CCF » correspondant à l'examen. Une fois basculé dans Santorin, il sélectionne à nouveau l'examen et clique sur la flèche pour accéder à son lot. La liste des élèves s’affiche (il est recommandé d'ajuster le nombre de candidats par page). L'enseignant clique sur le bouton crayon en bout de ligne pour lancer la saisie.
+- L'enseignant se connecte à Imag'in via le portail de son académie (ARENA). Il se rend dans « Portail d’accès aux missions », puis clique sur la ligne de la mission « Notation EPS CCF » correspondant à l'examen. Une fois basculé dans Santorin, il sélectionne à nouveau l'examen et clique sur la flèche pour accéder à son lot. La liste des élèves s’affiche (il est recommandé d'ajuster le nombre de candidats par page). L'enseignant clique sur le bouton crayon en bout de ligne pour lancer la saisie.
 
 ### 6. Saisie des notes selon l'Examen
 - Mots-clés : Santorin, saisie des notes, examen, baccalauréat général ou technologique, AFL, bac pro, BCP, AFLP, APSA, protocole, fin de séquence, fil de la séquence
@@ -1036,10 +1036,10 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Collège DNB** : Au collège, les contextes d'évaluation de fin de séquence sont proposés et partagés par l'équipe pédagogique. S'il est possible de proposer un contexte inconnu pour une évaluation en CA2 (niveau des élèves, facilité matérielle), la contrainte n'est toutefois pas obligatoire réglementairement. Pour rappel, il n'existe pas de référence à des fiches certificatives nationales au collège.
 
 ### Thématique : Contexte de l'épreuve (Positionnement Épreuve Différée)
-- Mots-clés : épreuve différée, positionnement, date, CCF, fin d'année, projet d'évaluation, protocole certificatif, CAHN, collège DNB, calendrier des évaluations
+- Mots-clés : épreuve différée, positionnement, date, CCF, fin d'année, projet d'évaluation, protocole certificatif, CAHPN, collège DNB, calendrier des évaluations
 - Formulations courantes des collègues : Quand placer l'épreuve différée ?; L'épreuve différée se fait-elle juste après le CCF ou en fin d'année ?; Peut-on prévoir plusieurs dates d'épreuve différée ?; Y a-t-il une épreuve différée au collège ?
 - **Question** : L'épreuve différée doit-elle être positionnée après le CCF ou bien en fin d'année ?
-- **Réponse Lycée GT Bac / Lycée Pro Bac / Lycée Pro CAP** : La réglementation ne prévoit pas d'obligation en la matière. Chaque établissement fait le choix d'une organisation qui satisfait au mieux aux contraintes du contexte. Dans tous les cas, le projet d'évaluation de l'établissement indique les dates retenues pour les évaluations différées. Ces dates sont transmises à la CAHN dans le protocole certificatif de début d'année. Une ou plusieurs dates différentes peuvent être proposées.
+- **Réponse Lycée GT Bac / Lycée Pro Bac / Lycée Pro CAP** : La réglementation ne prévoit pas d'obligation en la matière. Chaque établissement fait le choix d'une organisation qui satisfait au mieux aux contraintes du contexte. Dans tous les cas, le projet d'évaluation de l'établissement indique les dates retenues pour les évaluations différées. Ces dates sont transmises à la CAHPN dans le protocole certificatif de début d'année. Une ou plusieurs dates différentes peuvent être proposées.
 - **Réponse Collège DNB** : Le principe d'épreuve différée n'existe pas au collège dans la mesure où celle-ci est uniquement et réglementairement prévue dans le cadre de la certification de la voie générale et technologique et de la voie professionnelle pour ce qui concerne le CCF.
 
 ### Thématique : Conservation des Notes
@@ -1108,10 +1108,10 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Lycée GT Bac / Collège DNB** : L'évaluation est un geste professionnel au service des apprentissages des élèves. Il est ainsi souhaitable d'informer ces derniers des attentes pour chacune des évaluations proposées. Cette information participe au respect du contrat didactique entre l'enseignant et l'élève. Ayant connaissance des critères, et des indicateurs de niveaux, sur lesquels il est évalué, l'élève pourra faire l'expression de sa plus haute valeur.
 
 ### Thématique : Évaluer et Noter (Durée des leçons d'évaluation)
-- Mots-clés : leçons d'évaluation, deux séances, durée de l'épreuve, fin de séquence, CCF, une seule séance, protocole certificatif, CAHN, date d'épreuve, épreuve différée
+- Mots-clés : leçons d'évaluation, deux séances, durée de l'épreuve, fin de séquence, CCF, une seule séance, protocole certificatif, CAHPN, date d'épreuve, épreuve différée
 - Formulations courantes des collègues : Peut-on évaluer sur deux séances ?; Faut-il deux leçons pour l'évaluation de fin de séquence ?; Combien de dates prévoir pour un CCF ?; L'épreuve doit-elle tenir sur une seule leçon ?
 - **Question** : Doit-on organiser deux leçons d'évaluation en fin de séquence d'enseignement ?
-- **Réponse Lycée GT Bac** : Le temps pour progresser et apprendre est contraint dans une séquence d'enseignement. Même si l'acte d'évaluation fait partie intégrante du processus d'enseignement et d'apprentissage, l'organisation d'une épreuve au CCF doit s'adapter à la durée d'une leçon. Il s'agit alors de concevoir une épreuve qui doit s'adapter à la durée d'une séance pour évaluer et noter tous les élèves du groupe. Dans le cadre de l'obligation de formalisation du protocole certificatif à transmettre à la CAHN, seule une date est prévue pour une épreuve de CCF (en complément d'une date pour l'épreuve différée).
+- **Réponse Lycée GT Bac** : Le temps pour progresser et apprendre est contraint dans une séquence d'enseignement. Même si l'acte d'évaluation fait partie intégrante du processus d'enseignement et d'apprentissage, l'organisation d'une épreuve au CCF doit s'adapter à la durée d'une leçon. Il s'agit alors de concevoir une épreuve qui doit s'adapter à la durée d'une séance pour évaluer et noter tous les élèves du groupe. Dans le cadre de l'obligation de formalisation du protocole certificatif à transmettre à la CAHPN, seule une date est prévue pour une épreuve de CCF (en complément d'une date pour l'épreuve différée).
 - **Réponse Collège DNB** : Le temps pour progresser et apprendre est contraint dans une séquence d'enseignement. L'acte d'évaluation, et possiblement de notation, fait partie intégrante du processus d'enseignement et d'apprentissage au fil de la séquence en contrôle continu. L'organisation d'une « épreuve » de fin de séquence est toutefois possible mais doit s'adapter à la durée d'une leçon. Il s'agit alors de concevoir une épreuve qui doit s'adapter à la durée d'une seule séance pour évaluer et noter tous les élèves du groupe.
 
 ### Thématique : Évaluer et Noter (Nombre de notes pour la moyenne)
@@ -1187,10 +1187,10 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Collège DNB** : Une seule note de fin de séquence n'est pas une moyenne dans le cadre du contrôle continu. Elle ne peut pas représenter à elle seule la réalité du travail de l'élève sur l'ensemble de la séquence. Pour le trimestre concerné, il s'agit d'indiquer dans le bulletin trimestriel que l'évaluation n'est pas représentative. Lorsque l’absence répétée d’un élève aux évaluations est jugée par son professeur comme faisant peser un risque sur la représentativité de sa moyenne, une nouvelle évaluation peut être spécifiquement organisée à son intention. Dans des cas très rares, et uniquement en cas de moyenne annuelle (moyenne des 3 trimestres) jugée non représentative du fait d’absences répétées, y compris aux rattrapages proposés durant l’année, qu’elles soient justifiées ou non, une évaluation de remplacement peut être proposée avant la fin de l’année scolaire afin de rendre compte du niveau des acquis de l’élève. Cette évaluation de remplacement est une évaluation unique de fin d’année organisée par le chef d’établissement, pour remplacer une moyenne annuelle jugée non représentative.
 
 ### Thématique : Inaptitudes et dispenses (Démarche d'adaptation CCF)
-- Mots-clés : adaptation d'épreuve, CCF, validation, CAHN, handicap, inaptitude permanente, certificat médical, inaptitude partielle, préconisations médicales, projet EPS, épreuve adaptée
+- Mots-clés : adaptation d'épreuve, CCF, validation, CAHPN, handicap, inaptitude permanente, certificat médical, inaptitude partielle, préconisations médicales, projet EPS, épreuve adaptée
 - Formulations courantes des collègues : Comment adapter une épreuve de CCF ?; Faut-il faire valider une épreuve adaptée ?; Sur quoi s'appuyer pour adapter une épreuve ?; L'adaptation concerne-t-elle seulement la terminale ?
-- **Question** : Quelles sont les possibilités d'adaptation d'une épreuve dans le cadre du CCF ? Faut-il faire valider ces adaptations par le CAHN ?
-- **Réponse Lycée GT Bac** : La démarche d’adaptation proposée pour une épreuve repose sur l’idée de conserver un degré d’exigence cohérent au regard des besoins et/ou possibilités des élèves en situation de handicap ou d'inaptitude permanente attestée et en adéquation avec les attendus d’une fin de cursus lycée. Il appartient aussi à l’enseignant d’apprécier, au regard des éléments dont il dispose, si la proposition d’une épreuve adaptée se révèle plus judicieuse pour l’élève, au regard de ses possibilités médicalement attestées, des compétences déjà développées, de son parcours de formation, que contraignante. La démarche d’adaptation s’appuie sur le certificat médical d'inaptitude partielle et les préconisations médicales, point de départ de la démarche. Cette analyse préalable devra permettre une meilleure compréhension du ou des leviers d’adaptation choisis par l’enseignant. Cette démarche d’adaptation s’applique à la fois à l’enseignement et aux modalités d’évaluations, définies dans le projet EPS et les protocoles d’évaluation des examens. Elle n’est pas limitée à la seule classe de terminale et s’envisage sur l’ensemble du parcours de formation de l’élève. En termes de principes, il s'agit de conserver la présence et l'articulation entre les dimensions motrices, méthodologiques et sociales, de dépasser la simple prise en compte des incapacités ou des manques, d'inscrire la définition de la pratique dans le déroulé ordinaire de la classe, concevoir une forme de pratique suffisamment accessible et inclusive pour la majorité des élèves, s'appuyer sur des échanges avec l'élève et sa famille. In fine, toutes les épreuves adaptées dans le cadre de la certification doivent être soumises à la validation de la CAHN.
+- **Question** : Quelles sont les possibilités d'adaptation d'une épreuve dans le cadre du CCF ? Faut-il faire valider ces adaptations par le CAHPN ?
+- **Réponse Lycée GT Bac** : La démarche d’adaptation proposée pour une épreuve repose sur l’idée de conserver un degré d’exigence cohérent au regard des besoins et/ou possibilités des élèves en situation de handicap ou d'inaptitude permanente attestée et en adéquation avec les attendus d’une fin de cursus lycée. Il appartient aussi à l’enseignant d’apprécier, au regard des éléments dont il dispose, si la proposition d’une épreuve adaptée se révèle plus judicieuse pour l’élève, au regard de ses possibilités médicalement attestées, des compétences déjà développées, de son parcours de formation, que contraignante. La démarche d’adaptation s’appuie sur le certificat médical d'inaptitude partielle et les préconisations médicales, point de départ de la démarche. Cette analyse préalable devra permettre une meilleure compréhension du ou des leviers d’adaptation choisis par l’enseignant. Cette démarche d’adaptation s’applique à la fois à l’enseignement et aux modalités d’évaluations, définies dans le projet EPS et les protocoles d’évaluation des examens. Elle n’est pas limitée à la seule classe de terminale et s’envisage sur l’ensemble du parcours de formation de l’élève. En termes de principes, il s'agit de conserver la présence et l'articulation entre les dimensions motrices, méthodologiques et sociales, de dépasser la simple prise en compte des incapacités ou des manques, d'inscrire la définition de la pratique dans le déroulé ordinaire de la classe, concevoir une forme de pratique suffisamment accessible et inclusive pour la majorité des élèves, s'appuyer sur des échanges avec l'élève et sa famille. In fine, toutes les épreuves adaptées dans le cadre de la certification doivent être soumises à la validation de la CAHPN.
 
 ### Thématique : Inaptitudes et dispenses (Pondération d'un critère)
 - Mots-clés : pondération, critère, inaptitude temporaire, inaptitude permanente, évaluation de fin de séquence, évaluation aménagée, pratique aménagée, contrôle continu, collège
@@ -1199,10 +1199,10 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Collège DNB** : Dans le cadre d'une évaluation de fin de séquence au collège, il est possible de pondérer un critère au regard de l'inaptitude d'un élève. Cette évaluation sera alors aménagée et participera à l'ensemble des évaluations de la séquence pour identifier une note représentative des acquisitions pour l'élève. L'évaluation aménagée est un aménagement des conditions d'évaluation dans une pratique aménagée. Elle concerne les élèves en inaptitude partielle temporaire. L'enjeu est de faire vivre une EPS de qualité pour le plus grand nombre d’élèves et donc favoriser l’aménagement plutôt que l’éviction de pratique dans le cadre du contrôle continu.
 
 ### Thématique : Inaptitudes et dispenses (La note de 20/20 en épreuve adaptée)
-- Mots-clés : 20/20, note maximale, épreuve adaptée, handicap, inaptitude partielle permanente, protocole certificatif, fiche certificative APSA, FCA, CAHN, pratique aménagée, DNB
+- Mots-clés : 20/20, note maximale, épreuve adaptée, handicap, inaptitude partielle permanente, protocole certificatif, fiche certificative APSA, FCA, CAHPN, pratique aménagée, DNB
 - Formulations courantes des collègues : Un élève en épreuve adaptée peut-il avoir 20 ?; La note est-elle plafonnée en épreuve adaptée ?; L'épreuve adaptée existe-t-elle au collège ?; Qui valide les critères d'une épreuve adaptée ?
 - **Question** : Un élève évalué dans une épreuve adaptée peut-il avoir 20/20 ?
-- **Réponse Lycée GT Bac** : Les épreuves adaptées concernent uniquement les candidats soumis à la certification et reconnus par l'autorité médicale comme relevant d'un handicap ou d'une inaptitude partielle permanente. Dans ce cas, l'enseignant a l'obligation de lui proposer une ou plusieurs épreuves adaptées dans le cadre de son protocole certificatif. L'adaptation tient compte de ses possibilités en lien avec les attendus du programme. Le protocole de l'épreuve et les critères d'évaluation de la fiche certificative APSA sont soumis à la validation de la CAHN. La note de l'élève à cette épreuve peut être positionnée de 0 à 20 selon les niveaux d'acquisitions indiqués dans cette FCA.
+- **Réponse Lycée GT Bac** : Les épreuves adaptées concernent uniquement les candidats soumis à la certification et reconnus par l'autorité médicale comme relevant d'un handicap ou d'une inaptitude partielle permanente. Dans ce cas, l'enseignant a l'obligation de lui proposer une ou plusieurs épreuves adaptées dans le cadre de son protocole certificatif. L'adaptation tient compte de ses possibilités en lien avec les attendus du programme. Le protocole de l'épreuve et les critères d'évaluation de la fiche certificative APSA sont soumis à la validation de la CAHPN. La note de l'élève à cette épreuve peut être positionnée de 0 à 20 selon les niveaux d'acquisitions indiqués dans cette FCA.
 - **Réponse Collège DNB** : Le principe « d'épreuve adaptée » n'existe pas au collège (uniquement dans le cadre du CCF). Par contre, il s'agit de proposer une pratique aménagée à des élèves qui relèveraient d'une situation d'inaptitude permanente ou d'un handicap. L'adaptation tient compte de ses possibilités en lien avec les attendus du programme. Dans le cadre de cette pratique, la note finale prise en compte dans la certification au DNB peut aller de 0 à 20. Elle est construite à partir de la moyenne des moyennes trimestrielles.
 
 ### Thématique : Inaptitudes et dispenses (Maladie le jour de l'évaluation)
@@ -1360,16 +1360,16 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 - **Réponse Lycée GT Bac** : Ce moment est à déterminer par les équipes enseignantes et peut être différent selon les APSA. Attention cependant à laisser le temps aux élèves de pouvoir expérimenter pour réellement être en capacité de faire un choix éclairé, il est également possible de laisser la possibilité aux élèves de modifier leur choix au cours de la séquence d’enseignement.
 
 ### Thématique : L'évaluation en EPS (Changement de CA pour une activité académique)
-- Mots-clés : changer de champ d'apprentissage, activité académique, activité d'établissement, FCA établissement, CA, référentiel, CAHN, validation
+- Mots-clés : changer de champ d'apprentissage, activité académique, activité d'établissement, FCA établissement, CA, référentiel, CAHPN, validation
 - Formulations courantes des collègues : Peut-on mettre une activité académique dans un autre champ d'apprentissage ?; Comment créer une activité d'établissement sur un autre CA ?; Quand faire valider une fiche d'activité établissement ?
 - **Question** : Peut-on changer de champ d’apprentissage une activité académique ?
-- **Réponse Lycée GT Bac** : Non, mais l'établissement peut créer une activité d'établissement à partir de la même activité sur un CA différent (et son référentiel doit répondre à celui du champ concerné). L'établissement doit faire valider cette FCA établissement à la CAHN l'année qui précède la mise en œuvre des enseignements.
+- **Réponse Lycée GT Bac** : Non, mais l'établissement peut créer une activité d'établissement à partir de la même activité sur un CA différent (et son référentiel doit répondre à celui du champ concerné). L'établissement doit faire valider cette FCA établissement à la CAHPN l'année qui précède la mise en œuvre des enseignements.
 
-### Thématique : Inaptitudes et dispenses (Modification post-CAHN en cas d'inaptitude temporaire)
-- Mots-clés : protocole adapté, inaptitude temporaire, inaptitude partielle permanente, handicap, CAHN, épreuve aménagée, ensemble certificatif, APSA support, conditions de passation
+### Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)
+- Mots-clés : protocole adapté, inaptitude temporaire, inaptitude partielle permanente, handicap, CAHPN, épreuve aménagée, ensemble certificatif, APSA support, conditions de passation
 - Formulations courantes des collègues : Peut-on créer un protocole adapté après la commission ?; Peut-on changer d'APSA pour un élève blessé en cours d'année ?; À qui s'adresse le protocole adapté ?; Que peut-on aménager pour un élève en inaptitude temporaire ?
-- **Question** : Pour des élèves en inaptitude temporaire à qui l'on pourrait proposer une autre APSA aménagée, peut-on créer un protocole adapté après la tenue de la CAHN ?
-- **Réponse Lycée GT Bac / Lycée Pro Bac** : NON. Un protocole adapté doit être validé par la CAHN. Il concerne uniquement les élèves en inaptitude partielle permanente ou en situation de handicap sur l'ensemble de l'année. Il ne concerne pas des élèves en inaptitude partielle temporaire à qui l'on pourrait proposer une épreuve aménagée de l'ensemble certificatif initialement validé par la CAHN. Autrement dit, il n'y a pas de changement de l'APSA support de l'épreuve, mais aménagement possible des conditions de passation sur la même APSA du protocole initial.
+- **Question** : Pour des élèves en inaptitude temporaire à qui l'on pourrait proposer une autre APSA aménagée, peut-on créer un protocole adapté après la tenue de la CAHPN ?
+- **Réponse Lycée GT Bac / Lycée Pro Bac** : NON. Un protocole adapté doit être validé par la CAHPN. Il concerne uniquement les élèves en inaptitude partielle permanente ou en situation de handicap sur l'ensemble de l'année. Il ne concerne pas des élèves en inaptitude partielle temporaire à qui l'on pourrait proposer une épreuve aménagée de l'ensemble certificatif initialement validé par la CAHPN. Autrement dit, il n'y a pas de changement de l'APSA support de l'épreuve, mais aménagement possible des conditions de passation sur la même APSA du protocole initial.
 
 [SITUATION: EXPORT DES GROUPES VERS CYCLADES / COMMENT FAIRE POUR EXPORTER]
 - Mots-clés : export des groupes, Cyclades, iPackEPS, [Dossier Certificatif], fichier CSV, Importation de groupes, Gestion des épreuves, secrétariat, STSWEB, pas d'export direct
@@ -1399,7 +1399,7 @@ FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
 3. TRAÇABILITÉ ET PROTECTION FONCTIONNELLE
 ----------------------------------------------------------------------
 * Tout arbitrage lié au choix d'une option d'épreuve par un élève doit être consigné dans le cahier de texte numérique de la classe (traçabilité pédagogique).
-* En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS requiert la suppression préalable de toute note brute saisie dans le protocole initial pour dégriser les boutons de configuration.
+* En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS se fait sans toucher à aucune note : aucune note n'est saisie dans iPackEPS.
 
 ======================================================================
 BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
@@ -1450,7 +1450,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 
 [SANTORIN] ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20
 ----------------------------------------------------------------------
-* RÈGLE DU CHAMP D'APPRENTISSAGE (CA) : Lorsqu'un élève bénéficie du statut de Sportif de Haut Niveau (SHN) et que son activité de spécialité n'est pas représentée dans les protocoles de l'établissement, la règle d'attribution automatique de la note de 20/20 n'est recevable que si l'activité du sportif relève d'un Champ d'Apprentissage (CA) qui n'est pas déjà évalué ou saturé dans le parcours CCF standard de l'élève, et après validation formelle de son statut par la commission académique.
+* SPORTIF DE HAUT NIVEAU (SHN) : la note de 20/20 est attribuée automatiquement sur sa spécialité sportive, même si cette activité n'est pas dans les protocoles de l'établissement. Condition : son statut doit être officiellement reconnu (listes ministérielles). Les autres épreuves relèvent de champs d'apprentissage différents.
 
 [IPACKEPS] EXPORT ET RÉCUPÉRATION DANS CYCLADES
 ----------------------------------------------------------------------
@@ -1483,7 +1483,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 * LA VRAIE PROCÉDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
   1. Aller dans [Dossiers] > [Dossier EPS] > [Séquences d'Apprentissage] et supprimer toutes les séquences liées au groupe.
   2. Aller dans le module [Mes Élèves], vider le groupe en décochant tous les élèves affectés.
-  3. Une fois le groupe totalement vide et sans aucune séquence ni note, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
+  3. Une fois le groupe totalement vide et sans aucune séquence, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
 
 [IPACKEPS] RÉPARTIR LES ÉLÈVES DANS LES GROUPES
 ----------------------------------------------------------------------
@@ -1527,7 +1527,7 @@ Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger applica
 Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack, compte bloqué, login oublié, accès coordonnateur.
 
 - Aucun compte spécifique : Il n'existe AUCUN compte ni mot de passe créé spécifiquement pour iPackEPS. Le coordonnateur EPS ne peut pas créer ni réinitialiser vos identifiants.
-- Authentification unique ARENA : L'accès s'effectue exclusivement avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou clé OTP / Macat).
+- Authentification unique ARENA : L'accès s'effectue exclusivement avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou dispositif d'authentification forte de votre académie).
 - Procédure en cas d'oubli : En cas de perte de mot de passe, la réinitialisation se fait sur le portail académique ARENA (procédure « Mot de passe oublié » du Rectorat) et non dans iPackEPS.
 
 ======================================================================
@@ -1559,7 +1559,7 @@ Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, c
 - Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
 - Portée des suppressions :
   -> Si un enseignant non-coordonnateur supprime un affichage de groupe dans son profil, cela ne supprime pas la base SIÈCLE globale de l'établissement.
-  -> Seul le coordonnateur ou l'administrateur peut modifier la structure des classes de l'établissement.
+  -> C'est le coordonnateur qui actualise les classes ([gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser]). S'il ne peut pas le faire, un enseignant peut se déclarer [coordonnateur] dans la liste des fonctions de sa propre fiche professeur (puis enregistrer) et faire lui-même la manipulation.
 - En cas de départ d'élève ou d'élève inactif : Si un élève quitte définitivement l'établissement ou est noté "inactif", ne cherchez pas de case à cocher pour le supprimer manuellement. L'actualisation de la base SIÈCLE (ou import Pronote / École Directe) lors du prochain import régularisera automatiquement l'effectif et l'élève disparaîtra de vos listes.
 
 ======================================================================
@@ -1579,7 +1579,7 @@ Mots-clés : imprimer les fiches, envoyer par la poste, bordereau papier, courri
 - Chaîne de transmission dématérialisée :
   1. Configuration et saisie des protocoles / inaptitudes dans iPackEPS.
   2. Validation pédagogique par le chef d'établissement et les corps d'inspection via les applications académiques dédiées.
-  3. Remontée des notes et copies d'évaluation vers Cyclades et Santorin.
+  3. Les notes d'examen sont saisies directement dans Santorin (aucune note ne part d'iPackEPS).
 - Conservation locale : Les éventuelles impressions de bordereaux ou de bilans sont à conserver au sein de l'établissement à titre d'archive interne pour l'équipe pédagogique.
 
 ======================================================================
@@ -1589,7 +1589,7 @@ Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classe
 
 - Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
 - Absence normale des classes ordinaires : Il est parfaitement normal que vos classes de Collège (6e à 3e) ou de Seconde / Première n'apparaissent pas dans Santorin.
-- Règle d'usage : Pour le suivi, l'évaluation et la notation des niveaux hors examen, utilisez exclusivement iPackEPS et votre logiciel de vie scolaire (Pronote / ÉcoleDirecte).
+- Règle d'usage : Pour les niveaux hors examen, les notes se saisissent dans votre logiciel de vie scolaire (Pronote / ÉcoleDirecte) ; iPackEPS sert à l'organisation (classes, groupes, séquences, emploi du temps), aucune note n'est saisie dans iPackEPS.
 
 ======================================================================
 [ARTICLE : GESTION DES OUBLIS DE TENUE ET VIE SCOLAIRE]
@@ -1621,7 +1621,7 @@ Mots-clés : recours tribunal administratif, contestation de note, parent d'él�
 - Souveraineté du Jury : Seul le jury académique (délibération finale présidée par le Recteur) arrête la note définitive du Baccalauréat.
 - Conduite à tenir face au parent : 
   1. Ne modifier sous aucun prétexte la proposition de note sous la pression.
-  2. Rappeler que la note reste provisoire jusqu'à l'harmonisation académique (CAHN/CAHPN).
+  2. Rappeler que la note reste provisoire jusqu'à l'harmonisation académique (CAHPN).
   3. Fournir sur demande la grille critériée renseignée (AFL) issue du référentiel validé pour justifier de l'équité de traitement.
 - Protection fonctionnelle : L'enseignant est couvert par la protection de l'État (art. L. 911-4 du Code de l'éducation).
 
@@ -1635,9 +1635,8 @@ Mots-clés : CCF le mercredi après-midi, épreuve hors emploi du temps, faire p
 
 ### [SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]
 Mots-clés : impossible de supprimer séquence, cadenas suppression groupe, corbeille grisée, erreur clé étrangère, BDD bloquée.
-- Diagnostic : iPackEPS applique une intégrité relationnelle stricte. Un élément ne peut pas être effacé s'il possède des données enfants (notes, élèves rattachés, créneaux EDT).
+- Diagnostic : iPackEPS applique une intégrité relationnelle stricte. Un élément ne peut pas être effacé s'il possède des données enfants (élèves rattachés, créneaux EDT).
 - Ordre chirurgical de suppression (à rebours obligatoire) :
-  1. [Dossiers] > [Dossier EPS] > [Évaluations] : effacer toutes les notes et degrés d'AFL saisis.
   2. [Dossiers] > [Dossier EPS] > [EDT] : faire un clic droit sur le créneau pour supprimer le créneau d'emploi du temps associé au groupe.
   3. [Dossiers] > [Dossier EPS] > [Élèves] : retirer tous les élèves du groupe.
   4. [Dossiers] > [Dossier EPS] > [Groupes] : supprimer la séquence d'apprentissage (S.A.).
@@ -1657,7 +1656,7 @@ Mots-clés : prénom d'usage, changement de nom, transition de genre, identité 
   1. L'enseignant ne doit rien modifier manuellement dans iPackEPS.
   2. Le secrétariat de scolarité doit mettre à jour la base SIÈCLE de l'établissement.
   3. Un enseignant de l'équipe EPS effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
-  4. L'identifiant national (INE) garantit la continuité des évaluations déjà enregistrées sans perte d'historique.
+  4. L'identifiant national (INE) garantit la continuité du dossier de l'élève sans perte d'historique.
 
 [SECTION: COMPORTEMENT_ET_DIAGNOSTIC_DE_L_ENSEIGNANT_DEBUTANT]
 
@@ -1669,14 +1668,14 @@ Mots-clés : élève qui pleure, refus de sauter, abandon en cours d'épreuve, c
 
 ### [SITUATION: TENTATIVE DE MODIFICATION DE BARÈME EN COURS DE CYCLE (« TOUT LE MONDE A RATÉ »)]
 Mots-clés : adapter le barème, tout le monde a des mauvaises notes, baisser les exigences, changer la grille AFL en fin de cycle.
-- Interdiction stricte : Le protocole et le référentiel d'évaluation (FCA) ont été validés par la Commission Académique (CAHN) en début d'année.
+- Interdiction stricte : Le protocole et le référentiel d'évaluation (FCA) ont été validés par la Commission Académique (CAHPN) en début d'année.
 - Règle d'égalité de traitement : Un enseignant ne peut en aucun cas modifier un barème, des curseurs ou des seuils de performance de sa propre initiative en fin de cycle.
-- Traitement normal : Si des résultats sont anormalement bas sur un groupe pour des raisons structurelles, l'enseignant remonte un commentaire circonstancié à la CAHN via la Fiche Établissement. C'est la commission qui procède aux éventuelles harmonisations d'échelle.
+- Traitement normal : Si des résultats sont anormalement bas sur un groupe pour des raisons structurelles, l'enseignant remonte un commentaire circonstancié à la CAHPN via la Fiche Établissement. C'est la commission qui procède aux éventuelles harmonisations d'échelle.
 
 ### [SITUATION: DOUBLE NOTATION PRONOTE VS IPACKEPS (QUEL FICHIER FAIT FOI ?)]
 Mots-clés : écart de note Pronote iPack, quelle note compte pour le Bac, note bulletin différente du CCF.
 - Règle absolue de hiérarchie :
-  - Pour le Baccalauréat : SEULE la note saisie dans Santorin / Cyclades (générée via iPackEPS) est officielle et prise en compte (coeff 6).
+  - Pour le Baccalauréat : SEULE la note saisie dans Santorin est officielle et prise en compte (coeff 6).
   - Pour le livret de scolarité / Parcoursup : Les moyennes trimestrielles de Pronote/ÉcoleDirecte reflètent le contrôle continu ordinaire mais n'ont aucun impact sur l'obtention de la note d'examen du Bac.
 
 [SECTION: REPONSES_AUX_PROFESSEURS_REFRACTAIRES_ET_ANCIENNES_PRATIQUES]
@@ -1701,7 +1700,7 @@ Mots-clés : bug informatique le jour de l'épreuve, tablette éteinte, annulati
 - Cadre juridique : La validité d'une épreuve d'EPS repose sur l'observation motrice réelle de l'enseignant et l'émargement de présence des élèves, non sur la disponibilité instantanée du réseau Internet.
 - Procédure de continuité :
   1. L'enseignant note sur support papier (grille d'émargement et d'évaluation de secours).
-  2. Les notes sont reportées ultérieurement sur iPackEPS / Santorin dès le retour de la connexion.
+  2. Les notes sont reportées ultérieurement dans Santorin dès le retour de la connexion.
   3. L'épreuve reste 100 % valide sur le plan réglementaire.
 
 [SECTION: CONCEPTEUR_IPACKEPS_ET_GESTION_AVANCEE_DES_PARAMETRES]
@@ -1718,7 +1717,7 @@ Mots-clés : barrette 6 classes, alignement d'emploi du temps, gestion gros lyc�
 Mots-clés : ULIS sans note, UPE2A non noté, évaluation par compétences socle, validation sans note sur 20.
 - Procédure iPackEPS Collège :
   1. Les élèves rattachés au dispositif ULIS doivent figurer dans un groupe spécifique avec le cycle correspondant à leurs adaptations.
-  2. Dans le module d'évaluation, renseigner le positionnement sur l'échelle des 4 niveaux de maîtrise du socle commun (Insuffisant, Fragile, Satisfaisant, Très bon).
+  2. Le positionnement sur l'échelle des 4 niveaux de maîtrise du socle commun (Insuffisant, Fragile, Satisfaisant, Très bon) se renseigne dans le logiciel de vie scolaire, pas dans iPackEPS (aucune note n'est saisie dans iPackEPS).
   3. Ne pas forcer de conversion en note chiffrée sur 20 si le Projet Personnalisé de Scolarisation (PPS) de l'élève stipule une validation exclusive par compétences.
 
 ### [SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]
@@ -1728,7 +1727,7 @@ Mots-clés : changement de remplaçant, contractuel parti, historique des saisie
   1. Dès notification du contrat RH, le chef d'établissement affecte le remplaçant sur STSWEB.
   2. Un enseignant de l'équipe EPS clique sur [Équipe EPS] > [Actualiser].
   3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
-  4. Le nouveau professeur accède immédiatement à l'ensemble des séquences, AFL et évaluations précédemment enregistrés par son prédécesseur sans aucune perte de données.
+  4. Le nouveau professeur accède immédiatement à l'ensemble des séquences et groupes précédemment enregistrés par son prédécesseur sans aucune perte de données.
 
 ======================================================================
 [ARTICLE : INCIDENT IMPRÉVISIBLE, PERTURBATION EXTÉRIEURE ET FORCE MAJEURE EN CCF]
@@ -1767,10 +1766,10 @@ Mots-clés : RGPD, protection des données, serveurs États-Unis, données biom�
 - Conformité RGPD et données scolaires :
   -> La saisie des performances physiques (chronos, barèmes, compétences AFL) entre strictement dans le cadre des missions d'enseignement et d'évaluation du service public.
   -> Les résultats sportifs ne constituent pas des données biométriques sensibles au sens du RGPD.
-- Carnet papier vs Outil numérique : L'utilisation d'iPackEPS protège l'enseignant en assurant la traçabilité et l'archivage sécurisé des évaluations de l'établissement (contrairement au carnet personnel sur papier qui peut être perdu, volé ou contesté sans preuve d'horodatage).
+- Carnet papier vs Outil numérique : L'utilisation d'iPackEPS protège l'enseignant en assurant la traçabilité et l'archivage sécurisé de l'organisation et des documents de l'établissement (contrairement au carnet personnel sur papier qui peut être perdu, volé ou contesté sans preuve d'horodatage).
 
 ======================================================================
-SECTION 5 : ENRICHISSEMENT HISTORIQUE & FAQS ACADÉMIQUES CRÉTEIL / NATIONAL
+SECTION 5 : ENRICHISSEMENT HISTORIQUE & FAQS ACADÉMIQUES / NATIONAL
 (RÉSOLUTION DES 15 CAS LIMITES CRITIQUES SUR 10 ANS D'USAGE)
 ======================================================================
 
@@ -1794,26 +1793,26 @@ Mots-clés : 2 notes sur 3, blessure avant la 3e épreuve, poignet cassé, accid
   3. Fiche individuelle : dans `[Dossier Certificatif]` > `[Dépôt documents CAHPN]`, déposer une fiche explicative individuelle pour la commission.
 
 ### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT
-Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, arbitrage CAHN, neutralisation coeff bac.
+Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, arbitrage CAHPN, neutralisation coeff bac.
 - Règle d'arbitrage : Un élève ne disposant que d'une seule note sur 3 ne peut pas avoir une moyenne validée automatiquement.
 - Procédure :
   1. L'équipe pédagogique émet une proposition motivée : soit demander la validation de la note unique si elle reflète un engagement réel et représentatif, soit demander la « Dispense totale d'EPS » (neutralisation du coefficient).
   2. Dans iPackEPS : déposer obligatoirement la Fiche Individuelle d'arbitrage dans `[Dossier Certificatif]` > `[Dépôt documents CAHPN]`.
-  3. La CAHN tranche souverainement lors de la commission d'harmonisation de juin.
+  3. La CAHPN tranche souverainement lors de la commission d'harmonisation de juin.
 
 ### [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année
 Mots-clés : élève arrivant autre académie, transfert de notes CCF, changement de lycée en cours d'année, récupérer notes ancien lycée.
 - Procédure de transfert :
-  1. Aucune passerelle automatique inter-bases n'existe entre deux établissements pour les notes brutes d'iPackEPS.
+  1. Aucune passerelle automatique inter-bases n'existe entre deux établissements pour les notes de CCF (aucune note n'est saisie dans iPackEPS).
   2. Le coordonnateur du nouveau lycée demande un « Relevé officiel de notes de CCF » signé par le chef d'établissement d'origine.
   3. Le nouvel enseignant intègre l'élève dans son groupe iPackEPS via l'actualisation SIÈCLE.
-  4. Pour les épreuves déjà passées dans l'ancien lycée : l'enseignant conserve le document papier signé et renseignera les notes dans Santorin au moment de l'ouverture du serveur en joignant le justificatif pour la CAHN.
+  4. Pour les épreuves déjà passées dans l'ancien lycée : l'enseignant conserve le document papier signé et renseignera les notes dans Santorin au moment de l'ouverture du serveur en joignant le justificatif pour la CAHPN.
 
 ### [ARTICLE 99] [Dossiers]/[Dossier EPS]/[Classes] Doublons d'élèves suite à modification d'orthographe ou d'INE dans SIÈCLE
 Mots-clés : élève en double, deux fiches pour le même élève, suppression doublon, fusion d'élèves, correction INE.
 - Diagnostic : Si le secrétariat modifie l'orthographe d'un nom, un tiret ou un identifiant national (INE) dans SIÈCLE, iPackEPS peut générer un second enregistrement lors de l'actualisation.
 - Procédure de nettoyage :
-  1. Repérer la fiche de l'élève qui contient l'historique des notes.
+  1. Repérer la fiche de l'élève qui est rattachée aux groupes et aux séquences.
   2. Dans `[Dossier EPS]` > `[Classes]` > `[Élèves]`, retirer le profil doublon vide du groupe de travail.
   3. Demander au secrétariat de valider la fusion dans SIÈCLE, puis refaire `[Gestion Classes]` > `[Actualiser]` et `[Importation élèves]` > `[Actualiser]`.
 
@@ -1823,7 +1822,7 @@ Mots-clés : section internationale, BFI, Abibac, Bachibac, Esabac, coefficient 
 - Configuration iPackEPS : Créer les groupes et protocoles de manière standard en voie GT. Aucun paramétrage linguistique particulier n'est requis dans l'application.
 
 ### [ARTICLE 101] [Dossiers]/[Dossier Certificatif]/[Référentiels] Rejet d'un référentiel par la Commission Académique (Statut Rouge)
-Mots-clés : référentiel refusé, dossier rejeté CAHN, modifier référentiel après rejet, statut rouge dossier certificatif.
+Mots-clés : référentiel refusé, dossier rejeté CAHPN, modifier référentiel après rejet, statut rouge dossier certificatif.
 - Procédure de régularisation :
   1. Consulter le motif exact du refus notifié par l'inspection dans l'onglet `[Référentiels]` ou par courrier électronique.
   2. Modifier le document localement (Word/PDF) pour corriger les critères non conformes (ex : AFL non équilibrés, barème hors seuils).
@@ -1944,7 +1943,7 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - PROCÉDURE OBLIGATOIRE PAS-À-PAS :
   1. ÉTAPE PRÉALABLE ABSOLUE (Passage en Mode Groupe des classes sources) :
      - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Classes] => [Organisation des classes].
-     - Action : Ouvrir les classes d'origine concernées et modifier leur mode de fonctionnement pour les passer impérativement en mode **[Groupe]** (et non "Classe entière" ou "Seule ou mixte"). C'est cette action indispensable qui lève le verrou informatique empêchant de ventiler les élèves dans de nouveaux groupes transversaux. *(Note : si l'application bloque en raison de notes ou d'EDT déjà saisis, nettoyer les séquences au préalable).*
+     - Action : Ouvrir les classes d'origine concernées et modifier leur mode de fonctionnement pour les passer impérativement en mode **[Groupe]** (et non "Classe entière" ou "Seule ou mixte"). C'est cette action indispensable qui lève le verrou informatique empêchant de ventiler les élèves dans de nouveaux groupes transversaux. *(Note : si l'application bloque en raison d'EDT déjà saisis, nettoyer les séquences au préalable).*
   2. CRÉATION DES NOUVEAUX GROUPES :
      - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Groupes].
      - Action : Créer les groupes d'enseignement réels (ex : "Terminale - Groupe EPS 1", "Terminale - Groupe EPS 2"), leur attribuer les séquences d'apprentissage et les APSA correspondantes.
@@ -1998,12 +1997,11 @@ Toute information contenue dans ce fichier annule et remplace les procédures an
 - Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin selon le calendrier académique officiel de la DEC. Aucun import ne sera possible après cette date sans intervention des services.
 
 ## 3. GESTION DES BLOCAGES
-- Si une note bloque l'interface ou le bouton de validation : effacer la note concernée pour libérer le bouton avant de tenter une nouvelle saisie.
 - Ne jamais tenter de contournement par des saisies manuelles non documentées (IN/DI) pour forcer une validation.
 - En cas d'anomalie persistante sur les effectifs ou coefficients : la source de vérité est STSWeb. Contacter impérativement le secrétariat de direction.
 
 ## 4. RAPPEL RÉGLEMENTAIRE
-- Chaque CCF nécessite 2 notes valides (épreuves différentes).
+- Baccalauréat en CCF : 3 épreuves de 3 champs d'apprentissage différents. En cas d'inaptitude, la certification peut porter sur 2 épreuves ; avec une seule note, la commission académique statue au cas par cas.
 - Toute demande de double correction ou contestation de note est une procédure administrative qui sort du champ d'application de l'outil iPackEPS. Renvoyer systématiquement vers la Direction.
 
 ----------------------------------------------------------------------
@@ -2017,11 +2015,11 @@ OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin
 [SECTION: AJouts_RECENTS_TERRAIN]
 
 ### [SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]
-- Mots-clés : contrôle adapté, FCA, contrôle aménagé, inaptitude temporaire, inaptitude permanente, blessure en cours d'année, handicap, CAHN, même APSA, protocole initial
+- Mots-clés : contrôle adapté, FCA, contrôle aménagé, inaptitude temporaire, inaptitude permanente, blessure en cours d'année, handicap, CAHPN, même APSA, protocole initial
 - Formulations courantes des collègues : un élève se blesse en cours d'année, puis-je lui créer un contrôle adapté ; quelle différence entre contrôle adapté et contrôle aménagé ; faut-il changer d'activité pour un élève blessé ; peut-on faire une FCA en cours d'année ; que faire pour une inaptitude temporaire
 - Règle stricte : Il est formellement interdit de créer ou bricoler un contrôle adapté (FCA) en cours d’année « au sifflet » pour une blessure soudaine. 
 - Distinction vitale : 
-  1. Inaptitude permanente (connue dès la rentrée, handicap, pathologie lourde) ➔ Contrôle adapté et FCA validée par la CAHN en amont.
+  1. Inaptitude permanente (connue dès la rentrée, handicap, pathologie lourde) ➔ Contrôle adapté et FCA validée par la CAHPN en amont.
   2. Inaptitude temporaire (blessure en cours d'année) ➔ Simple contrôle aménagé sur la MÊME APSA du protocole initial (pas de changement d'activité, pas de FCA improvisée).
 
 ### [SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]
@@ -2139,7 +2137,7 @@ iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) pe
 ### [SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]
 - Mots-clés : chef d'établissement, contrôle de conformité, signature, dossier certificatif, FCA, nouveautés, glisser-déposer, bouton légende, inventaire EPI, certificats médicaux, export ZIP, SSS, APPN, professeurs externes
 - Formulations courantes des collègues : Que doit vérifier le chef d'établissement avant de signer ? ; La signature du chef est bloquée, pourquoi ? ; Quelles sont les nouveautés d'iPackEPS ? ; Quels formats de fichiers puis-je déposer ? ; Peut-on faire un contrôle adapté pour un élève blessé en cours d'année ?
-- Rôle : Le chef d'établissement exerce un **contrôle de conformité** avant la transmission à la CAHN. Avant de signer et valider le dossier certificatif, il doit s'assurer que les protocoles soumis respectent les structures de la voie (3 APSA pour le Bac GT/Pro, 2 pour le CAP) et que les fiches d'évaluation (FCA) sont bien rattachées. Si une alerte bloque la signature, vérifier la présence des commentaires obligatoires d'équipe en cas d'écarts.
+- Rôle : Le chef d'établissement exerce un **contrôle de conformité** avant la transmission à la CAHPN. Avant de signer et valider le dossier certificatif, il doit s'assurer que les protocoles soumis respectent les structures de la voie (3 APSA pour le Bac GT/Pro, 2 pour le CAP) et que les fiches d'évaluation (FCA) sont bien rattachées. Si une alerte bloque la signature, vérifier la présence des commentaires obligatoires d'équipe en cas d'écarts.
 ======================================================================
 📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS & AJOUTS TERRAIN (v2026.2.x)
 ======================================================================
@@ -2196,7 +2194,7 @@ iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) pe
 * Gestion des PAI, PAP ou PPS : Un PAI, un PAP ou un PPS formalisant une pathologie chronique (asthme, allergies, troubles DYS) n'est pas une dispense d'EPS. L'élève participe avec des aménagements pédagogiques et matériels. Ne jamais saisir de statut DI ou IN dans iPackEPS sur la seule base d'un PAI/PAP.
 * Enseignants TZR ou partagés (Multi-établissements) : Utiliser le sélecteur d'établissement en haut de page sur l'accueil d'iPackEPS (après connexion ARENA) pour basculer vers l'entité souhaitée. Si l'établissement n'apparaît pas, l'affectation RAMSESE n'est pas redescendue ; contacter le secrétariat.
 * Élève exclu (Sanction disciplinaire) pendant un CCF : Une exclusion temporaire n'est ni une inaptitude médicale ni un cas de force majeure. L'établissement doit organiser une session de rattrapage (épreuve différée) dès son retour. Si absence injustifiée au rattrapage, attribution de la note zéro (0/20 ou ABS).
-* Rôle du chef d'établissement : Exerce un contrôle de conformité avant validation de la CAHN (vérification du nombre d'APSA selon la voie, présence des FCA et des commentaires d'équipe en cas d'écarts).
+* Rôle du chef d'établissement : Exerce un contrôle de conformité avant validation de la CAHPN (vérification du nombre d'APSA selon la voie, présence des FCA et des commentaires d'équipe en cas d'écarts).
 * Interdiction d'improviser un contrôle adapté (FCA) à la volée : Formellement interdit en cours d'année pour une blessure soudaine. L'inaptitude temporaire relève d'un simple contrôle aménagé sur la MÊME APSA du protocole initial, sans changer d'activité.
 ======================================================================
 ======================================================================

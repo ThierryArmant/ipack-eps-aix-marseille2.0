@@ -2,7 +2,7 @@
 🛑 MÉMOIRE SOUVERAINE DE RÉFÉRENCE COMPLÈTE & MULTI-ACADÉMIQUE : EXAMENS EPS & SANTORIN
 LIAISONS CYCLADES, IMAG'IN, SANTORIN & IPACKEPS (SESSION 2026)
 ================================================================================
-[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les modules Dokiel/Scenari de l'académie de Créteil, les FAQ des académies de Lyon, Grenoble et Normandie, les arbitrages de la CAHPN/CAHN, la réglementation du CCF EPS, la documentation technique iPackEPS/Cyclades/Santorin/Imag'in et les retours de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
+[DIRECTIVE SYSTÈME] : Ce document est la source de vérité absolue pour l'onglet Examens. Il fusionne les directives de la DIEC d'Aix-Marseille, les fiches nationales EPS, les modules Dokiel/Scenari de l'académie de Créteil, les FAQ des académies de Lyon, Grenoble et Normandie, les arbitrages de la CAHPN/CAHPN, la réglementation du CCF EPS, la documentation technique iPackEPS/Cyclades/Santorin/Imag'in et les retours de terrain pour la session 2026. Il prévaut sur toute autre interprétation.
 
 --------------------------------------------------------------------------------
 1. CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS
@@ -69,9 +69,9 @@ B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
 
 C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 * RÈGLE ABSOLUE DE CONNEXION (ANTI-SITE PUBLIC) :
-  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet académique de type Esterel) via les identifiants professionnels (e-mail académique + mot de passe).
+  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet de votre académie) via les identifiants professionnels (e-mail académique + mot de passe).
 * Contournement des saturations de serveurs ENT :
-  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier (ex: https://appli.ac-aix-marseille.fr/imagin/enseignant ou équivalent académique).
+  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier communiqué par votre académie.
 
 --------------------------------------------------------------------------------
 4. RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)

@@ -1,0 +1,165 @@
+=== CONTENU DES VIDÉOS TUTORIELS OFFICIELLES — CYCLADES / IMAG'IN / SANTORIN (chaîne EPS Créteil, site iPackEPS) ===
+Source : commentaire audio des vidéos officielles associées aux tutoriels du site iPackEPS (transcription). Les dates, contacts et calendriers ne sont pas repris : pour l'académie d'Aix-Marseille, s'adresser à la DEC.
+
+### [SITUATION: EXPORTER LES ÉLÈVES ET LES GROUPES D'iPackEPS VERS CYCLADES — DÉROULÉ COMPLET DE LA VIDÉO]
+- Mots-clés : export Cyclades, transfert des données, fichier CSV, iPackEPS groupes élèves, importer les groupes et les élèves, compte-rendu d'import, candidats ignorés, INE non inscrit.
+- Formulations courantes des collègues : comment envoyer mes élèves dans Cyclades ; où est le bouton d'export ; faut-il un fichier par examen ; le compte-rendu affiche des candidats ignorés, est-ce grave.
+- Vidéo : https://www.youtube.com/watch?v=4ZsuQi_YoMs
+- Dans iPackEPS : Tableau de bord > Dossiers et Projets > Dossier Certificatif > Cyclades (transfert des données).
+- Le premier menu donne un bilan de l'état des saisies : décompte des protocoles et des groupes, et erreurs détectées (exemple : trois champs d'apprentissage différents non trouvés pour un protocole de bac GT).
+- L'onglet d'export des élèves affiche tous les groupes et élèves qui seront exportés. À droite, sous l'encart rouge, un tableau liste les élèves relevant d'un examen qui ne sont dans aucun groupe d'examen : ils ne seront pas exportés. On les retrouvera quand même dans Cyclades, mais dans un groupe standard, sans affectation automatique à leur protocole.
+- Le bouton [Exporter les élèves] crée UN SEUL fichier CSV pour tout l'établissement, tous examens confondus (CAP, bac pro, bac GT). On l'enregistre où l'on veut. La partie iPackEPS est terminée.
+- Import dans Cyclades : action du chef d'établissement ou d'une personne ayant sa délégation. ARENA > Examens et concours > Cyclades, gestion des candidats, accès établissement. Choisir l'examen, puis menu EPS > Importer les groupes et les élèves, vérifier la session, [Choisir un fichier], puis [Importer] en bas à droite, puis [Afficher le compte-rendu].
+- Le même fichier est importé plusieurs fois : une fois par examen de l'établissement. Dans l'interface CAP, seuls les élèves de CAP du fichier sont pris.
+- Le bouton d'import peut ne pas être encore autorisé si la commission n'a pas validé tous les protocoles de l'établissement.
+- Lecture du compte-rendu : vérifier la mention que le traitement s'est bien déroulé et le nombre de candidats pris en compte. Les « candidats ignorés car inconnus ou non inscrits » et les numéros INE « non inscrits » sont normaux (élèves des autres examens, élèves en contrôle ponctuel, élèves ayant changé d'établissement).
+- Étape suivante : vérifier dans Cyclades que les élèves sont bien affectés à leur protocole.
+
+### [SITUATION: PROFESSEUR — SE CONNECTER À CYCLADES ET CE QU'ON PEUT Y FAIRE (vidéo)]
+- Mots-clés : connexion Cyclades professeur, ARENA, Examens et concours, Imag'in accès individuel, EPS gestion des épreuves EPS, portail d'accès aux missions, menu absent.
+- Formulations courantes des collègues : je ne trouve pas Cyclades dans ARENA ; je n'ai pas le menu gestion des épreuves EPS ; quelle différence entre les deux accès dans Imag'in.
+- Vidéo : https://www.youtube.com/watch?v=YoOC_CdOQ_I
+- Chemin : ARENA > Examens et concours > Imag'in – accès individuel. Dans Imag'in, deux accès : « Portail d'accès aux missions » (c'est l'accès à Santorin, pour les notes) et « EPS – Gestion des épreuves EPS » (c'est l'accès à Cyclades, pour les protocoles).
+- Si le menu n'apparaît pas : le chef d'établissement n'a pas attribué de mission d'évaluation EPS dans Imag'in. Il faut le lui demander ; il peut se faire accompagner par la DEC.
+- Si l'établissement a plusieurs examens, choisir entre bac pro, bac GT et CAP.
+- Dans Cyclades, l'enseignant d'EPS peut seulement gérer les protocoles : les créer, les consulter, les modifier, et associer des élèves à un protocole.
+
+### [SITUATION: CYCLADES — VÉRIFIER QUE CHAQUE ÉLÈVE EST AFFECTÉ À SON PROTOCOLE (vidéo)]
+- Mots-clés : associer les élèves à un protocole, groupe élèves, vérification après import, déplacer un élève, contrôle adapté.
+- Formulations courantes des collègues : comment vérifier que l'import a marché ; un élève n'a pas de protocole ; comment changer un élève de protocole dans Cyclades.
+- Vidéo : https://www.youtube.com/watch?v=YCLktNeYbPw
+- À faire seulement après l'import des groupes et des élèves.
+- Cyclades : menu EPS > Associer les élèves à un protocole. Choisir l'examen de la session en cours. L'écran liste tous les élèves de l'examen ; à droite, la colonne du groupe d'élèves indique le protocole de chacun (c'est le groupe qui avait été défini dans iPackEPS).
+- Vérifier que chaque élève a un protocole. Depuis cet écran on peut sélectionner des élèves et les attribuer à un autre protocole : erreur à corriger, ou élève qui change de protocole en cours d'année (cas du contrôle adapté).
+
+### [SITUATION: IMAG'IN — LE CHEF D'ÉTABLISSEMENT CRÉE LES MISSIONS (CONVOCATIONS) DES ENSEIGNANTS D'EPS (vidéo)]
+- Mots-clés : mission d'évaluation, convocation par mission, Imag'in, créer convocation, qualité, correcteur, référent établissement, référent Santorin, enseignant d'un autre établissement.
+- Formulations courantes des collègues : je n'ai pas accès à Santorin ; comment le chef crée ma mission ; qu'est-ce qu'un référent établissement ; peut-on convoquer un collègue extérieur.
+- Vidéo : https://www.youtube.com/watch?v=0njoZigh_5w
+- Sans mission d'évaluation créée par le chef pour chaque enseignant ET pour chaque examen, l'enseignant n'accède ni à Imag'in ni à Santorin.
+- Chef d'établissement, depuis Cyclades : menu EPS > Accéder à Imag'in – convoquer les enseignants > Se connecter à Imag'in. Dans Imag'in : menu « Convocation par mission ». Une ligne par examen de l'établissement.
+- Cliquer sur [Créer convocation], chercher la discipline « éducation physique et sportive » : tous les enseignants d'EPS de l'établissement apparaissent, cochés par défaut.
+- Liste « Qualité » : « correcteur » (accès à ses seules notes) ou « référent établissement » (mêmes accès que le chef pour configurer Santorin : distribution automatique ou manuelle des lots, ajout d'un évaluateur sur un lot).
+- Conseil de la vidéo : faire deux convocations, d'abord le référent, ensuite les correcteurs.
+- Choisir une date de mission parmi celles proposées (elle a peu d'importance en CCF), puis [Convoquer].
+- Une recherche par nom permet de convoquer un enseignant d'un autre établissement de l'académie.
+- Recommencer pour chaque examen (bac pro, CAP, bac GT).
+
+### [SITUATION: CYCLADES — CONTRÔLER / RÉAFFECTER LES PROTOCOLES : LA BONNE ADRESSE MAIL POUR CHAQUE PROTOCOLE (vidéo)]
+- Mots-clés : contrôler réaffecter des protocoles, adresse mail de l'évaluateur, coche verte, alerte, protocole créé par le chef, protocole créé pour un collègue.
+- Formulations courantes des collègues : je ne vois pas mon lot dans Santorin ; le protocole est au nom du proviseur ; un collègue a créé mes protocoles à ma place.
+- Vidéo : https://www.youtube.com/watch?v=ImAk9BcpiO4
+- Chef d'établissement, Cyclades : menu EPS > Contrôler / Réaffecter des protocoles. La liste montre chaque protocole, l'enseignant associé et surtout l'adresse mail utilisée pour la notation. Une liste déroulante permet de choisir le bon évaluateur.
+- Règle à comprendre : celui qui crée un protocole dans Cyclades y est rattaché par défaut avec sa propre adresse. Si le chef a créé les protocoles, c'est son adresse ; si un enseignant en a créé pour un collègue, c'est la mauvaise adresse. Chaque enseignant doit donc créer ses propres protocoles.
+- Coche verte : l'enseignant est trouvé dans les missions Imag'in. Alerte : l'adresse n'est rattachée à aucune mission d'évaluation ; le chef doit créer la mission (menu EPS > Accéder à Imag'in – convoquer les enseignants).
+- En cas de difficulté sur les convocations Imag'in : contacter la DEC.
+
+### [SITUATION: SANTORIN — AJOUTER UN DEUXIÈME ÉVALUATEUR SUR UN LOT (vidéo)]
+- Mots-clés : deuxième correcteur, ajouter un examinateur, voir le détail, onglet correcteur, enseignant absent, CFA, chef évaluateur.
+- Formulations courantes des collègues : mon collègue est absent, qui saisit ses notes ; comment donner accès à mon lot à un autre professeur ; le chef peut-il saisir les notes.
+- Vidéo : https://www.youtube.com/watch?v=fmMl82KkZt4
+- Action du chef d'établissement (ou du référent) : Cyclades > menu EPS > Accéder à la saisie des notes dans Santorin > Se connecter à Santorin. En bac GT, utiliser le filtre des séries pour trouver l'EPS.
+- Cliquer sur [Distribution], puis sur les lots, sélectionner le lot, [Voir le détail], onglet [Correcteur], bouton [Ajouter]. Choisir la personne parmi les correcteurs reconnus dans l'établissement, puis [Valider]. Les deux enseignants ont alors accès au même lot et peuvent saisir.
+- Le chef peut lui-même saisir des notes s'il se crée une mission d'évaluation EPS dans Imag'in (cas des formateurs de CFA à remplacer).
+
+### [SITUATION: CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, NOTAMMENT ADAPTÉ (vidéo)]
+- Mots-clés : créer un protocole, protocole adapté, élève devenu inapte, après validation de la commission, dévalider les protocoles, retransmettre à la commission.
+- Formulations courantes des collègues : un élève devient inapte en cours d'année ; je ne peux créer que du protocole adapté ; comment ajouter un protocole classique après validation.
+- Vidéo : https://www.youtube.com/watch?v=57xZDq_vyDE
+- Cyclades : menu EPS > Créer un protocole. Si seule l'option « protocole adapté » est proposée, c'est que la commission a déjà validé les protocoles de l'établissement.
+- Protocole adapté : donner un nom, indiquer l'enseignant qui l'encadre, attribuer de une à trois APSA (la liste propose d'abord les APSA validées pour l'établissement puis toutes les autres : pas de limitation en adapté), saisir les dates de passage et de rattrapage, [Enregistrer].
+- Nouveau protocole classique après validation : prévenir l'inspection pédagogique et la commission pour qu'elles dévalident temporairement les protocoles ; créer le protocole ; puis menu EPS > Tableau de bord pour retransmettre les protocoles à la commission, qui les valide à nouveau.
+
+### [SITUATION: SANTORIN — DISTRIBUTION AUTOMATIQUE DES LOTS DE CORRECTION (vidéo)]
+- Mots-clés : distribution des lots, distribuer, distribution automatique, lancer la distribution, candidats non affectés, un lot par protocole.
+- Formulations courantes des collègues : je n'ai aucun lot dans Santorin ; qui distribue les lots ; à quel moment puis-je saisir.
+- Vidéo : https://www.youtube.com/watch?v=-EtWyhSzNlM
+- À faire quand tout est prêt dans Cyclades (import des groupes et élèves, vérification des protocoles). Premier accès à Santorin en mode établissement (chef ou référent).
+- Accès : Cyclades > menu EPS > Accéder à la saisie des notes, ou ARENA > Examens et concours.
+- [Distribution] > [Distribuer] : garder « distribution automatique » puis [Lancer la distribution]. Chaque protocole devient un lot. Le message de confirmation doit indiquer 0 candidat non affecté. L'onglet des lots montre autant de lots que de protocoles, avec le nombre de candidats.
+- Ensuite seulement les enseignants peuvent saisir : ARENA > Examens et concours > Imag'in accès individuel > Portail d'accès aux missions, une ligne par examen.
+
+### [SITUATION: SANTORIN — LA DISTRIBUTION AUTOMATIQUE ÉCHOUE : DISTRIBUTION MANUELLE DES LOTS (vidéo)]
+- Mots-clés : erreur de distribution, adresses mail non retrouvées, mission manquante, CFA, formateur, distribution manuelle, ajouter dans un nouveau lot.
+- Formulations courantes des collègues : la distribution des lots affiche une erreur avec des adresses mail ; l'adresse du formateur ne correspond pas.
+- Vidéo : https://www.youtube.com/watch?v=qEvM8o5JxIE
+- Le message d'erreur liste des adresses mail non retrouvées dans Santorin. Deux causes : 1) le chef n'a pas encore créé les missions d'évaluation dans Imag'in pour ces enseignants : il les crée et relance ; 2) l'adresse déclarée comme évaluateur dans Cyclades n'est pas celle utilisée par l'enseignant dans Imag'in (cas typique des CFA).
+- Dans le second cas, contourner par la distribution manuelle : noter d'abord quel enseignant encadre quel protocole ; cliquer sur [Distribution manuelle] ; trier les candidats par nom de protocole (afficher 100 éléments par page) ; sélectionner tous les élèves d'un protocole ; [Ajouter dans un nouveau lot] ; choisir l'examinateur en bas de page ; les dates de début et de fin ne sont pas obligatoires ; [Valider]. Recommencer pour chaque protocole.
+
+### [SITUATION: SANTORIN — DÉPLACER DES ÉLÈVES D'UN LOT VERS UN AUTRE LOT EXISTANT (vidéo)]
+- Mots-clés : déplacer vers un lot existant, changer de lot, distribution déjà faite.
+- Formulations courantes des collègues : un élève est dans le mauvais lot ; comment changer un élève de lot après la distribution.
+- Vidéo : https://www.youtube.com/watch?v=WKbg51eUQVs
+- Action du chef d'établissement (ou du référent), sur le bon examen : [Distribution] > [Lots] > flèche à droite du lot de départ > [Candidats]. Sélectionner tous les élèves (clic sur l'en-tête de la colonne « numéro candidat ») ou seulement certains, puis [Déplacer vers un lot existant], choisir le lot d'arrivée, [Déplacer].
+
+### [SITUATION: SANTORIN — ENSEIGNANT SUR PLUSIEURS ÉTABLISSEMENTS OU PLUSIEURS EXAMENS : RETROUVER SES LOTS (vidéo)]
+- Mots-clés : plusieurs établissements, lots mélangés, changer de contexte, deux missions, intervenant extérieur, lien direct Imag'in.
+- Formulations courantes des collègues : je suis sur deux lycées, où sont mes lots ; je ne vois que le CAP et pas le bac pro ; je ne suis pas titulaire, comment accéder à Imag'in.
+- Vidéo : https://www.youtube.com/watch?v=DyNQkjXP6p4
+- Accès à Imag'in : par ARENA pour un enseignant titulaire de l'éducation nationale ; par un lien direct envoyé par le service des examens pour un intervenant extérieur.
+- Imag'in > Portail d'accès aux missions : une ligne par mission. Pour un même examen, toutes les lignes mènent à la même interface Santorin, où les lots des différents établissements sont fusionnés. Il faut donc repérer son lot par le nom du protocole.
+- Pour passer à un autre examen (par exemple du CAP au bac pro) sans ressortir : icône « Changer de contexte » dans Santorin.
+
+### [SITUATION: SANTORIN — SAISIE DES NOTES PAR LE PROFESSEUR : DÉROULÉ COMPLET DE LA VIDÉO]
+- Mots-clés : saisie des notes, éditer la notation, choisir AFLP, déclarer cas exceptionnel, absent, dispensé, épreuve de substitution, rattrapage, répartition des points, décimale, point et non virgule, touche Entrée, enregistrer.
+- Formulations courantes des collègues : comment saisir mes notes dans Santorin ; ma note à virgule n'est pas prise ; où indiquer le rattrapage ; puis-je saisir une seule APSA pour l'instant.
+- Vidéo : https://www.youtube.com/watch?v=hFLv_cAuq30
+- Accès : ARENA > Examens et concours > Imag'in (gestion des intervenants) > Accès individuel > Mes missions / Portail d'accès aux missions. Une ligne par examen. Cliquer sur l'examen, puis sur la flèche du lot.
+- AVANT de saisir, deux boutons en haut du lot. [Déclarer cas exceptionnel] : autorisation exceptionnelle d'évaluer sur deux APSA au lieu de trois ; on clique sur l'APSA à écarter et les élèves du lot ne sont pas évalués dessus. [Choisir AFLP] : à faire pour chaque protocole ; pour chaque APSA, indiquer les AFL ou AFLP évalués (par exemple 3 et 4, 3 et 5, 4 et 6), puis [Valider].
+- Puis [Éditer la notation], élève par élève. Pour chaque APSA, dans l'ordre : absent ou dispensé ; sinon « épreuve de substitution » si l'élève a été évalué à la date de rattrapage, avec le motif (force majeure, inaptitude à la date initiale) ; puis la note de l'AFL1 / AFLP1, celle de l'AFL2 / AFLP2 ; puis la répartition des points choisie entre les deux derniers AFL(P) (exemple 6 et 2) et les deux notes correspondantes.
+- On ne saisit jamais directement une note sur 20 : on saisit le détail par AFL ou AFLP.
+- Saisie au clavier : pour une décimale, taper un POINT et non une virgule, puis appuyer sur Entrée pour valider. On peut aussi choisir dans la liste déroulante.
+- La saisie peut se faire au fil de l'eau : on peut enregistrer la première APSA seule. Cliquer sur [Enregistrer], puis « élève suivant ».
+
+### [SITUATION: SANTORIN — UN ÉLÈVE N'A PAS SUIVI LE MÊME PARCOURS QUE SON GROUPE : LE SORTIR DANS UN NOUVEAU LOT (vidéo)]
+- Mots-clés : élève arrivé en fin d'année, une seule note, cas exceptionnel pour un seul élève, déplacer vers un nouveau lot, date de fin, conserver ou supprimer la correction.
+- Formulations courantes des collègues : mon élève est arrivé en avril et n'a qu'une note ; le cas exceptionnel s'applique à tout mon groupe ; je l'ai mis dispensé par défaut.
+- Vidéo : https://www.youtube.com/watch?v=E2VMoq7sLgI
+- Problème : dans Santorin, le statut « cas exceptionnel » s'applique à tout le lot. Pour un seul élève (exemple : arrivé en fin d'année, évalué sur une seule APSA), on ne le met pas « dispensé » sur les autres APSA ; l'astuce est de le sortir dans un lot à lui.
+- Action réservée au chef d'établissement ou à l'enseignant référent Santorin : [Distribution], ouvrir le lot de l'élève, afficher les candidats, cocher l'élève, [Déplacer vers un nouveau lot]. En bas de fenêtre : la date de fin est obligatoire (la vidéo met la date de la commission académique), choisir l'examinateur, [Déplacer].
+- Santorin demande s'il faut conserver ou supprimer la correction : supprimer si l'enseignant avait mis un « dispensé » par défaut. [Valider].
+- L'enseignant voit alors un nouveau lot d'un seul élève, sur lequel il déclare le cas exceptionnel pour les APSA non évaluées.
+
+### [SITUATION: SANTORIN / CYCLADES — DERNIÈRE VÉRIFICATION AVANT VERROUILLAGE : TOUS LES ÉLÈVES SONT-ILS DISTRIBUÉS ? (vidéo)]
+- Mots-clés : vérification finale, 100 % de distribution, incohérences de données, élève sans protocole, élève parti, démissionnaire, RNE, avant commission.
+- Formulations courantes des collègues : Santorin affiche des incohérences de données ; je ne suis pas à 100 % de distribution alors qu'il y a 0 candidat non affecté ; un élève est dans Santorin mais plus dans Cyclades.
+- Vidéo : https://www.youtube.com/watch?v=Ap17Gn69ruU
+- Vérification 1, chef d'établissement dans Cyclades : menu EPS > Associer les élèves à un protocole, clic sur la colonne du groupe d'élèves pour trier. Les élèves sans protocole remontent en tête : ce sont le plus souvent des élèves arrivés en cours d'année, absents d'iPackEPS au moment de l'export. Les placer dans leur protocole.
+- Vérification 2, dans Santorin (menu EPS > Accéder à la saisie des notes) : regarder le pourcentage de distribution et l'alerte d'en-tête « incohérences de données ». « 0 candidat non affecté » ne suffit pas.
+- Les élèves en incohérence sont souvent des élèves qui ont changé d'établissement, se sont désinscrits ou ont démissionné. En cas de changement d'établissement, le chef met à jour la fiche d'inscription de l'élève à l'examen (RNE du nouvel établissement). Sans solution : contacter la DEC.
+- On peut verrouiller quand, dans Cyclades, tous les élèves ont un protocole et que, dans Santorin, la distribution est à 100 % sans erreur de données.
+
+### [SITUATION: SANTORIN — EXPORTER LE FICHIER DES NOTES D'EPS ET LE METTRE EN FORME POUR LA COMMISSION (vidéo)]
+- Mots-clés : export des notes, générer le fichier Excel des notations, statistiques, télécharger, colonnes à supprimer, tri, impression paysage, signature du chef.
+- Formulations courantes des collègues : comment récupérer les notes de Santorin ; quel fichier donner à la commission ; le fichier a trop de colonnes.
+- Vidéo : https://www.youtube.com/watch?v=KooSwcy4gAA
+- Action du chef d'établissement, à refaire pour chaque examen (bac GT, bac pro, CAP). En bac GT, cliquer sur [Filtre] et chercher « EPS CCF ».
+- Sur la ligne EPS : [Correction], puis bouton [Statistiques] en haut à droite, puis [Générer le fichier Excel des notations]. Attendre quelques secondes, fermer les deux petites fenêtres qui recouvrent le bouton, puis [Télécharger].
+- Le fichier porte toujours le même nom (« export notation EPS ») : le renommer avec l'examen pour ne pas écraser les autres.
+- Mise en forme proposée : ouvrir dans un tableur (activer la modification) ; supprimer le total des points et toutes les colonnes de détail des AFL ; garder pour chaque APSA son libellé et sa note, plus la colonne « appréciation » ; trier par nom d'élève ; quadriller ; imprimer en paysage, « ajuster toutes les colonnes à une page ».
+- Faire signer par le chef d'établissement si l'académie le demande (pour Aix-Marseille : suivre les consignes de la DEC).
+
+### [SITUATION: SANTORIN — LES STATISTIQUES POUR LE PROFESSEUR ET POUR LE CHEF D'ÉTABLISSEMENT (vidéo)]
+- Mots-clés : statistiques Santorin, moyenne, médiane, quartile, écart-type, comparer avec les autres examinateurs, répartition par AFL, par APSA, par genre, champ d'apprentissage.
+- Formulations courantes des collègues : où voir la moyenne de mon lot ; puis-je comparer mes notes à celles des collègues ; les statistiques du chef sont à zéro.
+- Vidéo : https://www.youtube.com/watch?v=3ThO5nLNzJg
+- Professeur (module simplifié) : ouvrir un lot, bouton d'accès aux statistiques. On y lit le nombre de candidats, la note minimale et maximale, l'écart-type, la moyenne, la médiane, les quartiles et le diagramme des notes de 0 à 20. On peut regarder un lot, ou tous ses lots fusionnés, et comparer sa répartition à celle des autres examinateurs de l'établissement (en pourcentages).
+- Une liste déroulante permet de voir la note finale (moyenne des trois APSA, ou des deux en CAP), une seule APSA, la situation de fin de séquence (AFLP1 + AFLP2, sur 12 points), un seul AFL(P), ou l'évaluation au fil de la séquence (8 points restants).
+- Chef d'établissement (module détaillé) : [Correction] > [Statistiques]. Tant que les notes ne sont pas validées, les moyennes globales, minimum, maximum et écart-type restent à zéro : c'est normal en cours d'année. Filtres par examinateur, par APSA, par AFL, par champ d'apprentissage, par genre. Le fichier Excel de toutes les notes se génère depuis cet écran.
+
+### [SITUATION: SANTORIN — LE PROFESSEUR VERROUILLE SES LOTS (vidéo)]
+- Mots-clés : verrouiller le lot, bouton verrouiller grisé, toutes les notes saisies, irréversible pour l'enseignant, commission d'harmonisation.
+- Formulations courantes des collègues : le bouton verrouiller est désactivé ; puis-je déverrouiller mon lot moi-même ; quand verrouiller.
+- Vidéo : https://www.youtube.com/watch?v=a4sp4ULplCE
+- Chaque enseignant verrouille chacun de ses lots quand ses notes ne bougeront plus. La commission académique d'harmonisation a besoin que tous les lots de tous les établissements soient verrouillés pour faire tourner les statistiques.
+- Dans Santorin : ouvrir le lot, bouton [Verrouiller] en haut à droite. Il reste désactivé tant qu'un élève n'a pas une évaluation sur chacune des APSA (colonne « note » incomplète).
+- Une fois le lot verrouillé, l'enseignant ne peut plus le déverrouiller lui-même ni y ajouter un élève oublié : vérifier avant que tous les élèves sont bien dans un lot. Seul le chef d'établissement peut déverrouiller.
+- Recommencer pour chaque lot.
+
+### [SITUATION: SANTORIN — LE CHEF D'ÉTABLISSEMENT VÉRIFIE, VERROUILLE OU DÉVERROUILLE LES LOTS (vidéo)]
+- Mots-clés : déverrouiller un lot, cadenas ouvert, cadenas fermé, liste des lots, lot verrouillé par erreur, élève oublié.
+- Formulations courantes des collègues : j'ai verrouillé trop tôt ; il manque un élève dans un lot verrouillé ; qui peut rouvrir mon lot.
+- Vidéo : https://www.youtube.com/watch?v=iOMHPSMC7lM
+- Le chef se connecte à Santorin. En bac pro ou CAP, l'EPS apparaît directement ; en bac GT, utiliser le filtre des séries pour n'afficher que l'EPS en CCF.
+- [Correction] > [Liste des lots] : tous les lots de l'établissement avec un cadenas. Cadenas fermé : lot verrouillé. Cadenas ouvert : pas encore verrouillé. Un clic sur le cadenas verrouille ou déverrouille.
+- Deux cas où il faut déverrouiller : l'enseignant a verrouillé par erreur et doit corriger des notes ; ou l'on découvre après coup des élèves non distribués à ajouter dans le lot.

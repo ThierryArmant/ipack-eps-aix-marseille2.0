@@ -136,3 +136,24 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - À la charge de CHAQUE enseignant : sa propre fiche professeur (personne d'autre ne peut la remplir ni la lire), ses groupes et leurs séquences d'apprentissage, le placement de ses élèves dans ses groupes, son emploi du temps.
 - Contrôle par le coordonnateur : [Dossiers] > [Dossier EPS] > [Équipe EPS], menu « Bilan ». Une coche rouge à côté d'un nom signale une fiche professeur incomplète (spécialités, vœux de jury, vœux de formation) ; le coordonnateur ne voit pas le contenu de la fiche, seulement si elle est complète.
 - Pour les examens (lycée), dans Cyclades et Santorin : chaque enseignant crée ses propres protocoles et saisit ses propres notes.
+
+### [SITUATION: VACATAIRE, AED, ÉTUDIANT STAPS, INTERVENANT DE CLUB — FAUT-IL L'AJOUTER COMME PROFESSEUR D'EPS DANS iPackEPS ?]
+- Mots-clés : vacataire, AED, assistant d'éducation, étudiant STAPS, intervenant extérieur, éducateur sportif, entraîneur de club, maître-nageur, micro-lycée, statut, ajouter un professeur, nouvel intervenant, équipe EPS.
+- Formulations courantes des collègues : doit-on ajouter un vacataire comme prof d'EPS ; un étudiant STAPS assure deux heures d'EPS ; un AED encadre une classe ; comment déclarer un intervenant qui n'est pas professeur ; peut-on créer un professeur à la main.
+- On ne peut PAS ajouter un « professeur d'EPS » à la main dans iPackEPS. La liste des enseignants de l'équipe EPS est extraite automatiquement des bases du rectorat ; le bouton [Actualiser] ([Dossiers] > [Dossier EPS] > [Équipe EPS]) ne fait que relancer cette extraction.
+- Première vérification : cliquer sur [Actualiser]. Si la personne apparaît dans la liste des enseignants, c'est que le rectorat l'a enregistrée comme enseignant d'EPS dans l'établissement : il n'y a rien à ajouter, elle se gère comme un collègue.
+- Si elle n'apparaît pas (cas habituel d'un vacataire, d'un AED, d'un étudiant, d'un éducateur ou d'un entraîneur de club) : la déclarer comme INTERVENANT EXTÉRIEUR. Dans [Dossiers] > [Dossier EPS] > [Équipe EPS], en bas de la fenêtre, tableau des intervenants extérieurs : bouton de création d'un nouvel intervenant, saisir le nom, le prénom, cocher sa fonction, ajouter un commentaire si utile, enregistrer.
+- Un intervenant extérieur peut ensuite être attribué à des groupes. Il n'a pas d'accès personnel à iPackEPS et n'a pas de fiche professeur : c'est l'équipe qui saisit ses groupes et ses créneaux.
+- Autre possibilité pour une classe dont l'EPS n'est assurée par aucun professeur d'EPS de l'équipe : dans [Dossiers] > [Dossier EPS] > [Classes], menu d'organisation des classes, choisir le mode « classe sans professeur d'EPS ».
+- Si l'intervenant ne revient pas l'année suivante : icône [Modifier] puis [Supprimer] ; s'il est attribué à des groupes ou a effectué des contrôles EPI, il est seulement désactivé.
+- LIMITE : iPackEPS ne dit rien du statut administratif de la personne (contrat, droit d'enseigner l'EPS, responsabilité). Ces questions relèvent du chef d'établissement et des services du rectorat, pas de l'application.
+
+### [SITUATION: TITULAIRE, TZR, CONTRACTUEL, STAGIAIRE, REMPLAÇANT — COMMENT CHACUN APPARAÎT DANS iPackEPS]
+- Mots-clés : statut, titulaire, TZR, contractuel, stagiaire, remplaçant, nouvel arrivant, n'apparaît pas dans l'équipe, deux identifiants, affectation.
+- Formulations courantes des collègues : notre contractuel n'apparaît pas dans l'équipe ; le TZR arrivé en octobre n'est pas dans la liste ; le stagiaire doit-il remplir une fiche ; comment déclarer un remplaçant.
+- Tout enseignant d'EPS affecté par le rectorat dans l'établissement (titulaire, TZR, contractuel, stagiaire) apparaît automatiquement dans l'équipe EPS, après un clic sur [Actualiser] par le coordonnateur. Chacun accède à iPackEPS par ARENA et remplit sa propre fiche professeur.
+- Un enseignant nouvellement affecté qui n'apparaît toujours pas après [Actualiser] : les affectations ne sont pas encore à jour dans les bases du rectorat. Attendre quelques jours et actualiser à nouveau. On ne peut pas le créer à la main.
+- Un enseignant qui a eu deux comptes (ancien contractuel titularisé, TZR) doit se connecter à ARENA avec son identifiant le plus récent, sinon il voit son ancien établissement ou aucun.
+- Un remplaçant : ouvrir SA fiche dans l'équipe EPS et indiquer, dans la zone « Remplacement », qui il remplace ; il récupère les groupes et l'emploi du temps du titulaire.
+- Un enseignant sans activité dans l'établissement cette année : le déclarer « non actif » avec [Modifier].
+- Une personne qui n'est pas enseignant d'EPS dans les bases du rectorat se déclare comme intervenant extérieur, pas comme professeur.

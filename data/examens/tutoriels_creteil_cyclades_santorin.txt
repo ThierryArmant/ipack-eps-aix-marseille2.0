@@ -83,7 +83,7 @@ Texte des questions / réponses des articles du site officiel des tutoriels iPac
   R1 : Dans Cyclades, créer un protocole adapté, puis y déplacer l'élève. Ce déplacement corrige les APSA de l'élève dans Santorin sans le sortir de son lot : aucune redistribution n'est nécessaire. Une note déjà saisie est conservée si l'APSA déjà évaluée est présente dans le nouveau protocole. Exemple : élève en Danse / Musculation / Course d'orientation, noté 12 en Danse ; le protocole adapté doit maintenir la Danse pour que la note soit conservée.
 
 ### [TUTORIEL SANTORIN — SAISIE DES NOTES : QUESTIONS FRÉQUENTES (article 67)]
-- Mots-clés : saisie des notes Santorin, aucun lot distribué, deux dispenses une note, élève absent de ma liste, champs bloqués, choisir AFLP, démissionnaire, option facultative, absent le jour de l'évaluation, CAP éliminatoire, DI bloqué, réinitialiser.
+- Mots-clés : saisie des notes Santorin, aucun lot distribué, deux dispenses une note, élève absent de ma liste, champs bloqués, choisir AFLP, démissionnaire, option facultative, absent le jour de l'évaluation, absence en CAP, DI bloqué, réinitialiser.
 - Accès : portail Santorin - Professeur, ou Référent Établissement. La saisie se fait élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP.
 - Q1 : Puis-je saisir les notes de mes collègues ?
   R1 : Par défaut, seuls les enseignants affectés à un protocole peuvent saisir les notes de ce protocole. Il est possible d'affecter un 2e évaluateur sur un lot.
@@ -106,7 +106,7 @@ Texte des questions / réponses des articles du site officiel des tutoriels iPac
 - Q12 : Après une modification d'APSA en cours d'année (installation non disponible), Santorin affiche [erreur données] : « Passage du protocole xxx vers le protocole xxx, des APSA sont modifiées mais notées. Veuillez réinitialiser la notation de ces APSA pour ce candidat. »
   R12 : Des notes avaient été saisies sur une APSA avant qu'elle ne soit remplacée. Ouvrir la fiche de chaque élève concerné et cliquer simplement sur enregistrer pour forcer l'enregistrement. Si le problème persiste, s'adresser à la DEC pour une réinitialisation par l'équipe Santorin.
 - Q13 : Un élève était absent le jour de l'évaluation mais a suivi toute la séquence. Dois-je le noter absent, ou puis-je lui donner ses points d'AFL 2 et 3 et mettre 0 à l'AFL 1 ?
-  R13 : La présence à la date d'évaluation est obligatoire. Si l'absence n'est pas justifiée, il faut déclarer l'élève Absent ; la note est convertie en 0/20. Attention : en CAP, une absence à une épreuve est éliminatoire pour l'obtention du CAP.
+  R13 : La présence à la date d'évaluation est obligatoire. Si l'absence n'est pas justifiée, il faut déclarer l'élève Absent ; la note est convertie en 0/20. En CAP et en bac professionnel, ce zéro compte dans la moyenne ; c'est l'absence à toutes les épreuves qui entraîne la non-délivrance du diplôme (circulaires nationales du 17 juillet 2020 et du 29 décembre 2020).
 - Q14 : J'ai déclaré par erreur un élève dispensé sur ses 3 notes, et je ne peux plus changer les DI (un sens interdit apparaît).
   R14 : Le statut DI a probablement été affecté à la moyenne générale de l'élève (en haut de l'écran). Cliquer sur ce statut et le modifier redonne la main sur le détail des 3 notes. Sinon, cliquer sur [réinitialiser] en bas d'écran pour remettre à zéro la saisie de cet élève.
 

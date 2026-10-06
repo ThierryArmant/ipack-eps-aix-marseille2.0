@@ -112,3 +112,16 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Refus délibéré ou abandon sans motif médical : l'épreuve a débuté. Les AFL (ou AFLP) sont évalués sur ce qui a été effectivement observé au moment de l'abandon. Si aucun élément moteur n'est mesurable, l'AFL1 reçoit le degré minimal ; la note finale reflète la tentative.
 - Malaise, crise de panique ou blessure pendant l'épreuve : l'épreuve est interrompue et l'élève est orienté vers l'infirmerie. Avec le visa de l'autorité médicale scolaire, l'élève bascule sur l'épreuve différée (rattrapage).
 - Dans les deux cas, consigner les faits par écrit et renseigner le champ « Appréciations » de Santorin.
+
+### [SITUATION: SANTORIN — DANS QUEL MENU SE FAIT CHAQUE OPÉRATION (sommaire des tutoriels « Interface iPackEPS / Cyclades » du site iPackEPS)]
+- Mots-clés : menu Santorin, Distribution, Corrections, Statistiques, verrouiller, export du fichier de notes, liste des inaptes, dispensés, déplacer un élève de lot.
+- Formulations courantes des collègues : où verrouiller mon lot ; comment récupérer le fichier de toutes les notes ; comment sortir la liste des dispensés ; comment changer un élève de lot.
+- Distribution des élèves en lots de correction : portail Santorin - Chef d'Établissement, fonctionnalité [Distribution]. C'est la première étape dans Santorin.
+- Déplacer des élèves d'un lot de correction à un autre : portail Santorin - Chef d'Établissement, fonctionnalité [Distribution].
+- Saisie des notes : portail Santorin - Professeur (ou Référent Établissement), élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP.
+- Verrouiller les lots après la saisie : portail Santorin - Enseignant, fonctionnalité [Corrections]. Lorsque toutes les notes ont été saisies, chaque enseignant doit verrouiller chacun de ses lots.
+- Export du fichier de notes : portail Santorin - Chef d'Établissement, fonctionnalité [Statistiques].
+- Liste des inaptes / dispensés : portail Santorin - Chef d'Établissement, fonctionnalité [Statistiques]. Santorin ne propose pas d'extraction automatique de cette liste ; elle se reconstitue à partir de l'export.
+- Dernière vérification avant le verrouillage : s'assurer qu'il ne reste aucun élève en attente d'attribution de protocole, et que tous les élèves présents dans Cyclades et Santorin sont bien affectés à un protocole et à un lot de correction.
+- Ce sommaire ne donne pas le détail des écrans : pour le pas-à-pas, renvoyer au tutoriel vidéo correspondant.
+

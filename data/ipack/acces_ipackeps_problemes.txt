@@ -40,3 +40,11 @@ Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubri
 - [Étape 4] Si un enseignant ne voit toujours pas iPackEPS dans son portail académique, il relance la mise à jour de ses applications depuis ce portail (sur certains portails : bouton « Aide » puis « Synchro manuelle »).
 - Cas du stagiaire ou du nouvel arrivant qui n'est dans aucune base STSWEB (et qui, parfois, n'a pas encore sa messagerie académique) : la direction se renseigne sur son affectation. En attendant, le référent iPackEPS de l'académie peut l'ajouter à l'équipe comme « enseignant extérieur », ce qui lui donne l'accès.
 - À ne pas faire : ressaisir toute l'équipe à la main ou attendre que le problème se règle seul. Tant que STSWEB n'est pas à jour, la liste restera incomplète.
+
+
+### [SITUATION: iPackEPS FONCTIONNE-T-IL SUR MAC, TABLETTE OU PC ? FAUT-IL L'INSTALLER OU LE METTRE À JOUR ? QUELLE VERSION ?]
+- Mots-clés : Mac, Apple, Windows, PC, tablette, iPad, installer, installation, télécharger, mise à jour, version, version minimale, navigateur, application en ligne, double-clic, ne se lance pas.
+- Formulations courantes des collègues : est-ce que iPackEPS fonctionne sur Mac ; faut-il installer iPackEPS sur mon ordinateur ; comment mettre à jour iPackEPS ; quelle version d'iPackEPS faut-il ; iPackEPS ne se lance pas quand je double-clique.
+- Réponse courte : OUI, iPackEPS fonctionne sur Mac comme sur PC, car ce n'est pas un logiciel à installer : c'est une application en ligne, que l'on ouvre dans un navigateur internet depuis le portail de son académie (ARENA).
+- Il n'y a donc rien à télécharger, rien à installer et aucune mise à jour à faire soi-même : tout le monde utilise automatiquement la version en cours, et il n'existe pas de « version minimale » à vérifier.
+- Si iPackEPS ne s'ouvre pas, le problème vient de l'accès (portail, identifiants, application absente du portail) et non de l'ordinateur : voir les fiches sur les problèmes d'accès.

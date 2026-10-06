@@ -89,7 +89,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Mots-clés : étapes après validation, protocoles validés, janvier, export Cyclades, import, association des élèves, distribution des lots, saisie, verrouillage, qui fait quoi.
 - Formulations courantes des collègues : nos protocoles sont validés, que fait-on maintenant ; quelles sont les étapes jusqu'à la saisie des notes ; dans quel ordre faire Cyclades et Santorin ; à partir de quand peut-on saisir.
 - Les opérations commencent à partir de janvier, une fois les protocoles des établissements validés par la commission académique.
-- Étape 1, chef d'établissement : dans iPackEPS, générer le fichier d'export des groupes et des élèves ([Dossiers] > [Dossier Certificatif] > [Protocoles] > « Générer le fichier d'export »). Tous les élèves des classes à examen doivent d'abord être placés dans un groupe.
+- Étape 1, professeur ou chef d'établissement : dans iPackEPS, générer le fichier d'export des groupes et des élèves ([Dossiers] > [Dossier Certificatif] > [Cyclades]). Tous les élèves des classes à examen doivent d'abord être placés dans un groupe.
 - Étape 2, chef d'établissement : importer ce fichier dans Cyclades (une seule fenêtre Cyclades ouverte, dans le bon examen).
 - Étape 3, enseignants et chef d'établissement : dans Cyclades, vérifier que chaque élève est bien rattaché à son protocole ([EPS] / [Associer les élèves à un protocole]) et corriger si besoin.
 - Étape 4, chef d'établissement, seulement si un enseignant a changé : réaffecter le protocole au nouvel évaluateur ([EPS] / [Contrôler / Réaffecter des protocoles]).

@@ -177,7 +177,7 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 * **Gestion des notes et statuts (DI / ABI / Notes) :** 
   * *DI (Dispense / Inaptitude médicale) :* Neutralise l'épreuve (retirée du calcul du diviseur).
   * *ABI (Absence injustifiée) :* Vaut 0/20 si aucun rattrapage n'a lieu.
-* **Cases AFLP inactives :** Si les cases de saisie sont grisées dans Santorin, c'est que le bouton « Choisir les AFLP » n'a pas été validé en amont par le coordonnateur.
+* **Cases AFLP inactives :** Si les cases de saisie sont grisées dans Santorin, c'est que le bouton « Choisir les AFLP » n'a pas été utilisé par l'enseignant : c'est le professeur lui-même qui clique sur [choisir AFLP] dans Santorin, sur son lot, pour déclarer les AFL(P) qu'il évalue.
 
 ### 4. Réglementation des Absences et Épreuves Différées
 * **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
@@ -263,7 +263,7 @@ BASE DE CONNAISSANCES RAG : ACTEURS, LOGISTIQUE & CAS PARTICULIERS
 --- PROCÉDURES TECHNIQUES COMPLÉMENTAIRES (SYNCHRONISATION CYCLADES & SANTORIN) ---
 
 * **Étape clé d'export iPackEPS vers Cyclades :**
-  - Menu : `[Dossiers] > [Dossier Certificatif] > [Protocoles]` > « Générer le fichier d'export » pour générer les fichiers des groupes et élèves associés à leurs protocoles. L'import dans Cyclades se fait depuis le portail ARENA du Chef d'Établissement (accessible uniquement si les protocoles ont été validés par la Commission Académique). (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article60`).
+  - Menu : `[Dossiers] > [Dossier Certificatif] > [Cyclades]` pour générer les fichiers des groupes et élèves associés à leurs protocoles. L'import dans Cyclades se fait depuis le portail ARENA du Chef d'Établissement (accessible uniquement si les protocoles ont été validés par la Commission Académique). (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article60`).
 
 * **Gestion des erreurs fréquentes à l'import Cyclades :**
   - *Erreur protocole inexistant :* Si des protocoles ont été créés après l'export académique, il faut demander à la Commission Académique d'invalider les protocoles, les recréer à l'identique (ou de type standard/adapté selon le cas), soumettre les protocoles (`[EPS] / [Tableau de Bord]` -> `[OUI]` sur soumettre les protocoles -> Enregistrer), puis demander à nouveau la validation académique. (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article65`).
@@ -304,7 +304,7 @@ CARTOGRAPHIE DES MENUS ET LEXIQUE OFFICIEL - SANTORIN & CYCLADES
 1. LEXIQUE DES EXAMENS (ANTI-HALLUCINATION)
 - Lot de correction : Regroupement numérique des candidats affectés à un correcteur. 
 - Statut DISP (Dispensé) : À saisir impérativement pour une inaptitude médicale totale sur l'ensemble du cycle.
-- Statut ABS (Absent) : À saisir pour une absence non justifiée. Attention : génère un zéro éliminatoire à l'examen. Ne jamais confondre avec une dispense médicale.
+- Statut ABS (Absent) : À saisir pour une absence non justifiée. La note est convertie en 0/20. En CAP, une absence à une épreuve est éliminatoire pour l'obtention du diplôme ; au bac général et technologique, ce zéro n'est pas éliminatoire. Ne jamais confondre avec une dispense médicale.
 - Sujet de secours : N'existe pas en Éducation Physique et Sportive. Toute absence contrainte nécessite l'organisation d'une épreuve de rattrapage différée.
 - Bordereau de notation (ou bordereau de retour) : C'est le document PDF récapitulatif officiel. Dans Santorin, le bouton pour télécharger ou imprimer ce bordereau n'apparaît et ne se génère qu'APRÈS le verrouillage définitif du lot par le correcteur. Il est impossible de le télécharger tant que la saisie est en cours ou ouverte.
 - DEC : Direction des Examens et Concours. C'est le service académique responsable de l'organisation des examens (Baccalauréat, DNB, CAP, etc.).

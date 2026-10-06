@@ -1112,7 +1112,7 @@ SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
 [SITUATION: EXPORT DES GROUPES VERS CYCLADES / COMMENT FAIRE POUR EXPORTER]
 - Instruction : AUCUNE passerelle automatique ou bouton « Export direct » n'existe entre iPackEPS et Cyclades. Il est techniquement impossible d'exporter des groupes iPackEPS directement vers Cyclades sans passer par un fichier.
 - Procédure manuelle obligatoire :
-  1. Dans iPackEPS : Allez dans [Dossiers] > [Dossier Certificatif] > [Protocoles] > « Générer le fichier d'export ».
+  1. Dans iPackEPS : Allez dans [Dossiers] > [Dossier Certificatif] > [Cyclades] (génération du fichier d'export).
   2. Dans Cyclades : Le secrétariat doit effectuer une « Importation de groupes » dans le module « Gestion des épreuves » avec ce fichier CSV.
 - Si le fichier n'est pas généré ou reconnu : La synchronisation entre STSWEB et Cyclades est incomplète au niveau académique (données RH). Aucune action technique n'est possible depuis iPackEPS pour corriger ce point. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr.
 - 📺 TUTORIEL COMPAGNON : Generer_importer_fichier_groupes_cyclades.mp4
@@ -1144,7 +1144,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 [SANTORIN] CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR
 ----------------------------------------------------------------------
 * CAUSE RÉELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCÉDURE INCOMPLÈTE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
-* RÉSOLUTION : Le coordonnateur doit impérativement valider le choix des AFLP dans les paramètres du protocole de l'établissement pour débloquer et rendre actives les cases de saisie des notes pour tous les correcteurs.
+* RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFL(P) qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
 
 [SANTORIN] DATE LIMITE DE SAISIE DES NOTES
 ----------------------------------------------------------------------

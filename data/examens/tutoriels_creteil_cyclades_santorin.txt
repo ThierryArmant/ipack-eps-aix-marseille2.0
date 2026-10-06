@@ -1,0 +1,161 @@
+=== TUTORIELS OFFICIELS iPackEPS — RUBRIQUE « INTERFACE iPackEPS / CYCLADES » (site ipackeps.ac-creteil.fr, articles relus le 6 octobre 2026) ===
+Texte des questions / réponses des articles du site officiel des tutoriels iPackEPS, rubrique Cyclades / Santorin. Les dates d'articles vont de 2023 à 2026. Les contacts et dates propres à une académie ne sont pas repris : pour Aix-Marseille, s'adresser à la DEC et à l'assistance iPackEPS de l'académie.
+
+### [TUTORIEL CYCLADES — EXPORTER LES GROUPES ET LES ÉLÈVES D'iPackEPS VERS CYCLADES (article 60)]
+- Mots-clés : export Cyclades, générer le fichier des élèves, import dans Cyclades, protocoles non validés, réimporter, élèves non inscrits, groupe n'appartient à aucun protocole, mode groupe, mode seul.
+- Accès dans iPackEPS : Tableau de bord => Les Projets et Dossiers => Dossier Certificatif => Cyclades, c'est-à-dire [Dossiers] / [Dossier Certificatif] / [Cyclades].
+- Qui fait quoi : l'export des élèves peut se faire depuis l'interface Professeur ou Chef d'Établissement d'iPackEPS. L'import des élèves dans Cyclades se fait en revanche depuis le portail ARENA du chef d'établissement. Ce module d'import n'est accessible que lorsque les protocoles de l'établissement ont été validés par la commission académique.
+- Q1 : Dans Cyclades, je ne peux pas importer mes élèves, une information m'indique que les protocoles ne sont pas validés.
+  R1 : Ce module n'est accessible que lorsque les protocoles de l'établissement ont été validés par la commission académique. Si l'accès n'est toujours pas ouvert en février, prendre contact avec le correspondant académique iPackEPS.
+- Q2 : Après l'import dans Cyclades, je me rends compte que j'ai oublié d'affecter des élèves à des protocoles sur iPackEPS. Puis-je corriger puis réimporter ?
+  R2 : Oui, Cyclades permet de réimporter les élèves. Sur iPackEPS : vérifier la configuration des classes, vérifier l'attribution des élèves dans chaque groupe / protocole, puis regénérer le fichier des élèves pour Cyclades. Si un élève n'apparaît pas dans iPackEPS malgré les mises à jour des classes (souci administratif), l'ignorer dans iPackEPS et le placer manuellement dans son protocole sur Cyclades.
+- Q3 : Après l'import, un rapport d'erreur indique que des élèves n'ont pas pu être importés car non inscrits dans l'établissement.
+  R3 : Ces élèves présents dans iPackEPS sont inscrits pour l'examen dans un autre établissement (changement d'établissement en cours d'année, ou erreur d'inscription). Les numéros INE figurent dans le rapport d'erreur : le chef d'établissement peut vérifier. Si l'élève est bien géré par l'autre établissement, ignorer l'erreur. S'il est bien dans votre établissement et doit être évalué par votre équipe, s'adresser au service des examens (DEC) pour un correctif sur Cyclades.
+- Q4 : Après l'import, un rapport d'erreur indique que les groupes d'élèves n'appartiennent à aucun protocole.
+  R4 : Les noms des groupes (protocoles) d'iPackEPS ne sont pas retrouvés dans Cyclades. Causes : l'équipe a créé ses protocoles sur iPackEPS APRÈS la transmission par la commission académique, ou les protocoles n'étaient pas valides (dates de rattrapage manquantes, etc.) au moment de la transmission. Vérifier dans Cyclades, menu [EPS] / [Contrôler / Réaffecter des protocoles], la liste des protocoles et leurs noms. S'il n'y a aucun protocole : s'assurer que tous les protocoles sont valides dans iPackEPS, puis demander à la commission académique de réexporter et valider. S'il y a des protocoles mais avec des noms différents : renommer les groupes dans iPackEPS pour leur donner le même nom que dans Cyclades, puis demander à la commission de réexporter et valider.
+- Q5 : Mes élèves sont bien dans leurs groupes sur iPackEPS, et pourtant aucun élève n'est importé dans son groupe sur Cyclades.
+  R5 : Les élèves sont à la fois dans un protocole pour leur classe entière et dans un groupe pour leur menu : ils sont donc dans 2 groupes avec 2 protocoles, ce que Cyclades refuse. Dans [Dossiers] / [Dossier EPS] / [Classes], déclarer les classes d'examen en [mode groupe] à la place de [mode seul]. Si un message indique que la manipulation est impossible, supprimer d'abord les APSA de cette classe dans [Dossier EPS] / [Groupes].
+
+### [TUTORIEL CYCLADES — LES ÉTAPES DANS iPackEPS POUR ÉVITER LA DOUBLE SAISIE, ET LE CAS DES CFA / AEFE (articles 61 et 62)]
+- Mots-clés : étapes iPackEPS avant Cyclades, double saisie, CFA, AEFE, établissements privés sans élèves.
+- Si ces étapes sont suivies dans iPackEPS, tous les élèves seront déjà placés dans leurs protocoles au moment de la saisie des notes dans Santorin : 1) déclarer les APSA qui seront certifiées ; 2) déposer les référentiels d'évaluation de chacune de ces APSA ; 3) déclarer les groupes d'élèves concernés par les examens ; 4) attribuer à chaque groupe son protocole d'examen (liste des APSA pratiquées) ; 5) configurer les protocoles (date de rattrapage, co-évaluateur) ; 6) générer le fichier des élèves / groupes à importer dans Cyclades.
+- Pour les établissements dont les élèves ne sont pas présents dans iPackEPS (CFA, AEFE, certains établissements privés), la procédure est différente, car iPackEPS ne peut pas transmettre les listes d'élèves à Cyclades : un document spécifique « procédure pour les CFA / AEFE » est publié sur le site des tutoriels.
+
+### [TUTORIEL CYCLADES — SE CONNECTER À CYCLADES POUR UN ENSEIGNANT (article 78)]
+- Mots-clés : accès Cyclades enseignant, ARENA, Examens et concours, Imag'in accès individuel, gestion des épreuves EPS.
+- Accès : ARENA => Examens et concours => Imag'in - accès individuel => EPS - Gestion des épreuves EPS.
+- L'accès à Cyclades se fait normalement depuis le portail ARENA. Pour quelques établissements privés, l'accès peut se faire par un lien direct vers Imag'in transmis par la DEC.
+
+### [TUTORIEL CYCLADES — VÉRIFIER L'AFFECTATION DES ÉLÈVES À LEURS PROTOCOLES (article 63)]
+- Mots-clés : Associer les élèves à un protocole, élèves sans protocole, élèves absents d'iPackEPS, groupe élève importé, redoublant, dispensé automatiquement.
+- Accès dans Cyclades : [EPS] / [Associer les élèves à un protocole]. Si les groupes / élèves n'ont pas été importés avant, tous les élèves apparaissent mais sans protocole : il faut alors les affecter manuellement aux protocoles existants.
+- Q1 : Certains élèves apparaissent sur Cyclades, mais je ne les vois pas dans iPackEPS.
+  R1 : Mettre à jour les listes dans iPackEPS : module [Dossiers] => [Dossier EPS] => [Classes], menu [importation élèves] => [Actualiser]. Vérifier ensuite que chaque élève est dans le bon protocole dans [Dossiers] => [Dossier EPS] => [Élèves], puis regénérer le fichier pour Cyclades. De petites différences entre les listes de Cyclades et d'iPackEPS sont fréquentes (inscription aux examens différente de la base élèves) : ce n'est pas grave, il suffit de placer manuellement ces élèves dans le bon groupe sur Cyclades.
+- Q2 : J'obtiens le message « le groupe élève importé ne correspond à aucun groupe lié aux protocoles ».
+  R2 : Les noms des groupes importés n'existent pas dans la liste des protocoles que la commission académique a importée pour l'établissement, ce qui arrive si de nouveaux protocoles ont été créés APRÈS l'export par la commission. Résolution : demander à la commission académique d'invalider les protocoles ; créer alors dans Cyclades les protocoles manquants de type [standard], nommés EXACTEMENT comme sur iPackEPS ; retourner dans [EPS] / [Tableau de Bord], cliquer sur [OUI] dans [soumettre les protocoles], puis [Enregistrer] ; prévenir la commission qu'elle peut revalider.
+- Q3 : Sur Cyclades certains élèves n'apparaissent pas (ils ont déjà passé l'examen l'année dernière) et sont déclarés dispensés d'EPS.
+  R3 : Lorsqu'un élève passe l'examen une deuxième fois, Cyclades met automatiquement une dispense sur certaines épreuves dont l'EPS : l'élève est considéré comme bénéficiaire de ses notes de l'année précédente. Le candidat a le droit de demander à repasser l'épreuve en l'indiquant sur sa confirmation d'inscription ; cette modification est possible jusqu'au 31 janvier.
+
+### [TUTORIEL SANTORIN — CRÉER LES MISSIONS D'ÉVALUATION IMAG'IN DES ENSEIGNANTS (article 80)]
+- Mots-clés : mission Imag'in, convoquer les enseignants, évaluateur, référent Santorin, accès Santorin impossible.
+- Pour accéder à Santorin et saisir les notes, chaque enseignant doit avoir été convoqué sur une mission Imag'in pour chacun des examens d'EPS dont il saisit des notes. C'est le chef d'établissement qui crée ces missions, depuis Cyclades : menu [EPS] / [Accéder à Imag'In - convoquer les enseignants].
+- Deux profils de mission existent : évaluateur ou référent Santorin. Il est conseillé qu'au moins un enseignant soit déclaré Référent Santorin : il pourra déplacer des élèves de lot, ajouter des correcteurs sur les lots, et accéder aux statistiques détaillées.
+
+### [TUTORIEL CYCLADES — CONTRÔLER / RÉAFFECTER LES PROTOCOLES DES ENSEIGNANTS (article 64)]
+- Mots-clés : réaffecter un protocole, remplaçant, collègue a créé mes protocoles, STS-Web, enseignant inconnu, protocoles refusés.
+- Accès dans Cyclades : [EPS] / [Contrôler / Réaffecter des protocoles]. Étape nécessaire si le chef d'établissement ou un enseignant a créé les protocoles de ses collègues, ou si un enseignant affecté à un protocole a été remplacé.
+- Si un enseignant ne peut pas saisir ses notes, le chef d'établissement peut affecter dans Santorin un autre collègue de l'équipe, ou s'affecter lui-même comme évaluateur. Pour cela il doit se créer une mission Imag'in d'évaluateur en EPS, puis se connecter à cette mission pour s'affecter comme 2e évaluateur sur les protocoles.
+- Q1 : Dans la vérification des protocoles, j'obtiens « ce protocole n'a pas été créé par un enseignant d'EPS référencé dans STS-Web ».
+  R1 : L'enseignant n'est pas connu de Cyclades / Santorin. Tenter de créer une mission Imag'in pour lui. Si le problème persiste, contacter la DEC en indiquant nom, prénom et mail des enseignants inconnus : elle pourra leur créer un compte et une mission d'évaluation.
+- Q2 : La commission a déjà importé et validé mes protocoles, mais certains avaient été refusés (APSA non valides, co-évaluateur non déclaré, dates manquantes). Puis-je les modifier sur iPackEPS et demander à la commission de les réimporter ?
+  R2 : Non. Lorsque des protocoles ont été importés pour un établissement, Cyclades refuse de les réimporter. Il faut demander à la commission de dévalider les protocoles, puis créer manuellement les protocoles manquants sur Cyclades, en leur donnant le même nom que sur iPackEPS pour permettre ensuite l'import des élèves.
+
+### [TUTORIEL CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, STANDARD OU ADAPTÉ (article 65)]
+- Mots-clés : créer un protocole, protocole adapté, protocole standard oublié, sportif de haut niveau, en cours d'année.
+- Accès dans Cyclades (portail chef d'établissement ou enseignant) : [EPS] / [Créer un protocole].
+- Les protocoles créés sur iPackEPS sont envoyés automatiquement à Cyclades par la commission académique : il n'y a normalement pas à créer de protocole standard dans Cyclades, sauf oubli ou protocole invalide en début d'année.
+- Pour les sportifs de haut niveau, ou pour un élève à qui l'on veut proposer un protocole adapté en cours d'année, il est toujours possible de créer un protocole de type [adapté] en cours d'année sur Cyclades.
+- Q1 : J'ai oublié de créer certains protocoles à temps sur iPackEPS. Comment créer de nouveaux protocoles standard en cours d'année ?
+  R1 : Demander à la commission académique d'invalider les protocoles ; le type [standard] devient alors disponible dans la création de protocole. Une fois les protocoles créés, le chef d'établissement va dans Cyclades, [EPS] / [Tableau de Bord], clique sur [OUI] dans [soumettre les protocoles] puis sur [Enregistrer], et prévient la commission qu'elle peut revalider.
+
+### [TUTORIEL SANTORIN — DISTRIBUTION DES LOTS DE CORRECTION ET ERREURS DE DISTRIBUTION (article 66)]
+- Mots-clés : distribution automatique, distribution manuelle, aucun correcteur pour cette épreuve, incohérences de données sur des candidats, sous épreuves, candidature plus valide, examinateur correspondant au mail, élèves absents de Santorin.
+- Accès : portail Santorin - Chef d'Établissement (ou professeur d'EPS référent Santorin), fonctionnalité [Distribution]. C'est la première étape dans Santorin, réservée au chef d'établissement : une distribution automatique transforme chaque protocole en lot de correction. Si elle échoue, ou si de nouveaux élèves arrivent après la distribution automatique, on procède à une distribution manuelle.
+- Q1 : J'ai le message « aucun correcteur pour cette épreuve », je ne peux pas distribuer mes lots.
+  R1 : Seuls les correcteurs pour lesquels le chef d'établissement a créé une mission Imag'in d'évaluation en EPS apparaissent dans Santorin. Créer les missions manquantes (menu [EPS] / [Accéder à Imag'In - convoquer les enseignants]), puis vérifier dans Cyclades que chaque correcteur est bien affecté à ses protocoles et que son adresse mail est celle fournie à Imag'in.
+- Q2 : Impossible d'affecter un candidat dans un lot alors qu'il est bien dans un protocole Cyclades (élève ayant changé d'académie et d'établissement).
+  R2 : L'élève figure probablement encore dans les listes Santorin de son ancien établissement. Contacter l'ancien établissement pour vérifier que le départ a bien été déclaré ; la mise à jour n'est pas immédiate ; signaler à la DEC si le problème persiste.
+- Q3 : Erreur « Il y a des incohérences de données sur des candidats », avec pour certains : « Certaines données réglementaires associées aux APSA du candidat sont mal définies (sous épreuves) ».
+  R3 : Des protocoles ou APSA ont été modifiés dans Cyclades et Santorin est désynchronisé. Repérer les élèves en erreur et leurs protocoles ; retirer ces élèves de leur protocole avec la croix rouge (ou [vider] si tous sont en erreur) ; cliquer sur [enregistrer] en bas à droite ; replacer les élèves dans leurs protocoles ; enregistrer de nouveau ; vérifier dans Santorin.
+- Q4 : Même erreur, avec pour certains : « Veuillez affecter un protocole au groupe dans l'activité Associer les élèves à un protocole ».
+  R4 : Il s'agit notamment d'élèves arrivés en cours d'année, non placés dans leur protocole. Solution rapide : dans Cyclades, [EPS] / [Associer les élèves à un protocole], placer l'élève. Solution complète : mettre à jour la liste des élèves dans iPackEPS, les placer dans leurs protocoles, puis regénérer le fichier pour Cyclades.
+- Q5 : Même erreur, avec pour certains : « La candidature n'est plus valide dans le système d'information Examens/Concours. La suppression automatique n'est pas possible car le candidat a un support Examens et/ou est noté. »
+  R5 : Des élèves ont quitté l'établissement mais la base de Santorin ne s'est pas synchronisée. Seule solution : un signalement à la DEC, en indiquant le RNE de l'établissement, l'examen concerné (bac général et technologique, bac pro ou CAP) et les élèves concernés, pour transmission à l'équipe nationale Santorin. La même erreur peut empêcher de verrouiller un lot.
+- Q6 : La distribution automatique échoue : « Les protocoles suivants n'ont pas pu être distribués automatiquement car nous n'avons pas trouvé d'examinateur correspondant au mail déclaré lors de la création du protocole ».
+  R6 : L'adresse mail de l'examinateur déclarée dans Cyclades n'est pas retrouvée dans Santorin. Deux causes : le chef d'établissement a oublié de créer la mission Imag'in de cet enseignant ; ou l'enseignant a bien une convocation, mais son adresse mail dans Cyclades diffère de celle attendue par Santorin (cas d'enseignants de CFA avec une adresse générique). Dans ce second cas, procéder à une distribution manuelle.
+- Q7 : Des élèves sont bien présents sur Cyclades, mais je ne les vois pas dans Santorin.
+  R7 : La distribution automatique n'a pas été faite à 100 % : des élèves ont été ajoutés à leur protocole dans Cyclades APRÈS la distribution, et sont en attente de lot. Il suffit de relancer une distribution automatique.
+
+### [TUTORIEL SANTORIN — DÉPLACER UN ÉLÈVE DE LOT, OU LE PASSER EN CONTRÔLE ADAPTÉ SANS PERDRE SES NOTES (article 73)]
+- Mots-clés : déplacer un élève de lot, contrôle adapté en cours d'année, notes déjà saisies, redistribution, note conservée.
+- Accès : portail Santorin - Chef d'Établissement (ou professeur d'EPS référent Santorin), fonctionnalité [Distribution]. Santorin permet de déplacer des élèves d'un lot à un autre sans passer par Cyclades.
+- Q1 : Un élève doit passer en contrôle adapté en cours d'année, alors que la saisie a commencé. Vais-je perdre mes notes ? Dois-je redistribuer les lots ?
+  R1 : Dans Cyclades, créer un protocole adapté, puis y déplacer l'élève. Ce déplacement corrige les APSA de l'élève dans Santorin sans le sortir de son lot : aucune redistribution n'est nécessaire. Une note déjà saisie est conservée si l'APSA déjà évaluée est présente dans le nouveau protocole. Exemple : élève en Danse / Musculation / Course d'orientation, noté 12 en Danse ; le protocole adapté doit maintenir la Danse pour que la note soit conservée.
+
+### [TUTORIEL SANTORIN — SAISIE DES NOTES : QUESTIONS FRÉQUENTES (article 67)]
+- Mots-clés : saisie des notes Santorin, aucun lot distribué, deux dispenses une note, élève absent de ma liste, champs bloqués, choisir AFLP, démissionnaire, option facultative, absent le jour de l'évaluation, CAP éliminatoire, DI bloqué, réinitialiser.
+- Accès : portail Santorin - Professeur, ou Référent Établissement. La saisie se fait élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP.
+- Q1 : Puis-je saisir les notes de mes collègues ?
+  R1 : Par défaut, seuls les enseignants affectés à un protocole peuvent saisir les notes de ce protocole. Il est possible d'affecter un 2e évaluateur sur un lot.
+- Q2 : Le chef d'établissement ou un collègue peut-il saisir les notes à la place de l'évaluateur ?
+  R2 : Oui, en affectant un 2e évaluateur (enseignant ou chef d'établissement) sur le lot de correction dans Santorin.
+- Q3 : J'ai le message « aucun lot ne vous a été distribué ».
+  R3 : Le chef d'établissement n'a pas encore distribué les lots de correction. L'inviter aussi à vérifier qu'il a suivi en amont toute la procédure de configuration dans Cyclades.
+- Q4 : Comment traiter un élève qui a 2 dispenses + 1 note ?
+  R4 : Saisir [dispensé] pour les 2 APSA concernées, puis la note de l'APSA évaluée ; une alerte s'affiche. Cas 1, l'enseignant maintient la note : il n'a rien d'autre à faire et ajoute un commentaire. Cas 2, il ne souhaite pas la maintenir : il transforme la note en DI et ajoute un commentaire indiquant la note modifiée. L'académie peut demander en plus un document de justification pour les cas particuliers.
+- Q5 : Un élève n'apparaît pas dans ma liste sur Santorin, je ne peux pas lui attribuer de note.
+  R5 : Vérifier d'abord dans Cyclades, menu [EPS] / [Associer les élèves à un protocole], si l'élève existe dans l'établissement. S'il n'apparaît pas : le chef d'établissement fait un signalement à la DEC. Il peut s'agir d'une erreur d'inscription (l'élève s'est peut-être déclaré inapte total à l'inscription : demander alors à la DEC de le passer en statut [Apte]), ou d'un élève arrivé en cours d'année et inscrit pour l'examen dans son établissement précédent : c'est alors cet établissement qui saisit ses notes, et il faut lui transmettre vos évaluations. S'il apparaît : le replacer dans son protocole, puis le chef d'établissement refait une distribution MANUELLE pour le replacer dans son lot.
+- Q6 : Impossible de saisir les notes, les champs d'une ou plusieurs APSA sont bloqués, les AFL(P) sont notés X ou Y.
+  R6 : L'enseignant a simplement oublié de cliquer sur [choisir AFLP] pour déclarer, pour chaque APSA, quels AFL(P) il choisit d'évaluer sur ce protocole. Une fois ce choix fait, la saisie est possible. C'est l'enseignant lui-même qui fait ce choix, dans Santorin, sur son lot.
+- Q7 : Un élève est démissionnaire, mais il apparaît toujours sur ma liste.
+  R7 : Vérifier avec la DEC s'il est toujours inscrit dans l'établissement pour les examens. Un élève, même démissionnaire, doit être convoqué aux épreuves d'EPS dans l'établissement où il est inscrit. S'il doit passer le CCF chez vous : lui attribuer les notes des épreuves passées avant sa démission, rechercher les autres notes auprès des autres établissements qu'il a fréquentés, et saisir Absent s'il a bien été convoqué et ne s'est pas présenté.
+- Q8 : Je n'ai pas eu assez de leçons pour évaluer un groupe sur une des 3 APSA, comment geler la 3e note ?
+  R8 : Déclarer l'APSA en [cas exceptionnel] (voir la fiche sur les cas exceptionnels).
+- Q9 : Les élèves de mes groupes d'option facultative n'apparaissent pas sur Santorin.
+  R9 : C'est normal : Santorin ne gère pas l'option facultative. Ce sont les notes saisies dans Pronote qui sont transmises.
+- Q12 : Après une modification d'APSA en cours d'année (installation non disponible), Santorin affiche [erreur données] : « Passage du protocole xxx vers le protocole xxx, des APSA sont modifiées mais notées. Veuillez réinitialiser la notation de ces APSA pour ce candidat. »
+  R12 : Des notes avaient été saisies sur une APSA avant qu'elle ne soit remplacée. Ouvrir la fiche de chaque élève concerné et cliquer simplement sur enregistrer pour forcer l'enregistrement. Si le problème persiste, s'adresser à la DEC pour une réinitialisation par l'équipe Santorin.
+- Q13 : Un élève était absent le jour de l'évaluation mais a suivi toute la séquence. Dois-je le noter absent, ou puis-je lui donner ses points d'AFL 2 et 3 et mettre 0 à l'AFL 1 ?
+  R13 : La présence à la date d'évaluation est obligatoire. Si l'absence n'est pas justifiée, il faut déclarer l'élève Absent ; la note est convertie en 0/20. Attention : en CAP, une absence à une épreuve est éliminatoire pour l'obtention du CAP.
+- Q14 : J'ai déclaré par erreur un élève dispensé sur ses 3 notes, et je ne peux plus changer les DI (un sens interdit apparaît).
+  R14 : Le statut DI a probablement été affecté à la moyenne générale de l'élève (en haut de l'écran). Cliquer sur ce statut et le modifier redonne la main sur le détail des 3 notes. Sinon, cliquer sur [réinitialiser] en bas d'écran pour remettre à zéro la saisie de cet élève.
+
+### [TUTORIEL CYCLADES / SANTORIN — ÉLÈVES SPORTIFS DE HAUT NIVEAU (article 69)]
+- Mots-clés : SHN, sportif de haut niveau, protocole adapté, 20/20, trois champs d'apprentissage, colonne sportif de haut niveau NON.
+- Créer (sur iPackEPS ou directement sur Cyclades) un protocole de type [adapté], dans lequel on déclare l'activité de haut niveau de l'élève en choisissant une épreuve adaptée, ainsi que la ou les 2 autres épreuves de CCF. Des dates d'évaluation et de rattrapage sont demandées même pour l'épreuve de haut niveau : en saisir même si elles ne correspondent pas à la réalité.
+- Les 3 APSA doivent relever de 3 champs d'apprentissage différents. Exemple : le protocole du groupe est Courses, Badminton, Acrosport ; l'élève est SHN en Judo ; il faut écarter le Badminton et créer un protocole Courses, Judo adapté, Acrosport.
+- Placer l'élève dans ce protocole. Dans Santorin, en choisissant le protocole de l'élève, on indique quelle APSA correspond à sa spécialité : il reçoit alors 20/20 sur cette épreuve, et l'on saisit normalement la ou les 2 autres notes.
+- Si la colonne [sportif de Haut Niveau] indique [NON], faire un signalement à la DEC pour qu'elle vérifie le statut de l'élève sur les listes officielles et corrige.
+
+### [TUTORIEL CYCLADES / SANTORIN — GÉRER UN ÉLÈVE ARRIVÉ EN COURS D'ANNÉE (article 87)]
+- Mots-clés : élève arrivé en cours d'année, arrivée tardive, récupérer les notes, ancien établissement, protocole adapté, lot manuel, choix AFLP.
+- 1. Récupérer toutes les notes de l'élève : contacter le ou les anciens établissements fréquentés dans l'année pour récupérer ses éventuelles notes de CCF.
+- 2. Placer l'élève dans un protocole sur Cyclades : arrivé après le transfert, il n'a pas de protocole. Si ses APSA déjà évaluées ne correspondent à aucun protocole existant, créer d'abord un nouveau protocole, de type adapté pour pouvoir le faire en cours d'année.
+- 3. Le placer dans son lot de correction sur Santorin : si les lots sont déjà distribués, il est sans lot et doit être placé manuellement (chef d'établissement ou référent Santorin).
+- 4. Redéclarer la distribution des AFLP : si la répartition des AFLP avait été faite avant son arrivée dans le lot, cliquer sur [choix AFLP] et redéclarer la répartition pour tout le lot, afin que le nouvel élève puisse être noté.
+- Variante : plutôt que de créer un protocole adapté, on peut déplacer l'élève dans un nouveau lot et déclarer en [cas exceptionnel] la ou les APSA non évaluées.
+
+### [TUTORIEL SANTORIN — ATTRIBUER UN 2e CORRECTEUR SUR UN LOT (article 81)]
+- Mots-clés : deuxième correcteur, enseignant absent, chef d'établissement saisit les notes, mission Imag'in, profil évaluateur.
+- Accès : portail Santorin - Chef d'Établissement. Si un enseignant ne peut pas saisir ses notes, le chef d'établissement (ou le référent évaluation EPS) peut affecter sur le lot un autre collègue de l'équipe, ou se déclarer lui-même évaluateur.
+- Si le chef d'établissement veut saisir les notes, il doit se créer une mission d'évaluation EPS sur Imag'in, puis accéder à la saisie par le portail de ses missions Imag'in. S'il entre dans Santorin par Cyclades, il a le profil chef d'établissement et non évaluateur : il n'accède alors qu'aux statistiques.
+
+### [TUTORIEL SANTORIN — LES CAS EXCEPTIONNELS (CE) : ÉVALUATION SUR UNE OU DEUX APSA SEULEMENT (article 95)]
+- Mots-clés : cas exceptionnel, CE, Déclarer CE, installation non disponible, professeur absent non remplacé, séquence trop courte, un seul élève, créer un lot, annuler CE.
+- Un élève est en [Cas Exceptionnel] lorsqu'il n'a pas pu être évalué sur une ou plusieurs APSA pour une raison externe, qui n'est pas une inaptitude médicale : installation non disponible, professeur absent non remplacé, séquence trop courte.
+- Cas 1, tous les élèves d'un lot sont concernés : avant la saisie des notes, cliquer sur le bouton [Déclarer CE] et sélectionner l'APSA à écarter. Tous les élèves du lot passent en statut Cas Exceptionnel sur cette APSA.
+- Cas 2, un seul élève du lot est concerné : la procédure précédente n'est pas conseillée, car il faudrait ensuite annuler le statut CE pour tous les autres élèves. L'astuce est de créer un lot et d'y placer uniquement le ou les élèves concernés. Seul le chef d'établissement ou un enseignant déclaré référent Santorin peut créer des lots.
+- Q1 : J'ai déclaré une APSA en Cas Exceptionnel, comment annuler (erreur, ou élèves non concernés) ?
+  R1 : La déclaration impacte tous les candidats du lot : l'APSA notée CE est repliée et n'entre pas dans le calcul. On peut à tout moment forcer la notation de cette APSA pour un élève en cliquant sur la petite croix à côté de CE, puis saisir la note. Si aucune croix n'apparaît et que la note CE est bloquée, cliquer sur [choix AFLP] et redéclarer les AFL.
+- Q2 : Impossible de déclarer une APSA en CE, le bouton de l'APSA ne réagit pas.
+  R2 : Cas repéré lorsque le nom du protocole contient des « / » ou des « . ». Il faut recréer un protocole et y réaffecter les élèves : faire désactiver la validation des protocoles de l'établissement par l'inspection ou la DEC, créer le nouveau protocole dans Cyclades, le faire resoumettre par le chef d'établissement, le faire revalider, puis réaffecter les élèves de l'ancien protocole vers le nouveau.
+- Rappel : ce tutoriel décrit ce que l'outil permet. La validation d'un cas exceptionnel relève de l'inspection et de la DEC de l'académie.
+
+### [TUTORIEL SANTORIN — DERNIÈRES VÉRIFICATIONS AVANT LE VERROUILLAGE (article 74)]
+- Mots-clés : dernières vérifications, élève en attente de protocole, élève en erreur, élève absent de Santorin, ancien établissement.
+- Avant de verrouiller les lots, s'assurer qu'il ne reste aucun élève en attente d'attribution de protocole, et que tous les élèves sont affectés à un lot de correction (les changements d'établissement ou de filière en cours d'année créent des incohérences).
+- Cas spécial 1 : un élève apparaît en erreur dans Santorin mais est introuvable dans Cyclades. Il a quitté l'établissement et n'y est plus inscrit aux examens : c'est un bug d'affichage, contacter la DEC pour qu'il soit retiré de Santorin.
+- Cas spécial 2 : un élève apparaît dans Cyclades mais est introuvable dans Santorin (ni dans les candidats non affectés, ni dans les candidats en erreur). Il a certainement des données saisies dans Santorin par son précédent établissement, ce qui bloque le transfert : contacter la DEC pour qu'il soit retiré de l'ancien établissement.
+
+### [TUTORIEL SANTORIN — EXPORT DU FICHIER DE NOTES, LISTE DES DISPENSÉS, STATISTIQUES (articles 71, 75 et 79)]
+- Mots-clés : export des notes, extraire les notes, tableau récapitulatif, liste des inaptes, dispensés, statistiques, référent établissement.
+- Export du fichier de notes : portail Santorin - Chef d'Établissement, fonctionnalité [Statistiques]. Cette extraction est faite par le chef d'établissement.
+- Liste des inaptes / dispensés : Santorin ne propose pas d'extraction automatique de cette liste. On demande au chef d'établissement l'extraction intégrale des notes, puis on repère les notes DI dans les différentes colonnes.
+- Statistiques : l'interface professeur donne des statistiques simplifiées de notation ; l'interface chef d'établissement donne les statistiques détaillées. Un enseignant déclaré référent établissement sur Santorin accède aussi aux statistiques avancées.
+
+### [TUTORIEL SANTORIN — VERROUILLER ET DÉVERROUILLER LES LOTS APRÈS LA SAISIE (article 72)]
+- Mots-clés : verrouiller le lot, déverrouiller, Corrections, lot validé par erreur, impossible de verrouiller, incohérences de données.
+- Accès : portail Santorin - Enseignant, fonctionnalité [Corrections]. Lorsque toutes les notes sont saisies, chaque enseignant doit [verrouiller] chacun de ses lots.
+- Si un lot a été verrouillé par erreur, ou si des notes ou des élèves doivent encore être modifiés, c'est le chef d'établissement qui peut le déverrouiller.
+- Q1 : Impossible de verrouiller mes lots, avec l'erreur « Il y a des incohérences de données sur des candidats » et, pour certains, « La candidature n'est plus valide dans le système d'information Examens/Concours ».
+  R1 : Des élèves ont quitté l'établissement mais la base de Santorin ne s'est pas synchronisée. Faire un signalement à la DEC en indiquant le RNE de l'établissement, l'examen concerné et les élèves concernés, pour transmission à l'équipe nationale Santorin.

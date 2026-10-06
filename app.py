@@ -2453,6 +2453,16 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # ✅ L'IA entourait parfois le nom du tutoriel d'un lien inventé (https://example.com/...). On ne garde que le nom du fichier.
         texte_brut = re.sub(r"<a\s[^>]*>\s*([A-Za-z0-9_.-]+\.mp4)\s*</a>", r"\1", texte_brut, flags=re.IGNORECASE)
 
+        # ✅ « Texte de référence » : on ne garde la ligne que si elle cite un vrai texte officiel (l'IA y mettait parfois
+        # un titre de fiche ou une phrase). « Tutoriel associé » : on ne garde que les vrais fichiers .mp4 et adresses YouTube.
+        def _garder_ligne(_l):
+            if re.match(r"\s*(\*\*)?Texte de r[ée]f[ée]rence", _l, flags=re.IGNORECASE):
+                return bool(re.search(r"d[ée]cret|circulaire|note de service|arr[êe]t[ée]|\bloi\b|code de|article [LRD]\b|bulletin officiel|\bB\.?O\.?\b|\bNOR\b", _l, flags=re.IGNORECASE)) and "SITUATION" not in _l
+            if re.search(r"Tutoriel\s+(vid[ée]o\s+)?associ[ée]\s*:", _l, flags=re.IGNORECASE):
+                return bool(re.search(r"\.mp4|youtu\.?be", _l, flags=re.IGNORECASE))
+            return True
+        texte_brut = "\n".join(_l for _l in str(texte_brut).split("\n") if _garder_ligne(_l))
+
         # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
         if est_college or est_dnb:
             texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)

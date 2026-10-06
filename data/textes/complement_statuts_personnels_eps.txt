@@ -1,0 +1,41 @@
+=== QUI PEUT ENSEIGNER OU ENCADRER L'EPS DANS LE SECOND DEGRÉ : STATUTS DES PERSONNELS ET INTERVENANTS ===
+Fiches rédigées à partir des textes cités. Elles donnent le cadre général ; la situation d'une personne précise (son contrat, ce qu'elle a le droit de faire) se vérifie auprès du chef d'établissement et des services du rectorat (division des personnels), qui établissent le contrat.
+
+### [SITUATION: PROFESSEUR CONTRACTUEL D'EPS — DIPLÔME ET QUALIFICATIONS EXIGÉS]
+- Mots-clés : contractuel, professeur contractuel EPS, recrutement, licence STAPS, master MEEF, sauvetage aquatique, secourisme, arrêté du 12 février 2019, circulaire 2019-100.
+- Formulations courantes des collègues : quelles conditions pour être contractuel en EPS ; un contractuel doit-il avoir le sauvetage aquatique ; quel diplôme pour remplacer en EPS.
+- Un professeur contractuel d'EPS est recruté par le rectorat (contrat de droit public). Il exerce les mêmes missions d'enseignement qu'un titulaire, y compris l'association sportive.
+- Diplôme attendu : licence STAPS mention « éducation et motricité » ou équivalent, ou master (MEEF parcours EPS, master STAPS).
+- Qualifications exigées en plus du diplôme : une attestation d'aptitude au sauvetage aquatique et une attestation de secourisme.
+- Textes : arrêté du 12 février 2019 (qualifications en sauvetage aquatique et en secourisme exigées pour enseigner l'EPS) et circulaire n° 2019-100 du 1er juillet 2019.
+
+### [SITUATION: VACATAIRE EN EPS — CE QUE C'EST]
+- Mots-clés : vacataire, agent temporaire vacataire, vacation, décret 89-497, 200 heures, remplacement ponctuel.
+- Formulations courantes des collègues : un vacataire peut-il enseigner l'EPS ; quelle différence entre vacataire et contractuel ; combien d'heures peut faire un vacataire.
+- Le vacataire est un agent temporaire recruté pour un besoin ponctuel et de courte durée, rémunéré à l'heure effectuée. Texte : décret n° 89-497 du 12 juillet 1989 relatif aux conditions de recrutement et d'emploi d'agents vacataires temporaires pour l'enseignement secondaire.
+- Son volume est plafonné (200 heures par année scolaire selon ce décret). Ce n'est pas un contractuel : il n'a pas de service hebdomadaire complet.
+- Pour l'EPS, les exigences de qualification liées à la sécurité (sauvetage aquatique, secourisme) valent pour toute personne qui enseigne la discipline : à vérifier par le chef d'établissement avant de confier des élèves.
+- Les conditions exactes du recrutement figurent dans le contrat ou la décision de vacation établis par le rectorat ou l'établissement : c'est ce document qui fait foi.
+
+### [SITUATION: AED ET AED EN PRÉPROFESSIONNALISATION (ÉTUDIANT STAPS) — PEUVENT-ILS ASSURER DES COURS D'EPS ?]
+- Mots-clés : AED, assistant d'éducation, préprofessionnalisation, prépro, étudiant STAPS, L2, L3, M1, tuteur, décret 2019-981, circulaire 2019-156, 8 heures, 6 heures.
+- Formulations courantes des collègues : un AED peut-il faire cours d'EPS ; notre étudiant STAPS en prépro peut-il prendre une classe seul ; combien d'heures fait un AED prépro.
+- Un AED « classique » exerce des missions de surveillance et d'accompagnement des élèves : il n'est pas recruté pour enseigner.
+- L'AED en PRÉPROFESSIONNALISATION est un étudiant (au moins 60 crédits de licence) sous contrat de trois ans, 8 heures par semaine dans l'établissement, accompagné par un tuteur. Textes : décret n° 2019-981 du 24 septembre 2019 et circulaire n° 2019-156 du 6 novembre 2019.
+- Ses missions sont progressives : en L2, observation et interventions ponctuelles sur des séquences, sous la responsabilité du professeur ; en L3, s'y ajoutent d'autres activités éducatives ; en M1 seulement, enseignement de séquences pédagogiques complètes, notamment en remplacement, à raison de 6 heures hebdomadaires dans le second degré.
+- Conséquence : avant le M1, un AED en préprofessionnalisation n'a pas la responsabilité d'une classe ; il intervient avec le professeur.
+- Un étudiant recruté À LA FOIS comme AED et comme vacataire a deux engagements distincts : ses heures d'enseignement relèvent de la vacation, pas du contrat d'AED.
+
+### [SITUATION: INTERVENANT EXTÉRIEUR EN EPS, À L'AS OU EN SECTION SPORTIVE — CONDITIONS ET RESPONSABILITÉ]
+- Mots-clés : intervenant extérieur, éducateur sportif, entraîneur de club, brevet d'État, diplôme d'État, convention, section sportive, responsabilité de l'enseignant, surveillance.
+- Formulations courantes des collègues : un entraîneur de club peut-il encadrer seul ; qui est responsable quand un intervenant est présent ; quelles conditions pour l'intervenant de la section sportive.
+- En section sportive scolaire, les éducateurs sportifs extérieurs doivent être titulaires d'un brevet ou d'un diplôme d'État dans la spécialité et être agréés par la fédération concernée ; leur intervention est prévue dans la convention écrite signée entre l'établissement et le partenaire. Texte : circulaire du 10 avril 2020 sur les sections sportives scolaires (NOR MENE2009073C, BO n° 18 du 30 avril 2020).
+- La responsabilité de la section est confiée à un enseignant d'EPS ou à un membre volontaire de l'équipe éducative, qui coordonne son fonctionnement.
+- Principe de responsabilité : l'obligation de surveillance et de sécurité des élèves relève de l'enseignant ; sa responsabilité reste pleine et entière même en présence d'un intervenant extérieur. Textes : circulaires n° 96-248 du 25 octobre 1996 et n° 2017-075 du 19 avril 2017.
+
+### [SITUATION: UN NON-ENSEIGNANT ASSURE DES HEURES D'EPS — COMMENT LE DÉCLARER DANS iPackEPS]
+- Mots-clés : vacataire, AED, étudiant STAPS, intervenant extérieur, micro-lycée, équipe EPS, ajouter un professeur.
+- Formulations courantes des collègues : doit-on ajouter un vacataire comme professeur d'EPS dans iPackEPS ; comment déclarer un étudiant STAPS qui fait cours.
+- iPackEPS ne permet pas de créer un professeur d'EPS : la liste des enseignants vient des bases du rectorat ([Dossiers] > [Dossier EPS] > [Équipe EPS], bouton [Actualiser]).
+- Si la personne n'apparaît pas après [Actualiser], la déclarer comme intervenant extérieur, en bas de la fenêtre [Équipe EPS] ; elle peut alors être attribuée à des groupes.
+- iPackEPS décrit l'organisation de l'EPS ; il ne valide pas le statut ni le droit d'enseigner de la personne.

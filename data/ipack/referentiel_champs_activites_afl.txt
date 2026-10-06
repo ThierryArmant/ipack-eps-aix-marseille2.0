@@ -53,3 +53,13 @@ Ce référentiel sert uniquement à savoir de quel champ relève une activité e
 - AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, chorégraphie d'intensité en step, blocs d'allures en course).
 - AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.
 - AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade et respecter son projet.
+
+### [SITUATION: COMMENT SAVOIR DE QUEL CHAMP RELÈVE UNE ACTIVITÉ ? CE N'EST PAS SON NOM, C'EST CE QU'ON Y APPREND (EXEMPLE : COURSE EN DURÉE = CHAMP 5, DEMI-FOND = CHAMP 1)]
+- Mots-clés : course en durée, demi-fond, natation en durée, natation de vitesse, performance, entretien de soi, projet d'entraînement, mobile personnel, CA1, CA5, même activité deux champs, différence.
+- Formulations courantes des collègues : la course en durée c'est le champ 1 ou le champ 5 ; quelle différence entre demi-fond et course en durée ; deux activités de course dans le même protocole ; natation de vitesse et natation en durée.
+- Réponse courte : la course en durée relève du CHAMP 5, pas du champ 1. Ce n'est pas le nom de l'activité (« course ») qui décide du champ, c'est ce que l'élève y apprend et ce qui est évalué.
+- Champ 1 : l'élève cherche la MEILLEURE PERFORMANCE mesurable à une échéance donnée. Exemple : le demi-fond.
+- Champ 5 : l'élève apprend à S'ENTRAÎNER pour viser à long terme, de façon lucide et autonome, le développement et l'entretien de ses capacités. On évalue sa capacité à concevoir et mettre en œuvre un projet d'entraînement répondant à un mobile personnel de développement, pas un chrono. Exemples : course en durée, musculation, step.
+- Conséquence : demi-fond (champ 1) et course en durée (champ 5) sont deux épreuves de deux champs différents, alors que toutes deux sont de la course. De même, natation de vitesse (champ 1) et natation en durée (champ 5).
+- Évaluation dans le champ 5 : deux moments, l'un en fin de séquence (situation de fin de séquence notée sur 12 points), l'autre au fil de la séquence.
+- Avant de dire que deux activités sont « du même champ », toujours se demander : performance mesurée (champ 1) ou projet d'entraînement et d'entretien de soi (champ 5) ?

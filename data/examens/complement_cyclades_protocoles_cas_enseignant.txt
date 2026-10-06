@@ -6,7 +6,7 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Formulations courantes des collègues : je me suis trompé de groupe d'élèves en créant mon protocole ; le groupe élève n'est plus modifiable ; comment changer le groupe d'un protocole ; le champ groupe est grisé.
 - Dans Cyclades, le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé.
 - Correction : supprimer le protocole, puis le recréer avec le bon groupe élève.
-- Si les protocoles ont déjà été transmis à la commission, cette suppression n'est plus possible directement : voir la fiche « modifier un protocole après transmission ».
+- Si les protocoles ont déjà été transmis à la commission, cette suppression n'est plus possible directement : le chef d'établissement doit d'abord demander à l'inspection pédagogique régionale de rouvrir les protocoles ; après correction, on les retransmet par le menu [EPS] / [Tableau de bord].
 - Si seuls quelques élèves sont mal placés (et non tout le groupe), il n'est pas nécessaire de supprimer : les déplacer dans le bon protocole par le menu [EPS] / [Associer les élèves à un protocole].
 
 ### [SITUATION: LE GROUPE ÉLÈVE N'EST PAS RENSEIGNÉ DANS LE LOGICIEL DE SCOLARITÉ — QUE METTRE DANS LE PROTOCOLE ?]

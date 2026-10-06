@@ -2279,16 +2279,20 @@ if prompt_a_traiter:
                 faits_champs = ""
                 verdict_champs = ""
                 if not est_college:
-                    _APSA_CHAMPS = [
-                        ("course en duree", 5), ("natation en duree", 5), ("musculation", 5), ("step", 5), ("yoga", 5),
-                        ("natation de vitesse", 1), ("demi-fond", 1), ("demi fond", 1), ("haies", 1), ("relais", 1), ("sprint", 1),
-                        ("javelot", 1), ("disque", 1), ("lancer du poids", 1), ("pentabond", 1), ("triple saut", 1),
-                        ("saut en hauteur", 1), ("saut en longueur", 1),
-                        ("escalade", 2), ("course d'orientation", 2), ("sauvetage", 2), ("vtt", 2),
-                        ("danse", 3), ("cirque", 3), ("acrosport", 3), ("gymnastique", 3),
-                        ("badminton", 4), ("tennis de table", 4), ("boxe", 4), ("judo", 4), ("basket", 4),
-                        ("football", 4), ("handball", 4), ("rugby", 4), ("volley", 4), ("ultimate", 4),
-                    ]
+                    # ✅ La table « activité → champ » n'est plus écrite dans le code : elle est lue dans config/activites_champs.csv,
+                    # un simple fichier à mettre à jour quand la liste nationale change (aucune modification du programme).
+                    _APSA_CHAMPS = []
+                    try:
+                        with open("config/activites_champs.csv", encoding="utf-8") as _f_champs:
+                            for _ligne in _f_champs:
+                                _ligne = _ligne.strip()
+                                if not _ligne or _ligne.startswith("#") or _ligne.lower().startswith("activite"):
+                                    continue
+                                _a, _, _c = _ligne.partition(";")
+                                if _a.strip() and _c.strip().isdigit():
+                                    _APSA_CHAMPS.append((_a.strip().lower(), int(_c.strip())))
+                    except Exception:
+                        _APSA_CHAMPS = []
                     import unicodedata as _ud
                     _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]

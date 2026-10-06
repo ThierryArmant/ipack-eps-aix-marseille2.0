@@ -1,0 +1,28 @@
+# Faits courts et vérifiés, par examen, donnés au hub pour qu'il ne mélange pas les textes d'un examen avec ceux d'un autre.
+# À METTRE À JOUR quand un texte change. Une rubrique par examen, entre crochets ; une ligne par fait.
+# Sources : note de service du 20 février 2026 (bac général et technologique), circulaire du 29 décembre 2020 (bac pro),
+# circulaire du 17 juillet 2020 (CAP), note de service du 2 septembre 2025 (collège / DNB).
+
+[gt]
+Examen concerné : BACCALAURÉAT GÉNÉRAL ET TECHNOLOGIQUE. Texte à citer : note de service du 20 février 2026 (NOR MENE2531948N, Bulletin officiel n° 9 du 26 février 2026). Ne cite pas la circulaire du bac pro ni celle du CAP, ni la circulaire de 2019 (abrogée).
+CCF : 3 épreuves de 3 champs d'apprentissage différents ; note finale = moyenne des trois notes, ARRONDIE AU POINT ENTIER LE PLUS PROCHE après harmonisation (pas « au point supérieur »).
+Examen ponctuel (candidats individuels, Cned) : 2 épreuves de 2 champs différents.
+Absence non justifiée à une épreuve : note 0, non éliminatoire, pour cette épreuve.
+Sportif de haut niveau (y compris juges, arbitres, entraîneurs de haut niveau) : 20/20 automatique sur sa spécialité, sous réserve que ce ne soit pas l'unique note retenue.
+
+[pro]
+Examen concerné : BACCALAURÉAT PROFESSIONNEL (et BMA). Texte à citer : circulaire du 29 décembre 2020 (NOR MENE2037057C, Bulletin officiel n° 4 du 28 janvier 2021).
+CCF : 3 activités de 3 champs d'apprentissage ; note finale = moyenne des trois notes, ARRONDIE AU POINT ENTIER SUPÉRIEUR après harmonisation.
+Examen ponctuel : 2 épreuves de 2 champs différents.
+Absence non justifiée à la situation de fin de séquence d'une activité : zéro pour cette activité ; absence non justifiée à toutes les situations : non-délivrance du diplôme.
+
+[cap]
+Examen concerné : CAP. Texte à citer : circulaire du 17 juillet 2020 (NOR MENE2018678C, Bulletin officiel n° 31 du 30 juillet 2020).
+CCF : 2 activités de 2 champs d'apprentissage ; note finale = moyenne des deux notes, arrondie au point entier le plus proche (10,5 devient 11).
+Examen ponctuel : 1 seule épreuve.
+Absence non justifiée à une situation de fin de séquence : zéro ; absence non justifiée à toutes les situations : non-délivrance du diplôme.
+
+[dnb]
+Niveau concerné : COLLÈGE (DNB). Texte à citer : note de service du 2 septembre 2025 (Bulletin officiel du 4 septembre 2025). Ne cite JAMAIS les circulaires du CAP, du bac pro ou du bac général : elles ne s'appliquent pas au collège.
+Pas de CCF, pas de Cyclades ni de Santorin au collège : l'EPS compte par le contrôle continu de 3e.
+Absence à une évaluation ordinaire : pas de zéro. Moyenne non représentative : mention « En attente », évaluations supplémentaires, puis évaluation de remplacement. Zéro seulement pour une absence NON justifiée à l'évaluation de remplacement.

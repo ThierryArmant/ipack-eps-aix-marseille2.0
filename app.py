@@ -2277,6 +2277,47 @@ if prompt_a_traiter:
                 # (« badminton, tennis de table et escalade : même champ »). Le code reconnaît donc lui-même les activités
                 # citées et donne leur champ à l'IA, qui n'a plus à deviner.
                 faits_champs = ""
+                # ✅ FAITS PAR EXAMEN : lus dans config/faits_par_examen.txt (fichier à mettre à jour chaque année, hors du programme).
+                # On donne à l'IA les faits de l'examen dont parle la question (ou, à défaut, du public choisi), pour qu'elle ne
+                # serve plus la règle d'un autre examen (ex. l'arrondi du bac pro pour le bac général).
+                try:
+                    import unicodedata as _ud2
+                    _qs = "".join(ch for ch in _ud2.normalize("NFD", prompt.lower()) if _ud2.category(ch) != "Mn")
+                    _niv = str(niveau_actuel_form).lower()
+                    _exams = []
+                    if re.search(r"bac ?pro\b|baccalaureat professionnel|\bbma\b", _qs):
+                        _exams.append("pro")
+                    if re.search(r"\bcap\b", _qs):
+                        _exams.append("cap")
+                    if re.search(r"bac general|bac techno|baccalaureat general|bac gt\b|bac g\b", _qs):
+                        _exams.append("gt")
+                    if re.search(r"\b(dnb|brevet|college|sixieme|cinquieme|quatrieme|troisieme|6e|5e|4e|3e)\b", _qs):
+                        _exams.append("dnb")
+                    if not _exams and re.search(r"arrondi|note|epreuve|ccf|absen|zero|examen|\bbac\b|ponctuel|inapt|dispens|protocole|haut niveau", _qs):
+                        if "coll" in _niv:
+                            _exams = ["dnb"]
+                        elif "pro" in _niv:
+                            _exams = ["pro", "cap"]
+                        elif "techno" in _niv or "g\u00e9n" in _niv:
+                            _exams = ["gt"]
+                    if _exams:
+                        _rub, _cur = {}, None
+                        with open("config/faits_par_examen.txt", encoding="utf-8") as _f_faits:
+                            for _l in _f_faits:
+                                _l = _l.strip()
+                                if not _l or _l.startswith("#"):
+                                    continue
+                                if _l.startswith("[") and _l.endswith("]"):
+                                    _cur = _l[1:-1].lower()
+                                    _rub[_cur] = []
+                                elif _cur:
+                                    _rub[_cur].append("- " + _l)
+                        _blocs = ["\n".join(_rub[e]) for e in _exams if _rub.get(e)]
+                        if _blocs:
+                            faits_champs += ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste du contexte ; ne les contredis jamais et ne cite que le texte indiqué) :\n"
+                                             + "\n\n".join(_blocs) + "\n\n")
+                except Exception:
+                    pass
                 verdict_champs = ""
                 if not est_college:
                     # ✅ La table « activité → champ » n'est plus écrite dans le code : elle est lue dans config/activites_champs.csv,

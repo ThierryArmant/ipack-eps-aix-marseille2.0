@@ -1935,28 +1935,23 @@ if prompt_a_traiter:
                 badge, color_card = "⚖️ TEXTES OFFICIELS", "securite-card"
 
             elif est_sujet_secours:
-                texte_brut = """<h3>⚠️ AUCUN SUJET ÉCRIT DE SECOURS EN EPS</h3>
-<p><strong>Règle nationale absolue :</strong> En EPS, il n'existe <strong>aucun sujet écrit ou papier</strong>. L'évaluation est 100 % pratique.</p>
-<p><strong>Élève absent :</strong> L'organisation d'une épreuve de substitution (rattrapage de l'épreuve motrice) est obligatoire avant la fermeture des serveurs.</p>"""
+                texte_brut = """<h3>⚠️ PAS DE SUJET DE SECOURS EN EPS</h3>
+<p><strong>NON :</strong> il n'existe pas de sujet de secours en EPS. Cela figurait dans d'anciens textes, ce n'est plus le cas. Il n'y a pas non plus de sujet écrit ou papier : l'évaluation est pratique.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_cap_3epreuves:
-                texte_brut = """<h3>⚠️ ALERTE : PROTOCOLE CAP STRICT À 2 ÉPREUVES</h3>
-<p><strong>Réglementation stricte :</strong> En CAP, le CCF repose <strong>STRICTEMENT sur 2 épreuves</strong> issues de 2 champs d'apprentissage distincts.</p>
-<p><strong>Bloqueur Santorin :</strong> Toute saisie d'une 3ᵉ note est bloquée automatiquement par l'interface. Nettoyez le protocole directement dans iPackEPS.</p>"""
+                texte_brut = """<h3>⚠️ CAP : UN ENSEMBLE CERTIFICATIF À 2 ÉPREUVES, PAS 3</h3>
+<p><strong>NON :</strong> en CAP, le CCF repose sur <strong>2 épreuves</strong> relevant de 2 champs d'apprentissage différents. Réglementairement, il n'est pas possible d'affecter des candidats de CAP sur un ensemble certificatif à 3 épreuves.</p>
+<p><strong>Pratique à ne pas suivre :</strong> inscrire les candidats sur 3 épreuves pour garder les 2 meilleures notes n'est pas autorisé.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_eleve_arrivant:
-                texte_brut = """<h3>📋 GESTION D'UN ÉLÈVE ARRIVANT EN COURS D'ANNÉE</h3>
-<p><strong>Règle d'or pour l'enseignant :</strong> Aucune manipulation informatique ni "bricolage" local n'est à faire de votre côté. iPackEPS ne gère pas les listes d'examens nationaux sur Santorin.</p>
-<p><strong>Procédure obligatoire (Secrétariat / Direction) :</strong></p>
+                texte_brut = """<h3>📋 ÉLÈVE ARRIVANT EN COURS D'ANNÉE (EXAMEN)</h3>
+<p><strong>Le point à ne pas manquer :</strong> si l'élève arrive <strong>après</strong> l'association des candidats aux protocoles, il n'a pas de protocole et n'apparaît dans aucun lot. Il faut repasser par Cyclades, puis redistribuer.</p>
 <ol>
-  <li><strong>[Étape 1]</strong> Le secrétariat de l'établissement doit associer l'élève au protocole d'examen dans <strong>Cyclades</strong>.</li>
-  <li><strong>[Étape 2]</strong> Le chef d'établissement se connecte à sa console <strong>Santorin-Direction</strong>.</li>
-  <li><strong>[Étape 3]</strong> Il effectue une distribution manuelle (glisser-déposer) du candidat vers votre lot de correction.</li>
-</ol>
-<p><em>Note : La prise en compte est effective sous 12h à 24h après l'action administrative.</em></p>
-📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4"""
+  <li><strong>[Étape 1]</strong> Dans <strong>Cyclades</strong>, lui affecter un protocole.</li>
+  <li><strong>[Étape 2]</strong> Dans <strong>Santorin</strong>, procéder à une nouvelle distribution automatique des lots : l'élève apparaît alors dans le lot de son enseignant.</li>
+</ol>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_apsa_etablissement_vs_nationale:
@@ -1991,7 +1986,7 @@ if prompt_a_traiter:
   <li><strong>[Étape 2]</strong> La direction se connecte à sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots").</li>
   <li><strong>[Étape 3]</strong> Elle clique directement sur le cadenas pour le basculer de "fermé" à "ouvert".</li>
 </ol>
-<p><em>Interdiction formelle : Ne contactez surtout pas la DEC pour cela, c'est une action locale de l'établissement.</em></p>
+<p><em>Ne contactez pas la DEC pour cela : le déverrouillage fait partie des prérogatives du chef d'établissement.</em></p>
 📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
@@ -2004,9 +1999,8 @@ if prompt_a_traiter:
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_exclusion:
-                texte_brut = """<h3>⚠️ EXCLUSION TEMPORAIRE EN PÉRIODE DE CCF (ABSENCE CONTRAINTE)</h3>
-<p><strong>Cadre juridique :</strong> Une exclusion temporaire prononcée par un conseil de discipline n'est en aucun cas une inaptitude médicale. Elle ne doit jamais être assimilée à un statut <strong>[DISP]</strong> ni sanctionnée par un zéro éliminatoire.</p>
-<p><strong>Obligation de rattrapage :</strong> L'équipe pédagogique a l'obligation légale de programmer une <strong>épreuve différée</strong> dès le retour de l'élève, impérativement avant la date de clôture des serveurs académiques.</p>"""
+                texte_brut = """<h3>⚠️ ÉLÈVE EXCLU DE L'ÉTABLISSEMENT PENDANT LA PÉRIODE D'ÉVALUATION</h3>
+<p>Un candidat exclu de l'établissement, qui n'a pas pu se présenter à l'épreuve pour cette raison, est <strong>dispensé</strong> de l'épreuve : son exclusion pendant la période d'évaluation constitue un cas de force majeure. On ne lui met pas zéro.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_aucun_eleve:
@@ -2034,15 +2028,10 @@ if prompt_a_traiter:
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
 
             elif est_deplacer_candidat:
-                texte_brut = """<h3>📋 DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN</h3>
-<p><strong>Règle absolue :</strong> L'enseignant n'a aucun droit ni possibilité de déplacer lui-même un candidat d'un lot à un autre sur Santorin.</p>
-<p><strong>Procédure de correction :</strong></p>
-<ol>
-  <li><strong>[Étape 1]</strong> Le secrétariat doit corriger l'affectation directement dans la base <strong>Cyclades</strong>.</li>
-  <li><strong>[Étape 2]</strong> La direction relance une distribution automatique, ou utilise l'option d'affectation directe depuis le lot si l'habilitation le permet.</li>
-</ol>
-📺 Tutoriel associé : Distribution_manuelle_lots_santorin.mp4
-📺 Tutoriel associé : Ajouter_evaluateur_lot_santorin.mp4"""
+                texte_brut = """<h3>📋 DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN</h3>
+<p><strong>Qui :</strong> le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même.</p>
+<p><strong>Chemin :</strong> <strong>[Distribution]</strong> > <strong>[Lots]</strong> > <strong>[Candidats]</strong> > <strong>[Déplacer vers un lot existant]</strong>.</p>
+📺 Tutoriel associé : Deplacer_eleves_lots_santorin.mp4"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_sss_projet_sans_groupe:

@@ -1,0 +1,82 @@
+=== NOUVEAUTÉS iPackEPS 2025-2026 (document officiel de l'éditeur, version 2025.3.x) ===
+Source : « Nouvelles Fonctionnalités 2025-2026 », iPackEPS version 2025.3.x (11 pages). Fiches rédigées à partir du document ; les mentions « à partir de la version 2025.3.1 » sont celles du document. Ce document est plus récent que le guide utilisateur de 2020 : en cas de différence, c'est lui qui prévaut. Rappel : aucune note d'élève ne se saisit dans iPackEPS.
+
+### [NOUVEAUTÉS 2025-2026 — ACCÉDER À iPackEPS DEPUIS ARENA ET OBTENIR DE L'AIDE]
+- Mots-clés : où trouver iPackEPS, portail ARENA, rubrique, Enquêtes et Pilotage, Pilotage académique, aide en ligne, écrire au support académique.
+- Formulations courantes des collègues : je ne trouve pas iPackEPS dans ARENA ; dans quelle rubrique est iPackEPS ; comment contacter l'assistance depuis iPackEPS.
+- L'accès à iPackEPS se fait par le portail ARENA. Dans ARENA, iPackEPS se trouve dans la rubrique [Enquêtes et Pilotage] du menu de gauche, sous le titre « Pilotage académique ».
+- Assistance, deux niveaux : 1) en haut à droite des pages d'iPackEPS, le menu [Aide en ligne] ouvre le site d'assistance d'iPackEPS ; 2) pour un problème technique ou administratif plus spécifique, le menu [Écrire au support académique] permet de contacter le correspondant académique iPackEPS.
+
+### [NOUVEAUTÉS 2025-2026 — FICHE PROFESSEUR : FONCTIONS ET VŒUX DE JURY]
+- Mots-clés : fiche professeur, fonctions, coordonnateur EPS, responsable de la certification, référent haut niveau, coordonnateur Sport-Études, CHAD, PHARE, EVARS, vœux de jury, CRPE.
+- Module [Fiche Professeur] / [Fonctions] : la rubrique « Fonctions EPS dans l'établissement » propose notamment Coordonnateur EPS, Responsable de la Certification, Secrétaire d'AS, Trésorier d'AS, Coordonnateur Section Sportive Scolaire, Référent EPI Escalade, Référent Haut-Niveau, Coordonnateur Sport-Études, Référent CHAD. Une seconde rubrique « Fonctions diverses dans l'établissement » propose par exemple Professeur Principal, membre du conseil d'administration, référent PHARE, référent EVARS.
+- Nouveau à partir de la version 2025.3.1 : on peut déclarer les fonctions de référent haut-niveau, coordonnateur Sport-Études, référent CHAD, PHARE, EVARS, etc.
+- Module [Fiche Professeur] / [Vœux de Jury] (à partir de la version 2025.3.1) : on peut indiquer si l'on souhaite devenir jury du concours CRPE, en plus du CAPEPS et de l'agrégation.
+
+### [NOUVEAUTÉS 2025-2026 — DOSSIER EPS : DÉPÔT DES PROJETS ET GESTION DES REMPLACEMENTS]
+- Mots-clés : déposer le projet d'établissement, projet EPS, projet AS, remplacement, remplaçant, TZR, équipe EPS.
+- Module [Dossiers] / [Dossier EPS] / [Projets] (à partir de la version 2025.3.1) : il est possible de déposer ses projets d'établissement, d'EPS et d'AS, en plus de renseigner les axes de chaque projet.
+- Module [Dossiers] / [Dossier EPS] / [Équipe EPS], gestion des remplacements : lorsqu'on déclare qu'un enseignant en remplace un autre (champ « Remplace » de la fiche du professeur), la répercussion est automatique sur les groupes et les emplois du temps : le remplaçant récupère l'emploi du temps, les groupes et les élèves de l'enseignant initial.
+- Dans cette fiche, le curseur « Professeur en activité » se met sur [OUI] si le professeur intervient dans l'établissement pendant l'année scolaire en cours, et sur [NON] uniquement s'il n'y intervient pas de toute l'année.
+
+### [NOUVEAUTÉS 2025-2026 — GROUPES UF2S ET SPORT-ÉTUDES, IMPORT DES GROUPES DEPUIS PRONOTE OU ÉCOLE-DIRECTE]
+- Mots-clés : types de groupes, UF2S, Sport-Études, import Pronote, École-Directe, menus de terminale, groupes d'AS, savoir-nager.
+- Formulations courantes des collègues : mes groupes sont déjà faits dans Pronote, comment les récupérer ; peut-on importer depuis École-Directe ; quels types de groupes existent.
+- Module [Dossiers] / [Dossier EPS] / [Groupes] : deux nouveaux types de groupes apparaissent, [UF2S] (voie professionnelle) et [Sport-Études]. Les types proposés sont : Groupes EPS, Enseignement Optionnel, Enseignement de Spécialité, Groupes AS, Sections Sportives Scolaires, UF2S, Sport-Études.
+- Module [Dossiers] / [Dossier EPS] / [Élèves], import depuis Pronote : si les élèves sont déjà placés dans des groupes sur Pronote (menus de terminale, groupes d'AS, de savoir-nager...), on peut extraire ces groupes depuis Pronote et les importer dans la fenêtre « Placement des Élèves dans les Groupes » avec le bouton [Import Pronote] (« Importer un fichier d'élèves de Pronote (CSV) »). Le fichier attendu est au format .csv.
+- À partir de la version 2025.3.1, on peut aussi importer des fichiers issus de l'application École-Directe (établissements privés).
+
+### [NOUVEAUTÉS 2025-2026 — DOSSIER CERTIFICATIF : RÉFÉRENTIELS ACADÉMIQUES ET ALERTE « ÉLÈVES SANS GROUPE EPS » AVANT L'EXPORT CYCLADES]
+- Mots-clés : référentiels académiques, APSA académique, bilan Cyclades, élèves sans groupe EPS, élèves non exportés, alerte.
+- Formulations courantes des collègues : des élèves ne partent pas vers Cyclades ; comment savoir si j'ai oublié des élèves ; où voir le référentiel de l'académie.
+- Module [Dossiers] / [Dossier Certificatif] / [Référentiels] (à partir de la version 2025.3.1) : si l'académie propose des APSA académiques, on peut consulter directement les référentiels proposés par l'académie.
+- Module [Dossiers] / [Dossier Certificatif] / [Cyclades] / [Bilan] : le bilan affiche une alerte « Élèves sans Groupe EPS » avec le nombre d'élèves repérés dans aucun protocole. Ces élèves n'ont pas de protocole et ne seront donc pas exportés vers Cyclades : il faut vérifier et corriger en les plaçant dans un groupe.
+
+### [NOUVEAUTÉS 2025-2026 — DOSSIER SSS : DATES DE CAMPAGNE, DÉPÔT DE DOCUMENTS, DEMANDE DE FERMETURE]
+- Mots-clés : section sportive scolaire, SSS, campagne, demande d'ouverture, bilan, reconduction, fermeture, convention, annexe, zip.
+- Formulations courantes des collègues : je ne peux pas saisir ma demande d'ouverture de SSS ; la saisie du bilan est fermée ; comment demander la fermeture de la section.
+- Module [Dossiers] / [Dossier SSS], dates de campagne : les demandes de création de SSS et les saisies de bilan dépendent de dates d'ouverture et de fermeture de campagne, fixées par l'académie. En dehors de ces dates, le module indique que la campagne n'est pas encore ouverte : ce n'est pas une panne.
+- Dépôt de documents : on peut déposer plusieurs documents de convention et plusieurs annexes dans tous les modules SSS. Le format zip est autorisé dans tous les dépôts de fichiers.
+- Module [Dossiers] / [Dossier SSS] / [Bilan], demande de fermeture (à partir de la version 2025.3.1) : la rubrique « Reconduction de la Section » permet d'indiquer que l'on maintient la SSS pour l'année prochaine ou que l'on demande sa fermeture. Si le bilan a été rempli avant cette version, il faut y retourner pour renseigner le vœu de reconduction ou de fermeture.
+
+### [NOUVEAUTÉS 2025-2026 — NOUVEAU MODULE DOSSIER SPORT-ÉTUDES]
+- Mots-clés : classes Sport-Études, dossier Sport-Études, projet sport-études, modèle académique.
+- Module [Dossiers] / [Dossier Sports-Études] (à partir de la version 2025.3.1) : nouveau module de gestion des classes Sport-Études. Il permet de consulter un modèle de projet sport-études proposé par l'académie, de déposer le projet Sport-Études, et d'afficher les groupes et effectifs des classes Sport-Études.
+- Un établissement est reconnu comme Sport-Études lorsqu'au moins un groupe de type Sport-Études a été créé dans [Dossier EPS] / [Groupes].
+
+### [NOUVEAUTÉS 2025-2026 — MES ÉLÈVES / VISUALISATION : FILTRES PAR PROF, ÉLÈVES SANS GROUPE, ÉLÈVES INAPTES]
+- Mots-clés : Mes Élèves, Visualisation, filtre par prof, par statut, élèves sans groupe, retrouver les inaptes, menus de terminale.
+- Formulations courantes des collègues : comment ne voir que mes groupes ; comment retrouver les élèves qui ne sont dans aucun groupe ; comment lister les élèves qui ont un certificat médical.
+- Module [Mes Élèves] / [Visualisation], visualisation [par Prof] : ne propose que les groupes d'un enseignant ; par défaut l'utilisateur en cours est présélectionné.
+- Visualisation [par Statut], type [Élèves sans groupe] : affiche tous les élèves qui ne sont dans aucun groupe d'EPS (utile pour répartir les élèves dans les menus de terminale).
+- Visualisation [par Statut], type [Inaptitude] : affiche tous les élèves ayant présenté un certificat médical.
+
+### [NOUVEAUTÉS 2025-2026 — MES ÉLÈVES / VISUALISATION / INAPTITUDES : NOUVELLE INTERFACE DE DÉCLARATION]
+- Mots-clés : inaptitude, certificat médical, permanente, temporaire, totale, partielle, niveau d'inclusion, pratique adaptée, date de début, durée, nombre de jours, plusieurs certificats, formats de fichier.
+- Formulations courantes des collègues : comment déclarer une inaptitude ; inaptitude temporaire de trois mois ; un élève a un deuxième certificat pour la même séquence ; quel format pour le scan du certificat.
+- Module [Mes Élèves] / [Visualisation], onglet [Inaptitudes] : une nouvelle interface permet de déclarer les inaptitudes Permanentes ou Temporaires, Totales ou Partielles, avec le niveau d'inclusion de l'élève.
+- Choix proposés (une ligne à cocher par APSA) : Apte ; Partielle : pratique physique adaptée ; Partielle : présent sans pratique physique (observation, arbitrage...) ; Partielle : absent (dispensé par le chef d'établissement) ; Totale : présent sans pratique physique (observation, arbitrage...) ; Totale : absent (dispensé par le chef d'établissement). Une inaptitude permanente correspond à un certificat médical sur l'année.
+- Dates et durée : pour une inaptitude Temporaire, on déclare la date de début et la date de fin, ou bien la date de début et le nombre de jours indiqué par le certificat médical.
+- Dépôt du certificat : dans la même fenêtre, on sélectionne ou dépose le fichier du certificat médical. Formats autorisés : doc, docx, pdf, odt, jpg, jpeg, png.
+- Certificats multiples : on peut déposer plusieurs certificats médicaux pour une même séquence d'apprentissage.
+
+### [NOUVEAUTÉS 2025-2026 — MES ÉLÈVES / INAPTITUDES ET STATISTIQUES DES INAPTITUDES]
+- Mots-clés : liste des élèves inaptes, module Inaptitudes, statistiques inaptitudes, inclusion.
+- Module [Mes Élèves] / [Inaptitudes] : nouveau module qui affiche la liste des élèves déclarés inaptes dans l'établissement (classe, APSA, type d'inaptitude, dates de début et de fin du certificat).
+- Module [Statistiques] / [Inaptitudes] : analyse de toutes les inaptitudes de l'établissement (nombre de certificats médicaux, élèves absents, élèves présents sans pratique, élèves avec pratique adaptée, répartition par sexe et par cycle).
+- Module [Statistiques] / [Groupes et APSA] : on peut exporter vers Excel toutes les données affichées.
+
+### [NOUVEAUTÉS 2025-2026 — MES DOCUMENTS : BORDEREAUX, PUBLIPOSTAGE CCF, BIBLIOTHÈQUE]
+- Mots-clés : bordereau d'émargement, impression, publipostage, convocation, dates d'épreuves, balises CCF, bibliothèque, documents modèles.
+- Formulations courantes des collègues : comment imprimer un bordereau d'émargement ; comment envoyer aux familles les dates des épreuves de CCF ; où trouver les documents modèles de l'académie.
+- Module [Mes Documents] / [Documents] / [Bordereaux] : l'impression permet jusqu'à 32 élèves par page.
+- Module [Mes Documents] / [Publipostage] / [Configurer les Documents] (à partir de la version 2025.3.1) : nouvelles balises [CCF] ; on peut générer des publipostages indiquant les épreuves et les dates d'épreuves (balises CCF - Épreuves, CCF - Épreuves et Dates, CCF - Épreuve 1 à 3, CCF - Date Évaluation 1 à 3).
+- Module [Mes Documents] / [Bibliothèque] (à partir de la version 2025.3.1) : affiche tous les documents disponibles, notamment les documents modèles proposés par l'académie (fiche individuelle, fiche synthèse, référentiel APSA du dossier certificatif, certificat médical, documents SSS, projet pédagogique et protocole de sécurité APPN, document Sport-Études).
+
+### [NOUVEAUTÉS 2025-2026 — CORRECTIFS QUI CHANGENT UNE RÈGLE D'USAGE]
+- Mots-clés : date de rattrapage, même jour, extension en majuscule, .PDF refusé, AEFE, intervenant extérieur SSS, bouton ajouter.
+- [Dossier Certificatif] / [Protocoles] (version 2025.3.1) : il n'est plus possible de proposer une date de rattrapage le même jour que la date d'évaluation.
+- Dépôts de documents (version 2025.3.1) : certains dépôts refusaient les extensions écrites en majuscules (.PDF au lieu de .pdf) ; c'est corrigé.
+- [Dossier SSS] (version 2025.3.1) : on peut déclarer un intervenant extérieur comme coordonnateur de la SSS.
+- [Dossier Certificatif] / [Documents pour la CAHPN] (version 2025.3.1) : les établissements de l'AEFE peuvent déposer les certificats médicaux.
+- Autres correctifs : le bouton [Ajouter] de certains tableaux pouvait ne pas fonctionner sur certains ordinateurs ; le bouton [Actualiser Équipe EPS] n'affichait pas un professeur sorti de l'équipe mais encore en responsabilité ; le calcul du pourcentage de validité des dépôts de référentiels pouvait être erroné quand des APSA académiques étaient programmées.

@@ -115,9 +115,9 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 
 
 ### [SITUATION: CYCLADES — JE N'ARRIVE PAS À ME CONNECTER OU JE NE VOIS PAS L'ACTIVITÉ EPS (DÉLÉGATION DU CHEF D'ÉTABLISSEMENT)]
-- Mots-clés : Cyclades, connexion, accès refusé, pas d'accès, délégation, DELEG-CE, chef d'établissement, ARENA, Examens et concours, Mon établissement, Gérer EPS, hors contrat, CFA, MFR.
+- Mots-clés : Cyclades, connexion, accès refusé, pas d'accès, délégation de droits, chef d'établissement, ARENA, Examens et concours, Mon établissement, Gérer EPS, hors contrat, CFA, MFR.
 - Formulations courantes des collègues : je n'ai pas accès à Cyclades ; je ne vois pas l'EPS dans Cyclades ; comment se connecter à Cyclades ; je suis en CFA ou en établissement hors contrat, comment accéder à Cyclades.
-- Réponse courte : un enseignant n'accède à Cyclades que si le chef d'établissement lui a délégué les droits (application de délégation DELEG-CE). Sans cette délégation, l'accès est refusé : c'est la première chose à faire vérifier.
+- Réponse courte : un enseignant n'accède à Cyclades que si le chef d'établissement lui a délégué les droits. Sans cette délégation, l'accès est refusé : c'est la première chose à faire vérifier.
 - Chemin, établissements publics et privés sous contrat : portail ARENA, avec ses identifiants professionnels, puis [Examens et concours] > [Cyclades] > activité [Mon établissement] > [Gérer EPS].
 - Établissements hors contrat, CFA, MFR : la connexion se fait aussi par le portail ARENA, avec l'identifiant et le mot de passe propres à l'établissement, remis par le chef d'établissement.
 - Si la délégation est bien en place et que le problème persiste : le signaler à l'assistance de son académie.

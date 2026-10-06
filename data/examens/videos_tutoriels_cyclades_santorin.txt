@@ -1,5 +1,5 @@
 === CONTENU DES VIDÉOS TUTORIELS OFFICIELLES — CYCLADES / IMAG'IN / SANTORIN (chaîne EPS Créteil, site iPackEPS) ===
-Source : commentaire audio des vidéos officielles associées aux tutoriels du site iPackEPS (transcription). Les dates, contacts et calendriers ne sont pas repris : pour l'académie d'Aix-Marseille, s'adresser à la DEC.
+Source : commentaire audio des vidéos officielles associées aux tutoriels du site iPackEPS (transcription). Les dates, contacts et calendriers ne sont pas repris : ils dépendent de chaque académie : s'adresser à la DEC de son académie.
 
 ### [SITUATION: EXPORTER LES ÉLÈVES ET LES GROUPES D'iPackEPS VERS CYCLADES — DÉROULÉ COMPLET DE LA VIDÉO]
 - Mots-clés : export Cyclades, transfert des données, fichier CSV, iPackEPS groupes élèves, importer les groupes et les élèves, compte-rendu d'import, candidats ignorés, INE non inscrit.
@@ -137,7 +137,7 @@ Source : commentaire audio des vidéos officielles associées aux tutoriels du s
 - Sur la ligne EPS : [Correction], puis bouton [Statistiques] en haut à droite, puis [Générer le fichier Excel des notations]. Attendre quelques secondes, fermer les deux petites fenêtres qui recouvrent le bouton, puis [Télécharger].
 - Le fichier porte toujours le même nom (« export notation EPS ») : le renommer avec l'examen pour ne pas écraser les autres.
 - Mise en forme proposée : ouvrir dans un tableur (activer la modification) ; supprimer le total des points et toutes les colonnes de détail des AFL ; garder pour chaque APSA son libellé et sa note, plus la colonne « appréciation » ; trier par nom d'élève ; quadriller ; imprimer en paysage, « ajuster toutes les colonnes à une page ».
-- Faire signer par le chef d'établissement si l'académie le demande (pour Aix-Marseille : suivre les consignes de la DEC).
+- Faire signer par le chef d'établissement si l'académie le demande (suivre les consignes de la DEC de votre académie).
 
 ### [SITUATION: SANTORIN — LES STATISTIQUES POUR LE PROFESSEUR ET POUR LE CHEF D'ÉTABLISSEMENT (vidéo)]
 - Mots-clés : statistiques Santorin, moyenne, médiane, quartile, écart-type, comparer avec les autres examinateurs, répartition par AFL, par APSA, par genre, champ d'apprentissage.

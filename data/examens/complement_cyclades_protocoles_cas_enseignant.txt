@@ -1,5 +1,5 @@
 === CYCLADES — PROTOCOLES : CAS PRATIQUES DE L'ENSEIGNANT (mémo national « enseignant EPS » de Cyclades et guides académiques) ===
-Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et guide de saisie des notes diffusé par une autre académie. Pour Aix-Marseille, les demandes à la commission passent par l'inspection pédagogique et la DEC.
+Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et guide de saisie des notes diffusé par une autre académie. Les demandes à la commission passent par l'inspection pédagogique et la DEC de chaque académie.
 
 ### [SITUATION: PROTOCOLE CYCLADES CRÉÉ AVEC LE MAUVAIS GROUPE D'ÉLÈVES — LE CHAMP « GROUPE ÉLÈVE » N'EST PLUS MODIFIABLE]
 - Mots-clés : groupe élève, champ grisé, non modifiable, mauvais groupe, erreur de groupe, supprimer le protocole, recréer le protocole.

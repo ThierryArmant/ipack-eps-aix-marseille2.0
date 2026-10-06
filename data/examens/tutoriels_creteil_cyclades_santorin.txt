@@ -1,5 +1,5 @@
 === TUTORIELS OFFICIELS iPackEPS — RUBRIQUE « INTERFACE iPackEPS / CYCLADES » (site ipackeps.ac-creteil.fr, articles relus le 6 octobre 2026) ===
-Texte des questions / réponses des articles du site officiel des tutoriels iPackEPS, rubrique Cyclades / Santorin. Les dates d'articles vont de 2023 à 2026. Les contacts et dates propres à une académie ne sont pas repris : pour Aix-Marseille, s'adresser à la DEC et à l'assistance iPackEPS de l'académie.
+Texte des questions / réponses des articles du site officiel des tutoriels iPackEPS, rubrique Cyclades / Santorin. Les dates d'articles vont de 2023 à 2026. Les contacts et dates propres à une académie ne sont pas repris : pour votre académie, s'adresser à la DEC et à l'assistance iPackEPS de l'académie.
 
 ### [TUTORIEL CYCLADES — EXPORTER LES GROUPES ET LES ÉLÈVES D'iPackEPS VERS CYCLADES (article 60)]
 - Mots-clés : export Cyclades, générer le fichier des élèves, import dans Cyclades, protocoles non validés, réimporter, élèves non inscrits, groupe n'appartient à aucun protocole, mode groupe, mode seul.

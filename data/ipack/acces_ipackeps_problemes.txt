@@ -1,5 +1,5 @@
 === IMPOSSIBLE D'ACCÉDER À iPackEPS — DIAGNOSTIC OFFICIEL (site iPackEPS, article « En cas d'impossibilité d'accéder à iPackEPS ») ===
-Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels ». Dans l'ancien portail, il était dans « Enquêtes et Pilotage » > « Pilotage académique ». Pour Aix-Marseille, le correspondant académique iPackEPS est l'interlocuteur à contacter.
+Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels ». Dans l'ancien portail, il était dans « Enquêtes et Pilotage » > « Pilotage académique ». Le correspondant académique iPackEPS de votre académie est l'interlocuteur à contacter.
 
 ### [SITUATION: JE NE VOIS PAS LE LIEN iPackEPS – PROFESSEUR DANS ARENA]
 - Mots-clés : lien absent, iPackEPS invisible, ARENA, externet, intranet, clé OTP, portail premier degré, discipline EPS, annuaire, deux identifiants, contractuel titularisé.

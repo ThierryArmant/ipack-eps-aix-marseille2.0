@@ -4,7 +4,7 @@ Sources (guides publics d'autres académies, sessions 2024 et 2025) :
 - Académie de Normandie, « Guide des examens EPS — Session 2025 » : https://codimd.apps.education.fr/s/sCi9raCjJ
 - Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » (interface professeur et saisies Cyclades / Santorin) : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_InterfaceProfesseur.pdf
 - Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf
-ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, mais ces documents datent de 2024 et 2025 : certains intitulés de menus ont pu évoluer avec les versions 2025 et 2026.2.x d'iPackEPS. Quand un chemin de menu de ce fichier diffère d'une fiche plus récente de la base, c'est la fiche la plus récente qui prévaut. Les DATES et les ADRESSES DE CONTACT des autres académies ne s'appliquent pas à Aix-Marseille : renvoyer au calendrier de la DEC d'Aix-Marseille et à l'assistance iPackEPS de l'académie.
+ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, mais ces documents datent de 2024 et 2025 : certains intitulés de menus ont pu évoluer avec les versions 2025 et 2026.2.x d'iPackEPS. Quand un chemin de menu de ce fichier diffère d'une fiche plus récente de la base, c'est la fiche la plus récente qui prévaut. Les DATES et les ADRESSES DE CONTACT des autres académies ne s'appliquent pas à votre académie : renvoyer au calendrier de la DEC de votre académie et à l'assistance iPackEPS de l'académie.
 
 ### [SITUATION: ALERTE CYCLADES « LE GROUPE ÉLÈVE IMPORTÉ NE CORRESPOND À AUCUN GROUPE LIÉ AUX PROTOCOLES »]
 - Mots-clés : alerte import Cyclades, groupe élève importé, aucun groupe lié aux protocoles, nom de groupe différent, protocole créé après l'export, invalider les protocoles, revalider.
@@ -42,7 +42,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Formulations courantes des collègues : nous sommes un CFA et nos apprentis n'apparaissent pas dans iPackEPS ; pas d'élèves à importer dans notre lycée agricole ; comment faire le CCF sans base élèves.
 - Certains établissements (CFA notamment, lycées agricoles, établissements à l'étranger) n'ont pas de base d'élèves connue du rectorat. iPackEPS ne contient alors aucun élève : c'est normal, et l'export des élèves vers Cyclades est impossible.
 - Marche à suivre pour ces établissements : ne pas chercher à importer les classes et les élèves ; dans iPackEPS, déposer les référentiels et créer les groupes et les protocoles SANS élèves ; les élèves sont ensuite inscrits manuellement dans leurs protocoles directement dans Cyclades, activité [EPS] / [Associer les élèves à un protocole]. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
-- L'ouverture des accès pour ces établissements dépend de chaque académie : s'adresser à l'assistance iPackEPS et à la DEC d'Aix-Marseille.
+- L'ouverture des accès pour ces établissements dépend de chaque académie : s'adresser à l'assistance iPackEPS et à la DEC de votre académie.
 
 ### [SITUATION: UN ÉVALUATEUR A CHANGÉ (REMPLACEMENT, DÉPART) — RÉAFFECTER LE PROTOCOLE DANS CYCLADES]
 - Mots-clés : changement d'enseignant, remplaçant, réaffecter un protocole, Contrôler / Réaffecter des protocoles, adresse mail de l'évaluateur.
@@ -94,7 +94,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Formulations courantes des collègues : je deviens coordonnateur cette année, où le déclarer ; je n'ai pas accès au dossier certificatif ; comment cocher coordonnateur EPS ; mes fonctions ont disparu à la rentrée.
 - Chemin exact, rapide : Tableau de bord > Ma fiche professeur > Fonctions > cocher la case « Coordonnateur EPS » dans « Fonctions EPS dans l'établissement ». Pour gérer les examens, cocher aussi « Responsable de la Certification » au même endroit.
 - Cette déclaration est un préalable : sans elle, les modules de préparation des examens (APSA certificatives, référentiels, protocoles) ne sont pas accessibles en modification. Ordre conseillé à la rentrée : fiche Établissement, puis Fiche Professeur, puis les dossiers et projets.
-- Les fonctions sont à redéclarer à chaque rentrée scolaire. (Chemin confirmé par le correspondant académique iPackEPS d'Aix-Marseille.)
+- Les fonctions sont à redéclarer à chaque rentrée scolaire. (Chemin confirmé par un correspondant académique iPackEPS.)
 
 ### [SITUATION: DÉCLARER LES ACTIVITÉS D'EXAMEN DE L'ANNÉE — LES QUATRE ÉTAPES DE L'AUTOMNE, DANS L'ORDRE]
 - Mots-clés : déclarer les activités du bac, APSA d'examen, APSA certificative, septembre, octobre, référentiel, groupe d'examen, protocole, ordre des étapes.
@@ -103,12 +103,12 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Étape 2, déposer les référentiels : dans le Dossier Certificatif, déposer un référentiel pour chaque APSA certificative. Une APSA sans référentiel, ou dont le référentiel est refusé par la commission académique, n'est pas transmise (les APSA adaptées n'exigent pas de référentiel).
 - Étape 3, déclarer les groupes et leurs APSA : menu [Dossiers] > [Dossier EPS] > [Groupes]. Pour chaque classe ou groupe d'examen, déclarer les APSA pratiquées. Ensemble standard : 3 APSA de 3 champs d'apprentissage différents, dont au moins 2 de la liste nationale (CAP : 2 APSA de 2 champs).
 - Étape 4, compléter les protocoles : dans le Dossier Certificatif, renseigner pour chaque ensemble les dates d'évaluation et de rattrapage et les évaluateurs. Un protocole incomplet n'est pas transmis à Cyclades.
-- Ces étapes sont faites par le coordonnateur EPS / responsable de la certification. Les dates limites sont fixées par la DEC d'Aix-Marseille. (Source : document Corse 2024-2025, interface professeur ; guide Normandie 2025.)
+- Ces étapes sont faites par le coordonnateur EPS / responsable de la certification. Les dates limites dépendent de chaque académie : elles sont fixées par la DEC de votre académie. (Source : document Corse 2024-2025, interface professeur ; guide Normandie 2025.)
 
 ### [SITUATION: ENREGISTRER UNE INAPTITUDE (TOTALE OU PARTIELLE) ET SON CERTIFICAT MÉDICAL DANS iPackEPS — PROCÉDURE DE RÉFÉRENCE]
 - Mots-clés : inaptitude, dispense, certificat médical, inapte trois mois, inaptitude temporaire, inaptitude partielle, saisir une inaptitude, Mes Élèves, téléverser le certificat.
 - Formulations courantes des collègues : un élève m'apporte un certificat d'inaptitude de trois mois, où l'enregistrer ; comment saisir une dispense ; où déposer le certificat médical ; comment déclarer une inaptitude partielle.
-- Procédure, validée par le correspondant académique iPackEPS d'Aix-Marseille :
+- Procédure, validée par un correspondant académique iPackEPS :
   1. Aller dans le menu [Mes Élèves], choisir la classe puis l'élève pour ouvrir sa fiche.
   2. Ouvrir l'onglet [Inaptitudes] et cliquer sur le bouton [Saisir une inaptitude].
   3. Téléverser le scan du certificat médical : il est obligatoire, au moment de la saisie. Un mot des parents ou une déclaration orale n'a aucune valeur.
@@ -125,4 +125,4 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - À remplir, dans l'ordre des tableaux de bord : 1) la fiche Établissement (vérification) ; 2) Ma fiche professeur, par chaque enseignant (service, fonctions, vœux) ; 3) le Dossier EPS : Projets, Équipe EPS, Classes (configuration, organisation, import des élèves), APSA, Périodes, Groupes et séquences d'apprentissage, Élèves dans les groupes, Équipements, Emplois du temps.
 - Selon les demandes de l'académie, s'y ajoutent : le savoir-nager (validations ASNS) et l'enquête natation en fin d'année, le dossier de section sportive s'il y en a une, le matériel EPI si l'escalade est pratiquée.
 - Envoi pour validation : [Dossiers] > [Dossier EPS], lancer la vérification des données, corriger les alertes signalées, puis indiquer que le dossier est terminé (un commentaire est demandé s'il reste une alerte) et cliquer sur [Enregistrer]. L'icône passe au vert « en attente de validation » ; la commission académique valide ou demande des corrections.
-- Les dates limites sont fixées chaque année par l'inspection pédagogique d'Aix-Marseille.
+- Les dates limites dépendent de chaque académie : elles sont fixées chaque année par l'inspection pédagogique et la DEC de votre académie.

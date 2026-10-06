@@ -40,7 +40,7 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Formulations courantes des collègues : où déposer les documents pour la commission ; que faut-il déposer avant la commission d'harmonisation.
 - Vidéo : https://www.youtube.com/watch?v=FZ1KSuuKkEA
 - Chemin : Tableau de bord > Dossiers et Projets > Dossier Certificatif > Dépôt des documents.
-- La liste des documents demandés dépend de l'académie. Exemple montré : fiche établissement, fichiers de notes (exportés de Santorin), listes d'inaptes, scans des certificats médicaux, fiches individuelles pour les cas particuliers. Pour Aix-Marseille, suivre la liste et le calendrier communiqués par l'inspection et la DEC.
+- La liste des documents demandés dépend de l'académie. Exemple montré : fiche établissement, fichiers de notes (exportés de Santorin), listes d'inaptes, scans des certificats médicaux, fiches individuelles pour les cas particuliers. La liste et le calendrier dépendent de chaque académie : suivre ceux communiqués par l'inspection et la DEC de votre académie.
 
 ### [SITUATION: COMMISSION (CAHPN) — DÉPOSER LA FICHE ÉTABLISSEMENT, OU PLUSIEURS FICHIERS DANS UN ZIP (vidéo)]
 - Mots-clés : fiche établissement, document modèle, envoyer, un seul fichier, dossier ZIP, compresser, signature du chef.
@@ -143,7 +143,7 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Mots-clés : connexion, ARENA, nouveau portail 2025, structures et personnels, ajouter aux favoris, choisir l'accès, accès professeur, accès commission, date de naissance, mot de passe enregistré par le navigateur.
 - Formulations courantes des collègues : où est iPackEPS dans ARENA ; mon mot de passe n'est plus reconnu ; on me demande ma date de naissance ; je vois plusieurs accès.
 - Vidéo : https://www.youtube.com/watch?v=b29_2hEqzoU
-- L'accès se fait par ARENA pour tous (enseignants, chefs d'établissement, inspecteurs), avec l'identifiant académique ou l'adresse mail professionnelle. Outils « connaître son identifiant » et « mot de passe oublié » sur la page de connexion. Pour Aix-Marseille, utiliser l'adresse ARENA de l'académie.
+- L'accès se fait par ARENA pour tous (enseignants, chefs d'établissement, inspecteurs), avec l'identifiant académique ou l'adresse mail professionnelle. Outils « connaître son identifiant » et « mot de passe oublié » sur la page de connexion. Chaque académie a sa propre adresse ARENA.
 - Après une longue absence, ARENA redemande la date de naissance pour confirmer l'identité. PIÈGE : le navigateur peut alors proposer de « mettre à jour le mot de passe ». Refuser : sinon la date de naissance est enregistrée à la place du mot de passe et la connexion suivante échoue.
 - Dans le nouveau portail ARENA (2025), iPackEPS est dans la rubrique « Structures et personnels », en bas de page. Conseil : cliquer tout de suite sur « Ajouter aux favoris » ; il sera ensuite dans « Mes favoris » en haut à gauche.
 - Bouton « Choisir l'accès » : un enseignant voit « Accès professeur ». Un membre de commission (examens, sections sportives) voit aussi un accès commission.
@@ -345,7 +345,7 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Vidéo : https://www.youtube.com/watch?v=1EothsjU1Kc
 - Chemin : Tableau de bord > Dossiers et Projets > Dossier Section Sportive Scolaire.
 - Quatre modules : Demande d'ouverture (établissements sans section qui en veulent une l'an prochain) ; Projet annuel (à déclarer en début d'année par ceux qui ont une section) ; Bilan annuel (en fin d'année) ; Évolution (en fin d'année : reconduire ou fermer).
-- Selon l'académie, un module peut être désactivé, et chaque module n'est accessible que pendant sa campagne. « Hors dates d'ouverture » n'est pas une panne. Pour le calendrier d'Aix-Marseille, se reporter aux consignes de l'inspection pédagogique.
+- Selon l'académie, un module peut être désactivé, et chaque module n'est accessible que pendant sa campagne. « Hors dates d'ouverture » n'est pas une panne. Les dates de campagne dépendent de chaque académie : se reporter aux consignes de l'inspection pédagogique de votre académie.
 
 ### [SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]
 - Mots-clés : demande d'ouverture SSS, questionnaire, axes retenus, recrutement, effectifs, coordonnateur de section, encadrement interne et externe, convention club, financement, brouillon, proposer dossier complet, signature du chef.

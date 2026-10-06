@@ -4,7 +4,7 @@ Sources (guides publics d'autres académies, sessions 2024 et 2025) :
 - Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf
 - Académie de Strasbourg, « FAQ iPackEPS / Cyclades / Santorin » du 29 mars 2024 : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf
 - Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_SaisiesCycladesSantorin.pdf
-ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulations décrites sont donc les mêmes partout. En revanche, les DATES, les ADRESSES DE CONTACT et l'organisation des commissions sont propres à chaque académie : pour l'académie d'Aix-Marseille, toujours renvoyer au calendrier et aux circulaires de la DEC d'Aix-Marseille. Ne jamais donner à un collègue une date ou une adresse d'une autre académie.
+ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulations décrites sont donc les mêmes partout. En revanche, les DATES, les ADRESSES DE CONTACT et l'organisation des commissions sont propres à chaque académie : pour votre académie, toujours renvoyer au calendrier et aux circulaires de la DEC de votre académie. Ne jamais donner à un collègue une date ou une adresse d'une autre académie.
 
 ### [SITUATION: SANTORIN REFUSE LA NOTE DE L'AFL2 OU DE L'AFL3 — IL FAUT D'ABORD L'AFL1]
 - Mots-clés : AFL2 bloqué, AFL3 impossible, AFLP2, ordre de saisie, case refuse la note, je ne peux pas saisir l'AFL2.
@@ -34,14 +34,14 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Élève qui n'a qu'une seule note, que l'enseignant CONSERVE : saisir « Dispensé » (DI) pour les deux APSA non évaluées, puis la note pour l'APSA évaluée (DI + DI + Note). Un avertissement s'affiche à l'écran ; une appréciation peut être ajoutée.
 - Élève qui n'a qu'une seule note, que l'enseignant ne souhaite PAS conserver : transformer cette note en DI (DI + DI + DI) et indiquer dans l'appréciation la note qui a été retirée. La commission académique voit l'appréciation et statue.
 - C'est l'enseignant d'EPS qui propose de conserver ou non la note ; la commission académique valide. (Sources : guide Normandie 2025, support Besançon 2025.)
-- Les certificats médicaux correspondant aux statuts DI doivent être transmis selon la procédure de l'académie (voir la DEC d'Aix-Marseille pour la date limite).
+- Les certificats médicaux correspondant aux statuts DI doivent être transmis selon la procédure de l'académie (la date limite dépend de chaque académie : voir la DEC de votre académie).
 
 ### [SITUATION: FAUT-IL VERROUILLER SON LOT TOUT DE SUITE APRÈS LA SAISIE ?]
 - Mots-clés : verrouiller le lot, valider le lot, clôturer, commission d'établissement, correction après verrouillage.
 - Formulations courantes des collègues : quand verrouiller mon lot ; j'ai fini de saisir, je verrouille ; peut-on encore corriger après avoir verrouillé.
 - C'est l'enseignant qui verrouille son lot.
 - Conseil : attendre que l'équipe se soit réunie pour examiner les notes et les cas particuliers (commission ou concertation d'établissement) avant de verrouiller, car une fois le lot verrouillé, seul le chef d'établissement peut le déverrouiller. (Source : support Besançon 2025.)
-- La date limite de verrouillage est fixée chaque année par l'académie : se reporter au calendrier de la DEC d'Aix-Marseille.
+- La date limite de verrouillage est fixée chaque année par l'académie : se reporter au calendrier de la DEC de votre académie.
 
 ### [SITUATION: PEUT-ON OUVRIR CYCLADES OU SANTORIN DANS PLUSIEURS ONGLETS ?]
 - Mots-clés : plusieurs onglets, deux fenêtres, mauvaise session, import dans le mauvais examen, protocoles Bac Pro importés dans la session CAP.
@@ -76,7 +76,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Mots-clés : option EPS, enseignement optionnel, option facultative, note de l'option, LSU, livret scolaire, bulletin.
 - Formulations courantes des collègues : où saisir la note de l'option EPS ; l'option EPS passe-t-elle par Santorin ; comment remonte la note d'option.
 - La note de l'enseignement optionnel d'EPS ne se saisit pas dans Santorin avec le CCF : elle se saisit dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent) et remonte par le livret scolaire, selon les modalités de l'établissement. (Source : guide Normandie 2025.)
-- Certaines académies demandent en plus le dépôt d'un tableau récapitulatif des notes d'option dans iPackEPS pour la commission. Cette demande est propre à chaque académie : vérifier auprès de la DEC ou de l'inspection d'Aix-Marseille si elle s'applique.
+- Certaines académies demandent en plus le dépôt d'un tableau récapitulatif des notes d'option dans iPackEPS pour la commission. Cette demande est propre à chaque académie : vérifier auprès de la DEC ou de l'inspection de votre académie si elle s'applique.
 
 ### [SITUATION: CO-ÉVALUATION — OBLIGATOIRE OU NON SELON L'EXAMEN (BAC GT, BAC PRO, CAP, DNB)]
 - Mots-clés : co-évaluation, co-évaluateur absent, évaluer seul, deux enseignants, bac pro, CAP, voie professionnelle, DNB, collège.
@@ -96,7 +96,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Étape 5, chef d'établissement : dans Santorin, lancer la distribution automatique ; chaque protocole devient un lot de correction.
 - Étape 6, enseignant : saisir ses notes dans Santorin, élève par élève, par AFL ou AFLP (AFL1 d'abord, point décimal, enregistrer après chaque APSA).
 - Étape 7, enseignant : verrouiller son lot une fois les notes examinées en équipe ; seul le chef d'établissement peut ensuite le déverrouiller.
-- Les dates limites de chaque étape sont fixées par la DEC d'Aix-Marseille. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+- Les dates limites de chaque étape dépendent de chaque académie : elles sont fixées par la DEC de votre académie. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
 
 ### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE AVEC UNE NOTE DE CCF DÉJÀ OBTENUE DANS SON ANCIEN ÉTABLISSEMENT]
 - Mots-clés : élève arrivant, arrivé en mars, changement de lycée, note de l'ancien établissement, épreuve déjà passée, protocole spécifique, élève absent du lot.

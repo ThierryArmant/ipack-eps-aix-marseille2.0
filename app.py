@@ -2301,7 +2301,21 @@ if prompt_a_traiter:
                     _demande_precision_champ = False
                     if any(nom.startswith("demi") for nom, _ca in _trouvees):  # « demi fond » (le tiret est remplacé par un espace)
                         if re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
-                            _trouvees = [(nom, 5 if nom.startswith("demi") else ca) for nom, ca in _trouvees]
+                            # Courir pour l'entretien, ce n'est plus du demi-fond : c'est de la course en durée (champ 5).
+                            # Le demi-fond proprement dit (performance mesurée) reste toujours en champ 1.
+                            _vues, _nouv = set(), []
+                            for nom, ca in _trouvees:
+                                if nom.startswith("demi"):
+                                    nom, ca = "course en duree", 5
+                                if nom not in _vues:
+                                    _vues.add(nom)
+                                    _nouv.append((nom, ca))
+                            _trouvees = _nouv
+                            if len(_trouvees) < 2:
+                                verdict_champs = ("<p><strong>Courir pour l'entretien, ce n'est plus du demi-fond : c'est de la course en durée, qui relève du champ 5.</strong> "
+                                                  "Le demi-fond proprement dit vise une performance mesurée et relève du champ 1.</p>"
+                                                  "<p>Dans votre question, il s'agit donc d'une seule et même activité (la course en durée) : elle ne compte que pour une épreuve du protocole, "
+                                                  "à compléter par des activités d'autres champs.</p>")
                         elif not re.search(r"performance|\bca ?1\b|champ 1", _q_simple):
                             _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ", _q_simple) is not None
                     if _demande_precision_champ:
@@ -2309,6 +2323,8 @@ if prompt_a_traiter:
                                           "ou <strong>performance (CA1)</strong> ?</p>"
                                           "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
                                           "Écrivez simplement « performance » ou « entretien » dans la zone de précision ci-dessous.</p>")
+                    elif verdict_champs:
+                        pass
                     elif len(_trouvees) >= 2:
                         _par_champ = {}
                         for nom, ca in _trouvees:
@@ -2472,7 +2488,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                     response = Settings.llm.complete(consigne_ia)
                     texte_brut = response.text
                     if verdict_champs:
-                        texte_brut = verdict_champs
+                        texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
+                                      .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))
                 except Exception as e:
                     texte_brut = f"Erreur de traitement IA : {str(e)}"
 

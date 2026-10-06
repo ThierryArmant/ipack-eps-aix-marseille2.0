@@ -1,0 +1,107 @@
+=== COMPLÉMENTS TIRÉS DES GUIDES ET FOIRES AUX QUESTIONS D'AUTRES ACADÉMIES (Cyclades, Santorin, iPackEPS) ===
+Ces fiches viennent de documents d'autres académies, lus par résumé. Les applications étant nationales, les manipulations sont les mêmes partout ; seules les dates et les contacts diffèrent, et ils ont été retirés. En cas de désaccord avec une règle validée ou un texte officiel, c'est la règle validée ou le texte officiel qui s'applique.
+
+### [SITUATION: CYCLADES / IPACKEPS — PUIS-JE ENCORE MODIFIER OU CRÉER UN PROTOCOLE DANS CYCLADES]
+- Formulations courantes des collègues : Puis-je encore modifier ou créer un protocole dans Cyclades ?
+- Réponse : Non : « Vous ne pouvez plus modifier de protocole ni créer un protocole sur CYCLADES !!! (sauf dans le cas d'un protocole adapté) ». Les protocoles sont saisis dans iPackEPS puis vérifiés, validés et transmis par la commission académique (CAHPN).
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — COMMENT METTRE À JOUR LA LISTE DES ÉLÈVES DANS IPACKEPS AVANT L'EXPORT]
+- Formulations courantes des collègues : Comment mettre à jour la liste des élèves dans iPackEPS avant l'export ?
+- Réponse : Ouvrir iPackEPS via le portail ARENA, [TABLEAU DE BORD] > [LES DOSSIERS ET PROJETS] > [DOSSIERS EPS], onglet [CLASSES] > [IMPORTATION DES ELEVES] (menu de gauche), puis cliquer [IMPORTER] pour actualiser.
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — COMMENT PRODUIRE LE FICHIER DES ÉLÈVES À ENVOYER DANS CYCLADES]
+- Formulations courantes des collègues : Comment produire le fichier des élèves à envoyer dans Cyclades ?
+- Réponse : Dans iPackEPS : [LES DOSSIERS ET PROJETS] > [DOSSIER CERTIFICATIF] > [CYCLADES]. Vérifier que le bilan des protocoles est sans erreur, cliquer [EXPORT ELEVES], vérifier qu'aucun élève n'apparaît à droite (sinon les attribuer à des menus), puis cliquer [EXPORTER LES ELEVES] : on obtient un fichier .CSV.
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — QUE SIGNIFIE LA PRÉSENCE D'ÉLÈVES DANS LA PARTIE DROITE DE L'ÉCRAN D'EXPORT]
+- Formulations courantes des collègues : Que signifie la présence d'élèves dans la partie droite de l'écran d'export ?
+- Réponse : Ces élèves ne sont attribués à aucun menu ; il faut les attribuer à un menu avant d'exporter.
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — LES CFA ET UFA ASSOCIENT-ILS LES ÉLÈVES DANS IPACKEPS]
+- Formulations courantes des collègues : Les CFA et UFA associent-ils les élèves dans iPackEPS ?
+- Réponse : Non : la saisie des protocoles se fait dans iPackEPS, mais l'association des élèves y est faite « sauf CFA et UFA pour les élèves ».
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — UNE DATE D'ÉPREUVE CHANGE, OÙ LA MODIFIER]
+- Formulations courantes des collègues : Une date d'épreuve change, où la modifier ?
+- Réponse : Sur le dossier certificatif dans iPackEPS.
+- (Complément tiré d'un document de l'académie de versailles ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — OÙ RETROUVER LES ÉCHANGES AVEC LA COMMISSION ACADÉMIQUE]
+- Formulations courantes des collègues : Où retrouver les échanges avec la commission académique ?
+- Réponse : Dans le module de certification d'iPackEPS : « C'est dans ce module que vous retrouverez les échanges avec la commission académique ».
+- (Complément tiré d'un document de l'académie de besançon ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — OÙ DÉPOSER LE DOCUMENT DE LA COMMISSION D'ÉTABLISSEMENT ET LES FICHES DE CAS PARTICULIERS]
+- Formulations courantes des collègues : Où déposer le document de la commission d'établissement et les fiches de cas particuliers ?
+- Réponse : « dossier certificatif : consulter votre dossier > Module dépôt de document pour la CAHPN > Dépôt des fiches individuelles (cas particuliers) ».
+- (Complément tiré d'un document de l'académie de besançon ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS / CYCLADES — COMMENT EXPORTER LES ÉLÈVES D'IPACKEPS VERS CYCLADES]
+- Formulations courantes des collègues : Comment exporter les élèves d'iPackEPS vers Cyclades ?
+- Réponse : Menu [Dossiers] / [Dossier Certificatif] / [Cyclades] ; vérifier que les élèves sont bien affectés à des groupes, puis importer le fichier dans Cyclades (chef d'établissement).
+- (Complément tiré d'un document de l'académie de corse ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS / CYCLADES — MON ÉTABLISSEMENT (CFA) N'A AUCUN ÉLÈVE DANS IPACKEPS, POURQUOI]
+- Formulations courantes des collègues : Mon établissement (CFA) n'a aucun élève dans iPackEPS, pourquoi ?
+- Réponse : « Certains établissements (CFA notamment) n'ont pas de base d'élèves connue au rectorat. Dans ce cas iPackEPS ne contient pas d'élèves, la procédure d'export des élèves est donc impossible. » L'affectation se fait alors manuellement dans Cyclades.
+- (Complément tiré d'un document de l'académie de corse ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — DANS QUEL ORDRE FAUT-IL REMPLIR LES MODULES D'IPACKEPS]
+- Formulations courantes des collègues : Dans quel ordre faut-il remplir les modules d'iPackEPS ?
+- Réponse : « LES MODULES DOIVENT ÊTRE SAISIS DANS L'ORDRE » (consigne répétée sur plusieurs diapositives, étapes numérotées). Le détail des étapes figure dans des captures d'écran non extraites.
+- (Complément tiré d'un document de l'académie de guadeloupe ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — QUE GÈRE-T-ON DANS IPACKEPS POUR LES EXAMENS]
+- Formulations courantes des collègues : Que gère-t-on dans iPackEPS pour les examens ?
+- Réponse : Le diaporama liste : les protocoles EPS, la « gestion des certificats médicaux », la « gestion des bordereaux d'émargement et des notes », et « la saisie du dossier certificatif ».
+- (Complément tiré d'un document de l'académie de guadeloupe ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — OÙ DÉPOSER LES CERTIFICATS MÉDICAUX D'INAPTITUDE]
+- Formulations courantes des collègues : Où déposer les certificats médicaux d'inaptitude ?
+- Réponse : « Téléverser les certificats médicaux d'inaptitude sur iPackEPS (Onglet « Mes élèves », Tableau de bord - Mes élèves - Visualisation des élèves) ».
+- (Complément tiré d'un document de l'académie de guadeloupe ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS / CYCLADES — OÙ SAISIR LES PROTOCOLES D'EXAMEN]
+- Formulations courantes des collègues : Où saisir les protocoles d'examen ?
+- Réponse : « La saisie des protocoles s'effectuera toujours sur l'application I-PACK EPS qui nous a permis de faire le lien avec Cyclades ».
+- (Complément tiré d'un document de l'académie de la réunion ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — FAUT-IL DÉPOSER LES PROJETS D'APPN DANS IPACKEPS]
+- Formulations courantes des collègues : Faut-il déposer les projets d'APPN dans iPackEPS ?
+- Réponse : Oui : « nécessité de déposer vos projets APPN (EPS et AS) à environnement spécifique sur IPACK EPS ».
+- (Complément tiré d'un document de l'académie de la réunion ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — OÙ DÉPOSER LE PROJET DE SECTION SPORTIVE]
+- Formulations courantes des collègues : Où déposer le projet de section sportive ?
+- Réponse : « Nous vous encourageons à déposer dès à présent le projet de section sportive dans IPACK EPS ».
+- (Complément tiré d'un document de l'académie de la réunion ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — COMMENT UN ÉTABLISSEMENT AEFE ACCÈDE-T-IL À IPACKEPS]
+- Formulations courantes des collègues : Comment un établissement AEFE accède-t-il à iPackEPS ?
+- Réponse : « Un compte sera activé pour permettre un accès à iPackEps via Arena » ; la demande se fait auprès du service examens EPS de l'académie de rattachement.
+- (Complément tiré d'un document de l'établissements français à l'étranger (aefe — zone europe centrale et orientale, zeco) ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — QUE FAUT-IL DÉPOSER DANS IPACKEPS EN DÉBUT D'ANNÉE]
+- Formulations courantes des collègues : Que faut-il déposer dans iPackEPS en début d'année ?
+- Réponse : « Les ensembles certificatifs d'épreuves retenus pour l'enseignement commun et la déclinaison du référentiel national » ; les nouveaux référentiels y sont déposés également.
+- (Complément tiré d'un document de l'établissements français à l'étranger (aefe — zone europe centrale et orientale, zeco) ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS — QUAND DÉPOSER LES CERTIFICATS MÉDICAUX]
+- Formulations courantes des collègues : Quand déposer les certificats médicaux ?
+- Réponse : « Les certificats médicaux doivent être déposés tout au long de l'année sur IpackEps dès réception par l'enseignant ».
+- (Complément tiré d'un document de l'établissements français à l'étranger (aefe — zone europe centrale et orientale, zeco) ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS / CYCLADES — QUI EXPORTE LES PROTOCOLES D'IPACKEPS VERS CYCLADES, ET QUI VÉRIFIE]
+- Formulations courantes des collègues : Qui exporte les protocoles d'iPackEPS vers Cyclades, et qui vérifie ?
+- Réponse : L'export est « réalisé par les membres de la CAHPN » (commission académique) ; ensuite « vérification par le référent examen des protocoles dans Cyclades ».
+- (Complément tiré d'un document de l'établissements français à l'étranger (aefe — zone europe centrale et orientale, zeco) ; les règles validées et les textes officiels priment en cas de désaccord.)
+
+### [SITUATION: IPACKEPS / CYCLADES — QUI EXPORTE LES GROUPES D'ÉLÈVES VERS CYCLADES]
+- Formulations courantes des collègues : Qui exporte les groupes d'élèves vers Cyclades ?
+- Réponse : « Export par le chef d'établissement ou le référent examen des groupes élèves depuis IpackEps vers Cyclades ».
+- (Complément tiré d'un document de l'établissements français à l'étranger (aefe — zone europe centrale et orientale, zeco) ; les règles validées et les textes officiels priment en cas de désaccord.)

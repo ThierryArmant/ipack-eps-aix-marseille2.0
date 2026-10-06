@@ -394,3 +394,122 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Documents OBLIGATOIRES : le projet pédagogique et le protocole de sécurité (un modèle peut être proposé par l'académie). Facultatifs : conventions avec les organismes d'accueil (plusieurs possibles), annexes.
 - Activité dans une autre académie : respecter le protocole de sécurité de cette académie s'il existe.
 - [Enregistrer], puis demander au chef d'établissement de signer depuis son interface (même chemin, bouton [Signer]). La commission donne ensuite un avis : l'icône change (validé ou non) et ses commentaires apparaissent dans le dossier.
+
+### [SITUATION: SAVOIR-NAGER (ASNS) — VALIDER ÉLÈVE PAR ÉLÈVE ET IMPRIMER UNE ATTESTATION (vidéo)]
+- Mots-clés : ASNS, savoir-nager, attestation, Mes Élèves, Visualisation, onglet Savoir nager, validé, non validé, niveau inconnu, début d'année, fin d'année, historique, imprimer l'attestation.
+- Formulations courantes des collègues : où valider le savoir-nager ; un élève était absent au test ; comment imprimer l'attestation d'un élève ; comment voir si un élève l'avait déjà les années passées.
+- Vidéo : https://www.youtube.com/watch?v=xlXcb8Z5ZQU
+- Chemin : Tableau de bord > Mes Élèves > Visualisation, choisir la classe, cliquer sur l'élève, onglet [Savoir nager]. L'année scolaire en cours est proposée par défaut.
+- Après le test de début d'année, pour chaque élève : « validé », « non validé », ou « niveau inconnu » si l'élève était absent ; [Enregistrer]. En fin d'année, revenir sur le même onglet pour saisir le résultat de fin d'année.
+- À droite, l'historique se complète année après année : on voit pour chaque année si l'élève a passé le test et s'il l'a validé.
+- Quand l'ASNS est validée, le bouton [Imprimer l'attestation] produit le document officiel prérempli (nom, prénom) ; il reste à l'imprimer, le compléter à la main et le signer. Selon le navigateur, le PDF s'enregistre dans Téléchargements ou un dossier est demandé.
+- Pour imprimer d'un coup toutes les attestations de l'établissement : Dossiers et Projets > Dossier Natation > validations ASNS.
+
+### [SITUATION: SAVOIR-NAGER (ASNS) — IMPRIMER LES DIPLÔMES EN SÉRIE ET RÉCUPÉRER LES VALIDATIONS DE CollègeEPS (vidéo)]
+- Mots-clés : Dossier Natation, validations ASNS, import, CollègeEPS, exporter les validations, imprimer les diplômes de la sélection, filtre sur la colonne classe, date et lieu, enseignant validateur.
+- Formulations courantes des collègues : comment imprimer tous les diplômes du savoir-nager d'une classe ; j'avais tout saisi dans CollègeEPS ; le nombre importé est plus petit que le nombre exporté.
+- Vidéo : https://www.youtube.com/watch?v=JmhwQNyagOI
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Natation > validations ASNS. Le tableau liste tous les élèves ayant une ASNS validée, avec l'année.
+- Reprise de CollègeEPS (pour éviter une double saisie) : dans CollègeEPS, menu Outils > exporter les validations ASNS vers iPackEPS, enregistrer le fichier ; dans iPackEPS, bouton d'import des validations ASNS, choisir ce fichier, valider. Un nombre importé inférieur au nombre exporté est normal : il s'agit d'anciens élèves qui ne sont plus connus d'iPackEPS.
+- Les nouvelles validations de l'année se font élève par élève dans Mes Élèves > Visualisation > onglet Savoir nager ; elles apparaissent ensuite dans ce tableau.
+- Impression en série : sélectionner les élèves (case d'en-tête pour tous, ou cases une à une, ou filtre : survoler l'en-tête de la colonne « classe », ouvrir le menu à trois barres, « contient » la classe voulue, [Filtrer]). Indiquer la date et le lieu de validation, choisir l'enseignant qui a validé, puis [Imprimer les diplômes de la sélection].
+- Résultat : un PDF d'une page par élève, à l'en-tête officiel du ministère. Selon le navigateur, il s'enregistre dans Téléchargements, un dossier est demandé, ou il s'ouvre dans le navigateur.
+
+### [SITUATION: ENQUÊTE NATATION — CE QUI EST DEMANDÉ, L'INDICE DE PERFORMANCE, LA SIGNATURE DU CHEF (vidéo)]
+- Mots-clés : enquête natation, Dossier Natation, sixième, ASNS à l'entrée en 6e, non-nageurs, mis en apprentissage, validés, organisation, séances, durée, élèves dans l'eau, financement, HSA, indice de performance, signer l'enquête, premier degré.
+- Formulations courantes des collègues : que faut-il saisir dans l'enquête natation ; on n'a pas de piscine, que répondre ; à quoi correspond l'indice de performance ; pourquoi l'enquête n'est pas validée.
+- Vidéo : https://www.youtube.com/watch?v=tcuNAUFzI8w
+- Chemin (collège) : Tableau de bord > Dossiers et Projets > Dossier Natation > Enquête. À saisir chaque année scolaire, en fin d'année.
+- Début : nombre d'élèves de 6e ; nombre d'élèves possédant déjà l'ASNS à l'entrée en 6e ; la natation est-elle inscrite à la programmation ? Si NON : indiquer le motif (pas de créneau, piscine trop éloignée ou pas de transport, pas de budget, piscine fermée, autre), [Enregistrer] et l'enquête s'arrête là.
+- Si OUI : parmi les non-nageurs, combien ont été mis en apprentissage, et combien ont validé l'ASNS à l'issue. Un bilan est calculé automatiquement (pourcentage de réussite, pourcentage d'élèves ayant l'ASNS en fin de 6e).
+- Organisation, par niveau (6e, puis 5e, 4e, 3e pour les rattrapages), pour les non-nageurs puis pour les nageurs : nombre moyen de séances par élève, durée effective d'une leçon en minutes, nombre d'élèves dans l'eau en même temps.
+- Modalités : classe entière avec un professeur, groupes de niveau, accompagnement personnalisé, stage massé. Déplacement : à pied ou en transport, durée du trajet aller.
+- Financement (location de la piscine, transport) et dotation horaire (une HSA correspond à 36 HSE) pour l'année en cours, et estimation des besoins pour l'année suivante. Zone de texte libre, puis [Enregistrer].
+- Indice de performance, affiché en bas : pourcentage de réussite des élèves en apprentissage, divisé par la durée totale d'apprentissage en heures, multiplié par le nombre d'élèves dans l'eau par séance (exemple de la vidéo : 80 % ÷ 8 h × 12 élèves = 120). Il sert à comparer des conditions d'enseignement, pas à juger les établissements ; on le compare aux statistiques du département et de l'académie dans le module Statistiques du Dossier Natation.
+- Le chef d'établissement doit signer l'enquête : dans son interface, même module, bouton [Signer l'enquête] en bas de page.
+- Premier degré : enquête plus simple (effectif de CM2, apprentissage, validations, séances du CP au CM2, co-intervention avec le maître-nageur), sans budget.
+
+### [SITUATION: MES ÉLÈVES > VISUALISATION — CE QUE MONTRENT LES ONGLETS GÉNÉRAL, SCOLARITÉ, APSA, SAVOIR NAGER (vidéo)]
+- Mots-clés : visualisation des élèves, parcours scolaire, historique des classes, groupes fréquentés, APSA pratiquées, filtre par champ d'apprentissage, savoir nager.
+- Formulations courantes des collègues : comment voir les activités qu'un élève a déjà pratiquées ; dans quels groupes est cet élève ; où voir son parcours depuis la 6e.
+- Vidéo : https://www.youtube.com/watch?v=4tjPIbnhzDU
+- Chemin : Tableau de bord > Mes Élèves > Visualisation. Choisir un type de groupe (classes d'EPS, AS, section, accompagnement…), puis le groupe ; la liste des élèves s'affiche à gauche.
+- Onglet Général : informations administratives. Onglet Scolarité : classes traversées depuis que l'élève est connu d'iPackEPS, et autres groupes fréquentés (AS, section sportive…).
+- Onglet APSA : toutes les APSA pratiquées, en EPS comme en AS ou en section, avec un filtre possible par champ d'apprentissage (pour voir combien de séquences l'élève a eues dans chaque champ).
+- Onglet Savoir nager : statut ASNS et impression de l'attestation. Onglet Inaptitudes : déclaration des inaptitudes.
+
+### [SITUATION: MES DOCUMENTS — IMPRIMER UN BORDEREAU D'ÉMARGEMENT OU UN BORDEREAU DE NOTES VIERGE POUR UNE ÉPREUVE (vidéo)]
+- Mots-clés : documents administratifs, bordereau d'émargement, bordereau de notes, examen, signature des élèves, co-évaluateur, PDF, téléchargements.
+- Formulations courantes des collègues : comment imprimer la feuille d'émargement du CCF ; existe-t-il un bordereau de notes ; je ne retrouve pas le PDF généré.
+- Vidéo : https://www.youtube.com/watch?v=zdpARu52Rxc
+- Chemin : Tableau de bord > Mes Documents > Documents administratifs. Le menu de gauche liste les documents disponibles (section examens, dossards…) ; la liste évolue avec les mises à jour.
+- Choisir le groupe (visualisation par classe), indiquer l'épreuve (l'APSA du jour), le professeur responsable, cocher les élèves présents (case d'en-tête pour tous, puis décocher les absents ou ceux d'un autre groupe).
+- [Bordereau d'émargement] : PDF à l'en-tête de l'académie et de l'établissement ; on y écrit la date, chaque élève signe à l'issue de l'épreuve, et une zone est prévue pour la signature de l'enseignant et du co-évaluateur éventuel.
+- [Bordereau de notes] : PDF vierge de la même liste, sur lequel l'enseignant reporte les notes À LA MAIN puis signe, pour archivage. Aucune note n'est saisie dans iPackEPS : les notes d'examen se saisissent dans Santorin.
+- Selon le navigateur, le PDF s'enregistre dans Téléchargements, un dossier est demandé, ou il s'ouvre dans le navigateur.
+
+### [SITUATION: MES DOCUMENTS — IMPRIMER POUR CHAQUE ÉLÈVE SA PROGRAMMATION EPS (EMPLOI DU TEMPS INDIVIDUEL) (vidéo)]
+- Mots-clés : programmation, emploi du temps individuel de l'élève, une page par élève, carnet de correspondance, plusieurs pages par feuille.
+- Formulations courantes des collègues : comment donner à chaque élève la liste de ses activités de l'année ; peut-on imprimer l'emploi du temps EPS des élèves.
+- Vidéo : https://www.youtube.com/watch?v=bxd0QQs-X4Q
+- Chemin : Tableau de bord > Mes Documents > Documents administratifs > Programmation.
+- Choisir la classe, cocher les élèves (case d'en-tête pour tous), cliquer sur [Édition programmation] : un PDF « programmation EPS » est créé, une page par élève.
+- Chaque page est propre à l'élève : ses APSA de l'année, les jours, et ses groupes (EPS, AS, section sportive). Deux élèves d'une même classe n'ont donc pas la même page.
+- Astuce papier : dans le lecteur PDF, imprimer « plusieurs pages par feuille » (4 par feuille) pour obtenir un format carte postale à coller dans le carnet.
+
+### [SITUATION: CROSS — FILTRER LES ÉLÈVES, NUMÉROTER ET IMPRIMER LES DOSSARDS (vidéo)]
+- Mots-clés : cross, dossards, numéroter, filtre avancé, ne contient pas, un ou deux dossards par page, A5, code-barres, douchette.
+- Formulations courantes des collègues : comment imprimer les dossards du cross ; comment exclure une classe ; à partir de quel numéro commencer ; y a-t-il un code-barres.
+- Vidéo : https://www.youtube.com/watch?v=Ghb8re7CK7c
+- Chemin : Tableau de bord > Mes Documents > Documents > Dossards.
+- Étape 1, choisir les élèves : visualisation par classe, par exemple tout le niveau 6e. Pour exclure une classe : survoler l'en-tête de la colonne « division », ouvrir le menu de configuration, choisir « ne contient pas » et la classe, [Filtrer] (annulation : effacer le filtre). Cocher la case d'en-tête pour tout sélectionner, puis décocher les absents.
+- Étape 2, numéroter : à droite, indiquer le numéro de départ (par exemple 1) et cliquer sur [Numéroter].
+- Étape 3, imprimer : choisir un dossard par page, ou deux par page (format A5), puis [Imprimer]. Avec beaucoup d'élèves, la création du PDF peut prendre une à deux minutes.
+- Chaque dossard porte le nom, la classe, l'établissement, le sexe, le numéro et un code-barres utilisable avec une douchette et un logiciel de cross compatible.
+
+### [SITUATION: MATÉRIEL EPI (ESCALADE) — LIRE LES ICÔNES DU CAHIER DE SUIVI ET L'IMPRIMER (vidéo)]
+- Mots-clés : EPI, équipements de protection individuelle, escalade, cordes, harnais, cahier de suivi, registre, inventaire, contrôle annuel, fin de vie, mise à l'écart, rebut, imprimer le cahier.
+- Formulations courantes des collègues : que signifie l'horloge rouge sur mon harnais ; mon contrôle est en retard ; comment imprimer le registre des EPI ; est-ce obligatoire d'utiliser ce module.
+- Vidéo : https://www.youtube.com/watch?v=dpijdybbbWo
+- Chemin : Tableau de bord > Matériel (gestion du matériel) > Inventaire EPI. L'outil est facultatif : c'est un registre numérique pour ceux qui n'ont pas d'autre outil de suivi.
+- Icônes (les survoler pour le détail) : coche sur fond vert = contrôle à jour, matériel utilisable ; horloge sur fond rouge = fin de vie dépassée, à mettre à l'écart ou au rebut, interdit d'utilisation ; clé à molette sur fond orange = contrôle en retard, lancer un nouveau contrôle pour continuer à l'utiliser ; poubelle = matériel mis à l'écart (à détruire, ou à réparer puis réintégrer) ; horloge sur fond orange = à remplacer cette année, la fin de vie tombe avant la fin de l'année scolaire.
+- Un bouton imprime le cahier de suivi ou l'enregistre en PDF : matériel trié par type (cordes, harnais…), avec photo si elle a été déposée, dates de chaque contrôle, nom des contrôleurs, points de contrôle et remarques.
+
+### [SITUATION: PUBLIPOSTAGE — CRÉER UN DOCUMENT À BALISES (AUTORISATION, DIPLÔME) ET LE GÉNÉRER POUR UNE LISTE D'ÉLÈVES (vidéo)]
+- Mots-clés : publipostage, document modèle, non modifiable, dupliquer, balises, élève prénom, élève nom, classe, date de naissance, portrait paysage, en-tête, deux documents par page, publier, générer le PDF.
+- Formulations courantes des collègues : comment faire une autorisation de déplacement pour toute l'AS ; je ne peux pas modifier le modèle ; comment insérer le nom de l'élève automatiquement ; comment faire un diplôme.
+- Vidéo : https://www.youtube.com/watch?v=k2p4BWv-gC8
+- Chemin : Tableau de bord > Mes Documents > Publipostage. Deux menus : configurer les documents, puis publier.
+- Deux modèles sont fournis (autorisation de droit à l'image, autorisation de déplacement). Ils ne sont PAS modifiables (ils sont communs à tous les utilisateurs) : fermer le modèle et cliquer sur l'icône [Dupliquer] pour obtenir sa propre copie, modifiable et supprimable.
+- Dans un document : le titre ; la structure (portrait ou paysage, avec ou sans en-tête de l'établissement, un ou deux documents par page) ; le texte, mis en forme comme dans un traitement de texte.
+- Balises : ce sont des champs entre crochets que l'application remplace par les données de chaque élève (prénom, nom, classe, date de naissance…). Quand on clique sur une balise, elle s'insère en bas du document : la couper, du crochet ouvrant au crochet fermant, et la coller à l'endroit voulu. [Enregistrer].
+- [Créer un document] part d'une page vierge (exemple : un diplôme de participation en paysage, sans en-tête, un par page).
+- Publier : menu de publication, choisir le document, choisir les élèves (par classe ou par groupe, par exemple un groupe d'AS ; case d'en-tête pour tous), puis [Générer le PDF]. On obtient un document personnalisé par élève, prêt à imprimer.
+
+### [SITUATION: STATISTIQUES INAPTITUDES — LES TROIS NIVEAUX D'INCLUSION ET LES TABLEAUX DISPONIBLES (vidéo)]
+- Mots-clés : statistiques inaptitudes, niveau d'inclusion, absent en EPS, présent sans pratique, pratique adaptée, par sexe, par cycle, par APSA, partielle, totale, permanente, temporaire.
+- Formulations courantes des collègues : combien de certificats médicaux dans l'établissement ; où voir les statistiques des dispensés ; à quoi sert de déclarer les inaptitudes.
+- Vidéo : https://www.youtube.com/watch?v=jNHJEzqaPGc
+- Chemin : Tableau de bord > Statistiques et Offre de formation > Statistiques Inaptitudes. Les calculs viennent des déclarations faites dans Mes Élèves > Visualisation > onglet Inaptitudes.
+- L'écran compte les certificats médicaux et les répartit en trois niveaux d'inclusion : 1) élève absent en EPS (en étude ou à la maison) ; 2) élève présent mais sans pratique (observation, arbitrage) ; 3) élève en pratique physique adaptée, le meilleur niveau d'inclusion.
+- Tableaux : par sexe, par cycle scolaire, par APSA ; puis détail inaptitudes partielles ou totales, permanentes (certificat à l'année) ou temporaires.
+- La liste nominative correspondante est dans Mes Élèves > Inaptitudes.
+
+### [SITUATION: CHEF D'ÉTABLISSEMENT — ACCÉDER À iPackEPS ET CE QU'IL Y VOIT (vidéo)]
+- Mots-clés : chef d'établissement, proviseur, principal, ARENA, enquêtes et pilotage, iPackEPS établissement, consultation, vérification des données, emploi du temps de l'équipe.
+- Formulations courantes des collègues : où mon chef trouve-t-il iPackEPS ; que voit le chef d'établissement ; le chef peut-il voir nos emplois du temps.
+- Vidéo : https://www.youtube.com/watch?v=jOt-pUj-5Hc
+- Accès du chef : ARENA, rubrique « Enquêtes et pilotage », lien iPackEPS établissement. La page d'accueil liste le ou les établissements dont il est responsable (un accès par établissement, par exemple un collège et un lycée).
+- Son interface est à 99 % la même que celle des enseignants, en consultation : équipe EPS, classes, APSA, groupes, élèves des groupes, emplois du temps (qui est où, avec quelle classe, sur quel équipement).
+- Le bouton « vérification des données » des tableaux de bord lui montre où en sont les saisies de l'équipe.
+- Il n'a pas accès aux fiches professeur, qui sont confidentielles.
+- Son rôle propre : signer certains dossiers (voir la fiche « ce que le chef d'établissement doit signer »).
+
+### [SITUATION: CHEF D'ÉTABLISSEMENT — CE QU'IL DOIT SIGNER ET CE QUE LA SIGNATURE BLOQUE POUR L'ÉQUIPE (vidéo)]
+- Mots-clés : signature du chef, signer, dossier signé non modifiable, mode brouillon, enquête natation, section sportive, ouverture, projet annuel, bilan, enquête équipements, APPN.
+- Formulations courantes des collègues : je ne peux plus modifier mon dossier de section ; que doit signer le chef d'établissement ; comment corriger un dossier déjà signé.
+- Vidéo : https://www.youtube.com/watch?v=2iSTkzR0fns
+- Tout se trouve dans son interface, module Dossiers et Projets ; le bouton [Signer] est toujours en bas de page du dossier (ouvrir le dossier avec le bouton de modification).
+- Dossiers à signer : l'enquête natation (si l'académie l'a mise en place) ; pour les sections sportives, la demande d'ouverture, le projet annuel en début d'année, le bilan en fin d'année, la demande de reconduction ou de fermeture ; l'enquête sur les équipements sportifs (si l'académie l'a mise en place) ; les projets APPN à environnement spécifique (vérifier la présence du projet pédagogique, du protocole de sécurité et des conventions).
+- Le chef peut signer même si le dossier est signalé incomplet, en ajoutant un commentaire.
+- EFFET DE LA SIGNATURE : dès qu'un dossier est signé, l'équipe EPS ne peut plus le modifier. Pour permettre une correction, le chef rouvre le dossier et l'enregistre en mode brouillon : la signature est retirée, l'équipe corrige, puis le chef signe à nouveau.

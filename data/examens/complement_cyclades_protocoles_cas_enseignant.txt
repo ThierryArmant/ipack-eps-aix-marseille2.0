@@ -20,7 +20,7 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - La liste de Cyclades propose les APSA validées par la commission académique pour l'établissement.
 - L'enseignant prévient son chef d'établissement, qui contacte la commission académique (ou le gestionnaire des examens).
 - Vérification à faire d'abord dans iPackEPS : l'APSA doit être déclarée « certificative » pour la voie concernée ([Dossiers] > [Dossier EPS] > [APSA]) et son référentiel doit être déposé et validé ([Dossiers] > [Dossier Certificatif] > dépôt des référentiels). Une APSA non déclarée ou au référentiel refusé n'est pas proposée.
-- Exception : pour un protocole ADAPTÉ, toutes les APSA de Cyclades sont proposées, sans limitation.
+- Ne pas créer un protocole « adapté » pour contourner l'absence d'une APSA : le protocole adapté est réservé aux élèves relevant du contrôle adapté (inaptitude partielle, handicap).
 
 ### [SITUATION: MODIFIER OU CRÉER UN PROTOCOLE APRÈS LA TRANSMISSION À LA COMMISSION]
 - Mots-clés : protocoles transmis, protocoles validés, modifier après transmission, réouverture, dévalider, protocole adapté, inspection pédagogique régionale.

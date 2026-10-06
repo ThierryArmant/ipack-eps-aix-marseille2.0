@@ -84,3 +84,23 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Baccalauréats général et technologique : la co-évaluation est obligatoire. Elle est réalisée par deux enseignants d'EPS de l'établissement, dont l'un est l'enseignant du groupe classe (note de service du 20 février 2026). Le texte ne prévoit pas qu'un enseignant évalue seul. Si le co-évaluateur prévu est absent, prévenir le chef d'établissement ; la conduite à tenir (autre co-évaluateur de l'établissement, ou report sur la date de rattrapage du protocole) n'est pas détaillée dans les documents de la base : la faire confirmer par l'inspection ou la DEC.
 - Baccalauréat professionnel et CAP : la co-évaluation n'est PAS réglementaire pour la certification. L'enseignant de la classe peut donc évaluer seul. (FAQ nationale « Évaluer et noter », réponse voie professionnelle.)
 - Collège (DNB) : ni le CCF ni la co-évaluation ne sont réglementés. Les élèves sont notés par l'enseignant de leur classe ; une co-évaluation éventuelle relève de l'organisation de l'établissement et doit être validée par l'autorité hiérarchique.
+
+### [SITUATION: DE LA VALIDATION DES PROTOCOLES À LA SAISIE DES NOTES — LES ÉTAPES DANS L'ORDRE ET QUI LES FAIT]
+- Mots-clés : étapes après validation, protocoles validés, janvier, export Cyclades, import, association des élèves, distribution des lots, saisie, verrouillage, qui fait quoi.
+- Formulations courantes des collègues : nos protocoles sont validés, que fait-on maintenant ; quelles sont les étapes jusqu'à la saisie des notes ; dans quel ordre faire Cyclades et Santorin ; à partir de quand peut-on saisir.
+- Les opérations commencent à partir de janvier, une fois les protocoles des établissements validés par la commission académique.
+- Étape 1, chef d'établissement : dans iPackEPS, générer le fichier d'export des groupes et des élèves ([Dossiers] > [Dossier Certificatif] > [Protocoles] > « Générer le fichier d'export »). Tous les élèves des classes à examen doivent d'abord être placés dans un groupe.
+- Étape 2, chef d'établissement : importer ce fichier dans Cyclades (une seule fenêtre Cyclades ouverte, dans le bon examen).
+- Étape 3, enseignants et chef d'établissement : dans Cyclades, vérifier que chaque élève est bien rattaché à son protocole ([EPS] / [Associer les élèves à un protocole]) et corriger si besoin.
+- Étape 4, chef d'établissement, seulement si un enseignant a changé : réaffecter le protocole au nouvel évaluateur ([EPS] / [Contrôler / Réaffecter des protocoles]).
+- Étape 5, chef d'établissement : dans Santorin, lancer la distribution automatique ; chaque protocole devient un lot de correction.
+- Étape 6, enseignant : saisir ses notes dans Santorin, élève par élève, par AFL ou AFLP (AFL1 d'abord, point décimal, enregistrer après chaque APSA).
+- Étape 7, enseignant : verrouiller son lot une fois les notes examinées en équipe ; seul le chef d'établissement peut ensuite le déverrouiller.
+- Les dates limites de chaque étape sont fixées par la DEC d'Aix-Marseille. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+
+### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE AVEC UNE NOTE DE CCF DÉJÀ OBTENUE DANS SON ANCIEN ÉTABLISSEMENT]
+- Mots-clés : élève arrivant, arrivé en mars, changement de lycée, note de l'ancien établissement, épreuve déjà passée, protocole spécifique, élève absent du lot.
+- Formulations courantes des collègues : un élève arrive d'un autre lycée avec déjà une note de CCF, que devient-elle ; comment intégrer un élève arrivé en cours d'année ; il n'apparaît pas dans mon lot Santorin.
+- La note déjà obtenue n'est pas perdue : on crée pour cet élève un protocole spécifique qui reprend l'APSA déjà évaluée et la complète par les épreuves qu'il lui reste à passer, en respectant les exigences de l'examen. Exemple (bac GT) : une APSA de CA1 a été évaluée dans l'ancien établissement ; le protocole comprend cette APSA de CA1 et deux autres APSA de champs d'apprentissage différents, à réaliser dans le nouvel établissement. (Source : guide Normandie 2025.)
+- L'enseignant n'a aucune manipulation informatique à faire lui-même pour faire apparaître l'élève : le secrétariat associe l'élève à son protocole dans Cyclades, puis le chef d'établissement le place dans le bon lot depuis la console Santorin-Direction (distribution manuelle). La prise en compte demande 12 à 24 heures.
+- La façon de reporter dans Santorin la note obtenue dans l'ancien établissement n'est pas détaillée dans les documents de la base : la faire préciser par la DEC.

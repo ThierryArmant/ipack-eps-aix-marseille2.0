@@ -1706,10 +1706,11 @@ if prompt_a_traiter:
                         if any(w in p_low for w in mots_cles_intention_peda):
                             _ajouter(retriever_peda, "[Référentiel Pédagogique]", avec_sources=True)
                     elif mode == "examens":
-                        _ajouter(retriever_santorin, avec_diag=True)
-                        # ✅ AJOUT : beaucoup de fiches Santorin / Cyclades sont rangées dans ipack.txt (livret Santorin, FAQ examens).
-                        # Depuis l'onglet Examens elles étaient introuvables : l'IA inventait alors des menus. On va aussi les chercher.
-                        _ajouter(retriever_ipack, "[Base iPackEPS]", avec_diag=True, maximum=5)
+                        _ajouter(retriever_santorin, avec_diag=True, maximum=8)
+                        # ✅ AJOUT : beaucoup de fiches Santorin / Cyclades sont rangées dans ipack.txt (livret Santorin, FAQ examens,
+                        # cas d'élèves : arrivée en cours d'année, 2 notes sur 3, haut niveau...). Depuis l'onglet Examens elles étaient
+                        # introuvables : l'IA inventait alors des menus ou restait dans le vague. On va aussi les chercher, à parts égales.
+                        _ajouter(retriever_ipack, "[Base iPackEPS]", avec_diag=True, maximum=8)
                     elif mode == "ipack":
                         _ajouter(retriever_ipack, avec_diag=True)
                         _ajouter(retriever_santorin, "[Base Examens & Santorin]", avec_diag=True, maximum=4)
@@ -2197,6 +2198,7 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 6. FIDÉLITÉ AU CONTEXTE (ZÉRO BRODERIE) :
 - Commence par répondre à la question posée, en une phrase complète qui reprend ses mots et donne la conclusion (exemples : « Vous pouvez évaluer seul, car... », « Vous ne perdez pas vos notes : ... », « Il ne faut pas ouvrir plusieurs onglets, car... »). N'ouvre pas la réponse par un « Oui » ou un « Non » isolé : établis d'abord la conclusion à partir du contexte, et vérifie que ta première phrase dit la même chose que le reste de ta réponse.
 - N'ajoute aucune étape de remplissage (« vérifiez votre connexion », « contactez votre correspondant », « assurez-vous que tout est correct ») si elle ne figure pas dans le contexte. Une réponse courte et exacte vaut mieux qu'une procédure rallongée.
+- PAS DE RÉPONSE VAGUE : n'écris jamais de généralités qui ne s'appuient sur aucun passage (« assurez-vous que la note est valide », « respectez les procédures de votre établissement », « prenez en compte la situation de l'élève »). Si le contexte ne traite qu'une partie de la question, réponds précisément à cette partie et dis en une phrase ce que ta base ne précise pas.
 - Pour un texte réglementaire (décret, circulaire, note de service), rapporte ce que dit le contexte sans commenter ses intentions ni ses bénéfices supposés (« plus de flexibilité », « plus équitable »...).
 - Les passages du contexte précédés de [Base iPackEPS] ou [Base Examens & Santorin] viennent de l'autre base documentaire : ils ont la même valeur que les autres.
 - CHEMINS DE MENU : ne donne un chemin de menu que s'il figure dans le contexte, et donne-le sans le nuancer. Les formules « généralement », « en général », « normalement », « il se peut que » devant un menu ou un bouton sont interdites : si le chemin exact n'est pas dans le contexte, dis ce que le contexte permet de dire et précise que le chemin exact n'est pas dans ta base.

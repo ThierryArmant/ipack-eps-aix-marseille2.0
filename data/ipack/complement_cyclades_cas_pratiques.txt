@@ -176,3 +176,13 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Limite : le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé ; pour changer de groupe d'élèves, il faut supprimer le protocole et le recréer.
 - Si les protocoles ont déjà été transmis à la commission, le chef d'établissement doit d'abord demander leur réouverture à l'inspection pédagogique régionale.
 - (Source : guide des examens EPS de l'académie de Normandie.)
+
+
+### [SITUATION: FICHE INDIVIDUELLE POUR LA COMMISSION — DANS QUELS CAS LA REMPLIR ? (DI + DI + NOTE, 0/20, ABT…)]
+- Mots-clés : fiche individuelle, cas particulier, commission d'harmonisation, DI + DI + Note, dispensé, inaptitude, 0/20, zéro, ABT, absent, documenter, justifier, règle académique.
+- Formulations courantes des collègues : faut-il remplir une fiche individuelle ; dans quels cas faire une fiche individuelle pour la commission ; mon élève a DI + DI + Note, dois-je faire une fiche ; faut-il justifier quand on applique l'inaptitude.
+- Réponse courte : la fiche individuelle sert à documenter certains cas particuliers pour la commission : DI + DI + Note, 0/20, ABT, etc.
+- Exception : il n'est PAS utile de faire une fiche quand, dans le cas DI + DI + Note, on applique l'inaptitude (DI + DI + Note = DI, l'élève est dispensé). C'est l'application d'une règle académique : il n'y a rien à justifier.
+- En pratique : on documente par une fiche individuelle quand on demande à conserver la note unique (ou pour un 0/20, un ABT) ; on ne documente pas quand on applique simplement la règle.
+- Cette règle est celle de l'académie d'Aix-Marseille. Dans une autre académie, vérifier la consigne de la commission académique.
+- Où déposer la fiche : dans iPackEPS, [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].

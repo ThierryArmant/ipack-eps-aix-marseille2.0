@@ -1518,12 +1518,15 @@ Mots-clés : candidat libre, candidat individuel, CNED libre, ajouter candidat l
   2. Si un candidat libre apparaît par erreur dans vos listes iPackEPS, ne lui attribuez aucun protocole et signalez l'anomalie au secrétariat des examens.
 
 ### [ARTICLE 96] [Dossiers]/[Dossier Certificatif] Gestion de l'Élève ayant 2 notes sur 3 au Bac GT (Inaptitude sur la 3e épreuve)
-Mots-clés : 2 notes sur 3, inaptitude 3e épreuve, calcul moyenne bac 2 épreuves, fiche individuelle 1 note, harmonisation CAHN.
-- Cadre réglementaire (Arrêté Bac GT) : Si un élève a été régulièrement évalué sur 2 épreuves mais se trouve empêché (inaptitude médicale attestée ou force majeure) sur la 3e épreuve et son rattrapage différé, la note finale d'EPS est la moyenne des 2 notes obtenues.
-- Procédure iPackEPS & Santorin :
-  1. Dans iPackEPS : enregistrer l'inaptitude médicale pour la période de la 3e séquence.
-  2. Dans Santorin : pour la 3e épreuve, positionner le statut « Dispense » (DISP). Santorin neutralise la 3e épreuve et divise la somme des 2 premières par 2.
-  3. Fiche individuelle CAHN : dans `[Dossier Certificatif]` > `[Dépôt documents CAHPN]`, déposer obligatoirement une fiche explicative individuelle pour traçabilité de la dispense.
+Mots-clés : 2 notes sur 3, blessure avant la 3e épreuve, poignet cassé, accident en cours d'année d'examen, inaptitude 3e épreuve, calcul moyenne bac 2 épreuves, neutraliser l'épreuve manquante, pas de dispense globale.
+- Formulations courantes des collègues : mon élève s'est blessé avant sa troisième épreuve, il a déjà deux notes ; que saisir pour la troisième épreuve ; est-ce que je le mets en DISP ; garde-t-il ses deux notes.
+- Priorité de cette fiche : pour un élève qui a déjà été évalué sur au moins deux épreuves sur trois, c'est cette fiche (situation particulière à l'examen) qui s'applique, et non les règles générales des élèves dispensés à l'année.
+- Règle : on neutralise UNIQUEMENT l'épreuve manquante. La note finale d'EPS est la moyenne des 2 notes déjà obtenues (ramenée sur 20), sous réserve que l'inaptitude médicale soit dûment certifiée.
+- À PROSCRIRE : la dispense globale / dispense totale d'EPS pour cet élève. Elle s'adresse aux élèves dispensés avant le début des évaluations ou sur la totalité de l'année ou du protocole. Appliquée ici, elle annulerait l'ensemble du CCF de l'élève ou le ferait basculer à tort vers l'épreuve ponctuelle ou le rattrapage. Les deux notes obtenues ne doivent jamais être effacées.
+- Ordre des démarches :
+  1. Si l'élève peut reprendre avant la clôture de la saisie : organiser l'épreuve différée (rattrapage) prévue au protocole.
+  2. Si l'élève reste empêché pour l'épreuve et pour son rattrapage : dans iPackEPS, enregistrer l'inaptitude médicale pour la période de la 3e séquence (menu [Mes Élèves], sous-onglet [Inaptitudes]) ; dans Santorin, conserver les deux notes et neutraliser la seule 3e épreuve, avec une appréciation qui explique la situation.
+  3. Fiche individuelle : dans `[Dossier Certificatif]` > `[Dépôt documents CAHPN]`, déposer une fiche explicative individuelle pour la commission.
 
 ### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT
 Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, arbitrage CAHN, neutralisation coeff bac.

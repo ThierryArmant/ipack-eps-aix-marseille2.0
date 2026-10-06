@@ -2292,7 +2292,20 @@ if prompt_a_traiter:
                     import unicodedata as _ud
                     _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
-                    if len(_trouvees) >= 2:
+                    # ✅ DEMI-FOND : la même activité peut être enseignée pour la performance (CA1) ou pour l'entretien de soi (CA5).
+                    # Si le collègue ne l'a pas précisé, on lui pose la question au lieu de deviner ; sa précision fixe ensuite le champ.
+                    _demande_precision_champ = False
+                    if any(nom.startswith("demi") for nom, _ca in _trouvees):
+                        if re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
+                            _trouvees = [(nom, 5 if nom.startswith("demi") else ca) for nom, ca in _trouvees]
+                        elif not re.search(r"performance|\bca ?1\b|champ 1", _q_simple):
+                            _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ", _q_simple) is not None
+                    if _demande_precision_champ:
+                        verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> s'il s'agit du demi-fond dans sa partie <strong>entretien (CA5)</strong> "
+                                          "ou <strong>performance (CA1)</strong> ?</p>"
+                                          "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
+                                          "Écrivez simplement « performance » ou « entretien » dans la zone de précision ci-dessous.</p>")
+                    elif len(_trouvees) >= 2:
                         _par_champ = {}
                         for nom, ca in _trouvees:
                             _par_champ.setdefault(ca, []).append(nom)

@@ -2288,7 +2288,9 @@ if prompt_a_traiter:
                         ("badminton", 4), ("tennis de table", 4), ("boxe", 4), ("judo", 4), ("lutte", 4), ("basket", 4),
                         ("football", 4), ("handball", 4), ("rugby", 4), ("volley", 4), ("ultimate", 4),
                     ]
-                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), p_norm)]
+                    import unicodedata as _ud
+                    _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn")
+                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     if len(_trouvees) >= 2:
                         _par_champ = {}
                         for nom, ca in _trouvees:
@@ -2301,6 +2303,14 @@ if prompt_a_traiter:
                             _concl = "Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble dans un protocole d'examen."
                         faits_champs = ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste, ne les contredis jamais) — champs d'apprentissage au lycée des activités citées dans la question :\n"
                                         + "\n".join(_lignes) + "\n" + _concl + "\n")
+
+                # ✅ COLLÈGE : une question sur le zéro ou l'absence recevait la règle des circulaires du CAP et du bac pro.
+                if "coll" in str(niveau_actuel_form).lower() and re.search(r"z[ée]ro|absen|\b0\b", prompt.lower()):
+                    faits_champs += ("FAIT VÉRIFIÉ PAR LE PROGRAMME (il prime sur tout le reste) — la question concerne le COLLÈGE : les circulaires du CAP, "
+                                     "du baccalauréat professionnel et du baccalauréat général (« absence non justifiée = zéro ») ne s'appliquent PAS au collège et ne doivent pas être citées. "
+                                     "Au collège, on ne met pas zéro pour une absence à une évaluation ordinaire : si la moyenne n'est pas représentative, mention « En attente », "
+                                     "évaluations supplémentaires, puis évaluation de remplacement. Le zéro n'est attribué que pour une absence NON justifiée à l'évaluation de remplacement. "
+                                     "Texte : note de service du 2 septembre 2025 (Bulletin officiel du 4 septembre 2025).\n")
 
                 contexte_complet_ia = f"""
 {faits_champs}

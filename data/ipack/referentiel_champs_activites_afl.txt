@@ -1,0 +1,55 @@
+=== RÉFÉRENTIEL : CHAMPS D'APPRENTISSAGE, ACTIVITÉS ET AFL (repères tirés de la partie pédagogique de la base) ===
+Ce référentiel sert uniquement à savoir de quel champ relève une activité et ce qui y est évalué, pour répondre aux questions d'examen et d'iPackEPS. Il ne sert pas à construire un cycle ou une séance.
+
+### [SITUATION: LES CHAMPS D'APPRENTISSAGE AU LYCÉE ET AU COLLÈGE — LISTE ET INTITULÉS]
+- Mots-clés : champ d'apprentissage, CA1, CA2, CA3, CA4, CA5, combien de champs, intitulé des champs, lycée, collège, voie professionnelle.
+- Formulations courantes des collègues : quels sont les champs d'apprentissage ; combien y a-t-il de champs au collège ; c'est quoi le champ 5.
+- LYCÉE (voie générale, technologique et professionnelle) : 5 champs d'apprentissage.
+  - CA1 : performance optimale (produire la meilleure performance possible à une échéance donnée).
+  - CA2 : milieux variés et activités de pleine nature (adapter son déplacement).
+  - CA3 : prestation artistique ou acrobatique.
+  - CA4 : affrontement collectif ou interindividuel.
+  - CA5 : développement de soi et entretien de la santé.
+- COLLÈGE : 4 champs d'apprentissage. Le champ 5 n'existe pas au collège.
+  - Champ 1 : produire une performance optimale à une échéance donnée.
+  - Champ 2 : adapter ses déplacements à des environnements variés.
+  - Champ 3 : s'exprimer devant les autres par une prestation artistique et/ou acrobatique.
+  - Champ 4 : conduire et maîtriser un affrontement collectif ou interindividuel.
+- Textes : arrêté du 17 janvier 2019 (programme d'EPS du lycée général et technologique) ; arrêté du 3 avril 2019 (voie professionnelle et CAP).
+
+### [SITUATION: DE QUEL CHAMP D'APPRENTISSAGE RELÈVE CETTE ACTIVITÉ ? (TABLE ACTIVITÉ → CHAMP)]
+- Mots-clés : dans quel champ, quel CA, activité, APSA, escalade, course d'orientation, demi-fond, relais-vitesse, acrosport, gymnastique, badminton, tennis de table, ultimate, handball, basketball, musculation, step, course en durée.
+- Formulations courantes des collègues : l'escalade c'est quel champ ; le demi-fond est dans quel CA ; badminton et tennis de table sont-ils dans le même champ ; la musculation c'est quel champ.
+- Champ 1 (performance) : demi-fond, relais-vitesse, et plus largement les courses, sauts et lancers d'athlétisme.
+- Champ 2 (milieux variés) : escalade, course d'orientation.
+- Champ 3 (artistique ou acrobatique) : acrosport, gymnastique sportive (agrès).
+- Champ 4 (affrontement) : badminton, tennis de table, ultimate, handball, basketball.
+- Champ 5 (entretien de soi, lycée seulement) : musculation, step, course en durée (travail par blocs d'allures).
+- Deux activités d'un même champ ne peuvent pas figurer ensemble dans un protocole d'examen (exemple : badminton et tennis de table, tous deux en champ 4).
+- Le demi-fond (champ 1 : on cherche la meilleure performance) n'est pas la course en durée (champ 5 : on conduit un projet d'entretien de soi).
+
+### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 1 - CA1 : PERFORMANCE OPTIMALE]
+- Mots-clés : AFL, AFL1, AFL2, AFL3, attendus de fin de lycée, champ d'apprentissage, ce qui est évalué.
+- AFL 1 (Moteur) : Produire la meilleure performance possible à une échéance donnée. Choisir et combiner des techniques efficaces, réguler l'allure et stabiliser les appuis.
+- AFL 2 (Méthodologique) : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation ou d'entraînement (carnet de suivi, gestion des charges).
+- AFL 3 (Social) : Assumer de manière autonome les rôles de juge, de starter et de chronométreur officiel. Respecter le protocole de mesure.
+### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 2 - CA2 : MILIEUX VARIÉS ET APPN]
+- Mots-clés : AFL, AFL1, AFL2, AFL3, attendus de fin de lycée, champ d'apprentissage, ce qui est évalué.
+- AFL 1 (Moteur) : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu naturel ou recréé.
+- AFL 2 (Méthodologique) : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire (lecture de carte, boussole, nœuds).
+- AFL 3 (Social) : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade), co-gérer les crises ou renoncements et respecter la charte éco-citoyenne.
+### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 3 - CA3 : PRESTATION ARTISTIQUE OU ACROBATIQUE]
+- Mots-clés : AFL, AFL1, AFL2, AFL3, attendus de fin de lycée, champ d'apprentissage, ce qui est évalué.
+- AFL 1 (Moteur) : Composer et interpréter une séquence corporelle de haute maîtrise devant un public. Mobiliser ses capacités expressives et acrobatiques.
+- AFL 2 (Méthodologique) : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils numériques de régulation pour ajuster la création.
+- AFL 3 (Social) : Assumer un jugement argumenté en référence à un code de pointage, tenir le rôle de pareur (sécurité active) et s'intégrer dans un projet de troupe.
+### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 4 - CA4 : AFFRONTEMENT COLLECTIF OU INTERINDIVIDUEL]
+- Mots-clés : AFL, AFL1, AFL2, AFL3, attendus de fin de lycée, champ d'apprentissage, ce qui est évalué.
+- AFL 1 (Moteur) : En situation d'opposition, réaliser des actions décisives en situation favorable pour faire basculer le rapport de force (smash, tir, démarquage).
+- AFL 2 (Méthodologique) : Observer, recueillir des données statistiques et anticiper les choix tactiques adverses pour ajuster son projet de jeu en temps réel.
+- AFL 3 (Social) : Co-arbitrer de manière rigoureuse, respecter scrupuleusement les partenaires, les adversaires et les officiels, et accepter le résultat.
+### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 5 - CA5 : DÉVELOPPEMENT DE SOI ET ENTRETIEN DE LA SANTÉ]
+- Mots-clés : AFL, AFL1, AFL2, AFL3, attendus de fin de lycée, champ d'apprentissage, ce qui est évalué.
+- AFL 1 (Moteur) : Produire et enchaîner des formes de travail adaptées pour réaliser un projet de développement ou d'entretien de soi (charges en musculation, chorégraphie d'intensité en step, blocs d'allures en course).
+- AFL 2 (Méthodologique) : Concevoir, réguler et ajuster sa charge de travail et ses temps de récupération en fonction des indicateurs de l'effort (fréquence cardiaque, ressentis) et de son mobile personnel.
+- AFL 3 (Social) : Assumer les rôles de partenaire d'entraînement (conseiller, parer, encourager) et d'observateur. Recueillir des données objectives sur l'effort du camarade et respecter son projet.

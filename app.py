@@ -2294,12 +2294,12 @@ if prompt_a_traiter:
                     except Exception:
                         _APSA_CHAMPS = []
                     import unicodedata as _ud
-                    _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn")
+                    _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn").replace("\u2019", "'").replace("-", " ")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     # ✅ DEMI-FOND : la même activité peut être enseignée pour la performance (CA1) ou pour l'entretien de soi (CA5).
                     # Si le collègue ne l'a pas précisé, on lui pose la question au lieu de deviner ; sa précision fixe ensuite le champ.
                     _demande_precision_champ = False
-                    if any(nom.startswith("demi") for nom, _ca in _trouvees):
+                    if any(nom.startswith("demi") for nom, _ca in _trouvees):  # « demi fond » (le tiret est remplacé par un espace)
                         if re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
                             _trouvees = [(nom, 5 if nom.startswith("demi") else ca) for nom, ca in _trouvees]
                         elif not re.search(r"performance|\bca ?1\b|champ 1", _q_simple):

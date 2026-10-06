@@ -1230,20 +1230,14 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 ======================================================================
 Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation, collège, lycée.
 
-RÈGLE D'ÉTANCHÉITÉ PRÉALABLE : 
-- AU COLLÈGE (DNB / Contrôle continu) : iPackEPS sert d'outil de suivi, de construction des séquences et de calcul pour l'équipe, mais la saisie définitive des notes pour les bulletins trimestriels et le Livret Scolaire Unique (LSU) s'effectue exclusivement dans Pronote ou ÉcoleDirecte. Il n'y a ni CCF ni Santorin.
-- AU LYCÉE (Bac GT, Pro, CAP) : La saisie dépend de la nature de l'évaluation :
+RÈGLE ABSOLUE : ON NE SAISIT AUCUNE NOTE DANS IPACKEPS.
+- iPackEPS n'est pas un carnet de notes ni un logiciel de notation. Il sert à préparer et à piloter : fiche établissement, équipe EPS, classes, groupes, APSA, périodes, emploi du temps, inaptitudes, référentiels et protocoles d'examen. Il ne contient aucun module pour entrer des notes d'élèves, ni au fil de l'année, ni pour les examens.
+- Formulations courantes des collègues : où entrer mes notes dans iPackEPS ; je ne trouve pas le module d'évaluation ; comment saisir les notes du CCF dans iPackEPS ; peut-on noter sur tablette dans iPackEPS.
 
-1. Évaluations formatives et bilans d'APSA (au fil de l'année) :
-   - Chemin : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Évaluations] (ou directement via la séquence dans le menu [Groupes]).
-   - Rôle : Saisie des degrés d'acquisition des compétences (AFL), des critères et des barèmes par classe ou groupe, sur ordinateur ou tablette mobile.
-
-2. Notes certificatives officielles (CCF Bac GT, Bac Pro, CAP) :
-   - Chemin : [Tableau de bord] > [Dossiers] > [Dossier EPS] > [Examens] / [CCF].
-   - Rôle : Renseignement et validation des notes des protocoles officiels avant transmission vers Cyclades ou Santorin.
-
-3. Moyennes pour les bulletins trimestriels :
-   - Rappel : La saisie finale s'effectue toujours dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte). iPackEPS permet uniquement de calculer et d'exporter le fichier CSV des moyennes.
+Où se saisissent les notes :
+- AU COLLÈGE (DNB / contrôle continu) : dans le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte), qui alimente les bulletins et le Livret Scolaire Unique (LSU). Il n'y a ni CCF ni Santorin au collège.
+- AU LYCÉE, notes du CCF (Bac GT, Bac Pro, CAP) : dans Santorin, par AFL ou AFLP, à partir des lots issus des protocoles transmis à Cyclades. iPackEPS sert en amont à déclarer les APSA, déposer les référentiels et construire les protocoles ; il ne reçoit pas les notes.
+- AU LYCÉE, notes et moyennes de l'année (bulletins) : dans le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte).
 
 ======================================================================
 [ARTICLE : LIMITES DE L'OUTIL ET ACCÈS MOBILE IPACKEPS]
@@ -1281,14 +1275,12 @@ Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires
 ======================================================================
 [ARTICLE : ABSENCE DE CONNEXION AU STADE ET UTILISATION SUR TABLETTE]
 ======================================================================
-Mots-clés : pas de wifi, stade sans 4G, hors-ligne, batterie vide, perte de données tablette, mode nomade, synchronisation.
+Mots-clés : pas de wifi, stade sans 4G, hors-ligne, tablette, smartphone, perdre mes notes, noter au stade, saisie sur le terrain.
+- Formulations courantes des collègues : au stade je n'ai pas de réseau, est-ce que je perds mes notes ; peut-on noter les élèves sur tablette dans iPackEPS ; y a-t-il un mode hors-ligne.
 
-- Perte de données : Si votre tablette ou votre smartphone perd le réseau (4G/Wi-Fi) au stade municipal ou au gymnase, les données locales saisies sur l'application nomade ne sont pas effacées.
-- Procédure de travail hors-ligne :
-  1. Ouvrez l'application nomade lorsque vous avez du réseau (au collège/lycée ou chez vous) pour charger la base d'élèves.
-  2. Procédez à vos évaluations sur le terrain (au stade / gymnase).
-  3. Dès le retour dans une zone couverte par le Wi-Fi ou la 4G, déclenchez la synchronisation manuelle vers le serveur iPackEPS.
-- Précaution : Ne videz pas le cache de votre navigateur web sur la tablette avant que la synchronisation finale n'ait été effectuée.
+- Aucune note ne se saisit dans iPackEPS, ni sur ordinateur ni sur tablette : il n'y a donc rien à perdre au stade ou au gymnase en cas d'absence de réseau. iPackEPS n'a pas de mode de notation hors-ligne.
+- iPackEPS est une application web ouverte depuis le portail ARENA : elle se consulte sur tablette ou smartphone par le navigateur, quand on dispose d'une connexion.
+- Les notes relevées sur le terrain se reportent ensuite dans l'outil officiel : Pronote ou ÉcoleDirecte pour les notes de l'année, Santorin pour les notes du CCF au lycée.
 
 ======================================================================
 [ARTICLE : SUPPRESSION D'ÉLÈVE DISPENSÉ À L'ANNÉE OU CHANGEMENT DE CLASSE]
@@ -1581,12 +1573,11 @@ Mots-clés : chef établissement ne peut pas signer, bouton valider grisé direc
   1. Vérifier dans `[Dossier Certificatif]` qu'aucun protocole n'est marqué en rouge vif (invalide). Si des alertes orange subsistent, vérifier qu'un commentaire d'équipe a bien été enregistré.
   2. Si le bouton reste grisé : le chef d'établissement doit forcer la synchronisation de ses délégations dans le portail Arena académique (module Délégations / Droits applicatifs).
 
-### [ARTICLE 104] [Suivi]/[Évaluations] Sauvegarde et Restauration Locale Tablette (PWA / Cache Navigateur)
-Mots-clés : vider le cache, perte données Chrome Safari, mode nomade PWA, stockage local IndexedDB.
-- Règle technique : L'application nomade iPackEPS utilise le stockage local sécurisé du navigateur (`IndexedDB` / `localStorage`) pour conserver les notes hors connexion.
-- Procédure d'urgence en cas de blocage sur tablette :
-  1. Ne JAMAIS cliquer sur « Effacer l'historique et les données de sites » avant d'avoir retrouvé une connexion et cliqué sur « Synchroniser ».
-  2. Si l'application semble figée au stade : fermer l'onglet, relancer le navigateur et rouvrir l'adresse locale enregistrée en favori. Les données restent en mémoire tampon locale.
+### [ARTICLE 104] Tablette, cache du navigateur et notes : rien n'est stocké dans iPackEPS
+Mots-clés : vider le cache, perte de données, Chrome, Safari, tablette, notes perdues, sauvegarde locale.
+- Règle : aucune note d'élève n'est saisie ni conservée dans iPackEPS, que ce soit sur ordinateur ou sur tablette. Vider le cache ou l'historique du navigateur ne fait donc perdre aucune note.
+- Si iPackEPS semble figé sur tablette : fermer l'onglet, relancer le navigateur et rouvrir iPackEPS depuis le portail ARENA.
+- Les notes se saisissent dans Pronote ou ÉcoleDirecte (notes de l'année) et dans Santorin (CCF au lycée).
 
 ### [ARTICLE 105] [Dossiers]/[Dossier EPS]/[Élèves] Gestion des Équipes Pédagogiques en Lycée Professionnel avec Alternance / Périodes de PFMP
 Mots-clés : calendrier stage Bac Pro, PFMP alternée, demi-classe en entreprise, décalage calendrier CCF.

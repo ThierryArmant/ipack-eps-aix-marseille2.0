@@ -48,6 +48,7 @@ A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
   - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
   - Cliquer dans le premier champ de note et taper directement la valeur chiffrée au clavier.
 * Navigation ultra-rapide par touches :
+  - IMPORTANT : validez chaque note par la touche `[Entrée]`. Sans `[Entrée]`, la note tapée n'est pas enregistrée.
   - Touche `[Entrée]` : Valide et enregistre la note saisie.
   - Touche `[Tab]` : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
   - Combinaison `[Maj + Tab]` (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.

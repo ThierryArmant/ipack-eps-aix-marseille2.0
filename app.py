@@ -2395,6 +2395,9 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # ni enregistrée dans le Google Sheet. Il est maintenant exécuté dans tous les cas.
         # ==================================================================
 
+        # ✅ L'IA entourait parfois le nom du tutoriel d'un lien inventé (https://example.com/...). On ne garde que le nom du fichier.
+        texte_brut = re.sub(r"<a\s[^>]*>\s*([A-Za-z0-9_.-]+\.mp4)\s*</a>", r"\1", texte_brut, flags=re.IGNORECASE)
+
         # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
         if est_college or est_dnb:
             texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)

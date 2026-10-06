@@ -30,6 +30,9 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
 - Mots-clés : DNB, brevet, collège, contrôle continu, moyenne annuelle de troisième, pas d'épreuve terminale d'EPS, trois APSA, trois champs d'apprentissage, inapte, absent, décret 2025-328.
 - Formulations courantes des collègues : y a-t-il une épreuve d'EPS au brevet ; comment compte l'EPS au DNB ; faut-il un protocole au collège ; que mettre à un élève dispensé en troisième ; le DNB passe-t-il par Santorin.
 - Textes : décret n° 2025-328 du 10 avril 2025 relatif aux modalités de délivrance du diplôme national du brevet, arrêté du 31 décembre 2015 modifié, note de service du 2 septembre 2025.
+- À compter de la session 2026, le DNB repose sur 60 % d'épreuves terminales et 40 % de contrôle continu. Le contrôle continu est une note sur 20, égale à la moyenne des moyennes annuelles de troisième de tous les enseignements obligatoires, qui ont tous le même coefficient ; l'EPS en fait partie.
+- Élève dispensé d'un enseignement dans le cadre d'un projet personnalisé de scolarisation : l'évaluation de cette discipline au titre du contrôle continu est neutralisée.
+- Candidats individuels au DNB : le diplôme repose uniquement sur les épreuves terminales ; il n'y a pas d'EPS pour eux.
 - Il n'y a PAS d'épreuve terminale d'EPS au DNB et pas de CCF : l'EPS compte par le contrôle continu, c'est-à-dire par la moyenne annuelle de l'élève en EPS en classe de troisième (moyennes trimestrielles ou semestrielles), comme les autres enseignements obligatoires.
 - Conséquence pratique : rien ne se saisit dans Cyclades ni dans Santorin pour le DNB, et un collège n'a pas de dossier certificatif dans iPackEPS. La moyenne d'EPS se saisit dans le logiciel de vie scolaire de l'établissement.
 - Repères diffusés par des inspections pédagogiques pour construire cette moyenne : trois APSA de trois champs d'apprentissage différents, des évaluations communes aux classes, pas de zéro à titre disciplinaire, chaque enseignant note sa classe. Le détail (protocole d'évaluation, rattrapages) dépend des consignes de chaque académie.
@@ -59,3 +62,34 @@ Fiches rédigées à partir des textes cités. Les dates, calendriers, listes d'
 - La liste des épreuves proposées, les dates et les lieux sont fixés par chaque académie : se reporter à la circulaire de son académie.
 - Les enseignants d'EPS peuvent être convoqués comme jurys. Dans iPackEPS, chacun indique ses préférences dans [Ma fiche professeur], onglet des vœux de jury.
 - Les jours des épreuves ponctuelles sont des « dates réservées » : iPackEPS affiche une alerte si l'on y place une date de CCF ou de rattrapage.
+
+### [SITUATION: EPS AU BACCALAURÉAT PROFESSIONNEL — CCF, EXAMEN PONCTUEL, ABSENCES, INAPTITUDES (circulaire du 29 décembre 2020)]
+- Mots-clés : bac pro, baccalauréat professionnel, CCF, trois APSA, trois champs d'apprentissage, moyenne, arrondi au point supérieur, examen ponctuel, deux épreuves, absence, zéro, diplôme non délivré, inaptitude, évaluation différée, MENE2037057C.
+- Formulations courantes des collègues : combien d'épreuves d'EPS en bac pro ; comment est calculée la note d'EPS en bac pro ; un absent en bac pro a-t-il zéro ; un élève blessé peut-il être évalué plus tard ; candidats libres en bac pro.
+- Texte : circulaire du 29 décembre 2020 (NOR MENE2037057C, BO n° 4 du 28 janvier 2021), prise pour l'application de l'arrêté du 17 juin 2020 ; applicable depuis la session 2022.
+- CCF : trois épreuves portant sur trois APSA relevant de trois champs d'apprentissage différents. Chaque APSA est notée de 0 à 20 ; la note finale est la moyenne des trois, arrondie au point entier supérieur, après harmonisation par la commission académique.
+- L'enseignement est assuré par le même enseignant sur l'année scolaire.
+- Protocole d'évaluation : établi chaque année par l'établissement et transmis au recteur pour validation ; il précise les modalités, le calendrier, les activités retenues et les aménagements.
+- Examen ponctuel terminal (candidats des établissements non habilités au CCF, candidats individuels) : deux épreuves relevant de deux champs d'apprentissage différents.
+- Absence non justifiée à une épreuve : la note zéro est attribuée pour cette APSA. Absence à TOUTES les épreuves : le diplôme n'est pas délivré.
+- Inaptitude temporaire : une évaluation différée est possible. Selon la situation de l'élève, la certification peut porter sur deux épreuves, voire une seule, sur appréciation de l'enseignant.
+- Sportif de haut niveau : note de 20/20 attribuée automatiquement sur sa spécialité.
+- PORTÉE : ces règles valent pour le baccalauréat professionnel uniquement.
+
+### [SITUATION: ABSENCE NON JUSTIFIÉE À UNE ÉPREUVE D'EPS — CE QUE DISENT LES TEXTES SELON L'EXAMEN]
+- Mots-clés : absence injustifiée, absent, zéro, éliminatoire, non éliminatoire, diplôme non délivré, CAP, bac pro, bac général et technologique.
+- Formulations courantes des collègues : un élève absent à son CCF a-t-il zéro ; le zéro est-il éliminatoire ; que se passe-t-il s'il est absent à toutes les épreuves ; différence entre absent et dispensé.
+- Dans les trois examens, une absence NON justifiée à une épreuve entraîne la note zéro pour cette épreuve. Dans Santorin, on choisit le statut « Absent », qui est converti en 0/20.
+- Bac général et technologique (note de service du 20 février 2026) : ce zéro n'est pas éliminatoire.
+- Bac professionnel (circulaire du 29 décembre 2020) et CAP (circulaire du 17 juillet 2020) : le zéro compte dans la moyenne ; c'est l'absence à TOUTES les épreuves qui entraîne la non-délivrance du diplôme.
+- Une absence JUSTIFIÉE (certificat médical, cas de force majeure) ne donne pas zéro : l'élève est évalué à la date de rattrapage (« épreuve de substitution » dans Santorin) ou relève d'une inaptitude.
+- Ne jamais mettre « Absent » à un élève inapte : il est « Dispensé ».
+
+### [SITUATION: SPORTIF DE HAUT NIVEAU AU BACCALAURÉAT — QUI EST CONCERNÉ ET À QUELLE CONDITION]
+- Mots-clés : SHN, sportif de haut niveau, liste ministérielle, juge, arbitre, entraîneur de haut niveau, justificatif, inscription, 20/20, MENE2317755C.
+- Formulations courantes des collègues : mon élève est-il vraiment sportif de haut niveau ; quel justificatif ; un arbitre de haut niveau a-t-il droit au 20 ; l'élève peut-il passer en ponctuel.
+- Texte : note de service publiée au BO n° 47 du 14 décembre 2023 (NOR MENE2317755C), applicable depuis la session 2024.
+- Sont concernés les sportifs inscrits sur les listes ministérielles, ainsi que les juges, arbitres et entraîneurs de haut niveau et les autres catégories reconnues par ce texte. Un bon niveau de club ne suffit pas.
+- Le candidat doit pouvoir justifier de son statut au moment de l'inscription à l'examen, sur la base de la liste publiée en janvier.
+- En CCF : trois épreuves de trois champs d'apprentissage différents, avec 20/20 automatique sur sa spécialité. En ponctuel (candidat individuel, ou à sa demande) : deux épreuves de deux champs différents, avec 20/20 automatique sur sa spécialité.
+- Dans Santorin, si la colonne « sportif de haut niveau » indique NON pour l'élève, signaler le cas à la DEC de son académie.

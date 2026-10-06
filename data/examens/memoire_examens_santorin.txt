@@ -304,7 +304,7 @@ CARTOGRAPHIE DES MENUS ET LEXIQUE OFFICIEL - SANTORIN & CYCLADES
 1. LEXIQUE DES EXAMENS (ANTI-HALLUCINATION)
 - Lot de correction : Regroupement numérique des candidats affectés à un correcteur. 
 - Statut DISP (Dispensé) : À saisir impérativement pour une inaptitude médicale totale sur l'ensemble du cycle.
-- Statut ABS (Absent) : À saisir pour une absence non justifiée. La note est convertie en 0/20. En CAP, une absence à une épreuve est éliminatoire pour l'obtention du diplôme ; au bac général et technologique, ce zéro n'est pas éliminatoire. Ne jamais confondre avec une dispense médicale.
+- Statut ABS (Absent) : À saisir pour une absence non justifiée. La note est convertie en 0/20. Ce zéro compte dans la moyenne. En CAP et en bac professionnel, c'est l'absence à TOUTES les épreuves qui entraîne la non-délivrance du diplôme ; au bac général et technologique, le zéro n'est pas éliminatoire. Ne jamais confondre avec une dispense médicale.
 - Sujet de secours : N'existe pas en Éducation Physique et Sportive. Toute absence contrainte nécessite l'organisation d'une épreuve de rattrapage différée.
 - Bordereau de notation (ou bordereau de retour) : C'est le document PDF récapitulatif officiel. Dans Santorin, le bouton pour télécharger ou imprimer ce bordereau n'apparaît et ne se génère qu'APRÈS le verrouillage définitif du lot par le correcteur. Il est impossible de le télécharger tant que la saisie est en cours ou ouverte.
 - DEC : Direction des Examens et Concours. C'est le service académique responsable de l'organisation des examens (Baccalauréat, DNB, CAP, etc.).

@@ -11,3 +11,114 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Correction du fichier : 1) aller dans le dossier où le CSV a été enregistré ; 2) clic droit > [Ouvrir avec] > Bloc-notes — surtout pas Excel ; 3) Ctrl+A pour tout sélectionner, puis Ctrl+H pour ouvrir « Rechercher / Remplacer » ; 4) dans « Rechercher », taper la partie en trop du nom de classe (celle indiquée dans le message d'erreur) ; laisser « Remplacer par » vide ; 5) cliquer sur [Remplacer tout] ; 6) Fichier > Enregistrer ; 7) refaire l'import dans iPackEPS.
 - La partie à supprimer dépend de l'établissement : il faut lire le message d'erreur pour repérer ce qui diffère entre le nom Pronote et le nom iPackEPS.
 - Pour vider un groupe avant de recommencer : dans l'onglet [Élèves], sélectionner tous les élèves du groupe puis cliquer sur [Enlever], et rafraîchir la page.
+
+### [SITUATION: DÉCLARER UNE INAPTITUDE ET DÉPOSER LE CERTIFICAT MÉDICAL — DÉROULÉ DE LA VIDÉO]
+- Mots-clés : inaptitude, certificat médical, Mes Élèves, Visualisation, onglet Inaptitudes, permanente, temporaire, partielle, totale, pratique adaptée, dates du certificat, filtre statut inapte.
+- Formulations courantes des collègues : où déclarer un élève dispensé ; comment déposer un certificat médical ; quelle différence entre inaptitude permanente et temporaire ; comment retrouver tous mes inaptes.
+- Vidéo : https://www.youtube.com/watch?v=34w4Z6dd1dM
+- Chemin : Tableau de bord > Mes Élèves > Visualisation. Choisir le groupe, cliquer sur l'élève à gauche, ouvrir l'onglet [Inaptitudes].
+- L'onglet rappelle les définitions (permanente / temporaire, partielle / totale). Si l'académie fournit un modèle de certificat médical, il est téléchargeable ici pour le distribuer aux élèves en début d'année.
+- Inaptitude PERMANENTE = certificat pour l'année entière. Cas proposés : inaptitude partielle avec pratique physique adaptée ; inaptitude partielle, élève présent en cours sans pratiquer (observation, arbitrage) ; élève absent, dispensé de cours par le chef d'établissement ; inaptitude totale, élève présent sans pratique ; inaptitude totale, élève absent (dispensé par le chef d'établissement).
+- Inaptitude TEMPORAIRE = sur une activité. Sélectionner l'APSA concernée (par défaut l'élève est « apte »), indiquer le type (exemple : partielle avec pratique adaptée), puis saisir la date de début et la date de fin couvertes par le certificat.
+- Dépôt du certificat dans les deux cas : bouton [Envoyer le certificat médical], glisser le fichier dans la zone prévue ou cliquer sur [Sélection], puis [Télécharger]. On peut ensuite le revoir, le supprimer ou envoyer une nouvelle version.
+- Dans Visualisation, un filtre par statut permet d'afficher tous les inaptes, ou seulement les permanents, ou seulement les temporaires.
+- Pour aller plus loin : la liste de tous les inaptes est dans Mes Élèves > Inaptitudes ; les statistiques sont dans le module Statistiques et Offre de formation.
+
+### [SITUATION: LISTE DE SUIVI DES ÉLÈVES INAPTES DE L'ÉTABLISSEMENT (vidéo)]
+- Mots-clés : Mes Élèves, Inaptitudes, liste des inaptes, export Excel, certificat visible, dates de séquence, inaptitude permanente sans APSA.
+- Formulations courantes des collègues : où voir tous les élèves inaptes ; pourquoi il n'y a ni APSA ni dates sur une ligne ; puis-je exporter la liste des inaptes.
+- Vidéo : https://www.youtube.com/watch?v=g1PAzRq4Dh0
+- Chemin : Tableau de bord > Mes Élèves > Inaptitudes. Le tableau liste tous les élèves déclarés inaptes.
+- Pour une inaptitude temporaire : l'APSA concernée, les dates de début et de fin de la séquence, le type (totale ou partielle, élève absent ou enseignement adapté) et les dates du certificat.
+- Une ligne sans APSA ni dates correspond à une inaptitude permanente (année entière, toutes les APSA).
+- La première colonne permet d'ouvrir le certificat médical, s'il a été déposé.
+- Un bouton exporte vers Excel la liste affichée.
+- On n'ajoute pas un élève depuis cet écran : il faut passer par Mes Élèves > Visualisation > onglet Inaptitudes.
+
+### [SITUATION: DÉPÔT DES DOCUMENTS POUR LA COMMISSION (CAHPN) — QUELS DOCUMENTS ET OÙ (vidéo d'introduction)]
+- Mots-clés : CAHPN, commission académique d'harmonisation, dépôt de documents, fiche établissement, fichiers de notes, liste des inaptes, certificats médicaux, fiches individuelles.
+- Formulations courantes des collègues : où déposer les documents pour la commission ; que faut-il déposer avant la commission d'harmonisation.
+- Vidéo : https://www.youtube.com/watch?v=FZ1KSuuKkEA
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Certificatif > Dépôt des documents.
+- La liste des documents demandés dépend de l'académie. Exemple montré : fiche établissement, fichiers de notes (exportés de Santorin), listes d'inaptes, scans des certificats médicaux, fiches individuelles pour les cas particuliers. Pour Aix-Marseille, suivre la liste et le calendrier communiqués par l'inspection et la DEC.
+
+### [SITUATION: COMMISSION (CAHPN) — DÉPOSER LA FICHE ÉTABLISSEMENT, OU PLUSIEURS FICHIERS DANS UN ZIP (vidéo)]
+- Mots-clés : fiche établissement, document modèle, envoyer, un seul fichier, dossier ZIP, compresser, signature du chef.
+- Formulations courantes des collègues : je ne peux déposer qu'un seul fichier ; comment envoyer plusieurs documents ; où est le modèle de fiche établissement.
+- Vidéo : https://www.youtube.com/watch?v=GR8ZcaEigm4
+- La fiche établissement peut être, selon l'académie, une liste de documents à rapporter, des recommandations, un questionnaire ou une notice.
+- Si un document modèle est fourni : cliquer sur son icône (il s'affiche ou se télécharge), l'enregistrer, le compléter, le faire signer par le chef d'établissement si c'est demandé, le réenregistrer.
+- Dépôt : bouton [Envoyer], puis [Sélectionner le fichier] ou glisser le fichier dans la zone, puis [Fermer]. On peut ensuite le visualiser, le supprimer ou envoyer une nouvelle version.
+- La zone n'accepte qu'UN fichier. Pour plusieurs documents : les mettre dans un même dossier, les sélectionner tous, clic droit > « Compresser vers un fichier ZIP », renommer le ZIP et déposer ce ZIP.
+
+### [SITUATION: COMMISSION (CAHPN) — DÉPOSER LES FICHES INDIVIDUELLES DES CAS PARTICULIERS (vidéo)]
+- Mots-clés : fiche individuelle, cas particulier, un seul CCF, garder la note ou demander une dispense, nommer le fichier nom prénom, envoyer nouveau document.
+- Formulations courantes des collègues : mon élève n'a qu'une note de CCF, que dois-je déposer ; où justifier une demande de dispense ; comment déposer une fiche par élève.
+- Vidéo : https://www.youtube.com/watch?v=hUJGLP5XOYM
+- Les fiches individuelles concernent les cas particuliers, par exemple un élève évalué sur un seul CCF parce qu'il était inapte sur les deux autres : l'académie peut demander une fiche justifiant le choix de garder la note ou de demander une dispense.
+- Télécharger le modèle (icône à droite) s'il existe, le compléter, le faire signer si besoin, et créer UN fichier par élève, nommé avec le nom et le prénom de l'élève.
+- Dépôt : [Envoyer nouveau document], sélectionner ou glisser le fichier, [Fermer]. Recliquer sur la ligne du bas [Envoyer nouveau document] pour chaque fiche suivante. Chaque fiche peut être visualisée, supprimée ou remplacée.
+
+### [SITUATION: COMMISSION (CAHPN) — CONTRÔLE DES CERTIFICATS MÉDICAUX : LISTE INCOMPLÈTE, ALERTES DE DATES, DÉPÔT MANUEL (vidéo)]
+- Mots-clés : certificats médicaux, contrôle, alerte, date de fin avant le début de la séquence, liste des inaptes incomplète, dépôt manuel, CFA, classe sans élèves.
+- Formulations courantes des collègues : il manque des élèves dans la liste des certificats ; une alerte apparaît sur un certificat ; je n'ai pas d'élèves importés, comment déposer les certificats.
+- Vidéo : https://www.youtube.com/watch?v=YjvU7KCuJpk
+- Chemin : Tableau de bord > Dossiers > Dossier Certificatif > Dépôt des documents, onglet des certificats médicaux.
+- Cas normal (élèves importés) : le tableau reprend automatiquement les élèves déclarés inaptes au fil de l'année. S'il est incomplet, compléter dans Mes Élèves > Visualisation > onglet Inaptitudes (lien proposé en en-tête), puis revenir.
+- Lecture du tableau : icône pour revoir le certificat (absente = certificat pas encore déposé), date d'envoi, colonne d'alerte, APSA concernée si l'inaptitude est temporaire, dates de la séquence, date de rattrapage annoncée, dates du certificat.
+- Alerte : la survoler pour lire le détail. Exemple : « la date de fin du certificat est avant le début de la séquence » ; c'est en général une erreur de saisie, à corriger dans Mes Élèves > Visualisation.
+- Le même tableau existe pour chaque examen de l'établissement (bac GT, bac pro, CAP).
+- Cas particulier (CFA, classes à examen sans élèves dans iPackEPS) : un tableau supplémentaire en bas de page permet de déposer les certificats un par un ([Envoyer], puis [Envoyer un nouveau document]). Nommer chaque fichier avec le nom et le prénom de l'élève.
+
+### [SITUATION: PROPOSER LE DOSSIER EPS OU LE DOSSIER CERTIFICATIF À LA COMMISSION — « DOSSIER TERMINÉ » MÊME AVEC DES ALERTES (vidéo)]
+- Mots-clés : soumettre à validation, dossier terminé, vérification des données, alerte, commentaire obligatoire, icône verte, icône rouge, en attente de validation, jauge.
+- Formulations courantes des collègues : mon dossier est en cours de saisie, comment l'envoyer ; j'ai une alerte, puis-je quand même valider ; que veut dire l'icône rouge.
+- Vidéo : https://www.youtube.com/watch?v=ToTBgO_nMAI
+- Depuis le Tableau de bord, ou depuis Dossier EPS, ou depuis Dossier Certificatif. Les couleurs et icônes donnent l'état : survoler le point d'interrogation (« en cours de saisie » = à finaliser et proposer).
+- Dossier EPS : lancer d'abord la vérification des données. Tous les modules sont analysés et les alertes s'affichent (exemple : une séquence d'apprentissage non placée dans l'emploi du temps). L'idéal est de tout corriger.
+- Si c'est une fausse alerte (ce sont des calculs automatiques), on peut quand même déclarer le dossier terminé : un commentaire d'explication est alors demandé. Cliquer sur [Enregistrer].
+- L'icône passe au vert « terminé, en attente de validation ». Après examen par la commission : icône verte de validation, ou icône rouge d'invalidation avec demande de correction.
+- Dossier Certificatif : pas de bouton de vérification, elle se fait à l'ouverture. Des jauges montrent l'avancement des référentiels et des protocoles ; les erreurs sont listées sous l'icône d'état (exemple : un référentiel non envoyé, un référentiel non validé). Selon l'académie, seuls les référentiels ou seuls les protocoles sont contrôlés.
+- Là aussi on peut déclarer « dossier terminé » malgré des erreurs, en les expliquant en commentaire. Penser à [Enregistrer] à chaque étape.
+
+### [SITUATION: PROTOCOLES D'ÉVALUATION DANS iPackEPS — POURQUOI UN PROTOCOLE EST « INVALIDE » ET COMMENT LE CORRIGER (vidéo)]
+- Mots-clés : protocole invalide, icône rouge, coche verte, trois champs d'apprentissage, référentiel manquant ou refusé, date de rattrapage, co-évaluateur, co-évaluateur externe, date réservée, épreuves ponctuelles.
+- Formulations courantes des collègues : mon protocole est en rouge ; mon protocole ne part pas vers Cyclades ; où saisir la date de rattrapage et le co-évaluateur ; une alerte me dit que la date est réservée.
+- Vidéo : https://www.youtube.com/watch?v=Bq7_ooQuZtU
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Certificatif. L'onglet « état de validation » analyse référentiels et protocoles, avec une jauge d'avancement. Ouvrir ensuite le module des protocoles d'évaluation et choisir la voie (GT, bac pro, CAP).
+- La première colonne donne la validité. Coche verte : protocole valide, il pourra être envoyé vers Cyclades et les groupes d'élèves y seront reconnus en face du bon protocole. Icône rouge : protocole invalide, il ne sera PAS envoyé ; il faudrait alors le recréer à la main dans Cyclades. Survoler l'icône pour lire le motif.
+- Motif 1, « il faut trois champs d'apprentissage différents » (bac GT) : retourner dans la gestion des groupes, retirer une APSA en double sur un champ et en ajouter une d'un troisième champ.
+- Motif 2, référentiel non déposé ou refusé par la commission pour une des APSA : déposer ou redéposer le référentiel.
+- Motif 3, dates d'évaluation, date de rattrapage ou co-évaluateur manquants : sélectionner l'APSA, saisir la date, choisir le co-évaluateur (de l'équipe, ou externe s'il vient d'un autre établissement), [Enregistrer].
+- Les dates sont contrôlées : une alerte « date réservée » signale un jour bloqué pour les épreuves ponctuelles ; choisir une autre date.
+- Quand tout est corrigé pour chaque voie, revenir à l'état de validation et indiquer « dossier terminé » (possible même incomplet, avec un commentaire), puis [Enregistrer].
+- Rappel de portée : la co-évaluation est réglementaire au bac général et technologique ; voir la fiche « co-évaluation selon l'examen » pour le bac pro et le CAP.
+
+### [SITUATION: DÉPÔT DES RÉFÉRENTIELS D'ÉVALUATION — ICÔNES, CORRECTIF DEMANDÉ PAR LA COMMISSION (vidéo)]
+- Mots-clés : référentiel, dépôt des référentiels, ajustements demandés, horloge verte, coche verte, icône rouge, correctif, préciser les pages corrigées, APSA académique, fichier de synthèse, commentaire de l'équipe.
+- Formulations courantes des collègues : comment déposer mon référentiel ; que veut dire l'horloge ; la commission demande des ajustements ; mon APSA n'apparaît pas dans le tableau.
+- Vidéo : https://www.youtube.com/watch?v=T_-j01ovoA4
+- Chemin : Tableau de bord > Dossiers et Projets > Dossier Certificatif > Dépôt des référentiels.
+- La fenêtre contient : l'état du dossier avec les commentaires de la commission (et parfois une fiche d'avis) ; une zone de commentaire de l'équipe EPS ; une zone facultative de dépôt d'un fichier de synthèse (parfois avec modèle) ; puis les tableaux de dépôt APSA par APSA (voie GT, enseignement de spécialité, bac pro et CAP).
+- Le tableau liste les APSA déclarées certificatives. S'il en manque une, la déclarer dans Dossier EPS > APSA. Les APSA académiques n'y figurent pas : leur référentiel est fourni par l'académie.
+- Icônes (les survoler) : rouge = référentiel non déposé, ou refusé (un commentaire l'explique) ; horloge verte = déposé, pas encore relu ; coche verte = validé ; verte et jaune = validé mais avec ajustements demandés.
+- Déposer : [Envoyer], glisser le fichier, [Fermer]. Pour un correctif d'un référentiel existant, l'application demande de préciser quelles parties ont été corrigées (exemple : « page 5, carnet de suivi »), pour éviter une relecture complète. Le statut repasse « en attente de validation ».
+- On peut supprimer, visualiser ou remplacer un référentiel à tout moment.
+- Quand tout est déposé : revenir au Dossier Certificatif, cliquer sur « dossier terminé », ajouter un commentaire si utile, [Enregistrer].
+
+### [SITUATION: UNE APSA N'EST PLUS CERTIFICATIVE — LA FAIRE DISPARAÎTRE DU TABLEAU DES RÉFÉRENTIELS SANS PERDRE LE RÉFÉRENTIEL (vidéo)]
+- Mots-clés : APSA plus certificative, décocher certificative, alerte de la commission, conserver le référentiel.
+- Formulations courantes des collègues : je n'enseigne plus cette activité aux classes à examen ; la commission me réclame un correctif sur une APSA abandonnée ; comment retirer une APSA du tableau des référentiels.
+- Vidéo : https://www.youtube.com/watch?v=ksCcLEe2lP8
+- Ne pas supprimer le référentiel : il reste en stock pour une reprise future de l'activité.
+- Dossiers et Projets > Dossier EPS > APSA (APSA du lycée) : sélectionner l'APSA, décocher l'option « APSA certificative », [Enregistrer]. Recommencer pour chaque APSA concernée.
+- De retour dans Dépôt des référentiels, ces APSA n'apparaissent plus : plus d'alerte de la commission à leur sujet.
+
+### [SITUATION: COLLÈGE — iPackEPS RÉCLAME À TORT UN DOSSIER CERTIFICATIF (RÉFÉRENTIELS, PROTOCOLES) (vidéo)]
+- Mots-clés : collège, dossier certificatif en attente, dossier incomplet, cité scolaire, case lycée général et technologique cochée par erreur, APSA certificatives, changer d'établissement.
+- Formulations courantes des collègues : je suis en collège et on me demande des référentiels ; mon dossier est incomplet à cause des protocoles alors que je n'ai pas de classe à examen ; collège et lycée sur le même site.
+- Vidéo : https://www.youtube.com/watch?v=cdu0NKjmBs4
+- Cause : dans un établissement avec collège et lycée, quelqu'un a déclaré par erreur, dans l'entrée COLLÈGE, que l'établissement était aussi un lycée, et y a déclaré des APSA certificatives. Un collège n'a pas de dossier certificatif.
+- Correction, dans l'entrée collège, dans cet ordre : 1) Dossier EPS > APSA : dans la colonne « certificative lycée », ouvrir chaque APSA cochée, la déclarer non certificative, [Enregistrer] ; décocher aussi une éventuelle APSA établissement. Il faut les décocher TOUTES avant l'étape suivante. 2) Tableau de bord > Établissement > Configuration : décocher la case « lycée général et technologique », [Enregistrer].
+- Résultat : dans Dossiers et Projets, plus rien n'est attendu pour le dossier certificatif du collège.
+- À retenir : avec le bouton de changement d'établissement, on saisit dans l'entrée collège ce qui concerne le collège, et uniquement dans l'entrée lycée les APSA certificatives, les référentiels et les protocoles.

@@ -310,14 +310,14 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
 1. ANALYSE DES RISQUES (Bouton de modification grisé) : Si l'interface bloque, c'est qu'une note est déjà enregistrée ce trimestre pour cet élève. Procédure de déblocage : Aller dans le menu 'Saisie des notes', effacer manuellement la note pour rendre la case totalement vide (pas de zéro), enregistrer, puis revenir sur la fiche de l'élève.
 2. PROCÉDURE TECHNIQUE :
-→ Accès : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
+→ Accès : Menu 'Mes Élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
 → Action : Cliquer sur le bouton 'Saisir une inaptitude'.
 → Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans les cases de notes brutes. La validation de l'inaptitude génère le statut automatiquement.
 → Dépôt : Scanner et téléverser le certificat médical (PDF ou image) directement via l'option dédiée dans cet onglet.
 3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.
 
 ### [SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]
-- Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Gestion/Suivi des élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
+- Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Mes Élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
 
 ### [SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]
 - Instruction : Si l'interface refuse de modifier l'activité ou l'option d'un élève pour le trimestre, c'est qu'une note a déjà été saisie. Pour débloquer informatiquement le bouton, l'enseignant doit obligatoirement se rendre dans le menu 'Saisie des notes' de l'activité actuelle, effacer manuellement la note saisie pour rendre la case totalement vide (pas de zéro, juste du vide), puis enregistrer. Le bouton de modification dans la fiche élève sera alors instantanément dégrisé.
@@ -326,7 +326,7 @@ Instruction : DEC = Division des Examens et Concours. Il s'agit du service acad�
 - Instruction : Contexte : Levée d'inaptitude médicale annuelle par un nouveau certificat en cours de trimestre.
 Objectif : Régulariser le dossier sans risque de litige avec les jurys académiques (protection juridique).
 1. Procédure Technique (iPackEPS)
-→ Accès : Menu 'Gestion/Suivi des élèves' > Fiche élève > Onglet 'Inaptitudes'.
+→ Accès : Menu 'Mes Élèves' > Fiche élève > Onglet 'Inaptitudes'.
 → Modification : Clôturer l'inaptitude annuelle en saisissant la date de fin effective.
 → Saisie : Cliquer sur 'Saisir une inaptitude' (ou mise à jour certificat) pour indiquer la reprise.
 → Dépôt : Scanner et téléverser le nouveau certificat médical.
@@ -1274,7 +1274,7 @@ Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires
 - Mot des parents / Dispense ponctuelle : Un mot écrit par les parents (sur le carnet de correspondance, par mail ou sur papier libre) n'a AUCUNE valeur médicale réglementaire.
   -> Ne JAMAIS enregistrer d'inaptitude médicale sur iPackEPS sur la simple base d'un mot des parents.
   -> Gestion terrain : L'élève est présent au cours. L'enseignant adapte la pratique ou lui confie un rôle social (arbitre, observateur, chronométreur).
-- Inaptitude officielle : Seul un certificat médical délivré par un médecin traitant donne lieu à la saisie d'une inaptitude (totale ou partielle) et au téléversement du justificatif dans le module [Suivi des élèves] d'iPackEPS.
+- Inaptitude officielle : Seul un certificat médical délivré par un médecin traitant donne lieu à la saisie d'une inaptitude (totale ou partielle) et au téléversement du justificatif dans le module [Mes Élèves] d'iPackEPS.
 - Oubli de tenue / Baskets : L'oubli de matériel relève du règlement intérieur et de la vie scolaire, en aucun cas d'une saisie d'inaptitude médicale sur iPackEPS.
 
 ======================================================================
@@ -1490,7 +1490,7 @@ Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation lon
   -> Ne JAMAIS tenter de bricoler un protocole CCF fictif dans iPackEPS.
   -> Ne JAMAIS aller dans Santorin pour saisir des commentaires sur un lot non évalué.
 - Procédure officielle :
-  1. Si motif médical (hospitalisation) : enregistrer le certificat d'inaptitude totale pour l'année dans iPackEPS ([Suivi des élèves] > [Inaptitudes]). L'élève est déclaré « Dispensé d'EPS » au Bac (coefficient neutralisé).
+  1. Si motif médical (hospitalisation) : enregistrer le certificat d'inaptitude totale pour l'année dans iPackEPS ([Mes Élèves] > [Inaptitudes]). L'élève est déclaré « Dispensé d'EPS » au Bac (coefficient neutralisé).
   2. Si motif carcéral ou éloignement sans inaptitude médicale : l'établissement signale immédiatement la situation à la DEC (Division des Examens et Concours).
   3. La DEC bascule le candidat en « Examen ponctuel terminal » (géré par l'unité pédagogique en milieu pénitentiaire ou un centre d'examen dédié) ou prononce une dispense d'examen pour motif de force majeure.
 

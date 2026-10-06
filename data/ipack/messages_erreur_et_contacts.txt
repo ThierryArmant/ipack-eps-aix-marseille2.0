@@ -41,3 +41,11 @@ Répertoire des messages tels qu'ils s'affichent à l'écran, avec leur cause et
 - L'inspection pédagogique régionale (IA-IPR d'EPS) et la commission académique : validation ou réouverture des protocoles, référentiels, cas exceptionnel, sections sportives, projets APPN.
 - Le rectorat, service des personnels : statut, contrat et affectation d'un enseignant ou d'un vacataire.
 - Chaque académie a ses propres adresses de contact et son propre calendrier.
+
+
+### [SITUATION: CONTACTER LA DIASEP (BASE RAMSESE) — ADRESSE MAIL]
+- Mots-clés : DIASEP, RAMSESE, base des établissements, nom du chef d'établissement erroné, informations administratives de l'établissement, fiche établissement, adresse mail, contact, service du rectorat.
+- Formulations courantes des collègues : à quelle adresse mail puis-je contacter la DIASEP ; qui gère la base RAMSESE ; le nom du chef d'établissement est faux dans iPackEPS, qui prévenir ; comment faire corriger les informations de mon établissement.
+- Réponse courte : la DIASEP est le service du rectorat qui gère la base RAMSESE, où figurent notamment les noms des chefs d'établissement. iPackEPS reprend ces informations : pour les faire corriger, c'est le chef d'établissement qui écrit à ce service.
+- Académie d'Aix-Marseille : ce.diasep@ac-aix-marseille.fr
+- Autres académies : l'adresse est différente ; s'adresser au service de son rectorat qui gère la base des établissements (RAMSESE).

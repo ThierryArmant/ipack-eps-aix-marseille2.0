@@ -1577,6 +1577,14 @@ if prompt_a_traiter:
             est_mauvais_onglet = (mode == "textes" and (_signal_fort or _protocole_technique or (_logiciel_cite and _geste_logiciel)))
             est_mauvais_onglet_examens = est_mauvais_onglet and any(w in p_low for w in ["santorin", "mon lot", "mes lots", "cadenas", "copie", "saisie des notes", "saisir les notes", "saisir mes notes"])
             est_dates_ccf = (mode in ["ipack", "examens"] and any(w in p_low for w in ["date", "dates", "période", "periode", "calendrier"]) and any(w in p_low for w in ["ccf", "séquence", "sequence", "évaluation", "evaluation", "trimestre"]))
+            # ✅ CORRECTION : « où définir les périodes de mes séquences d'apprentissage ? » recevait cette réponse sur les dates
+            # de CCF, avec le menu [Séquences] / [Protocoles]. Le manuel (article 16) indique [Dossiers] > [Dossier EPS] > [Périodes] :
+            # la question part donc à la recherche documentaire. Idem pour une demande de date LIMITE (fixée par la DEC).
+            if est_dates_ccf and (
+                (contient(p_norm, [r"periodes?"]) and "apprentissage" in p_norm and not contient(p_norm, [r"\bccf\b"]))
+                or contient(p_norm, [r"date limite", r"dates limites", r"jusqu.a quand", r"jusqu.a quelle date", r"avant quelle date", r"dernier delai"])
+            ):
+                est_dates_ccf = False
             est_equipe_eps = (mode == "ipack" and any(w in p_low for w in ["enseignant", "enseignants", "professeur", "professeurs", "prof", "profs", "équipe", "equipe", "collègue", "collegue"]) and any(w in p_low for w in ["ajouter", "ajout", "manque", "manquant", "pas sur", "absent", "actualiser"]))
             est_doc_synthese = (mode == "ipack" and any(w in p_low for w in ["97%", "97 %", "synthèse", "synthese", "voie générale", "voie generale", "voie pro"]) and any(w in p_low for w in ["attente", "bloqué", "bloque", "dépôt", "depot", "manque", "0 0 1"]))
             # ✅ AJOUT (historique des questions) : 5 questions sur ce document, 1 seule déclenchait la réponse.

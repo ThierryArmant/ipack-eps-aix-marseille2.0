@@ -2277,6 +2277,7 @@ if prompt_a_traiter:
                 # (« badminton, tennis de table et escalade : même champ »). Le code reconnaît donc lui-même les activités
                 # citées et donne leur champ à l'IA, qui n'a plus à deviner.
                 faits_champs = ""
+                verdict_champs = ""
                 if not est_college:
                     _APSA_CHAMPS = [
                         ("course en duree", 5), ("natation en duree", 5), ("musculation", 5), ("step", 5), ("yoga", 5),
@@ -2301,6 +2302,18 @@ if prompt_a_traiter:
                             _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
                         else:
                             _concl = "Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble dans un protocole d'examen."
+                        # Question du type « ces activités dans le même protocole, est-ce possible ? » : le verdict est calculé
+                        # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
+                        if re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple):
+                            _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
+                            if _memes:
+                                verdict_champs = ("<p><strong>NON :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "
+                                                  "Un protocole d'examen ne peut pas contenir deux épreuves du même champ : gardez-en une seule et complétez avec une activité d'un autre champ.</p>"
+                                                  "<p>Champs des activités citées : " + _detail + ".</p>")
+                            else:
+                                verdict_champs = ("<p><strong>OUI :</strong> ces activités relèvent de champs d'apprentissage différents, elles peuvent figurer dans le même protocole d'examen.</p>"
+                                                  "<p>Champs des activités citées : " + _detail + ".</p>"
+                                                  "<p>Rappel : 3 épreuves de 3 champs différents au baccalauréat, 2 épreuves de 2 champs différents au CAP.</p>")
                         faits_champs = ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste, ne les contredis jamais) — champs d'apprentissage au lycée des activités citées dans la question :\n"
                                         + "\n".join(_lignes) + "\n" + _concl + "\n")
 
@@ -2440,6 +2453,8 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
                 try:
                     response = Settings.llm.complete(consigne_ia)
                     texte_brut = response.text
+                    if verdict_champs:
+                        texte_brut = verdict_champs
                 except Exception as e:
                     texte_brut = f"Erreur de traitement IA : {str(e)}"
 

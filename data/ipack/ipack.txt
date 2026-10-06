@@ -504,7 +504,6 @@ Objectif : Régulariser le dossier sans risque de litige avec les jurys académi
 - Résumé de la procédure officielle de rentrée (voir « Manipulations à effectuer à chaque nouvelle année scolaire », aucune information nouvelle) : NON, il ne faut pas tout resaisir. Sont conservés : les données de l'établissement et l'essentiel de la fiche professeur (compétences et spécialités), les axes des projets, la configuration des classes qui existaient déjà, la liste des APSA programmées, les équipements sportifs. Sont à refaire chaque année : le service et les fonctions de chaque enseignant, les vœux de jury et de formation, l'actualisation de l'équipe EPS, les enseignants qui encadrent chaque classe, l'importation des élèves, les dates des séquences d'apprentissage, la configuration des groupes et la répartition des élèves.
 ======================================================================
 [ARTICLE 53] [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique
-======================================================================
 - Mots-clés : appn, environnement spécifique, escalade en grande voie, canyonisme, ski de randonnée, spéléologie, vtt, projet pédagogique appn, protocole de sécurité, validation chef d'établissement, ia-ipr.
 - Formulations courantes des collègues : comment déclarer ma sortie APPN ; déclarer une sortie APPN sur iPackEPS ; déclarer une sortie aux inspecteurs (IA-IPR) ; déposer mon projet de sortie escalade, VTT, ski, canyon ; demande de validation d'une sortie de pleine nature.
 - Cadre réglementaire : En application de l'article R.212-7 du Code du sport et de la circulaire nationale APPN n° 2017-075, toute activité physique de pleine nature s'exerçant dans un environnement spécifique nécessite obligatoirement un dossier de demande de validation pédagogique auprès de l'Inspection Pédagogique.
@@ -1486,23 +1485,19 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 ======================================================================
 
 ### [SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]
-----------------------------------------------------------------------
 * CAUSE RÉELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCÉDURE INCOMPLÈTE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
 * RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFL(P) qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
 
 ### [SITUATION: SANTORIN — DATE LIMITE DE SAISIE DES NOTES]
-----------------------------------------------------------------------
 * CADRE ACADÉMIQUE : La date limite de saisie des notes dans Santorin et Cyclades n'est jamais universelle à l'échelle nationale. Elle relève de la compétence exclusive de chaque Division des Examens et Concours (DEC) via la circulaire ou le calendrier des examens propre à l'académie de rattachement. L'utilisateur doit impérativement se référer aux instructions officielles de son rectorat.
 
 ### [SITUATION: SANTORIN — ACCÈS REMPLAÇANT (CHRONOLOGIE)]
-----------------------------------------------------------------------
 * CHRONOLOGIE STRICTE : 
   1. Étape 1 : Vérification et édition de la convocation officielle du remplaçant (indispensable pour justifier ses droits).
-  2. Étape 2 : Déclenchement de l'ouverture des accès ARENA par le rectorat ou le chef d'établissement.
+  2. Étape 2 : Le chef d'établissement lui ouvre l'accès à Santorin en lui créant une mission d'évaluation dans Imag'in. C'est indispensable si le remplaçant vient d'un autre établissement : sans mission Imag'in, il n'a aucun accès.
   3. Étape 3 : Attribution des droits de correction sur les lots correspondants dans Santorin.
 
 ### [SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]
-----------------------------------------------------------------------
 * PROCÉDURE TECHNIQUE : Le chef d'établissement ne doit pas chercher un bouton de création manuelle immédiate. La réalité est qu'il faut obligatoirement :
   1. Lancer d'abord une DISTRIBUTION AUTOMATIQUE des lots.
   2. Si et seulement si la distribution automatique s'avère incomplète, exécuter ensuite une DISTRIBUTION MANUELLE complémentaire pour attribuer le reliquat des copies numérisées.
@@ -1514,39 +1509,31 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 * ACTION : L'établissement doit acter la force majeure, organiser une session de rattrapage ou une épreuve alternative sur des installations de repli, documenter la situation via une fiche d'incident signée par le Chef d'établissement et la transmettre immédiatement au Jury Académique.
 
 ### [SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]
-----------------------------------------------------------------------
 * PROCÉDURE IMAG'IN COMPLÈTE : Si le lot est présent dans Cyclades mais absent de Santorin, l'enseignant doit être convoqué correctement. La procédure dans IMAG'IN impose au secrétariat d'examen de vérifier l'affectation de la mission de correction à l'identifiant de l'enseignant, de valider son rattachement au groupe de correction EPS, puis de synchroniser le flux pour pousser le lot vers Santorin.
 
 ### [SITUATION: SANTORIN — ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS]
-----------------------------------------------------------------------
 * RÉGLEMENTATION CHANGEMENT EN COURS D'ANNÉE : Un élève ne peut pas bénéficier d'un contrôle adapté décidé à la carte ou au sifflet en cours d'année selon son humeur. Le protocole adapté doit être validé en amont (commission médicale, PAI, PPS, ou décision officielle du médecin scolaire).
 * INSTRUCTION TECHNIQUE : Une fois les candidats officiellement associés à ces protocoles adaptés, il est techniquement OBLIGATOIRE DE RELANCER UNE DISTRIBUTION AUTOMATIQUE DES LOTS dans Santorin pour que les copies des épreuves spécifiques soient réparties chez les correcteurs.
 
 ### [SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]
-----------------------------------------------------------------------
 * ERREUR INTERFACE : L'option textuelle « Ajouter un élève » dans l'interface Santorin n'est PAS fonctionnelle pour l'utilisateur.
 * DIAGNOSTIC ET RÉSOLUTION : Si l'élève est absent, c'est qu'il n'est actuellement affecté à aucun groupe de compétences (« élève sans groupe »). La seule procédure valide est de retourner dans Cyclades (ou via le secrétariat), d'affecter manuellement le candidat à son groupe/protocole EPS. Il remontera automatiquement dans Santorin sans action manuelle.
 
 ### [SITUATION: SANTORIN — ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20]
-----------------------------------------------------------------------
 * SPORTIF DE HAUT NIVEAU (SHN) : la note de 20/20 est attribuée automatiquement sur sa spécialité sportive, même si cette activité n'est pas dans les protocoles de l'établissement. Condition : son statut doit être officiellement reconnu (listes ministérielles). Les autres épreuves relèvent de champs d'apprentissage différents.
 
 ### [SITUATION: IPACKEPS — EXPORT ET RÉCUPÉRATION DANS CYCLADES]
-----------------------------------------------------------------------
 * MENUS EXACTS D'EXPORT (IPACK) : Accéder au menu [Tableau de bord] > [Les Projets et Dossiers] > [Dossier Certificatif] > Onglet [Cyclades/Export]. C'est ici que l'on génère le fichier standardisé des groupes-élèves.
 * MENUS EXACTS D'IMPORT (CYCLADES) : Se connecter à Arena > [Examens et concours] > [Cyclades] > Menu [Gestion des épreuves EPS] > [Importation des structures/groupes] > Charger le fichier extrait d'iPackEPS.
 
 ### [SITUATION: IPACKEPS — PROGRAMMATION DEMI-FOND BAC GT]
-----------------------------------------------------------------------
 * DISTINCTION IMPÉRATIVE : Il ne faut pas confondre l'épreuve nationale « Courses » (libellé officiel d'examen) et l'activité locale d'établissement « Course de demi-fond ». En Bac GT, il est strictement interdit de créer des protocoles hybrides ou inappropriés à deux épreuves. La classe doit être configurée selon la nomenclature officielle de l'APSA rattachée au CA1.
 
 ### [SITUATION: IPACKEPS — ADAPTATION ATHLÉTISME]
-----------------------------------------------------------------------
 * VERROUILLAGE DES CANDIDATS : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole précis (Course, ou Saut, ou Lancer) en début d'année. Ils ne doivent PLUS EN BOUGER en cours d'année ou au milieu du cycle selon les séances.
 * LOGIQUE INFORMATIQUE : L'application iPackEPS n'est pas un carnet de note de séance ; elle est structurée pour collecter les performances certificatives finales associées au groupe fixe défini dans le protocole validé.
 
 ### [SITUATION: IPACKEPS — COMMENT DÉPOSER UN CERTIFICAT MÉDICAL]
-----------------------------------------------------------------------
 * CHEMIN CHIRURGICAL DES MENUS :
   1. Se connecter à l'interface iPackEPS Professeur.
   2. Cliquer sur le module [Mes Élèves].
@@ -1557,7 +1544,6 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
   7. Pour la réactivation des APSA lors de la commission d'arbitrage, il faut modifier la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.
 
 ### [SITUATION: IPACKEPS — COMMENT SUPPRIMER UN PROTOCOLE]
-----------------------------------------------------------------------
 * FAUSSE PROCÉDURE : L'option directe « Supprimer le protocole » n'existe pas dans les menus terminaux si des données y sont rattachées.
 * LA VRAIE PROCÉDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
   1. Aller dans [Dossiers] > [Dossier EPS] > [Séquences d'Apprentissage] et supprimer toutes les séquences liées au groupe.
@@ -1565,7 +1551,6 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
   3. Une fois le groupe totalement vide et sans aucune séquence, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
 
 ### [SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]
-----------------------------------------------------------------------
 * ERREUR DE BOUTON : Le bouton ou l'option « Placement des Élèves dans les Groupes » n'existe pas sous cette forme dans les menus principaux.
 * LA VRAIE MANIPULATION : Tout s'exécute exclusivement via le module [Mes Élèves].
   1. Dans le panneau de configuration, sélectionner l'onglet [Classes] ou [Groupes].
@@ -1575,7 +1560,6 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
 
 ======================================================================
 [ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
-======================================================================
 Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation, collège, lycée.
 
 RÈGLE ABSOLUE : ON NE SAISIT AUCUNE NOTE DANS IPACKEPS.
@@ -1589,7 +1573,6 @@ Où se saisissent les notes :
 
 ======================================================================
 [ARTICLE : LIMITES DE L'OUTIL ET ACCÈS MOBILE IPACKEPS]
-======================================================================
 Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger application, App Store, Play Store, mobile, tablette.
 
 1. Appel et gestion des absences du quotidien :
@@ -1602,7 +1585,6 @@ Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger applica
 
 ======================================================================
 [ARTICLE : MOT DE PASSE ET IDENTIFIANTS PERDUS SUR IPACKEPS]
-======================================================================
 Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack, compte bloqué, login oublié, accès coordonnateur.
 
 - Aucun compte spécifique : Il n'existe AUCUN compte ni mot de passe créé spécifiquement pour iPackEPS. Le coordonnateur EPS ne peut pas créer ni réinitialiser vos identifiants.
@@ -1611,7 +1593,6 @@ Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack,
 
 ======================================================================
 [ARTICLE : MOT DES PARENTS VS INAPTITUDE MÉDICALE OFFICIELLE]
-======================================================================
 Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires, dispense exceptionnelle, dispense de cours, certificat médical.
 
 - Mot des parents / Dispense ponctuelle : Un mot écrit par les parents (sur le carnet de correspondance, par mail ou sur papier libre) n'a AUCUNE valeur médicale réglementaire.
@@ -1622,7 +1603,6 @@ Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires
 
 ======================================================================
 [ARTICLE : ABSENCE DE CONNEXION AU STADE ET UTILISATION SUR TABLETTE]
-======================================================================
 Mots-clés : pas de wifi, stade sans 4G, hors-ligne, tablette, smartphone, perdre mes notes, noter au stade, saisie sur le terrain.
 - Formulations courantes des collègues : au stade je n'ai pas de réseau, est-ce que je perds mes notes ; peut-on noter les élèves sur tablette dans iPackEPS ; y a-t-il un mode hors-ligne.
 
@@ -1632,7 +1612,6 @@ Mots-clés : pas de wifi, stade sans 4G, hors-ligne, tablette, smartphone, perdr
 
 ======================================================================
 [ARTICLE : SUPPRESSION D'ÉLÈVE DISPENSÉ À L'ANNÉE OU CHANGEMENT DE CLASSE]
-======================================================================
 Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, corbeille, effacer la base du lycée, élève inactif, retirer inactifs.
 
 - Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
@@ -1643,7 +1622,6 @@ Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, c
 
 ======================================================================
 [ARTICLE : DEMANDE DE PROTOCOLE CCF AU COLLÈGE (6E, 5E, 4E, 3E)]
-======================================================================
 Mots-clés : protocole CCF collège, CCF 3ème, protocole 6ème, DNB CCF, examen collège.
 
 - Pas de CCF au Collège : Le système des protocoles certificatifs CCF (3 épreuves / APSA nationales obligatoires) s'applique STRICTEMENT au lycée (Baccalauréat Général, Technologique, Professionnel et CAP).
@@ -1651,7 +1629,6 @@ Mots-clés : protocole CCF collège, CCF 3ème, protocole 6ème, DNB CCF, examen
 
 ======================================================================
 [ARTICLE : TRANSMISSION PAR PAPIER VS DÉMATÉRIALISATION RECTORAT]
-======================================================================
 Mots-clés : imprimer les fiches, envoyer par la poste, bordereau papier, courrier DEC, rectorat papier, signature chef d'établissement.
 
 - Zéro envoi papier par la poste : La gestion des examens et des protocoles EPS est 100 % dématérialisée. Il ne faut rien envoyer par courrier postal au Rectorat ou à la DEC.
@@ -1663,7 +1640,6 @@ Mots-clés : imprimer les fiches, envoyer par la poste, bordereau papier, courri
 
 ======================================================================
 [ARTICLE : DIFFÉRENCE ENTRE SANTORIN ET IPACKEPS POUR LES NIVEAUX HORS EXAMEN]
-======================================================================
 Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classes n'apparaissent pas dans Santorin, lot introuvable.
 
 - Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
@@ -1672,7 +1648,6 @@ Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classe
 
 ======================================================================
 [ARTICLE : GESTION DES OUBLIS DE TENUE ET VIE SCOLAIRE]
-======================================================================
 Mots-clés : oubli de short, oubli de tenue, baskets, absent non justifié cours, mettre zéro, punition.
 
 - Hors examen : L'oubli ponctuel de tenue d'EPS lors d'une séance ordinaire relève exclusivement du règlement intérieur de l'établissement et de la vie scolaire (Pronote / carnet).
@@ -1681,7 +1656,6 @@ Mots-clés : oubli de short, oubli de tenue, baskets, absent non justifié cours
 
 ======================================================================
 [ARTICLE : PROTOCOLE D'EXAMEN DÉMATÉRIALISÉ SANS BORDEREAU PAPIER]
-======================================================================
 Mots-clés : imprimer fiche cartonnée, faire signer proviseur, bordereau papier DEC, mes documents.
 
 - Aucun bordereau papier : Il n'existe aucun module pour imprimer des fiches cartonnées d'élèves à faire signer manuellement pour la DEC.
@@ -1810,7 +1784,6 @@ Mots-clés : changement de remplaçant, contractuel parti, historique des saisie
 
 ======================================================================
 [ARTICLE : INCIDENT IMPRÉVISIBLE, PERTURBATION EXTÉRIEURE ET FORCE MAJEURE EN CCF]
-======================================================================
 Mots-clés : incident de course, perturbation épreuve, animal, sanglier, météo subite, agression, panique balise, force majeure, arbre.
 
 - Qualification juridique : Tout événement imprévisible, extérieur et insurmontable survenant pendant une épreuve certificative (ex : intrusion animale, orage violent soudain, balise détruite, obstacle imprévu) constitue un cas de force majeure perturbant l'équité de l'examen.
@@ -1824,7 +1797,6 @@ Mots-clés : incident de course, perturbation épreuve, animal, sanglier, mété
 
 ======================================================================
 [ARTICLE : ÉLÈVE HOSPITALISÉ LONGUE DURÉE OU EN CENTRE PÉNITENTIAIRE (BAC)]
-======================================================================
 Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation longue durée, pas d'accès gymnase, soins études, CCF impossible.
 
 - Statut réglementaire : Un élève scolarisé mais incarcéré ou hospitalisé au long cours qui ne peut pas suivre les cours d'EPS de l'établissement ne peut PAS être évalué dans le cadre du CCF ordinaire.
@@ -1838,7 +1810,6 @@ Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation lon
 
 ======================================================================
 [ARTICLE : RGPD, SOUVERAINETÉ DES DONNÉES ET CARNET PAPIER]
-======================================================================
 Mots-clés : RGPD, protection des données, serveurs États-Unis, données biométriques, carnet à spirale, vie privée, hébergement cloud, chronomètre.
 
 - Hébergement souverain : iPackEPS est une application officielle de l'Éducation nationale, hébergée sur les serveurs académiques sécurisés en France. Aucune donnée d'élève n'est transmise à l'étranger ou sur des serveurs privés aux États-Unis.
@@ -1983,7 +1954,6 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - Tutoriel Vidéo de référence : Si un enseignant demande de l'aide sur la déclaration et la configuration informatique de ces classes ou dossiers particuliers (comme les SSS ou le haut niveau), propose-lui obligatoirement le tutoriel vidéo "Configurer les Classes Sports-Études" via ce lien : https://youtu.be/AEXIn3d6K6U?si=alh3rPlNj6fXSMBK
 ======================================================================
 [ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN)
-======================================================================
 - Mots-clés : sport étude, classes sports-études, section sportive, SSS, SHN, sportif de haut niveau, pôle espoir, apsa combinée, haut niveau.
 - Clarification sémantique indispensable : Il ne faut JAMAIS confondre les dispositifs "Sports-Études" et les "Sections Sportives Scolaires (SSS)". Ce sont deux structures distinctes dans iPackEPS :
   1. GESTION DES SPORTS-ÉTUDES : Gérés via le module dédié [Dossiers] > [Dossier Sports-Études] (Article 91) et le type de groupe [Sport-Études] ou [Autres Dispositifs Sportifs].
@@ -2015,7 +1985,6 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - Aide technique proactive : L'IA doit obligatoirement profiter de la question pour proposer son aide technique sur l'action demandée. Par exemple, si la question porte sur la date de remontée des classes, l'IA proposera les tutoriels vidéo d'importation des élèves (ex: "Configuration_classes_import_eleves.mp4" ou "Import_automatique_eleves.mp4").
 ======================================================================
 [ARTICLE 115] CONFIGURATION DES GROUPES DÉCLOISONNÉS (BARRETTES / MÉLANGE DE CLASSES)
-======================================================================
 - Mots-clés : barrette, groupes décloisonnés, mélanger des classes, groupes mixtes, diviser des classes, 32 élèves, groupe eps, mode groupe, iPackEPS.
 - Règle technique fondamentale : Pour créer des groupes EPS qui ne correspondent pas aux classes d'origine (ex: regrouper une classe de 32 élèves et une de 16 élèves pour faire deux groupes de 24), iPackEPS impose une chronologie stricte en amont, sous peine de blocage ou d'interdiction de mélange par l'application.
 
@@ -2033,7 +2002,6 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 
 ======================================================================
 [ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]
-======================================================================
 Mots-clés : AEFE, MLF, étranger, hors de France, établissement étranger, rythme Sud, hémisphère Sud, lycée français étranger, homologué, zone AEFE, académie de rattachement, calendrier décalé, élèves introuvables étranger.
 
 Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges français à l'étranger, les règles d'utilisation d'iPackEPS et des examens comportent 6 spécificités majeures :

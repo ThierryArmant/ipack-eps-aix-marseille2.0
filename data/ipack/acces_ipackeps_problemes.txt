@@ -27,3 +27,16 @@ Repère : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubri
 - R1 : changer de navigateur.
 - R2 : vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation »).
 - R3 : supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès.
+
+
+### [SITUATION: CITÉ SCOLAIRE (COLLÈGE + LYCÉE) — DES ENSEIGNANTS D'EPS MANQUENT DANS L'ÉQUIPE EPS D'UN DES DEUX ÉTABLISSEMENTS]
+- Mots-clés : cité scolaire, cité scolaire internationale, collège et lycée, équipe EPS incomplète, enseignant absent de la liste, enseignant manquant, STSWEB, STS-Web, TRM, répartition des services, affectation, direction, secrétariat, rectorat, stagiaire, enseignant extérieur, synchronisation, synchro manuelle, accès iPackEPS.
+- Formulations courantes des collègues : il manque des collègues dans l'équipe EPS du collège alors qu'ils y enseignent ; je n'apparais que sur le lycée et pas sur le collège ; nous sommes en cité scolaire et iPackEPS ne nous voit pas sur les deux établissements ; notre stagiaire n'apparaît pas dans iPackEPS ; sur quel établissement sont affectés les enseignants d'EPS d'une cité scolaire.
+- Réponse courte : ce n'est pas un bug d'iPackEPS. iPackEPS reprend la liste des enseignants de la base STSWEB de CHAQUE établissement. Dans une cité scolaire, un enseignant affecté sur le lycée n'apparaît au collège que si la direction l'a aussi déclaré dans la base STSWEB du collège (et inversement). La correction se fait donc côté direction, pas dans iPackEPS.
+- Comment le reconnaître : dans la même équipe, certains collègues apparaissent sur les deux établissements et d'autres sur un seul. Ceux qui manquent sont ceux dont le service n'est pas inscrit dans la base STSWEB de l'établissement concerné (colonne à 0 dans la répartition des services).
+- [Étape 1] L'équipe EPS donne à la direction (chef d'établissement ou adjoint, du collège ET du lycée) la liste des enseignants manquants, établissement par établissement, avec les heures réellement faites dans chacun.
+- [Étape 2] La direction corrige la répartition des services dans STSWEB ; si elle ne peut pas le faire elle-même, elle transmet la demande au service du rectorat qui gère les moyens des établissements.
+- [Étape 3] Une fois STSWEB corrigé, les enseignants concernés apparaissent dans l'équipe EPS de l'établissement dans iPackEPS. Si rien ne change, prévenir le référent iPackEPS de votre académie : iPackEPS a pu être alimenté par l'ancienne version de la base, avant la correction.
+- [Étape 4] Si un enseignant ne voit toujours pas iPackEPS dans son portail académique, il relance la mise à jour de ses applications depuis ce portail (sur certains portails : bouton « Aide » puis « Synchro manuelle »).
+- Cas du stagiaire ou du nouvel arrivant qui n'est dans aucune base STSWEB (et qui, parfois, n'a pas encore sa messagerie académique) : la direction se renseigne sur son affectation. En attendant, le référent iPackEPS de l'académie peut l'ajouter à l'équipe comme « enseignant extérieur », ce qui lui donne l'accès.
+- À ne pas faire : ressaisir toute l'équipe à la main ou attendre que le problème se règle seul. Tant que STSWEB n'est pas à jour, la liste restera incomplète.

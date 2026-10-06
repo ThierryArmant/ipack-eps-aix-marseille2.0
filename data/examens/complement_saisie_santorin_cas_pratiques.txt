@@ -71,6 +71,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Mots-clés : cas exceptionnel, CE, installation indisponible, tout le groupe, activité non évaluée.
 - Formulations courantes des collègues : la piscine a fermé, je n'ai pas pu évaluer la natation pour ma classe ; que faire si une épreuve est impossible pour tout le groupe.
 - Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe, l'établissement sollicite l'inspection pédagogique et la DEC, qui valident ou non le cas exceptionnel. Ce dispositif est collectif : il ne s'applique jamais à un élève isolé. (Source : support Besançon 2025.)
+- Manipulation dans Santorin, une fois l'accord obtenu : ouvrir le lot, cliquer sur le bouton [Déclarer cas exceptionnel] en haut du lot, puis cliquer sur l'APSA à écarter dans le protocole. La mention CE s'applique à TOUS les élèves du lot : elle neutralise l'activité, comme une dispense. Si un seul élève est concerné, le chef d'établissement (ou le référent Santorin) doit d'abord le déplacer dans un nouveau lot.
 
 ### [SITUATION: NOTE DE L'ENSEIGNEMENT OPTIONNEL D'EPS (OPTION EPS) — OÙ SE SAISIT-ELLE ?]
 - Mots-clés : option EPS, enseignement optionnel, option facultative, note de l'option, LSU, livret scolaire, bulletin.

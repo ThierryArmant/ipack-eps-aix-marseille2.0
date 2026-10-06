@@ -2308,6 +2308,7 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 
 3. GESTION DES INTERFACES ET ZÉRO INVENTION (RÈGLE DE MORT ABSOLUE) :
 - Tu as l'INTERDICTION FORMELLE d'inventer des noms de menus, des boutons, des cases à cocher ou des onglets.
+- PRÉCISION DES CHEMINS : quand le contexte donne le nom exact d'un menu, d'un onglet ou d'un bouton, recopie-le tel quel entre crochets. N'écris JAMAIS une tournure floue comme « l'onglet qui permet de… », « la section prévue à cet effet », « le champ approprié » ou « les icônes peuvent signaler… » : soit tu donnes le nom exact et ce qu'il affiche, soit tu ne mentionnes pas l'élément.
 - Le contexte documentaire est invisible pour l'utilisateur : ne lui dis JAMAIS de « consulter la fiche … », « voir la fiche … » ou « se reporter au tutoriel dédié ». Si le contexte renvoie à une autre fiche, donne directement l'information utile si elle figure dans le contexte ; sinon n'en parle pas.
 - Tu dois t'appuyer en priorité sur le "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous pour répondre aux procédures. 
 - Si l'information figure dans le contexte (même avec des synonymes comme "départ", "inactif" ou "actualisation"), utilise-la pour guider l'utilisateur.

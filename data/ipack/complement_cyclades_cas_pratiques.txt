@@ -126,3 +126,13 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Selon les demandes de l'académie, s'y ajoutent : le savoir-nager (validations ASNS) et l'enquête natation en fin d'année, le dossier de section sportive s'il y en a une, le matériel EPI si l'escalade est pratiquée.
 - Envoi pour validation : [Dossiers] > [Dossier EPS], lancer la vérification des données, corriger les alertes signalées, puis indiquer que le dossier est terminé (un commentaire est demandé s'il reste une alerte) et cliquer sur [Enregistrer]. L'icône passe au vert « en attente de validation » ; la commission académique valide ou demande des corrections.
 - Les dates limites dépendent de chaque académie : elles sont fixées chaque année par l'inspection pédagogique et la DEC de votre académie.
+
+### [SITUATION: QUI FAIT QUOI DANS iPackEPS — LE COORDONNATEUR OU CHAQUE ENSEIGNANT ?]
+- Mots-clés : qui fait quoi, répartition des rôles, coordonnateur, chaque enseignant, équipe EPS, qui saisit, qui remplit, groupes, emploi du temps, fiche professeur.
+- Formulations courantes des collègues : est-ce au coordonnateur de tout saisir ; chaque prof doit-il remplir ses groupes ; qui remplit les emplois du temps ; qui importe les élèves ; que doit faire chaque collègue.
+- Le coordonnateur ne saisit pas tout. Certaines actions lui sont réservées, les autres peuvent être faites par tout enseignant de l'équipe.
+- Réservé au coordonnateur (case « coordonnateur EPS » cochée dans [Ma fiche professeur] > [Fonctions]) : [Actualiser] la liste de l'équipe EPS, [Actualiser] la liste des classes, importer les élèves.
+- À la charge du coordonnateur en pratique : la fiche Établissement, les projets, la configuration et l'organisation des classes, la liste des APSA, les périodes, les équipements, puis la vérification des données et l'envoi du dossier pour validation.
+- À la charge de CHAQUE enseignant : sa propre fiche professeur (personne d'autre ne peut la remplir ni la lire), ses groupes et leurs séquences d'apprentissage, le placement de ses élèves dans ses groupes, son emploi du temps.
+- Contrôle par le coordonnateur : [Dossiers] > [Dossier EPS] > [Équipe EPS], menu « Bilan ». Une coche rouge à côté d'un nom signale une fiche professeur incomplète (spécialités, vœux de jury, vœux de formation) ; le coordonnateur ne voit pas le contenu de la fiche, seulement si elle est complète.
+- Pour les examens (lycée), dans Cyclades et Santorin : chaque enseignant crée ses propres protocoles et saisit ses propres notes.

@@ -166,3 +166,13 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - La seule chose à faire pour l'enseignant : renseigner normalement les moyennes d'EPS de ses élèves de troisième dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent), chaque trimestre ou semestre.
 - Élève inapte : inaptitude totale attestée par certificat médical = dispensé ; inaptitude partielle = évaluation adaptée.
 - Textes : décret n° 2025-328 du 10 avril 2025 et note de service du 2 septembre 2025 sur le DNB.
+
+
+### [SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]
+- Mots-clés : Cyclades, modifier un protocole, supprimer un protocole, protocole erroné, changer les épreuves, changer une APSA, Contrôler / Réaffecter des protocoles.
+- Formulations courantes des collègues : comment supprimer un protocole erroné dans Cyclades ; je dois changer les épreuves d'un groupe, où le faire dans Cyclades ; je me suis trompé d'activité dans un protocole.
+- Réponse courte : dans Cyclades, activité [EPS] > [Contrôler / Réaffecter des protocoles]. C'est dans ce menu que l'on modifie un protocole (ses épreuves, son évaluateur) ou qu'on le supprime.
+- Cette manipulation se fait dans Cyclades, pas dans iPackEPS.
+- Limite : le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé ; pour changer de groupe d'élèves, il faut supprimer le protocole et le recréer.
+- Si les protocoles ont déjà été transmis à la commission, le chef d'établissement doit d'abord demander leur réouverture à l'inspection pédagogique régionale.
+- (Source : guide des examens EPS de l'académie de Normandie.)

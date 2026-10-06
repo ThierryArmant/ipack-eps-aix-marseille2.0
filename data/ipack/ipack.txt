@@ -1544,7 +1544,7 @@ BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
   7. Pour la réactivation des APSA lors de la commission d'arbitrage, il faut modifier la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.
 
 ### [SITUATION: SUPPRIMER UN PROTOCOLE DANS iPackEPS (ET NON DANS CYCLADES)]
-- Cette fiche concerne iPackEPS uniquement. Pour supprimer ou modifier un protocole DANS CYCLADES, voir la fiche « Cyclades : modifier ou supprimer un protocole ».
+- ATTENTION : cette fiche concerne iPackEPS uniquement. Si la question porte sur CYCLADES (« supprimer un protocole dans Cyclades »), ne donne PAS cette procédure : dans Cyclades, cela se fait par l'activité [EPS] > [Contrôler / Réaffecter des protocoles].
 * FAUSSE PROCÉDURE : L'option directe « Supprimer le protocole » n'existe pas dans les menus terminaux si des données y sont rattachées.
 * LA VRAIE PROCÉDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
   1. Aller dans [Dossiers] > [Dossier EPS] > [Séquences d'Apprentissage] et supprimer toutes les séquences liées au groupe.

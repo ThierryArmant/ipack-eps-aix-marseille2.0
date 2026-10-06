@@ -2296,31 +2296,33 @@ if prompt_a_traiter:
                     import unicodedata as _ud
                     _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn").replace("\u2019", "'").replace("-", " ")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
-                    # ✅ DEMI-FOND : la même activité peut être enseignée pour la performance (CA1) ou pour l'entretien de soi (CA5).
-                    # Si le collègue ne l'a pas précisé, on lui pose la question au lieu de deviner ; sa précision fixe ensuite le champ.
+                    # ✅ « COURSE EN DURÉE / COURSE DE DURÉE » : le demi-fond, lui, est toujours de la performance (CA1), sans question.
+                    # Mais un collègue peut dire « course de durée » en pensant performance (c'est alors du demi-fond, CA1)
+                    # ou entretien de soi (course en durée, CA5). Si rien ne le précise, on lui pose la question.
                     _demande_precision_champ = False
-                    if any(nom.startswith("demi") for nom, _ca in _trouvees):  # « demi fond » (le tiret est remplacé par un espace)
-                        if re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
-                            # Courir pour l'entretien, ce n'est plus du demi-fond : c'est de la course en durée (champ 5).
-                            # Le demi-fond proprement dit (performance mesurée) reste toujours en champ 1.
+                    _q_simple = _q_simple.replace("course de duree", "course en duree")
+                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
+                    if any(nom == "course en duree" for nom, _ca in _trouvees):
+                        if re.search(r"performance|\bca ?1\b|champ 1|chrono", _q_simple) and not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
+                            # performance mesurée : c'est du demi-fond (champ 1)
                             _vues, _nouv = set(), []
                             for nom, ca in _trouvees:
-                                if nom.startswith("demi"):
-                                    nom, ca = "course en duree", 5
+                                if nom == "course en duree":
+                                    nom, ca = "demi fond", 1
                                 if nom not in _vues:
                                     _vues.add(nom)
                                     _nouv.append((nom, ca))
                             _trouvees = _nouv
                             if len(_trouvees) < 2:
-                                verdict_champs = ("<p><strong>Courir pour l'entretien, ce n'est plus du demi-fond : c'est de la course en durée, qui relève du champ 5.</strong> "
-                                                  "Le demi-fond proprement dit vise une performance mesurée et relève du champ 1.</p>"
-                                                  "<p>Dans votre question, il s'agit donc d'une seule et même activité (la course en durée) : elle ne compte que pour une épreuve du protocole, "
+                                verdict_champs = ("<p><strong>Courir pour réaliser une performance mesurée, c'est du demi-fond : champ 1.</strong> "
+                                                  "La course en durée proprement dite vise l'entretien de soi et relève du champ 5.</p>"
+                                                  "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
                                                   "à compléter par des activités d'autres champs.</p>")
-                        elif not re.search(r"performance|\bca ?1\b|champ 1", _q_simple):
+                        elif not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
                             _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ", _q_simple) is not None
                     if _demande_precision_champ:
-                        verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> s'il s'agit du demi-fond dans sa partie <strong>entretien (CA5)</strong> "
-                                          "ou <strong>performance (CA1)</strong> ?</p>"
+                        verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> ce que vous mettez derrière « course en durée » : "
+                                          "<strong>performance</strong> mesurée (c'est alors du demi-fond, CA1) ou <strong>entretien</strong> de soi (course en durée, CA5) ?</p>"
                                           "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
                                           "Écrivez simplement « performance » ou « entretien » dans la zone de précision ci-dessous.</p>")
                     elif verdict_champs:

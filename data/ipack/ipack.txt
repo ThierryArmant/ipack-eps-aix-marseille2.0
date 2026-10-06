@@ -29,6 +29,10 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
 - Les référentiels d'APSA déposés les années précédentes sont conservés, mais de nouveaux référentiels peuvent être déposés si nécessaire.
 - Le projet de section sportive (SSS) doit également être mis à jour pour l'année en cours si l'établissement en est doté.
 
+7. ET UN PEU PLUS TARD : L'EXPORT VERS CYCLADES (LYCÉE UNIQUEMENT) :
+- L'export vers Cyclades ne fait PAS partie des manipulations de rentrée. Il intervient plus tard dans l'année, à partir de janvier, une fois les protocoles validés par la commission académique.
+- À la rentrée, il suffit donc de préparer ce qui précède (classes, élèves, APSA, groupes, dossier certificatif). Quand on présente les étapes de rentrée, l'export vers Cyclades se mentionne à part, en dernier, sous la forme « et un peu plus tard : l'export vers Cyclades », jamais comme une étape à faire en septembre.
+
 7. GESTION DU MATÉRIEL ET DES INVENTAIRES EPI (ESCALADE) :
 - Pour le matériel soumis à traçabilité (EPI d'escalade), l'enseignant doit se rendre dans l'inventaire pour repérer le matériel obsolète dont la date limite d'utilisation est dépassée afin de le renouveler.
 - L'application génère automatiquement des alertes pour les contrôles réglementaires arrivés à échéance (contrôle annuel obligatoire).
@@ -141,6 +145,7 @@ TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque no
 8. Suivi Pédagogique et Évaluation (Règles spécifiques par niveau) :
    - Au Collège (DNB) : iPackEPS sert au pilotage, aux séquences et au suivi des compétences (AFL). La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
    - Au Lycée (CCF / Examens) : Paramétrage des protocoles certificatifs et préparation des dossiers pour Cyclades et Santorin.
+   - Et un peu plus tard (lycée, à partir de janvier) : l'export vers Cyclades, une fois les protocoles validés par la commission académique. Ce n'est pas une étape de rentrée.
 
 [SECTION: SUITE_CERTIFICATION_LYCEE_CCF]
 

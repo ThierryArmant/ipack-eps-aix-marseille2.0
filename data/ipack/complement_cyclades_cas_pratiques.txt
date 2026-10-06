@@ -92,9 +92,9 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: SE DÉCLARER COORDONNATEUR EPS OU RESPONSABLE DE LA CERTIFICATION DANS iPackEPS]
 - Mots-clés : coordonnateur EPS, responsable de la certification, fonctions EPS, fiche professeur, nouveau coordonnateur, droits insuffisants, menus grisés.
 - Formulations courantes des collègues : je deviens coordonnateur cette année, où le déclarer ; je n'ai pas accès au dossier certificatif ; comment cocher coordonnateur EPS ; mes fonctions ont disparu à la rentrée.
-- La déclaration se fait dans la Fiche Professeur de l'enseignant (accès : Tableau de bord => Fiche Professeur), rubrique des fonctions : cocher « Coordonnateur EPS » et, pour gérer les examens, « Responsable de la Certification ».
+- Chemin exact, rapide : Tableau de bord > Ma fiche professeur > Fonctions > cocher la case « Coordonnateur EPS » dans « Fonctions EPS dans l'établissement ». Pour gérer les examens, cocher aussi « Responsable de la Certification » au même endroit.
 - Cette déclaration est un préalable : sans elle, les modules de préparation des examens (APSA certificatives, référentiels, protocoles) ne sont pas accessibles en modification. Ordre conseillé à la rentrée : fiche Établissement, puis Fiche Professeur, puis les dossiers et projets.
-- Les fonctions sont à redéclarer à chaque rentrée scolaire. (Source : guide Normandie 2025 ; accès à la Fiche Professeur : article 11 du manuel iPackEPS.)
+- Les fonctions sont à redéclarer à chaque rentrée scolaire. (Chemin confirmé par le correspondant académique iPackEPS d'Aix-Marseille.)
 
 ### [SITUATION: DÉCLARER LES ACTIVITÉS D'EXAMEN DE L'ANNÉE — LES QUATRE ÉTAPES DE L'AUTOMNE, DANS L'ORDRE]
 - Mots-clés : déclarer les activités du bac, APSA d'examen, APSA certificative, septembre, octobre, référentiel, groupe d'examen, protocole, ordre des étapes.

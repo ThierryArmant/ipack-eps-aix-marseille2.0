@@ -1954,12 +1954,12 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
 - Mots-clés : SHN, sportif de haut niveau, protocole adapté, aménagement, dispense, 20/20, Santorin, Cyclades, CNE, EPPCS, DEC.
 - Cadre réglementaire (CNE 2025 / Circ. 2019-129) : Le statut SHN se justifie lors de l'inscription à l'examen (via les listes ministérielles de la DRAJES). L'élève peut obtenir la note automatique de 20/20 dans sa spécialité sportive, mais celle-ci ne peut constituer l'unique note de son évaluation.
 - Règle de conception du protocole (iPackEPS / Cyclades) :
-  1. Il faut créer un protocole de type "adapté".
+  1. Il faut créer un protocole de type "adapté". Il se crée soit dans iPackEPS, dans [Dossiers] > [Dossier Certificatif] > [Protocoles], soit directement dans Cyclades avec [EPS] / [Créer un protocole]. Il n'existe PAS de menu [Créer un protocole] dans le [Dossier EPS] d'iPackEPS.
   2. Règle des Champs d'Apprentissage (CA) : Le protocole doit impérativement contenir 3 APSA de 3 CA différents. Exemple : si un élève est SHN Judo et que le protocole classe est (Courses, Badminton, Acrosport), il faut écarter le Badminton pour créer un protocole (Courses, Judo-adapté, Acrosport).
   3. Dates fictives : Des dates d'évaluation et de rattrapage sont exigées informatiquement pour l'épreuve de haut niveau. Il faut obligatoirement en saisir, même si elles sont fictives.
 - Procédure de notation (Santorin) : L'enseignant choisit le protocole de l'élève, indique l'APSA de spécialité (qui aura 20/20), puis saisit normalement les notes des autres épreuves.
 - Repérer un sportif de haut niveau dans Santorin : Santorin n'a ni filtre ni recherche par profil d'élève. Le statut de sportif de haut niveau vient de l'inscription à l'examen dans Cyclades, validée par la DEC sur les listes ministérielles.
-- Anomalie de statut : si un élève concerné n'est pas reconnu comme sportif de haut niveau au moment de la notation, l'enseignant fait un signalement formel à la DEC de son académie. Seule la DEC a le pouvoir de vérifier les listes et modifier le statut.
+- Anomalie de statut (tutoriel officiel, article 69) : dans Santorin, si la colonne [sportif de Haut Niveau] indique [NON] pour un élève concerné, l'enseignant fait un signalement à la DEC de son académie pour qu'elle vérifie le statut de l'élève sur les listes officielles et corrige. Seule la DEC peut modifier le statut.
 - Cas particulier de la spécialité EPPCS : L'élève SHN est dispensé de la pratique physique (attribution de 12 points d'office) et l'évaluation orale est centrée sur l'analyse de son parcours sportif.
 - Tutoriel : un sportif de haut niveau n'est pas une classe Sports-Études. Ne pas proposer le tutoriel « Configurer les Classes Sports-Études » pour une question sur les sportifs de haut niveau.
 ======================================================================

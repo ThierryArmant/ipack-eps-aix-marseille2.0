@@ -2066,6 +2066,7 @@ if prompt_a_traiter:
             elif est_sss_bloque:
                 texte_brut = """<h3>⚠️ BLOCAGE CRÉATION GROUPE SSS</h3>
 <p><strong>Règle institutionnelle :</strong> La création d’un groupe de type SSS nécessite obligatoirement que le recteur ait validé la demande. Par défaut, iPackEPS bloque la création de ce type de groupe.</p>
+<p><strong>Si cela fonctionnait l'an dernier :</strong> ce n'est pas un problème de configuration de votre côté. Chaque année, le responsable iPackEPS de votre académie met à jour la liste des sections sportives autorisées ; tant que votre établissement n'est pas réactivé, le type SSS reste refusé (alors que d'autres types de groupes restent possibles).</p>
 <p><strong>Procédure de déblocage :</strong></p>
 <ol>
   <li><strong>[Étape 1]</strong> Vérifiez que le recteur a bien validé la demande d'ouverture de votre section sportive.</li>

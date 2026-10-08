@@ -1958,32 +1958,19 @@ Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes 
   2. Règle des Champs d'Apprentissage (CA) : Le protocole doit impérativement contenir 3 APSA de 3 CA différents. Exemple : si un élève est SHN Judo et que le protocole classe est (Courses, Badminton, Acrosport), il faut écarter le Badminton pour créer un protocole (Courses, Judo-adapté, Acrosport).
   3. Dates fictives : Des dates d'évaluation et de rattrapage sont exigées informatiquement pour l'épreuve de haut niveau. Il faut obligatoirement en saisir, même si elles sont fictives.
 - Procédure de notation (Santorin) : L'enseignant choisit le protocole de l'élève, indique l'APSA de spécialité (qui aura 20/20), puis saisit normalement les notes des autres épreuves.
-- Alerte anomalie de statut (Santorin) : Si la colonne "Sportif de Haut Niveau" indique "NON" pour un élève concerné, l'enseignant doit faire un signalement formel à la DEC de son académie. Seule la DEC a le pouvoir de vérifier les listes et modifier le statut.
+- Repérer un sportif de haut niveau dans Santorin : Santorin n'a ni filtre ni recherche par profil d'élève. Le statut de sportif de haut niveau vient de l'inscription à l'examen dans Cyclades, validée par la DEC sur les listes ministérielles.
+- Anomalie de statut : si un élève concerné n'est pas reconnu comme sportif de haut niveau au moment de la notation, l'enseignant fait un signalement formel à la DEC de son académie. Seule la DEC a le pouvoir de vérifier les listes et modifier le statut.
 - Cas particulier de la spécialité EPPCS : L'élève SHN est dispensé de la pratique physique (attribution de 12 points d'office) et l'évaluation orale est centrée sur l'analyse de son parcours sportif.
-- Tutoriel Vidéo de référence : Si un enseignant demande de l'aide sur la déclaration et la configuration informatique de ces classes ou dossiers particuliers (comme les SSS ou le haut niveau), propose-lui obligatoirement le tutoriel vidéo "Configurer les Classes Sports-Études" via ce lien : https://youtu.be/AEXIn3d6K6U?si=alh3rPlNj6fXSMBK
+- Tutoriel : un sportif de haut niveau n'est pas une classe Sports-Études. Ne pas proposer le tutoriel « Configurer les Classes Sports-Études » pour une question sur les sportifs de haut niveau.
 ======================================================================
-[ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN)
-- Mots-clés : sport étude, classes sports-études, section sportive, SSS, SHN, sportif de haut niveau, pôle espoir, apsa combinée, haut niveau.
-- Clarification sémantique indispensable : Il ne faut JAMAIS confondre les dispositifs "Sports-Études" et les "Sections Sportives Scolaires (SSS)". Ce sont deux structures distinctes dans iPackEPS :
-  1. GESTION DES SPORTS-ÉTUDES : Gérés via le module dédié [Dossiers] > [Dossier Sports-Études] (Article 91) et le type de groupe [Sport-Études] ou [Autres Dispositifs Sportifs].
-  2. GESTION ADMINISTRATIVE DES SSS : Dispositifs officiels habilités par le recteur, gérés via le module [Dossiers] > [Dossier SSS] (ouvertures, bilans, reconductions, signature du chef d'établissement).
-
-- RÈGLE TECHNIQUE SANTORIN (SHN) : Concernant les élèves à profil particulier comme les Sportifs de Haut Niveau (SHN), l'application de correction Santorin ne possède AUCUNE base de données de profils. Il n'y a AUCUN filtre "SHN" dans Santorin.
-
-- DISTINCTION FONDAMENTALE SUR LA GESTION SSS DANS IPACKEPS :
-  Il existe DEUX niveaux de gestion bien distincts pour les Sections Sportives. Tu dois OBLIGATOIREMENT déterminer lequel correspond à la question avant de répondre et de proposer une vidéo :
-
-  1. GESTION ADMINISTRATIVE (Ouverture, Bilan, Reconduction) :
-     - iPackEPS dispose d'un module administratif spécifique ([Dossiers] > [Dossier SSS]). 
-     - Ce module sert UNIQUEMENT à numériser les dossiers rectoraux : demandes d'ouverture, projets annuels, bilans annuels, signature du chef d'établissement, évolution ou fermeture de la section pour l'année suivante.
-     - 📺 Vidéos à associer UNIQUEMENT pour ce cas : "Configuration_modules_SSS.mp4", "Demande_ouverture_SSS.mp4", "Projet_annuel_SSS.mp4", "Bilan_annuel_SSS.mp4", "Evolution_et_fermeture_SSS.mp4", "Signature_chef_etablissement_SSS.mp4".
-
-  2. GESTION PÉDAGOGIQUE ET TECHNIQUE DES GROUPES SSS (Année en cours) :
-     - Cette gestion ne concerne PAS le module administratif SSS. Elle se gère dans la configuration classique de l'établissement.
-     - Les données (élèves, groupes, APSA) NE SONT PAS gardées en mémoire d'une année sur l'autre. Elles doivent être intégralement recréées à chaque rentrée scolaire.
-     - RÈGLE PÉDAGOGIQUE STRICTE (APSA Combinées) : Dans [Dossiers] > [Dossier EPS] > [APSA], la création de protocoles avec des "APSA combinées" (ex : Football-Musculation) est STRICTEMENT réservée aux élèves inscrits en SSS.
-     - Les élèves sont ensuite rattachés à ces groupes SSS via le module [Mes Élèves].
-     - 📺 Vidéo à associer UNIQUEMENT pour ce cas de création de groupe et saisie d'élèves/APSA en SSS : "Configurer_Classes_Sports_Etudes.mp4".
+### [ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN) : NE PAS LES CONFONDRE
+- Mots-clés : sport étude, classes sports-études, section sportive, SSS, SHN, sportif de haut niveau, pôle espoir, haut niveau, différence, confusion.
+- Formulations courantes des collègues : quelle différence entre section sportive et sports-études ; où déclarer ma classe sports-études ; où gérer ma section sportive ; mon élève est sportif de haut niveau, est-ce une section sportive ?
+- Ce sont TROIS sujets distincts. Déterminer lequel correspond à la question avant de répondre et de proposer une vidéo.
+- 1. CLASSES SPORTS-ÉTUDES : module [Dossiers] > [Dossier Sports-Études] (Article 91). On y dépose le projet de la classe et on y voit les groupes de type sports-études déjà déclarés. Ces groupes se créent dans [Dossiers] > [Dossier EPS] > [Groupes] en choisissant le type sports-études. 📺 Vidéo pour ce cas uniquement : "Configurer_Classes_Sports_Etudes.mp4".
+- 2. SECTIONS SPORTIVES SCOLAIRES, DOSSIERS ADMINISTRATIFS : module [Dossiers] > [Dossier SSS], avec quatre modules : demande d'ouverture (Article 28), projet annuel (Article 31), bilan annuel (Article 39), évolution c'est-à-dire reconduction ou fermeture (Article 94). Chaque dossier est signé par le chef d'établissement. 📺 Vidéos pour ce cas uniquement, selon le module : "Configuration_modules_SSS.mp4" (présentation), "Demande_ouverture_SSS.mp4", "Projet_annuel_SSS.mp4", "Bilan_annuel_SSS.mp4", "Evolution_et_fermeture_SSS.mp4".
+- 3. SECTIONS SPORTIVES SCOLAIRES, GROUPES DE L'ANNÉE EN COURS : cela ne se fait pas dans le Dossier SSS mais dans [Dossiers] > [Dossier EPS] > [Groupes], avec un groupe de type SSS (Article 17), puis placement des élèves dans [Dossiers] > [Dossier EPS] > [Élèves] (Article 18). Un groupe SSS ne peut être associé qu'à une seule APSA : pour une section qui travaille plusieurs activités, créer manuellement une APSA portant le nom de l'ensemble (exemple : « Football-Musculation ») dans [Dossiers] > [Dossier EPS] > [APSA]. Les groupes ne sont pas reconduits d'une année sur l'autre : ils sont à reconfigurer à chaque rentrée et les élèves à y replacer ; la liste des APSA, elle, est conservée. 📺 Vidéo pour ce cas uniquement : "Gestion_groupes_iPackEPS.mp4".
+- 4. SPORTIFS DE HAUT NIVEAU (SHN) : c'est un statut individuel d'élève pour l'examen, pas une classe ni une section. Voir l'Article 112. Aucune vidéo Sports-Études ni SSS à proposer pour ce cas.
 
 ### [ARTICLE 113] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)
 - Mots-clés : calendrier académique, dates limites, remontée des classes, import des classes, dépôt des référentiels, saisie des protocoles, DEC, circulaire académique annuelle, secrétariat des examens

@@ -59,3 +59,13 @@
 - [Étape 3] Si une APSA de course créée par l'établissement est déjà attribuée à vos groupes : dans [Dossiers] > [Dossier EPS] > [Groupes], ouvrez les séquences d'apprentissage du groupe, cliquez sur le bouton de modification de cette APSA et choisissez [Courses] dans la liste.
 - [Étape 4] Déposez un seul document regroupant vos fiches de course (demi-fond et relais) comme référentiel de l'APSA [Courses], en précisant en commentaire les épreuves réellement programmées.
 - [Étape 5] Retournez dans [Dossiers] > [Dossier Certificatif] > [Protocoles d'évaluation] : le protocole est recalculé.
+
+### [SITUATION: ÉLÈVES INACTIFS (PRONOTE) QUI RESTENT « SANS GROUPE » DANS iPackEPS — SOLUTION VALIDÉE SUR LE TERRAIN]
+- Mots-clés : élèves inactifs, inactif Pronote, sortir des élèves des listes, retirer des élèves, élèves sans groupe, classe inactif, groupe inactif, pratique de l'EPS, classe sans professeur d'EPS.
+- Formulations courantes des collègues : j'ai besoin de sortir des élèves des listes car ils sont inactifs sur Pronote ; mes élèves inactifs sont marqués sans groupe ; comment retirer un élève inactif ; il n'y a pas de bouton pour retirer les élèves.
+- Il n'existe aucune fonction pour retirer un élève à la main dans iPackEPS : ne pas en chercher.
+- Solution appliquée avec succès par un établissement de l'académie :
+- [Étape 1] À l'importation des élèves, un groupe « inactif » apparaît comme une classe. Le repérer dans [Dossiers] > [Dossier EPS] > [Classes].
+- [Étape 2] Entrer dans cette classe et lui retirer la pratique de l'EPS (organisation des classes : mode « classe sans professeur d'EPS », prévu pour les classes qui n'ont pas d'EPS).
+- [Étape 3] Les élèves de cette classe ne sont alors plus marqués « sans groupe ». Ils ne sont pas supprimés, ils sortent seulement du suivi EPS.
+- Pour un élève qui a réellement quitté l'établissement : l'actualisation des classes puis de l'importation des élèves régularise l'effectif (article 14).

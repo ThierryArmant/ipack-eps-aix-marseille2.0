@@ -159,12 +159,12 @@ VIDEOS_TUTOS = {
     "Gestion_inventaire_EPI_photos.mp4": "https://www.youtube.com/watch?v=dpijdybbbWo",
     "Controle_dates_CM_CAHPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Controle_dates_CM_CAHPN.mp4",
     "Export_zip_documents_certificatifs.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Export_zip_documents_certificatifs.mp4",
-    "Evolution_et_fermeture_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Evolution_et_fermeture_SSS.mp4",
+    "Evolution_et_fermeture_SSS.mp4": "https://youtu.be/7yr1bFlvlFg",
     "Signature_chef_etablissement_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Signature_chef_etablissement_SSS.mp4",
     "Export_profs_externes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Export_profs_externes_cyclades.mp4",
     "Rapport_etat_serveurs.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Rapport_etat_serveurs.mp4",
     "Gestion_dossier_APPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Gestion_dossier_APPN.mp4",
-    "Configuration_modules_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Configuration_modules_SSS.mp4",
+    "Configuration_modules_SSS.mp4": "https://youtu.be/1EothsjU1Kc",
     "Depot_referentiels_iPackEPS.mp4": "https://youtu.be/T_-j01ovoA4",
     "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8",
     "Saisie_protocoles_iPackEPS.mp4": "https://youtu.be/Bq7_ooQuZtU",
@@ -183,8 +183,8 @@ VIDEOS_TUTOS = {
     # --- NOUVEAUX TUTOS INTÉGRÉS DEPUIS LA DOCUMENTATION CRÉTEIL ---
     "Depot_documents_commission.mp4": "https://youtu.be/FZ1KSuuKkEA",
     "Proposer_dossier_commission.mp4": "https://youtu.be/JmhwQNyagOI",
-    "Demande_ouverture_SSS.mp4": "https://youtu.be/SizZ4vGQ4nU",
-    "Projet_annuel_SSS.mp4": "https://youtu.be/7yr1bFlvlFg",
+    "Demande_ouverture_SSS.mp4": "https://youtu.be/FUJzYLskCGQ",
+    "Projet_annuel_SSS.mp4": "https://youtu.be/SizZ4vGQ4nU",
     "Bilan_annuel_SSS.mp4": "https://youtu.be/iH54YEF_2XY",
     "Export_eleves_cyclades.mp4": "https://youtu.be/YoOC_CdOQ_I",
     "Controler_reaffecter_protocoles_cyclades.mp4": "https://youtu.be/0njoZigh_5w",
@@ -2071,7 +2071,7 @@ if prompt_a_traiter:
   <li><strong>[Étape 1]</strong> Vérifiez que le recteur a bien validé la demande d'ouverture de votre section sportive.</li>
   <li><strong>[Étape 2]</strong> Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.</li>
 </ol>
-📺 Tutoriel associé : Evolution_et_fermeture_SSS.mp4"""
+📺 Tutoriel associé : Gestion_groupes_iPackEPS.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
                 
             elif est_ressaisie_rentree:
@@ -2569,7 +2569,11 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
         # ✅ CORRECTION : le tuto ajouté dépend du sujet (avant : toujours « Evolution_et_fermeture_SSS »,
         # un fichier introuvable sur le site des tutoriels, et sans rapport avec un projet annuel ou un bilan)
         if est_sss:
-            if "projet annuel" in p_low or "projet" in p_low:
+            # ✅ CORRECTION : reconduction / fermeture d'abord (sinon « reconduction… comme pour l'ouverture » partait sur l'ouverture),
+            # puis reprise de la saisie de l'an dernier = projet annuel ; à défaut, la vidéo de présentation des quatre modules.
+            if any(w in p_low for w in ["reconduction", "reconduire", "fermeture", "fermer", "évolution", "evolution"]):
+                video_sss = "Evolution_et_fermeture_SSS.mp4"
+            elif any(w in p_low for w in ["projet", "année précédente", "annee precedente", "année dernière", "annee derniere", "an dernier", "importer", "récupérer", "recuperer"]):
                 video_sss = "Projet_annuel_SSS.mp4"
             elif "bilan" in p_low:
                 video_sss = "Bilan_annuel_SSS.mp4"
@@ -2579,17 +2583,14 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
             elif "groupe" in p_low:
                 video_sss = "Gestion_groupes_iPackEPS.mp4"
             else:
-                video_sss = "Evolution_et_fermeture_SSS.mp4"
+                video_sss = "Configuration_modules_SSS.mp4"
             if not re.search(r"[A-Za-z0-9_]+_SSS\.mp4", texte_brut):
                 texte_brut += "\n\n📺 Tutoriel associé : " + video_sss
 
-        # ✅ CORRECTION : le tutoriel « classes Sports-Études » était ajouté à toute réponse parlant de haut niveau,
-        # y compris dans l'onglet Examens (saisie du 20/20 dans Santorin), où il n'a aucun rapport. Onglet iPackEPS seulement.
-        if est_shn and mode == "ipack":
-            texte_brut = texte_brut.replace("Saisie_protocoles_iPackEPS.mp4", "Configurer_Classes_Sports_Etudes.mp4")
-            texte_brut = texte_brut.replace("Generer_importer_fichier_groupes_cyclades.mp4", "Configurer_Classes_Sports_Etudes.mp4")
-            if "Configurer_Classes_Sports_Etudes.mp4" not in texte_brut:
-                texte_brut += "\n\n📺 Tutoriel associé : Configurer_Classes_Sports_Etudes.mp4"
+        # ✅ CORRECTION : un sportif de haut niveau n'est pas une classe Sports-Études. Le tutoriel « classes Sports-Études »
+        # n'est plus ajouté aux questions sur le haut niveau ; il reste réservé aux questions Sports-Études.
+        if est_shn and not any(w in p_low for w in ["sport etude", "sport-etude", "sports-etudes", "sports etudes", "sport étude", "sport-étude", "sports-études", "sports études"]):
+            texte_brut = re.sub(r"\n*📺\s*Tutoriel\s+associé\s*:\s*Configurer_Classes_Sports_Etudes\.mp4", "", texte_brut)
 
         texte_brut = texte_brut.replace("```html", "")
         texte_brut = texte_brut.replace("```HTML", "")

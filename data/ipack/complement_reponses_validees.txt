@@ -32,6 +32,7 @@
 - Procédure de déblocage :
 - [Étape 1] Vérifiez que le recteur a bien validé la demande d'ouverture de votre section sportive.
 - [Étape 2] Faites un simple signalement par e-mail à votre responsable iPackEPS ou à votre IPR pour que votre établissement soit activé dans le système.
+- Si la création était possible l'an dernier et ne l'est plus : ce n'est pas un problème de configuration. Chaque année, le responsable iPackEPS de l'académie met à jour la liste des sections sportives autorisées (article 17) ; le type SSS reste refusé tant que l'établissement n'est pas réactivé, alors que d'autres types de groupes restent possibles.
 
 ### [SITUATION: FAUT-IL TOUT RESAISIR CHAQUE ANNÉE DANS iPACKEPS ?]
 - Règle d'or iPackEPS : NON, il ne faut pas tout resaisir ! L'essentiel des données saisies l'année précédente est automatiquement conservé par l'application.
@@ -48,3 +49,13 @@
 ### [SITUATION: ACCÈS AUX RESSOURCES ET DOSSIERS PÉDAGOGIQUES]
 - Emplacement : Les documents et cadrages pédagogiques de référence sont centralisés dans l'onglet [Sécurité & Cadre Réglementaire / Pédagogie] de l'application.
 - Rappel d'usage : Pour interroger le Hub sur les programmes, utilisez des mots-clés ciblés (ex: programmes, cycles, compétences).
+
+### [SITUATION: MA FICHE OU MON RÉFÉRENTIEL DE COURSE (DEMI-FOND, RELAIS, 3 x 1'30…) EST DIT « NON CERTIFICATIF » (reformulation des articles 15 et 42 et de la fiche « Courses », aucune information nouvelle)]
+- Mots-clés : fiche de course, référentiel de course, demi-fond, relais, 3x1'30, n'est pas certificative, non certificative, Courses, liste nationale, APSA établissement, coche certificative grisée, protocole.
+- Formulations courantes des collègues : ma fiche de course n'est pas certificative ; iPackEPS me dit que cette fiche n'est pas certificative ; je ne peux pas déposer mon référentiel de demi-fond ; pourquoi ma course n'est pas acceptée dans le protocole.
+- Cause la plus fréquente : l'activité de course n'est pas déclarée sous l'APSA nationale [Courses], ou celle-ci n'est pas cochée certificative. Les menus ne distinguent pas demi-fond et relais : il n'y a qu'une seule activité nationale, [Courses].
+- [Étape 1] Dans [Dossiers] > [Dossier EPS] > [APSA], sélectionnez dans le tableau de gauche des APSA nationales l'activité [Courses] et déclarez-la certificative en Lycée. C'est cette coche qui ouvre le dépôt de la fiche dans le Dossier Certificatif.
+- [Étape 2] Ne créez pas d'APSA à la main pour le demi-fond ou le relais : une APSA créée manuellement n'est pas dans la liste nationale, et sa coche [certificative] peut rester bloquée.
+- [Étape 3] Si une APSA de course créée par l'établissement est déjà attribuée à vos groupes : dans [Dossiers] > [Dossier EPS] > [Groupes], ouvrez les séquences d'apprentissage du groupe, cliquez sur le bouton de modification de cette APSA et choisissez [Courses] dans la liste.
+- [Étape 4] Déposez un seul document regroupant vos fiches de course (demi-fond et relais) comme référentiel de l'APSA [Courses], en précisant en commentaire les épreuves réellement programmées.
+- [Étape 5] Retournez dans [Dossiers] > [Dossier Certificatif] > [Protocoles d'évaluation] : le protocole est recalculé.

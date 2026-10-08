@@ -2190,7 +2190,13 @@ if prompt_a_traiter:
   <li><strong>[Étape 2]</strong> L'actualisation de la base administrative (ou un nouvel import / actualisation de la liste des élèves via iPackEPS) régularisera automatiquement l'effectif.</li>
   <li><strong>[Étape 3]</strong> L'élève inactif ou parti disparaîtra alors de vos listes de manière totalement automatisée.</li>
 </ol>
-📺 Tutoriel associé : Import_automatique_eleves.mp4"""
+<p><strong>Si, après l'import, les élèves inactifs restent affichés « sans groupe » (cas des élèves inactifs dans Pronote) :</strong></p>
+<ol>
+  <li><strong>[Étape 1]</strong> À l'importation, un groupe « inactif » apparaît comme une classe : repérez-le dans <strong>[Dossiers] > [Dossier EPS] > [Classes]</strong>.</li>
+  <li><strong>[Étape 2]</strong> Ouvrez cette classe et retirez-lui la pratique de l'EPS (organisation des classes : mode « classe sans professeur d'EPS », prévu pour les classes qui n'ont pas d'EPS).</li>
+  <li><strong>[Étape 3]</strong> Ces élèves ne sont alors plus signalés « sans groupe ». Ils ne sont pas supprimés : ils sont simplement sortis du suivi EPS.</li>
+</ol>
+📺 Tutoriel associé : Configuration_classes_import_eleves.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
             elif est_question_pedagogique:

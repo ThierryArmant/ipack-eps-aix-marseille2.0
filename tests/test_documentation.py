@@ -119,6 +119,39 @@ class DocumentationTests(unittest.TestCase):
             e['retriever_' + name] = Retriever(docs)
         return e['_recherche_documentaire']()
 
+    def test_cap_reference_survives_complementary_lookup_failure(self):
+        self.route('CAP 2026 inaptitude temporaire CCF', 'Lycée Pro / CAP', 'examens')
+        def broken(*args):
+            raise RuntimeError('simulated lookup outage')
+        self.env['chercher_par_mots'] = broken
+        text, sources, diagnostics, error = self.env['_recherche_documentaire']()
+        self.assertIn('certification sur une seule activité', text)
+        self.assertTrue(sources)
+        self.assertTrue(diagnostics)
+        self.assertEqual(error, '')
+
+    def test_one_failed_retriever_does_not_block_other_bases(self):
+        self.route('Comment exporter mon protocole ?', 'Lycée Général & Techno', 'examens')
+        class Broken:
+            def retrieve(self, question):
+                raise RuntimeError('simulated retriever outage')
+        self.env['retriever_santorin'] = Broken()
+        self.env['retriever_ipack'] = Retriever([SimpleNamespace(
+            text='Procédure documentaire conservée', metadata={'source': 'guide'})])
+        text, _, diagnostics, error = self.env['_recherche_documentaire']()
+        self.assertIn('Procédure documentaire conservée', text)
+        self.assertTrue(diagnostics)
+        self.assertEqual(error, '')
+
+    def test_empty_lookup_failure_remains_blocking(self):
+        self.route('Comment exporter mon protocole ?', 'Lycée Général & Techno', 'examens')
+        def broken(*args):
+            raise RuntimeError('simulated lookup outage')
+        self.env['chercher_par_mots'] = broken
+        text, _, _, error = self.env['_recherche_documentaire']()
+        self.assertEqual(text, '')
+        self.assertTrue(error)
+
     def test_archives_and_quarantine_not_indexed(self):
         for folder in ('data/examens', 'data/ipack', 'data/textes'):
             docs = self.env['charger_dossier_txt_securise'](folder)

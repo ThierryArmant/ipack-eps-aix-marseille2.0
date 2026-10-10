@@ -1734,7 +1734,13 @@ if prompt_a_traiter:
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
                     if not retriever or len(_extraits) >= 10:
                         return
-                    _nodes = retriever.retrieve(prompt)
+                    try:
+                        _nodes = retriever.retrieve(prompt)
+                    except Exception as e_retriever:
+                        # Une base indisponible ne doit pas bloquer les autres bases.
+                        _diag.append(("Recherche indisponible : " + etiquette, None))
+                        print(f"Erreur de recherche dans {etiquette}: {e_retriever}")
+                        return
                     _retenus = 0
                     for n in _nodes:
                         if len(_extraits) >= 10:
@@ -1792,8 +1798,9 @@ if prompt_a_traiter:
                     # ✅ CORRECTION : l'erreur était avalée en silence ; l'IA recevait alors un contexte vide et répondait
                     # « je ne dispose pas de la procédure ». Elle est maintenant notée (visible en mode admin et dans les journaux).
                     _erreur = str(e_rag)
+                    _diag.append(("Recherche complémentaire interrompue", None))
                     print(f"Erreur de recherche documentaire : {_erreur}")
-                return ("".join(e + "\n\n" for e in _extraits), _sources, _diag, _erreur)
+                return ("".join(e + "\n\n" for e in _extraits), _sources, _diag, _erreur if not _extraits else "")
 
             if openai_api_key and not est_cas_direct:
                 extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire()

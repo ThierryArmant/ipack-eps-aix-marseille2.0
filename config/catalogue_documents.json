@@ -1772,12 +1772,6 @@
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
-  "data/textes/fiches/base_textes_officiels_018_situation_12e_section_associative_as_sections_sportives_et_droit_domanial_local.txt": {
-    "title": "[SITUATION: 12E SECTION : ASSOCIATIVE, AS, SECTIONS SPORTIVES ET DROIT DOMANIAL LOCAL]",
-    "statut": "synthese_non_revalidee",
-    "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
-  },
   "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt": {
     "title": "[SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]",
     "statut": "synthese_non_revalidee",
@@ -2308,5 +2302,42 @@
       "inapt|dispens|une.*note|note.*conserv"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+  },
+  "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
+    "title": "### [SITUATION: SECTION SPORTIVE SCOLAIRE : PRATIQUE SUPPLEMENTAIRE ET EPS OBLIGATOIRE]",
+    "examens": [],
+    "prioritaire": true,
+    "motifs": [
+      "section sportive|\\bsss\\b"
+    ],
+    "statut": "verifie_2026-10-10_recoupement_trois_documents",
+    "sources": [
+      "https://www.education.gouv.fr/bo/2023/Hebdo48/MENE2334358C",
+      "https://eduscol.education.gouv.fr/5967/les-differents-parcours-de-formation-pour-les-sportifs",
+      "https://pedagogie.ac-montpellier.fr/sites/default/files/2026-05/2026_%20LIVRET%20D%27ACCOMPAGNEMENT%20ACADEMIQUE%20DES%20SSS_VML4%20_compressed.pdf"
+    ],
+    "limites": "Trois documents concordants sur les faits retenus ; déclinaisons du même cadre national, pas trois normes indépendantes. Aucun menu local validé."
+  },
+  "data/commun/parcours_sportifs/02_sport_etudes_organisations.txt": {
+    "title": "### [SITUATION: SPORT-ETUDES : CLASSE COLLECTIVE OU AMENAGEMENT INDIVIDUEL]",
+    "examens": [],
+    "prioritaire": true,
+    "motifs": [
+      "sport.?etudes|haut potentiel"
+    ],
+    "statut": "verifie_2026-10-10_recoupement_trois_documents",
+    "sources": [
+      "https://www.education.gouv.fr/bo/2023/Hebdo48/MENE2334358C",
+      "https://eduscol.education.gouv.fr/5967/les-differents-parcours-de-formation-pour-les-sportifs",
+      "https://pedagogie.ac-montpellier.fr/sites/default/files/2025-09/LIVRET%20acade%CC%81mique%20dispositifs%20sport%20-e%CC%81tudes_%20mars%202025.pdf"
+    ],
+    "limites": "Trois documents concordants sur les faits retenus ; déclinaisons du même cadre national, pas trois normes indépendantes. Aucun menu local validé."
+  },
+  "data/textes/a_verifier/base_textes_officiels_018_situation_12e_section_associative_as_sections_sportives_et_droit_domanial_local.txt": {
+    "title": "[SITUATION: 12E SECTION : ASSOCIATIVE, AS, SECTIONS SPORTIVES ET DROIT DOMANIAL LOCAL]",
+    "statut": "a_verifier_reference_abrogee_et_melange_de_regimes",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "motif_retrait": "Circulaire SSS 2020 abrogée ; aménagements scolaires et examens confondus. Autres paragraphes non revalidés. Original conservé."
   }
 }

@@ -1323,6 +1323,11 @@ else:
             unsafe_allow_html=True
         )
 
+        st.markdown(
+            '<div style="padding:10px 12px;margin-bottom:10px;background:#1E293B;border-left:4px solid #FBBF24;border-radius:6px;color:#FFFFFF;font-size:14px;line-height:1.5;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
+            unsafe_allow_html=True,
+        )
+
         with st.form(key="form_question_hub", clear_on_submit=True):
             col_input, col_submit = st.columns([5, 1])
             with col_input:
@@ -1345,6 +1350,31 @@ else:
                 with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
                     # On stocke temporairement la question dans la session pour déclencher la suite
                     st.session_state.current_prompt = prompt
+
+
+# Notice accessible en permanence, sans fenêtre ni validation obligatoire.
+st.markdown("""
+<div style="margin-top:18px;padding:20px;background:rgba(15,23,42,0.94);border:1px solid #64748B;border-radius:10px;color:#E2E8F0;font-size:14px;line-height:1.65;">
+<h2 style="color:#FFFFFF;font-size:19px;">HUB IA EPS — Utilisation et protection des données</h2>
+<h3 style="color:#38BDF8;font-size:16px;">À quoi sert le HUB ?</h3>
+<p>Le HUB accompagne les professionnels de l’éducation dans leurs recherches pédagogiques, réglementaires et techniques, notamment concernant iPackEPS et les examens en EPS. Il s’appuie sur une base documentaire et sur l’intelligence artificielle. Ses réponses peuvent comporter des erreurs ou des informations incomplètes : vérifiez les textes officiels applicables et leur actualité avant toute décision. Le HUB ne remplace pas les autorités compétentes ni les procédures institutionnelles.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Protégez les élèves et les autres personnes</h3>
+<p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Utilisation des échanges</h3>
+<p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
+<p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
+<p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la génération des réponses, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Durée de conservation</h3>
+<p>Les échanges sont conservés uniquement pendant le temps nécessaire à leur analyse et à l’amélioration du HUB, dans la limite de six mois à compter de leur enregistrement. Ils sont supprimés manuellement lorsque leur analyse et les corrections correspondantes sont terminées, sans attendre cette échéance. Les enseignements utiles peuvent être conservés sous forme de fiches générales ne permettant pas d’identifier une personne. Cette durée concerne le journal du HUB ; les traitements et durées propres aux prestataires relèvent de leurs conditions applicables.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Traitement hors de l’Union européenne</h3>
+<p>L’application est hébergée sur Streamlit Community Cloud aux États-Unis. Les questions passent donc par un hébergement situé hors de l’Union européenne. OpenAI et Google peuvent également traiter des données hors de l’Union européenne. Les plateformes peuvent traiter des données techniques pour leur fonctionnement et leur sécurité, indépendamment du journal du HUB.</p>
+<h3 style="color:#38BDF8;font-size:16px;">Responsable et exercice de vos droits</h3>
+<p>Le responsable du traitement est Thierry Armant. Pour toute question relative à vos données, pour signaler un envoi involontaire d’informations personnelles ou pour exercer vos droits, contactez <a href="mailto:thierry.armant@ac-aix-marseille.fr" style="color:#7DD3FC;">thierry.armant@ac-aix-marseille.fr</a>.</p>
+<p>Dans les conditions prévues par le RGPD, vous pouvez demander l’accès à vos données, leur rectification, leur effacement ou la limitation de leur traitement. Le droit d’opposition s’applique notamment lorsque le traitement repose sur l’intérêt légitime. Pour retrouver un échange, indiquez sa date approximative et son sujet, sans transmettre de nouvelles informations concernant un élève. Vous pouvez également déposer une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:#7DD3FC;">CNIL</a>.</p>
+<p style="color:#CBD5E1;font-size:12px;">Version du 11 octobre 2026. Les informations relatives à la base légale et aux garanties contractuelles des transferts internationaux sont en cours de finalisation. Cette notice ne constitue pas une certification de conformité RGPD.</p>
+</div>
+""", unsafe_allow_html=True)
 
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES

@@ -1,0 +1,15 @@
+### [SITUATION: CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS]
+* DATES LIMITES ABSOLUES DE VERROUILLAGE DES NOTES DU CCF EPS :
+  - Les dates de remontée des notes et de fermeture des serveurs Santorin/Cyclades évoluant chaque année, les équipes doivent obligatoirement se référer au calendrier officiel diffusé par la circulaire académique de leur DEC.
+  - Établissements en Rythme Sud (Hémisphère Sud / AEFE) : Les épreuves pratiques et la saisie sont décalées sur la session d'octobre / novembre / décembre. La date métropolitaine ne s'applique pas.
+  - Autres académies : Se rapprocher immédiatement des interlocuteurs iPackEPS locaux et de la Division des Examens et Concours (DEC).
+
+* RÈGLE D'OR DES APPRÉCIATIONS DANS SANTORIN EPS :
+  - Les appréciations textuelles ne sont JAMAIS obligatoires dans Santorin pour un protocole de CCF EPS standard. La note chiffrée issue des AFL/AFLP se suffit à elle-même.
+  - Comportement de l'interface / Risque technique : Aucun. Procédure recommandée : Laissez la case appréciation vide si la grille d'évaluation motrice est complète.
+
+* ABSENCE TOTALE DE SUJET ÉCRIT OU PAPIER EN EPS :
+  - En EPS (CCF ou examen ponctuel), il n'existe STRICTEMENT AUCUN sujet d'examen papier ou sujet écrit de secours à télécharger ou à imprimer depuis iPackEPS, Cyclades ou Santorin.
+  - Tout rattrapage d'un élève absent justifié (ABJ) prend obligatoirement la forme d'une « Épreuve de substitution » motrice sur le terrain avant la clôture des serveurs.
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,3 @@
+### [SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]
+- Instruction : Pour les structures n'existant pas dans la liste officielle (ex : Seconde Prépa), la qualification n'ayant pas d'enjeu pour les examens terminaux, l'équipe peut la qualifier par défaut de « 2nde générale » pour débloquer la configuration.
+

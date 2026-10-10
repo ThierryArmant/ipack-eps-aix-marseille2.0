@@ -1,0 +1,9 @@
+### [ARTICLE 13] [Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS
+- Mots-clés : équipe EPS, liste des enseignants, Actualiser, enseignant absent de la liste, nouvel enseignant affecté, intervenant extérieur, supprimer un intervenant, EPP, IPP, bases du rectorat
+- Formulations courantes des collègues : un collègue n'apparaît pas dans l'équipe EPS ; le nouveau prof n'est pas dans la liste ; comment mettre à jour la liste des enseignants ; comment supprimer un intervenant extérieur créé par erreur
+- URL: spip.php?article13
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Équipe EPS. La liste des enseignants de l’équipe EPS est extraite directement des bases du rectorat (EPP Public et IPP Privé). Si la liste est incomplète, pensez à cliquer sur [Actualiser] pour forcer une recherche de mise à jour. Si en début d’année un enseignant nouvellement affecté n’apparaît toujours pas après le clic sur [Actualiser], c’est que les affectations au sein du rectorat ne sont toujours pas à jour. Il convient dans ce cas de patienter quelques jours puis redemander une actualisation.
+- QUESTIONS / RÉPONSES :
+  - Q2 : Nous avons créé par erreur un intervenant extérieur, comment le supprimer ?
+  - R2 : Retournez dans Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Équipe EPS. Dans le tableau [intervenants extérieurs], cliquer sur l’icône [modifier] de cet intervenant. Dans la fenêtre qui s’ouvre, cliquez sur [Supprimer].
+

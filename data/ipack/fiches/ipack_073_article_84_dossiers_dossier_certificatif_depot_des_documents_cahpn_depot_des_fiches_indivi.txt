@@ -1,0 +1,6 @@
+### [ARTICLE 84] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles
+- Mots-clés : fiches individuelles, cas particuliers, CAHPN, Dossier Certificatif, élève inapte sur 2 épreuves, une seule note, dispense d’évaluation EPS, justification
+- Formulations courantes des collègues : Comment déposer une fiche individuelle pour un élève ? ; Mon élève a été inapte sur 2 épreuves, que faire ? ; À quoi sert la fiche individuelle ? ; Où signaler un cas particulier d’élève ?
+- URL: spip.php?article84
+- Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Il est possible que votre académie vous demande de déposer des fiches explicatives concernant les cas particuliers d’élèves à signaler. Ceci concerne notamment les élèves qui auraient été inaptes sur 2 Épreuves, et n’auraient qu’une seule note. L’enseignant devra alors justifier son choix de garder la note ou de demander une dispense d’évaluation EPS pour cet élève.
+

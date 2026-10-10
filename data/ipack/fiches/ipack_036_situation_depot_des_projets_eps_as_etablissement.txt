@@ -1,0 +1,6 @@
+### [SITUATION: DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT)]
+- Mots-clés : dépôt des projets, projet EPS, projet d'AS, projet d'établissement, Dossiers, Dossier EPS, Projets, déposer un projet
+- Formulations courantes des collègues : où déposer le projet EPS ; où mettre le projet d'AS ; où déposer le projet d'établissement ; je ne trouve plus le menu pour déposer les projets
+- Instruction : Le dépôt des différents projets de l'équipe ne se fait plus dans des menus dispersés, tout a été centralisé.
+  -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Projets'.
+

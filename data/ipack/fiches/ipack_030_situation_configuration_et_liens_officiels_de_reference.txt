@@ -1,0 +1,11 @@
+### [SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]
+- Mots-clés : liens officiels, liens utiles, formulaire de déclaration enseignant, DSI, replay visioconférence, formation iPackEPS, tutoriels, sections sportives scolaires, SSS, documents d'accompagnement
+- Formulations courantes des collègues : où trouver les tutoriels iPackEPS ; où revoir la visio de formation iPackEPS ; quel est le lien du formulaire de déclaration enseignant ; où sont les documents sur les sections sportives scolaires
+- Instruction : Centralisation des liens essentiels du réseau :
+  -> Formulaire de déclaration enseignant (DSI) : https://appli.region-academique-paca.fr/enquetes/index.php/993987?lang=fr
+  -> Replay de la visioconférence de formation iPackEPS : https://bbb-adm-scalelite.visio.education.fr/playback/presentation/2.3/dbd746640e601c545452135445ce77fea714389d-1758206971830
+  -> Plateforme officielle des tutoriels complets : https://ipackeps.ac-creteil.fr/spip.php?rubrique2
+  -> Documents d'accompagnement Sections Sportives Scolaires (SSS) : https://www.pedagogie.ac-aix-marseille.fr/jcms/c_10962486/fr/sections-sportives-scolaires
+
+[SECTION: PROCEDURES_INAPTITUDES_ET_LEVEE_DE_CYCLE]
+

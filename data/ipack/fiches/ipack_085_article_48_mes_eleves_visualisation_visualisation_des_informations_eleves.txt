@@ -1,0 +1,6 @@
+### [ARTICLE 48] [Mes Élèves]/[Visualisation] Visualisation des informations élèves
+- Mots-clés : visualisation élèves, Mes Élèves, fiche élève, onglets, [Généralités], [Scolarité], [APSA], [Savoir-Nager], [Inaptitudes], certificats médicaux
+- Formulations courantes des collègues : Où voir les informations de mes élèves ? ; Quels onglets dans la fiche élève ? ; Où valider le savoir nager d’un élève ? ; Où déposer un certificat médical d’inaptitude ?
+- URL: spip.php?article48
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Élèves => Visualisation. Onglets : [Généralités], [Scolarité], [APSA], [Savoir-Nager] (validation des ASNS), [Inaptitudes] (dépôt des certificats médicaux pour les inaptitudes partielles et totales).
+

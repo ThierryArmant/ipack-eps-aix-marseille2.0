@@ -1,0 +1,6 @@
+### [ARTICLE 56] [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève
+- Mots-clés : EDT individuels, emploi du temps élève, impression, Programmation, Mes Documents, Documents Administratifs
+- Formulations courantes des collègues : Comment imprimer l’emploi du temps de chaque élève ? ; Où trouver les EDT individuels ? ; Où est le menu Programmation ?
+- URL: spip.php?article56
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents Administratifs => Programmation.
+

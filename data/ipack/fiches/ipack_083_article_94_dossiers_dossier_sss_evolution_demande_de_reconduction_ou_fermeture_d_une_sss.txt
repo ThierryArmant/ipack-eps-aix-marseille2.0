@@ -1,0 +1,11 @@
+### [ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS
+- Mots-clés : SSS, section sportive scolaire, évolution, reconduction, fermeture, demande annuelle
+- Formulations courantes des collègues : Comment reconduire ma section sportive ? ; Comment demander la fermeture d’une SSS ? ; Où faire la demande de reconduction ? ; Il suffit de cocher reconduction ? ; Faut-il refaire un dossier comme pour la demande d'ouverture ? ; Qui signe la reconduction de la section sportive ?
+- URL: spip.php?article94
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Évolution. Chaque année vous pouvez faire une demande de Fermeture ou de Reconduction de votre Section Sportive Scolaire.
+- QUESTIONS / RÉPONSES [CONTEXTE STRICTEMENT SSS] :
+  - Q1 : Pour la reconduction de la section sportive, il suffit de cocher « reconduction » ? Faut-il remplir un dossier comme pour la demande d'ouverture ?
+  - R1 : La reconduction se demande dans le module [Dossiers] / [Dossier SSS] / [Évolution] : vous y choisissez « reconduction » (ou « fermeture ») pour l'année suivante, puis le chef d'établissement signe électroniquement la demande (signature obligatoire). L'IPR ou la commission valide ou invalide ensuite la demande via la messagerie intégrée d'iPackEPS. La reconduction ne passe pas par une nouvelle [Demande d'ouverture SSS] : ce dossier sert à l'ouverture d'une section. En revanche, le [Projet Annuel SSS] et le [Bilan SSS] restent à saisir chaque année dans le Dossier SSS. Si votre académie demande des pièces complémentaires, elles sont précisées dans ses documents d'accompagnement des sections sportives. Tutoriels : Evolution_et_fermeture_SSS.mp4 et Signature_chef_etablissement_SSS.mp4.
+  - Q2 : Où faire la demande de fermeture de ma section sportive ?
+  - R2 : Au même endroit que la reconduction : [Dossiers] / [Dossier SSS] / [Évolution], choix « fermeture », puis signature électronique du chef d'établissement et validation par l'IPR ou la commission via la messagerie intégrée.
+

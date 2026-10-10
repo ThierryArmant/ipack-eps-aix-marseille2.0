@@ -1,0 +1,14 @@
+### [ARTICLE 43] Sélection de votre établissement
+- Mots-clés : sélection de l'établissement, établissement absent, aucun établissement proposé, ancien établissement, adresse mail non reconnue, plusieurs identifiants, TZR, contractuel, établissement privé, page vierge, rattachement administratif, correspondant académique iPackEPS
+- Formulations courantes des collègues : mon établissement n'apparaît pas dans iPackEPS ; iPackEPS me propose mon ancien établissement ; j'ai une page vierge en arrivant sur iPackEPS ; je suis rattaché à un lycée mais je n'y ai pas accès ; j'ai deux identifiants, lequel utiliser
+- URL: spip.php?article43
+- Texte: [Accueil] Sélection de votre établissement.
+- QUESTIONS / RÉPONSES :
+  - Q1 : « J’arrive bien à accéder à iPackEPS - Professeur, mais mon établissement n’apparaît pas (aucun établissement proposé, ou c’est mon ancien établissement qui est proposé) »
+  - R1 : Ce problème indique qu’Arena vous reconnaît en tant que professeur EPS, mais lorsque vous accédez à iPackEPS, votre adresse mail n’est pas connue dans les bases iPackEPS. Plusieurs causes peuvent être à l’origine de ce problème :
+    1. Usage de la mauvaise adresse mail : certains enseignants ont plusieurs adresses mail professionnelles (cas particuliers d’enseignants TZR / contractuels pour lesquels le rectorat a par erreur généré un nouveau compte lors d’une nouvelle année scolaire plutôt que de modifier une ancienne fiche existante). Si vous avez plusieurs comptes, vous avez alors plusieurs identifiants académiques. Par exemple, l’enseignant contractuel François Dupont a eu un identifiant fdupont, puis a été titularisé, et a reçu un autre identifiant fdupont1. S’il entre sur iPackEPS avec l’identifiant fdupont, il sera connecté à son ancien établissement, iPackEPS ne le reconnaîtra pas. Il faut donc qu’il saisisse le nouvel identifiant fdupont1 pour voir son établissement actuel.
+    2. Certains établissements privés peuvent également ne pas avoir été importés sur iPackEPS, ce qui explique une page vierge lors de l’accès à iPackEPS.
+    3. Certains enseignants peuvent ne pas avoir été affectés en début d’année sur certaines bases professeur, ce qui explique qu’ils n’existent pas encore sur iPackEPS. Dans tous les cas, prenez contact avec votre correspondant académique iPackEPS, en lui fournissant le login avec lequel vous vous connectez à Arena, pour qu’il puisse investiguer auprès des services de la DSI.
+  - Q2 : « J'ai une affectation à l’année dans un Collège, mais je suis rattachée administrativement à un autre Lycée. Je n’ai pas d’accès sur ipackeps au Lycée. »
+  - R2 : Si vous n’enseignez pas sur le lycée, c’est normal que vous n’ayez pas accès à cet établissement dans iPackEPS. Votre saisie iPackEPS ne concerne que les établissements où vous enseignez.
+

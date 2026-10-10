@@ -1,0 +1,6 @@
+### [ARTICLE 49] [Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression
+- Mots-clés : ASNS, savoir nager, Dossier Natation, import, impression, validation manuelle, attestation, [Mes Élèves], [Visualisation]
+- Formulations courantes des collègues : Où gérer les validations d’ASNS ? ; Comment importer ou imprimer les ASNS ? ; Comment valider l’ASNS à la main pour un élève ? ; Où est le menu ASNS ?
+- URL: spip.php?article49
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier Natation => ASNS. Note : pour valider manuellement l’ASNS pour vos élèves, passez par le menu [tableau de Bord ==> [Mes Élèves] ==> [Visualisation].
+

@@ -1,0 +1,40 @@
+### [ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe
+- Mots-clés : import d'élèves, Pronote, École Directe, fichier CSV, Importer un fichier d'élèves, Importer un fichier Pronote, Excel, UTF-8, séparateur point-virgule, accents corrompus, classes non retrouvées, colonnes non trouvées
+- Formulations courantes des collègues : Comment récupérer mes groupes de Pronote dans iPackEPS ? ; Mon fichier CSV ne s'importe pas, que faire ? ; Les accents sont cassés et ma classe 1-1 est devenue une date ; iPackEPS dit que des classes ou des élèves n'ont pas été retrouvés ; Comment exporter mes groupes depuis École Directe ?
+- URL: spip.php?article88
+- Texte: Si vous avez déjà placé vos élèves dans des groupes sur Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...) vous pouvez depuis ces logiciels extraire vos groupes d’élèves, et les importer d’un clic dans iPackEPS. 
+- 📺 TUTORIEL COMPAGNON : import_eleves_pronote.mp4
+- 🛑 PIÈGE FATAL D'EXCEL (CORRUPTION DES ACCENTS ET DES CLASSES CSV) :
+  - Cause : Double-cliquer pour ouvrir un fichier CSV d'export Pronote ou ÉcoleDirecte directement dans Microsoft Excel. Excel convertit le fichier en ANSI/Windows-1252, détruit les accents (é devient Ã©) et transforme les libellés de classes de type « 1-1 » en dates (« 1er janvier »).
+  - Procédure de prévention et de sauvetage :
+    1. Ne jamais double-cliquer pour ouvrir un fichier CSV dans Excel.
+    2. Si une modification est nécessaire, l'ouvrir exclusivement avec le Bloc-notes Windows (Notepad) ou Notepad++.
+    3. Enregistrer le fichier en sélectionnant expressément l'encodage **UTF-8** avec le séparateur point-virgule (;).
+- RÉSUMÉ DE LA PROCÉDURE :
+  1. Générer le fichier des élèves depuis votre logiciel de vie scolaire, l’enregistrer sur son ordinateur.
+  2. Depuis iPackEPS, cliquer sur [Importer un fichier d'élèves], et sélectionner le fichier précédemment créé.
+- DÉTAIL DES MANIPULATIONS :
+  - PRONOTE : Menu [Mes Données] / [Liste des Élèves] > sélectionner le groupe à exporter > cliquer en haut à droite sur l’icône d’export des élèves.
+  - ÉCOLE DIRECTE : Aller dans le menu [consultation] puis onglet [groupes] puis icône [Les éditions] > cocher uniquement [date de naissance], [sexe] et [classe], puis cliquer sur [visualiser] > cliquer sur [télécharger le document] > ouvrir ensuite le fichier Excel généré, supprimer les lignes inutiles pour ne garder que la ligne d’en-tête > enfin cliquer sur [enregistrer sous] pour choisir le format CSV séparateur point-virgule.
+  - IMPORT SUR IPACKEPS : Tableau de bord => Dossiers => Dossier EPS => Élèves > cliquer sur [Importer un fichier Pronote], sélectionner le fichier CSV. Attention : il est déconseillé de tenter d’ouvrir les fichiers CSV avec Excel, leur format risquerait d’être corrompu et l’import dans iPackeps ne fonctionnerait plus (par exemple si une classe s’appelle 1-1, l’ouverture du fichier sur Excel transformerait la cellule en date et remplacerait [1-1] en [1er janvier]).
+- EN CAS D'ERREUR SIGNALÉE À L'IMPORTATION :
+  - Si iPackEPS indique que des classes n’ont pas été retrouvées : vérifiez que vous avez bien importé vos classes et élèves sur iPackEPS (menu [dossiers]/[dossier EPS]/[classes]). Vérifiez précisément dans le message d’erreur le nom de la classe qui n’est pas trouvée : si le nom n’est pas exactement le même que la vraie classe équivalente sur iPackEPS (par exemple, avec des espaces ou des caractères en moins : une classe peut s’appeler g-t1 sur iPackeps, et t1 sur Pronote), c’est que votre administration a modifié manuellement des noms de classe sur Pronote, sans les synchroniser avec les bases du rectorat. Cette manipulation est à proscrire puisque cela rend Pronote incompatible avec toutes les applis du rectorat. Le cas échéant, vous devrez renommer les noms de classe manuellement sur le fichier de Pronote.
+  - Si iPackEPS indique des noms d’élèves qui n’ont pas été retrouvés : là aussi, cette alerte s’affiche si votre administration a modifié manuellement des noms d’élèves sur Pronote, sans les synchroniser avec les bases du rectorat. Cette manipulation est à proscrire puisque cela rend Pronote incompatible avec toutes les applis du rectorat. Comme cela ne concerne que très peu d’élèves, il suffit dans ce cas d’ajouter manuellement les quelques élèves en erreur avec la procédure classique d’ajout d’élève dans un groupe. Prévenez tout de même votre administration que la préconisation est de demander les modifications de données sur Siecle, puis de synchroniser Pronote avec Siecle pour récupérer les modifications.
+- CRÉATION/MODIFICATION MANUELLE D'UN FICHIER À PARTIR DU PRESSE-PAPIER :
+  Si Pronote copie la liste dans le presse-papier au lieu de générer un fichier, vous pouvez le créer vous-même :
+  1. Créez un fichier texte vierge sur le bureau (sur Windows : clic droit => nouveau => document texte).
+  2. Ouvrez le fichier, copiez le texte suivant en ligne 1 : Nom;Prénom;Date de naissance;Sexe;Classe
+  3. En ligne 2, collez le presse-papier issu de votre logiciel de vie scolaire (clic droit => coller).
+  4. Enregistrer et fermer le fichier.
+  5. Renommez-le, en remplaçant l’extension .txt en .csv.
+  6. Vous pouvez maintenant importer le fichier sur iPackEPS.
+- CRÉATION/MODIFICATION MANUELLE D'UN FICHIER VIA EXCEL :
+  1. Ouvrez un classeur vierge sur Excel.
+  2. En ligne 1, mettez dans les cellules les libellés suivants (respectez la casse !) : Nom, Prénom, Date de naissance, Sexe, Classe
+  3. Dans les lignes suivantes, saisissez les infos élèves avec une ligne par élève. Tapez les dates au format JJ/MM/AAAA, et en colonne sexe tapez M ou F. Le nom de classe doit être strictement le même que le libellé de classe d’iPackEPS.
+  4. Enregistrer le fichier en passant par le menu [enregistrer sous], et choisissez le format [CSV utf8, séparateur ;].
+  5. Vous pouvez alors importer le fichier dans iPackEPS.
+- QUESTIONS / RÉPONSES :
+  - Q1 : Un message d’erreur m’indique que des colonnes n’ont pas été trouvées dans l’en-tête du fichier.
+  - R1 : Il est probable que sur Pronote vous ayez demandé un export d’une classe et non d’un groupe. Lorsque Pronote exporte une classe, il ne génère pas de colonne pour la classe des élèves. L’import est alors impossible sur iPackeps.
+

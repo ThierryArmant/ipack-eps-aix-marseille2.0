@@ -1,0 +1,8 @@
+### [SITUATION: CARACTÈRES SPÉCIAUX, PRÉNOMS COMPOSÉS ET ENCODAGE CSV CORROMPU]
+Mots-clés : Ã©, nom coupé, accents détruits, import Pronote échoué, tirets prénoms, UTF-8.
+- Diagnostic : L'ouverture d'un export Pronote ou ÉcoleDirecte sous une ancienne version de Microsoft Excel convertit silencieusement le fichier en ANSI/Windows-1252, détruisant les caractères accentués (é devient Ã©) et empêchant l'appariement avec SIÈCLE.
+- Procédure de sauvetage :
+  1. Ne jamais double-cliquer pour ouvrir le fichier CSV généré par Pronote.
+  2. Dans Pronote, privilégier l'export direct sans modification manuelle.
+  3. Si une retouche est indispensable, ouvrir le fichier avec le Bloc-notes Windows ou Notepad++, puis faire Enregistrer sous en sélectionnant expressément l'encodage UTF-8.
+

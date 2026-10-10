@@ -1,0 +1,85 @@
+### [ARTICLE 113] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)
+- Mots-clés : calendrier académique, dates limites, remontée des classes, import des classes, dépôt des référentiels, saisie des protocoles, DEC, circulaire académique annuelle, secrétariat des examens
+- Formulations courantes des collègues : avant quelle date dois-je importer mes classes ; quand faut-il valider les protocoles ; quelle est la date limite pour déposer les référentiels ; où trouver le calendrier des examens EPS ; qui fixe les dates limites
+- Règle d'or sur les dates : Le calendrier exact (dates de remontée des classes, dépôt des référentiels, saisie des protocoles, dates des CAHPN) est fixé et mis à jour annuellement par la DEC (Division des Examens et Concours) et l'Inspection Pédagogique de chaque académie. Il varie d'une année sur l'autre et d'une académie à l'autre.
+- Consigne anti-hallucination : Si l'utilisateur demande une date limite (ex: "Avant quelle date dois-je importer mes classes ?", "Quand faut-il valider les protocoles ?"), l'IA NE DOIT JAMAIS inventer de date précise (comme "le 15 octobre").
+- Formulation de la réponse : L'IA doit répondre que les dates limites sont spécifiques à chaque académie et à chaque année scolaire. Elle doit inviter l'utilisateur à consulter la circulaire académique annuelle ou à se rapprocher de son secrétariat des examens.
+- Aide technique proactive : L'IA doit obligatoirement profiter de la question pour proposer son aide technique sur l'action demandée. Par exemple, si la question porte sur la date de remontée des classes, l'IA proposera les tutoriels vidéo d'importation des élèves (ex: "Configuration_classes_import_eleves.mp4" ou "Import_automatique_eleves.mp4").
+======================================================================
+[ARTICLE 115] CONFIGURATION DES GROUPES DÉCLOISONNÉS (BARRETTES / MÉLANGE DE CLASSES)
+- Mots-clés : barrette, groupes décloisonnés, mélanger des classes, groupes mixtes, diviser des classes, 32 élèves, groupe eps, mode groupe, iPackEPS.
+- Règle technique fondamentale : Pour créer des groupes EPS qui ne correspondent pas aux classes d'origine (ex: regrouper une classe de 32 élèves et une de 16 élèves pour faire deux groupes de 24), iPackEPS impose une chronologie stricte en amont, sous peine de blocage ou d'interdiction de mélange par l'application.
+
+- PROCÉDURE OBLIGATOIRE PAS-À-PAS :
+  1. ÉTAPE PRÉALABLE ABSOLUE (Passage en Mode Groupe des classes sources) :
+     - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Classes] => [Organisation des classes].
+     - Action : Ouvrir les classes d'origine concernées et modifier leur mode de fonctionnement pour les passer impérativement en mode **[Groupe]** (et non "Classe entière" ou "Seule ou mixte"). C'est cette action indispensable qui lève le verrou informatique empêchant de ventiler les élèves dans de nouveaux groupes transversaux. *(Note : si l'application bloque en raison d'EDT déjà saisis, nettoyer les séquences au préalable).*
+  2. CRÉATION DES NOUVEAUX GROUPES :
+     - Chemin : [Tableau de bord] => [Dossiers] => [Dossier EPS] => [Groupes].
+     - Action : Créer les groupes d'enseignement réels (ex : "Terminale - Groupe EPS 1", "Terminale - Groupe EPS 2"), leur attribuer les séquences d'apprentissage et les APSA correspondantes.
+  3. VENTILATION DES ÉLÈVES :
+     - Chemin : [Tableau de bord] => [Mes Élèves].
+     - Action : Répartir manuellement les élèves issus des différentes classes d'origine dans leurs nouveaux groupes respectifs en cochant les cases et en validant l'affectation.
+  - 📺 Tutoriel associé : affecter_eleves_dans_groupes.mp4
+
+======================================================================
+[ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]
+Mots-clés : AEFE, MLF, étranger, hors de France, établissement étranger, rythme Sud, hémisphère Sud, lycée français étranger, homologué, zone AEFE, académie de rattachement, calendrier décalé, élèves introuvables étranger.
+
+Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges français à l'étranger, les règles d'utilisation d'iPackEPS et des examens comportent 6 spécificités majeures :
+
+1. Configuration iPackEPS & Absence de base SIÈCLE :
+   - Diagnostic : Les établissements hors de France ne sont pas interconnectés avec le SIÈCLE national direct du ministère.
+   - Comportement normal : Il est STRICTEMENT NORMAL que la liste des classes et des élèves soit vierge lors du clic sur « Actualiser ».
+   - Procédure : Ne pas chercher d'import automatique. Configurez le Dossier EPS (APSA, équipements) et créez vos classes/groupes manuellement dans [Dossiers] > [Dossier EPS] > [Groupes].
+
+2. Liaisons Cyclades & Examens (CCF Bac GT / Bac Pro) :
+   - Pas d'export automatique : iPackEPS ne peut pas générer de fichier de transfert automatique vers Cyclades pour l'étranger.
+   - Action secrétariat : L'association des candidats aux protocoles d'évaluation doit être effectuée manuellement dans CYCLADES par le secrétariat des examens de l'établissement (via l'activité « EPS - Associer les élèves à un protocole »).
+
+3. Calendriers d'Examens, Sessions Décalées & Hémisphère Sud :
+   - Rythme Nord : Verrouillage standard en mai/juin selon l'académie partenaire.
+   - Rythme Sud (Hémisphère Sud : Amérique du Sud, Océanie, Afrique australe...) : Les épreuves certificatives et les dates limites de saisie Santorin sont décalées (session d'octobre / novembre / décembre).
+   - Règle d'or : La date de fin de saisie dépend exclusivement du calendrier académique de rattachement.
+
+4. Référentiels d'Évaluation (FCA) & Académie de Rattachement :
+   - Chaque zone ou pays est adossé à une académie partenaire en France métropolitaine pour la gestion du Baccalauréat.
+   - Règle : Les fiches d'évaluation (FCA) déposées dans le [Dossier Certificatif] doivent respecter les listes et cadrages de l'académie de rattachement désignée par la DEC / l'AEFE.
+
+5. Certificats Médicaux & Inaptitudes Locales :
+   - Validité : Les certificats médicaux rédigés par les médecins locaux assermentés ou les médecins de l'Ambassade / Consulat sont pleinement recevables.
+   - Procédure : Déposer le certificat numérisé dans [Mes Élèves] > [Fiche élève] > [Inaptitudes] pour justifier du statut « Dispensé » (DISP) ou « Aménagé » face au jury académique métropolitain.
+
+6. Sécurité APPN & Droit Local vs Circulaires Françaises :
+   - Pour la certification (CCF) : Les critères et compétences des textes officiels français (BO) restent la règle d'évaluation.
+   - Pour les conditions matérielles et logistiques : Les normes locales de sécurité (accès secours, transports, législation du pays hôte) prévalent sur le terrain. Les projets APPN doivent formaliser ces adaptations spécifiques dans le dossier d'établissement.
+
+# MISE À JOURS ET PROTOCOLES IPACKEPS - SESSION 2026
+
+## 1. RÈGLE D'OR DE PRIORITÉ
+Toute information contenue dans ce fichier annule et remplace les procédures antérieures présentes dans les archives ou notes historiques.
+
+## 2. CHECKLIST DE FIN DE SESSION (Session 2026)
+- Coche Verte : Vérifier systématiquement la présence de la coche verte après chaque import d'effectif ou de dossier. Sans cette coche, les données ne sont pas consolidées pour Santorin.
+- Référentiels : En cas de modification d'un référentiel après saisie, la procédure obligatoire est la suppression totale de l'ensemble certificatif concerné, suivie d'une nouvelle saisie complète. Toute modification partielle est prohibée.
+- Cache Navigateur : En cas de page figée ou de menu grisé, vider le cache du navigateur avant toute autre action technique.
+- Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin selon le calendrier académique officiel de la DEC. Aucun import ne sera possible après cette date sans intervention des services.
+
+## 3. GESTION DES BLOCAGES
+- Ne jamais tenter de contournement par des saisies manuelles non documentées (IN/DI) pour forcer une validation.
+- En cas d'anomalie persistante sur les effectifs ou coefficients : la source de vérité est STSWeb. Contacter impérativement le secrétariat de direction.
+
+## 4. RAPPEL RÉGLEMENTAIRE
+- Baccalauréat en CCF : 3 épreuves de 3 champs d'apprentissage différents. En cas d'inaptitude, la certification peut porter sur 2 épreuves ; avec une seule note, la commission académique statue au cas par cas.
+- Toute demande de double correction ou contestation de note est une procédure administrative qui sort du champ d'application de l'outil iPackEPS. Renvoyer systématiquement vers la Direction.
+
+----------------------------------------------------------------------
+RÈGLE ABSOLUE DE CALCUL CCF (CAS MIXTES DI / ABI / NOTES) :
+En cas de protocole de CCF comportant plusieurs épreuves d'examen :
+1. DI (Dispense / Inaptitude médicale) : Neutralise l'épreuve. L'épreuve est retirée du calcul et ne compte pas dans le diviseur.
+2. ABI (Absence non justifiée) : Si aucun rattrapage n'a été fait avant la fermeture, l'épreuve vaut 0/20.
+3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
+EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
+OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.
+[SECTION: AJouts_RECENTS_TERRAIN]
+

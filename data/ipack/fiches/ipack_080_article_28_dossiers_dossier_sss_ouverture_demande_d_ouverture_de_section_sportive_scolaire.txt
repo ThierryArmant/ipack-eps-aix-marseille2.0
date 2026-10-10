@@ -1,0 +1,15 @@
+### [ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire
+- Mots-clés : demande d’ouverture SSS, section sportive scolaire, prérequis, axes de projet, APSA non proposée, conventions, annexes, document modèle, signature, [Enregistrer (brouillon)], réouvrir le dossier
+- Formulations courantes des collègues : Comment demander l’ouverture d’une section sportive ? ; Mon activité n’est pas proposée pour créer la SSS ; La liste des axes de projet est vide ; Le document ne s’ouvre pas quand je clique ; Comment modifier un dossier SSS déjà signé par le chef d’établissement ?
+- URL: spip.php?article28
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Demande d’ouverture SSS. NOTE : voici les informations minimales qui doivent nécessairement avoir été renseignées au prérequis, afin de pouvoir renseigner une demande d’ouverture de section sportive : Dossiers/dossier EPS/projets (Axes) ; Dossiers/dossier EPS/équipe (fiche actualisée) ; Dossiers/dossier EPS/apsa (activités pratiquées) ; Dossiers/dossier EPS/équipements (matériel déclaré).
+- QUESTIONS / RÉPONSES [CONTEXTE STRICTEMENT SSS] :
+  - Q1 : Lorsque je veux visualiser / télécharger le document modèle ou mes conventions/annexes pour ma SSS, rien ne se passe.
+  - R1 : Les documents téléchargés s’ouvrent dans un nouvel onglet : il est possible que certains navigateurs refusent d’ouvrir ces documents. Il suffit dans ce cas de repérer le message d’alerte (parfois discret en haut d’écran), et de valider l’ouverture du document.
+  - Q2 : Je veux créer une SSS baseball, mais iPackEPS ne me propose pas cette APSA lorsque je fais une demande d’ouverture de section.
+  - R2 : Il faut au préalable déclarer l’APSA Baseball dans [dossiers] / [dossier EPS] / [APSA].
+  - Q3 : La liste des axes de projet pour la SSS est vide.
+  - R3 : La saisie des Axes de projets se fait dans [Dossiers] / [dossier EPS] / [Axes des projets].
+  - Q4 : Mon chef d'établissement a signé le dossier de SSS, mais je veux y apporter des modifications. Comment réactiver la modification du document ?
+  - R4 : Il suffit de demander à votre chef d’établissement de réouvrir le dossier SSS, et de cliquer en bas de la fenêtre sur le bouton [Enregistrer (brouillon)]. Ceci supprimera sa signature. Vous pourrez alors modifier le dossier. Le chef d’établissement devra évidemment retourner plus tard sur ce dossier pour le resigner.
+

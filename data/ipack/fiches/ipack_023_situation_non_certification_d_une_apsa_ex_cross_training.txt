@@ -1,0 +1,3 @@
+### [SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]
+- Instruction : Si le bouton bascule « Certificative » est bloqué ou non sélectionnable sur OUI pour une APSA (ex : Cross-training ou Circuit-training), le référent doit d'abord vérifier que l'activité a bien été déclarée et enregistrée dans le menu initial « Dossier EPS -> APSA ». C'est l'activation du bouton sur OUI dans ce menu premier qui libère l'accès au dépôt de la FCA dans le dossier certificatif.
+

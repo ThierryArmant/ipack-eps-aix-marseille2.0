@@ -1,0 +1,8 @@
+### [SITUATION: DOUBLE NOTATION PRONOTE VS IPACKEPS (QUEL FICHIER FAIT FOI ?)]
+Mots-clés : écart de note Pronote iPack, quelle note compte pour le Bac, note bulletin différente du CCF.
+- Règle absolue de hiérarchie :
+  - Pour le Baccalauréat : SEULE la note saisie dans Santorin est officielle et prise en compte (coeff 6).
+  - Pour le livret de scolarité / Parcoursup : Les moyennes trimestrielles de Pronote/ÉcoleDirecte reflètent le contrôle continu ordinaire mais n'ont aucun impact sur l'obtention de la note d'examen du Bac.
+
+[SECTION: REPONSES_AUX_PROFESSEURS_REFRACTAIRES_ET_ANCIENNES_PRATIQUES]
+

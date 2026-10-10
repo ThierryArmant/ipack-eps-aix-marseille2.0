@@ -1,0 +1,12 @@
+### [ERREUR : AUCUN LOT À CORRIGER]
+- Mots-clés : aucun lot à corriger, Santorin, Cyclades, synchronisation, affectation, Rejouer l'import, DEC, capture d'écran, Choisir les AFLP, lot absent
+- Formulations courantes des collègues : Je n'ai aucun lot à corriger dans Santorin, que faire ? ; Pourquoi mon lot n'apparaît pas ? ; Le bouton Choisir les AFLP ne marche pas, pourquoi ? ; À qui signaler un lot manquant ?
+- Cause : Rupture de synchronisation entre Cyclades et Santorin ou absence d'affectation officielle.
+- Procédure :
+  1. Vérifier l'affectation dans Cyclades (DEC).
+  2. Forcer la synchronisation via « Rejouer l'import » dans Santorin.
+  3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
+- Note : Le bouton « Choisir les AFLP » est inopérant car le lot est absent de l'interface.
+
+[SECTION: LOGISTIQUE_EXAMENS_SANTORIN]
+

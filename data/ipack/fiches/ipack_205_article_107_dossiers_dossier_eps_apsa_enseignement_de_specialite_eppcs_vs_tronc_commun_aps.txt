@@ -1,0 +1,5 @@
+### [ARTICLE 107] [Dossiers]/[Dossier EPS]/[APSA] Enseignement de Spécialité EPPCS vs Tronc Commun : APSA Exclusive
+Mots-clés : spécialité EPPCS, cumul APSA bac, même activité en option et spécialité, distinction des grilles.
+- Règle d'étanchéité : Une APSA évaluée au titre de l'enseignement de spécialité EPPCS ne peut pas être utilisée par le même élève pour son CCF de tronc commun au Baccalauréat si les attendus et référentiels ne sont pas distincts.
+- Dans iPackEPS : déclarer les groupes EPPCS dans l'onglet dédié `[EPPCS]`. iPackEPS isole automatiquement la gestion de ces séquences des protocoles du tronc commun.
+

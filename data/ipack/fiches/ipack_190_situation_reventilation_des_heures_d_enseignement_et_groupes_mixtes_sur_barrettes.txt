@@ -1,0 +1,8 @@
+### [SITUATION: REVENTILATION DES HEURES D'ENSEIGNEMENT ET GROUPES MIXTES SUR BARRETTES]
+Mots-clés : barrette 6 classes, alignement d'emploi du temps, gestion gros lycées, groupes multi-divisions.
+- Règle de conception iPackEPS :
+  1. Dans [Dossiers] > [Dossier EPS] > [Classes] > [Organisation des classes], déclarer toutes les divisions de la barrette en mode [Groupe].
+  2. Dans [Dossiers] > [Dossier EPS] > [Groupes], créer les groupes d'activités réels (ex : Menu 1 - Demi-fond / Escalade / Badminton).
+  3. Dans [Élèves], ventiler les élèves de chaque division d'origine dans leurs groupes de destination respectifs.
+  4. Cette modélisation permet d'isoler les flux d'évaluation tout en conservant le lien avec la division administrative d'origine pour les exports vers les livrets scolaires.
+

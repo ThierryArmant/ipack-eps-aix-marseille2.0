@@ -1,0 +1,5 @@
+### [SITUATION: VALIDATION DU DOSSIER]
+- Instruction : Pour soumettre le dossier certificatif à la commission académique (CAHPN), seule la validation des dossiers certificatifs (FCA et protocoles) est requise. Il n'est pas nécessaire de transmettre ou de finaliser le « dossier établissement » global pour valider l'envoi. Le registre EPI n'est pas obligatoire.
+
+[SECTION: CAS_SPECIFIQUES_DES_APSA]
+

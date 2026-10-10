@@ -1,0 +1,5 @@
+### [ARTICLE 100] [Dossiers]/[Dossier EPS]/[Groupes] Sections Binationales (Abibac, Bachibac, Esabac) et Internationales (BFI)
+Mots-clés : section internationale, BFI, Abibac, Bachibac, Esabac, coefficient EPS binational, protocole spécifique.
+- Règle : Les élèves scolarisés en sections binationales ou internationales passent exactement les mêmes épreuves d'EPS du tronc commun que les autres élèves de la voie générale et technologique (coefficient 6).
+- Configuration iPackEPS : Créer les groupes et protocoles de manière standard en voie GT. Aucun paramétrage linguistique particulier n'est requis dans l'application.
+

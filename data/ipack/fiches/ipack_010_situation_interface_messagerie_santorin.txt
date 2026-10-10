@@ -1,0 +1,3 @@
+### [SITUATION: INTERFACE MESSAGERIE SANTORIN]
+- Instruction : En cas d'erreur (message incomplet, fausse manipulation), si l'utilisateur n'enregistre pas le message sur un dossier, le système ne le conserve pas. En cas de blocage ou d'anomalie sur un dossier (marqué incomplet à tort), privilégier immédiatement la communication directe par mail avec les coordonnateurs.
+

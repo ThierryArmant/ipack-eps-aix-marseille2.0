@@ -1,0 +1,5 @@
+### [SITUATION: ENSEIGNLES AVEC EPS ADAPTÉE]
+- Instruction : La présence d'épreuves adaptées (ex : marche adaptée, pétanque) dans un ensemble certificatif assouplit les règles de composition. Pour les déclarer, il faut éditer l'APSA et cocher la case « Adaptée ». Le tableau récapitulatif de droite confirmera visuellement le statut adapté de l'activité.
+
+[SECTION: INTERFACES_RH_COMPTES_ET_BASES_ACADEMIQUES]
+

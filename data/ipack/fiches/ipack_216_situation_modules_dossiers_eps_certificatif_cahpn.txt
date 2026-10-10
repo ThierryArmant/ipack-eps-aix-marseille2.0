@@ -1,0 +1,13 @@
+### [SITUATION: MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)]
+* Dépôts multiples (Axes des projets EPS) : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement ou d'EPS.
+* Actualisation élargie (Équipe EPS et Classes) : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves.
+  📺 Tutoriel associé : Actualisation_equipe_classes.mp4
+* Visibilité des dates CM et Séquences : Affichage croisé des dates de début/fin des Certificats Médicaux (CM) et des Séquences d'Apprentissage. Une colonne d'alerte signale si un CM se situe en dehors de la période de la séquence.
+  📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
+* Filtres et alertes CAHPN : Ajout d'un filtre par sous-commission, affichage des CM manquants et alertes sur les dates incohérentes.
+* Export ZIP structuré : Les documents du dossier certificatif sont désormais triés dans une arborescence claire par type (Public / Privé) et par département.
+  📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
+* Export Cyclades des profs externes : Le fichier exporté à destination de la DEC (pour la création des comptes Imag'In) intègre désormais une colonne [examen] dédiée.
+  📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
+
+----------------------------------------------------------------------

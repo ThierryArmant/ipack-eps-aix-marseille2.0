@@ -1,0 +1,4 @@
+### [SITUATION: IPACKEPS — ADAPTATION ATHLÉTISME]
+* VERROUILLAGE DES CANDIDATS : Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole précis (Course, ou Saut, ou Lancer) en début d'année. Ils ne doivent PLUS EN BOUGER en cours d'année ou au milieu du cycle selon les séances.
+* LOGIQUE INFORMATIQUE : L'application iPackEPS n'est pas un carnet de note de séance ; elle est structurée pour collecter les performances certificatives finales associées au groupe fixe défini dans le protocole validé.
+

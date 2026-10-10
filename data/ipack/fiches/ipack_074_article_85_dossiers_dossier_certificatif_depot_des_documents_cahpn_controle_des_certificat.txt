@@ -1,0 +1,6 @@
+### [ARTICLE 85] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux
+- Mots-clés : certificats médicaux, CM, contrôle, dépôt, CAHPN, fiche de visualisation, élèves non importés, CFA, AEFE, dépôt manuel, classes à examens
+- Formulations courantes des collègues : Où déposer les certificats médicaux pour la commission ? ; Mes élèves ne sont pas dans iPackEPS, comment déposer leurs certificats ? ; Comment déposer un CM pour un élève de classe à examens ? ; Peut-on déposer les CM à la main ?
+- URL: spip.php?article85
+- Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Pour le dépôt / contrôle des certificats médicaux, 2 cas peuvent être rencontrés : si les élèves de vos classes à examens sont bien présents dans iPackEPS, vous déposerez pour chaque élève concerné son CM dans sa fiche de visualisation ; si vos élèves de classe à examens ne sont pas importés dans iPackEPS (CFA, AEFE…), vous pourrez déposer manuellement les CM directement dans cette fenêtre de documents pour la CAHPN.
+

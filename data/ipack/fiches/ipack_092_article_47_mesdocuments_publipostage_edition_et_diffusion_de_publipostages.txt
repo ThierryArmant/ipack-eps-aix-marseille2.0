@@ -1,0 +1,6 @@
+### [ARTICLE 47] [MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages
+- Mots-clés : publipostage, édition, diffusion, documents modèles, balises, nom et prénom de l’élève, sélection d’élèves, impression personnalisée
+- Formulations courantes des collègues : Comment faire un publipostage ? ; À quoi servent les balises ? ; Comment imprimer un document personnalisé pour chaque élève ? ; Où est le menu publipostage ?
+- URL: spip.php?article47
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Publipostage. La fonction de publipostage permet d’éditer des documents modèles contenant des balises spécifiques permettant d’intégrer dynamiquement diverses informations (nom et prénom de l’élève, etc…). Lorsque vous imprimez un publipostage à partir d’une sélection d’élèves, vous imprimez une série de documents, contenant chacun des infos personnalisées par élève.
+

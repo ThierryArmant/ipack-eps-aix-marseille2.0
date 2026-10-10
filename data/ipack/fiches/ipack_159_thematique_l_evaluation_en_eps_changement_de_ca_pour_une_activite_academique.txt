@@ -1,0 +1,7 @@
+### Thématique : L'évaluation en EPS (Changement de CA pour une activité académique)
+- Mots-clés : changer de champ d'apprentissage, activité académique, activité d'établissement, FCA établissement, CA, référentiel, CAHPN, validation
+- Formulations courantes des collègues : Peut-on mettre une activité académique dans un autre champ d'apprentissage ?; Comment créer une activité d'établissement sur un autre CA ?; Quand faire valider une fiche d'activité établissement ?
+- **Question** : Peut-on changer de champ d’apprentissage une activité académique ?
+- **Réponse Lycée GT Bac** : Non, mais l'établissement peut créer une activité d'établissement à partir de la même activité sur un CA différent (et son référentiel doit répondre à celui du champ concerné). L'établissement doit faire valider cette FCA établissement à la CAHPN l'année qui précède la mise en œuvre des enseignements.
+- Texte officiel qui encadre l'EPS à cet examen (baccalauréat général et technologique : note de service du 20 février 2026 (NOR MENE2531948N, Bulletin officiel n° 9 du 26 février 2026)).
+

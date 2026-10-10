@@ -1,0 +1,6 @@
+### [SITUATION: GESTION DES ÉLÈVES BÉNÉFICIANT D'UN PAI, PAP OU PPS]
+- Mots-clés : PAI, PAP, PPS, dispense d'EPS, statut DI, statut IN, aménagements, pratique aménagée, asthme, troubles DYS, pathologie chronique
+- Formulations courantes des collègues : Un élève avec un PAI est-il dispensé d'EPS ? ; Est-ce que je mets DI pour un élève qui a un PAP ? ; Comment évaluer un élève asthmatique avec un PAI ? ; Que faire dans iPackEPS pour un élève avec un PPS ?
+- Règle fondamentale : Un PAI (Projet d'Accueil Individualisé), un PAP (Plan d'Accompagnement Personnalisé) ou un PPS formalisant un trouble ou une pathologie chronique (asthme, allergies, troubles DYS) **n'est pas une dispense d'EPS**.
+- Procédure iPackEPS : L'élève assiste aux cours et participe aux APSA avec les aménagements pédagogiques et matériels prévus. Ne jamais saisir de statut `DI` ou `IN` dans iPackEPS sur la seule base d'un PAI/PAP si l'élève pratique de manière aménagée. L'évaluation se fait sur les compétences réelles de l'élève au travers de la grille critériée habituelle ou d'une pratique aménagée.
+

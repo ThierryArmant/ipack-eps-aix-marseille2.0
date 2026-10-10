@@ -1,0 +1,6 @@
+### [ARTICLE 23] En cas d’impossibilité d’accéder à iPackEPS…
+- Mots-clés : impossibilité d'accéder, problème d'accès, connexion impossible, je ne vois pas le lien, propositions de solution, IA IPR EPS, DSI
+- Formulations courantes des collègues : je n'arrive pas à accéder à iPackEPS ; je ne vois pas le lien iPackEPS ; iPackEPS n'apparaît pas dans mon portail ; que faire si l'accès ne marche pas
+- URL: spip.php?article23
+- Texte: Document complet à destination des IA IPR EPS / DSI. Si vous ne parvenez pas à accéder à iPackEPS, consultez les propositions de solution ci-dessous : Problème 1 : « Je ne vois pas le lien (...) ».
+

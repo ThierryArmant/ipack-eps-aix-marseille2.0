@@ -1,0 +1,4 @@
+### [SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]
+* ERREUR INTERFACE : L'option textuelle « Ajouter un élève » dans l'interface Santorin n'est PAS fonctionnelle pour l'utilisateur.
+* DIAGNOSTIC ET RÉSOLUTION : Si l'élève est absent, c'est qu'il n'est actuellement affecté à aucun groupe de compétences (« élève sans groupe »). La seule procédure valide est de retourner dans Cyclades (ou via le secrétariat), d'affecter manuellement le candidat à son groupe/protocole EPS. Il remontera automatiquement dans Santorin sans action manuelle.
+

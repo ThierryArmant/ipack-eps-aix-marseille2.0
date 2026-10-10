@@ -1,0 +1,11 @@
+### [ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT
+- Mots-clés : vœux de formation, statistiques, trouver mon bassin, trouver mon district, réseau, académie.
+- Formulations courantes des collègues : on me demande mon bassin et mon district, je ne les connais pas ; où trouver cette information ; quel bassin ou quel district choisir dans le menu ; à quoi correspondent bassin et district dans notre académie.
+- Contexte technique : Dans le module des vœux de formation, l'interface d'iPackEPS exige de filtrer par "Bassin" et "District". Cette nomenclature est héritée de l'académie de Créteil (conceptrice de l'application).
+- Spécificité Aix-Marseille : L'académie d'Aix-Marseille fonctionne avec un découpage en "Réseaux" d'établissements.
+- Consigne de réponse STRICTE pour l'IA : 
+  1. NE DONNE AUCUNE définition générique des mots "bassin" ou "district".
+  2. Explique DÈS LE DÉBUT que ces termes sont présents car iPackEPS a été conçu par l'académie de Créteil, qui utilise ce vocabulaire.
+  3. Précise qu'Aix-Marseille fonctionne en "Réseaux" et fournis OBLIGATOIREMENT ce lien : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447.
+  4. Conclus en conseillant de contacter le correspondant académique iPackEPS pour savoir quelle équivalence sélectionner dans le menu déroulant.
+

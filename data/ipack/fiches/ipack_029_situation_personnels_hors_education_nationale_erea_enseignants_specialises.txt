@@ -1,0 +1,9 @@
+### [SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]
+- Mots-clés : personnels hors Éducation nationale, EREA, enseignant spécialisé, professeur des écoles spécialisé, CAP, formulaire d'enquête DSI, déclaration enseignant, droits d'accès, ouverture manuelle, ESTEREL
+- Formulations courantes des collègues : je suis professeur des écoles spécialisé en EREA, comment avoir mes accès ; je gère des CAP mais je n'ai pas de droits d'accès ; où est le formulaire pour déclarer un enseignant à la DSI ; comment faire ouvrir mes droits sur ESTEREL
+- Instruction : Pour les structures spécifiques (ex : Professeur des écoles spécialisé à l'EREA de Haute Provence à BEVONS 04), les enseignants gérant des CAP doivent obligatoirement être déclarés via le formulaire d'enquête académique de la DSI pour obtenir l'ouverture manuelle de leurs droits d'accès à l'application ESTEREL.
+  -> Lien d'enquête DSI : https://appli.region-academique-paca.fr/enquetes/index.php/993987?lang=fr
+
+- Instruction : Pour les structures spécifiques (ex : Professeur des écoles spécialisé), les enseignants gérant des CAP doivent obligatoirement être déclarés via le formulaire d'enquête académique de la DSI pour obtenir l'ouverture manuelle de leurs droits d'accès à l'application ESTEREL.
+[SECTION: PROCEDURES_INAPTITUDES_ET_LEVEE_DE_CYCLE]
+

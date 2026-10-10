@@ -1,0 +1,7 @@
+### [SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]
+- Mots-clés : enseignant externe, enseignant partagé, GRETA, CFA, AEFE, vacataire, rattachement, équipe EPS, affectation, installation administrative, droits Arena
+- Formulations courantes des collègues : Un collègue n'apparaît pas dans l'équipe EPS, pourquoi ? ; Comment ajouter un enseignant partagé sur deux établissements ? ; Un vacataire n'a pas accès à iPackEPS, que faire ? ; Qui doit déclarer l'affectation d'un enseignant ?
+- Instruction : L'accès à iPackEPS est strictement conditionné par les données de paie et d'affectation RH du Rectorat (DRASI). Si un enseignant (ex : M. Damien LUPI, intervenant au Lycée Charles Privat d'Arles 0130171R mais administrativement rattaché au Collège Van Gogh 0131610E) n'apparaît pas dans l'équipe EPS d'un établissement, la DSI ne peut pas le forcer. Le chef d'établissement doit obligatoirement procéder à son installation administrative et déclarer son affectation sur le lycée pour que ses droits Arena redescendent automatiquement.
+
+- Instruction : L'accès à iPackEPS est strictement conditionné par les données de paie et d'affectation RH du Rectorat (DRASI). Si un enseignant n'apparaît pas dans l'équipe EPS d'un établissement, la DSI ne peut pas le forcer. Le chef d'établissement doit obligatoirement procéder à son installation administrative et déclarer son affectation sur le lycée pour que ses droits Arena redescendent automatiquement.
+

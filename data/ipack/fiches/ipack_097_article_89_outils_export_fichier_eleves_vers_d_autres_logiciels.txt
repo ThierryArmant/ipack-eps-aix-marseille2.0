@@ -1,0 +1,6 @@
+### [ARTICLE 89] [Outils]/[Export Fichier Elèves vers d’autres logiciels]
+- Mots-clés : export, fichier élèves, Outils, autres logiciels, Idoceo, Additio, dossier zip, un fichier par groupe, liste des élèves
+- Formulations courantes des collègues : Comment exporter mes élèves vers Idoceo ? ; Comment récupérer mes listes de classes pour Additio ? ; Où exporter le fichier élèves ? ; Que contient le zip exporté ?
+- URL: spip.php?article89
+- Texte: Accès à cette fonctionnalité : interface Professeur : module : [Outils]/[Export Fichier Elèves vers d’autres logiciels]. iPackEPS vous permet d’exporter la liste des élèves de vos divers groupes et classes pour les logiciels de gestion d’élèves, comme Idoceo ou Additio. iPackEPS génère un dossier zip, dans lequel vous trouverez un fichier par groupe. Chaque fichier contient la liste des élèves du groupe.
+

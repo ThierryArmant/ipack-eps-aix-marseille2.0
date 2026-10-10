@@ -1,0 +1,7 @@
+### [SITUATION: DONNÉES ACADÉMIQUES, RAPPORTS & CONFIGURATION TECHNIQUE]
+* État des serveurs : Rapport technique affichant l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque libre, les versions PHP et de base de données.
+* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
+* Paramétrage des Dossiers SSS & Communications : Activation ou désactivation granulaire des sous-dossiers SSS et gestion des autorisations d'utilisation de la messagerie par les commissions.
+* Annuaire et Publipostage : Transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour faciliter le publipostage via CommissionBac et CommissionPro.
+
+----------------------------------------------------------------------

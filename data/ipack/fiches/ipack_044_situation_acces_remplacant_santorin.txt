@@ -1,0 +1,3 @@
+### [SITUATION: ACCÈS REMPLAÇANT SANTORIN]
+- Instruction : Pour donner accès à la saisie des notes sur Santorin à un remplaçant, l'affectation manuelle se fait dans Imag'in en générant le fichier PDF de convocation.
+

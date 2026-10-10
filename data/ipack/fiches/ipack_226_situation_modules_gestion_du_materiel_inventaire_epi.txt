@@ -1,0 +1,6 @@
+### [SITUATION: MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI]
+* Description enrichie du matériel : Possibilité d'ajouter des photos du matériel, d'importer la notice technique et de modifier la fréquence des contrôles (définie par défaut à 12 mois).
+  📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
+* Édition papier : La version papier de l'inventaire EPI intègre désormais automatiquement la photo du matériel.
+
+----------------------------------------------------------------------

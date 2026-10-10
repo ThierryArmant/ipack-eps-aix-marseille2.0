@@ -1,0 +1,7 @@
+### [ARTICLE 103] [Tableau de bord]/[Chef d'établissement] Signature Électronique Grisée ou Inaccessible
+Mots-clés : chef établissement ne peut pas signer, bouton valider grisé direction, proviseur bloqué, délégation signature.
+- Diagnostic : Le compte du chef d'établissement ne dispose pas des droits de validation institutionnelle dans l'annuaire FIM / Arena, ou les protocoles contiennent une erreur bloquante non commentée.
+- Résolution :
+  1. Vérifier dans `[Dossier Certificatif]` qu'aucun protocole n'est marqué en rouge vif (invalide). Si des alertes orange subsistent, vérifier qu'un commentaire d'équipe a bien été enregistré.
+  2. Si le bouton reste grisé : le chef d'établissement doit forcer la synchronisation de ses délégations dans le portail Arena académique (module Délégations / Droits applicatifs).
+

@@ -1,0 +1,101 @@
+### 7. Administration, Rapports et Paramétrage Technique
+- Mots-clés : état des serveurs, rapport technique, Ramsese, Siècle, EPP, espace disque, annuaire, publipostage, CommissionBac, CommissionPro, coordonnateurs
+- Formulations courantes des collègues : Comment vérifier que les connexions aux bases fonctionnent ? ; Où voir l'état des serveurs ? ; Comment récupérer les mails des coordonnateurs ? ; Comment faire un publipostage aux établissements ?
+* **État des serveurs :** Le module de rapport technique restitue l'état des connexions aux bases académiques (Ramsese, Siècle, EPP Public/Privé), l'espace disque disponible ainsi que les versions logicielles (PHP, bases de données).
+* **Annuaire et Publipostage :** L'export de l'annuaire des établissements transmet les e-mails des coordonnateurs et responsables de certification pour permettre le publipostage via *CommissionBac* et *CommissionPro*.
+
+TITRE : Guide iPackEPS - Gestion des Emplois du Temps (EDT) et des Créneaux
+- Mots-clés : emploi du temps, EDT, créneau, agenda, semaine A semaine B, clic droit, Supprimer, Modifier, Ajouter un créneau, Vérification agenda, cité scolaire, UAI, Doc Synthèse, blocage à 97%, export Cyclades, chemins de menus
+- Formulations courantes des collègues : Où se trouve l'emploi du temps dans iPackEPS ? ; Comment supprimer ou déplacer un créneau ? ; Comment gérer les semaines A et B ? ; Je suis bloqué à 97 %, que faire ? ; Un collègue de la cité scolaire n'apparaît pas dans l'équipe, pourquoi ?
+
+ACCÈS AU MODULE :
+- La visualisation et la gestion des emplois du temps de l'équipe EPS se font depuis le module [Dossiers] > [Dossier EPS] > [Emploi du Temps].
+- Le module s'articule autour de l'agenda (équipe, enseignant, type de groupe), de l'édition de la liste des créneaux et d'un outil de vérification des alertes.
+
+QUESTIONS FRÉQUENTES & CAS PRATIQUES (FAQ EDT) :
+
+1. Affichage des créneaux en 2 colonnes :
+- L'affichage de l'emploi du temps se fait sur des tranches horaires de 30 minutes. Lorsqu'un créneau se termine et qu'un autre commence sur la même tranche horaire, l'interface graphique crée automatiquement 2 colonnes pour éviter les chevauchements (il s'agit d'une adaptation purement graphique).
+
+2. Suppression d'un créneau existant :
+- Il suffit de faire un clic droit sur le créneau concerné et de sélectionner l'option [Supprimer].
+
+3. Déplacement ou modification d'un créneau :
+- Il suffit de faire un clic droit sur le créneau et de sélectionner [Modifier] (ou de double-cliquer directement sur le créneau). Les paramètres s'affichent alors, permettant d'ajuster le jour, l'heure de début et de fin, l'équipement, etc.
+
+4. Gestion de plusieurs groupes ou enseignants simultanés sur le même créneau :
+- Si l'un des créneaux est déjà créé, faites un clic droit sur ce créneau et cliquez sur l'option [Ajouter un créneau] pour superposer un second groupe ou un second enseignant sur la même plage horaire.
+
+5. Saisie en cité scolaire (Collège et Lycée) :
+- NON : Il est impossible de tout saisir sur une seule entité. L'emploi du temps du collège doit être complété sur l'entité collège et celui du lycée sur l'entité lycée correspondante.
+
+6. Gestion des créneaux en Semaine A et Semaine B :
+- Double-cliquez sur le créneau, renseignez la classe, l'activité et l'équipement, puis cochez l'option "Répéter toutes les deux semaines". Veillez à bien pointer sur la date de début de la première leçon et à respecter le décalage de semaine (A ou B) lors de la saisie des classes alternées.
+
+7. Vérification et alertes sur les créneaux :
+- Le menu "Vérification agenda" permet de détecter automatiquement les séquences d'apprentissage manquantes (non placées sur l'EDT), les saisies erronées pendant les vacances scolaires ou en dehors des plages horaires classiques, ainsi que les doublons de créneaux.
+======================================================================
+CARTOGRAPHIE DES MENUS ET LEXIQUE OFFICIEL - IPACKEPS
+======================================================================
+
+1. LEXIQUE DES DOCUMENTS ET TERMES TECHNIQUES (ANTI-HALLUCINATION)
+- Fichier Synthèse Établissement (aussi appelé par les collègues : « Doc Synthèse », document de synthèse ou dossier de synthèse voie générale et technologique / voie professionnelle ; « en quoi consiste ce document », « où trouver le modèle », « que faut-il déposer ») : Il s'agit du document officiel académique (souvent un export PDF généré automatiquement ou une trame tableur fournie par la DEC) qui récapitule les protocoles d'évaluation de l'établissement. L'enseignant ne doit en aucun cas créer ou rédiger ce document manuellement sur un traitement de texte (Word/PDF). Il se dépose dans le menu de dépôt des référentiels.
+- APSA Établissement : Activité physique spécifique au projet local. À ne surtout pas confondre avec la liste nationale certificative pour le Baccalauréat.
+- SSS (Section Sportive Scolaire) : Structure nécessitant une validation rectorale. L'application bloque sa création par défaut si l'établissement n'a pas les droits activés.
+- Options Travaillées : Les déclinaisons spécifiques des activités (ex: type d'agrès en gymnastique, type de relais) qui doivent être paramétrées avant la saisie des séquences.
+
+2. CARTOGRAPHIE DES MENUS (CHEMINS DE NAVIGATION EXACTS)
+Pour toute démarche technique dans iPackEPS, respectez scrupuleusement ces chemins de navigation :
+- Pour configurer les activités certificatives (liste nationale) : Allez dans [Dossiers] > [Dossier EPS] > [APSA].
+- Pour configurer les options d'une activité : Allez dans [Dossiers] > [Dossier EPS] > [Options].
+- Pour gérer les dates de CCF et les séquences d'évaluation : Allez dans [Dossiers] > [Dossier EPS] > [Séquences] (ou [Protocoles] selon la mise à jour).
+- Pour vérifier ou importer les listes d'élèves (SIÈCLE / Pronote) : Allez dans [Dossiers] > [Dossier EPS] > [Élèves].
+- Pour créer des groupes inter-classes et répartir les effectifs : Allez dans [Dossiers] > [Dossier EPS] > [Classes / Groupes].
+- Pour déposer le Fichier Synthèse Établissement ou les référentiels : Allez dans [Dossiers] > [Dossier EPS] > [Dépôt des référentiels] (ou [Dépôts]).
+- Pour la gestion spécifique des SSS (Sections Sportives) : Allez dans [Dossiers] > [Dossier SSS].
+- Fichier d'export Cyclades (Groupes) : Fichier informatique généré par iPackEPS pour remonter la structure vers Cyclades. RÈGLE ABSOLUE : L'enseignant ne doit JAMAIS ouvrir ce fichier avec un tableur (Excel, Calc) avant de l'importer, sous peine de corrompre définitivement le formatage des données. Il doit être téléchargé puis directement importé brut.
+- Grilles de terrain (Calculatrices Excel) : L'application iPackEPS ne fournit aucun fichier Excel pré-calculé ou automatisé pour la notation sur le terrain. Seuls les référentiels certificatifs au format PDF (textes officiels) sont téléchargeables.
+- Certificat Médical d'inaptitude (CM) : L'application ne fournit aucun modèle vierge à télécharger. Le certificat médical est un document papier (souvent intégré au carnet de liaison ou fourni par la vie scolaire). L'enseignant ne fait que consigner l'inaptitude dans le logiciel (statut DISP).
+======================================================================
+RÈGLES SPÉCIFIQUES - CITÉS SCOLAIRES (COLLÈGE + LYCÉE)
+======================================================================
+
+1. LE PRINCIPE DES DEUX UAI (UNITÉS ADMINISTRATIVES)
+- Une cité scolaire n'existe pas informatiquement en tant qu'entité unique. Elle est obligatoirement scindée en deux établissements virtuels distincts possédant chacun son propre numéro UAI (un UAI pour le Collège, un UAI pour le Lycée).
+- Conséquence d'accès : Sur le portail ARENA, l'enseignant ou le personnel de direction doit impérativement sélectionner le bon établissement (le bon UAI) dans le menu déroulant en haut à droite AVANT de cliquer sur iPackEPS, Santorin ou Cyclades.
+
+2. GESTION DES ENSEIGNANTS SUR DEUX STRUCTURES (SERVICE PARTAGÉ)
+- Un enseignant nommé au collège (UAI 1) n'apparaîtra jamais automatiquement dans l'équipe EPS de l'interface iPackEPS du Lycée (UAI 2), même s'il y donne des cours.
+- Résolution : Le secrétariat de l'établissement doit obligatoirement déclarer l'enseignant en "Service partagé" ou l'affecter manuellement sur la structure du Lycée dans la base de données académique STS-Web. Une fois l'action réalisée par l'administration, l'équipe EPS pourra cliquer sur "Actualiser l'équipe" dans iPackEPS.
+
+3. SÉPARATION DES PROTOCOLES ET DES EXPORTS CYCLADES
+- L'importation des élèves (depuis Pronote ou Siècle) et l'exportation des groupes vers Cyclades doivent se faire indépendamment pour chaque structure. 
+- Il est impossible de fusionner un groupe d'élèves de 3ème (Collège) avec un groupe de 2nde (Lycée) dans iPackEPS, les bases de données (UAI) étant hermétiques entre elles.
+======================================================================
+CARTOGRAPHIE, LEXIQUE ET RÉSOLUTION D'ERREURS - IPACKEPS
+======================================================================
+
+1. MESSAGES D'ERREUR FRÉQUENTS ET BLOCAGES (RÉSOLUTION)
+- Blocage à 97% / "0 0 1 Doc Synthèse Voie Générale & Technologique 0 en attente" (ou Voie Pro) : C'est un comportement normal. Cela signifie que l'intégralité des saisies pédagogiques est correcte. Le système attend simplement le téléversement final du document académique pour débloquer les 100% et autoriser la transmission. Ce document se dépose exclusivement dans le menu [Dossiers] > [Dossier EPS] > [Dépôt des référentiels] (ou [Dépôts]).
+- "Aucun élève dans cet établissement" (Importation) : Ce message d'erreur survient à la rentrée lorsqu'il y a un décalage de synchronisation entre la base administrative (SIÈCLE) et le portail ARENA. Le secrétariat doit valider la bascule de rentrée, puis l'enseignant doit lancer une actualisation manuelle dans [Dossiers] > [Dossier EPS] > [Élèves].
+- "APSA Établissement" vs "Liste Nationale" : Déclarer une activité en "APSA établissement" au lieu de la "liste nationale" bloque la validation du protocole certificatif pour le Baccalauréat. Il faut retourner dans [Dossiers] > [Dossier EPS] > [APSA] pour sélectionner la bonne activité dans la liste nationale.
+
+2. LEXIQUE DES FICHIERS ET STRUCTURES (ANTI-HALLUCINATION)
+- Fichier Synthèse Établissement : Document officiel académique (souvent un export PDF ou une trame tableur fournie par la DEC) récapitulant les protocoles. L'enseignant ne doit JAMAIS créer ce document manuellement sur un traitement de texte (Word).
+- Fichier d'export Cyclades (XML/CSV) : Fichier informatique généré par iPackEPS pour remonter les groupes d'élèves vers Cyclades. RÈGLE ABSOLUE : L'enseignant ne doit JAMAIS ouvrir ce fichier avec un tableur (Excel, Calc) avant de l'importer, sous peine de corrompre définitivement le formatage des données. Il doit être téléchargé puis directement importé brut.
+- Grilles de terrain (Calculatrices Excel) : iPackEPS ne fournit aucun fichier Excel pré-calculé pour la notation. Seuls les référentiels PDF sont téléchargeables.
+- SSS (Section Sportive Scolaire) : La création d'un groupe SSS est bloquée par défaut si le rectorat n'a pas validé la demande. Il faut contacter la direction ou l'IPR pour débloquer les droits.
+
+3. CAS PARTICULIER DES CITÉS SCOLAIRES (COLLÈGE + LYCÉE)
+- Principe des deux UAI : Une cité scolaire est scindée informatiquement en deux établissements (un numéro UAI pour le Collège, un UAI pour le Lycée). L'enseignant doit impérativement sélectionner le bon UAI dans le menu déroulant du portail ARENA avant de lancer iPackEPS.
+- Équipe EPS et Enseignants manquants : Il est strictement impossible de créer un compte enseignant manuellement (pas de bouton "Ajouter"). Les comptes remontent par synchronisation avec STS-Web. Si un enseignant est sur le Collège mais n'apparaît pas sur le Lycée, c'est que le secrétariat ne l'a pas affecté en "Service partagé" sur la structure du Lycée dans STS-Web. Une fois régularisé par la direction, cliquez sur le bouton d'actualisation dans [Dossiers] > [Dossier EPS] > [Équipe EPS].
+- Étanchéité des bases : Il est impossible de fusionner des groupes d'élèves du collège avec des élèves du lycée, les bases SIÈCLE étant séparées.
+
+4. CARTOGRAPHIE DES MENUS (CHEMINS DE NAVIGATION EXACTS)
+Pour toute démarche technique, respectez scrupuleusement ces chemins :
+- Configurer les activités (liste nationale) : [Dossiers] > [Dossier EPS] > [APSA].
+- Définir les dates de CCF et séquences : [Dossiers] > [Dossier EPS] > [Séquences] (ou [Protocoles]).
+- Configurer les options d'une activité : [Dossiers] > [Dossier EPS] > [Options].
+- Créer des groupes inter-classes : [Dossiers] > [Dossier EPS] > [Classes / Groupes].
+- Gérer les sections sportives : [Dossiers] > [Dossier SSS].
+

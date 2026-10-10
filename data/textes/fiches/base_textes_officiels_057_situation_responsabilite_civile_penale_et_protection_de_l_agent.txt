@@ -1,0 +1,10 @@
+### [SITUATION: RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION DE L'AGENT]
+* RESPONSABILITÉ CIVILE & SUBSTITUTION DE L'ÉTAT (Art. L. 911-4 Code de l'éducation / Loi du 5 avril 1937) : 
+  La responsabilité civile de l'enseignant public est irrévocablement couverte par l'État pour tout dommage subi ou causé par un élève sous sa surveillance. L'action en responsabilité est menée exclusivement devant les tribunaux civils contre le Recteur. L'action récursoire de l'État contre l'agent n'est possible qu'en cas de faute personnelle détachable du service (ex: violences volontaires, abandon de poste caractérisé). L'erreur technique ou didactique est une faute de service non détachable.
+* RESPONSABILITÉ PÉNALE INDIVIDUELLE (Art. 121-3 Code pénal / Loi n° 2000-647 dite "Loi Fauchon") : 
+  La responsabilité pénale est personnelle. En cas d'accident grave, l'enseignant auteur indirect est poursuivi pour blessures ou homicide involontaires. Sa responsabilité pénale exige impérativement la preuve d'une FAUTE CARACTÉRISÉE (manquement d'une particulière gravité à une obligation de sécurité que l'agent ne pouvait ignorer, exposant autrui à un risque d'une particulière gravité).
+* OBLIGATION DE MOYENS RENFORCÉE EN EPS : 
+  L'enseignant n'est pas soumis à une obligation de résultat (le risque zéro n'existe pas), mais à une obligation de moyens "renforcée" reposant sur 4 piliers : anticipation des risques, contrôle des EPI/matériel, consignes de sécurité explicites, et maintien d'une surveillance continue, active et visuelle.
+* PROTECTION FONCTIONNELLE (Art. L. 134-1 à L. 134-4 Code de la fonction publique) : 
+  Le Rectorat est tenu d'accorder la protection fonctionnelle à l'enseignant victime de violences, menaces, outrages ou lynchage numérique dans l'exercice de ses fonctions (prise en charge des frais de défense et assistance juridique).
+

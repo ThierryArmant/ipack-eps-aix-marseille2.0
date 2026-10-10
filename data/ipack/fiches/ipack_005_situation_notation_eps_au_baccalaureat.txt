@@ -1,0 +1,3 @@
+### [SITUATION: NOTATION EPS AU BACCALAURÉAT]
+- Instruction : Seule la note de CCF (Contrôle en Cours de Formation) de Terminale remonte sur Cyclades (coefficient 6). Les notes issues du contrôle continu classique ne sont pas prises en compte pour l'obtention du Baccalauréat.
+

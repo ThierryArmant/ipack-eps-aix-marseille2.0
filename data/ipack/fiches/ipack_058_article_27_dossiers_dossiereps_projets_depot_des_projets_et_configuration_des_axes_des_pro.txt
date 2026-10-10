@@ -1,0 +1,10 @@
+### [ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets
+- Mots-clés : dépôt des projets, axes des projets, projet d'établissement, projet EPS, projet AS, projet SSS, section sportive scolaire, classe Sports-Études, Dossier SSS, Dossier Sports-Études
+- Formulations courantes des collègues : pourquoi je ne peux pas déposer mon projet de section sportive ; où déposer le projet Sports-Études ; où configurer les axes des projets ; où déposer le projet de SSS
+- Réponse courte : Ces deux types de projets ne se déposent pas avec les autres : les Projets SSS se gèrent dans le module [Dossiers]/[Dossier SSS] et les Projets Sports-Études dans le module [Dossiers]/[Dossier Sports-Études].
+- URL: spip.php?article27
+- Texte: Configuration des Axes des Projets (Établissement, EPS, AS, SSS). Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Les Projets.
+- QUESTIONS / RÉPONSES :
+  - Q1 : Pourquoi ne puis-je pas déposer mon Projet de SSS ou Projet de Classe Sports-Études ?
+  - R1 : Ces 2 types de projets sont gérés dans un module plus complexe d’iPackEPS. La gestion des Projets SSS se fait dans le module [Dossiers]/[Dossier SSS]. La gestion des Projets Sports-Études se fait dans le module [Dossiers]/[Dossier Sports-Études].
+

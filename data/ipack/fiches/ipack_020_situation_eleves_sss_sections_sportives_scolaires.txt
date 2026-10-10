@@ -1,0 +1,3 @@
+### [SITUATION: ÉLÈVES SSS (SECTIONS SPORTIVES SCOLAIRES)]
+- Instruction : Pour réaliser la bascule automatique des élèves SSS dans le dossier projet annuel, tous les groupes SSS doivent être préalablement créés et rattachés aux emplois du temps. Les dénominations iPackEPS doivent être strictement identiques à celles de Pronote.
+

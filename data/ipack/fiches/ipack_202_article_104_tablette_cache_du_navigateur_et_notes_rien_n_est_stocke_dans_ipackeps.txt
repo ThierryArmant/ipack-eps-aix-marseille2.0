@@ -1,0 +1,6 @@
+### [ARTICLE 104] Tablette, cache du navigateur et notes : rien n'est stocké dans iPackEPS
+Mots-clés : vider le cache, perte de données, Chrome, Safari, tablette, notes perdues, sauvegarde locale.
+- Règle : aucune note d'élève n'est saisie ni conservée dans iPackEPS, que ce soit sur ordinateur ou sur tablette. Vider le cache ou l'historique du navigateur ne fait donc perdre aucune note.
+- Si iPackEPS semble figé sur tablette : fermer l'onglet, relancer le navigateur et rouvrir iPackEPS depuis le portail ARENA.
+- Les notes se saisissent dans Pronote ou ÉcoleDirecte (notes de l'année) et dans Santorin (CCF au lycée).
+

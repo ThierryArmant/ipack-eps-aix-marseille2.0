@@ -1,0 +1,8 @@
+### [ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs
+- Mots-clés : équipements sportifs, installations, infrastructures, gymnase, code RES, Répertoire des Équipements Sportifs, Dossier EPS, emploi du temps
+- Formulations courantes des collègues : Où déclarer mes installations sportives ? ; Comment ajouter un gymnase dans iPackEPS ? ; C'est quoi le code RES ? ; Faut-il déclarer les équipements avant de faire l'emploi du temps ?
+- URL: spip.php?article19
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossier EPS ==> Équipements Sportifs. Déclaration des infrastructures avec leur code RES (Répertoire des Équipements Sportifs) avant affectation sur l'emploi du temps..
+
+[SECTION: ARTICLE_20_EDT_ET_VERIFICATION]
+

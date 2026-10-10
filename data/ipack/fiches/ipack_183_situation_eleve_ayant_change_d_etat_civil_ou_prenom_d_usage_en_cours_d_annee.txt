@@ -1,0 +1,10 @@
+### [SITUATION: ÉLÈVE AYANT CHANGÉ D'ÉTAT CIVIL OU PRÉNOM D'USAGE EN COURS D'ANNÉE]
+Mots-clés : prénom d'usage, changement de nom, transition de genre, identité élève, divergence SIÈCLE Cyclades.
+- Procédure :
+  1. L'enseignant ne doit rien modifier manuellement dans iPackEPS.
+  2. Le secrétariat de scolarité doit mettre à jour la base SIÈCLE de l'établissement.
+  3. Un enseignant de l'équipe EPS effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
+  4. L'identifiant national (INE) garantit la continuité du dossier de l'élève sans perte d'historique.
+
+[SECTION: COMPORTEMENT_ET_DIAGNOSTIC_DE_L_ENSEIGNANT_DEBUTANT]
+

@@ -1,0 +1,3 @@
+### 2. Affectation manuelle des enseignants (en cas de besoin / remplacement)
+- En cas de remplacement d’un intervenant ou si un enseignant d'EPS n’a pas été affecté automatiquement en raison d'un problème STSWEB, le chef d'établissement a la possibilité de le convoquer manuellement. Prérequis : avoir défini un signataire officiel dans Imag’in. L'établissement recherche l'intervenant par son nom, crée la convocation, et clique impérativement sur le picto PDF pour générer le document. Cette étape technique est obligatoire : l'édition du PDF transmet instantanément le nom et les droits de l'enseignant à Santorin. L'envoi par mail via l'icône enveloppe est facultatif.
+

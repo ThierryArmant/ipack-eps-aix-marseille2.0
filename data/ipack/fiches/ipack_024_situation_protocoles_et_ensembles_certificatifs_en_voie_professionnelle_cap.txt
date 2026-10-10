@@ -1,0 +1,6 @@
+### [SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]
+- Mots-clés : CAP, voie professionnelle, ensemble certificatif, deux épreuves, protocole, Mode Groupe, trois activités, dossier rejeté, répartir les élèves
+- Formulations courantes des collègues : Combien d'épreuves certificatives en CAP ? ; On enseigne trois activités en CAP, comment faire les protocoles ? ; Pourquoi mon dossier CAP est rejeté ? ; Comment passer la classe en mode groupe ?
+- Instruction : La réglementation nationale impose strictement un ensemble de DEUX (2) épreuves certificatives en CAP (contrairement au Bac Pro qui en compte 3). Si une équipe enseigne 3 activités (A, B et C), le dossier sera systématiquement rejeté si un protocole à 3 activités est soumis.
+  -> Procédure officielle : Configurer obligatoirement la classe en « Mode Groupe ». Créer ensuite 3 protocoles distincts à deux épreuves (Ex : Groupe 1 = A-B, Groupe 2 = B-C, Groupe 3 = A-C). Répartir manuellement les élèves dans ces protocoles en début d'année selon la certification visée. Pour corriger un dossier bloqué ou rejeté, effacer manuellement les épreuves initiales pour libérer le choix du mode groupe.
+

@@ -1,0 +1,9 @@
+### [SITUATION: RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)]
+- Principe absolu : Le CCF (Voie Pro et Voie GT) impose obligatoirement que les 3 épreuves de l'ensemble certificatif relèvent de 3 Champs d'Apprentissage (CA) distincts.
+- CAP = Strictement 2 épreuves / 2 Champs d'Apprentissage (Toute 3e épreuve bloque).
+- Exemple de blocage iPackEPS : Programmer Volley-ball, Basket-ball et Badminton déclenche un rejet car ces trois activités appartiennent toutes au CA4 (Conduire et maîtriser un affrontement collectif ou interindividuel).
+- Solution : Diversifier impérativement en piochant dans le CA1 (athlétisme/natation), CA2 (escalade/CO), CA3 (danse/gym) ou CA5 (musculation).
+- INTERDICTION FORMELLE DE FORCER UN REJET : Tout rejet technique provient d'une contradiction structurelle. Il faut nettoyer la structure dans iPackEPS et l'aligner dans Cyclades.
+- ⚠️ [NUANCE PÉDAGOGIQUE - APSA COMBINÉES] : L'interdiction formelle d'associer des APSA au sein d'un même champ ou de créer des noms combinés (ex: *Football-Musculation*) s'applique strictement à toutes les classes ordinaires. Cette règle souffre d'une unique exception technique tolérée : la création manuelle d'une APSA combinée sur iPackEPS est **exclusivement réservée aux groupes de type SSS (Section Sportive Scolaire)** en raison d'une limitation de l'interface qui ne gère qu'une seule APSA par groupe SSS.
+
+--------------------------------------------------------------------------------

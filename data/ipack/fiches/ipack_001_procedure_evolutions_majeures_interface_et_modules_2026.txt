@@ -1,0 +1,64 @@
+### [PROCÉDURE : ÉVOLUTIONS MAJEURES INTERFACE ET MODULES (2026)]
+- Mots-clés : nouveautés, évolutions, actualiser classes, équipe EPS, inventaire EPI, photos du matériel, notice technique, fréquence des contrôles, certificats médicaux, inaptitudes, Évolution SSS, module Rapport, export ZIP, export Cyclades professeurs externes
+- Formulations courantes des collègues : Qu'est-ce qui a changé dans la nouvelle version d'iPackEPS ? ; Est-ce que tous les profs peuvent actualiser les classes ? ; Comment ajouter une photo dans l'inventaire EPI ? ; Où demander la reconduction ou la fermeture d'une section sportive ? ; Peut-on déposer plusieurs documents pour un projet ?
+
+1. Élargissement des droits d'actualisation (Classes & Équipe EPS) :
+- MODULE [DOSSIERS] / [DOSSIER EPS] / [CLASSES] & [ÉQUIPE EPS] : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique directement depuis l'interface.
+
+2. Gestion enrichie du Matériel et de l'Inventaire EPI :
+- MODULE [GESTION DU MATÉRIEL] / [INVENTAIRE EPI] : 
+  * Possibilité d'ajouter des photos de chaque équipement dans la fiche matériel.
+  * Possibilité d'importer la notice technique du constructeur.
+  * Possibilité de modifier la fréquence des contrôles (définie par défaut à 12 mois).
+  * L'édition papier du registre EPI intègre désormais automatiquement la photo du matériel.
+  * 📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4
+
+3. Dépôts multiples et Suivi des Certificats Médicaux (CM) :
+- MODULE [DOSSIERS] / [DOSSIER EPS] / [AXES DES PROJETS] : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS.
+- MODULE [MES ÉLÈVES] / [VISUALISATION] / [INAPTITUDES] : Contrôle de conformité croisé entre les dates des Certificats Médicaux (CM) et les dates des Séquences d'Apprentissage (alerte si un CM se situe en dehors des bornes de la séquence).
+  * 📺 Tutoriel associé : Controle_dates_CM_CAHPN.mp4
+
+4. Modules Sections Sportives Scolaires (SSS) - Évolution SSS :
+- MODULE [DOSSIERS] / [DOSSIER SSS] / [ÉVOLUTION SSS] : Nouveau module permettant d'exprimer et de suivre les demandes de reconduction ou de fermeture de SSS pour l'année suivante.
+  * Intégration de la signature électronique du chef d'établissement pour les demandes de fermeture / reconduction.
+  * Messagerie intégrée permettant à l'IPR ou à la commission d'envoyer des notifications de validation ou d'invalidation aux établissements.
+  * Possibilité de déposer des documents modèles distincts pour la demande d'ouverture SSS, le projet SSS et le bilan SSS.
+  * 📺 Tutoriels associés : Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4
+
+5. Administration et Rapports techniques :
+- MODULE [RAPPORT] : Permet d'afficher un rapport complet sur l'état de fonctionnement d'iPackEPS (état des connexions aux bases RAMSESE, SIÈCLE, EPP, espace disque libre, versions PHP/SGBD).
+- EXPORT ZIP STRUCTURÉ DU DOSSIER CERTIFICATIF : Les documents de la commission CAHPN sont désormais triés de manière automatisée dans une arborescence claire par département et par type (Public / Privé).
+  * 📺 Tutoriel associé : Export_zip_documents_certificatifs.mp4
+- EXPORT CYCLADES PROFESSEURS EXTERNES : Le fichier exporté à destination de la DEC intègre désormais une colonne dédiée [examen].
+  * 📺 Tutoriel associé : Export_profs_externes_cyclades.mp4
+
+======================================================================
+[SECTION: MISE_A_JOUR_OFFICIELLE_IPACKEPS_2026_2_X]
+- Mots-clés : mise à jour, nouveautés, glisser-déposer, bouton légende, import automatique des élèves, inventaire EPI, dépôts multiples, axes des projets, actualisation élargie, dates CM et séquences, Évolution SSS, module Rapport, publipostage
+- Formulations courantes des collègues : Quelles sont les nouveautés de la dernière mise à jour ? ; À quoi sert le bouton légende ? ; Les élèves sont-ils importés automatiquement ? ; Qui peut actualiser les classes et l'équipe EPS ? ; Comment voir si un certificat médical est en dehors de la séquence ?
+======================================================================
+- Nouveautés de l'Interface Professeur / Chef d'établissement (Version 2026.2.x) :
+  * **Imports de documents unifiés** : Généralisation de l'ergonomie par glisser-déposer (drag 'n drop) sur toutes les fenêtres de dépôt de documents.
+  * **Bouton Légende** : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut de dossier pour éviter d'avoir à survoler chaque icône.
+  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel. Si la liste des classes ou des élèves reste incomplète, le coordonnateur lance l'actualisation manuelle : [gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser].
+  * **Inventaire EPI enrichi** : Ajout possible de photos du matériel, importation des notices techniques, modification de la fréquence des contrôles (fixée par défaut à 12 mois) et présence automatique de la photo sur la version papier du registre.
+  * **Dépôts multiples (Axes des projets EPS)** : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS.
+  * **Actualisation élargie (Classes et Équipe EPS)** : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique.
+  * **Contrôle de conformité Dates CM et Séquences** : Affichage croisé des dates de début et de fin des Certificats Médicaux et des Séquences d'Apprentissage, avec une colonne d'alerte signalant si un CM se situe en dehors de la période de la séquence.
+  * **Module Évolution SSS** : Module dédié pour indiquer chaque année l'évolution d'une Section Sportive Scolaire (demande de reconduction ou de fermeture), soumis à la signature électronique obligatoire du chef d'établissement et validé via une messagerie intégrée par l'IPR/commission.
+  * **Documents modèles SSS dissociés** : Possibilité de verser des documents modèles distincts selon qu'il s'agit d'une demande d'ouverture SSS, d'un projet SSS ou d'un bilan SSS.
+
+- Nouveautés Interface IPR & Correspondant :
+  * **Module Rapport (État des serveurs)** : Permet d'afficher un rapport complet sur l'état des connexions aux bases (Ramsese, Siècle, EPP Public/Privé), l'espace disque libre et les versions PHP/SGBD.
+  * **Export Cyclades des professeurs externes** : Intégration d'une colonne [examen] dédiée dans le fichier transmis à la DEC pour faciliter la création des comptes Imag'In.
+  * **Export ZIP structuré CAHPN** : Tri automatisé des documents du dossier certificatif dans une arborescence par établissement (Public/Privé).
+  * **Configuration granulaire des dossiers SSS** : Possibilité d'activer ou désactiver les sous-dossiers SSS (demande d'ouverture, projet, bilan, évolution).
+  * **Autorisations de messagerie pour les commissions** : Paramétrage permettant d'autoriser ou non les membres des commissions à envoyer des e-mails aux établissements (pour les dossiers certificatifs, SSS et APPN).
+  * **Transmission des e-mails pour publipostage** : Export des e-mails des coordonnateurs et responsables de certification pour permettre aux logiciels CommissionBac et CommissionPro de faire du publipostage.
+======================================================================
+                 CONSIGNES ET DICTIONNAIRE IA Ipack
+                     (SOURCE DE VÉRITÉ ABSOLUE)
+======================================================================
+
+[SECTION: ETAPES_CONFIGURATION_CHRONOLOGIQUE_IPACKEPS]
+

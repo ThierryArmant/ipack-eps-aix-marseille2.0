@@ -1,0 +1,3 @@
+### [SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]
+* PROCÉDURE IMAG'IN COMPLÈTE : Si le lot est présent dans Cyclades mais absent de Santorin, l'enseignant doit être convoqué correctement. La procédure dans IMAG'IN impose au secrétariat d'examen de vérifier l'affectation de la mission de correction à l'identifiant de l'enseignant, de valider son rattachement au groupe de correction EPS, puis de synchroniser le flux pour pousser le lot vers Santorin.
+

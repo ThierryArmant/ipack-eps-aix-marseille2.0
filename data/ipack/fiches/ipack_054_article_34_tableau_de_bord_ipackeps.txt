@@ -1,0 +1,6 @@
+### [ARTICLE 34] Tableau de bord iPackEPS
+- Mots-clés : tableau de bord, ergonomie, tableaux de bord, présentation, interface iPackEPS
+- Formulations courantes des collègues : comment fonctionne le tableau de bord ; où est le tableau de bord d'iPackEPS ; comment lire le tableau de bord
+- URL: spip.php?article34
+- Texte: Présentation de l’ergonomie des tableaux de bord d’iPackEPS.
+

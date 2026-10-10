@@ -1,0 +1,8 @@
+### [ARTICLE 101] [Dossiers]/[Dossier Certificatif]/[Référentiels] Rejet d'un référentiel par la Commission Académique (Statut Rouge)
+Mots-clés : référentiel refusé, dossier rejeté CAHPN, modifier référentiel après rejet, statut rouge dossier certificatif.
+- Procédure de régularisation :
+  1. Consulter le motif exact du refus notifié par l'inspection dans l'onglet `[Référentiels]` ou par courrier électronique.
+  2. Modifier le document localement (Word/PDF) pour corriger les critères non conformes (ex : AFL non équilibrés, barème hors seuils).
+  3. Dans `[Dossier Certificatif]` > `[Référentiels]`, cliquer sur le bouton `[Envoyer]` face à l'APSA concernée pour déposer la nouvelle version.
+  4. Le statut repasse automatiquement en `[En attente de validation]`.
+

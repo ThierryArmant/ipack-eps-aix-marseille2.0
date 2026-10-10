@@ -1,0 +1,8 @@
+### [SITUATION: TRAÇABILITÉ ET PROTECTION FONCTIONNELLE]
+* Tout arbitrage lié au choix d'une option d'épreuve par un élève doit être consigné dans le cahier de texte numérique de la classe (traçabilité pédagogique).
+* En cas de blessure ou d'inaptitude en cours de cycle ne permettant pas de finaliser l'option choisie, la modification de l'affectation de l'élève dans iPackEPS se fait sans toucher à aucune note : aucune note n'est saisie dans iPackEPS.
+
+======================================================================
+BASE DE VÉRITÉ TECHNIQUE : CODES, BOUTONS ET PROCÉDURES STRICTES
+======================================================================
+

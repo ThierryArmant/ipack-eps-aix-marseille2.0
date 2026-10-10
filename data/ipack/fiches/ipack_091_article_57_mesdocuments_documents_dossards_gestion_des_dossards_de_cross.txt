@@ -1,0 +1,6 @@
+### [ARTICLE 57] [MesDocuments]/[Documents] / [Dossards] : Gestion des dossards de Cross
+- Mots-clés : dossards, cross, numérotation, impression, filtres, liste des coureurs, CrossEPS, LogiCross, transfert
+- Formulations courantes des collègues : Comment imprimer les dossards du cross ? ; Comment numéroter les dossards ? ; Comment envoyer la liste des coureurs vers CrossEPS ? ; Comment envoyer la liste des coureurs vers LogiCross ?
+- URL: spip.php?article57
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents => Dossards. Tutoriel 1 : Sélection, Filtres, numérotation et Impression des dossards. Tutoriel 2 : Transférer la liste des coureurs sur le logiciel CrossEPS. Tutoriel 3 : Transférer la liste des coureurs sur LogiCross.
+

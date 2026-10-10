@@ -1,0 +1,9 @@
+### [SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]
+* RÈGLES STRICTES D'ARRONDI AUX EXAMENS :
+  - BAC PRO & BMA (Circulaire n° 2019-129 / Circulaire 2020) : La note finale est la moyenne arithmétique des 3 activités, obligatoirement ARRONDIE AU POINT ENTIER SUPÉRIEUR (ex: 10,33/20 devient 11/20 sur Cyclades).
+  - CAP (Circulaire du 27-08-2025 / Session 2026) : La note finale est la moyenne des 2 activités, arrondie au point entier le plus proche selon la règle mathématique des 0,50 (ex: 10,49 devient 10, et 10,50 devient 11).
+* GESTION DES LOTS SANTORIN ET PROCÉDURES : 
+  Le verrouillage et le déverrouillage des lots de notes dans Santorin relèvent exclusivement de la compétence technique du Chef d'établissement depuis sa console de direction. La DEC ne gère pas les accidents de terrain.
+* CADRE DES INAPTITUDES MÉDICALES (Décret n° 2016-1052) : 
+  La notion de "dispense de cours" est abrogée. Le médecin constate des inaptitudes (totales ou partielles, temporaires ou annuelles) avec contre-indications fonctionnelles. L'élève inapte partiel est soumis à l'obligation de présence et participe via des rôles d'observation, d'arbitrage ou de codification fixés par l'enseignant.
+

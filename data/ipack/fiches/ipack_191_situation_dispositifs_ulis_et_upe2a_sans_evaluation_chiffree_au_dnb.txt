@@ -1,0 +1,7 @@
+### [SITUATION: DISPOSITIFS ULIS ET UPE2A SANS ÉVALUATION CHIFFRÉE AU DNB]
+Mots-clés : ULIS sans note, UPE2A non noté, évaluation par compétences socle, validation sans note sur 20.
+- Procédure iPackEPS Collège :
+  1. Les élèves rattachés au dispositif ULIS doivent figurer dans un groupe spécifique avec le cycle correspondant à leurs adaptations.
+  2. Le positionnement sur l'échelle des 4 niveaux de maîtrise du socle commun (Insuffisant, Fragile, Satisfaisant, Très bon) se renseigne dans le logiciel de vie scolaire, pas dans iPackEPS (aucune note n'est saisie dans iPackEPS).
+  3. Ne pas forcer de conversion en note chiffrée sur 20 si le Projet Personnalisé de Scolarisation (PPS) de l'élève stipule une validation exclusive par compétences.
+

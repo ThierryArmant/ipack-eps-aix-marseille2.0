@@ -1,0 +1,6 @@
+### [ARTICLE 16] [Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage
+- Mots-clés : périodes, séquences d’apprentissage, configuration des périodes, Dossier EPS, Tableau de bord, Dossiers, calendrier des séquences, découpage de l'année
+- Formulations courantes des collègues : Où est-ce que je règle les périodes dans iPackEPS ? ; Comment configurer les périodes des séquences d'apprentissage ? ; Je ne trouve pas le menu Périodes ; Par où passer pour définir les périodes de mes séquences ?
+- URL: spip.php?article16
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier EPS => Périodes.
+

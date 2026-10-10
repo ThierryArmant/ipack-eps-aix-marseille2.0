@@ -1,0 +1,6 @@
+### [ARTICLE 35] [Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires
+- Mots-clés : SSS, section sportive scolaire, Dossier SSS, gestion, présentation, tableau de bord
+- Formulations courantes des collègues : Où gérer ma section sportive ? ; Comment accéder au dossier SSS ? ; Où est le menu des sections sportives scolaires ?
+- URL: spip.php?article35
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier SSS. Présentation de la Gestion des Sections Sportives Scolaires.
+

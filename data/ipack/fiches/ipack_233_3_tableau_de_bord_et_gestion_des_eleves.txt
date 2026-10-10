@@ -1,0 +1,6 @@
+### 3. Tableau de Bord et Gestion des Élèves
+- Mots-clés : import automatique des élèves, synchronisation, entrées et sorties, actualisation, classes, liste des élèves, équipe EPS, coordonnateur
+- Formulations courantes des collègues : Un nouvel élève n'apparaît pas, que faire ? ; Faut-il importer les élèves à la main ? ; Qui peut actualiser les classes ? ; Dois-je passer par le coordonnateur pour mettre à jour l'équipe ?
+* **Import automatique des élèves :** À l'authentification dans iPackEPS, une synchronisation automatique des bases s'exécute pour intégrer les mouvements (entrées/sorties) de l'établissement sans nécessiter d'intervention manuelle.
+* **Actualisation élargie :** L'actualisation des classes, des élèves et de l'équipe EPS peut être effectuée par l'ensemble des enseignants, et non plus exclusivement par le coordonnateur.
+

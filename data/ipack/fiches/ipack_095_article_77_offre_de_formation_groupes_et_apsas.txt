@@ -1,0 +1,6 @@
+### [ARTICLE 77] [Offre de Formation] / [Groupes et APSAs]
+- Mots-clés : offre de formation, groupes et APSAs, AS, SSS, option, filtres, zones géographiques, pratiques autour de l’établissement
+- Formulations courantes des collègues : Où voir les sections sportives et options autour de mon établissement ? ; Comment filtrer par activité ou zone géographique ? ; Où trouver les groupes AS, SSS et options ?
+- URL: spip.php?article77
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Offre de Formation ==> Groupes et APSAs. Cet article vous montre comment repérer les divers groupes (AS, SSS, option) de l’académie, et faire des filtres sur les APSAs et zones géographiques pour repérer les pratiques autour de votre établissement.
+

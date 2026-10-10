@@ -1,0 +1,21 @@
+### Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)
+- Mots-clés : protocole adapté, inaptitude temporaire, inaptitude partielle permanente, handicap, CAHPN, épreuve aménagée, ensemble certificatif, APSA support, conditions de passation
+- Formulations courantes des collègues : Peut-on créer un protocole adapté après la commission ?; Peut-on changer d'APSA pour un élève blessé en cours d'année ?; À qui s'adresse le protocole adapté ?; Que peut-on aménager pour un élève en inaptitude temporaire ?
+- **Question** : Pour des élèves en inaptitude temporaire à qui l'on pourrait proposer une autre APSA aménagée, peut-on créer un protocole adapté après la tenue de la CAHPN ?
+- **Réponse Lycée GT Bac / Lycée Pro Bac** : NON. Un protocole adapté doit être validé par la CAHPN. Il concerne uniquement les élèves en inaptitude partielle permanente ou en situation de handicap sur l'ensemble de l'année. Il ne concerne pas des élèves en inaptitude partielle temporaire à qui l'on pourrait proposer une épreuve aménagée de l'ensemble certificatif initialement validé par la CAHPN. Autrement dit, il n'y a pas de changement de l'APSA support de l'épreuve, mais aménagement possible des conditions de passation sur la même APSA du protocole initial.
+- Texte officiel qui encadre l'EPS à cet examen (baccalauréat général et technologique : note de service du 20 février 2026 (NOR MENE2531948N, Bulletin officiel n° 9 du 26 février 2026) ; baccalauréat professionnel : circulaire du 29 décembre 2020 (NOR MENE2037057C, Bulletin officiel n° 4 du 28 janvier 2021)).
+
+[SITUATION: EXPORT DES GROUPES VERS CYCLADES / COMMENT FAIRE POUR EXPORTER]
+- Mots-clés : export des groupes, Cyclades, iPackEPS, [Dossier Certificatif], fichier CSV, Importation de groupes, Gestion des épreuves, secrétariat, STSWEB, pas d'export direct
+- Formulations courantes des collègues : Comment envoyer mes groupes dans Cyclades ?; Y a-t-il un bouton pour exporter vers Cyclades ?; Où générer le fichier des groupes pour Cyclades ?; Qui importe le fichier dans Cyclades ?; Pourquoi mon fichier de groupes n'est pas reconnu ?
+- Instruction : AUCUNE passerelle automatique ou bouton « Export direct » n'existe entre iPackEPS et Cyclades. Il est techniquement impossible d'exporter des groupes iPackEPS directement vers Cyclades sans passer par un fichier.
+- Procédure manuelle obligatoire :
+  1. Dans iPackEPS : Allez dans [Dossiers] > [Dossier Certificatif] > [Cyclades] (génération du fichier d'export).
+  2. Dans Cyclades : Le secrétariat doit effectuer une « Importation de groupes » dans le module « Gestion des épreuves » avec ce fichier CSV.
+- Si le fichier n'est pas généré ou reconnu : La synchronisation entre STSWEB et Cyclades est incomplète au niveau académique (données RH). Aucune action technique n'est possible depuis iPackEPS pour corriger ce point. Veuillez consulter l'assistance iPackEPS à ipackeps@ac-aix-marseille.fr.
+- 📺 TUTORIEL COMPAGNON : Generer_importer_fichier_groupes_cyclades.mp4
+
+======================================================================
+FICHE DE SÉCURITÉ RÉGLEMENTAIRE & TECHNIQUE : ATHLÉTISME, IPACKEPS & CCF
+======================================================================
+

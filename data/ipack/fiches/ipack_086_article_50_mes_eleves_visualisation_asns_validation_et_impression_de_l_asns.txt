@@ -1,0 +1,10 @@
+### [ARTICLE 50] [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS
+- Mots-clés : ASNS, validation, impression, attestation, onglet Savoir Nager, élèves sortis, anciens élèves, année précédente, [statut], [sorti étab]
+- Formulations courantes des collègues : Comment valider et imprimer l’ASNS ? ; Je ne vois plus mes anciens élèves pour éditer leur attestation ; Comment afficher les élèves qui ont quitté l’établissement ? ; Comment éditer une attestation de l’année dernière ?
+- Réponse courte : Sélectionnez l’année scolaire précédente sur la page principale, puis dans [mes élèves / visualisation] choisissez une visualisation par [statut], type [sorti étab], sélection [tous] : les anciens élèves apparaissent et leurs attestations peuvent être générées.
+- URL: spip.php?article50
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Élèves => Visualisation ==> onglet Savoir Nager.
+- QUESTIONS / RÉPONSES :
+  - Q1 : Je dois éditer les attestations d’élèves qui ont validé l’ASNS l’année précédente, mais ils ont quitté l’établissement, je ne les vois plus apparaître.
+  - R1 : Procédure : 1- Sur la page principale, sélectionnez l’année scolaire de l’année précédente pour vous placer sur l’historique de la session précédente. 2– Allez ensuite dans [mes élèves / visualisation]. 3– Par défaut, iPackeps n’affiche que les élèves encore scolarisés. Il va donc falloir demander à afficher les élèves sortis de l’établissement. Pour cela, sélectionner une visualisation par [statut], type [sorti étab], sélection [tous]. Vos anciens élèves apparaissent alors, vous pouvez générer leurs attestations.
+

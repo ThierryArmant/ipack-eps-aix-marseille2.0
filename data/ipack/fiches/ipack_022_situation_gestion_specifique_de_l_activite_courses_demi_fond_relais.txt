@@ -1,0 +1,6 @@
+### [SITUATION: GESTION SPÉCIFIQUE DE L'ACTIVITÉ « COURSES » (DEMI-FOND / RELAIS)]
+- Mots-clés : Courses, demi-fond, relais, FCA, référentiel, APSA Établissement, document unique, PDF, commentaire, menu déroulant
+- Formulations courantes des collègues : Comment déclarer le demi-fond et le relais ? ; Peut-on déposer deux fiches pour l'activité Courses ? ; Peut-on créer une APSA Établissement pour le relais ? ; Que mettre en commentaire pour les courses ?
+- Instruction : L'académie utilise l'appellation générique nationale « Courses » sans différencier le demi-fond et le relais dans les menus déroulants. Il est impossible de déposer deux fiches distinctes sous le même onglet ou de détourner une « APSA Établissement » (comme le Relais) pour contourner le système, car cela crée une ambiguïté réglementaire.
+  -> Procédure officielle : Déclarer uniquement l'activité nationale unique « Courses ». Regrouper informatiquement les deux FCA (Demi-fond et Relais) en un seul et unique document PDF / Word. Déposer ce document unique comme référentiel pour l'APSA Courses. Avant la transmission finale, l'enseignant doit obligatoirement savoir spécifier en commentaire les épreuves de courses réellement programmées.
+

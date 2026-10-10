@@ -1,0 +1,3 @@
+### [SITUATION: CASES DE SAISIE AFLP INACTIVES]
+- Instruction : Les cases de saisie des AFLP sont inactives. Impossible de saisir les notes dans Santorin. Cherchez le bouton « choisir les AFLP ». Vous n'avez peut-être pas terminé votre procédure qui est donc incomplète et bloquante.
+

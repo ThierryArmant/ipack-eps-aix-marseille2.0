@@ -1,0 +1,6 @@
+### [ARTICLE 39] [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire
+- Mots-clés : bilan annuel SSS, section sportive scolaire, saisie, réouverture, signature, brouillon, chef d’établissement
+- Formulations courantes des collègues : Où saisir le bilan de ma section sportive ? ; Comment modifier un bilan SSS déjà signé ? ; Comment le chef d’établissement peut-il rouvrir le bilan ?
+- URL: spip.php?article39
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Bilan. Toutes les questions de réouverture par le chef d'établissement suivent le protocole d'annulation de signature via l'enregistrement en brouillon.
+

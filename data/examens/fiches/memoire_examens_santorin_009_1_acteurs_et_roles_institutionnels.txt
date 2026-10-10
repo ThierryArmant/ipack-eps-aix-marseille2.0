@@ -1,0 +1,6 @@
+### 1. Acteurs et Rôles Institutionnels
+- Mots-clés : DEC, Division des Examens et Concours, rectorat, ordre de mission, convocation, convocation aux examens, Imag'in, Cyclades, affectations, autorisation d'absence, annuler une convocation, force majeure
+- Formulations courantes des collègues : c'est quoi la DEC ; qui s'occupe des convocations aux examens ; je suis convoqué mais j'ai une autorisation d'absence, laquelle prime ; qui peut annuler ma convocation ; à qui s'adresser pour un cas de force majeure ; une convocation est-elle un ordre de mission
+* **DEC (Division des Examens et Concours) :** Service académique du Rectorat chargé de l'organisation administrative, de la validation des affectations dans Cyclades, de la gestion des convocations via Imag'in et du traitement des dossiers de force majeure.
+* **Ordre de mission :** Une convocation aux examens nationaux (DNB/Bac) constitue un ordre de mission hiérarchiquement supérieur à toute autorisation d'absence pour convenance personnelle. Seule la DEC peut l'annuler.
+

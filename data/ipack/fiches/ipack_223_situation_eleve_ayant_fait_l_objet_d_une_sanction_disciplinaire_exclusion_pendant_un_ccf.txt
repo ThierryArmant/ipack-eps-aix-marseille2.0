@@ -1,0 +1,6 @@
+### [SITUATION: ÉLÈVE AYANT FAIT L'OBJET D'UNE SANCTION DISCIPLINAIRE (EXCLUSION) PENDANT UN CCF]
+- Mots-clés : exclusion temporaire, sanction disciplinaire, conseil de discipline, CCF, épreuve différée, session de rattrapage, absence injustifiée, note zéro, ABS
+- Formulations courantes des collègues : Mon élève était exclu le jour du CCF, que faire ? ; Une exclusion compte-t-elle comme une inaptitude ? ; Faut-il faire un rattrapage pour un élève exclu ? ; L'élève exclu ne vient pas au rattrapage, quelle note ?
+- Cadre réglementaire : Si un élève inscrit en CCF fait l'objet d'une mesure d'exclusion temporaire (conseil de discipline) qui coïncide avec la date de l'épreuve certificative de fin de séquence, cette exclusion n'est ni une inaptitude médicale ni un cas de force majeure médicale.
+- Procédure : L'établissement doit organiser une **session de rattrapage (épreuve différée)** pour cet élève dès son retour d'exclusion, si la clôture des serveurs le permet. Si l'élève est absent de manière injustifiée à cette épreuve différée, la note zéro (`0/20` ou `ABS`) est attribuée conformément aux textes.
+

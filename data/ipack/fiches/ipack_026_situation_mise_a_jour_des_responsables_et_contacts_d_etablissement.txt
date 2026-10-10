@@ -1,0 +1,10 @@
+### [SITUATION: MISE À JOUR DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]
+- Mots-clés : RAMSESE, contacts d'établissement, chef d'établissement, adjoints, secrétaire général, agent comptable, responsables, mise à jour, ancien adjoint, synchronisation
+- Formulations courantes des collègues : Le nom du chef d'établissement est faux dans iPackEPS, que faire ? ; Comment corriger les adjoints affichés ? ; D'où viennent les contacts de l'établissement ? ; Qui peut modifier les responsables ?
+- Instruction : L'application iPackEPS extrait automatiquement ses données de contacts (Chef d'établissement, Adjoints, Secrétaire général, Agent comptable) depuis le référentiel national RAMSESE. L'assistance iPackEPS n'a pas la main pour modifier ces fiches. En cas d'erreur ou de personnel non mis à jour (ex : ancien adjoint resté dans la base), le chef d'établissement doit obligatoirement contacter le service de la DIASEP au Rectorat pour mettre à jour RAMSESE. Les modifications se synchroniseront automatiquement sous 24h.
+  -> Exemples d'illustration (données RAMSESE) :
+  -> [Lycée Romane] : Chef d’établissement : Mr LEAU Olivier | Adjoint 1 : Mr Le MEUR Alan | Adjoint 2 : Aucun.
+  -> [Lycée Pierre-Gilles de Gennes - RNE 0040490L] : Adjoint 1 : Mme DAUBRESSE Claire (Proviseure adjointe) | Adjoint 2 : Mme LEDOUX Laurence (Agent Comptable / Secrétaire Générale).
+  -> [Lycée Sévigné - RNE 0131348V] : Cheffe d'établissement : Mme GORLIER Christelle.
+  -> [Lycée Jean Monnet] : Secrétaire général / Agent comptable : M. Raphaël MORENO.
+

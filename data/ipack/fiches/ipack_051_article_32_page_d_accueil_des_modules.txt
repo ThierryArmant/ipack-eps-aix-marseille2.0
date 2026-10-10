@@ -1,0 +1,6 @@
+### [ARTICLE 32] Page d’accueil des modules
+- Mots-clés : page d'accueil, accueil des modules, module Professeur, présentation, interface
+- Formulations courantes des collègues : à quoi ressemble la page d'accueil d'iPackEPS ; comment est organisé l'accueil du module Professeur ; où trouver la présentation de la page d'accueil
+- URL: spip.php?article32
+- Texte: Présentation de la page d’accueil de iPackEPS module Professeur.
+

@@ -1,0 +1,6 @@
+### 6. Saisie des notes selon l'Examen
+- Mots-clés : Santorin, saisie des notes, examen, baccalauréat général ou technologique, AFL, bac pro, BCP, AFLP, APSA, protocole, fin de séquence, fil de la séquence
+- Formulations courantes des collègues : Comment saisir les notes du bac général dans Santorin ? ; Comment ça marche en bac pro ? ; Faut-il attribuer les AFLP avant de noter ? ; Combien d’AFLP en bac pro ?
+- Baccalauréat Général ou Technologique : Saisie directe des notes par candidat pour chaque AFL (Attendu de Fin de Lycée).
+- Examen Professionnel (Bac Pro / BCP) : Pour chaque APSA, le protocole comporte une situation d’évaluation de fin de séquence avec 2 AFLP (Attendus de Fin de Lycée Professionnel) obligatoires et une évaluation au fil de la séquence avec 2 AFLP à choisir. En cliquant sur le bouton dédié, l'enseignant attribue les AFLP aux différentes APSAs pour l’ensemble des candidats du protocole avant de débuter la notation.
+

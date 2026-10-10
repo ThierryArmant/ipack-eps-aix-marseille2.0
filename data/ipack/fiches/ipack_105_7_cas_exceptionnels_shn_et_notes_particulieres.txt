@@ -1,0 +1,7 @@
+### 7. Cas exceptionnels, SHN et notes particulières
+- Mots-clés : Santorin, cas exceptionnel, bouton CE, SHN, sportifs de haut niveau, PPF, note particulière, Absent, Dispense, épreuve de substitution, 20/20
+- Formulations courantes des collègues : Comment déclarer un cas exceptionnel ? ; Comment noter un sportif de haut niveau ? ; Que se passe-t-il si je mets Absent ? ; Quelle différence entre Absent et Dispense ? ; Que fait la note CE ?
+- Cas Exceptionnel (CE) : En cliquant sur le bouton CE, l'enseignant peut déclarer un Cas Exceptionnel sur une APSA qui, pour des raisons techniques ou matérielles, ne peut pas être évaluée. Attention : cette action nécessite l'autorisation prérequis de la commission EPS académique. La note CE équivaut à une dispense et neutralise l’activité.
+- Sportifs de Haut Niveau (SHN) : En cliquant sur le crayon de notation d'un candidat ayant le statut SHN (statuts SHN et PPF vérifiés), une étape supplémentaire s'affiche pour sélectionner l'activité spécifique sur laquelle la note réglementaire de 20/20 automatique va s'appliquer.
+- Note particulière & Épreuve de substitution : Sur chaque APSA, il est possible de saisir une note particulière. La mention « Absent » correspond à un 0/20 traduit par Santorin. La mention « Dispense » neutralise l'APSA (elle est retirée du calcul de la note finale). En cas de force majeure (accident, grève) ou d'inaptitude temporaire survenue juste avant l'épreuve, l'élève est basculé vers l'épreuve de substitution.
+

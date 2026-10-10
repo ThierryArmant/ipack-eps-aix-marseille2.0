@@ -1,0 +1,18 @@
+=== COMPLÉMENT SOURCÉ : NATATION SCOLAIRE ET SAVOIR-NAGER ===
+Sources :
+- Circulaire n° 2017-127 du 22-8-2017 « Enseignement de la natation » (NOR MENE1720002C), premier et second degrés : https://ent2d.ac-bordeaux.fr/disciplines/eps/wp-content/uploads/sites/33/2018/09/Enseignement-de-la-natation-Circulaire-n%C2%B0-2017-127-du-22-8-2017.pdf
+- Note « Contribution de l'École à l'aisance aquatique » (BO 2022) : https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm
+Pour les taux d'encadrement chiffrés en école primaire, se reporter au texte de la circulaire : ils ne sont pas détaillés ici afin d'éviter toute erreur.
+
+### [SITUATION: NATATION SCOLAIRE : INTERVENANTS, AGRÉMENT ET SURVEILLANCE (CIRCULAIRE 2017-127)]
+- Intervenants professionnels (éducateurs sportifs titulaires d'une carte professionnelle valide) : ils sont réputés agréés par les services de l'éducation nationale.
+- Intervenants bénévoles : ils nécessitent un agrément préalable délivré par l'IA-Dasen, après vérification de leurs compétences et de leur honorabilité.
+- Second degré : l'enseignement est assuré par l'enseignant d'EPS responsable de la classe.
+- Surveillance : elle est obligatoire pendant toute la durée des activités de natation. Elle est assurée par un personnel titulaire d'un diplôme de maître-nageur sauveteur ou du brevet national de sécurité et de sauvetage aquatique. Les surveillants ne peuvent pas remplir en même temps une mission d'enseignement.
+- Rôle de l'enseignant : il est responsable de l'organisation de l'enseignement et de la sécurité des élèves. Il présente les enjeux pédagogiques aux intervenants et s'assure que l'organisation est connue de tous.
+
+### [SITUATION: SAVOIR-NAGER, AISANCE AQUATIQUE ET ATTESTATION (BO 2022)]
+- Parcours de formation aquatique progressif : aisance aquatique (maternelle et cycle 2), attestation du savoir-nager en sécurité (ASNS, fin de cycle 3), pass-nautique (accès aux activités nautiques, il remplace l'ancien test d'aisance aquatique).
+- L'ASNS correspond à un parcours aquatique d'environ 50 m sans reprise d'appui.
+- Elle est validée prioritairement en CM1, CM2 ou sixième et doit être renseignée dans le livret scolaire unique.
+- La circulaire de 2017 évoque l'attestation scolaire « savoir nager » (ASSN) validée entre le CP et la sixième : la note de 2022 emploie le terme ASNS.

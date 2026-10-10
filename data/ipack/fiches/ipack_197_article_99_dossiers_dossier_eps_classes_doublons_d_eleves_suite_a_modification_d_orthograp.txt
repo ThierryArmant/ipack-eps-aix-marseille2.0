@@ -1,0 +1,8 @@
+### [ARTICLE 99] [Dossiers]/[Dossier EPS]/[Classes] Doublons d'élèves suite à modification d'orthographe ou d'INE dans SIÈCLE
+Mots-clés : élève en double, deux fiches pour le même élève, suppression doublon, fusion d'élèves, correction INE.
+- Diagnostic : Si le secrétariat modifie l'orthographe d'un nom, un tiret ou un identifiant national (INE) dans SIÈCLE, iPackEPS peut générer un second enregistrement lors de l'actualisation.
+- Procédure de nettoyage :
+  1. Repérer la fiche de l'élève qui est rattachée aux groupes et aux séquences.
+  2. Dans `[Dossier EPS]` > `[Classes]` > `[Élèves]`, retirer le profil doublon vide du groupe de travail.
+  3. Demander au secrétariat de valider la fusion dans SIÈCLE, puis refaire `[Gestion Classes]` > `[Actualiser]` et `[Importation élèves]` > `[Actualiser]`.
+

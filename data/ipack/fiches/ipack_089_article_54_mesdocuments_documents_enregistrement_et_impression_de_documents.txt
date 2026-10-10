@@ -1,0 +1,6 @@
+### [ARTICLE 54] [MesDocuments]/[Documents] Enregistrement et Impression de documents
+- Mots-clés : Mes Documents, documents, impression, enregistrement, bordereaux de présence, bordereaux de notes, épreuves de certification, signature des élèves
+- Formulations courantes des collègues : Où imprimer un bordereau de présence ? ; Comment éditer un bordereau pour les examens ? ; Où stocker et imprimer des documents ? ; Comment faire signer les élèves ?
+- URL: spip.php?article54
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Documents => Documents. iPackEPS permet d’éditer, imprimer et stocker divers documents, notamment des bordereaux de présence ou des bordereaux de notes pour les épreuves de certification. Vous pouvez ainsi générer des documents officiels, les faire signer par élèves afin de garder une trace des notes et présences des élèves aux examens.
+

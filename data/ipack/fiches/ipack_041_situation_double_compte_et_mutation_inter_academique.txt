@@ -1,0 +1,5 @@
+### [SITUATION: DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE]
+- Instruction : Si un enseignant mute ou intervient sur deux académies différentes, iPackEPS gère désormais le multi-compte via Arena sans écraser les anciennes données.
+
+[SECTION: MISES_A_JOUR_ET_ARBITRAGES_OFFICIELS_DE_PIERRE]
+

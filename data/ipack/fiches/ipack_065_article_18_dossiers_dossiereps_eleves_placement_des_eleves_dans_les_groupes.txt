@@ -1,0 +1,15 @@
+### [ARTICLE 18] [Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes
+- Mots-clés : élèves, placement des élèves dans les groupes, classe vide, classes manquantes, importation élèves, Actualiser, cycle scolaire, groupe de destination, Visualisation par classes, liste des élèves pas à jour
+- Formulations courantes des collègues : Ma classe est vide, aucun élève n'apparaît ; Je ne vois pas toutes mes classes dans la liste ; Comment mettre à jour la liste des élèves après une arrivée ou un départ ? ; J'ai une erreur de cycle scolaire quand je mets un élève dans un groupe ; Comment mettre mes élèves dans un groupe ?
+- URL: spip.php?article18
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier EPS => Élèves. Note : depuis la version 2025 il est possible de récupérer d’un clic les élèves de Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...). 
+- QUESTIONS / RÉPONSES :
+  - Q1 : La liste de mes classes n’apparaît pas (ou certaines classes sont manquantes) lorsque je sélectionne [Visualisation par : [classes]] dans la première liste déroulante.
+  - R1 : Ce problème apparaît si vous n’avez pas encore configuré toutes les classes de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).
+  - Q2 : Lorsque je sélectionne une classe, celle-ci est vide, aucun élève n’apparaît.
+  - R2 : Ce problème apparaît si vous n’avez pas encore importé les élèves de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).
+  - Q3 : La liste des élèves dans les classes n’est pas à jour (élèves arrivés en cours d’année / élèves ayant quitté l’établissement / élèves ayant changé de classe).
+  - R3 : Pour mettre à jour la liste des élèves, retournez dans Tableau de bord => Dossiers => Dossier EPS => Classes, puis menu [importation élèves] => [Actualiser].
+  - Q4 : Lorsque je veux placer des élèves dans un groupe, l’erreur suivante apparaît : « le groupe de destination n’autorise pas le Cycle Scolaire de : nom de l’élève ».
+  - R4 : L’erreur apparaît si le cycle scolaire du groupe de départ n’est pas le même que celui du groupe de destination. Par exemple, il n’est pas possible de placer des élèves de 3e dans un groupe EPS de niveau 6e. Ces contrôles ne concernent que les groupes de type EPS et SSS : on peut mélanger plusieurs niveaux en AS. Il est possible qu’un mauvais cycle scolaire ait été déclaré pour la classe : vérifier dans [Dossiers] / [Dossier EPS] / [Classes] => Configuration des classes.
+

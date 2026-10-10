@@ -1,0 +1,10 @@
+### [SITUATION: ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE (UI)]
+* Imports améliorés (Drag 'n drop) : Toutes les fenêtres de dépôt de documents disposent de la même ergonomie unifiée (glisser-déposer, formats autorisés pdf, doc, docx, odt, zip, taille maximale 5000 Ko).
+  📺 Tutoriel associé : Import_documents_glisser_deposer.mp4
+* Bouton Légende : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut (document non déposé, en attente, validé avec ajustements, non valide, validé).
+* Import automatique des élèves : À l'accès à iPackEPS, une synchronisation automatique de la base des élèves s'effectue pour intégrer instantanément les entrées/sorties sans intervention manuelle dans la gestion des classes.
+  📺 Tutoriel associé : Import_automatique_eleves.mp4
+* Actualisation élargie : Tous les enseignants (et non plus seulement le coordonnateur) peuvent actualiser directement la liste des membres de l'équipe EPS ainsi que la liste des classes et des élèves.
+  📺 Tutoriel associé : Actualisation_equipe_classes.mp4
+
+----------------------------------------------------------------------

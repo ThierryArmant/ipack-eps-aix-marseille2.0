@@ -1,0 +1,8 @@
+### 6. Sections Sportives Scolaires (SSS) et Dossiers APPN
+- Mots-clés : SSS, section sportive scolaire, reconduction, fermeture, signature du chef d'établissement, IPR, documents modèles, bilan SSS, messagerie, APPN, validation
+- Formulations courantes des collègues : Comment demander la reconduction de ma section sportive ? ; Comment fermer une SSS ? ; Qui valide la demande de section sportive ? ; Où déposer le bilan de la SSS ? ; Comment suis-je prévenu de la validation de mon projet APPN ?
+* **Module d'évolution SSS :** Espace dédié pour formaliser chaque année les demandes de reconduction ou de fermeture d'une SSS, soumis à la signature obligatoire du chef d'établissement et validé par les IPR.
+* **Modèles de documents SSS dissociés :** Possibilité de verser des documents modèles distincts selon qu'il s'agit d'une demande d'ouverture, d'un projet SSS ou d'un bilan SSS.
+* **Messagerie et Communication :** Les membres des commissions et les IPR peuvent envoyer directement des messages de validation ou d'invalidation ciblés aux établissements pour les dossiers SSS et APPN.
+* **Amélioration du dossier APPN :** Suppression des colonnes superflues, mémorisation des filtres et envoi de e-mails récapitulatifs de validation.
+

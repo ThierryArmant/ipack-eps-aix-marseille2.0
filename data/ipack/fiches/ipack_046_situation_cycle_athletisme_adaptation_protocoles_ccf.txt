@@ -1,0 +1,10 @@
+### [SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]
+- Mots-clés : cycle athlétisme, course, saut, lancer, choix des élèves, protocole CCF, adaptation du protocole, changement d'activité en cours de cycle, protocole fixe, Cyclades, baccalauréat
+- Formulations courantes des collègues : puis-je laisser mes élèves choisir entre course, saut et lancer pour le bac ; peut-on changer le protocole en cours de cycle ; peut-on adapter le protocole aux performances des élèves ; peut-on modifier l'activité d'un élève après le début du cycle
+- Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. Comment adapter les protocoles au choix des élèves ?
+→ RÈGLE ACADÉMIQUE : PROCÉDURE TECHNIQUE ABSOLUMENT IMPOSSIBLE ET INTERDITE. Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole fixe et définitif dès le début de l'année scolaire (octobre/novembre). L'application iPackEPS est une base de données rigide synchronisée avec Cyclades et ne permet aucune modification rétroactive des choix d'activités en cours de cycle pour s'adapter aux performances ou aux envies des élèves.
+
+- Instruction : Cas concret : Je propose un cycle athlétisme à mes élèves de bac et je souhaite les évaluer en course, ou en saut ou en lancer en leur donnant le choix en fonction de leurs performances réalisées lors des premières séances du cycle. 
+→ RÈGLE ACADÉMIQUE : PROCÉDURE TECHNIQUE ABSOLUMENT IMPOSSIBLE ET INTERDITE. Les candidats doivent obligatoirement être positionnés et verrouillés dans un protocole fixe et définitif dès le début de l'année scolaire (octobre/novembre). L'application iPackEPS est une base de données rigide synchronisée avec Cyclades et ne permet aucune modification rétroactive des choix d'activités en cours de cycle.
+[SECTION: CAS_COMPLÉMENTAIRES_CRITIQUES_TERRAIN]
+

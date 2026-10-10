@@ -1,0 +1,12 @@
+### [SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]
+- Mots-clés : inaptitude, certificat médical, dispensé, dépôt du certificat, onglet Inaptitudes, Saisir une inaptitude, Mes Élèves, Fiche élève, IN, DI, bouton de modification grisé, date de reprise
+- Formulations courantes des collègues : comment saisir une inaptitude pour un élève ; où déposer le certificat médical d'un élève ; mon élève est dispensé, que dois-je faire dans iPackEPS ; faut-il écrire IN ou DI à la main ; le bouton de modification est grisé, pourquoi
+- Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
+1. BOUTON DE MODIFICATION GRISÉ : la cause n'est pas une note, car aucune note n'est saisie dans iPackEPS (il n'existe pas de menu « Saisie des notes »). Vérifier que la procédure en cours est terminée et enregistrée, puis revenir sur la fiche de l'élève.
+2. PROCÉDURE TECHNIQUE :
+→ Accès : Menu 'Mes Élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
+→ Action : Cliquer sur le bouton 'Saisir une inaptitude'.
+→ Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans une case de saisie. La validation de l'inaptitude génère le statut automatiquement.
+→ Dépôt : Scanner et téléverser le certificat médical (PDF ou image) directement via l'option dédiée dans cet onglet.
+3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.
+

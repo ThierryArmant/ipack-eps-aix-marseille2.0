@@ -1,0 +1,19 @@
+### [SITUATION: DICTIONNAIRE DES STATUTS ADMINISTRATIFS EN CCF EPS]
+* ÉLÈVE INAPTE / DISPENSÉ MÉDICAL (« DISP » / « DI ») :
+  - Sélectionner « DI » (Dispensé) ou « Inapte » dans le menu déroulant Santorin sur l'épreuve concernée.
+  - Conséquence : Neutralisation de l'APSA pour le calcul du CCF (pas de note zéro). Nécessite obligatoirement un certificat médical conforme (le simple mot des parents est nul et non avenu).
+  - ⚠️ [NUANCE TEMPORELLE IMPORTANTE] : Le statut DISP est réglementaire pour une inaptitude de longue durée couvrant tout le cycle ou dans le cadre de dispenses multiples (note unique). Il est formellement interdit de l'utiliser en urgence pour une inaptitude de dernière minute (veille ou jour de l'épreuve), qui impose obligatoirement une épreuve différée.
+
+* ÉLÈVE ABSENT JUSTIFIÉ (« ABJ ») :
+  - Sélectionner « ABJ » pour bloquer temporairement l'épreuve en vue d'une épreuve de substitution pratique sur le terrain (avant la clôture des serveurs Santorin).
+
+* ÉLÈVE ABSENT INJUSTIFIÉ (« ABI » / SÉCHEUR DU CCF) :
+  - Sélectionner « ABI » sur l'APSA manquée.
+  - Conséquence : Attribution automatique de la note 0/20 pour cette épreuve, intégrée dans le calcul de la moyenne du CCF. Si l'élève est ABI à toutes les épreuves, statut « Absent » global et non-délivrance du diplôme (Article D. 337-16 du Code de l'éducation).
+
+* CAS PARTICULIER DE LA « NOTE UNIQUE » (EX: DI + DI + NOTE) :
+  - Formules et formulations associées : DI+DI+note | AB+DI+note | Note unique | Une seule note valide.
+  - Procédure : Saisir le statut [Dispensé] (DI) pour les deux épreuves non pratiquées, puis saisir normalement la note réelle (ex: 14/20) pour l'unique APSA évaluée.
+  - Obligation technique absolue : Rédiger un commentaire circonstancié de justification STRICTEMENT OBLIGATOIRE dans l'interface Santorin pour éclairer l'arbitrage de la CAHPN (demande de maintien de la note unique ou de neutralisation).
+
+--------------------------------------------------------------------------------

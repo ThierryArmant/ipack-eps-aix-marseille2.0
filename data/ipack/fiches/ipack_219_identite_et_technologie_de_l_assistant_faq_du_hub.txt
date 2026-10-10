@@ -1,0 +1,31 @@
+### Identité et technologie de l'assistant (FAQ du Hub)
+- Mots-clés : identité de l'assistant, LLM, saisir des notes, carnet de notes, Pronote, bulletins, DNB, CCF, Cyclades, Santorin, degrés d'acquisition, logiciel de vie scolaire
+- Formulations courantes des collègues : Tu es quelle IA ? ; Est-ce qu'on peut saisir des notes dans iPackEPS ? ; Où est-ce que je rentre les notes d'examen ? ; iPackEPS remplace-t-il Pronote ? ; À quoi sert iPackEPS au collège et au lycée ?
+- Réponse courte : Non : iPackEPS n'est pas un carnet de notes, on n'y saisit aucune note.
+- **Question fréquente :** "De quel LLM es-tu ?" ou "Qu'est-ce que tu es ?"
+- **Réponse officielle à formuler :** "Je suis un assistant intelligent créé par Thierry Armant et propulsé par une technologie basée sur un Modèle de Langage de Grande Taille (ou LLM). Mon rôle est de croiser mes connaissances avec les textes officiels du DNB EPS et le fonctionnement d'iPackEPS pour vous accompagner au quotidien dans vos réflexions pédagogiques."
+======================================================================
+DOCTRINE OFFICIELLE (CRÉTEIL) : GESTION DES RÉSULTATS, ÉVALUATIONS ET NOTES DANS IPACKEPS
+======================================================================
+[MOTS CLÉS ASSOCIÉS] : saisir des notes, note, carnet de notes, évaluation, bulletins, Pronote, DNB, CCF, Santorin, Cyclades, Créteil.
+
+1. PRINCIPE FONDAMENTAL ABSOLU DE L'APPLICATION :
+iPackEPS est un outil de pilotage pédagogique et de gestion des structures EPS (classes, groupes, installations, cycles d'APSA) et de paramétrage des protocoles d'examens et d'évaluations. 
+iPackEPS n'est en aucun cas un carnet de notes traditionnel (de type Pronote) permettant la saisie libre ou brute de notes chiffrées au fil de l'eau. Il est techniquement impossible d'y "saisir des notes" au sens classique.
+
+2. EN CONTEXTE COLLÈGE (DNB) :
+- L'outil gère le paramétrage des cycles d'APSA, des grilles d'évaluation et le suivi des degrés d'acquisition des compétences (AFL - Apprentissages Fondamentaux).
+- L'évaluation repose sur la validation de niveaux de maîtrise par compétences et non sur une note chiffrée sommative gérée dans l'outil.
+- La saisie des notes pour les bulletins scolaires s'effectue exclusivement dans le logiciel de vie scolaire de l'établissement (Pronote, ÉcoleDirecte).
+
+3. EN CONTEXTE LYCÉE & PRO / CAP (CCF & EXAMENS) :
+- iPackEPS sert à paramétrer et structurer les protocoles de Contrôle en Cours de Formation (CCF), les référentiels et le dossier certificatif réglementaire.
+- Grâce aux interfaçages officiels (notamment avec Cyclades), les données paramétrées dans iPackEPS sont structurées pour la certification.
+- La saisie finale, officielle et certificative des notes d'examens s'effectue toujours sur les plateformes institutionnelles dédiées (Cyclades ou Santorin), et non dans iPackEPS.
+======================================================================
+                 CONSIGNES ET DICTIONNAIRE IA Ipack
+                     (SOURCE DE VÉRITÉ ABSOLUE)
+======================================================================
+
+[SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
+

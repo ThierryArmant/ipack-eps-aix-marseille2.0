@@ -1,0 +1,3 @@
+### [SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]
+- Instruction : Si l'interface refuse de modifier l'activité ou l'option d'un élève, la cause n'est pas une note : aucune note n'est saisie dans iPackEPS et il n'existe pas de menu « Saisie des notes ». Vérifier que les séquences et l'emploi du temps de l'élève sont enregistrés, puis actualiser la page.
+

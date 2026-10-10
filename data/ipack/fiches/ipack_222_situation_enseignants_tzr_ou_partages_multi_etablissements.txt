@@ -1,0 +1,6 @@
+### [SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]
+- Mots-clés : TZR, enseignant partagé, multi-établissements, sélecteur d'établissement, ARENA, RAMSESE, classes invisibles, second établissement, secrétariat, affectation
+- Formulations courantes des collègues : Je suis TZR et je ne vois pas mes classes ; Comment changer d'établissement dans iPackEPS ? ; Mon deuxième établissement n'apparaît pas, que faire ? ; Je suis sur un collège et un lycée, comment accéder aux deux ?
+- Problème : Un enseignant TZR ou affecté sur plusieurs établissements (ex: un collège et un lycée) ne voit pas ses classes ou ne peut pas accéder au second établissement dans iPackEPS.
+- Procédure de bascule : Sur la page d'accueil d'iPackEPS (après connexion ARENA), utiliser le sélecteur d'établissement en haut de page pour basculer explicitement vers l'entité souhaitée. Si l'établissement n'apparaît pas, l'affectation administrative n'est pas encore redescendue dans la base RAMSESE ; contacter le secrétariat de l'établissement d'exercice pour forcer la mise à jour de la prise de fonction.
+

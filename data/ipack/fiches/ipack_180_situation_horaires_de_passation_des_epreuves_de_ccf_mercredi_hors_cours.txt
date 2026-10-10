@@ -1,0 +1,8 @@
+### [SITUATION: HORAIRES DE PASSATION DES ÉPREUVES DE CCF (MERCREDI / HORS COURS)]
+Mots-clés : CCF le mercredi après-midi, épreuve hors emploi du temps, faire passer le CCF le week-end, convocation hors cours.
+- Règle d'or : Le Contrôle en Cours de Formation s'effectue OBLIGATOIREMENT sur le temps d'enseignement ordinaire de la classe ou du groupe.
+- Interdiction : Il est formellement interdit d'organiser une épreuve certificative ponctuelle sur un créneau non inscrit à l'emploi du temps officiel (ex : le mercredi après-midi non banalisé ou le samedi), sauf s'il s'agit d'une session de rattrapage / épreuve différée officiellement banalisée et validée par le chef d'établissement.
+- Conséquence iPackEPS : Les dates de fin de séquence déclarées dans le protocole doivent obligatoirement coïncider avec les créneaux réguliers enregistrés dans l'onglet [EDT].
+
+[SECTION: BOGUES_D_INTERFACE_ET_BLOCAGES_EN_CASCADE_IPACKEPS]
+

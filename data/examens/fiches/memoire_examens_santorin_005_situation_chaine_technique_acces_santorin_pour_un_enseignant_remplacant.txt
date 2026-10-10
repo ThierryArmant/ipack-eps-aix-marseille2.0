@@ -1,0 +1,11 @@
+### [SITUATION: CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT]
+- Formulations courantes des collègues : je suis remplaçant ou contractuel, je n'ai pas mes codes, mes identifiants ou mon mot de passe pour accéder à mes lots de correction ; le professeur que je remplace ne m'a pas donné ses codes ; comment obtenir mes accès à Santorin.
+- Rappel (règle de connexion déjà énoncée dans ce document, aucune information nouvelle) : il n'existe pas de codes propres à Santorin à récupérer auprès du collègue remplacé. L'accès se fait par le portail ARENA avec ses propres identifiants professionnels (e-mail académique + mot de passe). Ce qui manque à un remplaçant, ce sont les droits, que la direction de l'établissement doit lui ouvrir par la procédure ci-dessous.
+- Le piège du portail Imag'in : Si un enseignant remplaçant (arrivé en cours d'année suite à un long arrêt) ne voit pas ses lots dans Santorin, le problème ne vient pas de Santorin mais d'Imag'in.
+- Procédure exacte :
+  1. Saisir/vérifier l'affectation administrative dans STSWEB.
+  2. Se connecter à Imag'in Établissement, créer ou rattacher la mission « Notation EPS CCF ».
+  3. L'action critique : Cliquer impérativement sur le picto « PDF » de la convocation. Ce clic est l'action informatique obligatoire qui transmet (pousse) les droits d'écriture de l'enseignant vers la base Santorin (délai de synchronisation de 12h à 24h).
+  4. Procéder ensuite à la distribution des lots dans la console Santorin-Direction.
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+### [ARTICLE 108] [Dossiers]/[Dossier EPS]/[Élèves] Importation depuis d'autres logiciels (Idoceo, Additio, CSV Personnalisé)
+Mots-clés : import Idoceo, Additio vers iPackEPS, structure colonnes tableur, export zip tablettes.
+- Procédure d'import externe :
+  1. Les logiciels de gestion de classe externes (Idoceo, Additio) ne peuvent pas écraser directement la base centrale iPackEPS.
+  2. Pour importer des listes personnalisées, le fichier doit impérativement respecter l'ordre exact des en-têtes : `Nom;Prénom;Date de naissance;Sexe;Classe`.
+  3. L'encodage doit obligatoirement être `UTF-8` avec séparateur point-virgule (`;`).
+

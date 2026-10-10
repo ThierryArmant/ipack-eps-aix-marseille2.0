@@ -1,0 +1,6 @@
+### [ARTICLE 4] [Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation
+- Mots-clés : enquête natation, Dossier Natation, saisie, validation, chef d’établissement, mode d’emploi PDF
+- Formulations courantes des collègues : Où saisir l’enquête natation ? ; Qui doit valider l’enquête natation ? ; Y a-t-il un mode d’emploi pour l’enquête natation ?
+- URL: spip.php?article4
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier Natation => Enquête. Une fois l’enquête complétée, elle devra être validée par le chef d’établissement via son interface. Mode d’emploi version PDF disponible.
+

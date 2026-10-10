@@ -1,0 +1,3 @@
+### [SITUATION: ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS)]
+- Instruction : Les étudiants en stage de Master MEEF (STAPS) ou les accompagnateurs extérieurs peuvent désormais obtenir un accès de lecture ou d'écriture sur les classes si le chef d'établissement les valide dans le module d'administration.
+

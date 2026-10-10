@@ -1,0 +1,8 @@
+### [SITUATION: SUPPRIMER UN PROTOCOLE DANS iPackEPS (ET NON DANS CYCLADES)]
+- ATTENTION : cette fiche concerne iPackEPS uniquement. Si la question porte sur CYCLADES (« supprimer un protocole dans Cyclades »), ne donne PAS cette procédure : dans Cyclades, cela se fait par l'activité [EPS] > [Contrôler / Réaffecter des protocoles].
+* FAUSSE PROCÉDURE : L'option directe « Supprimer le protocole » n'existe pas dans les menus terminaux si des données y sont rattachées.
+* LA VRAIE PROCÉDURE : Pour faire disparaître un protocole, il faut obligatoirement procéder à rebours :
+  1. Aller dans [Dossiers] > [Dossier EPS] > [Séquences d'Apprentissage] et supprimer toutes les séquences liées au groupe.
+  2. Aller dans le module [Mes Élèves], vider le groupe en décochant tous les élèves affectés.
+  3. Une fois le groupe totalement vide et sans aucune séquence, le protocole se désactive et peut être archivé ou supprimé depuis le menu [Dossier Certificatif] > [Protocoles d'évaluation].
+

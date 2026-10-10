@@ -1,0 +1,9 @@
+### [SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]
+- Mots-clés : chef d'établissement, contrôle de conformité, signature, dossier certificatif, FCA, nouveautés, glisser-déposer, bouton légende, inventaire EPI, certificats médicaux, export ZIP, SSS, APPN, professeurs externes
+- Formulations courantes des collègues : Que doit vérifier le chef d'établissement avant de signer ? ; La signature du chef est bloquée, pourquoi ? ; Quelles sont les nouveautés d'iPackEPS ? ; Quels formats de fichiers puis-je déposer ? ; Peut-on faire un contrôle adapté pour un élève blessé en cours d'année ?
+- Rôle : Le chef d'établissement exerce un **contrôle de conformité** avant la transmission à la CAHPN. Avant de signer et valider le dossier certificatif, il doit s'assurer que les protocoles soumis respectent les structures de la voie (3 APSA pour le Bac GT/Pro, 2 pour le CAP) et que les fiches d'évaluation (FCA) sont bien rattachées. Si une alerte bloque la signature, vérifier la présence des commentaires obligatoires d'équipe en cas d'écarts.
+======================================================================
+📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS & AJOUTS TERRAIN (v2026.2.x)
+======================================================================
+
+----------------------------------------------------------------------

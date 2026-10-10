@@ -1,0 +1,13 @@
+### [SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]
+- Mots-clés : fichier CSV, Excel, accents abîmés, é devient Ã©, classes transformées en dates, export Pronote, export ÉcoleDirecte, encodage UTF-8, séparateur point-virgule, Bloc-notes, Notepad++
+- Formulations courantes des collègues : les accents sont remplacés par des caractères bizarres dans mon fichier ; ma classe 1-1 est devenue une date ; avec quoi ouvrir un fichier CSV sans l'abîmer ; pourquoi ne pas ouvrir le CSV dans Excel ; dans quel format enregistrer le fichier CSV
+- Cause fatale : Double-cliquer pour ouvrir un fichier CSV d'export Pronote ou ÉcoleDirecte directement dans Microsoft Excel. Excel convertit le fichier en ANSI/Windows-1252, détruit les accents (é devient Ã©) et transforme les libellés de classes de type « 1-1 » en dates (« 1er janvier »).
+- Procédure de prévention :
+  1. Ne jamais double-cliquer pour ouvrir un fichier CSV dans Excel.
+  2. Si une modification est nécessaire, l'ouvrir exclusivement avec le Bloc-notes Windows (Notepad) ou Notepad++.
+  3. Enregistrer le fichier en sélectionnant expressément l'encodage **UTF-8** avec le séparateur point-virgule (;).
+======================================================================
+📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS (VERSION 2026.2.x / 2026-2027)
+======================================================================
+
+----------------------------------------------------------------------

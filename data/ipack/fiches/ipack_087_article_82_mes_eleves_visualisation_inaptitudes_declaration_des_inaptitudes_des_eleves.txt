@@ -1,0 +1,6 @@
+### [ARTICLE 82] [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves
+- Mots-clés : inaptitudes, déclaration, onglet [Inaptitudes], certificat médical, Mes Élèves, Visualisation, téléphone, appareil photo
+- Formulations courantes des collègues : Comment déclarer une inaptitude pour un élève ? ; Où ajouter un certificat médical ? ; Peut-on prendre le certificat en photo avec son téléphone ?
+- URL: spip.php?article82
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Mes Élèves => Visualisation Onglet [Inaptitudes]. Démo d’utilisation sur téléphone (utilisation appareil photo pour capturer le certificat médical) disponible.
+

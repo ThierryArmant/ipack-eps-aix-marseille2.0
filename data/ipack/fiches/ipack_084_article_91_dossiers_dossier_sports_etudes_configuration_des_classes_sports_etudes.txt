@@ -1,0 +1,6 @@
+### [ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études
+- Mots-clés : Sports-Études, classes Sports-Études, configuration, Dossier Sports-Études, Dossiers
+- Formulations courantes des collègues : Où configurer les classes Sports-Études ? ; Comment accéder au dossier Sports-Études ? ; Où est le menu Sports-Études ?
+- URL: spip.php?article91
+- Texte: Accès à la fonctionnalité : Dossiers => Dossier Sports-Études.
+

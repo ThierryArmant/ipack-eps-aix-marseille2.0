@@ -1,0 +1,50 @@
+### [SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]
+Mots-clés : changement de remplaçant, contractuel parti, historique des saisies de l'ancien prof, écrasement de données.
+- Règle de conservation : Les données saisies dans iPackEPS sont rattachées à la structure de la classe/groupe et à l'établissement, jamais au compte personnel de l'enseignant.
+- Procédure d'installation du remplaçant :
+  1. Dès notification du contrat RH, le chef d'établissement affecte le remplaçant sur STSWEB.
+  2. Un enseignant de l'équipe EPS clique sur [Équipe EPS] > [Actualiser].
+  3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
+  4. Le nouveau professeur accède immédiatement à l'ensemble des séquences et groupes précédemment enregistrés par son prédécesseur sans aucune perte de données.
+
+======================================================================
+[ARTICLE : INCIDENT IMPRÉVISIBLE, PERTURBATION EXTÉRIEURE ET FORCE MAJEURE EN CCF]
+Mots-clés : incident de course, perturbation épreuve, animal, sanglier, météo subite, agression, panique balise, force majeure, arbre.
+
+- Qualification juridique : Tout événement imprévisible, extérieur et insurmontable survenant pendant une épreuve certificative (ex : intrusion animale, orage violent soudain, balise détruite, obstacle imprévu) constitue un cas de force majeure perturbant l'équité de l'examen.
+- Interdictions formelles :
+  -> Ne JAMAIS modifier la note d'AFL1 à la main pour compenser le temps perdu.
+  -> Ne JAMAIS cocher « Cas Exceptionnel (CE) » (réservé aux annulations globales d'APSA validées par l'IA-IPR).
+- Procédure officielle :
+  1. L'enseignant consigne l'incident par écrit (rapport d'incident d'épreuve).
+  2. Le chef d'établissement constate la force majeure et autorise officiellement le renvoi du candidat vers la date d'épreuve différée (session de rattrapage).
+  3. L'élève repasse l'épreuve dans des conditions régulières lors du créneau différé prévu au protocole.
+
+======================================================================
+[ARTICLE : ÉLÈVE HOSPITALISÉ LONGUE DURÉE OU EN CENTRE PÉNITENTIAIRE (BAC)]
+Mots-clés : prison, détention, centre pénitentiaire, CPM, hospitalisation longue durée, pas d'accès gymnase, soins études, CCF impossible.
+
+- Statut réglementaire : Un élève scolarisé mais incarcéré ou hospitalisé au long cours qui ne peut pas suivre les cours d'EPS de l'établissement ne peut PAS être évalué dans le cadre du CCF ordinaire.
+- Interdictions :
+  -> Ne JAMAIS tenter de bricoler un protocole CCF fictif dans iPackEPS.
+  -> Ne JAMAIS aller dans Santorin pour saisir des commentaires sur un lot non évalué.
+- Procédure officielle :
+  1. Si motif médical (hospitalisation) : enregistrer le certificat d'inaptitude totale pour l'année dans iPackEPS ([Mes Élèves] > [Inaptitudes]). L'élève est déclaré « Dispensé d'EPS » au Bac (coefficient neutralisé).
+  2. Si motif carcéral ou éloignement sans inaptitude médicale : l'établissement signale immédiatement la situation à la DEC (Division des Examens et Concours).
+  3. La DEC bascule le candidat en « Examen ponctuel terminal » (géré par l'unité pédagogique en milieu pénitentiaire ou un centre d'examen dédié) ou prononce une dispense d'examen pour motif de force majeure.
+
+======================================================================
+[ARTICLE : RGPD, SOUVERAINETÉ DES DONNÉES ET CARNET PAPIER]
+Mots-clés : RGPD, protection des données, serveurs États-Unis, données biométriques, carnet à spirale, vie privée, hébergement cloud, chronomètre.
+
+- Hébergement souverain : iPackEPS est une application officielle de l'Éducation nationale, hébergée sur les serveurs académiques sécurisés en France. Aucune donnée d'élève n'est transmise à l'étranger ou sur des serveurs privés aux États-Unis.
+- Conformité RGPD et données scolaires :
+  -> La saisie des performances physiques (chronos, barèmes, compétences AFL) entre strictement dans le cadre des missions d'enseignement et d'évaluation du service public.
+  -> Les résultats sportifs ne constituent pas des données biométriques sensibles au sens du RGPD.
+- Carnet papier vs Outil numérique : L'utilisation d'iPackEPS protège l'enseignant en assurant la traçabilité et l'archivage sécurisé de l'organisation et des documents de l'établissement (contrairement au carnet personnel sur papier qui peut être perdu, volé ou contesté sans preuve d'horodatage).
+
+======================================================================
+SECTION 5 : ENRICHISSEMENT HISTORIQUE & FAQS ACADÉMIQUES / NATIONAL
+(RÉSOLUTION DES 15 CAS LIMITES CRITIQUES SUR 10 ANS D'USAGE)
+======================================================================
+

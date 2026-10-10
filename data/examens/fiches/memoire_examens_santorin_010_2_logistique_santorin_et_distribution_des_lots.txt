@@ -1,0 +1,7 @@
+### 2. Logistique Santorin et Distribution des Lots
+- Mots-clés : distribution des lots, Distribution de l'épreuve, lots de correction, Santorin, chef d'établissement, Aucun lot à corriger, lot invisible, synchronisation Cyclades Santorin, Rejouer l'import, signalement à la DEC, Imag'in, mission d'évaluation, convocation PDF, droits Santorin, correcteur
+- Formulations courantes des collègues : je ne vois pas mes lots dans Santorin ; Santorin m'affiche aucun lot à corriger ; qui doit distribuer les lots ; pourquoi faut-il éditer la convocation en PDF dans Imag'in ; mes élèves n'apparaissent pas dans Santorin ; comment le chef d'établissement me donne accès à Santorin ; je n'ai pas de copies à corriger
+* **Distribution des lots :** Étape indispensable où le chef d'établissement génère les lots de correction à partir des protocoles dans l'onglet « Distribution de l'épreuve ». Sans distribution, les correcteurs ne voient pas leurs copies.
+* **Erreur « Aucun lot à corriger » :** Due à une rupture de synchronisation entre Cyclades et Santorin. Procédure : vérifier l'affectation dans Cyclades, forcer la synchronisation via « Rejouer l'import » dans Santorin, ou faire un signalement à la DEC.
+* **Convocations Imag'in -> Santorin :** Le chef d'établissement doit créer les missions d'évaluation dans Imag'in. L'édition impérative de la convocation au format **PDF** dans Imag'in est l'action technique qui déclenche la transmission des droits vers Santorin (Tutoriel vidéo associé : `https://ipackeps.ac-creteil.fr/spip.php?article80`).
+

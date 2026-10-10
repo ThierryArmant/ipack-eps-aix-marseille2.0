@@ -1,0 +1,10 @@
+### [ARTICLE 55] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS
+- Mots-clés : dépôt des documents, commission d’harmonisation, CAHPN, Dossier Certificatif, certificats médicaux, fiche récapitulative d’établissement, listes d’inaptitudes, fiches individuelles, plusieurs certificats, cas particuliers
+- Formulations courantes des collègues : Où déposer les documents pour la commission d’harmonisation ? ; Quels documents peut-on déposer pour la commission ? ; Peut-on déposer plusieurs certificats médicaux pour un même élève et une même activité ? ; Où trouver les tutoriels de dépôt ?
+- Réponse courte : Oui, il est possible de déposer plusieurs certificats médicaux pour une même séquence d’apprentissage. Le dépôt se fait dans [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission].
+- URL: spip.php?article55
+- Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Les tutoriels vous décrivent les étapes de dépôt des documents que votre académie peut vous demander pour piloter la commission académique d’harmonisation des notes aux examens. Vous pouvez déposer une fiche récapitulative d’établissement, des listings de notes, des listes d’inaptitudes, des scans de certificats médicaux, et des fiches individuelles d’élèves pour les cas particuliers d’évaluation. Le tutoriel sur le dépôt de la fiche Établissement est disponible sur l'article 83. Le tutoriel sur le contrôle et dépôt des certificats médicaux est disponible sur l'article 85. Le tutoriel sur le dépôt de Fiches Individuelles est disponible sur l'article 84.
+- QUESTIONS / RÉPONSES :
+  - Q1 : Est-il possible de déposer plusieurs certificats médicaux d’un élève pour une même activité ? (le certificat qui couvre la date du CCF et le certificat qui couvre la date du rattrapage par exemple ?)
+  - R1 : OUI, depuis la version 2025.3.1 (décembre 2025) il est possible de déposer plusieurs certificats pour une même séquence d’apprentissage.
+

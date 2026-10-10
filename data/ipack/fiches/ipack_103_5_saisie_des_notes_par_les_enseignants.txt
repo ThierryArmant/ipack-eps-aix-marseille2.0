@@ -1,0 +1,3 @@
+### 5. Saisie des notes par les enseignants
+- L'enseignant se connecte à Imag'in via le portail de son académie (ARENA). Il se rend dans « Portail d’accès aux missions », puis clique sur la ligne de la mission « Notation EPS CCF » correspondant à l'examen. Une fois basculé dans Santorin, il sélectionne à nouveau l'examen et clique sur la flèche pour accéder à son lot. La liste des élèves s’affiche (il est recommandé d'ajuster le nombre de candidats par page). L'enseignant clique sur le bouton crayon en bout de ligne pour lancer la saisie.
+

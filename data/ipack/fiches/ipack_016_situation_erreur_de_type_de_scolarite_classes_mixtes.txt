@@ -1,0 +1,3 @@
+### [SITUATION: ERREUR DE TYPE DE SCOLARITÉ (CLASSES MIXTES)]
+- Instruction : Lors de l'ajout d'élèves dans un groupe, si l'application bloque avec le message « Ce n'est pas possible car les élèves ne suivent pas la même scolarité », c'est que le groupe mélange des élèves de filières différentes (ex : filière Générale et filière Technologique). iPackEPS interdit informatiquement la fusion de ces structures au sein d'un protocole unique.
+

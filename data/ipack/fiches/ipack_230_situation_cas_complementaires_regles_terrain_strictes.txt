@@ -1,0 +1,11 @@
+### [SITUATION: CAS COMPLÉMENTAIRES & RÈGLES TERRAIN STRICTES]
+* Gestion des PAI, PAP ou PPS : Un PAI, un PAP ou un PPS formalisant une pathologie chronique (asthme, allergies, troubles DYS) n'est pas une dispense d'EPS. L'élève participe avec des aménagements pédagogiques et matériels. Ne jamais saisir de statut DI ou IN dans iPackEPS sur la seule base d'un PAI/PAP.
+* Enseignants TZR ou partagés (Multi-établissements) : Utiliser le sélecteur d'établissement en haut de page sur l'accueil d'iPackEPS (après connexion ARENA) pour basculer vers l'entité souhaitée. Si l'établissement n'apparaît pas, l'affectation RAMSESE n'est pas redescendue ; contacter le secrétariat.
+* Élève exclu (Sanction disciplinaire) pendant un CCF : Une exclusion temporaire n'est ni une inaptitude médicale ni un cas de force majeure. L'établissement doit organiser une session de rattrapage (épreuve différée) dès son retour. Si absence injustifiée au rattrapage, attribution de la note zéro (0/20 ou ABS).
+* Rôle du chef d'établissement : Exerce un contrôle de conformité avant validation de la CAHPN (vérification du nombre d'APSA selon la voie, présence des FCA et des commentaires d'équipe en cas d'écarts).
+* Interdiction d'improviser un contrôle adapté (FCA) à la volée : Formellement interdit en cours d'année pour une blessure soudaine. L'inaptitude temporaire relève d'un simple contrôle aménagé sur la MÊME APSA du protocole initial, sans changer d'activité.
+======================================================================
+======================================================================
+BASE DE CONNAISSANCES RAG : IPACKEPS (FONCTIONNALITÉS ET NOUVEAUTÉS)
+======================================================================
+

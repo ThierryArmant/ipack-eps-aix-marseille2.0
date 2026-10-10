@@ -1,0 +1,6 @@
+### [ARTICLE 90] [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement
+- Mots-clés : inaptitudes, liste des élèves inaptes, certificats médicaux, inaptitudes partielles et totales, [Mes Élèves]/[Inaptitudes], statistiques inaptitudes
+- Formulations courantes des collègues : Où voir la liste des élèves inaptes ? ; Où retrouver les certificats médicaux déposés ? ; Comment ajouter un certificat médical ? ; Où sont les statistiques d’inaptitudes ?
+- URL: spip.php?article90
+- Texte: Accès à cette fonctionnalité : interface Professeur ou chef d’Établissement : module : [Mes Élèves]/[Inaptitudes]. Retrouvez sur cette page les certificats médicaux présentés pour les inaptitudes partielles et totales des élèves. Pour ajouter des certificats médicaux, allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes] (Article 82). Pour consulter vos statistiques d’Inaptitudes, allez dans le module [Statistiques / Offre de Formation] / [Statistiques Inaptitudes].
+

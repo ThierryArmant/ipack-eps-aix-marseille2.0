@@ -1,0 +1,8 @@
+### [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année
+Mots-clés : élève arrivant autre académie, transfert de notes CCF, changement de lycée en cours d'année, récupérer notes ancien lycée.
+- Procédure de transfert :
+  1. Aucune passerelle automatique inter-bases n'existe entre deux établissements pour les notes de CCF (aucune note n'est saisie dans iPackEPS).
+  2. Le coordonnateur du nouveau lycée demande un « Relevé officiel de notes de CCF » signé par le chef d'établissement d'origine.
+  3. Le nouvel enseignant intègre l'élève dans son groupe iPackEPS via l'actualisation SIÈCLE.
+  4. Pour les épreuves déjà passées dans l'ancien lycée : l'enseignant conserve le document papier signé et renseignera les notes dans Santorin au moment de l'ouverture du serveur en joignant le justificatif pour la CAHPN.
+

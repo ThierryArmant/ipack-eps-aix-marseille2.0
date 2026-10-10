@@ -1,0 +1,10 @@
+### [ARTICLE 58] Interface chef d’établissement : description de l’interface complète
+- Mots-clés : chef d’établissement, interface, modules, validation, section sportive scolaire, enquête natation, équipements sportifs, projets APPN, navigation, tutoriel
+- Formulations courantes des collègues : Que voit le chef d’établissement dans iPackEPS ? ; Que doit valider le chef d’établissement ? ; Y a-t-il un tutoriel pour le chef d’établissement ? ; Comment le chef d’établissement valide les dossiers ?
+- URL: spip.php?article58
+- Texte: Ce tutoriel présente le détail des modules accessibles au chef d’établissement, et les validations nécessaires demandées (validation des projets de Section Sportive Scolaire, de l’enquête natation…). Tutoriel #1 : présentation des divers modules, navigation dans l’application. Tutoriel #2 : validation des divers dossiers (SSS, enquête natation, équipements sportifs, projets APPN…).
+
+======================================================================
+SECTION 3: LIVRET TECHNIQUE SANTORIN - IMAG'IN
+======================================================================
+

@@ -1,0 +1,33 @@
+### [SITUATION: BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER]
+A. SANTORIN : SAISIE RAPIDE & ERGONOMIE
+* Saisie directe au pavé numérique (sans menu déroulant) :
+  - L'enseignant n'a pas besoin d'utiliser la souris pour sélectionner chaque note dans les menus déroulants.
+  - Cliquer dans le premier champ de note et taper directement la valeur chiffrée au clavier.
+* Navigation ultra-rapide par touches :
+  - IMPORTANT : validez chaque note par la touche `[Entrée]`. Sans `[Entrée]`, la note tapée n'est pas enregistrée.
+  - Touche `[Entrée]` : Valide et enregistre la note saisie.
+  - Touche `[Tab]` : Permet de sauter instantanément au champ d'AFL/AFLP suivant.
+  - Combinaison `[Maj + Tab]` (Shift + Tab) : Revient immédiatement au champ précédent en cas de faute de frappe.
+* Sélection instantanée des statuts par lettre :
+  - Ouvrir le menu déroulant du statut et appuyer sur la touche `[D]` pour aller directement sur « DISP » (Dispensé).
+  - Appuyer sur la touche `[A]` pour se positionner directement sur « ABI » ou « ABJ ».
+* Affichage de masse anti-blocage (Astuce 100 candidats) :
+  - Dès l'ouverture du lot, basculer le sélecteur en bas de page sur « Afficher 100 candidats » (au lieu des 20 ou 50 par défaut).
+  - Cela évite d'oublier un élève sur une page 2 non visible, cause principale du blocage du bouton `[Clôturer le lot]`.
+* Recherche instantanée `[Ctrl + F]` :
+  - Pour retrouver immédiatement un candidat précis (élève muté ou arrivant) dans un lot volumineux, utiliser la recherche native du navigateur via `[Ctrl + F]` (ou `[Cmd + F]` sur Mac).
+
+B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
+* Sélection multiple par bloc (`[Maj]` / Shift) :
+  - Dans l'activité « EPS - Associer les élèves à un protocole », cocher la première case, maintenir `[Maj]` enfoncé et cliquer sur la dernière case pour sélectionner toute la liste.
+  - Un unique Glisser-Déposer (Drag & Drop) permet ensuite de déplacer tout le bloc dans le protocole cible.
+* Réinitialisation rapide via `[Vider]` :
+  - En cas d'erreur de répartition sur un protocole entier, ne pas supprimer les élèves un par un à la croix : cliquer sur la mention `[Vider]` située à côté du compteur d'élèves pour réinitialiser le groupe en un clic.
+
+C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
+* RÈGLE ABSOLUE DE CONNEXION (ANTI-SITE PUBLIC) :
+  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet de votre académie) via les identifiants professionnels (e-mail académique + mot de passe).
+* Contournement des saturations de serveurs ENT :
+  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier communiqué par votre académie.
+
+--------------------------------------------------------------------------------

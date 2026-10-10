@@ -1,0 +1,5 @@
+### [SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]
+- Instruction : Pour signaler une page manquante ou une mauvaise numérisation, le correcteur doit utiliser exclusivement la messagerie interne (icône enveloppe) de la plateforme Santorin pour alerter le coordonnateur.
+
+[SECTION: INTERFACES_ACCES_ET_REFRESH_IPACKEPS]
+

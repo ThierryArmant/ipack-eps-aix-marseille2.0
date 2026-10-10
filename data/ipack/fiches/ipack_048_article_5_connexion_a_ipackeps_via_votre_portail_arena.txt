@@ -1,0 +1,6 @@
+### [ARTICLE 5] Connexion à iPackEPS via votre portail ARENA
+- Mots-clés : connexion, accès iPackEPS, portail ARENA, se connecter, structures et personnels, enseignants, chefs d'établissement, IA-IPR
+- Formulations courantes des collègues : comment me connecter à iPackEPS ; par où passer pour accéder à iPackEPS ; où est iPackEPS dans Arena ; le chef d'établissement se connecte comment
+- URL: spip.php?article5
+- Texte: Pour tous les utilisateurs (enseignants, chefs d’établissement, IA-IPR…), l’accès à iPackEPS se fait via le portail ARENA. Nouveau portail arena (2025) accès : [structures et personnels].
+

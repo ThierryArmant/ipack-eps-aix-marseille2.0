@@ -1,0 +1,6 @@
+### [ARTICLE 25] [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation
+- Mots-clés : statistiques, Dossier Natation, enquête natation, comparaison, secteur géographique, consultation
+- Formulations courantes des collègues : Où voir les statistiques natation ? ; Comment comparer mes données natation avec celles de mon secteur ? ; Où consulter les résultats de l’enquête natation ?
+- URL: spip.php?article25
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier Natation => Statistiques. iPackEPS vous permet de consulter les statistiques des saisies de l’enquête Dossier Natation. Vous pouvez ainsi comparer vos données à celles de votre secteur géographique.
+

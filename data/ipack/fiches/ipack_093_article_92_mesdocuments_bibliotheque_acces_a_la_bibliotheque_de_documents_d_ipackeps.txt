@@ -1,0 +1,6 @@
+### [ARTICLE 92] [MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS
+- Mots-clés : bibliothèque, bibliothèque de documents, Mes Documents, accès, documents
+- Formulations courantes des collègues : Où est la bibliothèque de documents ? ; Comment accéder à la bibliothèque ? ; Où trouver les documents de la bibliothèque ?
+- URL: spip.php?article92
+- Texte: Accès à la fonctionnalité : [Mes Documents]/[Bibliothèque].
+

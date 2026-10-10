@@ -1,0 +1,7 @@
+### 5. Dossiers Certificatifs (CAHPN) et Examens (Cyclades)
+- Mots-clés : CAHPN, dossier certificatif, sous-commission, certificats médicaux manquants, alertes de dates, export ZIP, professeurs externes, DEC, colonne examen, Imag'In, Cyclades
+- Formulations courantes des collègues : Comment filtrer par sous-commission ? ; Comment voir les certificats médicaux manquants ? ; Comment exporter tous les documents du dossier certificatif ? ; Comment désactiver l'accès d'un prof externe ?
+* **Filtres et Alertes CAHPN :** Intégration d'un filtrage par sous-commission, affichage des certificats médicaux (CM) manquants et déclenchement d'alertes en cas de discordance entre les dates d'un CM et les bornes de la séquence d'apprentissage.
+* **Export ZIP structuré :** Les documents du dossier certificatif sont triés et exportés sous forme d'une arborescence organisée par établissement (Public/Privé).
+* **Professeurs externes (Cyclades) :** Le fichier d'export à destination de la DEC intègre une colonne `[examen]` dédiée pour faciliter le traitement des comptes Imag'In, avec possibilité d'activation ou de désactivation rapide des accès en un clic.
+

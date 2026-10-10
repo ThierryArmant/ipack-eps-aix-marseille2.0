@@ -1,0 +1,10 @@
+### [ARTICLE 12] [Établissement] Configuration de la Fiche Établissement
+- Mots-clés : fiche établissement, configuration établissement, Tableau de bord, Établissement, nom du chef d'établissement, adjoint, informations de contact erronées, RAMSESE, base des établissements, signalement
+- Formulations courantes des collègues : le nom du chef d'établissement est faux dans iPackEPS ; le nouvel adjoint n'apparaît pas ; comment corriger les informations de mon établissement ; où est la fiche établissement
+- Réponse courte : iPackEPS reprend ces informations de la base des établissements du rectorat (RAMSESE) : c'est au chef d'établissement de faire un signalement auprès du service de gestion des bases administratives pour qu'elles soient mises à jour.
+- URL: spip.php?article12
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Établissement.
+- QUESTIONS / RÉPONSES :
+  - Q : Les informations de contact (nom du chef et / ou nom de l’adjoint) ne sont pas bonnes, un nouveau chef / adjoint a pris ses fonctions.
+  - R : iPackEPS extrait les informations de l’établissement depuis la base des établissements du rectorat (RAMSESE). Il est fréquent que des informations administratives n’aient pas été mises à jour en début d’année scolaire. Il faut dans ce cas que votre chef d’établissement fasse un signalement auprès du service de gestion des bases administratives pour qu’une mise à jour des données soit faite. Ceci permettra que cette information soit à jour sur toutes les autres applications du rectorat.
+

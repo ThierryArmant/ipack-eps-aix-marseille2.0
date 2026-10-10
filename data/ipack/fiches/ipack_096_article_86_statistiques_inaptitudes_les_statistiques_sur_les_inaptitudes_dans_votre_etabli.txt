@@ -1,0 +1,6 @@
+### [ARTICLE 86] [Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement
+- Mots-clés : statistiques, inaptitudes, statistiques inaptitudes, offre de formation, établissement
+- Formulations courantes des collègues : Où voir les statistiques d’inaptitudes ? ; Comment consulter les inaptitudes de mon établissement ? ; Où est le menu statistiques inaptitudes ?
+- URL: spip.php?article86
+- Texte: Accès à cette fonctionnalité : [statistiques et Offre de Formation] / [Statistiques Inaptitudes].
+

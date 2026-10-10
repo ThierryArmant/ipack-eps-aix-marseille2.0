@@ -1,0 +1,8 @@
+### [SITUATION: MESSAGE AUCUN LOT A CORRIGER]
+- Mots-clés : Aucun lot à corriger, Santorin, lot, distribution automatique, distribution manuelle, lots de copies, message Santorin
+- Formulations courantes des collègues : Santorin m'affiche aucun lot à corriger ; je n'ai pas de lot dans Santorin ; pourquoi je ne vois rien à corriger dans Santorin ; comment distribuer les lots
+- Instruction : Si Santorin affiche « Aucun lot à corriger » :
+  Il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
+
+- Instruction : Si Santorin affiche « Aucun lot à corriger » : Il faut lancer une distribution automatique qui, si elle s’avère incomplète, peut être suivie d’une distribution manuelle.
+

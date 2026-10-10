@@ -1,0 +1,13 @@
+### [DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]
+- Mots-clés : Santorin, distribution des lots, lot de correction, Distribution de l'épreuve, bouton Distribuer, protocoles d'épreuve, chef d'établissement, secrétariat des examens, correcteurs, copies
+- Formulations courantes des collègues : Comment distribuer les lots dans Santorin ? ; Qui doit distribuer les lots de correction ? ; Pourquoi les correcteurs ne voient pas leurs copies ? ; Comment vérifier que la distribution a marché ?
+- Cible : Chef d’établissement / Secrétariat des examens.
+- Objectif : Générer les lots de correction à partir des protocoles d'épreuve.
+- Procédure :
+  1. Accéder à l'onglet « Distribution de l’épreuve ».
+  2. Sélectionner le groupe ou la classe concerné(e).
+  3. Cliquer sur le bouton « Distribuer ».
+- Vérification de succès : Vérifier que le protocole a bien été transformé en « lot de correction ».
+- Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
+- 📺 TUTORIEL COMPAGNON : Distribution_lots_santorin.mp4
+

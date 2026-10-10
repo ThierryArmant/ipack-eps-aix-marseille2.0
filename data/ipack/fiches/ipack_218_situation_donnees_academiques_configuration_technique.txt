@@ -1,0 +1,5 @@
+### [SITUATION: DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE]
+* Gestion des Professeurs Externes : Intégration d'un fichier modèle CSV téléchargeable pour l'import et ajout d'une colonne permettant de désactiver d'un simple clic l'accès à un établissement pour un professeur externe.
+* Paramétrage des Dossiers SSS : Activation ou désactivation granulaire des sous-dossiers SSS (Demande d'ouverture, Projet, Bilan, Évolution).
+* Autorisations de messagerie Commission : Paramétrage permettant d'autoriser ou non les membres des commissions à contacter directement les établissements pour les dossiers Certificatifs, SSS et APPN.
+* Contacts et tests de messagerie : Module de test d'envoi de mail pour valider la configuration de la messagerie et transmission élargie des adresses e-mail des coordonnateurs et responsables de certification pour le publipostage via CommissionBac et CommissionPro.

@@ -1,0 +1,3 @@
+### 1. Définition et Périmètre de l'Application
+iPackEPS est l'outil académique officiel dédié au pilotage pédagogique, à la gestion des structures EPS (classes, groupes, infrastructures) et au paramétrage des protocoles d'examens (CCF, CAHPN, SSS, APPN) pour les enseignants et chefs d'établissement. Il ne s'agit pas d'un carnet de notes de type Pronote, mais d'un outil de structuration et de préparation des dossiers réglementaires avant transmission vers les plateformes nationales (Cyclades).
+

@@ -1,0 +1,3 @@
+### [SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]
+- Instruction : Pour les groupes regroupant plusieurs niveaux (ex : 1ère et Terminale en section Euro ou option EPS), iPackEPS ne permet de renseigner qu'un seul niveau de classe. La priorité absolue doit être donnée à la certification (CCF des Terminales). Si le groupe relève du contrôle continu classique (Option), il n'est pas nécessaire de tenter de créer un groupe iPackEPS, car les élèves sortent du champ du CCF.
+

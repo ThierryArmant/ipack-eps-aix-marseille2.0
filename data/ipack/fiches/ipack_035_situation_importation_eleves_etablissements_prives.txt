@@ -1,0 +1,6 @@
+### [SITUATION: IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS]
+- Mots-clés : importation des élèves, import fichier élèves, établissement privé, privé sous contrat, École-Directe, Pronote, Dossiers, Dossier EPS, Élèves
+- Formulations courantes des collègues : comment importer mes élèves dans un établissement privé ; peut-on importer un fichier École-Directe ; peut-on importer les élèves depuis Pronote ; où se fait l'import des élèves
+- Instruction : Il est désormais possible d'importer directement les fichiers d'élèves issus de l'application École-Directe (pour le privé sous contrat) ou de Pronote.
+  -> Chemin exact : Menu 'Dossiers' > 'Dossier EPS' > 'Élèves'.
+

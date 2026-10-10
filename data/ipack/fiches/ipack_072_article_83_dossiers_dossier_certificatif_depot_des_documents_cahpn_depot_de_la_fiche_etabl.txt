@@ -1,0 +1,6 @@
+### [ARTICLE 83] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement
+- Mots-clés : fiche Établissement, dépôt, CAHPN, Dossier Certificatif, dossier zip, checklist de contrôle de référentiel, annexes, fiches d’émargement, plusieurs fichiers
+- Formulations courantes des collègues : Comment déposer la fiche Établissement pour la commission ? ; J’ai plusieurs fichiers à fournir, comment faire ? ; Faut-il faire un zip ? ; Quel format de fichier pour la fiche établissement ?
+- URL: spip.php?article83
+- Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Note : Selon votre académie, le format du fichier peut changer, ce peut être une checklist de contrôle de référentiel, ou une demande de dépôt de diverses annexes (par exemple le scan des fiches d’émargement des élèves). Si plusieurs fichiers sont à fournir, vous devrez les placer dans un dossier zip afin de rassembler toutes les pièces en un seul document.
+

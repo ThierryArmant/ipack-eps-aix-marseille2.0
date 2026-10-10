@@ -1,0 +1,10 @@
+### [ARTICLE 11] [Fiche Professeur] Renseigner sa Fiche Professeur
+- Mots-clés : fiche professeur, renseigner sa fiche, Tableau de bord, spécialité sportive, APSA non référencée, créer une APSA, Dossier EPS, APSA, vœux de formation
+- Formulations courantes des collègues : ma spécialité sportive n'est pas dans la liste ; comment ajouter une activité qui n'existe pas dans ma fiche prof ; où remplir ma fiche professeur ; comment déclarer ma spécialité
+- Réponse courte : Il suffit de créer manuellement une nouvelle APSA dans le module [Dossiers] / [Dossier EPS] / [APSA], sans la déclarer certificative ; elle apparaît alors dans la fiche Prof, dans la liste des spécialités sportives.
+- URL: spip.php?article11
+- Texte: Accès à cette fonctionnalité : Tableau de bord => Fiche Professeur.
+- QUESTIONS / RÉPONSES :
+  - Q : Je suis spécialiste d’une activité qui n’est pas référencée dans la liste d’APSA prédéfinie, comment puis-je déclarer ma spécialité sportive ?
+  - R : Il vous suffit d’aller dans le module [Dossiers] / [Dossier EPS] / [APSA] : vous pourrez alors créer manuellement une nouvelle APSA. Pensez à ne pas déclarer cette APSA certificative évidemment puisqu’elle ne sera pas enseignée. Vous verrez alors cette nouvelle APSA dans votre fiche Prof, dans la liste des spécialités sportives ainsi que dans la liste des APSAs de vœux de formation.
+

@@ -1,0 +1,3 @@
+### [SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]
+- Instruction : Ne jamais saisir 'IN' ou 'DI' manuellement. Chemin exact : Menu 'Mes Élèves' > 'Fiche élève' > bouton 'Saisir une inaptitude'. Enregistrer après chaque modification.
+

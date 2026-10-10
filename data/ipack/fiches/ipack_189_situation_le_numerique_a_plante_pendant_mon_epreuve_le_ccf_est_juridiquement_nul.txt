@@ -1,0 +1,10 @@
+### [SITUATION: « LE NUMÉRIQUE A PLANTÉ PENDANT MON ÉPREUVE, LE CCF EST JURIDIQUEMENT NUL »]
+Mots-clés : bug informatique le jour de l'épreuve, tablette éteinte, annulation d'examen, panne réseau pendant le CCF.
+- Cadre juridique : La validité d'une épreuve d'EPS repose sur l'observation motrice réelle de l'enseignant et l'émargement de présence des élèves, non sur la disponibilité instantanée du réseau Internet.
+- Procédure de continuité :
+  1. L'enseignant note sur support papier (grille d'émargement et d'évaluation de secours).
+  2. Les notes sont reportées ultérieurement dans Santorin dès le retour de la connexion.
+  3. L'épreuve reste 100 % valide sur le plan réglementaire.
+
+[SECTION: CONCEPTEUR_IPACKEPS_ET_GESTION_AVANCEE_DES_PARAMETRES]
+

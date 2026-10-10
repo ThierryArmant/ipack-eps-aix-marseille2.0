@@ -1,0 +1,6 @@
+### [SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]
+- Mots-clés : Arena, synchro manuelle, bouton Aide, rafraîchir la page, F5, application introuvable, module Établissement, Enquête et pilotage
+- Formulations courantes des collègues : Je ne trouve pas iPackEPS dans Arena, que faire ? ; Le module Établissement ne s'affiche pas ; Comment faire une synchro manuelle dans le portail académique ? ; Où apparaît iPackEPS dans le portail ?
+- Instruction : Si l'application iPackEPS est introuvable ou si le module « Établissement » ne s'affiche pas sur le portail Estérel / Arena, l'utilisateur doit forcer une synchronisation manuelle.
+  -> Procédure : Depuis l'interface ESTEREL, cliquer sur le bouton « Aide » (en haut à droite) > cliquer sur « Synchro manuelle » > puis faire « Rafraîchir la page » (F5). L'application s'ajoutera alors correctement dans le module « Enquête et pilotage ».
+

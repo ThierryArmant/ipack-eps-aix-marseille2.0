@@ -1,0 +1,16 @@
+### [ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique
+- Mots-clés : proposer le dossier, Dossier EPS, Dossier Certificatif, validation, alertes, bouton [vérification], curseur [OUI], commentaire, [enregistrer], collège, dates manquantes
+- Formulations courantes des collègues : Je n’arrive pas à proposer mon dossier à cause des alertes ; Peut-on valider le dossier malgré les alertes ? ; Je suis en collège et j’ai des alertes sur le dossier certificatif, pourquoi ? ; Comment soumettre le dossier EPS à la commission ?
+- Réponse courte : Oui : après un clic sur [vérification], les curseurs sont débloqués et le dossier peut être soumis à validation même avec des alertes, en ajoutant un commentaire puis en cliquant sur [enregistrer].
+- URL: spip.php?article45
+- Texte: Accès à cette fonctionnalité : Tableau de bord OU Tableau de bord => Dossiers et Projets => Dossier EPS OU Tableau de bord => Dossiers et Projets => Dossier Certificatif.
+- QUESTIONS / RÉPONSES :
+  - Q1 : « Je suis en collège, et j’obtiens des alertes concernant le dossier certificatif (protocoles, référentiel, certification…) »
+  - R1 : Ceci arrive lorsqu’un enseignant a déclaré dans la fiche Établissement que le collège gérait également des classes de lycée ou de voie professionnelle. Dans ce cas, suivez pas à pas le tutoriel ci-dessous pour supprimer les traces du dossier certificatif de votre collège.
+  - Q2 : « L’application me signale des alertes, je ne peux pas proposer mon dossier pour validation »
+  - R2 : Dès que l’on clique sur le bouton [vérification], les curseurs sont débloqués et l’on peut soumettre les dossiers (EPS ou certificatifs) à validation, qu’il y ait ou non des alertes.
+    - Étape 1 : affichage de la fenêtre de validation du dossier certif.
+    - Étape 2 : clic sur [vérification] => l’appli alerte qu’il manque des dates.
+    - Étape 3 : Je déplace le curseur sur [OUI] => L’appli me met une alerte en orange (sous le bouton enregistrer) en m’informant qu’il faut que je rajoute un commentaire vu que des alertes sont repérées.
+    - Étape 4 : je mets un commentaire, et je clique sur [enregistrer]. Le dossier est terminé et soumis à validation, malgré les alertes.
+

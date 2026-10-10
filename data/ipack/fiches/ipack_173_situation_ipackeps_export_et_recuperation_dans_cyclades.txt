@@ -1,0 +1,4 @@
+### [SITUATION: IPACKEPS — EXPORT ET RÉCUPÉRATION DANS CYCLADES]
+* MENUS EXACTS D'EXPORT (IPACK) : Accéder au menu [Tableau de bord] > [Les Projets et Dossiers] > [Dossier Certificatif] > Onglet [Cyclades/Export]. C'est ici que l'on génère le fichier standardisé des groupes-élèves.
+* MENUS EXACTS D'IMPORT (CYCLADES) : Se connecter à Arena > [Examens et concours] > [Cyclades] > Menu [Gestion des épreuves EPS] > [Importation des structures/groupes] > Charger le fichier extrait d'iPackEPS.
+

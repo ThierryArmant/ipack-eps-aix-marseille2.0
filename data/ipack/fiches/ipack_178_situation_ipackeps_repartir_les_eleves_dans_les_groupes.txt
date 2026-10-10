@@ -1,0 +1,118 @@
+### [SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]
+* ERREUR DE BOUTON : Le bouton ou l'option « Placement des Élèves dans les Groupes » n'existe pas sous cette forme dans les menus principaux.
+* LA VRAIE MANIPULATION : Tout s'exécute exclusivement via le module [Mes Élèves].
+  1. Dans le panneau de configuration, sélectionner l'onglet [Classes] ou [Groupes].
+  2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
+  3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
+  4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
+
+======================================================================
+[ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
+Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation, collège, lycée.
+
+RÈGLE ABSOLUE : ON NE SAISIT AUCUNE NOTE DANS IPACKEPS.
+- iPackEPS n'est pas un carnet de notes ni un logiciel de notation. Il sert à préparer et à piloter : fiche établissement, équipe EPS, classes, groupes, APSA, périodes, emploi du temps, inaptitudes, référentiels et protocoles d'examen. Il ne contient aucun module pour entrer des notes d'élèves, ni au fil de l'année, ni pour les examens.
+- Formulations courantes des collègues : où entrer mes notes dans iPackEPS ; je ne trouve pas le module d'évaluation ; comment saisir les notes du CCF dans iPackEPS ; peut-on noter sur tablette dans iPackEPS.
+
+Où se saisissent les notes :
+- AU COLLÈGE (DNB / contrôle continu) : dans le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte), qui alimente les bulletins et le Livret Scolaire Unique (LSU). Il n'y a ni CCF ni Santorin au collège.
+- AU LYCÉE, notes du CCF (Bac GT, Bac Pro, CAP) : dans Santorin, par AFL ou AFLP, à partir des lots issus des protocoles transmis à Cyclades. iPackEPS sert en amont à déclarer les APSA, déposer les référentiels et construire les protocoles ; il ne reçoit pas les notes.
+- AU LYCÉE, notes et moyennes de l'année (bulletins) : dans le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte).
+
+======================================================================
+[ARTICLE : LIMITES DE L'OUTIL ET ACCÈS MOBILE IPACKEPS]
+Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger application, App Store, Play Store, mobile, tablette.
+
+1. Appel et gestion des absences du quotidien :
+- iPackEPS n'est PAS un logiciel de vie scolaire. L'appel officiel, la gestion des retards et les billets d'absence s'effectuent obligatoirement sur Pronote ou ÉcoleDirecte.
+
+2. Accès et application mobile (Smartphone / Tablette) :
+- iPackEPS ne se télécharge PAS sur l'App Store d'Apple ni sur le Google Play Store.
+- Accès : Il s'agit d'une application Web officielle accessible uniquement via le portail académique ARENA (authentification avec vos identifiants académiques).
+- Sur tablette/smartphone : Il suffit de se connecter sur ARENA depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.
+
+======================================================================
+[ARTICLE : MOT DE PASSE ET IDENTIFIANTS PERDUS SUR IPACKEPS]
+Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack, compte bloqué, login oublié, accès coordonnateur.
+
+- Aucun compte spécifique : Il n'existe AUCUN compte ni mot de passe créé spécifiquement pour iPackEPS. Le coordonnateur EPS ne peut pas créer ni réinitialiser vos identifiants.
+- Authentification unique ARENA : L'accès s'effectue exclusivement avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou dispositif d'authentification forte de votre académie).
+- Procédure en cas d'oubli : En cas de perte de mot de passe, la réinitialisation se fait sur le portail académique ARENA (procédure « Mot de passe oublié » du Rectorat) et non dans iPackEPS.
+
+======================================================================
+[ARTICLE : MOT DES PARENTS VS INAPTITUDE MÉDICALE OFFICIELLE]
+Mots-clés : mot des parents, mot sur le carnet, mal au ventre, oubli d'affaires, dispense exceptionnelle, dispense de cours, certificat médical.
+
+- Mot des parents / Dispense ponctuelle : Un mot écrit par les parents (sur le carnet de correspondance, par mail ou sur papier libre) n'a AUCUNE valeur médicale réglementaire.
+  -> Ne JAMAIS enregistrer d'inaptitude médicale sur iPackEPS sur la simple base d'un mot des parents.
+  -> Gestion terrain : L'élève est présent au cours. L'enseignant adapte la pratique ou lui confie un rôle social (arbitre, observateur, chronométreur).
+- Inaptitude officielle : Seul un certificat médical délivré par un médecin traitant donne lieu à la saisie d'une inaptitude (totale ou partielle) et au téléversement du justificatif dans le module [Mes Élèves] d'iPackEPS.
+- Oubli de tenue / Baskets : L'oubli de matériel relève du règlement intérieur et de la vie scolaire, en aucun cas d'une saisie d'inaptitude médicale sur iPackEPS.
+
+======================================================================
+[ARTICLE : ABSENCE DE CONNEXION AU STADE ET UTILISATION SUR TABLETTE]
+Mots-clés : pas de wifi, stade sans 4G, hors-ligne, tablette, smartphone, perdre mes notes, noter au stade, saisie sur le terrain.
+- Formulations courantes des collègues : au stade je n'ai pas de réseau, est-ce que je perds mes notes ; peut-on noter les élèves sur tablette dans iPackEPS ; y a-t-il un mode hors-ligne.
+
+- Aucune note ne se saisit dans iPackEPS, ni sur ordinateur ni sur tablette : il n'y a donc rien à perdre au stade ou au gymnase en cas d'absence de réseau. iPackEPS n'a pas de mode de notation hors-ligne.
+- iPackEPS est une application web ouverte depuis le portail ARENA : elle se consulte sur tablette ou smartphone par le navigateur, quand on dispose d'une connexion.
+- Les notes relevées sur le terrain se reportent ensuite dans l'outil officiel : Pronote ou ÉcoleDirecte pour les notes de l'année, Santorin pour les notes du CCF au lycée.
+
+======================================================================
+[ARTICLE : SUPPRESSION D'ÉLÈVE DISPENSÉ À L'ANNÉE OU CHANGEMENT DE CLASSE]
+Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, corbeille, effacer la base du lycée, élève inactif, retirer inactifs.
+
+- Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
+- Portée des suppressions :
+  -> Si un enseignant non-coordonnateur supprime un affichage de groupe dans son profil, cela ne supprime pas la base SIÈCLE globale de l'établissement.
+  -> C'est le coordonnateur qui actualise les classes ([gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser]). S'il ne peut pas le faire, un enseignant peut se déclarer [coordonnateur] dans la liste des fonctions de sa propre fiche professeur (puis enregistrer) et faire lui-même la manipulation.
+- En cas de départ d'élève ou d'élève inactif : Si un élève quitte définitivement l'établissement ou est noté "inactif", ne cherchez pas de case à cocher pour le supprimer manuellement. L'actualisation de la base SIÈCLE (ou import Pronote / École Directe) lors du prochain import régularisera automatiquement l'effectif et l'élève disparaîtra de vos listes.
+
+======================================================================
+[ARTICLE : DEMANDE DE PROTOCOLE CCF AU COLLÈGE (6E, 5E, 4E, 3E)]
+Mots-clés : protocole CCF collège, CCF 3ème, protocole 6ème, DNB CCF, examen collège.
+
+- Pas de CCF au Collège : Le système des protocoles certificatifs CCF (3 épreuves / APSA nationales obligatoires) s'applique STRICTEMENT au lycée (Baccalauréat Général, Technologique, Professionnel et CAP).
+- Évaluation au Collège : En 6e, 5e, 4e et 3e (DNB), l'évaluation s'effectue au fil des séquences d'apprentissage sur le socle commun et les compétences de cycle. Il ne faut JAMAIS tenter de créer un protocole CCF de lycée pour des classes de collège.
+
+======================================================================
+[ARTICLE : TRANSMISSION PAR PAPIER VS DÉMATÉRIALISATION RECTORAT]
+Mots-clés : imprimer les fiches, envoyer par la poste, bordereau papier, courrier DEC, rectorat papier, signature chef d'établissement.
+
+- Zéro envoi papier par la poste : La gestion des examens et des protocoles EPS est 100 % dématérialisée. Il ne faut rien envoyer par courrier postal au Rectorat ou à la DEC.
+- Chaîne de transmission dématérialisée :
+  1. Configuration et saisie des protocoles / inaptitudes dans iPackEPS.
+  2. Validation pédagogique par le chef d'établissement et les corps d'inspection via les applications académiques dédiées.
+  3. Les notes d'examen sont saisies directement dans Santorin (aucune note ne part d'iPackEPS).
+- Conservation locale : Les éventuelles impressions de bordereaux ou de bilans sont à conserver au sein de l'établissement à titre d'archive interne pour l'équipe pédagogique.
+
+======================================================================
+[ARTICLE : DIFFÉRENCE ENTRE SANTORIN ET IPACKEPS POUR LES NIVEAUX HORS EXAMEN]
+Mots-clés : Santorin collège, Santorin Seconde, Santorin Première, mes classes n'apparaissent pas dans Santorin, lot introuvable.
+
+- Périmètre exclusif de Santorin : Santorin est la plateforme nationale de correction dématérialisée des EXAMENS NATIONAUX OFFICIELS (Baccalauréat, CAP).
+- Absence normale des classes ordinaires : Il est parfaitement normal que vos classes de Collège (6e à 3e) ou de Seconde / Première n'apparaissent pas dans Santorin.
+- Règle d'usage : Pour les niveaux hors examen, les notes se saisissent dans votre logiciel de vie scolaire (Pronote / ÉcoleDirecte) ; iPackEPS sert à l'organisation (classes, groupes, séquences, emploi du temps), aucune note n'est saisie dans iPackEPS.
+
+======================================================================
+[ARTICLE : GESTION DES OUBLIS DE TENUE ET VIE SCOLAIRE]
+Mots-clés : oubli de short, oubli de tenue, baskets, absent non justifié cours, mettre zéro, punition.
+
+- Hors examen : L'oubli ponctuel de tenue d'EPS lors d'une séance ordinaire relève exclusivement du règlement intérieur de l'établissement et de la vie scolaire (Pronote / carnet).
+- Interdiction Santorin : Ne JAMAIS aller dans Santorin pour un oubli de tenue en cours ordinaire. Santorin ne sert qu'à la notation des épreuves certificatives officielles d'examen.
+- Règle pédagogique : L'élève sans tenue participe au cours via un rôle social (observation, arbitrage, arbitrage vidéo, gestion du matériel).
+
+======================================================================
+[ARTICLE : PROTOCOLE D'EXAMEN DÉMATÉRIALISÉ SANS BORDEREAU PAPIER]
+Mots-clés : imprimer fiche cartonnée, faire signer proviseur, bordereau papier DEC, mes documents.
+
+- Aucun bordereau papier : Il n'existe aucun module pour imprimer des fiches cartonnées d'élèves à faire signer manuellement pour la DEC.
+- Validation numérique : La transmission et la validation des protocoles et notes se font intégralement en ligne depuis les outils académiques.
+
+======================================================================
+BLINDAGE TECHNIQUE & RÉGLEMENTAIRE TOTAL : LES CAS LIMITES ET QUESTIONS PIÈGES
+(PROFS DÉBUTANTS, RÉFRACTAIRES, ANCIENS DE TERRAIN & CONCEPTEUR POINTU)
+======================================================================
+
+[SECTION: CONTESTATIONS_JURIDIQUES_RESPONSABILITE_ET_JURY]
+

@@ -1,0 +1,3 @@
+### 3. Distribution automatique des candidats
+- L'établissement peut suivre en temps réel l'avancement de la saisie des notes, consulter les statistiques par groupe examinateur, et accéder à la liste des lots et des candidats pour visualiser les notes et appréciations. Le suivi permet si besoin de réaffecter un lot à un autre évaluateur. Il permet également à l'établissement de clôturer manuellement la saisie des notes si l'examinateur a oublié de le faire, à la condition stricte que tous les candidats du lot possèdent une note saisie. L'harmonisation par la commission académique débute dès que toutes les notes ont été saisies par les établissements.
+

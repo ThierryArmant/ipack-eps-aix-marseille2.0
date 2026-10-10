@@ -1,0 +1,27 @@
+### [ARTICLE 51] Les manipulations requises à chaque nouvelle année scolaire
+- URL: spip.php?article51
+- Texte: À chaque nouvelle année scolaire, iPackEPS procède à un archivage et nettoyage des données. Vous devez chaque année compléter les informations existantes, pour la nouvelle année en cours. Ce tutoriel vous reprécise la liste des manipulations essentielles à exécuter chaque année (rafraîchir la liste des enseignants, reconfigurer les classes, réimporter les élèves…).
+- Formulations courantes des collègues : faut-il tout resaisir, tout recommencer, tout refaire à la rentrée ; les données saisies l'an dernier sont-elles conservées, gardées en mémoire, reconduites d'une année sur l'autre ; la structure de mon établissement (EPLE) est-elle reconduite ; que dois-je refaire chaque année.
+- Résumé de la procédure officielle de rentrée (voir « Manipulations à effectuer à chaque nouvelle année scolaire », aucune information nouvelle) : NON, il ne faut pas tout resaisir. Sont conservés : les données de l'établissement et l'essentiel de la fiche professeur (compétences et spécialités), les axes des projets, la configuration des classes qui existaient déjà, la liste des APSA programmées, les équipements sportifs. Sont à refaire chaque année : le service et les fonctions de chaque enseignant, les vœux de jury et de formation, l'actualisation de l'équipe EPS, les enseignants qui encadrent chaque classe, l'importation des élèves, les dates des séquences d'apprentissage, la configuration des groupes et la répartition des élèves.
+======================================================================
+[ARTICLE 53] [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique
+- Mots-clés : appn, environnement spécifique, escalade en grande voie, canyonisme, ski de randonnée, spéléologie, vtt, projet pédagogique appn, protocole de sécurité, validation chef d'établissement, ia-ipr.
+- Formulations courantes des collègues : comment déclarer ma sortie APPN ; déclarer une sortie APPN sur iPackEPS ; déclarer une sortie aux inspecteurs (IA-IPR) ; déposer mon projet de sortie escalade, VTT, ski, canyon ; demande de validation d'une sortie de pleine nature.
+- Cadre réglementaire : En application de l'article R.212-7 du Code du sport et de la circulaire nationale APPN n° 2017-075, toute activité physique de pleine nature s'exerçant dans un environnement spécifique nécessite obligatoirement un dossier de demande de validation pédagogique auprès de l'Inspection Pédagogique.
+
+- PROCÉDURE TECHNIQUE DANS IPACKEPS (Côté Enseignant) :
+  1. Accès au module : Tableau de bord => [Dossiers] => [Dossier APPN].
+  2. Création de la demande : Cliquer sur [Créer], sélectionner l'APSA à environnement spécifique, renseigner le libellé du projet, la période, l'enseignant porteur et le cadre de pratique.
+  3. Téléversement des pièces obligatoires :
+     - Le Projet pédagogique (télécharger le modèle académique, le compléter au format PDF et le téléverser).
+     - Le Protocole de sécurité (utiliser le protocole type de l'académie).
+     - Les conventions et pièces complémentaires si nécessaire.
+  4. Enregistrement : Cliquer sur [Enregistrer]. 
+  - 📺 Tutoriel associé enseignant : Gestion_dossier_APPN.mp4
+
+- VALIDATION HIÉRARCHIQUE (Côté Chef d'établissement) :
+  1. Une fois le dossier complété, l'enseignant doit inviter le Chef d'établissement à se connecter à son interface iPackEPS (via son espace ARENA > Dossier APPN).
+  2. Le Chef d'établissement consulte le dossier et clique sur le bouton [Signer / Valider] pour transmettre officiellement la demande au corps d'inspection (IA-IPR).
+  3. Le suivi de l'instruction s'affiche directement dans le tableau de bord du module APPN.
+  - 📺 Tutoriel associé chef d'établissement : Validation_chef_APPN.mp4
+

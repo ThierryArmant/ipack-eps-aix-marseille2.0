@@ -1,0 +1,6 @@
+### [SITUATION: NOUVELLES FONCTIONS ENSEIGNANTS]
+- Mots-clés : fonctions enseignant, Fiche Professeur, Fonctions, référent haut-niveau, coordonnateur Sport-Études, référent CHAD, plan PHARE, EVARs, déclarer une fonction
+- Formulations courantes des collègues : où déclarer que je suis référent haut-niveau ; comment indiquer ma fonction de coordonnateur Sport-Études ; où déclarer référent PHARE ou EVARs ; où sont les fonctions dans ma fiche
+- Instruction : Dans la fiche du professeur, de nouvelles fonctions officielles peuvent être déclarées (Référent haut-niveau, coordonnateur Sport-Études, référent CHAD, plan PHARE, EVARs).
+  -> Chemin exact : Menu 'Fiche Professeur' > 'Fonctions'.
+

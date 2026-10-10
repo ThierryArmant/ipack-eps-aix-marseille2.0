@@ -1,0 +1,5 @@
+### [SITUATION: ERREUR « ÉTABLISSEMENT NON TROUVÉ » / SANS ADRESSE]
+- Instruction : Si un personnel de direction ou enseignant (ex : Lycée Militaire RNE 0131596P) fait face au message « L'Établissement n'a pas été trouvé dans la base », il s'agit d'une anomalie technique remontée à la DSI. Malgré ce message visuel, l'accès à l'établissement reste techniquement opérationnel dans l'application.
+
+[SECTION: CONFIGURATION_CLASSES_ET_PROTOCOLES_IPACKEPS]
+

@@ -1,0 +1,6 @@
+### [SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]
+* PROCÉDURE TECHNIQUE : Le chef d'établissement ne doit pas chercher un bouton de création manuelle immédiate. La réalité est qu'il faut obligatoirement :
+  1. Lancer d'abord une DISTRIBUTION AUTOMATIQUE des lots.
+  2. Si et seulement si la distribution automatique s'avère incomplète, exécuter ensuite une DISTRIBUTION MANUELLE complémentaire pour attribuer le reliquat des copies numérisées.
+- 📺 TUTORIEL COMPAGNON : Distribution_manuelle_lots_santorin.mp4
+

@@ -1,0 +1,5 @@
+### [SITUATION: CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE]
+* STRUCTURE DE L'APPLICATION : Dans l'interface iPackEPS, un protocole d'évaluation CCF est unique et verrouillé par groupe-classe pour une APSA spécifique. L'interface ne permet pas de mélanger des grilles d'évaluation différentes (Saut, Course, Lancer) à la carte sur une même liste d'élèves.
+* PROCÉDURE TECHNIQUE EN CAS DE CHOIX (COURSE / SAUT / LANCER) :
+  Si l'enseignant propose des options d'épreuves différentes au sein du groupe en fonction des performances initiales, il est techniquement obligatoire de configurer la classe en mode groupe.
+

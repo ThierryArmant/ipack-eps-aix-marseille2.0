@@ -1,0 +1,6 @@
+### [ARTICLE 33] Choix de l’année scolaire
+- Mots-clés : choix de l'année scolaire, année scolaire, changer d'année, accueil, sélection de l'année
+- Formulations courantes des collègues : comment changer d'année scolaire dans iPackEPS ; où choisir l'année scolaire ; comment revoir une autre année
+- URL: spip.php?article33
+- Texte: [Accueil] Présentation de la fonctionnalité de choix d’année scolaire.
+

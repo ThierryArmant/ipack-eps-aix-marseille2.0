@@ -1,0 +1,14 @@
+=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE ET DES IA-IPR : SECTIONS SPORTIVES, PROTOCOLES APPN, REGISTRE EPI ===
+Origine : réponses écrites du correspondant iPackEPS et des IA-IPR EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026). Les circuits de validation (commission SSS, COPIL, IA-IPR référent) sont ceux de cette académie.
+
+### [SITUATION: CHANGER L'ACTIVITÉ D'UNE SECTION SPORTIVE (EX. HANDBALL VERS FOOTBALL)]
+- Formulations courantes des collègues : nous voulons transformer notre section handball en section football ; iPackEPS ne permet pas de transformation ; comment changer l'APSA de la section l'an prochain.
+- Réponse : iPackEPS ne permet pas de « transformer » directement une section. Saisir dans iPackEPS la demande de changement d'APSA, adresser en complément un courriel explicatif à la commission qui étudie les dossiers SSS, puis faire signer le dossier dans iPackEPS par le chef d'établissement pour finaliser la demande. Le comité de pilotage acte ensuite le changement.
+
+### [SITUATION: PROTOCOLE DE SÉCURITÉ APPN À DÉPOSER PENDANT UNE MAINTENANCE D'iPackEPS]
+- Formulations courantes des collègues : iPackEPS est en maintenance et nous partons en stage APPN ; je dois déposer le protocole de sécurité ; quand l'application sera-t-elle rouverte.
+- Réponse : en cas d'urgence pendant une indisponibilité d'iPackEPS, adresser le protocole de sécurité directement à l'IA-IPR EPS en charge des environnements spécifiques de son académie.
+
+### [SITUATION: REGISTRE EPI DÉJÀ TENU DANS UN AUTRE LOGICIEL]
+- Formulations courantes des collègues : nous avons un registre EPI dans un autre logiciel, la saisie dans iPackEPS est-elle obligatoire ; inventaire EPI.
+- Réponse : non, la saisie du registre EPI dans iPackEPS n'est pas obligatoire si l'établissement tient déjà ce registre dans un autre outil. Un référent EPI est à désigner dans la fiche établissement si l'établissement en a besoin.

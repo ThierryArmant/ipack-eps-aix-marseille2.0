@@ -1,0 +1,46 @@
+=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : APSA CERTIFICATIVES, RÉFÉRENTIELS (FCA) ET ÉPREUVES ADAPTÉES ===
+Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Les listes académiques d'APSA et les consignes de dépôt des fiches certificatives (FCA) diffèrent d'une académie à l'autre : les consignes marquées « Aix-Marseille » ne valent que pour cette académie.
+
+### [SITUATION: UNE APSA DÉCLARÉE N'APPARAÎT PAS DANS LE DÉPÔT DES RÉFÉRENTIELS]
+- Formulations courantes des collègues : je ne peux pas déposer la FCA de mon APSA ; mes APSA certificatives adaptées ne figurent pas dans la liste ; les activités courses longues et relais n'apparaissent pas dans le dossier ; ma FCA a disparu.
+- Réponse : pour qu'une APSA déclarée dans [Dossier EPS] > [APSA] apparaisse dans le Dossier Certificatif, le bouton « Certificative » doit être sur OUI (et, pour une épreuve adaptée, la case « Adaptée » cochée). Vérifier dans [Dossiers et Projets] > [Dossier EPS] > [APSA] que l'activité est toujours déclarée et certificative.
+
+### [SITUATION: ÉPREUVE DE LA LISTE ACADÉMIQUE : PAS DE FCA À DÉPOSER]
+- Formulations courantes des collègues : je ne peux pas télécharger la FCA d'une APSA de la liste académique (exemple : ultimate) ; il reste une fiche à déposer (97 %) alors que toutes les lignes sont validées ; message « référentiels non envoyés » sur une APSA académique.
+- Réponse : la fiche d'une épreuve de la liste académique est fournie par les IA-IPR ; l'établissement n'a pas de référentiel à déposer pour elle. La barre d'avancement peut alors rester incomplète : ne pas en tenir compte, transmettre le dossier en indiquant en commentaire « APSA de la liste académique ».
+- Pour s'écarter de la proposition académique, il faut déclarer l'activité comme épreuve d'établissement, sous réserve que cette épreuve ait été validée au préalable par l'inspection et qu'aucune autre épreuve d'établissement ne soit déjà programmée.
+
+### [SITUATION: DEMI-FOND, RELAIS, HAIES, VITESSE : UNE SEULE APSA « COURSES » EN BAC GT]
+- Formulations courantes des collègues : impossible de mettre le demi-fond comme épreuve certificative en lycée GT ; nous avons deux FCA de courses (demi-fond et relais) ; faut-il créer une APSA établissement pour le relais ; iPackEPS me dit que la course de haies est déjà mon activité établissement.
+- Réponse : en bac général et technologique, demi-fond, relais, course de haies et vitesse relèvent de l'épreuve nationale « Courses ». Une activité nommée « demi-fond » ou « relais » en bac GT serait considérée comme une épreuve d'établissement. L'appellation « demi-fond » est propre à la voie professionnelle, qui n'est pas soumise aux listes nationales et académiques.
+- Ne pas créer d'« APSA établissement » pour distinguer deux courses : l'épreuve d'établissement est un autre dispositif, avec ses propres contraintes, et cela rendrait ambiguë la nature de l'activité programmée.
+- Consigne de l'académie d'Aix-Marseille pour les FCA : déclarer l'activité nationale « Courses » et déposer comme référentiel de cette APSA un document unique regroupant les FCA des différentes courses programmées (par exemple relais et course de haies), en précisant si besoin en commentaire les épreuves de courses réellement programmées.
+
+### [SITUATION: CROSS-TRAINING, MARCHE, ACTIVITÉ NON LISTÉE : ÉPREUVE D'ÉTABLISSEMENT]
+- Formulations courantes des collègues : l'icône « certificative » n'est pas sélectionnable pour le cross-training ; je ne peux pas avoir une deuxième activité établissement ; notre activité adaptée n'existe pas dans la liste nationale.
+- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Une seule épreuve d'établissement est possible par ensemble ; elle suppose l'accord préalable de l'inspection.
+- Si plusieurs activités se disputent la place d'épreuve d'établissement, ne déclarer qu'une activité athlétique sous « Courses » libère la place pour l'épreuve d'établissement (par exemple une épreuve adaptée) ; toutes les activités dont le référentiel a été validé peuvent rester programmées.
+
+### [SITUATION: ÉPREUVES ADAPTÉES (BAC GT, BAC PRO, CAP)]
+- Formulations courantes des collègues : comment intégrer nos épreuves adaptées ; mes protocoles adaptés à 2 activités ne se valident pas ; faut-il 3 activités dans un protocole adapté ; faut-il mettre OUI à « Adapté » pour tous les groupes de terminale.
+- Réponse : en éditant une APSA dans [Dossier EPS] > [APSA], on peut la déclarer « Adaptée » ; le tableau de cases à droite de la liste indique les épreuves adaptées. Pour une activité qui figure dans la liste nationale ou académique, cocher « certificative adaptée » sur cette APSA plutôt que de créer une nouvelle APSA « … adaptée ». Une activité adaptée absente des listes (par exemple la marche adaptée) se déclare comme épreuve d'établissement.
+- La présence d'épreuves adaptées dans un ensemble certificatif assouplit les règles de composition de cet ensemble.
+- Indiquer OUI à « Adapté » uniquement pour les groupes créés spécifiquement avec au moins une épreuve adaptée. En cours d'année, des protocoles adaptés peuvent être ajoutés directement dans CYCLADES selon les arrivées d'élèves.
+
+### [SITUATION: EPPCS (ENSEIGNEMENT DE SPÉCIALITÉ) : DÉPÔT DES FCA]
+- Formulations courantes des collègues : je ne peux pas déclarer certificative mon APSA d'EPPCS car j'ai déjà une APSA d'établissement ; dois-je considérer toutes mes APSA d'EPPCS comme certificatives ; la création d'une APSA m'impose une séquence.
+- Réponse (confirmée par l'équipe de développement d'iPackEPS) : l'enseignement de spécialité n'est pas traité comme « certificatif » dans iPackEPS, ses notes remontant par le logiciel de vie scolaire. Il ne faut pas cocher « certificative » pour une APSA évaluée seulement en EPPCS. Il suffit de placer l'APSA dans le groupe d'EPPCS pour pouvoir déposer la FCA correspondante.
+- Créer une APSA n'oblige pas à créer une séquence : inutile d'inventer des séquences pour des APSA qui ne sont plus enseignées.
+
+### [SITUATION: DOCUMENT DE SYNTHÈSE DEMANDÉ DANS LE DÉPÔT DES RÉFÉRENTIELS (VOIE GÉNÉRALE ET TECHNOLOGIQUE)]
+- Formulations courantes des collègues : en quoi consiste le document de synthèse à envoyer sur iPackEPS ; « dépôt d'un fichier de synthèse de l'établissement » ; le dossier est incomplet faute de document de synthèse ; faut-il forcer la remontée du dossier certificatif.
+- Réponse : il existe deux documents différents. Le « fichier de synthèse » demandé au moment de la saisie des protocoles était un outil de contrôle de conformité ; dans l'académie d'Aix-Marseille, il a été retiré de la plateforme et n'est plus requis pour transmettre les protocoles. L'autre document de synthèse est le récapitulatif des pièces du dossier à apporter à la sous-commission de fin d'année : il n'est pas requis pour la commission d'harmonisation de l'automne. Ne pas tenir compte de la mention « Incomplet » qui s'y rapporte.
+- Dans une autre académie, vérifier auprès de son correspondant iPackEPS si ce fichier est demandé.
+
+### [SITUATION: MODÈLE DE RÉFÉRENTIEL (FICHIER UNIQUE) : NE GARDER QUE L'ACTIVITÉ UTILE]
+- Formulations courantes des collègues : le modèle de référentiel contient tout, comment n'en garder qu'une partie ; je n'arrive pas à séparer les éléments.
+- Réponse : renseigner le modèle puis supprimer toutes les pages placées avant et après la partie concernée, et déposer ce fichier.
+
+### [SITUATION: REMPLACER UNE FCA DÉJÀ DÉPOSÉE]
+- Formulations courantes des collègues : pouvez-vous déposer ma nouvelle FCA à ma place ; iPackEPS est en maintenance, je dois remplacer une fiche.
+- Réponse : le correspondant académique ne peut pas déposer de fiche à la place de l'établissement. Le remplacement se fait par l'établissement dans iPackEPS, dès que l'application est accessible.

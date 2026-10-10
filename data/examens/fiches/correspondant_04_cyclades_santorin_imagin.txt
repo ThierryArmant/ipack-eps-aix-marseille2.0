@@ -1,0 +1,37 @@
+=== RÉPONSES DU CORRESPONDANT EXAMENS EPS ACADÉMIQUE : ASSOCIATION DES CANDIDATS, CYCLADES, IMAG'IN ET SANTORIN ===
+Origine : réponses écrites du chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (session 2026). Le calendrier (dates limites, commissions) est fixé par chaque académie et n'est pas repris ici.
+
+### [SITUATION: ENCHAÎNEMENT DES ÉTAPES APRÈS LA SAISIE DES PROTOCOLES]
+- Formulations courantes des collègues : faut-il importer ou vérifier la liste des élèves de terminale ; quand placer les élèves dans les groupes ; comment rentrer les notes du bac ; la vidéo dit qu'il faut un transfert vers Santorin ; peut-on saisir les notes dans iPackEPS.
+- Réponse : aucune note ne se saisit dans iPackEPS. L'ordre des étapes est le suivant :
+  1. Automne : dépôt des référentiels et saisie des protocoles (groupes) dans iPackEPS, sans les élèves.
+  2. Après la clôture des inscriptions aux examens (en général décembre-janvier), les candidats remontent automatiquement dans iPackEPS. L'établissement répartit alors ses candidats dans les protocoles existants.
+  3. Depuis iPackEPS, générer le fichier d'export, que le chef d'établissement importe dans CYCLADES pour associer automatiquement les candidats aux protocoles. Cette voie n'est pas obligatoire mais recommandée ; l'association peut aussi se faire à la main dans CYCLADES (IMAG'IN > Portail des missions).
+  4. Les enseignants évaluateurs sont convoqués dans IMAG'IN, puis le chef d'établissement distribue les candidats dans les lots de correction de Santorin (distribution largement automatisée).
+  5. La saisie des notes dans Santorin n'est accessible qu'une fois l'association des candidats terminée et les lots distribués.
+
+### [SITUATION: SANTORIN AFFICHE « AUCUN LOT À CORRIGER »]
+- Formulations courantes des collègues : sur Santorin on m'informe que je n'ai pas de lot à corriger ; est-ce le chef d'établissement qui doit agir ; je n'ai pas mes codes pour accéder au lot de correction (professeur remplaçant).
+- Réponse : si « Aucun lot à corriger » s'affiche, le chef d'établissement n'a pas encore distribué les lots dans Santorin, ou l'enseignant n'a pas été convoqué. Le chef d'établissement doit : convoquer l'enseignant dans IMAG'IN sur la mission de correction, éditer la convocation en cliquant sur l'icône PDF (c'est ce qui la transmet à Santorin), puis relancer la distribution automatique des lots dans Santorin.
+- Professeur remplaçant : il doit lui aussi être convoqué dans IMAG'IN par le chef d'établissement (voir la situation « changement d'enseignant en cours d'année »).
+
+### [SITUATION: UN EXAMINATEUR MANQUE (LOTS ABSENTS, ENSEIGNANT ABSENT DE LA LISTE)]
+- Formulations courantes des collègues : après l'import dans CYCLADES nous n'avons que deux examinateurs sur trois ; il manque les lots d'un enseignant ; je ne peux pas finaliser la distribution car un collègue n'est pas dans la liste des examinateurs.
+- Réponse : le chef d'établissement convoque l'enseignant manquant dans IMAG'IN sur une mission de correction Santorin, édite la convocation (icône PDF), puis procède à une nouvelle distribution automatique des lots. Si l'enseignant n'apparaît pas dans la liste des personnels « convocables », le signaler au correspondant examens EPS, qui demande son ajout au service des examens.
+
+### [SITUATION: CHANGEMENT D'ENSEIGNANT EN COURS D'ANNÉE (DÉPART, DÉMISSION, REMPLACEMENT)]
+- Formulations courantes des collègues : l'enseignante a quitté l'établissement après deux épreuves ; un remplaçant poursuit les évaluations ; nous n'arrivons pas à valider la liste des élèves et les notes ; faut-il modifier le protocole.
+- Réponse : si le seul changement est le nom de l'enseignant, laisser le protocole en l'état dans iPackEPS. L'enseignant remplaçant est ajouté comme évaluateur : il est créé si besoin dans IMAG'IN puis convoqué pour la saisie des notes dans Santorin. Transmettre son nom et son adresse professionnelle au correspondant examens EPS.
+
+### [SITUATION: SAISIR UNE INAPTITUDE DANS SANTORIN]
+- Formulations courantes des collègues : pour les élèves inaptes il n'y a rien à inscrire dans Santorin ; ils restent sans note ; c'est mentionné seulement sur les bordereaux.
+- Réponse : non, un élève inapte fait l'objet d'une saisie spécifique dans Santorin. Pour chaque APSA concernée, déplier le menu déroulant de la note et sélectionner « Dispensé ».
+- Si le candidat est inapte à 2 APSA sur 3, saisir « Dispensé » sur les 3 épreuves pour le déclarer inapte total : une évaluation sur une seule épreuve n'est pas considérée comme significative. Une dérogation (maintien de la note unique) reste possible, mais la décision doit être documentée pour la commission d'harmonisation.
+
+### [SITUATION: APPRÉCIATIONS DANS SANTORIN]
+- Formulations courantes des collègues : faut-il mettre des appréciations dans Santorin ; les appréciations sont-elles obligatoires.
+- Réponse : non. Les appréciations ne servent qu'à signaler un élément que l'on juge utile de porter à la connaissance de la commission d'harmonisation (CAHPN).
+
+### [SITUATION: IMPOSSIBLE DE SAISIR LES NOTES DANS SANTORIN (CASES INACTIVES, NOTES QUI S'EFFACENT)]
+- Formulations courantes des collègues : les cases de notes (8 points et 12 points) ne sont pas actives ; je ne peux rien écrire ni valider ; les notes saisies s'effacent à l'enregistrement.
+- Réponse : saisir sur un ordinateur (pas sur tablette ni téléphone), avec Firefox ou Chrome à jour : des cases inactives évoquent souvent un problème de navigateur. Des incidents passagers du serveur Santorin peuvent aussi empêcher l'enregistrement : réessayer plus tard et prévenir le correspondant examens EPS si le blocage persiste.

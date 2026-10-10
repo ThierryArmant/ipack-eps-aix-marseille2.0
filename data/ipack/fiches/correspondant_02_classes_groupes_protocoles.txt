@@ -1,0 +1,43 @@
+=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : CLASSES, GROUPES ET PROTOCOLES ===
+Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Règles de fonctionnement d'iPackEPS valables partout ; les consignes propres à cette académie sont signalées.
+
+### [SITUATION: UN GROUPE iPackEPS = UN PROTOCOLE CYCLADES]
+- Formulations courantes des collègues : comment constituer les groupes ; notre groupe mélange terminale pro, terminale générale et première ; le logiciel me demande un seul cycle scolaire pour le groupe ; « ce n'est pas possible car les élèves ne suivent pas la même scolarité ».
+- Réponse : dans iPackEPS, un groupe se comprend comme un protocole dans CYCLADES. Un groupe rassemble des candidats qui présentent le même examen, avec le même ensemble certificatif (mêmes APSA), aux mêmes dates d'épreuves, avec le même enseignant. Chaque élève ne peut être inscrit que dans un seul groupe.
+- Conséquence : si des élèves de diplômes différents travaillent ensemble (par exemple terminale professionnelle et terminale générale), créer un groupe distinct par examen, même s'ils ont cours ensemble. Inutile de créer un groupe pour des élèves qui ne passent pas d'examen cette année (premières, secondes).
+- Les groupes sont distingués par leur nom, mais aussi par leur niveau de classe et l'examen correspondant : vérifier ces paramètres dans [Dossier EPS] > [Groupes].
+
+### [SITUATION: MODE « SEUL OU MIXTE » OU MODE « GROUPE » (ORGANISATION DES CLASSES)]
+- Formulations courantes des collègues : deux classes sur le même créneau ; j'ai les classes en erreur « non placées dans l'emploi du temps » ; faut-il remplir en double classes et groupes ; « le groupe a déjà été créé » alors que non ; je ne peux pas donner au groupe le nom qu'il a dans Pronote.
+- Réponse : dans [Dossier EPS] > [Classes], ouvrir « Organisation des classes » (menu de gauche) et choisir pour chaque classe : « Mode seul ou mixte » si la classe fonctionne en classe entière avec un enseignant ; « Mode groupe » si ses élèves sont répartis dans des groupes (regroupement de classes, menus différents, choix d'activités).
+- Un groupe ne peut pas porter le même nom qu'une classe déjà importée dans iPackEPS. Si un intitulé Pronote correspond en fait à une classe (et non à un groupe), configurer cette classe en « mode seul ou mixte » au lieu de créer un groupe du même nom.
+
+### [SITUATION: CAP : LA CLASSE PRATIQUE 3 ACTIVITÉS MAIS L'ENSEMBLE CERTIFICATIF EN COMPTE 2]
+- Formulations courantes des collègues : mon protocole CAP ne se valide pas ; le dossier est retoqué car il ne faut que 2 épreuves en CAP ; nos élèves de CAP choisissent 2 APSA parmi 3 ; on me dit qu'il n'est pas possible d'avoir 3 APSA ; dossier incomplet à 83 %.
+- Réponse : un ensemble certificatif de CAP comporte 2 épreuves, pas 3. On peut faire pratiquer 3 activités dans l'année, mais il faut créer autant de protocoles que de combinaisons possibles. Avec 3 activités A, B et C : configurer la classe en « mode groupe » et créer 3 groupes (protocoles) : A-B, A-C et B-C. Des intitulés du type « MV protocole 1 », « MV protocole 2 » conviennent.
+- La répartition des candidats dans ces protocoles se décide en début d'année, à partir du parcours de l'élève et non de ses performances en cours d'année.
+- Pour corriger des protocoles déjà saisis à 3 épreuves : modifier d'abord les séquences d'apprentissage (SA) des groupes dans [Dossier EPS] > [Groupes], car une APSA affectée à une séquence ne peut pas être retirée de la liste des APSA ; les protocoles se recalculent ensuite. En cas de blocage, appeler son correspondant iPackEPS sans attendre.
+
+### [SITUATION: SAISIE DES PROTOCOLES : LA CONFIGURATION DES CLASSES ET LES ÉLÈVES NE SONT PAS NÉCESSAIRES À CE STADE]
+- Formulations courantes des collègues : je ne peux pas configurer mes classes (pas de série proposée) ; nous ne pouvons pas mettre les sections et les apprentis ; je n'arrive pas à placer les élèves dans les groupes ; le chef doit-il importer les élèves d'abord ; aucun élève dans les listes.
+- Réponse : pour la saisie des protocoles d'examen, la configuration des classes n'est pas un obstacle et l'import des élèves n'est pas attendu. Aller directement dans [Dossiers et Projets] > [Dossier EPS] > [Groupes] : déclarer les groupes certificatifs (nom, enseignant responsable, APSA de l'ensemble certificatif et périodes d'enseignement de chaque APSA, c'est-à-dire les SA), en ignorant les candidats. Puis compléter les protocoles dans [Dossier Certificatif] > [Protocoles d'évaluation des épreuves certificatives] : dates d'épreuve, dates de rattrapage et, le cas échéant, co-évaluateur.
+- Les élèves sont importés automatiquement depuis les bases académiques ([Dossier EPS] > [Classes] > importation des élèves) ; leur affichage dépend des remontées faites par l'établissement. Le placement des candidats dans les groupes n'intervient que plus tard, lors de l'association des candidats aux protocoles, une fois les inscriptions à l'examen terminées.
+- Les éléments signalés « incomplets » sur les classes ou les élèves ne sont pas bloquants pour la transmission des protocoles.
+- Si des protocoles ont été construits à partir de classes entières (et non de groupes), il est normal de ne pas pouvoir « peupler » de groupe : ces classes sont automatiquement peuplées de leurs élèves.
+
+### [SITUATION: LES PROTOCOLES N'APPARAISSENT PAS DANS LE DOSSIER CERTIFICATIF]
+- Formulations courantes des collègues : pourquoi les protocoles n'apparaissent pas ; je ne peux pas remplir le tableau des dates d'évaluation et de rattrapage ; le dossier est OK pour envoi mais aucun protocole ne s'affiche.
+- Réponse : dans le Dossier Certificatif, sélectionner d'abord l'examen concerné dans le menu déroulant : les protocoles de cet examen s'affichent alors. S'ils restent absents, vérifier que les groupes d'examen ont bien été créés avec leurs APSA dans [Dossier EPS] > [Groupes] et que ces APSA sont déclarées certificatives dans [Dossier EPS] > [APSA].
+- La date de rattrapage est obligatoire pour valider un protocole ; la date limite des rattrapages est fixée par chaque académie.
+
+### [SITUATION: GROUPES PARTICULIERS : EPS ADAPTÉE MULTI-NIVEAUX, OPTION OU SECTION EURO 1RE + TERMINALE, SECONDE PRÉPA]
+- Formulations courantes des collègues : groupe « EPS adaptée » avec des élèves de plusieurs niveaux ; groupe option EPS ou section euro qui réunit premières et terminales ; iPackEPS ne permet qu'un seul niveau de classe ; seconde prépa absente de la liste des cycles.
+- Réponse : la priorité est la certification. Rattacher en priorité les élèves de terminale (ou de l'année d'examen) au groupe. Un groupe d'option évalué en contrôle continu ne relève pas du CCF : inutile de chercher à créer un groupe dont les élèves n'entrent pas dans le CCF.
+- Une classe qui n'existe pas dans la liste des cycles et sans enjeu d'examen (par exemple une seconde prépa) peut être qualifiée de seconde générale.
+- Micro-lycée : prévoir et saisir les protocoles dans iPackEPS pour ces élèves. Inscrits à l'examen sous le numéro (RNE/UAI) de l'établissement, ils remontent dans iPackEPS à l'issue des inscriptions aux examens. En attendant, des groupes « MicroLycée1 », « MicroLycée2 » peuvent être créés avec leurs SA.
+- Section d'enseignement professionnel (SEP) : les candidats sont inscrits à l'examen sous le numéro du lycée, pas sous celui de la SEP ; c'est donc sous le lycée qu'il faut travailler.
+
+### [SITUATION: ÉLÈVE PARTI, INACTIF, EN CÉSURE OU AU CNED : FAUT-IL LE SORTIR D'iPackEPS ?]
+- Formulations courantes des collègues : comment sortir un élève des listes ; un élève a changé d'établissement mais revient à chaque import ; élèves inactifs dans Pronote ; élève au CNED qui n'a pas EPS ; un élève reste « sans groupe » à la vérification du dossier.
+- Réponse : on n'ajoute ni ne retire d'élève à la main dans iPackEPS : l'application met à jour ses listes à partir de la base élèves académique (SIECLE). Une fois la base de l'établissement à jour, l'élève disparaît ou apparaît automatiquement.
+- En attendant, ne l'affecter à aucun protocole et ignorer l'alerte « pas de groupe ». Lors de l'association des candidats aux protocoles, il sera absent de CYCLADES puisqu'il n'est pas inscrit à l'examen dans l'établissement (un élève parti sera inscrit dans son nouvel établissement).

@@ -2413,5 +2413,47 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
     "statut": "verifie_2026-10-10_trois_documents"
+  },
+  "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
+    "title": "Réponses du correspondant examens EPS : association des candidats, Cyclades, IMAG'IN, Santorin",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
+    "title": "Réponses du correspondant iPackEPS : accès, comptes et liste des enseignants",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/ipack/fiches/correspondant_02_classes_groupes_protocoles.txt": {
+    "title": "Réponses du correspondant iPackEPS : classes, groupes et protocoles",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt": {
+    "title": "Réponses du correspondant iPackEPS : APSA certificatives, référentiels (FCA), épreuves adaptées",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/ipack/fiches/correspondant_05_sss_appn_registre.txt": {
+    "title": "Réponses du correspondant iPackEPS et des IA-IPR : sections sportives, APPN, registre EPI",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/textes/fiches/correspondant_06_course_orientation_foret_chasse.txt": {
+    "title": "Réponse d'un IA-IPR EPS : course d'orientation en forêt et chasse",
+    "statut": "reponse_correspondant_academique_2025-2026",
+    "examens": [],
+    "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
   }
 }

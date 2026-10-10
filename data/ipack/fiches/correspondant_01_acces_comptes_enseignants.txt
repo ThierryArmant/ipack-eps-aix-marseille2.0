@@ -1,0 +1,41 @@
+=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : ACCÈS, COMPTES ET LISTE DES ENSEIGNANTS ===
+Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Le portail ESTEREL, la base RAMSESE, le service DIASEP et la base STS-Web sont les outils de cette académie : dans une autre académie, s'adresser à son propre correspondant iPackEPS.
+
+### [SITUATION: iPackEPS N'APPARAÎT PAS DANS MON PORTAIL (ESTEREL)]
+- Formulations courantes des collègues : je ne trouve pas iPackEPS dans Estérel ; iPack est introuvable ; je n'ai pas l'onglet iPackEPS dans Enquêtes et pilotage ; nouvel enseignant, pas d'accès à iPackEPS.
+- Réponse : iPackEPS se trouve dans le portail ESTEREL, bloc « Enquête et pilotage ». S'il n'apparaît pas, lancer une synchronisation manuelle : bouton « Aide » (en haut à droite du bandeau) > « Synchro manuelle » > « Rafraîchir la page ». Il est conseillé de placer ensuite l'application en favori.
+- Si la synchronisation ne suffit pas : l'enseignant n'est probablement pas référencé dans iPackEPS. iPackEPS est interfacé avec les bases du rectorat : l'enseignant n'y apparaît que si l'établissement l'a installé administrativement (identité, discipline, classes). Vérifier ce point auprès du chef d'établissement.
+- Cas rencontré : deux comptes ESTEREL au même nom bloquent l'accès ; le signaler au correspondant iPackEPS, qui oriente vers le service informatique compétent.
+
+### [SITUATION: UN ENSEIGNANT D'EPS N'APPARAÎT PAS DANS LA LISTE DES PROFESSEURS DE L'ÉTABLISSEMENT]
+- Formulations courantes des collègues : un collègue n'apparaît pas dans iPackEPS ; je ne peux pas le choisir comme co-évaluateur ; le remplaçant d'un collègue en arrêt n'est pas référencé ; un collègue en complément de service n'apparaît pas ; comment ajouter un professeur à la liste ; « Aucun Admin_Professeur trouvé pour cet établissement ».
+- Réponse : la liste des professeurs n'est pas saisie à la main dans iPackEPS. Elle est alimentée automatiquement par les bases académiques des personnels (dans l'académie d'Aix-Marseille : la base STS-Web de l'établissement). Tout enseignant qui intervient auprès des élèves de l'établissement, même à temps partiel, doit y figurer.
+- Procédure : demander à l'administration de l'établissement de mettre à jour la base des enseignants (installation de l'enseignant, discipline, classes). Une synchronisation automatique a lieu chaque jour ; une fois la base à jour, les comptes remontent en général sous 48 h. Cliquer ensuite sur « Actualiser » dans [Dossier EPS] > [Équipe EPS].
+- Un enseignant absent de la liste peut être bloquant (il ne peut pas être désigné responsable d'un groupe ni co-évaluateur) : la mise à jour de la base enseignants est la première et la seule démarche à effectuer.
+- Ne pas créer en « intervenant extérieur » un enseignant qui doit évaluer : un intervenant extérieur n'a pas de prérogative de notation et ne peut pas se voir attribuer de classes.
+
+### [SITUATION: CFA, GRETA, MFR, ÉTABLISSEMENTS AGRICOLES, DÉFENSE ET ÉTABLISSEMENTS À L'ÉTRANGER (AEFE) : QUI SAISIT ?]
+- Formulations courantes des collègues : notre formateur d'EPS n'a pas d'adresse académique ; je suis en CFA, je n'ai aucun établissement à choisir ; établissement agricole, les comptes des enseignants sont-ils créés ; lycée français à l'étranger, aucun enseignant ne peut se connecter ; un seul enseignant apparaît alors que nous sommes dix.
+- Réponse : un accès enseignant à iPackEPS nécessite une adresse académique. Pour les structures dont les personnels n'en ont pas (CFA, GRETA, MFR, établissements agricoles, établissements à l'étranger), l'académie peut ouvrir un compte unique d'établissement (ou un accès « Formateur ») : le dépôt des référentiels et la saisie des protocoles se font alors depuis ce seul compte, avec les éléments fournis par les enseignants.
+- Dans ce cas, il n'est ni possible ni nécessaire d'ajouter les enseignants un par un dans iPackEPS : les protocoles sont créés au nom du titulaire du compte, et le co-évaluateur se déclare comme « Co-évaluateur externe ». Les enseignants évaluateurs sont ensuite convoqués dans IMAG'IN pour la saisie des notes dans Santorin.
+- Un enseignant d'un autre établissement qui intervient (micro-lycée, UFA, complément de service) peut être rattaché comme « Formateur » s'il dispose d'une adresse académique : transmettre son nom et son adresse au correspondant iPackEPS.
+- Un stagiaire ou un nouvel enseignant sans adresse académique ne peut pas accéder à iPackEPS tant que cette adresse n'existe pas.
+
+### [SITUATION: MESSAGE « UNE AUTRE INTERFACE iPackEPS EST CERTAINEMENT DÉJÀ UTILISÉE PAR CE NAVIGATEUR »]
+- Formulations courantes des collègues : je n'arrive plus à me connecter à iPack ; message une autre interface iPackEPS est déjà utilisée ; j'ai fermé les fenêtres mais le message persiste.
+- Réponse : c'est une mesure de sécurité qui empêche deux sessions iPackEPS de coexister. Elle se déclenche surtout quand on quitte iPackEPS sans cliquer sur « Retour portail ».
+- Solution : fermer complètement tous les navigateurs ouverts (toutes les fenêtres), voire redémarrer l'ordinateur, puis se reconnecter. Pour l'éviter, toujours quitter iPackEPS par le bouton « Retour portail ».
+
+### [SITUATION: ACCÈS CHEF D'ÉTABLISSEMENT ET DÉLÉGATION]
+- Formulations courantes des collègues : l'interface chef d'établissement a disparu ; le chef ne voit pas iPackEPS ; je suis adjoint, je n'ai pas accès ; le coordonnateur peut-il avoir l'accès chef.
+- Réponse : l'accès « chef d'établissement » n'est possible qu'à partir du réseau administratif de l'établissement ou, depuis Internet, avec une clé OTP. L'accès à l'interface chef d'établissement peut être attribué par délégation.
+- Le travail de saisie du dossier certificatif (référentiels, groupes, protocoles) revient en principe aux enseignants ; le chef d'établissement vérifie et signe.
+
+### [SITUATION: ERREURS DANS LA FICHE ÉTABLISSEMENT OU DANS MA FICHE PROFESSEUR (CHEF, ADJOINT, ANCIENNETÉ)]
+- Formulations courantes des collègues : le chef d'établissement affiché n'est plus le bon ; il faut remplacer l'adjoint ; mon ancienneté dans l'établissement est fausse ; changement de secrétaire général ; comment modifier les contacts du lycée.
+- Réponse : ces informations ne se modifient pas dans iPackEPS. Les données de l'établissement (chef, adjoints) viennent de la base RAMSESE : les corrections se demandent au service qui la gère (dans l'académie d'Aix-Marseille, la DIASEP du rectorat). Les données d'un enseignant (ancienneté, statut) se mettent à jour dans le dossier administratif tenu par l'établissement.
+- Ces erreurs n'ont pas d'incidence sur les procédures d'examen.
+
+### [SITUATION: TRAVAILLER SUR TABLETTE OU TÉLÉPHONE]
+- Formulations courantes des collègues : sur la tablette je ne peux pas naviguer ; la fenêtre ne s'agrandit pas ; les cases ne sont pas actives.
+- Réponse : travailler sur un ordinateur, avec un navigateur à jour (Firefox ou Chrome). L'affichage d'iPackEPS et de Santorin est prévu pour l'ordinateur ; sur tablette ou téléphone, certaines fenêtres et cases de saisie peuvent ne pas fonctionner.

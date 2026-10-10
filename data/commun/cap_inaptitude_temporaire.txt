@@ -1,5 +1,6 @@
 ### CAP : inaptitude temporaire et une activité déjà notée
 [PORTEE: cap]
+Réponse courte : la première note n'est ni obligatoirement conservée ni automatiquement supprimée. Selon les possibilités médicales et les éléments d'évaluation, l'enseignant apprécie une évaluation différée, une certification sur une seule activité, ou une dispense si les éléments sont trop réduits.
 Portée : candidat scolaire en CCF, session 2026 et suivantes sous réserve d'évolution des textes. Vérifié le 10 octobre 2026.
 Le CAP comporte normalement deux activités relevant de deux champs, pas trois. Une inaptitude temporaire attestée en cours d'année ne commande ni zéro automatique ni dispense automatique ni suppression arbitraire de la première note.
 L'enseignant apprécie les possibilités et les éléments d'évaluation : évaluation différée ; certification sur une seule activité si l'inaptitude empêche la seconde ; ou absence de proposition de note et dispense si les éléments sont trop réduits. En cas d'inaptitude partielle, l'épreuve peut être adaptée suivant les indications médicales, avec transmission pour information à la commission académique. Une inaptitude totale ne permet pas de faire pratiquer pendant sa durée.

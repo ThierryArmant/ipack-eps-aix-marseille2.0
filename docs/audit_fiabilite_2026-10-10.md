@@ -34,3 +34,11 @@ Les liens détaillés figurent dans les fiches. Trois documents concordants n'é
 26 tests locaux réussis : catalogue, exclusion des documents en quarantaine, sélection du diplôme et des priorités, références DNB 2027 et borne du contexte. Compilation Python et contrôle des différences réussis. Ces tests vérifient le logiciel et la sélection, pas la justesse d'une réponse générée.
 
 L'objectif de 90 % n'est pas démontré. Il nécessite une campagne indépendante après déploiement, avec corrigés vérifiés, questions nouvelles et séquences, puis un comptage strict : conclusion, conditions, session, source et procédure. Une réponse partiellement juste ne doit pas être comptée comme entièrement juste. Les procédures locales Santorin/Cyclades et la responsabilité civile/pénale restent à approfondir.
+
+## Contrôles après publication
+
+Les contrôles réels confirment la correction de l'option EPS/LSL et de sa relance, la distinction des activités réellement évaluées en SHN bac pro, la référence DNB 2027, l'accès à une relance après clarification et les 25 minutes de l'oral collectif lié à un parcours EPS.
+
+Deux insuffisances restent constatées : la sortie CM2–sixième conserve une conclusion trop rassurante malgré des conditions inconnues ; le cas CAP temporairement inapte impose d'abord la conservation de la note, puis la relance restitue les alternatives sans supprimer complètement cette obligation injustifiée. Ces réponses ne sont pas comptées comme entièrement justes. La natation restitue le minimum pédagogique et la surveillance distincte, mais sa formulation de garantie globale est excessive.
+
+Le contrôle CAP a conduit à une fiche dédiée, au filtrage du passage de saisie bac à trois activités, et à une consigne préservant les termes « peut » et « selon appréciation ». Le dernier renforcement rédactionnel doit encore être retesté en ligne. 27 tests logiciels réussissent ; ce nombre n'est pas un taux de réponses justes. L'analyse du diaporama est limitée aux informations utiles à l'EPS.

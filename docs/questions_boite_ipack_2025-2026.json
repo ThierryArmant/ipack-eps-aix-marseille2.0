@@ -1,0 +1,262 @@
+{
+ "origine": "Questions réelles reçues par l'assistance iPackEPS de l'académie (2025-2026), reformulées et anonymisées ; réponses attendues tirées des réponses écrites du correspondant.",
+ "usage": "Série de mesure : les poser au hub sans relance, onglet et public indiqués, et comparer à « attendu ». Ces questions ont servi à écrire les fiches correspondant_* : elles mesurent si le hub retrouve ces fiches, pas sa justesse sur des questions inconnues.",
+ "questions": [
+  {
+   "id": "B01",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "iPackEPS n'apparaît pas dans mon portail Estérel, que faire ?",
+   "attendu": "Bloc Enquête et pilotage ; Aide > Synchro manuelle > Rafraîchir ; sinon vérifier que l'établissement a installé l'enseignant dans les bases.",
+   "fiche": "correspondant_01"
+  },
+  {
+   "id": "B02",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Un collègue en complément de service n'apparaît pas dans la liste des professeurs, je ne peux pas le choisir comme co-évaluateur. Comment l'ajouter ?",
+   "attendu": "Pas d'ajout manuel : mise à jour de la base enseignants par l'administration (STS-Web à Aix), remontée sous 48 h, puis Actualiser l'équipe EPS ; ne pas le créer en intervenant extérieur.",
+   "fiche": "correspondant_01"
+  },
+  {
+   "id": "B03",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Notre formateur d'EPS de CFA n'a pas d'adresse académique, comment saisir les protocoles ?",
+   "attendu": "Compte unique d'établissement ou accès Formateur ; saisie depuis ce compte ; co-évaluateur externe ; pas d'accès enseignant sans adresse académique.",
+   "fiche": "correspondant_01"
+  },
+  {
+   "id": "B04",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "J'ai le message « Une autre interface iPackEPS est certainement déjà utilisée par ce navigateur ».",
+   "attendu": "Mesure de sécurité ; fermer tous les navigateurs voire redémarrer ; quitter par Retour portail.",
+   "fiche": "correspondant_01"
+  },
+  {
+   "id": "B05",
+   "onglet": "ipack",
+   "public": "Collège (DNB)",
+   "question": "Le chef d'établissement affiché dans iPackEPS n'est plus le bon et mon ancienneté est fausse, comment corriger ?",
+   "attendu": "Pas dans iPackEPS : RAMSESE (DIASEP à Aix) pour chef/adjoints ; dossier administratif pour l'enseignant ; sans incidence sur les examens.",
+   "fiche": "correspondant_01"
+  },
+  {
+   "id": "B06",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Notre groupe de menu mélange terminale pro, terminale générale et première, iPackEPS ne me laisse choisir qu'un cycle.",
+   "attendu": "Groupe = protocole Cyclades ; un groupe par examen ; pas de groupe pour les premières.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B07",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Deux classes sont sur le même créneau, j'ai fait un groupe et les classes restent en erreur dans l'emploi du temps.",
+   "attendu": "Organisation des classes : mode groupe pour les classes regroupées, mode seul ou mixte en classe entière.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B08",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Mes CAP pratiquent 3 activités et choisissent 2 pour le CCF, le protocole ne se valide pas.",
+   "attendu": "2 épreuves par ensemble CAP ; mode groupe ; 3 protocoles A-B, A-C, B-C ; répartition en début d'année selon le parcours.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B09",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Je crée le groupe TMI et iPackEPS me dit qu'il existe déjà alors que non.",
+   "attendu": "Nom identique à une classe importée : configurer la classe en mode seul ou mixte au lieu de créer un groupe du même nom.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B10",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Je n'arrive pas à placer les élèves dans les groupes, le chef doit-il importer les élèves avant que je saisisse les protocoles ?",
+   "attendu": "Pas nécessaire à ce stade : groupes et SA sans candidats, puis protocoles ; association des candidats après les inscriptions à l'examen.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B11",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Pourquoi les protocoles n'apparaissent pas dans le dossier certificatif ?",
+   "attendu": "Sélectionner l'examen dans le menu déroulant ; sinon vérifier groupes et APSA certificatives.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B12",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Groupe option EPS qui réunit premières et terminales : iPackEPS n'accepte qu'un niveau.",
+   "attendu": "Priorité certification ; option en contrôle continu, pas de groupe CCF nécessaire.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B13",
+   "onglet": "ipack",
+   "public": "Lycée Pro / CAP",
+   "question": "Comment inscrire dans iPackEPS les élèves du micro-lycée de notre LP ?",
+   "attendu": "Protocoles à prévoir ; candidats remontent après inscription sous le RNE ; groupes MicroLycée provisoires ; enseignant extérieur rattaché comme Formateur s'il a une adresse académique.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B14",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Un élève a quitté l'établissement mais revient à chaque import et reste « sans groupe ».",
+   "attendu": "Pas de retrait manuel ; base SIECLE ; ne l'affecter à aucun protocole, ignorer l'alerte ; il sera absent de Cyclades.",
+   "fiche": "correspondant_02"
+  },
+  {
+   "id": "B15",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Je ne peux pas déposer la FCA de mon APSA, elle n'apparaît pas dans le dépôt des référentiels.",
+   "attendu": "Bouton Certificative sur OUI (et Adaptée si besoin) dans Dossier EPS > APSA.",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B16",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Je ne peux pas télécharger la FCA ultimate et iPackEPS dit qu'un référentiel manque.",
+   "attendu": "Épreuve de liste académique : FCA fournie par les IPR, rien à déposer ; ignorer la barre ; commentaire « APSA liste académique ».",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B17",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Impossible de mettre le demi-fond comme APSA certificative en lycée GT, et nous avons aussi le relais.",
+   "attendu": "« Courses » nationale ; pas d'APSA établissement pour distinguer ; à Aix : un document unique regroupant les FCA.",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B18",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "La case certificative du cross-training n'est pas sélectionnable.",
+   "attendu": "À Aix-Marseille le cross-training est une épreuve d'établissement (une seule, accord de l'inspection).",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B19",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Comment intégrer nos épreuves adaptées ? Mes protocoles adaptés à 2 activités ne se valident pas.",
+   "attendu": "Déclarer l'APSA Adaptée ; les épreuves adaptées assouplissent la composition ; OUI à Adapté seulement pour les groupes avec épreuve adaptée ; protocoles adaptés ajoutables dans Cyclades.",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B20",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Je ne peux pas déclarer certificative mon APSA d'EPPCS (canoë-kayak), j'ai déjà une APSA établissement.",
+   "attendu": "EPPCS non certificatif dans iPackEPS ; placer l'APSA dans le groupe EPPCS suffit pour déposer la FCA.",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B21",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "En quoi consiste le document de synthèse voie générale et techno à envoyer sur iPackEPS ?",
+   "attendu": "Deux documents : outil de contrôle retiré (plus requis à Aix) ; récapitulatif des pièces pour la sous-commission de fin d'année, non requis à l'automne.",
+   "fiche": "correspondant_03"
+  },
+  {
+   "id": "B22",
+   "onglet": "examens",
+   "public": "Lycée Général & Techno",
+   "question": "Faut-il importer la liste des élèves de terminale ? Peut-on saisir les notes du bac dans iPackEPS ?",
+   "attendu": "Pas de notes dans iPackEPS ; répartition des candidats après inscriptions ; export vers Cyclades (recommandé) ou association manuelle ; convocation IMAG'IN ; lots Santorin ; saisie.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B23",
+   "onglet": "examens",
+   "public": "Lycée Général & Techno",
+   "question": "Je suis professeur remplaçant, je n'ai pas mes codes pour accéder au lot de correction.",
+   "attendu": "Convocation dans IMAG'IN par le chef, édition PDF, redistribution des lots.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B24",
+   "onglet": "examens",
+   "public": "Lycée Pro / CAP",
+   "question": "Santorin m'indique que je n'ai pas de lot à corriger, est-ce le chef d'établissement ?",
+   "attendu": "Oui : distribution des lots non faite ou enseignant non convoqué ; convoquer, éditer la convocation (PDF), redistribuer.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B25",
+   "onglet": "examens",
+   "public": "Lycée Général & Techno",
+   "question": "Après l'import dans Cyclades, il nous manque un examinateur sur trois et ses lots.",
+   "attendu": "Convocation IMAG'IN + PDF + nouvelle distribution ; si absent des convocables, prévenir le correspondant.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B26",
+   "onglet": "examens",
+   "public": "Lycée Général & Techno",
+   "question": "Notre enseignante a démissionné après deux épreuves de CCF, comment finaliser ?",
+   "attendu": "Laisser le protocole ; ajouter le remplaçant comme évaluateur (IMAG'IN puis Santorin).",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B27",
+   "onglet": "examens",
+   "public": "Lycée Général & Techno",
+   "question": "Pour les élèves inaptes, il n'y a rien à inscrire dans Santorin ?",
+   "attendu": "Si : « Dispensé » par APSA ; inapte à 2 sur 3 → Dispensé sur les 3 ; dérogation documentée possible.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B28",
+   "onglet": "examens",
+   "public": "Lycée Pro / CAP",
+   "question": "Faut-il mettre des appréciations dans Santorin ?",
+   "attendu": "Non, seulement pour signaler un élément à la CAHPN.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B29",
+   "onglet": "examens",
+   "public": "Lycée Pro / CAP",
+   "question": "Dans Santorin les cases de notes (8 et 12 points) ne sont pas actives.",
+   "attendu": "Ordinateur, Firefox ou Chrome à jour ; réessayer si incident serveur.",
+   "fiche": "correspondant_04"
+  },
+  {
+   "id": "B30",
+   "onglet": "ipack",
+   "public": "Collège (DNB)",
+   "question": "Nous voulons transformer notre section sportive handball en section football l'an prochain.",
+   "attendu": "Pas de transformation directe ; demande de changement d'APSA dans iPackEPS + courriel à la commission SSS + signature du chef ; COPIL.",
+   "fiche": "correspondant_05"
+  },
+  {
+   "id": "B31",
+   "onglet": "ipack",
+   "public": "Lycée Général & Techno",
+   "question": "Nous tenons le registre EPI dans un autre logiciel, la saisie dans iPackEPS est-elle obligatoire ?",
+   "attendu": "Non.",
+   "fiche": "correspondant_05"
+  },
+  {
+   "id": "B32",
+   "onglet": "textes",
+   "public": "Collège (DNB)",
+   "question": "J'ai signalé aux chasseurs notre présence pour la course d'orientation en forêt, est-ce suffisant ?",
+   "attendu": "Non : calendrier concerté, usage exclusif ; trace écrite au chef ; carte IGN Top 25 avec lignes d'arrêt ; point de ralliement GPS UTM ; tableau de traçabilité.",
+   "fiche": "correspondant_06"
+  }
+ ]
+}

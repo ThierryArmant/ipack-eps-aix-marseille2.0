@@ -1714,9 +1714,17 @@ if prompt_a_traiter:
                     r"cyclades|santorin|imagin|examen|ccf|certificat|protocole|referentiel|dnb|brevet", p_norm)
 
                 def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
+                    nonlocal _erreur
                     if len(_extraits) >= 10:
                         return
-                    for _txt in chercher_par_mots(recherche_mots, nom_base, prompt, maximum):
+                    try:
+                        _passages = chercher_par_mots(recherche_mots, nom_base, prompt, maximum)
+                    except Exception as e_mots:
+                        _erreur = str(e_mots)
+                        _diag.append(("Recherche par mots indisponible : " + nom_base, None))
+                        print(f"Erreur de recherche par mots dans {nom_base}: {e_mots}")
+                        return
+                    for _txt in _passages:
                         if len(_extraits) >= 10:
                             break
                         _cle = passage_key(_txt)
@@ -1732,11 +1740,13 @@ if prompt_a_traiter:
                         _diag.append(("[mots] " + (etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:100], None))
 
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
+                    nonlocal _erreur
                     if not retriever or len(_extraits) >= 10:
                         return
                     try:
                         _nodes = retriever.retrieve(prompt)
                     except Exception as e_retriever:
+                        _erreur = str(e_retriever)
                         # Une base indisponible ne doit pas bloquer les autres bases.
                         _diag.append(("Recherche indisponible : " + etiquette, None))
                         print(f"Erreur de recherche dans {etiquette}: {e_retriever}")

@@ -143,6 +143,17 @@ class DocumentationTests(unittest.TestCase):
         self.assertTrue(diagnostics)
         self.assertEqual(error, '')
 
+    def test_keyword_failure_still_uses_vector_retriever(self):
+        self.route('Comment exporter mon protocole ?', 'Lycée Général & Techno', 'examens')
+        def broken(*args):
+            raise RuntimeError('simulated keyword outage')
+        self.env['chercher_par_mots'] = broken
+        self.env['retriever_ipack'] = Retriever([SimpleNamespace(
+            text='Guide technique retrouvé malgré la panne par mots', metadata={'source': 'guide'})])
+        text, _, _, error = self.env['_recherche_documentaire']()
+        self.assertIn('Guide technique retrouvé', text)
+        self.assertEqual(error, '')
+
     def test_empty_lookup_failure_remains_blocking(self):
         self.route('Comment exporter mon protocole ?', 'Lycée Général & Techno', 'examens')
         def broken(*args):

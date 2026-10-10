@@ -41,6 +41,7 @@ Répertoire des messages tels qu'ils s'affichent à l'écran, avec leur cause et
 - L'inspection pédagogique régionale (IA-IPR d'EPS) et la commission académique : validation ou réouverture des protocoles, référentiels, cas exceptionnel, sections sportives, projets APPN.
 - Le rectorat, service des personnels : statut, contrat et affectation d'un enseignant ou d'un vacataire.
 - Chaque académie a ses propres adresses de contact et son propre calendrier.
+- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran).
 
 
 ### [SITUATION: CONTACTER LA DIASEP (BASE RAMSESE) — ADRESSE MAIL]

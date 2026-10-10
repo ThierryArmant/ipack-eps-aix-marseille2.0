@@ -1,0 +1,9 @@
+### [SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]
+- Mots-clés : notes de classe, moyenne, export des notes, Pronote, ÉcoleDirecte, bulletin, fiche de synthèse, absences, appel, feuille d'appel, retards, dispenses du jour, saisie hors connexion, tablette, perdre ses notes, notes perdues.
+- Formulations courantes des collègues : comment exporter mes notes d'EPS vers Pronote ; comment saisir les absences dans iPackEPS ; comment faire l'appel dans iPackEPS ; comment générer un bulletin ; est-ce que je perds les notes de l'élève s'il change de classe.
+- Réponse courte : aucune note d'élève ne se saisit ni ne se conserve dans iPackEPS. Il n'y a donc ni export de notes vers Pronote, ni bulletin, ni moyenne calculée dans iPackEPS.
+- Notes de l'année, absences, appel et bulletins : ils se gèrent dans le logiciel de vie scolaire de l'établissement (Pronote ou ÉcoleDirecte).
+- Notes d'examen (CCF du bac GT, du bac pro et du CAP) : elles se saisissent dans Santorin. iPackEPS sert seulement à préparer les protocoles et à exporter les groupes d'élèves vers Cyclades.
+- Conséquence : un changement de classe, une suppression de groupe ou un passage d'année dans iPackEPS ne fait perdre aucune note.
+- Ce que gère iPackEPS : établissement et équipe EPS, classes et groupes, APSA et programmation, protocoles et dossier certificatif, inaptitudes, savoir-nager (ASNS), sections sportives, matériel et registre EPI, documents (Mes Documents, publipostage).
+- En cas de doute ou de bug, académie d'Aix-Marseille : ipackeps@ac-aix-marseille.fr.

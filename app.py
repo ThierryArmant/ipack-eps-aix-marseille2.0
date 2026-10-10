@@ -862,6 +862,18 @@ timestamp_fichier = obtenir_cle_fichier()
 # pourtant les mots mêmes de la question (ex. « Santorin refuse ma note à virgule ») parce que d'autres fiches lui
 # ressemblaient davantage. On repère donc aussi les fiches dont le titre, les mots-clés ou les questions types
 # partagent des mots RARES avec la question, et on les transmet à l'IA en plus.
+# Mots trop courants pour désigner le sujet d'une question (comparés sans accents, en minuscules).
+# Ce nom manquait : la recherche par mots plantait en silence et ne renvoyait jamais aucune fiche.
+_MOTS_NEUTRES_SUJET = {
+    "les", "des", "une", "aux", "est", "sont", "que", "qui", "quoi", "dont", "pour", "par", "sur", "dans", "avec",
+    "sans", "pas", "plus", "mais", "car", "comme", "tout", "tous", "toute", "toutes", "cette", "ces", "son", "ses",
+    "leur", "leurs", "mon", "mes", "notre", "nos", "votre", "vos", "nous", "vous", "ils", "elle", "elles", "lui",
+    "comment", "pourquoi", "quand", "quel", "quelle", "quels", "quelles", "faire", "fait", "faut", "peut", "peux",
+    "dois", "doit", "avoir", "etre", "suis", "ete", "veux", "voudrais", "possible", "bonjour", "merci",
+    "eleve", "eleves", "eps", "ipackeps", "ipack",
+}
+
+
 def _racines_mots(txt):
     """Mots utiles d'un texte, réduits à leurs 6 premières lettres (verrouiller / verrouillage -> verrou)."""
     return {m[:6] for m in re.findall(r"[a-z0-9]{3,}", normaliser(txt)) if m not in _MOTS_NEUTRES_SUJET}
@@ -880,7 +892,8 @@ def initialiser_recherche_mots(cle_fremt):
                 racines = _racines_mots(" ".join(entete))
                 if racines:
                     fiches.append((d.text, racines))
-        except Exception:
+        except Exception as e_mots:
+            print(f"Recherche par mots indisponible pour {nom} : {e_mots}")
             fiches = []
         frequence = {}
         for _, racines in fiches:

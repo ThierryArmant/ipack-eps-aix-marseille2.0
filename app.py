@@ -22,36 +22,6 @@ def normaliser(txt):
     return "".join(c for c in txt if unicodedata.category(c) != "Mn")
 
 
-_MOTS_NEUTRES_SUJET = {
-    "ipack", "ipackeps", "comment", "pourquoi", "quand", "alors", "aussi", "avoir", "faire", "faut", "dois", "doit",
-    "peux", "peut", "veux", "vous", "nous", "elle", "elles", "leur", "leurs", "mais", "avec", "sans", "dans", "pour",
-    "cette", "cela", "celui", "cette", "mes", "tous", "tout", "toute", "toutes", "merci", "bonjour", "cordialement",
-    "question", "probleme", "trouve", "toujours", "encore", "apres", "avant", "puis", "etre", "sont", "suis", "etait",
-    # mots présents dans presque toutes les fiches : ils ne prouvent pas qu'on parle du même sujet
-    "eleve", "eleves", "groupe", "groupes", "classe", "classes", "apsa", "apsas", "dossier", "dossiers",
-}
-
-
-def _mots_sujet(txt):
-    """Mots porteurs de sens d'un texte, ramenés à leurs 4 premières lettres (sans accents) pour tolérer pluriels et conjugaisons."""
-    mots = re.findall(r"[a-z0-9]+", normaliser(re.sub(r"<[^>]+>", " ", txt)))
-    return {m[:4] for m in mots if len(m) >= 4 and m not in _MOTS_NEUTRES_SUJET}
-
-
-def sujet_different(precision, question_precedente, reponse_precedente):
-    """
-    True si le texte saisi dans la zone de précision est en réalité une NOUVELLE question,
-    sans rapport avec l'échange précédent (aucun mot porteur de sens en commun).
-    Dans ce cas on la traite comme une question neuve, sans lui accoler l'ancien échange.
-    """
-    mots_precision = _mots_sujet(precision)
-    if len(mots_precision) < 3:
-        return False  # trop court pour juger : on considère que c'est bien une précision
-    mots_avant = _mots_sujet(question_precedente + " " + reponse_precedente)
-    communs = mots_precision & mots_avant
-    return len(communs) == 0 or (len(communs) / len(mots_precision)) < 0.15
-
-
 def contient(txt, motifs):
     """True si au moins un motif (expression régulière) est trouvé dans txt."""
     return any(re.search(m, txt) for m in motifs)
@@ -242,11 +212,10 @@ if "is_admin" not in st.session_state:
     st.session_state.is_admin = False
 if "reset_steps" not in st.session_state:
     st.session_state.reset_steps = False
-# 💬 PRÉCISION UNIQUE : le hub répond à une question, il ne converse pas.
-# Si la question était mal formulée, le collègue peut la préciser UNE fois ; on ne garde que cet échange.
-NB_RELANCES_MAX = 1
-if "dernier_echange" not in st.session_state:
-    st.session_state.dernier_echange = None
+# Les anciennes sessions ne doivent pas réutiliser une question ou réponse passée.
+if st.session_state.pop("relance_ctx", None) is not None:
+    st.session_state.pop("current_prompt", None)
+st.session_state.pop("dernier_echange", None)
 
 # 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
 if st.session_state.reset_steps:
@@ -1244,7 +1213,6 @@ with col_b1:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
-        st.session_state.dernier_echange = None
         st.rerun()
         
 with col_b2:
@@ -1258,7 +1226,6 @@ with col_b2:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
-        st.session_state.dernier_echange = None
         st.rerun()
         
 with col_b3:
@@ -1272,7 +1239,6 @@ with col_b3:
         st.session_state.contexte_valide = True
         st.session_state.public_valide = False
         st.session_state.messages_hub = []
-        st.session_state.dernier_echange = None
         st.rerun()
 
 # ======================================================================
@@ -1378,24 +1344,9 @@ if prompt_a_traiter:
     if "current_prompt" in st.session_state:
         del st.session_state.current_prompt
 
-    _messages_precedents = list(st.session_state.get("messages_hub") or [])
+    # Une nouvelle question utilise uniquement son contexte et son texte.
     st.session_state.messages_hub = []
-
-    # 💬 RELANCE : le collègue a choisi de préciser sa question précédente.
-    # On réunit sa question d'origine et sa précision : la recherche dans la base se fait sur les deux,
-    # à neuf (les passages de la question précédente ne sont pas réutilisés).
-    relance_ctx = st.session_state.pop("relance_ctx", None)
     question_affichee = prompt
-    ctx_onglet = relance_ctx  # onglet et public de la question précédente (conservés dans tous les cas)
-    if relance_ctx and relance_ctx.get("origine") not in ("courte", "clarification") and sujet_different(prompt, relance_ctx["question"], relance_ctx["reponse"]):
-        # Le collègue a tapé une NOUVELLE question dans la zone de précision : on la traite comme une question neuve,
-        # dans le même onglet et pour le même public, sans lui accoler l'ancien échange (ni coût supplémentaire, ni mélange).
-        relance_ctx = None
-    if relance_ctx:
-        prompt = f"{relance_ctx['question']} — Précision : {prompt}"
-        # AFFICHAGE UNIQUEMENT : la question et la réponse précédentes restent à l'écran au-dessus de la précision
-        # (sans leurs vidéos). Cela ne change rien à ce qui est envoyé à l'IA, qui ne reçoit que le dernier échange.
-        st.session_state.messages_hub = [m for m in _messages_precedents if m.get("type") != "video"]
 
     st.session_state.messages_hub.append({
         "role": "user",
@@ -1407,19 +1358,12 @@ if prompt_a_traiter:
     with st.spinner("⏳ Recherche dans la base documentaire et analyse en cours..."):
         
         mode = st.session_state.active_module
-        if ctx_onglet:
-            # une relance (ou une nouvelle question saisie dans la zone de précision) reste dans l'onglet de la question d'origine
-            mode = ctx_onglet["mode"]
         p_low = prompt.lower()
         # Version sans accents, utilisée par les détections robustes (singulier/pluriel, accents oubliés)
         p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
-        if ctx_onglet:
-            niveau_actuel_form = ctx_onglet["niveau"]
         origine_reponse = "ia"
-        bloc_echange_precedent = ""
-        consigne_relance_finale = ""
 
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
@@ -1704,25 +1648,6 @@ if prompt_a_traiter:
             est_question_trop_courte = (not est_cas_direct) and len(prompt.split()) <= 3
             if est_question_trop_courte:
                 est_cas_direct = True
-
-            # 💬 RELANCE après une réponse EN DUR : resservir la même réponse fixe ne servirait à rien.
-            # On coupe donc les disjoncteurs pour ce tour et on laisse l'IA compléter, avec la réponse précédente sous les yeux.
-            # (Après « pouvez-vous préciser ? » ou « je ne dispose pas de l'information », rien n'est coupé et rien n'est rappelé à l'IA.)
-            # ✅ CORRECTION : après une réponse de l'IA, les réponses en dur restent ACTIVES. Si la précision en déclenche une
-            # (ex. « ...ou je dois tout resaisir ? »), c'est une information nouvelle, fiable et gratuite : on la sert.
-            if relance_ctx and relance_ctx.get("origine") == "direct":
-                for _nom_flag in [k for k in list(globals()) if k.startswith("est_")]:
-                    if _nom_flag not in ("est_college", "est_dnb", "est_premier_degre", "est_clairement_lycee", "est_sss", "est_shn", "est_totalement_hors_sujet", "est_mauvais_onglet", "est_mauvais_onglet_examens"):
-                        globals()[_nom_flag] = False
-                est_cas_direct = est_mauvais_onglet
-            if relance_ctx and relance_ctx.get("origine") in ("direct", "ia") and not est_cas_direct:
-                bloc_echange_precedent = (
-                    "RÉPONSE DÉJÀ DONNÉE À CET UTILISATEUR JUSTE AVANT (elle ne l'a pas débloqué) :\n"
-                    + relance_ctx["reponse"]
-                    + "\n"
-                )
-                # Placée tout à la fin des consignes : c'est là que l'IA en tient le mieux compte.
-                consigne_relance_finale = Path("config/consignes_relance.txt").read_text(encoding="utf-8")
 
             if est_question_trop_courte:
                 origine_reponse = "courte"
@@ -2527,7 +2452,6 @@ FIABILITÉ DOCUMENTAIRE :
 ======================================================================
 {contexte_complet_ia}
 
-{bloc_echange_precedent}
 QUESTION DE L'UTILISATEUR (public sélectionné : {niveau_actuel_form}) :
 {prompt}
 
@@ -2541,7 +2465,6 @@ MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
     - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
 {directive_onglet}
 {bloc_video_consigne}
-{consigne_relance_finale}
 {Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8")}
 RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes applicables au diplôme et à la session priment sur toute ancienne synthèse ou consigne contradictoire. Si deux sources techniques divergent, préciser la version et le rôle avant de donner des droits ou menus. Ne pas inventer une solution. Si la recherche a échoué ou n'a fourni aucun passage pertinent, le signaler et demander les informations nécessaires."""
 
@@ -2730,7 +2653,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
         )
 
         log_interaction(
-            question=("[RELANCE] " + prompt) if relance_ctx else prompt, 
+            question=prompt, 
             reponse=texte_brut, 
             mode=mode, 
             contexte=contexte_choisi_nom, 
@@ -2760,32 +2683,12 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
                         {"role": "assistant", "type": "video", "content": _url}
                     )
 
-        # Une réponse « je ne dispose pas... » n'est pas une réponse à compléter : la précision sera traitée comme
-        # une question complétée, sans consigne « ne répète pas » (qui poussait l'IA à refuser une seconde fois).
-        if origine_reponse == "ia" and re.search(r"je ne dispose pas|pouvez-vous reformuler|je n'ai pas d'information plus pr", texte_brut, flags=re.IGNORECASE):
-            origine_reponse = "vide"
-
-        # 💬 On mémorise uniquement cet échange (texte brut, tronqué), pour une éventuelle relance.
-        _nb_relances = (relance_ctx["relances"] + 1) if relance_ctx else 0
-        if origine_reponse in ("ia", "direct", "courte", "vide", "clarification") and _nb_relances < NB_RELANCES_MAX:
-            _reponse_texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()
-            st.session_state.dernier_echange = {
-                "question": prompt[:1200],
-                "reponse": _reponse_texte[:1500],
-                "mode": mode,
-                "niveau": niveau_actuel_form,
-                "origine": origine_reponse,
-                "relances": _nb_relances,
-            }
-        else:
-            st.session_state.dernier_echange = None
-
         st.session_state.reset_steps = True
         st.rerun()
 
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-    # 1) La question et la réponse d'abord (les vidéos sont affichées plus bas, après la zone de précision)
+    # La question et la réponse, puis les tutoriels associés.
     for m in st.session_state.messages_hub:
         if m.get("type") == "video":
             continue
@@ -2797,38 +2700,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                     st.code(m["extraits"], language=None)
     st.markdown("</div>", unsafe_allow_html=True)
 
-    # 2) 💬 RELANCE BORNÉE : proposée juste sous la réponse, à l'initiative du collègue uniquement.
-    _echange = st.session_state.get("dernier_echange")
-    if _echange:
-        _titre_relance = (
-            "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
-            if _echange["origine"] in ("courte", "vide", "clarification")
-            else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation, ou posez une autre question sur ce même onglet"
-        )
-        st.markdown(
-            f"<div style='margin-top: 14px; margin-bottom: 8px; padding: 12px 14px; background: linear-gradient(135deg, #1E293B, #0F172A); "
-            f"border: 1px solid #38BDF8; border-radius: 8px; font-size: 13.5px; color: #F1F5F9; line-height: 1.5;'>"
-            f"<strong style='color: #38BDF8;'>{_titre_relance}</strong><br>"
-            "Une seule précision est possible. Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
-            unsafe_allow_html=True,
-        )
-        with st.form(key="form_relance_hub", clear_on_submit=True):
-            col_rel_input, col_rel_submit = st.columns([5, 1])
-            with col_rel_input:
-                relance_brute = st.text_input(
-                    "Précision :",
-                    placeholder="Ce que vous avez fait, où ça bloque, le message exact affiché...",
-                    label_visibility="collapsed",
-                )
-            with col_rel_submit:
-                bouton_relance = st.form_submit_button("💬 Préciser", use_container_width=True)
-            if bouton_relance and relance_brute.strip():
-                st.session_state.relance_ctx = dict(_echange)
-                st.session_state.dernier_echange = None
-                st.session_state.current_prompt = relance_brute.strip()
-                st.rerun()
-
-    # 3) Les tutoriels vidéo en dernier : ainsi la zone de précision reste visible juste sous la réponse
+    # Les tutoriels associés restent affichés après la réponse.
     for m in st.session_state.messages_hub:
         if m.get("type") == "video":
             with st.chat_message(m["role"]):

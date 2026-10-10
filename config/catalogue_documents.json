@@ -77,15 +77,20 @@
     "examens": []
   },
   "data/examens/regles_dnb_eps.txt": {
-    "title": "regles dnb eps",
+    "title": "DNB EPS : contrôle continu et LSU, repères 2026 et 2027",
     "statut": "verifie_2026-10-10",
     "examens": [
       "dnb"
     ],
-    "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+    "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
     "prioritaire": true,
     "motifs": [
       "dnb|brevet|lsu"
+    ],
+    "sources": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
+      "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N"
     ]
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {

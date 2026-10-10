@@ -7,6 +7,7 @@ import smtplib
 import unicodedata
 import requests
 from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key
+from response_controls import complete_gt_shn_conditions
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -2487,7 +2488,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
 
                 try:
                     response = Settings.llm.complete(consigne_ia)
-                    texte_brut = response.text
+                    texte_brut = complete_gt_shn_conditions(prompt, response.text, extraits_doc)
                     if verdict_champs:
                         texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
                                       .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))

@@ -1,0 +1,305 @@
+{
+  "methode": "50 demandes indépendantes, sans historique. Série ciblant les risques connus, pas échantillon représentatif de toutes les demandes. Seules les réponses entièrement correctes comptent.",
+  "questions": [
+    {
+      "id": "N01",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "SSS : les trois heures peuvent-elles remplacer les heures d’EPS obligatoire ?"
+    },
+    {
+      "id": "N02",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Une SSS est-elle la même chose qu’une classe sport-études ?"
+    },
+    {
+      "id": "N03",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Qui décide de l’ouverture d’une SSS : professeur, chef d’établissement ou recteur ?"
+    },
+    {
+      "id": "N04",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Un élève de SSS devient-il automatiquement sportif de haut niveau ?"
+    },
+    {
+      "id": "N05",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Une SSS peut-elle être ouverte en CM2 selon le dispositif national ?"
+    },
+    {
+      "id": "N06",
+      "contexte": "Sécurité",
+      "public": "GT",
+      "question": "Un élève isolé peut-il bénéficier d’un aménagement individuel sport-études sans classe dédiée ?"
+    },
+    {
+      "id": "N07",
+      "contexte": "Sécurité",
+      "public": "GT",
+      "question": "Une pratique intensive en club garantit-elle une admission en sport-études ?"
+    },
+    {
+      "id": "N08",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Un élève sport-études non inscrit sur une liste officielle reçoit-il automatiquement 20 en EPS au bac 2027 ?"
+    },
+    {
+      "id": "N09",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "Bac professionnel 2026, SHN éligible en CCF : faut-il évaluer sa spécialité sportive ?"
+    },
+    {
+      "id": "N10",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "CAP 2026, sportif éligible au dispositif SHN : combien d’activités sont réellement évaluées ?"
+    },
+    {
+      "id": "N11",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : faut-il saisir trois CCF EPS dans Santorin ?"
+    },
+    {
+      "id": "N12",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2026 : quelle moyenne EPS est transmise depuis le LSU à Cyclades ?"
+    },
+    {
+      "id": "N13",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : une seule note EPS permet-elle toujours une moyenne annuelle représentative ?"
+    },
+    {
+      "id": "N14",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : absence justifiée à l’évaluation de remplacement, faut-il zéro ?"
+    },
+    {
+      "id": "N15",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2026 : inaptitude permanente et dispense réglementaire EPS, que renseigner dans le LSU ?"
+    },
+    {
+      "id": "N16",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2026 : trois élèves présentent un parcours santé lié à l’EPS ; durée de l’oral collectif et notes individuelles ?"
+    },
+    {
+      "id": "N17",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : peut-on convertir automatiquement quatre niveaux de compétences EPS en notes 5, 10, 15 et 20 ?"
+    },
+    {
+      "id": "N18",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Bac GT 2026 : les notes de l’option EPS sont-elles saisies dans Santorin ou dans le LSL ?"
+    },
+    {
+      "id": "N19",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Bac GT 2026 CCF : moyenne brute 12,2, quel arrondi ?"
+    },
+    {
+      "id": "N20",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "Bac professionnel 2026 CCF : moyenne brute 12,2, quel arrondi ?"
+    },
+    {
+      "id": "N21",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "CAP 2026 CCF : deux activités dans deux champs, moyenne 10,2 ; quel arrondi ?"
+    },
+    {
+      "id": "N22",
+      "contexte": "iPackEPS",
+      "public": "Pro/CAP",
+      "question": "Il est dispensé et il manque une note : je mets zéro ou DI ?"
+    },
+    {
+      "id": "N23",
+      "contexte": "iPackEPS",
+      "public": "Pro/CAP",
+      "question": "CAP 2026 CCF : inaptitude totale temporaire sur le second cycle seulement, première activité évaluée ; quelles possibilités ?"
+    },
+    {
+      "id": "N24",
+      "contexte": "iPackEPS",
+      "public": "GT",
+      "question": "Bac GT 2026 : certificat d’inaptitude partielle temporaire, comment préserver les évaluations possibles sans inventer un menu ?"
+    },
+    {
+      "id": "N25",
+      "contexte": "iPackEPS",
+      "public": "GT",
+      "question": "Santorin : mon lot est fermé ; un enseignant peut-il toujours le déverrouiller lui-même ?"
+    },
+    {
+      "id": "N26",
+      "contexte": "iPackEPS",
+      "public": "GT",
+      "question": "Cyclades Aix-Marseille 2026 : groupe créé, aucun protocole disponible ; peut-on appliquer directement un tutoriel Strasbourg 2024 ?"
+    },
+    {
+      "id": "N27",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "Bac professionnel 2026 : élève absent sans justification à toutes les évaluations et rattrapages, quelle conséquence ?"
+    },
+    {
+      "id": "N28",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Escalade en moulinette après une séance : binôme autonome sans contre-assureur, quels contrôles du professeur avant départ ?"
+    },
+    {
+      "id": "N29",
+      "contexte": "Sécurité",
+      "public": "Premier degré",
+      "question": "Natation : 28 CM2 avec enseignant, intervenant agréé et MNS exclusivement surveillant ; le MNS compte-t-il dans l’encadrement pédagogique ?"
+    },
+    {
+      "id": "N30",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Orientation commune : 24 CM2 et 28 sixièmes, quatre adultes ; peut-on valider sans connaître le terrain et l’organisation ?"
+    },
+    {
+      "id": "N31",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Sortie collège : existe-t-il une règle générale de deux adultes puis un adulte par tranche de trente élèves ?"
+    },
+    {
+      "id": "N32",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Une décharge parentale exonère-t-elle l’enseignant de toute responsabilité en escalade ?"
+    },
+    {
+      "id": "N33",
+      "contexte": "Sécurité",
+      "public": "Premier degré",
+      "question": "Sortie orientation CM2 avec transport : le taux du déplacement suffit-il à valider l’encadrement de l’activité ?"
+    },
+    {
+      "id": "N34",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "Bac professionnel 2026 : la coévaluation par deux enseignants est-elle une obligation nationale identique au bac GT ?"
+    },
+    {
+      "id": "N35",
+      "contexte": "iPackEPS",
+      "public": "Collège",
+      "question": "Un tutoriel iPackEPS sans date ni académie permet-il d’affirmer l’intitulé exact d’un menu actuel ?"
+    },
+    {
+      "id": "N36",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Bac général 2026 EPS en CCF : sportif non listé mais membre d’une structure PPF validée. Est-il exclu des aménagements ? Qui valide la demande ?"
+    },
+    {
+      "id": "N37",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Bac technologique 2026 : statut SHN attesté, mais aucun aménagement rectoral accordé. Le professeur peut-il décider seul d’attribuer 20 dans la spécialité ?"
+    },
+    {
+      "id": "N38",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "CAP session 2026 CCF : première APSA notée 14/20, inaptitude totale temporaire avril-juin couvrant la seconde APSA et les rattrapages ; aucune adaptation ni évaluation différée possible. La dispense est-elle automatique ?"
+    },
+    {
+      "id": "N39",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : un élève SHN a-t-il droit à 20/20 automatique en EPS comme au bac ?"
+    },
+    {
+      "id": "N40",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : aucune moyenne EPS représentative en troisième ; peut-on reprendre automatiquement celle de quatrième ?"
+    },
+    {
+      "id": "N41",
+      "contexte": "Sécurité",
+      "public": "Premier degré",
+      "question": "Natation en piscine scolaire, 24 CM2 : enseignant de la classe non spécialiste EPS, intervenant agréé et MNS à la surveillance exclusive. Le professeur doit-il être professeur d’EPS pour encadrer ?"
+    },
+    {
+      "id": "N42",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Escalade collège en moulinette : un élève vérifie le nœud de son camarade ; cela remplace-t-il la vérification finale du professeur avant le départ ?"
+    },
+    {
+      "id": "N43",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "SSS au collège en 2026-2027 : les trois heures hebdomadaires s’ajoutent-elles à l’EPS obligatoire et à l’association sportive, ou remplacent-elles l’une des deux ?"
+    },
+    {
+      "id": "N44",
+      "contexte": "Sécurité",
+      "public": "GT",
+      "question": "Sport-études au lycée 2026-2027 : faut-il nécessairement une classe collective, ou un aménagement individuel est-il possible ?"
+    },
+    {
+      "id": "N45",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027 : une dispense réglementaire d’évaluation EPS est attestée. Faut-il laisser le LSU vide, mettre zéro ou renseigner une mention réglementaire ?"
+    },
+    {
+      "id": "N46",
+      "contexte": "Examens",
+      "public": "GT",
+      "question": "Bac GT 2026, EPS obligatoire en CCF : 20 en spécialité SHN peut-il constituer l’unique note de certification ?"
+    },
+    {
+      "id": "N47",
+      "contexte": "Examens",
+      "public": "Pro/CAP",
+      "question": "CAP 2026, CCF SHN validé : avec 12 dans l’activité réellement évaluée et 20 dans la spécialité, combien vaut la moyenne avant harmonisation ?"
+    },
+    {
+      "id": "N48",
+      "contexte": "iPackEPS",
+      "public": "GT",
+      "question": "Aix-Marseille 2026 : je suis enseignant, mon lot Santorin est verrouillé et aucun bouton de déverrouillage n’apparaît. Peut-on conclure que tous les chefs d’établissement peuvent toujours le déverrouiller ?"
+    },
+    {
+      "id": "N49",
+      "contexte": "Examens",
+      "public": "Collège",
+      "question": "DNB 2027, oral collectif à trois sur un projet EPS-parcours santé : combien de temps pour présentation et entretien, et la note est-elle individuelle ?"
+    },
+    {
+      "id": "N50",
+      "contexte": "Sécurité",
+      "public": "Collège",
+      "question": "Sortie orientation collège 2026-2027, terrain et organisation pas encore définis : l’effectif d’élèves seul permet-il de fixer un taux national obligatoire d’encadrement ?"
+    }
+  ]
+}

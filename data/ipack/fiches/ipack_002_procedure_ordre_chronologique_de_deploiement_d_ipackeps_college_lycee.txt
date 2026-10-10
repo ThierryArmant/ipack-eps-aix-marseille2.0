@@ -3,8 +3,8 @@
 - Instruction absolue : Toute configuration d'iPackEPS doit impérativement respecter la chronologie administrative et technique en 8 étapes strictes, de l'amont (établissement) vers l'aval (suivi pédagogique) :
 
 1. Connexion institutionnelle :
-   - Accès au portail professionnel ARENA avec les identifiants académiques officiels (e-mail et mot de passe).
-   - Lancement de l'application iPackEPS depuis le tableau de bord (utiliser la synchronisation manuelle du portail de votre académie en cas de besoin).
+   - Connexion à le portail académique (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; dans d'autres académies, souvent ARENA) avec les identifiants académiques officiels.
+   - Lancement de l'application iPackEPS. Si elle n'apparaît pas dans ESTEREL : bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ».
 
 2. Configuration de l'Espace Établissement :
    - Accès : Tableau de bord => [Établissement].
@@ -17,24 +17,24 @@
 4. Configuration des Classes et Importation des Élèves :
    - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Classes].
    - Étape A : Déclarer et configurer les structures de classes (attribution des cycles scolaires, ex: 6e à 3e au collège).
-   - Étape B : Importer les effectifs (synchronisation Siècle ou import direct CSV/Pronote/ÉcoleDirecte en encodage UTF-8).
+   - Étape B : Importer les élèves (synchronisation SIÈCLE). L'import Pronote / École-Directe sert seulement à reprendre des groupes déjà constitués : bouton [Import Pronote] dans [Dossiers] => [Dossier EPS] => [Élèves] (article 88).
    - Étape C : En cas de mouvement en cours d'année, actualiser via [Gestion Classes] => [Actualiser] puis [importation élèves] => [Actualiser].
 
 5. Organisation des Groupes et Programmation :
    - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Groupes].
    - Manipulation : Création des groupes d'enseignement (EPS, options, dispositifs spécifiques) et attribution des séquences d'apprentissage et des APSA.
-   - Placement des élèves : Menu [Mes Élèves] => [Classes / Groupes] pour répartir individuellement chaque élève.
+   - Placement des élèves : [Dossiers] => [Dossier EPS] => [Élèves] (article 18) pour répartir chaque élève dans son groupe.
 
 6. Gestion des Inaptitudes et Dispenses :
    - Accès : Tableau de bord => [Mes Élèves] => [Visualisation] => onglet [Inaptitudes].
-   - Manipulation : Sélectionner l'élève, cliquer sur [Saisir une inaptitude], renseigner les dates exactes et téléverser le certificat médical officiel (rappel : un mot des parents n'est pas une inaptitude médicale).
+   - Manipulation : Sélectionner l'élève, ouvrir l'onglet [Inaptitudes], déclarer l'inaptitude avec ses dates exactes et téléverser le certificat médical (rappel : un mot des parents n'est pas une inaptitude médicale).
 
 7. Saisie des Emplois du Temps (EDT) et Équipements :
-   - Équipements : Déclaration des infrastructures sportives avec leur code RES dans [Matériel / Équipements].
-   - EDT : Positionnement des groupes et séquences sur les créneaux horaires dans [Dossiers] => [Dossier EPS] => [Emploi du Temps].
+   - Équipements : Déclaration des installations sportives dans [Dossiers] => [Dossier EPS] => [Équipements] (article 19).
+   - EDT : Positionnement des groupes et séquences sur les créneaux horaires dans [Dossiers] => [Dossier EPS] => [EDT] (article 20).
 
 8. Suivi Pédagogique et Évaluation (Règles spécifiques par niveau) :
-   - Au Collège (DNB) : iPackEPS sert au pilotage, aux séquences et au suivi des compétences (AFL). La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
+   - Au Collège (DNB) : iPackEPS sert à l'organisation (classes, groupes, APSA, séquences, EDT, inaptitudes) ; au collège on parle d'AFC (attendus de fin de cycle), pas d'AFL. La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
    - Au Lycée (CCF / Examens) : Paramétrage des protocoles certificatifs et préparation des dossiers pour Cyclades et Santorin.
    - Et un peu plus tard (lycée, à partir de janvier) : l'export vers Cyclades, une fois les protocoles validés par la commission académique. Ce n'est pas une étape de rentrée.
 

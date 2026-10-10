@@ -10,10 +10,10 @@
   - Action obligatoire (Chef d'établissement / Secrétariat) : 
     1. Le secrétariat doit associer l'élève au protocole d'examen dans Cyclades (via l'interface administrative).
     2. Le chef d'établissement se connecte à la console Santorin-Direction pour effectuer une distribution manuelle (glisser-déposer) du candidat vers votre lot.
-  - Délai : La synchronisation est effective sous 12h à 24h après l'action administrative.
+  - Délai : la mise à jour peut ne pas être immédiate après l'action administrative.
 
 * PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN (MULTIMÉTHODE FAQ) :
-  - Distinction clé : Ne pas confondre la « réaffectation d'un lot » (qui attribue la totalité des copies d'un lot à un autre correcteur) et le « déplacement d'un candidat » d'un lot vers un autre.
+  - Distinction clé : Ne pas confondre la « réaffectation d'un lot » (qui attribue la totalité des candidats d'un lot à un autre évaluateur) et le « déplacement d'un candidat » d'un lot vers un autre.
   - Règle absolue : L'enseignant n'a aucun droit de déplacer lui-même un candidat d'un lot à un autre sur Santorin.
   - Cas 1 & 2 (Arrivée tardive, élève non listé ou erreur de protocole dans Cyclades) : Corriger l'affectation du candidat ou du protocole dans Cyclades, puis effectuer une nouvelle **distribution automatique** des candidats/lots dans Santorin.
   - Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) : Deux solutions directes dans Santorin :
@@ -22,8 +22,8 @@
   - Gestion des doublons : Aucun doublon n'est possible en raison de l'unicité stricte du numéro INE.
 
 * BUG C : CASES OU CRAYONS GRISÉS (LECTURE SEULE) AVEC CADENAS :
-  - Cause 1 (Validation effectuée / Lot verrouillé) : Le lot a été validé ou verrouillé par l'enseignant. Le chef d'établissement se connecte directement à la console Santorin-Direction, va dans le menu « Liste des lots », et clique sur le cadenas pour basculer le statut de fermé à ouvert en toute autonomie. Aucune intervention ni demande à la DEC n'est requise.
-  - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de fermer explicitement sa session Arena pour libérer les droits d'écriture.
+  - Cause 1 (Validation effectuée / Lot verrouillé) : Le lot a été validé ou verrouillé par l'enseignant. Le chef d'établissement se connecte à son portail Santorin, ouvre [Correction] > [Liste des lots], et clique sur le cadenas pour basculer le statut de fermé à ouvert en toute autonomie. Aucune intervention ni demande à la DEC n'est requise.
+  - Cause 2 (Correction partagée simultanée / Co-évaluation) : Un collègue co-évaluateur manipule le même lot en temps réel. Solution : Demander au collègue de se déconnecter de Santorin, puis recharger la page.
 
 * BUG D : BOUTON « CLÔTURER LE LOT » GRISÉ :
   - Cause : Le bouton ne s'active que si 100 % des candidats du lot possèdent un statut validé (note complète, DISP, ABJ ou ABI).

@@ -2,7 +2,7 @@
 
 ### [SITUATION: ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)]
 - Règle d'or absolue : Aucun enseignant ou personnel ne se connecte par un site web académique public (type site grand public de l'académie).
-- Portail d'accès unique : L'accès à TOUTES les applications professionnelles et d'examen se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel ARENA (ou l'intranet académique) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).
+- Portail d'accès unique : L'accès à TOUTES les applications professionnelles et d'examen se fait par le portail professionnel de l'académie (ESTEREL dans l'académie d'Aix-Marseille, ARENA dans beaucoup d'autres) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe).
 
 ### [SITUATION: RÈGLE FONDAMENTALE : iPACKEPS N'EST PAS UN CARNET DE NOTES]
 - Règle absolue : iPackEPS n'est en aucun cas un carnet de notes ou un logiciel de notation. Il est strictement impossible d'y saisir des notes.

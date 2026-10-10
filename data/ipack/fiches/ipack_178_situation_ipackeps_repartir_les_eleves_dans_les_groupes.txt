@@ -1,11 +1,11 @@
 ### [SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]
-* ERREUR DE BOUTON : Le bouton ou l'option « Placement des Élèves dans les Groupes » n'existe pas sous cette forme dans les menus principaux.
-* LA VRAIE MANIPULATION : Tout s'exécute exclusivement via le module [Mes Élèves].
-  1. Dans le panneau de configuration, sélectionner l'onglet [Classes] ou [Groupes].
-  2. Cocher manuellement les cases individuelles en bout de ligne pour chaque élève.
-  3. Utiliser le bouton d'affectation collective [Ajouter au groupe] après avoir sélectionné le groupe cible dans le menu déroulant.
-  4. Règle d'étanchéité absolue : Ne jamais mélanger des élèves de la filière Générale et de la filière Technologique dans un même groupe d'évaluation iPackEPS.
-
+* CHEMIN (article 18) : [Dossiers] > [Dossier EPS] > [Élèves].
+  1. Choisir la classe d'origine.
+  2. Cocher les élèves concernés.
+  3. Les affecter au groupe cible (sélectionné dans la liste des groupes de la classe).
+* PRÉREQUIS : la classe doit être en « mode groupe » ([Dossier EPS] > [Classes] > « Organisation des classes ») et les groupes doivent exister ([Dossier EPS] > [Groupes]).
+* RÈGLE : un groupe d'examen ne réunit que des candidats qui présentent le même examen (pas de bac pro et de bac GT dans le même groupe). Des élèves de voie générale et de voie technologique passent le même bac GT et peuvent être dans le même groupe.
+* Les groupes ne sont pas reconduits d'une année sur l'autre : ils sont à reconfigurer à chaque rentrée.
 ======================================================================
 [ARTICLE : SAISIE DES NOTES ET ÉVALUATIONS DANS IPACKEPS]
 Mots-clés : saisie des notes, où entrer les notes, module évaluation, CCF, examens, bulletin, Pronote, moyenne, notation, collège, lycée.
@@ -28,16 +28,16 @@ Mots-clés : faire l'appel, absence vie scolaire, Pronote, télécharger applica
 
 2. Accès et application mobile (Smartphone / Tablette) :
 - iPackEPS ne se télécharge PAS sur l'App Store d'Apple ni sur le Google Play Store.
-- Accès : Il s'agit d'une application Web officielle accessible uniquement via le portail académique ARENA (authentification avec vos identifiants académiques).
-- Sur tablette/smartphone : Il suffit de se connecter sur ARENA depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.
+- Accès : application web officielle accessible par le portail académique avec ses identifiants académiques (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; ailleurs souvent ARENA).
+- Sur tablette/smartphone : se connecter au portail académique depuis le navigateur web (Safari, Chrome) et de créer un raccourci sur l'écran d'accueil.
 
 ======================================================================
 [ARTICLE : MOT DE PASSE ET IDENTIFIANTS PERDUS SUR IPACKEPS]
 Mots-clés : mot de passe perdu, réinitialiser mot de passe, identifiant iPack, compte bloqué, login oublié, accès coordonnateur.
 
 - Aucun compte spécifique : Il n'existe AUCUN compte ni mot de passe créé spécifiquement pour iPackEPS. Le coordonnateur EPS ne peut pas créer ni réinitialiser vos identifiants.
-- Authentification unique ARENA : L'accès s'effectue exclusivement avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou dispositif d'authentification forte de votre académie).
-- Procédure en cas d'oubli : En cas de perte de mot de passe, la réinitialisation se fait sur le portail académique ARENA (procédure « Mot de passe oublié » du Rectorat) et non dans iPackEPS.
+- Authentification par le portail académique (ESTEREL à Aix-Marseille, souvent ARENA ailleurs) : l'accès s'effectue avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de messagerie ou dispositif d'authentification forte de votre académie).
+- Procédure en cas d'oubli : En cas de perte de mot de passe, la réinitialisation se fait par la procédure « mot de passe oublié » de la messagerie académique de son académie, et non dans iPackEPS.
 
 ======================================================================
 [ARTICLE : MOT DES PARENTS VS INAPTITUDE MÉDICALE OFFICIELLE]
@@ -65,7 +65,7 @@ Mots-clés : supprimer élève dispensé, faire de la place, supprimer classe, c
 - Interdiction de suppression : Ne JAMAIS supprimer la fiche d'un élève dispensé médicalement pour l'année. Sa fiche doit impérativement rester dans la classe avec son statut d'inaptitude totale active afin d'assurer la traçabilité juridique et la conformité administrative.
 - Portée des suppressions :
   -> Si un enseignant non-coordonnateur supprime un affichage de groupe dans son profil, cela ne supprime pas la base SIÈCLE globale de l'établissement.
-  -> C'est le coordonnateur qui actualise les classes ([gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser]). S'il ne peut pas le faire, un enseignant peut se déclarer [coordonnateur] dans la liste des fonctions de sa propre fiche professeur (puis enregistrer) et faire lui-même la manipulation.
+  -> Depuis la version 2026.2.x, tout enseignant de l'équipe peut actualiser les classes ([gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser]).
 - En cas de départ d'élève ou d'élève inactif : Si un élève quitte définitivement l'établissement ou est noté "inactif", ne cherchez pas de case à cocher pour le supprimer manuellement. L'actualisation de la base SIÈCLE (ou import Pronote / École Directe) lors du prochain import régularisera automatiquement l'effectif et l'élève disparaîtra de vos listes.
 
 ======================================================================

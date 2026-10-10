@@ -3,4 +3,4 @@
 - Formulations courantes des collègues : Quels formats de fichiers sont acceptés ? ; Quelle est la taille maximum d'un document ? ; Comment déposer un document ? ; Que veulent dire les icônes de statut ?
 * **Imports de documents unifiés :** Les fenêtres de dépôt utilisent une ergonomie standardisée par glisser-déposer (drag 'n drop) acceptant les formats `pdf`, `doc`, `docx`, `odt`, `zip` dans la limite d'une taille maximale de 5000 Ko.
 * **Bouton Légende :** Un bouton `[légende]` est intégré à côté des interfaces comportant des icônes de statut (dossier en attente, validé, modifications demandées, rejeté).
-
+  📺 Tutoriel associé : Import_documents_glisser_deposer.mp4

@@ -1,10 +1,9 @@
 ### [SITUATION: IPACKEPS — COMMENT DÉPOSER UN CERTIFICAT MÉDICAL]
-* CHEMIN CHIRURGICAL DES MENUS :
-  1. Se connecter à l'interface iPackEPS Professeur.
-  2. Cliquer sur le module [Mes Élèves].
-  3. Dans la liste, cliquer sur le nom de l'élève pour ouvrir la [Fiche élève].
-  4. Repérer la section [Inaptitudes] (et non Dossier Certificatif).
-  5. Cliquer sur le bouton officiel [Saisir une inaptitude].
-  6. Renseigner les dates, les APSA visées par la dispense, téléverser le scan du certificat médical.
-  7. Pour la réactivation des APSA lors de la commission d'arbitrage, il faut modifier la date de fin de l'inaptitude pour libérer informatiquement l'accès aux grilles de notation.
-
+* CHEMIN (article 82) :
+  1. Se connecter à iPackEPS (interface Professeur).
+  2. Ouvrir [Mes Élèves] > [Visualisation].
+  3. Choisir l'élève, puis l'onglet [Inaptitudes] (et non le Dossier Certificatif).
+  4. Déclarer l'inaptitude : dates de début et de fin, APSA concernées, et téléverser le scan du certificat médical.
+  5. Si l'élève reprend plus tôt : modifier la date de fin de l'inaptitude et déposer le certificat de reprise.
+* Aucune note n'est saisie dans iPackEPS : l'inaptitude y est seulement déclarée et justifiée. Pour l'examen, la mention correspondante (DI, dispense) se saisit dans Santorin.
+* La liste des élèves inaptes de l'établissement se consulte dans [Mes Élèves] > [Inaptitudes] (article 90).

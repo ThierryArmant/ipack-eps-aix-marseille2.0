@@ -145,7 +145,7 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Vidéo : https://www.youtube.com/watch?v=b29_2hEqzoU
 - L'accès se fait par ARENA pour tous (enseignants, chefs d'établissement, inspecteurs), avec l'identifiant académique ou l'adresse mail professionnelle. Outils « connaître son identifiant » et « mot de passe oublié » sur la page de connexion. Chaque académie a sa propre adresse ARENA.
 - Après une longue absence, ARENA redemande la date de naissance pour confirmer l'identité. PIÈGE : le navigateur peut alors proposer de « mettre à jour le mot de passe ». Refuser : sinon la date de naissance est enregistrée à la place du mot de passe et la connexion suivante échoue.
-- Dans le nouveau portail ARENA (2025), iPackEPS est dans la rubrique « Structures et personnels », en bas de page. Conseil : cliquer tout de suite sur « Ajouter aux favoris » ; il sera ensuite dans « Mes favoris » en haut à gauche.
+- Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Dans le nouveau portail ARENA (2025) d'autres académies, iPackEPS est dans la rubrique « Structures et personnels », en bas de page. Conseil : cliquer tout de suite sur « Ajouter aux favoris » ; il sera ensuite dans « Mes favoris » en haut à gauche.
 - Bouton « Choisir l'accès » : un enseignant voit « Accès professeur ». Un membre de commission (examens, sections sportives) voit aussi un accès commission.
 
 ### [SITUATION: MA FICHE PROFESSEUR — CE QUE CONTIENT CHAQUE ONGLET ET QUI PEUT LA LIRE (vidéo)]

@@ -40,7 +40,7 @@
 - Nouveautés de l'Interface Professeur / Chef d'établissement (Version 2026.2.x) :
   * **Imports de documents unifiés** : Généralisation de l'ergonomie par glisser-déposer (drag 'n drop) sur toutes les fenêtres de dépôt de documents.
   * **Bouton Légende** : Intégration systématique d'un bouton [légende] sur les fenêtres présentant des icônes de statut de dossier pour éviter d'avoir à survoler chaque icône.
-  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel. Si la liste des classes ou des élèves reste incomplète, le coordonnateur lance l'actualisation manuelle : [gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser].
+  * **Import automatique des élèves** : Synchronisation automatique des bases d'élèves dès l'accès au tableau de bord pour intégrer les entrées/sorties en temps réel. Si la liste des classes ou des élèves reste incomplète, n'importe quel enseignant de l'équipe lance l'actualisation manuelle : [gestion Classes] ==> [Actualiser], puis [importation élèves] => [Actualiser].
   * **Inventaire EPI enrichi** : Ajout possible de photos du matériel, importation des notices techniques, modification de la fréquence des contrôles (fixée par défaut à 12 mois) et présence automatique de la photo sur la version papier du registre.
   * **Dépôts multiples (Axes des projets EPS)** : Possibilité de déposer plusieurs documents distincts pour chaque projet d'établissement, d'EPS ou d'AS.
   * **Actualisation élargie (Classes et Équipe EPS)** : Tous les enseignants (et non plus seulement le coordonnateur) peuvent désormais actualiser la liste des classes, des élèves et de l'équipe pédagogique.
@@ -55,10 +55,3 @@
   * **Configuration granulaire des dossiers SSS** : Possibilité d'activer ou désactiver les sous-dossiers SSS (demande d'ouverture, projet, bilan, évolution).
   * **Autorisations de messagerie pour les commissions** : Paramétrage permettant d'autoriser ou non les membres des commissions à envoyer des e-mails aux établissements (pour les dossiers certificatifs, SSS et APPN).
   * **Transmission des e-mails pour publipostage** : Export des e-mails des coordonnateurs et responsables de certification pour permettre aux logiciels CommissionBac et CommissionPro de faire du publipostage.
-======================================================================
-                 CONSIGNES ET DICTIONNAIRE IA Ipack
-                     (SOURCE DE VÉRITÉ ABSOLUE)
-======================================================================
-
-[SECTION: ETAPES_CONFIGURATION_CHRONOLOGIQUE_IPACKEPS]
-

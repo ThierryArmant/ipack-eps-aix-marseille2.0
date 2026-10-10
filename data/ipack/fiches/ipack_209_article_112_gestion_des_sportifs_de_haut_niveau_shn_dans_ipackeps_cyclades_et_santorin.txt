@@ -8,6 +8,5 @@
 - Procédure de notation (Santorin) : L'enseignant choisit le protocole de l'élève, indique l'APSA de spécialité (qui aura 20/20), puis saisit normalement les notes des autres épreuves.
 - Repérer un sportif de haut niveau dans Santorin : Santorin n'a ni filtre ni recherche par profil d'élève. Le statut de sportif de haut niveau vient de l'inscription à l'examen dans Cyclades, validée par la DEC sur les listes ministérielles.
 - Anomalie de statut (tutoriel officiel, article 69) : dans Santorin, si la colonne [sportif de Haut Niveau] indique [NON] pour un élève concerné, l'enseignant fait un signalement à la DEC de son académie pour qu'elle vérifie le statut de l'élève sur les listes officielles et corrige. Seule la DEC peut modifier le statut.
-- Cas particulier de la spécialité EPPCS : L'élève SHN est dispensé de la pratique physique (attribution de 12 points d'office) et l'évaluation orale est centrée sur l'analyse de son parcours sportif.
 - Tutoriel : un sportif de haut niveau n'est pas une classe Sports-Études. Ne pas proposer le tutoriel « Configurer les Classes Sports-Études » pour une question sur les sportifs de haut niveau.
 ======================================================================

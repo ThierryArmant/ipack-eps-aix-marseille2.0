@@ -130,8 +130,8 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: QUI FAIT QUOI DANS iPackEPS — LE COORDONNATEUR OU CHAQUE ENSEIGNANT ?]
 - Mots-clés : qui fait quoi, répartition des rôles, coordonnateur, chaque enseignant, équipe EPS, qui saisit, qui remplit, groupes, emploi du temps, fiche professeur.
 - Formulations courantes des collègues : est-ce au coordonnateur de tout saisir ; chaque prof doit-il remplir ses groupes ; qui remplit les emplois du temps ; qui importe les élèves ; que doit faire chaque collègue.
-- Le coordonnateur ne saisit pas tout. Certaines actions lui sont réservées, les autres peuvent être faites par tout enseignant de l'équipe.
-- Réservé au coordonnateur (case « coordonnateur EPS » cochée dans [Ma fiche professeur] > [Fonctions]) : [Actualiser] la liste de l'équipe EPS, [Actualiser] la liste des classes, importer les élèves.
+- Le coordonnateur ne saisit pas tout.
+- Depuis la version 2026.2.x, tout enseignant de l'équipe (et non plus seulement le coordonnateur) peut [Actualiser] la liste de l'équipe EPS, [Actualiser] la liste des classes et importer les élèves. Sur une version plus ancienne, ces actions étaient réservées au coordonnateur (case « coordonnateur EPS » dans [Ma fiche professeur] > [Fonctions]).
 - À la charge du coordonnateur en pratique : la fiche Établissement, les projets, la configuration et l'organisation des classes, la liste des APSA, les périodes, les équipements, puis la vérification des données et l'envoi du dossier pour validation.
 - À la charge de CHAQUE enseignant : sa propre fiche professeur (personne d'autre ne peut la remplir ni la lire), ses groupes et leurs séquences d'apprentissage, le placement de ses élèves dans ses groupes, son emploi du temps.
 - Contrôle par le coordonnateur : [Dossiers] > [Dossier EPS] > [Équipe EPS], menu « Bilan ». Une coche rouge à côté d'un nom signale une fiche professeur incomplète (spécialités, vœux de jury, vœux de formation) ; le coordonnateur ne voit pas le contenu de la fiche, seulement si elle est complète.
@@ -151,7 +151,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: TITULAIRE, TZR, CONTRACTUEL, STAGIAIRE, REMPLAÇANT — COMMENT CHACUN APPARAÎT DANS iPackEPS]
 - Mots-clés : statut, titulaire, TZR, contractuel, stagiaire, remplaçant, nouvel arrivant, n'apparaît pas dans l'équipe, deux identifiants, affectation.
 - Formulations courantes des collègues : notre contractuel n'apparaît pas dans l'équipe ; le TZR arrivé en octobre n'est pas dans la liste ; le stagiaire doit-il remplir une fiche ; comment déclarer un remplaçant.
-- Tout enseignant d'EPS affecté par le rectorat dans l'établissement (titulaire, TZR, contractuel, stagiaire) apparaît automatiquement dans l'équipe EPS, après un clic sur [Actualiser] par le coordonnateur. Chacun accède à iPackEPS par ARENA et remplit sa propre fiche professeur.
+- Tout enseignant d'EPS affecté par le rectorat dans l'établissement (titulaire, TZR, contractuel, stagiaire) apparaît automatiquement dans l'équipe EPS, après un clic sur [Actualiser] par un enseignant de l'équipe. Chacun accède à iPackEPS par le portail académique (ESTEREL à Aix-Marseille) et remplit sa propre fiche professeur.
 - Un enseignant nouvellement affecté qui n'apparaît toujours pas après [Actualiser] : les affectations ne sont pas encore à jour dans les bases du rectorat. Attendre quelques jours et actualiser à nouveau. On ne peut pas le créer à la main.
 - Un enseignant qui a eu deux comptes (ancien contractuel titularisé, TZR) doit se connecter à ARENA avec son identifiant le plus récent, sinon il voit son ancien établissement ou aucun.
 - Un remplaçant : ouvrir SA fiche dans l'équipe EPS et indiquer, dans la zone « Remplacement », qui il remplace ; il récupère les groupes et l'emploi du temps du titulaire.

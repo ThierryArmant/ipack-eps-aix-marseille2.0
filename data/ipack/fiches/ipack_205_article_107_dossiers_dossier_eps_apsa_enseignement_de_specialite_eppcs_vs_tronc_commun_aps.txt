@@ -1,5 +1,6 @@
-### [ARTICLE 107] [Dossiers]/[Dossier EPS]/[APSA] Enseignement de Spécialité EPPCS vs Tronc Commun : APSA Exclusive
-Mots-clés : spécialité EPPCS, cumul APSA bac, même activité en option et spécialité, distinction des grilles.
-- Règle d'étanchéité : Une APSA évaluée au titre de l'enseignement de spécialité EPPCS ne peut pas être utilisée par le même élève pour son CCF de tronc commun au Baccalauréat si les attendus et référentiels ne sont pas distincts.
-- Dans iPackEPS : déclarer les groupes EPPCS dans l'onglet dédié `[EPPCS]`. iPackEPS isole automatiquement la gestion de ces séquences des protocoles du tronc commun.
-
+### [ARTICLE 107] [Dossiers]/[Dossier EPS]/[Groupes] Enseignement de spécialité EPPCS et tronc commun
+Mots-clés : spécialité EPPCS, groupes EPPCS, APSA certificative, même activité en spécialité et en tronc commun, référentiels EPPCS.
+- Groupes : les groupes de spécialité se créent dans le menu EPPCS de [Dossiers] > [Dossier EPS] > [Groupes] (article 93). Pour des cours théoriques sans APSA, créer un groupe dans [groupes divers sans APSA] (par exemple « EPPCS théorie »).
+- APSA : si une APSA n'est évaluée qu'en EPPCS et pas en CCF du bac GT, ne pas cocher la case [Certificative] : cette case ne concerne que l'enseignement commun.
+- Notes : les notes d'EPPCS se gèrent dans le logiciel de vie scolaire (Pronote, École-Directe) ; iPackEPS ne gère pas la partie certificative de la spécialité.
+- Référentiels : iPackEPS demande un référentiel pour chaque APSA des groupes EPPCS ; pour une APSA non évaluée, ignorer l'alerte et l'expliquer dans le commentaire de l'équipe.

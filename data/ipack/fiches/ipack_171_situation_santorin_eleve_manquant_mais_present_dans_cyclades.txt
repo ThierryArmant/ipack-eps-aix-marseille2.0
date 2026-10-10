@@ -1,4 +1,3 @@
 ### [SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]
-* ERREUR INTERFACE : L'option textuelle « Ajouter un élève » dans l'interface Santorin n'est PAS fonctionnelle pour l'utilisateur.
-* DIAGNOSTIC ET RÉSOLUTION : Si l'élève est absent, c'est qu'il n'est actuellement affecté à aucun groupe de compétences (« élève sans groupe »). La seule procédure valide est de retourner dans Cyclades (ou via le secrétariat), d'affecter manuellement le candidat à son groupe/protocole EPS. Il remontera automatiquement dans Santorin sans action manuelle.
-
+* DIAGNOSTIC : si un candidat inscrit à l'examen n'apparaît dans aucun lot Santorin, c'est en général qu'il n'est associé à aucun protocole EPS dans Cyclades (élève « sans groupe » lors de l'export iPackEPS) ou qu'il n'a pas encore été distribué.
+* RÉSOLUTION : le chef d'établissement (ou le secrétariat) associe le candidat à son protocole dans Cyclades, puis vérifie dans Santorin, onglet [Distribution], qu'il est attribué à un lot (distribution des candidats restants ou distribution manuelle). L'enseignant ne peut pas ajouter lui-même un candidat à son lot.

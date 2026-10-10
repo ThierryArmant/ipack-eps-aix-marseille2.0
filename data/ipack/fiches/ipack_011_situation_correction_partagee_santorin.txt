@@ -1,3 +1,2 @@
 ### [SITUATION: CORRECTION PARTAGÉE SANTORIN]
-- Instruction : La correction multiple permet à plusieurs évaluateurs d'intervenir sur un même lot. Le chef d'établissement peut ajouter un deuxième correcteur via Cyclades (Menu 'Lots' > 'Voir le détail' > Onglet 'Correcteurs' > Bouton 'Ajouter'). Lorsqu'un correcteur édite activement une copie, l'interface la verrouille et la passe temporairement en « lecture seule » pour l'autre correcteur afin d'éviter les conflits de saisie.
-
+- Instruction : plusieurs évaluateurs peuvent intervenir sur un même lot (co-évaluation). Le chef d'établissement ajoute un deuxième correcteur dans Santorin : [Distribution] > choisir le lot > [Voir le détail] > [Correcteur] > [Ajouter]. Les deux enseignants voient alors le même lot. En EPS il n'y a pas de copies numérisées : on saisit des notes par AFL ou AFLP pour chaque candidat.

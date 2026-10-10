@@ -4,7 +4,7 @@ Répertoire des messages tels qu'ils s'affichent à l'écran, avec leur cause et
 ### [SITUATION: MESSAGES D'ERREUR D'iPackEPS — CE QU'ILS VEULENT DIRE]
 - Mots-clés : message d'erreur, alerte, erreur, iPackEPS, réservé au coordonnateur, cycle scolaire, colonnes non trouvées, classe non trouvée, date réservée, trois champs d'apprentissage, 403, 400, not found.
 - Formulations courantes des collègues : j'ai un message d'erreur ; une alerte s'affiche ; que veut dire ce message ; iPackEPS me bloque avec un message.
-- « Cette manipulation est réservée au coordonnateur » (bouton [Actualiser] de l'équipe ou des classes, import des élèves) : le faire faire par le coordonnateur, ou cocher temporairement « coordonnateur EPS » dans [Ma fiche professeur] > [Fonctions], faire la manipulation, puis décocher.
+- « Cette manipulation est réservée au coordonnateur » (bouton [Actualiser] de l'équipe ou des classes, import des élèves) : depuis la version 2026.2.x, tout enseignant peut actualiser ; si le message apparaît encore, le faire faire par le coordonnateur, ou cocher temporairement « coordonnateur EPS » dans [Ma fiche professeur] > [Fonctions], faire la manipulation, puis décocher.
 - « Le groupe de destination n'autorise pas le cycle scolaire de [élève] » : on place un élève dans un groupe EPS ou SSS d'un autre niveau que le sien. Vérifier le cycle du groupe, ou celui de la classe dans [Dossier EPS] > [Classes] > Configuration.
 - « Des colonnes n'ont pas été trouvées dans l'en-tête du fichier » (import Pronote) : on a exporté une classe au lieu d'un groupe ; Pronote n'ajoute la colonne « classe » que pour un groupe.
 - « La classe … déclarée sur Pronote n'a pas été trouvée » : le nom de la classe diffère entre Pronote et iPackEPS. Corriger le fichier avec le Bloc-notes (Ctrl+H, rechercher la partie en trop, remplacer par rien), jamais avec Excel.
@@ -34,7 +34,7 @@ Répertoire des messages tels qu'ils s'affichent à l'écran, avec leur cause et
 ### [SITUATION: QUI CONTACTER POUR QUOI — ASSISTANCE iPackEPS, DEC, INSPECTION, CHEF D'ÉTABLISSEMENT]
 - Mots-clés : qui contacter, à qui m'adresser, assistance, correspondant académique, DEC, division des examens, inspection pédagogique, IA-IPR, chef d'établissement, secrétariat des examens, service informatique.
 - Formulations courantes des collègues : à qui écrire ; qui peut me débloquer ; est-ce la DEC ou l'inspection ; qui s'occupe de ce problème.
-- Le coordonnateur EPS de l'établissement : actualiser l'équipe et les classes, importer les élèves, envoyer le dossier pour validation.
+- Le coordonnateur EPS de l'établissement : envoyer le dossier pour validation (l'actualisation de l'équipe, des classes et des élèves est ouverte à tous les enseignants depuis la version 2026.2.x).
 - Le chef d'établissement (ou le secrétariat des examens) : importer les élèves dans Cyclades, créer les missions Imag'in, réaffecter un protocole, distribuer les lots, ajouter un correcteur, déverrouiller un lot, signer les dossiers (enquête natation, section sportive, APPN).
 - Le correspondant académique iPackEPS (assistance iPackEPS de son académie) : iPackEPS n'apparaît pas dans ARENA, établissement absent, enseignant absent de l'équipe, module à activer (section sportive), bug de l'application.
 - La DEC (division des examens et concours) de son académie : inscriptions des candidats, missions et convocations Imag'in, incohérences de données, statut de sportif de haut niveau, calendrier et dates limites des examens.

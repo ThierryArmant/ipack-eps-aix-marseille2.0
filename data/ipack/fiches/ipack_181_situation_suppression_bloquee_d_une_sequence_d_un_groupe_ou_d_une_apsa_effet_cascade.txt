@@ -2,8 +2,8 @@
 Mots-clés : impossible de supprimer séquence, cadenas suppression groupe, corbeille grisée, erreur clé étrangère, BDD bloquée.
 - Diagnostic : iPackEPS applique une intégrité relationnelle stricte. Un élément ne peut pas être effacé s'il possède des données enfants (élèves rattachés, créneaux EDT).
 - Ordre chirurgical de suppression (à rebours obligatoire) :
-  2. [Dossiers] > [Dossier EPS] > [EDT] : faire un clic droit sur le créneau pour supprimer le créneau d'emploi du temps associé au groupe.
-  3. [Dossiers] > [Dossier EPS] > [Élèves] : retirer tous les élèves du groupe.
-  4. [Dossiers] > [Dossier EPS] > [Groupes] : supprimer la séquence d'apprentissage (S.A.).
-  5. Supprimer enfin le groupe ou l'APSA devenue orpheline.
+  1. [Dossiers] > [Dossier EPS] > [EDT] : faire un clic droit sur le créneau pour supprimer le créneau d'emploi du temps associé au groupe.
+  2. [Dossiers] > [Dossier EPS] > [Élèves] : retirer tous les élèves du groupe.
+  3. [Dossiers] > [Dossier EPS] > [Groupes] : supprimer la séquence d'apprentissage (S.A.).
+  4. Supprimer enfin le groupe ou l'APSA devenue orpheline.
 

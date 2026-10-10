@@ -1,13 +1,12 @@
 ### [DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]
-- Mots-clés : Santorin, distribution des lots, lot de correction, Distribution de l'épreuve, bouton Distribuer, protocoles d'épreuve, chef d'établissement, secrétariat des examens, correcteurs, copies
-- Formulations courantes des collègues : Comment distribuer les lots dans Santorin ? ; Qui doit distribuer les lots de correction ? ; Pourquoi les correcteurs ne voient pas leurs copies ? ; Comment vérifier que la distribution a marché ?
-- Cible : Chef d’établissement / Secrétariat des examens.
-- Objectif : Générer les lots de correction à partir des protocoles d'épreuve.
+- Mots-clés : Santorin, distribution des lots, lot, distribution automatique, Lancer la distribution, distribution manuelle, chef d'établissement, secrétariat des examens, évaluateurs, candidats
+- Formulations courantes des collègues : Comment distribuer les lots dans Santorin ? ; Qui doit distribuer les lots ? ; Pourquoi les enseignants ne voient pas leurs lots ? ; Comment vérifier que la distribution a marché ?
+- Cible : Chef d'établissement / secrétariat des examens (portail établissement de Santorin).
+- Objectif : répartir les candidats des protocoles importés dans Cyclades en lots attribués aux enseignants évaluateurs.
 - Procédure :
-  1. Accéder à l'onglet « Distribution de l’épreuve ».
-  2. Sélectionner le groupe ou la classe concerné(e).
-  3. Cliquer sur le bouton « Distribuer ».
-- Vérification de succès : Vérifier que le protocole a bien été transformé en « lot de correction ».
-- Rappel : Cette étape est indispensable. Sans distribution, les correcteurs ne peuvent pas visualiser leurs copies ni procéder à la saisie des notes dans Santorin.
+  1. Dans Santorin, ouvrir l'onglet [Distribution].
+  2. Choisir la distribution automatique et cliquer sur [Lancer la distribution].
+  3. Si des candidats restent non distribués, les attribuer par une distribution manuelle complémentaire.
+- Vérification : chaque enseignant voit son lot dans Santorin (mission « Notation EPS CCF » dans Imag'in) ; le bouton « Lots » permet de notifier les enseignants par mail que la notation peut débuter.
+- En EPS il n'y a pas de copies numérisées : un lot est une liste de candidats à noter, AFL par AFL (bac GT) ou AFLP par AFLP (bac pro, CAP).
 - 📺 TUTORIEL COMPAGNON : Distribution_lots_santorin.mp4
-

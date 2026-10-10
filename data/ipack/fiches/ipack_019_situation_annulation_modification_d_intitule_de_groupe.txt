@@ -1,3 +1,2 @@
 ### [SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]
-- Instruction : Si les intitulés de groupes créés sur iPackEPS ne correspondent pas à la nomenclature officielle de l'établissement (ex : École Directe / Pronote) et bloquent l'utilisateur, le coordonnateur doit vider les affectations pour réinitialiser la structure.
-
+- Instruction : un groupe ne peut pas porter le même nom qu'une classe déjà importée dans iPackEPS. Si un intitulé Pronote ou École-Directe correspond en fait à une classe (et non à un groupe), ne pas créer de groupe de ce nom : configurer cette classe en « mode seul ou mixte » dans [Dossier EPS] > [Classes] > « Organisation des classes ». Pour renommer un groupe mal nommé, le modifier dans [Dossier EPS] > [Groupes]. En cas de blocage, contacter le correspondant iPackEPS (Aix-Marseille : ipackeps@ac-aix-marseille.fr).

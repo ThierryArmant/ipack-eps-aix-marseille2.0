@@ -1,12 +1,12 @@
 ### [ERREUR : AUCUN LOT À CORRIGER]
-- Mots-clés : aucun lot à corriger, Santorin, Cyclades, synchronisation, affectation, Rejouer l'import, DEC, capture d'écran, Choisir les AFLP, lot absent
+- Mots-clés : aucun lot à corriger, Santorin, Cyclades, distribution, affectation, Imag'in, adresse mail de l'examinateur, DEC, DIEC, Choisir les AFLP, lot absent
 - Formulations courantes des collègues : Je n'ai aucun lot à corriger dans Santorin, que faire ? ; Pourquoi mon lot n'apparaît pas ? ; Le bouton Choisir les AFLP ne marche pas, pourquoi ? ; À qui signaler un lot manquant ?
-- Cause : Rupture de synchronisation entre Cyclades et Santorin ou absence d'affectation officielle.
+- Causes les plus fréquentes (tutoriel officiel, article 67) : le chef d'établissement n'a pas encore distribué les lots dans Santorin, ou la distribution automatique n'a pas trouvé l'enseignant (l'adresse mail de l'examinateur déclarée dans Cyclades ne correspond à aucune convocation Imag'in).
 - Procédure :
-  1. Vérifier l'affectation dans Cyclades (DEC).
-  2. Forcer la synchronisation via « Rejouer l'import » dans Santorin.
-  3. Si persistance : Signalement écrit à la DEC avec capture d'écran.
-- Note : Le bouton « Choisir les AFLP » est inopérant car le lot est absent de l'interface.
+  1. Demander au chef d'établissement (ou au secrétariat) de vérifier dans Santorin, onglet [Distribution], que la distribution a été lancée et que l'enseignant a bien un lot.
+  2. Si des candidats restent non distribués : corriger l'adresse mail de l'examinateur dans Cyclades (activité « EPS - Contrôler/réaffecter des protocoles ») ou faire une distribution manuelle.
+  3. Vérifier que l'enseignant est convoqué dans Imag'in (mission « Notation EPS CCF »).
+  4. Si le problème persiste : écrire à la DEC (DIEC à Aix-Marseille) avec une capture d'écran.
+- Note : le bouton « Choisir les AFLP » ne peut pas fonctionner tant que le lot n'apparaît pas.
 
 [SECTION: LOGISTIQUE_EXAMENS_SANTORIN]
-

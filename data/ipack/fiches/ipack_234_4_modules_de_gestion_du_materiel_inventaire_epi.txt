@@ -3,4 +3,4 @@
 - Formulations courantes des collègues : Peut-on ajouter une photo du matériel ? ; Comment changer la fréquence des contrôles des EPI ? ; Où mettre la notice d'un équipement ? ; La photo apparaît-elle sur l'inventaire imprimé ?
 * **Description enrichie du matériel :** Le module EPI permet l'ajout de photos du matériel, l'importation de notices techniques et la personnalisation de la fréquence des contrôles (fixée par défaut à 12 mois).
 * **Édition papier :** Le registre papier édité intègre désormais directement la photo du matériel.
-
+  📺 Tutoriel associé : Gestion_inventaire_EPI_photos.mp4

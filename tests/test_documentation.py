@@ -31,6 +31,12 @@ class Retriever:
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_cap_temporary_inaptitude_does_not_get_three_activity_entry(self):
+        text, _, _, _ = self.route('CAP session 2026 inaptitude temporaire seconde activité une note conserver', 'Lycée Pro / CAP', 'ipack')
+        self.assertIn('certification sur une seule activité', text)
+        self.assertIn('MENE2526679C', text)
+        self.assertNotIn('saisir DI + DI + DI', text)
+
     def test_shn_does_not_inject_swimming_school_rules(self):
         text, _, _, _ = self.route('Bac professionnel 2026 SHN natation : spécialité et CCF', 'Lycée Pro / CAP', 'examens')
         self.assertIn('Deux activités sont réellement évaluées', text)

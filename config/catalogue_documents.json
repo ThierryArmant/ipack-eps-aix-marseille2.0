@@ -2296,5 +2296,17 @@
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "motif_quarantaine": "Portées et règles mélangées ; original conservé, exclu de la recherche."
+  },
+  "data/commun/cap_inaptitude_temporaire.txt": {
+    "title": "CAP : inaptitude temporaire et note acquise",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "cap"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt|dispens|une.*note|note.*conserv"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
   }
 }

@@ -28,6 +28,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - La commission académique lit cette appréciation pour valider ou non la situation.
 
 ### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]
+[PORTEE: gt,pro]
 - Mots-clés : inapte à l'année, DI DI DI, DI DI note, deux dispenses une note, note conservée, note non conservée.
 - Formulations courantes des collègues : mon élève est dispensé toute l'année, que saisir ; il n'a qu'une note sur trois, je la garde ou pas ; comment saisir deux dispenses et une note.
 - Élève inapte toute l'année : saisir DI + DI + DI, avec l'appréciation « inapte à l'année ».

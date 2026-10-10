@@ -1,0 +1,11 @@
+### CAP : inaptitude temporaire et une activité déjà notée
+[PORTEE: cap]
+Portée : candidat scolaire en CCF, session 2026 et suivantes sous réserve d'évolution des textes. Vérifié le 10 octobre 2026.
+Le CAP comporte normalement deux activités relevant de deux champs, pas trois. Une inaptitude temporaire attestée en cours d'année ne commande ni zéro automatique ni dispense automatique ni suppression arbitraire de la première note.
+L'enseignant apprécie les possibilités et les éléments d'évaluation : évaluation différée ; certification sur une seule activité si l'inaptitude empêche la seconde ; ou absence de proposition de note et dispense si les éléments sont trop réduits. En cas d'inaptitude partielle, l'épreuve peut être adaptée suivant les indications médicales, avec transmission pour information à la commission académique. Une inaptitude totale ne permet pas de faire pratiquer pendant sa durée.
+La conservation de la note est donc une décision pédagogique étayée par ces conditions, pas un simple choix de convenance. Demander la durée et les possibilités médicales si elles manquent. Le schéma bac « DI + DI + Note » ne doit jamais être appliqué au CAP. Les codes, boutons et pièces de saisie nécessitent un guide technique applicable à l'académie et à la session ; les textes nationaux seuls ne prouvent pas ces menus.
+Recoupements : circulaire MENE2517122C, 2.1 et 2.3.2 ; arrêté du 30 août 2019 modifié, article 10 ; note Toulouse session 2026, tableau CAP du contrôle adapté, page 6. La modification MENE2526679C ajoute explicitement l'adaptation en cas d'inaptitude partielle. Les procédures et dates locales de Toulouse ne sont pas transposées à Aix-Marseille.
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C
+https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526679C
+https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039034347
+https://www.ac-toulouse.fr/media/85466/download

@@ -1,0 +1,11 @@
+### DNB EPS : inaptitude, dispense, PAP, PAI et PPS
+[PORTEE: dnb]
+Questions : Un élève inapte est-il dispensé du brevet ? DI ou zéro ? Un PAP ou PAI suffit-il ? Que faire pour une seule activité ?
+Une inaptitude à une activité ne signifie pas automatiquement dispense annuelle d'EPS. Demander si elle est totale ou partielle, sa durée, les évaluations déjà réalisées et les possibilités d'adaptation. Vérifier le certificat médical et la décision prise dans le cadre de l'établissement.
+Pour une dispense réglementaire EPS au contrôle continu, le circuit 2026 utilise la mention « Dispensé » dans LSU ; aucun code DI/DISP ni mécanisme de neutralisation Santorin du bac/CAP ne doit être transposé automatiquement. Le mémento prévoit la dispense pour les élèves totalement inaptes attestés médicalement.
+Une inaptitude partielle appelle l'examen de situations adaptées ; éviter une note fondée automatiquement sur les seuls rôles sociaux.
+Ne pas confondre dispense d'enseignement, dispense d'évaluation et aménagement d'une épreuve terminale. Un PAP, PAI ou PPS n'accorde pas à lui seul une dispense générale. Les souplesses locales évoquées pour 2026 ne sont pas reconductibles en 2027 sans texte ou instruction actualisée.
+Source fournie : diapositives 6 et 7. Recoupements : mémento Éduscol, recommandations IG EPS relayées par Lyon, BA spécial Aix-Marseille 551 (fiche EPS) pour la procédure 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf
+https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=
+https://bulacad.ac-aix-marseille.fr/uploads/BA/BA551S/BASPE_551.pdf

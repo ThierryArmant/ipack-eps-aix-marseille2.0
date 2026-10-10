@@ -31,6 +31,44 @@ class Retriever:
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_dnb_new_fiches_are_shared_but_not_selected_for_bac(self):
+        for folder in ('data/ipack', 'data/examens', 'data/textes'):
+            paths = [md['path'] for _, md in kc.document_records(folder)]
+            self.assertEqual(sum('/commun/dnb/' in p for p in paths), 8)
+        text, _, _, _ = self.route('Bac pro : créer un protocole et saisir les notes', 'Lycée Pro / CAP', 'examens')
+        self.assertNotIn('Incluscol', text)
+        self.assertNotIn('DNB :', text)
+
+    def test_dnb_santorin_is_harmonisation_not_ccf(self):
+        text, _, _, _ = self.route('DNB 2026 : à quoi sert Santorin et où saisir la moyenne EPS ?', 'Collège (DNB)', 'examens')
+        self.assertIn("outil de la commission académique", text)
+        self.assertIn('Il est faux de répondre', text)
+        self.assertIn('ne pas créer trois CCF', text)
+
+    def test_dnb_no_universal_competence_conversion(self):
+        text, _, _, _ = self.route('DNB : convertir les niveaux de compétences en note sur 20', 'Collège (DNB)', 'examens')
+        self.assertIn('Aucune table nationale universelle', text)
+
+    def test_dnb_single_note_checks_representativity(self):
+        text, _, _, _ = self.route("DNB : un élève n'a qu'une seule note et une moyenne En attente", 'Collège (DNB)', 'examens')
+        self.assertIn('Une seule note', text)
+        self.assertIn('ne déclenche pas systématiquement', text)
+
+    def test_dnb_sessions_do_not_reuse_2026_deadline(self):
+        text, _, _, _ = self.route('DNB 2027 : quelle date et quel texte utiliser ?', 'Collège (DNB)', 'examens')
+        self.assertIn('MENE2623228N', text)
+        self.assertIn('Les dates de remontée LSU', text)
+        self.assertIn('sont historiques', text)
+
+    def test_dnb_incluscol_is_not_note_entry(self):
+        text, _, _, _ = self.route('DNB 2027 : Incluscol, procédure simplifiée ou complète ?', 'Collège (DNB)', 'ipack')
+        self.assertIn('le candidat crée la demande', text)
+        self.assertIn('Incluscol ne sert pas à saisir', text)
+
+    def test_dnb_collective_oral_duration_is_distinct(self):
+        text, _, _, _ = self.route('DNB : durée de notre oral en groupe pour un parcours EPS ?', 'Collège (DNB)', 'examens')
+        self.assertIn('10 minutes de présentation puis 15', text)
+
     def setUp(self):
         self.env = app_functions()
 

@@ -82,7 +82,7 @@
     "examens": [
       "dnb"
     ],
-    "url": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
     "prioritaire": true,
     "motifs": [
       "dnb|brevet|college|lsu|3e"
@@ -2112,5 +2112,156 @@
     "statut": "synthese_non_revalidee",
     "examens": [],
     "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/commun/dnb/01_controle_continu_calcul.txt": {
+    "title": "DNB : calcul, poids de l'EPS et mentions",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "calcul|compte|40|60|800|mention|coeff|moyenne.*moyenne"
+    ],
+    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+    "urls": [
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+      "https://www.education.gouv.fr/le-diplome-national-du-brevet-10613",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/02_lsu_cyclades_santorin.txt": {
+    "title": "DNB : LSU, Cyclades, Santorin et harmonisation",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "santorin|cyclades|lsu|sais|harmonis|protocole|ccf"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/03_absences_representativite.txt": {
+    "title": "DNB : absence, moyenne représentative, En attente, rattrapage et remplacement",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "absen|zero|seule note|une note|attente|representativ|rattrap|remplac"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/04_inaptitudes_dispenses.txt": {
+    "title": "DNB EPS : inaptitude, dispense, PAP, PAI et PPS",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt|dispens|medical|pap|pai|pps"
+    ],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+    "urls": [
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=",
+      "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA551S/BASPE_551.pdf"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/05_competences_apsa_shn.txt": {
+    "title": "DNB EPS : compétences, note sur 20, trois APSA et sportifs de haut niveau",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "competenc|niveau|apsa|champ|shn|haut niveau|protocole"
+    ],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+    "urls": [
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/06_oral_parcours_eps.txt": {
+    "title": "DNB : oral, projet EPS et parcours éducatifs",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "oral|soutenance|parcours|epi"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+      "https://www.education.gouv.fr/le-diplome-national-du-brevet-10613"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/07_incluscol_amenagements.txt": {
+    "title": "DNB : Incluscol et demandes d'aménagements d'examen",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "incluscol|amex|amenag|procedure simplifie|procedure complete"
+    ],
+    "url": "https://www.ac-aix-marseille.fr/amenagement-d-epreuves-aux-examens-121669",
+    "urls": [
+      "https://www.ac-aix-marseille.fr/amenagement-d-epreuves-aux-examens-121669",
+      "https://eduscol.education.gouv.fr/5454/incluscol-application-des-demandes-d-amenagements-d-examen",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-chef-detablissementpdf-113391.pdf"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/08_sessions_sources_dates.txt": {
+    "title": "DNB : session 2026 ou 2027, textes et dates",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "2026|2027|session|date|delai|calendrier|souplesse|texte"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
   }
 }

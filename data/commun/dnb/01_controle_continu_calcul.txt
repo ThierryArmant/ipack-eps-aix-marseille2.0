@@ -1,0 +1,11 @@
+### DNB : calcul, poids de l'EPS et mentions
+[PORTEE: dnb]
+Questions : Comment l'EPS compte-t-elle au brevet ? Le contrôle continu vaut-il 40 % ? Est-ce encore sur 800 points ? Quelle mention ?
+À partir de 2026, pour les candidats scolaires, le contrôle continu vaut 40 % et les épreuves terminales 60 %. Le diplôme est obtenu à partir de 10/20. Le contrôle continu repose sur la MOYENNE des moyennes annuelles des enseignements obligatoires de troisième, de même coefficient, et non leur simple somme. L'EPS apporte sa moyenne annuelle comme les autres disciplines ; elle ne représente pas à elle seule 40 % du brevet.
+Les mentions commencent à 12, 14, 16 et 18/20 (assez bien, bien, très bien, très bien avec les félicitations du jury).
+Un candidat individuel relève des épreuves écrites, sans ce contrôle continu scolaire. Ne pas lui appliquer automatiquement le circuit d'un élève scolarisé.
+Source fournie : diaporama académique « Réforme DNB 2026 », mars 2026, diapositives 5, 11 et 15, y compris schéma et tableau incorporés.
+Vérification : arrêté du 31 décembre 2015 modifié, articles 5, 6, 9 et 10 ; arrêté modificatif du 10 avril 2025 ; présentation ministérielle et Éduscol.
+https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288
+https://www.education.gouv.fr/le-diplome-national-du-brevet-10613
+https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet

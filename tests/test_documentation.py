@@ -13,7 +13,7 @@ def app_functions():
     names = {'decouper_en_fiches', 'charger_dossier_txt_securise', '_recherche_documentaire'}
     nodes = [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name in names]
     env = dict(re=re, **{name: getattr(kc, name) for name in
-                        ('document_records', 'incompatible', 'reference_notice', 'obsolete_reference', 'section_scopes')})
+                        ('document_records', 'incompatible', 'reference_notice', 'obsolete_reference', 'section_scopes', 'passage_key')})
     env['Document'] = lambda **kw: SimpleNamespace(**kw)
     for n in tree.body:
         if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id.startswith('_RE_') for t in n.targets):
@@ -108,6 +108,27 @@ class DocumentationTests(unittest.TestCase):
         text, _, _, _ = self.route('Bac général : exporter les élèves', 'Lycée Général & Techno', 'examens', docs)
         self.assertIn('PROCÉDURE GT', text)
         self.assertNotIn('CAP 1', text)
+
+    def test_node_metadata_filters_diploma_after_chunking(self):
+        docs = [SimpleNamespace(text='INFORMATION CAP À ÉCARTER', metadata={'source': 'cap', 'examens': ['cap']})]
+        text, _, _, _ = self.route('Bac général : exporter les élèves', 'Lycée Général & Techno', 'examens', docs)
+        self.assertNotIn('INFORMATION CAP À ÉCARTER', text)
+
+    def test_two_passages_with_same_long_prefix_are_kept(self):
+        prefix = 'Titre et introduction commune ' * 20
+        docs = [SimpleNamespace(text=prefix + suffix, metadata={'source': 'gt', 'examens': ['gt']})
+                for suffix in ('INFORMATION PREMIÈRE', 'INFORMATION SECONDE')]
+        text, _, _, _ = self.route('Bac général : exporter les élèves', 'Lycée Général & Techno', 'examens', docs)
+        self.assertIn('INFORMATION PREMIÈRE', text)
+        self.assertIn('INFORMATION SECONDE', text)
+
+    def test_explicit_dnb_overrides_selected_pro_cap_public(self):
+        self.assertEqual(kc.clarification('DNB : où saisir la note EPS ?', 'Lycée Pro / CAP'), '')
+
+    def test_medical_code_requires_type_and_duration(self):
+        for q in ('Bac pro : inaptitude temporaire, je saisis DI ?',
+                  'CAP : inaptitude partielle, je saisis DI ?'):
+            self.assertTrue(kc.clarification(q, 'Lycée Pro / CAP'))
 
     def test_missing_context_and_semantic_rewrite_regressions(self):
         text, _, _, _ = self.route('Quel bouton pour une action inconnue ?', 'Lycée Général & Techno', 'ipack')

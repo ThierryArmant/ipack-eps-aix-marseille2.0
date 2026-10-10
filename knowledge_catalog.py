@@ -50,11 +50,17 @@ def document_records(folder):
         yield content, metadata
 
 
-def incompatible(text, targets):
+def incompatible(text, targets, metadata=None):
     """Filtre uniquement les portées explicitement déclarées ; pas d'inférence sur un mot isolé."""
     match = re.search(r'\[PORTEE: ([a-z,]+)\]', text)
-    scopes = set(match.group(1).split(',')) if match else set()
+    declared = (metadata or {}).get('examens') or []
+    scopes = set(declared) if declared else (set(match.group(1).split(',')) if match else set())
     return bool(targets and scopes and not scopes & set(targets))
+
+
+def passage_key(text):
+    """Deux passages différents ne deviennent pas doublons par leur introduction."""
+    return hashlib.sha256(re.sub(r'\s+', ' ', text).strip().encode()).hexdigest()
 
 
 def obsolete_reference(text):
@@ -84,11 +90,14 @@ def clarification(question, public):
     q = normalise(question)
     medical = bool(re.search(r'inapt|dispens|certificat medical', q))
     decision = bool(re.search(r'\b(di|disp|zero|0)\b|sais|notes?|ccf|epreuv', q))
-    exam = bool(re.search(r'\bcap\b|bac(calaureat)?\s+(pro|professionnel|general|gt|technologique)', q))
+    exam = bool(re.search(r'\b(cap|dnb|brevet|college|lgt|gt)\b|bac(calaureat)?\s+(pro|professionnel|general|technologique)', q))
     if public == 'Lycée Pro / CAP' and decision and not exam:
         return ('Précisez le diplôme concerné : CAP ou baccalauréat professionnel, ainsi que la session. '
                 'Ces deux examens n\'ont pas les mêmes modalités. Aucun code de saisie ne peut être choisi à ce stade.')
-    if medical and decision and not re.search(r'partiel|total|temporaire|permanent|toute l.annee', q):
+    medical_type = bool(re.search(r'partiel|total', q))
+    medical_period = bool(re.search(r'temporaire|permanent|toute l.annee|'
+                                    r'\bdu\s+\d|\bjusqu|\bpendant\s+\d|\bpour\s+\d', q))
+    if medical and decision and not (medical_type and medical_period):
         return ('Pour décider d\'une note ou d\'un statut, précisez si l\'inaptitude est totale ou partielle, '
                 'sa période de validité, les évaluations déjà réalisées et la possibilité d\'une épreuve adaptée ou différée. '
                 'Le mot « dispensé » seul ne permet pas de choisir entre zéro, DI et une dispense d\'épreuve.')

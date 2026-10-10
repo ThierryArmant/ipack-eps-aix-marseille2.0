@@ -5,7 +5,7 @@ import re
 import smtplib
 import unicodedata
 import requests
-from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes
+from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -774,10 +774,12 @@ def charger_dossier_txt_securise(chemin_dossier, par_fiche=False):
         for morceau in morceaux:
             if obsolete_reference(morceau):
                 continue  # anciennes références : conservées mais non utilisées pour la session courante
-            portee = ','.join(metadata.get('examens') or section_scopes(morceau.splitlines()[0]))
+            md_morceau = dict(metadata)
+            md_morceau['examens'] = metadata.get('examens') or section_scopes(morceau.splitlines()[0])
+            portee = ','.join(md_morceau['examens'])
             entete = ('[PORTEE: ' + portee + ']\n') if portee else ''
             provenance = '[DOCUMENT: ' + metadata['path'] + '; statut: ' + metadata['statut'] + ']\n'
-            docs_trouves.append(Document(text=entete + provenance + morceau, metadata=metadata))
+            docs_trouves.append(Document(text=entete + provenance + morceau, metadata=md_morceau))
     return docs_trouves
 
 
@@ -1791,7 +1793,7 @@ if prompt_a_traiter:
 
                 def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
                     for _txt in chercher_par_mots(recherche_mots, nom_base, prompt, maximum):
-                        _cle = re.sub(r"\s+", " ", _txt)[:300]
+                        _cle = passage_key(_txt)
                         if _cle in _vus or _autre_examen(_txt):
                             continue
                         if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
@@ -1810,10 +1812,10 @@ if prompt_a_traiter:
                     _retenus = 0
                     for n in _nodes:
                         _txt = n.node.text or ""
-                        _cle = re.sub(r"\s+", " ", _txt)[:300]
+                        _cle = passage_key(_txt)
                         if _cle in _vus:
                             continue  # même passage présent dans deux bases : transmis une seule fois
-                        if _autre_examen(_txt):
+                        if incompatible(_txt, _cibles, n.node.metadata) or _autre_examen(_txt):
                             continue  # réponse rédigée pour un autre examen que celui de la question
                         if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
                             continue  # question de collège sans rapport avec les examens : pas de fiche Cyclades / Santorin

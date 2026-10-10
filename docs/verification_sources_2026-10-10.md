@@ -38,3 +38,9 @@ Ils ne mesurent ni le classement vectoriel réel, ni la qualité des réponses g
 ## Mesurer l'objectif de 90 %
 
 Préparer trente cas indépendants : six déjà explorés, puis questions techniques, réglementaires, ambiguës et transversales. Une réponse correcte doit satisfaire ensemble le diplôme/session, la règle, le contexte, la source et la procédure. Compter une ambiguïté correctement reconnue comme réussie seulement si la précision demandée permet de poursuivre ; une abstention systématique n'est pas une bonne réponse. Objectif indicatif : au moins 27 réponses conformes sur 30, sans erreur critique sur sécurité ou statut médical. Ce résultat serait un score sur cet échantillon, pas une garantie générale. La poursuite de tests génératifs attend un nouveau budget ; aucune nouvelle série n'a été lancée ici.
+
+## Complément de tests après publication
+
+Quatre cas supplémentaires ont d'abord échoué, puis passent après correction : portée du diplôme conservée dans les métadonnées même quand un fragment perd son en-tête ; conservation de deux passages distincts ayant une introduction identique ; DNB explicitement demandé prioritaire sur une sélection « Lycée Pro / CAP » ; demande du type et de la durée d'inaptitude lorsqu'un seul de ces éléments est précisé. Le chargeur propage la portée de chaque fiche dans les métadonnées des fragments. La déduplication porte sur tout le passage, et non sur ses 300 premiers caractères.
+
+La suite compte désormais 15 tests locaux réussis. Aucun nouveau test de réponse générée ni appel au chat n'a été lancé. Les questions et réponses d'essais déjà recueillies par l'utilisateur permettront de compléter cette suite avec les erreurs observées sur le terrain.

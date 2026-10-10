@@ -135,7 +135,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - À la charge du coordonnateur en pratique : la fiche Établissement, les projets, la configuration et l'organisation des classes, la liste des APSA, les périodes, les équipements, puis la vérification des données et l'envoi du dossier pour validation.
 - À la charge de CHAQUE enseignant : sa propre fiche professeur (personne d'autre ne peut la remplir ni la lire), ses groupes et leurs séquences d'apprentissage, le placement de ses élèves dans ses groupes, son emploi du temps.
 - Contrôle par le coordonnateur : [Dossiers] > [Dossier EPS] > [Équipe EPS], menu « Bilan ». Une coche rouge à côté d'un nom signale une fiche professeur incomplète (spécialités, vœux de jury, vœux de formation) ; le coordonnateur ne voit pas le contenu de la fiche, seulement si elle est complète.
-- Pour les examens (lycée), dans Cyclades et Santorin : chaque enseignant crée ses propres protocoles et saisit ses propres notes.
+- Pour les examens (lycée) : les protocoles sont préparés dans iPackEPS par le coordonnateur / responsable de la certification (APSA certificatives, référentiels, groupes, dates, évaluateurs), puis validés par la commission académique. Dans Cyclades, c'est le chef d'établissement (ou son secrétariat) qui importe le fichier d'iPackEPS, réaffecte un protocole et crée un protocole adapté en cours d'année. Chaque enseignant vérifie dans Cyclades l'affectation de ses élèves, puis saisit lui-même ses notes dans Santorin et verrouille ses lots.
 
 ### [SITUATION: VACATAIRE, AED, ÉTUDIANT STAPS, INTERVENANT DE CLUB — FAUT-IL L'AJOUTER COMME PROFESSEUR D'EPS DANS iPackEPS ?]
 - Mots-clés : vacataire, AED, assistant d'éducation, étudiant STAPS, intervenant extérieur, éducateur sportif, entraîneur de club, maître-nageur, micro-lycée, statut, ajouter un professeur, nouvel intervenant, équipe EPS.
@@ -161,11 +161,12 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: COLLÈGE — L'EPS AU BREVET (DNB) : Y A-T-IL UNE ÉPREUVE, FAUT-IL SAISIR DANS SANTORIN OU iPackEPS ?]
 - Mots-clés : DNB, brevet, collège, troisième, épreuve d'EPS, contrôle continu, moyenne annuelle, Santorin, Cyclades, protocole, saisie des notes.
 - Formulations courantes des collègues : y a-t-il une épreuve d'EPS au brevet ; comment compte l'EPS pour le DNB ; dois-je saisir quelque chose dans Santorin pour mes troisièmes ; faut-il un protocole au collège.
-- NON, il n'y a pas d'épreuve d'EPS au brevet, ni CCF, ni protocole. Il n'y a rien à saisir dans Santorin ni dans Cyclades pour le DNB, et aucune note à saisir dans iPackEPS.
+- NON, il n'y a pas d'épreuve d'EPS au brevet : ni CCF, ni protocole, ni lot de correction Santorin à saisir par l'enseignant, et aucune note à saisir dans iPackEPS.
 - L'EPS compte par le contrôle continu : à compter de la session 2026, le contrôle continu pèse 40 % du DNB (60 % pour les épreuves terminales). C'est une note sur 20, égale à la moyenne des moyennes annuelles de troisième de tous les enseignements obligatoires, EPS comprise, tous au même coefficient.
-- La seule chose à faire pour l'enseignant : renseigner normalement les moyennes d'EPS de ses élèves de troisième dans le logiciel de vie scolaire de l'établissement (Pronote ou équivalent), chaque trimestre ou semestre.
-- Élève inapte : inaptitude totale attestée par certificat médical = dispensé ; inaptitude partielle = évaluation adaptée.
-- Textes : décret n° 2025-328 du 10 avril 2025 et note de service du 2 septembre 2025 sur le DNB.
+- La seule chose à faire pour l'enseignant : renseigner normalement les moyennes d'EPS de ses élèves de troisième dans le logiciel de vie scolaire (Pronote ou équivalent). Ces moyennes, validées en conseil de classe, sont transmises par le LSU à Cyclades.
+- Santorin n'est pas totalement absent du DNB : le support académique 2026 l'identifie comme outil de l'harmonisation académique du contrôle continu. Cela ne concerne pas la saisie par l'enseignant d'EPS : ne pas dire « Santorin ne sert à rien au DNB ».
+- Élève inapte : inaptitude totale attestée par certificat médical = dispensé (LSU peut recevoir « Dispensé ») ; inaptitude partielle = évaluation adaptée.
+- Textes : session 2026, note de service du 2 septembre 2025 (NOR MENE2515977N) ; session 2027, note de service MENE2623194N. Voir les fiches DNB partagées pour le détail.
 
 
 ### [SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]
@@ -185,5 +186,5 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Sur la forme (format particulier ou feuille libre) : la consigne académique ne prescrit pas de modèle de lettre. Elle dit à quoi sert la fiche : documenter le cas particulier. Ne pas répondre « format spécifique » : le seul impératif de forme est le dépôt, un fichier par élève, au nom et prénom de l'élève.
 - Exception : il n'est PAS utile de faire une fiche quand, dans le cas DI + DI + Note, on applique l'inaptitude (DI + DI + Note = DI, l'élève est dispensé). C'est l'application d'une règle académique : il n'y a rien à justifier. Ne dis donc PAS que la fiche doit « justifier la demande de dispense » : dans cette académie, la dispense dans le cas DI + DI + Note est la règle académique (elle n'est pas nationale), elle s'applique sans fiche. La fiche ne sert que si l'on veut au contraire CONSERVER la note unique.
 - En pratique : on documente par une fiche individuelle quand on demande à conserver la note unique (ou pour un 0/20, un ABT) ; on ne documente pas quand on applique simplement la règle.
-- Cette règle est celle de l'académie d'Aix-Marseille. Dans une autre académie, vérifier la consigne de la commission académique.
+- Cette règle est celle de l'académie d'Aix-Marseille. Elle complète la procédure nationale de Santorin (tutoriel officiel, article 67) : l'enseignant saisit DI + DI + Note, une alerte s'affiche, puis soit il maintient la note avec un commentaire, soit il la transforme en DI en indiquant la note retirée ; la commission académique statue. Dans une autre académie, vérifier la consigne de la commission académique.
 - Où déposer la fiche : dans iPackEPS, [Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission].

@@ -2002,7 +2002,7 @@ if prompt_a_traiter:
 <p><strong>Procédure de déverrouillage (Direction) :</strong></p>
 <ol>
   <li><strong>[Étape 1]</strong> Signalez l'erreur à votre Chef d'établissement ou au secrétariat d'examen.</li>
-  <li><strong>[Étape 2]</strong> La direction se connecte à sa console <strong>Santorin-Direction</strong> (Menu "Liste des lots").</li>
+  <li><strong>[Étape 2]</strong> Le chef d'établissement se connecte à son portail Santorin et ouvre <strong>[Correction] &gt; [Liste des lots]</strong>.</li>
   <li><strong>[Étape 3]</strong> Elle clique directement sur le cadenas pour le basculer de "fermé" à "ouvert".</li>
 </ol>
 <p><em>Ne contactez pas la DEC pour cela : le déverrouillage fait partie des prérogatives du chef d'établissement.</em></p>

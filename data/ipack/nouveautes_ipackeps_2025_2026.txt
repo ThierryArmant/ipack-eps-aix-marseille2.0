@@ -2,9 +2,9 @@
 Source : « Nouvelles Fonctionnalités 2025-2026 », iPackEPS version 2025.3.x (11 pages). Fiches rédigées à partir du document ; les mentions « à partir de la version 2025.3.1 » sont celles du document. Ce document est plus récent que le guide utilisateur de 2020 : en cas de différence, c'est lui qui prévaut. Rappel : aucune note d'élève ne se saisit dans iPackEPS.
 
 ### [NOUVEAUTÉS 2025-2026 — ACCÉDER À iPackEPS DEPUIS ARENA ET OBTENIR DE L'AIDE]
-- Mots-clés : où trouver iPackEPS, portail ARENA, rubrique, Enquêtes et Pilotage, Pilotage académique, aide en ligne, écrire au support académique.
+- Mots-clés : où trouver iPackEPS, portail ARENA, rubrique, Structures et personnels, Enquêtes et Pilotage, Pilotage académique, aide en ligne, écrire au support académique.
 - Formulations courantes des collègues : je ne trouve pas iPackEPS dans ARENA ; dans quelle rubrique est iPackEPS ; comment contacter l'assistance depuis iPackEPS.
-- L'accès à iPackEPS se fait par le portail ARENA. Dans ARENA, iPackEPS se trouve dans la rubrique [Enquêtes et Pilotage] du menu de gauche, sous le titre « Pilotage académique ».
+- L'accès à iPackEPS se fait par le portail ARENA. Dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels », en bas de page (conseil : l'ajouter aux favoris). Le document de l'éditeur décrit encore l'ancien portail, où iPackEPS était dans [Enquêtes et Pilotage] > « Pilotage académique » : si l'un des deux intitulés n'apparaît pas, chercher l'autre.
 - Assistance, deux niveaux : 1) en haut à droite des pages d'iPackEPS, le menu [Aide en ligne] ouvre le site d'assistance d'iPackEPS ; 2) pour un problème technique ou administratif plus spécifique, le menu [Écrire au support académique] permet de contacter le correspondant académique iPackEPS.
 
 ### [NOUVEAUTÉS 2025-2026 — FICHE PROFESSEUR : FONCTIONS ET VŒUX DE JURY]

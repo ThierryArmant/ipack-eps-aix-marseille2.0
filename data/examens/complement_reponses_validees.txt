@@ -8,7 +8,7 @@
 - Règle d'or absolue : L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.
 - Procédure de déverrouillage (Direction) :
 - [Étape 1] Signalez l'erreur à votre Chef d'établissement ou au secrétariat d'examen.
-- [Étape 2] La direction se connecte à sa console Santorin-Direction (Menu "Liste des lots").
+- [Étape 2] Le chef d'établissement se connecte à son portail Santorin et ouvre [Correction] > [Liste des lots].
 - [Étape 3] Elle clique directement sur le cadenas pour le basculer de "fermé" à "ouvert".
 - Ne contactez pas la DEC pour cela : le déverrouillage fait partie des prérogatives du chef d'établissement.
 

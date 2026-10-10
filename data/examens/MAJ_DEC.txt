@@ -1,8 +1,10 @@
-=== MISE À JOUR RÉGLEMENTAIRE EXAMENS (Session 2026) ===
-Texte de référence : Décret n° 2026-114 du 20 février 2026 (JO du 21 février 2026)
-Objet : Situation particulière de l'EPS au regard des épreuves de remplacement aux baccalauréats général et technologique.
+=== MISE À JOUR RÉGLEMENTAIRE EXAMENS (session 2026) : EPS ET ÉVALUATIONS PONCTUELLES DE REMPLACEMENT AU BAC GT ===
 
-PRINCIPALES DISPOSITIONS APPLICABLES :
-- Modification des articles D. 334-19 et D. 336-18 du Code de l'éducation.
-- Intégration explicite de la mention « ou des évaluations ponctuelles » aux côtés des « épreuves terminales » pour encadrer les sessions de remplacement.
-- Entrée en vigueur : Applicable dès la session 2026 des baccalauréats général et technologique.
+### [SITUATION: ÉLÈVE ABSENT AVEC JUSTIFICATIF À L'EXAMEN PONCTUEL D'EPS (BAC GT) — Y A-T-IL UNE SESSION DE REMPLACEMENT ?]
+[PORTEE: gt]
+- Mots-clés : session de remplacement, épreuve de remplacement, évaluation ponctuelle de remplacement, absence justifiée, examen ponctuel, candidat individuel, CNED, coefficient neutralisé, D. 334-19, D. 336-18, arrêté du 20 février 2026.
+- Formulations courantes des collègues : un candidat absent au ponctuel d'EPS peut-il passer la session de remplacement ; l'EPS a-t-elle une épreuve de remplacement ; que devient la note d'EPS d'un candidat absent avec justificatif.
+- Réponse courte : NON. L'examen ponctuel d'EPS ne fait pas l'objet d'une épreuve de remplacement. En cas d'absence justifiée et validée, le coefficient de l'EPS est neutralisé (note de service du 20 février 2026, NOR MENE2531948N, en lien avec les articles D. 334-19 et D. 336-18 du code de l'éducation).
+- Texte spécifique : arrêté du 20 février 2026 relatif à la situation particulière de l'éducation physique et sportive au regard des évaluations ponctuelles de remplacement aux baccalauréats général et technologique (JO du 21 février 2026). Applicable dès la session 2026.
+- Ne pas confondre avec le CCF : un élève en CCF absent pour un motif justifié (blessure, problème de santé attesté, force majeure) bénéficie d'une épreuve différée, avec l'accord du chef d'établissement, aux dates de rattrapage prévues par le protocole. Une absence non justifiée donne 0 (zéro), non éliminatoire.
+- Ces règles concernent le bac général et technologique. Pour le CAP et le bac professionnel, voir les fiches de ces examens. Pour un cas individuel, s'adresser à la DEC de l'académie.

@@ -6,13 +6,14 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import knowledge_catalog as kc
+from response_controls import reference_url
 
 
 def app_functions():
     tree = ast.parse(Path('app.py').read_text())
     names = {'decouper_en_fiches', 'charger_dossier_txt_securise', '_recherche_documentaire'}
     nodes = [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name in names]
-    env = dict(re=re, **{name: getattr(kc, name) for name in
+    env = dict(re=re, reference_url=reference_url, **{name: getattr(kc, name) for name in
                         ('document_records', 'incompatible', 'reference_notice', 'obsolete_reference', 'section_scopes', 'passage_key')})
     env['Document'] = lambda **kw: SimpleNamespace(**kw)
     for n in tree.body:
@@ -114,7 +115,7 @@ class DocumentationTests(unittest.TestCase):
                  niveau_actuel_form=public, mode=mode, est_college=public == 'Collège (DNB)',
                  est_clairement_lycee=bool(re.search('bac|cap', kc.normalise(question))),
                  mots_cles_intention_peda=[], recherche_mots={},
-                 chercher_par_mots=lambda *a: [], libelle_source=lambda n: n.node.metadata.get('source'))
+                 chercher_par_mots=lambda *a: [], libelle_source=lambda n, *args: n.node.metadata.get('source'))
         for name in ('textes', 'peda', 'santorin', 'ipack'):
             e['retriever_' + name] = Retriever(docs)
         return e['_recherche_documentaire']()

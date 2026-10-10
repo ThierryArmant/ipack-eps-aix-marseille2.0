@@ -7,7 +7,7 @@ import smtplib
 import unicodedata
 import requests
 from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key
-from response_controls import complete_gt_shn_conditions
+from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -554,14 +554,14 @@ SOURCES_REFERENCE = {
 }
 
 
-def libelle_source(node_with_score):
+def libelle_source(node_with_score, question=""):
     """Nom lisible (avec liens officiels si connus) du document d'où provient un extrait."""
     try:
         md = node_with_score.node.metadata or {}
     except Exception:
         return None
     titre = md.get("title")
-    url = md.get("url")
+    url = reference_url(md, question)
     if titre and url:
         return f'<a href="{url}" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">{titre}</a>'
     if titre:
@@ -1657,7 +1657,7 @@ if prompt_a_traiter:
             elif est_cas_direct:
                 origine_reponse = "direct"
 
-            demande_precision = clarification(prompt, niveau_actuel_form)
+            demande_precision = "" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form)
             if demande_precision:
                 est_cas_direct = True
                 origine_reponse = 'clarification'
@@ -1768,7 +1768,7 @@ if prompt_a_traiter:
                         _retenus += 1
                         _extraits.append((etiquette + " " if etiquette else "") + _txt)
                         if avec_sources:
-                            _sources.append((libelle_source(n), getattr(n, "score", None)))
+                            _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
                             _diag.append(((etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:110], getattr(n, "score", None)))
                         if maximum and _retenus >= maximum:
@@ -1779,7 +1779,7 @@ if prompt_a_traiter:
                         if any(re.search(motif, p_norm) for motif in _md.get('motifs', [])):
                             with open(_path, encoding='utf-8') as _f:
                                 _extraits.append('[FICHE VERIFIEE PRIORITAIRE] ' + _f.read())
-                            _sources.append((_md.get('title', _path) + ' — ' + _md.get('url', ''), None))
+                            _sources.append((_md.get('title', _path) + ' — ' + reference_url(_md, prompt), None))
                     if mode in ('ipack', 'examens') and re.search(r'inapt|dispens|absen|reglement|dnb|brevet|ccf', p_norm):
                         _ajouter(retriever_textes, '[Cadre réglementaire]', avec_sources=True, maximum=4)
                     if niveau_actuel_form == "1er degré":
@@ -2489,6 +2489,8 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
                 try:
                     response = Settings.llm.complete(consigne_ia)
                     texte_brut = complete_gt_shn_conditions(prompt, response.text, extraits_doc)
+                    texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
+                    texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)
                     if verdict_champs:
                         texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
                                       .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))

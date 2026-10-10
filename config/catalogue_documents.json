@@ -91,7 +91,11 @@
       "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
       "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
       "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N"
-    ]
+    ],
+    "urls_par_session": {
+      "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    }
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
     "title": "tutoriels creteil cyclades santorin",
@@ -2128,7 +2132,11 @@
       "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "urls_par_session": {
+      "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    }
   },
   "data/commun/dnb/03_absences_representativite.txt": {
     "title": "DNB : absence, moyenne représentative, En attente, rattrapage et remplacement",
@@ -2205,7 +2213,11 @@
       "https://www.education.gouv.fr/le-diplome-national-du-brevet-10613"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "urls_par_session": {
+      "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "2027": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N"
+    }
   },
   "data/commun/dnb/07_incluscol_amenagements.txt": {
     "title": "DNB : Incluscol et demandes d'aménagements d'examen",
@@ -2244,7 +2256,14 @@
       "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "urls_par_session": {
+      "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    },
+    "exclure_motifs": [
+      "sss|section sportive|sortie|natation|escalade|sport.?etudes"
+    ]
   },
   "data/commun/gt_option_eps_lsl.txt": {
     "title": "Bac GT : option EPS et LSL",
@@ -2383,5 +2402,14 @@
       "https://www.ac-aix-marseille.fr/media/39062/download"
     ],
     "statut": "verifie_2026-10-10_eligibilite_trois_documents"
+  },
+  "data/commun/sorties_premier_degre.txt": {
+    "title": "Premier degré : taux de sortie et règles de l’activité physique",
+    "prioritaire": true,
+    "motifs": [
+      "(?:sortie|transport|orientation|encadrement).*(?:cm[12]|elementaire|premier degre)|(?:cm[12]|elementaire|premier degre).*(?:sortie|transport|orientation|encadrement)"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+    "statut": "verifie_2026-10-10_trois_documents"
   }
 }

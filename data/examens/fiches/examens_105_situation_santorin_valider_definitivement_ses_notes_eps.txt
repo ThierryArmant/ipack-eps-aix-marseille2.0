@@ -1,0 +1,9 @@
+### [SITUATION: SANTORIN — VALIDER DÉFINITIVEMENT SES NOTES DE CCF EPS (VERROUILLER LE LOT) ET MODIFIER APRÈS]
+- Mots-clés : valider définitivement, verrouiller le lot, lot verrouillé, cadenas, revenir sur une note, modifier après validation, corriger une note, bouton Verrouiller grisé.
+- Formulations courantes des collègues : comment valider définitivement mes notes dans Santorin ; peut-on revenir dessus ensuite ; j'ai verrouillé trop tôt ; le bouton Verrouiller est grisé.
+- Réponse courte : la validation définitive consiste à verrouiller son lot de notation, une fois toutes les notes saisies et relues en équipe. Le verrouillage est obligatoire pour transmettre le lot. Après verrouillage, l'enseignant ne peut plus modifier ses saisies lui-même.
+- Bouton [Verrouiller] grisé : au moins un élève n'a pas d'évaluation sur chacune des APSA (saisir la note ou le statut DI / AB manquant).
+- Avant verrouillage : une note se corrige en rouvrant la fiche de l'élève, [Éditer la notation], puis [Enregistrer].
+- Après verrouillage : seul le chef d'établissement peut déverrouiller le lot ([Liste des lots], clic sur le cadenas). L'enseignant lui demande de le rouvrir, corrige, puis verrouille à nouveau. Une fois la session close, une correction passe par la commission académique.
+- Délégation à un professeur référent ou coordonnateur : aucun guide consulté ne prévoit qu'un enseignant reçoive ce droit. Si le chef d'établissement souhaite déléguer la gestion des lots, il vérifie auprès de la DEC de son académie ce que permet sa délégation de droits dans ARENA.
+- Guides utilisés : tutoriels Santorin de l'académie de Créteil ; Guide des examens EPS, académie de Normandie (« seul le chef d'établissement peut déverrouiller des lots »).

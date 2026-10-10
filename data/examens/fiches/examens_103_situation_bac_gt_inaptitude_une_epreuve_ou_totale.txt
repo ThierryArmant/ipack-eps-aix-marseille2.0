@@ -1,0 +1,8 @@
+### [SITUATION: BAC GÉNÉRAL ET TECHNOLOGIQUE — INAPTITUDE À UNE ÉPREUVE OU À TOUTE L'ANNÉE : CALCUL DE LA NOTE]
+- Mots-clés : inaptitude, inapte à une épreuve, inapte toute l'année, inaptitude totale, inaptitude partielle, moyenne des deux notes, une seule note, dispensé de l'épreuve, neutralisation du coefficient, DI, certificat médical, épreuve adaptée, épreuve différée.
+- Formulations courantes des collègues : un élève est inapte sur une des trois épreuves, comment est calculée sa note ; un élève est inapte toute l'année de terminale ; que devient la note d'EPS d'un élève dispensé ; quel certificat faut-il.
+- Réponse courte : si la troisième épreuve est impossible, le candidat est noté sur la moyenne des deux notes. Si une seule épreuve est possible, la note retenue est cette seule note. Si aucune épreuve n'est possible, l'élève est « dispensé de l'épreuve d'EPS » et le coefficient de l'EPS est neutralisé dans le calcul de la note finale.
+- Avant d'en arriver là : pour une inaptitude partielle ou temporaire, l'établissement prévoit une épreuve adaptée ou différée. L'évaluation ne peut pas reposer uniquement sur l'AFL2 et l'AFL3.
+- Certificat : l'inaptitude est prononcée par l'autorité médicale ; l'enseignant du groupe apprécie la situation. Le certificat doit être présenté au moment de l'inaptitude (dès le début de l'année pour une inaptitude longue) et classé dans iPackEPS (onglet [Inaptitudes] de la fiche élève).
+- Saisie dans Santorin : statut DI pour une épreuve non évaluée pour raison médicale ; ne pas confondre avec AB (absence) qui donne 0.
+- Texte de référence : note de service du 20 février 2026 (NOR MENE2531948N, BO n° 9 du 26 février 2026).

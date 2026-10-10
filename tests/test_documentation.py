@@ -268,5 +268,43 @@ class DocumentationTests(unittest.TestCase):
         self.assertNotIn('re.sub(r"santorin", "LSU / dossier scolaire"', code)
 
 
+class RechercheParMotsTests(unittest.TestCase):
+    """La recherche par mots plantait en silence (nom _MOTS_NEUTRES_SUJET absent) et ne renvoyait rien."""
+
+    def setUp(self):
+        import math
+        tree = ast.parse(Path('app.py').read_text())
+        names = {'normaliser', 'decouper_en_fiches', 'charger_dossier_txt_securise', '_racines_mots', 'chercher_par_mots'}
+        env = dict(re=re, math=math, **{name: getattr(kc, name) for name in ('document_records', 'obsolete_reference', 'section_scopes')})
+        env['unicodedata'] = __import__('unicodedata')
+        env['Document'] = lambda **kw: SimpleNamespace(**kw)
+        for n in tree.body:
+            if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and (t.id.startswith('_RE_') or t.id == '_MOTS_NEUTRES_SUJET') for t in n.targets):
+                exec(compile(ast.Module(body=[n], type_ignores=[]), 'app.py', 'exec'), env)
+        exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in names], type_ignores=[]), 'app.py', 'exec'), env)
+        fiches = []
+        for d in env['charger_dossier_txt_securise']('data/ipack', par_fiche=True):
+            lignes = d.text.split('\n')
+            entete = lignes[:4] + [l for l in lignes[4:] if re.match(r"\s*-\s*(Mots-cl|Formulations|Q\d* ?:)", l)][:8]
+            racines = env['_racines_mots'](' '.join(entete))
+            if racines:
+                fiches.append((d.text, racines))
+        frequence = {}
+        for _, racines in fiches:
+            for r in racines:
+                frequence[r] = frequence.get(r, 0) + 1
+        poids = {r: math.log(1 + len(fiches) / c) for r, c in frequence.items()}
+        self.bases = {'ipack': (fiches, poids)}
+        self.chercher = env['chercher_par_mots']
+
+    def test_les_fiches_sont_indexees(self):
+        self.assertGreater(len(self.bases['ipack'][0]), 100)
+
+    def test_question_hors_perimetre_trouve_la_fiche_perimetre(self):
+        for question in ("Comment exporter les notes d'EPS vers Pronote ?", "Comment saisir les absences en EPS dans iPackEPS ?"):
+            resultats = self.chercher(self.bases, 'ipack', question, 3)
+            self.assertTrue(any('PÉRIMÈTRE' in t for t in resultats), question)
+
+
 if __name__ == '__main__':
     unittest.main()

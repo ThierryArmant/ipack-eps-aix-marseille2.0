@@ -862,6 +862,18 @@ timestamp_fichier = obtenir_cle_fichier()
 # pourtant les mots mêmes de la question (ex. « Santorin refuse ma note à virgule ») parce que d'autres fiches lui
 # ressemblaient davantage. On repère donc aussi les fiches dont le titre, les mots-clés ou les questions types
 # partagent des mots RARES avec la question, et on les transmet à l'IA en plus.
+# Mots trop courants pour désigner le sujet d'une question (comparés sans accents, en minuscules).
+# Ce nom manquait : la recherche par mots plantait en silence et ne renvoyait jamais aucune fiche.
+_MOTS_NEUTRES_SUJET = {
+    "les", "des", "une", "aux", "est", "sont", "que", "qui", "quoi", "dont", "pour", "par", "sur", "dans", "avec",
+    "sans", "pas", "plus", "mais", "car", "comme", "tout", "tous", "toute", "toutes", "cette", "ces", "son", "ses",
+    "leur", "leurs", "mon", "mes", "notre", "nos", "votre", "vos", "nous", "vous", "ils", "elle", "elles", "lui",
+    "comment", "pourquoi", "quand", "quel", "quelle", "quels", "quelles", "faire", "fait", "faut", "peut", "peux",
+    "dois", "doit", "avoir", "etre", "suis", "ete", "veux", "voudrais", "possible", "bonjour", "merci",
+    "eleve", "eleves", "eps", "ipackeps", "ipack",
+}
+
+
 def _racines_mots(txt):
     """Mots utiles d'un texte, réduits à leurs 6 premières lettres (verrouiller / verrouillage -> verrou)."""
     return {m[:6] for m in re.findall(r"[a-z0-9]{3,}", normaliser(txt)) if m not in _MOTS_NEUTRES_SUJET}
@@ -880,7 +892,8 @@ def initialiser_recherche_mots(cle_fremt):
                 racines = _racines_mots(" ".join(entete))
                 if racines:
                     fiches.append((d.text, racines))
-        except Exception:
+        except Exception as e_mots:
+            print(f"Recherche par mots indisponible pour {nom} : {e_mots}")
             fiches = []
         frequence = {}
         for _, racines in fiches:
@@ -2424,7 +2437,7 @@ FIABILITÉ DOCUMENTAIRE :
 - Si l'information figure dans le contexte (même avec des synonymes comme "départ", "inactif" ou "actualisation"), utilise-la pour guider l'utilisateur.
 - Si plusieurs procédures du contexte semblent proches, choisis UNIQUEMENT celle dont la cause correspond exactement au symptôme décrit par l'utilisateur. Ne mélange jamais deux procédures différentes dans une même réponse et n'ajoute aucune étape (menu, bouton, vérification) qui ne figure pas mot pour mot dans le contexte.
 - UNE RÉPONSE NÉGATIVE EST UNE RÉPONSE : si le contexte dit que l'action est impossible, que l'enseignant ne peut pas la faire lui-même, qu'il n'existe pas de bouton / de compte / de procédure, que le problème est connu et sans conséquence, ou qu'il faut s'adresser à un autre service ou consulter un autre document (circulaire, calendrier de la DEC...), alors c'est LA réponse : donne-la clairement, avec l'explication du contexte. Ne réponds surtout pas que tu ne disposes pas de la procédure.
-- La phrase d'absence est réservée au cas où AUCUN passage du contexte ne parle du sujet de la question. Dans ce seul cas, ta seule et unique réponse autorisée est : "Je suis désolé, mais je ne dispose pas de la procédure exacte dans ma base de données locale pour répondre à cette demande. Veuillez contacter l'assistance académique."
+- La phrase d'absence est réservée au cas où AUCUN passage du contexte ne parle du sujet de la question. Dans ce seul cas, ta seule et unique réponse autorisée est : "Je ne dispose pas de la procédure exacte dans ma base pour cette demande. Pour iPackEPS, écrivez à l'assistance iPackEPS de votre académie (académie d'Aix-Marseille : ipackeps@ac-aix-marseille.fr) en précisant l'établissement, le menu concerné et le message affiché. Pour Santorin, Cyclades ou une question d'examen, adressez-vous au secrétariat des examens de votre établissement ou à la DEC de votre académie."
 - N'écris JAMAIS cette phrase d'absence après avoir donné une réponse, même partielle : soit tu réponds, soit tu écris cette phrase seule.
 - Il est strictement interdit d'utiliser tes connaissances générales extérieures pour deviner comment fonctionne iPackEPS.
 

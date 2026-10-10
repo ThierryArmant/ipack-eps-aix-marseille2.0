@@ -1,0 +1,6 @@
+### [SITUATION: BARÈME PERSONNALISÉ D'UNE APSA — CE QUI EST LIBRE ET CE QUI NE L'EST PAS]
+- Mots-clés : barème, barème personnalisé, paramétrer un barème, grille de notation, notation sur 20, AFL1 12 points, AFL2 AFL3 8 points, répartition au choix de l'élève, référentiel, APSA certificative.
+- Formulations courantes des collègues : comment paramétrer un barème personnalisé pour une APSA ; puis-je créer ma propre grille de notation ; comment changer les points d'une APSA.
+- Réponse courte : iPackEPS ne contient pas d'outil de barème pour les notes de classe (elles se gèrent dans Pronote ou ÉcoleDirecte). Pour l'examen, le barème n'est pas libre : il suit le référentiel de l'APSA, déposé dans [Dossiers] > [Dossier Certificatif] et validé par la commission académique.
+- Bac général et technologique : AFL1 sur 12 points ; AFL2 et AFL3 sur 8 points au total, répartis au choix de l'élève (AFL2 4 / AFL3 4, AFL2 6 / AFL3 2, ou AFL2 2 / AFL3 6). L'élève annonce son choix avant le début de l'épreuve. Les observables et l'exigence restent identiques quel que soit son choix.
+- On ne modifie pas un barème validé en cours de cycle, même si les résultats sont faibles.

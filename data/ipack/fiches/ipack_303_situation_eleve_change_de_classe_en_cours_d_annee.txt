@@ -1,0 +1,7 @@
+### [SITUATION: ÉLÈVE QUI CHANGE DE CLASSE EN COURS D'ANNÉE — METTRE À JOUR iPackEPS SANS RIEN PERDRE]
+- Mots-clés : changement de classe, élève changé de classe, basculer un élève, déplacer un élève, ancienne classe, nouvelle classe, perdre ses notes, actualiser, importation élèves, SIECLE.
+- Formulations courantes des collègues : un élève a changé de classe, comment le basculer sans perdre ses notes ; l'élève apparaît toujours dans son ancienne classe ; comment déplacer un élève d'une classe à une autre.
+- Réponse courte : le changement de classe se fait d'abord dans SIECLE par l'administration. Dans iPackEPS, il suffit ensuite d'actualiser : [Dossiers] > [Dossier EPS] > [Classes], [gestion Classes] > [Actualiser], puis [importation élèves] > [Actualiser]. Tout enseignant peut le faire. Ne supprimer ni séquence ni groupe.
+- Ensuite, vérifier que l'élève est placé dans le bon groupe : [Dossiers] > [Dossier EPS] > [Élèves].
+- Aucune note n'est perdue : les notes ne sont pas stockées dans iPackEPS (Pronote ou ÉcoleDirecte pour l'année, Santorin pour les examens).
+- Si l'élève n'apparaît toujours pas dans sa nouvelle classe après actualisation : la modification n'est pas encore faite dans SIECLE, il faut la demander au secrétariat.

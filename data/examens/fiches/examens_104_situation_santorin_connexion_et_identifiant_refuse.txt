@@ -1,0 +1,7 @@
+### [SITUATION: SANTORIN — SE CONNECTER, IDENTIFIANT REFUSÉ, MISSION INTROUVABLE]
+- Mots-clés : connexion Santorin, se connecter à Santorin, identifiant refusé, mot de passe, ARENA, Examens et concours, IMAG'IN, Portail d'accès aux missions, mission, convocation, accès impossible, qu'est-ce que Santorin.
+- Formulations courantes des collègues : je n'arrive pas à me connecter à Santorin ; mon identifiant est refusé ; je ne vois pas Santorin ; où trouver mes copies ou mes lots ; qu'est-ce que Santorin.
+- Réponse courte : Santorin est l'application nationale de correction dématérialisée des examens ; elle sert aussi à saisir les notes de CCF d'EPS. Il n'y a pas d'identifiant propre à Santorin : on y accède par le portail ARENA avec ses identifiants académiques (ceux de la messagerie académique), puis [Examens et concours] > [IMAG'IN] > [Suivi des missions d'examen et concours] > [Portail d'accès aux missions].
+- Identifiant refusé dès ARENA : c'est le compte académique qui pose problème (mot de passe expiré ou bloqué) ; le réinitialiser ou contacter l'assistance informatique de son académie.
+- ARENA fonctionne mais aucune mission n'apparaît : le chef d'établissement n'a pas encore créé la mission d'évaluation EPS dans IMAG'IN, ou les lots ne sont pas encore distribués. S'adresser à la direction ou au secrétariat des examens.
+- Intervenant extérieur à l'Éducation nationale : il reçoit un lien IMAG'IN dédié.

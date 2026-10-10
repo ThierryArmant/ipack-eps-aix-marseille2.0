@@ -33,12 +33,15 @@ Textes de référence : Arrêté du 17-1-2019 - BO spécial n°1 du 22-01-2019
 ----------------------------------------------------------------------
 * FINALITÉ : L’EPS vise à former un citoyen épanoui, cultivé, capable de faire des choix éclairés pour engager sa responsabilité dans sa vie personnelle et sociale. Elle développe les ressources de chaque élève et l'engage dans un mode de vie actif.
 
-* LES 3 COMPÉTENCES GÉNÉRALES (CG) DU LYCÉE G&T :
-  - CG 1 : Développer sa motricité (viser l'efficacité motrice, stabiliser des techniques, s'adapter à l'incertitude).
-  - CG 2 : Savoir se préparer et s'entraîner (concevoir un projet de pratique, réguler sa charge d'effort, gérer sa récupération).
-  - CG 3 : Exercer sa responsabilité individuelle et au sein d'un groupe (respecter l'éthique, co-arbitrer, s'engager dans l'animation).
+* LES 5 OBJECTIFS GÉNÉRAUX DU LYCÉE (programmes 2019, communs à la voie GT et à la voie professionnelle) :
+  - Développer sa motricité.
+  - Savoir se préparer et s'entraîner.
+  - Exercer sa responsabilité individuelle et au sein d'un groupe.
+  - Construire durablement sa santé.
+  - Accéder au patrimoine culturel.
 
 * LES 5 CHAMPS D'APPRENTISSAGE (CA) ET ATTENDUS DE FIN DE LYCÉE (AFL 1, 2, 3) :
+[ATTENTION] Les formulations des AFL ci-dessous sont des reformulations synthétiques, pas le texte officiel. Pour citer un AFL mot pour mot (projet pédagogique, référentiel, commission), se reporter au programme publié au BO spécial n°1 du 22 janvier 2019 (lycée GT) ou au BO spécial n°5 du 11 avril 2019 (voie professionnelle).
   - CA 1 : Réaliser une performance motrice maximale mesurable à une échéance donnée.
     -> AFL 1 : Produire la meilleure performance possible à une échéance donnée en choisissant des techniques efficaces.
     -> AFL 2 : Choisir, concevoir et conduire un engagement corporel pour s'engager dans un programme de préparation.
@@ -77,34 +80,34 @@ Objet : Risques particuliers à l'enseignement de l'EPS et au sport scolaire.
 ----------------------------------------------------------------------
 1. CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE
 ----------------------------------------------------------------------
-* PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Plus de 58 % des accidents scolaires en collège ont lieu pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
+* PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Une part importante des accidents scolaires survient pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
 * NATURE DES RISQUES : Aucune activité n'est dangereuse a priori, mais l'engagement physique et affectif majore les risques. Les causes majeures des accidents graves relèvent de l'environnement, de l'état des matériels et de l'inadaptation des exercices proposés.
 * EXIGENCE DE VIGILANCE : L'enseignant a l'obligation permanente de contrôler les équipements, de calibrer précisément les tâches demandées et de définir des consignes d'organisation rigoureuses.
 
 ----------------------------------------------------------------------
 2. GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES
 ----------------------------------------------------------------------
-* CONVETIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
+* CONVENTIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
 * SÉCURITÉ DES DÉPLACEMENTS : Les trajets vers les installations extérieures exigent une planification stricte. En cas d'incident, le professeur doit se référer au Protocole national des soins et des urgences (BO du 6 janvier 2000). Une qualification de premier secours valide est obligatoire au recrutement.
-* SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention et la présence physique de l'enseignant à l'intérieur du vestiaire sont légitimes et indispensables pour garantir la sécurité.
+* SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention de l'enseignant dans le vestiaire peut être légitime pour garantir la sécurité ; l'organisation de la surveillance se règle avec la direction de l'établissement.
 
 ----------------------------------------------------------------------
 3. TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)
 ----------------------------------------------------------------------
 * HÉTÉROGÉNÉITÉ DES CLASSES : L'enseignant doit adapter ses tâches aux différences interindividuelles (poids, taille, âge, sexe, inaptitudes temporaires) pour éviter les collisions et les comportements d'exclusion générateurs de risques.
-* LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire constitue une faute professionnelle en cas de dommage corporel.
+* LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire peut être retenu comme une faute en cas de dommage corporel.
 * INTERPOSITION EN CAS DE CONFLIT : En cas de violences ou de conflits entre élèves, le professeur d'EPS a l'obligation d'intervenir, y compris en s'interposant physiquement pour préserver l'intégrité des élèves, tout en proscrivant les sévices corporels.
 
 ----------------------------------------------------------------------
 4. LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)
 ----------------------------------------------------------------------
 * RESPONSABILITÉ CIVILE (SUBSTITUTION DE L'ÉTAT) : Fondée sur la Loi du 5 avril 1937 (Art. L. 911-4 du Code de l'éducation). En cas d'accident subi ou causé par un élève sous la surveillance d'un enseignant, la responsabilité de l'État se substitue à celle de l'agent. L'enseignant ne peut jamais être poursuivi devant les tribunaux civils par la victime.
-* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (en référence aux Articles 1382 et 1383 du Code civil).
+* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (articles 1240 et 1241 du Code civil, anciens articles 1382 et 1383).
 * RESPONSABILITÉ PÉNALE (STRICTEMENT PERSONNELLE) : Le principe de substitution ne s'applique pas au pénal (Art. 121-1 du Code pénal : "nul n'est responsable pénalement que de son propre fait"). Un enseignant peut être poursuivi personnellement pour délit non intentionnel (homicide involontaire, blessures involontaires).
 * PROTECTION ISSUE DE LA LOI FAUCHON (LOI DU 10 JUILLET 2000) : Pour un auteur indirect (l'enseignant qui a créé la situation du dommage sans porter le coup direct), la responsabilité pénale ne peut être engagée que s'il est prouvé :
   - Soit la violation manifestement délibérée d'une obligation particulière de sécurité prévue par la loi ou le règlement (décret/arrêté).
   - Soit une "faute caractérisée" exposant autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
-* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (Art. 1383) est démontrée.
+* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (art. 1241 du Code civil, ancien art. 1383) est démontrée.
 
 * STRUCTURE DES CHAMPS D'APPRENTISSAGE (CA) :
   - La voie professionnelle s'appuie sur les mêmes 5 Champs d'Apprentissage (CA1 à CA5) que la voie générale.

@@ -2,6 +2,6 @@
 Mots-clés : calendrier stage Bac Pro, PFMP alternée, demi-classe en entreprise, décalage calendrier CCF.
 - Organisation recommandée :
   1. Si deux groupes d'une même classe partent en stage à des périodes inversées, créer deux groupes distincts dans iPackEPS (ex : `Term Pro - Groupe A` et `Term Pro - Groupe B`).
-  2. Définir des calendriers de périodes (`P1`, `P2`, `P3`) décalés dans l'onglet `[Périodes]`.
-  3. Associer les dates réelles de fin de séquence correspondant à la présence effective des élèves au lycée. Cela évite les alertes de dates incohérentes lors du test de conformité Cyclades.
+  2. Définir les périodes des séquences dans `[Dossier EPS]` > `[Périodes]` (article 16).
+  3. Fixer pour chaque groupe des dates d'épreuve et de rattrapage où les élèves sont présents au lycée (hors PFMP), dans `[Dossier Certificatif]` > `[Protocoles d'évaluation]`.
 

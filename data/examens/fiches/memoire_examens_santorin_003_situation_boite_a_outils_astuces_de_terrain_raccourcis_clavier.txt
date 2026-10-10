@@ -26,8 +26,8 @@ B. CYCLADES : ACTIONS DE MASSE & GESTION DES GROUPES
 
 C. IMAG'IN, PORTAILS ACADÉMIQUES & RÈGLE DE CONNEXION UNIQUE
 * RÈGLE ABSOLUE DE CONNEXION (ANTI-SITE PUBLIC) :
-  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait IMPÉRATIVEMENT et exclusivement par le portail professionnel institutionnel **ARENA** (ou l'intranet de votre académie) via les identifiants professionnels (e-mail académique + mot de passe).
+  - AUCUN enseignant ou personnel ne se connecte à Cyclades, Santorin ou Imag'in par un site web académique public. L'accès à ces applications professionnelles se fait par le portail professionnel de son académie (ESTEREL dans l'académie d'Aix-Marseille, ARENA dans beaucoup d'autres), avec ses identifiants académiques.
 * Contournement des saturations de serveurs ENT :
-  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail Arena / ENT, utiliser le lien d'accès direct métier communiqué par votre académie.
+  - En période de pointe (fin mai/juin), en cas de plantage ou de ralentissement du portail académique, utiliser le lien d'accès direct métier communiqué par votre académie.
 
 --------------------------------------------------------------------------------

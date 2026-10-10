@@ -1,3 +1,2 @@
 ### [SITUATION: ACCÈS REMPLAÇANT SANTORIN]
-- Instruction : Pour donner accès à la saisie des notes sur Santorin à un remplaçant, l'affectation manuelle se fait dans Imag'in en générant le fichier PDF de convocation.
-
+- Instruction : pour donner accès à Santorin à un remplaçant, le chef d'établissement le convoque manuellement dans Imag'in (mission « Notation EPS CCF ») et clique sur le picto PDF de la convocation : c'est l'édition du PDF qui transmet ses droits à Santorin. Il réaffecte ensuite le lot au remplaçant (réaffectation du protocole dans Cyclades par l'activité « EPS - Contrôler/réaffecter des protocoles », ou réaffectation du lot depuis le suivi Santorin), ou l'ajoute comme deuxième correcteur ([Distribution] > lot > [Voir le détail] > [Correcteur] > [Ajouter]).

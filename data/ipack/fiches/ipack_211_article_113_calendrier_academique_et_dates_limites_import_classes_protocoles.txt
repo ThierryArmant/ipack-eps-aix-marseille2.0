@@ -54,32 +54,11 @@ Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges f
    - Pour la certification (CCF) : Les critères et compétences des textes officiels français (BO) restent la règle d'évaluation.
    - Pour les conditions matérielles et logistiques : Les normes locales de sécurité (accès secours, transports, législation du pays hôte) prévalent sur le terrain. Les projets APPN doivent formaliser ces adaptations spécifiques dans le dossier d'établissement.
 
-# MISE À JOURS ET PROTOCOLES IPACKEPS - SESSION 2026
-
-## 1. RÈGLE D'OR DE PRIORITÉ
-Toute information contenue dans ce fichier annule et remplace les procédures antérieures présentes dans les archives ou notes historiques.
-
-## 2. CHECKLIST DE FIN DE SESSION (Session 2026)
-- Coche Verte : Vérifier systématiquement la présence de la coche verte après chaque import d'effectif ou de dossier. Sans cette coche, les données ne sont pas consolidées pour Santorin.
-- Référentiels : En cas de modification d'un référentiel après saisie, la procédure obligatoire est la suppression totale de l'ensemble certificatif concerné, suivie d'une nouvelle saisie complète. Toute modification partielle est prohibée.
-- Cache Navigateur : En cas de page figée ou de menu grisé, vider le cache du navigateur avant toute autre action technique.
-- Calendrier : La saisie doit impérativement être finalisée avant le verrouillage des flux vers Santorin selon le calendrier académique officiel de la DEC. Aucun import ne sera possible après cette date sans intervention des services.
-
-## 3. GESTION DES BLOCAGES
-- Ne jamais tenter de contournement par des saisies manuelles non documentées (IN/DI) pour forcer une validation.
-- En cas d'anomalie persistante sur les effectifs ou coefficients : la source de vérité est STSWeb. Contacter impérativement le secrétariat de direction.
-
-## 4. RAPPEL RÉGLEMENTAIRE
-- Baccalauréat en CCF : 3 épreuves de 3 champs d'apprentissage différents. En cas d'inaptitude, la certification peut porter sur 2 épreuves ; avec une seule note, la commission académique statue au cas par cas.
-- Toute demande de double correction ou contestation de note est une procédure administrative qui sort du champ d'application de l'outil iPackEPS. Renvoyer systématiquement vers la Direction.
-
-----------------------------------------------------------------------
-RÈGLE ABSOLUE DE CALCUL CCF (CAS MIXTES DI / ABI / NOTES) :
-En cas de protocole de CCF comportant plusieurs épreuves d'examen :
-1. DI (Dispense / Inaptitude médicale) : Neutralise l'épreuve. L'épreuve est retirée du calcul et ne compte pas dans le diviseur.
-2. ABI (Absence non justifiée) : Si aucun rattrapage n'a été fait avant la fermeture, l'épreuve vaut 0/20.
-3. Note chiffrée (ex: 12) : Prise en compte telle quelle.
-EXEMPLE DE CALCUL : Pour 1 DI (neutralisé), 1 ABI (0/20) et une note de 12/20, la moyenne se calcule exclusivement sur les épreuves restantes : (0 + 12) / 2 = 06/20.
-OUTIL : Tout se gère dans iPackEPS (calcul de terrain), jamais dans le bulletin trimestriel de l'établissement.
+[ARTICLE : CALCUL DE LA NOTE DE CCF AVEC DES DISPENSES OU DES ABSENCES]
+- DI (dispense / inaptitude médicale justifiée) : l'épreuve est neutralisée, retirée du calcul et du diviseur.
+- ABS (absence non justifiée, sans épreuve différée) : l'épreuve vaut 0/20.
+- Exemple : DI + ABS + 12/20 donne (0 + 12) / 2 = 6/20.
+- Ce calcul est fait par Santorin à partir des saisies AFL par AFL. Aucune note n'est saisie ni calculée dans iPackEPS, et le bulletin trimestriel n'entre pas dans la note d'examen.
+- Avec une seule note sur trois : voir la fiche « Élève avec 1 seule note sur 3 ».
 [SECTION: AJouts_RECENTS_TERRAIN]
 

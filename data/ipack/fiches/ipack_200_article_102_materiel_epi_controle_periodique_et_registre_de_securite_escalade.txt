@@ -5,5 +5,5 @@ Mots-clés : contrôle EPI, baudriers périmés, cordes escalade, registre oblig
   1. Accès : `[Tableau de bord]` > `[Matériel]`.
   2. Renseigner chaque lot de matériel avec sa date de mise en service et sa durée de vie fabricant.
   3. iPackEPS génère des alertes visuelles jaunes (contrôle à prévoir) et rouges (matériel devant être mis au rebut).
-  4. L'export PDF du registre doit être imprimé et signé par le coordonnateur pour être tenu à disposition de la commission de sécurité ou de l'inspection.
+  4. Le registre s'imprime ou s'enregistre en PDF (la version papier intègre la photo du matériel) pour être tenu à disposition en cas de contrôle.
 

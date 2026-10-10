@@ -13,20 +13,22 @@
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Référentiels].
    - Action : Téléverser les fiches d'évaluation et grilles critériées (AFL1, AFL2, AFL3) pour chaque APSA certificative. Étape obligatoire pour l'analyse et la validation de l'inspection avant les épreuves.
 
-3. Soumission du dossier à la Commission Académique (CAHPN) :
-   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Dépôt des documents pour la commission].
-   - Action : Lancer la vérification globale, ajouter un commentaire explicatif en cas d'alertes orange, puis valider la soumission pour transmission à la CAHPN.
+3. Soumission du dossier à la Commission Académique (CAHPN) (article 45) :
+   - Chemin : depuis le [Dossier Certificatif], ouvrir la fenêtre de validation du dossier.
+   - Action : cliquer sur [vérification], placer le curseur sur [OUI], ajouter un commentaire si des alertes subsistent, puis [enregistrer]. Le dossier est alors soumis à validation, même avec des alertes.
+   - Les documents pour la commission (fiche établissement, fiches individuelles, certificats médicaux) se déposent dans [Dossier Certificatif] => [Dépôt des documents CAHPN] (articles 83 à 85).
 
 4. Gestion des cas particuliers et inaptitudes permanentes :
    - Vérifier le rattachement des certificats médicaux pour les inaptitudes de l'année ou les demandes d'épreuves adaptées dans [Mes Élèves] => [Visualisation] => [Inaptitudes].
    - Déposer les fiches individuelles spécifiques (cas complexes d'élèves) si demandées par l'académie.
 
 5. Export des groupes pour Cyclades :
-   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Protocoles] (ou onglet d'export).
-   - Action : Générer et télécharger le fichier d'export des groupes iPackEPS. Le transmettre au secrétariat des examens pour l'import dans Cyclades (module Gestion des épreuves EPS => Importation des structures).
-   - Fin de chaîne (Hors iPackEPS) : La distribution des lots de copies et la saisie finale des notes se poursuivent ensuite sur la plateforme nationale Santorin.
+   - Quand : à partir de janvier, une fois les protocoles validés par la commission académique.
+   - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Cyclades].
+   - Action : le chef d'établissement (ou son secrétariat) génère le fichier d'export des groupes et des élèves, puis l'importe dans Cyclades sans l'ouvrir dans un tableur.
+   - Fin de chaîne (hors iPackEPS) : le chef d'établissement distribue les lots de candidats dans Santorin, puis les enseignants y saisissent les notes.
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
 
 [SITUATION: DÉFINITION DEC]
-Instruction : DEC = Division des Examens et Concours. Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion administrative des examens et concours. C'est l'autorité qui valide les affectations dans Cyclades, gère les convocations via IMAG'IN et traite les dossiers de force majeure.
+Instruction : DEC = Division des Examens et Concours (dans l'académie d'Aix-Marseille : DIEC, Division des examens et concours). Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion administrative des examens et concours. C'est l'autorité qui valide les affectations dans Cyclades, gère les convocations via IMAG'IN et traite les dossiers de force majeure.
 

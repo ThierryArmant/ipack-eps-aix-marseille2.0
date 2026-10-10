@@ -2,14 +2,14 @@
 * DATES LIMITES ABSOLUES DE VERROUILLAGE DES NOTES DU CCF EPS :
   - Les dates de remontée des notes et de fermeture des serveurs Santorin/Cyclades évoluant chaque année, les équipes doivent obligatoirement se référer au calendrier officiel diffusé par la circulaire académique de leur DEC.
   - Établissements en Rythme Sud (Hémisphère Sud / AEFE) : Les épreuves pratiques et la saisie sont décalées sur la session d'octobre / novembre / décembre. La date métropolitaine ne s'applique pas.
-  - Autres académies : Se rapprocher immédiatement des interlocuteurs iPackEPS locaux et de la Division des Examens et Concours (DEC).
+  - Interlocuteurs : la Division des Examens et Concours (DEC ; DIEC dans l'académie d'Aix-Marseille) et le correspondant iPackEPS de l'académie.
 
 * RÈGLE D'OR DES APPRÉCIATIONS DANS SANTORIN EPS :
-  - Les appréciations textuelles ne sont JAMAIS obligatoires dans Santorin pour un protocole de CCF EPS standard. La note chiffrée issue des AFL/AFLP se suffit à elle-même.
-  - Comportement de l'interface / Risque technique : Aucun. Procédure recommandée : Laissez la case appréciation vide si la grille d'évaluation motrice est complète.
+  - Pour un candidat noté normalement, l'appréciation n'est pas indispensable : la note issue des AFL/AFLP suffit.
+  - En revanche, renseigner le champ « Appréciations » pour justifier une situation particulière : note unique conservée ou remplacée par DI, inaptitude survenue en cours de protocole, abandon en cours d'épreuve.
 
 * ABSENCE TOTALE DE SUJET ÉCRIT OU PAPIER EN EPS :
   - En EPS (CCF ou examen ponctuel), il n'existe STRICTEMENT AUCUN sujet d'examen papier ou sujet écrit de secours à télécharger ou à imprimer depuis iPackEPS, Cyclades ou Santorin.
-  - Tout rattrapage d'un élève absent justifié (ABJ) prend obligatoirement la forme d'une « Épreuve de substitution » motrice sur le terrain avant la clôture des serveurs.
+  - Le rattrapage d'un élève dont l'absence est justifiée (raison médicale authentifiée ou force majeure acceptée par le chef d'établissement) prend la forme de l'épreuve différée prévue au protocole, avant la clôture de la saisie. Il n'existe pas d'évaluation ponctuelle de remplacement en EPS (arrêté du 20 février 2026).
 
 --------------------------------------------------------------------------------

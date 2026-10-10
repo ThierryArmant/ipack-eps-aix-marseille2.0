@@ -84,7 +84,7 @@
 --- PROCÉDURES TECHNIQUES COMPLÉMENTAIRES (SYNCHRONISATION CYCLADES & SANTORIN) ---
 
 * **Étape clé d'export iPackEPS vers Cyclades :**
-  - Menu : `[Dossiers] > [Dossier Certificatif] > [Cyclades]` pour générer les fichiers des groupes et élèves associés à leurs protocoles. L'import dans Cyclades se fait depuis le portail ARENA du Chef d'Établissement (accessible uniquement si les protocoles ont été validés par la Commission Académique). (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article60`).
+  - Menu : `[Dossiers] > [Dossier Certificatif] > [Cyclades]` pour générer les fichiers des groupes et élèves associés à leurs protocoles. L'import dans Cyclades est fait par le chef d'établissement (ou son secrétariat) depuis son portail académique (accessible uniquement si les protocoles ont été validés par la Commission Académique). (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article60`).
 
 * **Gestion des erreurs fréquentes à l'import Cyclades :**
   - *Erreur protocole inexistant :* Si des protocoles ont été créés après l'export académique, il faut demander à la Commission Académique d'invalider les protocoles, les recréer à l'identique (ou de type standard/adapté selon le cas), soumettre les protocoles (`[EPS] / [Tableau de Bord]` -> `[OUI]` sur soumettre les protocoles -> Enregistrer), puis demander à nouveau la validation académique. (Tutoriel vidéo : `https://ipackeps.ac-creteil.fr/spip.php?article65`).
@@ -98,13 +98,13 @@ TITRE : Gestion et identification des Sportifs de Haut Niveau (SHN) - Examens na
 - Mots-clés : sportif de haut niveau, SHN, ESHN, Santorin, Cyclades, inscription aux examens, liste ministérielle, DEC, aménagement d'épreuves, pièces justificatives, secrétariat d'examen, correcteur, note de référence, neutralisation, jury, repérer un élève sportif
 - Formulations courantes des collègues : comment trouver mes sportifs de haut niveau dans Santorin ; où voir qu'un élève est SHN ; est-ce que je dois signaler un élève sportif de haut niveau dans Santorin ; qui s'occupe du statut de sportif de haut niveau pour l'examen ; mon élève SHN a un aménagement d'épreuve, qu'est-ce que je dois faire ; peut-on filtrer les élèves dans Santorin ; à quoi sert Santorin
 RÔLE ET LIMITES DE SANTORIN :
-- Santorin est exclusivement la plateforme institutionnelle de numérisation, de distribution et de correction des copies d'examens (Bac, DNB, CAP). 
-- Santorin N'EST PAS un logiciel de gestion des dossiers scolaires, ni une base de données permettant de filtrer, rechercher ou identifier des profils particuliers d'élèves (tels que les Sportifs de Haut Niveau - SHN ou ESHN).
+- Santorin est la plateforme de correction et de saisie des notes d'examen : copies numérisées pour les épreuves écrites, saisie AFL par AFL pour le CCF d'EPS.
+- Santorin n'est pas un logiciel de gestion des dossiers scolaires : il n'offre pas de filtre ni de recherche par profil d'élève (SHN, ESHN).
 
 PROCÉDURE ADMINISTRATIVE RÉGLEMENTAIRE :
 - En amont : Le statut officiel de Sportif de Haut Niveau est géré lors de l'inscription aux examens via Cyclades et validé par la DEC (Division des Examens et Concours) sur la base des listes ministérielles.
 - Rôle de l'établissement : Le secrétariat d'examen et la direction gèrent les aménagements d'épreuves et veillent à la transmission des pièces justificatives.
-- Rôle de l'enseignant / correcteur : L'enseignant n'a aucune action d'identification de SHN à mener depuis Santorin. Si un candidat bénéficie de modalités particulières de notation ou d'une neutralisation/note de référence, ces éléments sont encadrés par les services académiques et appliqués lors des jurys (CAHPN), et non par une recherche active dans l'interface de correction Santorin.
+- Rôle de l'enseignant : il n'a pas à rechercher les SHN. Quand il ouvre la saisie d'un candidat dont le statut SHN est validé, Santorin affiche une étape pour choisir l'activité qui reçoit le 20/20 automatique. Si la colonne [sportif de Haut Niveau] indique [NON] pour un élève concerné, il le signale à la DEC (DIEC à Aix-Marseille), seule habilitée à corriger le statut.
 ======================================================================
 [SECTION: GESTION_SHN_ET_LIMITES_SANTORIN]
 ======================================================================

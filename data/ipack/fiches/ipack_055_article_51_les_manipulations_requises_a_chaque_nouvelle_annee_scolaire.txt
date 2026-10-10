@@ -7,7 +7,7 @@
 [ARTICLE 53] [Dossiers]/[Dossier APPN] Dépôt de Demande de Validation de Projet APPN à Environnement Spécifique
 - Mots-clés : appn, environnement spécifique, escalade en grande voie, canyonisme, ski de randonnée, spéléologie, vtt, projet pédagogique appn, protocole de sécurité, validation chef d'établissement, ia-ipr.
 - Formulations courantes des collègues : comment déclarer ma sortie APPN ; déclarer une sortie APPN sur iPackEPS ; déclarer une sortie aux inspecteurs (IA-IPR) ; déposer mon projet de sortie escalade, VTT, ski, canyon ; demande de validation d'une sortie de pleine nature.
-- Cadre réglementaire : En application de l'article R.212-7 du Code du sport et de la circulaire nationale APPN n° 2017-075, toute activité physique de pleine nature s'exerçant dans un environnement spécifique nécessite obligatoirement un dossier de demande de validation pédagogique auprès de l'Inspection Pédagogique.
+- Cadre : selon les consignes académiques, toute activité physique de pleine nature pratiquée en environnement spécifique fait l'objet d'un dossier de demande de validation pédagogique auprès de l'inspection pédagogique régionale (IA-IPR EPS).
 
 - PROCÉDURE TECHNIQUE DANS IPACKEPS (Côté Enseignant) :
   1. Accès au module : Tableau de bord => [Dossiers] => [Dossier APPN].
@@ -20,7 +20,7 @@
   - 📺 Tutoriel associé enseignant : Gestion_dossier_APPN.mp4
 
 - VALIDATION HIÉRARCHIQUE (Côté Chef d'établissement) :
-  1. Une fois le dossier complété, l'enseignant doit inviter le Chef d'établissement à se connecter à son interface iPackEPS (via son espace ARENA > Dossier APPN).
+  1. Une fois le dossier complété, l'enseignant doit inviter le Chef d'établissement à se connecter à son interface iPackEPS (depuis son portail académique, ESTEREL dans l'académie d'Aix-Marseille > iPackEPS > Dossier APPN).
   2. Le Chef d'établissement consulte le dossier et clique sur le bouton [Signer / Valider] pour transmettre officiellement la demande au corps d'inspection (IA-IPR).
   3. Le suivi de l'instruction s'affiche directement dans le tableau de bord du module APPN.
   - 📺 Tutoriel associé chef d'établissement : Validation_chef_APPN.mp4

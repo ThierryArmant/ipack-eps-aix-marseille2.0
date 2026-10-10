@@ -4,8 +4,8 @@
 - Instruction : Attention à ne pas confondre le dépôt global de fin d'année pour la commission d'harmonisation et la saisie individuelle d'une inaptitude au fil de l'année.
 1. BOUTON DE MODIFICATION GRISÉ : la cause n'est pas une note, car aucune note n'est saisie dans iPackEPS (il n'existe pas de menu « Saisie des notes »). Vérifier que la procédure en cours est terminée et enregistrée, puis revenir sur la fiche de l'élève.
 2. PROCÉDURE TECHNIQUE :
-→ Accès : Menu 'Mes Élèves' > 'Fiche élève' > Onglet 'Inaptitudes'.
-→ Action : Cliquer sur le bouton 'Saisir une inaptitude'.
+→ Accès : [Mes Élèves] > [Visualisation] > choisir l'élève > onglet [Inaptitudes] (article 82).
+→ Action : déclarer l'inaptitude (dates de début et de fin, APSA concernées).
 → Règle d'or : Ne jamais taper manuellement les mentions 'IN' ou 'DI' dans une case de saisie. La validation de l'inaptitude génère le statut automatiquement.
 → Dépôt : Scanner et téléverser le certificat médical (PDF ou image) directement via l'option dédiée dans cet onglet.
 3. PROTECTION FONCTIONNELLE : La date de début et de reprise saisie dans iPackEPS doit coïncider strictement avec le certificat médical officiel pour garantir la traçabilité de votre responsabilité face aux jurys et commissions.

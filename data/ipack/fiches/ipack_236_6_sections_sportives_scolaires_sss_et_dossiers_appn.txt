@@ -5,4 +5,4 @@
 * **Modèles de documents SSS dissociés :** Possibilité de verser des documents modèles distincts selon qu'il s'agit d'une demande d'ouverture, d'un projet SSS ou d'un bilan SSS.
 * **Messagerie et Communication :** Les membres des commissions et les IPR peuvent envoyer directement des messages de validation ou d'invalidation ciblés aux établissements pour les dossiers SSS et APPN.
 * **Amélioration du dossier APPN :** Suppression des colonnes superflues, mémorisation des filtres et envoi de e-mails récapitulatifs de validation.
-
+  📺 Tutoriels associés : Evolution_et_fermeture_SSS.mp4, Signature_chef_etablissement_SSS.mp4

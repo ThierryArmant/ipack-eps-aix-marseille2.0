@@ -1,7 +1,7 @@
 ### 3. Saisie des Notes et Cas Particuliers (Santorin / CCF)
 - Mots-clés : saisie des notes Santorin, CCF, deux notes minimales, champs d'apprentissage, cas exceptionnels, CE, sportif de haut niveau, SHN, PPF, 20/20, DI, dispense, inaptitude médicale, ABI, cases AFLP grisées, Choisir les AFLP
 - Formulations courantes des collègues : combien de notes faut-il au minimum pour valider le CCF ; quelle note pour un sportif de haut niveau ; que mettre pour un élève dispensé ; un élève absent sans justificatif a-t-il zéro ; les cases AFLP sont grisées dans Santorin ; je ne peux pas saisir les AFLP ; à quoi sert le CE ; où est le bouton choisir les AFLP
-* **Règle des deux notes minimales :** Pour valider le CCF au Baccalauréat, l'élève doit disposer d'au moins deux notes valides dans deux APSA relevant de deux Champs d'Apprentissage (CA) distincts.
+* **Nombre de notes :** la certification peut porter sur deux épreuves (deux CA distincts) quand l'inaptitude est attestée. Avec une seule note, l'enseignant conserve la note ou la remplace par DI, en le justifiant dans le champ « Appréciations » (procédure du tutoriel Santorin, article 67).
 * **Cas Exceptionnels (CE) :** Utilisé lorsqu'une APSA ne peut être évaluée pour des raisons techniques ou matérielles (hors inaptitude médicale), après accord de la commission académique. Neutralise l'activité.
 * **Sportifs de Haut Niveau (SHN) :** Attribue automatiquement la note de 20/20 sur l'APSA de spécialité si le statut (SHN/PPF) est validé et rattaché au bon CA.
 * **Gestion des notes et statuts (DI / ABI / Notes) :** 

@@ -1,8 +1,8 @@
 ### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT
-Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, arbitrage CAHPN, neutralisation coeff bac.
-- Règle d'arbitrage : Un élève ne disposant que d'une seule note sur 3 ne peut pas avoir une moyenne validée automatiquement.
+Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, note unique, DI DI note, neutralisation coeff bac, fiche individuelle.
+- Règle : avec une seule note sur trois, la moyenne ne se valide pas d'elle-même. Procédure nationale (tutoriel Santorin, article 67) : l'enseignant, en concertation avec l'équipe, soit conserve la note unique en la justifiant dans le champ « Appréciations », soit la remplace par DI (dispense) en le justifiant aussi ; l'épreuve d'EPS est alors neutralisée.
 - Procédure :
-  1. L'équipe pédagogique émet une proposition motivée : soit demander la validation de la note unique si elle reflète un engagement réel et représentatif, soit demander la « Dispense totale d'EPS » (neutralisation du coefficient).
-  2. Dans iPackEPS : déposer obligatoirement la Fiche Individuelle d'arbitrage dans `[Dossier Certificatif]` > `[Dépôt documents CAHPN]`.
-  3. La CAHPN tranche souverainement lors de la commission d'harmonisation de juin.
-
+  1. L'équipe formule une proposition motivée (note représentative d'un engagement réel, ou dispense).
+  2. Dans iPackEPS : déposer la fiche individuelle dans [Dossier Certificatif] > [Dépôt des documents CAHPN] (article 84).
+  3. La commission académique (CAHPN) examine ces situations lors de l'harmonisation.
+- Point académique à confirmer : une consigne d'Aix-Marseille (DI + DI + Note = DI) figure dans une autre fiche ; en cas de doute, suivre la circulaire académique de l'année ou interroger la DIEC.

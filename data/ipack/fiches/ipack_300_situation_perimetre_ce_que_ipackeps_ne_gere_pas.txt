@@ -6,4 +6,4 @@
 - Notes d'examen (CCF du bac GT, du bac pro et du CAP) : elles se saisissent dans Santorin. iPackEPS sert seulement à préparer les protocoles et à exporter les groupes d'élèves vers Cyclades.
 - Conséquence : un changement de classe, une suppression de groupe ou un passage d'année dans iPackEPS ne fait perdre aucune note.
 - Ce que gère iPackEPS : établissement et équipe EPS, classes et groupes, APSA et programmation, protocoles et dossier certificatif, inaptitudes, savoir-nager (ASNS), sections sportives, matériel et registre EPI, documents (Mes Documents, publipostage).
-- En cas de doute ou de bug, académie d'Aix-Marseille : ipackeps@ac-aix-marseille.fr.
+- En cas de doute ou de bug : l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr).

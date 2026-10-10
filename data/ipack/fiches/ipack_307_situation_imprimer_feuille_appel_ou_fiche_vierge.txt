@@ -1,0 +1,5 @@
+### [SITUATION: IMPRIMER UNE FEUILLE D'APPEL, UN BORDEREAU OU UNE FICHE VIERGE POUR UN CYCLE]
+- Mots-clés : feuille d'appel, imprimer la liste des élèves, fiche d'observation vierge, bordereau de présence, bordereau d'émargement, bordereau de notes, Mes Documents, publipostage, imprimer.
+- Formulations courantes des collègues : comment imprimer une feuille d'appel ; comment imprimer une fiche d'observation vierge pour un cycle ; où trouver un bordereau de présence pour le CCF.
+- Réponse courte : l'appel quotidien se fait dans Pronote ou ÉcoleDirecte, pas dans iPackEPS. Pour un document papier avec la liste des élèves, iPackEPS propose [Tableau de bord] > [Mes Documents] > [Documents] (bordereaux de présence et bordereaux de notes pour les épreuves de certification) et [Mes Documents] > [Publipostage] (document personnalisé par élève, par classe ou par groupe, généré en PDF).
+- Fiche d'observation vierge : créer un document dans [Publipostage] avec [Créer un document], y placer les balises (nom, prénom, classe), puis le publier pour la classe ou le groupe et [Générer le PDF].

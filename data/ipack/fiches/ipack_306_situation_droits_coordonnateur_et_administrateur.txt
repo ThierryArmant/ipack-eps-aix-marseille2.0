@@ -1,0 +1,7 @@
+### [SITUATION: DROITS DE COORDONNATEUR OU D'ADMINISTRATEUR — COMMENT UN AUTRE COLLÈGUE PEUT LES AVOIR]
+- Mots-clés : droits administrateur, coordonnateur EPS, donner les droits, passer la main, changer de coordonnateur, fonctions, fiche professeur, interface administrateur.
+- Formulations courantes des collègues : je suis coordonnateur, comment donner les droits administrateur à un collègue ; comment changer de coordonnateur ; un collègue doit pouvoir actualiser les classes.
+- Réponse courte : il n'y a pas de droits « administrateur » à transmettre entre enseignants. L'interface Administrateur est réservée à la configuration de l'application au niveau académique. Pour l'établissement, un enseignant déclare lui-même la fonction [coordonnateur] dans la liste des fonctions de sa propre fiche professeur, puis enregistre.
+- Le coordonnateur actualise les classes et importe les élèves ; s'il ne peut pas le faire, un autre enseignant peut se déclarer coordonnateur de la même façon et faire la manipulation.
+- Les droits de signature et de validation des dossiers restent ceux du chef d'établissement.
+- En cas de blocage : l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr).

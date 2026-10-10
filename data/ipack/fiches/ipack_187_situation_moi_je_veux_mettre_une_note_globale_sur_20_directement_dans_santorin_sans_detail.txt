@@ -2,7 +2,6 @@
 Mots-clés : note directe sur 20, pourquoi détailler les AFL, saisir note brute, calcul automatique moyenne, refuser la grille.
 - Réponse réglementaire : La réglementation nationale (Arrêté du 28 juin 2019) impose une évaluation critériée décomposée en trois Attendus de Fin de Lycée :
   - AFL 1 (Motricité / Performance) : sur 12 points.
-  - AFL 2 (Méthode / Préparation) : sur 4 points (ou choix ventilé selon APSA).
-  - AFL 3 (Rôles sociaux / Règles / Analyse) : sur 4 points (ou choix ventilé).
+  - AFL 2 (Méthode / Préparation) et AFL 3 (Rôles sociaux / Règles / Analyse) : 8 points au total, répartis au choix de l'élève (4/4, 6/2 ou 2/6), annoncé avant l'épreuve.
 - Bloqueur technique Santorin : L'interface bloque tout enregistrement si chaque curseur d'AFL n'a pas été positionné. Il est informatiquement impossible de rentrer une note brute globale sans décomposer les compétences.
 

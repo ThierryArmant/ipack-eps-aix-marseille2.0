@@ -1,0 +1,6 @@
+### [SITUATION: REPRENDRE LA PROGRAMMATION DE L'ANNÉE PRÉCÉDENTE — PAS DE DUPLICATION À FAIRE]
+- Mots-clés : dupliquer la programmation, copier l'année dernière, reprendre la programmation, programmation des APSA, nouvelle année, rentrée, conservé d'une année sur l'autre, séquences, dates.
+- Formulations courantes des collègues : comment dupliquer la programmation de l'année dernière ; peut-on copier les APSA de l'an passé ; faut-il tout ressaisir à la rentrée.
+- Réponse courte : il n'y a rien à dupliquer. La liste des APSA de l'établissement est conservée d'une année sur l'autre, ainsi que l'essentiel des données de l'établissement et de la fiche professeur.
+- À refaire chaque année : vérifier [Dossiers] > [Dossier EPS] > [APSA] et ajouter les nouvelles APSA ; redéfinir les dates de début et de fin des séquences ; reconfigurer les groupes de l'année et y répartir les élèves ; recompléter les informations de service de la fiche professeur.
+- Avancer module par module sur le tableau de bord, de gauche à droite, car chaque module dépend des précédents.

@@ -1,6 +1,6 @@
 ### [SITUATION: REFUS D'OBSTACLE, ÉLÈVE QUI PLEURE OU ABANDONNE EN PLEINE ÉPREUVE]
 Mots-clés : élève qui pleure, refus de sauter, abandon en cours d'épreuve, crise d'angoisse CCF, arrêt de l'épreuve.
 - Distinction réglementaire :
-  - Refus délibéré / Abandon sans motif médical : L'épreuve a débuté. Les AFL sont évalués sur les éléments effectivement observables au moment de l'abandon. Si aucun élément moteur n'est mesurable, l'AFL1 reçoit le degré minimal (la note finale reflétera la tentative). Ne pas saisir « Absent ».
-  - Malaise / Crise de panique / Blessure immédiate : L'épreuve est interrompue. L'élève est orienté vers l'infirmerie scolaire. Avec visa de l'autorité médicale scolaire, l'élève est basculé sur l'épreuve différée (rattrapage).
+  - Refus délibéré / Abandon sans motif médical : L'épreuve a débuté. Les AFL sont évalués sur les éléments effectivement observables au moment de l'abandon. Le texte national ne prévoit pas de barème spécial : l'évaluateur note ce qu'il a observé selon le référentiel et l'explique dans le champ « Appréciations » de Santorin. Ne pas saisir « Absent ».
+  - Malaise / Crise de panique / Blessure immédiate : L'épreuve est interrompue. L'élève est orienté vers l'infirmerie scolaire. Bac GT : il revient aux examinateurs d'apprécier la situation ; pour un problème de santé temporaire authentifié par l'autorité médicale scolaire, une évaluation différée ou adaptée peut être proposée avec l'accord du chef d'établissement (note de service du 20 février 2026, MENE2531948N). La saisie de la note se fait dans Santorin, pas dans iPackEPS.
 

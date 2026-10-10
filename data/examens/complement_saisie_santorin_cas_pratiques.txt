@@ -24,7 +24,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: QUAND REMPLIR LE CHAMP « APPRÉCIATIONS » DANS SANTORIN ?]
 - Mots-clés : appréciation, commentaire, justification, note zéro, AB, absent, DI + DI + note, cas particulier, commission.
 - Formulations courantes des collègues : dois-je mettre une appréciation pour chaque élève ; que mettre dans le champ appréciation ; faut-il justifier un zéro.
-- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.)
+- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.) En Aix-Marseille, pour DI + DI + Note, l'appréciation n'est utile que si l'on demande à conserver la note (voir la fiche « Élève inapte toute l'année, ou avec une seule note sur trois »).
 - La commission académique lit cette appréciation pour valider ou non la situation.
 
 ### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]
@@ -34,7 +34,8 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Élève inapte toute l'année : saisir DI + DI + DI, avec l'appréciation « inapte à l'année ».
 - Élève qui n'a qu'une seule note, que l'enseignant CONSERVE : saisir « Dispensé » (DI) pour les deux APSA non évaluées, puis la note pour l'APSA évaluée (DI + DI + Note). Un avertissement s'affiche à l'écran ; une appréciation peut être ajoutée.
 - Élève qui n'a qu'une seule note, que l'enseignant ne souhaite PAS conserver : transformer cette note en DI (DI + DI + DI) et indiquer dans l'appréciation la note qui a été retirée. La commission académique voit l'appréciation et statue.
-- C'est l'enseignant d'EPS qui propose de conserver ou non la note ; la commission académique valide. (Sources : guide Normandie 2025, support Besançon 2025.)
+- C'est l'enseignant d'EPS qui propose de conserver ou non la note ; la commission académique valide. (Sources : guide Normandie 2025, support Besançon 2025, tutoriel officiel iPackEPS article 67.)
+- ACADÉMIE D'AIX-MARSEILLE : la règle académique est DI + DI + Note = DI (l'élève est dispensé). Appliquer cette règle ne demande aucune fiche individuelle. Si l'enseignant souhaite au contraire CONSERVER la note unique, il le justifie par une fiche individuelle déposée dans iPackEPS ([Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission]) et par une appréciation dans Santorin.
 - Les certificats médicaux correspondant aux statuts DI doivent être transmis selon la procédure de l'académie (la date limite dépend de chaque académie : voir la DEC de votre académie).
 
 ### [SITUATION: FAUT-IL VERROUILLER SON LOT TOUT DE SUITE APRÈS LA SAISIE ?]
@@ -113,8 +114,8 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Mots-clés : refus de passer l'épreuve, refuse de participer, ne veut pas passer, abandon, s'arrête en pleine épreuve, élève présent mais ne fait rien, crise d'angoisse, malaise.
 - Formulations courantes des collègues : un élève présent a refusé de passer le CCF, quelle note ; il a abandonné au milieu de l'épreuve ; il est venu mais n'a rien voulu faire, je mets absent ou zéro ; une élève a fait une crise de panique pendant l'épreuve.
 - Un élève présent qui refuse ou abandonne n'est PAS un absent : ne pas saisir « Absent » (ni ABI, ni ABJ).
-- Refus délibéré ou abandon sans motif médical : l'épreuve a débuté. Les AFL (ou AFLP) sont évalués sur ce qui a été effectivement observé au moment de l'abandon. Si aucun élément moteur n'est mesurable, l'AFL1 reçoit le degré minimal ; la note finale reflète la tentative.
-- Malaise, crise de panique ou blessure pendant l'épreuve : l'épreuve est interrompue et l'élève est orienté vers l'infirmerie. Avec le visa de l'autorité médicale scolaire, l'élève bascule sur l'épreuve différée (rattrapage).
+- Refus délibéré ou abandon sans motif médical : l'épreuve a débuté. Les AFL (ou AFLP) sont évalués sur ce qui a été effectivement observé au moment de l'abandon. Le texte national ne prévoit pas de barème spécial pour ce cas : l'évaluateur note ce qu'il a observé selon le référentiel, et la commission académique est informée par l'appréciation.
+- Malaise, crise de panique ou blessure pendant l'épreuve : l'épreuve est interrompue et l'élève est orienté vers l'infirmerie. Bac GT : « en cas de survenance d'une inaptitude au cours des épreuves, il revient aux examinateurs d'apprécier la situation » ; pour un problème de santé temporaire authentifié par l'autorité médicale scolaire, une évaluation différée ou adaptée peut être proposée, avec l'accord du chef d'établissement (note de service du 20 février 2026, MENE2531948N). En CAP et bac pro, voir les fiches de ces examens.
 - Dans les deux cas, consigner les faits par écrit et renseigner le champ « Appréciations » de Santorin.
 
 ### [SITUATION: SANTORIN — DANS QUEL MENU SE FAIT CHAQUE OPÉRATION (sommaire des tutoriels « Interface iPackEPS / Cyclades » du site iPackEPS)]

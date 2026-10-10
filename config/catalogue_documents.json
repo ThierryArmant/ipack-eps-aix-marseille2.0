@@ -19,16 +19,6 @@
     "statut": "synthese_non_revalidee",
     "examens": []
   },
-  "data/ipack/complement_sss_projet_annuel_groupe.txt": {
-    "title": "complement sss projet annuel groupe",
-    "statut": "synthese_non_revalidee",
-    "examens": []
-  },
-  "data/ipack/guide_utilisateur_professeur_2020.txt": {
-    "title": "guide utilisateur professeur 2020",
-    "statut": "guide_historique_version_2020",
-    "examens": []
-  },
   "data/ipack/messages_erreur_et_contacts.txt": {
     "title": "messages erreur et contacts",
     "statut": "synthese_non_revalidee",
@@ -104,11 +94,6 @@
   },
   "data/examens/videos_tutoriels_cyclades_santorin.txt": {
     "title": "videos tutoriels cyclades santorin",
-    "statut": "synthese_non_revalidee",
-    "examens": []
-  },
-  "data/textes/circulaire_tasa_2026.txt": {
-    "title": "circulaire tasa 2026",
     "statut": "synthese_non_revalidee",
     "examens": []
   },

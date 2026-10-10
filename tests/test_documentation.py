@@ -33,7 +33,7 @@ class Retriever:
 class DocumentationTests(unittest.TestCase):
     def test_cap_shn_gets_cap_reference_without_pro_modalities(self):
         text, _, _, _ = self.route('CAP 2026 SHN : combien d’activités sont réellement évaluées ?', 'Lycée Pro / CAP', 'examens')
-        self.assertIn('une activité est réellement évaluée', text)
+        self.assertIn('UNE SEULE activité est réellement passée et évaluée', text)
         self.assertNotIn('Deux activités sont réellement évaluées', text)
 
     def test_sss_replacement_does_not_select_dnb_absence_notice(self):
@@ -162,6 +162,17 @@ class DocumentationTests(unittest.TestCase):
         text, _, _, error = self.env['_recherche_documentaire']()
         self.assertEqual(text, '')
         self.assertTrue(error)
+
+    def test_gt_nonlisted_ppf_gets_correct_diploma_notice(self):
+        text, _, _, error = self.route('Bac général 2026 : sportif non listé en PPF, aménagement EPS possible ?', 'Lycée Général & Techno', 'examens')
+        self.assertIn('absence sur une liste ministérielle ne suffit pas', text)
+        self.assertNotIn('[PORTEE: cap]', text)
+        self.assertNotIn('[PORTEE: pro]', text)
+        self.assertEqual(error, '')
+
+    def test_gt_shn_notice_not_selected_for_cap(self):
+        notices = kc.reference_notice({'cap'}, 'CAP SHN non listé en PPF')
+        self.assertNotIn('data/commun/gt_shn_eligibilite.txt', [p for p, _ in notices])
 
     def test_archives_and_quarantine_not_indexed(self):
         for folder in ('data/examens', 'data/ipack', 'data/textes'):

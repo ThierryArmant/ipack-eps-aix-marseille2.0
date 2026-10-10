@@ -2361,5 +2361,22 @@
     "examens": [],
     "origine": "data/archives/compilations/memoire_examens_santorin.txt",
     "motif_retrait": "Liste SHN présentée comme condition exclusive, malgré les catégories PPF et clubs professionnels ; procédures et droits techniques absolus sans portée actuelle vérifiée."
+  },
+  "data/commun/gt_shn_eligibilite.txt": {
+    "title": "Bac GT : SHN et sportifs non listés en PPF",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "shn|haut niveau|specialite sportive|non liste|\\bppf\\b|sport.?etudes"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "sources": [
+      "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+      "https://eduscol.education.gouv.fr/5967/les-differents-parcours-de-formation-pour-les-sportifs",
+      "https://www.ac-aix-marseille.fr/media/39062/download"
+    ],
+    "statut": "verifie_2026-10-10_eligibilite_trois_documents"
   }
 }

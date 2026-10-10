@@ -31,6 +31,16 @@ class Retriever:
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_cap_shn_gets_cap_reference_without_pro_modalities(self):
+        text, _, _, _ = self.route('CAP 2026 SHN : combien d’activités sont réellement évaluées ?', 'Lycée Pro / CAP', 'examens')
+        self.assertIn('une activité est réellement évaluée', text)
+        self.assertNotIn('Deux activités sont réellement évaluées', text)
+
+    def test_sss_replacement_does_not_select_dnb_absence_notice(self):
+        paths = [path for path, _ in kc.reference_notice(['dnb'], "Les trois heures de SSS peuvent-elles remplacer les heures d'EPS ?")]
+        self.assertIn('data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt', paths)
+        self.assertNotIn('data/commun/dnb/03_absences_representativite.txt', paths)
+
     def test_cap_temporary_inaptitude_does_not_get_three_activity_entry(self):
         text, _, _, _ = self.route('CAP session 2026 inaptitude temporaire seconde activité une note conserver', 'Lycée Pro / CAP', 'ipack')
         self.assertIn('certification sur une seule activité', text)

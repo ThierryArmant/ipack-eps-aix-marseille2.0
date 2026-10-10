@@ -1699,12 +1699,6 @@
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
-  "data/textes/fiches/base_textes_officiels_007_situation_6e_section_conformite_securite_en_milieu_aquatique_et_natation_scolaire.txt": {
-    "title": "[SITUATION: 6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE]",
-    "statut": "synthese_non_revalidee",
-    "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
-  },
   "data/textes/fiches/base_textes_officiels_008_situation_public_vise_et_modalites_d_obtention_par_defaut.txt": {
     "title": "[SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]",
     "statut": "synthese_non_revalidee",
@@ -2092,12 +2086,6 @@
     "examens": [],
     "origine": "data/archives/compilations/memoire_examens_santorin.txt"
   },
-  "data/examens/fiches/memoire_examens_santorin_013_article_gestion_et_identification_des_sportifs_de_haut_niveau_shn_examens_nationaux.txt": {
-    "title": "[ARTICLE : GESTION ET IDENTIFICATION DES SPORTIFS DE HAUT NIVEAU (SHN) - EXAMENS NATIONAUX]",
-    "statut": "synthese_non_revalidee",
-    "examens": [],
-    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
-  },
   "data/commun/dnb/01_controle_continu_calcul.txt": {
     "title": "DNB : calcul, poids de l'EPS et mentions",
     "statut": "verifie_2026-10-10_portee_explicite",
@@ -2342,5 +2330,36 @@
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "motif_retrait": "Circulaire SSS 2020 abrogée ; aménagements scolaires et examens confondus. Autres paragraphes non revalidés. Original conservé."
+  },
+  "data/commun/cap_shn_ccf.txt": {
+    "title": "CAP : SHN, une activité évaluée et spécialité à 20",
+    "examens": [
+      "cap"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "shn|haut niveau|specialite sportive|sport.?etudes"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+    "sources": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039034347",
+      "https://www.ac-aix-marseille.fr/media/39065/download"
+    ],
+    "statut": "verifie_2026-10-10_trois_documents_session_2026"
+  },
+  "data/textes/a_verifier/base_textes_officiels_007_situation_6e_section_conformite_securite_en_milieu_aquatique_et_natation_scolaire.txt": {
+    "title": "[SITUATION: 6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE]",
+    "statut": "a_verifier_contradictions_confirmees_audit_50",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "motif_retrait": "Confusion premier/second degré et exclusivité de l’enseignement contredite par le BO 2022 et ses déclinaisons académiques. ASNS et TASA non revalidés intégralement."
+  },
+  "data/examens/a_verifier/memoire_examens_santorin_013_article_gestion_et_identification_des_sportifs_de_haut_niveau_shn_examens_nationaux.txt": {
+    "title": "[ARTICLE : GESTION ET IDENTIFICATION DES SPORTIFS DE HAUT NIVEAU (SHN) - EXAMENS NATIONAUX]",
+    "statut": "a_verifier_contradictions_confirmees_audit_50",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt",
+    "motif_retrait": "Liste SHN présentée comme condition exclusive, malgré les catégories PPF et clubs professionnels ; procédures et droits techniques absolus sans portée actuelle vérifiée."
   }
 }

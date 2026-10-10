@@ -81,3 +81,10 @@ Les corrections effectuées après la campagne ne changent pas rétrospectivemen
 ## Corrections après la campagne
 
 Les résultats ci-dessus restent ceux de la version testée, sans reclassement après correction. Les corrections suivantes passent 43 tests locaux : dispense DNB déjà attestée, limitation des compléments SHN aux questions de certification, références adaptées à la session demandée, prudence sur les droits de déverrouillage Santorin, prévention d’un scénario médical GT inventé, fiche spécifique sur les sorties du premier degré et clarification de l’entretien oral collectif DNB. Leur efficacité en production doit encore être mesurée par des retests distincts.
+
+
+## Six retests en production après publication
+
+Version corrigée : `5b4944be6d84b6e25f09482243f918098e1b716f`. Six questions indépendantes N07, N24, N33, N45, N48 et N49 ont été effectivement soumises à nouveau. Les défauts ciblés ont disparu ou sont encadrés par une limite explicite. Cela ne transforme pas le résultat initial en un nouveau score de 90 %. Pour N33, les exceptions de proximité restent à considérer dans des cas plus précis. Réponses intégrales et appréciations : `retests_corrections_independantes_2026-10-10.json`.
+
+Les autres cas partiels, dont les conditions SHN, la précision des procédures CAP et les contrôles de sécurité, restent à revalider.

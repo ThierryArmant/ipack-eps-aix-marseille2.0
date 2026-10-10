@@ -4,17 +4,21 @@
 # circulaire du 27 août 2025 modifiée le 24 octobre 2025 (CAP), arrêté DNB modifié et notes DNB par session (2026 / 2027).
 
 [gt]
-Examen concerné : BACCALAURÉAT GÉNÉRAL ET TECHNOLOGIQUE. Texte à citer : note de service du 20 février 2026 (NOR MENE2531948N, Bulletin officiel n° 9 du 26 février 2026). Ne cite pas la circulaire du bac pro ni celle du CAP, ni la circulaire de 2019 (abrogée).
+Examen concerné : BACCALAURÉAT GÉNÉRAL ET TECHNOLOGIQUE. Texte pour l’EPS obligatoire : note de service du 20 février 2026 (NOR MENE2531948N, Bulletin officiel n° 9 du 26 février 2026). Ne cite pas la circulaire du bac pro ni celle du CAP, ni la circulaire de 2019 (abrogée).
 CCF : 3 épreuves de 3 champs d'apprentissage différents ; note finale = moyenne des trois notes, ARRONDIE AU POINT ENTIER LE PLUS PROCHE après harmonisation (pas « au point supérieur »).
-Examen ponctuel (candidats individuels, Cned) : 2 épreuves de 2 champs différents.
+Examen ponctuel de l’EPS obligatoire (candidats individuels, Cned) : 2 épreuves de 2 champs différents.
 Absence non justifiée à une épreuve : note 0, non éliminatoire, pour cette épreuve.
 Sportif de haut niveau (y compris juges, arbitres, entraîneurs de haut niveau) : 20/20 automatique sur sa spécialité, sous réserve que ce ne soit pas l'unique note retenue.
+
+Option EPS des candidats scolaires GT : contrôle continu par moyennes annuelles et LSL vers Cyclades, pas les trois CCF de l’enseignement commun. Référence : MENE2523744N du 25 août 2025.
 
 [pro]
 Examen concerné : BACCALAURÉAT PROFESSIONNEL (et BMA). Texte à citer : circulaire du 2 avril 2025 (NOR MENE2505383C), modifiée par la circulaire du 24 octobre 2025 (NOR MENE2526357C), applicable à compter de la session 2026.
 CCF : 3 activités de 3 champs d'apprentissage ; note finale = moyenne des trois notes, ARRONDIE AU POINT ENTIER SUPÉRIEUR après harmonisation.
 Examen ponctuel : 2 épreuves de 2 champs différents.
 Absence non justifiée à la situation de fin de séquence d'une activité : zéro pour cette activité ; absence non justifiée à toutes les situations : non-délivrance du diplôme.
+
+SHN avec aménagement validé en bac pro CCF : trois activités de trois champs, deux activités évaluées, spécialité non évaluée avec 20 automatique ; ce 20 ne peut être l’unique note. MENE2505383C B.5.1.
 
 [cap]
 Examen concerné : CAP. Texte à citer : circulaire du 27 août 2025 (NOR MENE2517122C), modifiée par la circulaire du 24 octobre 2025 (NOR MENE2526679C), applicable à compter de la session 2026.
@@ -23,8 +27,8 @@ Examen ponctuel : 1 seule épreuve.
 Absence non justifiée à une situation de fin de séquence : zéro ; absence non justifiée à toutes les situations : non-délivrance du diplôme.
 
 [dnb]
-Niveau concerné : COLLÈGE (DNB). Pour 2026 : note du 2 septembre 2025 (MENE2515977N). Pour les épreuves 2027 : note du 11 septembre 2026 (MENE2623228N), qui abroge celle de 2025. Calcul : arrêté du 31 décembre 2015 modifié. Préciser la session pour les procédures, dispenses transitoires et dates. Ne cite JAMAIS les circulaires du CAP, du bac pro ou du bac général : elles ne s'appliquent pas au collège.
+Niveau concerné : COLLÈGE (DNB). Pour 2026 : note du 2 septembre 2025 (MENE2515977N). Pour 2027 : note du 11 septembre 2026 MENE2623194N pour l’attribution et le contrôle continu ; MENE2623228N pour les épreuves. Calcul : arrêté du 31 décembre 2015 modifié. Préciser la session pour les procédures, dispenses transitoires et dates. Ne cite JAMAIS les circulaires du CAP, du bac pro ou du bac général : elles ne s'appliquent pas au collège.
 Pas de CCF EPS du lycée ni de saisie de ces CCF dans Santorin au collège : l'EPS compte par le contrôle continu de 3e. Le circuit documenté pour 2026 renseigne les moyennes validées dans LSU, qui les transmet à Cyclades. Santorin sert toutefois à l'harmonisation académique du contrôle continu selon le support Aix-Marseille 2026 ; ne pas nier tout usage de cet outil au DNB. Pour 2027, vérifier les instructions opérationnelles de session.
-Absence à une évaluation ordinaire : ne pas utiliser zéro comme sanction d'absence. Pour 2026 : examiner la représentativité de la moyenne ; « En attente » ne déclenche pas automatiquement une évaluation de remplacement. Une absence NON justifiée à l'évaluation de remplacement entraîne zéro. Vérifier la procédure applicable pour 2027 au lieu de reconduire les dispositions transitoires.
+Absence à une évaluation ordinaire : ne pas utiliser zéro comme sanction d'absence. Pour 2026 : examiner la représentativité de la moyenne ; « En attente » ne déclenche pas automatiquement une évaluation de remplacement. Une absence NON justifiée à l'évaluation de remplacement entraîne zéro. La note MENE2623194N II.4.3.1 confirme la procédure de remplacement pour 2027 ; distinguer les dispenses transitoires du support 2026.
 N'écris jamais qu'une note est « éliminatoire » ou « non éliminatoire » au collège : cette notion vient des textes du lycée et ne figure pas dans la note de service du DNB.
 

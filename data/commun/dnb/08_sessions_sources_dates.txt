@@ -1,10 +1,12 @@
 ### DNB : session 2026 ou 2027, textes et dates
 [PORTEE: dnb]
 Le document fourni est une présentation académique de MARS 2026 sur la SESSION 2026. Ses dates opérationnelles et souplesses exceptionnelles ne sont pas des règles permanentes. Demander la session lorsque la réponse dépend d'un délai, d'une dispense transitoire, d'un logiciel ou d'une procédure d'examen.
-Le texte national du 11 septembre 2026, NOR MENE2623228N, publié au BO spécial n° 4 du 17 septembre 2026, définit les épreuves à compter de la session 2027 et abroge la note du 2 septembre 2025. Ne plus citer cette dernière comme texte des épreuves 2027 en vigueur. Le calcul 40 % / 60 % reste confirmé par le nouvel encadrement et l'arrêté modifié.
+Deux textes du 11 septembre 2026 doivent être distingués : NOR MENE2623194N sur les modalités d’attribution et le contrôle continu (notamment II.3 LSU vers Cyclades et II.4 cas particuliers), et NOR MENE2623228N sur les épreuves. Ce dernier, publié au BO spécial n° 4 du 17 septembre 2026, définit les épreuves à compter de la session 2027 et abroge la note du 2 septembre 2025. Ne plus citer cette dernière comme texte des épreuves 2027 en vigueur. Le calcul 40 % / 60 % reste confirmé par le nouvel encadrement et l'arrêté modifié.
 Le diaporama annonce pour 2026 des souplesses concernant certaines absences de moyenne (PAP/PAI, situations de haut niveau, EANA, professeur absent toute l'année). Il les qualifie lui-même de temporaires : leur mention ne suffit pas à accorder une dispense en 2027.
 Les dates de remontée LSU, AFFELNET, jurys et résultats de 2026 sont historiques. Ne pas les présenter comme les dates de « cette année ». Pour toute échéance actuelle, utiliser une publication académique de la session concernée.
 Source fournie : diapositives 7, 8, 16 et 23. Recoupements : BO 2027, arrêté modifié, présentation Éduscol.
 https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N
 https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288
 https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet
+
+https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N

@@ -31,6 +31,26 @@ class Retriever:
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_shn_does_not_inject_swimming_school_rules(self):
+        text, _, _, _ = self.route('Bac professionnel 2026 SHN natation : spécialité et CCF', 'Lycée Pro / CAP', 'examens')
+        self.assertIn('Deux activités sont réellement évaluées', text)
+        self.assertNotIn('Natation scolaire :', text)
+
+    def test_option_eps_gets_its_own_lsl_reference(self):
+        text, _, _, _ = self.route('Bac général : enseignement optionnel EPS, LSL ou LSU ?', 'Lycée Général & Techno', 'examens')
+        self.assertIn('MENE2523744N', text)
+        self.assertIn('livret scolaire du lycée (LSL)', text)
+
+    def test_2027_absence_source_is_available(self):
+        text, _, _, _ = self.route('DNB 2027 une seule note En attente', 'Collège (DNB)', 'examens')
+        self.assertIn('MENE2623194N', text)
+        self.assertIn('absence justifiée : nouvelle convocation', text)
+
+    def test_documentary_context_is_bounded(self):
+        docs = [SimpleNamespace(text=f'[PORTEE: gt] PASSAGE_{i}', metadata={'source': f'{i}.txt'}) for i in range(30)]
+        text, _, _, _ = self.route('Bac général : informations', 'Lycée Général & Techno', 'examens', docs)
+        self.assertLessEqual(len(re.findall('PASSAGE_', text)), 10)
+
     def test_dnb_new_fiches_are_shared_but_not_selected_for_bac(self):
         for folder in ('data/ipack', 'data/examens', 'data/textes'):
             paths = [md['path'] for _, md in kc.document_records(folder)]

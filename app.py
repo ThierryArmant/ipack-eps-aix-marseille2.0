@@ -1,3 +1,4 @@
+from pathlib import Path
 import base64
 import datetime
 import os
@@ -1136,6 +1137,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.caption("Révision documentaire : 2026-10-10 · audit 2")
+
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:
         date_alerte = st.session_state.get("date_veille_dec", "Récemment")
@@ -1384,7 +1387,7 @@ if prompt_a_traiter:
     relance_ctx = st.session_state.pop("relance_ctx", None)
     question_affichee = prompt
     ctx_onglet = relance_ctx  # onglet et public de la question précédente (conservés dans tous les cas)
-    if relance_ctx and relance_ctx.get("origine") != "courte" and sujet_different(prompt, relance_ctx["question"], relance_ctx["reponse"]):
+    if relance_ctx and relance_ctx.get("origine") not in ("courte", "clarification") and sujet_different(prompt, relance_ctx["question"], relance_ctx["reponse"]):
         # Le collègue a tapé une NOUVELLE question dans la zone de précision : on la traite comme une question neuve,
         # dans le même onglet et pour le même public, sans lui accoler l'ancien échange (ni coût supplémentaire, ni mélange).
         relance_ctx = None
@@ -1670,6 +1673,7 @@ if prompt_a_traiter:
             # le collègue recevait la moins bonne des deux réponses. On laisse donc la base répondre.
             # Pour en réactiver un : retirer simplement sa ligne ci-dessous (le texte de la réponse est conservé plus bas).
             est_import_pronote = False        # « paramètres d'importation » -> la base donne [Dossier EPS] > [Élèves] > [Importer un fichier Pronote]
+            est_deverrouiller_lot = False     # éviter une consigne universelle sans guide/version
             est_verrouiller_lot = False       # bouton « en bas » -> le tutoriel dit [Verrouiller] en haut à droite
             est_dates_ccf = False             # « [Séquences] ou [Protocoles] selon l'affichage » -> chemin exact dans la base
             est_creation_groupe = False       # « [Classes / Groupes] » -> [Dossier EPS] > [Groupes] puis [Élèves]
@@ -1718,14 +1722,7 @@ if prompt_a_traiter:
                     + "\n"
                 )
                 # Placée tout à la fin des consignes : c'est là que l'IA en tient le mieux compte.
-                consigne_relance_finale = (
-                    "\n3. RÈGLE DE RELANCE (PRIORITAIRE) : l'utilisateur a déjà reçu la « RÉPONSE DÉJÀ DONNÉE » ci-dessus et elle ne l'a pas débloqué. "
-                    "INTERDICTION de la répéter ou de la reformuler. Réponds uniquement à la précision qu'il vient d'apporter, "
-                    "à partir du CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL. "
-                    "Si le contexte ne contient aucune information nouvelle par rapport à la réponse déjà donnée, réponds STRICTEMENT : "
-                    "\"Je n'ai pas d'information plus précise dans ma base sur ce point. Plutôt que de répéter la réponse précédente, "
-                    "je vous invite à contacter l'assistance en indiquant ce que vous avez déjà essayé et le message exact affiché.\"\n"
-                )
+                consigne_relance_finale = Path("config/consignes_relance.txt").read_text(encoding="utf-8")
 
             if est_question_trop_courte:
                 origine_reponse = "courte"
@@ -1792,7 +1789,11 @@ if prompt_a_traiter:
                     r"cyclades|santorin|imagin|examen|ccf|certificat|protocole|referentiel|dnb|brevet", p_norm)
 
                 def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
+                    if len(_extraits) >= 10:
+                        return
                     for _txt in chercher_par_mots(recherche_mots, nom_base, prompt, maximum):
+                        if len(_extraits) >= 10:
+                            break
                         _cle = passage_key(_txt)
                         if _cle in _vus or _autre_examen(_txt):
                             continue
@@ -1806,11 +1807,13 @@ if prompt_a_traiter:
                         _diag.append(("[mots] " + (etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:100], None))
 
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
-                    if not retriever:
+                    if not retriever or len(_extraits) >= 10:
                         return
                     _nodes = retriever.retrieve(prompt)
                     _retenus = 0
                     for n in _nodes:
+                        if len(_extraits) >= 10:
+                            break
                         _txt = n.node.text or ""
                         _cle = passage_key(_txt)
                         if _cle in _vus:
@@ -1830,7 +1833,7 @@ if prompt_a_traiter:
                             break
 
                 try:
-                    for _path, _md in reference_notice(_cibles):
+                    for _path, _md in reference_notice(_cibles, prompt):
                         if any(re.search(motif, p_norm) for motif in _md.get('motifs', [])):
                             with open(_path, encoding='utf-8') as _f:
                                 _extraits.append('[FICHE VERIFIEE PRIORITAIRE] ' + _f.read())
@@ -2318,7 +2321,7 @@ if prompt_a_traiter:
                                     _rub[_cur].append("- " + _l)
                         _blocs = ["\n".join(_rub[e]) for e in _exams if _rub.get(e)]
                         if _blocs:
-                            faits_champs += ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste du contexte ; ne les contredis jamais et ne cite que le texte indiqué) :\n"
+                            faits_champs += ("REPÈRES DOCUMENTAIRES PAR EXAMEN (utiliser uniquement les faits applicables au sujet précis ; une référence de l’EPS obligatoire ne justifie pas l’option ni une procédure logicielle) :\n"
                                              + "\n\n".join(_blocs) + "\n\n")
                 except Exception:
                     pass
@@ -2448,7 +2451,7 @@ Contexte d'onglet actif : {contexte_choisi_nom}
 2. LE PRINCIPE DE RÉALITÉ DES PUBLICS (INVARIANTS INSTITUTIONNELS) :
 - PREMIER DEGRÉ (Maternelle/Élémentaire) : AUCUN CCF, AUCUN Santorin/Cyclades, AUCUN DNB. Évaluation via le LSU. 
 - COLLÈGE (6e à 3e, SEGPA, ULIS, Prépa-métiers) : Pas de CCF EPS du lycée ni de lots Santorin pour cette évaluation. Contrôle continu de troisième : moyennes validées dans LSU, puis transmises à Cyclades. Les recommandations EPS sur les APSA ne sont pas un CCF du lycée.
-- LYCÉE (Voie GT, Pro, CAP) : Cadre strict du CCF. Évaluation via Cyclades et Santorin.
+- LYCÉE : distinguer enseignement commun EPS, option EPS et spécialité EPPCS ; consulter la fiche correspondant au statut scolaire ou individuel et à la session.
 
 ======================================================================
 FIABILITÉ DOCUMENTAIRE :
@@ -2466,13 +2469,13 @@ FIABILITÉ DOCUMENTAIRE :
 - Si l'utilisateur signale un rejet de protocole ou une impossibilité de saisir, identifier d'abord le logiciel, le rôle, la version et le message exact. Donner seulement une procédure étayée ; si la cause ou les droits sont incertains, demander ces précisions ou solliciter la DEC/l'assistance.
 
 2. SANTORIN : CADENAS ET VERROUILLAGES :
-- Un enseignant ne peut PAS déverrouiller un lot. Cette action relève EXCLUSIVEMENT du Chef d'établissement depuis sa console "Santorin-Direction".
+- Vérifier le rôle habilité, l'état du lot et le guide applicable à la version de Santorin. Ne pas affirmer un droit exclusif, un menu ou l'inutilité de contacter la DEC sans passage technique qui l'étaye. Si le guide ne tranche pas, demander à la direction ou à l'assistance de vérifier l'habilitation.
 
 3. GESTION DES INTERFACES ET ZÉRO INVENTION (RÈGLE DE MORT ABSOLUE) :
 - Tu as l'INTERDICTION FORMELLE d'inventer des noms de menus, des boutons, des cases à cocher ou des onglets.
 - LIRE D'ABORD LES 3 PREMIÈRES LIGNES DE CHAQUE FICHE : avant de rédiger, lis pour chaque fiche du contexte son titre et les deux lignes qui suivent (mots-clés, formulations, « Réponse courte »). Elles disent de quoi parle la fiche et quelle est sa réponse. Retiens la fiche dont le titre correspond vraiment à la question posée (même examen, même niveau, même logiciel) et écarte celles qui parlent d'autre chose. Si la fiche retenue contient une ligne « Réponse courte », ta réponse commence par cette réponse, sans la contredire.
 - PRÉCISION DES CHEMINS : quand le contexte donne le nom exact d'un menu, d'un onglet ou d'un bouton, recopie-le tel quel entre crochets. N'écris JAMAIS une tournure floue comme « l'onglet qui permet de… », « la section prévue à cet effet », « le champ approprié » ou « les icônes peuvent signaler… » : soit tu donnes le nom exact et ce qu'il affiche, soit tu ne mentionnes pas l'élément.
-- TEXTES OFFICIELS EN GRAS : quand le contexte cite la référence d'un texte officiel (loi, article de code, décret, arrêté, circulaire, note de service, Bulletin officiel, avec sa date ou son numéro), termine ta réponse par une ligne « Texte de référence : » suivie de cette référence en gras (**...**), recopiée telle quelle. Seuls comptent les textes officiels : un guide, un tutoriel, un support de formation, un site académique ou le titre d'une fiche (« SITUATION : … ») ne sont PAS des textes de référence et ne doivent jamais figurer sur cette ligne. Ne cite QUE les références écrites dans le contexte : n'invente jamais un numéro, une date ou un article, et si le contexte n'en donne aucune, n'écris pas cette ligne.
+- RÉFÉRENCES : cite uniquement le document qui étaye effectivement la règle ou la procédure annoncée. Une procédure logicielle doit être attribuée à son guide technique avec académie et date, pas à un BO portant sur l'évaluation. Une référence présente dans le contexte mais sans rapport avec la conclusion ne doit pas être citée. Pour un texte réglementaire pertinent, indique « Texte de référence : » avec sa référence exacte en gras ; pour un guide technique, indique « Guide utilisé : » avec son titre, sa date et sa portée. Si un guide est ancien ou propre à une autre académie, précise que les boutons et droits doivent être confirmés localement.
 - Le contexte documentaire est invisible pour l'utilisateur : ne lui dis JAMAIS de « consulter la fiche … », « voir la fiche … » ou « se reporter au tutoriel dédié ». Si le contexte renvoie à une autre fiche, donne directement l'information utile si elle figure dans le contexte ; sinon n'en parle pas.
 - Tu dois t'appuyer en priorité sur le "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous pour répondre aux procédures. 
 - Si l'information figure dans le contexte (même avec des synonymes comme "départ", "inactif" ou "actualisation"), utilise-la pour guider l'utilisateur.
@@ -2484,7 +2487,7 @@ FIABILITÉ DOCUMENTAIRE :
 
 4. SIGLES (ZÉRO INVENTION) :
 - Écris les sigles tels quels (DEC, AFLP, APSA...). N'ajoute JAMAIS entre parenthèses la signification d'un sigle, sauf si elle figure mot pour mot dans le glossaire ci-dessous ou dans le contexte documentaire.
-- Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; DNB = Diplôme National du Brevet.
+- Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; LSL = Livret Scolaire du Lycée ; DNB = Diplôme National du Brevet.
 - En voie générale et technologique on parle d'AFL ; en voie professionnelle et en CAP on parle d'AFLP. N'emploie pas l'un pour l'autre.
 
 5. QUI FAIT QUOI (NE JAMAIS INVERSER LES RÔLES) :
@@ -2497,331 +2500,2246 @@ FIABILITÉ DOCUMENTAIRE :
 - PAS DE RÉPONSE VAGUE : n'écris jamais de généralités qui ne s'appuient sur aucun passage (« assurez-vous que la note est valide », « respectez les procédures de votre établissement », « prenez en compte la situation de l'élève »). Si le contexte ne traite qu'une partie de la question, réponds précisément à cette partie et dis en une phrase ce que ta base ne précise pas.
 - Pour un texte réglementaire (décret, circulaire, note de service), rapporte ce que dit le contexte sans commenter ses intentions ni ses bénéfices supposés (« plus de flexibilité », « plus équitable »...).
 - Les passages du contexte précédés de [Base iPackEPS] ou [Base Examens & Santorin] viennent de l'autre base documentaire : ils ont la même valeur que les autres.
-- CHEMINS DE MENU : ne donne un chemin de menu que s'il figure dans le contexte, et donne-le sans le nuancer. Les formules « généralement », « en général », « normalement », « il se peut que » devant un menu ou un bouton sont interdites : si le chemin exact n'est pas dans le contexte, dis ce que le contexte permet de dire et précise que le chemin exact n'est pas dans ta base.
-- Ne recopie pas une phrase du contexte qui traite d'un cas particulier que le professeur n'a pas évoqué (autre examen, autre nombre d'épreuves, autre logiciel).
-- SYMPTÔME À PLUSIEURS CAUSES : si les détails de la question désignent une seule cause, ne donne que celle-là. Si plusieurs causes du contexte peuvent expliquer ce que décrit le professeur (exemple : une note refusée peut venir de la virgule à la place du point, ou de l'AFL1 non saisi), présente-les toutes, une ligne chacune, avec ce qu'il faut vérifier, sans mélanger leurs étapes.
-
-7. PORTÉE DES RÈGLES (NE PAS TRANSPOSER D'UN EXAMEN À L'AUTRE) :
-- Le public sélectionné par le professeur figure à l'ÉTAPE 2. Une règle du contexte qui précise sa portée (baccalauréat général et technologique, baccalauréat professionnel, CAP, DNB, collège) ne vaut que pour cette portée.
-- Ne transpose jamais une règle du bac général et technologique à la voie professionnelle ou au CAP (ni l'inverse) : AFL / AFLP, nombre d'épreuves, co-évaluation, textes de référence diffèrent. Si le contexte ne contient la règle que pour un autre public que celui du professeur, dis-le clairement (« le texte dont je dispose concerne le bac général et technologique ; je n'ai pas le texte équivalent pour la voie professionnelle ») et renvoie à la DEC ou à l'inspection, sans affirmer que la règle s'applique.
-
-- LE PUBLIC « Lycée Pro / CAP » REGROUPE DEUX EXAMENS DIFFÉRENTS : le baccalauréat professionnel (ensemble de 3 épreuves, 3 champs d'apprentissage) et le CAP (2 épreuves, 2 champs d'apprentissage). Repère l'examen nommé dans la question (« bac pro », « terminale bac pro », « CAP ») et prends la réponse de CET examen : une « Réponse Lycée Pro CAP » ne vaut pas pour le bac pro, et une « Réponse Lycée Pro Bac » ne vaut pas pour le CAP. Si la question ne précise pas l'examen, donne les deux réponses en les distinguant clairement.
-- N'ÉTENDS PAS UNE RÈGLE À UN CAS VOISIN : une absence, un refus de passer l'épreuve, un abandon en cours d'épreuve, une blessure, une dispense sont des situations différentes, traitées différemment. N'écris jamais « cela s'applique également à... » si le contexte ne le dit pas. Si le contexte ne traite que le cas voisin, dis-le et n'affirme rien pour le cas posé.
-- QUESTION EN PLUSIEURS PARTIES : si le professeur pose deux questions (« où... et comment... »), réponds à chacune séparément, chacune à partir de son propre passage du contexte ; ne réponds pas à la seconde avec le passage de la première. Si le contexte ne couvre qu'une des deux, dis-le.
-
-8. MÉMO PERMANENT (VRAI MÊME SI LE CONTEXTE N'EN PARLE PAS) :
-- DATES ET DÉLAIS : toute date limite (dépôt des référentiels, saisie des protocoles, import des classes, saisie ou verrouillage des notes, commissions) DÉPEND DE CHAQUE ACADÉMIE : elle est fixée chaque année par la DEC et l'inspection pédagogique de l'académie de l'utilisateur. Des collègues d'autres académies utilisent aussi cet assistant : ne présente JAMAIS une date, un calendrier ou un contact comme étant celui « d'Aix-Marseille », écris « votre académie ». À une question « jusqu'à quand », « avant quelle date », « date limite », ne réponds JAMAIS que tu ne disposes pas de la procédure et n'invente JAMAIS de date : explique que la date est fixée chaque année par la circulaire académique et le calendrier de la DEC de son académie (les dates diffèrent d'une académie à l'autre), qu'il faut les consulter ou interroger le secrétariat des examens de l'établissement, puis, si le contexte la contient, rappelle la manipulation concernée. Ne cite jamais la date d'une autre académie.
-- ACCÈS : iPackEPS, Cyclades, Imag'in et Santorin s'ouvrent uniquement depuis le portail ARENA, avec les identifiants académiques. Il n'existe pas de compte ni de mot de passe propre à iPackEPS ou à Santorin.
-- RÉPARTITION DES RÔLES POUR LES EXAMENS : le coordonnateur EPS prépare APSA, référentiels, groupes et protocoles dans iPackEPS ; les droits d'export, d'import, de réaffectation, de distribution et de déverrouillage se vérifient dans le guide de la version et selon le rôle habilité ; l'enseignant vérifie ses élèves, saisit ses notes par AFL ou AFLP et verrouille son lot.
-
-======================================================================
-ÉTAPE 4 : ARBRE DE DÉCISION JURIDIQUE ET SÉCURITÉ (LIGNE ROUGE)
-======================================================================
-- En cas de danger physique ou de matériel défectueux avéré, l'action immédiate est l'arrêt de l'activité.
-
-======================================================================
-ÉTAPE 5 : FORMATAGE ET INSTRUCTIONS DE CLÔTURE
-======================================================================
-{contexte_complet_ia}
-
-{bloc_echange_precedent}
-QUESTION DE L'UTILISATEUR (public sélectionné : {niveau_actuel_form}) :
-{prompt}
-
-RAPPEL AVANT DE RÉPONDRE : réponds pour CE public. Si un passage du contexte donne des réponses différentes selon le public (« Réponse Lycée GT Bac », « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Collège DNB »), utilise uniquement celle qui correspond au public sélectionné ou à l'examen cité dans la question. Une règle prévue pour un autre examen ne s'applique pas.
-
-MÉTHODE D'ANALYSE & RÈGLES DE RÉPONSE :
-1. ANALYSE DU PÉRIMÈTRE : Réponds avec précision, clarté et rigueur.
-2. STRUCTURE & MISE EN PAGE :
-    - Rends une réponse bien structurée et claire.
-    - FORMAT PAS-À-PAS : uniquement quand le contexte décrit une manipulation en plusieurs étapes, utilise des balises explicites entre crochets et en gras : <strong>[Étape 1]</strong>, <strong>[Étape 2]</strong>, etc., en reprenant les étapes du contexte, dans l'ordre, sans en ajouter. Quand la réponse est une règle, une explication ou une réponse négative, réponds en quelques phrases, SANS étapes.
-    - Utilise des listes à puces ou ordonnées HTML propres (`<ul>`, `<ol>`, `<li>`).
-{directive_onglet}
-{bloc_video_consigne}
-{consigne_relance_finale}
-RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes applicables au diplôme et à la session priment sur toute ancienne synthèse ou consigne contradictoire. Si deux sources techniques divergent, préciser la version et le rôle avant de donner des droits ou menus. Ne pas inventer une solution. Si la recherche a échoué ou n'a fourni aucun passage pertinent, le signaler et demander les informations nécessaires."""
-
-                try:
-                    response = Settings.llm.complete(consigne_ia)
-                    texte_brut = response.text
-                    if verdict_champs:
-                        texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
-                                      .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))
-                except Exception as e:
-                    texte_brut = f"Erreur de traitement IA : {str(e)}"
-
-        # ==================================================================
-        # 7. MISE EN FORME FINALE, LOG ET AFFICHAGE
-        # ✅ CORRECTION MAJEURE : ce bloc était auparavant DANS le "else" (cas non hors-sujet).
-        # Résultat : la réponse "HORS PÉRIMÈTRE INSTITUTIONNEL" n'était jamais affichée
-        # ni enregistrée dans le Google Sheet. Il est maintenant exécuté dans tous les cas.
-        # ==================================================================
-
-        # ✅ L'IA entourait parfois le nom du tutoriel d'un lien inventé (https://example.com/...). On ne garde que le nom du fichier.
-        texte_brut = re.sub(r"<a\s[^>]*>\s*([A-Za-z0-9_.-]+\.mp4)\s*</a>", r"\1", texte_brut, flags=re.IGNORECASE)
-
-        # ✅ « Texte de référence » : on ne garde la ligne que si elle cite un vrai texte officiel (l'IA y mettait parfois
-        # un titre de fiche ou une phrase). « Tutoriel associé » : on ne garde que les vrais fichiers .mp4 et adresses YouTube.
-        def _garder_ligne(_l):
-            if re.match(r"\s*(\*\*)?Texte de r[ée]f[ée]rence", _l, flags=re.IGNORECASE):
-                return bool(re.search(r"d[ée]cret|circulaire|note de service|arr[êe]t[ée]|\bloi\b|code de|article [LRD]\b|bulletin officiel|\bB\.?O\.?\b|\bNOR\b", _l, flags=re.IGNORECASE)) and "SITUATION" not in _l
-            if re.search(r"Tutoriel\s+(vid[ée]o\s+)?associ[ée]\s*:", _l, flags=re.IGNORECASE):
-                if "http" in _l.lower():
-                    # une adresse : seulement une vraie vidéo YouTube (identifiant de 11 caractères), jamais une adresse inventée
-                    return bool(re.search(r"(youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{11}(?![A-Za-z0-9_.-])", _l))
-                return bool(re.search(r"\.mp4", _l, flags=re.IGNORECASE))
-            return True
-        # « [Titre de la vidéo](fichier.mp4) » écrit par l'IA : on ne garde que le nom du fichier, reconnu ensuite par le hub.
-        texte_brut = re.sub(r"\[[^\]\n]*\]\(([A-Za-z0-9_.-]+\.mp4)\)", r"\1", str(texte_brut))
-        texte_brut = "\n".join(_l for _l in str(texte_brut).split("\n") if _garder_ligne(_l))
-
-        # 🧹 NETTOYAGE DES VIDÉOS POUR LE COLLÈGE (DNB)
-        if est_college or est_dnb:
-            texte_brut = re.sub(r"[a-zA-Z0-9_.-]+\.mp4", "", texte_brut, flags=re.IGNORECASE)
-
-        # ✅ CORRECTION : le tuto ajouté dépend du sujet (avant : toujours « Evolution_et_fermeture_SSS »,
-        # un fichier introuvable sur le site des tutoriels, et sans rapport avec un projet annuel ou un bilan)
-        if est_sss:
-            # ✅ CORRECTION : reconduction / fermeture d'abord (sinon « reconduction… comme pour l'ouverture » partait sur l'ouverture),
-            # puis reprise de la saisie de l'an dernier = projet annuel ; à défaut, la vidéo de présentation des quatre modules.
-            if any(w in p_low for w in ["reconduction", "reconduire", "fermeture", "fermer", "évolution", "evolution"]):
-                video_sss = "Evolution_et_fermeture_SSS.mp4"
-            elif any(w in p_low for w in ["projet", "année précédente", "annee precedente", "année dernière", "annee derniere", "an dernier", "importer", "récupérer", "recuperer"]):
-                video_sss = "Projet_annuel_SSS.mp4"
-            elif "bilan" in p_low:
-                video_sss = "Bilan_annuel_SSS.mp4"
-            elif "ouvr" in p_low:
-                # ✅ CORRECTION : « nous voulons ouvrir une section » (sans le mot « ouverture ») recevait le tutoriel de fermeture
-                video_sss = "Demande_ouverture_SSS.mp4"
-            elif "groupe" in p_low:
-                video_sss = "Gestion_groupes_iPackEPS.mp4"
-            else:
-                video_sss = "Configuration_modules_SSS.mp4"
-            if not re.search(r"[A-Za-z0-9_]+_SSS\.mp4", texte_brut):
-                texte_brut += "\n\n📺 Tutoriel associé : " + video_sss
-
-        # ✅ CORRECTION : un sportif de haut niveau n'est pas une classe Sports-Études. Le tutoriel « classes Sports-Études »
-        # n'est plus ajouté aux questions sur le haut niveau ; il reste réservé aux questions Sports-Études.
-        if est_shn and not any(w in p_low for w in ["sport etude", "sport-etude", "sports-etudes", "sports etudes", "sport étude", "sport-étude", "sports-études", "sports études"]):
-            texte_brut = re.sub(r"\n*📺\s*Tutoriel\s+associé\s*:\s*Configurer_Classes_Sports_Etudes\.mp4", "", texte_brut)
-
-        texte_brut = texte_brut.replace("```html", "")
-        texte_brut = texte_brut.replace("```HTML", "")
-        texte_brut = texte_brut.replace("```", "")
-
-        if mode == "textes" or est_dnb:
-            texte_brut = re.sub(r"📺\s*Tutoriel\s+associé\s*:\s*.*", "", texte_brut, flags=re.IGNORECASE)
-
-        texte_brut = re.sub(
-            r"📺\s*Tutoriel\s+associé\s*:\s*(aucun|aucun\.?|none|non|\/|-|\s*)*$",
-            "",
-            texte_brut,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
-
-        if mode == "textes":
-            texte_brut = re.sub(
-                r"("
-                r"Articles?\s+[\dLRDABab\.\-\s,–]+"
-                r"|Code\s+(?:de\s+l['\s]éducation|pénal|civil|du\s+sport|de\s+la\s+sécurité\s+sociale|du\s+travail)"
-                r"|Loi\s+(?:n[°º]\s*)?[\d\-\/\w\sûûéàê]+"
-                r"|Décret\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                r"|Arrêté\s+(?:du\s+[\d\/\w\s]+|n[°º]\s*[\d\-\/\w\s]+)?"
-                r"|Circulaire\s+(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                r"|\bB\.?O\.?\b\s*(?:n[°º]\s*)?[\d\-\/\w\s]+"
-                r"|Bulletin\s+officiel"
-                r"|RGPD"
-                r")",
-                r'<span class="law-highlight">\1</span>',
-                texte_brut,
-                flags=re.IGNORECASE
-            )
-            texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
-
-        re_links = re.sub(
-            r"\[([^\]]+)\]\((https?://[^\)]+)\)",
-            r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',
-            texte_brut,
-        )
-        texte_brut = re_links
-
-        # ✅ CORRECTION D'AFFICHAGE : le gras Markdown **texte** de l'IA devenait des astérisques visibles
-        texte_brut = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", texte_brut, flags=re.DOTALL)
-        # ✅ CORRECTION D'AFFICHAGE : un mot entre balises <code> apparaissait en pavé blanc illisible (ex. « DISP »),
-        # et les accents graves `[Menu]` de l'IA restaient visibles. Les deux deviennent du gras.
-        texte_brut = re.sub(r"<code>(.*?)</code>", r"<strong>\1</strong>", texte_brut, flags=re.DOTALL | re.IGNORECASE)
-        texte_brut = re.sub(r"`([^`\n]+)`", r"<strong>\1</strong>", texte_brut)
-
-        texte_nettoye = texte_brut.replace("\r\n", "\n").replace("\r", "\n")
-        texte_final = (
-            texte_nettoye.replace("<p>", "")
-            .replace("</p>", "<br>")
-        )
-        # ✅ CORRECTION D'AFFICHAGE : les retours à la ligne situés entre les balises de liste
-        # (<ol>, <ul>, <li>) devenaient des <br> placés dans la liste, que le navigateur affichait
-        # comme des puces ou des numéros vides. On les retire avant la conversion en <br>.
-        _balises_bloc = r"(?:ol|ul|li|h3|h4)"
-        texte_final = re.sub(r"[ \t]*\n\s*(?=</?" + _balises_bloc + r"\b)", "", texte_final)
-        texte_final = re.sub(r"(</?" + _balises_bloc + r"\b[^>]*>)[ \t]*\n\s*", r"\1", texte_final)
-        texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
-        texte_final = texte_final.replace("\n", "<br>")
-
-        phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
-        )
-
-        footer_assistance = (
-            "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-            "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques ou didactiques malgré le soin apporté à ma copie. "
-            "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
-            "</div>"
-        ) if mode == "textes" else (
-            "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
-            "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-            "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
-            "</div>"
-        )
-
-        # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
-        bloc_sources = ""
-        if sources_consultees:
-            # On ne garde que les documents proches du meilleur résultat (évite d'afficher des sources peu pertinentes)
-            scores = [sc for _, sc in sources_consultees if sc is not None]
-            meilleur = max(scores) if scores else None
-            vus = []
-            for lib, sc in sources_consultees:
-                if not lib or lib in vus:
-                    continue
-                if meilleur is not None and sc is not None and sc < 0.9 * meilleur:
-                    continue
-                vus.append(lib)
-            if vus:
-                bloc_sources = (
-                    "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #38BDF8; font-size: 12.5px; color: #CBD5E1;'>"
-                    "<strong>📚 Documents de référence consultés pour cette réponse :</strong><br>"
-                    + "<br>".join("• " + v for v in vus[:5])
-                    + "</div>"
-                )
-
-        # 🔎 DIAGNOSTIC (MODE ADMIN UNIQUEMENT) : quelles fiches la recherche a transmises à l'IA pour cette question.
-        # Sert à comprendre un « je ne dispose pas de la procédure » : fiche absente de la liste = problème de recherche ;
-        # fiche présente = l'IA l'a reçue mais ne s'en est pas servie. Les collègues ne voient jamais ce bloc.
-        bloc_diag = ""
-        if st.session_state.get("is_admin", False) and origine_reponse == "ia":
-            lignes_diag = [
-                "• " + html_lib.escape(t) + (f" <em>({sc:.2f})</em>" if isinstance(sc, (int, float)) else "")
-                for t, sc in fiches_diag
-            ] or ["Aucune fiche transmise à l'IA."]
-            if erreur_rag:
-                lignes_diag.insert(0, "⚠️ Erreur pendant la recherche : " + html_lib.escape(erreur_rag))
-            if reponse_en_dur_ecartee:
-                lignes_diag.insert(0, "↪️ Réponse en dur écartée par l'arbitre : " + html_lib.escape(reponse_en_dur_ecartee) + "…")
-            bloc_diag = (
-                "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #F59E0B; font-size: 12px; color: #CBD5E1;'>"
-                "<strong>🔎 Admin — fiches transmises à l'IA :</strong><br>" + "<br>".join(lignes_diag) + "</div>"
-            )
-
-        formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{bloc_diag}{footer_assistance}</div>'
-        )
-
-        log_interaction(
-            question=("[RELANCE] " + prompt) if relance_ctx else prompt, 
-            reponse=texte_brut, 
-            mode=mode, 
-            contexte=contexte_choisi_nom, 
-            niveau=niveau_actuel_form
-        )
-
-        st.session_state.messages_hub.append(
-            {"role": "assistant", "type": "text", "content": formatted_answer}
-        )
-
-        for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
-                if est_dnb and "santorin" in video_name.lower():
-                    continue
-                st.session_state.messages_hub.append(
-                    {"role": "assistant", "type": "video", "content": video_url}
-                )
-
-        # ✅ Les fiches rédigées d'après les vidéos donnent l'adresse de la vidéo (« - Vidéo : https://... ») et non un nom
-        # de fichier .mp4 : sans ce bloc, la vidéo n'était plus affichée sous la réponse.
-        if mode != "textes" and not est_dnb:
-            _deja = {m["content"] for m in st.session_state.messages_hub if m.get("type") == "video"}
-            for _url in re.findall(r"https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{6,}", texte_final)[:1]:
-                if _url not in _deja:
-                    st.session_state.messages_hub.append(
-                        {"role": "assistant", "type": "video", "content": _url}
-                    )
-
-        # Une réponse « je ne dispose pas... » n'est pas une réponse à compléter : la précision sera traitée comme
-        # une question complétée, sans consigne « ne répète pas » (qui poussait l'IA à refuser une seconde fois).
-        if origine_reponse == "ia" and re.search(r"je ne dispose pas|pouvez-vous reformuler|je n'ai pas d'information plus pr", texte_brut, flags=re.IGNORECASE):
-            origine_reponse = "vide"
-
-        # 💬 On mémorise uniquement cet échange (texte brut, tronqué), pour une éventuelle relance.
-        _nb_relances = (relance_ctx["relances"] + 1) if relance_ctx else 0
-        if origine_reponse in ("ia", "direct", "courte", "vide") and _nb_relances < NB_RELANCES_MAX:
-            _reponse_texte = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()
-            st.session_state.dernier_echange = {
-                "question": prompt[:1200],
-                "reponse": _reponse_texte[:1500],
-                "mode": mode,
-                "niveau": niveau_actuel_form,
-                "origine": origine_reponse,
-                "relances": _nb_relances,
-            }
-        else:
-            st.session_state.dernier_echange = None
-
-        st.session_state.reset_steps = True
-        st.rerun()
-
-if "messages_hub" in st.session_state and st.session_state.messages_hub:
-    st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
-    # 1) La question et la réponse d'abord (les vidéos sont affichées plus bas, après la zone de précision)
-    for m in st.session_state.messages_hub:
-        if m.get("type") == "video":
-            continue
-        with st.chat_message(m["role"]):
-            st.markdown(m["content"], unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # 2) 💬 RELANCE BORNÉE : proposée juste sous la réponse, à l'initiative du collègue uniquement.
-    _echange = st.session_state.get("dernier_echange")
-    if _echange:
-        _titre_relance = (
-            "✍️ Complétez votre question ici (elle sera ajoutée à la précédente)"
-            if _echange["origine"] in ("courte", "vide")
-            else "💬 Cette réponse ne vous débloque pas ? Précisez votre situation, ou posez une autre question sur ce même onglet"
-        )
-        st.markdown(
-            f"<div style='margin-top: 14px; margin-bottom: 8px; padding: 12px 14px; background: linear-gradient(135deg, #1E293B, #0F172A); "
-            f"border: 1px solid #38BDF8; border-radius: 8px; font-size: 13.5px; color: #F1F5F9; line-height: 1.5;'>"
-            f"<strong style='color: #38BDF8;'>{_titre_relance}</strong><br>"
-            "Une seule précision est possible. Pour changer d'onglet ou de public, choisissez de nouveau un contexte à l'étape 1.</div>",
-            unsafe_allow_html=True,
-        )
-        with st.form(key="form_relance_hub", clear_on_submit=True):
-            col_rel_input, col_rel_submit = st.columns([5, 1])
-            with col_rel_input:
-                relance_brute = st.text_input(
-                    "Précision :",
-                    placeholder="Ce que vous avez fait, où ça bloque, le message exact affiché...",
-                    label_visibility="collapsed",
-                )
-            with col_rel_submit:
-                bouton_relance = st.form_submit_button("💬 Préciser", use_container_width=True)
-            if bouton_relance and relance_brute.strip():
-                st.session_state.relance_ctx = dict(_echange)
-                st.session_state.dernier_echange = None
-                st.session_state.current_prompt = relance_brute.strip()
-                st.rerun()
-
-    # 3) Les tutoriels vidéo en dernier : ainsi la zone de précision reste visible juste sous la réponse
-    for m in st.session_state.messages_hub:
-        if m.get("type") == "video":
-            with st.chat_message(m["role"]):
-                st.video(m["content"])
-
+- CHEMINS DE MENU : ne donne un chemin de menu que s'il figure dans le contexte, et donne-le sans le nuancer. Les formules « généralement », « en général », « normalement », « il se peut que » devant un menu ou un bouton sont interdites : si le chemin exact n'est pas dans le contexte, dis ce que le contexte permet de dire et précise que le chem…7449 tokens truncated…: "complement note de service bac gt 2026",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ]
+  },
+  "data/examens/complement_reponses_validees.txt": {
+    "title": "complement reponses validees",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/examens/complement_saisie_bloquee_diagnostic.txt": {
+    "title": "complement saisie bloquee diagnostic",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
+    "title": "complement saisie santorin cas pratiques",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/examens/regles_dnb_eps.txt": {
+    "title": "regles dnb eps",
+    "statut": "verifie_2026-10-10",
+    "examens": [
+      "dnb"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+    "prioritaire": true,
+    "motifs": [
+      "dnb|brevet|lsu"
+    ]
+  },
+  "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
+    "title": "tutoriels creteil cyclades santorin",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/examens/videos_tutoriels_cyclades_santorin.txt": {
+    "title": "videos tutoriels cyclades santorin",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/circulaire_tasa_2026.txt": {
+    "title": "circulaire tasa 2026",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/complement_natation_scolaire.txt": {
+    "title": "complement natation scolaire",
+    "statut": "verifie_2026-10-10",
+    "examens": [],
+    "url": "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm",
+    "prioritaire": true,
+    "motifs": [
+      "natation|nager|aquatique|asns"
+    ],
+    "exclure_motifs": [
+      "shn|haut niveau|specialite sportive"
+    ]
+  },
+  "data/textes/complement_obligations_service_eps.txt": {
+    "title": "complement obligations service eps",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/complement_statuts_personnels_eps.txt": {
+    "title": "complement statuts personnels eps",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/escalade_controles_securite.txt": {
+    "title": "escalade controles securite",
+    "statut": "verifie_2026-10-10",
+    "examens": [],
+    "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+    "prioritaire": true,
+    "motifs": [
+      "escalad|moulinette|assurage|encord"
+    ]
+  },
+  "data/textes/partenariats_defense_citoyennete.txt": {
+    "title": "partenariats defense citoyennete",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/premier_degré.txt": {
+    "title": "premier degré",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/textes/sorties_encadrement_2024.txt": {
+    "title": "sorties encadrement 2024",
+    "statut": "verifie_2026-10-10",
+    "examens": [],
+    "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+    "prioritaire": true,
+    "motifs": [
+      "sortie|voyage|cm2.*6e|orientation"
+    ]
+  },
+  "data/peda/base_pedagogique_edubase.txt": {
+    "title": "base pedagogique edubase",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/peda/fiches_APSA.txt": {
+    "title": "fiches APSA",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/peda/matrice_AFL_lycee.txt": {
+    "title": "matrice AFL lycee",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/peda/prog_apsa_lycee_tronc_commun.txt": {
+    "title": "prog apsa lycee tronc commun",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/peda/programmes_college_2015_carte_mentale.txt": {
+    "title": "programmes college 2015 carte mentale",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/commun/bac_pro_session_2026.txt": {
+    "title": "bac pro session 2026",
+    "statut": "verifie_2026-10-10",
+    "examens": [
+      "pro"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "prioritaire": true,
+    "motifs": [
+      "ccf|notes?|epreuv|inapt|dispens|absen|bac"
+    ]
+  },
+  "data/commun/cap_session_2026.txt": {
+    "title": "cap session 2026",
+    "statut": "verifie_2026-10-10",
+    "examens": [
+      "cap"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+    "prioritaire": true,
+    "motifs": [
+      "ccf|notes?|epreuv|inapt|dispens|absen|cap"
+    ]
+  },
+  "data/commun/referentiel_champs_activites_afl.txt": {
+    "title": "referentiel champs activites afl",
+    "statut": "synthese_non_revalidee",
+    "examens": []
+  },
+  "data/commun/texte_officiel_bac_gt_note_de_service_2026.txt": {
+    "title": "texte officiel bac gt note de service 2026",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ]
+  },
+  "data/ipack/fiches/ipack_000_titre_procedure_officielle_ipackeps_manipulations_a_effectuer_a_chaque_nouvelle_annee_scol.txt": {
+    "title": "TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque nouvelle année scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_001_procedure_evolutions_majeures_interface_et_modules_2026.txt": {
+    "title": "[PROCÉDURE : ÉVOLUTIONS MAJEURES INTERFACE ET MODULES (2026)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_002_procedure_ordre_chronologique_de_deploiement_d_ipackeps_college_lycee.txt": {
+    "title": "[PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt": {
+    "title": "[OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_004_situation_conges_exceptionnels_vs_examens_nationaux.txt": {
+    "title": "[SITUATION: CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_005_situation_notation_eps_au_baccalaureat.txt": {
+    "title": "[SITUATION: NOTATION EPS AU BACCALAURÉAT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_006_doc_ref_distribution_des_lots_santorin.txt": {
+    "title": "[DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_007_erreur_aucun_lot_a_corriger.txt": {
+    "title": "[ERREUR : AUCUN LOT À CORRIGER]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_008_situation_absence_d_un_correcteur_enseignant_sur_santorin.txt": {
+    "title": "[SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_009_situation_synchronisation_imag_in_santorin.txt": {
+    "title": "[SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_010_situation_interface_messagerie_santorin.txt": {
+    "title": "[SITUATION: INTERFACE MESSAGERIE SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_011_situation_correction_partagee_santorin.txt": {
+    "title": "[SITUATION: CORRECTION PARTAGÉE SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_012_situation_signalement_de_copie_incomplete.txt": {
+    "title": "[SITUATION: SIGNALEMENT DE COPIE INCOMPLÈTE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_013_situation_refresh_et_synchronisation_esterel_portail_arena.txt": {
+    "title": "[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_014_situation_erreur_de_profil_et_d_anciennete_enseignant.txt": {
+    "title": "[SITUATION: ERREUR DE PROFIL ET D'ANCIENNETÉ ENSEIGNANT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_015_situation_erreur_etablissement_non_trouve_sans_adresse.txt": {
+    "title": "[SITUATION: ERREUR « ÉTABLISSEMENT NON TROUVÉ » / SANS ADRESSE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_016_situation_erreur_de_type_de_scolarite_classes_mixtes.txt": {
+    "title": "[SITUATION: ERREUR DE TYPE DE SCOLARITÉ (CLASSES MIXTES)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_017_situation_seconde_prepa_classes_hors_nomenclature.txt": {
+    "title": "[SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_018_situation_groupes_d_options_et_double_niveau.txt": {
+    "title": "[SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_019_situation_annulation_modification_d_intitule_de_groupe.txt": {
+    "title": "[SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_020_situation_eleves_sss_sections_sportives_scolaires.txt": {
+    "title": "[SITUATION: ÉLÈVES SSS (SECTIONS SPORTIVES SCOLAIRES)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_021_situation_validation_du_dossier.txt": {
+    "title": "[SITUATION: VALIDATION DU DOSSIER]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_022_situation_gestion_specifique_de_l_activite_courses_demi_fond_relais.txt": {
+    "title": "[SITUATION: GESTION SPÉCIFIQUE DE L'ACTIVITÉ « COURSES » (DEMI-FOND / RELAIS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt": {
+    "title": "[SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_024_situation_protocoles_et_ensembles_certificatifs_en_voie_professionnelle_cap.txt": {
+    "title": "[SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "cap"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_025_situation_ensembles_avec_eps_adaptee.txt": {
+    "title": "[SITUATION: ENSEMBLES AVEC EPS ADAPTÉE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_026_situation_mise_a_jour_des_responsables_et_contacts_d_etablissement.txt": {
+    "title": "[SITUATION: MISE À JOUR DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_027_situation_rattachement_des_enseignants_externes_partages_greta_cfa_aefe_vacataires.txt": {
+    "title": "[SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_028_situation_arrets_maladie_et_suppleants.txt": {
+    "title": "[SITUATION: ARRÊTS MALADIE ET SUPPLÉANTS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_029_situation_personnels_hors_education_nationale_erea_enseignants_specialises.txt": {
+    "title": "[SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_030_situation_configuration_et_liens_officiels_de_reference.txt": {
+    "title": "[SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_031_situation_ipackeps_saisie_inaptitude_et_depot_certificat_medical.txt": {
+    "title": "[SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_032_situation_procedure_saisie_inaptitude_ipackeps.txt": {
+    "title": "[SITUATION: PROCÉDURE SAISIE INAPTITUDE IPACKEPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_033_situation_bouton_changement_d_activite_grise.txt": {
+    "title": "[SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_034_situation_fiche_gestion_de_la_levee_d_inaptitude_en_cours_de_cycle.txt": {
+    "title": "[SITUATION: FICHE - GESTION DE LA LEVÉE D'INAPTITUDE EN COURS DE CYCLE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_035_situation_importation_eleves_etablissements_prives.txt": {
+    "title": "[SITUATION: IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_036_situation_depot_des_projets_eps_as_etablissement.txt": {
+    "title": "[SITUATION: DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_037_situation_visualisation_des_referentiels_academiques.txt": {
+    "title": "[SITUATION: VISUALISATION DES RÉFÉRENTIELS ACADÉMIQUES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_038_situation_nouvelles_fonctions_enseignants.txt": {
+    "title": "[SITUATION: NOUVELLES FONCTIONS ENSEIGNANTS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_039_situation_v_ux_de_jury_crpe.txt": {
+    "title": "[SITUATION: VŒUX DE JURY CRPE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_040_situation_acces_accompagnateurs_stagiaires_staps.txt": {
+    "title": "[SITUATION: ACCÈS ACCOMPAGNATEURS / STAGIAIRES (STAPS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_041_situation_double_compte_et_mutation_inter_academique.txt": {
+    "title": "[SITUATION: DOUBLE COMPTE ET MUTATION INTER-ACADÉMIQUE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_042_situation_cases_de_saisie_aflp_inactives.txt": {
+    "title": "[SITUATION: CASES DE SAISIE AFLP INACTIVES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_043_situation_date_limite_saisie_santorin.txt": {
+    "title": "[SITUATION: DATE LIMITE SAISIE SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_044_situation_acces_remplacant_santorin.txt": {
+    "title": "[SITUATION: ACCÈS REMPLAÇANT SANTORIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_045_situation_message_aucun_lot_a_corriger.txt": {
+    "title": "[SITUATION: MESSAGE AUCUN LOT A CORRIGER]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_046_situation_cycle_athletisme_adaptation_protocoles_ccf.txt": {
+    "title": "[SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_047_situation_historique_des_prompts_et_logique_du_moteur.txt": {
+    "title": "[SITUATION: HISTORIQUE_DES_PROMPTS_ET_LOGIQUE_DU_MOTEUR]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_048_article_5_connexion_a_ipackeps_via_votre_portail_arena.txt": {
+    "title": "[ARTICLE 5] Connexion à iPackEPS via votre portail ARENA",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_049_article_23_en_cas_d_impossibilite_d_acceder_a_ipackeps.txt": {
+    "title": "[ARTICLE 23] En cas d’impossibilité d’accéder à iPackEPS…",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_050_article_7_logique_d_utilisation_de_ipackeps_en_lien_avec_collegeeps.txt": {
+    "title": "[ARTICLE 7] Logique d’utilisation de iPackEPS en lien avec CollègeEPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_051_article_32_page_d_accueil_des_modules.txt": {
+    "title": "[ARTICLE 32] Page d’accueil des modules",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_052_article_43_selection_de_votre_etablissement.txt": {
+    "title": "[ARTICLE 43] Sélection de votre établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_053_article_33_choix_de_l_annee_scolaire.txt": {
+    "title": "[ARTICLE 33] Choix de l’année scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_054_article_34_tableau_de_bord_ipackeps.txt": {
+    "title": "[ARTICLE 34] Tableau de bord iPackEPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_055_article_51_les_manipulations_requises_a_chaque_nouvelle_annee_scolaire.txt": {
+    "title": "[ARTICLE 51] Les manipulations requises à chaque nouvelle année scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_056_article_12_etablissement_configuration_de_la_fiche_etablissement.txt": {
+    "title": "[ARTICLE 12] [Établissement] Configuration de la Fiche Établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_057_article_11_fiche_professeur_renseigner_sa_fiche_professeur.txt": {
+    "title": "[ARTICLE 11] [Fiche Professeur] Renseigner sa Fiche Professeur",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_058_article_27_dossiers_dossiereps_projets_depot_des_projets_et_configuration_des_axes_des_pro.txt": {
+    "title": "[ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_059_article_13_dossiers_dossiereps_equipe_eps_gestion_de_l_equipe_eps.txt": {
+    "title": "[ARTICLE 13] [Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_060_article_14_dossiers_dossiereps_classes_configuration_des_classes_et_import_des_eleves.txt": {
+    "title": "[ARTICLE 14] [Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_061_article_15_dossiers_dossiereps_apsas_declaration_des_apsas.txt": {
+    "title": "[ARTICLE 15] [Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_062_article_16_dossiers_dossiereps_periodes_configuration_des_periodes_des_sequences_d_apprent.txt": {
+    "title": "[ARTICLE 16] [Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_063_article_17_dossiers_dossiereps_groupes_configuration_des_groupes_eps_as_sss.txt": {
+    "title": "[ARTICLE 17] [Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_064_article_93_dossiers_dossiereps_groupes_gestion_specifique_de_l_enseignement_de_specialite_.txt": {
+    "title": "[ARTICLE 93] [Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_065_article_18_dossiers_dossiereps_eleves_placement_des_eleves_dans_les_groupes.txt": {
+    "title": "[ARTICLE 18] [Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt": {
+    "title": "[ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_067_article_19_dossiers_dossiereps_equipements_gestion_des_equipements_sportifs.txt": {
+    "title": "[ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt": {
+    "title": "[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie et Gestion des Emplois du Temps (EDT)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_069_article_42_dossiers_dossier_certificatif_protocoles_configuration_des_protocoles_des_epreu.txt": {
+    "title": "[ARTICLE 42] [Dossiers]/[Dossier Certificatif]/[Protocoles] Configuration des Protocoles des Épreuves certificatives",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_070_article_38_dossiers_dossier_certificatif_referentiels_remontee_des_referentiels_d_evaluati.txt": {
+    "title": "[ARTICLE 38] [Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_071_article_55_dossiers_dossier_certificatif_depot_des_documents_pour_la_commission_depot_des_.txt": {
+    "title": "[ARTICLE 55] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_072_article_83_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_de_la_fiche_etabl.txt": {
+    "title": "[ARTICLE 83] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_073_article_84_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_des_fiches_indivi.txt": {
+    "title": "[ARTICLE 84] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_074_article_85_dossiers_dossier_certificatif_depot_des_documents_cahpn_controle_des_certificat.txt": {
+    "title": "[ARTICLE 85] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt": {
+    "title": "[ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_076_article_49_dossiers_dossier_natation_asns_gestion_des_validations_d_asns_import_et_impress.txt": {
+    "title": "[ARTICLE 49] [Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_077_article_4_dossiers_dossier_natation_enquete_saisie_de_l_enquete_natation.txt": {
+    "title": "[ARTICLE 4] [Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_078_article_25_dossiers_dossier_natation_statistiques_acces_aux_statistiques_dossier_natation.txt": {
+    "title": "[ARTICLE 25] [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_079_article_35_dossiers_dossier_sss_gestion_des_sections_sportives_scolaires.txt": {
+    "title": "[ARTICLE 35] [Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt": {
+    "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt": {
+    "title": "[ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_082_article_39_dossiers_dossier_sss_bilan_saisie_du_bilan_annuel_de_section_sportive_scolaire.txt": {
+    "title": "[ARTICLE 39] [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt": {
+    "title": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt": {
+    "title": "[ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_085_article_48_mes_eleves_visualisation_visualisation_des_informations_eleves.txt": {
+    "title": "[ARTICLE 48] [Mes Élèves]/[Visualisation] Visualisation des informations élèves",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_086_article_50_mes_eleves_visualisation_asns_validation_et_impression_de_l_asns.txt": {
+    "title": "[ARTICLE 50] [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_087_article_82_mes_eleves_visualisation_inaptitudes_declaration_des_inaptitudes_des_eleves.txt": {
+    "title": "[ARTICLE 82] [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_088_article_90_mes_eleves_inaptitudes_liste_des_eleves_declares_inaptes_dans_votre_etablisseme.txt": {
+    "title": "[ARTICLE 90] [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_089_article_54_mesdocuments_documents_enregistrement_et_impression_de_documents.txt": {
+    "title": "[ARTICLE 54] [MesDocuments]/[Documents] Enregistrement et Impression de documents",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_090_article_56_mesdocuments_documents_programmation_impression_des_edt_individuels_de_chaque_e.txt": {
+    "title": "[ARTICLE 56] [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_091_article_57_mesdocuments_documents_dossards_gestion_des_dossards_de_cross.txt": {
+    "title": "[ARTICLE 57] [MesDocuments]/[Documents] / [Dossards] : Gestion des dossards de Cross",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_092_article_47_mesdocuments_publipostage_edition_et_diffusion_de_publipostages.txt": {
+    "title": "[ARTICLE 47] [MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_093_article_92_mesdocuments_bibliotheque_acces_a_la_bibliotheque_de_documents_d_ipackeps.txt": {
+    "title": "[ARTICLE 92] [MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_094_article_26_materiel_gestion_du_materiel_epi_equipements_de_protection_individuels.txt": {
+    "title": "[ARTICLE 26] [Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_095_article_77_offre_de_formation_groupes_et_apsas.txt": {
+    "title": "[ARTICLE 77] [Offre de Formation] / [Groupes et APSAs]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_096_article_86_statistiques_inaptitudes_les_statistiques_sur_les_inaptitudes_dans_votre_etabli.txt": {
+    "title": "[ARTICLE 86] [Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_097_article_89_outils_export_fichier_eleves_vers_d_autres_logiciels.txt": {
+    "title": "[ARTICLE 89] [Outils]/[Export Fichier Elèves vers d’autres logiciels]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_098_article_58_interface_chef_d_etablissement_description_de_l_interface_complete.txt": {
+    "title": "[ARTICLE 58] Interface chef d’établissement : description de l’interface complète",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_099_1_affectation_et_convocation_automatique_des_enseignants_d_eps.txt": {
+    "title": "1. Affectation et convocation automatique des enseignants d’EPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_100_2_affectation_manuelle_des_enseignants_en_cas_de_besoin_remplacement.txt": {
+    "title": "2. Affectation manuelle des enseignants (en cas de besoin / remplacement)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_101_3_distribution_automatique_des_candidats.txt": {
+    "title": "3. Distribution automatique des candidats",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_102_4_erreurs_de_distribution_et_distribution_manuelle.txt": {
+    "title": "4. Erreurs de distribution et distribution manuelle",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt": {
+    "title": "5. Saisie des notes par les enseignants",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_104_6_saisie_des_notes_selon_l_examen.txt": {
+    "title": "6. Saisie des notes selon l'Examen",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_105_7_cas_exceptionnels_shn_et_notes_particulieres.txt": {
+    "title": "7. Cas exceptionnels, SHN et notes particulières",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_106_8_suivi_de_l_avancement_par_l_etablissement.txt": {
+    "title": "8. Suivi de l'avancement par l'établissement",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_107_thematique_absence.txt": {
+    "title": "Thématique : Absence",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_108_thematique_contexte_de_l_epreuve_incertitude_ca2.txt": {
+    "title": "Thématique : Contexte de l'épreuve (Incertitude CA2)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_109_thematique_contexte_de_l_epreuve_positionnement_epreuve_differee.txt": {
+    "title": "Thématique : Contexte de l'épreuve (Positionnement Épreuve Différée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_110_thematique_conservation_des_notes.txt": {
+    "title": "Thématique : Conservation des Notes",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_111_thematique_remuneration_co_evaluation.txt": {
+    "title": "Thématique : Rémunération Co-évaluation",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_112_thematique_evaluer_et_noter_arrivee_en_cours_de_sequence.txt": {
+    "title": "Thématique : Évaluer et Noter (Arrivée en cours de séquence)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_113_thematique_evaluer_et_noter_participation_des_eleves_aux_criteres.txt": {
+    "title": "Thématique : Évaluer et Noter (Participation des élèves aux critères)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_114_thematique_evaluer_et_noter_afl3_roles_multiples.txt": {
+    "title": "Thématique : Évaluer et Noter (AFL3 / Rôles multiples)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_115_thematique_evaluer_et_noter_4_sequences_d_enseignement.txt": {
+    "title": "Thématique : Évaluer et Noter (4 séquences d'enseignement)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_116_thematique_evaluer_et_noter_epreuves_ecrites_ou_orales.txt": {
+    "title": "Thématique : Évaluer et Noter (Épreuves écrites ou orales)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_117_thematique_evaluer_et_noter_integration_de_la_note_de_fin_de_sequence.txt": {
+    "title": "Thématique : Évaluer et Noter (Intégration de la note de fin de séquence)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_118_thematique_evaluer_et_noter_attribution_du_0_pour_absence.txt": {
+    "title": "Thématique : Évaluer et Noter (Attribution du 0 pour absence)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_119_thematique_evaluer_et_noter_information_des_criteres.txt": {
+    "title": "Thématique : Évaluer et Noter (Information des critères)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_120_thematique_evaluer_et_noter_duree_des_lecons_d_evaluation.txt": {
+    "title": "Thématique : Évaluer et Noter (Durée des leçons d'évaluation)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_121_thematique_evaluer_et_noter_nombre_de_notes_pour_la_moyenne.txt": {
+    "title": "Thématique : Évaluer et Noter (Nombre de notes pour la moyenne)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_122_thematique_evaluer_et_noter_temps_d_enseignement_minimum.txt": {
+    "title": "Thématique : Évaluer et Noter (Temps d'enseignement minimum)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_123_thematique_evaluer_et_noter_note_collective.txt": {
+    "title": "Thématique : Évaluer et Noter (Note collective)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_124_thematique_evaluer_et_noter_oubli_de_tenue.txt": {
+    "title": "Thématique : Évaluer et Noter (Oubli de tenue)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_125_thematique_evaluer_et_noter_absent_inapte_dans_une_organisation_collective.txt": {
+    "title": "Thématique : Évaluer et Noter (Absent/Inapte dans une organisation collective)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_126_thematique_evaluer_et_noter_maintien_de_l_evaluation_en_cas_d_epreuve_differee.txt": {
+    "title": "Thématique : Évaluer et Noter (Maintien de l'évaluation en cas d'épreuve différée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_127_thematique_inaptitudes_et_dispenses_definition_epreuve_differee.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Définition Épreuve Différée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_128_thematique_inaptitudes_et_dispenses_concept_du_controle_adapte.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Concept du Contrôle Adapté)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_129_thematique_inaptitudes_et_dispenses_pratique_evaluation_amenagee.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Pratique/Évaluation Aménagée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_130_thematique_inaptitudes_et_dispenses_epreuve_adaptee.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Épreuve Adaptée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_131_thematique_inaptitudes_et_dispenses_absence_sur_la_sequence_mais_present_a_l_evaluation.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Absence sur la séquence mais présent à l'évaluation)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_132_thematique_inaptitudes_et_dispenses_demarche_d_adaptation_ccf.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Démarche d'adaptation CCF)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_133_thematique_inaptitudes_et_dispenses_ponderation_d_un_critere.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Pondération d'un critère)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_134_thematique_inaptitudes_et_dispenses_la_note_de_20_20_en_epreuve_adaptee.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (La note de 20/20 en épreuve adaptée)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_135_thematique_inaptitudes_et_dispenses_maladie_le_jour_de_l_evaluation.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Maladie le jour de l'évaluation)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_136_thematique_inaptitudes_et_dispenses_inaptitudes_repetees_suspectes.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Inaptitudes répétées suspectes)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_137_thematique_inaptitudes_et_dispenses_inaptitude_temporaire_vs_controle_adapte.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Inaptitude Temporaire vs Contrôle Adapté)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_138_thematique_inaptitudes_et_dispenses_reconnaissance_de_l_inaptitude_permanente.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Reconnaissance de l'Inaptitude Permanente)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_139_thematique_l_evaluation_en_eps_difference_cc_et_ccf.txt": {
+    "title": "Thématique : L'évaluation en EPS (Différence CC et CCF)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_140_thematique_l_evaluation_en_eps_obligation_du_ccf.txt": {
+    "title": "Thématique : L'évaluation en EPS (Obligation du CCF)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_141_thematique_l_evaluation_en_eps_cc_au_dnb.txt": {
+    "title": "Thématique : L'évaluation en EPS (CC au DNB)",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "dnb"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_142_thematique_l_evaluation_en_eps_construction_note_dnb.txt": {
+    "title": "Thématique : L'évaluation en EPS (Construction Note DNB)",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "dnb"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_143_thematique_l_evaluation_en_eps_information_des_resultats_et_lsu.txt": {
+    "title": "Thématique : L'évaluation en EPS (Information des résultats et LSU)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_144_thematique_l_evaluation_en_eps_co_evaluation.txt": {
+    "title": "Thématique : L'évaluation en EPS (Co-évaluation)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_145_thematique_l_evaluation_en_eps_convocation_des_candidats.txt": {
+    "title": "Thématique : L'évaluation en EPS (Convocation des candidats)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_146_thematique_l_evaluation_en_eps_evaluateurs_externes.txt": {
+    "title": "Thématique : L'évaluation en EPS (Évaluateurs externes)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_147_thematique_l_evaluation_en_eps_auto_evaluation_et_pairs.txt": {
+    "title": "Thématique : L'évaluation en EPS (Auto-évaluation et Pairs)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_148_thematique_l_evaluation_en_eps_fiche_de_reference_hors_examen.txt": {
+    "title": "Thématique : L'évaluation en EPS (Fiche de référence hors-examen)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_149_thematique_l_evaluation_en_eps_notes_de_4eme.txt": {
+    "title": "Thématique : L'évaluation en EPS (Notes de 4ème)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_150_thematique_l_evaluation_en_eps_ecart_de_niveau_de_fin_de_cycle.txt": {
+    "title": "Thématique : L'évaluation en EPS (Écart de niveau de fin de cycle)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_151_thematique_l_evaluation_en_eps_nombre_d_activites_pour_la_certification.txt": {
+    "title": "Thématique : L'évaluation en EPS (Nombre d'activités pour la certification)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_153_thematique_l_evaluation_en_eps_epreuve_optionnelle_ponctuelle.txt": {
+    "title": "Thématique : L'évaluation en EPS (Épreuve Optionnelle Ponctuelle)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_154_thematique_l_evaluation_en_eps_prise_en_compte_de_l_as_sss_dans_l_examen.txt": {
+    "title": "Thématique : L'évaluation en EPS (Prise en compte de l'AS / SSS dans l'examen)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_155_thematique_l_evaluation_en_eps_notation_sur_l_inaptitude_totale_temporaire_via_le_non_mote.txt": {
+    "title": "Thématique : L'évaluation en EPS (Notation sur l'inaptitude totale temporaire via le non-moteur)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_156_thematique_l_evaluation_en_eps_observables_et_variation_de_baremes_de_points.txt": {
+    "title": "Thématique : L'évaluation en EPS (Observables et variation de barèmes de points)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_157_thematique_l_evaluation_en_eps_exemples_nationaux_ca1_et_formats_locaux.txt": {
+    "title": "Thématique : L'évaluation en EPS (Exemples nationaux CA1 et formats locaux)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_158_thematique_l_evaluation_en_eps_moment_d_annonce_de_repartition_des_points.txt": {
+    "title": "Thématique : L'évaluation en EPS (Moment d'annonce de répartition des points)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_159_thematique_l_evaluation_en_eps_changement_de_ca_pour_une_activite_academique.txt": {
+    "title": "Thématique : L'évaluation en EPS (Changement de CA pour une activité académique)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt": {
+    "title": "Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_161_situation_regle_d_or_nationale_certification_mixte_du_ccf_bac.txt": {
+    "title": "[SITUATION: RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_162_situation_configuration_informatique_dans_ipackeps_logique_de_groupe.txt": {
+    "title": "[SITUATION: CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_163_situation_tracabilite_et_protection_fonctionnelle.txt": {
+    "title": "[SITUATION: TRAÇABILITÉ ET PROTECTION FONCTIONNELLE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_164_situation_santorin_cases_aflp_inactives_impossible_de_saisir.txt": {
+    "title": "[SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_165_situation_santorin_date_limite_de_saisie_des_notes.txt": {
+    "title": "[SITUATION: SANTORIN — DATE LIMITE DE SAISIE DES NOTES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_166_situation_santorin_acces_remplacant_chronologie.txt": {
+    "title": "[SITUATION: SANTORIN — ACCÈS REMPLAÇANT (CHRONOLOGIE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_167_situation_santorin_aucun_lot_a_corriger_distribution.txt": {
+    "title": "[SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_168_situation_santorin_ccf_indisponibilite_des_installations_sportives_ccf3.txt": {
+    "title": "[SITUATION: [SANTORIN / CCF] INDISPONIBILITÉ DES INSTALLATIONS SPORTIVES (CCF3)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_169_situation_santorin_lot_manquant_d_un_collegue_imag_in.txt": {
+    "title": "[SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_170_situation_santorin_epreuve_adaptee_et_distribution_des_lots.txt": {
+    "title": "[SITUATION: SANTORIN — ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_171_situation_santorin_eleve_manquant_mais_present_dans_cyclades.txt": {
+    "title": "[SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_172_situation_santorin_activite_haut_niveau_shn_et_note_de_20_20.txt": {
+    "title": "[SITUATION: SANTORIN — ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_173_situation_ipackeps_export_et_recuperation_dans_cyclades.txt": {
+    "title": "[SITUATION: IPACKEPS — EXPORT ET RÉCUPÉRATION DANS CYCLADES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_174_situation_ipackeps_programmation_demi_fond_bac_gt.txt": {
+    "title": "[SITUATION: IPACKEPS — PROGRAMMATION DEMI-FOND BAC GT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_175_situation_ipackeps_adaptation_athletisme.txt": {
+    "title": "[SITUATION: IPACKEPS — ADAPTATION ATHLÉTISME]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_176_situation_ipackeps_comment_deposer_un_certificat_medical.txt": {
+    "title": "[SITUATION: IPACKEPS — COMMENT DÉPOSER UN CERTIFICAT MÉDICAL]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_177_situation_supprimer_un_protocole_dans_ipackeps_et_non_dans_cyclades.txt": {
+    "title": "[SITUATION: SUPPRIMER UN PROTOCOLE DANS iPackEPS (ET NON DANS CYCLADES)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt": {
+    "title": "[SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_179_situation_menace_de_recours_juridique_d_un_parent_sur_une_note_de_ccf.txt": {
+    "title": "[SITUATION: MENACE DE RECOURS JURIDIQUE D'UN PARENT SUR UNE NOTE DE CCF]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_180_situation_horaires_de_passation_des_epreuves_de_ccf_mercredi_hors_cours.txt": {
+    "title": "[SITUATION: HORAIRES DE PASSATION DES ÉPREUVES DE CCF (MERCREDI / HORS COURS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_181_situation_suppression_bloquee_d_une_sequence_d_un_groupe_ou_d_une_apsa_effet_cascade.txt": {
+    "title": "[SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_182_situation_caracteres_speciaux_prenoms_composes_et_encodage_csv_corrompu.txt": {
+    "title": "[SITUATION: CARACTÈRES SPÉCIAUX, PRÉNOMS COMPOSÉS ET ENCODAGE CSV CORROMPU]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_183_situation_eleve_ayant_change_d_etat_civil_ou_prenom_d_usage_en_cours_d_annee.txt": {
+    "title": "[SITUATION: ÉLÈVE AYANT CHANGÉ D'ÉTAT CIVIL OU PRÉNOM D'USAGE EN COURS D'ANNÉE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_184_situation_refus_d_obstacle_eleve_qui_pleure_ou_abandonne_en_pleine_epreuve.txt": {
+    "title": "[SITUATION: REFUS D'OBSTACLE, ÉLÈVE QUI PLEURE OU ABANDONNE EN PLEINE ÉPREUVE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_185_situation_tentative_de_modification_de_bareme_en_cours_de_cycle_tout_le_monde_a_rate.txt": {
+    "title": "[SITUATION: TENTATIVE DE MODIFICATION DE BARÈME EN COURS DE CYCLE (« TOUT LE MONDE A RATÉ »)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_186_situation_double_notation_pronote_vs_ipackeps_quel_fichier_fait_foi.txt": {
+    "title": "[SITUATION: DOUBLE NOTATION PRONOTE VS IPACKEPS (QUEL FICHIER FAIT FOI ?)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_187_situation_moi_je_veux_mettre_une_note_globale_sur_20_directement_dans_santorin_sans_detail.txt": {
+    "title": "[SITUATION: « MOI JE VEUX METTRE UNE NOTE GLOBALE SUR 20 DIRECTEMENT DANS SANTORIN SANS DÉTAILLER LES AFL »]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_188_situation_je_veux_proposer_badminton_volley_et_basket_en_bac_pro_conflit_de_ca.txt": {
+    "title": "[SITUATION: « JE VEUX PROPOSER BADMINTON, VOLLEY ET BASKET EN BAC PRO » (CONFLIT DE CA)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "pro"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_189_situation_le_numerique_a_plante_pendant_mon_epreuve_le_ccf_est_juridiquement_nul.txt": {
+    "title": "[SITUATION: « LE NUMÉRIQUE A PLANTÉ PENDANT MON ÉPREUVE, LE CCF EST JURIDIQUEMENT NUL »]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_190_situation_reventilation_des_heures_d_enseignement_et_groupes_mixtes_sur_barrettes.txt": {
+    "title": "[SITUATION: REVENTILATION DES HEURES D'ENSEIGNEMENT ET GROUPES MIXTES SUR BARRETTES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_191_situation_dispositifs_ulis_et_upe2a_sans_evaluation_chiffree_au_dnb.txt": {
+    "title": "[SITUATION: DISPOSITIFS ULIS ET UPE2A SANS ÉVALUATION CHIFFRÉE AU DNB]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "dnb"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_192_situation_enseignant_titulaire_remplace_en_cours_d_annee_par_plusieurs_contractuels_succes.txt": {
+    "title": "[SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_193_article_95_dossiers_dossier_certificatif_candidats_individuels_candidats_libres_vs_ccf.txt": {
+    "title": "[ARTICLE 95] [Dossiers]/[Dossier Certificatif] Candidats Individuels / Candidats Libres vs CCF",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_194_article_96_dossiers_dossier_certificatif_gestion_de_l_eleve_ayant_2_notes_sur_3_au_bac_gt_.txt": {
+    "title": "[ARTICLE 96] [Dossiers]/[Dossier Certificatif] Gestion de l'Élève ayant 2 notes sur 3 au Bac GT (Inaptitude sur la 3e épreuve)",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt": {
+    "title": "[ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_196_article_98_dossiers_dossier_eps_eleves_demenagement_changement_d_etablissement_inter_acade.txt": {
+    "title": "[ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_197_article_99_dossiers_dossier_eps_classes_doublons_d_eleves_suite_a_modification_d_orthograp.txt": {
+    "title": "[ARTICLE 99] [Dossiers]/[Dossier EPS]/[Classes] Doublons d'élèves suite à modification d'orthographe ou d'INE dans SIÈCLE",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_198_article_100_dossiers_dossier_eps_groupes_sections_binationales_abibac_bachibac_esabac_et_i.txt": {
+    "title": "[ARTICLE 100] [Dossiers]/[Dossier EPS]/[Groupes] Sections Binationales (Abibac, Bachibac, Esabac) et Internationales (BFI)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_199_article_101_dossiers_dossier_certificatif_referentiels_rejet_d_un_referentiel_par_la_commi.txt": {
+    "title": "[ARTICLE 101] [Dossiers]/[Dossier Certificatif]/[Référentiels] Rejet d'un référentiel par la Commission Académique (Statut Rouge)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_200_article_102_materiel_epi_controle_periodique_et_registre_de_securite_escalade.txt": {
+    "title": "[ARTICLE 102] [Matériel]/[EPI] Contrôle Périodique et Registre de Sécurité Escalade",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_201_article_103_tableau_de_bord_chef_d_etablissement_signature_electronique_grisee_ou_inaccess.txt": {
+    "title": "[ARTICLE 103] [Tableau de bord]/[Chef d'établissement] Signature Électronique Grisée ou Inaccessible",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_202_article_104_tablette_cache_du_navigateur_et_notes_rien_n_est_stocke_dans_ipackeps.txt": {
+    "title": "[ARTICLE 104] Tablette, cache du navigateur et notes : rien n'est stocké dans iPackEPS",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_203_article_105_dossiers_dossier_eps_eleves_gestion_des_equipes_pedagogiques_en_lycee_professi.txt": {
+    "title": "[ARTICLE 105] [Dossiers]/[Dossier EPS]/[Élèves] Gestion des Équipes Pédagogiques en Lycée Professionnel avec Alternance / Périodes de PFMP",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "pro"
+    ],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_204_article_106_dossiers_dossier_certificatif_epreuve_ponctuelle_de_remplacement_de_septembre_.txt": {
+    "title": "[ARTICLE 106] [Dossiers]/[Dossier Certificatif] Épreuve Ponctuelle de Remplacement de Septembre (Baccalauréat)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_205_article_107_dossiers_dossier_eps_apsa_enseignement_de_specialite_eppcs_vs_tronc_commun_aps.txt": {
+    "title": "[ARTICLE 107] [Dossiers]/[Dossier EPS]/[APSA] Enseignement de Spécialité EPPCS vs Tronc Commun : APSA Exclusive",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_206_article_108_dossiers_dossier_eps_eleves_importation_depuis_d_autres_logiciels_idoceo_addit.txt": {
+    "title": "[ARTICLE 108] [Dossiers]/[Dossier EPS]/[Élèves] Importation depuis d'autres logiciels (Idoceo, Additio, CSV Personnalisé)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_207_article_109_dossiers_dossier_certificatif_conservation_des_documents_d_evaluation_et_emarg.txt": {
+    "title": "[ARTICLE 109] [Dossiers]/[Dossier Certificatif] Conservation des Documents d'Évaluation et Émargements",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt": {
+    "title": "[ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt": {
+    "title": "[ARTICLE 112] GESTION DES SPORTIFS DE HAUT NIVEAU (SHN) DANS IPACKEPS, CYCLADES ET SANTORIN",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_210_article_111_sections_sportives_scolaires_sss_classes_sports_etudes_et_sportifs_de_haut_niv.txt": {
+    "title": "[ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN) : NE PAS LES CONFONDRE",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_211_article_113_calendrier_academique_et_dates_limites_import_classes_protocoles.txt": {
+    "title": "[ARTICLE 113] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt": {
+    "title": "[SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_213_situation_corruption_des_accents_et_des_classes_csv_piege_d_excel.txt": {
+    "title": "[SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_214_situation_ergonomie_generale_interface_commune.txt": {
+    "title": "[SITUATION: ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_215_situation_modules_gestion_du_materiel_inventaire_epi.txt": {
+    "title": "[SITUATION: MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_216_situation_modules_dossiers_eps_certificatif_cahpn.txt": {
+    "title": "[SITUATION: MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_217_situation_modules_sections_sportives_scolaires_sss_appn.txt": {
+    "title": "[SITUATION: MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_218_situation_donnees_academiques_configuration_technique.txt": {
+    "title": "[SITUATION: DONNÉES ACADÉMIQUES & CONFIGURATION TECHNIQUE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_219_identite_et_technologie_de_l_assistant_faq_du_hub.txt": {
+    "title": "Identité et technologie de l'assistant (FAQ du Hub)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_220_situation_enseignles_avec_eps_adaptee.txt": {
+    "title": "[SITUATION: ENSEIGNLES AVEC EPS ADAPTÉE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_221_situation_gestion_des_eleves_beneficiant_d_un_pai_pap_ou_pps.txt": {
+    "title": "[SITUATION: GESTION DES ÉLÈVES BÉNÉFICIANT D'UN PAI, PAP OU PPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt": {
+    "title": "[SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
+    "title": "[SITUATION: ÉLÈVE AYANT FAIT L'OBJET D'UNE SANCTION DISCIPLINAIRE (EXCLUSION) PENDANT UN CCF]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_224_situation_role_de_controle_du_chef_d_etablissement_sur_les_protocoles.txt": {
+    "title": "[SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_225_situation_ergonomie_generale_interface_commune_ui.txt": {
+    "title": "[SITUATION: ERGONOMIE GÉNÉRALE & INTERFACE COMMUNE (UI)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_226_situation_modules_gestion_du_materiel_inventaire_epi.txt": {
+    "title": "[SITUATION: MODULES GESTION DU MATÉRIEL & INVENTAIRE EPI]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_227_situation_modules_dossiers_eps_certificatif_cahpn.txt": {
+    "title": "[SITUATION: MODULES DOSSIERS (EPS & CERTIFICATIF CAHPN)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_228_situation_modules_sections_sportives_scolaires_sss_appn.txt": {
+    "title": "[SITUATION: MODULES SECTIONS SPORTIVES SCOLAIRES (SSS) & APPN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_229_situation_donnees_academiques_rapports_configuration_technique.txt": {
+    "title": "[SITUATION: DONNÉES ACADÉMIQUES, RAPPORTS & CONFIGURATION TECHNIQUE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_230_situation_cas_complementaires_regles_terrain_strictes.txt": {
+    "title": "[SITUATION: CAS COMPLÉMENTAIRES & RÈGLES TERRAIN STRICTES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_231_1_definition_et_perimetre_de_l_application.txt": {
+    "title": "1. Définition et Périmètre de l'Application",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_232_2_ergonomie_et_interface_generale_ui.txt": {
+    "title": "2. Ergonomie et Interface Générale (UI)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_233_3_tableau_de_bord_et_gestion_des_eleves.txt": {
+    "title": "3. Tableau de Bord et Gestion des Élèves",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_234_4_modules_de_gestion_du_materiel_inventaire_epi.txt": {
+    "title": "4. Modules de Gestion du Matériel (Inventaire EPI)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_235_5_dossiers_certificatifs_cahpn_et_examens_cyclades.txt": {
+    "title": "5. Dossiers Certificatifs (CAHPN) et Examens (Cyclades)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_236_6_sections_sportives_scolaires_sss_et_dossiers_appn.txt": {
+    "title": "6. Sections Sportives Scolaires (SSS) et Dossiers APPN",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/ipack/fiches/ipack_237_7_administration_rapports_et_parametrage_technique.txt": {
+    "title": "7. Administration, Rapports et Paramétrage Technique",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_000_section_cadre_reglementaire_et_operationnel_coordonnateur_eps.txt": {
+    "title": "[SECTION: CADRE_REGLEMENTAIRE_ET_OPERATIONNEL_COORDONNATEUR_EPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_001_situation_textes_de_reference_role_et_usage_d_ipackeps_du_coordonnateur_eps.txt": {
+    "title": "[SITUATION: TEXTES DE RÉFÉRENCE, RÔLE ET USAGE D'IPACKEPS DU COORDONNATEUR EPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_002_situation_1ere_section_responsabilite_civile_penale_et_protection_fonctionnelle.txt": {
+    "title": "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_003_situation_2e_section_jurisprudences_de_reference_et_arbitrages_reconnus.txt": {
+    "title": "[SITUATION: 2E SECTION : JURISPRUDENCES DE RÉFÉRENCE ET ARBITRAGES RECONNUS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt": {
+    "title": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt": {
+    "title": "[SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt": {
+    "title": "[SITUATION: 5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_007_situation_6e_section_conformite_securite_en_milieu_aquatique_et_natation_scolaire.txt": {
+    "title": "[SITUATION: 6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_008_situation_public_vise_et_modalites_d_obtention_par_defaut.txt": {
+    "title": "[SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_009_situation_logistique_administrative_et_calendrier_academique.txt": {
+    "title": "[SITUATION: LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_010_situation_ouverture_protocolaire_aux_contractuels_et_detachements.txt": {
+    "title": "[SITUATION: OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_011_situation_protocole_technique_de_l_epreuve_100_metres_en_continu.txt": {
+    "title": "[SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_012_situation_motifs_d_elimination_immediate_test_non_valide.txt": {
+    "title": "[SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_013_situation_7e_section_pedagogie_horaires_et_dispositifs_de_suivi_au_college_cycles_3_4.txt": {
+    "title": "[SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_014_situation_8e_section_socle_commun_sccc_et_exigences_du_dnb_session_2026.txt": {
+    "title": "[SITUATION: 8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "dnb"
+    ],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_015_situation_9e_section_cadre_du_ccf_en_lycee_gt_specialite_eppcs_et_athletes_shn.txt": {
+    "title": "[SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "gt"
+    ],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt": {
+    "title": "[SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "cap",
+      "pro"
+    ],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_017_situation_11e_section_matrices_criteriees_nationales_aflp4_aflp5_duels.txt": {
+    "title": "[SITUATION: 11E SECTION : MATRICES CRITÉRIÉES NATIONALES (AFLP4, AFLP5, DUELS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_018_situation_12e_section_associative_as_sections_sportives_et_droit_domanial_local.txt": {
+    "title": "[SITUATION: 12E SECTION : ASSOCIATIVE, AS, SECTIONS SPORTIVES ET DROIT DOMANIAL LOCAL]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt": {
+    "title": "[SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
+    "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
+    "title": "[SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt": {
+    "title": "[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt": {
+    "title": "[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt": {
+    "title": "[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt": {
+    "title": "[SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt": {
+    "title": "[SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_028_situation_22e_section_registre_recent_des_condamnations_penales_cas_d_ecole.txt": {
+    "title": "[SITUATION: 22E SECTION : REGISTRE RECENT DES CONDAMNATIONS PENALES (CAS D'ECOLE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt": {
+    "title": "[SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt": {
+    "title": "[SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt": {
+    "title": "[SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt": {
+    "title": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt": {
+    "title": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt": {
+    "title": "[SITUATION: Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
+    "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
+    "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt": {
+    "title": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt": {
+    "title": "[SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt": {
+    "title": "[SITUATION: CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
+    "title": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt": {
+    "title": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt": {
+    "title": "[SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt": {
+    "title": "[SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt": {
+    "title": "[SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt": {
+    "title": "[SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt": {
+    "title": "[SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
+    "title": "[SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt": {
+    "title": "[SITUATION: 25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt": {
+    "title": "[SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_050_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt": {
+    "title": "[SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_051_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
+    "title": "[SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt": {
+    "title": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_053_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt": {
+    "title": "[SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
+    "title": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt": {
+    "title": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt": {
+    "title": "[SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_057_situation_responsabilite_civile_penale_et_protection_de_l_agent.txt": {
+    "title": "[SITUATION: RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION DE L'AGENT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt": {
+    "title": "[SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt": {
+    "title": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt": {
+    "title": "[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt": {
+    "title": "[SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt": {
+    "title": "[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_001_situation_cadre_institutionnel_dates_limites_specificites_santorin_eps.txt": {
+    "title": "[SITUATION: CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_003_situation_boite_a_outils_astuces_de_terrain_raccourcis_clavier.txt": {
+    "title": "[SITUATION: BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt": {
+    "title": "[SITUATION: RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [
+      "pro"
+    ],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_005_situation_chaine_technique_acces_santorin_pour_un_enseignant_remplacant.txt": {
+    "title": "[SITUATION: CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_006_situation_la_fausse_piste_des_conditions_exceptionnelles_ce.txt": {
+    "title": "[SITUATION: LA FAUSSE PISTE DES \"CONDITIONS EXCEPTIONNELLES\" (CE)]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_007_situation_matrice_de_saisie_resolution_des_bugs_d_interface_santorin_co_evaluation.txt": {
+    "title": "[SITUATION: MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_009_1_acteurs_et_roles_institutionnels.txt": {
+    "title": "1. Acteurs et Rôles Institutionnels",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_010_2_logistique_santorin_et_distribution_des_lots.txt": {
+    "title": "2. Logistique Santorin et Distribution des Lots",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_011_3_saisie_des_notes_et_cas_particuliers_santorin_ccf.txt": {
+    "title": "3. Saisie des Notes et Cas Particuliers (Santorin / CCF)",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt": {
+    "title": "4. Réglementation des Absences et Épreuves Différées",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/examens/fiches/memoire_examens_santorin_013_article_gestion_et_identification_des_sportifs_de_haut_niveau_shn_examens_nationaux.txt": {
+    "title": "[ARTICLE : GESTION ET IDENTIFICATION DES SPORTIFS DE HAUT NIVEAU (SHN) - EXAMENS NATIONAUX]",
+    "statut": "synthese_non_revalidee",
+    "examens": [],
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+  },
+  "data/commun/dnb/01_controle_continu_calcul.txt": {
+    "title": "DNB : calcul, poids de l'EPS et mentions",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "calcul|compte|40|60|800|mention|coeff|moyenne.*moyenne"
+    ],
+    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+    "urls": [
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+      "https://www.education.gouv.fr/le-diplome-national-du-brevet-10613",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/02_lsu_cyclades_santorin.txt": {
+    "title": "DNB : LSU, Cyclades, Santorin et harmonisation",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "santorin|cyclades|lsu|sais|harmonis|protocole|ccf"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+      "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/03_absences_representativite.txt": {
+    "title": "DNB : absence, moyenne représentative, En attente, rattrapage et remplacement",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "absen|zero|seule note|une note|attente|representativ|rattrap|remplac"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/04_inaptitudes_dispenses.txt": {
+    "title": "DNB EPS : inaptitude, dispense, PAP, PAI et PPS",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt|dispens|medical|pap|pai|pps"
+    ],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+    "urls": [
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=",
+      "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA551S/BASPE_551.pdf"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/05_competences_apsa_shn.txt": {
+    "title": "DNB EPS : compétences, note sur 20, trois APSA et sportifs de haut niveau",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "competenc|niveau|apsa|champ|shn|haut niveau|protocole"
+    ],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+    "urls": [
+      "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf",
+      "https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/06_oral_parcours_eps.txt": {
+    "title": "DNB : oral, projet EPS et parcours éducatifs",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "oral|soutenance|parcours|epi"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
+      "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+      "https://www.education.gouv.fr/le-diplome-national-du-brevet-10613"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/07_incluscol_amenagements.txt": {
+    "title": "DNB : Incluscol et demandes d'aménagements d'examen",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "incluscol|amex|amenag|procedure simplifie|procedure complete"
+    ],
+    "url": "https://www.ac-aix-marseille.fr/amenagement-d-epreuves-aux-examens-121669",
+    "urls": [
+      "https://www.ac-aix-marseille.fr/amenagement-d-epreuves-aux-examens-121669",
+      "https://eduscol.education.gouv.fr/5454/incluscol-application-des-demandes-d-amenagements-d-examen",
+      "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-chef-detablissementpdf-113391.pdf"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/dnb/08_sessions_sources_dates.txt": {
+    "title": "DNB : session 2026 ou 2027, textes et dates",
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "2026|2027|session|date|delai|calendrier|souplesse|texte"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
+    "urls": [
+      "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N",
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
+      "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet",
+      "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+    ],
+    "support": "Diaporama académique DNB, mars 2026",
+    "date_verification": "2026-10-10"
+  },
+  "data/commun/gt_option_eps_lsl.txt": {
+    "title": "Bac GT : option EPS et LSL",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "optionnel|option eps|eps option|ls[l u]",
+      "enseignement option"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo32/MENE2523744N",
+    "statut": "verifie_2026-10-10_portee_explicite"
+  },
+  "data/commun/pro_shn_ccf.txt": {
+    "title": "Bac professionnel : SHN et CCF",
+    "examens": [
+      "pro"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "shn|haut niveau|specialite sportive"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "statut": "verifie_2026-10-10_portee_explicite"
+  },
+  "data/ipack/a_verifier/ipack_152_thematique_l_evaluation_en_eps_sportifs_de_haut_niveau_shn.txt": {
+    "title": "Thématique : L'évaluation en EPS (Sportifs de Haut Niveau / SHN)",
+    "statut": "a_verifier_contradictions_audit_2026-10-10",
+    "examens": [],
+    "origine": "data/archives/compilations/ipack.txt",
+    "motif_quarantaine": "Portées et règles mélangées ; original conservé, exclu de la recherche."
+  },
+  "data/textes/a_verifier/base_textes_officiels_027_situation_21e_section_conformite_ccf_examens_et_protocole_anti_recours.txt": {
+    "title": "[SITUATION: 21E SECTION : CONFORMITÉ CCF, EXAMENS ET PROTOCOLE ANTI-RECOURS]",
+    "statut": "a_verifier_contradictions_audit_2026-10-10",
+    "examens": [],
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "motif_quarantaine": "Portées et règles mélangées ; original conservé, exclu de la recherche."
+  }
+}

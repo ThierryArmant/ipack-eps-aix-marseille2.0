@@ -104,10 +104,17 @@ def clarification(question, public):
     return ''
 
 
-def reference_notice(targets):
+def reference_notice(targets, question=None):
     entries = catalog()
     result = []
     for path, md in entries.items():
-        if md.get('prioritaire') and (not md.get('examens') or set(md['examens']) & set(targets)):
-            result.append((path, md))
+        if not md.get('prioritaire') or (md.get('examens') and not set(md['examens']) & set(targets)):
+            continue
+        if question is not None:
+            q = normalise(question)
+            if not any(re.search(m, q) for m in md.get('motifs', [])):
+                continue
+            if any(re.search(m, q) for m in md.get('exclure_motifs', [])):
+                continue
+        result.append((path, md))
     return result

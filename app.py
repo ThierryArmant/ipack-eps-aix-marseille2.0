@@ -2406,7 +2406,7 @@ if prompt_a_traiter:
                                      "du baccalauréat professionnel et du baccalauréat général (« absence non justifiée = zéro ») ne s'appliquent PAS au collège et ne doivent pas être citées. "
                                      "Au collège, on ne met pas zéro pour une absence à une évaluation ordinaire : si la moyenne n'est pas représentative, mention « En attente », "
                                      "évaluations supplémentaires, puis évaluation de remplacement. Le zéro n'est attribué que pour une absence NON justifiée à l'évaluation de remplacement. "
-                                     "Texte : note de service du 2 septembre 2025 (Bulletin officiel du 4 septembre 2025).\n")
+                                     "Pour la session 2027 : note MENE2623194N du 11 septembre 2026 ; pour une autre session, vérifier la référence temporelle dans les fiches. Ne pas citer la note de septembre 2025 comme texte applicable en 2027.\n")
 
                 contexte_complet_ia = f"""
 {faits_champs}

@@ -1,0 +1,6 @@
+### [SITUATION: SUPPRESSION PAR ERREUR DANS iPackEPS — ÉVALUATION, SÉQUENCE, GROUPE OU DOCUMENT SUPPRIMÉ : PEUT-ON LE RÉCUPÉRER ?]
+- Mots-clés : supprimé par erreur, suppression, effacé, corbeille, récupérer, restaurer, annuler, évaluation supprimée, séquence supprimée, groupe supprimé, document supprimé, référentiel supprimé.
+- Formulations courantes des collègues : j'ai supprimé une évaluation par erreur ; comment récupérer une séquence effacée ; y a-t-il une corbeille dans iPackEPS ; peut-on annuler une suppression.
+- Réponse courte : aucune corbeille ni procédure de restauration n'est documentée dans iPackEPS. Il faut recréer l'élément, ou écrire sans attendre à l'assistance iPackEPS de l'académie d'Aix-Marseille : ipackeps@ac-aix-marseille.fr.
+- Les notes d'élèves ne sont pas perdues : elles ne sont jamais stockées dans iPackEPS (notes de l'année dans Pronote ou ÉcoleDirecte, notes d'examen dans Santorin).
+- Message à l'assistance : nom et UAI de l'établissement, ce qui a été supprimé (séquence, groupe, référentiel, document), la date et l'heure approximatives de la suppression.

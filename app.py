@@ -397,6 +397,30 @@ css_pur = f"""
         text-align: center !important; 
     }}
     
+    /* Notice RGPD : encart contrasté, lisible sur la photo de fond */
+    .st-key-notice_rgpd div[data-testid="stExpander"] details {{
+        background-color: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(12px);
+        border: 1px solid #334155 !important;
+        border-left: 6px solid #38BDF8 !important;
+        border-radius: 8px !important;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+    }}
+    .st-key-notice_rgpd div[data-testid="stExpander"] summary {{
+        padding: 12px 16px !important;
+    }}
+    .st-key-notice_rgpd div[data-testid="stExpander"] summary,
+    .st-key-notice_rgpd div[data-testid="stExpander"] summary p,
+    .st-key-notice_rgpd div[data-testid="stExpander"] summary svg {{
+        color: #FFFFFF !important;
+        fill: #FFFFFF !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }}
+    .st-key-notice_rgpd div[data-testid="stExpander"] summary:hover p {{
+        color: #38BDF8 !important;
+    }}
+
     div[data-testid="stRadio"] {{
         background-color: rgba(15, 23, 42, 0.9) !important;
         border: 1px solid #334155 !important;
@@ -1353,9 +1377,11 @@ else:
 
 
 # Notice disponible à la demande, fermée par défaut.
-with st.expander("Notice RGPD", expanded=False):
+with st.container(key="notice_rgpd"), st.expander(
+    "🔒 Notice RGPD : utilisation et protection des données", expanded=False
+):
     st.markdown("""
-    <div style="margin-top:18px;padding:20px;background:rgba(15,23,42,0.94);border:1px solid #64748B;border-radius:10px;color:#E2E8F0;font-size:14px;line-height:1.65;">
+    <div style="margin-top:4px;padding:20px;background:rgba(15,23,42,0.94);border:1px solid #64748B;border-radius:10px;color:#E2E8F0;font-size:14px;line-height:1.65;">
     <h2 style="color:#FFFFFF;font-size:19px;">HUB IA EPS — Utilisation et protection des données</h2>
     <h3 style="color:#38BDF8;font-size:16px;">À quoi sert le HUB ?</h3>
     <p>Le HUB accompagne les professionnels de l’éducation dans leurs recherches pédagogiques, réglementaires et techniques, notamment concernant iPackEPS et les examens en EPS. Il s’appuie sur une base documentaire et sur l’intelligence artificielle. Ses réponses peuvent comporter des erreurs ou des informations incomplètes : vérifiez les textes officiels applicables et leur actualité avant toute décision. Le HUB ne remplace pas les autorités compétentes ni les procédures institutionnelles.</p>

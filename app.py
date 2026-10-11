@@ -1376,33 +1376,6 @@ else:
                     st.session_state.current_prompt = prompt
 
 
-# Notice disponible à la demande, fermée par défaut.
-with st.container(key="notice_rgpd"), st.expander(
-    "🔒 Notice RGPD : utilisation et protection des données", expanded=False
-):
-    st.markdown("""
-    <div style="margin-top:4px;padding:20px;background:rgba(15,23,42,0.94);border:1px solid #64748B;border-radius:10px;color:#E2E8F0;font-size:14px;line-height:1.65;">
-    <h2 style="color:#FFFFFF;font-size:19px;">HUB IA EPS — Utilisation et protection des données</h2>
-    <h3 style="color:#38BDF8;font-size:16px;">À quoi sert le HUB ?</h3>
-    <p>Le HUB accompagne les professionnels de l’éducation dans leurs recherches pédagogiques, réglementaires et techniques, notamment concernant iPackEPS et les examens en EPS. Il s’appuie sur une base documentaire et sur l’intelligence artificielle. Ses réponses peuvent comporter des erreurs ou des informations incomplètes : vérifiez les textes officiels applicables et leur actualité avant toute décision. Le HUB ne remplace pas les autorités compétentes ni les procédures institutionnelles.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Protégez les élèves et les autres personnes</h3>
-    <p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Utilisation des échanges</h3>
-    <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
-    <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
-    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la génération des réponses, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Durée de conservation</h3>
-    <p>Les échanges sont conservés uniquement pendant le temps nécessaire à leur analyse et à l’amélioration du HUB, dans la limite de six mois à compter de leur enregistrement. Ils sont supprimés manuellement lorsque leur analyse et les corrections correspondantes sont terminées, sans attendre cette échéance. Les enseignements utiles peuvent être conservés sous forme de fiches générales ne permettant pas d’identifier une personne. Cette durée concerne le journal du HUB ; les traitements et durées propres aux prestataires relèvent de leurs conditions applicables.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Traitement hors de l’Union européenne</h3>
-    <p>L’application est hébergée sur Streamlit Community Cloud aux États-Unis. Les questions passent donc par un hébergement situé hors de l’Union européenne. OpenAI et Google peuvent également traiter des données hors de l’Union européenne. Les plateformes peuvent traiter des données techniques pour leur fonctionnement et leur sécurité, indépendamment du journal du HUB.</p>
-    <h3 style="color:#38BDF8;font-size:16px;">Responsable et exercice de vos droits</h3>
-    <p>Le responsable du traitement est Thierry Armant. Pour toute question relative à vos données, pour signaler un envoi involontaire d’informations personnelles ou pour exercer vos droits, contactez <a href="mailto:thierry.armant@ac-aix-marseille.fr" style="color:#7DD3FC;">thierry.armant@ac-aix-marseille.fr</a>.</p>
-    <p>Dans les conditions prévues par le RGPD, vous pouvez demander l’accès à vos données, leur rectification, leur effacement ou la limitation de leur traitement. Le droit d’opposition s’applique notamment lorsque le traitement repose sur l’intérêt légitime. Pour retrouver un échange, indiquez sa date approximative et son sujet, sans transmettre de nouvelles informations concernant un élève. Vous pouvez également déposer une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:#7DD3FC;">CNIL</a>.</p>
-    <p style="color:#CBD5E1;font-size:12px;">Version du 11 octobre 2026. Les informations relatives à la base légale et aux garanties contractuelles des transferts internationaux sont en cours de finalisation. Cette notice ne constitue pas une certification de conformité RGPD.</p>
-    </div>
-    """, unsafe_allow_html=True)
-
 # ======================================================================
 # 9. TRAITEMENT RAG & FLUX DE MESSAGES
 # ======================================================================
@@ -2790,6 +2763,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
                         {"role": "assistant", "type": "video", "content": _url}
                     )
 
+        st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
         st.session_state.reset_steps = True
         st.rerun()
 
@@ -2802,7 +2776,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
         with st.chat_message(m["role"]):
             st.markdown(m["content"], unsafe_allow_html=True)
             if m.get("extraits"):
-                with st.expander("Documents et passages transmis pour cette réponse"):
+                with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):
                     st.caption("Ces passages ont été fournis au modèle ; leur présence ne garantit pas que chaque phrase de sa réponse est justifiée.")
                     st.code(m["extraits"], language=None)
     st.markdown("</div>", unsafe_allow_html=True)
@@ -2813,3 +2787,37 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             with st.chat_message(m["role"]):
                 st.video(m["content"])
 
+
+
+# ======================================================================
+# 10. MENTIONS LÉGALES (EN BAS DE PAGE, REPLIÉES PAR DÉFAUT)
+# ======================================================================
+# Placées après la réponse : sur téléphone, une notice ouverte ne repousse plus la réponse en bas de page.
+# Le libellé change de façon invisible à chaque nouvelle réponse : Streamlit recrée alors l'encart,
+# qui se referme, et seules la question et la réponse restent dépliées.
+_suffixe_notice = "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)
+with st.container(key="notice_rgpd"), st.expander(
+    "🔒 Mentions légales" + _suffixe_notice, expanded=False
+):
+    st.markdown("""
+    <div style="margin-top:4px;padding:20px;background:rgba(15,23,42,0.94);border:1px solid #64748B;border-radius:10px;color:#E2E8F0;font-size:14px;line-height:1.65;">
+    <h2 style="color:#FFFFFF;font-size:19px;">HUB IA EPS — Utilisation et protection des données</h2>
+    <h3 style="color:#38BDF8;font-size:16px;">À quoi sert le HUB ?</h3>
+    <p>Le HUB accompagne les professionnels de l’éducation dans leurs recherches pédagogiques, réglementaires et techniques, notamment concernant iPackEPS et les examens en EPS. Il s’appuie sur une base documentaire et sur l’intelligence artificielle. Ses réponses peuvent comporter des erreurs ou des informations incomplètes : vérifiez les textes officiels applicables et leur actualité avant toute décision. Le HUB ne remplace pas les autorités compétentes ni les procédures institutionnelles.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Protégez les élèves et les autres personnes</h3>
+    <p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Utilisation des échanges</h3>
+    <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
+    <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
+    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la génération des réponses, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Durée de conservation</h3>
+    <p>Les échanges sont conservés uniquement pendant le temps nécessaire à leur analyse et à l’amélioration du HUB, dans la limite de six mois à compter de leur enregistrement. Ils sont supprimés manuellement lorsque leur analyse et les corrections correspondantes sont terminées, sans attendre cette échéance. Les enseignements utiles peuvent être conservés sous forme de fiches générales ne permettant pas d’identifier une personne. Cette durée concerne le journal du HUB ; les traitements et durées propres aux prestataires relèvent de leurs conditions applicables.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Traitement hors de l’Union européenne</h3>
+    <p>L’application est hébergée sur Streamlit Community Cloud aux États-Unis. Les questions passent donc par un hébergement situé hors de l’Union européenne. OpenAI et Google peuvent également traiter des données hors de l’Union européenne. Les plateformes peuvent traiter des données techniques pour leur fonctionnement et leur sécurité, indépendamment du journal du HUB.</p>
+    <h3 style="color:#38BDF8;font-size:16px;">Responsable et exercice de vos droits</h3>
+    <p>Pour toute question relative à vos données, pour signaler un envoi involontaire d’informations personnelles ou pour exercer vos droits, contactez l’assistance iPackEPS de l’académie d’Aix-Marseille : <a href="mailto:ipackeps@ac-aix-marseille.fr" style="color:#7DD3FC;">ipackeps@ac-aix-marseille.fr</a>.</p>
+    <p>Dans les conditions prévues par le RGPD, vous pouvez demander l’accès à vos données, leur rectification, leur effacement ou la limitation de leur traitement. Le droit d’opposition s’applique notamment lorsque le traitement repose sur l’intérêt légitime. Pour retrouver un échange, indiquez sa date approximative et son sujet, sans transmettre de nouvelles informations concernant un élève. Vous pouvez également déposer une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:#7DD3FC;">CNIL</a>.</p>
+    <p style="color:#CBD5E1;font-size:12px;">Version du 11 octobre 2026. Les informations relatives à la base légale et aux garanties contractuelles des transferts internationaux sont en cours de finalisation. Cette notice ne constitue pas une certification de conformité RGPD.</p>
+    </div>
+    """, unsafe_allow_html=True)

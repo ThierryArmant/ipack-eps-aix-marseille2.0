@@ -97,7 +97,7 @@ def clarification(question, public):
     general_information = bool(re.search(
         r'comment est calcul|quel certificat|quels? certificats|comment declarer|comment enregistrer|'
         r'qui (le )?valide|quelle (est la )?note finale|(?:on|doit.on|peut.on) fai(?:t|re) la moyenne|'
-        r'comment calculer|quel calcul|comment fonctionne.*(?:inapt|dispens)', q))
+        r'comment calculer|quel calcul|coefficient|comment fonctionne.*(?:inapt|dispens)', q))
     if general_information and not re.search(r'\b(di|disp|ab|zero|0)\b|\bsais|je (mets|dois mettre)', q):
         return ''
     medical_type = bool(re.search(r'partiel|total', q))

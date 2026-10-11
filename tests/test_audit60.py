@@ -157,7 +157,7 @@ class Audit60Tests(unittest.TestCase):
             ('Mon export vers Pronote ne fonctionne pas, erreur', 'Collège (DNB)', 'ipack', 'Uniquement si vous importez'),
             ('Où enregistrer les absences de cours dans iPackEPS ?', 'Collège (DNB)', 'ipack', 'registre d’appel quotidien'),
             ('Comment recopier la programmation de l’année précédente ?', 'Collège (DNB)', 'ipack', 'Conservé selon'),
-            ('Ma tablette hors ligne a perdu les données : synchronisation ?', 'Collège (DNB)', 'ipack', 'Ne pas désinstaller'),
+            ('Ma tablette hors ligne a perdu les données : synchronisation ?', 'Collège (DNB)', 'ipack', 'Ne désinstallez rien'),
             ('Comment associer une vidéo à une évaluation ?', 'Collège (DNB)', 'ipack', 'Définir l’objectif'),
             ('Un élève totalement inapte toute l’année de terminale : note EPS au bac ?', 'Lycée Général & Techno', 'examens', 'ne pas attribuer zéro ni calculer une moyenne fictive'),
             ('Bac GT : inaptitude totale annuelle en terminale, quelle note ?', 'Lycée Général & Techno', 'examens', 'neutraliser son coefficient'),
@@ -185,6 +185,15 @@ class Audit60Tests(unittest.TestCase):
             text, _, _, _ = self.route(question, public, 'examens')
             self.assertNotIn('### Bac GT : inaptitude totale pendant toute l’année', text)
 
+
+    def test_coefficient_question_reaches_annual_fiche_but_code_still_blocks(self):
+        q = 'Bac GT : certificat d’inaptitude totale de septembre à juin, aucune note EPS. Le coefficient compte-t-il encore ?'
+        self.assertEqual(kc.clarification(q, 'Lycée Général & Techno'), '')
+        text, _, _, error = self.route(q, 'Lycée Général & Techno', 'examens')
+        self.assertEqual(error, '')
+        self.assertIn('### Bac GT : inaptitude totale pendant toute l’année', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+        self.assertTrue(kc.clarification('Bac GT : inapte, coefficient neutralisé, je saisis DI ?', 'Lycée Général & Techno'))
 
 
 if __name__ == '__main__':

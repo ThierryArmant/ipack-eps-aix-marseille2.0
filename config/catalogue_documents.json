@@ -2607,7 +2607,8 @@
       "option|eppcs",
       "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
       "inapt.*toute l.annee",
-      "toute l.annee.*inapt"
+      "toute l.annee.*inapt",
+      "inapt.*total.*septembre.*juin"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
@@ -2794,12 +2795,14 @@
     "motifs": [
       "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
       "inapt.*toute l.annee",
-      "toute l.annee.*inapt"
+      "toute l.annee.*inapt",
+      "inapt.*total.*septembre.*juin"
     ],
     "exclusif_motifs": [
       "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
       "inapt.*toute l.annee",
-      "toute l.annee.*inapt"
+      "toute l.annee.*inapt",
+      "inapt.*total.*septembre.*juin"
     ],
     "exclure_motifs": [
       "option|eppcs|epccs"

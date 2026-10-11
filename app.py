@@ -2815,7 +2815,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
 
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
-             "extraits": extraits_doc if origine_reponse == "ia" else ""}
+             "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else ""}
         )
 
         for video_name, video_url in VIDEOS_TUTOS.items():
@@ -2848,7 +2848,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             continue
         with st.chat_message(m["role"]):
             st.markdown(m["content"], unsafe_allow_html=True)
-            if m.get("extraits"):
+            # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
+            if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):
                     st.caption("Ces passages ont été fournis au modèle ; leur présence ne garantit pas que chaque phrase de sa réponse est justifiée.")
                     st.code(m["extraits"], language=None)

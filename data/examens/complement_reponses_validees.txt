@@ -1,8 +1,10 @@
 === RÉPONSES VALIDÉES PAR LE RESPONSABLE DU HUB (mêmes règles que les réponses directes de l'application) ===
 
-### [SITUATION: CAP : UN ENSEMBLE CERTIFICATIF À 2 ÉPREUVES, PAS 3]
-- NON : en CAP, le CCF repose sur 2 épreuves relevant de 2 champs d'apprentissage différents. Réglementairement, il n'est pas possible d'affecter des candidats de CAP sur un ensemble certificatif à 3 épreuves.
-- Pratique à ne pas suivre : inscrire les candidats sur 3 épreuves pour garder les 2 meilleures notes n'est pas autorisé.
+### [SITUATION: CAP : DEUX ÉPREUVES CERTIFICATIVES, CHOIX EN DÉBUT D’ANNÉE]
+- La note du CAP repose sur deux APSA de deux champs différents (circulaire MENE2517122C, session 2026 et suivantes).
+- Le BA spécial 549 d’Aix-Marseille, session 2026, prévoit que, si trois épreuves sont organisées, le candidat en retient deux en début d’année. Distinguer les activités organisées et les deux épreuves retenues pour la certification ; ce n’est pas un choix des deux meilleures notes après les résultats.
+- Un dispositif de quatre activités avec choix de deux en fin d’année n’est pas établi par ces textes. Refaire le protocole conformément aux exigences et le faire valider ; vérifier les instructions EPS de la session 2027.
+- Sources : https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C ; https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf
 
 ### [SITUATION: CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN]
 - Règle d'or absolue : L'enseignant correcteur n'a AUCUN droit ni habilitation pour déverrouiller lui-même un lot de copies numériques fermé sur Santorin.

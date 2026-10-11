@@ -159,7 +159,7 @@ VIDEOS_TUTOS = {
     "Demande_ouverture_SSS.mp4": "https://youtu.be/FUJzYLskCGQ",
     "Projet_annuel_SSS.mp4": "https://youtu.be/SizZ4vGQ4nU",
     "Bilan_annuel_SSS.mp4": "https://youtu.be/iH54YEF_2XY",
-    "Export_eleves_cyclades.mp4": "https://youtu.be/YoOC_CdOQ_I",
+    "Export_eleves_cyclades.mp4": "https://youtu.be/4ZsuQi_YoMs",  # YoOC_CdOQ_I est la vidéo « se connecter à Cyclades », pas l'export
     "Controler_reaffecter_protocoles_cyclades.mp4": "https://youtu.be/0njoZigh_5w",
     "Creer_protocole_cours_annee.mp4": "https://youtu.be/57xZDq_vyDE",
     "Deplacer_eleves_lots_santorin.mp4": "https://youtu.be/WKbg51eUQVs",

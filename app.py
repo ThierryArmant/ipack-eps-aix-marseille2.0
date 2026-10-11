@@ -1493,7 +1493,7 @@ if prompt_a_traiter:
                 "responsabilité", "responsabilite", "circulaire", "officiel", 
                 "textes", "loi", "décret", "arrete", "arrêté", "recteur", "rectrice", 
                 "ia-ipr", "ipr", "sanction", "exclusion", "accident", "unss", 
-                "fonction publique", "direction", "chef d'établissement",
+                "fonction publique", "protection fonctionnelle", "direction", "chef d'établissement",
                 "psc1", "psc", "secourisme", "secours", "cdsg", "jdc", "cadets"
             ] + mots_cles_intention_peda + [
                 # ✅ AJOUT : vocabulaire de la réglementation / sécurité EPS (évite de bloquer des questions légitimes)

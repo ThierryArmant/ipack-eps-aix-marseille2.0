@@ -1481,7 +1481,12 @@
     "title": "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
     "statut": "revu_2026-10-10_recoupement_sources",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "motifs": [
+      "protection fonctionnelle"
+    ],
+    "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F32574"
   },
   "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt": {
     "title": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]",
@@ -2030,7 +2035,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "optionnel|option eps|eps option|ls[l u]",
+      "optionnel|option eps|eps option|\\blsl\\b",
       "enseignement option"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo32/MENE2523744N",
@@ -2424,7 +2429,9 @@
     "motifs": [
       "contest|recours|parent.*note"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "amenag|amex|incluscol"
+    ],
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F22331",
     "date_verification": "2026-10-11"
   },
@@ -2716,7 +2723,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "incluscol|amex|amenagement.*(?:examen|handicap)|(?:pap|pai|pps).*adapt|handicap.*adapt|adapt.*handicap"
+      "incluscol|amex|amenagement.*(?:examen|handicap)|(?:pap|pai|pps).*adapt|handicap.*adapt|adapt.*handicap",
+      "amenag|amex|incluscol"
     ],
     "exclusif_motifs": [],
     "date_verification": "2026-10-11",
@@ -2809,5 +2817,88 @@
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt": {
+    "title": "Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS)",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "(?:inscri|cyclades|apte).*2027",
+      "2027.*(?:inscri|cyclades)",
+      "inscri.*inapt|inapt.*inscri"
+    ],
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA566S/BASPE_566.pdf",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/aix_inscriptions_2027_gt.txt": {
+    "title": "Aix-Marseille : inscriptions terminale GT, session 2027 (EPS)",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "(?:inscri|cyclades|apte).*2027",
+      "2027.*(?:inscri|cyclades)",
+      "inscri.*inapt|inapt.*inscri"
+    ],
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA565S/BASPE_565.pdf",
+    "date_verification": "2026-10-11"
+  },
+  "data/textes/fiches/sorties_second_degre_guide_2025.txt": {
+    "title": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "sortie|voyage|aesh.*encadr|encadr.*aesh"
+    ],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+    "date_verification": "2026-10-11"
+  },
+  "data/textes/fiches/accident_eleve_rapport_parents_2009.txt": {
+    "title": "Accident scolaire : rapport et communication aux parents",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "accident.*(?:rapport|parent|declar|temoin|conserv)|rapport.*accident"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2009/43/mene0915926c.html",
+    "date_verification": "2026-10-11"
   }
 }

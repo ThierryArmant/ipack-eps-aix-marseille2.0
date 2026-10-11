@@ -12,3 +12,5 @@ https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-nation
 
 Ne pas confondre la moyenne annuelle EPS avec la moyenne de toutes les disciplines qui sert au calcul global du contrôle continu. Pour la session 2027, la note MENE2623194N du 11 septembre 2026 constitue la référence actualisée.
 https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N
+
+Mémento Éduscol fourni et relu le 11 octobre 2026, édition décembre 2025, p. 3 : pour la session 2026, la moyenne annuelle d'une discipline provient des moyennes trimestrielles ou semestrielles de troisième. Pour le calcul global du contrôle continu, ajouter éventuellement à la somme des moyennes obligatoires les seuls points au-dessus de 10/20 d'un enseignement facultatif admissible (ou de LSF), puis diviser par le nombre d'enseignements obligatoires. Si plusieurs facultatifs sont suivis, LSU retient le plus favorable ; ne pas ajouter le facultatif au dénominateur. Ne pas confondre ce bonus avec la moyenne EPS obligatoire.

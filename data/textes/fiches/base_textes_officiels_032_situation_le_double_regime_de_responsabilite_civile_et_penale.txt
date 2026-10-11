@@ -1,11 +1,11 @@
 ### [SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]
 * RESPONSABILITÉ CIVILE (SUBSTITUTION DE L'ÉTAT) : Fondée sur la Loi du 5 avril 1937 (Art. L. 911-4 du Code de l'éducation). En cas d'accident subi ou causé par un élève sous la surveillance d'un enseignant, la responsabilité de l'État se substitue à celle de l'agent. L'enseignant ne peut jamais être poursuivi devant les tribunaux civils par la victime.
-* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (en référence aux Articles 1382 et 1383 du Code civil).
+* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (en référence aux articles 1240 et 1241 du Code civil (anciens articles 1382 et 1383)).
 * RESPONSABILITÉ PÉNALE (STRICTEMENT PERSONNELLE) : Le principe de substitution ne s'applique pas au pénal (Art. 121-1 du Code pénal : "nul n'est responsable pénalement que de son propre fait"). Un enseignant peut être poursuivi personnellement pour délit non intentionnel (homicide involontaire, blessures involontaires).
-* PROTECTION ISSUE DE LA LOI FAUCHON (LOI DU 10 JUILLET 2000) : Pour un auteur indirect (l'enseignant qui a créé la situation du dommage sans porter le coup direct), la responsabilité pénale ne peut être engagée s'il est prouvé :
+* PROTECTION ISSUE DE LA LOI FAUCHON (LOI DU 10 JUILLET 2000) : Pour un auteur indirect (l'enseignant qui a créé la situation du dommage sans porter le coup direct), la responsabilité pénale peut être engagée s’il est établi :
   - Soit la violation manifestement délibérée d'une obligation particulière de sécurité prévue par la loi ou le règlement (décret/arrêté).
   - Soit une "faute caractérisée" exposant autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
-* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (Art. 1383) est démontrée.
+* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (article 1241 du Code civil) est démontrée.
 ======================================================================
 PROGRAMMES COMPLÉMENTAIRES EN VIGUEUR : PRIMAIRE & SPÉCIALITÉS LYCÉE
 ======================================================================
@@ -14,3 +14,5 @@ Il couvre le bloc primaire obligatoire et les enseignements de spécialité (Art
 
 ----------------------------------------------------------------------
 27. ÉCOLE MATERNELLE - CYCLE 1
+
+Sources : article 121-3 du Code pénal https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208 ; article L911-4 du Code de l’éducation https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395

@@ -96,7 +96,7 @@ def clarification(question, public):
                  r'note.{0,30}transform|dispens.{0,25}deux activites', q):
         return ''
     individual_value = bool(re.search(
-        r'\b(?:di|disp|ab|abs|zero|0)\b|je (?:mets|dois mettre)|'
+        r'\b(?:di|disp|ab|abs|zero|0)\b(?! (?:candidat|eleve|lot))|je (?:mets|dois mettre)|'
         r'(?:quelle|quel|comment).{0,25}(?:note|code|statut).{0,25}(?:mettre|saisir|choisir)', q))
     procedure = bool(re.search(
         r'santorin|cyclades|protocole|lot|reinitialis|reaffect|'
@@ -117,7 +117,9 @@ def clarification(question, public):
     medical = bool(re.search(r'inapt|dispens|certificat medical', q))
     decision = bool(re.search(r'\b(di|disp|zero|0)\b|sais|notes?|ccf|epreuv', q))
     exam = bool(re.search(r'\b(cap|dnb|brevet|college|lgt|gt)\b|bac(calaureat)?\s+(pro|professionnel|general|technologique)', q))
-    if public == 'Lycée Pro / CAP' and decision and not exam:
+    # Le choix CAP / bac pro ne change que les décisions individuelles ou médicales ;
+    # une question d'outil (export, import, absences, tablette) reçoit les deux réponses.
+    if public == 'Lycée Pro / CAP' and decision and not exam and (medical or individual_value):
         return ('Précisez le diplôme concerné : CAP ou baccalauréat professionnel, ainsi que la session. '
                 'Ces deux examens n\'ont pas les mêmes modalités. Aucun code de saisie ne peut être choisi à ce stade.')
     general_information = bool(re.search(
@@ -191,7 +193,8 @@ def effective_context(question, public, mode):
     q = normalise(question)
     pro = bool(re.search(r"\bbac(?:calaureat)?\s+(?:pro|professionnel)|\bcap\b", q))
     gt = bool(re.search(r"\bbac(?:calaureat)?\s+(?:gt|general|technologique)|\b(?:seconde|premiere|terminale)\b", q))
-    college = bool(re.search(r"\bdnb\b|\bbrevet\b|\bcollege\b", q))
+    college = bool(re.search(r"\bdnb\b|\bbrevet\b|\bcollege\b|"
+                             r"(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
     if sum((pro, gt, college)) == 1:
         public = 'Lycée Pro / CAP' if pro else 'Lycée Général & Techno' if gt else 'Collège (DNB)'
     if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q):

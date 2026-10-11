@@ -896,6 +896,8 @@ _MOTS_NEUTRES_SUJET = {
     "comment", "pourquoi", "quand", "quel", "quelle", "quels", "quelles", "faire", "fait", "faut", "peut", "peux",
     "dois", "doit", "avoir", "etre", "suis", "ete", "veux", "voudrais", "possible", "bonjour", "merci",
     "eleve", "eleves", "eps", "ipackeps", "ipack",
+    # Mots de liaison qui faisaient remonter des fiches sans rapport (« alors que mon collègue l'a »).
+    "alors", "aussi", "encore", "donc", "ainsi", "deja", "meme", "quoi", "cela",
 }
 
 
@@ -913,15 +915,18 @@ def initialiser_recherche_mots(cle_fremt):
         try:
             for d in charger_dossier_txt_securise(dossier, par_fiche=True):
                 lignes = (d.text or "").split("\n")
-                entete = lignes[:4] + [l for l in lignes[4:] if re.match(r"\s*-\s*(Mots-cl|Formulations|Q\d* ?:)", l)][:8]
+                entete = lignes[:4] + [l for l in lignes[4:] if re.match(r"\s*-\s*(Mots-cl|Formulations|R[ée]ponse courte|Q\d* ?:)", l)][:8]
                 racines = _racines_mots(" ".join(entete))
+                # Le titre dit le sujet de la fiche : un mot de la question présent dans le titre départage
+                # les fiches qui partagent autant de mots (bouton « Actualiser » absent -> droits du coordonnateur).
+                titre = next((l for l in lignes if l.strip() and not re.match(r"\[(PORTEE|DOCUMENT):", l)), "")
                 if racines:
-                    fiches.append((d.text, racines))
+                    fiches.append((d.text, racines, _racines_mots(titre)))
         except Exception as e_mots:
             print(f"Recherche par mots indisponible pour {nom} : {e_mots}")
             fiches = []
         frequence = {}
-        for _, racines in fiches:
+        for _, racines, _ in fiches:
             for r in racines:
                 frequence[r] = frequence.get(r, 0) + 1
         n = max(len(fiches), 1)
@@ -941,12 +946,12 @@ def chercher_par_mots(bases, nom, question, maximum=3):
         return []
     total = sum(poids[r] for r in q)
     resultats = []
-    for texte, racines in fiches:
+    for texte, racines, racines_titre in fiches:
         communs = q & racines
         if len(communs) >= 2:
             score = sum(poids[r] for r in communs)
             if score >= 0.35 * total:
-                resultats.append((score, texte))
+                resultats.append((score + 0.5 * sum(poids[r] for r in communs & racines_titre), texte))
     resultats.sort(key=lambda x: -x[0])
     return [t for _, t in resultats[:maximum]]
 
@@ -1559,7 +1564,7 @@ if prompt_a_traiter:
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
             est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
-            est_cap_3epreuves = (mode == "examens" and "cap" in p_low and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]))
+            est_cap_3epreuves = (mode == "examens" and re.search(r"\bcap\b", p_low) is not None and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]))
             est_tasa = mode == "textes" and "tasa" in p_low
             est_unss = any(w in p_low for w in ["unss", "championnat de france", "championnats de france", "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"])
             est_deplacer_candidat = (mode != "textes" and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"]) and any(w in p_low for w in ["candidat", "élève", "eleve"]) and "lot" in p_low)
@@ -1959,9 +1964,12 @@ if prompt_a_traiter:
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_cap_3epreuves:
-                texte_brut = """<h3>⚠️ CAP : UN ENSEMBLE CERTIFICATIF À 2 ÉPREUVES, PAS 3</h3>
-<p><strong>NON :</strong> en CAP, le CCF repose sur <strong>2 épreuves</strong> relevant de 2 champs d'apprentissage différents. Réglementairement, il n'est pas possible d'affecter des candidats de CAP sur un ensemble certificatif à 3 épreuves.</p>
-<p><strong>Pratique à ne pas suivre :</strong> inscrire les candidats sur 3 épreuves pour garder les 2 meilleures notes n'est pas autorisé.</p>"""
+                # Le BA spécial n° 549 d'Aix-Marseille (session 2026) permet d'organiser 3 épreuves si l'élève
+                # en retient 2 en début d'année : l'ancienne réponse « pas 3 » contredisait ce texte.
+                texte_brut = """<h3>CAP : 2 ÉPREUVES CERTIFIENT, CHOISIES EN DÉBUT D'ANNÉE</h3>
+<p>En CAP, la note d'EPS repose sur <strong>2 épreuves</strong> relevant de <strong>2 champs d'apprentissage différents</strong> (circulaire CAP du 27 août 2025, <strong>MENE2517122C</strong>).</p>
+<p>Si l'établissement organise <strong>3 épreuves</strong>, l'élève <strong>retient 2 épreuves en début d'année</strong> (bulletin académique spécial n° 549 d'Aix-Marseille, session 2026). Faire passer les 3 épreuves pour garder ensuite les 2 meilleures notes n'est pas prévu.</p>
+<p>Pour la session 2027, vérifiez cette consigne dans le bulletin académique EPS de votre académie dès sa parution.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 
             elif est_eleve_arrivant:
@@ -2440,7 +2448,7 @@ Ton expertise couvre deux grands domaines :
 ÉTAPE 0 : RESTRICTION DE RECHERCHE (ZÉRO INTERNET / ZÉRO TAVILY)
 ======================================================================
 INTERDICTION ABSOLUE d'utiliser des outils de recherche web externes (Tavily, Google, bing, etc.).
-Tu dois construire ta réponse STRICTEMENT et UNIQUEMENT à partir du "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous. Si la réponse n'y est pas, dis simplement que tu ne disposes pas de l'information dans ta base locale.
+Tu dois construire ta réponse STRICTEMENT et UNIQUEMENT à partir du "CONTEXTE DOCUMENTAIRE OFFICIEL LOCAL" fourni ci-dessous. Si aucun passage ne traite du sujet, utilise la phrase d'absence de l'étape 3. Si le contexte n'y répond qu'en partie, réponds à cette partie et dis en une phrase ce que ta base ne précise pas.
 
 ======================================================================
 ÉTAPE 1 : FILTRAGE PRIMAIRE ET GESTION DES PRÉMISSES (PRIORITÉ ABSOLUE)
@@ -2497,6 +2505,7 @@ FIABILITÉ DOCUMENTAIRE :
 - Si plusieurs procédures du contexte semblent proches, choisis UNIQUEMENT celle dont la cause correspond exactement au symptôme décrit par l'utilisateur. Ne mélange jamais deux procédures différentes dans une même réponse et n'ajoute aucune étape (menu, bouton, vérification) qui ne figure pas mot pour mot dans le contexte.
 - UNE RÉPONSE NÉGATIVE EST UNE RÉPONSE : si le contexte dit que l'action est impossible, que l'enseignant ne peut pas la faire lui-même, qu'il n'existe pas de bouton / de compte / de procédure, que le problème est connu et sans conséquence, ou qu'il faut s'adresser à un autre service ou consulter un autre document (circulaire, calendrier de la DEC...), alors c'est LA réponse : donne-la clairement, avec l'explication du contexte. Ne réponds surtout pas que tu ne disposes pas de la procédure.
 - La phrase d'absence est réservée au cas où AUCUN passage du contexte ne parle du sujet de la question. Dans ce seul cas, ta seule et unique réponse autorisée est : "Je ne dispose pas de la procédure exacte dans ma base pour cette demande. Pour iPackEPS, écrivez à l'assistance iPackEPS de votre académie (académie d'Aix-Marseille : ipackeps@ac-aix-marseille.fr) en précisant l'établissement, le menu concerné et le message affiché. Pour Santorin, Cyclades ou une question d'examen, adressez-vous au secrétariat des examens de votre établissement ou à la DEC de votre académie."
+- Dès qu'un passage traite du sujet, même en partie ou sous un angle voisin (changement d'établissement, mutation, conservation des données, mise à jour, calendrier fixé par l'académie...), tu n'écris PAS la phrase d'absence : tu réponds avec ce passage, puis tu dis en une phrase ce que ta base ne précise pas et à qui le demander (assistance iPackEPS de l'académie, secrétariat des examens ou DEC).
 - N'écris JAMAIS cette phrase d'absence après avoir donné une réponse, même partielle : soit tu réponds, soit tu écris cette phrase seule.
 - Il est strictement interdit d'utiliser tes connaissances générales extérieures pour deviner comment fonctionne iPackEPS.
 

@@ -1514,6 +1514,16 @@ if prompt_a_traiter:
                 "programme", "programmes", "socle", "enseignement", "option", "spécialité", "installation", "équipement",
                 "entretien", "vérification", "agrès", "savoir nager", "savoir rouler", "stage", "formation", "concours",
                 "capeps", "agrégation", "médecin", "infirmier", "infirmière", "premiers secours", "protocole",
+                # ✅ AJOUT : examens, aménagements et inclusion (« Le tiers-temps est-il accordé avec un PAP ? » était rejeté)
+                "examen", "examens", "épreuve", "épreuves", "aménagement", "aménagements", "aménager", "tiers-temps",
+                "tiers temps", "temps majoré", "pap", "pai", "pps", "mdph", "aesh", "dys", "incluscol", "amex",
+                "rectorat", "dasen", "académie", "académique", "ministère", "diplôme", "fiche individuelle", "fiches individuelles",
+                # ✅ AJOUT : vie de l'établissement et des classes
+                "classe", "classes", "groupe", "groupes", "collègue", "collègues", "sixième", "cinquième", "quatrième",
+                "troisième", "seconde", "première", "6e", "5e", "4e", "3e", "accompagnement personnalisé", "devoirs faits",
+                "emploi du temps", "heures", "section", "programmation", "nageur", "nageurs",
+                # ✅ AJOUT : matériel sportif (« un but mobile semble instable » était rejeté)
+                "but", "buts", "cage", "panier", "paniers", "poteau", "tapis", "filet", "agrée", "contrôle technique",
             ]
             
             # ✅ CORRECTION : les mots courts (ps, ms, cp, cap, bac, loi, eps...) sont cherchés

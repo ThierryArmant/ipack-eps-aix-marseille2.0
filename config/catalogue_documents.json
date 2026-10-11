@@ -3106,5 +3106,61 @@
     "reponse_directe": "À Aix, le BA 549 (2026) indique ABS pour une absence non justifiée au bac GT, traduite en zéro. Il ne définit pas DI comme code universel. Ne choisissez pas un code avant de distinguer absence, inaptitude et dispense.",
     "statut": "verifie_2026-10-11_portee_session_2026",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+  },
+  "data/commun/audit355/bac_pro_formation_continue.txt": {
+    "title": "Bac pro : formation continue et dispense EPS",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "pro"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 95,
+    "motifs": [
+      "formation continue|greta"
+    ],
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA566S/BASPE_566.pdf",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit355/bac_pro_unite_facultative_sport.txt": {
+    "title": "Bac pro : UF2S et UF3S, transition 2027-2028",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "pro"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 95,
+    "motifs": [
+      "facultati.*(?:sport|eps)|(?:sport|eps).*facultati|uf2s|uf3s"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo31/MENE2610275N",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit355/co_securite_sortie.txt": {
+    "title": "Course d’orientation : sécurité et préparation de sortie",
+    "statut": "source_officielle_relue_2026-10-11",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 95,
+    "motifs": [
+      "course.*orientation|\\bco\\b.*(?:foret|sortie|binome|trinome)|battue|eleve.*(?:perdu|manquant)"
+    ],
+    "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+    "date_verification": "2026-10-11"
   }
 }

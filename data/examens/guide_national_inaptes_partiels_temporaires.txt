@@ -1,0 +1,27 @@
+=== INAPTES PARTIELS TEMPORAIRES : LES LEVIERS D'ADAPTATION AVANT D'EN ARRIVER À LA DISPENSE (guide d'accompagnement de la Commission nationale des examens EPS) ===
+Source : « Les inaptes partiels temporaires en EPS – Guide d'accompagnement », Commission nationale des examens EPS, document de travail non daté (diffusé par l'académie de La Réunion : https://www.ac-reunion.fr/media/53684/download). Lu par extraits le 11 octobre 2026 : les intitulés des leviers sont cités tels quels, les exemples sont ceux du guide. Ce guide est une aide à la décision, pas un texte réglementaire : les règles de certification restent celles du texte de chaque diplôme.
+
+### [SITUATION: ÉLÈVE BLESSÉ OU PARTIELLEMENT INAPTE POUR QUELQUES SEMAINES — QUE FAIRE AVANT DE LE METTRE DISPENSÉ ?]
+- Mots-clés : inapte partiel temporaire, blessure, fracture, opération, certificat médical, épreuve adaptée, épreuve différée, éviter la dispense, note unique, troisième CCF.
+- Formulations courantes des collègues : il s'est cassé le poignet avant le CCF ; il se fait opérer en mars ; dois-je le dispenser ou adapter ; comment éviter qu'il n'ait qu'une seule note ; il ne peut pas courir mais peut faire autre chose.
+- Objectif posé par le guide national : réduire le nombre d'élèves qui n'obtiennent qu'une seule note, et les dispenses qui touchent surtout le troisième CCF.
+- Un élève inapte partiel et temporaire peut bénéficier d'une pratique et d'une épreuve adaptées sans attendre l'épreuve de rattrapage (épreuve différée) : c'est à l'enseignant d'apprécier laquelle des deux est la plus judicieuse.
+- Sept leviers, à envisager dans l'ordre, et qui peuvent se combiner :
+  1. « Modification de certain(s) élément(s) du dispositif de pratique et de l'épreuve certificative » (exemple : récupération plus longue entre deux courses en demi-fond).
+  2. « Modification d'un paramètre de conception de la pratique et de l'épreuve, qui n'en change pas fondamentalement le sens » (exemple : une autre nage en natation de vitesse).
+  3. « Modification du barème ou de la quotité des points affectés à certains éléments à évaluer ».
+  4. « Adaptation de la pratique et de l'épreuve pouvant aller jusqu'à la modification d'un élément ou contenu à évaluer » (exemple : lancer sans élan).
+  5. « Dans certaines situations, proposer une épreuve anticipée » (exemple : avancer la date du CCF avant une opération chirurgicale, si l'élève peut pratiquer).
+  6. « Modification de l'ensemble certificatif proposé, pour permettre la pratique et la certification » (exemple : danse à la place de l'acrosport ; l'élève doit continuer à couvrir les champs d'apprentissage exigés).
+  7. « Substitution d'une APSA de l'ensemble certificatif par une APSA alternative » (exemple : marche nordique à la place d'une course).
+- Recommandation du guide : présenter l'épreuve adaptée par écrit au candidat et recueillir son accord.
+- Dans les logiciels : une épreuve adaptée ou un ensemble modifié se traduit par un protocole de type « adapté », créé directement dans Cyclades à tout moment de l'année ; les épreuves adaptées sont portées à la connaissance de la commission académique.
+
+### [SITUATION: CERTIFICAT MÉDICAL D'INAPTITUDE PARTIELLE — QUI L'ÉTABLIT, QUE DOIT-IL DIRE, COMBIEN DE TEMPS VAUT-IL ?]
+- Mots-clés : certificat médical, inaptitude partielle, médecin traitant, médecin scolaire, validité, incapacités fonctionnelles, dispense, infirmière.
+- Formulations courantes des collègues : le certificat dit seulement « dispensé de sport » ; le certificat de l'an dernier est-il encore valable ; un mot de l'infirmière suffit-il ; quelle différence entre dispense et inaptitude.
+- Selon le guide national : le certificat médical d'inaptitude partielle, complété par le médecin, est la condition indispensable pour définir les adaptations. Il précise si l'inaptitude est totale ou partielle, permanente ou temporaire, et peut indiquer les incapacités fonctionnelles.
+- Seuls les médecins (médecin traitant, médecin scolaire) sont habilités à l'établir. L'infirmière scolaire est une personne ressource dont l'avis peut être demandé, mais elle n'établit pas ce certificat.
+- Il est valable uniquement pour l'année scolaire en cours.
+- Dispense et inaptitude ne sont pas la même chose : l'inaptitude est un constat médical ; la dispense est une décision administrative, qui ne relève pas du médecin.
+- Le certificat se dépose dans iPackEPS (fiche de l'élève, onglet [Inaptitudes]).

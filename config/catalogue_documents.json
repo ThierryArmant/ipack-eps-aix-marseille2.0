@@ -3315,5 +3315,11 @@
     "statut": "reformulation_sources_lues_2026-10-11",
     "examens": [],
     "url": "https://ipackeps.ac-creteil.fr/"
+  },
+  "data/examens/guide_national_inaptes_partiels_temporaires.txt": {
+    "title": "Inaptes partiels temporaires : leviers d'adaptation (guide de la Commission nationale des examens EPS)",
+    "statut": "guide_national_document_de_travail_lu_par_extraits_2026-10-11",
+    "examens": [],
+    "url": "https://www.ac-reunion.fr/media/53684/download"
   }
 }

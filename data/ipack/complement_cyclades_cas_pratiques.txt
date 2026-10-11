@@ -67,13 +67,15 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 
 ### [SITUATION: POURQUOI UNE APSA OU UN PROTOCOLE N'EST PAS TRANSFÉRÉ VERS CYCLADES]
 - Mots-clés : APSA non transférée, protocole absent de Cyclades, non certificative, référentiel refusé, protocole incomplet, dates de rattrapage, co-évaluateur.
-- Formulations courantes des collègues : une de mes activités n'apparaît pas dans Cyclades ; mon protocole n'est pas remonté ; pourquoi mon ensemble n'est pas valide.
+- Formulations courantes des collègues : certains protocoles créés dans iPackEPS n'apparaissent pas dans Cyclades, pourquoi et que faire ; une de mes activités n'apparaît pas dans Cyclades ; mon protocole n'est pas remonté ; pourquoi mon ensemble n'est pas valide.
 - Ne sont PAS transférés vers Cyclades :
   * une APSA qui n'a pas été déclarée comme certificative dans [Dossiers] > [Dossier EPS] > [APSA] ;
   * une APSA sans référentiel déposé, ou dont le référentiel a été refusé par la commission académique (exception : les APSA adaptées n'exigent pas de référentiel) ;
   * un protocole incomplet, par exemple sans dates de rattrapage ou sans co-évaluateur renseigné.
 - Conditions de validité d'un ensemble standard : 3 APSA relevant de 3 champs d'apprentissage différents, dont au moins 2 de la liste nationale, chacune avec son référentiel. Pour le CAP : 2 APSA.
 - Le statut à obtenir dans iPackEPS est l'étiquette verte ; sans elle, les données ne basculent pas vers Cyclades. (Sources : document Corse 2024-2025, guide Normandie 2025.)
+- Le transfert des protocoles d'iPackEPS vers Cyclades se fait une fois, après validation par la commission académique (transfert par l'inspection) : c'est le seul moyen de faire passer un protocole d'iPackEPS vers Cyclades. Un protocole créé ou complété dans iPackEPS après ce transfert n'apparaîtra donc pas dans Cyclades (précision d'un formateur iPackEPS de l'académie, 11/10/2026).
+- Que faire pour un protocole manquant après le transfert : un protocole ADAPTÉ se crée directement dans Cyclades, à tout moment, par le chef d'établissement ou un enseignant ; un protocole STANDARD impose de faire invalider les protocoles par la commission, de le créer dans Cyclades ([EPS] / [Créer un protocole], type standard), de soumettre ([EPS] / [Tableau de Bord] > [OUI] dans [soumettre les protocoles] > [Enregistrer]) puis de demander la revalidation (voir la fiche « Ajouter un protocole standard après la validation de la commission »).
 
 ### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE AVEC DES ÉPREUVES DÉJÀ PASSÉES DANS SON ANCIEN ÉTABLISSEMENT]
 - Mots-clés : élève arrivant, changement d'établissement, épreuve déjà passée, note de l'ancien lycée, protocole spécifique.

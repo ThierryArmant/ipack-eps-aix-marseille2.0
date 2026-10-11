@@ -65,6 +65,42 @@
         "autres? academies?",
         "inspection"
       ]
+    },
+    {
+      "id": "ARRONDI-BAC-PRO-SUPERIEUR",
+      "decision": "Bac professionnel, CCF : la moyenne des trois notes est arrondie au point entier supérieur après harmonisation, pas au point entier le plus proche.",
+      "diplome": "baccalauréat professionnel",
+      "session": "2026 et suivantes sous réserve de modification",
+      "source": "Circulaire du 2 avril 2025, MENE2505383C (BO n° 18 du 1er mai 2025), vérifiée le 11/10/2026.",
+      "exceptions": "Aucune connue ; le CAP et le bac GT arrondissent au point entier le plus proche.",
+      "portee": "ligne",
+      "motifs_interdits": [
+        "(?:bac pro|baccalaureat professionnel)\\w*[^.]{0,160}arrondi\\w* au point entier le plus proche"
+      ],
+      "sauf_si": [
+        "cap",
+        "general",
+        "\\bgt\\b"
+      ]
+    },
+    {
+      "id": "ARRONDI-CAP-PLUS-PROCHE",
+      "decision": "CAP, CCF : la note est arrondie au point entier le plus proche après harmonisation (10,5 devient 11), pas systématiquement au point supérieur.",
+      "diplome": "CAP",
+      "session": "2026 et suivantes sous réserve de modification",
+      "source": "Circulaire du 27 août 2025, MENE2517122C (BO n° 36 du 25 septembre 2025), vérifiée le 11/10/2026.",
+      "exceptions": "Un dixième égal à 5 s'arrondit au point supérieur.",
+      "portee": "ligne",
+      "motifs_interdits": [
+        "\\bcap\\b[^.]{0,160}arrondi\\w* au point (?:entier )?superieur"
+      ],
+      "sauf_si": [
+        "plus proche",
+        "bac pro",
+        "professionnel",
+        "10,5",
+        "\\b5\\b"
+      ]
     }
   ]
 }

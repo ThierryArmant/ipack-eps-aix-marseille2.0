@@ -1594,7 +1594,9 @@ if prompt_a_traiter:
             est_date = ((not est_college) and any(phrase in p_low for phrase in ["quel est le calendrier", "quelles sont les dates", "date butoir de", "date de fermeture", "calendrier officiel"]) and any(w in p_low for w in ["saisie", "note", "notes", "fermeture", "santorin", "cyclades", "lot", "lots", "examen", "examens", "bac", "cap", "brevet"]))
             est_dnb = (mode != "textes") and any(w in p_low for w in ["dnb", "brevet", "collège", "college"]) and not any(w in p_low for w in ["bac", "lycée", "lycee", "cap"])
             est_sujet_secours = "sujet" in p_low and any(w in p_low for w in ["secours", "papier", "imprimer"])
-            est_cap_3epreuves = (mode == "examens" and re.search(r"\bcap\b", p_low) is not None and any(w in p_low for w in ["3 épreuves", "3 notes", "trois épreuves", "trois notes"]))
+            # « quatre activités, choix en fin d'année » (U-275) recevait une réponse qui validait le choix tardif.
+            est_cap_3epreuves = (mode == "examens" and re.search(r"\bcap\b", p_low) is not None
+                                 and re.search(r"\b(?:3|4|trois|quatre) (?:épreuves|epreuves|notes|activités|activites|apsa)\b", p_low) is not None)
             est_tasa = mode == "textes" and "tasa" in p_low
             est_unss = any(w in p_low for w in ["unss", "championnat de france", "championnats de france", "jeune juge", "jeunes juges", "jeune arbitre", "jeunes arbitres", "podium unss"])
             est_deplacer_candidat = (mode != "textes" and any(w in p_low for w in ["déplacer", "deplacer", "déplacement", "deplacement"]) and any(w in p_low for w in ["candidat", "élève", "eleve"]) and "lot" in p_low)
@@ -1999,6 +2001,7 @@ if prompt_a_traiter:
                 texte_brut = """<h3>CAP : 2 ÉPREUVES CERTIFIENT, CHOISIES EN DÉBUT D'ANNÉE</h3>
 <p>En CAP, la note d'EPS repose sur <strong>2 épreuves</strong> relevant de <strong>2 champs d'apprentissage différents</strong> (circulaire CAP du 27 août 2025, <strong>MENE2517122C</strong>).</p>
 <p>Si l'établissement organise <strong>3 épreuves</strong>, l'élève <strong>retient 2 épreuves en début d'année</strong> (bulletin académique spécial n° 549 d'Aix-Marseille, session 2026). Faire passer les 3 épreuves pour garder ensuite les 2 meilleures notes n'est pas prévu.</p>
+<p><strong>Plus de 3 activités, ou un choix en fin d'année :</strong> aucun texte relu ne prévoit un choix de 2 épreuves parmi 4 en fin d'année ; un protocole qui regroupe toutes les activités est refusé. Pour le faire valider : créer un protocole par combinaison de 2 épreuves (méthode indiquée par le correspondant iPackEPS d'Aix-Marseille), répartir les élèves dans ces protocoles <strong>en début d'année</strong>, puis soumettre les protocoles à la commission académique.</p>
 <p>Pour la session 2027, vérifiez cette consigne dans le bulletin académique EPS de votre académie dès sa parution.</p>"""
                 badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
 

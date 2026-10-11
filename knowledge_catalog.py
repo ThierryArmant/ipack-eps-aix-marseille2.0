@@ -88,6 +88,15 @@ def section_scopes(title):
 
 def clarification(question, public):
     q = normalise(question)
+    # General procedures do not choose a medical status or an individual grade.
+    asks_code = bool(re.search(r'\b(di|disp|ab|zero|0)\b|je (mets|dois mettre)|je saisis', q))
+    general_procedure = bool(re.search(
+        r'quel.*certificat|qui.*(?:valide|decide|declare)|comment.*(?:declarer|enregistrer)|'
+        r'inscri.*(?:inapt|apte)|inapt.*inscri|formation continue|'
+        r'difference.*(?:ccf|ponctuel)|amenag.*(?:delai|recours)|'
+        r'(?:delai|recours).*amenag', q))
+    if general_procedure and not asks_code:
+        return ''
     medical = bool(re.search(r'inapt|dispens|certificat medical', q))
     decision = bool(re.search(r'\b(di|disp|zero|0)\b|sais|notes?|ccf|epreuv', q))
     exam = bool(re.search(r'\b(cap|dnb|brevet|college|lgt|gt)\b|bac(calaureat)?\s+(pro|professionnel|general|technologique)', q))

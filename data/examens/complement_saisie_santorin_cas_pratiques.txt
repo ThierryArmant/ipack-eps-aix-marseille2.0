@@ -30,7 +30,8 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]
 [PORTEE: gt,pro]
 - Mots-clés : inapte à l'année, DI DI DI, DI DI note, deux dispenses une note, note conservée, note non conservée.
-- Formulations courantes des collègues : mon élève est dispensé toute l'année, que saisir ; il n'a qu'une note sur trois, je la garde ou pas ; comment saisir deux dispenses et une note.
+- Formulations courantes des collègues : mon élève est dispensé toute l'année, que saisir ; il n'a qu'une note sur trois, je la garde ou pas ; comment saisir deux dispenses et une note ; il a DI + DI et une note, est-ce que ça fait DI ; deux dispenses et une note, est-il dispensé.
+- Réponse courte à « DI + DI et une note, ça fait DI ? » : NON, pas automatiquement. Deux activités dispensées et une note ne se transforment pas d'elles-mêmes en dispense de l'épreuve : la note acquise est conservée par défaut. Commencer la réponse par ce « non », puis expliquer la saisie.
 - Élève inapte toute l'année : saisir DI + DI + DI, avec l'appréciation « inapte à l'année ».
 - Élève qui n'a qu'une seule note, que l'enseignant CONSERVE : saisir « Dispensé » (DI) pour les deux APSA non évaluées, puis la note pour l'APSA évaluée (DI + DI + Note). Un avertissement s'affiche à l'écran ; une appréciation peut être ajoutée.
 - Une note acquise ne doit pas être retirée pour simple convenance. Une dispense peut être proposée si les conditions médicales et les éléments d’appréciation le justifient selon le texte du diplôme ; documenter la décision et la soumettre au circuit académique applicable.
@@ -76,6 +77,16 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Formulations courantes des collègues : la piscine a fermé, je n'ai pas pu évaluer la natation pour ma classe ; que faire si une épreuve est impossible pour tout le groupe.
 - Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe pour une raison technique ou matérielle (installation indisponible, professeur absent non remplacé), l'établissement demande l'autorisation préalable de la commission académique d'EPS, par l'inspection pédagogique et la division des examens. Le cas exceptionnel n'est pas une réponse à l'inaptitude médicale ou à l'absence d'un élève : ces situations se traitent par l'épreuve différée, la dispense ou les règles d'absence du diplôme. (Sources : support Besançon 2025 ; support de la division des examens d'Aix-Marseille, 2024.)
 - Manipulation dans Santorin, une fois l'accord obtenu : ouvrir le lot, cliquer sur le bouton [Déclarer cas exceptionnel] en haut du lot, puis cliquer sur l'APSA à écarter dans le protocole. La mention CE s'applique à TOUS les élèves du lot : elle neutralise l'activité, comme une dispense. Si la même raison technique ou matérielle ne touche qu'une partie du groupe (par exemple un élève arrivé après la fermeture de l'installation), ne pas déclarer le CE sur tout le lot : le chef d'établissement ou le référent Santorin place d'abord le ou les élèves concernés dans un lot à part, et le CE est déclaré sur ce lot (tutoriel officiel iPackEPS, article 95).
+
+### [SITUATION: INSTALLATION FERMÉE OU PROFESSEUR NON REMPLACÉ — UN SEUL ÉLÈVE (OU QUELQUES-UNS) N'A PAS PU ÊTRE ÉVALUÉ]
+- Mots-clés : cas exceptionnel, CE, un seul élève, élève isolé, quelques élèves, piscine fermée, installation indisponible, lot à part, nouveau lot, référent Santorin.
+- Formulations courantes des collègues : la piscine est fermée, un seul de mes élèves n'a pas pu être évalué ; un élève arrivé après la fermeture de l'installation n'a pas de note ; le CE ne concerne qu'un élève de mon lot, comment faire.
+- La procédure existe : ne pas répondre que la base ne dit rien pour un élève isolé.
+- Condition : la raison est externe à l'élève (installation indisponible, professeur absent non remplacé, séquence trop courte). Si la raison est médicale ou une absence, ce n'est pas un cas exceptionnel : épreuve différée, dispense ou règles d'absence du diplôme.
+- Étape 1 : demander l'autorisation préalable de la commission académique d'EPS, par l'inspection pédagogique et la division des examens.
+- Étape 2 : ne pas déclarer le CE sur le lot entier. Le chef d'établissement, ou l'enseignant référent Santorin, crée un lot à part et y place uniquement le ou les élèves concernés.
+- Étape 3 : sur ce lot à part, avant la saisie des notes, cliquer sur [Déclarer CE] et sélectionner l'APSA à écarter. Les autres élèves, restés dans le lot d'origine, sont notés normalement.
+- (Tutoriel officiel iPackEPS, article 95, cas d'un seul élève du lot.)
 
 ### [SITUATION: NOTE DE L'ENSEIGNEMENT OPTIONNEL D'EPS (OPTION EPS) — OÙ SE SAISIT-ELLE ?]
 - Mots-clés : option EPS, enseignement optionnel, option facultative, note de l'option, LSU, livret scolaire, bulletin.

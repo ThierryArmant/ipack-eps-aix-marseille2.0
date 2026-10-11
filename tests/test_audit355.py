@@ -148,3 +148,29 @@ class Audit355Retest11Tests(unittest.TestCase):
         self.assertIn('"[FICHE PRIORITAIRE" in extraits_doc', code)
         self.assertIn('consigne_ia + RELANCE_FICHE_PRIORITAIRE', code)
         self.assertIn('reference_notice(_cibles, prompt, niveau_actuel_form)', code)
+
+
+class Audit355Retest13Tests(unittest.TestCase):
+    """Relance des 13 questions après la PR 21."""
+
+    def test_question_about_ipackeps_itself_stays_in_ipack(self):
+        q = "Quelle version minimale d'iPackEPS faut-il pour l'interfaçage avec Cyclades et Santorin ?"
+        self.assertEqual(kc.effective_context(q, 'Lycée Général & Techno', 'ipack')[1], 'ipack')
+        self.assertEqual(kc.effective_context('Bac pro : comment associer les candidats dans Cyclades ?',
+                                              'Lycée Général & Techno', 'ipack')[1], 'examens')
+
+    def test_absence_sentence_after_an_answer_is_removed(self):
+        import ast
+        tree = ast.parse(open('app.py', encoding='utf-8').read())
+        node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'retirer_phrase_absence_apres_reponse')
+        env = {'re': __import__('re')}
+        exec(compile(ast.Module(body=[node], type_ignores=[]), 'app.py', 'exec'), env)
+        retirer = env['retirer_phrase_absence_apres_reponse']
+        absence = ("Je ne dispose pas de la procédure exacte dans ma base pour cette demande. Pour iPackEPS, écrivez "
+                   "à l'assistance. Pour Santorin, adressez-vous à la DEC de votre académie.")
+        self.assertEqual(retirer(absence), absence)
+        texte = "<p>Les absences se saisissent dans Pronote.</p>\n<p>" + absence + "</p>\n<p>Fin.</p>"
+        resultat = retirer(texte)
+        self.assertIn('Pronote', resultat)
+        self.assertIn('Fin.', resultat)
+        self.assertNotIn('ne dispose pas', resultat)

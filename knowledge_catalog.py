@@ -204,6 +204,7 @@ def effective_context(question, public, mode):
                              r"(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
     if sum((pro, gt, college)) == 1:
         public = 'Lycée Pro / CAP' if pro else 'Lycée Général & Techno' if gt else 'Collège (DNB)'
-    if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q):
+    # Une question sur iPackEPS lui-même (version, interfaçage) reste dans iPackEPS même si elle cite Cyclades.
+    if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q) and not re.search(r"\bipack", q):
         mode = 'examens'
     return public, mode

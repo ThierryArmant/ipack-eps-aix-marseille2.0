@@ -164,3 +164,12 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Formulations courantes des collègues : notre intervenante est convoquée à l'harmonisation et n'a pas d'accès ; faut-il créer un compte pour le professeur ; nous passons par le compte de la structure.
 - Le fonctionnement par le compte de la structure, avec le directeur ou l'intervenant, est le fonctionnement normal.
 - Un accès personnel n'est possible que si l'intervenant dispose d'une adresse académique : en faire alors la demande au correspondant iPackEPS de l'académie.
+
+################ SOUS-COMMISSION ################
+
+### [SITUATION: L'ENSEIGNANT CONVOQUÉ À LA SOUS-COMMISSION D'EPS NE PEUT PAS VENIR — COMMENT LE FAIRE REMPLACER ?]
+- Mots-clés : sous-commission, harmonisation, convocation, remplacement, enseignant absent, coordonnateur malade, remplaçant à la commission.
+- Formulations courantes des collègues : notre coordonnatrice ne pourra pas participer à la sous-commission ; un collègue la remplacera, a-t-il besoin d'une convocation ; qui prévenir si le représentant de l'établissement est absent.
+- Signaler le remplacement au service des examens de l'académie et au correspondant examens EPS, en donnant le nom du remplaçant.
+- Le remplaçant reçoit une convocation à son nom (cas traité par le service des examens d'Aix-Marseille).
+- Ce que cette base ne précise pas : qui établit la convocation du remplaçant, et dans quel délai. Le demander au service des examens au moment où l'on signale le remplacement.

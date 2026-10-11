@@ -54,6 +54,23 @@ class Audit60Tests(unittest.TestCase):
         self.assertEqual(kc.clarification('Un élève inapte à une épreuve : comment est calculée sa note ?', 'Lycée Général & Techno'), '')
         self.assertTrue(kc.clarification('Il est inapte : je saisis DI ou zéro ?', 'Lycée Général & Techno'))
 
+    def test_general_inaptitude_paraphrases_do_not_block(self):
+        for question in (
+            'Un élève inapte sur une épreuve du CCF, quelle note finale ?',
+            'Élève inapte à une épreuve de CCF : on fait la moyenne des deux autres notes ?',
+            'Comment calculer la note finale en cas d’inaptitude à une épreuve ?',
+        ):
+            with self.subTest(question=question):
+                self.assertEqual(kc.clarification(question, 'Lycée Général & Techno'), '')
+                self.assertTrue(kc.clarification(question, 'Lycée Pro / CAP'))
+
+    def test_general_wording_does_not_bypass_code_clarification(self):
+        for question in (
+            'Il est inapte : quelle note finale, DI ou zéro ?',
+            'Il est inapte : on fait la moyenne ou je saisis AB ?',
+        ):
+            self.assertTrue(kc.clarification(question, 'Lycée Général & Techno'))
+
     def test_ipack_perimeter_is_not_injected_into_epccs_exam(self):
         text, _, _, _ = self.route('Comment fonctionne EPPCS au bac : écrit, oral, pratique ?', 'Lycée Général & Techno', 'examens')
         self.assertIn('MENE2622650N', text)

@@ -2120,7 +2120,8 @@
     "statut": "verifie_2026-10-10_portee_explicite",
     "priorite": 90,
     "exclure_motifs": [
-      "^(?!.*(?:pas de|ni de|ne.*confond)).*(?:eppcs|epccs|specialite)"
+      "^(?!.*(?:pas de|ni de|ne.*confond)).*(?:eppcs|epccs|specialite)",
+      "individuel|candidat libre|ponctuel"
     ],
     "exclusif_motifs": [
       "(?=.*option)(?=.*(?:cyclades|santorin|ccf|lsl|lsu))"
@@ -2555,7 +2556,12 @@
     "motifs": [
       "video|filmer|photograph|rgpd|autorisation.*parents"
     ],
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "priorite": 140,
+    "reponse_directe_motifs": [
+      "filmer|photograph|associer.*video|video.*evaluation"
+    ],
+    "reponse_directe": "iPackEPS n'est pas un outil de captation, de stockage vidéo ni de saisie des notes : aucune fonction documentée ne permet d'y associer une vidéo à l'évaluation d'un élève. Utiliser l'outil et le stockage validés par l'établissement, informer les élèves et suivre le circuit d'autorisation d'image, avec finalité, destinataires, accès et durée de conservation définis. Observer la prestation avec la grille pédagogique puis saisir la note dans le logiciel de notes de classe, par exemple Pronote ; pour le CCF de lycée, saisir la note certificative dans Santorin. Ne pas importer de vidéo nominative dans le HUB. En cas de doute sur les usages, consulter le chef d'établissement ou le DPD académique. Ne pas inventer un menu vidéo iPackEPS."
   },
   "data/commun/audit60/pro_cap_absences.txt": {
     "title": "Bac professionnel et CAP : ensemble certificatif et absences",
@@ -3190,5 +3196,106 @@
     ],
     "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
     "date_verification": "2026-10-11"
+  },
+  "data/examens/option_eps_individuel_2026.txt": {
+    "title": "Option EPS : candidats individuels",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 140,
+    "motifs": [
+      "(?=.*option)(?=.*(?:individuel|libre|ponctuel))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*option)(?=.*(?:individuel|libre|ponctuel))"
+    ],
+    "reponse_directe": "Oui, un candidat individuel peut présenter l'option EPS en évaluation ponctuelle, distincte de l'EPS obligatoire. Selon son inscription : première = sauvetage aquatique et oral de 15 minutes ; terminale = badminton en simple et oral de 15 minutes ; cycle terminal = les deux pratiques et un oral de 20 minutes. Pratique sur 12 points, oral sur 8 ; pour le cycle, la pratique est la moyenne des deux notes. Coefficient 2 par année ou 4 pour le cycle. L'organisation dépend de l'offre académique et d'un examinateur compétent. Un candidat dispensé de l'examen ponctuel d'EPS obligatoire ne peut présenter cette option. Ne pas lui appliquer le contrôle continu/LSL du candidat scolaire. Source : MENE2533572N, applicable depuis 2026, section EPS. https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
+    "statut": "revu_retest_2026-10-11"
+  },
+  "data/examens/shn_statut_inscription_gt.txt": {
+    "title": "SHN bac GT : date et conditions",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 140,
+    "motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:date|quand|statut|beneficier))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:date|quand|statut|beneficier))"
+    ],
+    "reponse_directe": "Le candidat doit justifier du statut SHN au moment de l'inscription au baccalauréat, sur la base de la liste publiée en janvier ou juillet de la même année civile. Aucune modification de statut n'est acceptée après la fin des inscriptions l'année scolaire de certification. Vérifier la catégorie éligible et les justificatifs auprès de la DIEC ; ne pas limiter les bénéficiaires aux seules listes ministérielles. La note de 20/20 sur la spécialité sportive est conditionnelle : aménagement proposé par le comité de pilotage, validé par le recteur, et ce 20 ne peut être l'unique note retenue en CCF ou en ponctuel. Ce n'est pas une note globale automatique. Ne pas confondre date d'inscription et dates de demande AMEX. Source : MENE2531948N, partie 4. https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "statut": "revu_retest_2026-10-11"
+  },
+  "data/examens/cyclades_candidats_absents.txt": {
+    "title": "Cyclades : candidats absents de la liste",
+    "examens": [],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 140,
+    "motifs": [
+      "(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve|liste))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve|liste))"
+    ],
+    "reponse_directe": "Non : refaire l'export iPackEPS ne crée pas un candidat absent de la liste d'inscription à l'examen dans Cyclades. Faire vérifier d'abord par le secrétariat et le chef d'établissement l'inscription, l'établissement gestionnaire et l'identité/INE. Si une régularisation est nécessaire, la direction contacte la DIEC (examenseps@ac-aix-marseille.fr). Distinguer cette absence de la liste des inscrits d'un candidat déjà inscrit mais non associé à un protocole : dans ce second cas seulement, vérifier l'association aux protocoles et le fichier d'export. Ne pas ignorer ni recréer arbitrairement un candidat. Source : réponses du correspondant académique, circuit Cyclades/iPackEPS. https://ipackeps.ac-creteil.fr/",
+    "url": "https://ipackeps.ac-creteil.fr/",
+    "statut": "revu_retest_2026-10-11"
+  },
+  "data/examens/activite_etablissement_delai_aix.txt": {
+    "title": "Aix : demande d’activité établissement",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 140,
+    "motifs": [
+      "(?=.*(?:activite|apsa))(?=.*(?:liste nationale|etablissement))(?=.*(?:avant|date|delai|quand|demander))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:activite|apsa))(?=.*(?:liste nationale|etablissement))(?=.*(?:avant|date|delai|quand|demander))"
+    ],
+    "reponse_directe": "Une activité absente de la liste nationale peut déjà relever de la liste académique : vérifier d'abord cette liste. Pour une activité établissement nouvelle, le BA spécial 549 du 17 octobre 2025 indiquait le 30 mai 2026 au plus tard pour la session 2027. Cette échéance est passée : elle ne vaut pas comme date future ni comme calendrier permanent. Contacter l'inspection EPS pour la session visée et une éventuelle instruction nouvelle ; aucune acceptation tardive n'est garantie. La validation académique du référentiel/protocole reste nécessaire avant certification. Source : BA 549, calendrier des demandes d'activité établissement, à distinguer du dépôt annuel des protocoles. https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "statut": "revu_retest_2026-10-11"
+  },
+  "data/examens/fraude_ccf_eps.txt": {
+    "title": "Fraude en EPS : examen et cours ordinaire",
+    "examens": [],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 140,
+    "motifs": [
+      "trich|fraude"
+    ],
+    "reponse_directe_motifs": [
+      "trich|fraude"
+    ],
+    "reponse_directe": "En course d'orientation, relever précisément les faits et conserver les éléments, puis prévenir le chef d'établissement. Si c'est un CCF ou une épreuve du baccalauréat : signalement selon le circuit des examens à la DIEC/au recteur ; la commission de discipline du baccalauréat statue sur la fraude, pas la CAHPN ni le professeur. Ne pas transformer seul une suspicion en zéro disciplinaire ou annulation dans Santorin. À l'examen, faire cesser la fraude, rédiger un procès-verbal et appliquer les instructions de surveillance, sans interrompre automatiquement la participation. Si c'est une évaluation ordinaire : traitement pédagogique et procédure de l'établissement, sans transposer automatiquement les sanctions d'examen. Source : ministère, Fraudes aux examens ; code de l'éducation, D334-27 et dispositions disciplinaires du baccalauréat. https://www.education.gouv.fr/reussir-au-lycee/fraudes-aux-examens-341483",
+    "url": "https://www.education.gouv.fr/reussir-au-lycee/fraudes-aux-examens-341483",
+    "statut": "revu_retest_2026-10-11"
   }
 }

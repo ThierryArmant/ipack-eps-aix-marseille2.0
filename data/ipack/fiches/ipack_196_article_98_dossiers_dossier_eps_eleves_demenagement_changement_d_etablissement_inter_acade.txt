@@ -1,4 +1,5 @@
 ### [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année
+Concerne uniquement un ÉLÈVE qui change d'établissement. Pour un enseignant muté (ses groupes et protocoles), voir la fiche « Enseignant qui change d'établissement ».
 Mots-clés : élève arrivant autre académie, transfert de notes CCF, changement de lycée en cours d'année, récupérer notes ancien lycée.
 - Procédure de transfert :
   1. Aucune passerelle automatique inter-bases n'existe entre deux établissements pour les notes de CCF (aucune note n'est saisie dans iPackEPS).

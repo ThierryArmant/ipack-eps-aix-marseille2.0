@@ -3303,5 +3303,11 @@
     "statut": "source_academique_lue_2026-10-11",
     "examens": [],
     "url": "https://github.com/Pole-Examens/tutoriels-examens"
+  },
+  "data/ipack/complement_questions_boite_assistance.txt": {
+    "title": "iPackEPS : APSA Courses, case certificative, établissements à l'étranger (questions de la boîte d'assistance)",
+    "statut": "reformulation_fiches_existantes_2026-10-11",
+    "examens": [],
+    "url": "https://ipackeps.ac-creteil.fr/"
   }
 }

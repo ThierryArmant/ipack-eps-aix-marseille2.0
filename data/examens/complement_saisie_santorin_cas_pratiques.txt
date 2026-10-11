@@ -86,7 +86,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: CO-ÉVALUATION — OBLIGATOIRE OU NON SELON L'EXAMEN (BAC GT, BAC PRO, CAP, DNB)]
 - Mots-clés : co-évaluation, co-évaluateur absent, évaluer seul, deux enseignants, bac pro, CAP, voie professionnelle, DNB, collège.
 - Formulations courantes des collègues : mon co-évaluateur est absent, puis-je évaluer seul ; faut-il être deux pour le CCF en bac pro ; la co-évaluation est-elle obligatoire en CAP ; doit-on être deux au collège.
-- Baccalauréats général et technologique : la co-évaluation est obligatoire. Elle est réalisée par deux enseignants d'EPS de l'établissement, dont l'un est l'enseignant du groupe classe (note de service du 20 février 2026). Le texte ne prévoit pas qu'un enseignant évalue seul. Si le co-évaluateur prévu est absent, prévenir le chef d'établissement ; la conduite à tenir (autre co-évaluateur de l'établissement, ou report sur la date de rattrapage du protocole) n'est pas détaillée dans les documents de la base : la faire confirmer par l'inspection ou la DEC.
+- Baccalauréats général et technologique : co-évaluation obligatoire par deux enseignants d’EPS, dont l’enseignant du groupe classe. Si nécessaire, le second peut venir d’un autre établissement, sur désignation de l’inspection pédagogique régionale. En cas d’absence du co-évaluateur, prévenir la direction et organiser le remplacement ou le report avec les autorités compétentes ; ne pas certifier seul. Source : note MENE2531948N, partie 2.d.
 - Baccalauréat professionnel et CAP : la co-évaluation n'est PAS réglementaire pour la certification. L'enseignant de la classe peut donc évaluer seul. (FAQ nationale « Évaluer et noter », réponse voie professionnelle.)
 - Collège (DNB) : ni le CCF ni la co-évaluation ne sont réglementés. Les élèves sont notés par l'enseignant de leur classe ; une co-évaluation éventuelle relève de l'organisation de l'établissement et doit être validée par l'autorité hiérarchique.
 
@@ -96,37 +96,10 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Les opérations commencent à partir de janvier, une fois les protocoles des établissements validés par la commission académique.
 - Étape 1, professeur ou chef d'établissement : dans iPackEPS, générer le fichier d'export des groupes et des élèves ([Dossiers] > [Dossier Certificatif] > [Cyclades]). Tous les élèves des classes à examen doivent d'abord être placés dans un groupe.
 - Étape 2, chef d'établissement : importer ce fichier dans Cyclades (une seule fenêtre Cyclades ouverte, dans le bon examen).
-- Étape 3, enseignants et chef d'établissement : dans Cyclades, vérifier que chaque élève est bien rattaché à son protocole ([EPS] / [Associer les élèves à un protocole]) et corriger si besoin.
-- Étape 4, chef d'établissement, seulement si un enseignant a changé : réaffecter le protocole au nouvel évaluateur ([EPS] / [Contrôler / Réaffecter des protocoles]).
-- Étape 5, chef d'établissement : dans Santorin, lancer la distribution automatique ; chaque protocole devient un lot de correction.
-- Étape 6, enseignant : saisir ses notes dans Santorin, élève par élève, par AFL ou AFLP (AFL1 d'abord, point décimal, enregistrer après chaque APSA).
-- Étape 7, enseignant : verrouiller son lot une fois les notes examinées en équipe ; seul le chef d'établissement peut ensuite le déverrouiller.
-- Les dates limites de chaque étape dépendent de chaque académie : elles sont fixées par la DEC de votre académie. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+- Étape 3, enseignants et chef d'établissement : dans Cyclades, vérifier que chaque élève est bien rattaché à son protocole …2313 tokens truncated…ab absent » et la non-délivrance du diplôme. Ne pas assimiler ce cas à une moyenne de zéros.
+* **Cases AFLP inactives :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
 
-### [SITUATION: ÉLÈVE ARRIVÉ EN COURS D'ANNÉE AVEC UNE NOTE DE CCF DÉJÀ OBTENUE DANS SON ANCIEN ÉTABLISSEMENT]
-- Mots-clés : élève arrivant, arrivé en mars, changement de lycée, note de l'ancien établissement, épreuve déjà passée, protocole spécifique, élève absent du lot.
-- Formulations courantes des collègues : un élève arrive d'un autre lycée avec déjà une note de CCF, que devient-elle ; comment intégrer un élève arrivé en cours d'année ; il n'apparaît pas dans mon lot Santorin.
-- La note déjà obtenue n'est pas perdue : on crée pour cet élève un protocole spécifique qui reprend l'APSA déjà évaluée et la complète par les épreuves qu'il lui reste à passer, en respectant les exigences de l'examen. Exemple (bac GT) : une APSA de CA1 a été évaluée dans l'ancien établissement ; le protocole comprend cette APSA de CA1 et deux autres APSA de champs d'apprentissage différents, à réaliser dans le nouvel établissement. (Source : guide Normandie 2025.)
-- Si l'élève est arrivé après l'association des candidats aux protocoles : lui affecter un protocole dans Cyclades, puis procéder à une nouvelle distribution automatique des lots dans Santorin. Il apparaît alors dans le lot de son enseignant.
-- La façon de reporter dans Santorin la note obtenue dans l'ancien établissement n'est pas détaillée dans les documents de la base : la faire préciser par la DEC.
-
-### [SITUATION: ÉLÈVE PRÉSENT QUI REFUSE DE PASSER L'ÉPREUVE OU ABANDONNE EN COURS D'ÉPREUVE (reformulation d'une fiche existante de la base)]
-- Mots-clés : refus de passer l'épreuve, refuse de participer, ne veut pas passer, abandon, s'arrête en pleine épreuve, élève présent mais ne fait rien, crise d'angoisse, malaise.
-- Formulations courantes des collègues : un élève présent a refusé de passer le CCF, quelle note ; il a abandonné au milieu de l'épreuve ; il est venu mais n'a rien voulu faire, je mets absent ou zéro ; une élève a fait une crise de panique pendant l'épreuve.
-- Un élève présent qui refuse ou abandonne n'est PAS un absent : ne pas saisir « Absent » (ni ABI, ni ABJ).
-- Refus délibéré ou abandon sans motif médical : l'épreuve a débuté. Les AFL (ou AFLP) sont évalués sur ce qui a été effectivement observé au moment de l'abandon. Le texte national ne prévoit pas de barème spécial pour ce cas : l'évaluateur note ce qu'il a observé selon le référentiel, et la commission académique est informée par l'appréciation.
-- Malaise, crise de panique ou blessure pendant l'épreuve : l'épreuve est interrompue et l'élève est orienté vers l'infirmerie. Bac GT : « en cas de survenance d'une inaptitude au cours des épreuves, il revient aux examinateurs d'apprécier la situation » ; pour un problème de santé temporaire authentifié par l'autorité médicale scolaire, une évaluation différée ou adaptée peut être proposée, avec l'accord du chef d'établissement (note de service du 20 février 2026, MENE2531948N). En CAP et bac pro, voir les fiches de ces examens.
-- Dans les deux cas, consigner les faits par écrit et renseigner le champ « Appréciations » de Santorin.
-
-### [SITUATION: SANTORIN — DANS QUEL MENU SE FAIT CHAQUE OPÉRATION (sommaire des tutoriels « Interface iPackEPS / Cyclades » du site iPackEPS)]
-- Mots-clés : menu Santorin, Distribution, Corrections, Statistiques, verrouiller, export du fichier de notes, liste des inaptes, dispensés, déplacer un élève de lot.
-- Formulations courantes des collègues : où verrouiller mon lot ; comment récupérer le fichier de toutes les notes ; comment sortir la liste des dispensés ; comment changer un élève de lot.
-- Distribution des élèves en lots de correction : portail Santorin - Chef d'Établissement, fonctionnalité [Distribution]. C'est la première étape dans Santorin.
-- Déplacer des élèves d'un lot de correction à un autre : portail Santorin - Chef d'Établissement, fonctionnalité [Distribution].
-- Saisie des notes : portail Santorin - Professeur (ou Référent Établissement), élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP.
-- Verrouiller les lots après la saisie : portail Santorin - Enseignant, fonctionnalité [Corrections]. Lorsque toutes les notes ont été saisies, chaque enseignant doit verrouiller chacun de ses lots.
-- Export du fichier de notes : portail Santorin - Chef d'Établissement, fonctionnalité [Statistiques].
-- Liste des inaptes / dispensés : portail Santorin - Chef d'Établissement, fonctionnalité [Statistiques]. Santorin ne propose pas d'extraction automatique de cette liste ; elle se reconstitue à partir de l'export.
-- Dernière vérification avant le verrouillage : s'assurer qu'il ne reste aucun élève en attente d'attribution de protocole, et que tous les élèves présents dans Cyclades et Santorin sont bien affectés à un protocole et à un lot de correction.
-- Ce sommaire ne donne pas le détail des écrans : pour le pas-à-pas, renvoyer au tutoriel vidéo correspondant.
-
+Sources : MENE2531948N (bac GT), MENE2505383C (bac pro), MENE2517122C (CAP), session 2026 et suivantes.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

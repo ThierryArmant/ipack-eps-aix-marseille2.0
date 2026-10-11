@@ -1,8 +1,12 @@
 ### 4. Réglementation des Absences et Épreuves Différées
 - Mots-clés : absence au CCF, épreuve différée, rattrapage, DNB, contrôle continu, référentiel, dépôt de référentiel, APSA certificative, EPPCS, APSA adaptée, groupes, SSS, ULIS, protocole invalide, export Cyclades, Déclarer CE
 - Formulations courantes des collègues : un élève était absent au CCF, a-t-il droit à un rattrapage ; mon APSA n'apparaît pas pour déposer le référentiel ; comment déposer plusieurs référentiels pour la même activité ; iPackEPS dit que mon protocole est invalide ; je n'ai pas le droit de créer un groupe SSS ; comment faire un groupe avec des élèves de niveaux différents ; comment envoyer mes groupes et protocoles vers Cyclades ; le bouton pour déclarer un CE ne marche pas
-* **Absence au CCF (Lycée GT / Pro) :** Toute absence non justifiée à la date de l'épreuve entraîne la note 0 (ou ABI). Seuls les élèves présentant des problèmes de santé temporaires authentifiés par l'autorité médicale ou un cas de force majeure validé par le chef d'établissement bénéficient d'une épreuve différée (rattrapage).
-* **Collège (DNB) :** Pas de CCF ni d'épreuve différée réglementaire. L'évaluation repose sur le contrôle continu des trimestres de 3ème à partir d'une pluralité d'évaluations. Une absence non justifiée ne se sanctionne pas par un zéro disciplinaire arbitraire, mais nécessite une régularisation si la moyenne n'est pas représentative.
+* **Absences au CCF :** distinguer les diplômes. Au bac GT, une absence injustifiée vaut zéro pour l’épreuve, non éliminatoire. En CAP et bac professionnel, une absence injustifiée à une situation de fin de séquence vaut zéro ; l’absence injustifiée à toutes les situations entraîne la déclaration « absent » et la non-délivrance du diplôme. Les problèmes de santé attestés et la force majeure suivent les conditions d’évaluation différée du texte propre au diplôme.
+* **Collège (DNB) :** pas de CCF certificatif EPS du lycée. Si la moyenne annuelle n’est pas représentative, appliquer le dispositif d’évaluations supplémentaires puis d’évaluation de remplacement organisé par le chef d’établissement. Une absence injustifiée à cette évaluation de remplacement entraîne zéro pour l’enseignement concerné ; une absence ordinaire ne constitue pas à elle seule une sanction par zéro. Voir regles_dnb_eps.
+Sources : MENE2531948N, partie 2.d ; MENE2505383C, partie B.1 ; MENE2517122C, partie 2.1 (textes applicables à partir de la session 2026).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C
 
 --- FAQ OFFICIELLE iPACKEPS : RÉFÉRENTIELS ET APSA ---
 
@@ -92,7 +96,7 @@
 
 * **Gestion des Cas Exceptionnels (CE) sur Santorin :**
   - Si un lot entier est concerné par une indisponibilité technique d'installation ou un enseignant non remplacé : utiliser le bouton `[Déclarer CE]` avant la saisie des notes pour neutraliser l'APSA.
-  - Si un seul élève est concerné : il est conseillé de créer un lot spécifique (réservé au chef d'établissement ou référent évaluation Santorin) et d'y placer l'élève concerné.
+  - Si un seul élève est concerné : ne pas utiliser le cas exceptionnel collectif pour contourner les règles individuelles ; traiter l’inaptitude ou l’absence selon le texte du diplôme et le circuit académique.
   - Si les boutons de CE restent bloqués (non réactifs) : cela arrive souvent si le nom du protocole contient des caractères spéciaux `/` ou `.`. Solution : recréer un protocole propre en faisant désvalider/revalider par l'I-IPR/DEC.
 TITRE : Gestion et identification des Sportifs de Haut Niveau (SHN) - Examens nationaux
 - Mots-clés : sportif de haut niveau, SHN, ESHN, Santorin, Cyclades, inscription aux examens, liste ministérielle, DEC, aménagement d'épreuves, pièces justificatives, secrétariat d'examen, correcteur, note de référence, neutralisation, jury, repérer un élève sportif

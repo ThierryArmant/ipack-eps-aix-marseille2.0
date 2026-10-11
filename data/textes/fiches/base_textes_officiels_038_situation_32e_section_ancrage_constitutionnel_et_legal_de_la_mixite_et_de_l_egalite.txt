@@ -10,15 +10,11 @@ SÉCURITÉ APPN : OBLIGATION DE MOYENS DE SECOURS & ZONES BLANCHES
 [SECTION: MOYENS_ALERTE_ZONE_BLANCHE_MILIEU_ISOLE]
 Mots-clés : telephone satellite, zone blanche course orientation, milieu hostile, secours isolement, balise inReach, secours montagne, alerte secours APPN.
 
-1. DISTINCTION FONDAMENTALE : MILIEU STANDARD VS MILIEU HOSTILE / ISOLÉ
-   - En milieu scolaire ordinaire (forêt périurbaine, parc, terrain métropolitain) :
-     * Le téléphone satellite n'est PAS obligatoire.
-     * Mesures obligatoires : Délimitation de lignes d'arrêt infranchissables, consignes strictes de regroupement/sifflet, repérage préalable du point GSM le plus proche ou d'une habitation/borne de secours pour déclencher le 112.
-   
-   - En milieu hostile, haute montagne ou isolement total (zone blanche intégrale sans relais GSM accessible) :
-     * Le Code de l'éducation n'impose pas le mot « satellite », mais l'Article 121-3 du Code pénal et la Circulaire n° 2017-116 imposent une OBLIGATION DE MOYENS D'ALERTE IMMÉDIATS.
-     * Partir en isolement total sans moyen d'alerte autonome caractérise une faute délibérée en cas d'accident grave.
-     * Équipements recevables : Téléphone satellite (Iridium/Inmarsat), balise de communication satellitaire bidirectionnelle (type Garmin inReach / SPOT), balise de détresse PLB (Cospas-Sarsat) ou radio secours dédiée (Canal E montagne / VHF marine canal 16).
+- Préparer un moyen d’alerte et une organisation des secours adaptés au site, à la couverture et au protocole académique. Une zone blanche impose de vérifier concrètement comment déclencher l’alerte ; renoncer ou adapter si la sécurité ne peut être garantie.
+- Ne pas présenter un téléphone satellite, une balise ou un canal radio comme une obligation nationale universelle ou une garantie de secours. Le matériel choisi doit être utilisable dans le site et intégré au dispositif de secours.
+- La circulaire 2017-116 concerne l’encadrement des écoles maternelles et élémentaires publiques ; elle ne constitue pas une prescription générale de téléphonie au collège ou au lycée.
+- L’article 121-3 du Code pénal ne qualifie pas automatiquement une sortie sans satellite de faute délibérée. La qualification juridique dépend des faits ; voir la fiche sur la responsabilité civile et pénale.
+Sources : https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm ; https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm ; https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208
 ================================================================================
 RÉFÉRENTIEL JURIDIQUE & PROTOCOLE : TRANSPORT ET DÉPLACEMENT D'ÉLÈVES EN EPS ET SORTIES SCOLAIRES
 ================================================================================

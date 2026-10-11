@@ -1,11 +1,15 @@
 ### 3. Saisie des Notes et Cas Particuliers (Santorin / CCF)
 - Mots-clés : saisie des notes Santorin, CCF, deux notes minimales, champs d'apprentissage, cas exceptionnels, CE, sportif de haut niveau, SHN, PPF, 20/20, DI, dispense, inaptitude médicale, ABI, cases AFLP grisées, Choisir les AFLP
 - Formulations courantes des collègues : combien de notes faut-il au minimum pour valider le CCF ; quelle note pour un sportif de haut niveau ; que mettre pour un élève dispensé ; un élève absent sans justificatif a-t-il zéro ; les cases AFLP sont grisées dans Santorin ; je ne peux pas saisir les AFLP ; à quoi sert le CE ; où est le bouton choisir les AFLP
-* **Nombre de notes :** la certification peut porter sur deux épreuves (deux CA distincts) quand l'inaptitude est attestée. Avec une seule note, l'enseignant conserve la note ou la remplace par DI, en le justifiant dans le champ « Appréciations » (procédure du tutoriel Santorin, article 67).
+* **Nombre de notes :** distinguer CAP, bac pro et bac GT, ainsi que l’inaptitude permanente et temporaire. Une seule note peut être retenue dans les cas prévus par le texte du diplôme ; la dispense dépend de l’insuffisance des éléments d’appréciation et du dossier médical. Ne pas remplacer une note par DI pour simple convenance. Le tutoriel logiciel ne décide pas de la dispense.
 * **Cas Exceptionnels (CE) :** Utilisé lorsqu'une APSA ne peut être évaluée pour des raisons techniques ou matérielles (hors inaptitude médicale), après accord de la commission académique. Neutralise l'activité.
-* **Sportifs de Haut Niveau (SHN) :** Attribue automatiquement la note de 20/20 sur l'APSA de spécialité si le statut (SHN/PPF) est validé et rattaché au bon CA.
+* **Sportifs de haut niveau :** le 20/20 de spécialité suppose un statut et un aménagement validés selon le texte du diplôme. Cette note ne doit pas être l’unique note retenue. Ne pas assimiler tout élève de section sportive à un SHN.
 * **Gestion des notes et statuts (DI / ABI / Notes) :** 
-  * *DI (Dispense / Inaptitude médicale) :* Neutralise l'épreuve (retirée du calcul du diviseur).
-  * *ABI (Absence injustifiée) :* Vaut 0/20 si aucun rattrapage n'a lieu.
-* **Cases AFLP inactives :** Si les cases de saisie sont grisées dans Santorin, c'est que le bouton « Choisir les AFLP » n'a pas été utilisé par l'enseignant : c'est le professeur lui-même qui clique sur [choisir AFLP] dans Santorin, sur son lot, pour déclarer les AFL(P) qu'il évalue.
+  * *DI :* distinguer une activité non évaluée pour raison médicale et la dispense de l’épreuve entière. Ne pas déduire automatiquement d’un code de saisie le nombre de notes admissibles ou une dispense globale.
+  * *Absence injustifiée :* appliquer la règle propre au diplôme ; en CAP et bac pro, une absence à toutes les situations entraîne « absent » et la non-délivrance du diplôme. Ne pas assimiler ce cas à une moyenne de zéros.
+* **Cases AFLP inactives :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
 
+Sources : MENE2531948N (bac GT), MENE2505383C (bac pro), MENE2517122C (CAP), session 2026 et suivantes.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

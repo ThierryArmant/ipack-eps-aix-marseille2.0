@@ -9,8 +9,28 @@
       "source": "BA spécial n° 549 d'Aix-Marseille (17/10/2025) : aucune règle DI ni neutralisation de ce type ; question ouverte auprès de la DEC.",
       "exceptions": "Mentionner la combinaison comme cas de saisie ou comme point à confirmer reste possible.",
       "portee": "ligne",
-      "motifs_interdits": ["di\\s*\\+\\s*di\\s*\\+\\s*(?:la\\s+)?note\\s*=\\s*di"],
-      "sauf_si": ["confirm", "n.est pas (?:une )?regle", "aucune source", "a verifier"]
+      "motifs_interdits": [
+        "di\\s*\\+\\s*di\\s*\\+\\s*(?:la\\s+)?note\\s*=\\s*di"
+      ],
+      "sauf_si": [
+        "confirm",
+        "n.est pas (?:une )?regle",
+        "aucune source",
+        "a verifier"
+      ]
+    },
+    {
+      "id": "DI-DI-NOTE-AIX-CONSIGNE",
+      "decision": "Ne pas affirmer qu'une consigne d'Aix-Marseille « DI + DI + Note = DI » existe, même en la présentant comme « à confirmer ».",
+      "diplome": "baccalauréat (GT et professionnel)",
+      "session": "2026 et 2027",
+      "source": "BA spécial n° 549 d'Aix-Marseille (17/10/2025) : aucune règle de ce type ; ipack_195 l.8 l'affirmait encore le 11/10/2026.",
+      "exceptions": "Aucune : écrire « non trouvé » ou « aucune source officielle vérifiée ».",
+      "portee": "ligne",
+      "motifs_interdits": [
+        "consigne d.aix[- ]marseille\\W+(?:\\(\\s*)?di\\s*\\+\\s*di"
+      ],
+      "sauf_si": []
     },
     {
       "id": "CAP-DEUX-EPREUVES-RETENUES",
@@ -24,7 +44,11 @@
         "pas (?:possible|autorise)\\w*.{0,80}(?:3|trois) epreuves",
         "2 epreuves, pas 3\\]"
       ],
-      "sauf_si": ["(?:pratiquer|proposer|organise\\w*) (?:3|trois)", "retien\\w* (?:2|deux)", "en retient"]
+      "sauf_si": [
+        "(?:pratiquer|proposer|organise\\w*) (?:3|trois)",
+        "retien\\w* (?:2|deux)",
+        "en retient"
+      ]
     },
     {
       "id": "PROTOCOLES-VERS-CYCLADES-AIX",
@@ -34,8 +58,13 @@
       "source": "BA spécial n° 549 d'Aix-Marseille, pages 2-3 (fiche data/commun/audit60/aix_protocoles_2026.txt).",
       "exceptions": "Le circuit peut différer dans d'autres académies : le dire explicitement.",
       "portee": "ligne",
-      "motifs_interdits": ["(?:envoy|transmis)\\w* automatiquement a cyclades par la commission"],
-      "sauf_si": ["autres? academies?", "inspection"]
+      "motifs_interdits": [
+        "(?:envoy|transmis)\\w* automatiquement a cyclades par la commission"
+      ],
+      "sauf_si": [
+        "autres? academies?",
+        "inspection"
+      ]
     }
   ]
 }

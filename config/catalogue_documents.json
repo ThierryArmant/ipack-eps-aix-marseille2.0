@@ -2682,5 +2682,27 @@
     ],
     "date_verification": "2026-10-11",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+  },
+  "data/commun/audit60/aix_amenagements_2027.txt": {
+    "title": "Aix-Marseille : aménagements d’examen 2027",
+    "statut": "source_academique_2027_relue_2026-10-11",
+    "examens": [
+      "gt",
+      "pro",
+      "cap",
+      "dnb"
+    ],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "incluscol|amex|amenagement.*(?:examen|handicap)|(?:pap|pai|pps).*adapt|handicap.*adapt|adapt.*handicap"
+    ],
+    "exclusif_motifs": [],
+    "date_verification": "2026-10-11",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA1096/DIEC1096-1823.pdf"
   }
 }

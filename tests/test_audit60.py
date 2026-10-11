@@ -143,6 +143,14 @@ class Audit60Tests(unittest.TestCase):
         text, _, _, _ = self.route('Collège certificat inaptitude : où le déclarer ?', 'Collège (DNB)', 'ipack')
         self.assertNotIn('annexe 7 pour le candidat individuel', text)
 
+    def test_2027_academic_accommodation_available_for_each_diploma(self):
+        for targets in ({'gt'}, {'pro'}, {'cap'}, {'dnb'}):
+            selected = kc.reference_notice(targets, 'Demande d’aménagement examen sur Incluscol ou AMEX')
+            self.assertTrue(any(path.endswith('aix_amenagements_2027.txt') for path, _ in selected))
+        text = Path('data/commun/audit60/aix_amenagements_2027.txt').read_text()
+        self.assertIn('ne fixe pas les modalités de calcul', text)
+        self.assertIn('ne remplace pas la demande', text)
+
 
 if __name__ == '__main__':
     unittest.main()

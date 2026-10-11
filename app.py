@@ -533,9 +533,12 @@ if tavily_api_key and TavilyClient:
     except Exception:
         pass
 
+# ✅ Modèle réglable sans toucher au code : secret Streamlit MODELE_IA (ex. "gpt-4.1" ou "gpt-4o").
+# Sans ce secret, on garde gpt-4o-mini.
+modele_ia = (st.secrets.get("MODELE_IA") or "gpt-4o-mini").strip()
 if openai_api_key:
     Settings.llm = OpenAI(
-        model="gpt-4o-mini", temperature=0.0, api_key=openai_api_key
+        model=modele_ia, temperature=0.0, api_key=openai_api_key
     )
     Settings.embed_model = OpenAIEmbedding(
         model="text-embedding-3-small", api_key=openai_api_key
@@ -1170,7 +1173,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.caption("Révision documentaire : 2026-10-11 · corrections audit 60")
+def _version_deployee():
+    # Permet de savoir, pendant un retest, quel commit et quel modèle ont répondu.
+    try:
+        import subprocess
+        return subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True,
+                              timeout=2, cwd=os.path.dirname(os.path.abspath(__file__))).stdout.strip()
+    except Exception:
+        return ""
+_sha = _version_deployee()
+st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + modele_ia
+           + (" · version " + _sha if _sha else ""))
 
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:

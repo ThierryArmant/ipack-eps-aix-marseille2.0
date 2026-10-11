@@ -1861,6 +1861,10 @@ if prompt_a_traiter:
                         _url = reference_url(_md, prompt)
                         _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
                         _diag.append(('[prioritaire] ' + _md.get('title', _path), None))
+                        # Une demande explicitement hors périmètre ne doit pas recevoir
+                        # une procédure voisine qui réalise l'action dans l'autre sens.
+                        if any(re.search(m, p_norm) for m in _md.get('exclusif_motifs', [])):
+                            return (_extraits[-1], [_sources[-1]], [_diag[-1]], '')
                     if mode in ('ipack', 'examens') and re.search(r'inapt|dispens|absen|reglement|dnb|brevet|ccf', p_norm):
                         _ajouter(retriever_textes, '[Cadre réglementaire]', avec_sources=True, maximum=4)
                     if niveau_actuel_form == "1er degré":

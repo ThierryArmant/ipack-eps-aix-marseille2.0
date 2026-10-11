@@ -12,6 +12,13 @@ class Audit60Tests(unittest.TestCase):
         text, _, _, _ = self.route("L'export vers Pronote ne fonctionne pas, que vérifier ?", 'Collège (DNB)', 'ipack')
         self.assertIn('source, la destination', text)
         self.assertIn('ne calcule pas les moyennes', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+        self.assertNotIn('Configuration des classes', text)
+
+    def test_results_history_does_not_receive_class_path_as_grade_history(self):
+        text, _, _, _ = self.route("Comment suivre les résultats d'un élève sur plusieurs années de la 6e à la 3e ?", 'Collège (DNB)', 'ipack')
+        self.assertIn('pas un historique de notes', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
 
     def test_college_certificate_does_not_impose_santorin(self):
         text, _, _, _ = self.route("Certificat d'inaptitude de 3 mois : comment l'enregistrer pour la moyenne ?", 'Collège (DNB)', 'ipack')

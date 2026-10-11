@@ -2227,7 +2227,12 @@
     ],
     "exclure_motifs": [],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article104",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "export.*vers pronote",
+      "export.*(?:des |mes )?notes",
+      "suivre.*resultats.*(?:annees|6e|troisieme|3e)"
+    ]
   },
   "data/commun/audit60/ipack_rentree.txt": {
     "title": "iPackEPS : rentrée, classes, élèves et collègue",

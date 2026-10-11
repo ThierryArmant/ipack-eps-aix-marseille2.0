@@ -3321,5 +3321,27 @@
     "statut": "guide_national_document_de_travail_lu_par_extraits_2026-10-11",
     "examens": [],
     "url": "https://www.ac-reunion.fr/media/53684/download"
+  },
+  "data/commun/bac_pro_circulaire_2025_detail.txt": {
+    "title": "Bac professionnel : circulaire EPS du 2 avril 2025 en détail",
+    "statut": "texte_officiel_restitue_par_section_2026-10-11",
+    "examens": [
+      "pro"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C"
+  },
+  "data/commun/cap_circulaire_2025_detail.txt": {
+    "title": "CAP : circulaire EPS du 27 août 2025 en détail",
+    "statut": "texte_officiel_restitue_par_section_2026-10-11",
+    "examens": [
+      "cap"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+  },
+  "data/examens/guide_national_ponctuel_evaluation_adaptee.txt": {
+    "title": "Examen ponctuel : évaluation adaptée (guide de la Commission nationale des examens EPS)",
+    "statut": "guide_national_lu_2026-10-11",
+    "examens": [],
+    "url": "https://www.ac-reunion.fr/media/53686/download"
   }
 }

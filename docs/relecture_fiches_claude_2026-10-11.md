@@ -1,0 +1,5 @@
+# Réécriture ciblée après le retest stable de 60 questions
+Propositions de Claude fournies par Thierry, relues et adaptées le 11 octobre 2026. Questions : I-11, I-15, I-17, I-19, I-23, I-24, E-08.
+Réponse directe et démarche dans les fiches ; sélection prioritaire exclusive pour éviter les passages voisins contradictoires. Aucun changement de l’interface, du journal ou de la notice RGPD.
+Ajustements de vérification : pas de règle Bordeaux importée à Aix ; pas de bascule implicite export vers import ; pas de garantie de suppression de cache sans perte ; pas d’inexistence certaine d’un bouton sur la seule absence de documentation ; modèle Dix Mots 2024 identifié comme exemple spécifique, sans durée universelle ; fiche annuelle limitée au bac GT, sans code Santorin inventé ni règle 2027 APTE non relue dans le PDF. Le site éditeur en maintenance empêche de reconfirmer les boutons actuels.
+Sources nationales et modèle vidéo relus via les sources officielles ; technique recoupée avec les articles 88, 104, 51 et les fiches conservées du dépôt. L’étiquette de revue ne vaut pas vérification de tous les menus sur la version actuelle.

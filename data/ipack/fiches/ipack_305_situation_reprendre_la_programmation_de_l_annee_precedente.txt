@@ -1,6 +1,14 @@
-### [SITUATION: REPRENDRE LA PROGRAMMATION DE L'ANNÉE PRÉCÉDENTE — PAS DE DUPLICATION À FAIRE]
-- Mots-clés : dupliquer la programmation, copier l'année dernière, reprendre la programmation, programmation des APSA, nouvelle année, rentrée, conservé d'une année sur l'autre, séquences, dates.
-- Formulations courantes des collègues : comment dupliquer la programmation de l'année dernière ; peut-on copier les APSA de l'an passé ; faut-il tout ressaisir à la rentrée.
-- Réponse courte : il n'y a rien à dupliquer. La liste des APSA de l'établissement est conservée d'une année sur l'autre, ainsi que l'essentiel des données de l'établissement et de la fiche professeur.
-- À refaire chaque année : vérifier [Dossiers] > [Dossier EPS] > [APSA] et ajouter les nouvelles APSA ; redéfinir les dates de début et de fin des séquences ; reconfigurer les groupes de l'année et y répartir les élèves ; recompléter les informations de service de la fiche professeur.
-- Avancer module par module sur le tableau de bord, de gauche à droite, car chaque module dépend des précédents.
+### Reprendre la programmation de l’année précédente dans iPackEPS
+Réponse courte : une partie des données est conservée automatiquement à la rentrée ; reprendre les APSA existantes, puis actualiser les périodes, les groupes et les élèves. Une duplication intégrale de la programmation n’est pas documentée ici.
+Conservé selon le corpus de l’article 51 : liste des APSA, configuration des classes existantes, axes des projets, équipements et référentiels déjà déposés au lycée. Cela ne garantit pas un historique complet des élèves ou évaluations.
+Dans [Dossiers] > [Dossier EPS] :
+1. [Classes] : actualiser, configurer les nouvelles classes, repréciser les enseignants et importer les élèves.
+2. [APSA] : vérifier les activités conservées et ajouter les nouvelles.
+3. [Périodes] : redéfinir les dates des séquences.
+4. [Groupes] : reconfigurer les groupes de l’année et leurs séquences (APSA et période).
+5. [Élèves] : affecter les élèves aux groupes.
+6. [EDT] : compléter les créneaux et vérifier l’agenda.
+Recompléter la fiche professeur et son service. Au lycée, reconfigurer aussi les dates du dossier certificatif.
+Il ne s’agit pas d’une commande de copie garantie : si vous cherchez un bouton « dupliquer », vérifier sa présence et sa portée auprès du support avant une suppression ou un remplacement de données.
+Sources : corpus iPackEPS article 51 et articles 15, 16, 17, 18, 20 ; état relu le 11 octobre 2026. Libellés précis à vérifier dans la version utilisée.
+https://ipackeps.ac-creteil.fr/spip.php?article51

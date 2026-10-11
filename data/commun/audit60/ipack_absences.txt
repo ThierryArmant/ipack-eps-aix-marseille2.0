@@ -1,0 +1,6 @@
+### Appel et absences ordinaires en EPS : le logiciel de vie scolaire
+Réponse courte : l’appel et les absences de cours se saisissent dans Pronote, ÉcoleDirecte ou le logiciel de vie scolaire de l’établissement ; iPackEPS n’est pas le registre d’appel quotidien.
+Ouvrir la séance ou le cours dans le logiciel de vie scolaire, renseigner les absences selon le circuit de l’établissement et enregistrer. Les boutons dépendent du logiciel et du rôle : préciser l’outil si une procédure écran par écran est nécessaire.
+Une inaptitude médicale est différente d’une absence : sa déclaration dans iPackEPS relève de [Mes Élèves] > [Visualisation] > [Inaptitudes]. Elle ne calcule pas les moyennes de classe.
+Une absence à une épreuve CCF est une question d’examen distincte : appliquer la règle du diplôme et le guide de saisie Santorin, sans transposer automatiquement les codes de l’appel quotidien.
+Source : périmètre du corpus iPackEPS, fiches ipack_300 et articles 88, 104 et 82 ; menus de vie scolaire non établis ici. Aucun code d’examen n’est prescrit par cette fiche.

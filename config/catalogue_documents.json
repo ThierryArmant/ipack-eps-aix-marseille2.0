@@ -2225,7 +2225,10 @@
     "motifs": [
       "notes?|moyenne|resultats|pronote|bulletin|bareme|hors connexion|synchronis|evaluation.*supprim"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
+      "(?:erreur|message|fonctionne pas|marche pas).*pronote"
+    ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article104",
     "date_verification": "2026-10-11",
     "exclusif_motifs": [
@@ -2469,7 +2472,7 @@
     "date_verification": "2026-10-11"
   },
   "data/commun/audit60/video_perimetre.txt": {
-    "title": "Vidéos d’élèves : périmètre iPackEPS et vérifications nécessaires",
+    "title": "Vidéo EPS : démarche institutionnelle et périmètre iPackEPS",
     "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "modes": [
@@ -2482,11 +2485,11 @@
     "exclusif_motifs": [
       "video|filmer|photograph"
     ],
-    "url": "https://sites.ac-nancy-metz.fr/eps/Parcours_de_formation/EPS_aspects_juridiques/docs/dossier_captation.php",
+    "url": "https://eduscol.education.fr/document/52590/download",
     "date_verification": "2026-10-11"
   },
   "data/commun/audit60/ipack_bareme_college.txt": {
-    "title": "Barème de classe au collège : choisir le bon outil",
+    "title": "Barème et conversion des compétences : notes de classe et bon outil",
     "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "modes": [
@@ -2494,13 +2497,20 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "bareme"
+      "bareme",
+      "(?:grille|competences?|niveaux?).*(?:note|20)",
+      "(?:note|20).*(?:grille|competences?|niveaux?)"
     ],
     "exclusif_motifs": [
-      "bareme"
+      "bareme",
+      "(?:grille|competences?|niveaux?).*(?:note|20)",
+      "(?:note|20).*(?:grille|competences?|niveaux?)"
     ],
-    "exclure_motifs": [],
-    "date_verification": "2026-10-11"
+    "exclure_motifs": [
+      "ccf|aflp?|certificatif|bac|cap|lycee"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf"
   },
   "data/commun/audit60/ipack_archivage_prudence.txt": {
     "title": "Passage d’année : conservation des données à vérifier",
@@ -2594,7 +2604,10 @@
       "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt"
     ],
     "exclure_motifs": [
-      "option|eppcs"
+      "option|eppcs",
+      "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
+      "inapt.*toute l.annee",
+      "toute l.annee.*inapt"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
@@ -2613,7 +2626,10 @@
     "exclusif_motifs": [
       "creer.*programmation|programmation.*(?:annuelle|annee|apsa)|programmer.*apsa"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "(?:dupliqu|copi|repren|recopi).*programmation",
+      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)"
+    ],
     "date_verification": "2026-10-11",
     "url": "https://eps.dis.ac-guyane.fr/IMG/pdf/ipack_dossier_etablissement.pdf"
   },
@@ -2704,5 +2720,91 @@
     "exclusif_motifs": [],
     "date_verification": "2026-10-11",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA1096/DIEC1096-1823.pdf"
+  },
+  "data/commun/audit60/ipack_pronote_erreurs.txt": {
+    "title": "Pronote et iPackEPS : erreur d’échange, sens et import conditionnel",
+    "statut": "revue_sources_et_corpus_2026-10-11_limites_explicites",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
+      "(?:erreur|message|fonctionne pas|marche pas).*pronote"
+    ],
+    "exclusif_motifs": [
+      "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
+      "(?:erreur|message|fonctionne pas|marche pas).*pronote"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11",
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article88"
+  },
+  "data/commun/audit60/ipack_absences.txt": {
+    "title": "Appel et absences de cours : logiciel de vie scolaire",
+    "statut": "revue_sources_et_corpus_2026-10-11_limites_explicites",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "absen|appel"
+    ],
+    "exclusif_motifs": [
+      "absen|appel"
+    ],
+    "exclure_motifs": [
+      "ccf|epreuv|santorin|examen|bac|cap|imprim|feuille|bordereau"
+    ],
+    "date_verification": "2026-10-11"
+  },
+  "data/ipack/fiches/ipack_305_situation_reprendre_la_programmation_de_l_annee_precedente.txt": {
+    "title": "Reprendre la programmation : conservé et à actualiser",
+    "statut": "revue_sources_et_corpus_2026-10-11_limites_explicites",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "(?:dupliqu|copi|repren|recopi).*programmation",
+      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)"
+    ],
+    "exclusif_motifs": [
+      "(?:dupliqu|copi|repren|recopi).*programmation",
+      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11",
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article51"
+  },
+  "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
+    "title": "Bac GT : inaptitude totale annuelle sans évaluation",
+    "statut": "revue_sources_et_corpus_2026-10-11_limites_explicites",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
+      "inapt.*toute l.annee",
+      "toute l.annee.*inapt"
+    ],
+    "exclusif_motifs": [
+      "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
+      "inapt.*toute l.annee",
+      "toute l.annee.*inapt"
+    ],
+    "exclure_motifs": [
+      "option|eppcs|epccs"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
   }
 }

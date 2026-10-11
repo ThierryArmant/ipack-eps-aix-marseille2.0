@@ -1,5 +1,9 @@
-### Barème de classe au collège : choisir le bon outil
-Portée : question de notation de classe, pas protocole d'examen de lycée.
-Réponse à donner : iPackEPS ne possède pas, dans le périmètre documenté, d'outil de barème pour calculer les notes de classe. Construire la grille et les critères avec l'équipe EPS, puis gérer les notes et moyennes dans le logiciel de vie scolaire utilisé par l'établissement. Si la question concerne un autre outil de notation, demander son nom pour fournir sa procédure.
-Si le public choisi est Collège (DNB), ne pas envoyer l'utilisateur vers un Dossier Certificatif de lycée, une validation CCF ou Santorin. La moyenne EPS de troisième contribue au contrôle continu du DNB ; cela ne transforme pas la grille de classe en protocole CCF.
-Source : périmètre du corpus technique iPackEPS ; mémento Éduscol décembre 2025, p. 5 et 8-9, pour la conversion et les critères. Menus d'autres logiciels non établis ici.
+### Barème et conversion des compétences en note sur 20 au collège
+Réponse courte : l’équipe EPS définit des repères communs de conversion des niveaux de maîtrise en note sur 20 ; la note de classe se saisit dans Pronote, ÉcoleDirecte ou le logiciel de notes de l’établissement, pas dans iPackEPS.
+1. Définir en équipe les critères, leur pondération et les repères de conversion adaptés aux apprentissages. Il n’existe pas de table nationale universelle « niveau 1 = x points ».
+2. Expliquer les critères aux élèves et s’appuyer sur des évaluations diversifiées et représentatives.
+3. Calculer la note avec la grille retenue, puis la saisir dans le logiciel de notes. Les moyennes périodiques et annuelle de troisième suivent le circuit du LSU pour le DNB.
+La conversion de classe n’est pas un barème de CCF de lycée : au collège, ne pas envoyer l’utilisateur vers Santorin, le dossier certificatif ou une validation par la commission du bac.
+Pour une question explicitement relative au CCF de lycée, utiliser le référentiel propre au diplôme et saisir dans Santorin ; les niveaux de compétence de classe ne le remplacent pas.
+Sources : mémento Éduscol « Évaluer les élèves de 3e », décembre 2025, p. 5, 8-10 et 12-14 ; corpus iPackEPS articles 88 et 104. Aucun outil de conversion iPackEPS ni barème particulier d’Aix-Marseille n’est établi par ces sources.
+https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf

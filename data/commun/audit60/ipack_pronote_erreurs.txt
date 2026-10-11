@@ -1,0 +1,12 @@
+### Erreur d’échange entre Pronote et iPackEPS : vérifier d’abord le sens
+Réponse courte : iPackEPS ne propose pas d’export de notes vers Pronote dans le périmètre documenté. Les notes de classe se saisissent dans le logiciel de vie scolaire. L’échange décrit par l’article 88 va dans l’autre sens : import de groupes d’élèves de Pronote ou ÉcoleDirecte vers iPackEPS.
+Si votre erreur concerne réellement un export vers Pronote, identifier le logiciel source et le message exact : la procédure d’import ci-dessous ne corrige pas cet export.
+Uniquement si vous importez des groupes de Pronote vers iPackEPS :
+1. Dans [Dossiers] > [Dossier EPS] > [Classes], vérifier la configuration des classes et l’import des élèves. Préparer le groupe de destination.
+2. Exporter la liste du groupe depuis Pronote, puis dans [Dossier EPS] > [Élèves], utiliser l’import de fichier d’élèves/Pronote et sélectionner le CSV. Les boutons précis sont à vérifier dans la version utilisée.
+3. « Classe non retrouvée » : comparer le libellé exact de classe du fichier et d’iPackEPS. Corriger uniquement ce libellé sur une copie du fichier ; ne pas retirer globalement un préfixe sans contrôle.
+4. « Colonnes non trouvées » : vérifier qu’il s’agit d’un export de groupe avec colonne Classe et les en-têtes requis, pas d’un export de classe sans cette colonne.
+5. Accents corrompus ou classe transformée en date : repartir du fichier original, éviter l’ouverture directe du CSV dans Excel ; pour les modifications, conserver l’encodage UTF-8, le séparateur point-virgule et les libellés de classe.
+Si besoin, transmettre au support ipackeps@ac-aix-marseille.fr le message exact, le logiciel source, l’étape et l’UAI, sans joindre de fichier nominatif dans le HUB.
+Source : corpus technique iPackEPS article 88, relu le 11 octobre 2026. Limite : menus non revérifiés sur le site éditeur actuellement en maintenance.
+https://ipackeps.ac-creteil.fr/spip.php?article88

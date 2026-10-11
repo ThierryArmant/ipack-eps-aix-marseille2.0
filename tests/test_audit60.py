@@ -10,10 +10,10 @@ class Audit60Tests(unittest.TestCase):
     route = documentation.DocumentationTests.route
     def test_pronote_export_selects_direction_and_perimeter(self):
         text, _, _, _ = self.route("L'export vers Pronote ne fonctionne pas, que vérifier ?", 'Collège (DNB)', 'ipack')
-        self.assertIn('source, la destination', text)
-        self.assertIn('ne calcule pas les moyennes', text)
+        self.assertIn('la procédure d’import ci-dessous ne corrige pas cet export', text)
+        self.assertIn('Les notes de classe se saisissent dans le logiciel de vie scolaire', text)
         self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
-        self.assertNotIn('Configuration des classes', text)
+        self.assertIn('Uniquement si vous importez', text)
 
     def test_results_history_does_not_receive_class_path_as_grade_history(self):
         text, _, _, _ = self.route("Comment suivre les résultats d'un élève sur plusieurs années de la 6e à la 3e ?", 'Collège (DNB)', 'ipack')
@@ -82,7 +82,7 @@ class Audit60Tests(unittest.TestCase):
 
     def test_video_missing_feature_is_not_a_noncompliance_verdict(self):
         text, _, _, _ = self.route("Est-ce que l'utilisation de la vidéo dans iPackEPS est conforme au RGPD ?", 'Collège (DNB)', 'ipack')
-        self.assertIn('ne signifie pas', text)
+        self.assertIn('ne démontre ni conformité ni non-conformité', text)
         self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
 
     def test_epccs_terminal_does_not_receive_compulsory_eps_reference(self):
@@ -150,6 +150,41 @@ class Audit60Tests(unittest.TestCase):
         text = Path('data/commun/audit60/aix_amenagements_2027.txt').read_text()
         self.assertIn('ne fixe pas les modalités de calcul', text)
         self.assertIn('ne remplace pas la demande', text)
+
+    def test_rewritten_seven_fiches_and_paraphrases_exclude_hostile_passages(self):
+        cases = [
+            ('Comment saisir une note sur 20 à partir de niveaux de compétences ?', 'Collège (DNB)', 'ipack', 'la note de classe se saisit dans Pronote'),
+            ('Mon export vers Pronote ne fonctionne pas, erreur', 'Collège (DNB)', 'ipack', 'Uniquement si vous importez'),
+            ('Où enregistrer les absences de cours dans iPackEPS ?', 'Collège (DNB)', 'ipack', 'registre d’appel quotidien'),
+            ('Comment recopier la programmation de l’année précédente ?', 'Collège (DNB)', 'ipack', 'Conservé selon'),
+            ('Ma tablette hors ligne a perdu les données : synchronisation ?', 'Collège (DNB)', 'ipack', 'Ne pas désinstaller'),
+            ('Comment associer une vidéo à une évaluation ?', 'Collège (DNB)', 'ipack', 'Définir l’objectif'),
+            ('Un élève totalement inapte toute l’année de terminale : note EPS au bac ?', 'Lycée Général & Techno', 'examens', 'ne pas attribuer zéro ni calculer une moyenne fictive'),
+            ('Bac GT : inaptitude totale annuelle en terminale, quelle note ?', 'Lycée Général & Techno', 'examens', 'neutraliser son coefficient'),
+        ]
+        hostile = [documentation.SimpleNamespace(text='Procédure ancienne : effacer le cache sans risque. Moyenne automatique sur deux notes.', metadata={'source':'ancienne.txt'})]
+        for question, public, mode, expected in cases:
+            with self.subTest(question=question):
+                text, _, _, error = self.route(question, public, mode, hostile)
+                self.assertEqual(error, '')
+                self.assertIn(expected, text)
+                self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+                self.assertNotIn('effacer le cache sans risque', text)
+                self.assertNotIn('Moyenne automatique sur deux notes', text)
+
+    def test_ordinary_absences_do_not_capture_exam_or_printing(self):
+        for question in ('Bac GT : absent sans justificatif au CCF', 'Comment imprimer une feuille d’appel ?'):
+            text, _, _, _ = self.route(question, 'Lycée Général & Techno', 'ipack')
+            self.assertNotIn('### Appel et absences ordinaires', text)
+
+    def test_annual_gt_fiche_does_not_replace_cap_or_one_event_case(self):
+        for question, public in (
+            ('CAP : inaptitude totale toute l’année', 'Lycée Pro / CAP'),
+            ('Bac GT : inapte sur une épreuve du CCF, comment calculer ?', 'Lycée Général & Techno'),
+        ):
+            text, _, _, _ = self.route(question, public, 'examens')
+            self.assertNotIn('### Bac GT : inaptitude totale pendant toute l’année', text)
+
 
 
 if __name__ == '__main__':

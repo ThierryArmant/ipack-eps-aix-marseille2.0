@@ -1,7 +1,11 @@
-### Vidéos d’élèves : périmètre iPackEPS et vérifications nécessaires
-Réponse courte : la documentation iPackEPS consultée ne décrit pas une fonction d’enregistrement, de stockage ou d’association de vidéos à une évaluation. Ne pas inventer cette procédure. L'existence d'un modèle d'autorisation d'image dans le publipostage iPackEPS n'est pas vérifiée : ne pas promettre ce menu. Utiliser le modèle et le circuit validés par l'établissement.
-L’absence de cette fonction ne signifie pas qu’iPackEPS est non conforme au RGPD. Il n’est pas possible de prononcer une conformité ou une non-conformité globale à partir de cette seule information.
-Pour filmer dans un autre outil, préciser l’objectif et utiliser le cadre prévu par l’établissement : information des personnes, autorisation de droit à l’image adaptée aux usages envisagés, outil autorisé, accès restreint et durée de conservation définie. Pour les mineurs, utiliser le modèle et le circuit d’autorisation des responsables légaux validés par l’établissement. Le consentement à l’image ne suffit pas à régler toutes les obligations de protection des données.
-Avant de choisir l’outil, demander au chef d’établissement ou au DPD académique les conditions applicables. Ne pas affirmer une autorisation générale, une interdiction générale ou une durée universelle.
-Origine technique : corpus iPackEPS, fiche ipack_301. Ressource pédagogique institutionnelle : dossier « Captation de l’image et de la voix », EPS Nancy-Metz.
-https://sites.ac-nancy-metz.fr/eps/Parcours_de_formation/EPS_aspects_juridiques/docs/dossier_captation.php
+### Filmer un élève pour l’évaluer : outil et cadre institutionnel
+Réponse courte : pour filmer et utiliser la vidéo en EPS, choisir l’outil prévu par l’établissement et sa grille d’évaluation ; la documentation iPackEPS consultée ne décrit pas de fonction permettant de filmer, stocker ou associer une vidéo à une note.
+1. Définir l’objectif, les personnes filmées, les destinataires et les usages envisagés. Informer les élèves et utiliser le circuit d’autorisation d’image validé par l’établissement pour les mineurs ; distinguer captation et diffusion.
+2. Faire valider l’outil et le matériel par l’établissement, ainsi que les accès et la durée de conservation. Une autorisation d’image ne règle pas à elle seule toutes les obligations RGPD.
+3. Conserver les vidéos dans l’espace autorisé avec des accès limités aux destinataires prévus ; ne pas créer de lien public ni envoyer de vidéo nominative au HUB.
+4. Observer la prestation avec la grille pédagogique, puis saisir la note dans le logiciel de notes de classe. Pour un CCF de lycée, appliquer le référentiel du diplôme et saisir les notes dans Santorin ; aucune procédure de dépôt de vidéo dans ces logiciels n’est établie par cette fiche.
+5. Supprimer selon la durée validée et les obligations de conservation applicables. En cas de doute, consulter le chef d’établissement ou le DPD académique.
+Exemple de ressource officielle : le modèle Éduscol pour le concours Dix Mots 2024 distingue les usages et prévoit une année scolaire. Ce modèle concerne ce projet précis : sa durée et ses destinataires ne sont pas une règle universelle pour toute vidéo EPS et il doit être adapté/validé avant réutilisation.
+L’absence de fonction vidéo documentée ne démontre ni conformité ni non-conformité globale d’iPackEPS. Les exigences spécifiques d’EPPCS relèvent du texte de cette épreuve, pas d’une généralisation de la vidéo en cours.
+Sources : corpus technique iPackEPS ; modèle Éduscol spécifique Dix Mots 2024, relu le 11 octobre 2026. Fonction d’association vidéo iPackEPS et liste d’applications autorisées à Aix-Marseille non établies.
+https://eduscol.education.fr/document/52590/download

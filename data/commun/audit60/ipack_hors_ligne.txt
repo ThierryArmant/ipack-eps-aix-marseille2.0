@@ -1,6 +1,9 @@
-### Tablette hors connexion : distinguer les applications
-Réponse courte : iPackEPS est une application web ; aucun mode hors connexion n'est documenté ici. Cette limite ne s'étend pas à toutes les applications de tablette. Si vous avez déjà saisi des données sans réseau, quel est le nom exact de l'application utilisée ?
-Réponse à donner : iPackEPS est une application web ; aucun mode hors connexion ni carnet de notes hors ligne n'est documenté dans le corpus étudié. La notation de classe n'est pas une fonction de ce périmètre iPackEPS.
-Cette limite concerne iPackEPS uniquement : elle ne permet PAS d'affirmer qu'il est impossible de noter des élèves sur toute tablette sans réseau. D'autres applications peuvent offrir un fonctionnement hors ligne, à vérifier dans leur documentation et selon le cadre de l'établissement.
-Si des données ont été saisies sans connexion, demander le nom exact de l'application et le type de données. Ne pas inventer une procédure universelle de synchronisation ni une obligation de ressaisie avant d'avoir identifié cet outil.
-Source : corpus technique de périmètre iPackEPS. Fonctionnalités d'autres applications non vérifiées ici.
+### Tablette hors connexion : retrouver les données avant toute synchronisation
+Réponse courte : pour retrouver vos données, identifiez d’abord l’application et le type de données saisis sur la tablette. iPackEPS est une application web ; aucun mode hors connexion ni carnet de notes de classe n’est documenté dans le corpus consulté, donc aucune procédure de synchronisation hors ligne iPackEPS n’est établie ici.
+1. Relever le nom de l’application, le compte utilisé, le type de données et le message affiché. Des données hors ligne peuvent appartenir à un tableur ou à un autre outil ; leur absence dans iPackEPS ne prouve pas leur perte.
+2. Ne pas désinstaller l’application, vider son cache ou effacer son stockage avant d’avoir vérifié la sauvegarde ou l’export des données. Aucune garantie générale d’absence de perte n’est donnée.
+3. Reconnecter la tablette, vérifier le compte et suivre la documentation de synchronisation de l’application identifiée. Aucun bouton universel ni obligation de ressaisie n’est établi ici.
+4. Les notes de classe se saisissent dans le logiciel de vie scolaire ; les notes CCF de lycée dans Santorin. Cela n’autorise pas à effacer les données locales avant récupération.
+Si seul l’affichage iPackEPS est figé : vérifier la connexion puis fermer l’onglet et rouvrir depuis le portail habituel. En cas d’échec, transmettre le contexte non nominatif et le message à ipackeps@ac-aix-marseille.fr.
+Cette limite concerne iPackEPS uniquement : d’autres applications peuvent permettre de travailler sans réseau. Pour préparer un cours sans connexion, choisir un outil dont cette fonction est documentée et autorisée par l’établissement.
+Source : corpus technique iPackEPS article 104, périmètre et documentation consultés au 11 octobre 2026. Les procédures des autres applications ne sont pas établies ici.

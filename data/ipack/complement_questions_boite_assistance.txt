@@ -32,3 +32,45 @@ Ces situations reprennent des procédures déjà présentes dans la base (tutori
 - Cause : pour les examens, les candidats d'une SEP sont inscrits sous le RNE du lycée auquel elle est rattachée, pas sous le RNE de la SEP. Sous le RNE de la SEP, il est donc normal de ne voir aucun élève.
 - Que faire : travailler dans iPackEPS sous le RNE du lycée pour tout ce qui concerne les examens (groupes, protocoles, association des candidats).
 - (Réponse du correspondant examens EPS d'Aix-Marseille.)
+
+################ DÉPÔT DES FCA (RÉFÉRENTIELS) : CAS CONCRETS ################
+Source de cette partie : réponses du correspondant examens EPS d'Aix-Marseille aux établissements, et message académique de lancement de la campagne 2026-2027.
+
+### [SITUATION: MA FCA A DISPARU D'iPackEPS — ELLE ÉTAIT DÉPOSÉE, EN ATTENTE DE VALIDATION, ET JE NE LA RETROUVE PLUS]
+- Mots-clés : FCA disparue, référentiel disparu, plus de fiche, tout a disparu, onglet vert, attente de validation, marche adaptée.
+- Formulations courantes des collègues : notre FCA a disparu ; j'avais publié ma fiche et elle n'est plus là ; l'APSA est encore dans la liste mais plus son référentiel ; tout a disparu sauf l'APSA.
+- Il n'existe pas d'explication connue à une disparition de FCA : ne pas en inventer.
+- Première vérification : dans [Dossiers et Projets] > [Dossier EPS] > [APSA], l'activité est-elle toujours déclarée, et est-elle toujours cochée certificative ? Une APSA qui n'est plus certificative n'apparaît plus dans le dépôt des référentiels, et sa fiche avec elle.
+- Si l'APSA est bien déclarée et certificative et que la fiche reste introuvable : la redéposer, et prévenir le correspondant iPackEPS de l'académie en précisant l'établissement, l'APSA et la date du premier dépôt.
+
+### [SITUATION: NOUVELLE ACTIVITÉ EN COURS D'ANNÉE (INSTALLATION INDISPONIBLE, CHANGEMENT DE PROGRAMMATION) — COMMENT FAIRE VALIDER LA NOUVELLE FCA ?]
+- Mots-clés : nouvelle FCA, nouvelle fiche certificative, changement d'activité, nouvelle APSA, validation de la FCA, envoyer la fiche par mail.
+- Formulations courantes des collègues : nous avons dû changer d'activité pour les terminales ; cette activité est une nouveauté pour le lycée ; je vous envoie notre FCA pour validation ; où envoyer la nouvelle fiche.
+- La fiche ne se valide pas par courriel : elle se dépose dans iPackEPS. Déclarer l'APSA certificative dans [Dossier EPS] > [APSA], l'ajouter aux séquences du groupe concerné, puis déposer la FCA dans [Dossier Certificatif] > [Dépôt des Référentiels].
+- Les nouvelles fiches sont contrôlées par la commission académique : tant que la fiche n'est pas validée, le protocole qui s'appuie dessus ne l'est pas non plus.
+- Exception : si l'activité figure sur la liste académique, il n'y a pas de fiche à déposer, la FCA est fournie par l'inspection.
+
+### [SITUATION: FAUT-IL REDÉPOSER CHAQUE ANNÉE LES FCA DÉJÀ VALIDÉES ?]
+- Mots-clés : redéposer les référentiels, FCA de l'an dernier, nouvelle campagne, référentiels validés, référentiel modifié.
+- Formulations courantes des collègues : dois-je remettre toutes mes fiches cette année ; nos FCA ont été validées l'an passé ; que faut-il déposer à la rentrée.
+- Non : les référentiels validés lors de la campagne précédente ne sont pas à redéposer. On ne dépose que les référentiels nouveaux ou modifiés.
+- À la rentrée, vérifier plutôt la déclaration des APSA certificatives de l'année : en voie générale et technologique, uniquement des APSA nationales ou académiques, plus au maximum une activité d'établissement validée au préalable par l'inspection.
+
+### [SITUATION: JE NE PEUX PAS MODIFIER UN PROTOCOLE — « MODIFIER AU PRÉALABLE LA LISTE DES APSA », PUIS « APSA AFFECTÉE À UNE SÉQUENCE D'APPRENTISSAGE »]
+- Mots-clés : modifier un protocole, changer une APSA, APSA affectée à une séquence, je tourne en rond, impossible de modifier la liste des APSA.
+- Formulations courantes des collègues : quand je veux modifier un protocole on me demande de modifier la liste des APSA ; impossible car c'est une APSA affectée à une séquence d'apprentissage ; je tourne en rond.
+- Les protocoles sont modifiables, mais dans cet ordre : 1) dans [Dossier EPS] > [Groupes], ouvrir les séquences d'apprentissage du groupe et y remplacer (ou retirer) l'APSA concernée ; 2) ensuite seulement, modifier la déclaration de l'APSA dans [Dossier EPS] > [APSA] ; 3) déposer le référentiel de la nouvelle APSA si nécessaire ; 4) revenir au protocole dans [Dossier Certificatif].
+- Tant qu'une APSA est utilisée dans une séquence d'un groupe, iPackEPS refuse qu'on la retire de la liste : c'est ce qui donne l'impression de tourner en rond.
+
+### [SITUATION: QUI SAISIT LES GROUPES ET LES PROTOCOLES — CHAQUE ENSEIGNANT OU LE COORDONNATEUR ?]
+- Mots-clés : coordonnateur, saisir à la place d'un collègue, mes protocoles n'apparaissent pas, session du collègue, APSA déclarées par le coordonnateur.
+- Formulations courantes des collègues : ce que j'ai déclaré comme coordonnateur vaut-il pour mes collègues ; je ne peux pas saisir les protocoles à sa place ; son dossier est OK mais ses protocoles n'apparaissent pas.
+- La déclaration des APSA certificatives vaut pour tout l'établissement. En revanche, ce qui apparaît dans les protocoles dépend des GROUPES créés dans le dossier EPS : il appartient à chaque enseignant de saisir ses groupes, puis ses protocoles.
+- Le coordonnateur peut le faire à la place d'un collègue, mais ce n'est pas ce qui est préconisé.
+- Des protocoles affichés en vert sont valides ; cela ne signifie pas que le dossier est complet (des groupes peuvent manquer).
+
+### [SITUATION: QUE FAUT-IL TRANSMETTRE POUR LA COMMISSION ACADÉMIQUE DE L'AUTOMNE — DOSSIER CERTIFICATIF OU DOSSIER ÉTABLISSEMENT ?]
+- Mots-clés : dossier certificatif, dossier établissement, commission académique, CAHPN, dossier incomplet, éléments incomplets.
+- Formulations courantes des collègues : faut-il envoyer tout le dossier établissement ; mon dossier est indiqué incomplet ; que faut-il valider pour la commission.
+- Seule la validation du dossier certificatif est attendue pour la commission académique : référentiels (FCA) et protocoles. Il n'est pas nécessaire de transmettre le « dossier établissement ».
+- Les éléments encore signalés incomplets à ce stade (classes, élèves, document de synthèse) ne sont pas bloquants : les élèves ne sont associés aux protocoles qu'après les inscriptions aux examens.

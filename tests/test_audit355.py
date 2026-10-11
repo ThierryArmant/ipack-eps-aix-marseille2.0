@@ -91,3 +91,42 @@ class Audit355Tests(unittest.TestCase):
         self.assertIn('Organisation des classes', text)
         self.assertIn('dates de début et de fin', text)
         self.assertEqual(error, '')
+
+
+class Audit355RoutageTests(unittest.TestCase):
+    """Deuxième passe du retest : demandes de diplôme inutiles, collège mal reconnu, CAP à 3 épreuves."""
+
+    def test_tool_questions_in_pro_cap_are_not_asked_for_the_diploma(self):
+        for question in (
+            "Comment exporter les notes d'EPS vers Pronote ?",
+            "Comment saisir les absences en EPS dans iPackEPS ?",
+            "J'ai vidé le cache de mon navigateur sur la tablette. Ai-je perdu les notes de mes élèves ?",
+            "Les notes de la spécialité EPPCS se saisissent où ?",
+            "Avant quelle date doivent être remontées les notes de CCF EPS ?",
+            "Santorin affiche une alerte d'incohérences de données sur des candidats alors qu'il y a zéro candidat non affecté",
+        ):
+            with self.subTest(question=question):
+                self.assertEqual(kc.clarification(question, 'Lycée Pro / CAP'), '')
+
+    def test_medical_and_code_questions_in_pro_cap_still_ask_for_the_diploma(self):
+        self.assertIn('CAP ou baccalauréat professionnel',
+                      kc.clarification('Il est dispensé et il manque une note : je mets zéro ou DI ?', 'Lycée Pro / CAP'))
+
+    def test_college_classes_switch_the_public_to_college(self):
+        for question in ("Un élève de 3e ne s'est pas présenté à l'évaluation de remplacement, sans justificatif. Quelle note ?",
+                         "Peut-on mettre zéro à un élève de quatrième absent à une évaluation ?"):
+            with self.subTest(question=question):
+                self.assertEqual(kc.effective_context(question, 'Lycée Pro / CAP', 'examens')[0], 'Collège (DNB)')
+        self.assertEqual(kc.effective_context("La 3e épreuve du CCF de bac pro", 'Lycée Pro / CAP', 'examens')[0],
+                         'Lycée Pro / CAP')
+
+    def test_cap_three_events_follows_the_academic_bulletin(self):
+        code = open('app.py', encoding='utf-8').read()
+        self.assertNotIn('UN ENSEMBLE CERTIFICATIF À 2 ÉPREUVES, PAS 3', code)
+        self.assertIn('retient 2 épreuves en début d\'année', code)
+        self.assertIn('re.search(r"\\bcap\\b", p_low)', code)
+
+    def test_partial_context_is_answered_instead_of_absence_sentence(self):
+        code = open('app.py', encoding='utf-8').read()
+        self.assertIn("Dès qu'un passage traite du sujet, même en partie", code)
+        self.assertNotIn("Si la réponse n'y est pas, dis simplement que tu ne disposes pas", code)

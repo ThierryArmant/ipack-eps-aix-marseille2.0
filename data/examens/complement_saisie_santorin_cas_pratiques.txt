@@ -24,7 +24,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: QUAND REMPLIR LE CHAMP « APPRÉCIATIONS » DANS SANTORIN ?]
 - Mots-clés : appréciation, commentaire, justification, note zéro, AB, absent, DI + DI + note, cas particulier, commission.
 - Formulations courantes des collègues : dois-je mettre une appréciation pour chaque élève ; que mettre dans le champ appréciation ; faut-il justifier un zéro.
-- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.) En Aix-Marseille, pour DI + DI + Note, l'appréciation n'est utile que si l'on demande à conserver la note (voir la fiche « Élève inapte toute l'année, ou avec une seule note sur trois »).
+- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.) Les sources citées concernent d’autres académies : vérifier le circuit applicable à Aix ; ne pas en déduire une dispense automatique ni une exemption de justificatif.
 - La commission académique lit cette appréciation pour valider ou non la situation.
 
 ### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]
@@ -33,9 +33,9 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Formulations courantes des collègues : mon élève est dispensé toute l'année, que saisir ; il n'a qu'une note sur trois, je la garde ou pas ; comment saisir deux dispenses et une note.
 - Élève inapte toute l'année : saisir DI + DI + DI, avec l'appréciation « inapte à l'année ».
 - Élève qui n'a qu'une seule note, que l'enseignant CONSERVE : saisir « Dispensé » (DI) pour les deux APSA non évaluées, puis la note pour l'APSA évaluée (DI + DI + Note). Un avertissement s'affiche à l'écran ; une appréciation peut être ajoutée.
-- Élève qui n'a qu'une seule note, que l'enseignant ne souhaite PAS conserver : transformer cette note en DI (DI + DI + DI) et indiquer dans l'appréciation la note qui a été retirée. La commission académique voit l'appréciation et statue.
+- Une note acquise ne doit pas être retirée pour simple convenance. Une dispense peut être proposée si les conditions médicales et les éléments d’appréciation le justifient selon le texte du diplôme ; documenter la décision et la soumettre au circuit académique applicable.
 - C'est l'enseignant d'EPS qui propose de conserver ou non la note ; la commission académique valide. (Sources : guide Normandie 2025, support Besançon 2025, tutoriel officiel iPackEPS article 67.)
-- ACADÉMIE D'AIX-MARSEILLE : la règle académique est DI + DI + Note = DI (l'élève est dispensé). Appliquer cette règle ne demande aucune fiche individuelle. Si l'enseignant souhaite au contraire CONSERVER la note unique, il le justifie par une fiche individuelle déposée dans iPackEPS ([Dossiers] > [Dossier Certificatif] > [Dépôt des documents pour la commission]) et par une appréciation dans Santorin.
+- AIX-MARSEILLE : la dispense automatique avec deux activités non évaluées et une seule note n’est pas confirmée par une source officielle vérifiée dans cette base. Ne pas supprimer la note automatiquement ; apprécier le cas selon le texte propre au diplôme et les justificatifs, puis suivre les consignes de la commission.
 - Les certificats médicaux correspondant aux statuts DI doivent être transmis selon la procédure de l'académie (la date limite dépend de chaque académie : voir la DEC de votre académie).
 
 ### [SITUATION: FAUT-IL VERROUILLER SON LOT TOUT DE SUITE APRÈS LA SAISIE ?]

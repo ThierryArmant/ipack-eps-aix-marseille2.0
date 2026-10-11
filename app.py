@@ -542,6 +542,19 @@ if openai_api_key:
     )
 
 
+def retirer_phrase_absence_apres_reponse(texte):
+    """La consigne interdit la phrase d'absence après une réponse ; le modèle l'ajoutait encore (U-016)."""
+    debut = texte.find("Je ne dispose pas de la procédure exacte")
+    if debut <= 0 or not re.sub(r"<[^>]+>|\s", "", texte[:debut]):
+        return texte  # phrase seule : c'est la vraie réponse d'absence
+    fin = texte.find("DEC de votre académie.", debut)
+    fin = fin + len("DEC de votre académie.") if fin != -1 else texte.find("\n", debut)
+    reste = texte[fin:] if fin not in (-1, debut - 1) else ""
+    avant = re.sub(r"<p>\s*$", "", texte[:debut])
+    reste = re.sub(r"^\s*</p>", "", reste)
+    return (avant + reste).rstrip()
+
+
 RELANCE_FICHE_PRIORITAIRE = (
     "\n\nCONTRÔLE AVANT DE RÉPONDRE À NOUVEAU : le contexte contient une FICHE PRIORITAIRE choisie pour cette question. "
     "Ne réponds pas « Je ne dispose pas de la procédure exacte ». Réponds à partir de cette fiche ; si elle ne traite "
@@ -2581,6 +2594,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
                     # presque toujours une erreur du modèle (U-053, U-010). Une seconde demande, rare, la corrige.
                     if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
                         reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
+                    reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
                     texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
                     texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
                     texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)

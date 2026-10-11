@@ -72,6 +72,8 @@ class Audit60Tests(unittest.TestCase):
         text, _, _, _ = self.route("Comment fonctionne EPPCS au bac : écrit, oral, pratique ?", 'Lycée Général & Techno', 'examens')
         self.assertIn('MENE2622650N', text)
         self.assertNotIn('MENE2531948N', text)
+        code = Path('app.py').read_text()
+        self.assertIn("if _exams and not re.search", code)
 
     def test_academic_harmonisation_is_not_mixed_with_national_presidency(self):
         text, _, _, _ = self.route("Qu'est-ce que la commission d'harmonisation pour l'EPS ?", 'Lycée Général & Techno', 'examens')

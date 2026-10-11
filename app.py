@@ -2335,7 +2335,9 @@ if prompt_a_traiter:
                             _exams = ["pro", "cap"]
                         elif "techno" in _niv or "g\u00e9n" in _niv:
                             _exams = ["gt"]
-                    if _exams:
+                    # Les repères de l'EPS obligatoire ne sont pas les textes
+                    # de la spécialité EPPCS ni de l'enseignement optionnel.
+                    if _exams and not re.search(r'\beppcs\b|specialite eps|enseignement.*optionnel', _qs):
                         _rub, _cur = {}, None
                         with open("config/faits_par_examen.txt", encoding="utf-8") as _f_faits:
                             for _l in _f_faits:

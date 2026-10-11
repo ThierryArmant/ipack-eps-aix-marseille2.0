@@ -173,3 +173,28 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Signaler le remplacement au service des examens de l'académie et au correspondant examens EPS, en donnant le nom du remplaçant.
 - Le remplaçant reçoit une convocation à son nom (cas traité par le service des examens d'Aix-Marseille).
 - Ce que cette base ne précise pas : qui établit la convocation du remplaçant, et dans quel délai. Le demander au service des examens au moment où l'on signale le remplacement.
+
+################ PROTOCOLES DANS CYCLADES (mémo national « Enseignant EPS » de Cyclades, version 1.0 du 2 octobre 2023, lu en entier) ################
+
+### [SITUATION: PROTOCOLE ADAPTÉ — COMBIEN D'ACTIVITÉS FAUT-IL AU MINIMUM ?]
+- Mots-clés : protocole adapté, nombre d'APSA, deux activités, une seule activité, troisième facultative, candidat avec aménagement, protocole adapté non valide.
+- Formulations courantes des collègues : mon protocole adapté ne se valide pas avec deux activités ; faut-il trois activités dans un protocole adapté ; peut-on faire un protocole adapté avec une seule épreuve en CAP.
+- Le type « Adapté » sert aux candidats avec aménagement. Règle de Cyclades : au baccalauréat général, technologique et professionnel, un protocole adapté comporte au moins 2 APSA, la troisième est facultative ; au CAP, au moins 1 APSA, la deuxième est facultative.
+- Un protocole adapté se crée dans Cyclades par l'activité [Gérer l'EPS] - [Créer un protocole], en choisissant le type « Adapté », à tout moment de l'année.
+
+### [SITUATION: DANS UNE MÊME CLASSE, UN ÉLÈVE A UNE ÉPREUVE ADAPTÉE — FAUT-IL UN PROTOCOLE À PART ?]
+- Mots-clés : un élève adapté dans la classe, protocole distinct, groupe distinct, nom du groupe, même classe plusieurs protocoles.
+- Formulations courantes des collègues : toute ma classe a le même menu sauf un élève ; je le laisse dans le protocole de la classe ou j'en crée un autre ; comment nommer le groupe de l'élève adapté.
+- Oui : un élève qui n'a pas exactement les mêmes épreuves que son groupe a son propre protocole, donc son propre groupe élève. Exemple : la classe est dans le protocole « TerBAC1 » (standard) ; l'élève dont une ou plusieurs épreuves sont adaptées est placé dans un protocole de type adapté portant un nom distinct, par exemple « TerBAC11 ».
+- Le nom du groupe élève ne peut plus être modifié une fois le protocole créé : en cas d'erreur, supprimer le protocole et le recréer.
+
+### [SITUATION: PROTOCOLE REFUSÉ À CAUSE D'UNE DATE — WEEK-END OU DATE RÉSERVÉE]
+- Mots-clés : date de passage refusée, date de rattrapage, week-end, date réservée, date interdite, samedi.
+- Formulations courantes des collègues : Cyclades refuse ma date d'épreuve ; je ne peux pas saisir un samedi ; ma date de rattrapage n'est pas acceptée.
+- Les passages d'épreuves et les rattrapages ne peuvent se dérouler ni le week-end, ni aux dates réservées par la commission académique d'EPS (par exemple celles de l'examen ponctuel). Choisir une autre date.
+- Chaque épreuve du protocole demande une date de passage ET une date de rattrapage.
+
+### [SITUATION: AIX-MARSEILLE — OÙ TROUVER IMAG'IN POUR ACCÉDER À CYCLADES ET À SANTORIN ?]
+- Mots-clés : accès Imag'in, Esterel, Examens et concours, identifiant académique, je ne trouve pas Cyclades.
+- Formulations courantes des collègues : où est Imag'in ; comment accéder à Cyclades depuis Esterel ; quel identifiant utiliser.
+- À Aix-Marseille : se connecter à l'espace ESTEREL avec son identifiant académique et son mot de passe (ceux de la messagerie académique), ouvrir la rubrique [EXAMENS ET CONCOURS], puis [IMAG'IN]. Dans une autre académie, le portail porte un autre nom (souvent ARENA) mais le chemin est le même.

@@ -1,6 +1,7 @@
 ### Aix-Marseille : certificats EPS et conservation — session 2026
 [PORTEE: gt, pro, cap]
 Réponse courte : le BA spécial 549 de la session 2026 distingue l'annexe 7 pour le candidat individuel au contrôle ponctuel et l'annexe 8 recto-verso pour le candidat évalué en CCF ; le médecin traitant établit le certificat.
+Dossier académique 2026 : utiliser l'annexe 8 recto-verso en CCF ou l'annexe 7 en ponctuel, pas simplement un papier libre.
 Le BA rappelle l'absence d'effet rétroactif du certificat et prévoit l'archivage des certificats dans l'établissement, une copie pour l'enseignant et le dépôt/renseignement des pièces dans iPackEPS. La transmission des éléments à la CAHPN est annoncée comme automatisée, avec modalités à préciser ultérieurement : ne pas inventer un menu ou un bouton de validation médicale.
 L'annexe 7 indique son téléversement comme justificatif dans le compte candidat Cyclades. Pour l'inaptitude totale, le pli médical détaillé est destiné au médecin scolaire selon le circuit confidentiel du document. Ne pas transmettre un diagnostic au HUB ni conseiller son stockage dans un champ de question.
 Les propositions d'adaptation et les cas particuliers doivent suivre les textes du diplôme et la procédure académique, distincts du constat médical. L'enseignant ne devient pas le validateur médical du certificat.

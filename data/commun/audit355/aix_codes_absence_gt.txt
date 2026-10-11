@@ -1,0 +1,4 @@
+### Aix : codes d’absence au bac GT
+Réponse courte : À Aix, le BA 549 (2026) indique ABS pour une absence non justifiée au bac GT, traduite en zéro. Il ne définit pas DI comme code universel. Ne choisissez pas un code avant de distinguer absence, inaptitude et dispense.
+Source : BA spécial 549, session 2026, p. 7 et annexe 8 ; PDF p. 8 et 27.
+https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf

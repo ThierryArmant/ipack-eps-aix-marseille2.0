@@ -6,7 +6,7 @@ import re
 import smtplib
 import unicodedata
 import requests
-from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key
+from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
 from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence
 import streamlit as st
 from email.mime.text import MIMEText
@@ -1408,6 +1408,8 @@ if prompt_a_traiter:
         p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+        niveau_initial, mode_initial = niveau_actuel_form, mode
+        niveau_actuel_form, mode = effective_context(prompt, niveau_actuel_form, mode)
         origine_reponse = "ia"
 
         onglets_noms = {
@@ -1707,6 +1709,11 @@ if prompt_a_traiter:
                 est_cas_direct = True
                 origine_reponse = 'clarification'
 
+            reponse_documentee, source_documentee = documented_response(prompt, niveau_actuel_form, mode)
+            if reponse_documentee:
+                est_cas_direct = True
+                origine_reponse = 'documentee'
+
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
             # ==================================================================
@@ -1880,7 +1887,11 @@ if prompt_a_traiter:
             # ==================================================================
             # 5. TEXTES BRUTS POUR LES DISJONCTEURS (CAS DIRECTS)
             # ==================================================================
-            if demande_precision:
+            if reponse_documentee:
+                texte_brut = '<p>' + html_lib.escape(reponse_documentee).replace('\n', '</p><p>') + '</p>'
+                sources_consultees = [(source_documentee.get('title', '') + ' — ' + reference_url(source_documentee, prompt), None)]
+                badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
+            elif demande_precision:
                 texte_brut = '<h3>PRÉCISIONS NÉCESSAIRES</h3><p>' + demande_precision + '</p>'
                 badge, color_card = 'PRÉCISIONS NÉCESSAIRES', 'general-card'
             elif est_question_trop_courte:
@@ -2675,7 +2686,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
         texte_final = texte_final.replace("\n", "<br>")
 
         phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Vous avez choisi de poser votre question dans {contexte_choisi_nom} — Contexte : <b>{niveau_actuel_form}</b>.</em></div>"
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{niveau_actuel_form}</b>.</em></div>"
         )
 
         footer_assistance = (

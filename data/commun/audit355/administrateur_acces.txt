@@ -1,0 +1,3 @@
+### iPackEPS : accès administrateur et identifiants
+Il n'y a pas de mot de passe administrateur commun à communiquer entre collègues. L'interface Administrateur est réservée à la configuration académique ; la fonction de coordonnateur se déclare dans la fiche professeur et ne donne pas cet accès. Pour un problème d'habilitation, contactez l'assistance iPackEPS de votre académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr). Ne transmettez jamais votre mot de passe dans la question.
+Source : https://ipackeps.ac-creteil.fr/

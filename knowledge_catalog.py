@@ -52,9 +52,9 @@ def document_records(folder):
 
 def incompatible(text, targets, metadata=None):
     """Filtre uniquement les portées explicitement déclarées ; pas d'inférence sur un mot isolé."""
-    match = re.search(r'\[PORTEE: ([a-z,]+)\]', text)
+    match = re.search(r'\[PORTEE:\s*([a-z,\s]+)\]', text)
     declared = (metadata or {}).get('examens') or []
-    scopes = set(declared) if declared else (set(match.group(1).split(',')) if match else set())
+    scopes = set(declared) if declared else ({s.strip() for s in match.group(1).split(',')} if match else set())
     return bool(targets and scopes and not scopes & set(targets))
 
 
@@ -88,6 +88,23 @@ def section_scopes(title):
 
 def clarification(question, public):
     q = normalise(question)
+    # Les conditions médicales restent nécessaires pour choisir une valeur
+    # individuelle, pas pour expliquer un circuit logiciel ou les possibilités.
+    if re.search(r'dispens.{0,20}epreuve.{0,15}eps|\baflp\d?\b|'
+                 r'ccf.{0,40}(?:mercredi|emploi du temps)|'
+                 r'(?:transform|modifi|corrig).{0,25}(?:note|dispense)|'
+                 r'note.{0,30}transform|dispens.{0,25}deux activites', q):
+        return ''
+    individual_value = bool(re.search(
+        r'\b(?:di|disp|ab|abs|zero|0)\b|je (?:mets|dois mettre)|'
+        r'(?:quelle|quel|comment).{0,25}(?:note|code|statut).{0,25}(?:mettre|saisir|choisir)', q))
+    procedure = bool(re.search(
+        r'santorin|cyclades|protocole|lot|reinitialis|reaffect|'
+        r'qui.{0,35}(?:choisi|decid|valid|coch)|cfa|apprenti|'
+        r'(?:epreuve|evaluation).{0,20}adapt|'
+        r'adapt.{0,25}(?:epreuve|evaluation)|dispens.{0,25}epreuve', q))
+    if procedure and not individual_value:
+        return ''
     # General procedures do not choose a medical status or an individual grade.
     asks_code = bool(re.search(r'\b(di|disp|ab|zero|0)\b|je (mets|dois mettre)|je saisis', q))
     general_procedure = bool(re.search(
@@ -127,9 +144,56 @@ def reference_notice(targets, question=None):
             continue
         if question is not None:
             q = normalise(question)
+            years = set(re.findall(r'\b20\d{2}\b', q))
+            if years and md.get('sessions') and not years & set(md['sessions']):
+                continue
             if not any(re.search(m, q) for m in md.get('motifs', [])):
                 continue
             if any(re.search(m, q) for m in md.get('exclure_motifs', [])):
                 continue
         result.append((path, md))
-    return result
+    # Une fiche de situation doit précéder une synthèse générale : dix passages
+    # sont transmis au maximum et une fiche exclusive peut interrompre la recherche.
+    return sorted(result, key=lambda item: -item[1].get('priorite', 0))
+
+
+def documented_response(question, public, mode):
+    """Réponse relue et ciblée du catalogue, sans réécriture par le modèle."""
+    q = normalise(question)
+    targets = set()
+    if re.search(r'bac(?:calaureat)?\s+(?:pro|professionnel)', q):
+        targets.add('pro')
+    if re.search(r'\bcap\b', q):
+        targets.add('cap')
+    if re.search(r'bac(?:calaureat)?\s+(?:general|gt|technologique)', q):
+        targets.add('gt')
+    if re.search(r'\bdnb\b|\bbrevet\b', q):
+        targets.add('dnb')
+    if not targets:
+        targets = {'Collège (DNB)': {'dnb'}, 'Lycée Général & Techno': {'gt'},
+                   'Lycée Pro / CAP': {'pro', 'cap'}}.get(public, set())
+    for path, md in reference_notice(targets, question):
+        if md.get('modes') and mode not in md['modes']:
+            continue
+        if not Path(path).is_file():
+            continue
+        responses = md.get('reponses_directes', []) + [{
+            'motifs': md.get('reponse_directe_motifs', []),
+            'reponse': md.get('reponse_directe', '')}]
+        for response in responses:
+            if response.get('reponse') and any(re.search(m, q) for m in response.get('motifs', [])):
+                return response['reponse'], md
+    return '', {}
+
+
+def effective_context(question, public, mode):
+    """Les diplômes explicites priment ; un protocole seul reste ambigu."""
+    q = normalise(question)
+    pro = bool(re.search(r"\bbac(?:calaureat)?\s+(?:pro|professionnel)|\bcap\b", q))
+    gt = bool(re.search(r"\bbac(?:calaureat)?\s+(?:gt|general|technologique)|\b(?:seconde|premiere|terminale)\b", q))
+    college = bool(re.search(r"\bdnb\b|\bbrevet\b|\bcollege\b", q))
+    if sum((pro, gt, college)) == 1:
+        public = 'Lycée Pro / CAP' if pro else 'Lycée Général & Techno' if gt else 'Collège (DNB)'
+    if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q):
+        mode = 'examens'
+    return public, mode

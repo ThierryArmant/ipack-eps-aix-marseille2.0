@@ -1,8 +1,13 @@
 ### [SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]
 - Mots-clés : contrôle adapté, FCA, contrôle aménagé, inaptitude temporaire, inaptitude permanente, blessure en cours d'année, handicap, CAHPN, même APSA, protocole initial
-- Formulations courantes des collègues : un élève se blesse en cours d'année, puis-je lui créer un contrôle adapté ; quelle différence entre contrôle adapté et contrôle aménagé ; faut-il changer d'activité pour un élève blessé ; peut-on faire une FCA en cours d'année ; que faire pour une inaptitude temporaire
+- Formulations courantes des collègues : comment adapter les protocoles aux inaptitudes qui surviennent en cours d'année ; comment gérer dans iPackEPS une inaptitude survenue en cours d'année ; un élève se blesse en cours d'année, puis-je lui créer un contrôle adapté ; quelle différence entre contrôle adapté et contrôle aménagé ; faut-il changer d'activité pour un élève blessé ; peut-on faire une FCA en cours d'année ; que faire pour une inaptitude temporaire
 - Règle stricte : Il est formellement interdit de créer ou bricoler un contrôle adapté (FCA) en cours d’année « au sifflet » pour une blessure soudaine. 
 - Distinction vitale : 
   1. Inaptitude permanente (connue dès la rentrée, handicap, pathologie lourde) ➔ Contrôle adapté et FCA validée par la CAHPN en amont.
   2. Inaptitude temporaire (blessure en cours d'année) ➔ Simple contrôle aménagé sur la MÊME APSA du protocole initial (pas de changement d'activité, pas de FCA improvisée).
-
+  Pour une inaptitude temporaire en cours d'année (bac GT, MENE2531948N, contrôle adapté) : l'enseignant du groupe adapte l'épreuve sur les indications du médecin (adaptations transmises pour information à la commission académique), ou renvoie à une évaluation différée, ou certifie sur deux épreuves ou sur une seule, ou ne propose pas de note (« dispensé »). Le protocole validé n'est pas réécrit.
+- Dans iPackEPS, concrètement :
+  1. Déclarer l'inaptitude : [Mes Élèves] > [Visualisation] > choisir l'élève > onglet [Inaptitudes] : dates, APSA concernées, type d'inaptitude, scan du certificat médical (article 82). Ne pas modifier le protocole ni ses groupes pour ce seul élève.
+  2. Garder une trace de l'adaptation retenue (conditions de passation aménagées sur la même APSA) pour l'information de la commission ; un cas particulier (une seule note, DI + note) se documente par une fiche individuelle déposée dans [Dossiers] > [Dossier Certificatif] pour la commission.
+  3. La note, ou la mention « DI », se saisit ensuite dans Santorin, pas dans iPackEPS.
+  Pour une inaptitude partielle permanente ou un handicap découverts en cours d'année : les propositions d'adaptation sont soumises à la commission académique ; le protocole adapté est créé dans Cyclades par le chef d'établissement, qui y associe le candidat.

@@ -1,0 +1,41 @@
+{
+  "_lisez_moi": "Décisions validées par l'équipe du hub. Une fiche active (data/, hors archives) ou app.py ne doit pas les contredire : tests/test_decisions.py échoue sinon et indique le fichier et la ligne. Pour ajouter une décision : diplôme, session, source, exceptions, puis les formulations interdites. « motifs_interdits » et « sauf_si » sont des expressions régulières lues sur le texte sans accents et en minuscules ; « portee » vaut « ligne » ou « section » (une fiche ### entière).",
+  "decisions": [
+    {
+      "id": "DI-DI-NOTE-AIX",
+      "decision": "Ne pas présenter « DI + DI + Note = DI » comme une règle automatique de l'académie d'Aix-Marseille tant qu'aucune source officielle ne l'établit.",
+      "diplome": "baccalauréat (GT et professionnel)",
+      "session": "2026 et 2027",
+      "source": "BA spécial n° 549 d'Aix-Marseille (17/10/2025) : aucune règle DI ni neutralisation de ce type ; question ouverte auprès de la DEC.",
+      "exceptions": "Mentionner la combinaison comme cas de saisie ou comme point à confirmer reste possible.",
+      "portee": "ligne",
+      "motifs_interdits": ["di\\s*\\+\\s*di\\s*\\+\\s*(?:la\\s+)?note\\s*=\\s*di"],
+      "sauf_si": ["confirm", "n.est pas (?:une )?regle", "aucune source", "a verifier"]
+    },
+    {
+      "id": "CAP-DEUX-EPREUVES-RETENUES",
+      "decision": "Au CAP, 2 épreuves de 2 champs certifient. L'établissement peut proposer ou faire pratiquer 3 activités ; l'élève en retient alors 2 en début d'année. Il ne faut ni interdire toute organisation à 3 épreuves sans cette distinction, ni garder les 2 meilleures notes en fin d'année.",
+      "diplome": "CAP",
+      "session": "2026 (BA 549) ; à confirmer pour 2027 dans le bulletin académique",
+      "source": "Circulaire CAP MENE2517122C (27/08/2025) ; BA spécial n° 549 d'Aix-Marseille, II.1.b.1, p. 5.",
+      "exceptions": "CAP SHN : une seule activité évaluée (fiche cap_shn_ccf).",
+      "portee": "section",
+      "motifs_interdits": [
+        "pas (?:possible|autorise)\\w*.{0,80}(?:3|trois) epreuves",
+        "2 epreuves, pas 3\\]"
+      ],
+      "sauf_si": ["(?:pratiquer|proposer|organise\\w*) (?:3|trois)", "retien\\w* (?:2|deux)", "en retient"]
+    },
+    {
+      "id": "PROTOCOLES-VERS-CYCLADES-AIX",
+      "decision": "À Aix-Marseille, les protocoles validés sont transmis vers Cyclades par l'inspection ; l'établissement associe ensuite les candidats. Ne pas écrire que la commission académique les envoie automatiquement.",
+      "diplome": "baccalauréat et CAP",
+      "session": "2026",
+      "source": "BA spécial n° 549 d'Aix-Marseille, pages 2-3 (fiche data/commun/audit60/aix_protocoles_2026.txt).",
+      "exceptions": "Le circuit peut différer dans d'autres académies : le dire explicitement.",
+      "portee": "ligne",
+      "motifs_interdits": ["(?:envoy|transmis)\\w* automatiquement a cyclades par la commission"],
+      "sauf_si": ["autres? academies?", "inspection"]
+    }
+  ]
+}

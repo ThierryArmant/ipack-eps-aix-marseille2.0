@@ -1,0 +1,5 @@
+### Suppression : ne pas conclure à une restauration impossible
+Réponse à donner : je ne dispose pas ici d'une procédure vérifiée de restauration pour cet élément. L'absence de corbeille documentée ne prouve pas que la récupération est impossible, y compris dans iPackEPS.
+Avant de conseiller une recréation, identifier le logiciel exact, l'élément supprimé (évaluation, groupe, dossier, note ou autre) et le menu concerné. Pour iPackEPS, demander au support si une restauration ou une intervention est possible, en précisant l'établissement, l'élément et la date approximative : ipackeps@ac-aix-marseille.fr.
+Sans confirmation applicable, ne garantir ni impossibilité de récupération, ni nécessité de recréation, ni absence de perte de données. Les notes de classe ne sont pas stockées dans le périmètre iPackEPS documenté ; si l'utilisateur parle de notes, il peut s'agir d'une autre application dont il faut connaître le nom.
+Source : limite constatée du corpus technique ; aucune garantie de restauration ni d'impossibilité n'est établie.

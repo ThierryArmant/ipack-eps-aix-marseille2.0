@@ -1,0 +1,5 @@
+### Barème de classe au collège : choisir le bon outil
+Portée : question de notation de classe, pas protocole d'examen de lycée.
+Réponse à donner : iPackEPS ne possède pas, dans le périmètre documenté, d'outil de barème pour calculer les notes de classe. Construire la grille et les critères avec l'équipe EPS, puis gérer les notes et moyennes dans le logiciel de vie scolaire utilisé par l'établissement. Si la question concerne un autre outil de notation, demander son nom pour fournir sa procédure.
+Si le public choisi est Collège (DNB), ne pas envoyer l'utilisateur vers un Dossier Certificatif de lycée, une validation CCF ou Santorin. La moyenne EPS de troisième contribue au contrôle continu du DNB ; cela ne transforme pas la grille de classe en protocole CCF.
+Source : périmètre du corpus technique iPackEPS ; mémento Éduscol décembre 2025, p. 5 et 8-9, pour la conversion et les critères. Menus d'autres logiciels non établis ici.

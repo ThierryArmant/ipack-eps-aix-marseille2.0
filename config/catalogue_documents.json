@@ -2482,5 +2482,119 @@
     ],
     "url": "https://sites.ac-nancy-metz.fr/eps/Parcours_de_formation/EPS_aspects_juridiques/docs/dossier_captation.php",
     "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_bareme_college.txt": {
+    "title": "Barème de classe au collège : choisir le bon outil",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "bareme"
+    ],
+    "exclusif_motifs": [
+      "bareme"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_archivage_prudence.txt": {
+    "title": "Passage d’année : conservation des données à vérifier",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "archiv|passage d.annee"
+    ],
+    "exclusif_motifs": [
+      "archiv|passage d.annee"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_hors_ligne.txt": {
+    "title": "Tablette hors connexion : distinguer les applications",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "hors.connexion|hors.ligne|sans.connexion|sans.reseau"
+    ],
+    "exclusif_motifs": [
+      "hors.connexion|hors.ligne|sans.connexion|sans.reseau"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_suppression_prudence.txt": {
+    "title": "Suppression : ne pas conclure à une restauration impossible",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "supprim|recuper.*evaluation|restaur"
+    ],
+    "exclusif_motifs": [
+      "supprim|recuper.*evaluation|restaur"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/gt_ponctuel_absence.txt": {
+    "title": "Bac GT ponctuel : publics et conditions de neutralisation",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
+    ],
+    "exclusif_motifs": [
+      "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
+    ],
+    "exclure_motifs": [
+      "option|eppcs"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/commun/audit60/gt_inaptitude_demarche.txt": {
+    "title": "Bac GT CCF : inaptitude, adaptation puis calcul conditionnel",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt"
+    ],
+    "exclusif_motifs": [
+      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt"
+    ],
+    "exclure_motifs": [
+      "option|eppcs"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
   }
 }

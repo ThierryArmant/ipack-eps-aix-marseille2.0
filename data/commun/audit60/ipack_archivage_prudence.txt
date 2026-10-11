@@ -1,0 +1,6 @@
+### Passage d'année : conservation des données à vérifier
+Réponse à donner : distinguer la préparation de rentrée de l'archivage. Configuration des classes, Organisation des classes et importation des élèves ne constituent pas une procédure démontrant la conservation de l'historique demandé.
+Le corpus indique la reconduction de certaines données d'établissement et de fiche professeur, mais ne documente pas ici une garantie de conservation de tout l'historique des élèves, groupes, évaluations ou dossiers. Ne pas promettre « sans risque de perte ».
+Les notes de classe sont gérées dans un autre outil ; cette distinction ne garantit pas la conservation des autres données iPackEPS. Demander quel historique doit être conservé et le menu/opération envisagé. Faire confirmer au support iPackEPS les données conservées et les possibilités d'export avant une opération qui remplace ou supprime des données. Aucun bouton d'archivage ou sauvegarde ne doit être inventé.
+Contact académique : ipackeps@ac-aix-marseille.fr. Indiquer l'année, le type de données et le menu concerné.
+Source : corpus technique de rentrée iPackEPS ; procédure d'archivage exhaustive non documentée. Cette fiche décrit la limite de connaissance, pas une procédure validée d'archivage.

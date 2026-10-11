@@ -1,0 +1,5 @@
+### Tablette hors connexion : distinguer les applications
+Réponse à donner : iPackEPS est une application web ; aucun mode hors connexion ni carnet de notes hors ligne n'est documenté dans le corpus étudié. La notation de classe n'est pas une fonction de ce périmètre iPackEPS.
+Cette limite concerne iPackEPS uniquement : elle ne permet PAS d'affirmer qu'il est impossible de noter des élèves sur toute tablette sans réseau. D'autres applications peuvent offrir un fonctionnement hors ligne, à vérifier dans leur documentation et selon le cadre de l'établissement.
+Si des données ont été saisies sans connexion, demander le nom exact de l'application et le type de données. Ne pas inventer une procédure universelle de synchronisation ni une obligation de ressaisie avant d'avoir identifié cet outil.
+Source : corpus technique de périmètre iPackEPS. Fonctionnalités d'autres applications non vérifiées ici.

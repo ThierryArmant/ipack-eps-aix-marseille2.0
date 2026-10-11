@@ -80,6 +80,29 @@ class Audit60Tests(unittest.TestCase):
         self.assertIn('commission académique', text)
         self.assertNotIn('présidée par un membre de l’Inspection générale', text)
 
+    def test_risk_cases_exclude_adjacent_procedures(self):
+        cases = [
+            ("Comment paramétrer un barème personnalisé pour une APSA ?", 'Collège (DNB)', 'ne pas envoyer', 'valider la commission'),
+            ("Comment faire le passage d’année sans perdre l’historique des élèves ?", 'Collège (DNB)', 'ne constituent pas une procédure', '[Configuration des classes] puis'),
+            ("Comment utiliser iPackEPS sur tablette sans connexion internet ?", 'Collège (DNB)', 'Cette limite concerne iPackEPS uniquement', 'impossible de noter les élèves directement sur tablette'),
+            ("J’ai supprimé une évaluation : peut-on la récupérer ?", 'Collège (DNB)', "y compris dans iPackEPS", 'il vous faut recréer'),
+            ("Quels élèves passent EPS en ponctuel plutôt qu’en CCF ?", 'Lycée Général & Techno', 'CHACUNE DES DEUX ÉPREUVES', 'Configuration des classes'),
+            ("Un élève est inapte sur une des trois épreuves du CCF : comment est calculée sa note ?", 'Lycée Général & Techno', "Présenter d'abord", 'Configuration des classes'),
+        ]
+        hostile = [documentation.SimpleNamespace(text='[PORTEE: gt] Il vous faut recréer. Configuration des classes. Neutralisation automatique.', metadata={'source':'ancienne.txt'})]
+        for question, public, expected, excluded in cases:
+            with self.subTest(question=question):
+                text, _, _, _ = self.route(question, public, 'ipack' if public.startswith('Collège') else 'examens', hostile)
+                self.assertIn(expected, text)
+                self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+                self.assertNotIn(excluded, text)
+                self.assertNotIn('Neutralisation automatique.', text)
+
+    def test_gt_targeted_fiches_do_not_leak_into_cap(self):
+        text, _, _, _ = self.route('CAP inapte à une épreuve : comment calculer la note ?', 'Lycée Pro / CAP', 'examens')
+        self.assertNotIn('CHACUNE DES DEUX ÉPREUVES', text)
+        self.assertNotIn('Bac GT CCF : inaptitude, adaptation', text)
+
 
 if __name__ == '__main__':
     unittest.main()

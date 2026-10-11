@@ -138,9 +138,16 @@ def clarification(question, public):
     return ''
 
 
-def reference_notice(targets, question=None):
+# Le niveau choisi compte comme un mot de la question pour les exclusions de fiche :
+# une fiche collège qui exclut « lycee » ne doit pas répondre à un professeur de lycée.
+_LEVEL_WORD = {'Collège (DNB)': 'college', 'Lycée Général & Techno': 'lycee',
+               'Lycée Pro / CAP': 'lycee', '1er degré': 'ecole primaire'}
+
+
+def reference_notice(targets, question=None, public=None):
     entries = catalog()
     result = []
+    level = _LEVEL_WORD.get(public, '')
     for path, md in entries.items():
         if not md.get('prioritaire') or (md.get('examens') and not set(md['examens']) & set(targets)):
             continue
@@ -151,7 +158,7 @@ def reference_notice(targets, question=None):
                 continue
             if not any(re.search(m, q) for m in md.get('motifs', [])):
                 continue
-            if any(re.search(m, q) for m in md.get('exclure_motifs', [])):
+            if any(re.search(m, q) or (level and re.search(m, level)) for m in md.get('exclure_motifs', [])):
                 continue
         result.append((path, md))
     # Une fiche de situation doit précéder une synthèse générale : dix passages
@@ -174,7 +181,7 @@ def documented_response(question, public, mode):
     if not targets:
         targets = {'Collège (DNB)': {'dnb'}, 'Lycée Général & Techno': {'gt'},
                    'Lycée Pro / CAP': {'pro', 'cap'}}.get(public, set())
-    for path, md in reference_notice(targets, question):
+    for path, md in reference_notice(targets, question, public):
         if md.get('modes') and mode not in md['modes']:
             continue
         if not Path(path).is_file():

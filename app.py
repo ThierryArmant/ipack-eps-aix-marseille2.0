@@ -542,6 +542,13 @@ if openai_api_key:
     )
 
 
+RELANCE_FICHE_PRIORITAIRE = (
+    "\n\nCONTRÔLE AVANT DE RÉPONDRE À NOUVEAU : le contexte contient une FICHE PRIORITAIRE choisie pour cette question. "
+    "Ne réponds pas « Je ne dispose pas de la procédure exacte ». Réponds à partir de cette fiche ; si elle ne traite "
+    "qu'une partie de la question, réponds à cette partie, puis dis en une phrase ce que ta base ne précise pas et à qui le demander."
+)
+
+
 # ✅ Liens officiels affichés sous les réponses de l'onglet Textes (aucun appel à l'IA, aucun token).
 # Clé = nom du fichier dans data/ ; valeur = (libellé affiché, [(texte du lien, adresse), ...]).
 # Pour ajouter un lien : ajouter une ligne ici. Sans entrée, le document s'affiche en texte simple.
@@ -1832,7 +1839,7 @@ if prompt_a_traiter:
                             break
 
                 try:
-                    for _path, _md in reference_notice(_cibles, prompt):
+                    for _path, _md in reference_notice(_cibles, prompt, niveau_actuel_form):
                         if _md.get('modes') and mode not in _md['modes']:
                             continue
                         if len(_extraits) >= 10:
@@ -2569,7 +2576,12 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
 
                 try:
                     response = Settings.llm.complete(consigne_ia)
-                    texte_brut = complete_gt_shn_conditions(prompt, response.text, extraits_doc)
+                    reponse_ia = response.text
+                    # Une fiche prioritaire a été choisie pour cette question : la phrase d'absence est alors
+                    # presque toujours une erreur du modèle (U-053, U-010). Une seconde demande, rare, la corrige.
+                    if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
+                        reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
+                    texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
                     texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
                     texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)
                     if verdict_champs:

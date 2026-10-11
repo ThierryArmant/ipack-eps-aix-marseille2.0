@@ -1860,7 +1860,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "calcul|compte|40|60|800|mention|coeff|moyenne.*moyenne"
+      "calcul|compte|40|60|800|mention|coeff|moyenne.*moyenne",
+      "(evalu|note).*eps.*(dnb|brevet)|(dnb|brevet).*eps"
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
     "urls": [
@@ -2212,5 +2213,236 @@
     "examens": [],
     "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
     "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+  },
+  "data/commun/audit60/ipack_perimetre.txt": {
+    "title": "iPackEPS : notes, moyennes, résultats et sens des transferts",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "notes?|moyenne|resultats|pronote|bulletin|bareme|hors connexion|synchronis|evaluation.*supprim"
+    ],
+    "exclure_motifs": [],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article104",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_rentree.txt": {
+    "title": "iPackEPS : rentrée, classes, élèves et collègue",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "creer.*classe|nouvelle classe|rentr[e]?e|eleves.*apparai|import.*(siecle|onde)|ajouter.*collegue|archivage|passage d.annee"
+    ],
+    "exclure_motifs": [],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article14",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_groupes_apsa.txt": {
+    "title": "iPackEPS : groupe AS et création d’APSA",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "groupe.*(association sportive|\\bas\\b)|nouvelle apsa|creer.*apsa|apsa.*n.existe|non certificative"
+    ],
+    "exclure_motifs": [],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article17",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/ipack_inaptitude.txt": {
+    "title": "iPackEPS : déclaration d’inaptitude, sans calcul de moyenne",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [
+      "dnb"
+    ],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "inapt|certificat"
+    ],
+    "exclure_motifs": [],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article82",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/gt_regles_decisives.txt": {
+    "title": "Bac GT : CCF, activité établissement et harmonisation",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "ccf|ponctuell|commission|harmonis|menu|liste.*apsa|inapt"
+    ],
+    "exclure_motifs": [
+      "option|eppcs"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/certificat_medical.txt": {
+    "title": "Certificat d’inaptitude : rôle médical et rôle pédagogique",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "certificat|qui.*valid|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
+    ],
+    "exclure_motifs": [],
+    "url": "https://eduscol.education.gouv.fr/5535/reglementation-concernant-les-amenagements-d-examens-pour-les-eleves-en-situation-de-handicap",
+    "date_verification": "2026-10-11"
+  },
+  "data/examens/fiches/examens_104_situation_santorin_connexion_et_identifiant_refuse.txt": {
+    "title": "Santorin : connexion, missions CCF et copies écrites",
+    "statut": "guide_technique_verifie_portee_explicite",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "santorin.*(connect|identifiant|copies)|connect.*santorin|mission.*(absent|introuvable)|identifiant refus"
+    ],
+    "exclure_motifs": [],
+    "url": "https://www.ac-aix-marseille.fr/media/28712/download",
+    "date_verification": "2026-10-11"
+  },
+  "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt": {
+    "title": "Santorin : verrouillage, correction d’erreur et circuit concerné",
+    "statut": "guide_technique_verifie_portee_explicite",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "santorin.*(valid|verrouill|corrig)|valid.*santorin|note.*ccf.*(corrig|validation)|trompe.*note.*ccf"
+    ],
+    "exclure_motifs": [],
+    "url": "https://www.ac-aix-marseille.fr/media/28712/download",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/saisie_ccf.txt": {
+    "title": "CCF EPS : saisie des notes et distinction Cyclades / Santorin",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "saisi.*notes?.*(ccf|cyclades)|notes?.*ccf.*saisi|application.*saisie|corrig.*note.*ccf"
+    ],
+    "exclure_motifs": [],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article46",
+    "date_verification": "2026-10-11"
+  },
+  "data/examens/fiches/examens_100_situation_eppcs_epreuve_terminale_ecrit_oral.txt": {
+    "title": "EPPCS : épreuve terminale, session 2027 et distinction historique",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "eppcs|specialite eps"
+    ],
+    "exclure_motifs": [],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2622650N",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/contestation_note.txt": {
+    "title": "Contestation de note : explication, erreur matérielle et décision du jury",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "contest|recours|parent.*note"
+    ],
+    "exclure_motifs": [],
+    "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F22331",
+    "date_verification": "2026-10-11"
+  },
+  "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt": {
+    "title": "[SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "prioritaire": true,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "notes?|moyenne|resultats|pronote|bulletin|hors connexion|synchronis"
+    ],
+    "date_verification": "2026-10-11"
+  },
+  "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
+    "title": "[SITUATION: FILMER OU PHOTOGRAPHIER DES ÉLÈVES EN EPS — DROIT À L'IMAGE, RGPD, STOCKAGE]",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "prioritaire": true,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "video|filmer|photograph|rgpd|autorisation.*parents"
+    ],
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/pro_cap_absences.txt": {
+    "title": "Bac professionnel et CAP : ensemble certificatif et absences",
+    "statut": "verifie_2026-10-11_portee_explicite",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "comment fonctionne.*(bac professionnel|cap)|absen.*injust|absen.*justific|evalu.*bac professionnel.*cap"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "date_verification": "2026-10-11"
   }
 }

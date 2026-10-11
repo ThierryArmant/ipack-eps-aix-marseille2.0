@@ -1,0 +1,6 @@
+### iPackEPS : déclaration d’inaptitude, sans calcul de moyenne
+Réponse courte : [Mes Élèves] > [Visualisation] > choisir l’élève > [Inaptitudes] est le chemin documenté pour déclarer l’inaptitude et déposer le certificat médical.
+Renseigner la période et les indications du certificat, sans inventer les libellés de boutons ou un certificat de reprise systématique. Le médecin constate l’inaptitude ; l’enseignant détermine les adaptations pédagogiques permises par les indications médicales.
+Cette déclaration ne calcule aucune moyenne dans iPackEPS. Pour une moyenne de classe, traiter l’évaluation dans le logiciel de vie scolaire et selon les règles applicables au public.
+Au collège, ne pas ajouter un code DI ou une procédure de lot CCF Santorin à une simple déclaration d’inaptitude. L’harmonisation du contrôle continu DNB est un autre circuit.
+Origine technique : article 82 du corpus iPackEPS ; distinction médicale : article R.312-2 du Code de l’éducation.

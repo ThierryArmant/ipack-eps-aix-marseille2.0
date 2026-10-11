@@ -1144,7 +1144,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.caption("Révision documentaire : 2026-10-10 · audit 2")
+st.caption("Révision documentaire : 2026-10-11 · corrections audit 60")
 
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:
@@ -1687,6 +1687,7 @@ if prompt_a_traiter:
             # alors que la base documentaire contient désormais la procédure exacte. Elles passaient DEVANT la base :
             # le collègue recevait la moins bonne des deux réponses. On laisse donc la base répondre.
             # Pour en réactiver un : retirer simplement sa ligne ci-dessous (le texte de la réponse est conservé plus bas).
+            est_connexion = False            # les accès et missions varient selon le circuit ; consulter les fiches
             est_import_pronote = False        # « paramètres d'importation » -> la base donne [Dossier EPS] > [Élèves] > [Importer un fichier Pronote]
             est_deverrouiller_lot = False     # éviter une consigne universelle sans guide/version
             est_verrouiller_lot = False       # bouton « en bas » -> le tutoriel dit [Verrouiller] en haut à droite
@@ -1779,10 +1780,10 @@ if prompt_a_traiter:
                             _vises.add("dnb")
                     return bool(_vises) and not (_vises & _cibles)
 
-                # ✅ AJOUT : au collège il n'y a ni Cyclades ni Santorin. Sans ce garde-fou, une question de collège sur le
+                # Hors circuit d’examen, ne pas transposer les procédures CCF de lycée au collège. Une question sur le
                 # dossier EPS recevait des fiches d'export vers Cyclades et l'IA les recopiait.
                 _college_hors_examen = niveau_actuel_form == "Collège (DNB)" and not re.search(
-                    r"cyclades|santorin|imagin|examen|ccf|certificat|protocole|referentiel|dnb|brevet", p_norm)
+                    r"cyclades|santorin|imagin|examen|ccf|protocole|referentiel|dnb|brevet", p_norm)
 
                 def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
                     nonlocal _erreur
@@ -1846,10 +1847,20 @@ if prompt_a_traiter:
 
                 try:
                     for _path, _md in reference_notice(_cibles, prompt):
-                        if any(re.search(motif, p_norm) for motif in _md.get('motifs', [])):
-                            with open(_path, encoding='utf-8') as _f:
-                                _extraits.append('[FICHE VERIFIEE PRIORITAIRE] ' + _f.read())
-                            _sources.append((_md.get('title', _path) + ' — ' + reference_url(_md, prompt), None))
+                        if _md.get('modes') and mode not in _md['modes']:
+                            continue
+                        if len(_extraits) >= 10:
+                            break
+                        with open(_path, encoding='utf-8') as _f:
+                            _txt = _f.read()
+                        _cle = passage_key(_txt)
+                        if _cle in _vus:
+                            continue
+                        _vus.add(_cle)
+                        _extraits.append('[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt)
+                        _url = reference_url(_md, prompt)
+                        _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
+                        _diag.append(('[prioritaire] ' + _md.get('title', _path), None))
                     if mode in ('ipack', 'examens') and re.search(r'inapt|dispens|absen|reglement|dnb|brevet|ccf', p_norm):
                         _ajouter(retriever_textes, '[Cadre réglementaire]', avec_sources=True, maximum=4)
                     if niveau_actuel_form == "1er degré":
@@ -2527,7 +2538,7 @@ FIABILITÉ DOCUMENTAIRE :
 
 8. MÉMO PERMANENT (VRAI MÊME SI LE CONTEXTE N'EN PARLE PAS) :
 - DATES ET DÉLAIS : toute date limite (dépôt des référentiels, saisie des protocoles, import des classes, saisie ou verrouillage des notes, commissions) DÉPEND DE CHAQUE ACADÉMIE : elle est fixée chaque année par la DEC et l'inspection pédagogique de l'académie de l'utilisateur. Des collègues d'autres académies utilisent aussi cet assistant : ne présente JAMAIS une date, un calendrier ou un contact comme étant celui « d'Aix-Marseille », écris « votre académie ». À une question « jusqu'à quand », « avant quelle date », « date limite », ne réponds JAMAIS que tu ne disposes pas de la procédure et n'invente JAMAIS de date : explique que la date est fixée chaque année par la circulaire académique et le calendrier de la DEC de son académie (les dates diffèrent d'une académie à l'autre), qu'il faut les consulter ou interroger le secrétariat des examens de l'établissement, puis, si le contexte la contient, rappelle la manipulation concernée. Ne cite jamais la date d'une autre académie.
-- ACCÈS : iPackEPS, Cyclades, Imag'in et Santorin s'ouvrent uniquement depuis le portail ARENA, avec les identifiants académiques. Il n'existe pas de compte ni de mot de passe propre à iPackEPS ou à Santorin.
+- ACCÈS : utiliser le circuit du portail académique décrit par le guide applicable. Les profils externes ou candidats peuvent avoir un autre accès. L’identifiant académique n’est pas nécessairement l’adresse électronique complète. Distinguer mission de correction des copies et mission de CCF EPS.
 - RÉPARTITION DES RÔLES POUR LES EXAMENS : le coordonnateur EPS prépare APSA, référentiels, groupes et protocoles dans iPackEPS ; les droits d'export, d'import, de réaffectation, de distribution et de déverrouillage se vérifient dans le guide de la version et selon le rôle habilité ; l'enseignant vérifie ses élèves, saisit ses notes par AFL ou AFLP et verrouille son lot.
 
 ======================================================================

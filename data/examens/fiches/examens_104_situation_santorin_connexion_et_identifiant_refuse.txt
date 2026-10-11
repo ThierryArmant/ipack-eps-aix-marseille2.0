@@ -1,7 +1,7 @@
-### [SITUATION: SANTORIN — SE CONNECTER, IDENTIFIANT REFUSÉ, MISSION INTROUVABLE]
-- Mots-clés : connexion Santorin, se connecter à Santorin, identifiant refusé, mot de passe, ARENA, Examens et concours, IMAG'IN, Portail d'accès aux missions, mission, convocation, accès impossible, qu'est-ce que Santorin.
-- Formulations courantes des collègues : je n'arrive pas à me connecter à Santorin ; mon identifiant est refusé ; je ne vois pas Santorin ; où trouver mes copies ou mes lots ; qu'est-ce que Santorin.
-- Réponse courte : Santorin est l'application nationale de correction dématérialisée des examens ; elle sert aussi à saisir les notes de CCF d'EPS. Il n'y a pas d'identifiant propre à Santorin : on y accède par le portail ARENA avec ses identifiants académiques (ceux de la messagerie académique), puis [Examens et concours] > [IMAG'IN] > [Suivi des missions d'examen et concours] > [Portail d'accès aux missions].
-- Identifiant refusé dès ARENA : c'est le compte académique qui pose problème (mot de passe expiré ou bloqué) ; le réinitialiser ou contacter l'assistance informatique de son académie.
-- ARENA fonctionne mais aucune mission n'apparaît : le chef d'établissement n'a pas encore créé la mission d'évaluation EPS dans IMAG'IN, ou les lots ne sont pas encore distribués. S'adresser à la direction ou au secrétariat des examens.
-- Intervenant extérieur à l'Éducation nationale : il reçoit un lien IMAG'IN dédié.
+### Santorin : connexion, missions CCF et copies écrites
+Santorin sert notamment à la correction des copies et à la saisie CCF EPS. Utiliser les identifiants académiques : le nom d’utilisateur n’est pas nécessairement l’adresse électronique complète.
+Accès habituel documenté pour un enseignant : portail académique / ARENA, [Examens et concours] > [IMAG’IN] > [Suivi des missions d’examen et concours] > [Portail d’accès aux missions]. Le chemin peut dépendre de l’académie et du profil ; des intervenants externes disposent d’un accès spécifique.
+Refus dès le portail : faire vérifier le compte par l’assistance informatique académique. Portail accessible mais mission absente : distinguer le cas.
+CCF EPS en établissement : faire vérifier mission et distribution des lots par le secrétariat des examens / la direction.
+Correction de copies écrites : vérifier la convocation et la mission de correction, puis s’adresser au service organisateur / DEC. Ne pas demander au chef d’établissement de créer une mission EPS pour trouver des copies écrites.
+Le guide Santorin Aix indique que le correcteur doit être affecté à une mission de correction dans Imag’in avant d’accéder aux supports attribués.

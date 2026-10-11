@@ -94,6 +94,9 @@ def clarification(question, public):
     if public == 'Lycée Pro / CAP' and decision and not exam:
         return ('Précisez le diplôme concerné : CAP ou baccalauréat professionnel, ainsi que la session. '
                 'Ces deux examens n\'ont pas les mêmes modalités. Aucun code de saisie ne peut être choisi à ce stade.')
+    general_information = bool(re.search(r'comment est calcul|quel certificat|quels? certificats|comment declarer|comment enregistrer|qui (le )?valide', q))
+    if general_information and not re.search(r'je (mets|saisis|dois saisir)|zero ou di|di ou zero', q):
+        return ''
     medical_type = bool(re.search(r'partiel|total', q))
     medical_period = bool(re.search(r'temporaire|permanent|toute l.annee|'
                                     r'\bdu\s+\d|\bjusqu|\bpendant\s+\d|\bpour\s+\d', q))

@@ -1,0 +1,5 @@
+### CCF EPS : saisie des notes et distinction Cyclades / Santorin
+Pour la chaîne technique CCF EPS décrite dans les guides du corpus, les notes par AFL / AFLP sont saisies par l’enseignant dans Santorin sur les lots qui lui sont attribués. iPackEPS prépare groupes, APSA, référentiels et protocoles ; Cyclades assure la gestion des candidats et des données d’examen. Ne pas remplacer la saisie des notes Santorin par une procédure inventée dans Cyclades.
+Avant la saisie : vérifier la mission et les lots distribués, puis les candidats et activités du lot. Les modalités d’affectation et les droits de gestion dépendent du rôle habilité et du guide académique.
+Après contrôle des notes et des situations particulières, l’enseignant verrouille son lot. Pour modifier après verrouillage, demander la réouverture par le circuit prévu, corriger et reverrouiller en tant qu’enseignant.
+Origine : guides et tutoriels CCF EPS Créteil / Normandie déjà présents dans le corpus. Les libellés exacts doivent être confirmés dans la version locale.

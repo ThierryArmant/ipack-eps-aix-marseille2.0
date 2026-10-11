@@ -1,0 +1,6 @@
+### iPackEPS : groupe AS et création d’APSA
+Réponse courte : pour une association sportive, choisir le type [AS] dans [Dossiers] > [Dossier EPS] > [Groupes], puis affecter les élèves des différentes classes dans [Dossier EPS] > [Élèves]. Ne pas remplacer AS par EPS ou SSS.
+Une APSA créée manuellement se déclare dans [Dossiers] > [Dossier EPS] > [APSA] (article 17, Q9). La base ne donne pas ici le libellé exact du bouton de création : ne pas en inventer un.
+Une APSA non certificative peut être enseignée ; « non certificative » ne signifie pas « non enseignée ». Ne pas appliquer à une question collège les restrictions d’une certification du bac ou celles d’EPPCS.
+Pour une simple adaptation de musculation au bac GT, l’article 15 recommande de conserver l’APSA nationale et de déclarer son caractère adapté, plutôt que de créer une nouvelle APSA « musculation adaptée ».
+Origine : articles 15 et 17 du corpus technique. Revue de cohérence ; chemins à confirmer si la version locale diffère.

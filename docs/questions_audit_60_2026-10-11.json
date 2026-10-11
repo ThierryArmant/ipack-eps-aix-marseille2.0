@@ -1,0 +1,362 @@
+[
+  {
+    "id": "I-01",
+    "question": "Comment créer une nouvelle classe dans iPackEPS en début d'année ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-02",
+    "question": "Mes élèves n'apparaissent pas dans iPackEPS alors que la rentrée est faite. D'où vient le problème ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-03",
+    "question": "Comment importer les élèves depuis SIECLE / ONDE dans iPackEPS ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-04",
+    "question": "Je n'arrive pas à créer mes groupes de section sportive, je n'ai que « sport étude » dans la liste. Comment faire ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-05",
+    "question": "Comment créer un groupe d'AS (association sportive) avec des élèves de plusieurs classes ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-06",
+    "question": "Comment fusionner deux demi-groupes pour faire une seule classe EPS ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-07",
+    "question": "Un élève a changé de classe en cours d'année : comment le basculer sans perdre ses notes ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-08",
+    "question": "Comment ajouter un collègue pour qu'il ait accès à une de mes classes ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-09",
+    "question": "Comment créer une nouvelle APSA qui n'existe pas dans la liste proposée ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-10",
+    "question": "Comment paramétrer un barème de notation personnalisé pour une APSA ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-11",
+    "question": "Comment saisir une note sur 20 à partir d'une grille de compétences (niveaux 1 à 4) ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-12",
+    "question": "Comment déclarer un élève inapte partiel ou total dans iPackEPS ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-13",
+    "question": "Un élève a un certificat d'inaptitude de 3 mois : comment l'enregistrer pour que sa moyenne soit calculée correctement ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-14",
+    "question": "Comment exporter les notes d'EPS vers Pronote ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-15",
+    "question": "L'export vers Pronote ne fonctionne pas, j'ai un message d'erreur. Que dois-je vérifier ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-16",
+    "question": "Comment générer un bulletin ou une fiche de synthèse par élève ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-17",
+    "question": "Comment saisir les absences en EPS dans iPackEPS ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-18",
+    "question": "Comment créer une programmation d'APSA sur l'année pour tout l'établissement ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-19",
+    "question": "Comment dupliquer la programmation de l'année dernière pour la nouvelle année ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-20",
+    "question": "Comment faire le passage d'année (archivage) sans perdre l'historique des élèves ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-21",
+    "question": "Je suis coordonnateur EPS : comment donner les droits administrateur à un autre collègue ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-22",
+    "question": "Comment utiliser iPackEPS sur tablette en cours, même sans connexion internet ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-23",
+    "question": "Les données saisies sur la tablette hors connexion ne sont pas remontées. Comment synchroniser ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-24",
+    "question": "Comment filmer ou photographier un élève et associer la vidéo à son évaluation ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-25",
+    "question": "Est-ce que l'utilisation de la vidéo dans iPackEPS est conforme au RGPD ? Faut-il une autorisation des parents ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-26",
+    "question": "Comment suivre les résultats d'un élève sur plusieurs années (de la 6e à la 3e) ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-27",
+    "question": "Comment imprimer une feuille d'appel ou une fiche d'observation vierge pour un cycle ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-28",
+    "question": "Comment saisir les résultats du savoir nager (attestation ASSN) pour mes 6e ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-29",
+    "question": "J'ai supprimé une évaluation par erreur. Est-il possible de la récupérer ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "I-30",
+    "question": "À qui m'adresser dans l'académie d'Aix-Marseille si j'ai un bug iPackEPS que le hub ne résout pas ?",
+    "public": "Collège (DNB)",
+    "module": "🛠️ iPackEPS"
+  },
+  {
+    "id": "E-01",
+    "question": "Quelles sont les modalités de l'évaluation de l'EPS au baccalauréat général et technologique (CCF) ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-02",
+    "question": "Combien d'épreuves (APSA) faut-il évaluer en CCF au bac GT, et dans combien de champs d'apprentissage ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-03",
+    "question": "Quelle est la différence entre le CCF et l'épreuve ponctuelle terminale en EPS ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-04",
+    "question": "Quels élèves passent l'EPS en épreuve ponctuelle plutôt qu'en CCF ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-05",
+    "question": "Comment est calculée la note finale d'EPS au bac GT (part du CCF, coefficient) ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-06",
+    "question": "Comment fonctionne l'évaluation EPS au bac professionnel et au CAP ?",
+    "public": "Lycée Pro / CAP",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-07",
+    "question": "Un élève est inapte sur une des trois épreuves du CCF : comment est calculée sa note ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-08",
+    "question": "Un élève est inapte totalement toute l'année de terminale : que se passe-t-il pour sa note d'EPS au bac ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-09",
+    "question": "Quel certificat médical faut-il pour une inaptitude au bac, et qui le valide ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-10",
+    "question": "Un élève est absent le jour de l'épreuve CCF sans justificatif. Quelle note lui mettre ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-11",
+    "question": "Comment organiser une épreuve de rattrapage CCF pour un élève absent justifié ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-12",
+    "question": "Qu'est-ce que le protocole d'évaluation académique et où trouver les référentiels de l'académie d'Aix-Marseille ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-13",
+    "question": "Comment faire valider ma liste d'APSA (menu d'établissement) par la commission académique ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-14",
+    "question": "Comment saisir les notes de CCF EPS dans l'application nationale (Cyclades / application de saisie) ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-15",
+    "question": "Avant quelle date doivent être remontées les notes de CCF EPS ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-16",
+    "question": "Je me suis trompé dans la saisie d'une note de CCF après validation. Comment la corriger ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-17",
+    "question": "Comment est évalué l'enseignement optionnel EPS au bac (contrôle continu) ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-18",
+    "question": "Comment fonctionne l'enseignement de spécialité EPS (EPPCS) au bac : épreuve écrite, oral, pratique ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-19",
+    "question": "Qu'est-ce que Santorin et à quoi sert-il pour les correcteurs ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-20",
+    "question": "Comment me connecter à Santorin et où trouver mes copies à corriger ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-21",
+    "question": "Je n'arrive pas à me connecter à Santorin (identifiant refusé). Que faire ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-22",
+    "question": "Comment annoter une copie dématérialisée dans Santorin ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-23",
+    "question": "Une copie est illisible ou des pages manquent dans Santorin. Que dois-je faire ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-24",
+    "question": "Comment valider définitivement mes notes dans Santorin, et peut-on revenir dessus ensuite ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-25",
+    "question": "Qu'est-ce que la commission d'harmonisation et comment se passe-t-elle pour l'EPS ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-26",
+    "question": "Comment est évaluée l'EPS au DNB (brevet) ?",
+    "public": "Collège (DNB)",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-27",
+    "question": "Un élève en situation de handicap (PAP / PAI / PPS) : comment adapter l'évaluation EPS au bac ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-28",
+    "question": "Un sportif de haut niveau (liste ministérielle) : a-t-il un régime particulier pour l'EPS au bac ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-29",
+    "question": "Que doit contenir le procès-verbal (PV) d'une épreuve de CCF EPS et qui le signe ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  },
+  {
+    "id": "E-30",
+    "question": "Un parent conteste la note de CCF EPS de son enfant. Quelle procédure suivre ?",
+    "public": "Lycée Général & Techno",
+    "module": "📊 Examens & Santorin"
+  }
+]

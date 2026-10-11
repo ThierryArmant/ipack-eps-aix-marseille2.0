@@ -201,12 +201,13 @@ div[data-testid="stChatMessage"] p {
 # ======================================================================
 if "messages_hub" not in st.session_state:
     st.session_state.messages_hub = []
+# iPackEPS est sélectionné par défaut (bouton en vert) ; l'utilisateur peut choisir un autre contexte.
 if "active_module" not in st.session_state:
-    st.session_state.active_module = None
+    st.session_state.active_module = "ipack"
 if "niveau_actif_form" not in st.session_state:
     st.session_state.niveau_actif_form = None
 if "contexte_valide" not in st.session_state:
-    st.session_state.contexte_valide = False
+    st.session_state.contexte_valide = True
 if "public_valide" not in st.session_state:
     st.session_state.public_valide = False
 if "is_admin" not in st.session_state:
@@ -220,9 +221,9 @@ st.session_state.pop("dernier_echange", None)
 
 # 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
 if st.session_state.reset_steps:
-    st.session_state.contexte_valide = False
+    st.session_state.contexte_valide = True
     st.session_state.public_valide = False
-    st.session_state.active_module = None
+    st.session_state.active_module = "ipack"
     st.session_state.niveau_actif_form = None
     st.session_state.reset_steps = False
 

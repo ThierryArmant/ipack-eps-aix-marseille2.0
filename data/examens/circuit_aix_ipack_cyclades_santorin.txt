@@ -1,0 +1,42 @@
+=== CIRCUIT ACADÉMIQUE D'AIX-MARSEILLE : D'iPackEPS À CYCLADES PUIS À SANTORIN (guide académique des tutoriels examens EPS) ===
+Sources lues intégralement le 11 octobre 2026 : guide académique « Transfert des protocoles de IPACK vers CYCLADES puis saisie des notes dans SANTORIN » (version 1.1, rédigé pour la session 2026, https://github.com/Pole-Examens/tutoriels-examens) ; mémo national Cyclades « Associer des élèves à un protocole – EPS en CCF » (2023) ; support de la division des examens « Notation de l'épreuve d'EPS en CCF » (2024). Ces procédures décrivent le circuit d'Aix-Marseille : dans une autre académie, l'ordre et les interlocuteurs peuvent différer. Aucune date n'est donnée ici : le calendrier dépend de chaque académie et de chaque session.
+
+### [SITUATION: AIX-MARSEILLE — LES 7 ÉTAPES DANS L'ORDRE, D'iPackEPS À LA SAISIE DES NOTES, ET QUI FAIT QUOI]
+- Mots-clés : étapes, ordre des opérations, qui fait quoi, circuit Aix-Marseille, professeur coordonnateur, chef d'établissement, inspection pédagogique régionale, protocole non validé dans Cyclades, statut validé.
+- Formulations courantes des collègues : par quoi commencer une fois les protocoles validés ; dans quel ordre faire iPackEPS, Cyclades et Santorin ; qui doit faire l'import ; mes protocoles n'apparaissent pas validés dans Cyclades ; qui valide les protocoles dans Cyclades.
+- Conditions de départ : inscriptions aux examens closes, référentiels déposés et validés dans iPackEPS, protocoles saisis et validés dans iPackEPS (coche verte dans la colonne « Validité » du module « Protocoles certificatifs »).
+- Étape 1, chef d'établissement ou professeur coordonnateur : actualiser la liste des classes et réimporter les élèves dans iPackEPS, pour que la liste corresponde aux candidats présentés par l'établissement.
+- Étape 2, chef d'établissement ou professeur coordonnateur : affecter les élèves dans les groupes dans iPackEPS. Seuls les groupes d'examen sont attendus pour cette opération ; il n'est pas obligatoire de composer les groupes d'AS, de section sportive ou des classes sans examen. Vérifier qu'il ne reste aucun élève de classe à examen sans groupe.
+- Étape 3, inspection pédagogique régionale : c'est l'inspection qui reporte dans Cyclades la validité des protocoles attestée dans iPackEPS. L'établissement vérifie ensuite dans Cyclades que ses protocoles ont bien le statut validé. Si ce n'est pas le cas, écrire à examenseps@ac-aix-marseille.fr.
+- Étape 4, chef d'établissement : générer dans iPackEPS le fichier des candidats et des groupes, puis l'importer dans Cyclades ; vérifier ensuite dans Cyclades que chaque candidat est bien affecté à son protocole.
+- Étape 5, chef d'établissement : vérifier les convocations des enseignants dans Imag'in, en ajouter si nécessaire.
+- Étape 6, chef d'établissement : distribuer les lots dans Santorin (distribution automatique, puis manuelle pour les candidats restants ou isolés, par exemple un élève arrivé en cours d'année).
+- Étape 7, enseignants d'EPS : saisir les notes dans Santorin, jusqu'à 100 % sur la barre de progression.
+- Verrouiller un lot : l'enseignant. Déverrouiller un lot : le chef d'établissement. Déplacer un candidat d'un lot à un autre : le chef d'établissement ou le professeur coordonnateur.
+- La constitution du dossier d'établissement destiné à la sous-commission n'est pas décrite dans ce guide.
+
+### [SITUATION: ÉTABLISSEMENT « HORS SIECLE » (CFA, GRETA, MFR, AEFE) — ASSOCIER LES CANDIDATS AUX PROTOCOLES DIRECTEMENT DANS CYCLADES]
+- Mots-clés : hors SIECLE, CFA, GRETA, MFR, AEFE, établissement à l'étranger, base élèves non synchronisée, pas d'export, pas d'import, associer les élèves à un protocole, glisser-déposer, Grp. Élève.
+- Formulations courantes des collègues : je suis en CFA, je ne peux pas générer le fichier d'import ; notre base élèves n'est pas synchronisée avec le rectorat ; comment associer mes candidats aux protocoles sans passer par iPackEPS ; l'import des groupes ne marche pas chez nous.
+- Les étapes 1 (actualisation de la liste des candidats), 2 (affectation dans les groupes iPackEPS) et 4 (fichier d'import vers Cyclades) ne s'appliquent pas aux établissements dont la base élèves n'est pas synchronisée avec la base académique SIECLE : principalement les CFA, GRETA, MFR et établissements AEFE.
+- Pour eux, l'association des candidats aux protocoles se fait directement dans Cyclades, menu [EPS] > [Associer les élèves à un protocole].
+- Manipulation : sélectionner un ou plusieurs élèves puis les glisser-déposer dans le protocole, ou choisir le protocole dans la liste déroulante de la colonne « Grp. Élève » ; puis [Enregistrer]. Les élèves déjà associés sont surlignés de la couleur de leur protocole ; ceux qui n'en ont pas restent sans couleur.
+- Règle de gestion : un élève est associé à un seul groupe élève, donc à un seul protocole.
+- Même menu pour corriger : changer le groupe dans la colonne « Grp. Élève », glisser-déposer d'un protocole à l'autre, retirer un élève avec la croix devant son nom, ou vider un protocole avec la mention « vider ».
+- Ce menu sert aussi aux établissements qui importent leurs groupes, quand une partie des élèves n'a pas été associée après l'import (noms de groupes différents de ceux des protocoles).
+- Élève en situation de handicap ou d'aptitude partielle : l'associer à un protocole « adapté » par ce même menu, quel que soit le cas de l'établissement.
+
+### [SITUATION: ÉLÈVE INAPTE TOTAL À L'ANNÉE — FAUT-IL L'ASSOCIER À UN GROUPE ET À UN PROTOCOLE DANS CYCLADES ?]
+- Mots-clés : inapte total, inapte à l'année, association au protocole, groupe élève, élève sans protocole, déclaration préalable.
+- Formulations courantes des collègues : mon élève est inapte toute l'année, dois-je quand même le mettre dans un groupe ; faut-il déclarer l'inaptitude avant d'associer l'élève ; je laisse l'inapte hors protocole.
+- OUI : un élève inapte total à l'année doit être associé à un groupe, donc à un protocole, comme les autres. Il n'y a aucune déclaration préalable à faire dans Cyclades ; c'est au moment de la saisie des notes qu'il est indiqué inapte.
+- Ne pas le laisser sans groupe : un candidat sans protocole reste en attente et bloque les vérifications avant verrouillage.
+
+### [SITUATION: SANTORIN, PORTAIL ÉTABLISSEMENT — IL MANQUE DES ÉLÈVES APRÈS LA DISTRIBUTION, OU UN ENSEIGNANT A OUBLIÉ DE CLÔTURER SON LOT]
+- Mots-clés : rejouer l'import, élèves manquants dans Santorin, rafraîchir la base, notification par mail, supprimer les lots, recommencer la distribution, clôturer la saisie, enseignant a oublié de verrouiller, réaffecter un lot.
+- Formulations courantes des collègues : il me manque des élèves dans Santorin ; comment prévenir les enseignants que la saisie est ouverte ; je me suis trompé dans la distribution ; un collègue a oublié de verrouiller son lot, que peut faire la direction.
+- Il manque des élèves sur le tableau de bord : le chef d'établissement peut rafraîchir la base en cliquant sur « rejouer l'import ».
+- Des candidats ne sont pas distribués : l'adresse mail de l'enseignant déclarée dans Cyclades n'a pas été retrouvée dans Imag'in. Soit corriger l'adresse associée au protocole dans Cyclades ([EPS] > [Contrôler / Réaffecter des protocoles]), soit distribuer manuellement les candidats restants.
+- Après la distribution, le bouton « Lots » affiche les lots créés ; on peut les sélectionner tous pour envoyer aux enseignants une notification automatique par mail leur indiquant que la notation peut commencer. En cas d'erreur, on peut supprimer les lots et recommencer la distribution.
+- Suivi des lots : l'établissement peut réaffecter un lot à un autre examinateur, et clôturer la saisie d'un lot si l'examinateur a oublié de le faire. Cette clôture n'est possible que lorsque tous les candidats du lot ont une note saisie.
+- Cas exceptionnel (CE) : il se déclare sur une activité qui ne peut pas être évaluée pour une raison technique ou matérielle, après autorisation préalable de la commission académique d'EPS ; la mention CE équivaut à une dispense et neutralise l'activité.

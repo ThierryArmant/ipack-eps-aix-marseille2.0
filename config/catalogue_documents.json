@@ -6,16 +6,26 @@
     "prioritaire": true,
     "priorite": 60,
     "modes": [
-      "ipack"
+      "ipack",
+      "examens"
     ],
     "motifs": [
-      "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|connexion|acced|acces"
+      "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|connexion|acced|acces",
+      "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "reponse_directe_motifs": [
       "install|telecharg|application.*(?:ordinateur|mac|windows)"
     ],
-    "reponse_directe": "iPackEPS est une application en ligne : rien à installer sur l'ordinateur. À Aix-Marseille, ouvrez le portail ESTEREL avec votre compte professionnel, puis le bloc [Enquête et pilotage]. Si le lien iPackEPS n'apparaît pas : [Aide] > [Synchro manuelle] > [Rafraîchir la page]. Si l'accès reste absent, contactez le correspondant académique iPackEPS. Les rubriques ARENA des autres académies ne doivent pas être présentées comme le chemin ESTEREL d'Aix-Marseille."
+    "reponse_directe": "iPackEPS est une application en ligne : rien à installer sur l'ordinateur. À Aix-Marseille, ouvrez le portail ESTEREL avec votre compte professionnel, puis le bloc [Enquête et pilotage]. Si le lien iPackEPS n'apparaît pas : [Aide] > [Synchro manuelle] > [Rafraîchir la page]. Si l'accès reste absent, contactez le correspondant académique iPackEPS. Les rubriques ARENA des autres académies ne doivent pas être présentées comme le chemin ESTEREL d'Aix-Marseille.",
+    "reponses_directes": [
+      {
+        "motifs": [
+          "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)"
+        ],
+        "reponse": "iPackEPS est une application en ligne : aucune version minimale à installer pour Cyclades ou Santorin et aucune mise à jour à effectuer soi-même. À Aix-Marseille, ouvrez iPackEPS dans un navigateur via ESTEREL ; les données sont sur le serveur, pas dans une installation locale à remplacer. Tout le monde utilise la version en cours. Pour l'export vers Cyclades, vérifier les protocoles validés et l'affectation des candidats aux groupes ; les notes certificatives se saisissent dans Santorin. En cas de blocage, contacter ipackeps@ac-aix-marseille.fr. Source : fiche d'accès iPackEPS et documentation de l'éditeur."
+      }
+    ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {
     "title": "complement cyclades cas pratiques",
@@ -88,7 +98,8 @@
     "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
     "prioritaire": true,
     "motifs": [
-      "dnb|brevet|lsu"
+      "dnb|brevet|lsu",
+      "(?:3e|troisieme).*remplacement|remplacement.*(?:3e|troisieme)"
     ],
     "sources": [
       "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
@@ -98,7 +109,15 @@
     "urls_par_session": {
       "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
       "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
-    }
+    },
+    "reponses_directes": [
+      {
+        "motifs": [
+          "(?:absen|presente|justificatif).*remplacement|remplacement.*(?:absen|justificatif)"
+        ],
+        "reponse": "Pour un élève de troisième scolarisé en établissement, absent à l'évaluation de remplacement : si l'absence n'est pas dûment justifiée, zéro est attribué pour l'enseignement concerné. Si elle est dûment justifiée, l'élève est à nouveau convoqué. Il s'agit du contrôle continu du DNB, pas d'un CCF EPS du lycée. À compter de la session 2027, la source est la note du 11 septembre 2026, NOR MENE2623194N, II.4.3.1 (BO spécial n° 4 du 17 septembre 2026), qui abroge la note du 2 septembre 2025. Pour un dossier de la session 2026, vérifier l'ancien texte MENE2515977N. https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
+      }
+    ]
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
     "title": "tutoriels creteil cyclades santorin",
@@ -2756,7 +2775,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "protocole.*academique|(?:valider|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca"
+      "protocole.*academique|(?:valider|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca",
+      "(?:jusqu|date|delai|quand|saisir).*protocoles?|protocoles?.*(?:date|delai|valides|validation)"
     ],
     "exclusif_motifs": [
       "protocole.*academique|faire valider.*(?:liste|menu)|referentiels.*aix"
@@ -2766,7 +2786,15 @@
     ],
     "date_verification": "2026-10-11",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
-    "priorite": 50
+    "priorite": 50,
+    "reponses_directes": [
+      {
+        "motifs": [
+          "(?:jusqu|date|delai|quand|saisir).*protocoles?|protocoles?.*(?:date|delai|valides|validation)"
+        ],
+        "reponse": "À Aix-Marseille, l'échéance de déclaration et de dépôt des protocoles/FCA dans iPackEPS est fixée par les instructions académiques de la session concernée. Pour la session 2026, le BA spécial 549 du 17 octobre 2025 indiquait une CAHPN GT/pro le 13 novembre 2025 : ce n'est ni une date limite de saisie à déduire, ni une échéance pour la session 2027. Pour 2027, faire confirmer le calendrier actuel par l'inspection ou le correspondant iPackEPS (ipackeps@ac-aix-marseille.fr), sans réutiliser les dates 2026. Les protocoles doivent être validés par la commission avant leur mise en œuvre certificative en CCF ; un protocole non validé ne permet pas de certifier les élèves en CCF. Corriger le dossier et solliciter l'inspection ; ne pas décider seul d'un basculement en ponctuel. Source : BA spécial 549, circuit académique des protocoles, avec vérification du calendrier de la session actuelle."
+      }
+    ]
   },
   "data/commun/audit60/aix_certificats_2026.txt": {
     "title": "Aix-Marseille : certificats EPS — 2026",

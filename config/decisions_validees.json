@@ -108,7 +108,7 @@
       "diplome": "Bac GT (et bac pro : MENE2526357C)",
       "session": "2026 et suivantes",
       "source": "Note de service du 20 février 2026, MENE2531948N, point e (contrôle adapté) ; réponses du correspondant iPackEPS d'Aix-Marseille 2025-2026 (correspondant_03).",
-      "exceptions": "Un protocole STANDARD ajouté ou modifié après la commission impose invalidation et revalidation. Une activité nouvelle hors listes se propose à la commission.",
+      "exceptions": "Un protocole STANDARD créé dans iPackEPS après la validation des protocoles n'est transféré vers Cyclades que par l'inspection, informée au préalable (formateur iPackEPS d'Aix, 11/10/2026). Un protocole adapté se crée dans iPackEPS avant la date butoir de la CAHPN, ensuite directement dans Cyclades. Une activité nouvelle hors listes se propose à la commission.",
       "portee": "ligne",
       "motifs_interdits": [
         "controle adapte ne concerne pas",

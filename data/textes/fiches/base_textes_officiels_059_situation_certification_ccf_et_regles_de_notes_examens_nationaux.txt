@@ -5,6 +5,5 @@
   - Bac GT (note de service du 20 février 2026, MENE2531948N) : moyenne des 3 épreuves ; une épreuve DI est neutralisée.
 * GESTION DES LOTS SANTORIN ET PROCÉDURES : 
   Le verrouillage et le déverrouillage des lots de notes dans Santorin relèvent du chef d'établissement : l'enseignant verrouille ses lots, le chef les déverrouille dans son portail Santorin, [Correction] > [Liste des lots], en cliquant sur le cadenas.
-* CADRE DES INAPTITUDES MÉDICALES (décret n° 88-977 du 11 octobre 1988 ; arrêté du 13 septembre 1989) : 
-  On ne parle plus de "dispense de cours" mais d'inaptitude. Le médecin constate des inaptitudes (totales ou partielles, temporaires ou annuelles) avec contre-indications fonctionnelles. L'élève inapte partiel est soumis à l'obligation de présence et participe via des rôles d'observation, d'arbitrage ou de codification fixés par l'enseignant.
-
+* INAPTITUDES : le médecin atteste l’inaptitude, l’enseignant adapte l’enseignement et la direction organise les éventuelles dispenses de présence selon le circuit de l’établissement. Un certificat ne vaut pas automatiquement absence autorisée. Ne pas limiter systématiquement un élève inapte partiel à l’observation ou l’arbitrage ; rechercher une pratique compatible. Pour la certification, appliquer le texte propre au diplôme.
+Source : https://eduscol.education.gouv.fr/media/111129/download ; voir cadre_administratif_des_inaptitude_medicales_et_adaptations.

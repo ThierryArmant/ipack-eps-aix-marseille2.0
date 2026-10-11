@@ -1,5 +1,10 @@
-### [ARTICLE 109] [Dossiers]/[Dossier Certificatif] Conservation des Documents d'Évaluation et Émargements
-Mots-clés : archiver copies, feuilles d'émargement, durée conservation notes CCF, contrôle inspection, destruction documents.
-- Obligation légale : Les feuilles d'émargement signées par les candidats lors des épreuves de CCF, ainsi que les grilles d'évaluation individuelles (AFL), sont conservées dans l'établissement sous la responsabilité du chef d'établissement après la proclamation des résultats, pendant la durée fixée par les consignes de la DEC (DIEC à Aix-Marseille), en pratique au moins le temps des recours (un an est la durée couramment retenue).
-- En cas de contestation : Seuls ces documents originaux font foi devant la commission de recours ou le tribunal administratif.
+### Documents d'évaluation CCF : conservation et consignes applicables
+Mots-clés : archivage, émargement, grilles, justificatifs, durée, recours.
+Conserver les éléments permettant de justifier la proposition de note selon les consignes du service des examens et de l'établissement : grilles renseignées, relevés et pièces utiles.
+La durée précise des documents CCF EPS à Aix-Marseille n'est pas établie dans cette fiche. Faire confirmer la consigne applicable par la DIEC et le responsable des archives avant une destruction ; ne pas présenter un an comme durée réglementaire universelle.
+Des tableaux d'archives généraux distinguent copies, relevés, émargements et procès-verbaux. Une durée concernant un procès-verbal d'examen ne se transpose pas automatiquement à une grille CCF EPS ni à un journal du HUB.
+Ne pas affirmer que seuls les originaux font foi, ni qu'un modèle de PV est obligatoire, sans texte applicable. Une demande de communication et les règles de recours doivent être distinguées de la conservation.
+Statut : durée locale non vérifiée ; affirmation antérieure « un an couramment retenu » retirée lors de la revue du 11 octobre 2026.
 
+Source académique maintenant relue : le BA spécial 549 du 17 octobre 2025 (session 2026), page interne 8 / page PDF 10, impose de garder dans un dossier accessible au chef d'établissement les éléments permettant de justifier l'attribution des notes. Ce passage ne fixe pas de durée. La page interne 7 traite séparément des certificats médicaux. Aucun modèle précis de PV d'épreuve EPS n'a été identifié dans ce PDF ; cela ne prouve pas l'absence d'une consigne locale complémentaire.
+https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf

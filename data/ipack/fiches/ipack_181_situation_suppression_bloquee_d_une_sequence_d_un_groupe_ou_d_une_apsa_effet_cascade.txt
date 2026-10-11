@@ -1,9 +1,7 @@
-### [SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]
-Mots-clés : impossible de supprimer séquence, cadenas suppression groupe, corbeille grisée, erreur clé étrangère, BDD bloquée.
-- Diagnostic : iPackEPS applique une intégrité relationnelle stricte. Un élément ne peut pas être effacé s'il possède des données enfants (élèves rattachés, créneaux EDT).
-- Ordre chirurgical de suppression (à rebours obligatoire) :
-  1. [Dossiers] > [Dossier EPS] > [EDT] : faire un clic droit sur le créneau pour supprimer le créneau d'emploi du temps associé au groupe.
-  2. [Dossiers] > [Dossier EPS] > [Élèves] : retirer tous les élèves du groupe.
-  3. [Dossiers] > [Dossier EPS] > [Groupes] : supprimer la séquence d'apprentissage (S.A.).
-  4. Supprimer enfin le groupe ou l'APSA devenue orpheline.
-
+### Suppression bloquée dans iPackEPS : vérifier les éléments liés
+Mots-clés : supprimer séquence, groupe, APSA, créneau, élèves rattachés.
+Le corpus décrit des dépendances entre créneaux, groupes, séquences et élèves. Avant une suppression, identifier l'élément et son message exact ; examiner ses liens dans [EDT], [Élèves] et [Groupes].
+Ne pas conseiller une suppression en cascade de tous les éléments sans vérifier ce qui doit réellement être conservé. Une modification de séquence peut répondre au besoin sans tout effacer.
+L'article 20 du corpus décrit un clic droit [Supprimer] pour un créneau EDT. Cette procédure ne démontre ni une corbeille ni un cadenas de suppression de groupe : ces intitulés ne sont pas établis ici.
+Si la demande concerne une récupération après suppression, aucune impossibilité de restauration ne peut être déduite ; identifier logiciel et élément, puis faire confirmer les possibilités par le support.
+Origine : revue du corpus technique le 11 octobre 2026 ; menus et dépendances exactes à vérifier selon version.

@@ -4,3 +4,9 @@ Le corpus indique la reconduction de certaines données d'établissement et de f
 Les notes de classe sont gérées dans un autre outil ; cette distinction ne garantit pas la conservation des autres données iPackEPS. Demander quel historique doit être conservé et le menu/opération envisagé. Faire confirmer au support iPackEPS les données conservées et les possibilités d'export avant une opération qui remplace ou supprime des données. Aucun bouton d'archivage ou sauvegarde ne doit être inventé.
 Contact académique : ipackeps@ac-aix-marseille.fr. Indiquer l'année, le type de données et le menu concerné.
 Source : corpus technique de rentrée iPackEPS ; procédure d'archivage exhaustive non documentée. Cette fiche décrit la limite de connaissance, pas une procédure validée d'archivage.
+
+Préparation de rentrée (corpus article 51, à distinguer d'un accès aux archives) :
+- Conservés selon ce corpus : données d'établissement, compétences et spécialités de la fiche professeur, axes des projets, configuration des classes existantes, liste des APSA et équipements sportifs.
+- À actualiser ou refaire : service et fonctions, vœux de jury et de formation, équipe EPS, enseignants affectés aux classes, importation des élèves, dates des séquences, groupes et affectation des élèves.
+Ces données de structure reconduites ne démontrent pas la durée de conservation ni la consultation d'un historique individuel des années précédentes. Ne pas promettre que groupes et inaptitudes restent accessibles.
+https://ipackeps.ac-creteil.fr/spip.php?article51

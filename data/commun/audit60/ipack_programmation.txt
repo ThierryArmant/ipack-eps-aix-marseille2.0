@@ -1,0 +1,12 @@
+### iPackEPS : programmation annuelle des APSA
+Réponse courte : dans [Dossiers] > [Dossier EPS], préparer les APSA et les périodes, puis associer chaque APSA à une période pour chaque groupe, affecter les élèves et compléter l'emploi du temps.
+1. [APSA] : déclarer les activités enseignées et leurs champs d'apprentissage.
+2. [Périodes] : définir les dates des séquences.
+3. [Groupes] : configurer le groupe ; associer une APSA et une période pour chaque séquence d'apprentissage (S.A.).
+4. [Élèves] : affecter les élèves aux groupes.
+5. [EDT] / emploi du temps : placer le groupe, sa séquence et l'équipement sur le créneau, puis vérifier l'agenda.
+Au collège, il s'agit d'une programmation pédagogique : ne pas ajouter une coche certificative de lycée ni une transmission Cyclades. La programmation des épreuves de lycée relève d'un autre volet.
+Les APSA sont conservées à la rentrée selon le corpus de l'article 51 ; les dates, groupes et élèves sont à actualiser. Une fonction de duplication intégrale n'est pas établie ici.
+Sources : articles 15, 16, 17, 18, 20 du corpus technique iPackEPS, relus le 11 octobre 2026 ; recoupement Guyane « Compléter les dossiers établissement », p. 2. Ce guide comporte un exemple de 2021 : les droits anciens réservés au coordonnateur et les boutons précis ne sont pas reconduits automatiquement. Il utilise « Gérer les S.A. » ; le corpus utilise aussi « attribuer une S.A. ». Vérifier le libellé dans la version utilisée, ne pas imposer un bouton unique.
+https://eps.dis.ac-guyane.fr/IMG/pdf/ipack_dossier_etablissement.pdf
+https://ipackeps.ac-creteil.fr/spip.php?article16

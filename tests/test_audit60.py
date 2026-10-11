@@ -103,6 +103,29 @@ class Audit60Tests(unittest.TestCase):
         self.assertNotIn('CHACUNE DES DEUX ÉPREUVES', text)
         self.assertNotIn('Bac GT CCF : inaptitude, adaptation', text)
 
+    def test_programmation_gets_actionable_sequence_without_lycee_protocol(self):
+        text, _, _, _ = self.route("Comment créer une programmation d’APSA sur l’année pour l’établissement ?", 'Collège (DNB)', 'ipack')
+        for step in ('[APSA]', '[Périodes]', '[Groupes]', '[Élèves]', '[EDT]'):
+            self.assertIn(step, text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+        self.assertNotIn('### Bac GT', text)
+
+    def test_pv_does_not_invent_mandatory_signatures(self):
+        text, _, _, _ = self.route('Que doit contenir le PV de CCF EPS et qui le signe ?', 'Lycée Général & Techno', 'examens')
+        self.assertIn("modèle académique vérifié", text)
+        self.assertIn('Ce passage ne fixe pas de durée', text)
+        self.assertNotIn('doit être signé par les examinateurs', text)
+
+    def test_academic_protocol_preserves_session_and_roles(self):
+        text, _, _, _ = self.route("Qu’est-ce que le protocole d’évaluation académique et où trouver les référentiels d’Aix-Marseille ?", 'Lycée Général & Techno', 'examens')
+        self.assertIn('session 2026', text)
+        self.assertIn('transmission des protocoles assurée par l’inspection'.replace('’', "'"), text)
+        self.assertIn('ne sont pas des échéances', text)
+
+    def test_academic_certificates_do_not_replace_college_framework(self):
+        text, _, _, _ = self.route('Collège certificat inaptitude : où le déclarer ?', 'Collège (DNB)', 'ipack')
+        self.assertNotIn('annexe 7 pour le candidat individuel', text)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1211,7 +1211,7 @@
   },
   "data/ipack/fiches/ipack_181_situation_suppression_bloquee_d_une_sequence_d_un_groupe_ou_d_une_apsa_effet_cascade.txt": {
     "title": "[SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]",
-    "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "origine": "data/archives/compilations/ipack.txt"
   },
@@ -1365,7 +1365,7 @@
   },
   "data/ipack/fiches/ipack_207_article_109_dossiers_dossier_certificatif_conservation_des_documents_d_evaluation_et_emarg.txt": {
     "title": "[ARTICLE 109] [Dossiers]/[Dossier Certificatif] Conservation des Documents d'Évaluation et Émargements",
-    "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "origine": "data/archives/compilations/ipack.txt"
   },
@@ -2260,7 +2260,9 @@
     "motifs": [
       "groupe.*(association sportive|\\bas\\b)|nouvelle apsa|creer.*apsa|apsa.*n.existe|non certificative"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "programmation|programmer"
+    ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article17",
     "date_verification": "2026-10-11",
     "exclusif_motifs": [
@@ -2438,7 +2440,7 @@
   },
   "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
     "title": "[SITUATION: FILMER OU PHOTOGRAPHIER DES ÉLÈVES EN EPS — DROIT À L'IMAGE, RGPD, STOCKAGE]",
-    "statut": "revue_corpus_2026-10-11",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "prioritaire": true,
     "modes": [
@@ -2468,7 +2470,7 @@
   },
   "data/commun/audit60/video_perimetre.txt": {
     "title": "Vidéos d’élèves : périmètre iPackEPS et vérifications nécessaires",
-    "statut": "revue_corpus_2026-10-11",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "modes": [
       "ipack"
@@ -2596,5 +2598,89 @@
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/commun/audit60/ipack_programmation.txt": {
+    "title": "iPackEPS : programmation annuelle",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "creer.*programmation|programmation.*(?:annuelle|annee|apsa)|programmer.*apsa"
+    ],
+    "exclusif_motifs": [
+      "creer.*programmation|programmation.*(?:annuelle|annee|apsa)|programmer.*apsa"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11",
+    "url": "https://eps.dis.ac-guyane.fr/IMG/pdf/ipack_dossier_etablissement.pdf"
+  },
+  "data/commun/audit60/pv_ccf_prudence.txt": {
+    "title": "PV de CCF EPS : modèle local à vérifier",
+    "statut": "revue_corpus_2026-10-11_limite_explicite",
+    "examens": [],
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "proces.verbal|\\bpv\\b.*ccf|ccf.*\\bpv\\b"
+    ],
+    "exclusif_motifs": [
+      "proces.verbal|\\bpv\\b.*ccf|ccf.*\\bpv\\b"
+    ],
+    "exclure_motifs": [],
+    "date_verification": "2026-10-11",
+    "url": ""
+  },
+  "data/commun/audit60/aix_protocoles_2026.txt": {
+    "title": "Aix-Marseille : protocoles et circuit EPS — 2026",
+    "statut": "source_academique_2026_relue_2026-10-11",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "protocole.*academique|(?:valider|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca"
+    ],
+    "exclusif_motifs": [
+      "protocole.*academique|faire valider.*(?:liste|menu)|referentiels.*aix"
+    ],
+    "exclure_motifs": [
+      "option|eppcs"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+  },
+  "data/commun/audit60/aix_certificats_2026.txt": {
+    "title": "Aix-Marseille : certificats EPS — 2026",
+    "statut": "source_academique_2026_relue_2026-10-11",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "certificat|modele.*inapt|annexe.*(?:7|8)"
+    ],
+    "exclusif_motifs": [],
+    "exclure_motifs": [
+      "option|eppcs"
+    ],
+    "date_verification": "2026-10-11",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
   }
 }

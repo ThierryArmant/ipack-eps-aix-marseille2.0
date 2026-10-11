@@ -1,11 +1,11 @@
 ### [SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]
 AVANT D'AUTORISER TOUT DÉPLACEMENT EN MINIBUS / VÉHICULE :
 [ ] 1. Vérifier la validité des permis de conduire des enseignants au volant.
-[ ] 2. Vérifier les contrats de location et assurances (garantie illimitée personnes transportées + assistance 24/7).
-[ ] 3. Signer les Ordres de Mission individuels mentionnant la conduite et le transport d'élèves.
-[ ] 4. Contrôler le taux d'encadrement dans les véhicules (second adulte recommandé dans un minibus complet).
+[ ] 2. Vérifier les contrats et les garanties d’assurance applicables, sans inventer une obligation universelle de rachat de franchise ou d’assistance 24h/24.
+[ ] 3. Vérifier l’autorité compétente et le champ du transport avant les autorisations et ordres de mission ; pour un véhicule personnel, consulter la fiche de référence 86-101.
+[ ] 4. Vérifier la surveillance selon le véhicule et le cadre : la note 86-101 prévoit une exigence particulière au-delà de quatre enfants en véhicule personnel ; ne pas appliquer un ratio inventé à tout minibus.
 [ ] 5. Vérifier le vote du voyage au Conseil d'Administration (si voyage avec nuitée ou à l'étranger).
-[ ] 6. En cas d'APPN en milieu spécifique (falaise, eau vive, montagne) : vérifier la déclaration sur iPackEPS / validation IPR et le ratio d'encadrement qualifié sur site.
+[ ] 6. En APPN, vérifier le protocole académique et les validations effectivement requises ; ne pas annoncer une déclaration iPackEPS ou un ratio uniforme pour tous les projets.
 
 EN CAS D'ACCIDENT DE LA ROUTE / SINISTRE EN COURS DE TRANSPORT :
 1. Prise en charge immédiate : Sécuriser les lieux (gilets, triangles), prévenir les secours (15/18 ou 112 à l'étranger).

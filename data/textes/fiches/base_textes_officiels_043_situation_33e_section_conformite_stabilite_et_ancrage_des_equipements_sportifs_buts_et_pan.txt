@@ -1,7 +1,8 @@
-### [SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]
-* CADRE RÉGLEMENTAIRE ET NORMES TECHNIQUES (DÉCRET N° 96-495 DU 4 JUIN 1996 / NORME NF S 52-400) : Ce décret encadre strictement les exigences de sécurité relatives aux cages de buts de football, de handball, de basket-ball et de hockey utilisées dans les établissements scolaires et les installations sportives publiques. 
-* OBLIGATION LÉGALE D'ANCRAGE ET DE LESTAGE : Tous les buts et structures auto-stables ou mobiles doivent être impérativement et en permanence ancrés au sol ou dotés d'un système de contrepoids inamovible fixé à la structure pour empêcher tout basculement vers l'avant ou latéral lors de l'utilisation ou de la suspension d'un élève.
-* OBLIGATION DE VÉRIFICATION PRÉALABLE PAR L'ENSEIGNANT : Avant tout début de séance utilisant des buts mobiles (Handball, Futsal, Basket), l'enseignant d'EPS a l'obligation légale de procéder personnellement au test de stabilité mécanique de chaque équipement (poussée franche pour vérifier la fixation ou l'efficacité du lestage).
-* PROTOCOLE DE MISE HORS SERVICE EN CAS DE DÉFAILLANCE : Si un but présente un défaut d'ancrage, une absence de contrepoids, un jeu excessif ou une défectuosité matérielle, l'enseignant a l'obligation stricte d'en INTERDIRE IMMÉDIATEMENT L'ACCÈS aux élèves (mise à l'écart, basculement sécurisé face contre terre ou neutralisation spatiale). L'anomalie doit être immédiatement notifiée par écrit au Chef d'établissement pour transmission urgente aux services techniques de la collectivité propriétaire.
-* INTERDICTION ABSOLUE DES COMPORTEMENTS À RISQUE : Interdiction stricte et surveillée de toute suspension délibérée aux barres transversales, aux filets ou aux arceaux de basket hors geste sportif technique maîtrisé.
-
+### [SITUATION: SÉCURITÉ DES BUTS ET PANIERS — CONTRÔLES ET MISE HORS SERVICE]
+- Le Code du sport encadre les équipements concernés, notamment les dispositifs assurant leur stabilité. Respecter la notice du fabricant ; ne pas improviser lestage, fixation ou manipulation.
+- L’article R322-25 prévoit une vérification de stabilité et de solidité à l’installation. Les exploitants ou gestionnaires établissent un plan de vérification et d’entretien et tiennent un registre des essais et contrôles.
+- Avant utilisation, l’enseignant vérifie les conditions apparentes de sécurité et s’assure que l’équipement peut être utilisé. Ne pas inventer une obligation légale de « poussée franche personnelle » de chaque but à chaque séance ; un essai technique doit suivre la procédure appropriée.
+- En présence d’une défaillance ou d’un doute sur la stabilité, empêcher l’utilisation et l’accès, alerter la direction et le gestionnaire. Ne pas conseiller de basculer soi-même un équipement défectueux face contre terre : sa sécurisation doit suivre une procédure sûre.
+- Les buts mobiles doivent être sécurisés après utilisation contre l’accès et le basculement. Interdire les suspensions dangereuses aux équipements.
+Sources : Code du sport, articles R322-19 à R322-26, notamment R322-25.
+https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032432112

@@ -1,6 +1,9 @@
-### [SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]
-* DISPOSITIF D'ACCÈS AU SPORT SCOLAIRE (DÉCRET N° 2021-564 DU 7 MAI 2021 / ART. L. 231-2 ET L. 231-2-1 DU CODE DU SPORT) : Suppression de l'obligation de présentation systématique d'un certificat médical de non-contre-indication à la pratique sportive pour l'obtention ou le renouvellement d'une licence à l'Association Sportive (AS) de l'établissement ou à l'UNSS pour tous les élèves mineurs.
-* FONCTIONNEMENT DU QUESTIONNAIRE DE SANTÉ (QS-SPORT MINEURS) : La délivrance de la licence sportive scolaire est conditionnée à la production obligatoire d'une ATTESTATION SUR L'HONNEUR signée des personnes exerçant l'autorité parentale, certifiant que l'élève a renseigné conjointement avec eux le questionnaire de santé national officiel pour mineurs et qu'aucune réponse positive n'a été formulée.
-* CONDITION D'EXIGENCE D'UN CERTIFICAT MÉDICAL : La fourniture d'un certificat médical officiel attestant de l'absence de contre-indication à la pratique du sport (ou de la discipline concernée), datant de moins de six mois, demeure OBLIGATOIRE si et seulement si au moins une réponse du questionnaire de santé est positive.
-* CAS PARTICULIER DES DISCIPLINES À CONTRAINTES PARTICULIÈRES : Pour les activités sportives classées au titre de l'article L. 231-2-3 du Code du sport (ex : sports de combat avec K.-O., plongée subaquatique, tir sportif, sports mécaniques), la production d'un certificat médical annuel spécifique de non-contre-indication reste une obligation légale stricte non dérogeable par le questionnaire de santé.
-
+### [SITUATION: CERTIFICAT MÉDICAL EN ASSOCIATION SPORTIVE / UNSS]
+- Dans le cas général, la licence d’une fédération sportive scolaire ne nécessite pas de certificat médical. Un élève apte en EPS est réputé apte aux activités sportives volontaires.
+- Ne pas imposer à l’AS/UNSS le questionnaire et l’attestation applicables aux licences de clubs ordinaires : l’article L552-4 du Code de l’éducation exclut les articles L231-2 et L231-2-1 du Code du sport.
+- Pour les disciplines à contraintes particulières, un certificat spécifique demeure requis, datant de moins d’un an au jour de la demande de licence ; vérifier la discipline et les règles applicables. Ne pas généraliser cette exception à toutes les activités de l’AS.
+- Un problème de santé ou une inaptitude connue appelle les adaptations et précautions correspondantes ; l’absence de certificat systématique ne dispense pas de ces précautions.
+Sources : Code de l’éducation L552-1 et L552-4 ; Service Public, rubrique activité sportive facultative au collège et lycée.
+https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363
+https://www.service-public.gouv.fr/particuliers/vosdroits/F1030
+https://www.unss.org/sport-sante

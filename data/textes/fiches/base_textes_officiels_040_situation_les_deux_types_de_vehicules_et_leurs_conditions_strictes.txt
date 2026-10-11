@@ -1,19 +1,6 @@
-### [SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]
-A) VÉHICULE DE LOCATION / MINIBUS DE L'ÉTABLISSEMENT (9 PLACES) :
-1. Contrat de location : Établi impérativement au nom de l'EPLE (collège/lycée) et signé par le chef d'établissement.
-2. Assurances obligatoires : Contrat tous risques avec rachat total de franchise, garantie illimitée des personnes transportées et assistance/rapatriement 24h/24 (notamment en cas de déplacement à l'étranger).
-3. Ordre de mission : Délivré à chaque enseignant conducteur précisant l'autorisation de conduire le véhicule loué.
-4. Règle de surveillance à bord (Note de service 86-101 - Section II) :
-   - Le conducteur doit pouvoir se concentrer à 100 % sur sa conduite.
-   - Pour un minibus complet, la présence d'un deuxième adulte pour surveiller les élèves est fortement recommandée ; le chef d'établissement fixe l'encadrement (vérifier les consignes académiques).
-
-
-B) VÉHICULE PERSONNEL DE L'ENSEIGNANT :
-1. Caractère strictement volontaire : L'administration ne peut jamais contraindre un enseignant à utiliser sa voiture personnelle.
-2. Documents à fournir au chef d'établissement avant le départ :
-   - Copie du permis de conduire en cours de validité.
-   - Copie de la carte grise avec contrôle technique à jour.
-   - Attestation d'assurance mentionnant explicitement la couverture de l'usage professionnel et la garantie illimitée des tiers transportés.
-3. Règle des passagers : le nombre d'élèves ne dépasse pas le nombre de places assises ceinturées ; le chef d'établissement apprécie s'il faut un second adulte.
-
-
+### [SITUATION: MINIBUS ET VÉHICULE PERSONNEL — CONDITIONS À VÉRIFIER]
+- Pour un véhicule de l’établissement ou loué, la direction vérifie contrat, assurance effective du conducteur et des élèves, permis adapté, capacité, ceintures, état du véhicule et surveillance. Le rachat total de franchise et l’assistance 24h/24 ne sont pas établis ici comme obligations légales universelles ; vérifier les exigences contractuelles et académiques.
+- Pour un véhicule personnel, ne pas improviser le transport sur la seule base d’une assurance ordinaire et d’un ordre de mission. Consulter la fiche cadre_juridique_textes_officiels_de_reference : autorité compétente, champ de la dérogation, garanties et surveillance doivent être vérifiés avant toute autorisation.
+- Ne pas assimiler la règle propre au véhicule personnel de la note 86-101 à un ratio universel de tous les minibus.
+- Pour un élève blessé ou malade, appliquer le protocole sanitaire et la régulation des secours ; ne pas confondre ce transport avec un déplacement pédagogique programmé.
+Sources : note 86-101, parties I et II ; circulaire MENE2407159C ; guide Éduscol second degré, fiche transport. Voir les liens de la fiche de référence transport.

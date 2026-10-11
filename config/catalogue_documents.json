@@ -2304,7 +2304,8 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-11",
     "exclusif_motifs": [
-      "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf"
+      "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf",
+      "commission.*harmonisation"
     ]
   },
   "data/commun/audit60/certificat_medical.txt": {
@@ -2337,7 +2338,10 @@
     ],
     "exclure_motifs": [],
     "url": "https://www.ac-aix-marseille.fr/media/28712/download",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "connect|identifiant"
+    ]
   },
   "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt": {
     "title": "Santorin : verrouillage, correction d’erreur et circuit concerné",
@@ -2353,7 +2357,10 @@
     ],
     "exclure_motifs": [],
     "url": "https://www.ac-aix-marseille.fr/media/28712/download",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "valid.*notes.*santorin|santorin.*valid.*notes"
+    ]
   },
   "data/commun/audit60/saisie_ccf.txt": {
     "title": "CCF EPS : saisie des notes et distinction Cyclades / Santorin",
@@ -2391,7 +2398,10 @@
     ],
     "exclure_motifs": [],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2622650N",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "eppcs.*(?:bac|epreuv|oral|ecrit)|specialite eps.*bac"
+    ]
   },
   "data/commun/audit60/contestation_note.txt": {
     "title": "Contestation de note : explication, erreur matérielle et décision du jury",
@@ -2454,6 +2464,23 @@
       "comment fonctionne.*(bac professionnel|cap)|absen.*injust|absen.*justific|evalu.*bac professionnel.*cap"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "date_verification": "2026-10-11"
+  },
+  "data/commun/audit60/video_perimetre.txt": {
+    "title": "Vidéos d’élèves : périmètre iPackEPS et vérifications nécessaires",
+    "statut": "revue_corpus_2026-10-11",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "video|filmer|photograph"
+    ],
+    "exclusif_motifs": [
+      "video|filmer|photograph"
+    ],
+    "url": "https://sites.ac-nancy-metz.fr/eps/Parcours_de_formation/EPS_aspects_juridiques/docs/dossier_captation.php",
     "date_verification": "2026-10-11"
   }
 }

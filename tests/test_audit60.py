@@ -63,6 +63,21 @@ class Audit60Tests(unittest.TestCase):
         code = Path('app.py').read_text()
         self.assertIn('est_connexion = False', code)
 
+    def test_video_missing_feature_is_not_a_noncompliance_verdict(self):
+        text, _, _, _ = self.route("Est-ce que l'utilisation de la vidéo dans iPackEPS est conforme au RGPD ?", 'Collège (DNB)', 'ipack')
+        self.assertIn('ne signifie pas', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+
+    def test_epccs_terminal_does_not_receive_compulsory_eps_reference(self):
+        text, _, _, _ = self.route("Comment fonctionne EPPCS au bac : écrit, oral, pratique ?", 'Lycée Général & Techno', 'examens')
+        self.assertIn('MENE2622650N', text)
+        self.assertNotIn('MENE2531948N', text)
+
+    def test_academic_harmonisation_is_not_mixed_with_national_presidency(self):
+        text, _, _, _ = self.route("Qu'est-ce que la commission d'harmonisation pour l'EPS ?", 'Lycée Général & Techno', 'examens')
+        self.assertIn('commission académique', text)
+        self.assertNotIn('présidée par un membre de l’Inspection générale', text)
+
 
 if __name__ == '__main__':
     unittest.main()

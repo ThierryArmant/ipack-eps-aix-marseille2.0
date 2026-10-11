@@ -40,6 +40,16 @@ class Audit60Tests(unittest.TestCase):
         text, _, _, _ = self.route('Comment faire valider ma liste APSA et menu établissement ?', 'Lycée Général & Techno', 'examens')
         self.assertIn('pas le menu d’établissement', text)
 
+    def test_new_apsa_does_not_receive_teacher_specialty_procedure(self):
+        text, _, _, _ = self.route("Comment créer une nouvelle APSA qui n'existe pas dans la liste ?", 'Collège (DNB)', 'ipack')
+        self.assertIn('peut être enseignée', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+
+    def test_ccf_definition_does_not_receive_formative_mixed_passages(self):
+        text, _, _, _ = self.route("Quelle est la différence entre le CCF et l'épreuve ponctuelle terminale en EPS ?", 'Lycée Général & Techno', 'examens')
+        self.assertIn('ne se confond pas', text)
+        self.assertEqual(text.count('[FICHE PRIORITAIRE'), 1)
+
     def test_general_medical_information_is_not_blocked_but_code_is(self):
         self.assertEqual(kc.clarification('Un élève inapte à une épreuve : comment est calculée sa note ?', 'Lycée Général & Techno'), '')
         self.assertTrue(kc.clarification('Il est inapte : je saisis DI ou zéro ?', 'Lycée Général & Techno'))

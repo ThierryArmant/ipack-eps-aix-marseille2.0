@@ -2262,7 +2262,10 @@
     ],
     "exclure_motifs": [],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article17",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "nouvelle apsa|creer.*apsa|apsa.*n.existe"
+    ]
   },
   "data/commun/audit60/ipack_inaptitude.txt": {
     "title": "iPackEPS : déclaration d’inaptitude, sans calcul de moyenne",
@@ -2299,7 +2302,10 @@
       "option|eppcs"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclusif_motifs": [
+      "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf"
+    ]
   },
   "data/commun/audit60/certificat_medical.txt": {
     "title": "Certificat d’inaptitude : rôle médical et rôle pédagogique",

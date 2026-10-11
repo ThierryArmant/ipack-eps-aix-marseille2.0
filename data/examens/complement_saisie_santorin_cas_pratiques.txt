@@ -87,6 +87,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Étape 2 : ne pas déclarer le CE sur le lot entier. Le chef d'établissement, ou l'enseignant référent Santorin, crée un lot à part et y place uniquement le ou les élèves concernés.
 - Étape 3 : sur ce lot à part, avant la saisie des notes, cliquer sur [Déclarer CE] et sélectionner l'APSA à écarter. Les autres élèves, restés dans le lot d'origine, sont notés normalement.
 - (Tutoriel officiel iPackEPS, article 95, cas d'un seul élève du lot.)
+- Vidéo : https://www.youtube.com/watch?v=E2VMoq7sLgI
 
 ### [SITUATION: NOTE DE L'ENSEIGNEMENT OPTIONNEL D'EPS (OPTION EPS) — OÙ SE SAISIT-ELLE ?]
 - Mots-clés : option EPS, enseignement optionnel, option facultative, note de l'option, LSU, livret scolaire, bulletin.

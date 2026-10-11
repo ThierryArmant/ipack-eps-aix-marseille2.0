@@ -2456,7 +2456,10 @@ if prompt_a_traiter:
                             _concl = "Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble dans un protocole d'examen."
                         # Question du type « ces activités dans le même protocole, est-ce possible ? » : le verdict est calculé
                         # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
-                        if re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple):
+                        # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question
+                        # « ces deux activités dans le même protocole ? ». Le verdict en dur répondait alors à côté (courses / relais, boîte d'assistance).
+                        if (len(_q_simple) <= 260 and not re.search(r"fca|referentiel|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
+                                and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
                             _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
                             if _memes:
                                 verdict_champs = ("<p><strong>NON :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "
@@ -2557,7 +2560,7 @@ FIABILITÉ DOCUMENTAIRE :
 
 4. SIGLES (ZÉRO INVENTION) :
 - Écris les sigles tels quels (DEC, AFLP, APSA...). N'ajoute JAMAIS entre parenthèses la signification d'un sigle, sauf si elle figure mot pour mot dans le glossaire ci-dessous ou dans le contexte documentaire.
-- Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; LSL = Livret Scolaire du Lycée ; DNB = Diplôme National du Brevet.
+- Glossaire officiel : APSA = Activités Physiques, Sportives et Artistiques ; AFL = Attendus de Fin de Lycée (voie générale et technologique) ; AFLP = Attendus de Fin de Lycée Professionnel (voie professionnelle et CAP) ; CCF = Contrôle en Cours de Formation ; DEC = Division des Examens et Concours ; CAHPN = Commission Académique d'Harmonisation et de Proposition de Notes ; FCA = Fiche Certificative d'Activité (le référentiel d'évaluation d'une APSA déposé par l'établissement) ; SHN = Sportif de Haut Niveau ; SSS = Section Sportive Scolaire ; LSU = Livret Scolaire Unique ; LSL = Livret Scolaire du Lycée ; DNB = Diplôme National du Brevet.
 - En voie générale et technologique on parle d'AFL ; en voie professionnelle et en CAP on parle d'AFLP. N'emploie pas l'un pour l'autre.
 
 5. QUI FAIT QUOI (NE JAMAIS INVERSER LES RÔLES) :

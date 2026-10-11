@@ -3309,5 +3309,11 @@
     "statut": "reformulation_fiches_existantes_2026-10-11",
     "examens": [],
     "url": "https://ipackeps.ac-creteil.fr/"
+  },
+  "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt": {
+    "title": "Cas concrets : lots Santorin, co-évaluation et enseignant absent, inaptes avec une ou deux notes, établissements à l'étranger",
+    "statut": "reformulation_sources_lues_2026-10-11",
+    "examens": [],
+    "url": "https://ipackeps.ac-creteil.fr/"
   }
 }

@@ -1,0 +1,166 @@
+=== CAS CONCRETS, UN PAR SITUATION : LOTS SANTORIN, CO-ÉVALUATION ET ENSEIGNANT ABSENT, INAPTES AVEC UNE OU DEUX NOTES, ÉTABLISSEMENTS À L'ÉTRANGER ===
+Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots des collègues, une procédure déjà établie par une source lue (tutoriels officiels iPackEPS, articles 66, 72, 73, 81 et 95 ; support de la division des examens d'Aix-Marseille « Notation de l'épreuve d'EPS en CCF », 2024 ; réponses du correspondant examens EPS d'Aix-Marseille ; note de service MENE2531948N, circulaires MENE2505383C et MENE2517122C). Aucune date n'est donnée : le calendrier dépend de chaque académie.
+
+################ LOTS DANS SANTORIN ################
+
+### [SITUATION: SANTORIN — MESSAGE « AUCUN CORRECTEUR POUR CETTE ÉPREUVE », IMPOSSIBLE DE DISTRIBUER LES LOTS]
+- Formulations courantes des collègues : je n'arrive pas à distribuer mes lots ; aucun correcteur pour cette épreuve ; la liste des examinateurs est vide ; je suis chef d'établissement et la distribution est bloquée.
+- Cause : seuls les enseignants pour lesquels le chef d'établissement a créé une mission d'évaluation EPS dans Imag'in apparaissent dans Santorin.
+- Que faire : créer les missions manquantes dans Imag'in (depuis Cyclades, menu [EPS] / [Accéder à Imag'In - convoquer les enseignants]), éditer chaque convocation en cliquant sur l'icône PDF (c'est ce clic qui transmet l'enseignant à Santorin), puis vérifier dans Cyclades que chaque enseignant est bien affecté à ses protocoles avec la même adresse mail que dans Imag'in. Relancer ensuite la distribution.
+
+### [SITUATION: SANTORIN — LA DISTRIBUTION AUTOMATIQUE ÉCHOUE : « NOUS N'AVONS PAS TROUVÉ D'EXAMINATEUR CORRESPONDANT AU MAIL DÉCLARÉ »]
+- Formulations courantes des collègues : certains protocoles n'ont pas été distribués ; il manque les lots d'un collègue ; l'adresse mail de l'examinateur n'est pas reconnue ; un enseignant qui a déposé les protocoles n'est pas dans la liste des examinateurs.
+- Deux causes : la mission Imag'in de cet enseignant n'a pas été créée ; ou elle existe, mais l'adresse mail déclarée dans le protocole Cyclades n'est pas celle connue d'Imag'in.
+- Que faire : créer la mission et éditer la convocation (icône PDF) ; ou corriger l'adresse dans Cyclades, [EPS] > [Contrôler / Réaffecter des protocoles] ; puis relancer la distribution automatique. À défaut, distribuer manuellement les candidats restants.
+- Si l'enseignant n'apparaît pas parmi les personnels que l'on peut convoquer : le signaler au correspondant examens EPS de l'académie, qui demande son ajout au service des examens.
+
+### [SITUATION: SANTORIN — DES ÉLÈVES SONT DANS CYCLADES MAIS JE NE LES VOIS PAS DANS MON LOT]
+- Formulations courantes des collègues : il me manque des élèves dans Santorin ; un élève ajouté tardivement n'est pas dans mon lot ; élève arrivé en cours d'année absent de Santorin.
+- Cause la plus fréquente : l'élève a été associé à son protocole dans Cyclades APRÈS la distribution des lots ; il est en attente de lot.
+- Que faire : le chef d'établissement relance une distribution automatique. Si des élèves manquent encore sur le tableau de bord, il peut rafraîchir la base avec « rejouer l'import ».
+- L'enseignant ne peut pas ajouter lui-même un élève à son lot.
+
+### [SITUATION: SANTORIN — ERREUR « INCOHÉRENCES DE DONNÉES SUR DES CANDIDATS … MAL DÉFINIES (SOUS ÉPREUVES) »]
+- Formulations courantes des collègues : message incohérences de données ; sous épreuves mal définies ; j'ai changé une APSA dans un protocole et Santorin affiche une erreur.
+- Cause : un protocole ou une APSA a été modifié dans Cyclades, et Santorin n'est plus synchronisé.
+- Que faire, dans Cyclades : repérer les élèves en erreur et leur protocole ; les retirer du protocole avec la croix rouge (ou [vider] si tous sont en erreur) ; [enregistrer] ; replacer les élèves dans leur protocole ; [enregistrer] de nouveau ; vérifier dans Santorin.
+
+### [SITUATION: SANTORIN — ERREUR « VEUILLEZ AFFECTER UN PROTOCOLE AU GROUPE DANS L'ACTIVITÉ ASSOCIER LES ÉLÈVES À UN PROTOCOLE »]
+- Formulations courantes des collègues : un élève est en erreur dans Santorin ; élève sans protocole ; nouvel élève non placé.
+- Cause : un élève, souvent arrivé en cours d'année, n'est placé dans aucun protocole.
+- Solution rapide : dans Cyclades, [EPS] / [Associer les élèves à un protocole], placer l'élève. Solution complète : mettre à jour la liste des élèves dans iPackEPS, le placer dans son groupe, puis regénérer et réimporter le fichier.
+
+### [SITUATION: SANTORIN — ERREUR « LA CANDIDATURE N'EST PLUS VALIDE DANS LE SYSTÈME D'INFORMATION EXAMENS/CONCOURS », OU IMPOSSIBLE DE VERROUILLER LE LOT]
+- Formulations courantes des collègues : je ne peux pas verrouiller mon lot ; candidature plus valide ; un élève parti bloque mon lot ; la suppression automatique n'est pas possible.
+- Cause : un élève a quitté l'établissement, mais la base de Santorin ne s'est pas synchronisée.
+- Seule solution : un signalement au service des examens de l'académie, en indiquant le RNE de l'établissement, l'examen concerné et les élèves concernés, pour transmission à l'équipe nationale Santorin. Ni l'enseignant ni le chef d'établissement ne peuvent corriger cela eux-mêmes.
+
+### [SITUATION: SANTORIN — IMPOSSIBLE D'AFFECTER DANS UN LOT UN ÉLÈVE VENU D'UN AUTRE ÉTABLISSEMENT OU D'UNE AUTRE ACADÉMIE]
+- Formulations courantes des collègues : élève arrivé d'une autre académie ; il est dans mon protocole Cyclades mais je ne peux pas le mettre dans un lot ; introuvable dans Santorin.
+- Cause : l'élève figure probablement encore dans les listes Santorin de son ancien établissement, parfois avec des notes déjà saisies.
+- Que faire : contacter l'ancien établissement pour vérifier que le départ a bien été déclaré (la mise à jour n'est pas immédiate) ; si le blocage persiste, le signaler au service des examens pour que l'élève soit retiré de l'ancien établissement.
+- Penser à récupérer auprès de l'ancien établissement le détail des épreuves déjà passées.
+
+### [SITUATION: SANTORIN — UN ÉLÈVE EST DANS LE MAUVAIS LOT]
+- Formulations courantes des collègues : mon élève est dans le lot d'un collègue ; comment changer un élève de lot ; erreur de lot.
+- Qui : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant non référent ne peut pas le faire.
+- Chemin : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant]. Le déplacement se fait dans Santorin, sans repasser par Cyclades.
+- Si l'élève est en réalité dans le mauvais PROTOCOLE : corriger d'abord dans Cyclades, [EPS] / [Associer les élèves à un protocole].
+
+### [SITUATION: SANTORIN — TOUT UN LOT EST ATTRIBUÉ AU MAUVAIS ENSEIGNANT, OU IL FAUT LE CONFIER À UN AUTRE]
+- Formulations courantes des collègues : le lot est au nom d'un collègue parti ; comment réaffecter un lot ; je ne vois pas le lot de ma classe.
+- Un enseignant ne voit que les lots des protocoles qui lui sont affectés.
+- Deux moyens, pour le chef d'établissement : dans Santorin, le suivi des lots permet de réaffecter un lot à un autre examinateur ; dans Cyclades, [EPS] > [Contrôler / Réaffecter des protocoles] permet de changer l'enseignant du protocole. Le nouvel enseignant doit avoir une mission d'évaluation EPS dans Imag'in.
+- Ne pas confondre : réaffecter un lot (tous ses candidats changent d'évaluateur) et déplacer un candidat (un seul élève change de lot).
+
+### [SITUATION: SANTORIN — LA DISTRIBUTION DES LOTS A ÉTÉ MAL FAITE, PEUT-ON RECOMMENCER ?]
+- Formulations courantes des collègues : je me suis trompé dans la distribution ; peut-on supprimer les lots ; refaire la distribution.
+- Oui : en cas d'erreur, le chef d'établissement peut supprimer les lots et recommencer la distribution.
+- Rappel : la distribution automatique crée un lot par protocole. Une fois les lots créés, il peut les sélectionner tous pour envoyer aux enseignants une notification par mail leur indiquant que la notation peut commencer.
+
+### [SITUATION: SANTORIN — ENSEIGNANT QUI ÉVALUE POUR PLUSIEURS EXAMENS : JE NE RETROUVE PAS TOUS MES LOTS]
+- Formulations courantes des collègues : je ne vois que mes lots de bac général ; où sont mes CAP ; j'ai des terminales pro et générales.
+- Dans Imag'in, [Portail d'accès aux missions] affiche une ligne de mission « Notation EPS CCF » par examen géré. Cliquer sur la ligne de l'examen voulu.
+- Une fois dans Santorin, choisir de nouveau l'examen concerné, puis cliquer sur la flèche pour ouvrir le lot. La liste d'un lot peut tenir sur plusieurs pages : augmenter le nombre de candidats affichés par page.
+
+### [SITUATION: LE CHEF D'ÉTABLISSEMENT VEUT SAISIR LUI-MÊME DES NOTES ET NE VOIT QUE DES STATISTIQUES]
+- Formulations courantes des collègues : je suis proviseur, je n'arrive pas à saisir ; Santorin ne me montre que les statistiques ; saisir à la place d'un enseignant absent.
+- Cause : en entrant dans Santorin par Cyclades, le chef d'établissement a le profil chef d'établissement, pas le profil évaluateur.
+- Que faire : se créer une mission d'évaluation EPS dans Imag'in, puis entrer dans Santorin par le portail de ses missions Imag'in. Il doit aussi être évaluateur du lot (deuxième correcteur, ou protocole réaffecté à son adresse dans Cyclades).
+
+################ CO-ÉVALUATION, DEUXIÈME CORRECTEUR, ENSEIGNANT ABSENT ################
+
+### [SITUATION: « DEUXIÈME CORRECTEUR » DANS SANTORIN POUR L'EPS — CE N'EST PAS LA DOUBLE CORRECTION DES COPIES]
+- Formulations courantes des collègues : faut-il une double correction en EPS ; nous sommes deux correcteurs sur le lot, chacun met sa note ; correction partagée en EPS ; à quoi sert le deuxième correcteur.
+- En EPS, le CCF n'est pas une correction de copies. La co-évaluation se fait sur le terrain, le jour de l'épreuve ; ensuite UNE seule saisie est faite dans Santorin, par AFL ou AFLP, pour chaque candidat.
+- Ajouter un « deuxième correcteur » sur un lot d'EPS donne simplement à un second enseignant l'accès au même lot et à la même saisie. Il n'y a pas deux notations séparées à rapprocher.
+- La « correction partagée » décrite dans les guides Santorin concerne les copies écrites, où chaque correcteur note sa partie : ne pas appliquer ce fonctionnement au CCF d'EPS.
+- Manipulation, par le chef d'établissement ou le référent Santorin : [Distribution], sélectionner le lot, [Voir le détail], onglet [Correcteur], [Ajouter], choisir le collègue, [Valider]. Le collègue doit avoir une mission d'évaluation EPS dans Imag'in.
+
+### [SITUATION: BAC GÉNÉRAL ET TECHNOLOGIQUE — LE CO-ÉVALUATEUR EST ABSENT OU NON REMPLACÉ LE JOUR DE L'ÉPREUVE]
+- Formulations courantes des collègues : mon collègue co-évaluateur est en arrêt et n'est pas remplacé ; je suis seul pour évaluer mes terminales ; puis-je noter seul et régulariser après ; personne pour co-évaluer.
+- Au bac général et technologique, la co-évaluation par deux enseignants d'EPS, dont l'enseignant du groupe, est obligatoire : ne pas certifier seul.
+- Que faire : prévenir la direction avant l'épreuve. Si aucun collègue de l'établissement n'est disponible, le second évaluateur peut venir d'un autre établissement, sur désignation de l'inspection pédagogique régionale. À défaut, l'épreuve est reportée en accord avec la direction et l'inspection.
+- Cette obligation ne concerne ni le bac professionnel ni le CAP, où l'enseignant de la classe peut évaluer seul.
+- Texte de référence : note de service du 20 février 2026, MENE2531948N, partie 2.d.
+
+### [SITUATION: L'ENSEIGNANT DU GROUPE EST ABSENT ET NON REMPLACÉ — UNE ÉPREUVE N'A PAS PU ÊTRE ÉVALUÉE POUR TOUTE LA CLASSE]
+- Formulations courantes des collègues : le professeur est absent depuis des semaines sans remplaçant ; une activité n'a pas pu être évaluée faute d'enseignant ; que mettre pour la classe ; mes élèves n'ont que deux notes à cause d'un professeur non remplacé.
+- Ce n'est ni une inaptitude ni une absence des élèves : ne pas saisir « Dispensé » ni « Absent » pour ce motif.
+- C'est le cas exceptionnel (CE), prévu notamment pour un professeur absent non remplacé : il demande l'autorisation préalable de la commission académique d'EPS, sollicitée par la direction auprès de l'inspection pédagogique et du service des examens.
+- Une fois l'accord obtenu, dans Santorin : ouvrir le lot, [Déclarer CE] avant la saisie des notes, sélectionner l'APSA à écarter. La mention CE neutralise l'activité pour tous les élèves du lot.
+- Si un remplaçant arrive à temps, l'épreuve peut au contraire être évaluée normalement : ne pas déclarer de CE par précaution.
+
+### [SITUATION: L'ENSEIGNANT ÉVALUATEUR EST ABSENT AU MOMENT DE LA SAISIE DES NOTES]
+- Formulations courantes des collègues : mon collègue a évalué mais il est en arrêt, qui saisit ses notes ; l'évaluateur est parti avant la saisie ; nous avons ses notes sur papier.
+- Les notes existent : il s'agit seulement de donner l'accès à quelqu'un d'autre. Trois moyens, au choix du chef d'établissement : ajouter un collègue comme deuxième correcteur sur le lot ; réaffecter le protocole à un autre enseignant dans Cyclades ; ou se créer lui-même une mission d'évaluation EPS dans Imag'in et saisir.
+- Le remplaçant peut être extérieur à l'établissement : il faut alors lui créer une mission d'évaluation dans Imag'in avant de lui donner le lot.
+- Si le seul changement est le nom de l'enseignant, laisser le protocole tel quel dans iPackEPS.
+
+################ INAPTES AVEC UNE OU DEUX NOTES ################
+
+### [SITUATION: INAPTE SUR UNE ÉPREUVE, IL A DEUX NOTES SUR TROIS — CALCUL ET SAISIE]
+- Formulations courantes des collègues : il n'a pas pu passer le troisième CCF ; blessé en fin d'année, il lui reste deux notes ; DI et deux notes ; inapte sur une APSA.
+- Bac général et technologique : l'enseignant peut permettre une certification sur deux épreuves ; « le candidat est noté sur la moyenne des deux notes » (MENE2531948N, partie 2.e).
+- Bac professionnel : certification possible sur deux activités ; « la note finale résulte de la moyenne des deux notes » (MENE2505383C, partie B.3.2).
+- Avant cela, envisager l'épreuve différée ou adaptée si l'inaptitude est temporaire ou partielle.
+- Saisie dans Santorin : « Dispensé » sur l'APSA non évaluée, les notes sur les deux autres. Le certificat médical est déposé dans iPackEPS.
+
+### [SITUATION: INAPTE SUR DEUX ÉPREUVES, IL N'A QU'UNE NOTE SUR TROIS — QUE DÉCIDER ET QUE SAISIR]
+- Formulations courantes des collègues : il n'a qu'une note ; deux dispenses et une note ; DI DI et une note ; est-ce que la note compte ; faut-il tout mettre en dispensé.
+- Aucun automatisme : c'est l'enseignant du groupe qui apprécie, parmi deux possibilités prévues par les textes.
+- Possibilité 1, retenir la note unique : au bac général et technologique, « la moyenne du candidat retenue pour le baccalauréat n'est constituée que d'une seule note » (MENE2531948N, 2.e). Saisie : « Dispensé » sur les deux APSA non évaluées, la note sur la troisième.
+- Possibilité 2, ne pas proposer de note s'il juge les éléments d'appréciation trop réduits : mention « dispensé de l'épreuve d'éducation physique et sportive », le coefficient de l'EPS est neutralisé. Saisie : « Dispensé » sur les trois épreuves.
+- Bac professionnel : pour une seule évaluation sur l'année, l'enseignant apprécie la qualité et la quantité des éléments (MENE2505383C, B.3.2).
+- Dans les deux cas, ajouter une appréciation qui explique la décision : elle est portée à la connaissance de la commission académique.
+
+### [SITUATION: CAP — INAPTE SUR UNE DES DEUX ÉPREUVES, IL N'A QU'UNE NOTE]
+- Formulations courantes des collègues : en CAP il n'a passé qu'une activité ; une note et une dispense en CAP ; DI et une note en CAP.
+- L'enseignant apprécie : soit renvoyer l'élève à une situation d'évaluation différée ; soit permettre une certification sur une seule activité, le candidat étant alors « noté sur une seule activité » ; soit ne pas proposer de note si les éléments d'appréciation sont trop réduits, avec la mention « Dispensé de l'épreuve d'éducation physique et sportive » (MENE2517122C, partie 2.3.2).
+- Saisie dans Santorin : « Dispensé » sur l'activité non évaluée et la note sur l'autre, ou « Dispensé » sur les deux.
+
+### [SITUATION: INAPTE — PEUT-ON LE NOTER SEULEMENT SUR L'AFL2 ET L'AFL3 (CE QU'IL PEUT FAIRE SANS PRATIQUER) ?]
+- Formulations courantes des collègues : il ne peut pas pratiquer mais il a tenu un rôle d'arbitre ou de coach ; je mets seulement les 8 points ; noter un inapte sur les rôles.
+- NON, au bac général et technologique : « L'évaluation ne peut reposer sur les seuls AFL2 et AFL3 même en cas d'inaptitudes partielle ou temporaire » (MENE2531948N, partie 2.d).
+- Conséquence dans Santorin : une note d'AFL2 ou d'AFL3 ne peut pas être saisie sans note d'AFL1. Solutions : épreuve adaptée, épreuve différée, ou « Dispensé » sur cette APSA.
+
+### [SITUATION: BLESSÉ OU MALADE JUSTE AVANT L'ÉPREUVE — DISPENSÉ, ABSENT OU ÉPREUVE DIFFÉRÉE ?]
+- Formulations courantes des collègues : il s'est blessé la veille du CCF ; certificat de dix jours ; absent le jour de l'épreuve avec un mot du médecin ; je mets absent ou dispensé.
+- Inaptitude temporaire attestée : l'enseignant renvoie d'abord le candidat à une situation d'évaluation différée (la date de rattrapage déclarée dans le protocole sert à cela).
+- Dans Santorin, trois saisies à ne pas confondre : « Absent » vaut zéro pour l'épreuve (absence non justifiée) ; « Dispensé » neutralise l'APSA, qui ne compte pas dans la note finale ; l'épreuve de substitution se déclare pour une force majeure ou une inaptitude temporaire survenue juste avant l'épreuve.
+- Ne jamais saisir « Absent » pour un élève dont l'inaptitude est attestée par un certificat.
+
+################ ÉTABLISSEMENTS FRANÇAIS À L'ÉTRANGER (AEFE), CFA, GRETA, MFR, ÉTABLISSEMENTS AGRICOLES ################
+
+### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER — AUCUN ENSEIGNANT NE PEUT SE CONNECTER À iPackEPS]
+- Formulations courantes des collègues : nos enseignants n'ont pas d'accès ; lycée français à l'étranger, comment se connecter ; nous avions déclaré dix enseignants et un seul apparaît ; faut-il un compte par professeur.
+- C'est normal. Pour les établissements qui ne relèvent pas du ministère de l'éducation nationale (centres de l'étranger, CFA, GRETA, MFR, établissements agricoles), l'accès à iPackEPS passe par UN seul compte, celui de l'établissement, déjà utilisé pour les examens. Il n'y a pas de compte par enseignant : les connexions depuis l'étranger exigent une clé de sécurité, ce qui rend les comptes individuels impraticables.
+- Organisation : les enseignants fournissent les éléments (APSA, référentiels, dates), et la saisie se fait depuis ce compte unique, par le chef d'établissement ou avec lui.
+- Exception : un intervenant qui dispose d'une adresse académique peut, sur demande au correspondant iPackEPS, être rattaché à l'établissement comme professeur.
+
+### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER, CFA — LES ENSEIGNANTS N'APPARAISSENT PAS DANS iPackEPS : QUI MET-ON DANS LES PROTOCOLES ?]
+- Formulations courantes des collègues : je suis le seul enseignant proposé ; comment déclarer mes collègues ; qui mettre en co-évaluateur.
+- Il n'est ni possible ni nécessaire d'ajouter les enseignants un par un. Les protocoles sont créés au nom du titulaire du compte de l'établissement ; le co-évaluateur se déclare comme « Co-évaluateur externe ».
+- Les enseignants qui évaluent réellement sont identifiés plus tard, au moment de la saisie des notes : ils sont convoqués dans Imag'in et accèdent à Santorin.
+
+### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER, CFA — AUCUNE CLASSE NI AUCUN ÉLÈVE DANS iPackEPS]
+- Formulations courantes des collègues : nos classes n'apparaissent pas ; impossible d'importer les élèves ; certaines classes et certains élèves ne figurent pas ; votre administration n'a pas encore déclaré les élèves.
+- C'est normal : ces élèves ne sont pas connus des bases du rectorat. La configuration des classes n'empêche pas de saisir les protocoles.
+- Que faire : ignorer l'étape des classes et aller directement dans [Dossiers et Projets] > [Dossier EPS] > [Groupes]. Déclarer les groupes d'examen (un groupe réunit des candidats qui ont les mêmes activités, évaluées aux mêmes dates par le même enseignant), sans y placer d'élèves. Compléter ensuite les protocoles dans [Dossier Certificatif].
+- Les candidats sont associés aux protocoles plus tard, directement dans Cyclades ([EPS] > [Associer les élèves à un protocole]), une fois les inscriptions aux examens closes.
+
+### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER — LES ENSEIGNANTS NE PEUVENT PAS SAISIR LES NOTES DANS SANTORIN]
+- Formulations courantes des collègues : nos enseignants n'ont pas accès à Santorin ; comment convoquer nos professeurs ; ils ne sont pas dans la liste des examinateurs.
+- Les enseignants de ces établissements ne sont pas connus d'Imag'in. Transmettre au correspondant examens EPS de l'académie le nom, le prénom et l'adresse professionnelle de chaque évaluateur : il fait créer leur fiche dans Imag'in.
+- Ensuite, l'établissement les convoque dans Imag'in sur la mission d'évaluation EPS, édite la convocation (icône PDF), puis distribue les lots dans Santorin.
+- Les notes ne se saisissent jamais dans iPackEPS.
+
+### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER — UN ENSEIGNANT DÉMISSIONNE OU PART EN COURS D'ANNÉE APRÈS AVOIR FAIT PASSER DES ÉPREUVES]
+- Formulations courantes des collègues : notre professeure a quitté l'établissement après deux CCF ; un remplaçant termine les évaluations ; faut-il refaire les protocoles.
+- Si le seul changement est le nom de l'enseignant, laisser les protocoles en l'état : ne rien modifier dans iPackEPS.
+- Le remplaçant est ajouté comme évaluateur au moment de la saisie : faire créer sa fiche dans Imag'in par le correspondant examens EPS, le convoquer, puis l'ajouter sur le lot dans Santorin.
+
+### [SITUATION: MFR, CFA — L'INTERVENANT D'EPS CHANGE SOUVENT, COMMENT LUI DONNER ACCÈS ?]
+- Formulations courantes des collègues : notre intervenante est convoquée à l'harmonisation et n'a pas d'accès ; faut-il créer un compte pour le professeur ; nous passons par le compte de la structure.
+- Le fonctionnement par le compte de la structure, avec le directeur ou l'intervenant, est le fonctionnement normal.
+- Un accès personnel n'est possible que si l'intervenant dispose d'une adresse académique : en faire alors la demande au correspondant iPackEPS de l'académie.

@@ -130,3 +130,21 @@ class Audit355RoutageTests(unittest.TestCase):
         code = open('app.py', encoding='utf-8').read()
         self.assertIn("Dès qu'un passage traite du sujet, même en partie", code)
         self.assertNotIn("Si la réponse n'y est pas, dis simplement que tu ne disposes pas", code)
+
+
+class Audit355Retest11Tests(unittest.TestCase):
+    """Relance des 11 questions : fiche collège servie au lycée, phrase d'absence malgré une fiche prioritaire."""
+
+    def test_college_scale_notice_is_not_served_to_lycee(self):
+        question = 'Comment paramétrer un barème de notation personnalisé pour une APSA ?'
+        bareme = 'data/commun/audit60/ipack_bareme_college.txt'
+        for public, targets in (('Lycée Général & Techno', {'gt'}), ('Lycée Pro / CAP', {'pro', 'cap'})):
+            with self.subTest(public=public):
+                self.assertNotIn(bareme, [p for p, _ in kc.reference_notice(targets, question, public)])
+        self.assertIn(bareme, [p for p, _ in kc.reference_notice({'dnb'}, question, 'Collège (DNB)')])
+
+    def test_absence_sentence_with_priority_notice_is_asked_again(self):
+        code = open('app.py', encoding='utf-8').read()
+        self.assertIn('"[FICHE PRIORITAIRE" in extraits_doc', code)
+        self.assertIn('consigne_ia + RELANCE_FICHE_PRIORITAIRE', code)
+        self.assertIn('reference_notice(_cibles, prompt, niveau_actuel_form)', code)

@@ -6,7 +6,7 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Formulations courantes des collègues : je me suis trompé de groupe d'élèves en créant mon protocole ; le groupe élève n'est plus modifiable ; comment changer le groupe d'un protocole ; le champ groupe est grisé.
 - Dans Cyclades, le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé.
 - Correction : supprimer le protocole, puis le recréer avec le bon groupe élève.
-- Si les protocoles ont déjà été transmis à la commission, cette suppression n'est plus possible directement : le chef d'établissement doit d'abord demander à l'inspection pédagogique régionale de rouvrir les protocoles ; après correction, on les retransmet par le menu [EPS] / [Tableau de bord].
+- Si les protocoles ont déjà été validés, cette suppression n'est plus possible directement. À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Dans une autre académie, suivre la procédure indiquée par son inspection et sa division des examens.
 - Si seuls quelques élèves sont mal placés (et non tout le groupe), il n'est pas nécessaire de supprimer : les déplacer dans le bon protocole par le menu [EPS] / [Associer les élèves à un protocole].
 
 ### [SITUATION: LE GROUPE ÉLÈVE N'EST PAS RENSEIGNÉ DANS LE LOGICIEL DE SCOLARITÉ — QUE METTRE DANS LE PROTOCOLE ?]
@@ -23,11 +23,11 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Ne pas créer un protocole « adapté » pour contourner l'absence d'une APSA : le protocole adapté est réservé aux élèves relevant du contrôle adapté (inaptitude partielle, handicap).
 
 ### [SITUATION: MODIFIER OU CRÉER UN PROTOCOLE APRÈS LA TRANSMISSION À LA COMMISSION]
-- Mots-clés : protocoles transmis, protocoles validés, modifier après transmission, réouverture, dévalider, protocole adapté, inspection pédagogique régionale.
-- Formulations courantes des collègues : on a transmis nos protocoles et on veut en modifier un ; peut-on encore changer une APSA ; comment rouvrir les protocoles ; je ne peux créer que de l'adapté.
-- Après la transmission, seuls les protocoles ADAPTÉS peuvent encore être créés ou modifiés.
-- Pour modifier ou créer un protocole standard, le chef d'établissement doit demander une réouverture à l'inspection pédagogique régionale (la commission dévalide temporairement les protocoles).
-- Une fois la modification faite : menu [EPS] / [Tableau de bord], retransmettre les protocoles ; la commission les valide à nouveau.
+- Mots-clés : protocoles transmis, protocoles validés, modifier après transmission, modifier après validation, changer une APSA, protocole standard, protocole adapté, inspection pédagogique régionale, prévenir l'inspection.
+- Formulations courantes des collègues : on a transmis nos protocoles et on veut en modifier un ; peut-on encore changer une APSA ; comment faire modifier un protocole déjà validé ; je ne peux créer que de l'adapté.
+- Après la validation, seuls les protocoles ADAPTÉS peuvent encore être créés ou modifiés directement dans Cyclades, à tout moment, par le chef d'établissement ou un enseignant.
+- Pour modifier ou créer un protocole STANDARD : À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Dans une autre académie, suivre la procédure indiquée par son inspection et sa division des examens.
+- Vérifier ensuite dans Cyclades que le protocole a bien le statut validé, puis associer les élèves.
 
 ### [SITUATION: L'ADRESSE MAIL DU PROFESSEUR EST GRISÉE DANS LE PROTOCOLE — PROTOCOLE CRÉÉ POUR UN COLLÈGUE]
 - Mots-clés : email professeur grisé, protocole d'un collègue, réaffecter le protocole, chef d'établissement.
@@ -86,7 +86,7 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Réponse courte : dans Cyclades, activité [EPS] > [Contrôler / Réaffecter des protocoles]. C'est dans ce menu que l'on modifie un protocole (ses épreuves, son évaluateur) ou qu'on le supprime.
 - Cette manipulation se fait dans Cyclades, pas dans iPackEPS.
 - Limite : le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé ; pour changer de groupe d'élèves, il faut supprimer le protocole et le recréer.
-- Si les protocoles ont déjà été transmis à la commission, le chef d'établissement doit d'abord demander leur réouverture à l'inspection pédagogique régionale.
+- Si les protocoles ont déjà été validés, un protocole standard ne se modifie plus directement dans ce menu. À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Dans une autre académie, suivre la procédure indiquée par son inspection et sa division des examens.
 - (Source : guide des examens EPS de l'académie de Normandie.)
 
 ### [SITUATION: CYCLADES — VÉRIFIER QUE CHAQUE ÉLÈVE EST LIÉ AU BON PROTOCOLE]

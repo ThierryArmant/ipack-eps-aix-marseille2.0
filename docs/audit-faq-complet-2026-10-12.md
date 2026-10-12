@@ -73,3 +73,13 @@ Les réponses brutes sont dans audit-faq-reponses-brutes-2026-10-12.json ; A1 y 
 | K3 | correcte | data/examens/complement_saisie_bloquee_diagnostic.txt ; data/examens/fiches/memoire_examens_santorin_011_3_saisie_des_notes_et_cas_particuliers_santorin_ccf.txt ; data/examens/fiches/examens_101_situation_santorin_correction_et_annotation_copie.txt ; data/ipack/complement_saisie_notes_bloquee.txt | Réponse conforme aux éléments déterminants attendus. |
 | K4 | correcte | data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt ; data/examens/tutoriels_creteil_cyclades_santorin.txt ; data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt ; data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt | Réponse conforme aux éléments déterminants attendus. |
 | K5 | partielle | data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt ; data/examens/videos_tutoriels_cyclades_santorin.txt ; data/examens/guide_national_inaptes_partiels_temporaires.txt ; data/ipack/fiches/ipack_105_7_cas_exceptionnels_shn_et_notes_particulieres.txt ; data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt | Codes distingués ; raisons administratives trop générales pour la dispense, substitution non expliquée. |
+
+## Publication et vérification après correction
+
+Les 34 fiches ont été publiées au commit 6e719ce. La première vérification en ligne a montré que l’arbitre LLM pouvait rejeter une réponse relue, puis régénérer une réponse incorrecte (B4 et F6). Le commit 43c52de exclut les réponses documentées de cet arbitre ; les anciennes réponses automatiques restent contrôlées.
+
+140 tests techniques passent, y compris les limites de portée, les variantes de formulation, la conservation des notes et l’absence de détournement des questions témoins.
+
+Huit contrôles finaux en ligne sur 43c52de : B4, F6, C1, D3, B5, I3, D6, D8. Huit réponses conformes aux conditions décisives, affichées comme réponses documentées. D1, G4, I2 et A1 avaient également été vérifiés en ligne lors de la première publication des fiches. Les réponses de ces deux passes sont conservées dans audit-faq-validation-production-2026-10-12.json, avec les versions. Les deux écarts B4/F6 de la première passe y restent visibles pour traçabilité.
+
+La banque complète de 57 questions n’a pas été entièrement rejouée après ces dernières corrections. Le bilan 23/26/8 ci-dessus est celui observé AVANT cette passe ; ne pas l’utiliser comme score de la version finale. Les huit retests ciblés ne constituent pas une mesure générale de fiabilité. Les 14 questions de réserve restent intactes pour la validation indépendante.

@@ -1,4 +1,4 @@
-### FAQ EPS — Protocoles
+### FAQ EPS — Protocoles : APSA absente de la liste Cyclades
 [PORTEE: gt,pro,cap]
 Seules les APSA dont le référentiel ou la FCA a été validé par la commission apparaissent. À Aix, déposer la FCA dans iPackEPS (Dossier certificatif > Dépôt des référentiels), après avoir déclaré l'APSA certificative, et attendre la validation (coche verte).
 

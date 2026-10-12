@@ -33,7 +33,7 @@
     "examens": []
   },
   "data/ipack/complement_reponses_validees.txt": {
-    "title": "complement reponses validees",
+    "title": "Réponses relues — accès aux plateformes et iPackEPS",
     "statut": "synthese_non_revalidee",
     "examens": []
   },
@@ -75,7 +75,7 @@
     ]
   },
   "data/examens/complement_reponses_validees.txt": {
-    "title": "complement reponses validees",
+    "title": "Réponses relues — examens (CAP, inaptitude, Santorin)",
     "statut": "synthese_non_revalidee",
     "examens": []
   },
@@ -3343,7 +3343,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/a1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Absence d'enseignant",
+    "title": "FAQ EPS — Absence d'enseignant : co-évaluateur absent le jour du CCF (bac GT)",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3361,7 +3361,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/a4_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Absence d'enseignant",
+    "title": "FAQ EPS — Absence d'enseignant : donner l'accès à la saisie d'un lot",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3461,7 +3461,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/c1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Évaluation différée",
+    "title": "FAQ EPS — Évaluation différée : certificat couvrant le jour du CCF",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3479,7 +3479,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/c3_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Évaluation différée",
+    "title": "FAQ EPS — Évaluation différée : grève des transports, force majeure",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3535,7 +3535,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d5_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Inaptitude",
+    "title": "FAQ EPS — Inaptitude : possibilités avant la dispense",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "cap"
@@ -3553,7 +3553,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d6_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Inaptitude",
+    "title": "FAQ EPS — Inaptitude : noter seulement l'AFL2 et l'AFL3 (bac GT)",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3591,7 +3591,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/e3_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Certification réduite",
+    "title": "FAQ EPS — Certification réduite : une seule activité réalisable (bac GT)",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3609,7 +3609,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/e4_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Certification réduite",
+    "title": "FAQ EPS — Certification réduite : un seul élève non évalué, pas de CE sur le lot",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3629,7 +3629,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Protocoles",
+    "title": "FAQ EPS — Protocoles : APSA absente de la liste Cyclades",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3649,7 +3649,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f3_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Protocoles",
+    "title": "FAQ EPS — Protocoles : date refusée par Cyclades",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3669,7 +3669,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f5_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Protocoles",
+    "title": "FAQ EPS — Protocoles : coche verte et transfert vers Cyclades",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3708,7 +3708,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Affectations",
+    "title": "FAQ EPS — Affectations : groupe importé sans protocole correspondant (Cyclades)",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3728,7 +3728,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g2_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Affectations",
+    "title": "FAQ EPS — Affectations : élèves sans protocole dans Cyclades",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3748,7 +3748,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g4_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Affectations",
+    "title": "FAQ EPS — Affectations : élève arrivé avec deux CCF déjà passés (bac GT)",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3766,7 +3766,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Imag'in",
+    "title": "FAQ EPS — Imag'in : convocation automatique des enseignants",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3786,7 +3786,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h2_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Imag'in",
+    "title": "FAQ EPS — Imag'in : supprimer ou modifier une convocation",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3806,7 +3806,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h3_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Imag'in",
+    "title": "FAQ EPS — Imag'in : convocation éditée en PDF, accès à Santorin",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3846,7 +3846,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h5_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Imag'in",
+    "title": "FAQ EPS — Imag'in : mission « Notation EPS CCF » par examen",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3866,7 +3866,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i1_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Distribution",
+    "title": "FAQ EPS — Distribution : qui distribue les lots et quand",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3886,7 +3886,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i2_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Distribution",
+    "title": "FAQ EPS — Distribution : recommencer la distribution des lots",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
@@ -3906,7 +3906,7 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i3_procedure_verifiee.txt": {
-    "title": "FAQ EPS — Distribution",
+    "title": "FAQ EPS — Distribution : candidat non distribué, faute de protocole",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",

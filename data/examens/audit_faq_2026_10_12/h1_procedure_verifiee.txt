@@ -1,4 +1,4 @@
-### FAQ EPS — Imag'in
+### FAQ EPS — Imag'in : convocation automatique des enseignants
 [PORTEE: gt,pro,cap]
 Oui pour les établissements publics et privés sous contrat : la DIEC crée la mission « Notation EPS CCF » et des convocations sont générées automatiquement d'après STS-web. L'établissement les consulte dans son Imag'in et ajoute ou supprime les siennes si besoin. Les CFA et GRETA n'ont pas d'affectation automatique. Les CFA sont des centres de formation d’apprentis, distincts des GRETA ; ne pas les appeler établissements de formation continue.
 

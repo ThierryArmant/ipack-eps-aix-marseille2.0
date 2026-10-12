@@ -6,8 +6,8 @@ class DistributionMail(unittest.TestCase):
    for mode in ['examens','ipack']:
     q='La distribution des lots affiche une erreur avec des adresses mail'
     a=kc.delivered_text(q,public,mode); t=kc.priority_titles(q,public,mode)
-    self.assertTrue(any('mail déclaré' in x for x in t));self.assertIn('Contrôler / réaffecter',a);self.assertNotIn('FAQ EPS — Distribution',t)
+    self.assertTrue(any('mail déclaré' in x for x in t));self.assertIn('Contrôler / réaffecter',a);self.assertFalse(any(x.startswith('FAQ EPS — Distribution') for x in t))
  def test_restart_still_preserves_existing_grades(self):
   q='Erreur de distribution : supprimer et recommencer ?'
   a=kc.delivered_text(q,'Lycée Général & Techno','examens')
-  self.assertIn('FAQ EPS — Distribution',kc.priority_titles(q,'Lycée Général & Techno','examens'));self.assertIn('Si des notes existent, ne pas supprimer',a)
+  self.assertTrue(any(t.startswith('FAQ EPS — Distribution') for t in kc.priority_titles(q,'Lycée Général & Techno','examens')));self.assertIn('Si des notes existent, ne pas supprimer',a)

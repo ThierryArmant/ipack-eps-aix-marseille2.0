@@ -1,4 +1,4 @@
-### FAQ EPS — Distribution
+### FAQ EPS — Distribution : recommencer la distribution des lots
 [PORTEE: gt,pro,cap]
 Oui, la distribution peut être recommencée, mais vérifiez d’abord qu’aucune note n’a été saisie dans les lots concernés. Si des notes existent, ne pas supprimer les lots pour recommencer : faites examiner la correction ou la réaffectation par le chef d’établissement et le service des examens. Sans notes saisies, le guide DIEC cité prévoit la suppression des lots concernés puis la relance de la distribution. Cette opération relève du chef ou du référent habilité.
 

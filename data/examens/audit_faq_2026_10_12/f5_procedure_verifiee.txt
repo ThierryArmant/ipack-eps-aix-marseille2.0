@@ -1,4 +1,4 @@
-### FAQ EPS — Protocoles
+### FAQ EPS — Protocoles : coche verte et transfert vers Cyclades
 [PORTEE: gt,pro,cap]
 Non. Seuls les protocoles valides (coche verte dans la colonne « Validité ») sont transférés par l'inspection vers Cyclades. Vérifier ensuite dans Cyclades qu'ils ont le statut validé ; sinon écrire à examenseps@ac-aix-marseille.fr.
 

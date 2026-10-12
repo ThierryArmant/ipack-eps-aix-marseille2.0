@@ -58,7 +58,7 @@ class AuditedFAQTests(unittest.TestCase):
     def test_general_train_delay_does_not_trigger_school_blockage(self):
         answer = kc.delivered_text('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')
         titres = kc.priority_titles('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')
-        self.assertIn('FAQ EPS — Évaluation différée', titres)
+        self.assertTrue(any(t.startswith('FAQ EPS — Évaluation différée') for t in titres))
         self.assertFalse(any(t.startswith('Blocages des lycées') for t in titres))
         self.assertIn('pas automatiquement', answer)
 

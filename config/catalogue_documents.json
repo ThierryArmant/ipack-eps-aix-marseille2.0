@@ -15,13 +15,13 @@
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "reponse_directe_motifs": [
-      "install|telecharg|application.*(?:ordinateur|mac|windows)"
+      "^(?!.*(?:installations? sportive|installation (?:fermee|indisponible)|piscine|gymnase|fca|referentiel|fermeture)).*?(?:(?:install|telecharg|application.*(?:ordinateur|mac|windows)))"
     ],
     "reponse_directe": "iPackEPS est une application en ligne : rien à installer sur l'ordinateur. À Aix-Marseille, ouvrez le portail ESTEREL avec votre compte professionnel, puis le bloc [Enquête et pilotage]. Si le lien iPackEPS n'apparaît pas : [Aide] > [Synchro manuelle] > [Rafraîchir la page]. Si l'accès reste absent, contactez le correspondant académique iPackEPS. Les rubriques ARENA des autres académies ne doivent pas être présentées comme le chemin ESTEREL d'Aix-Marseille.",
     "reponses_directes": [
       {
         "motifs": [
-          "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)"
+          "^(?!.*(?:a change|changement|nouveaute|evolution|quoi de neuf|nouvelles? fonctionnalite)).*?(?:(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour))"
         ],
         "reponse": "iPackEPS est une application en ligne : aucune version minimale à installer pour Cyclades ou Santorin et aucune mise à jour à effectuer soi-même. À Aix-Marseille, ouvrez iPackEPS dans un navigateur via ESTEREL ; les données sont sur le serveur, pas dans une installation locale à remplacer. Tout le monde utilise la version en cours. Pour l'export vers Cyclades, vérifier les protocoles validés et l'affectation des candidats aux groupes ; les notes certificatives se saisissent dans Santorin. En cas de blocage, contacter ipackeps@ac-aix-marseille.fr. Source : fiche d'accès iPackEPS et documentation de l'éditeur."
       }
@@ -2418,7 +2418,7 @@
     "reponses_directes": [
       {
         "motifs": [
-          "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
+          "^(?!.*(?:saisi|santorin|cyclades|imag.?in|\\blot\\b|acces)).*?(?:(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?)))"
         ],
         "reponse": "L'absence du professeur pendant 90 % du cycle ne permet pas d'autoriser automatiquement un rattrapage du CCF en fin d'année. Il s'agit d'une interruption de l'enseignement, pas d'une inaptitude médicale de l'élève ni de son absence à l'épreuve.\nIl faut examiner la formation réellement dispensée et les possibilités de reprise de l'enseignement. Une reprogrammation de l'évaluation après une formation suffisante peut être étudiée avec l'inspection EPS, dans le respect du protocole et du calendrier académique. Le texte national ne fixe pas de seuil de 90 % autorisant ou interdisant à lui seul cette reprogrammation.\nSi l'activité ne peut pas être assurée, le chef d'établissement saisit l'inspection pédagogique régionale EPS et le service des examens pour déterminer la procédure applicable. Au bac général et technologique, une certification sur deux activités pour impossibilité technique ou matérielle nécessite une autorisation du recteur après expertise de l'inspection ; elle n'est pas automatique du seul fait que deux notes existent. L'absence du professeur n'est pas explicitement citée dans cette disposition : sa qualification doit être examinée par l'autorité académique. En cas d'impossibilité majeure de réaliser au moins deux activités, attestée par l'inspection, l'établissement peut demander au recteur une autorisation d'inscription en examen ponctuel terminal.\nLes règles médicales relatives à une note unique ou à une dispense ne s'appliquent pas du seul fait de l'absence du professeur.\nRéférence : note de service du 20 février 2026, MENE2531948N, BO n° 9 du 26 février 2026, partie 2.d, applicable depuis la session 2026. Cette réponse concerne le bac général et technologique ; pour le bac professionnel, il faut examiner le texte propre à ce diplôme."
       }
@@ -2791,7 +2791,7 @@
     "prioritaire": true,
     "motifs": [
       "protocole.*academique|(?:valider|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca",
-      "(?:jusqu|date|delai|quand|saisir).*protocoles?|protocoles?.*(?:date|delai|valides|validation)"
+      "^(?!.*(?:refus|invalid|devalid|reouvr|week|ferie|interdit|changer|modifi|date (?:du|de|des) (?:ccf|rattrapage|epreuve))).*?(?:(?:jusqu|date limite|delai|echeance|calendrier|quand).*protocoles?|protocoles?.*(?:date limite|delai|echeance|valides|validation))"
     ],
     "exclusif_motifs": [
       "protocole.*academique|faire valider.*(?:liste|menu)|referentiels.*aix"
@@ -2805,7 +2805,7 @@
     "reponses_directes": [
       {
         "motifs": [
-          "(?:jusqu|date|delai|quand|saisir).*protocoles?|protocoles?.*(?:date|delai|valides|validation)"
+          "^(?!.*(?:refus|invalid|devalid|reouvr|week|ferie|interdit|changer|modifi|date (?:du|de|des) (?:ccf|rattrapage|epreuve))).*?(?:(?:(?:jusqu.?a quand|date limite|delai|echeance|calendrier|avant quand).*protocoles?|protocoles?.*(?:jusqu.?a quand|date limite|delai|echeance|calendrier)))"
         ],
         "reponse": "À Aix-Marseille, l'échéance de déclaration et de dépôt des protocoles/FCA dans iPackEPS est fixée par les instructions académiques de la session concernée. Pour la session 2026, le BA spécial 549 du 17 octobre 2025 indiquait une CAHPN GT/pro le 13 novembre 2025 : ce n'est ni une date limite de saisie à déduire, ni une échéance pour la session 2027. Pour 2027, faire confirmer le calendrier actuel par l'inspection ou le correspondant iPackEPS (ipackeps@ac-aix-marseille.fr), sans réutiliser les dates 2026. Les protocoles doivent être validés par la commission avant leur mise en œuvre certificative en CCF ; un protocole non validé ne permet pas de certifier les élèves en CCF. Corriger le dossier et solliciter l'inspection ; ne pas décider seul d'un basculement en ponctuel. Source : BA spécial 549, circuit académique des protocoles, avec vérification du calendrier de la session actuelle."
       }
@@ -3007,7 +3007,7 @@
       "2027"
     ],
     "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*inapt)(?=.*apte)"
+      "(?=.*cyclades)(?=.*inapt)(?=.*\\bapte\\b)"
     ],
     "reponse_directe": "À Aix-Marseille, session 2027 du bac GT, un candidat inapte en EPS doit être inscrit « APTE » dans Cyclades : ce n'est pas une erreur du secrétariat. Ne faites pas corriger l'inscription pour ce seul motif. L'inaptitude est renseignée lors de la commission académique EPS en fin de terminale, sur justificatifs. Source : BA spécial 565, p. 13.",
     "reponses_directes": [
@@ -3107,7 +3107,7 @@
     "statut": "verifie_2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "reponse_directe_motifs": [
-      "(?=.*(?:inapt|une seule|seule activite))(?=.*(?:evalu|note|activite))"
+      "^(?!.*deux (?:notes|evaluations|activites)).*?(?:(?=.*(?:une seule (?:note|evaluation|epreuve|activite)|seule activite|qu.une (?:seule )?(?:note|evaluation|epreuve)|un seul ccf|1 seule note|une note sur trois)))"
     ],
     "reponse_directe": "Une seule évaluation peut être retenue en bac professionnel dans le cadre de l'inaptitude attestée, selon B.3.2 : l'enseignant/formateur apprécie la qualité et la quantité des éléments permettant de proposer cette note. Si les éléments sont insuffisants, il ne propose pas de note et formule une dispense. Il peut aussi envisager une évaluation différée ou une certification sur deux activités. Une seule note n'est donc ni toujours interdite ni automatiquement suffisante. La modification MENE2526357C permet également l'adaptation d'une épreuve pour une inaptitude partielle, sur indications médicales, avec information de la commission académique.",
     "exclure_motifs": [
@@ -3221,7 +3221,7 @@
       "(?=.*option)(?=.*(?:individuel|libre|ponctuel))"
     ],
     "reponse_directe_motifs": [
-      "(?=.*option)(?=.*(?:individuel|libre|ponctuel))"
+      "^(?!.*(?:notre lycee|mon lycee|notre etablissement|mon etablissement|scolaris|nos eleves|mes eleves)).*?(?:(?=.*option)(?=.*(?:individuel|libre|ponctuel)))"
     ],
     "reponse_directe": "Oui, un candidat individuel peut présenter l'option EPS en évaluation ponctuelle, distincte de l'EPS obligatoire. Selon son inscription : première = sauvetage aquatique et oral de 15 minutes ; terminale = badminton en simple et oral de 15 minutes ; cycle terminal = les deux pratiques et un oral de 20 minutes. Pratique sur 12 points, oral sur 8 ; pour le cycle, la pratique est la moyenne des deux notes. Coefficient 2 par année ou 4 pour le cycle. L'organisation dépend de l'offre académique et d'un examinateur compétent. Un candidat dispensé de l'examen ponctuel d'EPS obligatoire ne peut présenter cette option. Ne pas lui appliquer le contrôle continu/LSL du candidat scolaire. Source : MENE2533572N, applicable depuis 2026, section EPS. https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
@@ -3258,10 +3258,10 @@
     "prioritaire": true,
     "priorite": 140,
     "motifs": [
-      "(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve|liste))"
+      "^(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
     ],
     "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve|liste))"
+      "^(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
     ],
     "reponse_directe": "Non : refaire l'export iPackEPS ne crée pas un candidat absent de la liste d'inscription à l'examen dans Cyclades. Faire vérifier d'abord par le secrétariat et le chef d'établissement l'inscription, l'établissement gestionnaire et l'identité/INE. Si une régularisation est nécessaire, la direction contacte la DIEC (examenseps@ac-aix-marseille.fr). Distinguer cette absence de la liste des inscrits d'un candidat déjà inscrit mais non associé à un protocole : dans ce second cas seulement, vérifier l'association aux protocoles et le fichier d'export. Ne pas ignorer ni recréer arbitrairement un candidat. Source : réponses du correspondant académique, circuit Cyclades/iPackEPS. https://ipackeps.ac-creteil.fr/",
     "url": "https://ipackeps.ac-creteil.fr/",
@@ -3376,7 +3376,7 @@
       "(?=.*(?:blocag|bloqu|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
     ],
     "reponse_directe_motifs": [
-      "(?=.*(?:blocag|bloqu|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
+      "^(?!.*(?:ipack|santorin|cyclades|imag.?in|\\blot\\b|message|connexion|cadenas|deverrouill)).*?(?:(?=.*(?:blocag|bloqu|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen)))"
     ],
     "reponse_directe": "Un blocage du lycée n'autorise automatiquement ni dispense ni certification réduite. Il faut distinguer deux situations.\n1. L'élève assidu ne peut accéder au CCF : une évaluation différée est possible si le chef d'établissement reconnaît la force majeure, après consultation de l'équipe. Le mot « blocage » ne suffit pas à qualifier toute absence.\n2. L'épreuve est annulée ou les cours sont interrompus : étudier une reprogrammation tenant compte de la formation effective, du protocole et du calendrier académique ; si nécessaire, saisir l'inspection EPS par la direction. Ne pas traiter une épreuve annulée comme une absence individuelle injustifiée.\nAu bac GT, deux activités pour impossibilité technique ou matérielle nécessitent l'autorisation du recteur après expertise de l'inspection. L'impossibilité majeure d'en réaliser au moins deux peut conduire à demander le ponctuel terminal. Aucun automatisme de note unique ou de dispense médicale.\nLe texte ne cite pas explicitement les blocages : cette application au cas concret doit être examinée par les autorités compétentes.\nRéférence : note du 20 février 2026, MENE2531948N, parties 2.b et 2.d, depuis la session 2026.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",

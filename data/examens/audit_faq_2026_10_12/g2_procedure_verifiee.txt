@@ -1,4 +1,4 @@
-### FAQ EPS G2 — Affectations
+### FAQ EPS — Affectations
 [PORTEE: gt,pro,cap]
 Menu EPS > Associer les élèves à un protocole : choisir le protocole dans la liste en bout de ligne ou glisser-déposer l'élève, puis enregistrer. Tant qu'un élève n'a pas de protocole, il n'entre pas dans un lot.
 

@@ -1,4 +1,4 @@
-### FAQ EPS H2 — Imag'in
+### FAQ EPS — Imag'in
 [PORTEE: gt,pro,cap]
 L'établissement ne peut supprimer que les convocations qu'il a créées (statut « Convoquée par centre »). Celles du service des examens se traitent avec la DIEC. La suppression est aussi bloquée si des frais sont en cours ou si la personne a déjà un lot de correction Santorin : réaffecter le lot d'abord.
 

@@ -1,4 +1,4 @@
-### FAQ EPS K2 — Saisie
+### FAQ EPS — Saisie
 [PORTEE: gt]
 Au bac GT, commencez par saisir l’AFL1 : sans cette note, la saisie des AFL2 et AFL3 peut être bloquée. Renseignez également la répartition AFL2/AFL3 choisie par l’élève. La procédure « Choisir AFLP » concerne le bac pro/CAP et ne doit pas être proposée pour les AFL du bac GT. Si le blocage persiste, relevez le message exact et l’état du lot.
 

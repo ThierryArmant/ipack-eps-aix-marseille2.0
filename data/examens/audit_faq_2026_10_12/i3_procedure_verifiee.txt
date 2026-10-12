@@ -1,4 +1,4 @@
-### FAQ EPS I3 — Distribution (divergence documentaire)
+### FAQ EPS — Distribution
 [PORTEE: gt,pro,cap]
 Associez d’abord tous les candidats aux protocoles avant la distribution. Un candidat sans protocole ne peut pas entrer dans son lot, mais il ne faut pas présenter le blocage de toute la distribution comme une règle universelle. Le support DIEC Aix-Marseille décrit le traitement des candidats non affectés par association puis distribution manuelle ; le mémento de Lyon décrit un blocage plus large. Vérifiez donc le guide et la version applicables à votre académie, puis traitez le candidat restant dans Cyclades et Santorin.
 

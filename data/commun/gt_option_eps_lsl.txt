@@ -7,3 +7,7 @@ Références concordantes : note du 25 août 2025 MENE2523744N, sections 1.1 et 
 https://www.education.gouv.fr/bo/2025/Hebdo32/MENE2523744N
 https://eduscol.education.gouv.fr/5676/le-controle-continu-des-candidats-scolaires-au-baccalaureat-general-ou-technologique?menu_id=1066
 https://www.education.gouv.fr/reussir-au-lycee/tout-savoir-sur-le-baccalaureat-les-reponses-vos-questions-325499
+
+
+### Bac GT : option EPS et LSL — précisions relues
+- Pour un candidat scolaire au bac général ou technologique, l'option EPS relève du contrôle continu : moyennes annuelles validées au dernier conseil de classe, puis transmises via le livret scolaire du lycée (LSL) à Cyclades. Ne créez pas trois CCF pour cette option et ne la saisissez pas comme un lot d'EPS obligatoire dans Santorin. L'option EPS, l'enseignement commun EPS et la spécialité EPPCS sont trois dispositifs distincts. Référence : note MENE2523744N du 25 août 2025, sections 1.1 et 1.2. Ce circuit ne doit pas être transposé aux candidats individuels.

@@ -1,4 +1,4 @@
-### FAQ EPS B5 — Blocage / affectations
+### FAQ EPS — Blocage / affectations
 [PORTEE: gt,pro,cap]
 Lorsque le coordonnateur a créé tous les protocoles dans Cyclades, vérifiez l’adresse d’examinateur : les protocoles peuvent être rattachés à l’adresse du créateur au lieu de celle de chaque collègue. Le chef d’établissement corrige chaque adresse dans EPS > Contrôler / réaffecter des protocoles, puis contrôle les convocations Imag’in et la distribution ou réaffectation des lots Santorin. Ne pas recréer tous les protocoles pour ce seul problème. Cette procédure technique est décrite dans les guides Lyon et Besançon cités ; vérifier les droits du rôle et la version utilisés.
 

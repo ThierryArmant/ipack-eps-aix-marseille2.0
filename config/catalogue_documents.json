@@ -2117,7 +2117,7 @@
       "enseignement option"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo32/MENE2523744N",
-    "statut": "verifie_2026-10-10_portee_explicite",
+    "statut": "verifie_2026-10-10_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "priorite": 90,
     "exclure_motifs": [
       "^(?!.*(?:pas de|ni de|ne.*confond)).*(?:eppcs|epccs|specialite)",
@@ -2125,11 +2125,7 @@
     ],
     "exclusif_motifs": [
       "(?=.*option)(?=.*(?:cyclades|santorin|ccf|lsl|lsu))"
-    ],
-    "reponse_directe_motifs": [
-      "(?=.*option)(?=.*(?:cyclades|santorin|ccf))"
-    ],
-    "reponse_directe": "Pour un candidat scolaire au bac général ou technologique, l'option EPS relève du contrôle continu : moyennes annuelles validées au dernier conseil de classe, puis transmises via le livret scolaire du lycée (LSL) à Cyclades. Ne créez pas trois CCF pour cette option et ne la saisissez pas comme un lot d'EPS obligatoire dans Santorin. L'option EPS, l'enseignement commun EPS et la spécialité EPPCS sont trois dispositifs distincts. Référence : note MENE2523744N du 25 août 2025, sections 1.1 et 1.2. Ce circuit ne doit pas être transposé aux candidats individuels."
+    ]
   },
   "data/commun/pro_shn_ccf.txt": {
     "title": "Bac professionnel : SHN et CCF",
@@ -2256,12 +2252,8 @@
       "https://eduscol.education.gouv.fr/5967/les-differents-parcours-de-formation-pour-les-sportifs",
       "https://www.ac-aix-marseille.fr/media/39062/download"
     ],
-    "statut": "verifie_2026-10-10_eligibilite_trois_documents",
-    "priorite": 90,
-    "reponse_directe_motifs": [
-      "(?=.*(?:arbitre|juge|entraineur))(?=.*haut niveau)(?=.*(?:bac|20))"
-    ],
-    "reponse_directe": "La note de 20/20 n'est pas acquise sur la seule déclaration « arbitre de haut niveau ». Au bac GT, les juges, arbitres et entraîneurs de haut niveau figurent parmi les catégories éligibles, mais il faut justifier le statut lors de l'inscription, une proposition du comité de pilotage et une validation par le recteur. Les modalités dépendent ensuite du régime CCF ou ponctuel ; ne promettez pas une note automatique avant cette validation. Référence : note MENE2531948N du 20 février 2026, chapitre 4."
+    "statut": "verifie_2026-10-10_eligibilite_trois_documents ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "priorite": 90
   },
   "data/commun/sorties_premier_degre.txt": {
     "title": "Premier degré : taux de sortie et règles de l’activité physique",
@@ -2393,7 +2385,7 @@
   },
   "data/commun/audit60/gt_regles_decisives.txt": {
     "title": "Bac GT : CCF, activité établissement et harmonisation",
-    "statut": "verifie_2026-10-11_portee_explicite",
+    "statut": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -2414,14 +2406,6 @@
     "exclusif_motifs": [
       "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf",
       "commission.*harmonisation"
-    ],
-    "reponses_directes": [
-      {
-        "motifs": [
-          "^(?!.*(?:saisi|santorin|cyclades|imag.?in|\\blot\\b|acces)).*?(?:(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?)))"
-        ],
-        "reponse": "L'absence prolongée du professeur ne permet pas d'autoriser automatiquement un rattrapage du CCF en fin d'année. Il s'agit d'une interruption de l'enseignement, pas d'une inaptitude médicale de l'élève ni de son absence à l'épreuve.\nIl faut examiner la formation réellement dispensée et les possibilités de reprise de l'enseignement. Une reprogrammation de l'évaluation après une formation suffisante peut être étudiée avec l'inspection EPS, dans le respect du protocole et du calendrier académique. Le texte national ne fixe pas de seuil de 90 % autorisant ou interdisant à lui seul cette reprogrammation.\nSi l'activité ne peut pas être assurée, le chef d'établissement saisit l'inspection pédagogique régionale EPS et le service des examens pour déterminer la procédure applicable. Au bac général et technologique, une certification sur deux activités pour impossibilité technique ou matérielle nécessite une autorisation du recteur après expertise de l'inspection ; elle n'est pas automatique du seul fait que deux notes existent. L'absence du professeur n'est pas explicitement citée dans cette disposition : sa qualification doit être examinée par l'autorité académique. En cas d'impossibilité majeure de réaliser au moins deux activités, attestée par l'inspection, l'établissement peut demander au recteur une autorisation d'inscription en examen ponctuel terminal.\nLes règles médicales relatives à une note unique ou à une dispense ne s'appliquent pas du seul fait de l'absence du professeur.\nRéférence : note de service du 20 février 2026, MENE2531948N, BO n° 9 du 26 février 2026, partie 2.d, applicable depuis la session 2026. Cette réponse concerne le bac général et technologique ; pour le bac professionnel, il faut examiner le texte propre à ce diplôme."
-      }
     ]
   },
   "data/commun/audit60/certificat_medical.txt": {
@@ -2837,7 +2821,7 @@
   },
   "data/commun/audit60/aix_amenagements_2027.txt": {
     "title": "Aix-Marseille : aménagements d’examen 2027",
-    "statut": "source_academique_2027_relue_2026-10-11",
+    "statut": "source_academique_2027_relue_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -2857,11 +2841,7 @@
     "exclusif_motifs": [],
     "date_verification": "2026-10-11",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA1096/DIEC1096-1823.pdf",
-    "priorite": 85,
-    "reponse_directe_motifs": [
-      "(?=.*\\bpap\\b)(?=.*(?:eps|bac))(?=.*adapt)"
-    ],
-    "reponse_directe": "Un PAP ne donne pas, à lui seul, droit à une épreuve d'EPS adaptée au bac. Il peut permettre une procédure simplifiée d'aménagement des conditions d'examen. L'adaptation EPS repose sur les indications médicales, le texte applicable au diplôme, le protocole et le circuit académique. Le chef d'établissement transmet la demande ; la décision d'aménagement appartient à l'autorité administrative. Ne confondez pas le PAP, le certificat d'inaptitude EPS et la décision d'aménagement. Source : BA 1096, session 2027, et circulaire MENE2034197C."
+    "priorite": 85
   },
   "data/commun/audit60/ipack_pronote_erreurs.txt": {
     "title": "Pronote et iPackEPS : erreur d’échange, sens et import conditionnel",
@@ -2953,7 +2933,7 @@
   },
   "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt": {
     "title": "Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS)",
-    "statut": "source_officielle_relue_2026-10-11",
+    "statut": "source_officielle_relue_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "pro",
       "cap"
@@ -2976,15 +2956,11 @@
     "priorite": 80,
     "sessions": [
       "2027"
-    ],
-    "reponse_directe_motifs": [
-      "ponctuel.*(?:activit|chois)|(?:activit|chois).*ponctuel"
-    ],
-    "reponse_directe": "À Aix-Marseille, le BA spécial 566 du 9 octobre 2026 (session 2027) propose pour le ponctuel EPS : demi-fond, tennis de table et danse. Ce BA ne fixe pas le nombre d’activités à passer : appliquer le texte EPS du diplôme. La liste des APSA du CCF ne constitue pas la liste du ponctuel."
+    ]
   },
   "data/commun/audit60/aix_inscriptions_2027_gt.txt": {
     "title": "Aix-Marseille : inscriptions terminale GT, session 2027 (EPS)",
-    "statut": "source_officielle_relue_2026-10-11",
+    "statut": "source_officielle_relue_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3010,14 +2986,7 @@
       "(?=.*cyclades)(?=.*inapt)(?=.*\\bapte\\b)"
     ],
     "reponse_directe": "À Aix-Marseille, session 2027 du bac GT, un candidat inapte en EPS doit être inscrit « APTE » dans Cyclades : ce n'est pas une erreur du secrétariat. Ne faites pas corriger l'inscription pour ce seul motif. L'inaptitude est renseignée lors de la commission académique EPS en fin de terminale, sur justificatifs. Source : BA spécial 565, p. 13.",
-    "reponses_directes": [
-      {
-        "motifs": [
-          "(?=.*cyclades)(?=.*(?:shn|sportif de haut niveau))(?=.*(?:qui|coch|saisi|mention))"
-        ],
-        "reponse": "À Aix-Marseille, session 2027 du bac GT, seul le gestionnaire EPS de la DIEC saisit la mention « sportif de haut niveau » dans Cyclades : ni le candidat ni l'établissement. Fournir l'attestation du statut et demander l'aménagement à la Division des examens dès la rentrée. Source : BA spécial 565, §4.4 b et fiche 4."
-      }
-    ]
+    "reponses_directes": []
   },
   "data/textes/fiches/sorties_second_degre_guide_2025.txt": {
     "title": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025",
@@ -3069,12 +3038,8 @@
       "(?=.*(?:\\bas\\b|association sportive|forfait))(?=.*(?:remplac|substitu|dispens))(?=.*(?:heure|enseignement|cours))"
     ],
     "examens": [],
-    "statut": "verifie_2026-10-11",
-    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028909876",
-    "reponse_directe_motifs": [
-      "(?=.*(?:\\bas\\b|association sportive|forfait))(?=.*(?:remplac|substitu|dispens))(?=.*(?:heure|enseignement|cours))"
-    ],
-    "reponse_directe": "Oui, les trois heures d'AS peuvent être remplacées par des heures d'enseignement à la demande de l'intéressé et sous réserve de l'intérêt du service. La demande est adressée au recteur au plus tard le 15 février précédant la rentrée scolaire concernée. Il ne s'agit ni d'un changement automatique ni d'une commission de section sportive. Référence : décret n° 2014-460, article 4, version en vigueur depuis le 1er janvier 2020."
+    "statut": "verifie_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028909876"
   },
   "data/commun/audit355/administrateur_acces.txt": {
     "title": "iPackEPS : accès administrateur et identifiants",
@@ -3104,12 +3069,8 @@
     "examens": [
       "pro"
     ],
-    "statut": "verifie_2026-10-11",
+    "statut": "verifie_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
-    "reponse_directe_motifs": [
-      "^(?!.*deux (?:notes|evaluations|activites)).*?(?:(?=.*(?:une seule (?:note|evaluation|epreuve|activite)|seule activite|qu.une (?:seule )?(?:note|evaluation|epreuve)|un seul ccf|1 seule note|une note sur trois)))"
-    ],
-    "reponse_directe": "Une seule évaluation peut être retenue en bac professionnel dans le cadre de l'inaptitude attestée, selon B.3.2 : l'enseignant/formateur apprécie la qualité et la quantité des éléments permettant de proposer cette note. Si les éléments sont insuffisants, il ne propose pas de note et formule une dispense. Il peut aussi envisager une évaluation différée ou une certification sur deux activités. Une seule note n'est donc ni toujours interdite ni automatiquement suffisante. La modification MENE2526357C permet également l'adaptation d'une épreuve pour une inaptitude partielle, sur indications médicales, avec information de la commission académique.",
     "exclure_motifs": [
       "ponctuel|shn|haut niveau"
     ]
@@ -3126,11 +3087,7 @@
     "motifs": [
       "maladie chronique|aucune.{0,25}activite|marche.{0,20}adapt|epreuve.{0,20}academique.{0,20}adapt"
     ],
-    "reponse_directe_motifs": [
-      "maladie chronique|aucune.{0,25}activite|marche.{0,20}adapt|epreuve.{0,20}academique.{0,20}adapt"
-    ],
-    "reponse_directe": "Le BA 549 (session 2026) prévoit la marche en durée adaptée si handicap ou inaptitude partielle permanente permettent cette pratique mais qu'aucun CCF adapté n'est proposé. Circuit : annexe 8 en CCF, annexe 7 en ponctuel. Pour 2027, confirmer les modalités ; ne pas conclure directement à une dispense.",
-    "statut": "verifie_2026-10-11_portee_session_2026",
+    "statut": "verifie_2026-10-11_portee_session_2026 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
   },
   "data/commun/audit355/aix_codes_absence_gt.txt": {
@@ -3143,11 +3100,7 @@
     "motifs": [
       "(?=.*santorin)(?=.*\\bab\\b)(?=.*\\bdi\\b)"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*santorin)(?=.*\\bab\\b)(?=.*\\bdi\\b)"
-    ],
-    "reponse_directe": "À Aix, le BA 549 (2026) indique ABS pour une absence non justifiée au bac GT, traduite en zéro. Il ne définit pas DI comme code universel. Ne choisissez pas un code avant de distinguer absence, inaptitude et dispense.",
-    "statut": "verifie_2026-10-11_portee_session_2026",
+    "statut": "verifie_2026-10-11_portee_session_2026 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
   },
   "data/commun/audit355/bac_pro_formation_continue.txt": {
@@ -3220,12 +3173,8 @@
     "motifs": [
       "(?=.*option)(?=.*(?:individuel|libre|ponctuel))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:notre lycee|mon lycee|notre etablissement|mon etablissement|scolaris|nos eleves|mes eleves)).*?(?:(?=.*option)(?=.*(?:individuel|libre|ponctuel)))"
-    ],
-    "reponse_directe": "Oui, un candidat individuel peut présenter l'option EPS en évaluation ponctuelle, distincte de l'EPS obligatoire. Selon son inscription : première = sauvetage aquatique et oral de 15 minutes ; terminale = badminton en simple et oral de 15 minutes ; cycle terminal = les deux pratiques et un oral de 20 minutes. Pratique sur 12 points, oral sur 8 ; pour le cycle, la pratique est la moyenne des deux notes. Coefficient 2 par année ou 4 pour le cycle. L'organisation dépend de l'offre académique et d'un examinateur compétent. Un candidat dispensé de l'examen ponctuel d'EPS obligatoire ne peut présenter cette option. Ne pas lui appliquer le contrôle continu/LSL du candidat scolaire. Source : MENE2533572N, applicable depuis 2026, section EPS. https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo1/MENE2533572N",
-    "statut": "revu_retest_2026-10-11"
+    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/shn_statut_inscription_gt.txt": {
     "title": "SHN bac GT : date et conditions",
@@ -3241,12 +3190,8 @@
     "motifs": [
       "(?=.*(?:shn|haut niveau))(?=.*(?:date|quand|statut|beneficier))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:shn|haut niveau))(?=.*(?:date|quand|statut|beneficier))"
-    ],
-    "reponse_directe": "Le candidat doit justifier du statut SHN au moment de l'inscription au baccalauréat, sur la base de la liste publiée en janvier ou juillet de la même année civile. Aucune modification de statut n'est acceptée après la fin des inscriptions l'année scolaire de certification. Vérifier la catégorie éligible et les justificatifs auprès de la DIEC ; ne pas limiter les bénéficiaires aux seules listes ministérielles. La note de 20/20 sur la spécialité sportive est conditionnelle : aménagement proposé par le comité de pilotage, validé par le recteur, et ce 20 ne peut être l'unique note retenue en CCF ou en ponctuel. Ce n'est pas une note globale automatique. Ne pas confondre date d'inscription et dates de demande AMEX. Source : MENE2531948N, partie 4. https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "statut": "revu_retest_2026-10-11"
+    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/cyclades_candidats_absents.txt": {
     "title": "Cyclades : candidats absents de la liste",
@@ -3260,12 +3205,8 @@
     "motifs": [
       "^(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
     ],
-    "reponse_directe_motifs": [
-      "^(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
-    ],
-    "reponse_directe": "Non : refaire l'export iPackEPS ne crée pas un candidat absent de la liste d'inscription à l'examen dans Cyclades. Faire vérifier d'abord par le secrétariat et le chef d'établissement l'inscription, l'établissement gestionnaire et l'identité/INE. Si une régularisation est nécessaire, la direction contacte la DIEC (examenseps@ac-aix-marseille.fr). Distinguer cette absence de la liste des inscrits d'un candidat déjà inscrit mais non associé à un protocole : dans ce second cas seulement, vérifier l'association aux protocoles et le fichier d'export. Ne pas ignorer ni recréer arbitrairement un candidat. Source : réponses du correspondant académique, circuit Cyclades/iPackEPS. https://ipackeps.ac-creteil.fr/",
     "url": "https://ipackeps.ac-creteil.fr/",
-    "statut": "revu_retest_2026-10-11"
+    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/activite_etablissement_delai_aix.txt": {
     "title": "Aix : demande d’activité établissement",
@@ -3300,12 +3241,8 @@
     "motifs": [
       "trich|fraude"
     ],
-    "reponse_directe_motifs": [
-      "trich|fraude"
-    ],
-    "reponse_directe": "En course d'orientation, relever précisément les faits et conserver les éléments, puis prévenir le chef d'établissement. Si c'est un CCF ou une épreuve du baccalauréat : signalement selon le circuit des examens à la DIEC/au recteur ; la commission de discipline du baccalauréat statue sur la fraude, pas la CAHPN ni le professeur. Ne pas transformer seul une suspicion en zéro disciplinaire ou annulation dans Santorin. À l'examen, faire cesser la fraude, rédiger un procès-verbal et appliquer les instructions de surveillance, sans interrompre automatiquement la participation. Si c'est une évaluation ordinaire : traitement pédagogique et procédure de l'établissement, sans transposer automatiquement les sanctions d'examen. Source : ministère, Fraudes aux examens ; code de l'éducation, D334-27 et dispositions disciplinaires du baccalauréat. https://www.education.gouv.fr/reussir-au-lycee/fraudes-aux-examens-341483",
     "url": "https://www.education.gouv.fr/reussir-au-lycee/fraudes-aux-examens-341483",
-    "statut": "revu_retest_2026-10-11"
+    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/circuit_aix_ipack_cyclades_santorin.txt": {
     "title": "Aix-Marseille : circuit iPackEPS, Cyclades, Santorin (guide académique des tutoriels examens)",
@@ -3361,7 +3298,7 @@
   },
   "data/commun/blocages_lycees_ccf_gt.txt": {
     "title": "Blocages des lycées : CCF EPS — bac GT",
-    "statut": "texte_officiel_verifie_application_blocage_conditionnelle",
+    "statut": "texte_officiel_verifie_application_blocage_conditionnelle ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3375,16 +3312,12 @@
     "motifs": [
       "(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:i ?pack|santorin|cyclades|imag.?in|\\blot\\b|message|connexion|cadenas|deverrouill)).*?(?:(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen)))"
-    ],
-    "reponse_directe": "Un blocage du lycée n'autorise automatiquement ni dispense ni certification réduite. Il faut distinguer deux situations.\n1. L'élève assidu ne peut accéder au CCF : une évaluation différée est possible si le chef d'établissement reconnaît la force majeure, après consultation de l'équipe. Le mot « blocage » ne suffit pas à qualifier toute absence.\n2. L'épreuve est annulée ou les cours sont interrompus : étudier une reprogrammation tenant compte de la formation effective, du protocole et du calendrier académique ; si nécessaire, saisir l'inspection EPS par la direction. Ne pas traiter une épreuve annulée comme une absence individuelle injustifiée.\nAu bac GT, deux activités pour impossibilité technique ou matérielle nécessitent l'autorisation du recteur après expertise de l'inspection. L'impossibilité majeure d'en réaliser au moins deux peut conduire à demander le ponctuel terminal. Aucun automatisme de note unique ou de dispense médicale.\nLe texte ne cite pas explicitement les blocages : cette application au cas concret doit être examinée par les autorités compétentes.\nRéférence : note du 20 février 2026, MENE2531948N, parties 2.b et 2.d, depuis la session 2026.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/commun/blocages_lycees_ccf_pro.txt": {
     "title": "Blocages des lycées : CCF EPS — bac PRO",
-    "statut": "texte_officiel_verifie_application_blocage_conditionnelle",
+    "statut": "texte_officiel_verifie_application_blocage_conditionnelle ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "pro"
     ],
@@ -3398,16 +3331,12 @@
     "motifs": [
       "(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:i ?pack|santorin|cyclades|imag.?in|\\blot\\b|message|connexion|cadenas|deverrouill)).*?(?:(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen)))"
-    ],
-    "reponse_directe": "Un blocage du lycée n'autorise automatiquement ni dispense ni certification réduite.\nSi un candidat assidu est empêché d'accéder au CCF, une évaluation différée est possible pour force majeure reconnue par le chef d'établissement, après consultation de l'équipe. Une absence volontaire n'est pas automatiquement justifiée par le blocage.\nSi les cours ou l'épreuve sont annulés, étudier la reprise de la formation et la reprogrammation, dans le protocole et le calendrier académique ; saisir l'inspection EPS par la direction si nécessaire. Ne pas attribuer automatiquement zéro pour une épreuve annulée.\nAu bac professionnel, deux activités pour impossibilité technique ou matérielle exigent l'autorisation du recteur après expertise de l'inspection. Une situation extrême peut permettre une seule activité après expertise de l'inspection ; ce n'est pas automatique pour un blocage. Si aucun CCF ne peut être réalisé, une impossibilité majeure attestée par l'inspection permet de demander au recteur le ponctuel terminal.\nLe texte ne cite pas explicitement les blocages : l'autorité compétente examine les circonstances.\nRéférence : circulaire du 2 avril 2025, MENE2505383C, A.2 et B.1, depuis la session 2026.",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/a1_procedure_verifiee.txt": {
-    "title": "FAQ EPS A1 — Absence d'enseignant",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Absence d'enseignant",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3420,16 +3349,12 @@
     "motifs": [
       "(?=.*(?:co.evalu|deuxieme correcteur))(?=.*(?:absen|arret|remplac|seul))(?=.*(?:ccf|epreuve|evalu|not))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:co.evalu|deuxieme correcteur))(?=.*(?:absen|arret|remplac|seul))(?=.*(?:ccf|epreuve|evalu|not))"
-    ],
-    "reponse_directe": "Non : au bac général et technologique, deux enseignants d’EPS co-évaluent et notent conjointement, dont l’enseignant du groupe. Prévenez la direction. Si aucun collègue de l’établissement n’est disponible, un enseignant d’un autre établissement est désigné par l’inspection pédagogique régionale. La note de service ne présente pas le report comme une règle automatique : toute réorganisation doit être examinée avec la direction et l’inspection. Ne pas noter seul puis régulariser après coup.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/a4_procedure_verifiee.txt": {
-    "title": "FAQ EPS A4 — Absence d'enseignant",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Absence d'enseignant",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3444,16 +3369,12 @@
     "motifs": [
       "(?=.*(?:collegue|enseignant|professeur))(?=.*(?:maladie|arret|conge|absen))(?=.*(?:notes sur papier|a evalu|deja evalu|notes existent))(?=.*(?:saisi|saisir|santorin))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:collegue|enseignant|professeur))(?=.*(?:maladie|arret|conge|absen))(?=.*(?:notes sur papier|a evalu|deja evalu|notes existent))(?=.*(?:saisi|saisir|santorin))"
-    ],
-    "reponse_directe": "Le chef d'établissement donne l'accès à quelqu'un d'autre : ajouter un collègue comme deuxième correcteur sur le lot (Distribution > Lots > Voir le détail > Correcteurs > Ajouter), réaffecter le lot ou le protocole, ou se convoquer lui-même. La personne doit être convoquée dans Imag'in (mission « Notation EPS CCF », PDF de la convocation généré). Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7 et 24-25 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission »",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/a5_procedure_verifiee.txt": {
-    "title": "FAQ EPS A5 — Absence d'enseignant / Imag'in",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Absence d'enseignant / Imag'in",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3468,16 +3389,12 @@
     "motifs": [
       "(?=.*(?:contractuel|remplacant|remplace un))(?=.*(?:lot|santorin))(?=.*(?:aucun|pas|acces|voit|voir))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:contractuel|remplacant|remplace un))(?=.*(?:lot|santorin))(?=.*(?:aucun|pas|acces|voit|voir))"
-    ],
-    "reponse_directe": "1) Le convoquer manuellement dans Imag'in sur la mission « Notation EPS CCF » (un signataire doit être défini), puis cliquer sur le picto PDF : cette étape est obligatoire, car c'est elle qui transmet son nom à Santorin. 2) Lui attribuer le lot : réaffectation du lot dans Santorin, ou ajout comme correcteur, ou adresse du protocole corrigée dans Cyclades (Contrôler / réaffecter des protocoles). Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/b1_procedure_verifiee.txt": {
-    "title": "FAQ EPS B1 — Blocage / distribution",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Blocage / distribution",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3492,16 +3409,12 @@
     "motifs": [
       "aucun correcteur.{0,40}(?:epreuve|exam)"
     ],
-    "reponse_directe_motifs": [
-      "aucun correcteur.{0,40}(?:epreuve|exam)"
-    ],
-    "reponse_directe": "Aucun enseignant n'est rattaché à la mission de notation EPS : vérifier et créer les convocations dans Imag'in (Convocation par mission, mission « Notation EPS CCF », PDF), puis relancer la distribution. Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 3 à 9 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission »",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/b4_procedure_verifiee.txt": {
-    "title": "FAQ EPS B4 — Blocage / saisie (formulation ambiguë)",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Blocage / saisie",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3516,16 +3429,12 @@
     "motifs": [
       "(?=.*santorin)(?=.*(?:bloqu|blocag))(?=.*(?:saisi|saisir))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*santorin)(?=.*(?:bloqu|blocag))(?=.*(?:saisi|saisir))"
-    ],
-    "reponse_directe": "Précisez le diplôme et le symptôme exact : cases grisées, AFL2/AFL3 refusés, cadenas ou message d’erreur. Les solutions diffèrent. Au bac pro/CAP, des cases grisées peuvent nécessiter « Choisir AFLP ». Au bac GT, saisir d’abord AFL1 puis AFL2/AFL3 et renseigner la répartition choisie ; ne pas utiliser la procédure AFLP. Un lot verrouillé demande un déverrouillage par le chef d’établissement selon le guide applicable. Sans symptôme, ne pas conclure à une cause unique.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 18-19 ; Guide des examens EPS, académie de Normandie (version 2025 ; page session 2027 publiée le 6 mai 2026) (FAQ Santorin)",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/b5_procedure_verifiee.txt": {
-    "title": "FAQ EPS B5 — Blocage / affectations",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Blocage / affectations",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3540,16 +3449,12 @@
     "motifs": [
       "(?=.*(?:coordonnateur|coordinateur))(?=.*(?:cree|saisi|creation))(?=.*protocol)(?=.*(?:collegue|enseignant|lots?))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:coordonnateur|coordinateur))(?=.*(?:cree|saisi|creation))(?=.*protocol)(?=.*(?:collegue|enseignant|lots?))"
-    ],
-    "reponse_directe": "Lorsque le coordonnateur a créé tous les protocoles dans Cyclades, vérifiez l’adresse d’examinateur : les protocoles peuvent être rattachés à l’adresse du créateur au lieu de celle de chaque collègue. Le chef d’établissement corrige chaque adresse dans EPS > Contrôler / réaffecter des protocoles, puis contrôle les convocations Imag’in et la distribution ou réaffectation des lots Santorin. Ne pas recréer tous les protocoles pour ce seul problème. Cette procédure technique est décrite dans les guides Lyon et Besançon cités ; vérifier les droits du rôle et la version utilisés.\nSources : Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 ; Support visio Cyclades/Santorin, académie de Besançon, 15/01/2025",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/c1_procedure_verifiee.txt": {
-    "title": "FAQ EPS C1 — Évaluation différée",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Évaluation différée",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3562,16 +3467,12 @@
     "motifs": [
       "(?=.*certificat)(?=.*(?:couvre|couvrant))(?=.*(?:jour|date))(?=.*ccf)(?=.*(?:absent|zero|0))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*certificat)(?=.*(?:couvre|couvrant))(?=.*(?:jour|date))(?=.*ccf)(?=.*(?:absent|zero|0))"
-    ],
-    "reponse_directe": "Non : un certificat médical couvrant le jour du CCF ne relève pas d’une absence injustifiée à coder « Absent » ou zéro. Pour une inaptitude temporaire attestée, examiner une évaluation adaptée ou différée prévue au protocole. Si l’inaptitude persiste au rattrapage, l’enseignant apprécie les possibilités médicales et les éléments acquis : adaptation, certification sur deux épreuves, éventuellement une seule, ou dispense si les éléments sont trop réduits. Ces possibilités ne sont pas automatiques. Ne pas déclarer un CE collectif pour une inaptitude individuelle.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/c3_procedure_verifiee.txt": {
-    "title": "FAQ EPS C3 — Évaluation différée",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Évaluation différée",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3586,16 +3487,12 @@
     "motifs": [
       "(?=.*(?:greve|annulation))(?=.*(?:train|transport))(?=.*(?:ccf|epreuve))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:greve|annulation))(?=.*(?:train|transport))(?=.*(?:ccf|epreuve))"
-    ],
-    "reponse_directe": "Une grève des trains ne constitue pas automatiquement une force majeure. Pour l’élève assidu effectivement empêché, le chef d’établissement examine les justificatifs après consultation de l’équipe pédagogique et peut autoriser une évaluation différée. Dans le guide Santorin EPS de la DIEC Aix-Marseille cité, cette situation se traite par l’épreuve de substitution avec le motif « force majeure ». Ce n’est ni une inaptitude médicale ni un blocage collectif du lycée.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e ; Circulaire du 2 avril 2025, MENE2505383C, modifiée par MENE2526357C du 24 octobre 2025 (B.1) ; DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 22",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d1_procedure_verifiee.txt": {
-    "title": "FAQ EPS D1 — Inaptitude totale",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Inaptitude totale",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3608,16 +3505,12 @@
     "motifs": [
       "(?=.*inapt)(?=.*(?:toute l.annee|annee entiere))(?=.*(?:groupe|cyclades|protocole))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*inapt)(?=.*(?:toute l.annee|annee entiere))(?=.*(?:groupe|cyclades|protocole))"
-    ],
-    "reponse_directe": "Non à l’exclusion du groupe : l’élève reste dans son groupe et doit être associé à un protocole dans Cyclades, même s’il est inapte toute l’année. Le mémo technique Cyclades distingue cette association du traitement de l’inaptitude à la saisie. Si l’inaptitude totale médicalement attestée couvre toute l’année et qu’aucune évaluation n’a été possible, ne pas attribuer zéro : la dispense d’épreuve neutralise le coefficient, selon le circuit académique. Dans le guide Santorin concerné, renseigner « Dispensé » sur les activités avec une appréciation et les justificatifs requis. Ne jamais répondre qu’un candidat inapte doit être laissé sans groupe ou protocole.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d3_procedure_verifiee.txt": {
-    "title": "FAQ EPS D3 — Inaptitude / DI+DI+Note",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Inaptitude / DI+DI+Note",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3630,16 +3523,12 @@
     "motifs": [
       "(?=.*(?:inapt|dispens))(?=.*(?:deux epreuves|deux activites|di.{0,8}di))(?=.*(?:une note|qu.une|note unique|di partout))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:inapt|dispens))(?=.*(?:deux epreuves|deux activites|di.{0,8}di))(?=.*(?:une note|qu.une|note unique|di partout))"
-    ],
-    "reponse_directe": "Ni conservation automatique ni dispense automatique : au bac GT, l’enseignant apprécie les éléments d’évaluation disponibles. S’ils suffisent à certifier sur une seule épreuve, la note retenue est 14 : DI + DI + 14, avec appréciation. S’ils sont trop réduits, ne pas proposer de note : dispense d’épreuve, coefficient neutralisé, et dispenses sur les trois activités selon la saisie applicable. Justifier la décision dans Santorin et le dossier des cas particuliers. Une DI n’est pas un zéro à ajouter à une moyenne.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d5_procedure_verifiee.txt": {
-    "title": "FAQ EPS D5 — Inaptitude",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Inaptitude",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "cap"
     ],
@@ -3652,16 +3541,12 @@
     "motifs": [
       "(?=.*(?:\\bcap\\b))(?=.*(?:blesse|inapt))(?=.*(?:deuxieme|seconde))(?=.*(?:note|epreuve))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:\\bcap\\b))(?=.*(?:blesse|inapt))(?=.*(?:deuxieme|seconde))(?=.*(?:note|epreuve))"
-    ],
-    "reponse_directe": "L'enseignant apprécie : évaluation différée, adaptation si l'inaptitude est partielle (définie par l'établissement sur indications médicales, transmise pour information à la commission), certification sur une seule activité (note unique), ou pas de note avec la mention « Dispensé de l'épreuve d'EPS » si les éléments sont trop réduits.\nSources : Circulaire MENE2517122C (2025) modifiée par MENE2526679C (octobre 2025) (2.3.2)",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d6_procedure_verifiee.txt": {
-    "title": "FAQ EPS D6 — Inaptitude",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Inaptitude",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3674,16 +3559,12 @@
     "motifs": [
       "(?=.*afl2)(?=.*afl3)(?=.*(?:seul|seulement|sans prati|uniquement))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*afl2)(?=.*afl3)(?=.*(?:seul|seulement|sans prati|uniquement))"
-    ],
-    "reponse_directe": "Non au bac général et technologique : l’évaluation ne peut pas reposer sur les seuls AFL2 et AFL3, même en cas d’inaptitude partielle ou temporaire. Il faut examiner l’adaptation ou l’évaluation différée, puis les possibilités de certification prévues par le texte selon les éléments disponibles. Cette interdiction ne nécessite pas de précisions médicales supplémentaires pour être expliquée.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.d)",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/d8_procedure_verifiee.txt": {
-    "title": "FAQ EPS D8 — Inaptitude / certificat",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Inaptitude / certificat",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3698,16 +3579,12 @@
     "motifs": [
       "(?=.*certificat)(?=.*(?:arriv|remis|recu|transmis))(?=.*(?:apres|retard|tard|semaine))(?=.*(?:ccf|epreuve|evalu))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*certificat)(?=.*(?:arriv|remis|recu|transmis))(?=.*(?:apres|retard|tard|semaine))(?=.*(?:ccf|epreuve|evalu))"
-    ],
-    "reponse_directe": "Il faut distinguer la date de remise et la date d’établissement du certificat. Le seul fait qu’il soit reçu trois semaines après le CCF ne permet pas de le refuser automatiquement. Pour Aix-Marseille, le BA 549 de la session 2026 rappelle l’absence d’effet rétroactif ; cela ne fixe pas à lui seul un délai de remise. Vérifiez donc quand le certificat a été établi et la période qu’il atteste, puis appliquez les consignes de la session concernée avec la direction et le service des examens. Ne pas antidater un certificat. La règle des 15 jours de Lyon ne doit pas être appliquée à Aix. Pour 2027, vérifier la circulaire EPS propre à cette session avant de conclure.\nSources : BA spécial 549 du 17 octobre 2025 (EPS, session 2026) ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 (règle des 15 jours, Lyon seulement)",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/e3_procedure_verifiee.txt": {
-    "title": "FAQ EPS E3 — Certification réduite",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Certification réduite",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3720,16 +3597,12 @@
     "motifs": [
       "(?=.*(?:une seule|que l.une|qu.une))(?=.*(?:activite|epreuve))(?=.*(?:realiser|possible|impossible|pourrons|pourra|pouvons))(?=.*(?:ensemble certificatif|trois|bac))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:une seule|que l.une|qu.une))(?=.*(?:activite|epreuve))(?=.*(?:realiser|possible|impossible|pourrons|pourra|pouvons))(?=.*(?:ensemble certificatif|trois|bac))"
-    ],
-    "reponse_directe": "Au bac GT, si une seule des trois activités peut être réalisée, au moins deux sont impossibles : en cas d’impossibilité majeure attestée par les corps d’inspection, l’établissement peut demander au recteur l’autorisation d’inscrire les élèves en examen ponctuel terminal. C’est distinct du cas où une seule activité est impossible : le recteur peut alors autoriser deux activités au lieu de trois après expertise de l’inspection pour des raisons techniques ou matérielles. Ne pas promettre une certification sur une seule activité, ni une dispense collective. La direction saisit l’inspection et le service des examens pour organiser la solution autorisée.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.d)",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/e4_procedure_verifiee.txt": {
-    "title": "FAQ EPS E4 — Certification réduite (cas limite)",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Certification réduite",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3744,16 +3617,12 @@
     "motifs": [
       "(?=.*(?:un seul eleve|seul un eleve|candidat isole))(?=.*(?:piscine|fermeture|installation))(?=.*(?:\\bce\\b|cas exceptionnel|lot))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:un seul eleve|seul un eleve|candidat isole))(?=.*(?:piscine|fermeture|installation))(?=.*(?:\\bce\\b|cas exceptionnel|lot))"
-    ],
-    "reponse_directe": "Non : ne pas déclarer le CE sur le lot de toute la classe pour un seul candidat, car la neutralisation toucherait tous les élèves du lot. Le tutoriel Créteil (article 95) décrit un lot séparé pour le candidat puis la déclaration du CE après accord. Cette procédure locale ne doit pas être présentée comme une consigne confirmée d’Aix-Marseille : la direction doit faire confirmer par la DIEC et l’inspection la solution autorisée avant saisie. Ne pas saisir DI pour remplacer une absence de formation sans motif médical.\nSources : Tutoriel iPackEPS (Créteil), article 95 « Cas exceptionnels » — site en maintenance au 12/10/2026",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt": {
-    "title": "FAQ EPS F1 — Protocoles",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Protocoles",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3768,16 +3637,12 @@
     "motifs": [
       "(?=.*cyclades)(?=.*apsa)(?=.*(?:apparait pas|absente|manqu|pas dans la liste))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*apsa)(?=.*(?:apparait pas|absente|manqu|pas dans la liste))"
-    ],
-    "reponse_directe": "Seules les APSA dont le référentiel ou la FCA a été validé par la commission apparaissent. À Aix, déposer la FCA dans iPackEPS (Dossier certificatif > Dépôt des référentiels), après avoir déclaré l'APSA certificative, et attendre la validation (coche verte).\nSources : FAQ Cyclades, académie de Grenoble, octobre 2024 ; BA spécial 549 du 17 octobre 2025 (EPS, session 2026)",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f3_procedure_verifiee.txt": {
-    "title": "FAQ EPS F3 — Protocoles",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Protocoles",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3792,16 +3657,12 @@
     "motifs": [
       "(?=.*cyclades)(?=.*protocole)(?=.*(?:refus|rejet|bloqu))(?=.*date)"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*protocole)(?=.*(?:refus|rejet|bloqu))(?=.*date)"
-    ],
-    "reponse_directe": "Certaines dates sont interdites dans Cyclades : week-ends, jours fériés, dates des épreuves ponctuelles. Choisir une autre date de CCF ou de rattrapage.\nSources : FAQ Cyclades, académie de Grenoble, octobre 2024 (paramétrage des dates interdites)",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f5_procedure_verifiee.txt": {
-    "title": "FAQ EPS F5 — Protocoles",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Protocoles",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3816,16 +3677,12 @@
     "motifs": [
       "(?=.*(?:protocole))(?=.*(?:coche verte|validite))(?=.*(?:pas|sans|manqu))(?=.*(?:ipack|cyclades|transfert))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:protocole))(?=.*(?:coche verte|validite))(?=.*(?:pas|sans|manqu))(?=.*(?:ipack|cyclades|transfert))"
-    ],
-    "reponse_directe": "Non. Seuls les protocoles valides (coche verte dans la colonne « Validité ») sont transférés par l'inspection vers Cyclades. Vérifier ensuite dans Cyclades qu'ils ont le statut validé ; sinon écrire à examenseps@ac-aix-marseille.fr.\nSources : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026, étape 3",
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt": {
-    "title": "FAQ EPS F6 — Protocoles adaptés (contradiction à trancher)",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Protocoles adaptés : écart texte / Cyclades",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro"
@@ -3839,16 +3696,12 @@
     "motifs": [
       "(?=.*cyclades)(?=.*(?:une seule|a une))(?=.*(?:apsa|epreuve))(?=.*(?:handicap|adapt))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*(?:une seule|a une))(?=.*(?:apsa|epreuve))(?=.*(?:handicap|adapt))"
-    ],
-    "reponse_directe": "Ne pas confondre l’autorisation réglementaire et la saisie dans Cyclades. Les textes du bac peuvent autoriser, pour des cas particuliers de handicap, une seule épreuve adaptée. Mais les mémos Cyclades cités décrivent un protocole adapté d’au moins deux APSA au bac GT/pro et d’au moins une au CAP. Je ne peux donc pas affirmer que votre version accepte une seule APSA au bac. Faites traiter l’écart par la DIEC et l’inspection pour ce candidat ; ne pas ajouter une APSA fictive ni inventer de contournement.\nSources : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.e) ; FAQ Cyclades, académie de Grenoble, octobre 2024 ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
-    "title": "FAQ EPS G1 — Affectations",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Affectations",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3863,16 +3716,12 @@
     "motifs": [
       "groupe.{0,30}importe.{0,40}(?:correspond|aucun groupe)"
     ],
-    "reponse_directe_motifs": [
-      "groupe.{0,30}importe.{0,40}(?:correspond|aucun groupe)"
-    ],
-    "reponse_directe": "Les noms de groupes du fichier importé ne correspondent pas à ceux des protocoles. À Aix, le fichier vient d'iPackEPS (Dossier certificatif > Cyclades) : vérifier les groupes, rejouer l'export, ou associer les élèves manuellement dans « Associer les élèves à un protocole ». Si un protocole manque, prévenir l'inspection (pas d'invalidation).\nSources : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 ; FAQ iPackEPS/Cyclades/Santorin, académie de Strasbourg, 29/03/2024 (contre-exemple)",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g2_procedure_verifiee.txt": {
-    "title": "FAQ EPS G2 — Affectations",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Affectations",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3887,16 +3736,12 @@
     "motifs": [
       "(?=.*cyclades)(?=.*(?:eleve|candidat))(?=.*(?:sans protocole|pas de protocole|protocole non affecte))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*cyclades)(?=.*(?:eleve|candidat))(?=.*(?:sans protocole|pas de protocole|protocole non affecte))"
-    ],
-    "reponse_directe": "Menu EPS > Associer les élèves à un protocole : choisir le protocole dans la liste en bout de ligne ou glisser-déposer l'élève, puis enregistrer. Tant qu'un élève n'a pas de protocole, il n'entre pas dans un lot.\nSources : Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2 ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/g4_procedure_verifiee.txt": {
-    "title": "FAQ EPS G4 — Affectations",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Affectations",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -3909,16 +3754,12 @@
     "motifs": [
       "(?=.*(?:arriv|chang.{0,20}lycee|transfert))(?=.*(?:deux ccf|2 ccf|ccf deja|deja.{0,20}ccf))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:arriv|chang.{0,20}lycee|transfert))(?=.*(?:deux ccf|2 ccf|ccf deja|deja.{0,20}ccf))"
-    ],
-    "reponse_directe": "Récupérez auprès de l’ancien lycée le détail des deux CCF et les notes acquises. Associez le candidat dans Cyclades à un protocole compatible, ou créez un protocole adapté si son parcours le nécessite, puis organisez son placement dans un lot Santorin. Au bac GT, l’ensemble comporte trois activités de trois champs distincts : deux épreuves déjà acquises ne conduisent pas à ajouter deux nouvelles APSA. Examiner l’activité restante et les éventuels aménagements avec l’équipe, la direction et l’inspection si besoin. Ne pas faire repasser les CCF déjà acquis par principe.\nSources : Formation saisie des notes EPS 2025, académie de Versailles ; tutoriel Créteil art. 87",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt": {
-    "title": "FAQ EPS H1 — Imag'in",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Imag'in",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3933,16 +3774,12 @@
     "motifs": [
       "(?=.*(?:enseignant|professeur))(?=.*(?:convoq|convocation))(?=.*automatique)"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:enseignant|professeur))(?=.*(?:convoq|convocation))(?=.*automatique)"
-    ],
-    "reponse_directe": "Oui pour les établissements publics et privés sous contrat : la DIEC crée la mission « Notation EPS CCF » et des convocations sont générées automatiquement d'après STS-web. L'établissement les consulte dans son Imag'in et ajoute ou supprime les siennes si besoin. Les CFA et GRETA n'ont pas d'affectation automatique. Les CFA sont des centres de formation d’apprentis, distincts des GRETA ; ne pas les appeler établissements de formation continue.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 2-3 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission »",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h2_procedure_verifiee.txt": {
-    "title": "FAQ EPS H2 — Imag'in",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Imag'in",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3957,16 +3794,12 @@
     "motifs": [
       "(?=.*(?:supprim|annul))(?=.*convocation)(?=.*(?:collegue|enseignant|parti))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:supprim|annul))(?=.*convocation)(?=.*(?:collegue|enseignant|parti))"
-    ],
-    "reponse_directe": "L'établissement ne peut supprimer que les convocations qu'il a créées (statut « Convoquée par centre »). Celles du service des examens se traitent avec la DIEC. La suppression est aussi bloquée si des frais sont en cours ou si la personne a déjà un lot de correction Santorin : réaffecter le lot d'abord.\nSources : Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission »",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h3_procedure_verifiee.txt": {
-    "title": "FAQ EPS H3 — Imag'in",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Imag'in",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -3981,16 +3814,12 @@
     "motifs": [
       "(?=.*(?:convoq|convocation))(?=.*imag)(?=.*santorin)(?=.*(?:toujours|encore|pas|rien))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:convoq|convocation))(?=.*imag)(?=.*santorin)(?=.*(?:toujours|encore|pas|rien))"
-    ],
-    "reponse_directe": "Vérifier que la convocation a été éditée en PDF (picto PDF) : c'est obligatoire, car c'est ce qui transmet le nom de l'enseignant à Santorin. L'envoi par mail est facultatif. Prérequis : un signataire défini. Ensuite, l'adresse du protocole ou du lot doit être la sienne. Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 7",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h4_procedure_verifiee.txt": {
-    "title": "FAQ EPS H4 — Imag'in / référent",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Imag'in / référent",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4005,16 +3834,12 @@
     "motifs": [
       "(?=.*(?:chef|direction))(?=.*(?:confier|delegu|referent))(?=.*distribution)(?=.*(?:prof|enseignant))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:chef|direction))(?=.*(?:confier|delegu|referent))(?=.*distribution)(?=.*(?:prof|enseignant))"
-    ],
-    "reponse_directe": "Oui, des guides académiques décrivent la délégation à un professeur d’EPS ayant la qualité « REFERENT » : Imag’in établissement > Convocation par mission > mission de notation EPS > modifier la convocation > ajouter la qualité REFERENT > Convoquer. Il accède ensuite à la distribution depuis son portail des missions. Cette procédure est documentée notamment à Dijon et Strasbourg ; son application à Aix-Marseille doit être confirmée par la DIEC pour le rôle et la version concernés. Ne pas la présenter comme une publication de la DIEC d’Aix.\nSources : Tutoriel saisie des notes CCF EPS 2025, académie de Dijon ; circulaire CCF 2026, Strasbourg",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h5_procedure_verifiee.txt": {
-    "title": "FAQ EPS H5 — Imag'in",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Imag'in",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4029,16 +3854,12 @@
     "motifs": [
       "(?=.*bac pro)(?=.*cap)(?=.*lots?)(?=.*(?:partie|manqu|pas tous|certains))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*bac pro)(?=.*cap)(?=.*lots?)(?=.*(?:partie|manqu|pas tous|certains))"
-    ],
-    "reponse_directe": "Vérifiez d’abord l’examen : le portail Imag’in comporte une ligne de mission « Notation EPS CCF » par examen. Entrez par la ligne du bac pro pour ses lots, puis par celle du CAP pour les autres. Dans Santorin, choisissez à nouveau l’examen voulu. Le fait de ne voir qu’une partie des lots ne prouve pas qu’ils manquent ni que le problème vient de plusieurs établissements.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 14",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i1_procedure_verifiee.txt": {
-    "title": "FAQ EPS I1 — Distribution",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Distribution",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4053,16 +3874,12 @@
     "motifs": [
       "(?=.*distribu)(?=.*date)(?=.*(?:fin|correction))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*distribu)(?=.*date)(?=.*(?:fin|correction))"
-    ],
-    "reponse_directe": "Le chef d'établissement, ou un référent qu'il désigne, après l'association de tous les candidats aux protocoles et les convocations Imag'in. Distribution automatique (un lot par protocole) de préférence. La date de fin de correction n'est pas obligatoire. Vérifier le rôle et le guide avant toute distribution ; ne pas supprimer un lot contenant des notes.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-11 ; Support visio Cyclades/Santorin, académie de Besançon, 15/01/2025",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i2_procedure_verifiee.txt": {
-    "title": "FAQ EPS I2 — Distribution",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Distribution",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4077,16 +3894,12 @@
     "motifs": [
       "^(?!.*(?:mail|adresse|examinateur))(?=.*distribution)(?=.*(?:mal faite|erreur|recommenc|supprim|refaire))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:mail|adresse|examinateur))(?=.*distribution)(?=.*(?:mal faite|erreur|recommenc|supprim|refaire))"
-    ],
-    "reponse_directe": "Oui, la distribution peut être recommencée, mais vérifiez d’abord qu’aucune note n’a été saisie dans les lots concernés. Si des notes existent, ne pas supprimer les lots pour recommencer : faites examiner la correction ou la réaffectation par le chef d’établissement et le service des examens. Sans notes saisies, le guide DIEC cité prévoit la suppression des lots concernés puis la relance de la distribution. Cette opération relève du chef ou du référent habilité.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 13",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/i3_procedure_verifiee.txt": {
-    "title": "FAQ EPS I3 — Distribution (divergence documentaire)",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Distribution",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4101,16 +3914,12 @@
     "motifs": [
       "(?=.*(?:un seul eleve|un eleve|un candidat))(?=.*(?:pas associe|non associe|sans protocole))(?=.*(?:distribu|bloqu))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:un seul eleve|un eleve|un candidat))(?=.*(?:pas associe|non associe|sans protocole))(?=.*(?:distribu|bloqu))"
-    ],
-    "reponse_directe": "Associez d’abord tous les candidats aux protocoles avant la distribution. Un candidat sans protocole ne peut pas entrer dans son lot, mais il ne faut pas présenter le blocage de toute la distribution comme une règle universelle. Le support DIEC Aix-Marseille décrit le traitement des candidats non affectés par association puis distribution manuelle ; le mémento de Lyon décrit un blocage plus large. Vérifiez donc le guide et la version applicables à votre académie, puis traitez le candidat restant dans Cyclades et Santorin.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-12 ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 (article 1971)",
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/j2_procedure_verifiee.txt": {
-    "title": "FAQ EPS J2 — Verrouillage",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Verrouillage",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4125,15 +3934,11 @@
     "motifs": [
       "(?=.*(?:verrouill|ferme))(?=.*(?:erreur|corrig))(?=.*(?:lot|note))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:verrouill|ferme))(?=.*(?:erreur|corrig))(?=.*(?:lot|note))"
-    ],
-    "reponse_directe": "L’enseignant demande au chef d’établissement de déverrouiller le lot. Selon le guide cité : portail Santorin établissement > Correction > Liste des lots > cadenas. L’enseignant corrige la note, enregistre, vérifie toutes les données, puis reverrouille le lot. Ne pas laisser le lot ouvert après correction et ne pas échanger les identifiants du chef.\nSources : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (Verrouiller / déverrouiller) ; DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice)",
     "url": "",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/j5_procedure_verifiee.txt": {
-    "title": "FAQ EPS J5 — Dates 2027 (risque d'invention)",
+    "title": "FAQ EPS — Dates 2027",
     "statut": "reponse_relue_audit_en_ligne_2026_10_12",
     "examens": [
       "gt",
@@ -4157,8 +3962,8 @@
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/k2_procedure_verifiee.txt": {
-    "title": "FAQ EPS K2 — Saisie",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Saisie",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
     ],
@@ -4171,16 +3976,12 @@
     "motifs": [
       "(?=.*santorin)(?=.*afl2)(?=.*(?:refus|veut pas|saisir|saisie))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*santorin)(?=.*afl2)(?=.*(?:refus|veut pas|saisir|saisie))"
-    ],
-    "reponse_directe": "Au bac GT, commencez par saisir l’AFL1 : sans cette note, la saisie des AFL2 et AFL3 peut être bloquée. Renseignez également la répartition AFL2/AFL3 choisie par l’élève. La procédure « Choisir AFLP » concerne le bac pro/CAP et ne doit pas être proposée pour les AFL du bac GT. Si le blocage persiste, relevez le message exact et l’état du lot.\nSources : Guide des examens EPS, académie de Normandie (version 2025 ; page session 2027 publiée le 6 mai 2026) (FAQ) ; tutoriel saisie CCF 2025, Dijon",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt": {
-    "title": "FAQ EPS K5 — Saisie / codes",
-    "statut": "reponse_relue_audit_en_ligne_2026_10_12",
+    "title": "FAQ EPS — Saisie / codes",
+    "statut": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt",
       "pro",
@@ -4195,10 +3996,6 @@
     "motifs": [
       "(?=.*(?:difference|distingu|compar))(?=.*absent)(?=.*dispens)"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:difference|distingu|compar))(?=.*absent)(?=.*dispens)"
-    ],
-    "reponse_directe": "Dans le guide Santorin EPS cité, « Absent » correspond à l’absence injustifiée et vaut zéro pour l’APSA. « Dispensé » neutralise l’APSA concernée dans le calcul, lorsque la dispense est justifiée selon les règles du diplôme ; ce n’est pas un code générique pour une difficulté administrative. Une inaptitude temporaire ou une force majeure reconnue peut conduire à l’évaluation différée, appelée épreuve de substitution dans le support technique. Ne pas confondre ces codes avec le CE collectif autorisé.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 22",
     "url": "",
     "date_verification": "2026-10-12"
   },
@@ -4216,13 +4013,9 @@
     "motifs": [
       "(?=.*(?:co.evalu|deux professeur|deux enseignants|2 professeur|2 enseignants))(?=.*(?:\\bccf\\b|\\beps\\b|certifi|\\bevalu))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:co.evalu|deux professeur|deux enseignants|2 professeur|2 enseignants))(?=.*(?:\\bccf\\b|\\beps\\b|certifi|\\bevalu))"
-    ],
-    "reponse_directe": "Au bac professionnel, deux enseignants ne sont pas obligatoires pour évaluer le CCF d’EPS. Le texte propre au bac professionnel prévoit que l’enseignement de la dernière année est assuré par le même enseignant ou formateur ; il n’impose pas la co-évaluation du bac général et technologique. L’absence d’un collègue prévu comme co-évaluateur ne crée donc pas, à elle seule, une obligation de remplacement ou de report. Cela ne signifie pas que le professeur peut décider seul de toutes les modalités de certification : le protocole, les référentiels et les compétences des autorités restent applicables. Ne pas attribuer cette règle du bac professionnel à la note MENE2531948N, qui concerne le bac GT.\nSources : Circulaire du 2 avril 2025, MENE2505383C, modifiée par MENE2526357C du 24 octobre 2025 ; FAQ nationale « Évaluer et noter », voie professionnelle.",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot1_2026_10_12"
+    "statut": "reponse_relue_audit_lot1_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot1_2026_10_12/troisieme_impossible.txt": {
     "title": "Troisième activité impossible pour la classe : autorisation et CE",
@@ -4239,13 +4032,9 @@
     "motifs": [
       "(?=.*(?:professeur|enseignant))(?=.*(?:absen|sans remplac))(?=.*(?:troisieme|3e|3eme))(?=.*(?:activite|epreuve))(?=.*(?:classe|tout le monde|tous))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:professeur|enseignant))(?=.*(?:absen|sans remplac))(?=.*(?:troisieme|3e|3eme))(?=.*(?:activite|epreuve))(?=.*(?:classe|tout le monde|tous))"
-    ],
-    "reponse_directe": "Non : l’absence prolongée du professeur n’est pas une inaptitude médicale des élèves et ne justifie pas de saisir DI pour toute la classe. Si la troisième activité ne peut réellement pas être assurée, le chef d’établissement saisit l’inspection EPS et le service des examens en amont pour faire examiner la situation ; une certification exceptionnelle sur deux activités requiert l’autorisation du recteur après expertise de l’inspection. L’absence du professeur ne vaut pas autorisation automatique. Une fois l’autorisation obtenue et les modalités de saisie confirmées, le guide DIEC décrit dans Santorin « Déclarer CE » sur le lot, puis le choix de l’APSA : CE neutralise cette activité pour les candidats du lot. Ne pas saisir DI ou Absent pour remplacer cette procédure, ni déclarer CE avant l’accord. Le texte national autorise le dispositif exceptionnel ; le bouton et le circuit de saisie relèvent du guide technique académique. Vérifier les instructions de la session concernée.\nSources : Note MENE2531948N du 20 février 2026, partie 2.d (bac GT) ; circulaire MENE2505383C du 2 avril 2025 modifiée (bac professionnel) ; DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapo 20.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot1_2026_10_12"
+    "statut": "reponse_relue_audit_lot1_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot1_2026_10_12/mail_examinateur.txt": {
     "title": "Santorin : examinateur non trouvé pour le mail déclaré",
@@ -4264,14 +4053,9 @@
       "(?=.*(?:santorin|distribution))(?=.*(?:mail|adresse))(?=.*(?:examinateur|correcteur))(?=.*(?:trouv|correspond|distrib|erreur))",
       "(?=.*distribution)(?=.*(?:mail|adresse))(?=.*(?:erreur|non distribu|pas trouv|introuv|correspond))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:santorin|distribution))(?=.*(?:mail|adresse))(?=.*(?:examinateur|correcteur))(?=.*(?:trouv|correspond|distrib|erreur))",
-      "(?=.*distribution)(?=.*(?:mail|adresse))(?=.*(?:erreur|non distribu|pas trouv|introuv|correspond))"
-    ],
-    "reponse_directe": "Vérifiez d’abord la convocation de l’examinateur dans Imag’in sur la mission « Notation EPS CCF » : signataire défini et convocation éditée en PDF. Le seul envoi d’un mail ne remplace pas cette édition. Si la mission existe, comparez l’adresse d’examinateur déclarée dans Cyclades avec celle du personnel convoqué ; la direction corrige si nécessaire dans EPS > Contrôler / réaffecter des protocoles. Contrôlez ensuite la distribution Santorin et relancez-la selon les droits du rôle ; utilisez la distribution manuelle pour les candidats restants si nécessaire. Si des notes existent déjà, ne supprimez pas les lots pour recommencer : préserver les notes et demander le circuit de correction approprié. Le professeur signale le défaut ; la direction ou une personne habilitée réalise les actions administratives. Ces manipulations sont des procédures logicielles documentées, pas une obligation créée par un texte réglementaire EPS.\nSources : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 3 à 9 ; tutoriels Cyclades/Santorin de Créteil (distribution).",
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot1_2026_10_12"
+    "statut": "reponse_relue_audit_lot1_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot1_2026_10_12/eleves_manquants.txt": {
     "title": "Élèves inscrits mais absents des lots Santorin",
@@ -4289,13 +4073,9 @@
     "motifs": [
       "(?=.*santorin)(?=.*(?:eleves|candidats))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*santorin)(?=.*(?:eleves|candidats))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
-    ],
-    "reponse_directe": "La direction ou la personne habilitée vérifie d’abord que les candidats sont inscrits dans Cyclades et associés au bon protocole. Dans Santorin, contrôler les candidats non distribués et les lots existants ; si l’association a été réalisée après la distribution, rafraîchir les données avec « rejouer l’import » selon le guide, puis compléter la distribution ou placer manuellement les candidats restants dans leur lot. Ne pas supprimer des lots contenant déjà des notes. Il n’est pas nécessaire d’affirmer qu’une distribution automatique à 100 % est une condition préalable à toute visibilité : l’objectif est que chaque candidat concerné soit effectivement affecté. Si le défaut persiste, la direction sollicite le service des examens. Ces étapes relèvent des guides Cyclades/Santorin ; ne pas les présenter comme des textes réglementaires nationaux. Une simple décision pédagogique du professeur ne remplace pas l’association et la distribution.\nSources : Guide académique Aix-Marseille des tutoriels examens, circuit Cyclades/Santorin ; réponses du correspondant examens EPS ; tutoriels de distribution Santorin de Créteil.",
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot1_2026_10_12"
+    "statut": "reponse_relue_audit_lot1_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot2_2026_10_12/onglets.txt": {
     "title": "Cyclades/Santorin : une fenêtre pour éviter les erreurs d’import",
@@ -4313,13 +4093,9 @@
     "motifs": [
       "(?=.*(?:cyclades|santorin))(?=.*(?:deux|plusieurs|2))(?=.*(?:onglets?|fenetres?))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:cyclades|santorin))(?=.*(?:deux|plusieurs|2))(?=.*(?:onglets?|fenetres?))"
-    ],
-    "reponse_directe": "Travaillez dans une seule fenêtre Cyclades ou Santorin, avec un seul examen actif, pour éviter les erreurs d’importation entre sessions, notamment bac professionnel et CAP. Importez dans le bon examen, puis fermez la fenêtre avant de changer d’examen. C’est une précaution technique décrite dans les guides ; ne la présentez ni comme une interdiction réglementaire nationale ni comme l’impossibilité technique d’ouvrir plusieurs onglets. Si un import est déjà parti dans le mauvais examen, signalez-le au service des examens (DIEC à Aix-Marseille) ; ne supprimez pas arbitrairement les protocoles ou les lots pour réparer.\nSource : FAQ Strasbourg du 29 mars 2024 ; guide Normandie 2025 ; complément Santorin, section plusieurs onglets.",
     "url": "https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot2_2026_10_12/inscription_inaptitude_gt.txt": {
     "title": "Aix : inscriptions terminale GT, APTE en CCF et inaptitude médicale",
@@ -4335,13 +4111,9 @@
     "motifs": [
       "^(?!.*(?:ponctuel|candidat individuel|candidat libre)).*(?=.*(?:inscri|coch))(?=.*(?:inapte|inaptitude))(?=.*(?:bac|cyclades|eps))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:ponctuel|candidat individuel|candidat libre)).*(?=.*(?:inscri|coch))(?=.*(?:inapte|inaptitude))(?=.*(?:bac|cyclades|eps))"
-    ],
-    "reponse_directe": "À Aix-Marseille, pour l’inscription EPS en CCF, cochez « APTE » dans Cyclades, y compris si un certificat médical atteste une inaptitude. Le BA spécial 565 de la session 2027 distingue cette inscription du traitement de l’inaptitude par la commission académique EPS en fin de terminale. Un candidat médicalement inapte inscrit APTE : ce n'est pas une erreur. Cela ne remet pas en cause le constat médical. Le secrétariat et la direction vérifient l’inscription et transmettent le dossier selon le circuit académique ; le professeur n’inscrit pas de sa propre initiative le candidat « Inapte » pour neutraliser son coefficient. Ne pas imposer un certificat couvrant toute l’année pour répondre à la seule question d’inscription : la durée attestée servira à déterminer l’adaptation ou la dispense éventuelle. Ne pas confondre inscription, association au protocole et saisie finale dans Santorin. Cette consigne locale de CCF ne doit pas être transposée automatiquement au ponctuel ou à une autre académie.\nSource : BA spécial Aix-Marseille 565 du 9 octobre 2026, session 2027, dispositions EPS ; fiche aix_inscriptions_2027_gt.",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA565S/BASPE_565.pdf",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot2_2026_10_12/acces_notes_aix.txt": {
     "title": "Aix : accès enseignant à la saisie EPS dans Santorin",
@@ -4359,13 +4131,9 @@
     "motifs": [
       "^(?!.*(?:date limite|jusqu.a quand|deposer|saisir les protocoles))(?=.*(?:aix|marseille))(?=.*(?:par ou|acces|pass|portail))(?=.*(?:sais|notes?))(?=.*\\beps\\b)"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:date limite|jusqu.a quand|deposer|saisir les protocoles))(?=.*(?:aix|marseille))(?=.*(?:par ou|acces|pass|portail))(?=.*(?:sais|notes?))(?=.*\\beps\\b)"
-    ],
-    "reponse_directe": "À Aix-Marseille, passez par Imag’in depuis ESTEREL, rubrique Examens et concours, puis « Portail d’accès aux missions ». Sélectionnez la ligne « Notation EPS CCF » de l’examen concerné : il y a une ligne par examen. Dans Santorin, choisissez de nouveau l’examen puis ouvrez votre lot. L’accès direct Imag’in enseignant décrit dans le support est https://appli.ac-aix-marseille.fr/imagin/enseignant. La direction ou la personne habilitée vérifie la convocation et l’affectation si la mission ou le lot manque. Les notes certificatives se saisissent dans Santorin, pas dans iPackEPS. Il s’agit du circuit technique académique ; aucun autre calcul de moyenne ni calendrier ne doit être ajouté pour répondre à cette question d’accès.\nSource : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 1-2 ; guide académique des tutoriels examens.",
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot2_2026_10_12/differe_calendrier.txt": {
     "title": "CCF : positionnement des évaluations différées au protocole",
@@ -4383,13 +4151,9 @@
     "motifs": [
       "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))"
-    ],
-    "reponse_directe": "Il n’existe pas de date nationale imposant le différé juste après chaque CCF plutôt qu’en fin d’année. L’établissement choisit une organisation adaptée à son contexte, avec l’équipe EPS et la direction. Le protocole certificatif indique la ou les dates retenues et suit le circuit académique de validation. Ce choix reste soumis au calendrier de la session et aux possibilités de formation et d’évaluation ; il ne se décide pas hors protocole par un professeur seul. Santorin ne fixe pas les dates. Ne pas confondre le protocole certificatif EPS avec le projet général d’évaluation du lycée. Pour une échéance locale précise, vérifier le diplôme, l’académie et la session.\nSource : FAQ nationale Évaluation et certification, positionnement des épreuves différées ; textes EPS propres au diplôme et protocole académique.",
     "url": "https://eduscol.education.gouv.fr/media/111129/download",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
     "title": "Bac GT CCF : absence injustifiée distincte de force majeure",
@@ -4405,13 +4169,9 @@
     "motifs": [
       "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))"
-    ],
-    "reponse_directe": "Au bac général et technologique, une absence effectivement non justifiée à un CCF ne donne pas droit à l’évaluation différée et entraîne zéro pour cette épreuve, non éliminatoire. Vérifiez d’abord les justificatifs : pour un candidat assidu empêché par un cas de force majeure, le chef d’établissement peut autoriser un différé après consultation de l’équipe pédagogique ; ne pas remplacer cette décision par une validation automatique du professeur ou par une exigence générale d’accord du recteur. Une inaptitude temporaire médicalement attestée relève de l’adaptation ou du différé prévu au protocole. Pour l’absence injustifiée, appliquer le code de saisie du guide académique (la mention « Absent » traduit le zéro dans le guide Santorin concerné). Ces règles GT ne doivent pas être étendues aux absences à toutes les épreuves du bac professionnel ou du CAP.\nSource : Note du 20 février 2026 MENE2531948N, parties 2.d et 2.e ; guide DIEC Santorin EPS.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot3_2026_10_12/adaptation_temporaire.txt": {
     "title": "Inaptitude partielle temporaire : adaptation pour information",
@@ -4429,13 +4189,9 @@
     "motifs": [
       "(?=.*(?:entorse|inaptitude partielle temporaire|blesse.*(?:semaine|temporaire)))(?=.*(?:adapt|badminton))(?=.*(?:protocole|commission|valid))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*(?:entorse|inaptitude partielle temporaire|blesse.*(?:semaine|temporaire)))(?=.*(?:adapt|badminton))(?=.*(?:protocole|commission|valid))"
-    ],
-    "reponse_directe": "Pour une inaptitude partielle temporaire attestée, comme l’entorse décrite, il n’est pas nécessaire d’obtenir une nouvelle validation de la commission avant l’évaluation adaptée. L’établissement définit l’adaptation à partir des indications du médecin et la transmet à la commission académique pour information. Le professeur évalue dans ce cadre ; il ne décide pas seul de tout le dispositif ni du constat médical. Un protocole adapté peut être créé dans Cyclades en cours d’année pour l’association du candidat selon le guide ; ne pas transformer cette possibilité logicielle en obligation générale de créer systématiquement un nouveau protocole. Cette règle ne doit pas être confondue avec les propositions d’adaptation pour une inaptitude permanente présentées à la commission en début d’année. Si l’adaptation ne permet pas l’évaluation, examiner le différé et les autres possibilités prévues par le texte du diplôme.\nSource : Note MENE2531948N du 20 février 2026, 2.e (bac GT) ; circulaires modificatives du 24 octobre 2025 (bac professionnel/CAP) ; FAQ EPS mise à jour 2026.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot3_2026_10_12"
+    "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot3_2026_10_12/fermeture_collective.txt": {
     "title": "Installation fermée pour une classe : autorisation puis CE",
@@ -4452,13 +4208,9 @@
     "motifs": [
       "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))"
     ],
-    "reponse_directe_motifs": [
-      "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))"
-    ],
-    "reponse_directe": "La fermeture d’une installation ne permet pas de neutraliser automatiquement une activité pour la classe. La direction saisit l’inspection EPS et le service des examens ; le recteur peut autoriser la certification réduite prévue par le texte du diplôme après expertise de l’inspection. La commission académique ne remplace pas cette autorisation du recteur. Une fois l’accord obtenu et les modalités de saisie confirmées, la direction ou le référent habilité ouvre le lot concerné dans Santorin, utilise « Déclarer CE » et sélectionne l’APSA à neutraliser. La mention touche tous les candidats du lot : vérifier qu’ils sont tous concernés. Ne pas imposer la création d’un lot séparé lorsque tout le lot est concerné ; le lot séparé relève du traitement particulier de candidats seulement, à faire confirmer. Le texte national encadre l’autorisation ; le bouton et les rôles relèvent du guide technique DIEC. Ne pas assimiler CE à une inaptitude médicale. APSA signifie activité physique, sportive et artistique.\nSource : Note MENE2531948N, 2.d (bac GT) ; circulaire bac professionnel MENE2505383C modifiée ; guide DIEC Aix-Marseille Notation EPS CCF Santorin, février 2024, diapo 20.",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot3_2026_10_12"
+    "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   },
   "data/examens/audit_lot3_2026_10_12/protocole_standard_apres.txt": {
     "title": "Aix : ajout de protocole standard après validation",
@@ -4476,12 +4228,8 @@
     "motifs": [
       "(?=.*protocole)(?=.*standard)(?=.*(?:ajout|cre|nouveau))(?=.*(?:apres|deja))(?=.*(?:valid|commission))"
     ],
-    "reponse_directe_motifs": [
-      "(?=.*protocole)(?=.*standard)(?=.*(?:ajout|cre|nouveau))(?=.*(?:apres|deja))(?=.*(?:valid|commission))"
-    ],
-    "reponse_directe": "À Aix-Marseille, pour cet ajout de protocole standard après validation, créez le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenez l’inspection pédagogique au préalable : elle assure le transfert vers Cyclades selon le circuit académique. Ne modifiez pas librement un protocole standard déjà validé dans Cyclades et ne demandez pas une invalidation générale des protocoles pour réaliser cet ajout. Cela n’établit pas une interdiction nationale de toute invalidation : Strasbourg et Créteil décrivent un circuit d’invalidation puis revalidation, à ne pas transposer à Aix. Distinguez aussi le protocole adapté, qui peut être créé directement dans Cyclades en cours d’année selon le guide. Pour la session concernée, suivre les instructions de l’inspection et du service des examens ; un simple clic d’ajout ne remplace pas le transfert autorisé.\nSource : BA spécial Aix-Marseille 549, session 2026 ; précision du formateur académique du 11 octobre 2026 ; FAQ Strasbourg/Créteil pour la comparaison de portée.",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot3_2026_10_12"
+    "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
   }
 }

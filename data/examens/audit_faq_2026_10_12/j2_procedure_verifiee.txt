@@ -1,4 +1,4 @@
-### FAQ EPS J2 — Verrouillage
+### FAQ EPS — Verrouillage
 [PORTEE: gt,pro,cap]
 L’enseignant demande au chef d’établissement de déverrouiller le lot. Selon le guide cité : portail Santorin établissement > Correction > Liste des lots > cadenas. L’enseignant corrige la note, enregistre, vérifie toutes les données, puis reverrouille le lot. Ne pas laisser le lot ouvert après correction et ne pas échanger les identifiants du chef.
 

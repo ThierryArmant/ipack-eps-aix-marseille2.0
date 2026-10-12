@@ -1,4 +1,4 @@
-### FAQ EPS B1 — Blocage / distribution
+### FAQ EPS — Blocage / distribution
 [PORTEE: gt,pro,cap]
 Aucun enseignant n'est rattaché à la mission de notation EPS : vérifier et créer les convocations dans Imag'in (Convocation par mission, mission « Notation EPS CCF », PDF), puis relancer la distribution. Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
 

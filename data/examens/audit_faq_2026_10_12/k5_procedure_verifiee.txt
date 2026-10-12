@@ -1,4 +1,4 @@
-### FAQ EPS K5 — Saisie / codes
+### FAQ EPS — Saisie / codes
 [PORTEE: gt,pro,cap]
 Dans le guide Santorin EPS cité, « Absent » correspond à l’absence injustifiée et vaut zéro pour l’APSA. « Dispensé » neutralise l’APSA concernée dans le calcul, lorsque la dispense est justifiée selon les règles du diplôme ; ce n’est pas un code générique pour une difficulté administrative. Une inaptitude temporaire ou une force majeure reconnue peut conduire à l’évaluation différée, appelée épreuve de substitution dans le support technique. Ne pas confondre ces codes avec le CE collectif autorisé.
 

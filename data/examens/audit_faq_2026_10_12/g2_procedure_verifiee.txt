@@ -1,0 +1,7 @@
+### FAQ EPS G2 — Affectations
+[PORTEE: gt,pro,cap]
+Menu EPS > Associer les élèves à un protocole : choisir le protocole dans la liste en bout de ligne ou glisser-déposer l'élève, puis enregistrer. Tant qu'un élève n'a pas de protocole, il n'entre pas dans un lot.
+
+Portée : Logiciel.
+Sources datées : Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2 ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027.
+Fiche de contrôle : data/ipack/complement_cyclades_cas_pratiques.txt.

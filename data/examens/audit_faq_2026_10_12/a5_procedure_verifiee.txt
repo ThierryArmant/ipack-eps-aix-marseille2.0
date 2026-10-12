@@ -1,0 +1,7 @@
+### FAQ EPS A5 — Absence d'enseignant / Imag'in
+[PORTEE: gt,pro,cap]
+1) Le convoquer manuellement dans Imag'in sur la mission « Notation EPS CCF » (un signataire doit être défini), puis cliquer sur le picto PDF : cette étape est obligatoire, car c'est elle qui transmet son nom à Santorin. 2) Lui attribuer le lot : réaffectation du lot dans Santorin, ou ajout comme correcteur, ou adresse du protocole corrigée dans Cyclades (Contrôler / réaffecter des protocoles). Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
+
+Portée : DIEC Aix-Marseille.
+Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7.
+Fiche de contrôle : data/ipack/fiches/ipack_044_situation_acces_remplacant_santorin.txt.

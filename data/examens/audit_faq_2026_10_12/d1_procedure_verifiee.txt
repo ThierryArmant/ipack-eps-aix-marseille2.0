@@ -1,0 +1,8 @@
+### FAQ EPS D1 — Inaptitude totale
+[PORTEE: gt]
+Non à l’exclusion du groupe : l’élève reste dans son groupe et doit être associé à un protocole dans Cyclades, même s’il est inapte toute l’année. Le mémo technique Cyclades distingue cette association du traitement de l’inaptitude à la saisie. Si l’inaptitude totale médicalement attestée couvre toute l’année et qu’aucune évaluation n’a été possible, ne pas attribuer zéro : la dispense d’épreuve neutralise le coefficient, selon le circuit académique. Dans le guide Santorin concerné, renseigner « Dispensé » sur les activités avec une appréciation et les justificatifs requis. Ne jamais répondre qu’un candidat inapte doit être laissé sans groupe ou protocole.
+
+Portée : National + logiciel.
+Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2.
+Fiche de contrôle : data/commun/audit60/inaptitude_totale_annee_terminale.txt.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

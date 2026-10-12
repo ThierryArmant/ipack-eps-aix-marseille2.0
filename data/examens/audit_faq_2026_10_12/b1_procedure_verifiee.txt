@@ -1,0 +1,8 @@
+### FAQ EPS B1 — Blocage / distribution
+[PORTEE: gt,pro,cap]
+Aucun enseignant n'est rattaché à la mission de notation EPS : vérifier et créer les convocations dans Imag'in (Convocation par mission, mission « Notation EPS CCF », PDF), puis relancer la distribution. Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
+
+Portée : Logiciel (national).
+Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 3 à 9 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission ».
+Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
+https://ipackeps.ac-creteil.fr/

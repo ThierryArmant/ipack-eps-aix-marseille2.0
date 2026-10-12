@@ -10,20 +10,20 @@ CAS = [
  ("Notre élève inapte apparaît APTE dans Cyclades à l'inscription. Erreur du secrétariat ?", GT, 'inscriptions terminale GT'),
  ("Session 2027 : mon candidat inapte est inscrit apte dans Cyclades, c'est normal ?", GT, 'inscriptions terminale GT'),
  # inscriptions GT (ne doit pas)
- ("Mon élève est inapte total toute l'année de terminale. Je ne le mets dans aucun groupe Cyclades, c'est bien ça ?", GT, None),
+ ("Mon élève est inapte total toute l'année de terminale. Je ne le mets dans aucun groupe Cyclades, c'est bien ça ?", GT, 'FAQ EPS D1'),
  ("Élève inapte : dans quel protocole Cyclades le placer ?", GT, None),
  # candidats absents (doit)
  ("Il manque trois élèves dans la liste des candidats du bac sur Cyclades, est-ce que je dois refaire l'export depuis iPackEPS ?", GT, 'candidats absents'),
  ("Un candidat n'apparaît pas dans Cyclades alors qu'il est dans iPackEPS, que faire ?", PRO, 'candidats absents'),
  # candidats absents (ne doit pas)
- ("Quand je crée mon protocole dans Cyclades, mon APSA n'apparaît pas dans la liste.", GT, None),
+ ("Quand je crée mon protocole dans Cyclades, mon APSA n'apparaît pas dans la liste.", GT, 'FAQ EPS F1'),
  ("Mon élève était absent au CCF, que dois-je mettre dans Cyclades ?", GT, None),
  ("Le référentiel de badminton n'apparaît pas dans la liste Cyclades", PRO, None),
  # protocoles 2026 (doit)
  ("Jusqu'à quand peut-on saisir les protocoles dans iPackEPS cette année à Aix-Marseille, et que se passe-t-il s'ils ne sont pas validés ?", GT, 'protocoles et circuit'),
  ("Quelle est la date limite pour déposer les protocoles ?", PRO, 'protocoles et circuit'),
  # protocoles 2026 (ne doit pas)
- ("Cyclades refuse mon protocole à cause d'une date.", GT, None),
+ ("Cyclades refuse mon protocole à cause d'une date.", GT, 'FAQ EPS F3'),
  ("Il faut ajouter un protocole standard après la validation de la commission. Je demande à la commission d'invalider nos protocoles ?", GT, None),
  ("Je veux changer la date du CCF dans mon protocole, comment faire ?", PRO, None),
  # bac pro une note (doit)
@@ -45,7 +45,7 @@ CAS = [
  ("Je suis seul en EPS : l'enseignant est absent, comment certifier le CCF ? ensuite je saisis dans Santorin", GT, None),
  ("Qu'est-ce qui a changé dans la nouvelle version d'iPackEPS ?", GT, None),
  ("Comment mettre à jour iPackEPS vers la nouvelle version sans perdre mes données ?", PRO, 'Accès iPackEPS'),
- ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, None),
+ ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, 'FAQ EPS C3'),
  ("Le lycée est bloqué par les élèves depuis lundi, le CCF de demain est-il maintenu ?", GT, 'Blocages'),
  ("Bac professionnel : blocage du lycée et CCF annulé", PRO, 'Blocages'),
  ("J'ai 2 enseignants stagiaires qui ont accès à ESTEREL mais qui ne peuvent pas se connecter à iPackEPS, comment débloquer la situation pour entrer nos protocoles ?", PRO, None),

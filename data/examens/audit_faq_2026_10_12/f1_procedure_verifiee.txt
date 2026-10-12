@@ -1,0 +1,7 @@
+### FAQ EPS F1 — Protocoles
+[PORTEE: gt,pro,cap]
+Seules les APSA dont le référentiel ou la FCA a été validé par la commission apparaissent. À Aix, déposer la FCA dans iPackEPS (Dossier certificatif > Dépôt des référentiels), après avoir déclaré l'APSA certificative, et attendre la validation (coche verte).
+
+Portée : Logiciel + académique.
+Sources datées : FAQ Cyclades, académie de Grenoble, octobre 2024 ; BA spécial 549 du 17 octobre 2025 (EPS, session 2026).
+Fiche de contrôle : data/examens/complement_cyclades_protocoles_cas_enseignant.txt.

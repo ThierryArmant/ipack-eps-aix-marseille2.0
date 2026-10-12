@@ -1,0 +1,7 @@
+### FAQ EPS B5 — Blocage / affectations
+[PORTEE: gt,pro,cap]
+Lorsque le coordonnateur a créé tous les protocoles dans Cyclades, vérifiez l’adresse d’examinateur : les protocoles peuvent être rattachés à l’adresse du créateur au lieu de celle de chaque collègue. Le chef d’établissement corrige chaque adresse dans EPS > Contrôler / réaffecter des protocoles, puis contrôle les convocations Imag’in et la distribution ou réaffectation des lots Santorin. Ne pas recréer tous les protocoles pour ce seul problème. Cette procédure technique est décrite dans les guides Lyon et Besançon cités ; vérifier les droits du rôle et la version utilisés.
+
+Portée : Logiciel (national).
+Sources datées : Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 ; Support visio Cyclades/Santorin, académie de Besançon, 15/01/2025.
+Fiche de contrôle : data/ipack/fiches/ipack_011_situation_correction_partagee_santorin.txt.

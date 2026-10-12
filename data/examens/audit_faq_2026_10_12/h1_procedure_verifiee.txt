@@ -1,0 +1,8 @@
+### FAQ EPS H1 — Imag'in
+[PORTEE: gt,pro,cap]
+Oui pour les établissements publics et privés sous contrat : la DIEC crée la mission « Notation EPS CCF » et des convocations sont générées automatiquement d'après STS-web. L'établissement les consulte dans son Imag'in et ajoute ou supprime les siennes si besoin. Les CFA et GRETA n'ont pas d'affectation automatique. Les CFA sont des centres de formation d’apprentis, distincts des GRETA ; ne pas les appeler établissements de formation continue.
+
+Portée : DIEC + logiciel.
+Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 2-3 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission ».
+Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
+https://ipackeps.ac-creteil.fr/

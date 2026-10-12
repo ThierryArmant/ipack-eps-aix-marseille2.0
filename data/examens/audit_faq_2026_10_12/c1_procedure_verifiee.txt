@@ -1,0 +1,8 @@
+### FAQ EPS C1 — Évaluation différée
+[PORTEE: gt]
+Non : un certificat médical couvrant le jour du CCF ne relève pas d’une absence injustifiée à coder « Absent » ou zéro. Pour une inaptitude temporaire attestée, examiner une évaluation adaptée ou différée prévue au protocole. Si l’inaptitude persiste au rattrapage, l’enseignant apprécie les possibilités médicales et les éléments acquis : adaptation, certification sur deux épreuves, éventuellement une seule, ou dispense si les éléments sont trop réduits. Ces possibilités ne sont pas automatiques. Ne pas déclarer un CE collectif pour une inaptitude individuelle.
+
+Portée : National.
+Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e.
+Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

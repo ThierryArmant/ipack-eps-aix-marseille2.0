@@ -1,0 +1,7 @@
+### FAQ EPS J2 — Verrouillage
+[PORTEE: gt,pro,cap]
+L’enseignant demande au chef d’établissement de déverrouiller le lot. Selon le guide cité : portail Santorin établissement > Correction > Liste des lots > cadenas. L’enseignant corrige la note, enregistre, vérifie toutes les données, puis reverrouille le lot. Ne pas laisser le lot ouvert après correction et ne pas échanger les identifiants du chef.
+
+Portée : Logiciel.
+Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (Verrouiller / déverrouiller) ; DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice).
+Fiche de contrôle : data/examens/complement_saisie_bloquee_diagnostic.txt.

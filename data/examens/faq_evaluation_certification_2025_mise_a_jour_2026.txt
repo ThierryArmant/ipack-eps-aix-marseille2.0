@@ -1,0 +1,70 @@
+=== FAQ « ÉVALUATION ET CERTIFICATION » (décembre 2025) — RÉPONSES RETENUES, MISES À JOUR SELON LES TEXTES DE 2026 ===
+Source : FAQ « Évaluation et certification » au format PDF, datée de décembre 2025, lue en entier le 12 octobre 2026. Trois de ses réponses ont été rendues inexactes par les textes de 2026 (note de service du 20 février 2026, MENE2531948N ; circulaires modificatives du 24 octobre 2025, MENE2526357C et MENE2526679C) : elles sont remplacées ci-dessous par la règle actuelle, signalée « MISE À JOUR 2026 ».
+
+### [SITUATION: ABSENCE NON JUSTIFIÉE À UNE ÉPREUVE DE CCF — QUE SAISIR, ET PEUT-ON LE RENVOYER À L'ÉPREUVE DIFFÉRÉE ?]
+- Formulations courantes des collègues : il était absent sans justificatif, je lui donne le rattrapage ; absent injustifié, je mets quoi dans Santorin ; peut-il passer la différée.
+- Non : l'épreuve différée est réservée aux candidats qui attestent de blessures ou de problèmes de santé temporaires authentifiés par l'autorité médicale scolaire, et aux candidats assidus empêchés par un cas de force majeure, avec l'accord du chef d'établissement après consultation de l'équipe.
+- Absence non justifiée à une épreuve (ou à l'épreuve différée) : saisir « Absent » dans Santorin, ce qui vaut zéro pour cette épreuve.
+- Au CAP et au bac professionnel, absence non justifiée à toutes les situations : le candidat est déclaré absent et le diplôme n'est pas délivré.
+
+### [SITUATION: ÉPREUVE DIFFÉRÉE — JUSTE APRÈS LE CCF OU EN FIN D'ANNÉE ?]
+- Formulations courantes des collègues : quand placer le rattrapage ; une date de différée par épreuve ; peut-on prévoir plusieurs dates.
+- Aucune obligation réglementaire : chaque établissement choisit l'organisation qui convient à son contexte.
+- Dans tous les cas, le protocole d'évaluation indique les dates retenues pour les évaluations différées ; une ou plusieurs dates peuvent être prévues. Le protocole prévoit une date par épreuve de CCF, plus la date de l'épreuve différée.
+
+### [SITUATION: BAC GT — UNE ÉPREUVE DU CHAMP 2 DOIT-ELLE SE DÉROULER EN MILIEU INCONNU ?]
+- Formulations courantes des collègues : escalade ou course d'orientation au bac, faut-il un milieu inconnu ; l'incertitude, c'est quoi en CA2.
+- Non. Le référentiel prévoit des éléments variés d'incertitude, en milieu plus ou moins connu, qui demandent d'analyser le jour de l'épreuve la pertinence du choix d'itinéraire. L'incertitude peut être d'une autre nature que le milieu, par exemple événementielle (nature des obstacles, nombre de blocs).
+- En voie professionnelle et au CAP, les circulaires de 2025 ne demandent pas non plus un milieu inconnu ; même principe d'incertitude événementielle.
+
+### [SITUATION: LA CO-ÉVALUATION EST-ELLE RÉMUNÉRÉE ?]
+- Formulations courantes des collègues : je suis convoqué pour co-évaluer dans un autre lycée, suis-je payé ; indemnité de co-évaluation.
+- Au bac général et technologique, la co-évaluation est obligatoire, mais aucun texte ne prévoit de rémunération : elle entre dans les obligations de service des enseignants.
+- La question ne se pose pas au bac professionnel ni au CAP, où la co-évaluation n'est pas réglementaire, ni au collège.
+
+### [SITUATION: BAC GT — L'AFL3 PEUT-IL ÊTRE ÉVALUÉ À L'ÉCRIT OU À L'ORAL ?]
+- Formulations courantes des collègues : fiche de jugement pour l'AFL3 ; évaluer le rôle de spectateur ; contrôle écrit en EPS.
+- Oui, s'il s'agit d'outils utilisés directement en lien avec l'activité motrice : par exemple une fiche de jugement en gymnastique, ou l'effet produit par une composition exprimé à l'écrit ou à l'oral en danse. Ces outils ne doivent pas se réduire à des devoirs sur table ou à des contrôles de connaissances.
+
+### [SITUATION: BAC GT — RÉPARTITION DES POINTS ENTRE L'AFL2 ET L'AFL3 : QUAND L'ÉLÈVE CHOISIT-IL, ET LES EXIGENCES CHANGENT-ELLES ?]
+- Formulations courantes des collègues : quand les élèves annoncent-ils leur répartition ; peut-il changer d'avis ; exigence moindre s'il choisit 2 points.
+- Le moment du choix est fixé par l'équipe et peut varier selon les APSA ; il faut laisser aux élèves le temps d'expérimenter, et l'on peut leur permettre de modifier leur choix pendant la séquence.
+- Les exigences et les observables sont identiques quelle que soit la répartition choisie : le référentiel entériné par l'équipe s'applique à tous.
+
+### [SITUATION: BAC GT — PEUT-ON PROPOSER UN AUTRE FORMAT D'ÉPREUVE QUE CELUI DONNÉ EN EXEMPLE (RELAIS 2 × 50 M AU LIEU DE 4 × 50 M) ?]
+- Formulations courantes des collègues : le seuil national est donné pour le 4 × 50 m ; peut-on faire un 2 × 50 m ; autre distance en champ 1.
+- Oui, si l'épreuve respecte les principes de conception du référentiel national : les seuils nationaux ne sont donnés que pour quelques exemples ; l'équipe construit alors un barème cohérent avec les seuils des épreuves du même type d'effort.
+
+### [SITUATION: BAC GT — PEUT-ON TRAITER UNE ACTIVITÉ ACADÉMIQUE DANS UN AUTRE CHAMP D'APPRENTISSAGE ?]
+- Formulations courantes des collègues : le cross-training est en CA5 dans la liste académique, nous voulons le faire en CA1 ; changer le champ d'une activité.
+- Oui, mais l'activité devient alors une activité d'établissement : son référentiel doit répondre au champ visé, et la FCA doit être validée par la commission académique l'année qui précède la mise en œuvre. Rappel : une seule activité d'établissement par lycée, avec l'accord préalable de l'inspection.
+
+### [SITUATION: BAC GT — UN ÉLÈVE SCOLARISÉ PEUT-IL PASSER L'OPTION EPS EN PONCTUEL ?]
+- Formulations courantes des collègues : notre lycée n'a pas l'option, peut-il la passer en ponctuel ; option facultative en candidat libre.
+- Non : un candidat scolarisé ne peut présenter l'option EPS qu'en CCF, si l'établissement la propose. Les épreuves optionnelles ponctuelles sont réservées aux candidats libres (individuels) et aux sportifs de haut niveau qui en font la demande en complément de l'épreuve obligatoire ponctuelle.
+
+### [SITUATION: MISE À JOUR 2026 — LE CONTRÔLE ADAPTÉ CONCERNE-T-IL AUSSI L'INAPTITUDE TEMPORAIRE ?]
+- Formulations courantes des collègues : un élève blessé quelques semaines peut-il avoir une épreuve adaptée ; le contrôle adapté c'est seulement pour le handicap ; inaptitude temporaire et épreuve adaptée.
+- Oui, depuis les textes de 2026. Au bac général et technologique, le contrôle adapté s'adresse aux candidats en situation de handicap ou d'inaptitude partielle permanente OU temporaire (note de service du 20 février 2026, partie 2.e). Même évolution au bac professionnel et au CAP (circulaires modificatives du 24 octobre 2025).
+- Attention : la FAQ de décembre 2025 disait le contraire ; cette réponse est périmée.
+
+### [SITUATION: MISE À JOUR 2026 — INAPTITUDE PARTIELLE TEMPORAIRE EN COURS D'ANNÉE : FAUT-IL UN PROTOCOLE VALIDÉ PAR LA COMMISSION POUR ADAPTER L'ÉPREUVE ?]
+- Formulations courantes des collègues : élève blessé après la commission, peut-on lui adapter l'épreuve ; faut-il refaire valider ; protocole adapté après la commission.
+- Non, il n'y a pas de nouvelle validation. L'enseignant du groupe peut « adapter l'épreuve si l'inaptitude est partielle » : les adaptations sont définies par l'établissement à partir des indications fournies par le médecin, et transmises POUR INFORMATION à la commission académique (bac GT : note de service du 20 février 2026, 2.e ; bac pro et CAP : circulaires du 24 octobre 2025).
+- Les autres possibilités restent : évaluation différée, certification sur deux épreuves (ou une), ou « dispensé » si les éléments sont trop réduits.
+- Dans les logiciels : un protocole adapté peut être créé dans Cyclades à tout moment de l'année.
+- En revanche, pour un handicap ou une inaptitude partielle PERMANENTE, les propositions d'adaptation sont soumises à la commission académique, en début d'année.
+
+### [SITUATION: MISE À JOUR 2026 — BAC GT, SPORTIF DE HAUT NIVEAU : SUR QUELLE LISTE ET À QUEL MOMENT JUSTIFIER LE STATUT ?]
+- Formulations courantes des collègues : liste de janvier ; il est entré sur liste en juillet ; quel statut ouvre le 20/20.
+- Le statut se justifie au moment de l'inscription au baccalauréat, sur la base de la liste publiée en janvier OU juillet de la même année civile (note de service du 20 février 2026). Aucune modification de statut n'est acceptée après la fin des inscriptions.
+- La FAQ de décembre 2025 ne citait que la liste de janvier : cette précision est périmée.
+
+### [SITUATION: COEFFICIENT DE L'EPS AU CAP ET AU BACCALAURÉAT PROFESSIONNEL]
+- Formulations courantes des collègues : combien compte l'EPS au CAP ; coefficient de l'EPS en bac pro ; l'EPS a-t-elle un gros poids.
+- CAP : « éducation physique et sportive : coefficient 1 » (arrêté du 30 août 2019 fixant les unités générales du CAP, article 1).
+- Baccalauréat professionnel : « épreuve, unité d'éducation physique et sportive : coefficient 1 » (arrêté du 17 juin 2020 relatif aux unités générales du baccalauréat professionnel, article 1).
+- Pour comparaison : au baccalauréat général et technologique, coefficient 6 dans le contrôle continu.
+- Textes lus dans leur version publiée au Bulletin officiel ; l'arrêté CAP a été modifié le 5 mai 2025, un mémento académique de 2026 indique toujours le coefficient 1.
+- https://www.education.gouv.fr/bo/19/Hebdo35/MENE1921757A.htm
+- https://www.education.gouv.fr/bo/20/Hebdo30/MENE2015195A.htm

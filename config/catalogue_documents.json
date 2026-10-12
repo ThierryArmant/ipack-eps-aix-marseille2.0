@@ -3343,5 +3343,11 @@
     "statut": "guide_national_lu_2026-10-11",
     "examens": [],
     "url": "https://www.ac-reunion.fr/media/53686/download"
+  },
+  "data/examens/faq_evaluation_certification_2025_mise_a_jour_2026.txt": {
+    "title": "FAQ Évaluation et certification (décembre 2025), mise à jour selon les textes de 2026, et coefficients CAP / bac pro",
+    "statut": "faq_lue_en_entier_maj_textes_2026_2026-10-12",
+    "examens": [],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
   }
 }

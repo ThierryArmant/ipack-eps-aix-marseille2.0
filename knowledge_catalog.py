@@ -98,6 +98,13 @@ def clarification(question, public):
     individual_value = bool(re.search(
         r'\b(?:di|disp|ab|abs|zero|0)\b(?! (?:candidat|eleve|lot))|je (?:mets|dois mettre)|'
         r'(?:quelle|quel|comment).{0,25}(?:note|code|statut).{0,25}(?:mettre|saisir|choisir)', q))
+    # Une question sur le certificat lui-même (arrivé en retard, rétroactif, valable, modèle) ne porte pas
+    # sur le choix d'une note : la demande de précisions médicales la détournait (audit en ligne, D8).
+    certificate_question = bool(re.search(
+        r'certificat.{0,80}(?:arriv|retard|tardi|apres|retroacti|antidat|valable|valide|accept|recevable|'
+        r'conforme|modele|date|delai)|(?:retroacti|antidat|en retard).{0,60}certificat', q))
+    if certificate_question and not individual_value:
+        return ''
     procedure = bool(re.search(
         r'santorin|cyclades|protocole|lot|reinitialis|reaffect|'
         r'qui.{0,35}(?:choisi|decid|valid|coch)|cfa|apprenti|'

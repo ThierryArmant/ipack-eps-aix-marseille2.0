@@ -2768,11 +2768,13 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
             "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
             "</div>"
         ) if mode == "textes" else (
+            # Renvoi vers l'assistance iPackEPS : seulement pour les questions iPackEPS. Pour Cyclades, Santorin
+            # ou Imag'in (onglet Examens), ce n'est pas le bon interlocuteur (audit en ligne du 12/10/2026).
             "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
             "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
             "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
             "</div>"
-        )
+        ) if mode == "ipack" else ""
 
         # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
         bloc_sources = ""

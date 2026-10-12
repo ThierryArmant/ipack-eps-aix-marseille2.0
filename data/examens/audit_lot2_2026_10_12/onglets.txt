@@ -1,0 +1,6 @@
+### Cyclades/Santorin : une fenêtre pour éviter les erreurs d’import
+[PORTEE: gt,pro,cap]
+Travaillez dans une seule fenêtre Cyclades ou Santorin, avec un seul examen actif, pour éviter les erreurs d’importation entre sessions, notamment bac professionnel et CAP. Importez dans le bon examen, puis fermez la fenêtre avant de changer d’examen. C’est une précaution technique décrite dans les guides ; ne la présentez ni comme une interdiction réglementaire nationale ni comme l’impossibilité technique d’ouvrir plusieurs onglets. Si un import est déjà parti dans le mauvais examen, signalez-le au service des examens (DIEC à Aix-Marseille) ; ne supprimez pas arbitrairement les protocoles ou les lots pour réparer.
+
+Source : FAQ Strasbourg du 29 mars 2024 ; guide Normandie 2025 ; complément Santorin, section plusieurs onglets.
+https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf

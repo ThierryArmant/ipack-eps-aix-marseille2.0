@@ -4294,5 +4294,121 @@
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12",
     "statut": "reponse_relue_audit_lot1_2026_10_12"
+  },
+  "data/examens/audit_lot2_2026_10_12/onglets.txt": {
+    "title": "Cyclades/Santorin : une fenêtre pour éviter les erreurs d’import",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "motifs": [
+      "(?=.*(?:cyclades|santorin))(?=.*(?:deux|plusieurs|2))(?=.*(?:onglets?|fenetres?))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:cyclades|santorin))(?=.*(?:deux|plusieurs|2))(?=.*(?:onglets?|fenetres?))"
+    ],
+    "reponse_directe": "Travaillez dans une seule fenêtre Cyclades ou Santorin, avec un seul examen actif, pour éviter les erreurs d’importation entre sessions, notamment bac professionnel et CAP. Importez dans le bon examen, puis fermez la fenêtre avant de changer d’examen. C’est une précaution technique décrite dans les guides ; ne la présentez ni comme une interdiction réglementaire nationale ni comme l’impossibilité technique d’ouvrir plusieurs onglets. Si un import est déjà parti dans le mauvais examen, signalez-le au service des examens (DIEC à Aix-Marseille) ; ne supprimez pas arbitrairement les protocoles ou les lots pour réparer.\nSource : FAQ Strasbourg du 29 mars 2024 ; guide Normandie 2025 ; complément Santorin, section plusieurs onglets.",
+    "url": "https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot2_2026_10_12"
+  },
+  "data/examens/audit_lot2_2026_10_12/inscription_inaptitude_gt.txt": {
+    "title": "Aix : inscriptions terminale GT, APTE en CCF et inaptitude médicale",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "motifs": [
+      "^(?!.*(?:ponctuel|candidat individuel|candidat libre)).*(?=.*(?:inscri|coch))(?=.*(?:inapte|inaptitude))(?=.*(?:bac|cyclades|eps))"
+    ],
+    "reponse_directe_motifs": [
+      "^(?!.*(?:ponctuel|candidat individuel|candidat libre)).*(?=.*(?:inscri|coch))(?=.*(?:inapte|inaptitude))(?=.*(?:bac|cyclades|eps))"
+    ],
+    "reponse_directe": "À Aix-Marseille, pour l’inscription EPS en CCF, cochez « APTE » dans Cyclades, y compris si un certificat médical atteste une inaptitude. Le BA spécial 565 de la session 2027 distingue cette inscription du traitement de l’inaptitude par la commission académique EPS en fin de terminale. Un candidat médicalement inapte inscrit APTE : ce n'est pas une erreur. Cela ne remet pas en cause le constat médical. Le secrétariat et la direction vérifient l’inscription et transmettent le dossier selon le circuit académique ; le professeur n’inscrit pas de sa propre initiative le candidat « Inapte » pour neutraliser son coefficient. Ne pas imposer un certificat couvrant toute l’année pour répondre à la seule question d’inscription : la durée attestée servira à déterminer l’adaptation ou la dispense éventuelle. Ne pas confondre inscription, association au protocole et saisie finale dans Santorin. Cette consigne locale de CCF ne doit pas être transposée automatiquement au ponctuel ou à une autre académie.\nSource : BA spécial Aix-Marseille 565 du 9 octobre 2026, session 2027, dispositions EPS ; fiche aix_inscriptions_2027_gt.",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA565S/BASPE_565.pdf",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot2_2026_10_12"
+  },
+  "data/examens/audit_lot2_2026_10_12/acces_notes_aix.txt": {
+    "title": "Aix : accès enseignant à la saisie EPS dans Santorin",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "motifs": [
+      "^(?!.*(?:date limite|jusqu.a quand|deposer|saisir les protocoles))(?=.*(?:aix|marseille))(?=.*(?:par ou|acces|pass|portail))(?=.*(?:sais|notes?))(?=.*\\beps\\b)"
+    ],
+    "reponse_directe_motifs": [
+      "^(?!.*(?:date limite|jusqu.a quand|deposer|saisir les protocoles))(?=.*(?:aix|marseille))(?=.*(?:par ou|acces|pass|portail))(?=.*(?:sais|notes?))(?=.*\\beps\\b)"
+    ],
+    "reponse_directe": "À Aix-Marseille, passez par Imag’in depuis ESTEREL, rubrique Examens et concours, puis « Portail d’accès aux missions ». Sélectionnez la ligne « Notation EPS CCF » de l’examen concerné : il y a une ligne par examen. Dans Santorin, choisissez de nouveau l’examen puis ouvrez votre lot. L’accès direct Imag’in enseignant décrit dans le support est https://appli.ac-aix-marseille.fr/imagin/enseignant. La direction ou la personne habilitée vérifie la convocation et l’affectation si la mission ou le lot manque. Les notes certificatives se saisissent dans Santorin, pas dans iPackEPS. Il s’agit du circuit technique académique ; aucun autre calcul de moyenne ni calendrier ne doit être ajouté pour répondre à cette question d’accès.\nSource : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 1-2 ; guide académique des tutoriels examens.",
+    "url": "https://github.com/Pole-Examens/tutoriels-examens",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot2_2026_10_12"
+  },
+  "data/examens/audit_lot2_2026_10_12/differe_calendrier.txt": {
+    "title": "CCF : positionnement des évaluations différées au protocole",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "motifs": [
+      "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))"
+    ],
+    "reponse_directe": "Il n’existe pas de date nationale imposant le différé juste après chaque CCF plutôt qu’en fin d’année. L’établissement choisit une organisation adaptée à son contexte, avec l’équipe EPS et la direction. Le protocole certificatif indique la ou les dates retenues et suit le circuit académique de validation. Ce choix reste soumis au calendrier de la session et aux possibilités de formation et d’évaluation ; il ne se décide pas hors protocole par un professeur seul. Santorin ne fixe pas les dates. Ne pas confondre le protocole certificatif EPS avec le projet général d’évaluation du lycée. Pour une échéance locale précise, vérifier le diplôme, l’académie et la session.\nSource : FAQ nationale Évaluation et certification, positionnement des épreuves différées ; textes EPS propres au diplôme et protocole académique.",
+    "url": "https://eduscol.education.gouv.fr/media/111129/download",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot2_2026_10_12"
+  },
+  "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
+    "title": "Bac GT CCF : absence injustifiée distincte de force majeure",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "motifs": [
+      "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))"
+    ],
+    "reponse_directe": "Au bac général et technologique, une absence effectivement non justifiée à un CCF ne donne pas droit à l’évaluation différée et entraîne zéro pour cette épreuve, non éliminatoire. Vérifiez d’abord les justificatifs : pour un candidat assidu empêché par un cas de force majeure, le chef d’établissement peut autoriser un différé après consultation de l’équipe pédagogique ; ne pas remplacer cette décision par une validation automatique du professeur ou par une exigence générale d’accord du recteur. Une inaptitude temporaire médicalement attestée relève de l’adaptation ou du différé prévu au protocole. Pour l’absence injustifiée, appliquer le code de saisie du guide académique (la mention « Absent » traduit le zéro dans le guide Santorin concerné). Ces règles GT ne doivent pas être étendues aux absences à toutes les épreuves du bac professionnel ou du CAP.\nSource : Note du 20 février 2026 MENE2531948N, parties 2.d et 2.e ; guide DIEC Santorin EPS.",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot2_2026_10_12"
   }
 }

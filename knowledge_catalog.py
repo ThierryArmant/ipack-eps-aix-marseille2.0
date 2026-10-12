@@ -105,6 +105,15 @@ def clarification(question, public):
         r'conforme|modele|date|delai)|(?:retroacti|antidat|en retard).{0,60}certificat', q))
     if certificate_question and not individual_value:
         return ''
+    # Règle générale (AFL2/AFL3 seuls) ou situation déjà décrite (nombre de notes disponibles) : le texte
+    # national permet d'exposer les possibilités ; la demande de précisions bloquait la réponse (EX091, EX106).
+    general_rule = bool(re.search(r'afl ?2.{0,40}afl ?3', q))
+    facts_given = bool(re.search(
+        r"qu.une (?:seule )?note|une seule note|une note sur (?:deux|trois)|deux notes|"
+        r"\bdi ?\+ ?di\b|di partout|(?:inapte|dispense)\w* sur (?:une|deux|1|2|les deux) (?:epreuves?|activites?)", q))
+    exam_named = bool(re.search(r'\b(cap|dnb|brevet|college|lgt|gt)\b|bac(calaureat)?\s+(pro|professionnel|general|technologique)', q))
+    if (general_rule or facts_given) and (public != 'Lycée Pro / CAP' or exam_named):
+        return ''
     procedure = bool(re.search(
         r'santorin|cyclades|protocole|lot|reinitialis|reaffect|'
         r'qui.{0,35}(?:choisi|decid|valid|coch)|cfa|apprenti|'

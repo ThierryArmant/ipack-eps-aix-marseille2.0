@@ -44,3 +44,23 @@ class AuditEnLigneTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ApresConversionTests(unittest.TestCase):
+    """Contrôles après la conversion des réponses en dur (EX091, EX106, EX115, EX116)."""
+
+    def test_ex091_ex106_faits_donnes_ou_regle_generale_sans_demande_de_precisions(self):
+        self.assertEqual(kc.clarification("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT), '')
+        self.assertEqual(kc.clarification("Mon élève inapte peut faire l'AFL2 et l'AFL3 sans pratiquer. Je le note seulement là-dessus ?", GT), '')
+        self.assertTrue(kc.clarification('Il est inapte : je saisis DI ou zéro ?', GT))
+        self.assertTrue(kc.clarification('Un élève inapte sur une épreuve du CCF, quelle note finale ?', 'Lycée Pro / CAP'))
+
+    def test_ex115_adaptation_temporaire_sans_validation_prealable(self):
+        texte = kc.delivered_text("Entorse de la cheville : l'élève peut faire un badminton adapté. Faut-il un nouveau protocole validé par la commission avant de l'évaluer ?", GT, 'examens')
+        self.assertIn('pas de nouvelle validation préalable', texte)
+        self.assertIn("commission académique d’harmonisation et de proposition de notes (CAHPN)", lire('data/commun/audit60/gt_regles_decisives.txt'))
+
+    def test_ex116_remise_tardive_distincte_d_un_certificat_etabli_apres(self):
+        texte = lire('data/commun/audit60/aix_certificats_2026.txt')
+        self.assertIn('la remise tardive ne suffit pas à le refuser', texte)
+        self.assertIn("Le certificat a été établi après le CCF : il n'a pas d'effet rétroactif", texte)

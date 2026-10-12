@@ -1,0 +1,11 @@
+### FAQ EPS — Protocole Cyclades créé avec le mauvais groupe d'élèves
+[PORTEE: gt,pro,cap]
+Dans Cyclades, le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé : le champ grisé est normal.
+- Si tout le groupe est faux et que les protocoles ne sont pas encore validés : supprimer le protocole, puis le recréer avec le bon groupe élève.
+- Si les protocoles sont déjà validés, la suppression directe n'est plus possible. À Aix-Marseille, ne pas demander d'invalidation ni de réouverture : créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique au préalable ; c'est elle qui assure le transfert vers Cyclades.
+- Si seuls quelques élèves sont mal placés : ne rien supprimer, les déplacer dans le bon protocole par [EPS] > [Associer les élèves à un protocole], puis enregistrer.
+Rien dans le texte national ne traite ce point : c'est une question de fonctionnement du logiciel, avec une consigne académique pour les protocoles déjà validés.
+
+Portée : Logiciel + académique (Aix-Marseille pour les protocoles validés).
+Sources datées : FAQ Cyclades, académie de Grenoble, octobre 2024 ; précision du formateur iPackEPS de l'académie, 11 octobre 2026.
+Fiche de contrôle : data/examens/complement_cyclades_protocoles_cas_enseignant.txt.

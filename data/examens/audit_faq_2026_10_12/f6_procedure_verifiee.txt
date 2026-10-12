@@ -1,6 +1,10 @@
 ### FAQ EPS — Protocoles adaptés : écart texte / Cyclades
 [PORTEE: gt,pro]
-Ne pas confondre l’autorisation réglementaire et la saisie dans Cyclades. Les textes du bac peuvent autoriser, pour des cas particuliers de handicap, une seule épreuve adaptée. Mais les mémos Cyclades cités décrivent un protocole adapté d’au moins deux APSA au bac GT/pro et d’au moins une au CAP. Je ne peux donc pas affirmer que votre version accepte une seule APSA au bac. Faites traiter l’écart par la DIEC et l’inspection pour ce candidat ; ne pas ajouter une APSA fictive ni inventer de contournement.
+Trois niveaux à distinguer :
+- Texte national : pour des cas très particuliers de handicap, le texte du bac permet de proposer une seule épreuve adaptée, le candidat étant évalué sur une seule note (note de service du 20 février 2026, 2.e). C’est donc réglementairement possible.
+- Logiciel : les mémos Cyclades consultés décrivent un protocole adapté d’au moins deux APSA au bac GT et pro (au moins une au CAP). Ce minimum vient du logiciel, pas du texte. La version de Cyclades en service n’a pas été vérifiée : il faut essayer la saisie, et si elle est refusée, le signaler.
+- Démarche : en cas d’écart entre le texte et la saisie, l’établissement fait traiter ce cas par la DIEC et l’inspection pédagogique EPS. Ne pas ajouter une APSA fictive pour passer le contrôle du logiciel.
+Aucune consigne académique d’Aix propre à ce cas n’a été trouvée.
 
 Portée : Logiciel vs texte national.
 Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.e) ; FAQ Cyclades, académie de Grenoble, octobre 2024 ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2.

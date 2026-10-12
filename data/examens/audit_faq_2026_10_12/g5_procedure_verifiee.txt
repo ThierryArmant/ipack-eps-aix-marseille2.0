@@ -1,0 +1,14 @@
+### FAQ EPS — Santorin : élève dans le mauvais lot
+[PORTEE: gt,pro,cap]
+Un élève placé dans le mauvais lot se déplace dans Santorin, sans toucher au protocole ni à Cyclades.
+- Qui : le chef d'établissement ou l'enseignant référent Santorin de l'établissement. Un enseignant non référent le leur demande.
+- Chemin : [Distribution] > [Lots] > flèche du lot de départ > onglet [Candidats] > sélectionner l'élève > [Déplacer vers un lot existant] > choisir le lot d'arrivée > [Déplacer].
+- Utiliser un lot existant : il n'y a pas à créer un nouveau lot ni à supprimer l'élève de l'examen.
+- Cas différent : si l'élève est dans le mauvais protocole (mauvaises APSA), corriger d'abord l'association dans Cyclades, [EPS] > [Associer les élèves à un protocole].
+- Ne pas confondre avec la réaffectation d'un lot entier à un autre enseignant.
+Aucun texte national ni consigne académique ne traite ce point : c'est le fonctionnement de Santorin.
+
+Portée : Logiciel.
+Sources datées : tutoriel vidéo du Pôle examens d'Aix-Marseille « Déplacer un candidat d'un lot à un autre » ; formation saisie des notes EPS 2025, académie de Versailles.
+Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
+https://www.youtube.com/watch?v=WKbg51eUQVs

@@ -119,3 +119,27 @@ class SujetsManquantsTests(unittest.TestCase):
         for q in ["Un élève arrive en retard au CCF, peut-il passer l'épreuve ?", "Peut-on donner leurs notes de CCF aux élèves ?"]:
             self.assertIn('sans consigne écrite trouvée', self.titres(q))
         self.assertIn('sans inventer de règle', kc.delivered_text("Un élève redouble la terminale, garde-t-il ses notes d'EPS ?", GT, 'examens'))
+
+
+class Lot5Tests(unittest.TestCase):
+    """Retours du lot 5 (EX201-EX250)."""
+
+    def test_j3_cloturer_n_est_pas_deverrouiller(self):
+        q = "Un collègue a oublié de clôturer son lot avant la date limite. Le chef peut-il le faire ?"
+        texte = kc.delivered_text(q, GT, 'examens')
+        self.assertIn('tous les candidats du lot doivent avoir une saisie', texte)
+        self.assertIn('Ici le lot est ouvert : il s\'agit de le clôturer, pas de le déverrouiller.', texte)
+
+    def test_j1_verrouiller_une_seule_fois(self):
+        self.assertIn('une seule fois', kc.delivered_text("Dois-je verrouiller mon lot dès que j'ai saisi la note du premier CCF ?", GT, 'examens'))
+
+    def test_j2_seul_le_chef_deverrouille(self):
+        self.assertIn('L’enseignant ne peut pas déverrouiller son lot', kc.delivered_text("J'ai verrouillé mon lot par erreur et je dois corriger une note.", GT, 'examens'))
+
+    def test_g3_hors_siecle_association_n_est_pas_inscription(self):
+        texte = kc.delivered_text("Nous sommes un lycée français à l'étranger : aucun élève dans iPackEPS. Comment nos élèves arrivent-ils dans Cyclades ?", GT, 'examens')
+        self.assertIn("Associer un candidat à un protocole n'est pas l'inscrire à l'examen", texte)
+
+    def test_ex091_reponse_en_tete(self):
+        texte = kc.delivered_text("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT, 'examens')
+        self.assertTrue(texte.split('\n')[2].startswith('Les deux saisies sont possibles'))

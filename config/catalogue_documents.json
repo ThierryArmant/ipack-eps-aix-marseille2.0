@@ -4359,5 +4359,62 @@
       "redoubl",
       "\\bbts\\b"
     ]
+  },
+  "data/examens/audit_faq_2026_10_12/j3_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot5_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié",
+    "motifs": [
+      "(?=.*(?:clotur|ferm|verrouill))(?=.*lot)(?=.*(?:oubli|a la place|absent|parti|pas (?:clotur|verrouill|ferm)|n.a pas (?:clotur|verrouill|ferm)|reste ouvert|toujours ouvert|ouvert))(?!.*deverrouill)"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/j1_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot5_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : quand verrouiller son lot",
+    "motifs": [
+      "^(?!.*(?:deverrouill|oubli|a la place|par erreur|ouvert)).*?(?:quand|des que|apres (?:chaque|le premier|la premiere)|tout de suite|faut-il|dois-je|doit-on).{0,60}verrouill"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/g3_procedure_verifiee.txt": {
+    "title": "FAQ EPS — Établissement hors SIECLE ou à l'étranger : élèves dans Cyclades",
+    "statut": "reponse_relue_audit_lot5_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "motifs": [
+      "(?=.*(?:etranger|aefe|hors siecle|\\bcfa\\b|greta|\\bmfr\\b))(?=.*(?:aucun eleve|pas d.eleves?|sans eleves?|eleves? (?:n.apparaiss|absents?|manqu)|comment (?:nos|les) eleves|arrivent))"
+    ]
   }
 }

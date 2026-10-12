@@ -42,7 +42,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: FAUT-IL VERROUILLER SON LOT TOUT DE SUITE APRÈS LA SAISIE ?]
 - Mots-clés : verrouiller le lot, valider le lot, clôturer, commission d'établissement, correction après verrouillage.
 - Formulations courantes des collègues : quand verrouiller mon lot ; j'ai fini de saisir, je verrouille ; peut-on encore corriger après avoir verrouillé.
-- C'est l'enseignant qui verrouille son lot.
+- C'est l'enseignant qui verrouille son lot, une seule fois, quand TOUTES les notes du lot sont saisies et vérifiées, évaluations différées (rattrapages) comprises. On ne verrouille pas après chaque CCF.
 - Conseil : attendre que l'équipe se soit réunie pour examiner les notes et les cas particuliers (commission ou concertation d'établissement) avant de verrouiller, car une fois le lot verrouillé, seul le chef d'établissement peut le déverrouiller. (Source : support Besançon 2025.)
 - La date limite de verrouillage est fixée chaque année par l'académie : se reporter au calendrier de la DEC de votre académie.
 
@@ -75,7 +75,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: UNE ACTIVITÉ N'A PAS PU ÊTRE ÉVALUÉE POUR TOUT UN GROUPE — CAS EXCEPTIONNEL (CE)]
 - Mots-clés : cas exceptionnel, CE, installation indisponible, tout le groupe, activité non évaluée.
 - Formulations courantes des collègues : la piscine a fermé, je n'ai pas pu évaluer la natation pour ma classe ; que faire si une épreuve est impossible pour tout le groupe.
-- Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe pour une raison technique ou matérielle (installation indisponible, professeur absent non remplacé), l'établissement demande l'autorisation préalable de la commission académique d'EPS, par l'inspection pédagogique et la division des examens. Le cas exceptionnel n'est pas une réponse à l'inaptitude médicale ou à l'absence d'un élève : ces situations se traitent par l'épreuve différée, la dispense ou les règles d'absence du diplôme. (Sources : support Besançon 2025 ; support de la division des examens d'Aix-Marseille, 2024.)
+- Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe pour une raison technique ou matérielle (installation indisponible, professeur absent non remplacé), l'établissement demande l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), par l'inspection pédagogique et la division des examens. Le cas exceptionnel n'est pas une réponse à l'inaptitude médicale ou à l'absence d'un élève : ces situations se traitent par l'épreuve différée, la dispense ou les règles d'absence du diplôme. (Sources : support Besançon 2025 ; support de la division des examens d'Aix-Marseille, 2024.)
 - Manipulation dans Santorin, une fois l'accord obtenu : ouvrir le lot, cliquer sur le bouton [Déclarer cas exceptionnel] en haut du lot, puis cliquer sur l'APSA à écarter dans le protocole. La mention CE s'applique à TOUS les élèves du lot : elle neutralise l'activité, comme une dispense. Si la même raison technique ou matérielle ne touche qu'une partie du groupe (par exemple un élève arrivé après la fermeture de l'installation), ne pas déclarer le CE sur tout le lot : le chef d'établissement ou le référent Santorin place d'abord le ou les élèves concernés dans un lot à part, et le CE est déclaré sur ce lot (tutoriel officiel iPackEPS, article 95).
 
 ### [SITUATION: INSTALLATION FERMÉE OU PROFESSEUR NON REMPLACÉ — UN SEUL ÉLÈVE (OU QUELQUES-UNS) N'A PAS PU ÊTRE ÉVALUÉ]
@@ -83,7 +83,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Formulations courantes des collègues : la piscine est fermée, un seul de mes élèves n'a pas pu être évalué ; un élève arrivé après la fermeture de l'installation n'a pas de note ; le CE ne concerne qu'un élève de mon lot, comment faire.
 - La procédure existe : ne pas répondre que la base ne dit rien pour un élève isolé.
 - Condition : la raison est externe à l'élève (installation indisponible, professeur absent non remplacé, séquence trop courte). Si la raison est médicale ou une absence, ce n'est pas un cas exceptionnel : épreuve différée, dispense ou règles d'absence du diplôme.
-- Étape 1 : demander l'autorisation préalable de la commission académique d'EPS, par l'inspection pédagogique et la division des examens.
+- Étape 1 : demander l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), par l'inspection pédagogique et la division des examens.
 - Étape 2 : ne pas déclarer le CE sur le lot entier. Le chef d'établissement, ou l'enseignant référent Santorin, crée un lot à part et y place uniquement le ou les élèves concernés.
 - Étape 3 : sur ce lot à part, avant la saisie des notes, cliquer sur [Déclarer CE] et sélectionner l'APSA à écarter. Les autres élèves, restés dans le lot d'origine, sont notés normalement.
 - (Tutoriel officiel iPackEPS, article 95, cas d'un seul élève du lot.)

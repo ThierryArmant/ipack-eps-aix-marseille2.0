@@ -35,6 +35,15 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 - La déclinaison locale des référentiels nationaux est validée par la commission académique d'harmonisation et de proposition de notes (CAHPN), présidée par le recteur. Cette commission valide les protocoles, harmonise les notes et établit les rapports statistiques.
 - PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
+### [SITUATION: BAC GT — L'ÉTABLISSEMENT NE PEUT PAS PROPOSER UNE, OU DEUX, DES TROIS ACTIVITÉS DE L'ENSEMBLE CERTIFICATIF (note de service du 20 février 2026, 2.d)]
+- Mots-clés : impossibilité technique ou matérielle, installation indisponible, activité impossible, deux activités au lieu de trois, une seule activité réalisable, examen ponctuel terminal, autorisation du recteur, expertise de l'inspection, cas exceptionnel.
+- Formulations courantes des collègues : nous ne pourrons réaliser que l'une des trois activités ; une activité est impossible cette année ; deux activités ne peuvent pas avoir lieu ; peut-on certifier sur une seule activité au bac général ; la piscine et le gymnase sont fermés.
+- Deux situations distinctes, prévues par la note de service (2.d, « Cas particulier relatif aux conditions techniques ou matérielles ») :
+  1. UNE activité impossible : le recteur peut exceptionnellement autoriser l'établissement à proposer deux activités au lieu de trois, après expertise de l'inspection pédagogique. Dans Santorin, une fois l'accord obtenu, l'activité est neutralisée par « Déclarer CE » sur le lot.
+  2. AU MOINS DEUX activités impossibles (une seule réalisable), « impossibilité majeure » attestée par les corps d'inspection : l'établissement peut demander au recteur l'autorisation d'inscrire ses élèves en examen ponctuel terminal. Au bac GT, le texte ne prévoit pas de certification collective sur une seule activité.
+- Dans les deux cas, la demande est faite par la direction, à l'avance, auprès de l'inspection et du service des examens : l'enseignant ne décide pas seul, et on ne saisit ni DI ni Absent pour toute la classe.
+- Ne pas transposer : en bac professionnel, le texte prévoit en plus, en situation extrême, une évaluation sur une seule activité après expertise de l'inspection (circulaire MENE2505383C) ; au CAP, le recteur peut autoriser une évaluation sur une seule des deux activités (circulaire MENE2517122C).
+
 ### [SITUATION: ABSENCE NON JUSTIFIÉE À UNE ÉPREUVE DE CCF AU BAC GT (note de service du 20 février 2026)]
 - Mots-clés : absence injustifiée, zéro, non éliminatoire, ABI, absent sans justificatif.
 - Formulations courantes des collègues : un élève absent sans motif à son CCF a-t-il zéro ; le zéro est-il éliminatoire.
@@ -51,8 +60,9 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 
 ### [SITUATION: ÉPREUVE DIFFÉRÉE AU BAC GT — DANS QUELS CAS ? (note de service du 20 février 2026)]
 - Mots-clés : épreuve différée, blessure, certificat médical, force majeure, chef d'établissement, rattrapage.
-- Formulations courantes des collègues : un élève blessé peut-il repasser son CCF plus tard ; qui autorise une épreuve différée ; cas de force majeure.
+- Formulations courantes des collègues : un élève blessé peut-il repasser son CCF plus tard ; qui autorise une épreuve différée ; cas de force majeure ; élève bloqué par une grève des transports le jour du CCF.
 - Une évaluation différée est possible en cas de blessure ou de problème de santé attesté médicalement, ou en cas de force majeure, avec l'accord du chef d'établissement.
+- Force majeure (grève des transports, accident…) : elle concerne le candidat assidu ; l'accord du chef d'établissement est donné après consultation de l'équipe pédagogique. Dans Santorin, chaque APSA propose une « épreuve de substitution » avec deux motifs, « force majeure » et « inapte » (inaptitude temporaire survenue juste avant l'épreuve) ; ne pas saisir « Absent », qui vaut zéro. (Sources : note de service, 2.d ; support Santorin de la DIEC, février 2024, diapositive 22.)
 - PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: SPORTIF DE HAUT NIVEAU AU BAC GT — LA NOTE DE 20/20 (note de service du 20 février 2026)]

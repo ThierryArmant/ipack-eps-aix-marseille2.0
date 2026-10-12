@@ -87,7 +87,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 ### [SITUATION: L'ENSEIGNANT DU GROUPE EST ABSENT ET NON REMPLACÉ — UNE ÉPREUVE N'A PAS PU ÊTRE ÉVALUÉE POUR TOUTE LA CLASSE]
 - Formulations courantes des collègues : le professeur est absent depuis des semaines sans remplaçant ; une activité n'a pas pu être évaluée faute d'enseignant ; que mettre pour la classe ; mes élèves n'ont que deux notes à cause d'un professeur non remplacé.
 - Ce n'est ni une inaptitude ni une absence des élèves : ne pas saisir « Dispensé » ni « Absent » pour ce motif.
-- C'est le cas exceptionnel (CE), prévu notamment pour un professeur absent non remplacé : il demande l'autorisation préalable de la commission académique d'EPS, sollicitée par la direction auprès de l'inspection pédagogique et du service des examens.
+- C'est le cas exceptionnel (CE), prévu notamment pour un professeur absent non remplacé : il demande l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), sollicitée par la direction auprès de l'inspection pédagogique et du service des examens.
 - Une fois l'accord obtenu, dans Santorin : ouvrir le lot, [Déclarer CE] avant la saisie des notes, sélectionner l'APSA à écarter. La mention CE neutralise l'activité pour tous les élèves du lot.
 - Si un remplaçant arrive à temps, l'épreuve peut au contraire être évaluée normalement : ne pas déclarer de CE par précaution.
 
@@ -148,6 +148,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - C'est normal : ces élèves ne sont pas connus des bases du rectorat. La configuration des classes n'empêche pas de saisir les protocoles.
 - Que faire : ignorer l'étape des classes et aller directement dans [Dossiers et Projets] > [Dossier EPS] > [Groupes]. Déclarer les groupes d'examen (un groupe réunit des candidats qui ont les mêmes activités, évaluées aux mêmes dates par le même enseignant), sans y placer d'élèves. Compléter ensuite les protocoles dans [Dossier Certificatif].
 - Les candidats sont associés aux protocoles plus tard, directement dans Cyclades ([EPS] > [Associer les élèves à un protocole]), une fois les inscriptions aux examens closes.
+- Les candidats ne viennent pas d'iPackEPS : ils apparaissent dans Cyclades (puis Santorin) parce qu'ils sont inscrits à l'examen, et l'établissement les place lui-même dans leurs protocoles. Aucun fichier d'import n'est à générer. (Sources : document d'interfaçage de Corse 2024-2025 ; guide d'Aix-Marseille du 18/01/2026, encadré « hors SIECLE ».)
 
 ### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER — LES ENSEIGNANTS NE PEUVENT PAS SAISIR LES NOTES DANS SANTORIN]
 - Formulations courantes des collègues : nos enseignants n'ont pas accès à Santorin ; comment convoquer nos professeurs ; ils ne sont pas dans la liste des examinateurs.
@@ -232,5 +233,6 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 
 ### [SITUATION: AIX-MARSEILLE — OÙ TROUVER IMAG'IN POUR ACCÉDER À CYCLADES ET À SANTORIN ?]
 - Mots-clés : accès Imag'in, Esterel, Examens et concours, identifiant académique, je ne trouve pas Cyclades.
-- Formulations courantes des collègues : où est Imag'in ; comment accéder à Cyclades depuis Esterel ; quel identifiant utiliser.
+- Formulations courantes des collègues : où est Imag'in ; comment accéder à Cyclades depuis Esterel ; quel identifiant utiliser ; par où je passe pour saisir mes notes d'EPS ; comment aller dans Santorin.
 - À Aix-Marseille : se connecter à l'espace ESTEREL avec son identifiant académique et son mot de passe (ceux de la messagerie académique), ouvrir la rubrique [EXAMENS ET CONCOURS], puis [IMAG'IN]. Dans une autre académie, le portail porte un autre nom (souvent ARENA) mais le chemin est le même.
+- Pour saisir les notes (Santorin) : dans Imag'in (ESTEREL, ou accès direct appli.ac-aix-marseille.fr/imagin/enseignant), ouvrir [Portail d'accès aux missions], cliquer sur la ligne de la mission « Notation EPS CCF » de l'examen voulu (une ligne par examen : bac GT, bac pro, CAP), puis, une fois dans Santorin, choisir de nouveau l'examen et ouvrir son lot avec la flèche. (Source : support Santorin de la DIEC, février 2024, diapositives 14-15.)

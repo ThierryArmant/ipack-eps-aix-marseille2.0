@@ -1,6 +1,6 @@
 ### [SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]
 - Mots-clés : IMAG'IN, Santorin, convocation, icône PDF, éditer la convocation, synchronisation, distribution automatique des lots, enseignants, tutoriel
 - Formulations courantes des collègues : Comment envoyer la convocation vers Santorin ? ; L'enseignant est convoqué mais n'apparaît pas dans Santorin, pourquoi ? ; Faut-il cliquer sur le PDF dans IMAG'IN ? ; Que faire après avoir édité la convocation ?
-- Instruction : Ne pas oublier d’éditer la convocation dans IMAG'IN en cliquant sur l’icône « PDF ». C'est cette action précise qui génère et transmet informatiquement la convocation vers SANTORIN. Une fois la convocation éditée, procéder à une nouvelle distribution automatique des lots dans SANTORIN.
+- Instruction : Ne pas oublier d’éditer la convocation dans IMAG'IN en cliquant sur l’icône « PDF ». C'est cette action précise qui génère et transmet informatiquement la convocation vers SANTORIN. Prérequis : un signataire doit être défini dans Imag'in. Une fois la convocation éditée, vérifier que l'enseignant a bien un lot : l'adresse mail du protocole dans Cyclades doit être la sienne ([EPS] > [Contrôler / Réaffecter des protocoles]) ; si les lots sont déjà distribués, lui réaffecter le lot ou l'ajouter comme correcteur, sinon lancer (ou relancer) la distribution. Une nouvelle distribution n'est utile que pour les candidats encore non distribués. (Source : support Santorin de la DIEC, février 2024, diapositives 4 à 13.)
 - 📺 TUTORIEL COMPAGNON : creer_convocations_enseignants.mp4
 

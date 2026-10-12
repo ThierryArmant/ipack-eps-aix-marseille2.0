@@ -14,6 +14,8 @@ La relecture ajoute un appel au modèle pour chaque réponse Examens générée,
 
 Les tests vérifient la conservation effective des deux branches dans le vrai routage d'app.py, la transmission des documents à la relecture et le traitement d'une sortie vide. La série de réserve demeure intacte. Des retests en ligne sont nécessaires avant de conclure à une amélioration.
 
-La relecture produit les passages justificatifs avant la réponse finale, en JSON. Le programme vérifie que les passages cités existent littéralement dans les documents. Cette vérification de présence ne prouve pas la bonne interprétation ni le rattachement à la source : les retests restent indispensables. Les preuves ne sont pas affichées à l’utilisateur.
+## Vérification en ligne et limite
 
-Les variations typographiques des preuves (apostrophes, gras, espaces) sont tolérées, sans reformulation de leurs mots. Une sortie sans preuve présente est reprise une fois contre les mêmes documents ; si le second contrôle échoue, le brouillon non vérifié ne sera pas publié. Ce cas ajoute exceptionnellement un troisième appel au modèle.
+Les huit contrôles de 82fa110 montrent la correction d’EX091 (deux possibilités), du maintien de participation en EX288 et de la contradiction d’option en EX291. Des erreurs de source persistent en EX245/EX250/EX270 et le circuit AMEX reste ambigu en EX298. EX170 évite désormais l’APSA fictive, mais ajoute une demande médicale inutile. Les nouvelles fiches de Claude participent aussi aux progrès observés.
+
+Une extraction JSON avec contrôle littéral des preuves a été essayée puis retirée : elle bloquait EX245 même après reprise. La version finale conserve la relecture générative et la récupération des fiches spécifiques, sans blocage sur une correspondance littérale. Aucune garantie générale de justesse n’est déduite de ces retests.

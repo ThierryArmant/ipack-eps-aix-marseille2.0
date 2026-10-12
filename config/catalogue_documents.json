@@ -185,7 +185,10 @@
     "reponse_directe_motifs": [
       "(?=.*cm2)(?=.*(?:sixiem|6e))"
     ],
-    "reponse_directe": "Pour une sortie commune sans nuitée réunissant des élèves d'élémentaire et de collège au cycle 3, le taux général est appliqué au groupe mixte entier : deux adultes dont au moins un enseignant jusqu'à 30 élèves, puis un adulte supplémentaire par tranche de 15 élèves. Pour 52 élèves, cela donne quatre adultes. Ce barème exclut les activités physiques et sportives : il ne suffit donc pas à valider une sortie d'orientation. Il faut vérifier les règles EPS et le protocole académique, le lieu, les déplacements, l'organisation de la surveillance et les rôles des adultes. Le directeur autorise la participation de l'école, le chef d'établissement celle du collège. Précisez ces conditions pour établir l'encadrement de l'activité. Référence : circulaire MENE2407159C du 16 juillet 2024 et guides Éduscol, fiche 4."
+    "reponse_directe": "Pour une sortie commune sans nuitée réunissant des élèves d'élémentaire et de collège au cycle 3, le taux général est appliqué au groupe mixte entier : deux adultes dont au moins un enseignant jusqu'à 30 élèves, puis un adulte supplémentaire par tranche de 15 élèves. Pour 52 élèves, cela donne quatre adultes. Ce barème exclut les activités physiques et sportives : il ne suffit donc pas à valider une sortie d'orientation. Il faut vérifier les règles EPS et le protocole académique, le lieu, les déplacements, l'organisation de la surveillance et les rôles des adultes. Le directeur autorise la participation de l'école, le chef d'établissement celle du collège. Précisez ces conditions pour établir l'encadrement de l'activité. Référence : circulaire MENE2407159C du 16 juillet 2024 et guides Éduscol, fiche 4.",
+    "exclure_motifs": [
+      "fraud|trich|copi\\w* sur|\\bccf\\b|examen|baccalaur|santorin|cyclades|epreuve"
+    ]
   },
   "data/peda/base_pedagogique_edubase.txt": {
     "title": "base pedagogique edubase",
@@ -4415,6 +4418,62 @@
     "date_verification": "2026-10-13",
     "motifs": [
       "(?=.*(?:etranger|aefe|hors siecle|\\bcfa\\b|greta|\\bmfr\\b))(?=.*(?:aucun eleve|pas d.eleves?|sans eleves?|eleves? (?:n.apparaiss|absents?|manqu)|comment (?:nos|les) eleves|arrivent))"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/j4_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot6_2026_10_13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : « la candidature n'est plus valide »",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "candidature n.est plus valide|(?:plus|pas) valide dans le systeme|systeme d.information examens"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/k3_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot6_2026_10_13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : cases grisées en bac pro ou CAP (« Choisir AFLP »)",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "(?=.*(?:grise|inactive|bloquee?s?|ne (?:peux|peut) pas saisir|impossible de saisir|choisir (?:les )?aflp))(?=.*(?:case|note|aflp|lot|saisi))(?!.*(?:protocole cyclades|groupe d.eleves|e-?mail|adresse))"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/k4_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot6_2026_10_13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : le 20/20 du sportif de haut niveau n'est pas proposé",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:santorin|propose pas|n.apparait pas|crayon|saisir le 20|mettre le 20|le 20 ?/ ?20|20 sur 20))"
     ]
   }
 }

@@ -143,3 +143,35 @@ class Lot5Tests(unittest.TestCase):
     def test_ex091_reponse_en_tete(self):
         texte = kc.delivered_text("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT, 'examens')
         self.assertTrue(texte.split('\n')[2].startswith('Les deux saisies sont possibles'))
+
+
+class Lot6Tests(unittest.TestCase):
+    """Retours du lot 6 (EX251-EX300)."""
+
+    def texte(self, q, public=GT):
+        return kc.delivered_text(q, public, 'examens')
+
+    def test_option_dispense_non_en_tete(self):
+        t = self.texte("Un candidat individuel peut-il présenter l’option EPS au baccalauréat et quelles sont les conditions si son EPS obligatoire est dispensée ?")
+        self.assertIn("NON, il ne peut pas présenter l'option EPS", t)
+        self.assertLess(t.index('NON, il ne peut pas'), t.index('Sinon, oui'))
+        self.assertIn('MENE2533572N', t)
+
+    def test_fraude_participation_maintenue_et_suspicion(self):
+        t = self.texte("Lors d’un CCF du baccalauréat, je soupçonne une fraude en course d’orientation. Puis-je saisir immédiatement zéro dans Santorin ?")
+        self.assertIn('sans interrompre la participation du candidat', t)
+        self.assertIn('suspicion documentée', t)
+        self.assertNotIn('Sorties : second degré', t)
+
+    def test_codes_differe_avant_dispense(self):
+        t = self.texte("Quelle différence entre « Absent » et « Dispense » dans Santorin ?")
+        self.assertIn('On ne saisit pas « Dispensé » à ce stade', t)
+
+    def test_shn_vingt_santorin_et_eligibilite(self):
+        t = self.texte("Santorin ne me propose pas le 20/20 pour mon sportif de haut niveau.")
+        self.assertIn('crayon', t)
+        self.assertIn('ne se limite pas aux listes ministérielles', t)
+
+    def test_aflp_bac_pro_et_candidature_invalide(self):
+        self.assertIn('vaut pour tous les élèves du protocole', self.texte("Bac pro : les cases de notes sont grisées dans mon lot.", 'Lycée Pro / CAP'))
+        self.assertIn('Ce n\'est pas une question de déverrouillage', self.texte("Impossible de verrouiller : « la candidature n'est plus valide dans le système d'information examens/concours »."))

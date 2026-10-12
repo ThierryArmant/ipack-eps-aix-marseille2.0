@@ -11,7 +11,7 @@ Préparé le 13 octobre 2026. Pour chacune de ces questions, aucun texte nationa
 4. **Communication des notes de CCF aux élèves** avant les résultats : autorisée, déconseillée, interdite ?
 5. **Élève qui change d'établissement** en cours d'année : y a-t-il une date au-delà de laquelle l'établissement d'origine saisit les notes ? (Bordeaux : 30 mars.)
 6. **Élève parti en cours d'année mais toujours inscrit** : faut-il le convoquer puis le noter absent, ou faire annuler l'inscription ?
-7. **Redoublant de terminale** : que deviennent ses notes d'EPS de l'année précédente ?
+7. **Redoublant de terminale** : le tutoriel iPackEPS (Créteil) indique que Cyclades le met automatiquement dispensé d'EPS, bénéficiaire de ses notes de l'année précédente, et qu'il peut demander à repasser l'épreuve sur sa confirmation d'inscription (jusqu'au 31 janvier à Créteil). Ce circuit et cette date valent-ils à Aix ?
 
 ## Protocoles et logiciel
 8. **Protocoles déjà validés** : la consigne « ne pas demander d'invalidation, créer le protocole dans iPackEPS et prévenir l'inspection » peut-elle être confirmée par écrit ?

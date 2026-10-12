@@ -2287,7 +2287,10 @@ if prompt_a_traiter:
             # traite bien la demande. Si non, la question part à la recherche documentaire. En cas d'erreur du
             # contrôle, la réponse en dur est conservée (comportement d'avant).
             # ==================================================================
-            if (not besoin_ia) and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+            # Les réponses relues du catalogue ont déjà un déclencheur ciblé et une source.
+            # L'arbitre pouvait les écarter (B4/F6), puis réintroduire une règle erronée
+            # par génération libre. Garder ce contrôle pour les anciens disjoncteurs seuls.
+            if (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
                 try:
                     _resume_dur = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()[:900]
                     _verdict = Settings.llm.complete(

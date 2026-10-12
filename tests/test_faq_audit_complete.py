@@ -1,4 +1,6 @@
 """Vérifier les conditions décisives et les limites des réponses relues."""
+import ast
+from pathlib import Path
 import unittest
 import knowledge_catalog as kc
 
@@ -6,6 +8,20 @@ GT = 'Lycée Général & Techno'
 
 
 class AuditedFAQTests(unittest.TestCase):
+    def test_reviewed_reply_bypasses_llm_arbiter_but_legacy_reply_does_not(self):
+        tree = ast.parse(Path('app.py').read_text())
+        guards = [node.test for node in ast.walk(tree) if isinstance(node, ast.If)
+                  and 'openai_api_key' in ast.unparse(node.test)
+                  and 'not besoin_ia' in ast.unparse(node.test)]
+        self.assertEqual(len(guards), 1)
+        condition = compile(ast.Expression(guards[0]), 'app.py', 'eval')
+        state = dict(besoin_ia=False, texte_brut='réponse', openai_api_key=True,
+                     est_question_trop_courte=False, est_mauvais_onglet=False,
+                     demande_precision='', reponse_documentee='réponse relue')
+        self.assertFalse(eval(condition, {}, state))
+        state['reponse_documentee'] = ''
+        self.assertTrue(eval(condition, {}, state))
+
     def answer(self, question, public=GT):
         return kc.documented_response(question, public, 'examens')[0]
 

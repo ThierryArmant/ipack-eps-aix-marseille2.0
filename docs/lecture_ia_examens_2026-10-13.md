@@ -13,3 +13,5 @@ Les tests en ligne des lots 5 et 6 ont montré des conclusions contradictoires, 
 La relecture ajoute un appel au modèle pour chaque réponse Examens générée, donc de la latence et un coût supplémentaire. Elle peut encore se tromper ; les tests unitaires ne démontrent pas la justesse réglementaire de ses sorties. Une relecture vide échoue explicitement, au lieu de publier silencieusement le brouillon.
 
 Les tests vérifient la conservation effective des deux branches dans le vrai routage d'app.py, la transmission des documents à la relecture et le traitement d'une sortie vide. La série de réserve demeure intacte. Des retests en ligne sont nécessaires avant de conclure à une amélioration.
+
+La relecture produit les passages justificatifs avant la réponse finale, en JSON. Le programme vérifie que les passages cités existent littéralement dans les documents. Cette vérification de présence ne prouve pas la bonne interprétation ni le rattachement à la source : les retests restent indispensables. Les preuves ne sont pas affichées à l’utilisateur.

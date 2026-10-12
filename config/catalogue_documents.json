@@ -4410,5 +4410,76 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
     "statut": "reponse_relue_audit_lot2_2026_10_12"
+  },
+  "data/examens/audit_lot3_2026_10_12/adaptation_temporaire.txt": {
+    "title": "Inaptitude partielle temporaire : adaptation pour information",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "motifs": [
+      "(?=.*(?:entorse|inaptitude partielle temporaire|blesse.*(?:semaine|temporaire)))(?=.*(?:adapt|badminton))(?=.*(?:protocole|commission|valid))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:entorse|inaptitude partielle temporaire|blesse.*(?:semaine|temporaire)))(?=.*(?:adapt|badminton))(?=.*(?:protocole|commission|valid))"
+    ],
+    "reponse_directe": "Pour une inaptitude partielle temporaire attestée, comme l’entorse décrite, il n’est pas nécessaire d’obtenir une nouvelle validation de la commission avant l’évaluation adaptée. L’établissement définit l’adaptation à partir des indications du médecin et la transmet à la commission académique pour information. Le professeur évalue dans ce cadre ; il ne décide pas seul de tout le dispositif ni du constat médical. Un protocole adapté peut être créé dans Cyclades en cours d’année pour l’association du candidat selon le guide ; ne pas transformer cette possibilité logicielle en obligation générale de créer systématiquement un nouveau protocole. Cette règle ne doit pas être confondue avec les propositions d’adaptation pour une inaptitude permanente présentées à la commission en début d’année. Si l’adaptation ne permet pas l’évaluation, examiner le différé et les autres possibilités prévues par le texte du diplôme.\nSource : Note MENE2531948N du 20 février 2026, 2.e (bac GT) ; circulaires modificatives du 24 octobre 2025 (bac professionnel/CAP) ; FAQ EPS mise à jour 2026.",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot3_2026_10_12"
+  },
+  "data/examens/audit_lot3_2026_10_12/fermeture_collective.txt": {
+    "title": "Installation fermée pour une classe : autorisation puis CE",
+    "examens": [
+      "gt",
+      "pro"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "motifs": [
+      "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))"
+    ],
+    "reponse_directe_motifs": [
+      "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))"
+    ],
+    "reponse_directe": "La fermeture d’une installation ne permet pas de neutraliser automatiquement une activité pour la classe. La direction saisit l’inspection EPS et le service des examens ; le recteur peut autoriser la certification réduite prévue par le texte du diplôme après expertise de l’inspection. La commission académique ne remplace pas cette autorisation du recteur. Une fois l’accord obtenu et les modalités de saisie confirmées, la direction ou le référent habilité ouvre le lot concerné dans Santorin, utilise « Déclarer CE » et sélectionne l’APSA à neutraliser. La mention touche tous les candidats du lot : vérifier qu’ils sont tous concernés. Ne pas imposer la création d’un lot séparé lorsque tout le lot est concerné ; le lot séparé relève du traitement particulier de candidats seulement, à faire confirmer. Le texte national encadre l’autorisation ; le bouton et les rôles relèvent du guide technique DIEC. Ne pas assimiler CE à une inaptitude médicale. APSA signifie activité physique, sportive et artistique.\nSource : Note MENE2531948N, 2.d (bac GT) ; circulaire bac professionnel MENE2505383C modifiée ; guide DIEC Aix-Marseille Notation EPS CCF Santorin, février 2024, diapo 20.",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot3_2026_10_12"
+  },
+  "data/examens/audit_lot3_2026_10_12/protocole_standard_apres.txt": {
+    "title": "Aix : ajout de protocole standard après validation",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "motifs": [
+      "(?=.*protocole)(?=.*standard)(?=.*(?:ajout|cre|nouveau))(?=.*(?:apres|deja))(?=.*(?:valid|commission))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*protocole)(?=.*standard)(?=.*(?:ajout|cre|nouveau))(?=.*(?:apres|deja))(?=.*(?:valid|commission))"
+    ],
+    "reponse_directe": "À Aix-Marseille, pour cet ajout de protocole standard après validation, créez le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenez l’inspection pédagogique au préalable : elle assure le transfert vers Cyclades selon le circuit académique. Ne modifiez pas librement un protocole standard déjà validé dans Cyclades et ne demandez pas une invalidation générale des protocoles pour réaliser cet ajout. Cela n’établit pas une interdiction nationale de toute invalidation : Strasbourg et Créteil décrivent un circuit d’invalidation puis revalidation, à ne pas transposer à Aix. Distinguez aussi le protocole adapté, qui peut être créé directement dans Cyclades en cours d’année selon le guide. Pour la session concernée, suivre les instructions de l’inspection et du service des examens ; un simple clic d’ajout ne remplace pas le transfert autorisé.\nSource : BA spécial Aix-Marseille 549, session 2026 ; précision du formateur académique du 11 octobre 2026 ; FAQ Strasbourg/Créteil pour la comparaison de portée.",
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot3_2026_10_12"
   }
 }

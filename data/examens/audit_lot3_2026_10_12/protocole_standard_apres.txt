@@ -1,0 +1,6 @@
+### Aix : ajout de protocole standard après validation
+[PORTEE: gt,pro,cap]
+À Aix-Marseille, pour cet ajout de protocole standard après validation, créez le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenez l’inspection pédagogique au préalable : elle assure le transfert vers Cyclades selon le circuit académique. Ne modifiez pas librement un protocole standard déjà validé dans Cyclades et ne demandez pas une invalidation générale des protocoles pour réaliser cet ajout. Cela n’établit pas une interdiction nationale de toute invalidation : Strasbourg et Créteil décrivent un circuit d’invalidation puis revalidation, à ne pas transposer à Aix. Distinguez aussi le protocole adapté, qui peut être créé directement dans Cyclades en cours d’année selon le guide. Pour la session concernée, suivre les instructions de l’inspection et du service des examens ; un simple clic d’ajout ne remplace pas le transfert autorisé.
+
+Source : BA spécial Aix-Marseille 549, session 2026 ; précision du formateur académique du 11 octobre 2026 ; FAQ Strasbourg/Créteil pour la comparaison de portée.
+https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf

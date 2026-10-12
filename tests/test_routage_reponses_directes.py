@@ -24,7 +24,7 @@ CAS = [
  ("Quelle est la date limite pour déposer les protocoles ?", PRO, 'protocoles et circuit'),
  # protocoles 2026 (ne doit pas)
  ("Cyclades refuse mon protocole à cause d'une date.", GT, 'FAQ EPS F3'),
- ("Il faut ajouter un protocole standard après la validation de la commission. Je demande à la commission d'invalider nos protocoles ?", GT, None),
+ ("Il faut ajouter un protocole standard après la validation de la commission. Je demande à la commission d'invalider nos protocoles ?", GT, 'ajout de protocole standard'),
  ("Je veux changer la date du CCF dans mon protocole, comment faire ?", PRO, None),
  # bac pro une note (doit)
  ("Bac pro : une seule évaluation dans l'année (8/20), puis inapte jusqu'à la fin. On garde le 8 ?", PRO, 'une seule évaluation'),

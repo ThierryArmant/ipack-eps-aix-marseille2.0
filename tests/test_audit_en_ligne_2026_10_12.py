@@ -64,3 +64,36 @@ class ApresConversionTests(unittest.TestCase):
         texte = lire('data/commun/audit60/aix_certificats_2026.txt')
         self.assertIn('la remise tardive ne suffit pas à le refuser', texte)
         self.assertIn("Le certificat a été établi après le CCF : il n'a pas d'effet rétroactif", texte)
+
+
+class Lot4Tests(unittest.TestCase):
+    """Retours du lot 4 (EX151-EX200) et contrôles EX091 / EX115."""
+    SUFFIXE = " Distingue ce qui relève du texte national, d’une consigne académique et du fonctionnement du logiciel. Si un élément manque, précise lequel."
+
+    def titres(self, q, public=GT):
+        return kc.priority_titles(q, public, 'examens')
+
+    def test_suffixe_national_academique_logiciel_ne_declenche_pas_la_fiche_protocoles(self):
+        for q in ["Cyclades refuse mon protocole à cause d'une date.",
+                  "Mes élèves apparaissent dans Cyclades mais sans protocole.",
+                  "Entorse de la cheville : l'élève peut faire un badminton adapté. Faut-il un nouveau protocole validé par la commission avant de l'évaluer ?"]:
+            self.assertNotIn('Aix-Marseille : protocoles et circuit EPS — 2026', ' '.join(self.titres(q + self.SUFFIXE)))
+
+    def test_ex115_adaptation_temporaire_fiche_dediee_en_tete(self):
+        q = "Entorse de la cheville : l'élève peut faire un badminton adapté. Faut-il un nouveau protocole validé par la commission avant de l'évaluer ?" + self.SUFFIXE
+        self.assertIn('pas de nouvelle validation préalable', kc.delivered_text(q, GT, 'examens'))
+
+    def test_ex091_deux_issues_presentees(self):
+        texte = kc.delivered_text("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT, 'examens')
+        self.assertIn('Issue 1', texte)
+        self.assertIn('Issue 2', texte)
+        self.assertIn('aucune n’est automatique', texte)
+
+    def test_mauvais_lot_et_mauvais_groupe_ont_leur_fiche(self):
+        self.assertIn('FAQ EPS — Santorin : élève dans le mauvais lot', self.titres("Un élève est dans le mauvais lot dans Santorin."))
+        self.assertIn("FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves",
+                      self.titres("Je me suis trompé de groupe d'élèves dans un protocole Cyclades et le champ est grisé."))
+
+    def test_element_manque_ne_declenche_pas_les_candidats_absents(self):
+        q = "Nous sommes un lycée français à l'étranger : aucun élève dans iPackEPS. Comment nos élèves arrivent-ils dans Cyclades ?" + self.SUFFIXE
+        self.assertNotIn('Cyclades : candidats absents de la liste', ' '.join(self.titres(q)))

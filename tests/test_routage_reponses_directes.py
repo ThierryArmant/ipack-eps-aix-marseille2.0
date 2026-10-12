@@ -85,3 +85,19 @@ class RoutageReponsesDirectesTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class MotifsCatalogueTests(unittest.TestCase):
+    """Un motif invalide fait planter chaque question du hub : tous doivent se compiler."""
+
+    def test_tous_les_motifs_se_compilent(self):
+        import re
+        for path, md in kc.catalog().items():
+            motifs = []
+            for cle in ('motifs', 'exclure_motifs', 'exclusif_motifs', 'reponse_directe_motifs'):
+                motifs += md.get(cle) or []
+            for reponse in md.get('reponses_directes') or []:
+                motifs += reponse.get('motifs') or []
+            for m in motifs:
+                with self.subTest(fiche=path, motif=m[:60]):
+                    re.compile(m)

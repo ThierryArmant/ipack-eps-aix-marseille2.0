@@ -51,7 +51,8 @@ class AuditedFAQTests(unittest.TestCase):
 
     def test_three_events_and_technical_single_event_are_not_confused(self):
         answer = self.answer('Au bac, Cyclades accepte un protocole adapté à une seule APSA ?')
-        self.assertIn('ne peux donc pas affirmer', answer)
+        self.assertIn('Ce minimum vient du logiciel, pas du texte', answer)
+        self.assertIn('C’est donc réglementairement possible', answer)
         self.assertIn('DIEC et l’inspection', answer)
 
     def test_general_train_delay_does_not_trigger_school_blockage(self):

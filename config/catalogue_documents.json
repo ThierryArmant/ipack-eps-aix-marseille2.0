@@ -2093,7 +2093,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "2026|2027|session|date|delai|calendrier|souplesse|texte"
+      "2026|2027|session|date|delai|calendrier|souplesse|texte (?:officiel|de reference|en vigueur)|quels? textes?"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
     "urls": [
@@ -2781,14 +2781,15 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "protocole.*academique|(?:valider|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca",
+      "protocoles? (?:eps )?academiques?|protocoles?.{0,25}(?:a l.|de l.)academie|(?:valide\\w*|validation|depot|deposer).*protocole|protocole.*(?:valider|validation)|referentiels.*aix|liste.*apsa|menu.*etablissement|validation.*fca",
       "^(?!.*(?:refus|invalid|devalid|reouvr|week|ferie|interdit|changer|modifi|date (?:du|de|des) (?:ccf|rattrapage|epreuve))).*?(?:(?:jusqu|date limite|delai|echeance|calendrier|quand).*protocoles?|protocoles?.*(?:date limite|delai|echeance|valides|validation))"
     ],
     "exclusif_motifs": [
-      "protocole.*academique|faire valider.*(?:liste|menu)|referentiels.*aix"
+      "protocoles? (?:eps )?academiques?|protocoles?.{0,25}(?:a l.|de l.)academie|faire valider.*(?:liste|menu)|referentiels.*aix"
     ],
     "exclure_motifs": [
-      "option|eppcs"
+      "option|eppcs",
+      "^(?=.*(?:adapt|amenag|inapt|bless|entorse|foulure|fractur|certificat|handicap|dispens))"
     ],
     "date_verification": "2026-10-11",
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
@@ -3210,7 +3211,7 @@
     "prioritaire": true,
     "priorite": 140,
     "motifs": [
-      "^(?=.*cyclades)(?=.*(?:manqu|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
+      "^(?=.*cyclades)(?=.*(?:manquant|manquent|(?:il|me|nous|en) manque|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
@@ -3642,7 +3643,7 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*cyclades)(?=.*apsa)(?=.*(?:apparait pas|absente|manqu|pas dans la liste))"
+      "(?=.*cyclades)(?=.*apsa)(?=.*(?:apparait pas|absente|manquante?s?|il manque|pas dans la liste))"
     ],
     "url": "",
     "date_verification": "2026-10-12"
@@ -4194,7 +4195,7 @@
     "prioritaire": true,
     "priorite": 340,
     "motifs": [
-      "(?=.*(?:entorse|inaptitude partielle temporaire|blesse.*(?:semaine|temporaire)))(?=.*(?:adapt|badminton))(?=.*(?:protocole|commission|valid))"
+      "(?=.*(?:entorse|foulure|tordu|cheville|genou|poignet|fractur|platre|attelle|bless|inaptitude (?:partielle )?temporaire|inapte (?:quelques|pour quelques|temporairement|\\d+ semaines|(?:deux|trois|quatre|six) semaines)))(?=.*(?:adapt|amenag))(?=.*(?:protocole|commission|cahpn|valid))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -4238,5 +4239,44 @@
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
     "date_verification": "2026-10-12",
     "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
+  },
+  "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot4_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves",
+    "motifs": [
+      "(?=.*(?:tromp|erreur|mauvais|faux|changer|modifi))(?=.*groupe)(?=.*(?:protocole|cyclades))(?=.*(?:grise|modifiable|bloque|changer|tromp))"
+    ]
+  },
+  "data/examens/audit_faq_2026_10_12/g5_procedure_verifiee.txt": {
+    "statut": "reponse_relue_audit_lot4_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "FAQ EPS — Santorin : élève dans le mauvais lot",
+    "url": "https://www.youtube.com/watch?v=WKbg51eUQVs",
+    "motifs": [
+      "(?:mauvais|faux) lot|erreur de lot|(?:changer|deplacer)\\w*.{0,40}(?:de lot|vers un (?:autre )?lot|dans un autre lot)"
+    ]
   }
 }

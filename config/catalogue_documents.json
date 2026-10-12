@@ -2420,7 +2420,7 @@
         "motifs": [
           "^(?!.*(?:saisi|santorin|cyclades|imag.?in|\\blot\\b|acces)).*?(?:(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?)))"
         ],
-        "reponse": "L'absence du professeur pendant 90 % du cycle ne permet pas d'autoriser automatiquement un rattrapage du CCF en fin d'année. Il s'agit d'une interruption de l'enseignement, pas d'une inaptitude médicale de l'élève ni de son absence à l'épreuve.\nIl faut examiner la formation réellement dispensée et les possibilités de reprise de l'enseignement. Une reprogrammation de l'évaluation après une formation suffisante peut être étudiée avec l'inspection EPS, dans le respect du protocole et du calendrier académique. Le texte national ne fixe pas de seuil de 90 % autorisant ou interdisant à lui seul cette reprogrammation.\nSi l'activité ne peut pas être assurée, le chef d'établissement saisit l'inspection pédagogique régionale EPS et le service des examens pour déterminer la procédure applicable. Au bac général et technologique, une certification sur deux activités pour impossibilité technique ou matérielle nécessite une autorisation du recteur après expertise de l'inspection ; elle n'est pas automatique du seul fait que deux notes existent. L'absence du professeur n'est pas explicitement citée dans cette disposition : sa qualification doit être examinée par l'autorité académique. En cas d'impossibilité majeure de réaliser au moins deux activités, attestée par l'inspection, l'établissement peut demander au recteur une autorisation d'inscription en examen ponctuel terminal.\nLes règles médicales relatives à une note unique ou à une dispense ne s'appliquent pas du seul fait de l'absence du professeur.\nRéférence : note de service du 20 février 2026, MENE2531948N, BO n° 9 du 26 février 2026, partie 2.d, applicable depuis la session 2026. Cette réponse concerne le bac général et technologique ; pour le bac professionnel, il faut examiner le texte propre à ce diplôme."
+        "reponse": "L'absence prolongée du professeur ne permet pas d'autoriser automatiquement un rattrapage du CCF en fin d'année. Il s'agit d'une interruption de l'enseignement, pas d'une inaptitude médicale de l'élève ni de son absence à l'épreuve.\nIl faut examiner la formation réellement dispensée et les possibilités de reprise de l'enseignement. Une reprogrammation de l'évaluation après une formation suffisante peut être étudiée avec l'inspection EPS, dans le respect du protocole et du calendrier académique. Le texte national ne fixe pas de seuil de 90 % autorisant ou interdisant à lui seul cette reprogrammation.\nSi l'activité ne peut pas être assurée, le chef d'établissement saisit l'inspection pédagogique régionale EPS et le service des examens pour déterminer la procédure applicable. Au bac général et technologique, une certification sur deux activités pour impossibilité technique ou matérielle nécessite une autorisation du recteur après expertise de l'inspection ; elle n'est pas automatique du seul fait que deux notes existent. L'absence du professeur n'est pas explicitement citée dans cette disposition : sa qualification doit être examinée par l'autorité académique. En cas d'impossibilité majeure de réaliser au moins deux activités, attestée par l'inspection, l'établissement peut demander au recteur une autorisation d'inscription en examen ponctuel terminal.\nLes règles médicales relatives à une note unique ou à une dispense ne s'appliquent pas du seul fait de l'absence du professeur.\nRéférence : note de service du 20 février 2026, MENE2531948N, BO n° 9 du 26 février 2026, partie 2.d, applicable depuis la session 2026. Cette réponse concerne le bac général et technologique ; pour le bac professionnel, il faut examiner le texte propre à ce diplôme."
       }
     ]
   },
@@ -4201,5 +4201,98 @@
     "reponse_directe": "Dans le guide Santorin EPS cité, « Absent » correspond à l’absence injustifiée et vaut zéro pour l’APSA. « Dispensé » neutralise l’APSA concernée dans le calcul, lorsque la dispense est justifiée selon les règles du diplôme ; ce n’est pas un code générique pour une difficulté administrative. Une inaptitude temporaire ou une force majeure reconnue peut conduire à l’évaluation différée, appelée épreuve de substitution dans le support technique. Ne pas confondre ces codes avec le CE collectif autorisé.\nSources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 22",
     "url": "",
     "date_verification": "2026-10-12"
+  },
+  "data/examens/audit_lot1_2026_10_12/coeval_pro.txt": {
+    "title": "Bac professionnel : co-évaluation non imposée",
+    "examens": [
+      "pro"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*(?:co.evalu|deux professeur|deux enseignants|2 professeur|2 enseignants))(?=.*(?:\\bccf\\b|\\beps\\b|certifi|\\bevalu))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:co.evalu|deux professeur|deux enseignants|2 professeur|2 enseignants))(?=.*(?:\\bccf\\b|\\beps\\b|certifi|\\bevalu))"
+    ],
+    "reponse_directe": "Au bac professionnel, deux enseignants ne sont pas obligatoires pour évaluer le CCF d’EPS. Le texte propre au bac professionnel prévoit que l’enseignement de la dernière année est assuré par le même enseignant ou formateur ; il n’impose pas la co-évaluation du bac général et technologique. L’absence d’un collègue prévu comme co-évaluateur ne crée donc pas, à elle seule, une obligation de remplacement ou de report. Cela ne signifie pas que le professeur peut décider seul de toutes les modalités de certification : le protocole, les référentiels et les compétences des autorités restent applicables. Ne pas attribuer cette règle du bac professionnel à la note MENE2531948N, qui concerne le bac GT.\nSources : Circulaire du 2 avril 2025, MENE2505383C, modifiée par MENE2526357C du 24 octobre 2025 ; FAQ nationale « Évaluer et noter », voie professionnelle.",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot1_2026_10_12"
+  },
+  "data/examens/audit_lot1_2026_10_12/troisieme_impossible.txt": {
+    "title": "Troisième activité impossible pour la classe : autorisation et CE",
+    "examens": [
+      "gt",
+      "pro"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*(?:professeur|enseignant))(?=.*(?:absen|sans remplac))(?=.*(?:troisieme|3e|3eme))(?=.*(?:activite|epreuve))(?=.*(?:classe|tout le monde|tous))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:professeur|enseignant))(?=.*(?:absen|sans remplac))(?=.*(?:troisieme|3e|3eme))(?=.*(?:activite|epreuve))(?=.*(?:classe|tout le monde|tous))"
+    ],
+    "reponse_directe": "Non : l’absence prolongée du professeur n’est pas une inaptitude médicale des élèves et ne justifie pas de saisir DI pour toute la classe. Si la troisième activité ne peut réellement pas être assurée, le chef d’établissement saisit l’inspection EPS et le service des examens en amont pour faire examiner la situation ; une certification exceptionnelle sur deux activités requiert l’autorisation du recteur après expertise de l’inspection. L’absence du professeur ne vaut pas autorisation automatique. Une fois l’autorisation obtenue et les modalités de saisie confirmées, le guide DIEC décrit dans Santorin « Déclarer CE » sur le lot, puis le choix de l’APSA : CE neutralise cette activité pour les candidats du lot. Ne pas saisir DI ou Absent pour remplacer cette procédure, ni déclarer CE avant l’accord. Le texte national autorise le dispositif exceptionnel ; le bouton et le circuit de saisie relèvent du guide technique académique. Vérifier les instructions de la session concernée.\nSources : Note MENE2531948N du 20 février 2026, partie 2.d (bac GT) ; circulaire MENE2505383C du 2 avril 2025 modifiée (bac professionnel) ; DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapo 20.",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot1_2026_10_12"
+  },
+  "data/examens/audit_lot1_2026_10_12/mail_examinateur.txt": {
+    "title": "Santorin : examinateur non trouvé pour le mail déclaré",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*(?:santorin|distribution))(?=.*(?:mail|adresse))(?=.*(?:examinateur|correcteur))(?=.*(?:trouv|correspond|distrib|erreur))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*(?:santorin|distribution))(?=.*(?:mail|adresse))(?=.*(?:examinateur|correcteur))(?=.*(?:trouv|correspond|distrib|erreur))"
+    ],
+    "reponse_directe": "Vérifiez d’abord la convocation de l’examinateur dans Imag’in sur la mission « Notation EPS CCF » : signataire défini et convocation éditée en PDF. Le seul envoi d’un mail ne remplace pas cette édition. Si la mission existe, comparez l’adresse d’examinateur déclarée dans Cyclades avec celle du personnel convoqué ; la direction corrige si nécessaire dans EPS > Contrôler / réaffecter des protocoles. Contrôlez ensuite la distribution Santorin et relancez-la selon les droits du rôle ; utilisez la distribution manuelle pour les candidats restants si nécessaire. Si des notes existent déjà, ne supprimez pas les lots pour recommencer : préserver les notes et demander le circuit de correction approprié. Le professeur signale le défaut ; la direction ou une personne habilitée réalise les actions administratives. Ces manipulations sont des procédures logicielles documentées, pas une obligation créée par un texte réglementaire EPS.\nSources : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 3 à 9 ; tutoriels Cyclades/Santorin de Créteil (distribution).",
+    "url": "https://ipackeps.ac-creteil.fr/",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot1_2026_10_12"
+  },
+  "data/examens/audit_lot1_2026_10_12/eleves_manquants.txt": {
+    "title": "Élèves inscrits mais absents des lots Santorin",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*santorin)(?=.*(?:eleves|candidats))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
+    ],
+    "reponse_directe_motifs": [
+      "(?=.*santorin)(?=.*(?:eleves|candidats))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
+    ],
+    "reponse_directe": "La direction ou la personne habilitée vérifie d’abord que les candidats sont inscrits dans Cyclades et associés au bon protocole. Dans Santorin, contrôler les candidats non distribués et les lots existants ; si l’association a été réalisée après la distribution, rafraîchir les données avec « rejouer l’import » selon le guide, puis compléter la distribution ou placer manuellement les candidats restants dans leur lot. Ne pas supprimer des lots contenant déjà des notes. Il n’est pas nécessaire d’affirmer qu’une distribution automatique à 100 % est une condition préalable à toute visibilité : l’objectif est que chaque candidat concerné soit effectivement affecté. Si le défaut persiste, la direction sollicite le service des examens. Ces étapes relèvent des guides Cyclades/Santorin ; ne pas les présenter comme des textes réglementaires nationaux. Une simple décision pédagogique du professeur ne remplace pas l’association et la distribution.\nSources : Guide académique Aix-Marseille des tutoriels examens, circuit Cyclades/Santorin ; réponses du correspondant examens EPS ; tutoriels de distribution Santorin de Créteil.",
+    "url": "https://github.com/Pole-Examens/tutoriels-examens",
+    "date_verification": "2026-10-12",
+    "statut": "reponse_relue_audit_lot1_2026_10_12"
   }
 }

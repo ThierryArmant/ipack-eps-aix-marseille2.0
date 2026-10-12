@@ -1,0 +1,6 @@
+### Élèves inscrits mais absents des lots Santorin
+[PORTEE: gt,pro,cap]
+La direction ou la personne habilitée vérifie d’abord que les candidats sont inscrits dans Cyclades et associés au bon protocole. Dans Santorin, contrôler les candidats non distribués et les lots existants ; si l’association a été réalisée après la distribution, rafraîchir les données avec « rejouer l’import » selon le guide, puis compléter la distribution ou placer manuellement les candidats restants dans leur lot. Ne pas supprimer des lots contenant déjà des notes. Il n’est pas nécessaire d’affirmer qu’une distribution automatique à 100 % est une condition préalable à toute visibilité : l’objectif est que chaque candidat concerné soit effectivement affecté. Si le défaut persiste, la direction sollicite le service des examens. Ces étapes relèvent des guides Cyclades/Santorin ; ne pas les présenter comme des textes réglementaires nationaux. Une simple décision pédagogique du professeur ne remplace pas l’association et la distribution.
+
+Sources : Guide académique Aix-Marseille des tutoriels examens, circuit Cyclades/Santorin ; réponses du correspondant examens EPS ; tutoriels de distribution Santorin de Créteil.
+https://github.com/Pole-Examens/tutoriels-examens

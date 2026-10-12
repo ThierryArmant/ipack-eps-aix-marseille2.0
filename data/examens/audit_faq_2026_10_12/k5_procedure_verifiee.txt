@@ -1,6 +1,10 @@
 ### FAQ EPS — Saisie / codes
 [PORTEE: gt,pro,cap]
-Dans le guide Santorin EPS cité, « Absent » correspond à l’absence injustifiée et vaut zéro pour l’APSA. « Dispensé » neutralise l’APSA concernée dans le calcul, lorsque la dispense est justifiée selon les règles du diplôme ; ce n’est pas un code générique pour une difficulté administrative. Une inaptitude temporaire ou une force majeure reconnue peut conduire à l’évaluation différée, appelée épreuve de substitution dans le support technique. Ne pas confondre ces codes avec le CE collectif autorisé.
+Dans Santorin, « Absent » et « Dispensé » ne s'emploient pas dans les mêmes situations (guide Santorin EPS de la DIEC) :
+- « Absent » : absence injustifiée ; vaut zéro pour l'APSA.
+- Absence justifiée par une inaptitude temporaire ou une force majeure reconnue : d'abord l'adaptation de l'épreuve ou l'évaluation différée prévue au protocole (appelée « épreuve de substitution » dans le support technique). On ne saisit pas « Dispensé » à ce stade.
+- « Dispensé » : neutralise l'APSA dans le calcul, seulement quand la dispense est établie selon les règles du diplôme (inaptitude couvrant l'épreuve sans adaptation ni différé possible, ou décision de l'enseignant prévue par le texte). Un certificat médical ne suffit pas, à lui seul, à mettre « Dispensé » sur toutes les APSA : il faut vérifier sa durée et les épreuves qu'il couvre.
+Ce n'est pas un code générique pour une difficulté administrative. Ne pas confondre ces codes avec le cas exceptionnel (CE) collectif autorisé.
 
 Portée : Logiciel + DIEC.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 22.

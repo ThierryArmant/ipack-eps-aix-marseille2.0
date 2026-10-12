@@ -1,0 +1,11 @@
+### FAQ EPS — Santorin : « la candidature n'est plus valide », lot impossible à verrouiller
+[PORTEE: gt,pro,cap]
+Ce message signifie qu'un élève du lot a quitté l'établissement mais que la base de Santorin ne s'est pas synchronisée.
+- Seule solution : le chef d'établissement le signale au service des examens (DIEC), en indiquant le RNE de l'établissement, l'examen et les élèves concernés, pour transmission à l'équipe nationale Santorin.
+- Ni l'enseignant ni le chef d'établissement ne peuvent le corriger eux-mêmes. Ne pas supprimer l'élève, ne pas saisir « Absent » pour débloquer.
+- Ce n'est pas une question de déverrouillage : un lot verrouillé se déverrouille par le chef d'établissement, sans passer par la DIEC.
+Aucun texte national ni document publié ne traite ce cas : c'est le fonctionnement constaté de Santorin.
+
+Portée : Logiciel (Santorin).
+Source : retours de l'assistance examens EPS d'Aix-Marseille (pas de document publié).
+Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.

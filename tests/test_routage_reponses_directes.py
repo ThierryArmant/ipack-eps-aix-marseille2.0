@@ -47,6 +47,9 @@ CAS = [
  ("Comment mettre à jour iPackEPS vers la nouvelle version sans perdre mes données ?", PRO, 'Accès iPackEPS'),
  ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, None),
  ("Le lycée est bloqué par les élèves depuis lundi, le CCF de demain est-il maintenu ?", GT, 'Blocages'),
+ ("Bac professionnel : blocage du lycée et CCF annulé", PRO, 'Blocages'),
+ ("J'ai 2 enseignants stagiaires qui ont accès à ESTEREL mais qui ne peuvent pas se connecter à iPackEPS, comment débloquer la situation pour entrer nos protocoles ?", PRO, None),
+ ("i pack EPS me bloque, comment débloquer la situation au lycée ?", GT, None),
 ]
 
 

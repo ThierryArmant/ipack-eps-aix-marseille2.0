@@ -222,6 +222,9 @@
     "prioritaire": true,
     "motifs": [
       "ccf|notes?|epreuv|inapt|dispens|absen|bac"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
     ]
   },
   "data/commun/cap_session_2026.txt": {
@@ -234,6 +237,9 @@
     "prioritaire": true,
     "motifs": [
       "ccf|notes?|epreuv|inapt|dispens|absen|cap"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
     ]
   },
   "data/commun/referentiel_champs_activites_afl.txt": {
@@ -2395,11 +2401,12 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "ccf|ponctuell|commission|harmonis|menu|liste.*apsa|inapt",
+      "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)|(?:evaluation|epreuve) (?:adaptee|differee)|adapt\\w* (?:l.|une |son |cette )?epreuve|(?:note|moyenne|calcul\\w*|dispens\\w*).{0,40}inapt|inapt.{0,60}(?:note|moyenne|calcul|dispens|deux epreuves|troisieme|une (?:seule )?epreuve|adapt|differ)",
       "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
     ],
     "exclure_motifs": [
-      "option|eppcs"
+      "option|eppcs",
+      "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -2418,7 +2425,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "certificat|qui.*valid|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
+      "certificat|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
     ],
     "exclure_motifs": [],
     "url": "https://eduscol.education.gouv.fr/5535/reglementation-concernant-les-amenagements-d-examens-pour-les-eleves-en-situation-de-handicap",

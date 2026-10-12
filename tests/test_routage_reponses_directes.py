@@ -45,6 +45,8 @@ CAS = [
  ("Je suis seul en EPS : l'enseignant est absent, comment certifier le CCF ? ensuite je saisis dans Santorin", GT, None),
  ("Qu'est-ce qui a changé dans la nouvelle version d'iPackEPS ?", GT, None),
  ("Comment mettre à jour iPackEPS vers la nouvelle version sans perdre mes données ?", PRO, 'Accès iPackEPS'),
+ ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, None),
+ ("Le lycée est bloqué par les élèves depuis lundi, le CCF de demain est-il maintenu ?", GT, 'Blocages'),
 ]
 
 

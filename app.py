@@ -1,4 +1,5 @@
 from pathlib import Path
+from documentary_review import review_exam_answer
 import base64
 import datetime
 import os
@@ -1781,6 +1782,7 @@ if prompt_a_traiter:
                 """Cherche les passages utiles dans les bases pour la question en cours.
                 Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
                 _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
+                _priorites_fiches = []
 
                 # ✅ AJOUT : beaucoup de fiches de la FAQ donnent une réponse PAR EXAMEN (« Réponse Lycée GT Bac »,
                 # « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Lycée Pro CAP », « Réponse Collège DNB »), chacune dans
@@ -1899,13 +1901,21 @@ if prompt_a_traiter:
                             continue
                         _vus.add(_cle)
                         _extraits.append('[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt)
+                        _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)
                         _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
                         _diag.append(('[prioritaire] ' + _md.get('title', _path), None))
                         # Une demande explicitement hors périmètre ne doit pas recevoir
                         # une procédure voisine qui réalise l'action dans l'autre sens.
                         if any(re.search(m, p_norm) for m in _md.get('exclusif_motifs', [])):
-                            return (_extraits[-1], [_sources[-1]], [_diag[-1]], '')
+                            # L'exclusivité arrête la recherche complémentaire ; elle conserve
+                            # les fiches spécifiques déjà sélectionnées et leurs conditions.
+                            _indices = [len(_extraits) - 1]
+                            if mode == "examens":
+                                _indices = [i for i, priority in enumerate(_priorites_fiches[:-1])
+                                            if priority >= 300 and priority > _md.get('priorite', 0)] + _indices
+                            return ("\n\n".join(_extraits[i] for i in _indices),
+                                    [_sources[i] for i in _indices], [_diag[i] for i in _indices], '')
                     if mode in ('ipack', 'examens') and re.search(r'inapt|dispens|absen|reglement|dnb|brevet|ccf', p_norm):
                         _ajouter(retriever_textes, '[Cadre réglementaire]', avec_sources=True, maximum=4)
                     if niveau_actuel_form == "1er degré":
@@ -2535,6 +2545,11 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                     if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
                         reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
                     reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
+                    if mode == "examens":
+                        reponse_ia = review_exam_answer(
+                            Settings.llm, question=prompt, public=niveau_actuel_form,
+                            documents=contexte_complet_ia, draft=reponse_ia,
+                        )
                     texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
                     texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
                     texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)

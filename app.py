@@ -561,9 +561,11 @@ def retirer_phrase_absence_apres_reponse(texte):
 
 
 RELANCE_FICHE_PRIORITAIRE = (
-    "\n\nCONTRÔLE AVANT DE RÉPONDRE À NOUVEAU : le contexte contient une FICHE PRIORITAIRE choisie pour cette question. "
-    "Ne réponds pas « Je ne dispose pas de la procédure exacte ». Réponds à partir de cette fiche ; si elle ne traite "
-    "qu'une partie de la question, réponds à cette partie, puis dis en une phrase ce que ta base ne précise pas et à qui le demander."
+    "\n\nRELIS LES PASSAGES FOURNIS : une fiche prioritaire est une piste documentaire, pas une réponse imposée. "
+    "Vérifie qu’elle traite le cas et que ses conditions, son diplôme, sa session et sa portée correspondent à la demande. "
+    "Croise les passages complémentaires applicables. Si une partie est établie, réponds à cette partie puis précise "
+    "le point non documenté. Si aucun passage ne répond, conserve cette limite sans substituer un cas voisin. "
+    "N’invente pas une procédure pour supprimer une phrase d’absence."
 )
 
 
@@ -2517,7 +2519,7 @@ DOCUMENTS ET FAITS UTILES :
 QUESTION :
 {prompt}
 
-Avant de répondre, vérifie que ta conclusion, les conditions et les étapes concernent bien le cas posé.
+Avant de répondre, confronte la conclusion à la question actuelle et aux conditions des passages applicables. Les titres, priorités et exemples des fiches ne remplacent pas cette vérification.
 """
 
                 try:

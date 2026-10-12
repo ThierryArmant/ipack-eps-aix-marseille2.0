@@ -2519,7 +2519,12 @@ DOCUMENTS ET FAITS UTILES :
 QUESTION :
 {prompt}
 
-Avant de répondre, confronte la conclusion à la question actuelle et aux conditions des passages applicables. Les titres, priorités et exemples des fiches ne remplacent pas cette vérification.
+CONTRÔLE FINAL DE LA RÉPONSE :
+1. Réponds à l’opération et à l’état réellement décrits : une action inverse ou une étape déjà accomplie ne résout pas la demande. Attribue chaque étape au rôle qui possède le droit correspondant.
+2. Restitue toutes les possibilités conditionnelles du passage applicable. Quand la décision dépend d’une appréciation, présente les branches et l’autorité de décision ; une note connue ou un nombre d’épreuves ne suffit pas à choisir une branche. Une contrainte logicielle appelle le circuit de résolution documenté, elle ne modifie pas le droit réglementaire.
+3. Rattache chaque affirmation à la nature réelle de sa source : BO ou texte réglementaire, bulletin académique, guide logiciel. Pour une rubrique demandée mais non documentée, indique que les extraits ne fournissent pas ce niveau. Les titres et liens restent ceux des documents fournis, sans titre inventé ni attribution à un autre document.
+4. La conclusion, les étapes et les réserves doivent donner la même décision. Garde seulement les démarches utiles au cas posé et les conditions établies par les sources.
+Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie l’applicabilité de leur contenu à la question actuelle.
 """
 
                 try:

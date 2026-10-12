@@ -800,7 +800,13 @@ def charger_dossier_txt_securise(chemin_dossier, par_fiche=False):
             portee = ','.join(md_morceau['examens'])
             entete = ('[PORTEE: ' + portee + ']\n') if portee else ''
             provenance = '[DOCUMENT: ' + metadata['path'] + '; statut: ' + metadata['statut'] + ']\n'
-            docs_trouves.append(Document(text=entete + provenance + morceau, metadata=md_morceau))
+            # Les métadonnées reprennent toute l'entrée du catalogue (motifs, réponses en dur…) : utiles au code,
+            # elles ne doivent ni entrer dans les vecteurs ni compter dans la taille des morceaux, sinon une entrée
+            # longue dépasse la taille de découpage (ValueError « Metadata length … is longer than chunk size »).
+            cles_masquees = [k for k in md_morceau if k not in ('title', 'source', 'path', 'statut')]
+            docs_trouves.append(Document(text=entete + provenance + morceau, metadata=md_morceau,
+                                         excluded_embed_metadata_keys=cles_masquees,
+                                         excluded_llm_metadata_keys=cles_masquees))
     return docs_trouves
 
 

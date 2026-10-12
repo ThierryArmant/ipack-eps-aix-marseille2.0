@@ -1,6 +1,7 @@
 ### FAQ EPS — Imag'in : mission « Notation EPS CCF » par examen
 [PORTEE: gt,pro,cap]
 Vérifiez d’abord l’examen : le portail Imag’in comporte une ligne de mission « Notation EPS CCF » par examen. Entrez par la ligne du bac pro pour ses lots, puis par celle du CAP pour les autres. Dans Santorin, choisissez à nouveau l’examen voulu. Le fait de ne voir qu’une partie des lots ne prouve pas qu’ils manquent ni que le problème vient de plusieurs établissements.
+L'enseignant ne crée pas de mission lui-même : les missions et convocations relèvent de la DIEC et du chef d'établissement. Si une des deux lignes de mission manque, il s'adresse à son chef d'établissement.
 
 Portée : DIEC Aix-Marseille.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 14.

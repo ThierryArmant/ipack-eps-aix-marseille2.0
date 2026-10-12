@@ -1,0 +1,11 @@
+### FAQ EPS — Établissement hors SIECLE ou à l'étranger : comment les élèves arrivent dans Cyclades
+[PORTEE: gt,pro,cap]
+C'est normal de n'avoir aucun élève dans iPackEPS : la base élèves de ces établissements (CFA, GRETA, MFR, établissements AEFE) n'est pas synchronisée avec SIECLE.
+- Les candidats arrivent dans Cyclades par leur inscription à l'examen, pas par iPackEPS. L'inscription est une étape distincte, déjà faite ou à faire selon le circuit d'inscription de l'établissement.
+- Dans iPackEPS, déposer les référentiels et créer les groupes et protocoles sans élèves. Les étapes 1 (actualisation de la liste), 2 (affectation dans les groupes) et 4 (fichier d'import vers Cyclades) du guide d'Aix ne s'appliquent pas.
+- Une fois les protocoles dans Cyclades, associer chaque candidat inscrit à son protocole directement dans Cyclades : [EPS] > [Associer les élèves à un protocole]. Associer un candidat à un protocole n'est pas l'inscrire à l'examen.
+- Ne pas demander d'import Pronote ou STS-web pour faire apparaître les élèves.
+
+Portée : Académique (Aix-Marseille, guide du Pôle examens) + logiciel.
+Sources datées : guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (encadré « hors SIECLE ») ; mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF ».
+Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt.

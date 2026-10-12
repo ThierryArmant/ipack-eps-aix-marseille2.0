@@ -1,0 +1,12 @@
+### FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié (ce n'est pas déverrouiller)
+[PORTEE: gt,pro,cap]
+Oui : le chef d'établissement peut clôturer à la place de l'enseignant un lot resté ouvert. Dans Santorin, portail établissement, suivi des lots : il clôture la saisie du lot.
+Condition : tous les candidats du lot doivent avoir une saisie (une note, « Absent » ou « Dispensé »). Tant qu'un seul candidat n'a rien, la clôture est impossible : compléter d'abord la saisie.
+Ne pas confondre deux opérations inverses :
+- clôturer (ou verrouiller) : fermer un lot ouvert dont la saisie est complète ; l'enseignant le fait normalement lui-même, le chef d'établissement peut le faire s'il a oublié ;
+- déverrouiller : rouvrir un lot déjà fermé pour corriger une note ; seul le chef d'établissement le fait.
+Ici le lot est ouvert : il s'agit de le clôturer, pas de le déverrouiller.
+
+Portée : Logiciel (Santorin) + guide académique.
+Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024), diapo 24.
+Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt.

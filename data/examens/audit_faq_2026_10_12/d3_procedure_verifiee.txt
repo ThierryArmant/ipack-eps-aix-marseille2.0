@@ -1,9 +1,10 @@
 ### FAQ EPS — Inaptitude / DI+DI+Note
 [PORTEE: gt]
-La réponse présente deux issues possibles et indique que l’enseignant choisit entre elles : aucune n’est automatique (note de service du 20 février 2026, 2.e).
+Les deux saisies sont possibles : DI + DI + 14 ou DI + DI + DI. L’enseignant choisit entre elles selon la valeur de la note de 14 ; aucune n’est automatique (note de service du 20 février 2026, 2.e).
 - Issue 1, les éléments d’évaluation suffisent : certification sur une seule épreuve. La moyenne retenue n’est constituée que de cette note (ici 14). Saisie dans Santorin : DI + DI + 14, avec une appréciation qui justifie le choix.
 - Issue 2, les éléments d’appréciation sont trop réduits : pas de proposition de note, mention « dispensé de l’épreuve d’EPS », coefficient neutralisé. Saisie : dispensé sur les trois épreuves (DI + DI + DI), avec appréciation.
 Pour choisir, l’enseignant examine si la note de 14 représente réellement le niveau de l’élève (épreuve complète, moment de l’année, durée de l’inaptitude). Documenter la décision dans le dossier des cas particuliers. Une DI n’est pas un zéro à ajouter à une moyenne.
+Une réponse qui ne donne que DI + DI + 14, ou que DI partout, est incomplète : elle doit présenter les deux issues et le critère de choix.
 
 Portée : National.
 Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e.

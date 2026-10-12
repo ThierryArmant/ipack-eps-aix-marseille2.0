@@ -5,6 +5,7 @@ Trois niveaux à distinguer :
 - Logiciel : les mémos Cyclades consultés décrivent un protocole adapté d’au moins deux APSA au bac GT et pro (au moins une au CAP). Ce minimum vient du logiciel, pas du texte. La version de Cyclades en service n’a pas été vérifiée : il faut essayer la saisie, et si elle est refusée, le signaler.
 - Démarche : en cas d’écart entre le texte et la saisie, l’établissement fait traiter ce cas par la DIEC et l’inspection pédagogique EPS. Ne pas ajouter une APSA fictive pour passer le contrôle du logiciel.
 Aucune consigne académique d’Aix propre à ce cas n’a été trouvée.
+Conclusion : l’élève n’a pas à passer une deuxième APSA pour satisfaire le logiciel ; c’est l’obstacle technique qui se traite avec la DIEC et l’inspection.
 
 Portée : Logiciel vs texte national.
 Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.e) ; FAQ Cyclades, académie de Grenoble, octobre 2024 ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2.

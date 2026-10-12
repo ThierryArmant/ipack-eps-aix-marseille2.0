@@ -1,5 +1,6 @@
 ### FAQ EPS — Imag'in : convocation éditée en PDF, accès à Santorin
 [PORTEE: gt,pro,cap]
+Trois vérifications dans Imag'in, dans l'ordre : 1) le collègue est convoqué sur la mission « Notation EPS CCF » de l'examen concerné ; 2) un signataire est défini pour l'établissement, sans quoi la convocation ne peut pas être éditée ; 3) la convocation a été éditée en PDF. Ensuite, dans Cyclades ou Santorin, l'adresse du protocole ou du lot doit être la sienne.
 Vérifier que la convocation a été éditée en PDF (picto PDF) : c'est obligatoire, car c'est ce qui transmet le nom de l'enseignant à Santorin. L'envoi par mail est facultatif. Prérequis : un signataire défini. Ensuite, l'adresse du protocole ou du lot doit être la sienne. Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
 
 Portée : DIEC Aix-Marseille.

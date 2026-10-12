@@ -2403,16 +2403,25 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "ccf|ponctuell|commission|harmonis|menu|liste.*apsa|inapt"
+      "ccf|ponctuell|commission|harmonis|menu|liste.*apsa|inapt",
+      "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
     ],
     "exclure_motifs": [
       "option|eppcs"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "date_verification": "2026-10-11",
+    "date_verification": "2026-10-12",
     "exclusif_motifs": [
       "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf",
       "commission.*harmonisation"
+    ],
+    "reponses_directes": [
+      {
+        "motifs": [
+          "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
+        ],
+        "reponse": "L'absence du professeur pendant 90 % du cycle ne permet pas d'autoriser automatiquement un rattrapage du CCF en fin d'année. Il s'agit d'une interruption de l'enseignement, pas d'une inaptitude médicale de l'élève ni de son absence à l'épreuve.\nIl faut examiner la formation réellement dispensée et les possibilités de reprise de l'enseignement. Une reprogrammation de l'évaluation après une formation suffisante peut être étudiée avec l'inspection EPS, dans le respect du protocole et du calendrier académique. Le texte national ne fixe pas de seuil de 90 % autorisant ou interdisant à lui seul cette reprogrammation.\nSi l'activité ne peut pas être assurée, le chef d'établissement saisit l'inspection pédagogique régionale EPS et le service des examens pour déterminer la procédure applicable. Au bac général et technologique, une certification sur deux activités pour impossibilité technique ou matérielle nécessite une autorisation du recteur après expertise de l'inspection ; elle n'est pas automatique du seul fait que deux notes existent. L'absence du professeur n'est pas explicitement citée dans cette disposition : sa qualification doit être examinée par l'autorité académique. En cas d'impossibilité majeure de réaliser au moins deux activités, attestée par l'inspection, l'établissement peut demander au recteur une autorisation d'inscription en examen ponctuel terminal.\nLes règles médicales relatives à une note unique ou à une dispense ne s'appliquent pas du seul fait de l'absence du professeur.\nRéférence : note de service du 20 février 2026, MENE2531948N, BO n° 9 du 26 février 2026, partie 2.d, applicable depuis la session 2026. Cette réponse concerne le bac général et technologique ; pour le bac professionnel, il faut examiner le texte propre à ce diplôme."
+      }
     ]
   },
   "data/commun/audit60/certificat_medical.txt": {

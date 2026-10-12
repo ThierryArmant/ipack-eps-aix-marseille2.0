@@ -72,3 +72,11 @@ def prevent_invented_gt_medical_sequence(question, answer, documentary_context):
             'une évaluation différée peut être envisagée selon la situation. '
             'Les menus et codes de saisie nécessitent un guide technique actuel applicable à votre académie. '
             'Référence : note MENE2531948N du 20 février 2026, dispositions relatives à l’inaptitude temporaire.')
+
+
+def clean_video_placeholders(answer):
+    """Un tutoriel cité en lien Markdown sans adresse (« [X.mp4](lien à insérer si disponible) ») s'affichait tel quel.
+    On garde le nom du fichier (la vidéo est ajoutée sous la réponse) et on retire le texte de remplissage."""
+    answer = re.sub(r"\[([A-Za-z0-9_\-]+\.mp4)\]\((?!https?://)[^)]*\)", r"\1", answer)
+    answer = re.sub(r"\s*\((?:lien|url|adresse)[^()]{0,40}(?:ins[ée]rer|disponible|venir)[^()]*\)", "", answer, flags=re.IGNORECASE)
+    return answer

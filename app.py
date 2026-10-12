@@ -7,7 +7,7 @@ import smtplib
 import unicodedata
 import requests
 from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
-from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence
+from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence, clean_video_placeholders
 import streamlit as st
 from email.mime.text import MIMEText
 from llama_index.core import Document, Settings, VectorStoreIndex
@@ -2729,6 +2729,7 @@ RÈGLE FINALE DE FIABILITÉ : les fiches VERIFIEES PRIORITAIRES et les textes ap
             )
             texte_brut = texte_brut.replace('<span class="law-highlight"><span class="law-highlight">', '<span class="law-highlight">').replace("</span></span>", "</span>")
 
+        texte_brut = clean_video_placeholders(texte_brut)
         re_links = re.sub(
             r"\[([^\]]+)\]\((https?://[^\)]+)\)",
             r'<a href="\2" target="_blank" style="color: #FFB020 !important; text-decoration: underline;">\1</a>',

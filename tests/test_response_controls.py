@@ -47,3 +47,15 @@ class ResponseControlsTests(unittest.TestCase):
         self.assertIn('ne précise pas', prevent_invented_gt_medical_sequence(q, answer, 'MENE2531948N'))
         self.assertEqual(prevent_invented_gt_medical_sequence(q + ' troisième épreuve empêchée', answer, 'MENE2531948N'), answer)
         self.assertEqual(prevent_invented_gt_medical_sequence('CAP inaptitude temporaire', answer, 'MENE2531948N'), answer)
+
+
+class VideoPlaceholderTests(unittest.TestCase):
+    def test_lien_video_sans_adresse_est_nettoye(self):
+        from response_controls import clean_video_placeholders
+        texte = "📺 Tutoriel associé : [Saisie_protocoles_iPackEPS.mp4](lien à insérer si disponible)."
+        self.assertEqual(clean_video_placeholders(texte), "📺 Tutoriel associé : Saisie_protocoles_iPackEPS.mp4.")
+
+    def test_vrai_lien_conserve(self):
+        from response_controls import clean_video_placeholders
+        texte = "Voir [la vidéo](https://youtu.be/Bq7_ooQuZtU)."
+        self.assertEqual(clean_video_placeholders(texte), texte)

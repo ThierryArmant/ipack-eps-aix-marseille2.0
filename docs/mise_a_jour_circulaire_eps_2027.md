@@ -1,6 +1,6 @@
 # Circulaire EPS session 2027 d'Aix-Marseille : fiches à reprendre
 
-Préparé le 13 octobre 2026. Les fiches ci-dessous s'appuient sur le BA spécial 549 du 17 octobre 2025 (EPS, session 2026).
+Préparé le 13 octobre 2026. Les 18 fiches ci-dessous s'appuient sur le BA spécial 549 du 17 octobre 2025 (EPS, session 2026).
 Les BA spéciaux 565 et 566 du 9 octobre 2026 traitent des inscriptions de la session 2027 ; ils ne remplacent pas la circulaire EPS.
 Dès la publication du BA EPS de la session 2027, relire chaque point ci-dessous et mettre à jour la fiche, sa source et son lien.
 
@@ -32,7 +32,15 @@ Règle : ne reprendre que ce que le nouveau BA écrit. Un point absent du nouvea
 | Même règle | `data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt` |
 | Même règle | `config/decisions_validees.json` (décision « session 2026 (BA 549) ; à confirmer pour 2027 ») |
 
-## 4. Conservation des éléments d'évaluation
+## 4. Sportifs de haut niveau et protocoles
+| Point à relire | Fiche |
+|---|---|
+| Éligibilité des SHN et formulaire (annexe 4) | `data/commun/gt_shn_eligibilite.txt` |
+| Tableau SHN du CAP (annexe 6) | `data/commun/cap_shn_ccf.txt` |
+| APSA absente de la liste Cyclades : dépôt de la FCA | `data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt` |
+| Pas de dispense automatique avec une seule note sur trois | `data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt` |
+
+## 5. Conservation des éléments d'évaluation
 | Point à relire | Fiche |
 |---|---|
 | Dossier accessible au chef d'établissement (p. 8) ; durée éventuelle | `data/commun/audit60/pv_ccf_prudence.txt` |

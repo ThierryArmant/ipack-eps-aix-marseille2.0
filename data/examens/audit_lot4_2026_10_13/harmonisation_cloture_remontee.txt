@@ -1,0 +1,12 @@
+### Après la saisie : harmonisation, clôture et remontée des notes (Santorin, Cyclades)
+[PORTEE: gt,pro,cap]
+Ordre des étapes une fois les notes saisies :
+1. L'enseignant verrouille ses lots quand toutes les saisies sont faites ; le chef d'établissement vérifie et peut déverrouiller ou clôturer un lot oublié.
+2. La commission académique harmonise. Dans Santorin, le coordinateur académique dispose d'une « harmonisation en masse » : majoration ou minoration (au dixième de point) de la note finale, de toutes les APSA ou d'une APSA, selon des critères (département, établissement, diplôme, genre, note globale minimale ou maximale). L'arrondi de la note finale dépend du diplôme.
+3. Le niveau académique clôture l'épreuve dans Santorin (clôture partielle ou totale, qui peut être annulée).
+4. Les notes remontent ensuite de Santorin vers Cyclades, pour le jury.
+Pourquoi une note a changé après la saisie : la note de CCF saisie par l'enseignant est une proposition. Elle peut être modifiée par l'harmonisation de la commission académique, puis arrêtée par le jury. Ce n'est pas une erreur de saisie de l'établissement. Pour une contestation, voir la fiche sur la contestation de note.
+Les dates de ces étapes sont fixées chaque année par la DIEC : ne pas les déduire d'une autre académie ou d'une session passée.
+Portée : Logiciel (mémo national) + national (rôle de la commission et du jury).
+Sources : feuille de route nationale Cyclades/Santorin « Gérer EPS CCF », v3.0 (2024), pages 17 à 19 ; note de service du 20 février 2026, MENE2531948N (commission académique d'harmonisation et de proposition de notes).
+https://eps-pedagogie.web.ac-grenoble.fr/sites/default/files/media-fichiers/2024-10/5_memo-fdr_gerer_eps-ccf_v3.0.pdf

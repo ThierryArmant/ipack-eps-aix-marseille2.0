@@ -3,6 +3,8 @@
 
 import json
 import re
+import html
+import unicodedata
 
 
 def review_exam_answer(llm, *, question, public, documents, draft):
@@ -54,8 +56,24 @@ DOCUMENTS :
 BROUILLON À CONTRÔLER :
 {draft}
 """
-    raw = llm.complete(prompt).text
-    if not raw or not raw.strip():
+    for attempt in range(2):
+        raw = llm.complete(prompt).text
+        try:
+            return validated_review(raw, documents)
+        except (ValueError, TypeError, AttributeError) as error:
+            if attempt:
+                raise
+            prompt += (
+                "\n\nREPRISE DU CONTRÔLE : " + str(error)
+                + "\nRecopie les preuves mot pour mot depuis DOCUMENTS, avec leurs conditions. "
+                "Une preuve reformulée ne passe pas le contrôle. Abandonne toute affirmation "
+                "sans passage justificatif et reconstruis la réponse depuis les passages exacts. "
+                "Rends le même objet JSON valide, sans commentaires.\nSORTIE À REVOIR :\n" + str(raw)
+            )
+
+
+def validated_review(raw, documents):
+    if not raw or not isinstance(raw, str) or not raw.strip():
         raise ValueError("La relecture documentaire n'a pas produit de réponse.")
     raw = raw.strip()
     if raw.startswith("```"):
@@ -65,8 +83,13 @@ BROUILLON À CONTRÔLER :
     answer = result.get("reponse_html", "")
     if not isinstance(proofs, list) or not proofs or not isinstance(answer, str) or not answer.strip():
         raise ValueError("La relecture documentaire est incomplète.")
-    # Vérifie la présence des preuves, pas leur validité sémantique : celle-ci reste à tester.
+    # Vérifie la présence des mots, en tolérant seulement mise en forme et typographie.
+    # Cette présence ne prouve pas la bonne interprétation de la source.
     def normalized(text):
+        text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+        text = unicodedata.normalize("NFKC", text).casefold()
+        text = text.replace("’", "'").replace("‘", "'").replace("–", "-").replace("—", "-")
+        text = text.replace("**", "").replace("`", "")
         return " ".join(text.split())
     corpus = normalized(documents)
     for proof in proofs:

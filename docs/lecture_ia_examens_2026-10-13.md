@@ -15,3 +15,5 @@ La relecture ajoute un appel au modèle pour chaque réponse Examens générée,
 Les tests vérifient la conservation effective des deux branches dans le vrai routage d'app.py, la transmission des documents à la relecture et le traitement d'une sortie vide. La série de réserve demeure intacte. Des retests en ligne sont nécessaires avant de conclure à une amélioration.
 
 La relecture produit les passages justificatifs avant la réponse finale, en JSON. Le programme vérifie que les passages cités existent littéralement dans les documents. Cette vérification de présence ne prouve pas la bonne interprétation ni le rattachement à la source : les retests restent indispensables. Les preuves ne sont pas affichées à l’utilisateur.
+
+Les variations typographiques des preuves (apostrophes, gras, espaces) sont tolérées, sans reformulation de leurs mots. Une sortie sans preuve présente est reprise une fois contre les mêmes documents ; si le second contrôle échoue, le brouillon non vérifié ne sera pas publié. Ce cas ajoute exceptionnellement un troisième appel au modèle.

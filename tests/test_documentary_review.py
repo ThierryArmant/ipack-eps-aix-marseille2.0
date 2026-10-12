@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 
-from documentary_review import review_exam_answer
+from documentary_review import review_exam_answer, validated_review
 import test_documentation as routing_tests
 
 
@@ -44,3 +44,16 @@ class DocumentaryReviewTests(unittest.TestCase):
             review_exam_answer(SimpleNamespace(complete=lambda _: SimpleNamespace(
                 text='{"verifications":[{"preuve":"Passage inventé"}],"reponse_html":"Erreur"}')),
                 question='Q', public='GT', documents='Guide fourni', draft='B')
+
+    def test_typographic_variations_keep_the_same_words(self):
+        raw = '{"verifications":[{"preuve":"L’enseignant **corrige** la note."}],"reponse_html":"Réponse"}'
+        self.assertEqual(validated_review(raw, "L'enseignant corrige la note."), 'Réponse')
+
+    def test_invalid_first_proof_is_retried_against_documents(self):
+        replies = iter([
+            '{"verifications":[{"preuve":"Inventé"}],"reponse_html":"Erreur"}',
+            '{"verifications":[{"preuve":"Guide fourni"}],"reponse_html":"Réponse relue"}',
+        ])
+        llm = SimpleNamespace(complete=lambda _: SimpleNamespace(text=next(replies)))
+        self.assertEqual(review_exam_answer(llm, question='Q', public='GT',
+                        documents='Guide fourni', draft='B'), 'Réponse relue')

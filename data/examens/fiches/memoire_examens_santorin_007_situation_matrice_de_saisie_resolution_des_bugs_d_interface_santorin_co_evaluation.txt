@@ -14,7 +14,7 @@
 
 * PROCÉDURE : DÉPLACEMENT D'UN CANDIDAT OU RÉAFFECTATION DE LOT SUR SANTORIN (MULTIMÉTHODE FAQ) :
   - Distinction clé : Ne pas confondre la « réaffectation d'un lot » (qui attribue la totalité des candidats d'un lot à un autre évaluateur) et le « déplacement d'un candidat » d'un lot vers un autre.
-  - Règle absolue : L'enseignant n'a aucun droit de déplacer lui-même un candidat d'un lot à un autre sur Santorin.
+  - Droits : un enseignant ne peut pas déplacer un candidat d'un lot à un autre sur Santorin, sauf s'il a été désigné référent Santorin par le chef d'établissement ; sinon, il le demande au chef d'établissement ou au référent.
   - Cas 1 & 2 (Arrivée tardive, élève non listé ou erreur de protocole dans Cyclades) : Corriger l'affectation du candidat ou du protocole dans Cyclades, puis effectuer une nouvelle **distribution automatique** des candidats/lots dans Santorin.
   - Cas 3 (Bon protocole dans Cyclades mais mauvais lot de distribution) : Deux solutions directes dans Santorin :
     * Option A : le chef d'établissement ou l'enseignant référent Santorin déplace l'élève : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant].

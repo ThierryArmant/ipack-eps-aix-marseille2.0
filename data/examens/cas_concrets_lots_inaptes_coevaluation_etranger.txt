@@ -185,6 +185,20 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Une convocation créée par l'établissement puis modifiée par le service des examens n'apparaît plus dans sa liste.
 - La suppression n'est plus possible si des frais liés à la mission sont en cours de traitement.
 
+### [SITUATION: SANTORIN — COMMENT LE CHEF D'ÉTABLISSEMENT NOMME-T-IL UN ENSEIGNANT « RÉFÉRENT » ?]
+- Mots-clés : référent Santorin, enseignant référent, qualité référent, nommer un référent, déléguer la distribution des lots, Convocation par mission.
+- Formulations courantes des collègues : comment devenir référent Santorin ; le chef peut-il me confier la distribution des lots ; qui peut déplacer un élève de lot à part le chef.
+- Le chef d'établissement peut donner à un enseignant d'EPS la qualité de « référent » : il peut alors faire les principales tâches de gestion de l'établissement dans Santorin (distribution des lots, déplacement de candidats, création de lots, suivi de la saisie, statistiques avancées).
+- Manipulation, dans le portail Imag'in de l'établissement : [Convocation par mission] ; sélectionner l'épreuve « Éducation physique et sportive » de la mission de notation EPS ; [Modifier la convocation] de l'enseignant choisi ; ajouter la qualité « REFERENT » ; [Convoquer].
+- Le référent accède ensuite à Santorin par son propre Imag'in : [Portail d'accès aux missions], puis l'examen concerné, puis [Distribution].
+- (Source : tutoriel « Saisie des notes des CCF EPS 2025 » d'une autre académie, janvier 2025 ; l'intitulé exact de l'épreuve peut varier selon l'examen et l'académie.)
+
+### [SITUATION: SPORTIF DE HAUT NIVEAU — DANS QUEL PROTOCOLE LE PLACER POUR QUE SANTORIN PROPOSE LE 20/20 ?]
+- Mots-clés : sportif de haut niveau, SHN, protocole, 20/20, spécialité sportive, protocole adapté, APSA adaptée.
+- Formulations courantes des collègues : mon élève SHN est dans le protocole de sa classe ; comment Santorin sait sur quelle activité mettre 20/20 ; faut-il un protocole spécial pour un SHN.
+- Pour que le 20/20 puisse être attribué, le protocole de l'élève doit contenir l'activité qu'il pratique en haut niveau. Si le protocole de sa classe ne la contient pas, créer pour lui un protocole de type ADAPTÉ, avec sa spécialité sportive comme APSA adaptée, les autres activités devant relever de champs différents (tutoriel officiel iPackEPS, article 69 ; tutoriel « Saisie des notes des CCF EPS 2025 », janvier 2025).
+- Le statut doit d'abord être validé par le service des examens : à l'ouverture de la saisie d'un candidat SHN, Santorin affiche alors une étape pour choisir l'activité qui reçoit le 20/20.
+
 ################ SOUS-COMMISSION ################
 
 ### [SITUATION: L'ENSEIGNANT CONVOQUÉ À LA SOUS-COMMISSION D'EPS NE PEUT PAS VENIR — COMMENT LE FAIRE REMPLACER ?]

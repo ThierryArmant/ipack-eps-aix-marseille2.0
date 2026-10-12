@@ -2,7 +2,8 @@ import unittest
 import knowledge_catalog as kc
 class Lot2(unittest.TestCase):
  def answer(self,q,public='Lycée Général & Techno'):
-  return kc.documented_response(q,public,'examens')
+  niveau, mode = kc.effective_context(q, public, 'examens')
+  return kc.delivered_text(q,public,'examens'), kc.documented_response(q,niveau,mode)[1]
  def test_inscription_inapte_is_apte_and_not_annual_condition(self):
   a,_=self.answer('À l’inscription au bac je coche Inapte EPS avec un certificat total ?')
   self.assertIn('cochez « APTE »',a);self.assertIn('Ne pas imposer',a)

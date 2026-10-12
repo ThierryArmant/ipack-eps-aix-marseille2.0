@@ -215,3 +215,55 @@ def effective_context(question, public, mode):
     if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q) and not re.search(r"\bipack", q):
         mode = 'examens'
     return public, mode
+
+
+def priority_context(question, public, mode):
+    """Texte des fiches prioritaires que le hub transmet à l'IA pour cette question (même sélection que app.py :
+    diplômes visés, reference_notice, filtre de mode, arrêt sur une fiche exclusive). Sert aux tests : vérifier
+    ce que l'IA reçoit, maintenant que la plupart des réponses en dur sont redevenues des fiches."""
+    niveau, mode = effective_context(question, public, mode)
+    q = normalise(question)
+    targets = set()
+    if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b", q):
+        targets.add('pro')
+    if re.search(r'\bcap\b', q):
+        targets.add('cap')
+    if re.search(r"\b(dnb|brevet|college|collegiens?)\b", q):
+        targets.add('dnb')
+    if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", q):
+        targets.add('gt')
+    if not targets:
+        targets = {'Collège (DNB)': {'dnb'}, 'Lycée Général & Techno': {'gt'},
+                   'Lycée Pro / CAP': {'pro', 'cap'}}.get(niveau, set())
+    texts = []
+    for path, md in reference_notice(targets, question, niveau):
+        if md.get('modes') and mode not in md['modes']:
+            continue
+        if len(texts) >= 10:
+            break
+        texts.append(Path(path).read_text(encoding='utf-8'))
+        if any(re.search(m, q) for m in md.get('exclusif_motifs', [])):
+            break
+    return '\n'.join(texts)
+
+
+def delivered_text(question, public, mode):
+    """Ce que le hub fournit pour cette question hors recherche par le sens : la réponse en dur si un garde-fou
+    se déclenche, sinon le texte des fiches prioritaires transmis à l'IA."""
+    niveau, m = effective_context(question, public, mode)
+    direct = documented_response(question, niveau, m)[0]
+    return direct or priority_context(question, public, mode)
+
+
+def priority_titles(question, public, mode):
+    """Titres des fiches prioritaires transmises à l'IA (même sélection que priority_context)."""
+    niveau, m = effective_context(question, public, mode)
+    direct, md = documented_response(question, niveau, m)
+    if direct:
+        return [md.get('title', '')]
+    texte = priority_context(question, public, mode)
+    titres = []
+    for path, entry in catalog().items():
+        if Path(path).is_file() and entry.get('title') and Path(path).read_text(encoding='utf-8') in texte:
+            titres.append(entry['title'])
+    return titres

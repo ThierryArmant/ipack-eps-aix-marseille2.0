@@ -2,7 +2,7 @@ import unittest
 import knowledge_catalog as kc
 class Lot1(unittest.TestCase):
  def answer(self,q,public='Lycée Général & Techno'):
-  return kc.documented_response(q,public,'examens')[0]
+  return kc.delivered_text(q,public,'examens')
  def test_pro_does_not_import_gt_obligations_or_accept_unlimited_authority(self):
   a=self.answer('En bac pro, faut-il deux professeurs pour évaluer un CCF EPS ? Un collègue dit que tout se décide seul.','Lycée Pro / CAP')
   self.assertIn('ne sont pas obligatoires',a);self.assertIn('ne signifie pas',a)

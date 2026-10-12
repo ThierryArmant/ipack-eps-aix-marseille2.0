@@ -23,7 +23,7 @@ class AuditedFAQTests(unittest.TestCase):
         self.assertTrue(eval(condition, {}, state))
 
     def answer(self, question, public=GT):
-        return kc.documented_response(question, public, 'examens')[0]
+        return kc.delivered_text(question, public, 'examens')
 
     def test_medical_candidate_keeps_protocol_even_when_unfit_all_year(self):
         answer = self.answer('Inapte toute l’année, doit-il rester dans le groupe Cyclades ?')
@@ -55,8 +55,10 @@ class AuditedFAQTests(unittest.TestCase):
         self.assertIn('DIEC et l’inspection', answer)
 
     def test_general_train_delay_does_not_trigger_school_blockage(self):
-        answer, md = kc.documented_response('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')
-        self.assertIn('FAQ EPS C3', md['title'])
+        answer = kc.delivered_text('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')
+        titres = kc.priority_titles('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')
+        self.assertIn('FAQ EPS — Évaluation différée', titres)
+        self.assertFalse(any(t.startswith('Blocages des lycées') for t in titres))
         self.assertIn('pas automatiquement', answer)
 
     def test_negative_cases_do_not_get_unrelated_reviewed_faq(self):
@@ -69,5 +71,4 @@ class AuditedFAQTests(unittest.TestCase):
             ('CAP : noter uniquement AFLP2 et AFLP3 ?', 'Lycée Pro / CAP'),
         ]:
             with self.subTest(question=question):
-                _, md = kc.documented_response(question, public, 'examens')
-                self.assertFalse(md.get('title', '').startswith('FAQ EPS'))
+                self.assertFalse(any(t.startswith('FAQ EPS') for t in kc.priority_titles(question, public, 'examens')))

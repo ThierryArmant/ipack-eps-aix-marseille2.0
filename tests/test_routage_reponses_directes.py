@@ -10,20 +10,20 @@ CAS = [
  ("Notre élève inapte apparaît APTE dans Cyclades à l'inscription. Erreur du secrétariat ?", GT, 'inscriptions terminale GT'),
  ("Session 2027 : mon candidat inapte est inscrit apte dans Cyclades, c'est normal ?", GT, 'inscriptions terminale GT'),
  # inscriptions GT (ne doit pas)
- ("Mon élève est inapte total toute l'année de terminale. Je ne le mets dans aucun groupe Cyclades, c'est bien ça ?", GT, 'FAQ EPS D1'),
+ ("Mon élève est inapte total toute l'année de terminale. Je ne le mets dans aucun groupe Cyclades, c'est bien ça ?", GT, 'FAQ EPS — Inaptitude totale'),
  ("Élève inapte : dans quel protocole Cyclades le placer ?", GT, None),
  # candidats absents (doit)
  ("Il manque trois élèves dans la liste des candidats du bac sur Cyclades, est-ce que je dois refaire l'export depuis iPackEPS ?", GT, 'candidats absents'),
  ("Un candidat n'apparaît pas dans Cyclades alors qu'il est dans iPackEPS, que faire ?", PRO, 'candidats absents'),
  # candidats absents (ne doit pas)
- ("Quand je crée mon protocole dans Cyclades, mon APSA n'apparaît pas dans la liste.", GT, 'FAQ EPS F1'),
+ ("Quand je crée mon protocole dans Cyclades, mon APSA n'apparaît pas dans la liste.", GT, 'FAQ EPS — Protocoles'),
  ("Mon élève était absent au CCF, que dois-je mettre dans Cyclades ?", GT, None),
  ("Le référentiel de badminton n'apparaît pas dans la liste Cyclades", PRO, None),
  # protocoles 2026 (doit)
  ("Jusqu'à quand peut-on saisir les protocoles dans iPackEPS cette année à Aix-Marseille, et que se passe-t-il s'ils ne sont pas validés ?", GT, 'protocoles et circuit'),
  ("Quelle est la date limite pour déposer les protocoles ?", PRO, 'protocoles et circuit'),
  # protocoles 2026 (ne doit pas)
- ("Cyclades refuse mon protocole à cause d'une date.", GT, 'FAQ EPS F3'),
+ ("Cyclades refuse mon protocole à cause d'une date.", GT, 'FAQ EPS — Protocoles'),
  ("Il faut ajouter un protocole standard après la validation de la commission. Je demande à la commission d'invalider nos protocoles ?", GT, 'ajout de protocole standard'),
  ("Je veux changer la date du CCF dans mon protocole, comment faire ?", PRO, None),
  # bac pro une note (doit)
@@ -45,7 +45,7 @@ CAS = [
  ("Je suis seul en EPS : l'enseignant est absent, comment certifier le CCF ? ensuite je saisis dans Santorin", GT, None),
  ("Qu'est-ce qui a changé dans la nouvelle version d'iPackEPS ?", GT, None),
  ("Comment mettre à jour iPackEPS vers la nouvelle version sans perdre mes données ?", PRO, 'Accès iPackEPS'),
- ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, 'FAQ EPS C3'),
+ ("Un élève assidu a été bloqué par une grève des trains le jour du CCF. Que fait-on ?", GT, 'FAQ EPS — Évaluation différée'),
  ("Le lycée est bloqué par les élèves depuis lundi, le CCF de demain est-il maintenu ?", GT, 'Blocages'),
  ("Bac professionnel : blocage du lycée et CCF annulé", PRO, 'Blocages'),
  ("J'ai 2 enseignants stagiaires qui ont accès à ESTEREL mais qui ne peuvent pas se connecter à iPackEPS, comment débloquer la situation pour entrer nos protocoles ?", PRO, None),
@@ -63,14 +63,24 @@ def reponse_directe(question, public):
 
 
 class RoutageReponsesDirectesTests(unittest.TestCase):
-    def test_chaque_reponse_en_dur_reste_sur_son_sujet(self):
+    def test_chaque_reponse_reste_sur_son_sujet(self):
+        """Attendu None : aucune réponse en dur ne doit se déclencher.
+        Attendu un titre : c'est la réponse en dur (garde-fou conservé) ou, depuis la conversion du 12/10,
+        la fiche transmise en priorité à l'IA."""
         for question, public, attendu in CAS:
             with self.subTest(question=question):
                 titre = reponse_directe(question, public)
                 if attendu is None:
                     self.assertEqual(titre, '', f'réponse en dur hors sujet : {titre}')
                 else:
-                    self.assertIn(attendu.lower(), titre.lower())
+                    titres = kc.priority_titles(question, public, 'examens') + kc.priority_titles(question, public, 'ipack')
+                    self.assertTrue(any(attendu.lower() in t.lower() for t in titres), titres)
+
+    def test_peu_de_reponses_en_dur(self):
+        """Consigne du 12/10 : revenir aux fiches ; les réponses en dur restent de rares garde-fous."""
+        n = sum(len([r for r in md.get('reponses_directes', []) if r.get('reponse')]) + (1 if md.get('reponse_directe') else 0)
+                for md in kc.catalog().values())
+        self.assertLessEqual(n, 12, f'{n} réponses en dur : ajouter plutôt une fiche')
 
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ import knowledge_catalog as kc
 class Retest50FichesTests(unittest.TestCase):
     def answer(self,q,mode='examens',level='Lycée Général & Techno'):
         level,mode=kc.effective_context(q,level,mode)
-        return kc.documented_response(q,level,mode)[0]
+        return kc.delivered_text(q,level,mode)
 
     def test_individual_option_has_practice_and_oral(self):
         a=self.answer("Quelles sont les épreuves de l'option EPS pour un candidat individuel au bac GT ?")

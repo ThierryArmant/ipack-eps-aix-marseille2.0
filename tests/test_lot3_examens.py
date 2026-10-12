@@ -2,7 +2,7 @@ import unittest
 import knowledge_catalog as kc
 class Lot3(unittest.TestCase):
  def answer(self,q,public='Lycée Général & Techno'):
-  return kc.documented_response(q,public,'examens')[0]
+  return kc.delivered_text(q,public,'examens')
  def test_temporary_adaptation_is_information_not_validation(self):
   a=self.answer('Entorse de cheville : badminton adapté, protocole validé par commission avant évaluation ?')
   self.assertIn('pour information',a);self.assertIn('nouvelle validation',a)

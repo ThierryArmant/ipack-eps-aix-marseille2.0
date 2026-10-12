@@ -4278,5 +4278,86 @@
     "motifs": [
       "(?:mauvais|faux) lot|erreur de lot|(?:changer|deplacer)\\w*.{0,40}(?:de lot|vers un (?:autre )?lot|dans un autre lot)"
     ]
+  },
+  "data/examens/audit_lot4_2026_10_13/shn_note_unique.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Bac GT : sportif de haut niveau, le 20/20 ne peut pas être la seule note",
+    "examens": [
+      "gt"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "motifs": [
+      "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))"
+    ]
+  },
+  "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Après la saisie : harmonisation, clôture et remontée des notes",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "url": "https://eps-pedagogie.web.ac-grenoble.fr/sites/default/files/media-fichiers/2024-10/5_memo-fdr_gerer_eps-ccf_v3.0.pdf",
+    "motifs": [
+      "harmonisation en masse|cloture (?:de l.epreuve|academique|des notes|de la saisie)|notes?.{0,20}remont|remont\\w*.{0,20}notes?|notes?.{0,40}(?:a|ont|a-t-elle|ont-elles) (?:change|ete (?:modifi|baiss|augment|majore|minore))|(?:change|majore|minore|baisse|modifie)\\w*.{0,30}(?:par|apres) (?:la )?(?:commission|cahpn|harmonisation)"
+    ]
+  },
+  "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Élève parti en cours d'année mais toujours inscrit à l'examen",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "url": "https://eps.ac-versailles.fr/IMG/pdf/examens_eps_2025_version_lc_visio.pdf",
+    "motifs": [
+      "^(?=.*(?:quitte|parti|plus (?:scolarise|dans l.etablissement|au lycee)|descolaris|demissionn?e?|abandonn))(?=.*(?:inscri|candidat|ccf|convoc|examen))(?=.*(?:eleve|candidat))(?!.*(?:enseignant|professeur|coordonn|collegue))"
+    ]
+  },
+  "data/examens/audit_lot4_2026_10_13/points_sans_consigne_aix.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 60,
+    "date_verification": "2026-10-13",
+    "title": "Questions sans consigne écrite trouvée pour Aix-Marseille",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "(?=.*(?:bless|accident|tomb|se fait mal))(?=.*(?:pendant|au cours|en plein|durant).{0,20}(?:l.)?(?:epreuve|ccf))",
+      "(?=.*(?:retard|en retard))(?=.*(?:ccf|epreuve))",
+      "(?=.*(?:communiqu|donner|annoncer|dire|montrer|transmettre|afficher))(?=.*(?:notes?|resultats?))(?=.*(?:eleves|candidats|familles|parents))(?=.*(?:ccf|bac|examen|santorin))",
+      "redoubl",
+      "\\bbts\\b"
+    ]
   }
 }

@@ -97,3 +97,25 @@ class Lot4Tests(unittest.TestCase):
     def test_element_manque_ne_declenche_pas_les_candidats_absents(self):
         q = "Nous sommes un lycée français à l'étranger : aucun élève dans iPackEPS. Comment nos élèves arrivent-ils dans Cyclades ?" + self.SUFFIXE
         self.assertNotIn('Cyclades : candidats absents de la liste', ' '.join(self.titres(q)))
+
+
+class SujetsManquantsTests(unittest.TestCase):
+    """Sujets ajoutés le 13 octobre après comparaison avec les FAQ d'autres académies."""
+
+    def titres(self, q):
+        return ' '.join(kc.priority_titles(q, GT, 'examens'))
+
+    def test_shn_vingt_seule_note(self):
+        self.assertIn('le 20/20 ne peut pas être la seule note', self.titres("Mon SHN est inapte sur deux épreuves, il n'a que son 20 : DI + DI + 20 ?"))
+
+    def test_note_modifiee_apres_commission(self):
+        self.assertIn('harmonisation, clôture et remontée', self.titres("Pourquoi la note de mes élèves a changé après la commission ?"))
+
+    def test_eleve_parti_mais_pas_le_professeur(self):
+        self.assertIn('toujours inscrit', self.titres("Un élève a quitté le lycée en cours d'année mais il est toujours inscrit au bac, que faire pour le CCF ?"))
+        self.assertNotIn('toujours inscrit', self.titres("Notre professeure a quitté l'établissement après deux CCF, que deviennent les notes des élèves ?"))
+
+    def test_sans_consigne_aix_le_dit(self):
+        for q in ["Un élève arrive en retard au CCF, peut-il passer l'épreuve ?", "Peut-on donner leurs notes de CCF aux élèves ?"]:
+            self.assertIn('sans consigne écrite trouvée', self.titres(q))
+        self.assertIn('sans inventer de règle', kc.delivered_text("Un élève redouble la terminale, garde-t-il ses notes d'EPS ?", GT, 'examens'))

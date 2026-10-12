@@ -286,6 +286,8 @@ css_pur = f"""
     
     .stApp {{ background-image: url('data:image/png;base64,{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
+    /* Masquer l'aide automatique en anglais sous le champ de question. */
+    [data-testid="stTextInput"] [data-testid="InputInstructions"] {{ display: none !important; }}
     
     .hub-header {{ 
         background-color: #1E293B; 

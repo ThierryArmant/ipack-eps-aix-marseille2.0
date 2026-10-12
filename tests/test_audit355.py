@@ -1,5 +1,6 @@
 """Régressions du retest en ligne : routage réel, sans appel OpenAI."""
 import unittest
+from pathlib import Path
 
 import knowledge_catalog as kc
 import test_documentation as documentation
@@ -128,7 +129,10 @@ class Audit355RoutageTests(unittest.TestCase):
 
     def test_partial_context_is_answered_instead_of_absence_sentence(self):
         code = open('app.py', encoding='utf-8').read()
-        self.assertIn("Dès qu'un passage traite du sujet, même en partie", code)
+        self.assertIn('Path("config/consignes_fiabilite.txt").read_text', code)
+        consignes = Path('config/consignes_fiabilite.txt').read_text()
+        self.assertIn('Si les sources répondent partiellement, donne cette réponse', consignes)
+        self.assertIn('Un cas voisin ne démontre pas la règle du cas posé', consignes)
         self.assertNotIn("Si la réponse n'y est pas, dis simplement que tu ne disposes pas", code)
 
 

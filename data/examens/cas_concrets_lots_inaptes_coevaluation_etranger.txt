@@ -80,7 +80,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 ### [SITUATION: BAC GÉNÉRAL ET TECHNOLOGIQUE — LE CO-ÉVALUATEUR EST ABSENT OU NON REMPLACÉ LE JOUR DE L'ÉPREUVE]
 - Formulations courantes des collègues : mon collègue co-évaluateur est en arrêt et n'est pas remplacé ; je suis seul pour évaluer mes terminales ; puis-je noter seul et régulariser après ; personne pour co-évaluer.
 - Au bac général et technologique, la co-évaluation par deux enseignants d'EPS, dont l'enseignant du groupe, est obligatoire : ne pas certifier seul.
-- Que faire : prévenir la direction avant l'épreuve. Si aucun collègue de l'établissement n'est disponible, le second évaluateur peut venir d'un autre établissement, sur désignation de l'inspection pédagogique régionale. À défaut, l'épreuve est reportée en accord avec la direction et l'inspection.
+- Que faire : prévenir la direction avant l'épreuve. Si aucun collègue de l'établissement n'est disponible, le second évaluateur peut venir d'un autre établissement, sur désignation de l'inspection pédagogique régionale. La note de service ne prévoit pas d'autre solution : ne pas improviser un report ni une notation seule, la direction saisit l'inspection.
 - Cette obligation ne concerne ni le bac professionnel ni le CAP, où l'enseignant de la classe peut évaluer seul.
 - Texte de référence : note de service du 20 février 2026, MENE2531948N, partie 2.d.
 
@@ -183,7 +183,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Dans « Convocation par mission », la colonne de situation distingue « Convoquée » (convocation faite par le service des examens) et « Convoquée par centre » (convocation créée par l'établissement).
 - L'établissement ne peut modifier, supprimer ou télécharger que les convocations qu'il a lui-même créées. Une convocation faite par le service des examens ne peut être ni modifiée ni supprimée par l'établissement : s'adresser au service des examens.
 - Une convocation créée par l'établissement puis modifiée par le service des examens n'apparaît plus dans sa liste.
-- La suppression n'est plus possible si des frais liés à la mission sont en cours de traitement.
+- La suppression n'est plus possible si des frais liés à la mission sont en cours de traitement, ni, pour une correction dématérialisée, si la personne a déjà un lot de correction Santorin attribué : réaffecter d'abord le lot (Santorin, suivi des lots) à un autre enseignant, puis supprimer la convocation. (Source : aide en ligne nationale d'Imag'in, « Convocation par mission ».)
 
 ### [SITUATION: SANTORIN — COMMENT LE CHEF D'ÉTABLISSEMENT NOMME-T-IL UN ENSEIGNANT « RÉFÉRENT » ?]
 - Mots-clés : référent Santorin, enseignant référent, qualité référent, nommer un référent, déléguer la distribution des lots, Convocation par mission.
@@ -216,6 +216,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Formulations courantes des collègues : mon protocole adapté ne se valide pas avec deux activités ; faut-il trois activités dans un protocole adapté ; peut-on faire un protocole adapté avec une seule épreuve en CAP.
 - Le type « Adapté » sert aux candidats avec aménagement. Règle de Cyclades : au baccalauréat général, technologique et professionnel, un protocole adapté comporte au moins 2 APSA, la troisième est facultative ; au CAP, au moins 1 APSA, la deuxième est facultative.
 - Un protocole adapté se crée dans Cyclades par l'activité [Gérer l'EPS] - [Créer un protocole], en choisissant le type « Adapté », à tout moment de l'année.
+- Écart à signaler : les textes permettent, « pour des cas très particuliers », une seule épreuve adaptée au baccalauréat (bac GT : note de service du 20 février 2026, 2.e ; bac pro : circulaire MENE2505383C, B.3.1). Or un protocole adapté Cyclades du baccalauréat demande au moins 2 APSA. Aucun document consulté ne décrit la saisie de ce cas : ne pas inventer de contournement (APSA fictive, DI imposé) ; l'établissement s'adresse à l'inspection pédagogique et à la division des examens avant de créer le protocole.
 
 ### [SITUATION: DANS UNE MÊME CLASSE, UN ÉLÈVE A UNE ÉPREUVE ADAPTÉE — FAUT-IL UN PROTOCOLE À PART ?]
 - Mots-clés : un élève adapté dans la classe, protocole distinct, groupe distinct, nom du groupe, même classe plusieurs protocoles.

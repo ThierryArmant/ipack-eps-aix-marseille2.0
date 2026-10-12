@@ -165,6 +165,26 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Le fonctionnement par le compte de la structure, avec le directeur ou l'intervenant, est le fonctionnement normal.
 - Un accès personnel n'est possible que si l'intervenant dispose d'une adresse académique : en faire alors la demande au correspondant iPackEPS de l'académie.
 
+################ IMAG'IN : CONVOCATIONS (guide utilisateur national d'Imag'in, octobre 2024, et fiche de Créteil « C.F.A. : les démarches en ligne pour le CCF EPS », mai 2025, lus en entier) ################
+
+### [SITUATION: IMAG'IN — LES ENSEIGNANTS D'EPS SONT-ILS CONVOQUÉS AUTOMATIQUEMENT POUR LA SAISIE DES NOTES ?]
+- Mots-clés : convocation automatique, mission Notation EPS CCF, Imag'in, Convocation par mission, enseignant non convoqué, remplacer un intervenant, mail de convocation, CFA, intervenant inconnu d'Imag'in.
+- Formulations courantes des collègues : faut-il convoquer nos enseignants pour le CCF ; un collègue n'est pas convoqué ; comment remplacer un enseignant convoqué ; nous sommes un CFA, personne n'est convoqué ; le collègue n'existe pas dans Imag'in.
+- Les missions « Notation EPS CCF » (CAP, bac général et technologique, bac professionnel) sont créées automatiquement dans Imag'in, et les enseignants d'EPS de l'établissement y sont convoqués automatiquement selon leur niveau d'enseignement (données de service). L'établissement reçoit un mail l'en informant ; c'est à lui de prévenir les enseignants, avec le bouton d'envoi de la convocation par mail.
+- Le remplacement d'un intervenant se fait manuellement, depuis l'activité « Convocation par mission » (Centre examen).
+- CFA : cette convocation automatique ne s'applique pas. L'établissement convoque manuellement ses enseignants, ou passe par le gestionnaire du service des examens.
+- Un intervenant que l'on ne trouve pas dans la liste (personne non connue d'Imag'in) : avertir le service des examens, qui le crée avant toute convocation.
+- Avant de convoquer, l'établissement doit avoir renseigné son signataire (activités « Signature centre pour la convocation » et « Signature établissement pour la convocation »).
+- À Aix-Marseille, pour une convocation créée par l'établissement, éditer la convocation en cliquant sur l'icône PDF : c'est ce qui la transmet à Santorin (support de la division des examens, 2024).
+
+### [SITUATION: IMAG'IN — JE NE PEUX PAS MODIFIER OU SUPPRIMER UNE CONVOCATION]
+- Mots-clés : modifier une convocation, supprimer une convocation, convoquée, convoquée par centre, service de gestion.
+- Formulations courantes des collègues : je n'ai pas de bouton pour modifier la convocation ; comment annuler une convocation ; la convocation a disparu de ma liste.
+- Dans « Convocation par mission », la colonne de situation distingue « Convoquée » (convocation faite par le service des examens) et « Convoquée par centre » (convocation créée par l'établissement).
+- L'établissement ne peut modifier, supprimer ou télécharger que les convocations qu'il a lui-même créées. Une convocation faite par le service des examens ne peut être ni modifiée ni supprimée par l'établissement : s'adresser au service des examens.
+- Une convocation créée par l'établissement puis modifiée par le service des examens n'apparaît plus dans sa liste.
+- La suppression n'est plus possible si des frais liés à la mission sont en cours de traitement.
+
 ################ SOUS-COMMISSION ################
 
 ### [SITUATION: L'ENSEIGNANT CONVOQUÉ À LA SOUS-COMMISSION D'EPS NE PEUT PAS VENIR — COMMENT LE FAIRE REMPLACER ?]
@@ -172,7 +192,8 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Formulations courantes des collègues : notre coordonnatrice ne pourra pas participer à la sous-commission ; un collègue la remplacera, a-t-il besoin d'une convocation ; qui prévenir si le représentant de l'établissement est absent.
 - Signaler le remplacement au service des examens de l'académie et au correspondant examens EPS, en donnant le nom du remplaçant.
 - Le remplaçant reçoit une convocation à son nom (cas traité par le service des examens d'Aix-Marseille).
-- Ce que cette base ne précise pas : qui établit la convocation du remplaçant, et dans quel délai. Le demander au service des examens au moment où l'on signale le remplacement.
+- Ce que dit le guide utilisateur national d'Imag'in (octobre 2024) : un chef d'établissement ne peut convoquer quelqu'un à une mission, depuis l'activité « Convocation par mission », que si le service des examens a ouvert cette mission à la convocation par l'établissement. Il ne peut ni modifier ni supprimer une convocation établie par le service des examens.
+- Donc : si la mission de la sous-commission n'apparaît pas dans « Convocation par mission », c'est le service des examens qui convoque le remplaçant. Le délai n'est fixé par aucun texte lu : signaler le remplacement dès que l'absence est connue.
 
 ################ PROTOCOLES DANS CYCLADES (mémo national « Enseignant EPS » de Cyclades, version 1.0 du 2 octobre 2023, lu en entier) ################
 

@@ -447,6 +447,14 @@ def coherence_errors(claims, question):
     return errors
 
 
+def course_duration_mismatch(question, packet):
+    """La fiche Courses (demi-fond/relais CA1) ne documente pas le dépôt du CA5."""
+    q = ''.join(c for c in unicodedata.normalize('NFKD', question.lower()) if not unicodedata.combining(c))
+    if not re.search(r'course (?:en|de) duree', q):
+        return False
+    return packet.get('path') == 'data/ipack/complement_reponses_validees.txt'
+
+
 def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille'):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
@@ -457,7 +465,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
     if focused:
         packets = focused + [p for p in packets if p['origin'] == 'program']
-    packets = [p for p in packets if not situation_mismatch(question, p['title'])]
+    audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
+    packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
     audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
     packets, marked = select_academy(packets, academy)
@@ -465,6 +474,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['marked_academic_passages'] = marked
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
+    if re.search(r'course (?:en|de) dur[eé]e', question.lower()) and re.search(r'd[eé]pos', question.lower()):
+        instructions += ('\nLa question porte sur un DEPOT, pas seulement sur la compatibilité des champs. '
+                         'Distinguer dépôt de deux FCA, regroupement dans un fichier et ensemble certificatif. '
+                         'Si cet objet n’est pas précisé, poser cette seule question utile. '
+                         'La procédure [Courses] du CA1 ne décrit pas le dépôt de Course en durée du CA5. '
+                         'Ne pas inventer le libellé du menu ni un regroupement des deux FCA.')
     recorded = TracedLLM(llm, audit)
     model_packets = [{**{k:v for k,v in p.items() if k not in ('text','sha256','passages')},
                       'passages':[model_passage(s) for s in p['passages']]} for p in packets]

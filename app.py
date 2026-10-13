@@ -2618,7 +2618,7 @@ if prompt_a_traiter:
                                                   "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
                                                   "à compléter par des activités d'autres champs.</p>")
                         elif not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
-                            _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ", _q_simple) is not None
+                            _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ|depos|referentiel|\bfca\b", _q_simple) is not None
                     if _demande_precision_champ:
                         verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> ce que vous mettez derrière « course en durée » : "
                                           "<strong>performance</strong> mesurée (c'est alors du demi-fond, CA1) ou <strong>entretien</strong> de soi (course en durée, CA5) ?</p>"
@@ -2635,7 +2635,7 @@ if prompt_a_traiter:
                         if _memes:
                             _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
                         else:
-                            _concl = "Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble dans un protocole d'examen."
+                            _concl = "Ces activités relèvent de champs DIFFÉRENTS. Ce constat concerne uniquement la diversité des champs : il ne prouve ni la validité du protocole complet ni une procédure de dépôt de FCA ou de déclaration dans iPackEPS. Pour une question de dépôt, distinguer les activités et utiliser seulement une procédure documentée pour chacune."
                         # Question du type « ces activités dans le même protocole, est-ce possible ? » : le verdict est calculé
                         # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
                         # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question

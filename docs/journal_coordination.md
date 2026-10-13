@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 22:55 — programme et fiches — course en durée versus Courses (voir git log)
+Fait : erreur en ligne reproduite dans les passages : procédure CA1 [Courses] utilisée pour un dépôt de course en durée CA5. Le document composite concerné est exclu pour les questions de course en durée, exclusion tracée dans l’audit. Sa fiche indique explicitement la limite CA1. Le calcul de champs différents ne valide plus à lui seul un protocole ou une procédure de dépôt. Les questions de dépôt/FCA/référentiel entrent aussi dans la clarification déjà existante de l’intention performance/entretien. Le modèle doit distinguer dépôt de deux FCA, document commun et ensemble certificatif, sans inventer un menu.
+Constaté : 286 tests réussis, dont deux contrôles sur le cas signalé et le maintien du diagnostic demi-fond non certificatif. Programme lycée GT vérifié sur Éduscol : Courses CA1 et Course en durée CA5. Aucun appel au modèle payant. Le filtrage prudent écarte le document composite pour ce sujet : ne constitue pas une sélection sémantique universelle. Aucun retest en ligne effectué dans cette intervention.
+Attendu : reposer le cas avec l’intention puis l’objet du dépôt explicités ; conserver un repli si la procédure CA5 n’est pas documentée.
+
 ### 2026-10-13 22:45 — programme et sélection — reprise locale économique (voir git log)
 Fait : huit formulations de cas déjà étudiés examinées sans appel au modèle. Deux lacunes de sélection reproduites et corrigées : note identique en acrosport sans mot « groupe » ; export des notes Santorin sans fiche prioritaire. Ajout d’une courte synthèse issue du tutoriel déjà présent, sans import de nouveaux documents. Origine Créteil conservée explicitement par le programme, avec réserve hors de cette académie. Aucun droit d’export professeur ni transfert automatique vers Pronote inventé.
 Constaté : 284 tests réussis ; aucun appel au modèle, aucune question de réserve utilisée. Les autres sélections observées ne constituent pas une vérification des réponses produites. La cause d’une unique épreuve passée reste indispensable avant de conclure sur note unique/dispense ; pas d’hypothèse médicale ajoutée.

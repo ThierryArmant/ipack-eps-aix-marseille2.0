@@ -1,0 +1,1843 @@
+{
+ "description": "Passages propres à l'académie d'Aix-Marseille (consignes DIEC, bulletins académiques, circuit iPackEPS→Cyclades→Santorin piloté par l'inspection d'Aix, portail ESTEREL). Pour un utilisateur d'une autre académie, ces passages doivent être présentés comme des consignes d'Aix à vérifier auprès de sa propre division des examens, jamais comme des règles générales. Les textes nationaux et le fonctionnement des logiciels nationaux ne sont pas concernés.",
+ "date": "2026-10-13",
+ "fichiers": {
+  "data/commun/audit355/administrateur_acces.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS : accès administrateur et identifiants",
+     "lignes": [
+      "Il n'y a pas de mot de passe administrateur commun à communiquer entre collègues. L'interface Administrateur est réservée à la configuration académique ; la fonction de coordonnateur se déclare dans la fiche professeur e"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit355/aix_codes_absence_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : codes d’absence au bac GT",
+     "lignes": [
+      "### Aix : codes d’absence au bac GT",
+      "Réponse courte : À Aix, le BA 549 (2026) indique ABS pour une absence non justifiée au bac GT, traduite en zéro. Il ne définit pas DI comme code universel. Ne choisissez pas un code avant de distinguer absence, inaptitud",
+      "Source : BA spécial 549, session 2026, p. 7 et annexe 8 ; PDF p. 8 et 27."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit355/aix_marche_adaptee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : marche adaptée",
+     "lignes": [
+      "### Aix : marche adaptée",
+      "Réponse courte : Le BA 549 (session 2026) prévoit la marche en durée adaptée si handicap ou inaptitude partielle permanente permettent cette pratique mais qu'aucun CCF adapté n'est proposé. Circuit : annexe 8 en CCF, ann",
+      "Source : BA spécial 549, session 2026, p. 7 et annexe 8 ; PDF p. 8 et 27."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit355/bac_pro_formation_continue.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Bac pro : EPS et formation professionnelle continue — session 2027",
+     "lignes": [
+      "Le BA 566 distingue l'obligation pour la formation initiale scolaire et l'apprentissage des autres catégories de candidats, dont la formation continue, qui peuvent être dispensées. Vérifier le statut réel et la demande à",
+      "Source : BA spécial 566 du 9 octobre 2026, focus EPS obligatoire, session 2027."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit355/co_securite_sortie.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Course d'orientation : préparation et sécurité au second degré",
+     "lignes": [
+      "Source du cadre : circulaire MENE1711773C, sections I.2, I.3, II et III.1. La checklist est une aide de préparation, pas une citation du texte. Le protocole CO d'Aix reste à obtenir et à vérifier."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/aix_amenagements_2027.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : demandes d’aménagement d’examen — session 2027",
+     "lignes": [
+      "### Aix-Marseille : demandes d’aménagement d’examen — session 2027",
+      "Contacts du BA : amex@ac-aix-marseille.fr pour les examens post-DNB ; amenagementdepreuves-cfgdnb@ac-aix-marseille.fr pour DNB/CFG. Recours après décision administrative : deux mois à compter de sa notification, selon le",
+      "Source relue : BA 1096 du 11 septembre 2026, DIEC1096-1823, PDF pages 2-3, 5-8 et 10-14, sections 1, 3.1, 3.2, 4, 6 et 7. Portée : candidats scolaires des établissements publics et privés sous contrat de l’Éducation nati"
+     ]
+    },
+    {
+     "section": "### Aix-Marseille : aménagements d’examen 2027 — précisions relues",
+     "lignes": [
+      "### Aix-Marseille : aménagements d’examen 2027 — précisions relues"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/aix_certificats_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : certificats EPS et conservation — session 2026",
+     "lignes": [
+      "### Aix-Marseille : certificats EPS et conservation — session 2026",
+      "Réponse courte : le BA spécial 549 de la session 2026 distingue l'annexe 7 pour le candidat individuel au contrôle ponctuel et l'annexe 8 recto-verso pour le candidat évalué en CCF ; le médecin traitant établit le certif",
+      "Certificat reçu après le CCF (question fréquente) : distinguer deux situations. 1) Le certificat a été établi avant ou le jour du CCF et couvre ce jour, mais il est remis plus tard : la remise tardive ne suffit pas à le ",
+      "Source : BA spécial 549 du 17 octobre 2025, pages internes 5 et 7, annexes 7 et 8 (PDF pages 26-28)."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/aix_inscriptions_2027_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : inscriptions terminale GT, session 2027 (EPS)",
+     "lignes": [
+      "### Aix-Marseille : inscriptions terminale GT, session 2027 (EPS)",
+      "Aménagements terminale sur AMEX : contradiction interne, page 1 indique le 12 novembre, calendrier page 24 le 20 novembre 2026 à 18 h. Faire confirmer par la DIEC ; préparer le dossier pour l'échéance la plus précoce san",
+      "SHN : peut choisir le ponctuel convoqué par le recteur ; une activité choisie parmi les trois proposées et valorisation de la spécialité sportive par 20/20 sur la deuxième activité. Attestation du statut ; aménagement à ",
+      "Source : BA spécial 565 du 9 octobre 2026, p. 1, 7, 11, 13, 18, 20, 23, 24 ; fiches 4 et 9."
+     ]
+    },
+    {
+     "section": "### Aix-Marseille : inscriptions terminale GT, session 2027 (EPS) — précisions relues",
+     "lignes": [
+      "### Aix-Marseille : inscriptions terminale GT, session 2027 (EPS) — précisions relues",
+      "- À Aix-Marseille, session 2027 du bac GT, seul le gestionnaire EPS de la DIEC saisit la mention « sportif de haut niveau » dans Cyclades : ni le candidat ni l'établissement. Pour un statut justifié au moment de l'inscri"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS)",
+     "lignes": [
+      "### Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS)",
+      "Source : BA spécial 566 du 9 octobre 2026, p. 2, 5, 6, 11."
+     ]
+    },
+    {
+     "section": "### Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS) — précisions relues",
+     "lignes": [
+      "### Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS) — précisions relues",
+      "- À Aix-Marseille, le BA spécial 566 du 9 octobre 2026 (session 2027) propose pour le ponctuel EPS : demi-fond, tennis de table et danse. Ce BA ne fixe pas le nombre d’activités à passer : appliquer le texte EPS du diplô"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/aix_protocoles_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : protocoles EPS, FCA et circuit des applications — session 2026",
+     "lignes": [
+      "### Aix-Marseille : protocoles EPS, FCA et circuit des applications — session 2026",
+      "Réponse courte : pour la session 2026, le BA spécial 549 prévoit la déclaration des protocoles et le dépôt des FCA dans iPackEPS, leur validation par la CAHPN, la transmission des protocoles vers Cyclades par l'inspectio",
+      "Source relue : BA spécial 549 du 17 octobre 2025, session 2026, pages internes 2-3 (PDF pages 4-5), annexes 1-2. Contact iPackEPS indiqué : ipackeps@ac-aix-marseille.fr."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Bac GT : inaptitude totale pendant toute l’année de terminale, sans aucune évaluation possible",
+     "lignes": [
+      "Sources, à ne pas confondre : pour le calcul et la dispense, note du 20 février 2026, MENE2531948N, section 2.e, applicable depuis 2026 ; pour le maintien dans le groupe et l’association au protocole, guide technique : m"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/ipack_archivage_prudence.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Passage d'année : conservation des données à vérifier",
+     "lignes": [
+      "Contact académique : ipackeps@ac-aix-marseille.fr. Indiquer l'année, le type de données et le menu concerné."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/ipack_bareme_college.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Barème et conversion des compétences en note sur 20 au collège",
+     "lignes": [
+      "Sources : mémento Éduscol « Évaluer les élèves de 3e », décembre 2025, p. 5, 8-10 et 12-14 ; corpus iPackEPS articles 88 et 104. Aucun outil de conversion iPackEPS ni barème particulier d’Aix-Marseille n’est établi par c"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/ipack_pronote_erreurs.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Erreur d’échange entre Pronote et iPackEPS : vérifier d’abord le sens",
+     "lignes": [
+      "Si besoin, transmettre au support ipackeps@ac-aix-marseille.fr le message exact, le logiciel source, l’étape et l’UAI, sans joindre de fichier nominatif dans le HUB."
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/ipack_suppression_prudence.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Suppression : ne pas conclure à une restauration impossible",
+     "lignes": [
+      "Avant de conseiller une recréation, identifier le logiciel exact, l'élément supprimé (évaluation, groupe, dossier, note ou autre) et le menu concerné. Pour iPackEPS, demander au support si une restauration ou une interve"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/pv_ccf_prudence.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### PV de CCF EPS : vérifier le modèle local, ne pas inventer une obligation",
+     "lignes": [
+      "Réponse courte : je ne dispose pas d'un modèle académique vérifié de PV de CCF EPS pour Aix-Marseille. Les mentions obligatoires et les signatures doivent être confirmées dans la consigne locale applicable auprès de l'ét",
+      "Source : note MENE2531948N, section 2.d pour la transmission uniquement ; modèle précis et durée de conservation locale de PV non vérifiés ; obligation de garder les éléments d’évaluation confirmée par le BA 549, page in",
+      "Source académique maintenant relue : le BA spécial 549 du 17 octobre 2025 (session 2026), page interne 8 / page PDF 10, impose de garder dans un dossier accessible au chef d'établissement les éléments permettant de justi"
+     ]
+    }
+   ]
+  },
+  "data/commun/audit60/video_perimetre.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Filmer un élève pour l’évaluer : outil et cadre institutionnel",
+     "lignes": [
+      "Sources : corpus technique iPackEPS ; modèle Éduscol spécifique Dix Mots 2024, relu le 11 octobre 2026. Fonction d’association vidéo iPackEPS et liste d’applications autorisées à Aix-Marseille non établies."
+     ]
+    }
+   ]
+  },
+  "data/commun/cap_inaptitude_temporaire.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### CAP : inaptitude temporaire et une activité déjà notée",
+     "lignes": [
+      "La conservation de la note est donc une décision pédagogique étayée par ces conditions, pas un simple choix de convenance. Demander la durée et les possibilités médicales si elles manquent. En CAP, le CCF compte deux épr",
+      "Recoupements : circulaire MENE2517122C, 2.1 et 2.3.2 ; arrêté du 30 août 2019 modifié, article 10 ; note Toulouse session 2026, tableau CAP du contrôle adapté, page 6. La modification MENE2526679C ajoute explicitement l'"
+     ]
+    }
+   ]
+  },
+  "data/commun/cap_shn_ccf.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### CAP : sportifs éligibles, une activité réellement évaluée et spécialité à 20",
+     "lignes": [
+      "Vérifié le 10 octobre 2026. Session 2026 et suivantes sous réserve d'évolution des textes. Circulaire MENE2517122C, 2.5 ; arrêté du 30 août 2019 modifié, article 11 en vigueur depuis le 1er janvier 2026 ; Aix-Marseille, "
+     ]
+    }
+   ]
+  },
+  "data/commun/dnb/04_inaptitudes_dispenses.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### DNB EPS : inaptitude, dispense, PAP, PAI et PPS",
+     "lignes": [
+      "Source fournie : diapositives 6 et 7. Recoupements : mémento Éduscol, recommandations IG EPS relayées par Lyon, BA spécial Aix-Marseille 551 (fiche EPS) pour la procédure 2026."
+     ]
+    }
+   ]
+  },
+  "data/commun/dnb/07_incluscol_amenagements.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### DNB : Incluscol et demandes d'aménagements d'examen",
+     "lignes": [
+      "La page officielle Aix-Marseille confirme l'utilisation d'Incluscol à compter de la session 2027. Préciser l'académie, la session et le statut du candidat avant de donner une procédure ou une échéance."
+     ]
+    }
+   ]
+  },
+  "data/commun/gt_shn_eligibilite.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Bac général et technologique : SHN et sportifs non listés",
+     "lignes": [
+      "Recoupement de l'éligibilité des sportifs non listés : note nationale 2026, chapitre 4 ; Éduscol, parcours sportifs, actualisation septembre 2026 ; Aix-Marseille BA spécial 549, annexe 4, session 2026. Trois documents co"
+     ]
+    }
+   ]
+  },
+  "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SECTION SPORTIVE SCOLAIRE : PRATIQUE SUPPLEMENTAIRE ET EPS OBLIGATOIRE]",
+     "lignes": [
+      "Ne pas confondre SSS, classe sport-études et situation individuelle de sportif : demander le dispositif exact avant de répondre sur un aménagement d'examen. Les écrans iPackEPS et calendriers d'ouverture doivent être vér"
+     ]
+    }
+   ]
+  },
+  "data/commun/parcours_sportifs/02_sport_etudes_organisations.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SPORT-ETUDES : CLASSE COLLECTIVE OU AMENAGEMENT INDIVIDUEL]",
+     "lignes": [
+      "Recoupement : BO 2023, parties 2.1 et 2.2 ; Éduscol, dispositifs sport-études ; Montpellier, livret mars 2025, pages PDF 9-10 et 17. Les procédures d'affectation de Montpellier sont locales et ne constituent pas une proc"
+     ]
+    }
+   ]
+  },
+  "data/examens/activite_etablissement_delai_aix.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : demande d’activité établissement",
+     "lignes": [
+      "### Aix : demande d’activité établissement",
+      "Une activité absente de la liste nationale peut déjà relever de la liste académique : vérifier d'abord cette liste. Pour une activité établissement nouvelle, le BA spécial 549 du 17 octobre 2025 indiquait le 30 mai 2026 "
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/a4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Absence d'enseignant : donner l'accès à la saisie d'un lot",
+     "lignes": [
+      "Portée : Logiciel (documentation nationale du logiciel) + DIEC.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7 et 24-25 ; Guide utilisateur établissement"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/a5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Absence d'enseignant / Imag'in",
+     "lignes": [
+      "Portée : DIEC Aix-Marseille.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/b1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Blocage / distribution",
+     "lignes": [
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 3 à 9 ; Guide utilisateur établissement Imag'in "
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/b4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Blocage / saisie",
+     "lignes": [
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 18-19 ; Guide des examens EPS, académie de Norma"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/c3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Évaluation différée : grève des transports, force majeure",
+     "lignes": [
+      "Une grève des trains ne constitue pas automatiquement une force majeure. Pour l’élève assidu effectivement empêché, le chef d’établissement examine les justificatifs après consultation de l’équipe pédagogique et peut aut",
+      "Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e ; Circulaire du 2 avril 2025, MENE2505383C, modifiée par MENE2526357C du 24 octobre 2025 (B.1) ; DIEC Aix-Marseille, « Notat"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/d8_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Inaptitude / certificat",
+     "lignes": [
+      "Il faut distinguer la date de remise et la date d’établissement du certificat. Le seul fait qu’il soit reçu trois semaines après le CCF ne permet pas de le refuser automatiquement. Pour Aix-Marseille, le BA 549 de la ses",
+      "Portée : Académique Aix-Marseille (2026) + variantes.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : BA spécial 549 du 17 octobre 2025 (EPS, session 2026) ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 (règle des 15 jours, Lyon seulement).",
+      "Fiche de contrôle : data/commun/audit60/aix_certificats_2026.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/e4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Certification réduite : un seul élève non évalué, pas de CE sur le lot",
+     "lignes": [
+      "Non : ne pas déclarer le CE sur le lot de toute la classe pour un seul candidat, car la neutralisation toucherait tous les élèves du lot. Le tutoriel Créteil (article 95) décrit un lot séparé pour le candidat puis la déc",
+      "Portée : Tutoriel Créteil — à confirmer pour Aix.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Protocoles : APSA absente de la liste Cyclades",
+     "lignes": [
+      "Seules les APSA dont le référentiel ou la FCA a été validé par la commission apparaissent. À Aix, déposer la FCA dans iPackEPS (Dossier certificatif > Dépôt des référentiels), après avoir déclaré l'APSA certificative, et",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : FAQ Cyclades, académie de Grenoble, octobre 2024 ; BA spécial 549 du 17 octobre 2025 (EPS, session 2026)."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Protocole Cyclades créé avec le mauvais groupe d'élèves",
+     "lignes": [
+      "- Si les protocoles sont déjà validés, la suppression directe n'est plus possible. À Aix-Marseille, ne pas demander d'invalidation ni de réouverture : créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Doss",
+      "Portée : Logiciel + académique (Aix-Marseille pour les protocoles validés).",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/f5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Protocoles : coche verte et transfert vers Cyclades",
+     "lignes": [
+      "Non. Seuls les protocoles valides (coche verte dans la colonne « Validité ») sont transférés par l'inspection vers Cyclades. Vérifier ensuite dans Cyclades qu'ils ont le statut validé ; sinon écrire à examenseps@ac-aix-m",
+      "Portée : Académique Aix-Marseille.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026, étape 3.",
+      "Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Protocoles adaptés : écart texte / Cyclades",
+     "lignes": [
+      "- Démarche : en cas d’écart entre le texte et la saisie, l’établissement fait traiter ce cas par la DIEC et l’inspection pédagogique EPS. Ne pas ajouter une APSA fictive pour passer le contrôle du logiciel.",
+      "Aucune consigne académique d’Aix propre à ce cas n’a été trouvée.",
+      "Conclusion : l’élève n’a pas à passer une deuxième APSA pour satisfaire le logiciel ; c’est l’obstacle technique qui se traite avec la DIEC et l’inspection."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Affectations : groupe importé sans protocole correspondant (Cyclades)",
+     "lignes": [
+      "Les noms de groupes du fichier importé ne correspondent pas à ceux des protocoles. À Aix, le fichier vient d'iPackEPS (Dossier certificatif > Cyclades) : vérifier les groupes, rejouer l'export, ou associer les élèves man",
+      "Le passage par iPackEPS est le circuit d’Aix-Marseille décrit par le guide du Pôle examens, pas une obligation du texte national ; le texte national ne traite pas de ce message.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 ; FAQ iPackEPS/Cyclades/Santorin, académie de Strasbourg, 29/03/2"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/g2_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Affectations : élèves sans protocole dans Cyclades",
+     "lignes": [
+      "Vérifier d'abord le compte rendu de l'import du fichier d'association : l'association manuelle sert ensuite pour les élèves restés sans protocole. À Aix, ce fichier vient d'iPackEPS (circuit académique décrit par le guid"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/g3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Établissement hors SIECLE ou à l'étranger : comment les élèves arrivent dans Cyclades",
+     "lignes": [
+      "- Dans iPackEPS, déposer les référentiels et créer les groupes et protocoles sans élèves. Les étapes 1 (actualisation de la liste), 2 (affectation dans les groupes) et 4 (fichier d'import vers Cyclades) du guide d'Aix ne",
+      "Portée : Académique (Aix-Marseille, guide du Pôle examens) + logiciel.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (encadré « hors SIECLE ») ; mémo national Cyclades « Associer des",
+      "Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/g4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Affectations : élève arrivé avec deux CCF déjà passés (bac GT)",
+     "lignes": [
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/g5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : élève dans le mauvais lot",
+     "lignes": [
+      "Sources datées : tutoriel vidéo du Pôle examens d'Aix-Marseille « Déplacer un candidat d'un lot à un autre » ; formation saisie des notes EPS 2025, académie de Versailles."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Imag'in : convocation automatique des enseignants",
+     "lignes": [
+      "Oui pour les établissements publics et privés sous contrat : la DIEC crée la mission « Notation EPS CCF » et des convocations sont générées automatiquement d'après STS-web. L'établissement les consulte dans son Imag'in e",
+      "Portée : DIEC + logiciel.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 2-3 ; Guide utilisateur établissement Imag'in (n"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/h2_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Imag'in : supprimer ou modifier une convocation",
+     "lignes": [
+      "L'établissement ne peut supprimer que les convocations qu'il a créées (statut « Convoquée par centre »). Celles du service des examens se traitent avec la DIEC. La suppression est aussi bloquée si des frais sont en cours"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/h3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Imag'in : convocation éditée en PDF, accès à Santorin",
+     "lignes": [
+      "Portée : DIEC Aix-Marseille.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 7."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/h4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Imag'in / référent",
+     "lignes": [
+      "Oui, des guides académiques décrivent la délégation à un professeur d’EPS ayant la qualité « REFERENT » : Imag’in établissement > Convocation par mission > mission de notation EPS > modifier la convocation > ajouter la q",
+      "Portée : Logiciel (procédure décrite hors Aix).",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/h5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Imag'in : mission « Notation EPS CCF » par examen",
+     "lignes": [
+      "L'enseignant ne crée pas de mission lui-même : les missions et convocations relèvent de la DIEC et du chef d'établissement. Si une des deux lignes de mission manque, il s'adresse à son chef d'établissement.",
+      "Portée : DIEC Aix-Marseille.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 14."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/i1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Distribution : qui distribue les lots et quand",
+     "lignes": [
+      "Portée : DIEC + logiciel.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-11 ; Support visio Cyclades/Santorin, académie"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/i2_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Distribution : recommencer la distribution des lots",
+     "lignes": [
+      "Oui, la distribution peut être recommencée, mais vérifiez d’abord qu’aucune note n’a été saisie dans les lots concernés. Si des notes existent, ne pas supprimer les lots pour recommencer : faites examiner la correction o",
+      "Portée : DIEC.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 13."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/i3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Distribution : candidat non distribué, faute de protocole",
+     "lignes": [
+      "Associez d’abord tous les candidats aux protocoles avant la distribution. Un candidat sans protocole ne peut pas entrer dans son lot, mais il ne faut pas présenter le blocage de toute la distribution comme une règle univ",
+      "Portée : Divergence Lyon / DIEC.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-12 ; Académie de Lyon, articles 1971 et 1972 (",
+      "Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/j1_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : quand verrouiller son lot",
+     "lignes": [
+      "La date limite de verrouillage est fixée chaque année par la circulaire EPS de l'académie ; pour la session 2027 à Aix-Marseille, elle n'est pas encore publiée.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 », diapo 24 ; guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/j2_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Verrouillage",
+     "lignes": [
+      "Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (Verrouiller / déverrouiller) ; DIEC Aix-Marseille, « Notation de"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/j3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié (ce n'est pas déverrouiller)",
+     "lignes": [
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024), diapo 24.",
+      "Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/j4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : « la candidature n'est plus valide », lot impossible à verrouiller",
+     "lignes": [
+      "- Seule solution : le chef d'établissement le signale au service des examens (DIEC), en indiquant le RNE de l'établissement, l'examen et les élèves concernés, pour transmission à l'équipe nationale Santorin.",
+      "- Ce n'est pas une question de déverrouillage : un lot verrouillé se déverrouille par le chef d'établissement, sans passer par la DIEC.",
+      "Source : retours de l'assistance examens EPS d'Aix-Marseille (pas de document publié)."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/j5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Dates 2027",
+     "lignes": [
+      "Au 12 octobre 2026, les documents de la base ne confirment pas de date limite EPS de saisie/verrouillage à Aix-Marseille pour 2027 : le BA spécial 566 annonce la circulaire EPS à venir. Consultez sa publication et le cal",
+      "Portée : Académique Aix-Marseille.",
+      "Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.",
+      "Sources datées : BA spécial 566 du 9 octobre 2026 (inscriptions voie pro, session 2027) (annonce de la circulaire EPS).",
+      "Fiche de contrôle : data/commun/audit60/aix_inscriptions_2027_voie_pro.txt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/k3_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : cases de notes grisées en bac pro ou CAP (« Choisir AFLP »)",
+     "lignes": [
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024), diapos 18-19 ; tutoriel saisie CCF 2025, académie de Dijon."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/k4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : le 20/20 du sportif de haut niveau n'est pas proposé",
+     "lignes": [
+      "2. La mention SHN figure-t-elle pour l'élève dans Santorin ? À Aix-Marseille, elle est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseigna",
+      "Portée : Logiciel (Santorin, Cyclades) + académique (rôle de la DIEC) + national (éligibilité).",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 », diapo 21 ; BA spécial 565 du 9 octobre 2026 (inscriptions GT, session 2027), §4.4 b ; note de service du 20 février 2026, MENE253194"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Saisie / codes",
+     "lignes": [
+      "Dans Santorin, « Absent » et « Dispensé » ne s'emploient pas dans les mêmes situations (guide Santorin EPS de la DIEC) :",
+      "Portée : Logiciel + DIEC.",
+      "Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la no",
+      "Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 22."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot1_2026_10_12/eleves_manquants.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Élèves inscrits mais absents des lots Santorin",
+     "lignes": [
+      "Sources : Guide académique Aix-Marseille des tutoriels examens, circuit Cyclades/Santorin ; réponses du correspondant examens EPS ; tutoriels de distribution Santorin de Créteil."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot1_2026_10_12/mail_examinateur.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin : examinateur non trouvé pour le mail déclaré",
+     "lignes": [
+      "Sources : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 3 à 9 ; tutoriels Cyclades/Santorin de Créteil (distribution)."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot1_2026_10_12/troisieme_impossible.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Troisième activité impossible pour la classe : autorisation et CE",
+     "lignes": [
+      "Non : l’absence prolongée du professeur n’est pas une inaptitude médicale des élèves et ne justifie pas de saisir DI pour toute la classe. Si la troisième activité ne peut réellement pas être assurée, le chef d’établisse",
+      "Sources : Note MENE2531948N du 20 février 2026, partie 2.d (bac GT) ; circulaire MENE2505383C du 2 avril 2025 modifiée (bac professionnel) ; DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapo 20."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Bac GT CCF : absence injustifiée distincte de force majeure",
+     "lignes": [
+      "Source : Note du 20 février 2026 MENE2531948N, parties 2.d et 2.e ; guide DIEC Santorin EPS."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot2_2026_10_12/acces_notes_aix.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : accès enseignant à la saisie EPS dans Santorin",
+     "lignes": [
+      "### Aix : accès enseignant à la saisie EPS dans Santorin",
+      "À Aix-Marseille, passez par Imag’in depuis ESTEREL, rubrique Examens et concours, puis « Portail d’accès aux missions ». Sélectionnez la ligne « Notation EPS CCF » de l’examen concerné : il y a une ligne par examen. Dans",
+      "Source : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 1-2 ; guide académique des tutoriels examens."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot2_2026_10_12/inscription_inaptitude_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : inscription APTE en CCF distincte de l’inaptitude médicale",
+     "lignes": [
+      "### Aix : inscription APTE en CCF distincte de l’inaptitude médicale",
+      "À Aix-Marseille, pour l’inscription EPS en CCF, cochez « APTE » dans Cyclades, y compris si un certificat médical atteste une inaptitude. Le BA spécial 565 de la session 2027 distingue cette inscription du traitement de ",
+      "Source : BA spécial Aix-Marseille 565 du 9 octobre 2026, session 2027, dispositions EPS ; fiche aix_inscriptions_2027_gt."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot2_2026_10_12/onglets.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Cyclades/Santorin : une fenêtre pour éviter les erreurs d’import",
+     "lignes": [
+      "Travaillez dans une seule fenêtre Cyclades ou Santorin, avec un seul examen actif, pour éviter les erreurs d’importation entre sessions, notamment bac professionnel et CAP. Importez dans le bon examen, puis fermez la fen"
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot3_2026_10_12/fermeture_collective.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Installation fermée pour une classe : autorisation puis CE",
+     "lignes": [
+      "La fermeture d’une installation ne permet pas de neutraliser automatiquement une activité pour la classe. La direction saisit l’inspection EPS et le service des examens ; le recteur peut autoriser la certification réduit",
+      "Source : Note MENE2531948N, 2.d (bac GT) ; circulaire bac professionnel MENE2505383C modifiée ; guide DIEC Aix-Marseille Notation EPS CCF Santorin, février 2024, diapo 20."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot3_2026_10_12/protocole_standard_apres.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : ajout de protocole standard après validation",
+     "lignes": [
+      "### Aix : ajout de protocole standard après validation",
+      "À Aix-Marseille, pour cet ajout de protocole standard après validation, créez le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenez l’inspection pédagogique au préalable : elle assure le transf",
+      "Source : BA spécial Aix-Marseille 549, session 2026 ; précision du formateur académique du 11 octobre 2026 ; FAQ Strasbourg/Créteil pour la comparaison de portée."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Élève parti de l'établissement en cours d'année mais toujours inscrit à l'examen",
+     "lignes": [
+      "- l'élève a quitté toute scolarité : se rapprocher du service des examens (DIEC) pour savoir si l'inscription est maintenue ou annulée.",
+      "Aucune consigne écrite d'Aix-Marseille sur ce cas n'a été trouvée : la règle « convoquer, puis noter absent » est celle décrite par l'académie de Versailles (2025). Faire confirmer par la DIEC."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Après la saisie : harmonisation, clôture et remontée des notes (Santorin, Cyclades)",
+     "lignes": [
+      "Les dates de ces étapes sont fixées chaque année par la DIEC : ne pas les déduire d'une autre académie ou d'une session passée."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot4_2026_10_13/points_sans_consigne_aix.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Questions sans consigne écrite trouvée pour Aix-Marseille (le jour du CCF, notes, redoublants)",
+     "lignes": [
+      "### Questions sans consigne écrite trouvée pour Aix-Marseille (le jour du CCF, notes, redoublants)",
+      "Pour les questions suivantes, la base ne contient ni texte national explicite ni consigne académique d'Aix-Marseille. La réponse le dit clairement et renvoie vers l'interlocuteur compétent, sans inventer de règle.",
+      "- Élève en retard le jour du CCF : aucune règle écrite trouvée (heure limite, possibilité de passer l'épreuve). Décision à prendre avec le chef d'établissement ; faire confirmer par la DIEC.",
+      "- Communiquer aux élèves leurs notes de CCF : les notes saisies sont des propositions de note, susceptibles d'harmonisation par la commission académique et arrêtées par le jury. Aucun texte de la base n'interdit ni n'org",
+      "- Redoublant de terminale et notes d'EPS : le tutoriel iPackEPS (site de Créteil, rubrique Cyclades) indique que, lorsqu'un élève passe l'examen une deuxième fois, Cyclades le met automatiquement dispensé de certaines ép",
+      "Contacts : service des examens de la DIEC pour l'organisation de l'examen ; IA-IPR EPS pour les questions d'évaluation."
+     ]
+    }
+   ]
+  },
+  "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== CAS CONCRETS, UN PAR SITUATION : LOTS SANTORIN, CO-ÉVALUATION ET ENSEIGNANT ABSENT, INAPTES AVEC UNE OU DEUX NOTES, ÉTABLISSEMENTS À L'É",
+     "lignes": [
+      "Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots des collègues, une procédure déjà établie par une source lue (tutoriels officiels iPackEPS, articles 66, 72, 73, 81 et 95 ; support de la di"
+     ]
+    },
+    {
+     "section": "### [SITUATION: L'ENSEIGNANT DU GROUPE EST ABSENT ET NON REMPLACÉ — UNE ÉPREUVE N'A PAS PU ÊTRE ÉVALUÉE POUR TOUTE LA CLASSE]",
+     "lignes": [
+      "- C'est le cas exceptionnel (CE), prévu notamment pour un professeur absent non remplacé : il demande l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, "
+     ]
+    },
+    {
+     "section": "### [SITUATION: ÉTABLISSEMENT À L'ÉTRANGER, CFA — AUCUNE CLASSE NI AUCUN ÉLÈVE DANS iPackEPS]",
+     "lignes": [
+      "- Les candidats ne viennent pas d'iPackEPS : ils apparaissent dans Cyclades (puis Santorin) parce qu'ils sont inscrits à l'examen, et l'établissement les place lui-même dans leurs protocoles. Aucun fichier d'import n'est"
+     ]
+    },
+    {
+     "section": "### [SITUATION: IMAG'IN — LES ENSEIGNANTS D'EPS SONT-ILS CONVOQUÉS AUTOMATIQUEMENT POUR LA SAISIE DES NOTES ?]",
+     "lignes": [
+      "- À Aix-Marseille, pour une convocation créée par l'établissement, éditer la convocation en cliquant sur l'icône PDF : c'est ce qui la transmet à Santorin (support de la division des examens, 2024)."
+     ]
+    },
+    {
+     "section": "### [SITUATION: L'ENSEIGNANT CONVOQUÉ À LA SOUS-COMMISSION D'EPS NE PEUT PAS VENIR — COMMENT LE FAIRE REMPLACER ?]",
+     "lignes": [
+      "- Le remplaçant reçoit une convocation à son nom (cas traité par le service des examens d'Aix-Marseille)."
+     ]
+    },
+    {
+     "section": "### [SITUATION: AIX-MARSEILLE — OÙ TROUVER IMAG'IN POUR ACCÉDER À CYCLADES ET À SANTORIN ?]",
+     "lignes": [
+      "### [SITUATION: AIX-MARSEILLE — OÙ TROUVER IMAG'IN POUR ACCÉDER À CYCLADES ET À SANTORIN ?]",
+      "- Mots-clés : accès Imag'in, Esterel, Examens et concours, identifiant académique, je ne trouve pas Cyclades.",
+      "- Formulations courantes des collègues : où est Imag'in ; comment accéder à Cyclades depuis Esterel ; quel identifiant utiliser ; par où je passe pour saisir mes notes d'EPS ; comment aller dans Santorin.",
+      "- À Aix-Marseille : se connecter à l'espace ESTEREL avec son identifiant académique et son mot de passe (ceux de la messagerie académique), ouvrir la rubrique [EXAMENS ET CONCOURS], puis [IMAG'IN]. Dans une autre académi",
+      "- Pour saisir les notes (Santorin) : dans Imag'in (ESTEREL, ou accès direct appli.ac-aix-marseille.fr/imagin/enseignant), ouvrir [Portail d'accès aux missions], cliquer sur la ligne de la mission « Notation EPS CCF » de "
+     ]
+    }
+   ]
+  },
+  "data/examens/circuit_aix_ipack_cyclades_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== CIRCUIT ACADÉMIQUE D'AIX-MARSEILLE : D'iPackEPS À CYCLADES PUIS À SANTORIN (guide académique des tutoriels examens EPS) ===",
+     "lignes": [
+      "=== CIRCUIT ACADÉMIQUE D'AIX-MARSEILLE : D'iPackEPS À CYCLADES PUIS À SANTORIN (guide académique des tutoriels examens EPS) ===",
+      "Sources lues intégralement le 11 octobre 2026 : guide académique « Transfert des protocoles de IPACK vers CYCLADES puis saisie des notes dans SANTORIN » (version 1.1, rédigé pour la session 2026, https://github.com/Pole-"
+     ]
+    },
+    {
+     "section": "### [SITUATION: AIX-MARSEILLE — LES 7 ÉTAPES DANS L'ORDRE, D'iPackEPS À LA SAISIE DES NOTES, ET QUI FAIT QUOI]",
+     "lignes": [
+      "### [SITUATION: AIX-MARSEILLE — LES 7 ÉTAPES DANS L'ORDRE, D'iPackEPS À LA SAISIE DES NOTES, ET QUI FAIT QUOI]",
+      "- Mots-clés : étapes, ordre des opérations, qui fait quoi, circuit Aix-Marseille, professeur coordonnateur, chef d'établissement, inspection pédagogique régionale, protocole non validé dans Cyclades, statut validé.",
+      "- Un protocole sans coche verte dans iPackEPS (colonne « Validité ») n'est pas validé : l'inspection ne le transfère pas comme validé dans Cyclades. Le faire valider d'abord (référentiels et protocole), puis vérifier dan",
+      "- Étape 3, inspection pédagogique régionale : c'est l'inspection qui reporte dans Cyclades la validité des protocoles attestée dans iPackEPS. L'établissement vérifie ensuite dans Cyclades que ses protocoles ont bien le s"
+     ]
+    },
+    {
+     "section": "### [SITUATION: SANTORIN, PORTAIL ÉTABLISSEMENT — IL MANQUE DES ÉLÈVES APRÈS LA DISTRIBUTION, OU UN ENSEIGNANT A OUBLIÉ DE CLÔTURER SON LOT]",
+     "lignes": [
+      "- Un candidat n'est associé à aucun protocole dans Cyclades : il n'entre pas dans un lot. Le tableau de bord de la distribution affiche le nombre de candidats non affectés : associer d'abord le candidat à son protocole (",
+      "- Cas exceptionnel (CE) : il se déclare sur une activité qui ne peut pas être évaluée pour une raison technique ou matérielle, après autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de"
+     ]
+    }
+   ]
+  },
+  "data/examens/complement_cyclades_protocoles_cas_enseignant.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: PROTOCOLE CYCLADES CRÉÉ AVEC LE MAUVAIS GROUPE D'ÉLÈVES — LE CHAMP « GROUPE ÉLÈVE » N'EST PLUS MODIFIABLE]",
+     "lignes": [
+      "- Si les protocoles ont déjà été validés, cette suppression n'est plus possible directement. À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPa"
+     ]
+    },
+    {
+     "section": "### [SITUATION: MODIFIER OU CRÉER UN PROTOCOLE APRÈS LA TRANSMISSION À LA COMMISSION]",
+     "lignes": [
+      "- Pour modifier ou créer un protocole STANDARD : À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) "
+     ]
+    },
+    {
+     "section": "### [SITUATION: L'ADRESSE MAIL DU PROFESSEUR EST GRISÉE DANS LE PROTOCOLE — PROTOCOLE CRÉÉ POUR UN COLLÈGUE]",
+     "lignes": [
+      "- C'est le chef d'établissement qui réaffecte le protocole au bon enseignant : Cyclades, menu [EPS] / [Contrôler / Réaffecter des protocoles], colonne de l'adresse utilisée pour la notation, en choisissant l'évaluateur d"
+     ]
+    },
+    {
+     "section": "### [SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]",
+     "lignes": [
+      "- Si les protocoles ont déjà été validés, un protocole standard ne se modifie plus directement dans ce menu. À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard "
+     ]
+    },
+    {
+     "section": "### [SITUATION: FICHE INDIVIDUELLE POUR LA COMMISSION — DANS QUELS CAS LA REMPLIR ? (DI + DI + NOTE, 0/20, ABT…)]",
+     "lignes": [
+      "- Prudence : aucune source officielle vérifiée ici ne confirme à Aix-Marseille une dispense automatique lorsque le candidat a deux activités non évaluées et une seule note. Ne pas transformer cette note en DI sur cette s"
+     ]
+    }
+   ]
+  },
+  "data/examens/complement_note_de_service_bac_gt_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ÉPREUVE DIFFÉRÉE AU BAC GT — DANS QUELS CAS ? (note de service du 20 février 2026)]",
+     "lignes": [
+      "- Force majeure (grève des transports, accident…) : elle concerne le candidat assidu ; l'accord du chef d'établissement est donné après consultation de l'équipe pédagogique. Dans Santorin, chaque APSA propose une « épreu"
+     ]
+    }
+   ]
+  },
+  "data/examens/complement_reponses_validees.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: CAP : DEUX ÉPREUVES CERTIFICATIVES, CHOIX EN DÉBUT D’ANNÉE]",
+     "lignes": [
+      "- Le BA spécial 549 d’Aix-Marseille, session 2026, prévoit que, si trois épreuves sont organisées, le candidat en retient deux en début d’année. Distinguer les activités organisées et les deux épreuves retenues pour la c",
+      "- Sources : https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C ; https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+     ]
+    }
+   ]
+  },
+  "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: QUAND REMPLIR LE CHAMP « APPRÉCIATIONS » DANS SANTORIN ?]",
+     "lignes": [
+      "- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Not"
+     ]
+    },
+    {
+     "section": "### [SITUATION: ÉLÈVE INAPTE TOUTE L'ANNÉE, OU AVEC UNE SEULE NOTE SUR TROIS — QUE SAISIR DANS SANTORIN ?]",
+     "lignes": [
+      "- AIX-MARSEILLE : la dispense automatique avec deux activités non évaluées et une seule note n’est pas confirmée par une source officielle vérifiée dans cette base. Ne pas supprimer la note automatiquement ; apprécier le"
+     ]
+    },
+    {
+     "section": "### [SITUATION: UNE ACTIVITÉ N'A PAS PU ÊTRE ÉVALUÉE POUR TOUT UN GROUPE — CAS EXCEPTIONNEL (CE)]",
+     "lignes": [
+      "- Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe pour une raison technique ou matérielle (installation indisponible, professeur absent non remplacé), l'établissement demande l'autorisation préala"
+     ]
+    },
+    {
+     "section": "### [SITUATION: INSTALLATION FERMÉE OU PROFESSEUR NON REMPLACÉ — UN SEUL ÉLÈVE (OU QUELQUES-UNS) N'A PAS PU ÊTRE ÉVALUÉ]",
+     "lignes": [
+      "- Étape 1 : demander l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EP"
+     ]
+    }
+   ]
+  },
+  "data/examens/cyclades_candidats_absents.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Cyclades : candidats absents de la liste",
+     "lignes": [
+      "Non : refaire l'export iPackEPS ne crée pas un candidat absent de la liste d'inscription à l'examen dans Cyclades. Faire vérifier d'abord par le secrétariat et le chef d'établissement l'inscription, l'établissement gesti"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== RÉPONSES DU CORRESPONDANT EXAMENS EPS ACADÉMIQUE : ASSOCIATION DES CANDIDATS, CYCLADES, IMAG'IN ET SANTORIN ===",
+     "lignes": [
+      "Origine : réponses écrites du chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (session 2026). Le calendrier (dates limites, commissions) est fixé par chaque académie et n'est pas repris ici"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/examens_104_situation_santorin_connexion_et_identifiant_refuse.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin : connexion, missions CCF et copies écrites",
+     "lignes": [
+      "Le guide Santorin Aix indique que le correcteur doit être affecté à une mission de correction dans Imag’in avant d’accéder aux supports attribués."
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin : verrouillage, correction d’erreur et circuit concerné",
+     "lignes": [
+      "Copies écrites : le guide Aix de l’éditeur de correction prévoit une note globale pour chaque support et une appréciation lorsqu’elle est obligatoire, puis le cadenas depuis le tableau de bord ou la liste des supports. A"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_001_situation_cadre_institutionnel_dates_limites_specificites_santorin_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS]",
+     "lignes": [
+      "- Interlocuteurs : la Division des Examens et Concours (DEC ; DIEC dans l'académie d'Aix-Marseille) et le correspondant iPackEPS de l'académie."
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_003_situation_boite_a_outils_astuces_de_terrain_raccourcis_clavier.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: BOÎTE À OUTILS, ASTUCES DE SAISIE DANS SANTORIN ET CYCLADES]",
+     "lignes": [
+      "* Cyclades, Imag'in et Santorin s'ouvrent depuis le portail professionnel de l'académie (ESTEREL à Aix-Marseille, ARENA dans beaucoup d'autres), avec ses identifiants académiques : jamais depuis un site académique public"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: CHAMPS D’APPRENTISSAGE : BAC GT, BAC PRO ET CAP]",
+     "lignes": [
+      "- CAP : deux APSA de deux champs différents sont retenues pour la certification. Le BA 549 d’Aix-Marseille, session 2026, prévoit que, si trois épreuves sont organisées, le candidat en retient deux en début d’année. Une ",
+      "Sources : https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C ; https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N ; https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C ; https://bulacad.ac-aix-marse"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_005_situation_chaine_technique_acces_santorin_pour_un_enseignant_remplacant.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT]",
+     "lignes": [
+      "- Rappel (règle de connexion déjà énoncée dans ce document, aucune information nouvelle) : il n'existe pas de codes propres à Santorin à récupérer auprès du collègue remplacé. L'accès se fait par le portail professionnel"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_006_situation_la_fausse_piste_des_conditions_exceptionnelles_ce.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: LA FAUSSE PISTE DES \"CONDITIONS EXCEPTIONNELLES\" (CE)]",
+     "lignes": [
+      "- Il s'applique, avec l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'E"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_009_1_acteurs_et_roles_institutionnels.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 1. Acteurs et Rôles Institutionnels",
+     "lignes": [
+      "* **DEC (Division des Examens et Concours ; DIEC dans l'académie d'Aix-Marseille) :** Service académique du Rectorat chargé de l'organisation administrative, de la validation des affectations dans Cyclades, de la gestion"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_010_2_logistique_santorin_et_distribution_des_lots.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 2. Logistique Santorin et Distribution des Lots",
+     "lignes": [
+      "* **Erreur « Aucun lot à corriger » :** soit les lots ne sont pas encore distribués, soit l'adresse mail de l'examinateur déclarée dans Cyclades ne correspond à aucune convocation Imag'in. Procédure : vérifier la convoca"
+     ]
+    }
+   ]
+  },
+  "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 4. Réglementation des Absences et Épreuves Différées",
+     "lignes": [
+      "- *Erreur protocole inexistant :* Si des protocoles ont été créés après l'export académique. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après ",
+      "- Rôle de l'enseignant : il n'a pas à rechercher les SHN. Quand il ouvre la saisie d'un candidat dont le statut SHN est validé, Santorin affiche une étape pour choisir l'activité qui reçoit le 20/20 automatique. Si la co"
+     ]
+    }
+   ]
+  },
+  "data/examens/fraude_ccf_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Fraude en EPS : examen et cours ordinaire",
+     "lignes": [
+      "3. Prévenir le chef d'établissement, qui signale au service des examens (DIEC, pour le recteur). Le signalement se fait sur la suspicion documentée : l'enseignant n'a pas à établir lui-même que la fraude est avérée.",
+      "4. Ne pas saisir de zéro ni d'annulation dans Santorin pour sanctionner : seule la commission de discipline du baccalauréat statue sur la fraude, pas la CAHPN ni le professeur. Pour la saisie de la note, suivre la consig"
+     ]
+    }
+   ]
+  },
+  "data/examens/option_eps_individuel_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Option EPS : candidats individuels",
+     "lignes": [
+      "Ne pas appliquer au candidat individuel le contrôle continu ni le LSL du candidat scolaire. Aucune date académique d'Aix n'est donnée par ce texte."
+     ]
+    }
+   ]
+  },
+  "data/examens/shn_statut_inscription_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### SHN bac GT : date et conditions",
+     "lignes": [
+      "Le candidat doit justifier du statut SHN au moment de l'inscription au baccalauréat, sur la base de la liste publiée en janvier ou juillet de la même année civile. Aucune modification de statut n'est acceptée après la fi"
+     ]
+    }
+   ]
+  },
+  "data/examens/sigles_examens_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Sigles des examens d'EPS (à utiliser tels quels)",
+     "lignes": [
+      "- DIEC : division des examens et concours (Aix-Marseille)."
+     ]
+    }
+   ]
+  },
+  "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [TUTORIEL CYCLADES — VÉRIFIER L'AFFECTATION DES ÉLÈVES À LEURS PROTOCOLES (article 63)]",
+     "lignes": [
+      "R2 : Les noms des groupes importés n'existent pas dans la liste des protocoles que la commission académique a importée pour l'établissement, ce qui arrive si de nouveaux protocoles ont été créés APRÈS l'export par la com"
+     ]
+    },
+    {
+     "section": "### [TUTORIEL CYCLADES — CONTRÔLER / RÉAFFECTER LES PROTOCOLES DES ENSEIGNANTS (article 64)]",
+     "lignes": [
+      "R2 : Non. Lorsque des protocoles ont été importés pour un établissement, Cyclades refuse de les réimporter. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « inval"
+     ]
+    },
+    {
+     "section": "### [TUTORIEL CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, STANDARD OU ADAPTÉ (article 65)]",
+     "lignes": [
+      "- À Aix-Marseille (BA 549, session 2026), la CAHPN valide les protocoles ; l’inspection assure leur transmission vers Cyclades. L’établissement importe ensuite le fichier d’association des candidats généré par iPackEPS. ",
+      "R1 : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, "
+     ]
+    }
+   ]
+  },
+  "data/examens/videos_tutoriels_cyclades_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SANTORIN — AJOUTER UN DEUXIÈME ÉVALUATEUR SUR UN LOT (vidéo)]",
+     "lignes": [
+      "- Ce que montrent les écrans (tutoriel vidéo du Pôle Examens d'Aix-Marseille, Ajouter_evaluateur_lot_santorin.mp4) : sur la page des lots, chaque ligne affiche Numéro, Type (PARTAGE), Total candidats, Examinateur(s), Nb."
+     ]
+    },
+    {
+     "section": "### [SITUATION: CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, NOTAMMENT ADAPTÉ (vidéo)]",
+     "lignes": [
+      "- Nouveau protocole classique (standard) après validation : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « invalider » ou « dévalider » les protocoles. Créer le"
+     ]
+    }
+   ]
+  },
+  "data/ipack/acces_ipackeps_problemes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== IMPOSSIBLE D'ACCÉDER À iPackEPS — DIAGNOSTIC OFFICIEL (site iPackEPS, article « En cas d'impossibilité d'accéder à iPackEPS ») ===",
+     "lignes": [
+      "Repère : Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Ailleurs,"
+     ]
+    }
+   ]
+  },
+  "data/ipack/complement_cyclades_cas_pratiques.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ALERTE CYCLADES « LE GROUPE ÉLÈVE IMPORTÉ NE CORRESPOND À AUCUN GROUPE LIÉ AUX PROTOCOLES »]",
+     "lignes": [
+      "- Résolution : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'in",
+      "- L'enseignant vérifie aussi que le nom du groupe est strictement identique dans iPackEPS et dans le protocole. (Les guides d'autres académies, Strasbourg 2024, Normandie 2025, Corse 2024-2025, décrivent une autre manipu"
+     ]
+    },
+    {
+     "section": "### [SITUATION: AJOUTER UN PROTOCOLE STANDARD APRÈS LA VALIDATION DE LA COMMISSION]",
+     "lignes": [
+      "- À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui"
+     ]
+    },
+    {
+     "section": "### [SITUATION: TITULAIRE, TZR, CONTRACTUEL, STAGIAIRE, REMPLAÇANT — COMMENT CHACUN APPARAÎT DANS iPackEPS]",
+     "lignes": [
+      "- Formulations courantes des collègues : notre contractuel n'apparaît pas dans l'équipe ; le TZR arrivé en octobre n'est pas dans la liste ; le stagiaire doit-il remplir une fiche ; comment déclarer un remplaçant ; nos s",
+      "- Stagiaire ou nouvel arrivant qui ouvre ESTEREL mais pas iPackEPS, dans l'ordre : 1) iPackEPS absent du bloc « Enquête et pilotage » : bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page » ; 2) iPackEPS s'ouvr",
+      "- Tout enseignant d'EPS affecté par le rectorat dans l'établissement (titulaire, TZR, contractuel, stagiaire) apparaît automatiquement dans l'équipe EPS, après un clic sur [Actualiser] par un enseignant de l'équipe. Chac"
+     ]
+    },
+    {
+     "section": "### [SITUATION: FICHE INDIVIDUELLE POUR LA COMMISSION — DANS QUELS CAS LA REMPLIR ? (DI + DI + NOTE, 0/20, ABT…)]",
+     "lignes": [
+      "- Prudence : aucune source officielle vérifiée ici ne confirme à Aix-Marseille une dispense automatique lorsque le candidat a deux activités non évaluées et une seule note. Ne pas transformer cette note en DI sur cette s"
+     ]
+    }
+   ]
+  },
+  "data/ipack/complement_questions_boite_assistance.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== QUESTIONS RÉELLES DE LA BOÎTE D'ASSISTANCE iPackEPS : APSA « COURSES », CASE [CERTIFICATIVE], ÉTABLISSEMENTS À L'ÉTRANGER ===",
+     "lignes": [
+      "Ces situations reprennent des procédures déjà présentes dans la base (tutoriel officiel iPackEPS, articles 14 et 15 ; FAQ officielle sur les référentiels ; fiche du correspondant sur les comptes), reformulées avec les mo"
+     ]
+    },
+    {
+     "section": "### [SITUATION: LE BOUTON OU LA CASE [CERTIFICATIVE] NE SE COCHE PAS POUR UNE APSA — DEMI-FOND, RELAIS, APSA CRÉÉE PAR L'ÉTABLISSEMENT]",
+     "lignes": [
+      "- Demi-fond et course de relais au bac général et technologique : ces épreuves se déclarent sous l'APSA nationale [Courses]. Une activité nommée « demi-fond » ou « relais » y serait traitée comme une épreuve d'établissem"
+     ]
+    },
+    {
+     "section": "### [SITUATION: « AUCUN ÉLÈVE DANS CET ÉTABLISSEMENT » — SECTION D'ENSEIGNEMENT PROFESSIONNEL (SEP) RATTACHÉE À UN LYCÉE]",
+     "lignes": [
+      "- (Réponse du correspondant examens EPS d'Aix-Marseille.)"
+     ]
+    },
+    {
+     "section": "################ DÉPÔT DES FCA (RÉFÉRENTIELS) : CAS CONCRETS ################",
+     "lignes": [
+      "Source de cette partie : réponses du correspondant examens EPS d'Aix-Marseille aux établissements, et message académique de lancement de la campagne 2026-2027."
+     ]
+    }
+   ]
+  },
+  "data/ipack/complement_reponses_validees.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)]",
+     "lignes": [
+      "- Portail d'accès unique : L'accès à TOUTES les applications professionnelles et d'examen se fait par le portail professionnel de l'académie (ESTEREL dans l'académie d'Aix-Marseille, ARENA dans beaucoup d'autres) à l'aid"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : ACCÈS, COMPTES ET LISTE DES ENSEIGNANTS ===",
+     "lignes": [
+      "Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Le portail ESTEREL, la base RAMSESE, le service DIA"
+     ]
+    },
+    {
+     "section": "### [SITUATION: iPackEPS N'APPARAÎT PAS DANS MON PORTAIL (ESTEREL)]",
+     "lignes": [
+      "### [SITUATION: iPackEPS N'APPARAÎT PAS DANS MON PORTAIL (ESTEREL)]",
+      "- Réponse : iPackEPS se trouve dans le portail ESTEREL, bloc « Enquête et pilotage ». S'il n'apparaît pas, lancer une synchronisation manuelle : bouton « Aide » (en haut à droite du bandeau) > « Synchro manuelle » > « Ra",
+      "- Cas rencontré : deux comptes ESTEREL au même nom bloquent l'accès ; le signaler au correspondant iPackEPS, qui oriente vers le service informatique compétent."
+     ]
+    },
+    {
+     "section": "### [SITUATION: UN ENSEIGNANT D'EPS N'APPARAÎT PAS DANS LA LISTE DES PROFESSEURS DE L'ÉTABLISSEMENT]",
+     "lignes": [
+      "- Réponse : la liste des professeurs n'est pas saisie à la main dans iPackEPS. Elle est alimentée automatiquement par les bases académiques des personnels (dans l'académie d'Aix-Marseille : la base STS-Web de l'établisse"
+     ]
+    },
+    {
+     "section": "### [SITUATION: ERREURS DANS LA FICHE ÉTABLISSEMENT OU DANS MA FICHE PROFESSEUR (CHEF, ADJOINT, ANCIENNETÉ)]",
+     "lignes": [
+      "- Réponse : ces informations ne se modifient pas dans iPackEPS. Les données de l'établissement (chef, adjoints) viennent de la base RAMSESE : les corrections se demandent au service qui la gère (dans l'académie d'Aix-Mar"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/correspondant_02_classes_groupes_protocoles.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : CLASSES, GROUPES ET PROTOCOLES ===",
+     "lignes": [
+      "Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Règles de fonctionnement d'iPackEPS valables partou"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE : APSA CERTIFICATIVES, RÉFÉRENTIELS (FCA) ET ÉPREUVES ADAPTÉES ===",
+     "lignes": [
+      "Origine : réponses écrites du correspondant iPackEPS / chargé de mission examens EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026 et rentrée 2026). Les listes académiques d'APSA et les consignes de d"
+     ]
+    },
+    {
+     "section": "### [SITUATION: DEMI-FOND, RELAIS, HAIES, VITESSE : UNE SEULE APSA « COURSES » EN BAC GT]",
+     "lignes": [
+      "- Consigne de l'académie d'Aix-Marseille pour les FCA : déclarer l'activité nationale « Courses » et déposer comme référentiel de cette APSA un document unique regroupant les FCA des différentes courses programmées (par "
+     ]
+    },
+    {
+     "section": "### [SITUATION: CROSS-TRAINING, MARCHE, ACTIVITÉ NON LISTÉE : ÉPREUVE D'ÉTABLISSEMENT]",
+     "lignes": [
+      "- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Une seule épreuve d'établissem"
+     ]
+    },
+    {
+     "section": "### [SITUATION: DOCUMENT DE SYNTHÈSE DEMANDÉ DANS LE DÉPÔT DES RÉFÉRENTIELS (VOIE GÉNÉRALE ET TECHNOLOGIQUE)]",
+     "lignes": [
+      "- Réponse : il existe deux documents différents. Le « fichier de synthèse » demandé au moment de la saisie des protocoles était un outil de contrôle de conformité ; dans l'académie d'Aix-Marseille, il a été retiré de la "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/correspondant_05_sss_appn_registre.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "=== RÉPONSES DU CORRESPONDANT iPackEPS ACADÉMIQUE ET DES IA-IPR : SECTIONS SPORTIVES, PROTOCOLES APPN, REGISTRE EPI ===",
+     "lignes": [
+      "Origine : réponses écrites du correspondant iPackEPS et des IA-IPR EPS de l'académie d'Aix-Marseille aux établissements (année 2025-2026). Les circuits de validation (commission SSS, COPIL, IA-IPR référent) sont ceux de "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_002_procedure_ordre_chronologique_de_deploiement_d_ipackeps_college_lycee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]",
+     "lignes": [
+      "- Connexion à le portail académique (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; dans d'autres académies, souvent ARENA) avec les identifiants académiques officiels.",
+      "- Lancement de l'application iPackEPS. Si elle n'apparaît pas dans ESTEREL : bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page »."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]",
+     "lignes": [
+      "Instruction : DEC = Division des Examens et Concours (dans l'académie d'Aix-Marseille : DIEC, Division des examens et concours). Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion admin"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_007_erreur_aucun_lot_a_corriger.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ERREUR : AUCUN LOT À CORRIGER]",
+     "lignes": [
+      "- Mots-clés : aucun lot à corriger, Santorin, Cyclades, distribution, affectation, Imag'in, adresse mail de l'examinateur, DEC, DIEC, Choisir les AFLP, lot absent",
+      "4. Si le problème persiste : écrire à la DEC (DIEC à Aix-Marseille) avec une capture d'écran."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_008_situation_absence_d_un_correcteur_enseignant_sur_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]",
+     "lignes": [
+      "- Instruction : Si un enseignant est manquant dans Santorin pour la distribution d'un lot, le chef d'établissement doit obligatoirement le convoquer manuellement via IMAG'IN. Si l'enseignant n'apparaît pas dans la liste "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_009_situation_synchronisation_imag_in_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]",
+     "lignes": [
+      "- Instruction : Ne pas oublier d’éditer la convocation dans IMAG'IN en cliquant sur l’icône « PDF ». C'est cette action précise qui génère et transmet informatiquement la convocation vers SANTORIN. Prérequis : un signata"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_013_situation_refresh_et_synchronisation_esterel_portail_arena.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]",
+     "lignes": [
+      "### [SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]",
+      "-> Procédure : Depuis l'interface ESTEREL, cliquer sur le bouton « Aide » (en haut à droite) > cliquer sur « Synchro manuelle » > puis faire « Rafraîchir la page » (F5). L'application s'ajoutera alors correctement dans l"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_019_situation_annulation_modification_d_intitule_de_groupe.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]",
+     "lignes": [
+      "- Instruction : un groupe ne peut pas porter le même nom qu'une classe déjà importée dans iPackEPS. Si un intitulé Pronote ou École-Directe correspond en fait à une classe (et non à un groupe), ne pas créer de groupe de "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_024_situation_protocoles_et_ensembles_certificatifs_en_voie_professionnelle_cap.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]",
+     "lignes": [
+      "-> Méthode indiquée par le correspondant iPackEPS d'Aix-Marseille (réponses aux établissements, année 2025-2026) : configurer la classe en « Mode Groupe », puis créer un protocole par combinaison de deux épreuves (ex. : "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_027_situation_rattachement_des_enseignants_externes_partages_greta_cfa_aefe_vacataires.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]",
+     "lignes": [
+      "- Instruction : la liste des enseignants d'iPackEPS vient des bases académiques des personnels (dans l'académie d'Aix-Marseille : STS-Web de l'établissement). Si un enseignant (par exemple un collègue en complément de se"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_029_situation_personnels_hors_education_nationale_erea_enseignants_specialises.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]",
+     "lignes": [
+      "- Mots-clés : personnels hors Éducation nationale, EREA, enseignant spécialisé, professeur des écoles spécialisé, CAP, formulaire d'enquête DSI, déclaration enseignant, droits d'accès, ouverture manuelle, ESTEREL",
+      "- Formulations courantes des collègues : je suis professeur des écoles spécialisé en EREA, comment avoir mes accès ; je gère des CAP mais je n'ai pas de droits d'accès ; où est le formulaire pour déclarer un enseignant à",
+      "- Instruction : dans l'académie d'Aix-Marseille, les enseignants de structures spécifiques (par exemple un professeur des écoles spécialisé en EREA) qui gèrent des CAP doivent être déclarés via le formulaire d'enquête ac"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_030_situation_configuration_et_liens_officiels_de_reference.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]",
+     "lignes": [
+      "-> Documents d'accompagnement Sections Sportives Scolaires (SSS) : https://www.pedagogie.ac-aix-marseille.fr/jcms/c_10962486/fr/sections-sportives-scolaires"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_048_article_5_connexion_a_ipackeps_via_votre_portail_arena.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 5] Connexion à iPackEPS via votre portail ARENA",
+     "lignes": [
+      "- Texte: Pour tous les utilisateurs (enseignants, chefs d’établissement, IA-IPR…), l’accès à iPackEPS se fait via le portail ARENA. Nouveau portail arena (2025) accès : [structures et personnels]. Dans l'académie d'Aix-M"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_055_article_51_les_manipulations_requises_a_chaque_nouvelle_annee_scolaire.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 51] Les manipulations requises à chaque nouvelle année scolaire",
+     "lignes": [
+      "1. Une fois le dossier complété, l'enseignant doit inviter le Chef d'établissement à se connecter à son interface iPackEPS (depuis son portail académique, ESTEREL dans l'académie d'Aix-Marseille > iPackEPS > Dossier APPN"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_099_1_affectation_et_convocation_automatique_des_enseignants_d_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 1. Affectation et convocation automatique des enseignants d’EPS",
+     "lignes": [
+      "- Les missions Imag’in de type « notation EPS en CCF » pour les BGT, BCP et CAP sont créées automatiquement par la DIEC pour chaque établissement sur la base des enseignements STSWEB. Les convocations automatiques sont g"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 5. Saisie des notes par les enseignants",
+     "lignes": [
+      "- L'enseignant se connecte à Imag'in via le portail de son académie (ARENA ; dans l'académie d'Aix-Marseille, portail ESTEREL). Il se rend dans « Portail d’accès aux missions », puis clique sur la ligne de la mission « N"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)",
+     "lignes": [
+      "- Technique : le chef d'établissement (ou un enseignant) crée un protocole de type adapté dans Cyclades ([EPS] > [Créer un protocole], type adapté), en y conservant les APSA déjà notées, puis y associe l'élève. Le corres",
+      "- Si l'export est bloqué : vérifier qu'aucun élève de classe à examen n'est « sans groupe EPS » ([Dossier EPS] > [Élèves]). Si Cyclades refuse l'import, voir les fiches sur les alertes d'import Cyclades. Sinon, écrire à "
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_165_situation_santorin_date_limite_de_saisie_des_notes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SANTORIN — DATE LIMITE DE SAISIE DES NOTES]",
+     "lignes": [
+      "* CADRE ACADÉMIQUE : La date limite de saisie des notes dans Santorin et Cyclades n'est jamais universelle à l'échelle nationale. Elle relève de la compétence exclusive de chaque Division des Examens et Concours (DEC ; D"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]",
+     "lignes": [
+      "- Accès : application web officielle accessible par le portail académique avec ses identifiants académiques (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; ailleurs souvent ARENA).",
+      "- Authentification par le portail académique (ESTEREL à Aix-Marseille, souvent ARENA ailleurs) : l'accès s'effectue avec vos identifiants académiques officiels (identifiant de messagerie académique + mot de passe de mess"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_192_situation_enseignant_titulaire_remplace_en_cours_d_annee_par_plusieurs_contractuels_succes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]",
+     "lignes": [
+      "2. Si motif carcéral ou éloignement sans inaptitude médicale : l'établissement signale la situation à la DEC (DIEC dans l'académie d'Aix-Marseille), qui indique la modalité applicable au candidat.",
+      "- Pour toute question sur l'hébergement, la durée de conservation ou un outil numérique : le délégué à la protection des données de l'académie (Aix-Marseille : dpd@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT",
+     "lignes": [
+      "- Point académique non trouvé : aucune source officielle vérifiée (BA spécial n° 549 d'Aix-Marseille, session 2026) n'établit à Aix-Marseille une dispense automatique quand le candidat a deux DI et une seule note. Appliq"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_196_article_98_dossiers_dossier_eps_eleves_demenagement_changement_d_etablissement_inter_acade.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année",
+     "lignes": [
+      "4. Pour les épreuves déjà passées dans l'ancien lycée : demander à l'ancien établissement les propositions de notes et documents d'évaluation, et signaler la situation à la DEC (DIEC dans l'académie d'Aix-Marseille), qui"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_204_article_106_dossiers_dossier_certificatif_epreuve_ponctuelle_de_remplacement_de_septembre_.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 106] [Dossiers]/[Dossier Certificatif] Pas d'épreuve ponctuelle de remplacement en EPS (Baccalauréat)",
+     "lignes": [
+      "- L'établissement n'organise pas de CCF en septembre ; pour une situation particulière, s'adresser à la DEC (DIEC dans l'académie d'Aix-Marseille)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_207_article_109_dossiers_dossier_certificatif_conservation_des_documents_d_evaluation_et_emarg.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Documents d'évaluation CCF : conservation et consignes applicables",
+     "lignes": [
+      "La durée précise des documents CCF EPS à Aix-Marseille n'est pas établie dans cette fiche. Faire confirmer la consigne applicable par la DIEC et le responsable des archives avant une destruction ; ne pas présenter un an ",
+      "Source académique maintenant relue : le BA spécial 549 du 17 octobre 2025 (session 2026), page interne 8 / page PDF 10, impose de garder dans un dossier accessible au chef d'établissement les éléments permettant de justi"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT",
+     "lignes": [
+      "- Spécificité Aix-Marseille : L'académie d'Aix-Marseille fonctionne avec un découpage en \"Réseaux\" d'établissements.",
+      "3. Précise qu'Aix-Marseille fonctionne en \"Réseaux\" et fournis OBLIGATOIREMENT ce lien : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 112] GESTION DES SPORTIFS DE HAUT NIVEAU (SHN) DANS IPACKEPS, CYCLADES ET SANTORIN",
+     "lignes": [
+      "- Repérer un sportif de haut niveau dans Santorin : Santorin n'a ni filtre ni recherche par profil d'élève. Le statut de sportif de haut niveau vient de l'inscription à l'examen dans Cyclades. À Aix-Marseille, la mention",
+      "- Anomalie de statut (tutoriel officiel, article 69) : dans Santorin, si la colonne [sportif de Haut Niveau] indique [NON] pour un élève concerné, l'enseignant fait un signalement à la DEC de son académie (DIEC à Aix-Mar"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]",
+     "lignes": [
+      "- Mots-clés : TZR, enseignant partagé, multi-établissements, sélecteur d'établissement, ESTEREL, STS-Web, classes invisibles, second établissement, secrétariat, affectation",
+      "- Procédure de bascule : Sur la page d'accueil d'iPackEPS (après connexion au portail académique, ESTEREL à Aix-Marseille), choisir l'établissement voulu avec le sélecteur d'établissement (article 43). Si l'établissement"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ÉLÈVE AYANT FAIT L'OBJET D'UNE SANCTION DISCIPLINAIRE (EXCLUSION) PENDANT UN CCF]",
+     "lignes": [
+      "- Procédure : les textes réservent l'épreuve différée aux raisons médicales et aux cas de force majeure (avec l'accord du chef d'établissement). L'exclusion étant une décision de l'établissement, c'est au chef d'établiss"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_237_7_administration_rapports_et_parametrage_technique.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 7. Administration, Rapports et Paramétrage Technique",
+     "lignes": [
+      "- Fichier de synthèse de l'établissement (« Doc Synthèse », document de synthèse voie générale et technologique / voie professionnelle) : outil de contrôle de conformité demandé autrefois au moment de la saisie des proto",
+      "- Un enseignant nommé au collège n'apparaît dans l'équipe EPS du lycée que s'il est installé aussi sur le lycée dans la base des personnels (STS-Web à Aix-Marseille, « service partagé »). Une fois l'administration interv",
+      "- Dossier bloqué à 97 % ou « Doc Synthèse … 0 en attente » : dans l'académie d'Aix-Marseille, ce document n'est plus requis ; le dossier se transmet sans lui (voir le lexique ci-dessus et l'article 45 pour soumettre malg"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]",
+     "lignes": [
+      "- En cas de doute ou de bug : l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Filmer un élève pour l’évaluer : outil et cadre institutionnel",
+     "lignes": [
+      "Sources : corpus technique iPackEPS ; modèle Éduscol spécifique Dix Mots 2024, relu le 11 octobre 2026. Fonction d’association vidéo iPackEPS et liste d’applications autorisées à Aix-Marseille non établies."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_302_situation_suppression_par_erreur_recuperation.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SUPPRESSION PAR ERREUR DANS iPackEPS — ÉVALUATION, SÉQUENCE, GROUPE OU DOCUMENT SUPPRIMÉ : PEUT-ON LE RÉCUPÉRER ?]",
+     "lignes": [
+      "- Réponse courte : aucune corbeille ni procédure de restauration n'est documentée dans iPackEPS. Il faut recréer l'élément, ou écrire sans attendre à l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix"
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_306_situation_droits_coordonnateur_et_administrateur.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: DROITS DE COORDONNATEUR OU D'ADMINISTRATEUR — COMMENT UN AUTRE COLLÈGUE PEUT LES AVOIR]",
+     "lignes": [
+      "- En cas de blocage : l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_308_situation_enseignant_qui_change_d_etablissement.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ENSEIGNANT QUI CHANGE D'ÉTABLISSEMENT (MUTATION) — CE QUI LE SUIT ET CE QUI RESTE]",
+     "lignes": [
+      "- Dans le nouvel établissement : l'enseignant y apparaît dès que l'administration l'a installé dans la base des personnels (STS-Web à Aix-Marseille, en général sous 48 h). Il choisit l'établissement avec le sélecteur d'é",
+      "- En cas de doute ou de blocage d'accès : ipackeps@ac-aix-marseille.fr."
+     ]
+    }
+   ]
+  },
+  "data/ipack/messages_erreur_et_contacts.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: QUI CONTACTER POUR QUOI — ASSISTANCE iPackEPS, DEC, INSPECTION, CHEF D'ÉTABLISSEMENT]",
+     "lignes": [
+      "- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran)."
+     ]
+    },
+    {
+     "section": "### [SITUATION: CONTACTER LA DIASEP (BASE RAMSESE) — ADRESSE MAIL]",
+     "lignes": [
+      "- Académie d'Aix-Marseille : ce.diasep@ac-aix-marseille.fr"
+     ]
+    }
+   ]
+  },
+  "data/ipack/nouveautes_ipackeps_2025_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [NOUVEAUTÉS 2025-2026 — ACCÉDER À iPackEPS DEPUIS ARENA ET OBTENIR DE L'AIDE]",
+     "lignes": [
+      "- Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Dans les académi"
+     ]
+    }
+   ]
+  },
+  "data/ipack/transcriptions_videos_tutoriels.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: SE CONNECTER À iPackEPS PAR LE NOUVEAU PORTAIL ARENA (2025) — PIÈGE DE LA DATE DE NAISSANCE (vidéo)]",
+     "lignes": [
+      "- Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Dans le nouveau "
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,5 +1,6 @@
 from pathlib import Path
-from documentary_review import review_exam_answer
+from documentary_review import review_exam_answer, mark_excerpt
+import json
 import base64
 import datetime
 import os
@@ -1475,6 +1476,7 @@ if prompt_a_traiter:
         sources_consultees = []
         fiches_diag = []   # (titre de la fiche, score) : passages transmis à l'IA, affichés en mode admin uniquement
         erreur_rag = ""
+        diagnostic_ia = None
         reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
@@ -1848,7 +1850,10 @@ if prompt_a_traiter:
                         if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
                             continue
                         _vus.add(_cle)
-                        _extraits.append((etiquette + " " if etiquette else "") + _txt)
+                        _bloc = (etiquette + " " if etiquette else "") + _txt
+                        _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
+                        _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '')
+                                         if mode == "examens" else _bloc)
                         _provenance = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         if _provenance:
                             _sources.append((_provenance.group(1), None))
@@ -1880,7 +1885,10 @@ if prompt_a_traiter:
                             continue  # question de collège sans rapport avec les examens : pas de fiche Cyclades / Santorin
                         _vus.add(_cle)
                         _retenus += 1
-                        _extraits.append((etiquette + " " if etiquette else "") + _txt)
+                        _bloc = (etiquette + " " if etiquette else "") + _txt
+                        _extraits.append(mark_excerpt(_bloc,
+                            path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
+                            title=n.node.metadata.get('title', '')) if mode == "examens" else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
@@ -1900,7 +1908,9 @@ if prompt_a_traiter:
                         if _cle in _vus:
                             continue
                         _vus.add(_cle)
-                        _extraits.append('[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt)
+                        _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
+                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''))
+                                         if mode == "examens" else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)
                         _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
@@ -2510,6 +2520,12 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
 
 {verites_terrain_pierre}
 """
+                if mode == "examens":
+                    contexte_complet_ia = extraits_doc
+                    if faits_champs.strip():
+                        contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme")
+                    if verites_terrain_pierre.strip():
+                        contexte_complet_ia += "\n\n" + mark_excerpt(verites_terrain_pierre, title="Retours d'assistance complémentaires")
 
                 consigne_ia = f"""Tu es l’assistant EPS destiné aux professionnels de l’éducation.
 Tu réponds sur la pédagogie, les textes institutionnels et les procédures iPackEPS, Cyclades, Imag’in et Santorin à partir des documents fournis.
@@ -2538,26 +2554,35 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
 """
 
                 try:
-                    response = Settings.llm.complete(consigne_ia)
-                    reponse_ia = response.text
-                    # Une fiche prioritaire a été choisie pour cette question : la phrase d'absence est alors
-                    # presque toujours une erreur du modèle (U-053, U-010). Une seconde demande, rare, la corrige.
-                    if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
-                        reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
-                    reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
                     if mode == "examens":
+                        diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
+                                         'sources_affichees': sources_consultees,
+                                         'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
                         reponse_ia = review_exam_answer(
                             Settings.llm, question=prompt, public=niveau_actuel_form,
-                            documents=contexte_complet_ia, draft=reponse_ia,
+                            documents=contexte_complet_ia, audit=diagnostic_ia,
+                            instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
-                    texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
-                    texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
-                    texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)
+                    else:
+                        response = Settings.llm.complete(consigne_ia)
+                        reponse_ia = response.text
+                        if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
+                            reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
+                        reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
+                    if mode == "examens":
+                        # Ne pas ajouter de prose après le contrôle : elle n'aurait aucune preuve associée.
+                        texte_brut = reponse_ia
+                    else:
+                        texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
+                        texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
+                        texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)
                     if verdict_champs:
                         texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
                                       .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))
                 except Exception as e:
                     texte_brut = f"Erreur de traitement IA : {str(e)}"
+                    if diagnostic_ia is not None:
+                        diagnostic_ia['failure'] = type(e).__name__
 
         # ==================================================================
         # 7. MISE EN FORME FINALE, LOG ET AFFICHAGE
@@ -2745,9 +2770,13 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             niveau=niveau_actuel_form
         )
 
+        if diagnostic_ia is not None:
+            diagnostic_ia['answer_after_controls'] = texte_brut
+            diagnostic_ia['displayed_body'] = texte_final
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
-             "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else ""}
+             "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
+             "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None}
         )
 
         for video_name, video_url in VIDEOS_TUTOS.items():
@@ -2785,6 +2814,12 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):
                     st.caption("Ces passages ont été fournis au modèle ; leur présence ne garantit pas que chaque phrase de sa réponse est justifiée.")
                     st.code(m["extraits"], language=None)
+            if m.get("diagnostic_ia") and st.session_state.get("is_admin", False):
+                with st.expander("Trace exacte des appels IA et vérification des affirmations"):
+                    st.caption("Les citations sont contrôlées dans les passages. L'implication et l'applicabilité sont évaluées par le modèle, pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
+                    st.json(m["diagnostic_ia"])
+                    st.download_button("Télécharger la trace de cette réponse", json.dumps(m["diagnostic_ia"], ensure_ascii=False, indent=2),
+                                       file_name="trace_lecture_ia.json", mime="application/json", key="trace_ia_" + str(id(m)))
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Les tutoriels associés restent affichés après la réponse.

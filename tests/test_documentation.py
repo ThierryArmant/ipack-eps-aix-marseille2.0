@@ -7,13 +7,14 @@ from types import SimpleNamespace
 
 import knowledge_catalog as kc
 from response_controls import reference_url
+from documentary_review import mark_excerpt
 
 
 def app_functions():
     tree = ast.parse(Path('app.py').read_text())
     names = {'decouper_en_fiches', 'charger_dossier_txt_securise', '_recherche_documentaire'}
     nodes = [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name in names]
-    env = dict(re=re, reference_url=reference_url, **{name: getattr(kc, name) for name in
+    env = dict(re=re, reference_url=reference_url, mark_excerpt=mark_excerpt, **{name: getattr(kc, name) for name in
                         ('document_records', 'incompatible', 'reference_notice', 'obsolete_reference', 'section_scopes', 'passage_key')})
     env['Document'] = lambda **kw: SimpleNamespace(**kw)
     for n in tree.body:

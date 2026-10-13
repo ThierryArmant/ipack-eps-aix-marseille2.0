@@ -85,14 +85,23 @@ def _texte_simple_pour_journal(texte):
     return t.strip()
 
 
-def log_interaction(question, reponse, mode="", contexte="", niveau=""):
+def log_interaction(question, reponse, mode="", contexte="", niveau="", usage=None, academie="", version=""):
     reponse = _texte_simple_pour_journal(reponse)
+    usage = usage or {}
     payload = {
         "question": question, 
         "reponse": reponse,
         "mode": mode,
         "contexte": contexte,
-        "niveau": niveau
+        "niveau": niveau,
+        # Champs ajoutés en fin de ligne : le script de la feuille les écrit s'il les connaît.
+        "academie": academie,
+        "version": version,
+        "appels_ia": usage.get("calls", ""),
+        "jetons_entree": usage.get("input_tokens", ""),
+        "jetons_sortie": usage.get("output_tokens", ""),
+        "duree_ia_s": usage.get("duration_seconds", ""),
+        "cache": "oui" if usage.get("cache_hit") else ""
     }
     try:
         requests.post(WEBHOOK_URL, json=payload, timeout=10)
@@ -1587,7 +1596,9 @@ if prompt_a_traiter:
                         _message['usage_ia'] = {**usage_summary({}), 'cache_hit': True}
                     st.session_state.messages_hub.append(_message)
                 log_interaction(question=prompt, reponse=_cached['body'], mode=mode,
-                                contexte=contexte_choisi_nom, niveau=niveau_actuel_form)
+                                contexte=contexte_choisi_nom, niveau=niveau_actuel_form,
+                                usage={**usage_summary({}), 'cache_hit': True},
+                                academie=st.session_state.get("academie_utilisateur") or "", version=_sha)
                 st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
                 st.session_state.reset_steps = True
                 st.rerun()
@@ -2920,7 +2931,10 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             reponse=texte_brut, 
             mode=mode, 
             contexte=contexte_choisi_nom, 
-            niveau=niveau_actuel_form
+            niveau=niveau_actuel_form,
+            usage=usage_summary(usage_ia) if mode == "examens" else None,
+            academie=st.session_state.get("academie_utilisateur") or "",
+            version=_sha
         )
 
         if diagnostic_ia is not None:

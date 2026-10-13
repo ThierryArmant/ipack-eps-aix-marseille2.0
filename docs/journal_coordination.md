@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 19:55 — partie fiches — fiche groupes EPS non importés (voir git log)
+Fait : question réelle (« synchronisation BEE : élèves importés mais pas les groupes EPS ») : la réponse partait sur l'export Cyclades. Nouvelle fiche `data/ipack/situations_2026_10_13/groupes_eps_non_importes.txt` (priorité 300, modes examens et ipack) : groupes créés dans iPackEPS, placement des élèves, import Pronote/École-Directe. Registre des natures à 448 (retouche du compte dans `tests/test_source_scope.py`). 253 tests passent.
+Attendu de l'autre partie : rien. Remarque : la question a été posée dans l'onglet Examens alors qu'elle relève d'iPackEPS ; la fiche couvre les deux modes.
+
 ### 2026-10-13 19:50 — partie fiches — vérification en ligne du dictionnaire (95ebd5f, aucun commit de code)
 Constaté : 5 questions en langage familier (élève absent sans mot, cadenas et erreur de note, binôme en arrêt, bassin fermé pour la classe, entorse en bac pro avec deux notes) : 5 correctes, 1 appel chacune, 3 300 à 5 300 jetons d'entrée. Avant le dictionnaire, 4 de ces 5 formulations ne trouvaient pas leur fiche. La feuille Google enregistre bien académie, version, appels, jetons et durée.
 Attendu de l'autre partie : rien. Défaut d'étiquette connu : règles nationales (autorisation du recteur, Absent = zéro) affichées « Document académique — Aix-Marseille ».

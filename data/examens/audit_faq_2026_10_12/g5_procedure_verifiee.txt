@@ -9,6 +9,7 @@ Un élève placé dans le mauvais lot se déplace dans Santorin, sans toucher au
 Aucun texte national ni consigne académique ne traite ce point : c'est le fonctionnement de Santorin.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : tutoriel vidéo du Pôle examens d'Aix-Marseille « Déplacer un candidat d'un lot à un autre » ; formation saisie des notes EPS 2025, académie de Versailles.
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://www.youtube.com/watch?v=WKbg51eUQVs

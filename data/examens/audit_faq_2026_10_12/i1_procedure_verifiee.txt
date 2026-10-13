@@ -3,5 +3,6 @@
 Le chef d'établissement, ou un référent qu'il désigne, après l'association de tous les candidats aux protocoles et les convocations Imag'in. Distribution automatique (un lot par protocole) de préférence. La date de fin de correction n'est pas obligatoire. Vérifier le rôle et le guide avant toute distribution ; ne pas supprimer un lot contenant des notes.
 
 Portée : DIEC + logiciel.
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-11 ; Support visio Cyclades/Santorin, académie de Besançon, 15/01/2025.
 Fiche de contrôle : data/examens/complement_cyclades_protocoles_cas_enseignant.txt.

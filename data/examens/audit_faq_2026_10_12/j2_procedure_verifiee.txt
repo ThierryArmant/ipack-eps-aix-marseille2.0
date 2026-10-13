@@ -3,5 +3,6 @@
 L’enseignant ne peut pas déverrouiller son lot : il le demande au chef d’établissement. Le chef d’établissement déverrouille depuis son portail Santorin établissement > Correction > Liste des lots > cadenas (guide cité). Puis l’enseignant corrige la note, enregistre, vérifie toutes les données, puis reverrouille le lot. Ne pas laisser le lot ouvert après correction et ne pas échanger les identifiants du chef.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (Verrouiller / déverrouiller) ; DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice).
 Fiche de contrôle : data/examens/complement_saisie_bloquee_diagnostic.txt.

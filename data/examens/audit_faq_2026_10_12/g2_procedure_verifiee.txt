@@ -4,5 +4,6 @@ Menu EPS > Associer les élèves à un protocole : choisir le protocole dans la 
 Vérifier d'abord le compte rendu de l'import du fichier d'association : l'association manuelle sert ensuite pour les élèves restés sans protocole. À Aix, ce fichier vient d'iPackEPS (circuit académique décrit par le guide du Pôle examens) ; aucun texte national n'impose cet import.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2 ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027.
 Fiche de contrôle : data/ipack/complement_cyclades_cas_pratiques.txt.

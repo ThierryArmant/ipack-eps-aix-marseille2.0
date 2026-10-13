@@ -3,6 +3,7 @@
 Associez d’abord tous les candidats aux protocoles avant la distribution. Un candidat sans protocole ne peut pas entrer dans son lot, mais il ne faut pas présenter le blocage de toute la distribution comme une règle universelle. Le support DIEC Aix-Marseille décrit le traitement des candidats non affectés par association puis distribution manuelle ; le mémento de Lyon décrit un blocage plus large. Vérifiez donc le guide et la version applicables à votre académie, puis traitez le candidat restant : 1) dans Cyclades, l'associer à son protocole ([EPS] > [Associer les élèves à un protocole]) ; 2) dans Santorin, portail établissement, rafraîchir avec « rejouer l'import » si le candidat n'apparaît pas ; 3) le placer dans un lot par la distribution manuelle. « Rejouer l'import » est un bouton de Santorin, pas de Cyclades.
 
 Portée : Divergence Lyon / DIEC.
+Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 8-12 ; Académie de Lyon, articles 1971 et 1972 (mis à jour le 8 octobre 2026) et mémento session 2027 (article 1971).
 Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt.
 https://github.com/Pole-Examens/tutoriels-examens

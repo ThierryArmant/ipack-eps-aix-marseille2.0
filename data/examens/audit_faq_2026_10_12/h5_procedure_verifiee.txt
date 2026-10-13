@@ -4,6 +4,7 @@ Vérifiez d’abord l’examen : le portail Imag’in comporte une ligne de miss
 L'enseignant ne crée pas de mission lui-même : les missions et convocations relèvent de la DIEC et du chef d'établissement. Si une des deux lignes de mission manque, il s'adresse à son chef d'établissement.
 
 Portée : DIEC Aix-Marseille.
+Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapo 14.
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://ipackeps.ac-creteil.fr/

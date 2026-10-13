@@ -9,5 +9,6 @@ Au bac professionnel et au CAP, les cases de notes restent grisées tant que les
 C'est le fonctionnement du logiciel ; le texte national ne traite pas de ce bouton. Au bac GT, il n'y a pas de « Choisir AFLP » : voir la saisie des AFL.
 
 Portée : Logiciel (Santorin).
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024), diapos 18-19 ; tutoriel saisie CCF 2025, académie de Dijon.
 Fiche de contrôle : data/examens/complement_saisie_bloquee_diagnostic.txt.

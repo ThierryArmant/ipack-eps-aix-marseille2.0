@@ -7,5 +7,6 @@ Dans Cyclades, le champ « groupe élève » d'un protocole n'est plus modifiabl
 Rien dans le texte national ne traite ce point : c'est une question de fonctionnement du logiciel, avec une consigne académique pour les protocoles déjà validés.
 
 Portée : Logiciel + académique (Aix-Marseille pour les protocoles validés).
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : FAQ Cyclades, académie de Grenoble, octobre 2024 ; précision du formateur iPackEPS de l'académie, 11 octobre 2026.
 Fiche de contrôle : data/examens/complement_cyclades_protocoles_cas_enseignant.txt.

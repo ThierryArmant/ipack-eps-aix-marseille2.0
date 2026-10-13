@@ -1,10 +1,10 @@
 ### FAQ EPS — Affectations : élève arrivé avec deux CCF déjà passés (bac GT)
 [PORTEE: gt]
 Récupérez auprès de l’ancien lycée le détail des deux CCF et les notes acquises. Associez le candidat dans Cyclades à un protocole compatible, ou créez un protocole adapté si son parcours le nécessite, puis organisez son placement dans un lot Santorin. Au bac GT, l’ensemble comporte trois activités de trois champs distincts : deux épreuves déjà acquises ne conduisent pas à ajouter deux nouvelles APSA. Examiner l’activité restante et les éventuels aménagements avec l’équipe, la direction et l’inspection si besoin. Ne pas faire repasser les CCF déjà acquis par principe.
-Au bac GT, le CCF s'évalue avec les attendus de fin de lycée (AFL) ; les AFLP relèvent du bac professionnel et du CAP.
+Au bac GT, le CCF s'évalue avec les attendus de fin de lycée (AFL ; note de service du 20 février 2026, MENE2531948N) ; les AFLP relèvent du bac professionnel et du CAP.
 Ici deux CCF sont déjà acquis : il reste en principe une seule épreuve à organiser. Le cas d'un élève qui n'aurait qu'une épreuve acquise est différent.
 
 Portée : Pratique académique (Versailles, Créteil).
+Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Formation saisie des notes EPS 2025, académie de Versailles ; tutoriel Créteil art. 87.
 Fiche de contrôle : data/ipack/complement_cyclades_cas_pratiques.txt.
-https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

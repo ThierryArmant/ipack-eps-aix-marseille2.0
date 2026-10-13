@@ -4,6 +4,6 @@ Au bac GT, commencez par saisir l’AFL1 : sans cette note, la saisie des AFL2 e
 Cet ordre de saisie est une contrainte du logiciel Santorin, pas une règle de la note de service nationale. La note d’AFL1 n’est qu’une partie de la note de l’APSA : la saisir ne remplace pas les AFL2 et AFL3. Ne pas proposer « Dispensé » pour débloquer la saisie s’il n’y a pas d’inaptitude.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Guide des examens EPS, académie de Normandie (version 2025 ; page session 2027 publiée le 6 mai 2026) (FAQ) ; tutoriel saisie CCF 2025, Dijon.
 Fiche de contrôle : data/examens/complement_saisie_santorin_cas_pratiques.txt.
-https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

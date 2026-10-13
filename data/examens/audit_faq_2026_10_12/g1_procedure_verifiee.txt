@@ -6,5 +6,6 @@ Ce message vient de Cyclades, à l'import du fichier d'association des candidats
 Le passage par iPackEPS est le circuit d’Aix-Marseille décrit par le guide du Pôle examens, pas une obligation du texte national ; le texte national ne traite pas de ce message.
 
 Portée : Logiciel + académique.
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 ; FAQ iPackEPS/Cyclades/Santorin, académie de Strasbourg, 29/03/2024 (contre-exemple).
 Fiche de contrôle : data/ipack/complement_cyclades_cas_pratiques.txt.

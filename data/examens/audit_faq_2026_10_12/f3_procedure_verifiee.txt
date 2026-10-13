@@ -3,6 +3,7 @@
 Certaines dates sont interdites dans Cyclades : week-ends, jours fériés, dates des épreuves ponctuelles. Choisir une autre date de CCF ou de rattrapage.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : FAQ Cyclades, académie de Grenoble, octobre 2024 (paramétrage des dates interdites).
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://ipackeps.ac-creteil.fr/

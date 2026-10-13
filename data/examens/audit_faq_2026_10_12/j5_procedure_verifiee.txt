@@ -3,6 +3,7 @@
 Au 12 octobre 2026, les documents de la base ne confirment pas de date limite EPS de saisie/verrouillage à Aix-Marseille pour 2027 : le BA spécial 566 annonce la circulaire EPS à venir. Consultez sa publication et le calendrier DIEC de la session 2027. Ne pas reprendre une date de 2026, une date d’inscription ni celle d’une autre académie, notamment Lyon. Le calendrier local détermine l’échéance.
 
 Portée : Académique Aix-Marseille.
+Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.
 Sources datées : BA spécial 566 du 9 octobre 2026 (inscriptions voie pro, session 2027) (annonce de la circulaire EPS).
 Fiche de contrôle : data/commun/audit60/aix_inscriptions_2027_voie_pro.txt.
 https://bulacad.ac-aix-marseille.fr/uploads/BA/BA566S/BASPE_566.pdf

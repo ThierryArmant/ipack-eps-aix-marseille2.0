@@ -2,7 +2,8 @@
 [PORTEE: gt,pro,cap]
 Le chef d'établissement donne l'accès à quelqu'un d'autre : ajouter un collègue comme deuxième correcteur sur le lot (Distribution > Lots > Voir le détail > Correcteurs > Ajouter), réaffecter le lot ou le protocole, ou se convoquer lui-même. La personne doit être convoquée dans Imag'in (mission « Notation EPS CCF », PDF de la convocation généré). Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
 
-Portée : Logiciel (national) + DIEC.
+Portée : Logiciel (documentation nationale du logiciel) + DIEC.
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 4 à 7 et 24-25 ; Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission ».
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://ipackeps.ac-creteil.fr/

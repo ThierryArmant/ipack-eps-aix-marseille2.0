@@ -7,5 +7,6 @@ C'est normal de n'avoir aucun élève dans iPackEPS : la base élèves de ces é
 - Ne pas demander d'import Pronote ou STS-web pour faire apparaître les élèves.
 
 Portée : Académique (Aix-Marseille, guide du Pôle examens) + logiciel.
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026 (encadré « hors SIECLE ») ; mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF ».
 Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt.

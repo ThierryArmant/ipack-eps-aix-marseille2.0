@@ -3,5 +3,6 @@
 Précisez le diplôme et le symptôme exact : cases grisées, AFL2/AFL3 refusés, cadenas ou message d’erreur. Les solutions diffèrent. Au bac pro/CAP, des cases grisées peuvent nécessiter « Choisir AFLP ». Au bac GT, saisir d’abord AFL1 puis AFL2/AFL3 et renseigner la répartition choisie ; ne pas utiliser la procédure AFLP. Un lot verrouillé demande un déverrouillage par le chef d’établissement selon le guide applicable. Sans symptôme, ne pas conclure à une cause unique.
 
 Portée : Logiciel.
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 » (réunion inter-réseaux, février 2024 ; aussi publié sur le site EPS de Nice), diapos 18-19 ; Guide des examens EPS, académie de Normandie (version 2025 ; page session 2027 publiée le 6 mai 2026) (FAQ Santorin).
 Fiche de contrôle : data/examens/complement_saisie_bloquee_diagnostic.txt.

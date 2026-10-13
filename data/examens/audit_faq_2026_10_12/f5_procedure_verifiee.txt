@@ -3,6 +3,7 @@
 Non. Seuls les protocoles valides (coche verte dans la colonne « Validité ») sont transférés par l'inspection vers Cyclades. Vérifier ensuite dans Cyclades qu'ils ont le statut validé ; sinon écrire à examenseps@ac-aix-marseille.fr.
 
 Portée : Académique Aix-Marseille.
+Nature de la source : consigne ou guide académique (DIEC, bulletin académique, Pôle examens) ; ce n'est pas un texte du Bulletin officiel national. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Guide « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin », Pôle examens EPS Aix-Marseille, v1.1 du 18/01/2026, étape 3.
 Fiche de contrôle : data/examens/circuit_aix_ipack_cyclades_santorin.txt.
 https://github.com/Pole-Examens/tutoriels-examens

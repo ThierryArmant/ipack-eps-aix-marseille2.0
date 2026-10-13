@@ -3,6 +3,7 @@
 Oui, des guides académiques décrivent la délégation à un professeur d’EPS ayant la qualité « REFERENT » : Imag’in établissement > Convocation par mission > mission de notation EPS > modifier la convocation > ajouter la qualité REFERENT > Convoquer. Il accède ensuite à la distribution depuis son portail des missions. Cette procédure est documentée notamment à Dijon et Strasbourg ; son application à Aix-Marseille doit être confirmée par la DIEC pour le rôle et la version concernés. Ne pas la présenter comme une publication de la DIEC d’Aix.
 
 Portée : Logiciel (procédure décrite hors Aix).
+Nature de la source : fonctionnement du logiciel et guide ou consigne académique (DIEC, Pôle examens, tutoriel) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Tutoriel saisie des notes CCF EPS 2025, académie de Dijon ; circulaire CCF 2026, Strasbourg.
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://ipackeps.ac-creteil.fr/

@@ -2,7 +2,8 @@
 [PORTEE: gt,pro,cap]
 L'établissement ne peut supprimer que les convocations qu'il a créées (statut « Convoquée par centre »). Celles du service des examens se traitent avec la DIEC. La suppression est aussi bloquée si des frais sont en cours ou si la personne a déjà un lot de correction Santorin : réaffecter le lot d'abord.
 
-Portée : Logiciel (national).
+Portée : Logiciel (documentation nationale du logiciel).
+Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
 Sources datées : Guide utilisateur établissement Imag'in (national), octobre 2024 ; aide en ligne Imag'in « Convocation par mission ».
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://ipackeps.ac-creteil.fr/

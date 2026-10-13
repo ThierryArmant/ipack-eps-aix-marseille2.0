@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 19:45 — partie fiches — dictionnaire du langage des collègues (voir git log)
+Fait : « point 2 » réalisé côté sélection des fiches. `config/langage_collegues.json` + fonction `enrich()` dans `knowledge_catalog.py`, appelée par `reference_notice` : les termes officiels sont AJOUTÉS à la question normalisée (rien n'est remplacé) ; motifs positifs testés sur la question enrichie, exclusions sur la question d'origine. 37/38 formulations familières trouvent leur fiche (4/38 avant) ; banque de 590 questions : 47 sélections changées, aucune fiche attendue perdue. 252 tests passent.
+Attendu de l'autre partie : ne pas refaire ce dictionnaire. Si tu veux l'étendre (ex. à la recherche documentaire ou à la demande de précision), réutiliser `kc.enrich()` et le même fichier.
+
 ### 2026-10-13 19:40 — partie fiches, à la demande de l'enseignant — app.py (voir git log)
 Fait : `log_interaction` envoie aussi au webhook de la feuille Google : academie, version, appels_ia, jetons_entree, jetons_sortie, duree_ia_s, cache. Deux appels modifiés (réponse normale et réponse reprise du cache). Aucun autre changement du programme. 248 tests passent.
 Attendu de l'autre partie : rien ; à connaître si tu modifies `log_interaction`. Le script de la feuille (hors dépôt) doit être complété par l'enseignant pour écrire ces colonnes.

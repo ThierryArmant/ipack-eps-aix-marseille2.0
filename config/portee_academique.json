@@ -313,17 +313,6 @@
     }
    ]
   },
-  "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### FAQ EPS — Protocoles adaptés : écart texte / Cyclades",
-     "lignes": [
-      "Aucune consigne académique d’Aix propre à ce cas n’a été trouvée."
-     ]
-    }
-   ]
-  },
   "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -497,17 +486,6 @@
      "section": "### Aix : ajout de protocole standard après validation",
      "lignes": [
       "À Aix-Marseille, pour cet ajout de protocole standard après validation, créez le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenez l’inspection pédagogique au préalable : elle assure le transfert vers Cyclades selon le circuit académique. Ne modifiez pas librement un protocole standard déjà validé dans Cyclades et ne demandez pas une invalidation générale des protocoles pour réaliser cet ajout. Cela n’établit pas une interdiction nationale de toute invalidation : Strasbourg et Créteil décrivent un circuit d’invalidation puis revalidation, à ne pas transposer à Aix. Distinguez aussi le protocole adapté, qui peut être créé directement dans Cyclades en cours d’année selon le guide. Pour la session concernée, suivre les instructions de l’inspection et du service des examens ; un simple clic d’ajout ne remplace pas le transfert autorisé."
-     ]
-    }
-   ]
-  },
-  "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### Élève parti de l'établissement en cours d'année mais toujours inscrit à l'examen",
-     "lignes": [
-      "Aucune consigne écrite d'Aix-Marseille sur ce cas n'a été trouvée : la règle « convoquer, puis noter absent » est celle décrite par l'académie de Versailles (2025). Faire confirmer par le service des examens de l'académie."
      ]
     }
    ]

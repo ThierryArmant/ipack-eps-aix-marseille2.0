@@ -48,6 +48,14 @@ class SituationsTests(unittest.TestCase):
         texte = Path('data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt').read_text(encoding='utf-8')
         self.assertIn('[Associer les élèves à un protocole]', texte)
 
+    def test_bac_gt_arret_avec_deux_notes(self):
+        gt = 'Bac GT CCF : inaptitude, adaptation puis calcul conditionnel'
+        self.assertIn(gt, titres("Son arrêt couvre la date du dernier CCF ; il a ses deux autres notes.", GT))
+        self.assertNotIn(gt, titres("Le collègue est en arrêt maladie, qui saisit les deux notes manquantes ?", GT))
+        # La saisie DI+DI+14 garde sa fiche (d3), non évincée par la fiche générale.
+        q = "Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?"
+        self.assertIn('FAQ EPS — Inaptitude / DI+DI+Note', titres(q, GT))
+
 
 if __name__ == '__main__':
     unittest.main()

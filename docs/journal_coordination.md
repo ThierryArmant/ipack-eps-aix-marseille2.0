@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 19:50 — partie fiches — vérification en ligne du dictionnaire (95ebd5f, aucun commit de code)
+Constaté : 5 questions en langage familier (élève absent sans mot, cadenas et erreur de note, binôme en arrêt, bassin fermé pour la classe, entorse en bac pro avec deux notes) : 5 correctes, 1 appel chacune, 3 300 à 5 300 jetons d'entrée. Avant le dictionnaire, 4 de ces 5 formulations ne trouvaient pas leur fiche. La feuille Google enregistre bien académie, version, appels, jetons et durée.
+Attendu de l'autre partie : rien. Défaut d'étiquette connu : règles nationales (autorisation du recteur, Absent = zéro) affichées « Document académique — Aix-Marseille ».
+
 ### 2026-10-13 19:45 — partie fiches — dictionnaire du langage des collègues (voir git log)
 Fait : « point 2 » réalisé côté sélection des fiches. `config/langage_collegues.json` + fonction `enrich()` dans `knowledge_catalog.py`, appelée par `reference_notice` : les termes officiels sont AJOUTÉS à la question normalisée (rien n'est remplacé) ; motifs positifs testés sur la question enrichie, exclusions sur la question d'origine. 37/38 formulations familières trouvent leur fiche (4/38 avant) ; banque de 590 questions : 47 sélections changées, aucune fiche attendue perdue. 252 tests passent.
 Attendu de l'autre partie : ne pas refaire ce dictionnaire. Si tu veux l'étendre (ex. à la recherche documentaire ou à la demande de précision), réutiliser `kc.enrich()` et le même fichier.

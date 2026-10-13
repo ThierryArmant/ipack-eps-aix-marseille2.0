@@ -1,0 +1,9 @@
+### Élève blessé en cours d'année : le protocole adapté se crée directement dans Cyclades
+[PORTEE: gt,pro,cap]
+Sigles : CAHPN = commission académique d'harmonisation et de proposition de notes.
+Après le transfert des protocoles vers Cyclades, un protocole adapté créé dans iPackEPS n'est pas transféré : pour un élève blessé en cours d'année (par exemple en mars), le protocole de type « adapté » se crée directement dans Cyclades.
+- Un protocole de type adapté peut être créé à tout moment de l'année, par le chef d'établissement ou un enseignant, sans repasser par la commission (contrairement à un protocole standard). Avant la date butoir fixée par la CAHPN, il peut aussi être créé dans iPackEPS.
+- Les adaptations sont définies à partir des indications du médecin et portées à la connaissance de la commission académique.
+- Associer ensuite l'élève à ce protocole dans Cyclades ([EPS] > [Associer les élèves à un protocole]) : un élève n'est associé qu'à un seul protocole.
+Nature de la source : texte national pour l'adaptation ; fonctionnement du logiciel pour la création du protocole.
+Sources : guide national des inaptes partiels temporaires ; FAQ Cyclades (cas pratiques) ; note de service du 20 février 2026, MENE2531948N.

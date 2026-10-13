@@ -1799,6 +1799,16 @@
    "portee_texte": "cap",
    "titre": "CAP : absence sans justification à une ou à toutes les situations de CCF"
   },
+  "data/examens/situations_2026_10_13/coevaluation_une_seule_saisie.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Co-évaluation : une seule saisie, le deuxième correcteur n'est qu'un accès au lot"
+  },
   "data/examens/situations_2026_10_13/epreuve_collective_notation_individuelle.txt": {
    "nature": [
     "texte_national"
@@ -1824,6 +1834,69 @@
    ],
    "portee_texte": null,
    "titre": "Établissement hors SIECLE (CFA, GRETA, MFR, AEFE) : associer les candidats dans Cyclades"
+  },
+  "data/examens/situations_2026_10_13/option_eps_ponctuel_scolarise.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Option EPS : pas d'épreuve ponctuelle pour un élève scolarisé"
+  },
+  "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Élève blessé en cours d'année : protocole adapté créé dans Cyclades"
+  },
+  "data/examens/situations_2026_10_13/saisie_par_afl_pas_note_finale.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Santorin : saisie des points par AFL, pas de la note finale"
+  },
+  "data/examens/situations_2026_10_13/santorin_corriger_une_note.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Santorin : corriger une note saisie, sans « Réinitialiser »"
+  },
+  "data/examens/situations_2026_10_13/santorin_saisie_disparue.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Santorin : notes disparues, saisie non enregistrée"
+  },
+  "data/examens/situations_2026_10_13/section_sportive_pas_de_20.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Section sportive scolaire : pas de 20/20 à ce titre"
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
    "nature": [

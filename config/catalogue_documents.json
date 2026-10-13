@@ -2699,7 +2699,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
+      "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel",
+      "^(?=.*(?:candidat (?:individuel|libre)|ponctuel))(?=.*(?:absent|pas presente|ne s.est pas presente|absence|malade))"
     ],
     "exclusif_motifs": [
       "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
@@ -2708,7 +2709,8 @@
       "option|eppcs"
     ],
     "date_verification": "2026-10-11",
-    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "priorite": 300
   },
   "data/commun/audit60/gt_inaptitude_demarche.txt": {
     "title": "Bac GT CCF : inaptitude, adaptation puis calcul conditionnel",
@@ -3006,7 +3008,10 @@
       "(?=.*cyclades)(?=.*inapt)(?=.*\\bapte\\b)"
     ],
     "reponse_directe": "À Aix-Marseille, session 2027 du bac GT, un candidat inapte en EPS doit être inscrit « APTE » dans Cyclades : ce n'est pas une erreur du secrétariat. Ne faites pas corriger l'inscription pour ce seul motif. L'inaptitude est renseignée lors de la commission académique EPS en fin de terminale, sur justificatifs. Source : BA spécial 565, p. 13.",
-    "reponses_directes": []
+    "reponses_directes": [],
+    "exclure_motifs": [
+      "protocole adapte|bless|en mars|en cours d.annee"
+    ]
   },
   "data/textes/fiches/sorties_second_degre_guide_2025.txt": {
     "title": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025",
@@ -4020,7 +4025,10 @@
       "^(?=.*\\babsen)(?=.*(?:santorin|saisi|noter|\\bnote\\b|code|mettre|coche))(?=.*(?:eleve|candidat|apprenti|\\bil\\b|\\belle\\b))(?!.*(?:enseignant|professeur|\\bprof\\b|collegue|correcteur|evaluateur|examinateur|coordonn).{0,25}absen)(?!.*absen.{0,25}(?:enseignant|professeur|\\bprof\\b|collegue|correcteur|evaluateur))(?!.*absente? (?:de|du|des|dans) (?:la |le |mon |son |sa )?(?:santorin|cyclades|liste|lot|ipack))"
     ],
     "url": "",
-    "date_verification": "2026-10-12"
+    "date_verification": "2026-10-12",
+    "exclure_motifs": [
+      "ponctuel|candidat (?:individuel|libre)"
+    ]
   },
   "data/examens/audit_lot1_2026_10_12/coeval_pro.txt": {
     "title": "Bac professionnel : co-évaluation non imposée",
@@ -4194,7 +4202,10 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "exclure_motifs": [
+      "ponctuel|candidat (?:individuel|libre)"
+    ]
   },
   "data/examens/audit_lot3_2026_10_12/adaptation_temporaire.txt": {
     "title": "Inaptitude partielle temporaire : adaptation pour information",
@@ -4398,6 +4409,9 @@
     "title": "FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié",
     "motifs": [
       "(?=.*(?:clotur|ferm|verrouill))(?=.*lot)(?=.*(?:oubli|a la place|absent|parti|pas (?:clotur|verrouill|ferm)|n.a pas (?:clotur|verrouill|ferm)|reste ouvert|toujours ouvert|ouvert))(?!.*deverrouill)"
+    ],
+    "exclure_motifs": [
+      "reinitialis|mauvaise note|trompe|erreur de (?:note|saisie)|n.est pas verrouill"
     ]
   },
   "data/examens/audit_faq_2026_10_12/j1_procedure_verifiee.txt": {
@@ -4631,6 +4645,135 @@
     ],
     "exclure_motifs": [
       "inapt|dispens|certificat|bless"
+    ]
+  },
+  "data/examens/situations_2026_10_13/santorin_corriger_une_note.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Santorin : corriger une note saisie, sans « Réinitialiser »",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "^(?=.*(?:mauvaise note|erreur de (?:note|saisie)|trompe|corriger (?:une|la|ma) note|modifier (?:une|la|ma) note|reinitialis))(?=.*(?:santorin|fiche|lot|saisi|tape|reinitialis))(?!.*(?:cadenas|copies?))"
+    ]
+  },
+  "data/examens/situations_2026_10_13/santorin_saisie_disparue.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Santorin : notes disparues, saisie non enregistrée",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "^(?=.*(?:disparu|plus la|effac|perdu|envole|ne sont plus|n.apparaissent plus))(?=.*(?:notes?|saisie))(?=.*(?:santorin|saisi|apsa|hier|lot))"
+    ]
+  },
+  "data/examens/situations_2026_10_13/coevaluation_une_seule_saisie.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Co-évaluation : une seule saisie, le deuxième correcteur n'est qu'un accès au lot",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "^(?=.*(?:co.?evalu|deux sur le lot|deuxieme correcteur|second correcteur|tous les deux|chacun))(?=.*(?:saisi|sa note|moyenne|double correction|correction partagee|lot))"
+    ],
+    "exclure_motifs": [
+      "absent|arret|malade|seul\\b"
+    ]
+  },
+  "data/examens/situations_2026_10_13/saisie_par_afl_pas_note_finale.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Santorin : saisie des points par AFL, pas de la note finale",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "^(?=.*(?:note finale|moyenne finale|13,\\d|\\d+[,.]\\d+ comme note|la moyenne))(?=.*(?:saisi|santorin|rentre|tape))(?!.*(?:inapt|dispens|absent|deux notes|une seule note|shn|haut niveau))"
+    ],
+    "exclure_motifs": [
+      "co.?evalu|deux sur le lot|deuxieme correcteur|chacun"
+    ]
+  },
+  "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Élève blessé en cours d'année : protocole adapté créé dans Cyclades",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "motifs": [
+      "^(?=.*protocole adapte)(?=.*(?:ipack|cyclades|cree|creer|partira|transf))(?=.*(?:bless|en cours d.annee|en (?:janvier|fevrier|mars|avril|mai)|inapt|apres (?:le )?transfert))"
+    ]
+  },
+  "data/examens/situations_2026_10_13/option_eps_ponctuel_scolarise.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Option EPS : pas d'épreuve ponctuelle pour un élève scolarisé",
+    "examens": [
+      "gt"
+    ],
+    "motifs": [
+      "^(?=.*option)(?=.*(?:ponctuel|candidat (?:libre|individuel)))(?=.*(?:lycee|eleve|scolaris|etablissement|n.ouvre pas|ne propose pas))(?!.*dispens)"
+    ]
+  },
+  "data/examens/situations_2026_10_13/section_sportive_pas_de_20.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Section sportive scolaire : pas de 20/20 à ce titre",
+    "examens": [
+      "gt",
+      "pro"
+    ],
+    "motifs": [
+      "^(?=.*(?:section sportive|\\bsss\\b))(?=.*(?:\\b20\\b|haut niveau|note|bac))"
     ]
   }
 }

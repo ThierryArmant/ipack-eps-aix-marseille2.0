@@ -1,0 +1,9 @@
+### Santorin : on saisit les points par AFL pour chaque épreuve, pas la note finale
+[PORTEE: gt,pro,cap]
+Sigles : AFL = attendus de fin de lycée ; AFLP = attendus de fin de lycée professionnel ; APSA = activités physiques, sportives et artistiques.
+Non : l'enseignant ne saisit pas une note finale calculée par lui (par exemple 13,17).
+- La saisie se fait élève par élève et épreuve par épreuve, en renseignant la répartition des points pour chaque AFL ou AFLP, et non une note globale.
+- Bac général et technologique : la note finale correspond à la moyenne des trois notes ; elle est arrondie au point entier le plus proche après harmonisation par la commission académique. L'arrondi n'est donc pas fait par l'enseignant au moment de la saisie.
+Nature de la source : texte national pour le calcul et l'arrondi ; fonctionnement du logiciel pour la saisie.
+Sources : note de service du 20 février 2026, MENE2531948N ; guides de saisie Santorin (support Besançon 2025, document Corse 2024-2025).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

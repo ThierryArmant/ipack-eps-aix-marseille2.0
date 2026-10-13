@@ -1,0 +1,8 @@
+### Santorin : corriger une note déjà saisie (lot non verrouillé) — ne pas utiliser « Réinitialiser »
+[PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques ; AFL = attendus de fin de lycée.
+Pour corriger une seule note, tant que le lot n'est pas verrouillé : rouvrir la fiche de l'élève ([Éditer la notation]), remplacer la valeur erronée, puis [Enregistrer].
+Ne pas cliquer sur « Réinitialiser » si plusieurs APSA sont déjà saisies : ce bouton remet à zéro toute la saisie de l'élève, et pas seulement la note fausse. « Réinitialiser » ne sert que si la fiche de l'élève est bloquée et qu'il faut repartir de zéro pour cet élève.
+Il n'est pas nécessaire de clôturer ni de faire déverrouiller un lot ouvert pour corriger une note. Si le lot est déjà verrouillé, seul le chef d'établissement peut le déverrouiller (Santorin, [Correction] > [Liste des lots], cadenas).
+Nature de la source : fonctionnement du logiciel Santorin.
+Sources : guides de saisie Santorin (support Besançon 2025, document Corse 2024-2025) ; FAQ Santorin EPS.

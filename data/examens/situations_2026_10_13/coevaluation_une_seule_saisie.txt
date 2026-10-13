@@ -1,0 +1,10 @@
+### Co-évaluation en EPS : une seule saisie par candidat ; le « deuxième correcteur » donne seulement l'accès au lot
+[PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation ; AFL = attendus de fin de lycée ; AFLP = attendus de fin de lycée professionnel.
+Non : chaque co-évaluateur ne saisit pas sa propre note pour que Santorin fasse la moyenne.
+- En EPS, le CCF n'est pas une correction de copies. La co-évaluation se fait sur le terrain, le jour de l'épreuve ; ensuite une seule saisie est faite dans Santorin, par AFL ou AFLP, pour chaque candidat.
+- Ajouter un « deuxième correcteur » sur un lot d'EPS donne simplement à un second enseignant l'accès au même lot et à la même saisie : il n'y a pas deux notations séparées à rapprocher.
+- La « correction partagée » des guides Santorin concerne les copies écrites, où chaque correcteur note sa partie : ne pas l'appliquer au CCF d'EPS.
+Manipulation, par le chef d'établissement ou le référent Santorin : [Distribution], sélectionner le lot, [Voir le détail], onglet [Correcteurs], [Ajouter], choisir le collègue, [Valider]. Le collègue doit avoir une mission d'évaluation EPS dans Imag'in.
+Nature de la source : fonctionnement du logiciel Santorin.
+Sources : guides Santorin EPS ; fiches de situation sur la co-évaluation et le deuxième correcteur.

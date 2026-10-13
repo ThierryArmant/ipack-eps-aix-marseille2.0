@@ -1,0 +1,12 @@
+### Santorin : notes saisies la veille disparues — la saisie n'a probablement pas été enregistrée
+[PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques ; AFL = attendus de fin de lycée ; AFLP = attendus de fin de lycée professionnel.
+Cause la plus probable quand des notes ont disparu : la saisie n'a pas été enregistrée, ou elle a été effacée par « Réinitialiser ».
+Gestes qui évitent de perdre sa saisie :
+- enregistrer obligatoirement, avec le bouton situé en bas à droite, après chaque APSA ;
+- appuyer sur la touche Entrée pour valider chaque note et passer à l'AFL (ou AFLP) suivant ;
+- utiliser le point « . » pour les décimales (exemple : 6.5), et non la virgule ;
+- ne pas cliquer sur « Réinitialiser » quand plusieurs APSA sont déjà saisies.
+Ressaisir les notes manquantes : aucune fonction de restauration d'une saisie non enregistrée n'est décrite dans la documentation.
+Nature de la source : fonctionnement du logiciel Santorin.
+Sources : guides de saisie Santorin (support Besançon 2025, document Corse 2024-2025).

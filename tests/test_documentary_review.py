@@ -80,6 +80,15 @@ class DocumentaryReviewTests(unittest.TestCase):
         official = mark_excerpt('=== TEXTE OFFICIEL : décret ===\n' + TEXT, title='Décret transcrit')
         self.assertIn('reglementaire', source_packets(official)[0]['niveaux_autorises'])
 
+    def test_regulatory_summary_is_distinct_from_original_and_software(self):
+        summary = mark_excerpt(TEXT + '\nSource : code de l’éducation, article D123-4.', title='Synthèse vérifiée')
+        packets = source_packets(summary)
+        self.assertIn('synthese_reglementaire', packets[0]['niveaux_autorises'])
+        self.assertNotIn('reglementaire', packets[0]['niveaux_autorises'])
+        self.assertTrue(validate_claims({'claims':[claim(level='synthese_reglementaire')]}, packets)[0])
+        software = source_packets(DOC + '\nSource : note de service MENE1234567N.')
+        self.assertNotIn('synthese_reglementaire', software[0]['niveaux_autorises'])
+
     def test_reference_anywhere_in_context_does_not_support_claim(self):
         bad = claim(text='Selon MENE1234567N, ouvrez le dossier.')
         other = mark_excerpt('NOR MENE1234567N : calendrier annuel de certification.', title='Calendrier')

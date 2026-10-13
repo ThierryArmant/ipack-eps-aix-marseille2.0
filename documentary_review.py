@@ -13,6 +13,7 @@ import unicodedata
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Points à préciser'}
 _LEVELS = {'reglementaire': 'Texte réglementaire', 'academique': 'Document académique',
+           'synthese_reglementaire': 'Synthèse d’un texte réglementaire',
            'logiciel': 'Documentation du logiciel', 'assistance': "Retour d'assistance", 'documentaire': 'Passage documentaire'}
 
 
@@ -51,7 +52,7 @@ def source_packets(context):
         nature = re.search(r'^Nature de la source\s*:\s*(.+)$', body, re.M | re.I)
         nature_text = nature.group(1) if nature else ''
         # Une mention de BO dans une fiche ne suffit jamais à en faire un BO.
-        allowed = [level for level in _LEVELS if level != 'reglementaire']
+        allowed = [level for level in _LEVELS if level not in ('reglementaire', 'synthese_reglementaire')]
         # Le niveau réglementaire nécessite une nature explicite ou un texte officiel transcrit.
         # Un lien BO, un NOR, un titre de guide ou un nom de fichier ne suffisent pas.
         explicit_regulatory = bool(nature_text and re.search(r'texte (?:national|r[eé]glementaire)|Bulletin officiel', nature_text, re.I))
@@ -59,6 +60,13 @@ def source_packets(context):
         denies_regulatory = bool(re.search(r'aucun texte.*Bulletin officiel|pas.*r[eè]gle.*note de service', nature_text, re.I))
         if (explicit_regulatory or original_regulatory) and not denies_regulatory:
             allowed.insert(0, 'reglementaire')
+        # Une référence réglementaire dans une déclaration de source permet de citer
+        # une synthèse comme synthèse, jamais comme transcription du texte original.
+        references = re.findall(r'\bSources?(?: dat[eé]es?)?\s*:\s*([^\n]+)', body, re.I)
+        norm_reference = any(re.search(r'\b[A-Z]{4}\d{7}[A-Z]\b|code de l.[eé]ducation|article\s+[DLR]\s*\d', ref, re.I)
+                             for ref in references)
+        if norm_reference and not denies_regulatory:
+            allowed.insert(0, 'synthese_reglementaire')
         document_id = f'D{len(packets)+1}'
         passages = []
         # Sélections stables : le programme copie le texte, le modèle choisit uniquement les identifiants.
@@ -210,7 +218,7 @@ def render_claims(claims, packets):
 _SCHEMA = '''{"claims":[{"section":"decision|condition|etape|limite",
 "text":"Une affirmation précise, sans HTML ni attribution bibliographique dans la prose",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"],
-"level":"reglementaire|academique|logiciel|assistance|documentaire"}]}]}'''
+"level":"reglementaire|synthese_reglementaire|academique|logiciel|assistance|documentaire"}]}]}'''
 
 _CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérifiée",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"],"level":"logiciel"}],
@@ -252,6 +260,8 @@ Ne développe un sigle que si son développement est présent dans un passage ju
 Ne recopie pas les détails secondaires des autres passages (opérations inverses, autres menus, autres cas).
 N'ajoute ni lien, ni référence bibliographique, ni titre de source dans le texte des affirmations :
 leur attribution sera affichée depuis les preuves. Si la nature n'est pas établie, niveau documentaire.
+Une fiche qui cite une norme n'est pas la transcription du texte original : utilise synthese_reglementaire
+pour ses affirmations réglementaires si ce niveau est autorisé. Ses manipulations relèvent du logiciel.
 Les niveaux interdits par niveaux_autorises sont interdits. Cite les Nature de la source en contexte,
 mais le passage sélectionné doit justifier le contenu, pas seulement citer un titre ou un lien.
 Une possibilité exclue par les faits ne devient pas une démarche à accomplir.
@@ -276,7 +286,8 @@ Corrige les erreurs de sélection signalées. Fournis les passage_ids existants 
 Vérifie aussi la complétude : restitue les branches, conditions, autorités et limites pertinentes.
 Supprime les doublons et les détails sans effet sur l'action demandée. Garde au plus 12 affirmations,
 sans répéter la décision parmi les conditions ou les limites. Le niveau documentaire est correct
-pour une synthèse citant une norme : ne la rebaptise pas texte réglementaire.
+pour une fiche sans nature établie. Une synthèse avec référence réglementaire explicite peut être citée
+avec synthese_reglementaire si ce niveau est autorisé ; ne la rebaptise pas texte réglementaire original.
 Supprime les démarches inapplicables et les développements de sigles absents des preuves.
 Tu peux ajouter une affirmation manquante si elle est justifiée par un passage cité.
 Chaque affirmation finale inclut checks : {"supported":true,"applicable":true,
@@ -299,7 +310,7 @@ ne l'invente pas. Les constats d'absence ne sont pas des démarches. Préserve t
 nécessaires à la décision. Ne modifie pas les affirmations déjà correctes sauf contradiction.
 Pour CHAQUE affirmation, vérifie et fournis le champ checks avec ses quatre booléens.
 Réponds uniquement en JSON, avec au plus 16 affirmations. Une section est decision, condition, etape ou limite ;
-un niveau est reglementaire, academique, logiciel, assistance ou documentaire.
+un niveau est reglementaire, synthese_reglementaire, academique, logiciel, assistance ou documentaire.
 ''' + _CHECKED_SCHEMA + '\nDONNEES :\n' + data + '\nLISTE A CORRIGER :\n' + json.dumps(final, ensure_ascii=False) + \
             '\nERREURS :\n' + json.dumps(rejected, ensure_ascii=False)
         final = _json_response(recorded.complete(repair).text)

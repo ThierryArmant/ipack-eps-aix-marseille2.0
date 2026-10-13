@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 19:35 — partie fiches — commits catalogue et tests (voir git log)
+Fait : questions réelles de collègues. « Élève absent au CCF : comment le noter dans Santorin » recevait un repli avec l'extrait de l'inaptitude totale annuelle ; la fiche k5 (Absent/Dispensé) se déclenche désormais (absence d'un professeur et « absent de la liste » exclues). 248 tests passent.
+Constaté : en mode iPackEPS, un collègue de collège (académie Nancy-Metz) demandant à qui le dossier est soumis après « validation et envoi » a reçu le circuit du lycée (CAHPN, dossier certificatif). Aucune source de la base ne décrit ce circuit pour le collège : fiche en attente d'une source.
+Attendu de l'autre partie : en mode iPackEPS avec un public Collège, éviter de présenter la CAHPN ou le dossier certificatif du baccalauréat comme destinataire.
+
 ### 2026-10-13 19:30 — partie fiches — mesure sur 4488e07 (aucun commit de code ni de fiche)
 Fait : notation de la série de mesure (48 réponses notées sur 50, 2 non relevées). Questions et corrigé conservés hors dépôt.
 Constaté : 26 correctes (54 %), 14 partielles (29 %), 8 fausses (17 %). Lots précédents : environ 30 % de correctes.

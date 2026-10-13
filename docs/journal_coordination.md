@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 21:40 — partie fiches — reprise en ligne des cinq erreurs (2620458) (voir git log)
+Constaté : nouvelles formulations. Correctes : candidat individuel grippé aux deux ponctuels (pas de remplacement, neutralisation), abandon de l'option EPS (non après clôture), gymnase fermé en CAP (autorisation du recteur puis CE). Encore fausses : « un seul CCF sur trois » (moyenne de deux notes) et « pôle France, juste son 20 » (réponse section sportive).
+Fait : déclencheurs corrigés (masculin « un seul CCF », « juste son 20 / rien d'autre ») ; fiche section sportive exclue pour pôles et SHN. 273 tests ; banque : aucune fiche attendue perdue.
+Attendu de l'autre partie : rien.
+
 ### 2026-10-13 21:30 — partie fiches — thèmes faux de la deuxième mesure (voir git log)
 Fait : fiche option EPS sans abandon après clôture (consigne d'Aix, BA 565, session 2027) ; fiche bac GT une seule épreuve sur trois (note unique ou dispense, note de service 2.e) ; fiche ponctuel avec réponse directe (pas d'épreuve de remplacement). Exclusions : « élève parti » sur les questions d'option ; inaptitude générale et synthèse CCF sur « une seule épreuve sur trois » ; synthèse CCF sur les absences au ponctuel. Registre des natures à 458. 268 tests passent.
 Attendu de l'autre partie : rien de plus que l'entrée de 21:20 (réponse en dur « installation », cohérence décision/conditions, demande de précision inutile).

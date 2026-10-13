@@ -1,0 +1,4785 @@
+{
+ "description": "Nature de la source de chaque fiche, déduite des lignes « Portée » et « Nature de la source », des références (BO, bulletins académiques) et de l'inventaire Aix. Le programme affiche ces étiquettes ; l'IA ne les choisit pas. « a_verifier » = portée non établie : ne pas présenter comme texte national. « autres_academies_citees » : pratiques d'autres académies citées en exemple, à ne pas généraliser.",
+ "date": "2026-10-13",
+ "valeurs": {
+  "texte_national": "Bulletin officiel, code, note de service, circulaire nationale",
+  "consigne_academique": "DIEC, bulletin académique, inspection, guide académique (Aix-Marseille sauf mention)",
+  "logiciel": "fonctionnement ou documentation de Santorin, Cyclades, Imag'in, iPackEPS",
+  "a_verifier": "portée non établie"
+ },
+ "fichiers": {
+  "data/commun/audit355/administrateur_acces.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : accès administrateur et identifiants"
+  },
+  "data/commun/audit355/aix_codes_absence_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix : codes d’absence au bac GT"
+  },
+  "data/commun/audit355/aix_marche_adaptee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix : marche adaptée"
+  },
+  "data/commun/audit355/as_remplacement_forfait.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "AS : remplacement du forfait par des heures d’enseignement"
+  },
+  "data/commun/audit355/bac_pro_formation_continue.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac pro : formation continue et dispense EPS"
+  },
+  "data/commun/audit355/bac_pro_inaptitude_une_note.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac professionnel : inaptitude et une seule évaluation"
+  },
+  "data/commun/audit355/bac_pro_unite_facultative_sport.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027",
+    "2028"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac pro : UF2S et UF3S, transition 2027-2028"
+  },
+  "data/commun/audit355/co_securite_sortie.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Course d’orientation : sécurité et préparation de sortie"
+  },
+  "data/commun/audit60/aix_amenagements_2027.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : aménagements d’examen 2027"
+  },
+  "data/commun/audit60/aix_certificats_2026.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": "modèle et circuit 2026 relus, pas garantie que ces formulaires soient inchangés pour 2027. Pour une demande actuelle, vérifier le formulaire de la session concernée et les consignes de l'établissement",
+   "titre": "Aix-Marseille : certificats EPS — 2026"
+  },
+  "data/commun/audit60/aix_inscriptions_2027_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : inscriptions terminale GT, session 2027 (EPS)"
+  },
+  "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2025",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : inscriptions voie professionnelle, session 2027 (EPS)"
+  },
+  "data/commun/audit60/aix_protocoles_2026.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : protocoles et circuit EPS — 2026"
+  },
+  "data/commun/audit60/certificat_medical.txt": {
+   "nature": [
+    "a_verifier"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Certificat d’inaptitude : rôle médical et rôle pédagogique"
+  },
+  "data/commun/audit60/contestation_note.txt": {
+   "nature": [
+    "a_verifier"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Contestation de note : explication, erreur matérielle et décision du jury"
+  },
+  "data/commun/audit60/gt_inaptitude_demarche.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT CCF : inaptitude, adaptation puis calcul conditionnel"
+  },
+  "data/commun/audit60/gt_ponctuel_absence.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT ponctuel : publics et conditions de neutralisation"
+  },
+  "data/commun/audit60/gt_regles_decisives.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT : CCF, activité établissement et harmonisation"
+  },
+  "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT : inaptitude totale annuelle sans évaluation"
+  },
+  "data/commun/audit60/ipack_absences.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Appel et absences de cours : logiciel de vie scolaire"
+  },
+  "data/commun/audit60/ipack_archivage_prudence.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Passage d’année : conservation des données à vérifier"
+  },
+  "data/commun/audit60/ipack_bareme_college.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Barème et conversion des compétences : notes de classe et bon outil"
+  },
+  "data/commun/audit60/ipack_groupes_apsa.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : groupe AS et création d’APSA"
+  },
+  "data/commun/audit60/ipack_hors_ligne.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Tablette hors connexion : distinguer les applications"
+  },
+  "data/commun/audit60/ipack_inaptitude.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : déclaration d’inaptitude, sans calcul de moyenne"
+  },
+  "data/commun/audit60/ipack_perimetre.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "logiciel iPackEPS, à distinguer des logiciels de vie scolaire et de Santorin.",
+   "titre": "iPackEPS : notes, moyennes, résultats et sens des transferts"
+  },
+  "data/commun/audit60/ipack_programmation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : programmation annuelle"
+  },
+  "data/commun/audit60/ipack_pronote_erreurs.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Pronote et iPackEPS : erreur d’échange, sens et import conditionnel"
+  },
+  "data/commun/audit60/ipack_rentree.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "configuration technique iPackEPS ; procédures reprises du corpus des articles 14 et 13, sans création de boutons supplémentaires.",
+   "titre": "iPackEPS : rentrée, classes, élèves et collègue"
+  },
+  "data/commun/audit60/ipack_suppression_prudence.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Suppression : ne pas conclure à une restauration impossible"
+  },
+  "data/commun/audit60/pro_cap_absences.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac professionnel et CAP : ensemble certificatif et absences"
+  },
+  "data/commun/audit60/pv_ccf_prudence.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "PV de CCF EPS : modèle local à vérifier"
+  },
+  "data/commun/audit60/saisie_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil",
+    "Normandie"
+   ],
+   "portee_texte": null,
+   "titre": "CCF EPS : saisie des notes et distinction Cyclades / Santorin"
+  },
+  "data/commun/audit60/video_perimetre.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Vidéo EPS : démarche institutionnelle et périmètre iPackEPS"
+  },
+  "data/commun/bac_pro_circulaire_2025_detail.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac professionnel : circulaire EPS du 2 avril 2025 en détail"
+  },
+  "data/commun/bac_pro_session_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "bac pro session 2026"
+  },
+  "data/commun/blocages_lycees_ccf_gt.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Blocages des lycées : CCF EPS — bac GT"
+  },
+  "data/commun/blocages_lycees_ccf_pro.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Blocages des lycées : CCF EPS — bac PRO"
+  },
+  "data/commun/cap_circulaire_2025_detail.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "CAP : circulaire EPS du 27 août 2025 en détail"
+  },
+  "data/commun/cap_inaptitude_temporaire.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "candidat scolaire en CCF, session 2026 et suivantes sous réserve d'évolution des textes. Vérifié le 10 octobre 2026.",
+   "titre": "CAP : inaptitude temporaire et note acquise"
+  },
+  "data/commun/cap_session_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "cap session 2026"
+  },
+  "data/commun/cap_shn_ccf.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2025",
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "CAP : SHN, une activité évaluée et spécialité à 20"
+  },
+  "data/commun/dnb/01_controle_continu_calcul.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "DNB : calcul, poids de l'EPS et mentions"
+  },
+  "data/commun/dnb/02_lsu_cyclades_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Besançon"
+   ],
+   "portee_texte": null,
+   "titre": "DNB : LSU, Cyclades, Santorin et harmonisation"
+  },
+  "data/commun/dnb/03_absences_representativite.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Besançon"
+   ],
+   "portee_texte": null,
+   "titre": "DNB : absence, moyenne représentative, En attente, rattrapage et remplacement"
+  },
+  "data/commun/dnb/04_inaptitudes_dispenses.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": null,
+   "titre": "DNB EPS : inaptitude, dispense, PAP, PAI et PPS"
+  },
+  "data/commun/dnb/05_competences_apsa_shn.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Bordeaux",
+    "Lyon"
+   ],
+   "portee_texte": null,
+   "titre": "DNB EPS : compétences, note sur 20, trois APSA et sportifs de haut niveau"
+  },
+  "data/commun/dnb/06_oral_parcours_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "DNB : oral, projet EPS et parcours éducatifs"
+  },
+  "data/commun/dnb/07_incluscol_amenagements.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "DNB : Incluscol et demandes d'aménagements d'examen"
+  },
+  "data/commun/dnb/08_sessions_sources_dates.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "DNB : session 2026 ou 2027, textes et dates"
+  },
+  "data/commun/gt_option_eps_lsl.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "candidats scolarisés en établissement public ou privé sous contrat, cycle terminal ; règles vérifiées le 10 octobre 2026. Ne pas transposer aux candidats individuels.",
+   "titre": "Bac GT : option EPS et LSL"
+  },
+  "data/commun/gt_shn_eligibilite.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT : SHN et sportifs non listés en PPF"
+  },
+  "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "### [SITUATION: SECTION SPORTIVE SCOLAIRE : PRATIQUE SUPPLEMENTAIRE ET EPS OBLIGATOIRE]"
+  },
+  "data/commun/parcours_sportifs/02_sport_etudes_organisations.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "### [SITUATION: SPORT-ETUDES : CLASSE COLLECTIVE OU AMENAGEMENT INDIVIDUEL]"
+  },
+  "data/commun/pro_shn_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Strasbourg"
+   ],
+   "portee_texte": "baccalauréat professionnel en CCF, à compter de la session 2026 ; statut et aménagements validés par les autorités compétentes. Cette fiche ne définit pas les procédures locales de saisie.",
+   "titre": "Bac professionnel : SHN et CCF"
+  },
+  "data/commun/referentiel_champs_activites_afl.txt": {
+   "nature": [
+    "a_verifier"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "referentiel champs activites afl"
+  },
+  "data/commun/sorties_premier_degre.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "école élémentaire, sorties sans nuitée. Vérifié le 10 octobre 2026. Ne pas importer la règle du second degré.",
+   "titre": "Premier degré : taux de sortie et règles de l’activité physique"
+  },
+  "data/commun/texte_officiel_bac_gt_note_de_service_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "texte officiel bac gt note de service 2026"
+  },
+  "data/examens/MAJ_DEC.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "MAJ DEC"
+  },
+  "data/examens/activite_etablissement_delai_aix.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix : demande d’activité établissement"
+  },
+  "data/examens/audit_faq_2026_10_12/a1_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Absence d'enseignant : co-évaluateur absent le jour du CCF (bac GT)"
+  },
+  "data/examens/audit_faq_2026_10_12/a4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (documentation nationale du logiciel) + DIEC.",
+   "titre": "FAQ EPS — Absence d'enseignant : donner l'accès à la saisie d'un lot"
+  },
+  "data/examens/audit_faq_2026_10_12/a5_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "DIEC Aix-Marseille.",
+   "titre": "FAQ EPS — Absence d'enseignant / Imag'in"
+  },
+  "data/examens/audit_faq_2026_10_12/b1_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (documentation nationale du logiciel).",
+   "titre": "FAQ EPS — Blocage / distribution"
+  },
+  "data/examens/audit_faq_2026_10_12/b4_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Normandie"
+   ],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Blocage / saisie"
+  },
+  "data/examens/audit_faq_2026_10_12/b5_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Besançon",
+    "Lyon"
+   ],
+   "portee_texte": "Logiciel (documentation nationale du logiciel).",
+   "titre": "FAQ EPS — Blocage / affectations"
+  },
+  "data/examens/audit_faq_2026_10_12/c1_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Évaluation différée : certificat couvrant le jour du CCF"
+  },
+  "data/examens/audit_faq_2026_10_12/c3_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National + logiciel.",
+   "titre": "FAQ EPS — Évaluation différée : grève des transports, force majeure"
+  },
+  "data/examens/audit_faq_2026_10_12/d1_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National + logiciel.",
+   "titre": "FAQ EPS — Inaptitude totale"
+  },
+  "data/examens/audit_faq_2026_10_12/d3_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Inaptitude / DI+DI+Note"
+  },
+  "data/examens/audit_faq_2026_10_12/d5_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Inaptitude : possibilités avant la dispense"
+  },
+  "data/examens/audit_faq_2026_10_12/d6_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Inaptitude : noter seulement l'AFL2 et l'AFL3 (bac GT)"
+  },
+  "data/examens/audit_faq_2026_10_12/d8_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": "Académique Aix-Marseille (2026) + variantes.",
+   "titre": "FAQ EPS — Inaptitude / certificat"
+  },
+  "data/examens/audit_faq_2026_10_12/e3_procedure_verifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National.",
+   "titre": "FAQ EPS — Certification réduite : une seule activité réalisable (bac GT)"
+  },
+  "data/examens/audit_faq_2026_10_12/e4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": "Tutoriel Créteil — à confirmer pour Aix.",
+   "titre": "FAQ EPS — Certification réduite : un seul élève non évalué, pas de CE sur le lot"
+  },
+  "data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Grenoble"
+   ],
+   "portee_texte": "Logiciel + académique.",
+   "titre": "FAQ EPS — Protocoles : APSA absente de la liste Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/f3_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Grenoble"
+   ],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Protocoles : date refusée par Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Grenoble"
+   ],
+   "portee_texte": "Logiciel + académique (Aix-Marseille pour les protocoles validés).",
+   "titre": "FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves"
+  },
+  "data/examens/audit_faq_2026_10_12/f5_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Académique Aix-Marseille.",
+   "titre": "FAQ EPS — Protocoles : coche verte et transfert vers Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Grenoble"
+   ],
+   "portee_texte": "Logiciel vs texte national.",
+   "titre": "FAQ EPS — Protocoles adaptés : écart texte / Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Strasbourg"
+   ],
+   "portee_texte": "Logiciel + académique.",
+   "titre": "FAQ EPS — Affectations : groupe importé sans protocole correspondant (Cyclades)"
+  },
+  "data/examens/audit_faq_2026_10_12/g2_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Affectations : élèves sans protocole dans Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/g3_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Académique (Aix-Marseille, guide du Pôle examens) + logiciel.",
+   "titre": "FAQ EPS — Établissement hors SIECLE ou à l'étranger : élèves dans Cyclades"
+  },
+  "data/examens/audit_faq_2026_10_12/g4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil",
+    "Versailles"
+   ],
+   "portee_texte": "Pratique académique (Versailles, Créteil).",
+   "titre": "FAQ EPS — Affectations : élève arrivé avec deux CCF déjà passés (bac GT)"
+  },
+  "data/examens/audit_faq_2026_10_12/g5_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Versailles"
+   ],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Santorin : élève dans le mauvais lot"
+  },
+  "data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "DIEC + logiciel.",
+   "titre": "FAQ EPS — Imag'in : convocation automatique des enseignants"
+  },
+  "data/examens/audit_faq_2026_10_12/h2_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (documentation nationale du logiciel).",
+   "titre": "FAQ EPS — Imag'in : supprimer ou modifier une convocation"
+  },
+  "data/examens/audit_faq_2026_10_12/h3_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "DIEC Aix-Marseille.",
+   "titre": "FAQ EPS — Imag'in : convocation éditée en PDF, accès à Santorin"
+  },
+  "data/examens/audit_faq_2026_10_12/h4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Dijon",
+    "Strasbourg"
+   ],
+   "portee_texte": "Logiciel (procédure décrite hors Aix).",
+   "titre": "FAQ EPS — Imag'in / référent"
+  },
+  "data/examens/audit_faq_2026_10_12/h5_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "DIEC Aix-Marseille.",
+   "titre": "FAQ EPS — Imag'in : mission « Notation EPS CCF » par examen"
+  },
+  "data/examens/audit_faq_2026_10_12/i1_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon"
+   ],
+   "portee_texte": "DIEC + logiciel.",
+   "titre": "FAQ EPS — Distribution : qui distribue les lots et quand"
+  },
+  "data/examens/audit_faq_2026_10_12/i2_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "DIEC.",
+   "titre": "FAQ EPS — Distribution : recommencer la distribution des lots"
+  },
+  "data/examens/audit_faq_2026_10_12/i3_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": "Divergence Lyon / DIEC.",
+   "titre": "FAQ EPS — Distribution : candidat non distribué, faute de protocole"
+  },
+  "data/examens/audit_faq_2026_10_12/j1_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Besançon"
+   ],
+   "portee_texte": "Logiciel (Santorin) + guide académique.",
+   "titre": "FAQ EPS — Santorin : quand verrouiller son lot"
+  },
+  "data/examens/audit_faq_2026_10_12/j2_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Verrouillage"
+  },
+  "data/examens/audit_faq_2026_10_12/j3_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (Santorin) + guide académique.",
+   "titre": "FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié"
+  },
+  "data/examens/audit_faq_2026_10_12/j4_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (Santorin).",
+   "titre": "FAQ EPS — Santorin : « la candidature n'est plus valide »"
+  },
+  "data/examens/audit_faq_2026_10_12/j5_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": "Académique Aix-Marseille.",
+   "titre": "FAQ EPS — Dates 2027"
+  },
+  "data/examens/audit_faq_2026_10_12/k2_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Dijon",
+    "Normandie"
+   ],
+   "portee_texte": "Logiciel.",
+   "titre": "FAQ EPS — Saisie"
+  },
+  "data/examens/audit_faq_2026_10_12/k3_procedure_verifiee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Dijon"
+   ],
+   "portee_texte": "Logiciel (Santorin).",
+   "titre": "FAQ EPS — Santorin : cases grisées en bac pro ou CAP (« Choisir AFLP »)"
+  },
+  "data/examens/audit_faq_2026_10_12/k4_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (Santorin, Cyclades) + académique (rôle de la DIEC) + national (éligibilité).",
+   "titre": "FAQ EPS — Santorin : le 20/20 du sportif de haut niveau n'est pas proposé"
+  },
+  "data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel + DIEC.",
+   "titre": "FAQ EPS — Saisie / codes"
+  },
+  "data/examens/audit_lot1_2026_10_12/coeval_pro.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac professionnel : co-évaluation non imposée"
+  },
+  "data/examens/audit_lot1_2026_10_12/eleves_manquants.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "Élèves inscrits mais absents des lots Santorin"
+  },
+  "data/examens/audit_lot1_2026_10_12/mail_examinateur.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "Santorin : examinateur non trouvé pour le mail déclaré"
+  },
+  "data/examens/audit_lot1_2026_10_12/troisieme_impossible.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Troisième activité impossible pour la classe : autorisation et CE"
+  },
+  "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT CCF : absence injustifiée distincte de force majeure"
+  },
+  "data/examens/audit_lot2_2026_10_12/acces_notes_aix.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix : accès enseignant à la saisie EPS dans Santorin"
+  },
+  "data/examens/audit_lot2_2026_10_12/differe_calendrier.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "CCF : positionnement des évaluations différées au protocole"
+  },
+  "data/examens/audit_lot2_2026_10_12/inscription_inaptitude_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix : inscriptions terminale GT, APTE en CCF et inaptitude médicale"
+  },
+  "data/examens/audit_lot2_2026_10_12/onglets.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "Cyclades/Santorin : une fenêtre pour éviter les erreurs d’import"
+  },
+  "data/examens/audit_lot3_2026_10_12/adaptation_temporaire.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Inaptitude partielle temporaire : adaptation pour information"
+  },
+  "data/examens/audit_lot3_2026_10_12/fermeture_collective.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Installation fermée pour une classe : autorisation puis CE"
+  },
+  "data/examens/audit_lot3_2026_10_12/protocole_standard_apres.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Créteil",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "Aix : ajout de protocole standard après validation"
+  },
+  "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Versailles"
+   ],
+   "portee_texte": null,
+   "titre": "Élève parti en cours d'année mais toujours inscrit à l'examen"
+  },
+  "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Logiciel (mémo national) + national (rôle de la commission et du jury).",
+   "titre": "Après la saisie : harmonisation, clôture et remontée des notes"
+  },
+  "data/examens/audit_lot4_2026_10_13/points_sans_consigne_aix.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "Questions sans consigne écrite trouvée pour Aix-Marseille"
+  },
+  "data/examens/audit_lot4_2026_10_13/shn_note_unique.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National (bac GT). Pour le bac professionnel et le CAP, appliquer le texte propre au diplôme.",
+   "titre": "Bac GT : sportif de haut niveau, le 20/20 ne peut pas être la seule note"
+  },
+  "data/examens/audit_lot4_2026_10_13/shn_statut_tardif.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National (bac GT).",
+   "titre": "Bac GT : statut SHN obtenu après la clôture des inscriptions"
+  },
+  "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Corse",
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "Cas concrets : lots Santorin, co-évaluation et enseignant absent, inaptes avec une ou deux notes, établissements à l'étranger"
+  },
+  "data/examens/circuit_aix_ipack_cyclades_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Lyon"
+   ],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : circuit iPackEPS, Cyclades, Santorin (guide académique des tutoriels examens)"
+  },
+  "data/examens/complement_cyclades_protocoles_cas_enseignant.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Lyon",
+    "Normandie"
+   ],
+   "portee_texte": null,
+   "titre": "complement cyclades protocoles cas enseignant"
+  },
+  "data/examens/complement_note_de_service_bac_gt_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "baccalauréats GÉNÉRAL et TECHNOLOGIQUE uniquement (pas la voie professionnelle ni le CAP). Applicable à compter de la session 2026. Ce texte abroge la circulaire n° 2019-129 du 26 septembre 2019 modif",
+   "titre": "complement note de service bac gt 2026"
+  },
+  "data/examens/complement_reponses_validees.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses relues — examens (CAP, inaptitude, Santorin)"
+  },
+  "data/examens/complement_saisie_bloquee_diagnostic.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "complement saisie bloquee diagnostic"
+  },
+  "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "complement saisie santorin cas pratiques"
+  },
+  "data/examens/cyclades_candidats_absents.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Cyclades : candidats absents de la liste"
+  },
+  "data/examens/faq_evaluation_certification_2025_mise_a_jour_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "FAQ Évaluation et certification (décembre 2025), mise à jour selon les textes de 2026, et coefficients CAP / bac pro"
+  },
+  "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses du correspondant examens EPS : association des candidats, Cyclades, IMAG'IN, Santorin"
+  },
+  "data/examens/fiches/examens_100_situation_eppcs_epreuve_terminale_ecrit_oral.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "EPPCS : épreuve terminale, session 2027 et distinction historique"
+  },
+  "data/examens/fiches/examens_101_situation_santorin_correction_et_annotation_copie.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/examens/fiches/examens_102_situation_bac_gt_calcul_note_finale_eps_coefficient.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/examens/fiches/examens_103_situation_bac_gt_inaptitude_une_epreuve_ou_totale.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/examens/fiches/examens_104_situation_santorin_connexion_et_identifiant_refuse.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Santorin : connexion, missions CCF et copies écrites"
+  },
+  "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Santorin : verrouillage, correction d’erreur et circuit concerné"
+  },
+  "data/examens/fiches/memoire_examens_santorin_001_situation_cadre_institutionnel_dates_limites_specificites_santorin_eps.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CADRE INSTITUTIONNEL, DATES LIMITES & SPÉCIFICITÉS SANTORIN EPS]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_003_situation_boite_a_outils_astuces_de_terrain_raccourcis_clavier.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: BOÎTE À OUTILS, ASTUCES DE TERRAIN & RACCOURCIS CLAVIER]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: RÈGLE D'AIRAIN DES CHAMPS D'APPRENTISSAGE (BAC PRO & GT)]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_005_situation_chaine_technique_acces_santorin_pour_un_enseignant_remplacant.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CHAÎNE TECHNIQUE : ACCÈS SANTORIN POUR UN ENSEIGNANT REMPLAÇANT]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_006_situation_la_fausse_piste_des_conditions_exceptionnelles_ce.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: LA FAUSSE PISTE DES \"CONDITIONS EXCEPTIONNELLES\" (CE)]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_007_situation_matrice_de_saisie_resolution_des_bugs_d_interface_santorin_co_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION]"
+  },
+  "data/examens/fiches/memoire_examens_santorin_009_1_acteurs_et_roles_institutionnels.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "1. Acteurs et Rôles Institutionnels"
+  },
+  "data/examens/fiches/memoire_examens_santorin_010_2_logistique_santorin_et_distribution_des_lots.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "2. Logistique Santorin et Distribution des Lots"
+  },
+  "data/examens/fiches/memoire_examens_santorin_011_3_saisie_des_notes_et_cas_particuliers_santorin_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "3. Saisie des Notes et Cas Particuliers (Santorin / CCF)"
+  },
+  "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "4. Réglementation des Absences et Épreuves Différées"
+  },
+  "data/examens/fraude_ccf_eps.txt": {
+   "nature": [
+    "consigne_academique",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Fraude en EPS : examen et cours ordinaire"
+  },
+  "data/examens/guide_national_inaptes_partiels_temporaires.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Inaptes partiels temporaires : leviers d'adaptation (guide de la Commission nationale des examens EPS)"
+  },
+  "data/examens/guide_national_ponctuel_evaluation_adaptee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Examen ponctuel : évaluation adaptée (guide de la Commission nationale des examens EPS)"
+  },
+  "data/examens/option_eps_individuel_2026.txt": {
+   "nature": [
+    "consigne_academique",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Option EPS : candidats individuels"
+  },
+  "data/examens/regles_dnb_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Besançon",
+    "Lyon"
+   ],
+   "portee_texte": null,
+   "titre": "DNB EPS : contrôle continu et LSU, repères 2026 et 2027"
+  },
+  "data/examens/shn_statut_inscription_gt.txt": {
+   "nature": [
+    "consigne_academique",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "SHN bac GT : date et conditions"
+  },
+  "data/examens/sigles_examens_eps.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Sigles des examens d'EPS"
+  },
+  "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "tutoriels creteil cyclades santorin"
+  },
+  "data/examens/videos_tutoriels_cyclades_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "videos tutoriels cyclades santorin"
+  },
+  "data/ipack/acces_ipackeps_problemes.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Normandie"
+   ],
+   "portee_texte": null,
+   "titre": "Accès iPackEPS et portail ESTEREL"
+  },
+  "data/ipack/complement_cyclades_cas_pratiques.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "complement cyclades cas pratiques"
+  },
+  "data/ipack/complement_questions_boite_assistance.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : APSA Courses, case certificative, établissements à l'étranger (questions de la boîte d'assistance)"
+  },
+  "data/ipack/complement_reponses_validees.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses relues — accès aux plateformes et iPackEPS"
+  },
+  "data/ipack/complement_saisie_notes_bloquee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "complement saisie notes bloquee"
+  },
+  "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses du correspondant iPackEPS : accès, comptes et liste des enseignants"
+  },
+  "data/ipack/fiches/correspondant_02_classes_groupes_protocoles.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses du correspondant iPackEPS : classes, groupes et protocoles"
+  },
+  "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses du correspondant iPackEPS : APSA certificatives, référentiels (FCA), épreuves adaptées"
+  },
+  "data/ipack/fiches/correspondant_05_sss_appn_registre.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponses du correspondant iPackEPS et des IA-IPR : sections sportives, APPN, registre EPI"
+  },
+  "data/ipack/fiches/ipack_000_titre_procedure_officielle_ipackeps_manipulations_a_effectuer_a_chaque_nouvelle_annee_scol.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque nouvelle année scolaire"
+  },
+  "data/ipack/fiches/ipack_001_procedure_evolutions_majeures_interface_et_modules_2026.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[PROCÉDURE : ÉVOLUTIONS MAJEURES INTERFACE ET MODULES (2026)]"
+  },
+  "data/ipack/fiches/ipack_002_procedure_ordre_chronologique_de_deploiement_d_ipackeps_college_lycee.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]"
+  },
+  "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]"
+  },
+  "data/ipack/fiches/ipack_004_situation_conges_exceptionnels_vs_examens_nationaux.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CONGÉS EXCEPTIONNELS VS EXAMENS NATIONAUX]"
+  },
+  "data/ipack/fiches/ipack_005_situation_notation_eps_au_baccalaureat.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: NOTATION EPS AU BACCALAURÉAT]"
+  },
+  "data/ipack/fiches/ipack_006_doc_ref_distribution_des_lots_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]"
+  },
+  "data/ipack/fiches/ipack_007_erreur_aucun_lot_a_corriger.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ERREUR : AUCUN LOT À CORRIGER]"
+  },
+  "data/ipack/fiches/ipack_008_situation_absence_d_un_correcteur_enseignant_sur_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]"
+  },
+  "data/ipack/fiches/ipack_009_situation_synchronisation_imag_in_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SYNCHRONISATION IMAG'IN -> SANTORIN]"
+  },
+  "data/ipack/fiches/ipack_011_situation_correction_partagee_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CORRECTION PARTAGÉE SANTORIN]"
+  },
+  "data/ipack/fiches/ipack_013_situation_refresh_et_synchronisation_esterel_portail_arena.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]"
+  },
+  "data/ipack/fiches/ipack_014_situation_erreur_de_profil_et_d_anciennete_enseignant.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ERREUR DE PROFIL ET D'ANCIENNETÉ ENSEIGNANT]"
+  },
+  "data/ipack/fiches/ipack_015_situation_erreur_etablissement_non_trouve_sans_adresse.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ERREUR « ÉTABLISSEMENT NON TROUVÉ » / SANS ADRESSE]"
+  },
+  "data/ipack/fiches/ipack_016_situation_erreur_de_type_de_scolarite_classes_mixtes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ERREUR DE TYPE DE SCOLARITÉ (CLASSES MIXTES)]"
+  },
+  "data/ipack/fiches/ipack_017_situation_seconde_prepa_classes_hors_nomenclature.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]"
+  },
+  "data/ipack/fiches/ipack_018_situation_groupes_d_options_et_double_niveau.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]"
+  },
+  "data/ipack/fiches/ipack_019_situation_annulation_modification_d_intitule_de_groupe.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]"
+  },
+  "data/ipack/fiches/ipack_020_situation_eleves_sss_sections_sportives_scolaires.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ÉLÈVES SSS (SECTIONS SPORTIVES SCOLAIRES)]"
+  },
+  "data/ipack/fiches/ipack_021_situation_validation_du_dossier.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: VALIDATION DU DOSSIER]"
+  },
+  "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]"
+  },
+  "data/ipack/fiches/ipack_024_situation_protocoles_et_ensembles_certificatifs_en_voie_professionnelle_cap.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: PROTOCOLES ET ENSEMBLES CERTIFICATIFS EN VOIE PROFESSIONNELLE (CAP)]"
+  },
+  "data/ipack/fiches/ipack_025_situation_ensembles_avec_eps_adaptee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ENSEMBLES AVEC EPS ADAPTÉE]"
+  },
+  "data/ipack/fiches/ipack_026_situation_mise_a_jour_des_responsables_et_contacts_d_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: MISE À JOUR DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]"
+  },
+  "data/ipack/fiches/ipack_027_situation_rattachement_des_enseignants_externes_partages_greta_cfa_aefe_vacataires.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]"
+  },
+  "data/ipack/fiches/ipack_028_situation_arrets_maladie_et_suppleants.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ARRÊTS MALADIE ET SUPPLÉANTS]"
+  },
+  "data/ipack/fiches/ipack_029_situation_personnels_hors_education_nationale_erea_enseignants_specialises.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: PERSONNELS HORS-ÉDUCATION NATIONALE (EREA, ENSEIGNANTS SPÉCIALISÉS)]"
+  },
+  "data/ipack/fiches/ipack_030_situation_configuration_et_liens_officiels_de_reference.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CONFIGURATION ET LIENS OFFICIELS DE RÉFÉRENCE]"
+  },
+  "data/ipack/fiches/ipack_031_situation_ipackeps_saisie_inaptitude_et_depot_certificat_medical.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: IPACKEPS - SAISIE INAPTITUDE ET DÉPÔT CERTIFICAT MÉDICAL]"
+  },
+  "data/ipack/fiches/ipack_033_situation_bouton_changement_d_activite_grise.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: BOUTON CHANGEMENT D'ACTIVITÉ GRISÉ]"
+  },
+  "data/ipack/fiches/ipack_034_situation_fiche_gestion_de_la_levee_d_inaptitude_en_cours_de_cycle.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: FICHE - GESTION DE LA LEVÉE D'INAPTITUDE EN COURS DE CYCLE]"
+  },
+  "data/ipack/fiches/ipack_035_situation_importation_eleves_etablissements_prives.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: IMPORTATION ÉLÈVES ÉTABLISSEMENTS PRIVÉS]"
+  },
+  "data/ipack/fiches/ipack_036_situation_depot_des_projets_eps_as_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: DÉPÔT DES PROJETS (EPS, AS, ÉTABLISSEMENT)]"
+  },
+  "data/ipack/fiches/ipack_037_situation_visualisation_des_referentiels_academiques.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: VISUALISATION DES RÉFÉRENTIELS ACADÉMIQUES]"
+  },
+  "data/ipack/fiches/ipack_038_situation_nouvelles_fonctions_enseignants.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: NOUVELLES FONCTIONS ENSEIGNANTS]"
+  },
+  "data/ipack/fiches/ipack_039_situation_v_ux_de_jury_crpe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: VŒUX DE JURY CRPE]"
+  },
+  "data/ipack/fiches/ipack_043_situation_date_limite_saisie_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: DATE LIMITE SAISIE SANTORIN]"
+  },
+  "data/ipack/fiches/ipack_044_situation_acces_remplacant_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ACCÈS REMPLAÇANT SANTORIN]"
+  },
+  "data/ipack/fiches/ipack_045_situation_message_aucun_lot_a_corriger.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: MESSAGE AUCUN LOT A CORRIGER]"
+  },
+  "data/ipack/fiches/ipack_046_situation_cycle_athletisme_adaptation_protocoles_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]"
+  },
+  "data/ipack/fiches/ipack_048_article_5_connexion_a_ipackeps_via_votre_portail_arena.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 5] Connexion à iPackEPS via votre portail ARENA"
+  },
+  "data/ipack/fiches/ipack_052_article_43_selection_de_votre_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 43] Sélection de votre établissement"
+  },
+  "data/ipack/fiches/ipack_055_article_51_les_manipulations_requises_a_chaque_nouvelle_annee_scolaire.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 51] Les manipulations requises à chaque nouvelle année scolaire"
+  },
+  "data/ipack/fiches/ipack_056_article_12_etablissement_configuration_de_la_fiche_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 12] [Établissement] Configuration de la Fiche Établissement"
+  },
+  "data/ipack/fiches/ipack_057_article_11_fiche_professeur_renseigner_sa_fiche_professeur.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 11] [Fiche Professeur] Renseigner sa Fiche Professeur"
+  },
+  "data/ipack/fiches/ipack_058_article_27_dossiers_dossiereps_projets_depot_des_projets_et_configuration_des_axes_des_pro.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets"
+  },
+  "data/ipack/fiches/ipack_059_article_13_dossiers_dossiereps_equipe_eps_gestion_de_l_equipe_eps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 13] [Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS"
+  },
+  "data/ipack/fiches/ipack_060_article_14_dossiers_dossiereps_classes_configuration_des_classes_et_import_des_eleves.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 14] [Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves"
+  },
+  "data/ipack/fiches/ipack_061_article_15_dossiers_dossiereps_apsas_declaration_des_apsas.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 15] [Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs"
+  },
+  "data/ipack/fiches/ipack_062_article_16_dossiers_dossiereps_periodes_configuration_des_periodes_des_sequences_d_apprent.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 16] [Dossiers]/[DossierEPS]/[Périodes] Configuration des Périodes des Séquences d’Apprentissage"
+  },
+  "data/ipack/fiches/ipack_063_article_17_dossiers_dossiereps_groupes_configuration_des_groupes_eps_as_sss.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 17] [Dossiers]/[DossierEPS]/[Groupes] Configuration des Groupes (EPS, AS, SSS…)"
+  },
+  "data/ipack/fiches/ipack_064_article_93_dossiers_dossiereps_groupes_gestion_specifique_de_l_enseignement_de_specialite_.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 93] [Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS)"
+  },
+  "data/ipack/fiches/ipack_065_article_18_dossiers_dossiereps_eleves_placement_des_eleves_dans_les_groupes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 18] [Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes"
+  },
+  "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe"
+  },
+  "data/ipack/fiches/ipack_067_article_19_dossiers_dossiereps_equipements_gestion_des_equipements_sportifs.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs"
+  },
+  "data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie et Gestion des Emplois du Temps (EDT)"
+  },
+  "data/ipack/fiches/ipack_069_article_42_dossiers_dossier_certificatif_protocoles_configuration_des_protocoles_des_epreu.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 42] [Dossiers]/[Dossier Certificatif]/[Protocoles] Configuration des Protocoles des Épreuves certificatives"
+  },
+  "data/ipack/fiches/ipack_070_article_38_dossiers_dossier_certificatif_referentiels_remontee_des_referentiels_d_evaluati.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 38] [Dossiers]/[Dossier Certificatif]/[Référentiels] Remontée des Référentiels d’Évaluation voie Générale, Technologique et Professionnelle"
+  },
+  "data/ipack/fiches/ipack_071_article_55_dossiers_dossier_certificatif_depot_des_documents_pour_la_commission_depot_des_.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 55] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS"
+  },
+  "data/ipack/fiches/ipack_072_article_83_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_de_la_fiche_etabl.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 83] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement"
+  },
+  "data/ipack/fiches/ipack_073_article_84_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_des_fiches_indivi.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 84] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles"
+  },
+  "data/ipack/fiches/ipack_074_article_85_dossiers_dossier_certificatif_depot_des_documents_cahpn_controle_des_certificat.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 85] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Contrôle des Certificats Médicaux"
+  },
+  "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique"
+  },
+  "data/ipack/fiches/ipack_076_article_49_dossiers_dossier_natation_asns_gestion_des_validations_d_asns_import_et_impress.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 49] [Dossiers]/[Dossier Natation]/[ASNS] gestion des validations d’ASNS : Import et Impression"
+  },
+  "data/ipack/fiches/ipack_077_article_4_dossiers_dossier_natation_enquete_saisie_de_l_enquete_natation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 4] [Dossiers]/[Dossier Natation]/[Enquête] Saisie de l’Enquête Natation"
+  },
+  "data/ipack/fiches/ipack_078_article_25_dossiers_dossier_natation_statistiques_acces_aux_statistiques_dossier_natation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 25] [Dossiers]/[Dossier Natation]/Statistiques] Accès aux Statistiques Dossier Natation"
+  },
+  "data/ipack/fiches/ipack_079_article_35_dossiers_dossier_sss_gestion_des_sections_sportives_scolaires.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 35] [Dossiers]/[Dossier SSS] Gestion des Sections Sportives Scolaires"
+  },
+  "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+  },
+  "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire"
+  },
+  "data/ipack/fiches/ipack_082_article_39_dossiers_dossier_sss_bilan_saisie_du_bilan_annuel_de_section_sportive_scolaire.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 39] [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire"
+  },
+  "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS"
+  },
+  "data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études"
+  },
+  "data/ipack/fiches/ipack_085_article_48_mes_eleves_visualisation_visualisation_des_informations_eleves.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 48] [Mes Élèves]/[Visualisation] Visualisation des informations élèves"
+  },
+  "data/ipack/fiches/ipack_086_article_50_mes_eleves_visualisation_asns_validation_et_impression_de_l_asns.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 50] [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS"
+  },
+  "data/ipack/fiches/ipack_087_article_82_mes_eleves_visualisation_inaptitudes_declaration_des_inaptitudes_des_eleves.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 82] [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves"
+  },
+  "data/ipack/fiches/ipack_088_article_90_mes_eleves_inaptitudes_liste_des_eleves_declares_inaptes_dans_votre_etablisseme.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 90] [Mes Élèves]/[Inaptitudes] Liste des élèves déclarés inaptes dans votre établissement"
+  },
+  "data/ipack/fiches/ipack_089_article_54_mesdocuments_documents_enregistrement_et_impression_de_documents.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 54] [MesDocuments]/[Documents] Enregistrement et Impression de documents"
+  },
+  "data/ipack/fiches/ipack_090_article_56_mesdocuments_documents_programmation_impression_des_edt_individuels_de_chaque_e.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 56] [MesDocuments]/[Documents] / [Programmation] : Impression des EDT individuels de chaque élève"
+  },
+  "data/ipack/fiches/ipack_091_article_57_mesdocuments_documents_dossards_gestion_des_dossards_de_cross.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 57] [MesDocuments]/[Documents] / [Dossards] : Gestion des dossards de Cross"
+  },
+  "data/ipack/fiches/ipack_092_article_47_mesdocuments_publipostage_edition_et_diffusion_de_publipostages.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 47] [MesDocuments]/[Publipostage] Édition et Diffusion de Publipostages"
+  },
+  "data/ipack/fiches/ipack_093_article_92_mesdocuments_bibliotheque_acces_a_la_bibliotheque_de_documents_d_ipackeps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 92] [MesDocuments]/[Bibliothèque] Accès à la Bibliothèque de Documents d’iPackEPS"
+  },
+  "data/ipack/fiches/ipack_094_article_26_materiel_gestion_du_materiel_epi_equipements_de_protection_individuels.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 26] [Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels)"
+  },
+  "data/ipack/fiches/ipack_095_article_77_offre_de_formation_groupes_et_apsas.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 77] [Offre de Formation] / [Groupes et APSAs]"
+  },
+  "data/ipack/fiches/ipack_096_article_86_statistiques_inaptitudes_les_statistiques_sur_les_inaptitudes_dans_votre_etabli.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 86] [Statistiques]/[Inaptitudes] Les statistiques sur les inaptitudes dans votre établissement"
+  },
+  "data/ipack/fiches/ipack_097_article_89_outils_export_fichier_eleves_vers_d_autres_logiciels.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 89] [Outils]/[Export Fichier Elèves vers d’autres logiciels]"
+  },
+  "data/ipack/fiches/ipack_098_article_58_interface_chef_d_etablissement_description_de_l_interface_complete.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 58] Interface chef d’établissement : description de l’interface complète"
+  },
+  "data/ipack/fiches/ipack_099_1_affectation_et_convocation_automatique_des_enseignants_d_eps.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "1. Affectation et convocation automatique des enseignants d’EPS"
+  },
+  "data/ipack/fiches/ipack_100_2_affectation_manuelle_des_enseignants_en_cas_de_besoin_remplacement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "2. Affectation manuelle des enseignants (en cas de besoin / remplacement)"
+  },
+  "data/ipack/fiches/ipack_101_3_distribution_automatique_des_candidats.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "3. Distribution automatique des candidats"
+  },
+  "data/ipack/fiches/ipack_102_4_erreurs_de_distribution_et_distribution_manuelle.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "4. Erreurs de distribution et distribution manuelle"
+  },
+  "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "5. Saisie des notes par les enseignants"
+  },
+  "data/ipack/fiches/ipack_104_6_saisie_des_notes_selon_l_examen.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "6. Saisie des notes selon l'Examen"
+  },
+  "data/ipack/fiches/ipack_105_7_cas_exceptionnels_shn_et_notes_particulieres.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "7. Cas exceptionnels, SHN et notes particulières"
+  },
+  "data/ipack/fiches/ipack_106_8_suivi_de_l_avancement_par_l_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "8. Suivi de l'avancement par l'établissement"
+  },
+  "data/ipack/fiches/ipack_107_thematique_absence.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Absence"
+  },
+  "data/ipack/fiches/ipack_108_thematique_contexte_de_l_epreuve_incertitude_ca2.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Contexte de l'épreuve (Incertitude CA2)"
+  },
+  "data/ipack/fiches/ipack_109_thematique_contexte_de_l_epreuve_positionnement_epreuve_differee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Contexte de l'épreuve (Positionnement Épreuve Différée)"
+  },
+  "data/ipack/fiches/ipack_110_thematique_conservation_des_notes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2021"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Conservation des Notes"
+  },
+  "data/ipack/fiches/ipack_111_thematique_remuneration_co_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Rémunération Co-évaluation"
+  },
+  "data/ipack/fiches/ipack_112_thematique_evaluer_et_noter_arrivee_en_cours_de_sequence.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Arrivée en cours de séquence)"
+  },
+  "data/ipack/fiches/ipack_113_thematique_evaluer_et_noter_participation_des_eleves_aux_criteres.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Participation des élèves aux critères)"
+  },
+  "data/ipack/fiches/ipack_114_thematique_evaluer_et_noter_afl3_roles_multiples.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (AFL3 / Rôles multiples)"
+  },
+  "data/ipack/fiches/ipack_115_thematique_evaluer_et_noter_4_sequences_d_enseignement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (4 séquences d'enseignement)"
+  },
+  "data/ipack/fiches/ipack_116_thematique_evaluer_et_noter_epreuves_ecrites_ou_orales.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Épreuves écrites ou orales)"
+  },
+  "data/ipack/fiches/ipack_117_thematique_evaluer_et_noter_integration_de_la_note_de_fin_de_sequence.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Intégration de la note de fin de séquence)"
+  },
+  "data/ipack/fiches/ipack_118_thematique_evaluer_et_noter_attribution_du_0_pour_absence.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Attribution du 0 pour absence)"
+  },
+  "data/ipack/fiches/ipack_119_thematique_evaluer_et_noter_information_des_criteres.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Information des critères)"
+  },
+  "data/ipack/fiches/ipack_120_thematique_evaluer_et_noter_duree_des_lecons_d_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Durée des leçons d'évaluation)"
+  },
+  "data/ipack/fiches/ipack_121_thematique_evaluer_et_noter_nombre_de_notes_pour_la_moyenne.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Nombre de notes pour la moyenne)"
+  },
+  "data/ipack/fiches/ipack_122_thematique_evaluer_et_noter_temps_d_enseignement_minimum.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Temps d'enseignement minimum)"
+  },
+  "data/ipack/fiches/ipack_123_thematique_evaluer_et_noter_note_collective.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Note collective)"
+  },
+  "data/ipack/fiches/ipack_124_thematique_evaluer_et_noter_oubli_de_tenue.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Oubli de tenue)"
+  },
+  "data/ipack/fiches/ipack_125_thematique_evaluer_et_noter_absent_inapte_dans_une_organisation_collective.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Absent/Inapte dans une organisation collective)"
+  },
+  "data/ipack/fiches/ipack_126_thematique_evaluer_et_noter_maintien_de_l_evaluation_en_cas_d_epreuve_differee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Évaluer et Noter (Maintien de l'évaluation en cas d'épreuve différée)"
+  },
+  "data/ipack/fiches/ipack_127_thematique_inaptitudes_et_dispenses_definition_epreuve_differee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Définition Épreuve Différée)"
+  },
+  "data/ipack/fiches/ipack_128_thematique_inaptitudes_et_dispenses_concept_du_controle_adapte.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Concept du Contrôle Adapté)"
+  },
+  "data/ipack/fiches/ipack_129_thematique_inaptitudes_et_dispenses_pratique_evaluation_amenagee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Pratique/Évaluation Aménagée)"
+  },
+  "data/ipack/fiches/ipack_130_thematique_inaptitudes_et_dispenses_epreuve_adaptee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Épreuve Adaptée)"
+  },
+  "data/ipack/fiches/ipack_131_thematique_inaptitudes_et_dispenses_absence_sur_la_sequence_mais_present_a_l_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Absence sur la séquence mais présent à l'évaluation)"
+  },
+  "data/ipack/fiches/ipack_132_thematique_inaptitudes_et_dispenses_demarche_d_adaptation_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Démarche d'adaptation CCF)"
+  },
+  "data/ipack/fiches/ipack_133_thematique_inaptitudes_et_dispenses_ponderation_d_un_critere.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Pondération d'un critère)"
+  },
+  "data/ipack/fiches/ipack_134_thematique_inaptitudes_et_dispenses_la_note_de_20_20_en_epreuve_adaptee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (La note de 20/20 en épreuve adaptée)"
+  },
+  "data/ipack/fiches/ipack_135_thematique_inaptitudes_et_dispenses_maladie_le_jour_de_l_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Maladie le jour de l'évaluation)"
+  },
+  "data/ipack/fiches/ipack_136_thematique_inaptitudes_et_dispenses_inaptitudes_repetees_suspectes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Inaptitudes répétées suspectes)"
+  },
+  "data/ipack/fiches/ipack_137_thematique_inaptitudes_et_dispenses_inaptitude_temporaire_vs_controle_adapte.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Inaptitude Temporaire vs Contrôle Adapté)"
+  },
+  "data/ipack/fiches/ipack_138_thematique_inaptitudes_et_dispenses_reconnaissance_de_l_inaptitude_permanente.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Reconnaissance de l'Inaptitude Permanente)"
+  },
+  "data/ipack/fiches/ipack_139_thematique_l_evaluation_en_eps_difference_cc_et_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Différence CC et CCF)"
+  },
+  "data/ipack/fiches/ipack_140_thematique_l_evaluation_en_eps_obligation_du_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Obligation du CCF)"
+  },
+  "data/ipack/fiches/ipack_141_thematique_l_evaluation_en_eps_cc_au_dnb.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (CC au DNB)"
+  },
+  "data/ipack/fiches/ipack_142_thematique_l_evaluation_en_eps_construction_note_dnb.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Construction Note DNB)"
+  },
+  "data/ipack/fiches/ipack_143_thematique_l_evaluation_en_eps_information_des_resultats_et_lsu.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Information des résultats et LSU)"
+  },
+  "data/ipack/fiches/ipack_144_thematique_l_evaluation_en_eps_co_evaluation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Co-évaluation)"
+  },
+  "data/ipack/fiches/ipack_145_thematique_l_evaluation_en_eps_convocation_des_candidats.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Convocation des candidats)"
+  },
+  "data/ipack/fiches/ipack_146_thematique_l_evaluation_en_eps_evaluateurs_externes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Évaluateurs externes)"
+  },
+  "data/ipack/fiches/ipack_147_thematique_l_evaluation_en_eps_auto_evaluation_et_pairs.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Auto-évaluation et Pairs)"
+  },
+  "data/ipack/fiches/ipack_148_thematique_l_evaluation_en_eps_fiche_de_reference_hors_examen.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Fiche de référence hors-examen)"
+  },
+  "data/ipack/fiches/ipack_149_thematique_l_evaluation_en_eps_notes_de_4eme.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Notes de 4ème)"
+  },
+  "data/ipack/fiches/ipack_150_thematique_l_evaluation_en_eps_ecart_de_niveau_de_fin_de_cycle.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Écart de niveau de fin de cycle)"
+  },
+  "data/ipack/fiches/ipack_151_thematique_l_evaluation_en_eps_nombre_d_activites_pour_la_certification.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Nombre d'activités pour la certification)"
+  },
+  "data/ipack/fiches/ipack_153_thematique_l_evaluation_en_eps_epreuve_optionnelle_ponctuelle.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Épreuve Optionnelle Ponctuelle)"
+  },
+  "data/ipack/fiches/ipack_154_thematique_l_evaluation_en_eps_prise_en_compte_de_l_as_sss_dans_l_examen.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Prise en compte de l'AS / SSS dans l'examen)"
+  },
+  "data/ipack/fiches/ipack_155_thematique_l_evaluation_en_eps_notation_sur_l_inaptitude_totale_temporaire_via_le_non_mote.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Notation sur l'inaptitude totale temporaire via le non-moteur)"
+  },
+  "data/ipack/fiches/ipack_156_thematique_l_evaluation_en_eps_observables_et_variation_de_baremes_de_points.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Observables et variation de barèmes de points)"
+  },
+  "data/ipack/fiches/ipack_157_thematique_l_evaluation_en_eps_exemples_nationaux_ca1_et_formats_locaux.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Exemples nationaux CA1 et formats locaux)"
+  },
+  "data/ipack/fiches/ipack_158_thematique_l_evaluation_en_eps_moment_d_annonce_de_repartition_des_points.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Moment d'annonce de répartition des points)"
+  },
+  "data/ipack/fiches/ipack_159_thematique_l_evaluation_en_eps_changement_de_ca_pour_une_activite_academique.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : L'évaluation en EPS (Changement de CA pour une activité académique)"
+  },
+  "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)"
+  },
+  "data/ipack/fiches/ipack_161_situation_regle_d_or_nationale_certification_mixte_du_ccf_bac.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC]"
+  },
+  "data/ipack/fiches/ipack_162_situation_configuration_informatique_dans_ipackeps_logique_de_groupe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CONFIGURATION INFORMATIQUE DANS IPACKEPS : LOGIQUE DE GROUPE]"
+  },
+  "data/ipack/fiches/ipack_163_situation_tracabilite_et_protection_fonctionnelle.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: TRAÇABILITÉ ET PROTECTION FONCTIONNELLE]"
+  },
+  "data/ipack/fiches/ipack_164_situation_santorin_cases_aflp_inactives_impossible_de_saisir.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]"
+  },
+  "data/ipack/fiches/ipack_165_situation_santorin_date_limite_de_saisie_des_notes.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — DATE LIMITE DE SAISIE DES NOTES]"
+  },
+  "data/ipack/fiches/ipack_166_situation_santorin_acces_remplacant_chronologie.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — ACCÈS REMPLAÇANT (CHRONOLOGIE)]"
+  },
+  "data/ipack/fiches/ipack_167_situation_santorin_aucun_lot_a_corriger_distribution.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]"
+  },
+  "data/ipack/fiches/ipack_168_situation_santorin_ccf_indisponibilite_des_installations_sportives_ccf3.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: [SANTORIN / CCF] INDISPONIBILITÉ DES INSTALLATIONS SPORTIVES (CCF3)]"
+  },
+  "data/ipack/fiches/ipack_169_situation_santorin_lot_manquant_d_un_collegue_imag_in.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]"
+  },
+  "data/ipack/fiches/ipack_170_situation_santorin_epreuve_adaptee_et_distribution_des_lots.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — ÉPREUVE ADAPTÉE ET DISTRIBUTION DES LOTS]"
+  },
+  "data/ipack/fiches/ipack_171_situation_santorin_eleve_manquant_mais_present_dans_cyclades.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — ÉLÈVE MANQUANT MAIS PRÉSENT DANS CYCLADES]"
+  },
+  "data/ipack/fiches/ipack_172_situation_santorin_activite_haut_niveau_shn_et_note_de_20_20.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SANTORIN — ACTIVITÉ HAUT NIVEAU (SHN) ET NOTE DE 20/20]"
+  },
+  "data/ipack/fiches/ipack_174_situation_ipackeps_programmation_demi_fond_bac_gt.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: IPACKEPS — PROGRAMMATION DEMI-FOND BAC GT]"
+  },
+  "data/ipack/fiches/ipack_176_situation_ipackeps_comment_deposer_un_certificat_medical.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: IPACKEPS — COMMENT DÉPOSER UN CERTIFICAT MÉDICAL]"
+  },
+  "data/ipack/fiches/ipack_177_situation_supprimer_un_protocole_dans_ipackeps_et_non_dans_cyclades.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SUPPRIMER UN PROTOCOLE DANS iPackEPS (ET NON DANS CYCLADES)]"
+  },
+  "data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]"
+  },
+  "data/ipack/fiches/ipack_179_situation_menace_de_recours_juridique_d_un_parent_sur_une_note_de_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: MENACE DE RECOURS JURIDIQUE D'UN PARENT SUR UNE NOTE DE CCF]"
+  },
+  "data/ipack/fiches/ipack_180_situation_horaires_de_passation_des_epreuves_de_ccf_mercredi_hors_cours.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: HORAIRES DE PASSATION DES ÉPREUVES DE CCF (MERCREDI / HORS COURS)]"
+  },
+  "data/ipack/fiches/ipack_181_situation_suppression_bloquee_d_une_sequence_d_un_groupe_ou_d_une_apsa_effet_cascade.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: SUPPRESSION BLOQUÉE D'UNE SÉQUENCE, D'UN GROUPE OU D'UNE APSA (EFFET CASCADE)]"
+  },
+  "data/ipack/fiches/ipack_182_situation_caracteres_speciaux_prenoms_composes_et_encodage_csv_corrompu.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CARACTÈRES SPÉCIAUX, PRÉNOMS COMPOSÉS ET ENCODAGE CSV CORROMPU]"
+  },
+  "data/ipack/fiches/ipack_183_situation_eleve_ayant_change_d_etat_civil_ou_prenom_d_usage_en_cours_d_annee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ÉLÈVE AYANT CHANGÉ D'ÉTAT CIVIL OU PRÉNOM D'USAGE EN COURS D'ANNÉE]"
+  },
+  "data/ipack/fiches/ipack_184_situation_refus_d_obstacle_eleve_qui_pleure_ou_abandonne_en_pleine_epreuve.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: REFUS D'OBSTACLE, ÉLÈVE QUI PLEURE OU ABANDONNE EN PLEINE ÉPREUVE]"
+  },
+  "data/ipack/fiches/ipack_185_situation_tentative_de_modification_de_bareme_en_cours_de_cycle_tout_le_monde_a_rate.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: TENTATIVE DE MODIFICATION DE BARÈME EN COURS DE CYCLE (« TOUT LE MONDE A RATÉ »)]"
+  },
+  "data/ipack/fiches/ipack_186_situation_double_notation_pronote_vs_ipackeps_quel_fichier_fait_foi.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: DOUBLE NOTATION PRONOTE VS IPACKEPS (QUEL FICHIER FAIT FOI ?)]"
+  },
+  "data/ipack/fiches/ipack_187_situation_moi_je_veux_mettre_une_note_globale_sur_20_directement_dans_santorin_sans_detail.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: « MOI JE VEUX METTRE UNE NOTE GLOBALE SUR 20 DIRECTEMENT DANS SANTORIN SANS DÉTAILLER LES AFL »]"
+  },
+  "data/ipack/fiches/ipack_188_situation_je_veux_proposer_badminton_volley_et_basket_en_bac_pro_conflit_de_ca.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: « JE VEUX PROPOSER BADMINTON, VOLLEY ET BASKET EN BAC PRO » (CONFLIT DE CA)]"
+  },
+  "data/ipack/fiches/ipack_189_situation_le_numerique_a_plante_pendant_mon_epreuve_le_ccf_est_juridiquement_nul.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: « LE NUMÉRIQUE A PLANTÉ PENDANT MON ÉPREUVE, LE CCF EST JURIDIQUEMENT NUL »]"
+  },
+  "data/ipack/fiches/ipack_190_situation_reventilation_des_heures_d_enseignement_et_groupes_mixtes_sur_barrettes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: REVENTILATION DES HEURES D'ENSEIGNEMENT ET GROUPES MIXTES SUR BARRETTES]"
+  },
+  "data/ipack/fiches/ipack_191_situation_dispositifs_ulis_et_upe2a_sans_evaluation_chiffree_au_dnb.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: DISPOSITIFS ULIS ET UPE2A SANS ÉVALUATION CHIFFRÉE AU DNB]"
+  },
+  "data/ipack/fiches/ipack_192_situation_enseignant_titulaire_remplace_en_cours_d_annee_par_plusieurs_contractuels_succes.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]"
+  },
+  "data/ipack/fiches/ipack_193_article_95_dossiers_dossier_certificatif_candidats_individuels_candidats_libres_vs_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 95] [Dossiers]/[Dossier Certificatif] Candidats Individuels / Candidats Libres vs CCF"
+  },
+  "data/ipack/fiches/ipack_194_article_96_dossiers_dossier_certificatif_gestion_de_l_eleve_ayant_2_notes_sur_3_au_bac_gt_.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 96] [Dossiers]/[Dossier Certificatif] Gestion de l'Élève ayant 2 notes sur 3 au Bac GT (Inaptitude sur la 3e épreuve)"
+  },
+  "data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT"
+  },
+  "data/ipack/fiches/ipack_196_article_98_dossiers_dossier_eps_eleves_demenagement_changement_d_etablissement_inter_acade.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement / Changement d'Établissement inter-académique en cours d'année"
+  },
+  "data/ipack/fiches/ipack_197_article_99_dossiers_dossier_eps_classes_doublons_d_eleves_suite_a_modification_d_orthograp.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 99] [Dossiers]/[Dossier EPS]/[Classes] Doublons d'élèves suite à modification d'orthographe ou d'INE dans SIÈCLE"
+  },
+  "data/ipack/fiches/ipack_198_article_100_dossiers_dossier_eps_groupes_sections_binationales_abibac_bachibac_esabac_et_i.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 100] [Dossiers]/[Dossier EPS]/[Groupes] Sections Binationales (Abibac, Bachibac, Esabac) et Internationales (BFI)"
+  },
+  "data/ipack/fiches/ipack_199_article_101_dossiers_dossier_certificatif_referentiels_rejet_d_un_referentiel_par_la_commi.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 101] [Dossiers]/[Dossier Certificatif]/[Référentiels] Rejet d'un référentiel par la Commission Académique (Statut Rouge)"
+  },
+  "data/ipack/fiches/ipack_200_article_102_materiel_epi_controle_periodique_et_registre_de_securite_escalade.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 102] [Matériel]/[EPI] Contrôle Périodique et Registre de Sécurité Escalade"
+  },
+  "data/ipack/fiches/ipack_202_article_104_tablette_cache_du_navigateur_et_notes_rien_n_est_stocke_dans_ipackeps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 104] Tablette, cache du navigateur et notes : rien n'est stocké dans iPackEPS"
+  },
+  "data/ipack/fiches/ipack_203_article_105_dossiers_dossier_eps_eleves_gestion_des_equipes_pedagogiques_en_lycee_professi.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 105] [Dossiers]/[Dossier EPS]/[Élèves] Gestion des Équipes Pédagogiques en Lycée Professionnel avec Alternance / Périodes de PFMP"
+  },
+  "data/ipack/fiches/ipack_204_article_106_dossiers_dossier_certificatif_epreuve_ponctuelle_de_remplacement_de_septembre_.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 106] [Dossiers]/[Dossier Certificatif] Épreuve Ponctuelle de Remplacement de Septembre (Baccalauréat)"
+  },
+  "data/ipack/fiches/ipack_205_article_107_dossiers_dossier_eps_apsa_enseignement_de_specialite_eppcs_vs_tronc_commun_aps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 107] [Dossiers]/[Dossier EPS]/[APSA] Enseignement de Spécialité EPPCS vs Tronc Commun : APSA Exclusive"
+  },
+  "data/ipack/fiches/ipack_207_article_109_dossiers_dossier_certificatif_conservation_des_documents_d_evaluation_et_emarg.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 109] [Dossiers]/[Dossier Certificatif] Conservation des Documents d'Évaluation et Émargements"
+  },
+  "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "[ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT"
+  },
+  "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 112] GESTION DES SPORTIFS DE HAUT NIVEAU (SHN) DANS IPACKEPS, CYCLADES ET SANTORIN"
+  },
+  "data/ipack/fiches/ipack_210_article_111_sections_sportives_scolaires_sss_classes_sports_etudes_et_sportifs_de_haut_niv.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 111] SECTIONS SPORTIVES SCOLAIRES (SSS), CLASSES SPORTS-ÉTUDES ET SPORTIFS DE HAUT NIVEAU (SHN) : NE PAS LES CONFONDRE"
+  },
+  "data/ipack/fiches/ipack_211_article_113_calendrier_academique_et_dates_limites_import_classes_protocoles.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 113] CALENDRIER ACADÉMIQUE ET DATES LIMITES (IMPORT CLASSES / PROTOCOLES)"
+  },
+  "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]"
+  },
+  "data/ipack/fiches/ipack_213_situation_corruption_des_accents_et_des_classes_csv_piege_d_excel.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]"
+  },
+  "data/ipack/fiches/ipack_219_identite_et_technologie_de_l_assistant_faq_du_hub.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "Identité et technologie de l'assistant (FAQ du Hub)"
+  },
+  "data/ipack/fiches/ipack_221_situation_gestion_des_eleves_beneficiant_d_un_pai_pap_ou_pps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: GESTION DES ÉLÈVES BÉNÉFICIANT D'UN PAI, PAP OU PPS]"
+  },
+  "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]"
+  },
+  "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ÉLÈVE AYANT FAIT L'OBJET D'UNE SANCTION DISCIPLINAIRE (EXCLUSION) PENDANT UN CCF]"
+  },
+  "data/ipack/fiches/ipack_224_situation_role_de_controle_du_chef_d_etablissement_sur_les_protocoles.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]"
+  },
+  "data/ipack/fiches/ipack_231_1_definition_et_perimetre_de_l_application.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "1. Définition et Périmètre de l'Application"
+  },
+  "data/ipack/fiches/ipack_232_2_ergonomie_et_interface_generale_ui.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "2. Ergonomie et Interface Générale (UI)"
+  },
+  "data/ipack/fiches/ipack_233_3_tableau_de_bord_et_gestion_des_eleves.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "3. Tableau de Bord et Gestion des Élèves"
+  },
+  "data/ipack/fiches/ipack_234_4_modules_de_gestion_du_materiel_inventaire_epi.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "4. Modules de Gestion du Matériel (Inventaire EPI)"
+  },
+  "data/ipack/fiches/ipack_235_5_dossiers_certificatifs_cahpn_et_examens_cyclades.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "5. Dossiers Certificatifs (CAHPN) et Examens (Cyclades)"
+  },
+  "data/ipack/fiches/ipack_236_6_sections_sportives_scolaires_sss_et_dossiers_appn.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "6. Sections Sportives Scolaires (SSS) et Dossiers APPN"
+  },
+  "data/ipack/fiches/ipack_237_7_administration_rapports_et_parametrage_technique.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "7. Administration, Rapports et Paramétrage Technique"
+  },
+  "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]"
+  },
+  "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: FILMER OU PHOTOGRAPHIER DES ÉLÈVES EN EPS — DROIT À L'IMAGE, RGPD, STOCKAGE]"
+  },
+  "data/ipack/fiches/ipack_302_situation_suppression_par_erreur_recuperation.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/fiches/ipack_303_situation_eleve_change_de_classe_en_cours_d_annee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/fiches/ipack_304_situation_bareme_personnalise_d_une_apsa.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/fiches/ipack_305_situation_reprendre_la_programmation_de_l_annee_precedente.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Reprendre la programmation : conservé et à actualiser"
+  },
+  "data/ipack/fiches/ipack_306_situation_droits_coordonnateur_et_administrateur.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/fiches/ipack_307_situation_imprimer_feuille_appel_ou_fiche_vierge.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/fiches/ipack_308_situation_enseignant_qui_change_d_etablissement.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": null
+  },
+  "data/ipack/messages_erreur_et_contacts.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "messages erreur et contacts"
+  },
+  "data/ipack/nouveautes_ipackeps_2025_2026.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "nouveautes ipackeps 2025 2026"
+  },
+  "data/ipack/transcriptions_videos_tutoriels.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": null,
+   "titre": "transcriptions videos tutoriels"
+  },
+  "data/textes/complement_natation_scolaire.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon"
+   ],
+   "portee_texte": null,
+   "titre": "complement natation scolaire"
+  },
+  "data/textes/complement_obligations_service_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "complement obligations service eps"
+  },
+  "data/textes/complement_statuts_personnels_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "complement statuts personnels eps"
+  },
+  "data/textes/escalade_controles_securite.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "escalade controles securite"
+  },
+  "data/textes/fiches/accident_eleve_rapport_parents_2009.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Accident scolaire : rapport et communication aux parents"
+  },
+  "data/textes/fiches/base_textes_officiels_002_situation_1ere_section_responsabilite_civile_penale_et_protection_fonctionnelle.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]"
+  },
+  "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]"
+  },
+  "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]"
+  },
+  "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS]"
+  },
+  "data/textes/fiches/base_textes_officiels_008_situation_public_vise_et_modalites_d_obtention_par_defaut.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2021"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]"
+  },
+  "data/textes/fiches/base_textes_officiels_009_situation_logistique_administrative_et_calendrier_academique.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE]"
+  },
+  "data/textes/fiches/base_textes_officiels_010_situation_ouverture_protocolaire_aux_contractuels_et_detachements.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS]"
+  },
+  "data/textes/fiches/base_textes_officiels_011_situation_protocole_technique_de_l_epreuve_100_metres_en_continu.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]"
+  },
+  "data/textes/fiches/base_textes_officiels_012_situation_motifs_d_elimination_immediate_test_non_valide.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]"
+  },
+  "data/textes/fiches/base_textes_officiels_013_situation_7e_section_pedagogie_horaires_et_dispositifs_de_suivi_au_college_cycles_3_4.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]"
+  },
+  "data/textes/fiches/base_textes_officiels_014_situation_8e_section_socle_commun_sccc_et_exigences_du_dnb_session_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2025",
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)]"
+  },
+  "data/textes/fiches/base_textes_officiels_015_situation_9e_section_cadre_du_ccf_en_lycee_gt_specialite_eppcs_et_athletes_shn.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]"
+  },
+  "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]"
+  },
+  "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]"
+  },
+  "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]"
+  },
+  "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]"
+  },
+  "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]"
+  },
+  "data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]"
+  },
+  "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]"
+  },
+  "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]"
+  },
+  "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]"
+  },
+  "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]"
+  },
+  "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]"
+  },
+  "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]"
+  },
+  "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]"
+  },
+  "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]"
+  },
+  "data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015]"
+  },
+  "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]"
+  },
+  "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]"
+  },
+  "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]"
+  },
+  "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]"
+  },
+  "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE]"
+  },
+  "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]"
+  },
+  "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]"
+  },
+  "data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]"
+  },
+  "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]"
+  },
+  "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]"
+  },
+  "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]"
+  },
+  "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]"
+  },
+  "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]"
+  },
+  "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS]"
+  },
+  "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]"
+  },
+  "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]"
+  },
+  "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]"
+  },
+  "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]"
+  },
+  "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]"
+  },
+  "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]"
+  },
+  "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]"
+  },
+  "data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]"
+  },
+  "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]"
+  },
+  "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)"
+  },
+  "data/textes/fiches/correspondant_06_course_orientation_foret_chasse.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Réponse d'un IA-IPR EPS : course d'orientation en forêt et chasse"
+  },
+  "data/textes/fiches/sorties_second_degre_guide_2025.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "second degré ; ne pas appliquer ce guide au premier degré hors l'exception mixte explicitée.",
+   "titre": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025"
+  },
+  "data/textes/partenariats_defense_citoyennete.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "partenariats defense citoyennete"
+  },
+  "data/textes/premier_degré.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "premier degré"
+  },
+  "data/textes/sorties_encadrement_2024.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "sorties encadrement 2024"
+  }
+ }
+}

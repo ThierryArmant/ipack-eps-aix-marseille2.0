@@ -165,6 +165,26 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn('Demandez', result)
         self.assertEqual(audit['accepted_claims'][0]['evidence'][0]['quote'], source_packets(DOC)[0]['passages'][0]['text'])
 
+    def test_priority_situation_prevents_neighboring_case_from_entering_model(self):
+        focused = mark_excerpt(TEXT, path='situation.txt', title='Fiche spécifique', priority=300)
+        neighbor = mark_excerpt('CAS VOISIN INAPPLICABLE : autre procédure sans rapport.', path='voisin.txt')
+        llm = FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}])
+        audit = {}
+        review_exam_answer(llm, question='Q', public='GT', documents=focused+'\n\n'+neighbor, audit=audit)
+        self.assertEqual(len(audit['documents']), 2)
+        self.assertIn('CAS VOISIN INAPPLICABLE', audit['context_exact'])
+        self.assertNotIn('CAS VOISIN INAPPLICABLE', '\n'.join(llm.prompts))
+        self.assertEqual(audit['model_document_ids'], ['D1'])
+
+    def test_computed_facts_survive_focus_without_triggering_it_alone(self):
+        facts = mark_excerpt('FAIT CALCULÉ : trois activités dans trois champs distincts.', origin='program')
+        for priority in (0, 300):
+            context = mark_excerpt(TEXT, priority=priority) + '\n\n' + facts
+            audit = {}
+            review_exam_answer(FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}]),
+                               question='Q', public='GT', documents=context, audit=audit)
+            self.assertEqual(audit['model_document_ids'], ['D1', 'D2'])
+
     def test_metadata_only_and_markup_are_not_publishable_claims(self):
         for bad in (claim(quote='Nature de la source : fonctionnement du logiciel ; aucun texte du Bulletin officiel ne prescrit cette procédure.'),
                     claim(text='<script>alert(1)</script>')):

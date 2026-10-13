@@ -16,9 +16,10 @@ _LEVELS = {'reglementaire': 'Texte réglementaire', 'academique': 'Document acad
            'logiciel': 'Documentation du logiciel', 'assistance': "Retour d'assistance", 'documentaire': 'Passage documentaire'}
 
 
-def mark_excerpt(text, *, path='', title=''):
+def mark_excerpt(text, *, path='', title='', priority=0, origin='document', url=''):
     """Identité du passage conservée même après concaténation du contexte."""
-    identity = json.dumps({'path': str(path or ''), 'title': str(title or '')}, ensure_ascii=False)
+    identity = json.dumps({'path': str(path or ''), 'title': str(title or ''), 'priority': priority,
+                           'origin': origin, 'url': str(url or '')}, ensure_ascii=False)
     return f'[EXTRAIT_IDENTIFIE: {identity}]\n{text}'
 
 
@@ -66,7 +67,9 @@ def source_packets(context):
                 passages.append({'id': document_id + 'P' + str(len(passages)+1),
                                  'text': match.group(), 'start': match.start(), 'end': match.end()})
         packets.append({'id': document_id, 'path': identity.get('path', ''),
-                        'title': title, 'nature_declaree': nature_text, 'niveaux_autorises': allowed,
+                        'title': title, 'priority': identity.get('priority', 0),
+                        'origin': identity.get('origin', 'document'), 'url': identity.get('url', ''),
+                        'nature_declaree': nature_text, 'niveaux_autorises': allowed,
                         'text': body, 'passages': passages, 'sha256': hashlib.sha256(body.encode()).hexdigest()})
     return packets
 
@@ -225,6 +228,13 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['context_exact'] = documents
     audit['context_sha256'] = hashlib.sha256(documents.encode()).hexdigest()
     audit['documents'] = packets
+    # Les fiches de situation déjà choisies par le catalogue sont les preuves de départ.
+    # Les passages voisins restent dans le diagnostic mais ne changent pas l'action demandée.
+    focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
+    if focused:
+        packets = focused + [p for p in packets if p['origin'] == 'program']
+    audit['model_document_ids'] = [p['id'] for p in packets]
+    audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
     recorded = TracedLLM(llm, audit)
     model_packets = [{k: v for k, v in p.items() if k not in ('text', 'sha256')} for p in packets]
     data = json.dumps({'public': public, 'question': question, 'documents': model_packets}, ensure_ascii=False)

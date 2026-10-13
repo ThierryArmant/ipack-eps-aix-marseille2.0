@@ -1888,7 +1888,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
-                            title=n.node.metadata.get('title', '')) if mode == "examens" else _bloc)
+                            title=n.node.metadata.get('title', ''), priority=n.node.metadata.get('priorite', 0)) if mode == "examens" else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
@@ -1909,7 +1909,7 @@ if prompt_a_traiter:
                             continue
                         _vus.add(_cle)
                         _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
-                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''))
+                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt))
                                          if mode == "examens" else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)
@@ -2523,7 +2523,7 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
                 if mode == "examens":
                     contexte_complet_ia = extraits_doc
                     if faits_champs.strip():
-                        contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme")
+                        contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme", origin="program")
                     if verites_terrain_pierre.strip():
                         contexte_complet_ia += "\n\n" + mark_excerpt(verites_terrain_pierre, title="Retours d'assistance complémentaires")
 
@@ -2556,13 +2556,16 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 try:
                     if mode == "examens":
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
-                                         'sources_affichees': sources_consultees,
+                                         'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
                         reponse_ia = review_exam_answer(
                             Settings.llm, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
+                        _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
+                        sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
+                                             for p in diagnostic_ia['documents'] if p['id'] in _doc_utilises]
                     else:
                         response = Settings.llm.complete(consigne_ia)
                         reponse_ia = response.text
@@ -2773,6 +2776,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         if diagnostic_ia is not None:
             diagnostic_ia['answer_after_controls'] = texte_brut
             diagnostic_ia['displayed_body'] = texte_final
+            diagnostic_ia['sources_affichees_finales'] = sources_consultees
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",

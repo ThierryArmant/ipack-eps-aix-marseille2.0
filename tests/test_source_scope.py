@@ -16,7 +16,8 @@ def packets(path=FRAUD):
 
 
 def supported(span,level='reglementaire'):
-    return {'section':'decision','text':'Le passage cité décrit la règle à appliquer.',
+    # Une affirmation reprend le vocabulaire du passage qui l'énonce (contrôle lexical).
+    return {'section':'decision','text':span['text'][:300],
             'evidence':[{'document_id':'D1','passage_ids':[span['id']],'level':level}],
             'checks':CHECKS.copy()}
 
@@ -34,6 +35,7 @@ class SourceScopeTests(unittest.TestCase):
         self.assertFalse(errors)
         answer=render_claims(good,ps)
         self.assertIn('Fiche mixte : circuit académique + cadre national',answer)
+        self.assertIn('origine académique : Aix-Marseille',answer)
         self.assertNotIn('Texte réglementaire :',answer)
 
     def test_creteil_keeps_national_fraud_steps_unmarked(self):
@@ -85,6 +87,16 @@ class SourceScopeTests(unittest.TestCase):
         answer=render_claims(good,ps)
         self.assertNotIn('faux BO',answer)
         self.assertNotIn('Texte réglementaire',answer)
+
+    def test_unrelated_passage_is_rejected(self):
+        # EX290 : une règle sur la fraude ne peut pas être prouvée par la fiche du modèle de PV.
+        pv='data/commun/audit60/pv_ccf_prudence.txt'
+        ps=packets(pv)
+        c=supported(ps[0]['passages'][0])
+        c['text']="L'enseignant ne peut pas saisir zéro dans Santorin pour sanctionner un candidat soupçonné de fraude."
+        good,errors=validate_claims({'claims':[c]},ps)
+        self.assertFalse(good)
+        self.assertIn('sans rapport',str(errors))
 
     def test_annotated_evidence_requires_identified_passage(self):
         ps=packets()

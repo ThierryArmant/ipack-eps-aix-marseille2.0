@@ -19,6 +19,29 @@ _LEVELS = {'reglementaire': 'Texte réglementaire', 'academique': 'Document acad
            'programme': 'Repère du programme', 'non_documente': 'Information non documentée'}
 
 
+_MOTS_VIDES = set("""avant apres aussi autre autres avoir cette celle celui ceux comme dans depuis doit doivent donc elle elles entre etre leur leurs lors meme mais pour peut peuvent plus sans selon sera sont tout toute toutes tous votre vous quand quel quelle quels quelles alors ainsi encore chaque
+service services examen examens etablissement academie academique document documents fourni fournis precise precisee""".split())
+
+
+def _racines(texte):
+    """Racines (5 lettres) des mots porteurs de sens, sans accents."""
+    texte = unicodedata.normalize('NFKD', str(texte).lower())
+    texte = ''.join(c for c in texte if not unicodedata.combining(c))
+    return {m[:5] for m in re.findall(r"[a-z]{4,}", texte) if m not in _MOTS_VIDES}
+
+
+def lexical_support(text, supports):
+    """Contrôle mécanique minimal : le passage cité doit partager le vocabulaire de l'affirmation.
+
+    Il ne prouve pas l'implication, mais écarte une preuve prise dans une fiche sans rapport
+    (EX290 : une règle sur la fraude rattachée à la fiche du modèle de PV)."""
+    claim = _racines(text)
+    if not claim:
+        return True
+    shared = claim & _racines(' '.join(supports))
+    return len(shared) >= min(2, len(claim)) and len(shared) / len(claim) >= 0.3
+
+
 def mark_excerpt(text, *, path='', title='', priority=0, origin='document', url=''):
     """Identité du passage conservée même après concaténation du contexte."""
     identity = json.dumps({'path': str(path or ''), 'title': str(title or ''), 'priority': priority,
@@ -245,6 +268,8 @@ def validate_claims(data, packets, *, checked=False):
                     errors.append('référence absente des documents justificatifs')
             if re.search(r'<[^>]+>', text):
                 errors.append('HTML interdit dans une affirmation')
+            if supports and not errors and not lexical_support(text, supports):
+                errors.append('passage cité sans rapport avec l’affirmation : choisir le passage qui l’énonce')
         if checked:
             checks = claim.get('checks', {})
             if not isinstance(checks, dict) or any(checks.get(k) is not True for k in

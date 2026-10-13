@@ -82,6 +82,12 @@ def model_passage(span):
     return result
 
 
+def _nom_academie(code):
+    # Le registre stocke un identifiant (« aix-marseille ») ; l'affichage garde le nom officiel.
+    from academie import ACADEMIES
+    return next((a for a in ACADEMIES if a.lower().replace(' ', '-') == str(code).lower()), str(code))
+
+
 def evidence_label(evidence, packet, labels):
     scope=evidence.get('scope', {})
     kinds=scope.get('nature', [])
@@ -93,7 +99,7 @@ def evidence_label(evidence, packet, labels):
     if scope.get('academy'):
         label+=' — '+scope['academy']
     elif scope.get('file_academy') and 'consigne_academique' in kinds:
-        label+=' — origine académique : '+scope['file_academy']
+        label+=' — origine académique : '+_nom_academie(scope['file_academy'])
     if scope.get('not_confirmed_for'):
         label+=(' (application locale à vérifier pour ' if len(kinds)>1 else ' (non confirmé pour ')+scope['not_confirmed_for']+')'
     if scope.get('other_academies'):

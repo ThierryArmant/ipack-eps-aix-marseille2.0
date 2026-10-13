@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:15 — partie fiches, en urgence — app.py (voir git log)
+Fait : hub en panne après 6e4a93c (ImportError sur `suggested_tab`) : Streamlit gardait l'ancien `response_controls` en mémoire. Le bloc de rechargement en tête d'`app.py` recharge désormais tous les modules du projet (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache) quand leur fichier change, avant les imports de fonctions. 260 tests passent. Réparation immédiate demandée à l'enseignant : Reboot app.
+Attendu de l'autre partie : en ajoutant un module importé par app.py, l'ajouter à cette liste de rechargement.
+
 ### 2026-10-13 20:10 — partie programme — réponses partielles (voir git log)
 Fait : périmètre de l'entrée de 20:00 pris en charge. Réponse courte autorisée, aucune décision obligatoire, rubriques vides omises. Une liste d'affirmations vide produit le message « Aucune consigne applicable trouvée dans la documentation disponible. À vérifier auprès du service des examens de votre académie. », sans deuxième appel. Les consignes interdisent de compléter par un cas voisin. Contrôles ciblés avant génération, sur les affirmations et sur le repli : note collective versus inaptitude, absence ponctuelle versus inaptitude annuelle. 260 tests réussis (dont cinq nouveaux). Signalement non bloquant de l'onglet iPackEPS pour import/synchronisation BEE des groupes en mode Examens ; export Cyclades exclu de ce signalement.
 Constaté : le rendu omettait déjà les sections vides, mais le contrôle imposait une décision. Les contrôles ciblés ne prouvent pas l'applicabilité générale de chaque passage ; la vérification des sept réponses en ligne reste nécessaire.

@@ -2418,7 +2418,7 @@
       "option|eppcs",
       "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))",
       "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
-      "qu.une seule (?:epreuve|note)|une seule (?:epreuve|note) sur"
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -2740,7 +2740,7 @@
       "toute l.annee.*inapt",
       "inapt.*total.*septembre.*juin",
       "(?:collegue|professeur|\\bprof\\b|enseignant|evaluateur|examinateur).{0,40}(?:arret|malad)|(?:arret|malad).{0,30}(?:du|de la|d.un|d.une) (?:collegue|professeur|prof\\b|enseignant)",
-      "qu.une seule (?:epreuve|note)|une seule (?:epreuve|note) sur (?:trois|3)"
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
@@ -4323,7 +4323,8 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
-      "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))"
+      "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))",
+      "(?=.*(?:shn|haut niveau|pole (?:france|espoir)|liste (?:elite|espoir|ministerielle)))(?=.*(?:juste (?:son |le )?20|seulement (?:son |le )?20|que (?:son |le )?20|c.est fini|aucune autre|rien d.autre|ne passe (?:pas|aucune|rien)|dispense des autres|autres epreuves))"
     ],
     "exclure_motifs": [
       "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
@@ -4780,6 +4781,9 @@
     ],
     "motifs": [
       "^(?=.*(?:section sportive|\\bsss\\b))(?=.*(?:\\b20\\b|haut niveau|note|bac))"
+    ],
+    "exclure_motifs": [
+      "pole (?:france|espoir)|\\bshn\\b|liste (?:elite|espoir|ministerielle)"
     ]
   },
   "data/examens/situations_2026_10_13/option_eps_abandon_aix_2027.txt": {
@@ -4813,7 +4817,7 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
-      "^(?=.*(?:qu.une seule (?:epreuve|note|activite)|une seule (?:epreuve|note) sur (?:trois|3)|qu.une note|1 note sur 3|une note sur trois|deux epreuves manquees|rate deux|pas pu passer deux))(?=.*(?:inapt|bless|certificat|malad|arret|compte|retenu|garde))"
+      "^(?=.*(?:qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3|deux epreuves manquees|rate deux|pas pu passer deux))(?=.*(?:inapt|bless|certificat|malad|arret|compte|retenu|garde|fracture|note))"
     ],
     "exclure_motifs": [
       "\\bcap\\b|bac ?pro|ponctuel|shn|haut niveau"

@@ -73,8 +73,12 @@ def model_passage(span):
     result=dict(span)
     scope=span.get('scope', {})
     if scope.get('not_confirmed_for'):
-        result['text']=(f"[Consigne de l’académie d’Aix-Marseille — non confirmée pour {scope['not_confirmed_for']}] "
-                        +span['text'])
+        if len(scope.get('nature', [])) > 1:
+            prefix=(f"[Fiche mixte, passage inventorié pour Aix-Marseille : distinguer le cadre national "
+                    f"de l’application locale, à vérifier pour {scope['not_confirmed_for']}] ")
+        else:
+            prefix=f"[Consigne de l’académie d’Aix-Marseille — non confirmée pour {scope['not_confirmed_for']}] "
+        result['text']=prefix+span['text']
     return result
 
 
@@ -91,7 +95,7 @@ def evidence_label(evidence, packet, labels):
     elif scope.get('file_academy') and 'consigne_academique' in kinds:
         label+=' — origine académique : '+scope['file_academy']
     if scope.get('not_confirmed_for'):
-        label+=' (non confirmé pour '+scope['not_confirmed_for']+')'
+        label+=(' (application locale à vérifier pour ' if len(kinds)>1 else ' (non confirmé pour ')+scope['not_confirmed_for']+')'
     if scope.get('other_academies'):
         label+=' — exemples cités : '+', '.join(scope['other_academies'])
     if scope.get('status')=='non_verifie':

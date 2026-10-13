@@ -40,8 +40,8 @@ class SourceScopeTests(unittest.TestCase):
         self.assertTrue(marked)
         foreign=next(s for s in chosen[0]['passages'] if s['scope'].get('not_confirmed_for'))
         sent=model_passage(foreign)
-        self.assertIn('Consigne de l’académie d’Aix-Marseille',sent['text'])
-        self.assertIn('non confirmée pour Créteil',sent['text'])
+        self.assertIn('Fiche mixte, passage inventorié pour Aix-Marseille',sent['text'])
+        self.assertIn('application locale, à vérifier pour Créteil',sent['text'])
         self.assertEqual(foreign['text'],original[0]['text'][foreign['start']:foreign['end']])
         self.assertFalse(any(s['scope'].get('not_confirmed_for') for s in original[0]['passages']))
 
@@ -82,7 +82,7 @@ class SourceScopeTests(unittest.TestCase):
         self.assertEqual(data['academy'],'Créteil')
         self.assertEqual(len(llm.prompts),1)
         self.assertTrue(audit['marked_academic_passages'])
-        self.assertIn('Consigne de l’académie d’Aix-Marseille',
+        self.assertIn('Fiche mixte, passage inventorié pour Aix-Marseille',
                       '\n'.join(s['text'] for p in data['documents'] for s in p['passages']))
         self.assertFalse(audit['semantic_review'])
 

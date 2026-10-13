@@ -29,3 +29,6 @@ Sources : https://eps.enseigne.ac-lyon.fr/spip/spip.php?rubrique77 ; https://eps
 Les tutoriels vidéo pointent vers PeerTube ; aucune transcription exploitable obtenue. Les espaces Tribu/Nuage ne sont pas ouverts ni présumés consultés.
 Pistes utiles : contrôles de concordance des groupes, adresse de l’évaluateur, distribution des lots, enregistrement, archivage détaillé AFL/AFLP. Les dates, contacts et dépôts Nuage sont propres à Lyon et ne sont pas intégrés comme consignes d’Aix.
 Vigilance : l’article1966 intitulé 2027 conserve une plage de dates de 2025 et un jour de semaine erroné. Le mémento réserve l’association au CE alors que l’article1974 décrit aussi un accès évaluateur. Ces points ne sont pas transformés en consignes universelles. Aucune fiche Lyon n’est activée pour les réponses d’Aix sur la seule foi de ces documents.
+
+## Guide utilisateur IMAG’IN v18.4.0 fourni ensuite
+157 pages, métadonnées du 12 mars 2025, guide gestionnaire DSII Rennes. Lecture ciblée : rôles, missions EPSAC/EPSCC, affectation, convocations (pages 8–9, 58–59, 87 et traitement de convocation). Une fiche supplémentaire documente le cas CFA et le remplaçant sans attribuer des écrans gestionnaires à l’enseignant. Le reste du guide ne constitue pas une source EPS intégrée. Total de cette reprise : 25 fiches nouvelles.

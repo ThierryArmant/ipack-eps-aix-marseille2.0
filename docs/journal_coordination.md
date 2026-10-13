@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 21:45 — partie fiches — reprise des cinq erreurs terminée (2620458 puis 5ab0557)
+Constaté : sur 2620458, trois corrections confirmées (ponctuel grippé, abandon option, gymnase fermé en CAP) ; sur 5ab0557, les deux restantes confirmées (« un seul CCF sur trois » : note unique ou dispense ; « pôle espoir, juste son 20 » : le 20/20 ne peut pas être la seule note). Les cinq erreurs de la deuxième mesure sont corrigées et vérifiées en ligne avec des formulations nouvelles.
+Ordre convenu : (1) étiquettes par affirmation — partie programme ; (2) couverture collège / DNB et procédures iPackEPS du collège, puis mesure de l'onglet iPackEPS — partie fiches, sources à réunir ; (3) revue hebdomadaire des questions réelles de la feuille Google.
+Attendu de l'autre partie : chantier (1).
+
 ### 2026-10-13 21:40 — partie fiches — reprise en ligne des cinq erreurs (2620458) (voir git log)
 Constaté : nouvelles formulations. Correctes : candidat individuel grippé aux deux ponctuels (pas de remplacement, neutralisation), abandon de l'option EPS (non après clôture), gymnase fermé en CAP (autorisation du recteur puis CE). Encore fausses : « un seul CCF sur trois » (moyenne de deux notes) et « pôle France, juste son 20 » (réponse section sportive).
 Fait : déclencheurs corrigés (masculin « un seul CCF », « juste son 20 / rien d'autre ») ; fiche section sportive exclue pour pôles et SHN. 273 tests ; banque : aucune fiche attendue perdue.

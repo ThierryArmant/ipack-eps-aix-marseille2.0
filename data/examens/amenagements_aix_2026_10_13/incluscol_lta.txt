@@ -1,0 +1,6 @@
+### Incluscol : limitation temporaire d’activité (LTA)
+[PORTEE: dnb,gt,pro,cap]
+La LTA vise une situation médicale transitoire : une campagne spécifique ouverte et un certificat sont requis. Finaliser le dossier jusqu’au statut créé. Elle ne vaut que pour la session courante. Le guide n’offre pas modification, complément, reconduction ou recours pour une LTA dans l’application ; cela ne tranche pas les voies de contestation hors application. Ce circuit ne remplace pas les règles EPS d’adaptation, de différé ou de dispense.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide candidat scolarisé, juillet 2026, p. 26-28 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf

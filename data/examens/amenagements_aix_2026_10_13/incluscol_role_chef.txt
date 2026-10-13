@@ -1,0 +1,6 @@
+### Incluscol : qui saisit les mesures et quel rôle pour le chef ?
+[PORTEE: dnb,gt,pro,cap]
+Le candidat ou sa famille crée la demande. En procédure simplifiée, le chef d’établissement sélectionne les mesures cohérentes avec le PAP/PAI/PPS et le règlement d’examen. En procédure complète, il porte l’avis pédagogique avec l’équipe et fournit les pièces pédagogiques requises ; le médecin et l’autorité administrative interviennent ensuite. Ce rôle est propre à Incluscol, pas à la transmission du dossier EPS d’iPackEPS.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, fiche de rôle du chef d’établissement, consultée le 13 octobre 2026 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/flyerrolecev2pdf-112743.pdf

@@ -4937,6 +4937,281 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "sorties encadrement 2024"
+  },
+  "data/ipack/courriels_aix_2026_10_13/classe_apprentis_absente.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix : classe d’apprentis absente malgré SIECLE — import et vérification",
+   "type_source": "courriel_assistance",
+   "source_reference": "Assistance académique iPackEPS, échanges des 8 et 9 octobre 2026 sur une classe UFA/CFA absente ; résolution confirmée après nouvel import."
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_activation_confirmee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix : type SSS indisponible — activation par l’assistance",
+   "type_source": "courriel_assistance",
+   "source_reference": "Assistance académique iPackEPS, réponse du 8 octobre 2026 ; confirmation du fonctionnement par l’utilisateur le 13 octobre 2026."
+  },
+  "data/ipack/courriels_aix_2026_10_13/protocoles_pro_groupes_certificatifs.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix : FCA déposées mais protocoles professionnels impossibles — vérifier les groupes",
+   "type_source": "courriel_assistance",
+   "source_reference": "Assistance académique iPackEPS, réponse du 9 octobre 2026 à une difficulté de saisie des protocoles de voie professionnelle après dépôt des FCA."
+  },
+  "data/ipack/courriels_aix_2026_10_13/enseignants_deux_structures_sts.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix : enseignant présent au lycée mais absent du collège — diagnostic STS-Web",
+   "type_source": "courriel_assistance",
+   "source_reference": "Assistance académique iPackEPS, échanges des 2 et 6 octobre 2026 ; relance du 9 octobre confirmant un blocage persistant pour une structure."
+  },
+  "data/ipack/courriels_aix_2026_10_13/eleve_parti_alerte_sans_groupe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix : élève parti encore affiché « pas de groupe » — distinguer affichage et inscription",
+   "type_source": "courriel_assistance",
+   "source_reference": "Assistance académique iPackEPS, réponse du 8 octobre 2026 ; relance du 9 octobre sur une alerte persistante après changement d’établissement."
+  },
+  "data/ipack/courriels_aix_2026_10_13/centres_etrangers_blocage_non_resolu.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix — centres étrangers suivis par le service : fonctions et erreur persistante",
+   "type_source": "courriel_assistance",
+   "source_reference": "Courriel de coordination des examens du 12 octobre 2026, centres étrangers ; réponses d’assistance des 12 et 13 octobre 2026, ticket VERDON annoncé."
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_vaucluse_campagne_2026.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "Aix-Marseille uniquement — échange daté",
+   "titre": "Aix — Vaucluse : renouvellement SSS pour la rentrée 2027, campagne 2026",
+   "type_source": "courriel_academique",
+   "source_reference": "Courriel de suivi départemental des SSS du 29 septembre 2026, Vaucluse, relayant les éléments de pilotage de l’inspection ; repris dans la chaîne du 8 octobre."
+  },
+  "data/examens/amenagements_aix_2026_10_13/aix_plateforme_2027.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Aix 2027 : Incluscol ou AMEX selon l’examen"
+  },
+  "data/examens/amenagements_aix_2026_10_13/procedure_simplifiee_complete.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Aménagements d’examen : PAP/PAI/PPS et choix de procédure"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_role_chef.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : qui saisit les mesures et quel rôle pour le chef ?"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_demande_brouillon.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : demande enregistrée mais pas finalisée"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_pieces_pdf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : pièce refusée, format PDF et taille maximale"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_compte_individuel.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : candidat sans EduConnect et rattachement à l’établissement"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_lta.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : limitation temporaire d’activité (LTA)"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_redoublement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : redoublement, reconduction et nouvelle notification"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_erreur_procedure.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : corriger une procédure complète en simplifiée"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_identite_etablissement.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : identité erronée ou changement d’établissement"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_recours.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Incluscol : recours après refus d’aménagement"
+  },
+  "data/examens/amenagements_aix_2026_10_13/amex_documents_medicaux.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Aix — AMEX terminale GT : pièces médicales et dossier envoyé"
+  },
+  "data/examens/amenagements_aix_2026_10_13/formulaires_nationaux_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Aménagements : formulaires nationaux actualisés depuis la session 2026"
+  },
+  "data/examens/amenagements_aix_2026_10_13/handicap_conservation_etalement_gt.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "source datée, aménagements d’examen",
+   "titre": "Bac GT handicap : conservation de notes et étalement sont distincts"
+  },
+  "data/examens/apprentissage_paca_2026_10_13/habilitation_apprentis_prive.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "paca",
+   "academies_applicables": [
+    "Aix-Marseille",
+    "Nice"
+   ],
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "région académique PACA",
+   "titre": "PACA : apprentis en établissement privé sous contrat — habilitation au CCF"
+  },
+  "data/examens/apprentissage_paca_2026_10_13/cfa_porteur_ufa.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "paca",
+   "academies_applicables": [
+    "Aix-Marseille",
+    "Nice"
+   ],
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "région académique PACA",
+   "titre": "PACA : demande d’habilitation CCF par le CFA porteur, pas par l’UFA"
+  },
+  "data/examens/apprentissage_paca_2026_10_13/uai_fiche_cfa.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "paca",
+   "academies_applicables": [
+    "Aix-Marseille",
+    "Nice"
+   ],
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "région académique PACA",
+   "titre": "PACA : fiche UAI d’un CFA — mise à jour administrative"
   }
  }
 }

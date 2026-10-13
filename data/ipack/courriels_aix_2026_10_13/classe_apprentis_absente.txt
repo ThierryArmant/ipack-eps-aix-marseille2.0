@@ -1,0 +1,11 @@
+### Aix : classe d’apprentis absente malgré SIECLE — import et vérification
+[PORTEE: gt,pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Une classe d’apprentis absente d’iPackEPS n’est pas nécessairement un simple groupe EPS à créer. Distinguer : les élèves existent-ils dans l’application ?
+1. Vérifier [Mes élèves] > [Visualisation], avec les filtres « Visualisation par classe : Toutes », « Types : Toute », « Sélection : Toutes », tels qu’indiqués par l’assistance dans cet échange.
+2. Si les élèves sont absents malgré leur présence dans SIECLE, signaler l’écart à l’assistance académique. Dans le cas documenté, l’assistance a transmis aux services puis demandé de refaire l’import des classes et des élèves ; la remontée a été confirmée le 9 octobre.
+La manipulation effectuée par les services entre les deux imports n’est pas décrite. Ne pas promettre qu’un nouvel import suffira toujours, ni inventer une procédure de création manuelle des apprentis. Si l’import reste incomplet, faire suivre le diagnostic à l’assistance.
+Ne pas confondre ce cas avec « élèves importés mais groupes EPS absents » : dans ce deuxième cas, consulter la documentation de création/placement des groupes.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Assistance académique iPackEPS, échanges des 8 et 9 octobre 2026 sur une classe UFA/CFA absente ; résolution confirmée après nouvel import.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

@@ -1,0 +1,11 @@
+### Aix : élève parti encore affiché « pas de groupe » — distinguer affichage et inscription
+[PORTEE: gt,pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Cas documenté : un élève de terminale a changé d’établissement, sa fiche SIECLE ne relève plus de l’ancien établissement, il n’est affecté à aucun groupe EPS dans celui-ci, mais reste affiché dans l’alerte « pas de groupe » malgré les imports.
+Pour cette situation précise, l’assistance indique le 8 octobre 2026 qu’il sera inscrit à l’examen par le nouvel établissement et que les listes Cyclades fondées sur les inscriptions corrigeront l’écart ; elle demande de ne pas traiter l’ancienne alerte comme une obligation de lui créer un groupe EPS.
+Cette réponse n’autorise pas à ignorer toutes les alertes d’élèves sans groupe : vérifier d’abord le départ, le changement d’établissement et l’absence d’affectation. Un élève toujours scolarisé reste une autre situation.
+L’utilisateur confirme avoir suivi ce conseil mais signale encore une alerte le 9 octobre. Le fichier ne confirme pas la disparition finale de cette alerte. Ne pas inventer un bouton de suppression d’élève ni promettre un délai.
+Le transfert de notes déjà obtenues et l’abandon d’une option sont des questions distinctes.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Assistance académique iPackEPS, réponse du 8 octobre 2026 ; relance du 9 octobre sur une alerte persistante après changement d’établissement.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

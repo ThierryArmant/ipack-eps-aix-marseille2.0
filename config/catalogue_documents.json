@@ -1,4 +1,552 @@
 {
+  "data/examens/apprentissage_paca_2026_10_13/habilitation_apprentis_prive.txt": {
+    "title": "PACA : apprentis en établissement privé sous contrat — habilitation au CCF",
+    "statut": "source_regionale_lue_2026_10_13",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:apprent|cfa|ufa|mfr))(?=.*(?:habilitation|habilite|ccf))(?=.*(?:prive|sous contrat|mixite|tacite))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://www.ac-aix-marseille.fr/media/16381/download"
+  },
+  "data/examens/apprentissage_paca_2026_10_13/cfa_porteur_ufa.txt": {
+    "title": "PACA : demande d’habilitation CCF par le CFA porteur, pas par l’UFA",
+    "statut": "source_regionale_lue_2026_10_13",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:cfa|ufa|greta))(?=.*habilitation)(?=.*(?:porteur|qui.{0,25}(?:demande|depose)|nouvelle formation|toutes les formations))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://www.ac-aix-marseille.fr/media/16381/download"
+  },
+  "data/examens/apprentissage_paca_2026_10_13/uai_fiche_cfa.txt": {
+    "title": "PACA : fiche UAI d’un CFA — mise à jour administrative",
+    "statut": "source_regionale_lue_2026_10_13",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:cfa|apprent))(?=.*(?:uai|immatricul))(?=.*(?:a ouvrir|mise a jour|siege|fiche|habilit))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://www.ac-aix-marseille.fr/media/40611/download"
+  },
+  "data/examens/amenagements_aix_2026_10_13/aix_plateforme_2027.txt": {
+    "title": "Aix 2027 : Incluscol ou AMEX selon l’examen",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:incluscol|amex|amenagement.{0,12}examen))(?=.*(?:2027|plateforme|application|quel site|ou deposer|armee|agricultur))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [
+      "2027"
+    ],
+    "url": "https://www.ac-aix-marseille.fr/amenagement-d-epreuves-aux-examens-121669"
+  },
+  "data/examens/amenagements_aix_2026_10_13/procedure_simplifiee_complete.txt": {
+    "title": "Aménagements d’examen : PAP/PAI/PPS et choix de procédure",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:amenagement|incluscol|amex))(?=.*(?:simplifi|complete|pap|pai|pps|medecin|tiers.?temps))"
+    ],
+    "exclure_motifs": [
+      "piece|pdf|10 mo|modifier|erreur|transform|recours|refus|redoubl|compte|lta"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/5538/organisation-des-examens-de-l-enseignement-scolaire-pour-les-candidats-en-situation-de-handicap"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_role_chef.txt": {
+    "title": "Incluscol : qui saisit les mesures et quel rôle pour le chef ?",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:qui.{0,35}(?:sais|coch|mesure)|role.{0,25}chef|chef.{0,25}mesure))"
+    ],
+    "exclure_motifs": [
+      "modif|erreur|complete.{0,20}simplifi|piece medicale"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/flyerrolecev2pdf-112743.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_demande_brouillon.txt": {
+    "title": "Incluscol : demande enregistrée mais pas finalisée",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:cours de creation|brouillon|finalis|enregistre|ne voit|pas transmis|demande creee))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_pieces_pdf.txt": {
+    "title": "Incluscol : pièce refusée, format PDF et taille maximale",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:pdf|10 mo|taille|format|piece.{0,20}(?:refus|depos|vers|medical)))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/incluscol-foire-aux-questions-pour-les-candidats-127574.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_compte_individuel.txt": {
+    "title": "Incluscol : candidat sans EduConnect et rattachement à l’établissement",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:compte|educonnect|rattach))"
+    ],
+    "exclure_motifs": [
+      "chang.{0,15}etablissement|redoubl"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-individuelpdf-113385.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_lta.txt": {
+    "title": "Incluscol : limitation temporaire d’activité (LTA)",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "\\blta\\b|(?=.*incluscol)(?=.*(?:limitation temporaire|accident|fracture|blessure))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_redoublement.txt": {
+    "title": "Incluscol : redoublement, reconduction et nouvelle notification",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:incluscol|amenagement.{0,15}examen))(?=.*(?:redoubl|reconduc|validite.{0,20}notification))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_erreur_procedure.txt": {
+    "title": "Incluscol : corriger une procédure complète en simplifiée",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:erreur|modifi|transform|passer|chang))(?=.*(?:complete|simplifi|procedure))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-chef-detablissementpdf-113391.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_identite_etablissement.txt": {
+    "title": "Incluscol : identité erronée ou changement d’établissement",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*incluscol)(?=.*(?:identite|nom|prenom|chang.{0,20}etablissement))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/incluscol-foire-aux-questions-pour-les-candidats-127574.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/incluscol_recours.txt": {
+    "title": "Incluscol : recours après refus d’aménagement",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:incluscol|amenagement.{0,15}examen))(?=.*(?:recours|refus|contest|deux mois|2 mois))"
+    ],
+    "exclure_motifs": [
+      "\\blta\\b"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-individuelpdf-113385.pdf"
+  },
+  "data/examens/amenagements_aix_2026_10_13/amex_documents_medicaux.txt": {
+    "title": "Aix — AMEX terminale GT : pièces médicales et dossier envoyé",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*amex)(?=.*(?:medical|piece|envoye|sign|notification|televers|envoi))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [
+      "2027"
+    ],
+    "url": "https://www.ac-aix-marseille.fr/media/40740/download"
+  },
+  "data/examens/amenagements_aix_2026_10_13/formulaires_nationaux_2026.txt": {
+    "title": "Aménagements : formulaires nationaux actualisés depuis la session 2026",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:amenagement|incluscol|amex))(?=.*(?:formulaire|annexe))"
+    ],
+    "exclure_motifs": [],
+    "sessions": [],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo31/MENE2506522C"
+  },
+  "data/examens/amenagements_aix_2026_10_13/handicap_conservation_etalement_gt.txt": {
+    "title": "Bac GT handicap : conservation de notes et étalement sont distincts",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:handicap|amenagement))(?=.*(?:conserv.{0,20}note|benefice.{0,20}note|etalement))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac pro|professionnel"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap"
+  },
+  "data/ipack/courriels_aix_2026_10_13/classe_apprentis_absente.txt": {
+    "title": "Aix : classe d’apprentis absente malgré SIECLE — import et vérification",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:ufa|cfa|apprent))(?=.*(?:class|eleve|groupe))(?=.*(?:absen|manqu|apparai|introuv))"
+    ],
+    "exclure_motifs": [],
+    "exclusif_motifs": [
+      "(?=.*(?:ufa|cfa|apprent))(?=.*(?:class|eleve|groupe))(?=.*(?:absen|manqu|apparai|introuv))"
+    ],
+    "sessions": []
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_activation_confirmee.txt": {
+    "title": "Aix : type SSS indisponible — activation par l’assistance",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:sss|section sportive))(?=.*(?:type|groupe))(?=.*(?:pas propose|impossible|ne parviens|inactive|activation|sport.?etude))"
+    ],
+    "exclure_motifs": [],
+    "exclusif_motifs": [
+      "(?=.*(?:sss|section sportive))(?=.*(?:type|groupe))(?=.*(?:pas propose|impossible|ne parviens|inactive|activation|sport.?etude))"
+    ],
+    "sessions": []
+  },
+  "data/ipack/courriels_aix_2026_10_13/protocoles_pro_groupes_certificatifs.txt": {
+    "title": "Aix : FCA déposées mais protocoles professionnels impossibles — vérifier les groupes",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:professionnel|voie pro|bac pro|\\bcap\\b))(?=.*protocole)(?=.*(?:fca|referentiel|100 ?%))(?=.*(?:impossible|vide|pas|sais|bloqu))"
+    ],
+    "exclure_motifs": [],
+    "exclusif_motifs": [
+      "(?=.*(?:professionnel|voie pro|bac pro|\\bcap\\b))(?=.*protocole)(?=.*(?:fca|referentiel|100 ?%))(?=.*(?:impossible|vide|pas|sais|bloqu))"
+    ],
+    "sessions": []
+  },
+  "data/ipack/courriels_aix_2026_10_13/enseignants_deux_structures_sts.txt": {
+    "title": "Aix : enseignant présent au lycée mais absent du collège — diagnostic STS-Web",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:enseign|collegue|prof))(?=.*(?:cite scolaire|deux structures|deux etablissements|college.{0,35}lycee|lycee.{0,35}college|sts.?web))(?=.*(?:manqu|absen|acces|affect|apparai|actualis))"
+    ],
+    "exclure_motifs": [
+      "jour du ccf|co.?evaluateur.{0,25}(?:malade|absent)"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:enseign|collegue|prof))(?=.*(?:cite scolaire|deux structures|deux etablissements|college.{0,35}lycee|lycee.{0,35}college|sts.?web))(?=.*(?:manqu|absen|acces|affect|apparai|actualis))"
+    ],
+    "sessions": []
+  },
+  "data/ipack/courriels_aix_2026_10_13/eleve_parti_alerte_sans_groupe.txt": {
+    "title": "Aix : élève parti encore affiché « pas de groupe » — distinguer affichage et inscription",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
+    ],
+    "exclure_motifs": [
+      "option|eppcs|abandon|transmettre.{0,15}note|moyenne|releve de note"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
+    ],
+    "sessions": []
+  },
+  "data/ipack/courriels_aix_2026_10_13/centres_etrangers_blocage_non_resolu.txt": {
+    "title": "Aix — centres étrangers suivis par le service : fonctions et erreur persistante",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:centre.{0,15}etranger|etablissement.{0,15}etranger|aefe))(?=.*(?:ipack|protocole|sequence|certific|fonctions))"
+    ],
+    "exclure_motifs": [],
+    "exclusif_motifs": [
+      "(?=.*(?:centre.{0,15}etranger|etablissement.{0,15}etranger|aefe))(?=.*(?:ipack|protocole|sequence|certific|fonctions))"
+    ],
+    "sessions": [
+      "2026"
+    ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_vaucluse_campagne_2026.txt": {
+    "title": "Aix — Vaucluse : renouvellement SSS pour la rentrée 2027, campagne 2026",
+    "statut": "courriel_source_anonymise_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:vaucluse|\\b84\\b))(?=.*(?:sss|section sportive))(?=.*(?:renouv|reconduc|calendrier|echeance|convention|annexe))"
+    ],
+    "exclure_motifs": [],
+    "exclusif_motifs": [
+      "(?=.*(?:vaucluse|\\b84\\b))(?=.*(?:sss|section sportive))(?=.*(?:renouv|reconduc|calendrier|echeance|convention|annexe))"
+    ],
+    "sessions": [
+      "2026",
+      "2027"
+    ]
+  },
   "data/ipack/acces_ipackeps_problemes.txt": {
     "title": "Accès iPackEPS et portail ESTEREL",
     "statut": "revue_corpus_2026-10-11",

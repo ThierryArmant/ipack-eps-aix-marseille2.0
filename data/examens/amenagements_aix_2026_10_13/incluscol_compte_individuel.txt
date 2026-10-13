@@ -1,0 +1,6 @@
+### Incluscol : candidat sans EduConnect et rattachement à l’établissement
+[PORTEE: dnb,gt,pro,cap]
+Sans compte EduConnect, créer un compte Incluscol, compléter l’inscription puis finaliser avec le courriel reçu. Un candidat scolarisé peut rattacher ce compte à son établissement. Ce compte individuel d’accès ne transforme pas automatiquement son statut d’inscription à l’examen en candidat libre. Vérifier le rattachement plutôt que demander systématiquement de supprimer une demande existante.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide candidat individuel, juillet 2026, p. 2-6 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-individuelpdf-113385.pdf

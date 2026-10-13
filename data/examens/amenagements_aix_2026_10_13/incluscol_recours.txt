@@ -1,0 +1,6 @@
+### Incluscol : recours après refus d’aménagement
+[PORTEE: dnb,gt,pro,cap]
+Après notification d’une décision administrative refusant tout ou partie des mesures, un recours Incluscol est possible pendant deux mois, même si la campagne est fermée. Joindre le courrier daté et signé et les pièces requises ; conserver la notification précédente jusqu’à la nouvelle décision. Distinguer décision administrative et avis médical. La fonctionnalité de recours ordinaire ne doit pas être promise pour une LTA.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide candidat individuel, juillet 2026, p. 23-24 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-individuelpdf-113385.pdf

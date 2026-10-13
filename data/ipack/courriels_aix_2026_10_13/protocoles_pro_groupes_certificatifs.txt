@@ -1,0 +1,10 @@
+### Aix : FCA déposées mais protocoles professionnels impossibles — vérifier les groupes
+[PORTEE: pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Un dépôt des FCA et des référentiels à 100 % ne suffit pas à établir que les groupes certificatifs sont constitués.
+La réponse de l’assistance du 9 octobre 2026 précise que les protocoles affichés dans « Protocoles d’évaluation des épreuves… » proviennent du module [Groupes], où sont renseignés le nom des groupes certificatifs, les périodes des cycles et les SA (situations d’apprentissage).
+Vérifier d’abord que ces groupes certificatifs ont été constitués et que ces éléments sont renseignés. Si les groupes existent et que le blocage persiste, relever le message exact et contacter l’assistance.
+L’échange ne contient pas de confirmation finale de résolution. Ne pas affirmer que les groupes manquent dans le cas de l’utilisateur, ni proposer de retéléverser toutes les FCA sans diagnostic.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Assistance académique iPackEPS, réponse du 9 octobre 2026 à une difficulté de saisie des protocoles de voie professionnelle après dépôt des FCA.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

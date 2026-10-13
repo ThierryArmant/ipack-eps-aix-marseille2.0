@@ -1,0 +1,6 @@
+### Incluscol : demande enregistrée mais pas finalisée
+[PORTEE: dnb,gt,pro,cap]
+Une demande « En cours de création » n’est pas prête à être traitée. Avant fermeture de campagne, reprendre « Mes demandes », vérifier les données et pièces, terminer la validation du récapitulatif. Le statut doit devenir « Demande créée ». La consultation d’un brouillon par le chef ne remplace pas cette validation.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide candidat scolarisé, PDF portant juillet 2026, p. 15 et 29-30 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf

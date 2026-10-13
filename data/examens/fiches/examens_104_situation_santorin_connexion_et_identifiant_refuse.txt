@@ -5,3 +5,6 @@ Refus dès le portail : faire vérifier le compte par l’assistance informatiqu
 CCF EPS en établissement : faire vérifier mission et distribution des lots par le secrétariat des examens / la direction.
 Correction de copies écrites : vérifier la convocation et la mission de correction, puis s’adresser au service organisateur / DEC. Ne pas demander au chef d’établissement de créer une mission EPS pour trouver des copies écrites.
 Le guide Santorin Aix indique que le correcteur doit être affecté à une mission de correction dans Imag’in avant d’accéder aux supports attribués.
+
+Aix-Marseille, CCF EPS : le webinaire des 20 et 21 mars 2024 distingue [Portail d’accès aux missions] > [Notation EPS CCF] pour Santorin de [Gestion des épreuves EPS] pour les protocoles Cyclades. Ce chemin est documenté en 2024 ; ne pas inventer une mission si elle n’apparaît pas.
+Source complémentaire : webinaire académique utilisation de Santorin, 20 et 21 mars 2024, document fourni ; page académique Imag’in consultée le 13 octobre 2026 : https://www.ac-aix-marseille.fr/imagin

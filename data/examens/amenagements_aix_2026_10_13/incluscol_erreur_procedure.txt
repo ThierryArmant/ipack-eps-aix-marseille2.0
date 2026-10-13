@@ -1,0 +1,6 @@
+### Incluscol : corriger une procédure complète en simplifiée
+[PORTEE: dnb,gt,pro,cap]
+Le guide chef de juillet 2026 permet au chef, et à lui seul, de passer de complète à simplifiée tant que le corps médical n’est pas intervenu. L’action annule et historise l’ancienne demande, supprime ses pièces et crée une demande simplifiée ; le candidat est informé. La FAQ chefs 2025 disait que seul le candidat pouvait corriger : ne pas appliquer cette ancienne restriction sans vérifier la version. Si l’action est indisponible, solliciter le service des examens.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide chef d’établissement, PDF juillet 2026, p. 16-17 ; comparaison FAQ chefs 2025 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-chef-detablissementpdf-113391.pdf

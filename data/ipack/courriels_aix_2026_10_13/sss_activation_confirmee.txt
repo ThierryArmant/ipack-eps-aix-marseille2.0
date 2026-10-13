@@ -1,0 +1,11 @@
+### Aix : type SSS indisponible — activation par l’assistance
+[PORTEE: dnb,gt,pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Si le type de groupe « section sportive scolaire » n’est pas proposé alors que « sport-études » l’est, ne pas créer un groupe sport-études pour contourner le blocage : les deux dispositifs sont distincts.
+Dans un collège de l’académie, l’assistance a activé la section sportive le 8 octobre 2026 ; l’utilisateur a confirmé le 13 octobre qu’il pouvait ensuite effectuer ses modifications.
+Signaler la section existante et le symptôme à l’assistance iPackEPS d’Aix-Marseille pour vérification de son activation. Cette intervention de l’assistance n’est pas un bouton à cliquer par l’enseignant.
+Ce retour confirme un défaut d’activation résolu dans un cas. Il ne prouve pas qu’une nouvelle autorisation rectorale soit nécessaire pour chaque réactivation, ni que toute impossibilité de créer un groupe SSS ait cette cause.
+Si le groupe SSS existe déjà mais que Projet/Bilan est grisé, distinguer ce symptôme et vérifier les conditions de groupe/APSA décrites dans le guide.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Assistance académique iPackEPS, réponse du 8 octobre 2026 ; confirmation du fonctionnement par l’utilisateur le 13 octobre 2026.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

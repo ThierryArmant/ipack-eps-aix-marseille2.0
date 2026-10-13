@@ -1,0 +1,6 @@
+### Incluscol : pièce refusée, format PDF et taille maximale
+[PORTEE: dnb,gt,pro,cap]
+Pour un dépôt refusé dans Incluscol, vérifier le format PDF, la taille maximale de 10 Mo par fichier et l’attestation de conformité des pièces. Ces contraintes ne sont pas celles d’AMEX. Une demande de pièces médicales complémentaires doit être traitée depuis la demande concernée, selon le message reçu.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, FAQ candidats, juillet 2026, p. 3 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/incluscol-foire-aux-questions-pour-les-candidats-127574.pdf

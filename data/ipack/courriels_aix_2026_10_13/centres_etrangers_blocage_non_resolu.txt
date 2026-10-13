@@ -1,0 +1,11 @@
+### Aix — centres étrangers suivis par le service : fonctions et erreur persistante
+[PORTEE: gt,pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Pour les centres étrangers concernés par le courriel de la coordination des examens du 12 octobre 2026, la saisie iPackEPS relève de l’accès institutionnel du chef d’établissement ; ce circuit ne doit pas être transposé aux enseignants des établissements français de l’académie.
+Dans un blocage de déclaration des séquences certificatives, l’assistance propose de vérifier le compte utilisé, puis la fiche professeur, rubrique [Fonctions], et les fonctions « Coordonnateur » et « Responsable de certification », avant de réessayer la composition des groupes.
+Elle demande aussi que le référentiel affiche le RNE de l’établissement concerné, même lorsque le document provient d’un autre établissement.
+Le 13 octobre, l’utilisateur confirme ces vérifications et le dépôt des référentiels corrigés, mais l’erreur persiste. L’assistance ouvre alors un ticket VERDON. Ne pas présenter les cases cochées ou la correction du RNE comme une résolution garantie ; si elles sont déjà faites, passer au signalement de l’erreur.
+L’échéance du 16 octobre 2026 citée dans la chaîne concerne les centres destinataires de cette campagne ; elle n’est ni une échéance générale ni reconductible automatiquement. La résolution du ticket n’est pas fournie.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Courriel de coordination des examens du 12 octobre 2026, centres étrangers ; réponses d’assistance des 12 et 13 octobre 2026, ticket VERDON annoncé.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

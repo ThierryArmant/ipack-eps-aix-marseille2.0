@@ -1,0 +1,7 @@
+### PACA : demande d’habilitation CCF par le CFA porteur, pas par l’UFA
+[PORTEE: pro,cap]
+Portée : région académique Provence-Alpes-Côte d’Azur (Aix-Marseille et Nice), ressource datée.
+Le CFA qui porte la formation et signe les contrats dépose la demande d’habilitation, en indiquant les UFA où la formation se déroule. Une UFA, lieu de formation, ne dépose pas sa propre demande. L’habilitation cible une formation : elle ne couvre pas automatiquement toute formation nouvelle. La pratique de droit suppose les conditions du mémo, notamment un porteur relevant de l’éducation nationale et toute la formation en EPLE. Ne pas confondre cette habilitation avec l’import d’une classe dans iPackEPS.
+Nature de la source : ressource régionale de référence et aide à l’instruction ; ne pas la présenter comme un texte national ou une décision individuelle.
+Source : Mémo CCF PACA, mise à jour 11 octobre 2026, §1.3-1.4 ; consultation du 13 octobre 2026.
+https://www.ac-aix-marseille.fr/media/16381/download

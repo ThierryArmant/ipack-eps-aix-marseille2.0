@@ -1,0 +1,6 @@
+### Incluscol : identité erronée ou changement d’établissement
+[PORTEE: dnb,gt,pro,cap]
+La FAQ candidats 2026 indique que la division des examens peut corriger l’identité. Après changement d’établissement : avec EduConnect, se reconnecter après mise à jour de la base élèves ; avec un compte individuel, actualiser manuellement le rattachement. Ne pas transposer l’ancienne FAQ chefs 2025 qui excluait toute correction d’identité par les personnels. Ces opérations concernent Incluscol, pas les groupes EPS d’iPackEPS.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, FAQ candidats, juillet 2026, p. 4-5 ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/incluscol-foire-aux-questions-pour-les-candidats-127574.pdf

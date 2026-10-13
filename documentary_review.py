@@ -299,8 +299,12 @@ def scoped_claim_text(claim):
     text = claim['text']
     if not marked:
         return text
-    if len(marked) == len(evidence) and not re.match(r'^\s*[ÀA] Aix-Marseille\b', text):
-        text = 'À Aix-Marseille, ' + text
+    origins = {e.get('scope', {}).get('academy', 'Aix-Marseille') for e in marked}
+    if len(marked) == len(evidence) and len(origins) == 1:
+        origin = next(iter(origins))
+        prefix = 'À Aix-Marseille, ' if origin == 'Aix-Marseille' else 'Dans la ' + origin[0].lower() + origin[1:] + ', '
+        if not text.startswith(prefix):
+            text = prefix + text
     targets = sorted({e['scope']['not_confirmed_for'] for e in marked})
     return text + ' (à vérifier auprès du service des examens de l’académie de ' + ', '.join(targets) + ')'
 

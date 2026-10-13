@@ -1,0 +1,6 @@
+### Incluscol : redoublement, reconduction et nouvelle notification
+[PORTEE: dnb,gt,pro,cap]
+Pour un redoublement, une décision notifiée éligible peut être reconduite sans modifier les mesures : actualiser la session et réimprimer la notification. Le guide vise les sessions N-1, N ou N+1. La LTA ne se reconduit pas. Au-delà d’un redoublement d’une année d’examen, Éduscol demande de renouveler la demande.
+Nature de la source : documentation officielle du logiciel Incluscol ; le déploiement dépend de l’académie.
+Source : DGESCO, guide candidat scolarisé, juillet 2026, p. 35 ; Éduscol Incluscol, durée de validité ; consultation du 13 octobre 2026.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-candidat-scolairepdf-113388.pdf

@@ -1,0 +1,11 @@
+### Aix : enseignant présent au lycée mais absent du collège — diagnostic STS-Web
+[PORTEE: dnb,gt,pro,cap]
+Portée : Aix-Marseille uniquement ; retour daté, non assimilable à un texte national.
+Dans une cité scolaire, vérifier l’affectation de chaque enseignant pour la structure concernée : sa présence dans iPackEPS pour le lycée ne prouve pas sa présence pour le collège, ni l’inverse.
+L’assistance demande de vérifier STS-Web auprès de l’administration, puis d’actualiser la liste de l’équipe EPS. Elle évoque une remontée sous 48 h lorsque les données sont complètes ; c’est un délai indicatif de cette réponse, pas une garantie de résolution.
+Le dernier message du 9 octobre signale que l’actualisation n’a pas résolu l’accès à l’une des structures. Ne pas répéter indéfiniment « attendre 48 h » lorsque ce contrôle a déjà été fait : transmettre la discordance à l’assistance, en précisant la structure et les vérifications effectuées.
+Un ajout comme « enseignant extérieur » a été effectué par l’assistance pour un autre cas de la chaîne. Il ne constitue pas une correction universelle des affectations STS-Web ni une action à promettre à chaque enseignant.
+Pour un lien d’application absent du portail ESTEREL, la réponse propose [AIDE] > [Synchro manuelle]. Distinguer ce problème de portail de l’absence dans l’équipe d’un établissement.
+Nature de la source : retour d’assistance académique iPackEPS ; portée limitée au cas et aux vérifications décrites.
+Source : Assistance académique iPackEPS, échanges des 2 et 6 octobre 2026 ; relance du 9 octobre confirmant un blocage persistant pour une structure.
+Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés.

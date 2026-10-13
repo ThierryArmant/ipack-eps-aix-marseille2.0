@@ -1,0 +1,7 @@
+### PACA : fiche UAI d’un CFA — mise à jour administrative
+[PORTEE: pro,cap]
+Portée : région académique Provence-Alpes-Côte d’Azur (Aix-Marseille et Nice), ressource datée.
+Pour une fiche UAI de CFA restée « À OUVRIR » ou rattachée à un ancien siège, la FAQ renvoie au service d’immatriculation et de mise à jour indiqué dans le guide régional UAI. Elle ne fournit pas un bouton iPackEPS pour corriger ces données. Vérifier la fiche auprès du service compétent. Le numéro UAI, l’affichage des classes dans iPackEPS et l’habilitation à pratiquer le CCF sont des questions différentes. La FAQ est une aide régionale datée, pas une décision d’habilitation.
+Nature de la source : ressource régionale de référence et aide à l’instruction ; ne pas la présenter comme un texte national ou une décision individuelle.
+Source : FAQ apprentissage PACA 2026-2027, mise à jour 30 septembre 2026, §1.1 ; guide UAI lié ; consultation du 13 octobre 2026.
+https://www.ac-aix-marseille.fr/media/40611/download

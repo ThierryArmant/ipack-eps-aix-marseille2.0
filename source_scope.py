@@ -93,7 +93,11 @@ def scoped_segments(path, body):
                    'sessions':record.get('sessions', []),
                    'other_academies':record.get('autres_academies_citees', []),
                    'status':'non_verifie' if 'a_verifier' in kinds else ('passage_non_attribue' if len(kinds)>1 else 'metadata_fiche')}
-            if marked:
+            if record.get('academies_applicables'):
+                scope.update(academy='Région académique Provence-Alpes-Côte d’Azur', academies_applicables=record['academies_applicables'])
+            elif record.get('type_source') == 'courriel_assistance':
+                scope.update(level='assistance', academy='Aix-Marseille', reference=record.get('source_reference', ''), status='retour_assistance_date')
+            elif marked:
                 scope['academy']='Aix-Marseille'
             segments.append({'text':text, 'start':offset, 'end':offset+len(text), 'scope':scope})
         offset+=len(line)
@@ -108,7 +112,7 @@ def select_academy(packets, academy):
         spans=[]
         for span in packet['passages']:
             scope=dict(span.get('scope', {}))
-            if scope.get('academy') and scope['academy']!=academy:
+            if scope.get('academy') and academy not in scope.get('academies_applicables', [scope['academy']]):
                 scope['not_confirmed_for']=academy
                 marked.append({'document_id':packet['id'],'passage_id':span['id'],
                                'academy':scope['academy'],'reason':'autre_academie_marquee'})
@@ -125,7 +129,8 @@ def model_passage(span):
             prefix=(f"[Fiche mixte, passage inventorié pour Aix-Marseille : distinguer le cadre national "
                     f"de l’application locale, à vérifier pour {scope['not_confirmed_for']}] ")
         else:
-            prefix=f"[Consigne de l’académie d’Aix-Marseille — non confirmée pour {scope['not_confirmed_for']}] "
+            origin = ('l’académie d’Aix-Marseille' if scope.get('academy') == 'Aix-Marseille' else scope.get('academy', 'l’académie d’Aix-Marseille'))
+            prefix=f"[Consigne de {origin} — non confirmée pour {scope['not_confirmed_for']}] "
         result['text']=prefix+span['text']
     return result
 

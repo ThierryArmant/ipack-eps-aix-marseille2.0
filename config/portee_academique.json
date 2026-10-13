@@ -247,6 +247,28 @@
     }
    ]
   },
+  "data/examens/amenagements_aix_2026_10_13/aix_plateforme_2027.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix 2027 : Incluscol ou AMEX selon l’examen",
+     "lignes": [
+      "À Aix-Marseille, session 2027 : Incluscol pour DNB/CFG, épreuves anticipées de première GT et examens professionnels ; AMEX reste utilisé pour les épreuves terminales du bac GT. Les candidats d’établissements relevant de l’Armée ou de l’Agriculture suivent le circuit papier indiqué par l’académie. Consulter le calendrier propre à l’examen : aucune date universelle. Les annexes encore marquées « session 2026 » ne deviennent pas des formulaires 2027 du seul fait de leur présence sur cette page."
+     ]
+    }
+   ]
+  },
+  "data/examens/amenagements_aix_2026_10_13/amex_documents_medicaux.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix — AMEX terminale GT : pièces médicales et dossier envoyé",
+     "lignes": [
+      "Pour AMEX terminale GT à Aix, signer le dossier numériquement et vérifier son état envoyé. Les pièces pédagogiques sont téléversées dans AMEX ; en procédure complète, les pièces médicales sont envoyées sous pli confidentiel à l’adresse du récapitulatif, pas téléversées dans AMEX. L’avis médical ne vaut pas décision. Après accord, présenter la notification aux épreuves. Ne pas appliquer ici les règles PDF/10 Mo d’Incluscol."
+     ]
+    }
+   ]
+  },
   "data/examens/audit_faq_2026_10_12/c3_procedure_verifiee.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -687,7 +709,8 @@
     {
      "section": "### Santorin : connexion, missions CCF et copies écrites",
      "lignes": [
-      "Le guide Santorin Aix indique que le correcteur doit être affecté à une mission de correction dans Imag’in avant d’accéder aux supports attribués."
+      "Le guide Santorin Aix indique que le correcteur doit être affecté à une mission de correction dans Imag’in avant d’accéder aux supports attribués.",
+      "Aix-Marseille, CCF EPS : le webinaire des 20 et 21 mars 2024 distingue [Portail d’accès aux missions] > [Notation EPS CCF] pour Santorin de [Gestion des épreuves EPS] pour les protocoles Cyclades. Ce chemin est documenté en 2024 ; ne pas inventer une mission si elle n’apparaît pas."
      ]
     }
    ]
@@ -907,6 +930,117 @@
      "section": "### [SITUATION: ACCÈS AUX PLATEFORMES PROFESSIONNELLES (CYCLADES, SANTORIN, IMAG'IN)]",
      "lignes": [
       "- Portail d'accès unique : L'accès à TOUTES les applications professionnelles et d'examen se fait par le portail professionnel de l'académie (ESTEREL dans l'académie d'Aix-Marseille, ARENA dans beaucoup d'autres) à l'aide de vos identifiants professionnels (e-mail académique + mot de passe)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/centres_etrangers_blocage_non_resolu.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix — centres étrangers suivis par le service : fonctions et erreur persistante",
+     "lignes": [
+      "Pour les centres étrangers concernés par le courriel de la coordination des examens du 12 octobre 2026, la saisie iPackEPS relève de l’accès institutionnel du chef d’établissement ; ce circuit ne doit pas être transposé aux enseignants des établissements français de l’académie.",
+      "Dans un blocage de déclaration des séquences certificatives, l’assistance propose de vérifier le compte utilisé, puis la fiche professeur, rubrique [Fonctions], et les fonctions « Coordonnateur » et « Responsable de certification », avant de réessayer la composition des groupes.",
+      "Elle demande aussi que le référentiel affiche le RNE de l’établissement concerné, même lorsque le document provient d’un autre établissement.",
+      "Le 13 octobre, l’utilisateur confirme ces vérifications et le dépôt des référentiels corrigés, mais l’erreur persiste. L’assistance ouvre alors un ticket VERDON. Ne pas présenter les cases cochées ou la correction du RNE comme une résolution garantie ; si elles sont déjà faites, passer au signalement de l’erreur.",
+      "L’échéance du 16 octobre 2026 citée dans la chaîne concerne les centres destinataires de cette campagne ; elle n’est ni une échéance générale ni reconductible automatiquement. La résolution du ticket n’est pas fournie.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/classe_apprentis_absente.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : classe d’apprentis absente malgré SIECLE — import et vérification",
+     "lignes": [
+      "Une classe d’apprentis absente d’iPackEPS n’est pas nécessairement un simple groupe EPS à créer. Distinguer : les élèves existent-ils dans l’application ?",
+      "1. Vérifier [Mes élèves] > [Visualisation], avec les filtres « Visualisation par classe : Toutes », « Types : Toute », « Sélection : Toutes », tels qu’indiqués par l’assistance dans cet échange.",
+      "2. Si les élèves sont absents malgré leur présence dans SIECLE, signaler l’écart à l’assistance académique. Dans le cas documenté, l’assistance a transmis aux services puis demandé de refaire l’import des classes et des élèves ; la remontée a été confirmée le 9 octobre.",
+      "La manipulation effectuée par les services entre les deux imports n’est pas décrite. Ne pas promettre qu’un nouvel import suffira toujours, ni inventer une procédure de création manuelle des apprentis. Si l’import reste incomplet, faire suivre le diagnostic à l’assistance.",
+      "Ne pas confondre ce cas avec « élèves importés mais groupes EPS absents » : dans ce deuxième cas, consulter la documentation de création/placement des groupes.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/eleve_parti_alerte_sans_groupe.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : élève parti encore affiché « pas de groupe » — distinguer affichage et inscription",
+     "lignes": [
+      "Cas documenté : un élève de terminale a changé d’établissement, sa fiche SIECLE ne relève plus de l’ancien établissement, il n’est affecté à aucun groupe EPS dans celui-ci, mais reste affiché dans l’alerte « pas de groupe » malgré les imports.",
+      "Pour cette situation précise, l’assistance indique le 8 octobre 2026 qu’il sera inscrit à l’examen par le nouvel établissement et que les listes Cyclades fondées sur les inscriptions corrigeront l’écart ; elle demande de ne pas traiter l’ancienne alerte comme une obligation de lui créer un groupe EPS.",
+      "Cette réponse n’autorise pas à ignorer toutes les alertes d’élèves sans groupe : vérifier d’abord le départ, le changement d’établissement et l’absence d’affectation. Un élève toujours scolarisé reste une autre situation.",
+      "L’utilisateur confirme avoir suivi ce conseil mais signale encore une alerte le 9 octobre. Le fichier ne confirme pas la disparition finale de cette alerte. Ne pas inventer un bouton de suppression d’élève ni promettre un délai.",
+      "Le transfert de notes déjà obtenues et l’abandon d’une option sont des questions distinctes.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/enseignants_deux_structures_sts.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : enseignant présent au lycée mais absent du collège — diagnostic STS-Web",
+     "lignes": [
+      "Dans une cité scolaire, vérifier l’affectation de chaque enseignant pour la structure concernée : sa présence dans iPackEPS pour le lycée ne prouve pas sa présence pour le collège, ni l’inverse.",
+      "L’assistance demande de vérifier STS-Web auprès de l’administration, puis d’actualiser la liste de l’équipe EPS. Elle évoque une remontée sous 48 h lorsque les données sont complètes ; c’est un délai indicatif de cette réponse, pas une garantie de résolution.",
+      "Le dernier message du 9 octobre signale que l’actualisation n’a pas résolu l’accès à l’une des structures. Ne pas répéter indéfiniment « attendre 48 h » lorsque ce contrôle a déjà été fait : transmettre la discordance à l’assistance, en précisant la structure et les vérifications effectuées.",
+      "Un ajout comme « enseignant extérieur » a été effectué par l’assistance pour un autre cas de la chaîne. Il ne constitue pas une correction universelle des affectations STS-Web ni une action à promettre à chaque enseignant.",
+      "Pour un lien d’application absent du portail ESTEREL, la réponse propose [AIDE] > [Synchro manuelle]. Distinguer ce problème de portail de l’absence dans l’équipe d’un établissement.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/protocoles_pro_groupes_certificatifs.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : FCA déposées mais protocoles professionnels impossibles — vérifier les groupes",
+     "lignes": [
+      "Un dépôt des FCA et des référentiels à 100 % ne suffit pas à établir que les groupes certificatifs sont constitués.",
+      "La réponse de l’assistance du 9 octobre 2026 précise que les protocoles affichés dans « Protocoles d’évaluation des épreuves… » proviennent du module [Groupes], où sont renseignés le nom des groupes certificatifs, les périodes des cycles et les SA (situations d’apprentissage).",
+      "Vérifier d’abord que ces groupes certificatifs ont été constitués et que ces éléments sont renseignés. Si les groupes existent et que le blocage persiste, relever le message exact et contacter l’assistance.",
+      "L’échange ne contient pas de confirmation finale de résolution. Ne pas affirmer que les groupes manquent dans le cas de l’utilisateur, ni proposer de retéléverser toutes les FCA sans diagnostic.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_activation_confirmee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix : type SSS indisponible — activation par l’assistance",
+     "lignes": [
+      "Si le type de groupe « section sportive scolaire » n’est pas proposé alors que « sport-études » l’est, ne pas créer un groupe sport-études pour contourner le blocage : les deux dispositifs sont distincts.",
+      "Dans un collège de l’académie, l’assistance a activé la section sportive le 8 octobre 2026 ; l’utilisateur a confirmé le 13 octobre qu’il pouvait ensuite effectuer ses modifications.",
+      "Signaler la section existante et le symptôme à l’assistance iPackEPS d’Aix-Marseille pour vérification de son activation. Cette intervention de l’assistance n’est pas un bouton à cliquer par l’enseignant.",
+      "Ce retour confirme un défaut d’activation résolu dans un cas. Il ne prouve pas qu’une nouvelle autorisation rectorale soit nécessaire pour chaque réactivation, ni que toute impossibilité de créer un groupe SSS ait cette cause.",
+      "Si le groupe SSS existe déjà mais que Projet/Bilan est grisé, distinguer ce symptôme et vérifier les conditions de groupe/APSA décrites dans le guide.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
+     ]
+    }
+   ]
+  },
+  "data/ipack/courriels_aix_2026_10_13/sss_vaucluse_campagne_2026.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix — Vaucluse : renouvellement SSS pour la rentrée 2027, campagne 2026",
+     "lignes": [
+      "Le courriel départemental du 29 septembre 2026, relayant les éléments de pilotage de l’inspection, demande la mise à jour des données iPackEPS et de la base élèves, puis la signature et la validation de la saisie par le chef d’établissement.",
+      "Pour les sections du Vaucluse concernées par un renouvellement à la rentrée 2027, la demande doit être finalisée avant le 17 octobre 2026. Le mail mentionne en annexes le vote du CA (OGEC pour le privé) relatif au renouvellement et la convention avec la structure sportive partenaire actualisée pour les quatre années suivantes.",
+      "Le calendrier communiqué vise les sections arrivant à renouvellement ; toutes les sections ne renouvellent pas la même année. Ne pas transformer ce délai en date générale d’Aix-Marseille ou en échéance annuelle automatique.",
+      "Le courriel atteste les pièces demandées mais pas un bouton précis pour téléverser les annexes. Les chemins proposés dans les autres messages sont des réponses du hub recopiées et ne constituent pas une preuve du bouton. Si l’ajout de pièce jointe n’est pas visible, faire confirmer la manipulation par l’assistance.",
+      "Ce courriel ne décrit pas le destinataire du dossier EPS ordinaire d’un collège après validation et envoi.",
+      "Provenance : archive de courriels fournie par les gestionnaires ; source privée, non publiée ; données personnelles et identifiants retirés."
      ]
     }
    ]

@@ -19,7 +19,7 @@ for _module in (academie, knowledge_catalog, source_scope, documentary_review, r
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
 from response_cache import ANSWER_CACHE, answer_key
-from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
+from academie import academy_context, ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
 import datetime
@@ -1578,6 +1578,8 @@ if prompt_a_traiter:
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
         niveau_initial, mode_initial = niveau_actuel_form, mode
         niveau_actuel_form, mode = effective_context(prompt, niveau_actuel_form, mode)
+        academie_reponse, avertissement_academie_question = academy_context(
+            prompt, st.session_state.get("academie_utilisateur") or AIX)
         origine_reponse = "ia"
 
         onglets_noms = {
@@ -1588,10 +1590,10 @@ if prompt_a_traiter:
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
         _cache_key = None
         if mode == "examens":
-            _cache_key = answer_key(prompt, academy=st.session_state.get("academie_utilisateur") or AIX,
+            _cache_key = answer_key(prompt, academy=academie_reponse,
                                    public=niveau_actuel_form, mode=mode, version=_sha,
                                    model=modele_ia, knowledge=fingerprint(),
-                                   selected_context=[mode_initial, niveau_initial])
+                                   selected_context=[mode_initial, niveau_initial, st.session_state.get("academie_utilisateur") or AIX])
             _cached = ANSWER_CACHE.get(_cache_key)
             if _cached is not None:
                 for _message in _cached['messages']:
@@ -1601,7 +1603,7 @@ if prompt_a_traiter:
                 log_interaction(question=prompt, reponse=_cached['body'], mode=mode,
                                 contexte=contexte_choisi_nom, niveau=niveau_actuel_form,
                                 usage={**usage_summary({}), 'cache_hit': True},
-                                academie=st.session_state.get("academie_utilisateur") or "", version=_sha)
+                                academie=academie_reponse, version=_sha)
                 st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
                 st.session_state.reset_steps = True
                 st.rerun()
@@ -2108,7 +2110,7 @@ if prompt_a_traiter:
             # ==================================================================
             if reponse_documentee:
                 texte_brut = '<p>' + html_lib.escape(reponse_documentee).replace('\n', '</p><p>') + '</p>'
-                _avert_acad = avertissement_reponse_directe(st.session_state.get("academie_utilisateur"))
+                _avert_acad = avertissement_reponse_directe(academie_reponse)
                 if _avert_acad and source_documentee.get('title') in titres_aix(catalog()):
                     texte_brut = '<p><strong>' + html_lib.escape(_avert_acad) + '</strong></p>' + texte_brut
                 sources_consultees = [(source_documentee.get('title', '') + ' — ' + reference_url(source_documentee, prompt), None)]
@@ -2673,8 +2675,8 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
                         contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme", origin="program")
                     if verites_terrain_pierre.strip():
                         contexte_complet_ia += "\n\n" + mark_excerpt(verites_terrain_pierre, title="Retours d'assistance complémentaires")
-                    if note_academie(st.session_state.get("academie_utilisateur")):
-                        contexte_complet_ia += "\n\n" + mark_excerpt(note_academie(st.session_state.get("academie_utilisateur")),
+                    if note_academie(academie_reponse):
+                        contexte_complet_ia += "\n\n" + mark_excerpt(note_academie(academie_reponse),
                                                                      title="Académie de l'utilisateur", origin="program")
 
                 consigne_ia = f"""Tu es l’assistant EPS destiné aux professionnels de l’éducation.
@@ -2685,8 +2687,8 @@ CONSIGNES DE RÉPONSE :
 
 CONTEXTE DE LA DEMANDE :
 Public sélectionné : {niveau_actuel_form}
-Académie de l'utilisateur : {st.session_state.get("academie_utilisateur") or AIX}
-{note_academie(st.session_state.get("academie_utilisateur"))}
+Académie de l'utilisateur : {academie_reponse}
+{note_academie(academie_reponse)}
 Onglet : {contexte_choisi_nom}
 {directive_onglet}
 {bloc_video_consigne}
@@ -2713,7 +2715,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         reponse_ia = review_exam_answer(
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
-                            academy=st.session_state.get("academie_utilisateur") or AIX,
+                            academy=academie_reponse,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
@@ -2743,7 +2745,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         diagnostic_ia['failure'] = type(e).__name__
                         texte_brut = render_exam_fallback(
                             diagnostic_ia, question=prompt, documents=contexte_complet_ia,
-                            academy=st.session_state.get("academie_utilisateur") or AIX,
+                            academy=academie_reponse,
                         )
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
                                              for p in diagnostic_ia.get('fallback_sources', [])]
@@ -2757,6 +2759,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         # ni enregistrée dans le Google Sheet. Il est maintenant exécuté dans tous les cas.
         # ==================================================================
 
+        if avertissement_academie_question:
+            texte_brut = '<p>' + html_lib.escape(avertissement_academie_question) + '</p>' + texte_brut
         _onglet_suggere = suggested_tab(prompt, mode_initial)
         if _onglet_suggere:
             texte_brut = ('<p><strong>Cette question relève de l’onglet « ' + _onglet_suggere +
@@ -2886,8 +2890,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             # ou Imag'in (onglet Examens), ce n'est pas le bon interlocuteur (audit en ligne du 12/10/2026).
             "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
             "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-            + (f"<a href='mailto:{adresse_assistance(st.session_state.get('academie_utilisateur'))}' style='color: #38BDF8 !important; text-decoration: underline;'>{adresse_assistance(st.session_state.get('academie_utilisateur'))}</a>"
-               if adresse_assistance(st.session_state.get('academie_utilisateur')) else "iPackEPS de votre académie")
+            + (f"<a href='mailto:{adresse_assistance(academie_reponse)}' style='color: #38BDF8 !important; text-decoration: underline;'>{adresse_assistance(academie_reponse)}</a>"
+               if adresse_assistance(academie_reponse) else "iPackEPS de votre académie")
             + "</div>"
         ) if mode == "ipack" else ""
 
@@ -2941,7 +2945,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             contexte=contexte_choisi_nom, 
             niveau=niveau_actuel_form,
             usage=usage_summary(usage_ia) if mode == "examens" else None,
-            academie=st.session_state.get("academie_utilisateur") or "",
+            academie=academie_reponse,
             version=_sha
         )
 

@@ -40,7 +40,7 @@ class AuditEnLigneTests(unittest.TestCase):
     def test_pied_de_reponse_ipackeps_seulement_en_mode_ipack(self):
         src = lire('app.py')
         self.assertRegex(src, r'\+ "</div>"\s*\) if mode == "ipack" else ""')
-        self.assertIn('adresse_assistance(st.session_state.get(\'academie_utilisateur\'))', src)
+        self.assertIn('adresse_assistance(academie_reponse)', src)
 
 
 if __name__ == '__main__':

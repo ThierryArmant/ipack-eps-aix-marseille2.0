@@ -292,6 +292,19 @@ def validate_claims(data, packets, *, checked=False):
     return accepted, rejected
 
 
+def scoped_claim_text(claim):
+    """La réserve académique apparaît dans la phrase et ne dépend pas du modèle."""
+    evidence = claim['evidence']
+    marked = [e for e in evidence if e.get('scope', {}).get('not_confirmed_for')]
+    text = claim['text']
+    if not marked:
+        return text
+    if len(marked) == len(evidence) and not re.match(r'^\s*[ÀA] Aix-Marseille\b', text):
+        text = 'À Aix-Marseille, ' + text
+    targets = sorted({e['scope']['not_confirmed_for'] for e in marked})
+    return text + ' (à vérifier auprès du service des examens de l’académie de ' + ', '.join(targets) + ')'
+
+
 def render_claims(claims, packets):
     """Pas de troisième reformulation susceptible de perdre les sources contrôlées."""
     by_id = {p['id']: p for p in packets}
@@ -308,7 +321,7 @@ def render_claims(claims, packets):
                 label = evidence_label(e, p, _LEVELS)
                 if label not in labels:
                     labels.append(label)
-            output.append('<p>' + html.escape(c['text']) + '<br><small>' +
+            output.append('<p>' + html.escape(scoped_claim_text(c)) + '<br><small>' +
                           html.escape(' ; '.join(labels)) + '</small></p>')
     return ''.join(output)
 
@@ -325,8 +338,8 @@ def situation_mismatch(question, text):
     q, t = norm(question), norm(text)
     medical = r'inapt|dispens|certificat|medical|bless|entorse|arret maladie'
     # Une note de groupe ne pose pas une question de certification d'un inapte.
-    if re.search(r'note.{0,25}collecti|collecti.{0,25}note|acrosport.{0,40}groupe', q) and not re.search(medical, q):
-        return bool(re.search(medical, t))
+    if re.search(r'note.{0,25}collecti|collecti.{0,25}note|acrosport.{0,40}groupe|(?:meme|une seule|unique) note.{0,60}(?:groupe|equipe)|note.{0,30}(?:groupe|equipe)', q) and not re.search(medical, q):
+        return bool(re.search(r'inapt|certificat|medical|bless|entorse|arret maladie|note unique|dispense.{0,20}(?:epreuve|eps)|mention.{0,12}dispens', t))
     # Une absence ponctuelle ne documente pas une inaptitude annuelle.
     if re.search(r'absen|pas venu|seche', q) and not re.search(medical, q):
         return bool(re.search(r'inaptitude totale.{0,40}(?:annuelle|annee)|inaptitude.{0,40}toute l.annee', t))
@@ -453,7 +466,8 @@ Réponds uniquement en JSON selon ce schéma :
             parsed = _json_response(output)
             accepted, errors = validate_claims(parsed, packets)
             for c in accepted[:]:
-                if situation_mismatch(question, c['text']):
+                if situation_mismatch(question, c['text']) or any(
+                        situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
             return parsed, accepted, errors

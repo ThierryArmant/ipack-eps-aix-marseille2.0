@@ -77,3 +77,30 @@ def avertissement_reponse_directe(academie):
 
 def adresse_assistance(academie):
     return ASSISTANCE_IPACK.get(academie or AIX, "")
+
+
+def academy_context(question, selected):
+    """L'académie déclarée par le collègue prime sur le menu ; les exemples restent des exemples."""
+    import re
+    import unicodedata
+    def norm(value):
+        value = ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
+                        if not unicodedata.combining(c))
+        return re.sub(r"[’']", "'", value).replace('-', ' ')
+    q = norm(question)
+    declared = []
+    for name in ACADEMIES:
+        if name in ('Autre', "Établissement français à l'étranger"):
+            continue
+        place = re.escape(norm(name)).replace(r'\ ', r'[\s-]+')
+        pattern = (r"(?:je suis|j'enseigne|je travaille|nous sommes|nous travaillons|"
+                   r"mon academie est|notre academie est|je depends)\s+"
+                   r"(?:(?:dans|de|a|en)\s+)?(?:l'academie\s+(?:de|d')\s*)?" + place + r"\b")
+        if re.search(pattern, q) or re.search(r"^\s*(?:(?:a|dans|pour)\s+)?(?:l\'|mon |notre )?academie\s+(?:de|d\')\s*" + place + r"\b", q):
+            declared.append(name)
+    if len(declared) != 1:
+        return selected or AIX, ''
+    effective = declared[0]
+    notice = (f"Vous avez sélectionné {selected or AIX}, mais indiqué {effective} dans votre question. "
+              f"La réponse tient compte de l'académie de {effective}.") if effective != (selected or AIX) else ''
+    return effective, notice

@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:45 — partie programme — portée académique et situation de la décision (voir git log)
+Fait : phrases préfixées « À Aix-Marseille, » lorsque toutes leurs preuves sont marquées non confirmées pour l'académie de l'utilisateur ; réserve finale quand une partie seulement est marquée. Académie déclarée dans la question (« je suis à Lyon », « j'enseigne dans l'académie de Créteil », etc.) prioritaire sur le menu, avec signalement de l'écart ; utilisée pour marquage, génération, cache, contact et journal. Exemples cités et déclarations multiples ambiguës ne changent pas silencieusement l'académie. Contrôle de situation étendu aux formulations « même note pour tout le groupe » et aux preuves effectivement citées, pas seulement à la prose générée. Modules rechargés par le mécanisme réparé, conservé. 267 tests réussis, dont quatre nouveaux.
+Constaté : contrôles ciblés mécaniques, sans appel supplémentaire systématique ni preuve générale d'applicabilité. Les vérifications en ligne des cas acrosport et Lyon restent nécessaires avant gel.
+Attendu de l'autre partie : vérifier les réponses en ligne puis noter le commit réellement déployé avant génération de la nouvelle série secrète. Ne pas utiliser cette série pour corriger.
+
 ### 2026-10-13 20:40 — partie fiches — thèmes faux de la mesure (voir git log)
 Fait : 7 fiches de situation (priorité 300) dans `data/examens/situations_2026_10_13/` : corriger une note dans Santorin, notes disparues, co-évaluation et deuxième correcteur, saisie par AFL et non note finale, protocole adapté en cours d'année dans Cyclades, option EPS sans ponctuel pour un scolarisé, section sportive sans 20/20 ; fiche du ponctuel bac GT relevée à 300. Exclusions ajoutées sur quatre fiches qui se déclenchaient à tort. Tests écrits avec des formulations reformulées, pas avec le texte des questions de mesure. Registre des natures à 456. 263 tests passent ; banque de 590 questions : aucune fiche attendue perdue.
 Constaté : point 1 de la partie programme toujours ouvert (portée des consignes d'Aix dans les phrases, académie nommée dans la question, adéquation de la décision).

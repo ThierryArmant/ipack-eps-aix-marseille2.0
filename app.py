@@ -1457,7 +1457,7 @@ with st.container(key="parcours"):
                 st.session_state.public_valide = True
 
             # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
-            st.markdown('<div class="hub-field">🏫 Académie</div>', unsafe_allow_html=True)
+            st.markdown('<div class="hub-field">🏫 Académie <span style="font-weight: 400; text-transform: none;">— Choisissez votre académie</span></div>', unsafe_allow_html=True)
             st.selectbox(
                 "Votre académie",
                 ACADEMIES,
@@ -1476,10 +1476,7 @@ with st.container(key="parcours"):
                 label_visibility="collapsed",
                 on_change=valider_public
             )
-            if not st.session_state.get("academie_utilisateur"):
-                _consigne("👆 Choisissez <strong>votre académie</strong> : le calendrier, le circuit des protocoles "
-                          "et les contacts en dépendent.")
-            elif not st.session_state.get("public_valide"):
+            if st.session_state.get("academie_utilisateur") and not st.session_state.get("public_valide"):
                 _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
 
     # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION

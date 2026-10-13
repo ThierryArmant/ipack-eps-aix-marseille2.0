@@ -32,6 +32,16 @@ class ThemesMesure(unittest.TestCase):
         self.assertNotIn('FAQ EPS — Saisie / codes',
                          titres("Un candidat individuel absent à une épreuve ponctuelle est-il éliminé ?"))
 
+    def test_option_ponctuel_note_unique(self):
+        self.assertIn("Option EPS : pas d'abandon après clôture des inscriptions (Aix-Marseille, 2027)",
+                      titres("Mon élève veut arrêter l'option EPS en février, il peut ?"))
+        self.assertNotIn("Élève parti en cours d'année mais toujours inscrit à l'examen",
+                         titres("Mon élève veut arrêter l'option EPS en février, il peut ?"))
+        self.assertIn('Bac GT : une seule épreuve passée sur trois (note unique ou dispense)',
+                      titres("Blessé, il n'a passé qu'une seule épreuve sur trois : on garde sa note ?"))
+        from pathlib import Path
+        self.assertIn("ne la repasse pas", Path('data/commun/audit60/gt_ponctuel_absence.txt').read_text(encoding='utf-8'))
+
 
 if __name__ == '__main__':
     unittest.main()

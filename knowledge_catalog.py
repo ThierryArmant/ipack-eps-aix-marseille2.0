@@ -114,6 +114,12 @@ def clarification(question, public):
                  r'(?:transform|modifi|corrig).{0,25}(?:note|dispense)|'
                  r'note.{0,30}transform|dispens.{0,25}deux activites', q):
         return ''
+    # La période couvrant l'épreuve est déjà donnée : laisser les passages exposer
+    # les possibilités, sans transformer la question en choix médical automatique.
+    if re.search(r'certificat(?: medical)?.{0,70}(?:couvr|valable|valide).{0,55}(?:jour|date|ccf|epreuve)|'
+                 r'(?:jour|date) du ccf.{0,55}(?:couvert|certificat)', q):
+        if public != 'Lycée Pro / CAP' or re.search(r'\bcap\b|bac(?:calaureat)?\s+(?:pro|professionnel)', q):
+            return ''
     individual_value = bool(re.search(
         r'\b(?:di|disp|ab|abs|zero|0)\b(?! (?:candidat|eleve|lot))|je (?:mets|dois mettre)|'
         r'(?:quelle|quel|comment).{0,25}(?:note|code|statut).{0,25}(?:mettre|saisir|choisir)', q))
@@ -222,6 +228,15 @@ def documented_response(question, public, mode):
         if md.get('modes') and mode not in md['modes']:
             continue
         if not Path(path).is_file():
+            continue
+        # Le mot « installation » seul ne désigne pas une installation logicielle.
+        # Une réponse d'accès à un logiciel exige un objet technique explicite.
+        if path == 'data/ipack/acces_ipackeps_problemes.txt' and not re.search(
+                r'\bipack|logiciel|application|ordinateur|navigateur|windows|\bmac\b|esterel|arena', q):
+            continue
+        if path == 'data/ipack/acces_ipackeps_problemes.txt' and re.search(
+                r'installations?.{0,35}(?:sportiv|ferme|travaux|indisponib)|'
+                r'(?:ferme|travaux|indisponib).{0,35}installations?', q):
             continue
         responses = md.get('reponses_directes', []) + [{
             'motifs': md.get('reponse_directe_motifs', []),

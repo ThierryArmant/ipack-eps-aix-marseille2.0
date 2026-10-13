@@ -410,6 +410,39 @@ _CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérif
 "checks":{"supported":true,"applicable":true,"source_correct":true,"conditions_preserved":true}}]}'''
 
 
+def coherence_errors(claims, question):
+    """Contradictions explicites de modalité, hors branches conditionnelles.
+
+    Ce contrôle mécanique ne constitue pas une vérification sémantique générale.
+    """
+    def norm(value):
+        return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
+                       if not unicodedata.combining(c))
+    conditional = r'\bsi\b|a condition|sous reserve|selon|dans le cas|pas automatiquement|pas automatique'
+    positive = r'\b(?:peut|peuvent|autorise|autorisee|permet|permettent|a droit|ont droit)\b'
+    negative = r'\b(?:ne|n[’\'])\s*(?:peut|peuvent|permet|permettent|a droit|ont droit).{0,12}\bpas\b|interdit|interdite|aucun droit|pas droit'
+    outcomes = (r'20\s*/\s*20|vingt sur vingt', r'elimin', r'repass|remplacement', r'abandon')
+    states = {}
+    errors = []
+    for i, claim in enumerate(claims):
+        text = norm(claim['text'])
+        if re.search(conditional, text):
+            continue
+        for outcome in outcomes:
+            if not re.search(outcome, text):
+                continue
+            neg = bool(re.search(negative, text))
+            pos = bool(re.search(positive, text)) and not neg
+            if claim['section'] == 'decision' and re.match(r'^non\b', text) and pos and not re.search(conditional + r'|automati', norm(question)):
+                errors.append({'index': i, 'errors': ['décision négative suivie d’une autorisation sur le même objet']})
+            if neg or pos:
+                states.setdefault(outcome, []).append((i, neg))
+    for outcome, entries in states.items():
+        if len({negative for _, negative in entries}) > 1:
+            errors.append({'indices': [i for i, _ in entries], 'errors': ['autorisation et interdiction contradictoires sur le même objet']})
+    return errors
+
+
 def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille'):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
@@ -457,6 +490,8 @@ Une possibilité réglementaire ne prouve pas une possibilité technique du logi
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.
 Ne développe un sigle que si son développement est donné dans les passages.
 Si une consigne manque, précise cette limite sans inventer de procédure.
+Vérifie que la décision et les conditions disent la même chose : une décision négative ne peut autoriser ensuite la même action.
+Une condition de statut non établie ne permet pas une décision affirmative. Si les faits ne tranchent pas, conserve les branches conditionnelles.
 Pas de HTML ni d'attribution bibliographique dans la prose. Au plus 12 affirmations, sans répétitions.
 Réponds uniquement en JSON selon ce schéma :
 ''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
@@ -470,6 +505,7 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
+            errors.extend(coherence_errors(accepted, question))
             return parsed, accepted, errors
         except (ValueError, TypeError) as exc:
             return {'claims':[]}, [], [{'errors':[str(exc)]}]
@@ -482,7 +518,7 @@ Réponds uniquement en JSON selon ce schéma :
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
     if rejected:
-        repair = '''Corrige uniquement les erreurs mécaniques signalées.
+        repair = '''Corrige uniquement les erreurs de preuves, de situation et de cohérence signalées.
 Sélectionne des document_id et passage_ids existants, avec les conditions utiles au cas.
 Supprime les affirmations concernant une autre situation et les rubriques non documentées.
 Une réponse courte ou {"claims":[]} est autorisée ; aucune décision n'est obligatoire.

@@ -20,9 +20,14 @@ Attendu de l'autre partie : … (ou « rien »)
 ## État courant
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
-- Prochaine étape : terminer le point 1 de la partie programme, figer une version intégrant les deux parties, puis mesurer sur une nouvelle série inédite de 50 questions (générée au gel, jamais utilisée pour corriger).
+- Version figée en cours de mesure : f568ad6 (deuxième série de 50 questions). Aucune modification jusqu'à la fin de la mesure.
 
 ## Entrées
+
+### 2026-10-13 20:55 — partie fiches — GEL de f568ad6 et deuxième série de mesure
+Constaté (f568ad6) : académie nommée dans la question détectée et signalée ; réserve « À Aix-Marseille, … (à vérifier auprès du service des examens de l'académie de Lyon) » dans les phrases ; acrosport collectif : notation individuelle, correcte. 267 tests passent avec les deux parties.
+Fait : version f568ad6 figée. Deuxième série de 50 questions rédigée au gel, conservée hors dépôt ; empreinte dans `docs/empreinte_serie_mesure_2_2026-10-13.md`.
+Attendu de l'autre partie : AUCUNE modification de code, de fiche ou de configuration jusqu'à la fin de la mesure. Défauts de forme notés pour après : majuscule après « À Aix-Marseille, » ; préfixe ajouté aussi aux phrases de précaution générales.
 
 ### 2026-10-13 20:45 — partie programme — portée académique et situation de la décision (voir git log)
 Fait : phrases préfixées « À Aix-Marseille, » lorsque toutes leurs preuves sont marquées non confirmées pour l'académie de l'utilisateur ; réserve finale quand une partie seulement est marquée. Académie déclarée dans la question (« je suis à Lyon », « j'enseigne dans l'académie de Créteil », etc.) prioritaire sur le menu, avec signalement de l'écart ; utilisée pour marquage, génération, cache, contact et journal. Exemples cités et déclarations multiples ambiguës ne changent pas silencieusement l'académie. Contrôle de situation étendu aux formulations « même note pour tout le groupe » et aux preuves effectivement citées, pas seulement à la prose générée. Modules rechargés par le mécanisme réparé, conservé. 267 tests réussis, dont quatre nouveaux.

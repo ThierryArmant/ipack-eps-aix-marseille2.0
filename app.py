@@ -581,6 +581,25 @@ css_pur = f"""
         margin-bottom: 12px !important;
     }}
 
+    /* Lisibilité du parcours : panneau opaque, pas de cadres imbriqués, une seule logique de couleur */
+    .st-key-parcours {{ background: rgba(15, 23, 42, 0.96) !important; }}
+    div[class*="st-key-etape"] {{ border: none !important; box-shadow: none !important; background: transparent !important;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.15) !important; border-radius: 0 !important; }}
+    div[class*="st-key-etape3"] {{ border-bottom: none !important; }}
+    div[class*="_active"][class*="st-key-etape"] {{ background: rgba(255, 255, 255, 0.035) !important; border-radius: 12px !important;
+        border-bottom-color: transparent !important; }}
+    .hub-step-faite .hub-step-num {{ background: #10B981; color: #FFFFFF; }}
+    .hub-step-active .hub-step-num {{ background: #F59E0B; color: #0F172A; box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.25); }}
+    .hub-step-verrou .hub-step-num {{ background: #475569; color: #E2E8F0; }}
+    .hub-step-faite .hub-step-sub {{ color: #6EE7B7; }}
+    .hub-note {{ color: #FDE68A; font-size: 13px; margin: 8px 2px 2px 2px; }}
+    .hub-note strong {{ color: #FFFFFF; }}
+    div[class*="st-key-etape2"] div[data-testid="stRadio"] {{ background: transparent !important; border: none !important;
+        padding: 2px 0 !important; box-shadow: none !important; }}
+    div[class*="st-key-etape2"] div[data-baseweb="select"] > div {{ border: 1px solid #CBD5E1 !important; }}
+    div[class*="st-key-etape2"] div[data-baseweb="select"] > div:focus-within {{ border: 2px solid #F59E0B !important; }}
+    .hub-field {{ color: #E2E8F0 !important; }}
+
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
         cursor: zoom-in;
@@ -1358,18 +1377,22 @@ titre_affiche = label_titres.get(
     module_actif,
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
-def _bandeau_etape(numero, titre, sous_titre, couleur):
-    """En-tête d'étape : pastille numérotée et titre, dans le panneau du parcours."""
+def _bandeau_etape(numero, titre, sous_titre, couleur=""):
+    """En-tête d'étape : pastille (✓ si faite, numéro sinon) et titre, dans le panneau du parcours.
+    Une seule logique de couleur : vert = fait, ambre = en cours, gris = pas encore ouvert."""
+    n = int(numero)
+    etat = "faite" if n < _etape_active else ("active" if n == _etape_active else "verrou")
+    pastille = "✓" if etat == "faite" else numero
     st.markdown(
-        f'<div class="hub-step hub-step-{couleur}"><span class="hub-step-num">{numero}</span>'
+        f'<div class="hub-step hub-step-{etat}"><span class="hub-step-num">{pastille}</span>'
         f'<div><div class="hub-step-title">{titre}</div><div class="hub-step-sub">{sous_titre}</div></div></div>',
         unsafe_allow_html=True,
     )
 
 
 def _consigne(texte, couleur="amber"):
-    """Message d'aide (choix manquant) : lisible sur la photo de fond."""
-    st.markdown(f'<div class="hub-hint hub-hint-{couleur}">{texte}</div>', unsafe_allow_html=True)
+    """Indication courte dans le panneau : texte seul, sans cadre supplémentaire."""
+    st.markdown(f'<div class="hub-note">{texte}</div>', unsafe_allow_html=True)
 
 
 prompt = None

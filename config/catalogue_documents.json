@@ -5436,5 +5436,37 @@
       "(?=.*(?:velo|vtt|bicyclette|cyclis))(?=.*(?:musee|sortie|deplac|trajet|obligat|encadrement))"
     ],
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F34169"
+  },
+  "data/textes/fiches/demifond_college_vma_exemples.txt": {
+    "title": "Demi-fond collège : VMA et exemples pédagogiques, sans barème national imposé",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:vma|demi.?fond))(?=.*(?:pourcent|exigen|bareme|evalu|allure))"
+    ],
+    "exclure_motifs": []
+  },
+  "data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt": {
+    "title": "Programme EPS sixième : application à la rentrée 2027-2028",
+    "statut": "source_officielle_lue_2026_10_13",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:programme|cycle 3))(?=.*(?:sixieme|6e|6eme|rentree|2026|2027))"
+    ],
+    "exclure_motifs": []
   }
 }

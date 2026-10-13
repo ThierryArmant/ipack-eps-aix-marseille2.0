@@ -5240,6 +5240,26 @@
    "sessions": [],
    "autres_academies_citees": [],
    "titre": "Sortie au musée à vélo ou VTT : obligations et prévention au second degré"
+  },
+  "data/textes/fiches/demifond_college_vma_exemples.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "dnb",
+   "titre": "Demi-fond collège : VMA et exemples pédagogiques, sans barème national imposé"
+  },
+  "data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "dnb",
+   "titre": "Programme EPS sixième : application à la rentrée 2027-2028"
   }
  }
 }

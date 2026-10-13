@@ -7,10 +7,11 @@ from source_scope import annotations, select_academy, model_passage
 from test_documentary_review import FakeLLM, CHECKS
 
 FRAUD='data/examens/fraude_ccf_eps.txt'
+AIX_PROTOCOLES='data/commun/audit60/aix_protocoles_2026.txt'
 
 
-def packets():
-    return source_packets(mark_excerpt(Path(FRAUD).read_text(),path=FRAUD,priority=300))
+def packets(path=FRAUD):
+    return source_packets(mark_excerpt(Path(path).read_text(),path=path,priority=300))
 
 
 def supported(span,level='reglementaire'):
@@ -34,8 +35,15 @@ class SourceScopeTests(unittest.TestCase):
         self.assertIn('Fiche mixte : circuit académique + cadre national',answer)
         self.assertNotIn('Texte réglementaire :',answer)
 
+    def test_creteil_keeps_national_fraud_steps_unmarked(self):
+        # EX290 : la compétence de la commission de discipline est nationale, pas une consigne d'Aix.
+        chosen,marked=select_academy(packets(),'Créteil')
+        self.assertEqual(marked,[])
+        step4=next(s for s in chosen[0]['passages'] if s['text'].startswith('4. Ne pas saisir de zéro'))
+        self.assertNotIn('Consigne de l’académie',model_passage(step4)['text'])
+
     def test_creteil_marks_inventory_passages_and_preserves_exact_evidence(self):
-        original=packets()
+        original=packets(AIX_PROTOCOLES)
         chosen,marked=select_academy(original,'Créteil')
         self.assertTrue(marked)
         foreign=next(s for s in chosen[0]['passages'] if s['scope'].get('not_confirmed_for'))
@@ -72,12 +80,12 @@ class SourceScopeTests(unittest.TestCase):
         self.assertFalse(validate_claims({'claims':[c]},ps)[0])
 
     def test_actual_review_sends_marked_academic_origin_in_one_call(self):
-        ps=packets()
+        ps=packets(AIX_PROTOCOLES)
         c=supported(ps[0]['passages'][0])
         llm=FakeLLM([{'claims':[c]}])
         audit={}
-        review_exam_answer(llm,question='Fraude CCF ?',public='GT',academy='Créteil',
-                           documents=mark_excerpt(Path(FRAUD).read_text(),path=FRAUD,priority=300),audit=audit)
+        review_exam_answer(llm,question='Validation des protocoles ?',public='GT',academy='Créteil',
+                           documents=mark_excerpt(Path(AIX_PROTOCOLES).read_text(),path=AIX_PROTOCOLES,priority=300),audit=audit)
         data=json.loads(llm.prompts[0].split('DONNEES :\n',1)[1])
         self.assertEqual(data['academy'],'Créteil')
         self.assertEqual(len(llm.prompts),1)
@@ -85,6 +93,13 @@ class SourceScopeTests(unittest.TestCase):
         self.assertIn('Consigne de l’académie d’Aix-Marseille',
                       '\n'.join(s['text'] for p in data['documents'] for s in p['passages']))
         self.assertFalse(audit['semantic_review'])
+
+    def test_registry_is_up_to_date_with_fiches(self):
+        # Une fiche modifiée sans régénérer le registre laisserait des marques périmées.
+        import portee_registre
+        registre=json.loads(Path('config/portee_academique.json').read_text(encoding='utf-8'))['fichiers']
+        self.assertEqual(registre,portee_registre.inventaire(),
+                         'Relancer : python portee_registre.py --write')
 
 
 if __name__=='__main__':

@@ -97,6 +97,8 @@ def scoped_segments(path, body):
                 scope.update(academy='Région académique Provence-Alpes-Côte d’Azur', academies_applicables=record['academies_applicables'])
             elif record.get('type_source') == 'courriel_assistance':
                 scope.update(level='assistance', academy='Aix-Marseille', reference=record.get('source_reference', ''), status='retour_assistance_date')
+            elif record.get('academie') and record['academie'] not in ('aix-marseille', 'paca'):
+                scope['academy'] = _nom_academie(record['academie'])
             elif marked:
                 scope['academy']='Aix-Marseille'
             segments.append({'text':text, 'start':offset, 'end':offset+len(text), 'scope':scope})
@@ -138,7 +140,8 @@ def model_passage(span):
 def _nom_academie(code):
     # Le registre stocke un identifiant (« aix-marseille ») ; l'affichage garde le nom officiel.
     from academie import ACADEMIES
-    return next((a for a in ACADEMIES if a.lower().replace(' ', '-') == str(code).lower()), str(code))
+    from knowledge_catalog import normalise
+    return next((a for a in ACADEMIES if normalise(a).replace(' ', '-') == normalise(str(code))), str(code))
 
 
 def evidence_label(evidence, packet, labels):

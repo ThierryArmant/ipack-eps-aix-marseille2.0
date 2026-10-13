@@ -5222,6 +5222,15 @@
    "autres_academies_citees": [],
    "portee_texte": "Guide technique national, v18.4.0",
    "titre": "IMAG’IN : mission de notation EPS CCF absente en CFA et distinction EPSAC"
+  },
+  "data/examens/situations_2026_10_13/santorin_export_detail_notes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": "creteil",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "titre": "Santorin : export du détail des notes — accès établissement"
   }
  }
 }

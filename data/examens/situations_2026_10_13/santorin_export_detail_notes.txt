@@ -1,0 +1,8 @@
+### Santorin : export du détail des notes — accès établissement
+[PORTEE: gt,pro,cap]
+Pour exporter les notes du CCF EPS, le tutoriel technique de Créteil (article 71, synthèse relue le 6 octobre 2026) décrit l’accès Santorin du chef d’établissement, rubrique [Statistiques]. L’enseignant demande cette extraction à sa direction ; sa saisie des notes et l’export sont deux opérations distinctes.
+Le tutoriel décrit des statistiques simplifiées côté professeur et des statistiques détaillées côté chef d’établissement ; un référent établissement Santorin peut aussi accéder aux statistiques avancées selon son habilitation. Ne pas promettre que tout professeur possède un bouton d’export.
+La synthèse ne documente pas un export automatique vers Pronote ni un format précis de fichier. Vérifier que le fichier obtenu contient le détail souhaité (AFL/AFLP), plutôt que d’affirmer qu’une extraction de la note finale suffit. Si la rubrique est absente, faire confirmer l’habilitation et le circuit actuel par l’assistance ; à Aix-Marseille, le service des examens est la DIEC.
+Nature de la source : documentation du logiciel, procédure publiée par Créteil ; pas une règle nationale ni une consigne locale d’Aix confirmée.
+Source : tutoriel Santorin Chef d’établissement, export du fichier de notes, article 71 ; synthèse déjà présente dans data/examens/tutoriels_creteil_cyclades_santorin.txt.
+https://ipackeps.ac-creteil.fr/spip.php?article71

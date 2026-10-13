@@ -803,6 +803,17 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_13/imagin_mission_epscc_cfa.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### IMAG’IN : mission de notation EPS CCF absente en CFA et distinction EPSAC",
+     "lignes": [
+      "Pour un CFA, le guide indique que l’affectation automatique des enseignants n’est pas réalisée ; l’affectation et la convocation sont à effectuer par l’établissement de type CFA ou par le gestionnaire du service des examens (désigné « DEC » dans le guide ; à Aix-Marseille : DIEC). Si la mission de notation EPS CCF manque, faire vérifier cette affectation/convocation par l’établissement ou la DIEC à Aix-Marseille ; l’enseignant ne doit pas créer une mission dans un écran gestionnaire auquel il n’a pas accès."
+     ]
+    }
+   ]
+  },
   "data/examens/situations_2026_10_13/option_eps_abandon_aix_2027.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -812,6 +823,17 @@
       "À Aix-Marseille, pour la session 2027 du baccalauréat général et technologique, le bulletin académique des inscriptions précise pour l'option EPS : inscription définitive, note automatiquement prise en compte, pas d'abandon de l'enseignement optionnel après la clôture des inscriptions, pas de régularisation après clôture.",
       "Un élève inscrit à l'option ne peut donc pas l'abandonner en cours de terminale une fois les inscriptions closes : sa note d'option est prise en compte.",
       "Dans une autre académie, se reporter au bulletin des inscriptions de cette académie et à son service des examens."
+     ]
+    }
+   ]
+  },
+  "data/examens/situations_2026_10_13/santorin_export_detail_notes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin : export du détail des notes — accès établissement",
+     "lignes": [
+      "La synthèse ne documente pas un export automatique vers Pronote ni un format précis de fichier. Vérifier que le fichier obtenu contient le détail souhaité (AFL/AFLP), plutôt que d’affirmer qu’une extraction de la note finale suffit. Si la rubrique est absente, faire confirmer l’habilitation et le circuit actuel par l’assistance ; à Aix-Marseille, le service des examens est la DIEC."
      ]
     }
    ]

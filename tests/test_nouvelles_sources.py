@@ -3,6 +3,23 @@ from pathlib import Path
 from source_scope import scoped_segments, select_academy, evidence_label
 
 class NouvellesSourcesTests(unittest.TestCase):
+    def test_acrosport_informal_question_finds_individual_marking(self):
+        import knowledge_catalog as kc
+        titles=kc.priority_titles("En acrosport je peux donner la même note à tous ?", 'Lycée Général & Techno','examens')
+        self.assertIn('Épreuve collective : notation individuelle',titles)
+
+    def test_export_finds_short_procedure_without_supposed_gradebook_transfer(self):
+        import knowledge_catalog as kc
+        text=kc.delivered_text('Comment exporter le détail des notes de mes élèves dans Santorin ?', 'Lycée Général & Techno','examens')
+        self.assertIn('[Statistiques]',text)
+        self.assertIn('ne documente pas un export automatique',text)
+        self.assertNotIn('Santorin : export du détail des notes — accès établissement',kc.priority_titles('Exporter mes notes iPackEPS vers Pronote', 'Lycée Général & Techno','ipack'))
+
+    def test_creteil_export_is_not_relabelled_aix(self):
+        p='data/examens/situations_2026_10_13/santorin_export_detail_notes.txt'
+        spans=scoped_segments(p,Path(p).read_text())
+        self.assertTrue(all(s['scope']['academy']=='Créteil' for s in spans))
+
     def test_assistance_cannot_be_promoted_to_national_rule(self):
         p='data/ipack/courriels_aix_2026_10_13/classe_apprentis_absente.txt'
         spans=scoped_segments(p,Path(p).read_text())

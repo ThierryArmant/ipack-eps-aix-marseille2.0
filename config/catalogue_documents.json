@@ -5215,7 +5215,8 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
-      "^(?=.*(?:collecti|groupe|equipe|binome|trio|ensemble))(?=.*(?:meme note|note collective|note de groupe|note commune|une (?:seule )?note pour (?:tout|tous|le groupe)|tous la meme|tout le monde la meme|noter (?:le|en) groupe|note d.equipe))"
+      "^(?=.*(?:collecti|groupe|equipe|binome|trio|ensemble))(?=.*(?:meme note|note collective|note de groupe|note commune|une (?:seule )?note pour (?:tout|tous|le groupe)|tous la meme|tout le monde la meme|noter (?:le|en) groupe|note d.equipe))",
+      "^(?=.*(?:acrosport|danse|relais|collecti|groupe|equipe))(?=.*(?:meme note|note identique|note commune))"
     ],
     "exclure_motifs": [
       "inapt|dispens|certificat|bless"
@@ -5389,5 +5390,27 @@
     "exclure_motifs": [
       "\\bcap\\b|bac ?pro|ponctuel|shn|haut niveau"
     ]
+  },
+  "data/examens/situations_2026_10_13/santorin_export_detail_notes.txt": {
+    "title": "Santorin : export du détail des notes — accès établissement",
+    "statut": "synthese_technique_creteil",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*santorin)(?=.*(?:export|extraire|extraction|telecharg))(?=.*notes?)"
+    ],
+    "exclure_motifs": [
+      "pronote|ipack"
+    ],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article71"
   }
 }

@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 22:45 — programme et sélection — reprise locale économique (voir git log)
+Fait : huit formulations de cas déjà étudiés examinées sans appel au modèle. Deux lacunes de sélection reproduites et corrigées : note identique en acrosport sans mot « groupe » ; export des notes Santorin sans fiche prioritaire. Ajout d’une courte synthèse issue du tutoriel déjà présent, sans import de nouveaux documents. Origine Créteil conservée explicitement par le programme, avec réserve hors de cette académie. Aucun droit d’export professeur ni transfert automatique vers Pronote inventé.
+Constaté : 284 tests réussis ; aucun appel au modèle, aucune question de réserve utilisée. Les autres sélections observées ne constituent pas une vérification des réponses produites. La cause d’une unique épreuve passée reste indispensable avant de conclure sur note unique/dispense ; pas d’hypothèse médicale ajoutée.
+Attendu : vérifier ultérieurement ces réponses en ligne sur des questions réelles. Pas de nouveau score de fiabilité.
+
 ### 2026-10-13 22:27 — parties programme et fiches — sources fournies, reprise autorisée (voir git log)
 Fait : 25 fiches ajoutées, dont sept issues de courriels anonymisés, quatorze sur les aménagements Incluscol/AMEX et trois régionales CFA/CCF, plus une fiche IMAG’IN EPSCC/CFA issue du guide gestionnaire fourni ensuite. Terminologie locale : DIEC à Aix-Marseille ; « DEC » conservé seulement comme vocabulaire de la source. Retours d’assistance datés affichés comme tels ; portée PACA distincte, applicable Aix et Nice. Complément accès Santorin CCF versus protocoles Cyclades. Analyse des PDF EPS 2023/2024, rapports CAHPN Aix 2024 et CNE 2025, exploration des liens de la rubrique Lyon consignées dans docs/analyse_sources_eps_2026_10_13.md. Les sources historiques et les consignes de Lyon ne deviennent pas des règles actuelles d’Aix. Aucun courriel brut ni donnée personnelle publié.
 Constaté : deux résolutions confirmées dans les courriels ; autres diagnostics limités, ticket VERDON non résolu. Les vidéos sans transcription et espaces privés ne sont pas considérés comme lus. 281 tests réussis ; aucune nouvelle mesure indépendante de qualité des réponses.

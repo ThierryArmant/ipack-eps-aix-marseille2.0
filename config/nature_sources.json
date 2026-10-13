@@ -1776,6 +1776,43 @@
    "portee_texte": null,
    "titre": "Sigles des examens d'EPS"
   },
+  "data/examens/situations_2026_10_13/bac_pro_deux_notes_inaptitude.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "pro",
+   "titre": "Bac professionnel : inapte sur une épreuve, deux notes sur trois"
+  },
+  "data/examens/situations_2026_10_13/cap_absence_injustifiee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "cap",
+   "titre": "CAP : absence sans justification à une ou à toutes les situations de CCF"
+  },
+  "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Corse",
+    "Normandie",
+    "Besançon"
+   ],
+   "portee_texte": null,
+   "titre": "Établissement hors SIECLE (CFA, GRETA, MFR, AEFE) : associer les candidats dans Cyclades"
+  },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
    "nature": [
     "consigne_academique",

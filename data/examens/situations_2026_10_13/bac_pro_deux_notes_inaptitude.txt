@@ -1,0 +1,13 @@
+### Bac professionnel : inapte sur une épreuve, le candidat a deux notes sur trois
+[PORTEE: pro]
+Sigles : CCF = contrôle en cours de formation ; APSA = activités physiques, sportives et artistiques.
+Quand l'autorité médicale prononce une inaptitude (momentanée, partielle ou totale) et que le candidat a déjà deux notes, l'enseignant ou le formateur apprécie la situation et choisit parmi les possibilités prévues par le texte :
+1. renvoyer le candidat à une situation d'évaluation différée ;
+2. adapter l'épreuve si l'inaptitude est partielle : les adaptations sont définies par l'établissement à partir des indications du médecin et transmises pour information à la commission académique ;
+3. permettre une certification sur deux activités : la note finale résulte alors de la moyenne des deux notes.
+L'épreuve non passée pour une inaptitude attestée ne reçoit pas de zéro : le texte prévoit les possibilités ci-dessus.
+La note unique (apprécier la qualité et la quantité des éléments ; sinon, mention « dispensé de l'épreuve d'éducation physique et sportive ») concerne seulement le candidat qui n'a qu'une seule évaluation sur l'année. Elle ne s'applique pas à un candidat qui a deux notes.
+Saisie dans Santorin en cas de certification sur deux activités : « Dispensé » sur l'APSA non évaluée, les notes sur les deux autres ; le certificat médical est déposé dans iPackEPS.
+Nature de la source : texte national pour les possibilités et le calcul de la note ; documentation du logiciel pour la saisie dans Santorin et le dépôt dans iPackEPS.
+Sources : circulaire du 2 avril 2025, MENE2505383C, partie B.3.2, modifiée par la circulaire d'octobre 2025, MENE2526357C ; guide de saisie Santorin (cas des inaptes avec deux notes).
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C

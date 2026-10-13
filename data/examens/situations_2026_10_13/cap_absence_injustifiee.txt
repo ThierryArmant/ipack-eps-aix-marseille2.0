@@ -1,0 +1,10 @@
+### CAP : candidat absent sans justification à une ou à toutes les situations de CCF
+[PORTEE: cap]
+Sigles : CAP = certificat d'aptitude professionnelle ; CCF = contrôle en cours de formation.
+En CAP, la conséquence d'une absence sans justification valable dépend du nombre de situations d'évaluation manquées.
+- Absent sans justification à une situation de fin de séquence : note zéro pour cette situation ; la note finale est la moyenne des notes obtenues.
+- Absent sans justification à toutes les situations d'évaluation : le candidat est déclaré « absent ». Ce n'est pas une moyenne de zéros : cette absence entraîne la non-délivrance du diplôme, comme pour un candidat absent sans justification à l'examen terminal (article D337-16 du code de l'éducation).
+Une absence justifiée ouvre droit à une situation d'évaluation différée, prévue par l'établissement ou le centre : blessure ou problème de santé temporaire authentifié par l'autorité médicale scolaire ; cas de force majeure pour un candidat assidu, avec l'accord du chef d'établissement ou du directeur du centre, après consultation des équipes pédagogiques.
+Nature de la source : texte national (circulaire EPS du CAP). La façon de saisir cette absence dans Santorin n'est pas décrite dans ce texte : suivre la consigne du service des examens de l'académie.
+Source : circulaire du 27 août 2025, MENE2517122C (BO n° 36 du 25 septembre 2025), modifiée par la circulaire du 24 octobre 2025, MENE2526679C, partie 2.1.
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

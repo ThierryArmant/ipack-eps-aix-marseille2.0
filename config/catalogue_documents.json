@@ -3085,7 +3085,8 @@
     "statut": "verifie_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "exclure_motifs": [
-      "ponctuel|shn|haut niveau"
+      "ponctuel|shn|haut niveau",
+      "(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations)"
     ]
   },
   "data/commun/audit355/aix_marche_adaptee.txt": {
@@ -4522,6 +4523,63 @@
     ],
     "exclusif_motifs": [
       "(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+    ]
+  },
+  "data/examens/situations_2026_10_13/cap_absence_injustifiee.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "CAP : absence sans justification à une ou à toutes les situations de CCF",
+    "examens": [
+      "cap"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+    "motifs": [
+      "^(?=.*\\bcap\\b)(?=.*(?:absen|n.est (?:pas )?venu|venu a aucune|seche|ne s.est (?:pas )?presente|aucune (?:des )?(?:deux )?(?:situations?|epreuves?)|sans justif|pas de justif))(?=.*(?:eleve|candidat|apprenti|\\bil\\b|\\belle\\b))(?!.*(?:enseignant|professeur|prof|collegue|evaluateur|examinateur) (?:est |etait )?absent)"
+    ]
+  },
+  "data/examens/situations_2026_10_13/bac_pro_deux_notes_inaptitude.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Bac professionnel : inapte sur une épreuve, deux notes sur trois",
+    "examens": [
+      "pro"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "motifs": [
+      "^(?=.*(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations|activites notees))(?=.*(?:inapt|bless|certificat|dispens|n.a pas pu|ne peut pas passer))(?!.*\\bcap\\b)"
+    ],
+    "exclure_motifs": [
+      "\\bbac(?:calaureat)? ?(?:general|techno|gt)\\b|\\blgt\\b|\\bshn\\b|haut niveau"
+    ]
+  },
+  "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Établissement hors SIECLE (CFA, GRETA, MFR, AEFE) : associer les candidats dans Cyclades",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "url": "https://github.com/Pole-Examens/tutoriels-examens",
+    "motifs": [
+      "^(?=.*(?:\\bcfa\\b|\\bgreta\\b|\\bmfr\\b|\\baefe\\b|apprentis?\\b|hors siecle|lycee agricole|pas de base eleves))(?=.*(?:ipack|cyclades|export|import|eleves|classes|protocole|associ))"
     ]
   }
 }

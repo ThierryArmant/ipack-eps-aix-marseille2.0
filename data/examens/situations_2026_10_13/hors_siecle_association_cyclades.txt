@@ -1,0 +1,12 @@
+### Établissement hors SIECLE (CFA, GRETA, MFR, AEFE) : pas d'élèves dans iPackEPS, associer les candidats dans Cyclades
+[PORTEE: gt,pro,cap]
+Sigles : CFA = centre de formation d'apprentis ; MFR = maison familiale rurale ; AEFE = Agence pour l'enseignement français à l'étranger.
+Certains établissements ont une base élèves qui n'est pas synchronisée avec la base académique SIECLE : principalement les CFA, GRETA, MFR, lycées agricoles et établissements AEFE. iPackEPS ne contient alors ni classes ni élèves : c'est normal, et l'export des élèves vers Cyclades ne peut pas servir.
+Dans iPackEPS : déposer les référentiels et créer les groupes et les protocoles sans élèves. Ne pas chercher à importer les classes et les élèves.
+Les étapes du circuit qui reposent sur la base élèves ne s'appliquent pas : actualisation de la liste des candidats, affectation dans les groupes iPackEPS, fichier d'import vers Cyclades.
+L'association des candidats aux protocoles se fait directement dans Cyclades, menu [EPS] > [Associer les élèves à un protocole] : sélectionner un ou plusieurs élèves puis les glisser-déposer dans le protocole, ou choisir le protocole dans la colonne « Grp. Élève » ; puis [Enregistrer]. Un élève est associé à un seul protocole.
+Élève en situation de handicap ou d'aptitude partielle : l'associer au protocole adapté par ce même menu.
+L'ouverture des accès iPackEPS pour ces établissements dépend de chaque académie : s'adresser à l'assistance iPackEPS et au service des examens de l'académie.
+Nature de la source : fonctionnement des logiciels (iPackEPS, Cyclades), décrit de façon concordante par plusieurs guides académiques.
+Sources : guide académique des tutoriels examens « Transfert des protocoles d'iPackEPS vers Cyclades puis saisie dans Santorin » (Aix-Marseille) ; document Corse 2024-2025 ; guide Normandie 2025 ; support Besançon 2025.
+https://github.com/Pole-Examens/tutoriels-examens

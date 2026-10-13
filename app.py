@@ -386,29 +386,42 @@ css_pur = f"""
     .hub-step-green {{ border-left: 5px solid #10B981; }}
     .hub-step-green .hub-step-num {{ background: #10B981; }}
 
-    /* Encart de l'étape 2 : académie et public dans le même bloc */
-    .st-key-etape2 {{
-        background: rgba(15, 23, 42, 0.82);
+    /* Parcours : les trois étapes dans un seul panneau */
+    .st-key-parcours {{
+        background: rgba(15, 23, 42, 0.88);
         backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(148, 163, 184, 0.25);
-        border-left: 5px solid #F59E0B;
-        border-radius: 14px; padding: 4px 16px 12px 16px; margin: 12px 0;
-        box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+        border-radius: 16px; padding: 6px 16px 12px 16px; margin: 12px 0 16px 0;
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.4);
+        gap: 0 !important;
     }}
-    .st-key-etape2 .hub-step {{
+    div[class*="st-key-etape"] {{
+        border-radius: 12px; padding: 4px 12px 12px 12px; margin: 4px 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }}
+    div[class*="st-key-etape3"] {{ border-bottom: none; }}
+    div[class*="st-key-etape"] .hub-step {{
         background: transparent; border: none; box-shadow: none; backdrop-filter: none;
         padding: 8px 0 4px 0; margin: 4px 0 6px 0;
+    }}
+    div[class*="_active"][class*="st-key-etape1"] {{ background: rgba(56, 189, 248, 0.08); box-shadow: inset 4px 0 0 #38BDF8; }}
+    div[class*="_active"][class*="st-key-etape2"] {{ background: rgba(245, 158, 11, 0.08); box-shadow: inset 4px 0 0 #F59E0B; }}
+    div[class*="_active"][class*="st-key-etape3"] {{ background: rgba(16, 185, 129, 0.08); box-shadow: inset 4px 0 0 #10B981; }}
+    div[class*="_verrou"][class*="st-key-etape"] {{ opacity: 0.45; }}
+    .hub-champ-verrou {{
+        background: rgba(248, 250, 252, 0.85); border-radius: 10px; padding: 11px 12px;
+        color: #64748B; font-size: 13.5px; margin: 4px 0 6px 0;
     }}
     .hub-field {{
         color: #FDE68A; font-weight: 800; font-size: 12.5px; text-transform: uppercase;
         letter-spacing: 0.6px; margin: 8px 0 4px 2px;
     }}
-    .st-key-etape2 div[data-baseweb="select"] > div {{
+    div[class*="st-key-etape2"] div[data-baseweb="select"] > div {{
         background-color: #F8FAFC !important; border: 2px solid rgba(245, 158, 11, 0.55) !important;
         border-radius: 10px !important; min-height: 44px;
     }}
-    .st-key-etape2 div[data-baseweb="select"] * {{ color: #0F172A !important; font-weight: 600; }}
-    .st-key-etape2 div[data-testid="stRadio"] {{
+    div[class*="st-key-etape2"] div[data-baseweb="select"] * {{ color: #0F172A !important; font-weight: 600; }}
+    div[class*="st-key-etape2"] div[data-testid="stRadio"] {{
         background-color: rgba(30, 41, 59, 0.7) !important; border: 1px solid rgba(148, 163, 184, 0.25) !important;
         border-radius: 10px !important; box-shadow: none; margin-bottom: 4px !important;
     }}
@@ -1345,64 +1358,8 @@ titre_affiche = label_titres.get(
     module_actif,
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
-st.markdown(
-    f'<div class="hub-step hub-step-cyan"><span class="hub-step-num">1</span><div><div class="hub-step-title">Choisissez le contexte de votre question</div><div class="hub-step-sub">{titre_affiche}</div></div></div>',
-    unsafe_allow_html=True,
-)
-
-col_b1, col_b2, col_b3 = st.columns(3, gap="small")
-
-# 🔒 LE VERROU EST ICI : On définit la couleur en dur AVANT de créer les boutons
-btn_ip_type = "primary" if module_actif == "ipack" else "secondary"
-btn_ex_type = "primary" if module_actif == "examens" else "secondary"
-btn_se_type = "primary" if module_actif == "textes" else "secondary"
-
-with col_b1:
-    if st.button(
-        "🛠️ iPackEPS",
-        use_container_width=True,
-        key="btn_ip",
-        type=btn_ip_type,
-    ):
-        st.session_state.active_module = "ipack"
-        st.session_state.contexte_valide = True
-        st.session_state.public_valide = False
-        st.session_state.messages_hub = []
-        st.rerun()
-        
-with col_b2:
-    if st.button(
-        "📊 Examens &\nSantorin",
-        use_container_width=True,
-        key="btn_ex",
-        type=btn_ex_type,
-    ):
-        st.session_state.active_module = "examens"
-        st.session_state.contexte_valide = True
-        st.session_state.public_valide = False
-        st.session_state.messages_hub = []
-        st.rerun()
-        
-with col_b3:
-    if st.button(
-        "🔒 Sécurité &\nCadres Règl.",
-        use_container_width=True,
-        key="btn_se",
-        type=btn_se_type,
-    ):
-        st.session_state.active_module = "textes"
-        st.session_state.contexte_valide = True
-        st.session_state.public_valide = False
-        st.session_state.messages_hub = []
-        st.rerun()
-
-# ======================================================================
-# 7. ÉTAPE 2 & 3 : PUBLIC CIBLE ET ZONE DE SAISIE (PARCOURS EN CASCADE)
-# ======================================================================
-prompt = None
-
 def _bandeau_etape(numero, titre, sous_titre, couleur):
-    """Bandeau d'étape homogène : fond sombre translucide, pastille numérotée et filet de couleur."""
+    """En-tête d'étape : pastille numérotée et titre, dans le panneau du parcours."""
     st.markdown(
         f'<div class="hub-step hub-step-{couleur}"><span class="hub-step-num">{numero}</span>'
         f'<div><div class="hub-step-title">{titre}</div><div class="hub-step-sub">{sous_titre}</div></div></div>',
@@ -1411,83 +1368,133 @@ def _bandeau_etape(numero, titre, sous_titre, couleur):
 
 
 def _consigne(texte, couleur="amber"):
-    """Message d'aide (zone verrouillée, choix manquant) : lisible sur la photo de fond."""
+    """Message d'aide (choix manquant) : lisible sur la photo de fond."""
     st.markdown(f'<div class="hub-hint hub-hint-{couleur}">{texte}</div>', unsafe_allow_html=True)
 
 
-if not st.session_state.contexte_valide:
-    _consigne("🔒 <strong>Une autre question ?</strong> Choisissez d'abord le contexte (étape 1), "
-              "puis votre académie et votre public.", "cyan")
-else:
-    # ÉTAPE 2 : académie et public, réunis dans un même encart
-    with st.container(key="etape2"):
-        _bandeau_etape("2", "Votre académie et votre public",
-                       "Les consignes et la réponse s'adaptent à ces deux choix", "amber")
+prompt = None
+_contexte_ok = bool(st.session_state.get("contexte_valide"))
+_academie_ok = bool(st.session_state.get("academie_utilisateur"))
+if st.session_state.get("niveau_actif_form"):
+    st.session_state.public_valide = True
+_public_ok = bool(st.session_state.get("public_valide"))
+_etape_active = 1 if not _contexte_ok else (2 if not (_academie_ok and _public_ok) else 3)
 
-        def valider_public():
-            st.session_state.public_valide = True
 
-        # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
-        st.markdown('<div class="hub-field">🏫 Académie</div>', unsafe_allow_html=True)
-        st.selectbox(
-            "Votre académie",
-            ACADEMIES,
-            index=None,
-            placeholder="Choisissez votre académie",
-            key="academie_utilisateur",
-            label_visibility="collapsed",
-        )
+def _cle_etape(numero):
+    # La clé donne la classe CSS de la section : active, faite ou verrouillée.
+    etat = "active" if numero == _etape_active else ("faite" if numero < _etape_active else "verrou")
+    return f"etape{numero}_{etat}"
 
-        st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
-        niveau_scolaire = st.radio(
-            "Public cible",
-            ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-            horizontal=True,
-            key="niveau_actif_form",
-            label_visibility="collapsed",
-            on_change=valider_public
-        )
 
-    if st.session_state.get("niveau_actif_form"):
-        st.session_state.public_valide = True
+# PARCOURS EN TROIS ÉTAPES, RÉUNIES DANS UN SEUL PANNEAU
+with st.container(key="parcours"):
 
-    if not st.session_state.get("academie_utilisateur"):
-        _consigne("👆 Choisissez <strong>votre académie</strong> : le calendrier, le circuit des protocoles "
-                  "et les contacts en dépendent.")
-    elif not st.session_state.public_valide:
-        _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
-    else:
-        # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
+    # ÉTAPE 1 : CHOIX DU CONTEXTE
+    with st.container(key=_cle_etape(1)):
+        _bandeau_etape("1", "Choisissez le contexte de votre question", titre_affiche, "cyan")
+        col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+
+        # 🔒 LE VERROU EST ICI : On définit la couleur en dur AVANT de créer les boutons
+        btn_ip_type = "primary" if module_actif == "ipack" else "secondary"
+        btn_ex_type = "primary" if module_actif == "examens" else "secondary"
+        btn_se_type = "primary" if module_actif == "textes" else "secondary"
+
+        with col_b1:
+            if st.button("🛠️ iPackEPS", use_container_width=True, key="btn_ip", type=btn_ip_type):
+                st.session_state.active_module = "ipack"
+                st.session_state.contexte_valide = True
+                st.session_state.public_valide = False
+                st.session_state.messages_hub = []
+                st.rerun()
+        with col_b2:
+            if st.button("📊 Examens &\nSantorin", use_container_width=True, key="btn_ex", type=btn_ex_type):
+                st.session_state.active_module = "examens"
+                st.session_state.contexte_valide = True
+                st.session_state.public_valide = False
+                st.session_state.messages_hub = []
+                st.rerun()
+        with col_b3:
+            if st.button("🔒 Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type=btn_se_type):
+                st.session_state.active_module = "textes"
+                st.session_state.contexte_valide = True
+                st.session_state.public_valide = False
+                st.session_state.messages_hub = []
+                st.rerun()
+
+    # ÉTAPE 2 : ACADÉMIE ET PUBLIC
+    with st.container(key=_cle_etape(2)):
+        if not _contexte_ok:
+            _bandeau_etape("2", "Votre académie et votre public", "S'ouvre quand le contexte est choisi", "amber")
+        else:
+            _bandeau_etape("2", "Votre académie et votre public",
+                           "Les consignes et la réponse s'adaptent à ces deux choix", "amber")
+
+            def valider_public():
+                st.session_state.public_valide = True
+
+            # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
+            st.markdown('<div class="hub-field">🏫 Académie</div>', unsafe_allow_html=True)
+            st.selectbox(
+                "Votre académie",
+                ACADEMIES,
+                index=None,
+                placeholder="Choisissez votre académie",
+                key="academie_utilisateur",
+                label_visibility="collapsed",
+            )
+
+            st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
+            niveau_scolaire = st.radio(
+                "Public cible",
+                ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+                horizontal=True,
+                key="niveau_actif_form",
+                label_visibility="collapsed",
+                on_change=valider_public
+            )
+            if not st.session_state.get("academie_utilisateur"):
+                _consigne("👆 Choisissez <strong>votre académie</strong> : le calendrier, le circuit des protocoles "
+                          "et les contacts en dépendent.")
+            elif not st.session_state.get("public_valide"):
+                _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
+
+    # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
+    with st.container(key=_cle_etape(3)):
         _bandeau_etape("3", "Posez votre question",
-                       "Une phrase complète : ce que vous faites, où ça bloque, le message affiché", "green")
+                       "Une phrase complète : ce que vous faites, où ça bloque, le message affiché"
+                       if _etape_active == 3 else "S'ouvre quand l'académie et le public sont choisis", "green")
+        if _etape_active != 3:
+            st.markdown('<div class="hub-champ-verrou">🔒 Décrivez votre problème en une phrase complète…</div>',
+                        unsafe_allow_html=True)
+        else:
+            st.markdown(
+                '<div class="hub-hint hub-hint-amber" style="text-align:left;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
+                unsafe_allow_html=True,
+            )
 
-        st.markdown(
-            '<div class="hub-hint hub-hint-amber" style="text-align:left;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
-            unsafe_allow_html=True,
-        )
+            with st.form(key="form_question_hub", clear_on_submit=True):
+                col_input, col_submit = st.columns([5, 1])
+                with col_input:
+                    prompt_brut = st.text_input(
+                        "Question :",
+                        placeholder=(
+                            "🔺 Décrivez votre problème en une phrase complète : ce que vous faites, où ça bloque, le message affiché..."
+                        ),
+                        label_visibility="collapsed",
+                    )
+                with col_submit:
+                    bouton_envoyer = st.form_submit_button(
+                        "🚀 Poser la question", use_container_width=True, type="primary"
+                    )
 
-        with st.form(key="form_question_hub", clear_on_submit=True):
-            col_input, col_submit = st.columns([5, 1])
-            with col_input:
-                prompt_brut = st.text_input(
-                    "Question :",
-                    placeholder=(
-                        "🔺 Décrivez votre problème en une phrase complète : ce que vous faites, où ça bloque, le message affiché..."
-                    ),
-                    label_visibility="collapsed",
-                )
-            with col_submit:
-                bouton_envoyer = st.form_submit_button(
-                    "🚀 Poser la question", use_container_width=True, type="primary"
-                )
+                if bouton_envoyer and prompt_brut.strip():
+                    prompt = prompt_brut.strip()
 
-            if bouton_envoyer and prompt_brut.strip():
-                prompt = prompt_brut.strip()
-                
-                # --- INJECTION DU SABLIER ICI ---
-                with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
-                    # On stocke temporairement la question dans la session pour déclencher la suite
-                    st.session_state.current_prompt = prompt
+                    # --- INJECTION DU SABLIER ICI ---
+                    with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
+                        # On stocke temporairement la question dans la session pour déclencher la suite
+                        st.session_state.current_prompt = prompt
 
 
 # ======================================================================

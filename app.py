@@ -1,20 +1,22 @@
-from response_controls import suggested_tab
 from pathlib import Path
 import hashlib
 import importlib
+import academie
+import knowledge_catalog
 import source_scope
 import documentary_review
+import response_controls
+import response_cache
 
-# Streamlit can retain imported modules when the application is redeployed.
-# Reload the response modules once when their on-disk sources change.
-_response_revision = hashlib.sha256(
-    Path(source_scope.__file__).read_bytes()
-    + Path(documentary_review.__file__).read_bytes()
-).hexdigest()
-if getattr(documentary_review, "_loaded_response_revision", None) != _response_revision:
-    importlib.reload(source_scope)
-    importlib.reload(documentary_review)
-    documentary_review._loaded_response_revision = _response_revision
+# Streamlit peut conserver en mémoire les modules importés lors d'un redéploiement :
+# une fonction ajoutée dans un module provoque alors une ImportError. Chaque module du
+# projet est rechargé dès que son fichier change (ordre : dépendances d'abord).
+for _module in (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache):
+    _revision = hashlib.sha256(Path(_module.__file__).read_bytes()).hexdigest()
+    if getattr(_module, "_loaded_revision", None) != _revision:
+        _module = importlib.reload(_module)
+        _module._loaded_revision = _revision
+from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
 from response_cache import ANSWER_CACHE, answer_key
 from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix

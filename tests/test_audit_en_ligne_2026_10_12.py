@@ -200,3 +200,20 @@ class AcademieTests(unittest.TestCase):
         src = lire('app.py')
         self.assertIn('key="academie_utilisateur"', src)
         self.assertIn('Veuillez choisir <strong>votre académie</strong>', src)
+
+
+class Reprise11Tests(unittest.TestCase):
+    """Reprise des 11 questions sur d2be361."""
+
+    def test_shn_tardif_fiche_exclusive(self):
+        q = "Un candidat au bac GT obtient son statut SHN après la clôture des inscriptions. Peut-on modifier ce statut et lui attribuer automatiquement 20 comme note finale EPS ? Explique les démarches dans l’ordre et qui doit intervenir."
+        self.assertEqual(kc.priority_titles(q, GT, 'examens'), ['Bac GT : statut SHN obtenu après la clôture des inscriptions'])
+        self.assertIn("ni aménagement à demander", kc.delivered_text(q, GT, 'examens'))
+
+    def test_f6_pas_de_derogation_technique(self):
+        self.assertIn('il ne modifie pas le logiciel', lire('data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt'))
+
+    def test_causes_a_verifier_et_ordre_des_codes(self):
+        self.assertIn('vérifiez d’abord si l’AFL1 est saisie', lire('data/examens/audit_faq_2026_10_12/k2_procedure_verifiee.txt'))
+        self.assertIn("Le certificat médical n'est pas exigé pour une force majeure", lire('data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt'))
+        self.assertIn('consigne manquante', lire('data/examens/fraude_ccf_eps.txt'))

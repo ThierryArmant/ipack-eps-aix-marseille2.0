@@ -2262,7 +2262,10 @@
       "https://www.ac-aix-marseille.fr/media/39062/download"
     ],
     "statut": "verifie_2026-10-10_eligibilite_trois_documents ; reponse_en_dur_convertie_en_fiche_2026-10-12",
-    "priorite": 90
+    "priorite": 90,
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+    ]
   },
   "data/commun/sorties_premier_degre.txt": {
     "title": "Premier degré : taux de sortie et règles de l’activité physique",
@@ -3201,7 +3204,10 @@
       "(?=.*(?:shn|haut niveau))(?=.*(?:date|quand|statut|beneficier))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
+    "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+    ]
   },
   "data/examens/cyclades_candidats_absents.txt": {
     "title": "Cyclades : candidats absents de la liste",
@@ -4295,6 +4301,9 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
       "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
     ]
   },
   "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt": {
@@ -4471,6 +4480,9 @@
     ],
     "motifs": [
       "(?=.*(?:shn|haut niveau))(?=.*(?:santorin|propose pas|n.apparait pas|crayon|saisir le 20|mettre le 20|le 20 ?/ ?20|20 sur 20))"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
     ]
   },
   "data/examens/sigles_examens_eps.txt": {
@@ -4489,6 +4501,27 @@
     "date_verification": "2026-10-13",
     "motifs": [
       "\\b(?:aflp?s?|apsa|ccf|cahpn|shn|eppcs)\\b"
+    ]
+  },
+  "data/examens/audit_lot4_2026_10_13/shn_statut_tardif.txt": {
+    "title": "Bac GT : statut SHN obtenu après la clôture des inscriptions",
+    "statut": "verifie_2026-10-13",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "date_verification": "2026-10-13",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
     ]
   }
 }

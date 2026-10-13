@@ -4362,7 +4362,7 @@
       "ipack"
     ],
     "prioritaire": true,
-    "priorite": 60,
+    "priorite": 300,
     "date_verification": "2026-10-13",
     "title": "Questions sans consigne écrite trouvée pour Aix-Marseille",
     "examens": [
@@ -4375,7 +4375,10 @@
       "(?=.*(?:retard|en retard))(?=.*(?:ccf|epreuve))",
       "(?=.*(?:communiqu|donner|annoncer|dire|montrer|transmettre|afficher))(?=.*(?:notes?|resultats?))(?=.*(?:eleves|candidats|familles|parents))(?=.*(?:ccf|bac|examen|santorin))",
       "redoubl",
-      "\\bbts\\b"
+      "\\bbts\\b",
+      "emarg|feuille de presence|(?:convocation|convoquer|convoque)s? (?:des |les )?(?:eleves|candidats)|(?:eleves|candidats).{0,20}convoqu",
+      "(?=.*\\bccf\\b)(?=.*(?:ponctuel|\\bept\\b))(?=.*(?:jour|date|meme|pendant|caler|programm|prevoir|organis))",
+      "teleconsult|consultation (?:a distance|en ligne|video)"
     ]
   },
   "data/examens/audit_faq_2026_10_12/j3_procedure_verifiee.txt": {

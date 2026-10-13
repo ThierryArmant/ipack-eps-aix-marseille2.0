@@ -69,6 +69,24 @@ class SituationsTests(unittest.TestCase):
         self.assertIn(t, kc.priority_titles(q, GT, 'ipack'))
         self.assertNotIn(t, titres("Cyclades affiche après l'import : le groupe élève importé ne correspond à aucun groupe lié aux protocoles", GT))
 
+    def test_sans_consigne_aix_emargement_ponctuel_teleconsultation(self):
+        t = 'Questions sans consigne écrite trouvée pour Aix-Marseille'
+        for q in ("Est-ce qu'on doit faire émarger les élèves à chaque CCF ?",
+                  "On peut caler un CCF le jour des épreuves ponctuelles d'EPS ?",
+                  "Un certificat fait en téléconsultation, c'est valable pour le CCF ?"):
+            self.assertIn(t, titres(q, GT), q)
+        self.assertNotIn(t, titres("Le chef doit convoquer l'enseignant dans Imag'in ?", GT))
+        texte = Path('data/examens/audit_lot4_2026_10_13/points_sans_consigne_aix.txt').read_text(encoding='utf-8')
+        self.assertIn('Cela ne prouve pas qu', texte)
+        self.assertIn("L'académie de Strasbourg", texte)
+
+    def test_dates_shn_formulees_comme_contrainte_du_logiciel(self):
+        for p in ('data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt',
+                  'data/examens/tutoriels_creteil_cyclades_santorin.txt'):
+            texte = Path(p).read_text(encoding='utf-8')
+            self.assertNotIn('fictives', texte)
+            self.assertNotIn('ne correspondent pas à la réalité', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

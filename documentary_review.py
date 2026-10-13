@@ -338,6 +338,8 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     audit['fallback_document_ids'] = [packet['id']]
     display_spans = [s for s in packet['passages']
                      if not re.match(r'^\s*(?:\[Base[^\]]*\]\s*)?\[(?:DOCUMENT|PORTEE)\s*:', s['text'])]
+    display_spans = [{**s, 'text': re.sub(r'^\[FICHE PRIORITAIRE[^\]]*\]\s*', '', s['text'])}
+                     for s in display_spans]
     if packet['title'] == 'Passage documentaire':
         heading = next((s['text'].splitlines()[0] for s in display_spans
                         if s['text'].startswith(('[ARTICLE ', '### ', '# '))), '')

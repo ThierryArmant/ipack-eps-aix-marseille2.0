@@ -81,11 +81,14 @@ class ExamFallbackTests(unittest.TestCase):
 
     def test_document_identifiers_remain_private_and_article_title_is_visible(self):
         body = ('[Base iPackEPS] [DOCUMENT: data/private.txt; statut: synthese_non_revalidee]\n\n'
-                '[ARTICLE 55] Dossier certificatif\n\nLe dossier conserve les certificats médicaux.')
+                '[ARTICLE 55] Dossier certificatif\n\n'
+                '[FICHE PRIORITAIRE — statut: verifie] Le dossier conserve les certificats médicaux.')
         audit = {'documents': source_packets(mark_excerpt(body))}
         result = render_exam_fallback(audit, question='Dossier certificatif ?')
         self.assertNotIn('data/private.txt', result)
         self.assertNotIn('synthese_non_revalidee', result)
+        self.assertNotIn('FICHE PRIORITAIRE', result)
+        self.assertNotIn('statut:', result)
         self.assertIn('[ARTICLE 55] Dossier certificatif', result)
         self.assertEqual(audit['fallback_sources'][0]['title'], '[ARTICLE 55] Dossier certificatif')
 

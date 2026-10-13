@@ -18,6 +18,12 @@ Les traces complètes demeurent réservées à la session administrateur. Les qu
 
 ## Validation et limites
 
-244 tests passent après intégration des corrections de fiches de `61bc1f2` ; compilation Python et contrôle des espaces réussis. Les tests couvrent notamment la publication de réponses incomplètes, une erreur réseau contenant un secret, les réserves hors Aix, l'absence de document pertinent, une condition trop longue et le diagnostic lexical.
+245 tests passent après intégration des corrections de fiches de `61bc1f2` ; compilation Python et contrôle des espaces réussis. Les tests couvrent notamment la publication de réponses incomplètes, une erreur réseau contenant un secret, les réserves hors Aix, l'absence de document pertinent, une condition trop longue et le diagnostic lexical.
 
 Ce changement rend l'échec compréhensible et fournit une documentation de recours ; il ne corrige ni la sélection des fiches ni la justesse sémantique du modèle. Un extrait pertinent reste à vérifier pour le cas. La validation en ligne doit être consignée avec la version affichée avant tout nouveau gel pour la mesure.
+
+## Reprises en ligne
+
+Les sept cas R02, R04, R05, R07, R08, R09 et R12 ont été reposés en Aix-Marseille sur `3809bd9`, avec les publics du passage initial. R05, R07 et R09 produisent une réponse ; R02, R04, R08 et R12 restent non confirmées, avec repli documentaire et deux appels. Les réponses brutes sont conservées séparément pour la notation. Ce relevé n'est pas un nouveau score et le repli n'est pas compté comme une réponse correcte.
+
+Le dernier nettoyage retire les marqueurs de priorité des extraits publics ; il ne modifie ni le contrôle ni les appels de génération. Les traces détaillées restent à recueillir en session administrateur. Aucun nouveau gel pour les 50 questions n'est établi avant l'analyse des rejets.

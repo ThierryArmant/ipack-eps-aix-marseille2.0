@@ -1799,6 +1799,18 @@
    "portee_texte": "cap",
    "titre": "CAP : absence sans justification à une ou à toutes les situations de CCF"
   },
+  "data/examens/situations_2026_10_13/epreuve_collective_notation_individuelle.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Épreuve collective : notation individuelle"
+  },
   "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt": {
    "nature": [
     "logiciel"

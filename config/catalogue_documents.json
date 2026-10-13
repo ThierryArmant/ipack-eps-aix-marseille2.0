@@ -4610,5 +4610,27 @@
     "exclure_motifs": [
       "^(?!.*(?:ipack|pronote|\\bbee\\b|siecle|base eleves|ecole.?directe|application)).*cyclades"
     ]
+  },
+  "data/examens/situations_2026_10_13/epreuve_collective_notation_individuelle.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "Épreuve collective : notation individuelle",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "motifs": [
+      "^(?=.*(?:collecti|groupe|equipe|binome|trio|ensemble))(?=.*(?:meme note|note collective|note de groupe|note commune|une (?:seule )?note pour (?:tout|tous|le groupe)|tous la meme|tout le monde la meme|noter (?:le|en) groupe|note d.equipe))"
+    ],
+    "exclure_motifs": [
+      "inapt|dispens|certificat|bless"
+    ]
   }
 }

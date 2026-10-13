@@ -199,7 +199,7 @@ class AcademieTests(unittest.TestCase):
     def test_selection_obligatoire_dans_l_interface(self):
         src = lire('app.py')
         self.assertIn('key="academie_utilisateur"', src)
-        self.assertIn('Choisissez <strong>votre académie</strong>', src)
+        self.assertIn('Choisissez votre académie', src)
 
 
 class Reprise11Tests(unittest.TestCase):

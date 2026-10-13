@@ -3765,7 +3765,6 @@
     "motifs": [
       "(?=.*(?:arriv|chang.{0,20}lycee|transfert))(?=.*(?:deux ccf|2 ccf|ccf deja|deja.{0,20}ccf))"
     ],
-    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt": {
@@ -3987,7 +3986,6 @@
     "motifs": [
       "(?=.*santorin)(?=.*afl2)(?=.*(?:refus|veut pas|saisir|saisie))"
     ],
-    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12"
   },
   "data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt": {

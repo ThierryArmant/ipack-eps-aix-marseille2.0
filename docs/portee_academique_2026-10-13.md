@@ -4,7 +4,7 @@ Le hub est consulté hors de l'académie d'Aix-Marseille (lien publié par une a
 
 ## En place
 - Bandeau sous le titre du hub : les consignes académiques sont celles d'Aix-Marseille ; ailleurs, les vérifier auprès de sa division des examens ; les textes nationaux et le fonctionnement de Santorin et Cyclades valent partout.
-- `config/portee_academique.json` : inventaire des 137 fichiers (170 sections) qui contiennent un passage propre à Aix, avec les lignes concernées.
+- `config/portee_academique.json` : inventaire des fichiers (103 fichiers, 189 lignes au 13 octobre 2026) qui contiennent un passage propre à Aix, avec les lignes concernées. Il est généré par `python portee_registre.py --write`, à relancer après toute modification de fiche (un test signale un registre périmé). Une ligne est marquée si elle nomme explicitement Aix (Aix-Marseille, DIEC, BA académique, ESTEREL, adresse ac-aix) ou si elle appartient à une section dont le titre nomme Aix ; une simple précision « (DIEC à Aix-Marseille) » ajoutée à un acteur générique, une règle nationale et le fonctionnement d'un logiciel ne sont pas marqués.
 
 ## À brancher dans l'interface
 1. Choix de l'académie au début (« Aix-Marseille » / « autre académie »), conservé dans la session.

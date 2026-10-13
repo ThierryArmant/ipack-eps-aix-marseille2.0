@@ -1,4 +1,4 @@
-# Reprise du projet — Hub IA - EPS (état au 13 octobre 2026)
+# Reprise du projet — Hub IA - EPS (état au 13 octobre 2026, fin de journée)
 
 À lire en premier par toute personne ou tout assistant qui reprend le travail.
 
@@ -20,13 +20,13 @@
 - Le coût compte : viser un appel au modèle par question (un second seulement si la vérification échoue).
 
 ## État
-- Mode Examens : réponse appuyée sur les fiches spécifiques (priorité 300) ; étiquettes de source à attribuer par le programme à partir de `config/nature_sources.json`.
-- Choix de l'académie obligatoire avant la question (`academie.py`) ; hors Aix-Marseille, les passages de `config/portee_academique.json` doivent être signalés comme consignes d'Aix.
+- Mode Examens : réponse appuyée sur les fiches spécifiques (priorité 300). Un appel de rédaction ; un second seulement si la vérification mécanique des passages échoue (`documentary_review.py`). Étiquettes de source fixées par le programme à partir de `config/nature_sources.json` (`source_scope.py`). Réponses validées mises en cache par question, académie, public, version et empreinte des fiches (`response_cache.py`).
+- Choix de l'académie obligatoire avant la question (`academie.py`) ; hors Aix-Marseille, les passages listés dans `config/portee_academique.json` sont envoyés au modèle précédés de « [Consigne de l'académie d'Aix-Marseille — non confirmée pour …] ». Ce registre se régénère avec `python portee_registre.py --write` après toute modification de fiche.
 - Interface : parcours en trois étapes dans un panneau unique (contexte, académie et public, question).
-- Coût mesuré (EX290) : 3 appels, environ 17 000 jetons d'entrée par réponse Examens. Objectif : 1 à 2 appels.
+- Coût : avant le passage à un appel, EX290 consommait 3 appels et environ 17 000 jetons d'entrée. À remesurer en ligne (compteur sous chaque réponse).
 
 ## Prochaines étapes
-1. Partie programme : un appel principal, étiquettes tirées de `nature_sources.json`, signalement des passages d'Aix hors Aix-Marseille ; vérifier EX290 en ligne avec Aix-Marseille puis Créteil.
+1. Vérifier EX290 en ligne avec Aix-Marseille puis Créteil : décision correcte, étiquettes de source, compteur à 1 appel.
 2. Figer une version (numéro de commit), sans modification pendant la mesure.
 3. Mesure : série de réserve (14 questions), puis série de 50 questions conservée hors dépôt ; empreinte dans `docs/empreinte_serie_mesure_2026-10-13.md`. Notation correcte / partielle / fausse, coût relevé.
 4. Questions à faire trancher par la DIEC : `docs/questions_a_trancher_diec.md`.

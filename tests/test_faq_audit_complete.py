@@ -53,7 +53,7 @@ class AuditedFAQTests(unittest.TestCase):
         answer = self.answer('Au bac, Cyclades accepte un protocole adapté à une seule APSA ?')
         self.assertIn('Ce minimum vient du logiciel, pas du texte', answer)
         self.assertIn('C’est donc réglementairement possible', answer)
-        self.assertIn('DIEC et l’inspection', answer)
+        self.assertIn('service des examens et l’inspection', answer)
 
     def test_general_train_delay_does_not_trigger_school_blockage(self):
         answer = kc.delivered_text('Grève des transports le jour du CCF : élève bloqué.', GT, 'examens')

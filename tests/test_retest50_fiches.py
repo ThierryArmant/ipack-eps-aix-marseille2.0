@@ -23,7 +23,7 @@ class Retest50FichesTests(unittest.TestCase):
         a=self.answer("Il manque trois élèves dans la liste des candidats du bac sur Cyclades, est-ce que je dois refaire l'export depuis iPackEPS ?")
         self.assertIn('ne crée pas',a)
         self.assertIn('chef',a)
-        self.assertIn('DIEC',a)
+        self.assertIn('service des examens',a)
 
     def test_activity_deadline_is_explicitly_historical(self):
         a=self.answer("Nous voulons proposer une activité qui n'est pas sur la liste nationale au bac GT. Avant quand faut-il la demander ?")

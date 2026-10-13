@@ -39,7 +39,8 @@ class AuditEnLigneTests(unittest.TestCase):
 
     def test_pied_de_reponse_ipackeps_seulement_en_mode_ipack(self):
         src = lire('app.py')
-        self.assertRegex(src, r'ipackeps@ac-aix-marseille\.fr</a>"\s*"</div>"\s*\) if mode == "ipack" else ""')
+        self.assertRegex(src, r'\+ "</div>"\s*\) if mode == "ipack" else ""')
+        self.assertIn('adresse_assistance(st.session_state.get(\'academie_utilisateur\'))', src)
 
 
 if __name__ == '__main__':
@@ -175,3 +176,27 @@ class Lot6Tests(unittest.TestCase):
     def test_aflp_bac_pro_et_candidature_invalide(self):
         self.assertIn('vaut pour tous les élèves du protocole', self.texte("Bac pro : les cases de notes sont grisées dans mon lot.", 'Lycée Pro / CAP'))
         self.assertIn('Ce n\'est pas une question de déverrouillage', self.texte("Impossible de verrouiller : « la candidature n'est plus valide dans le système d'information examens/concours »."))
+
+
+class AcademieTests(unittest.TestCase):
+    """Le hub contient des consignes d'Aix : un utilisateur d'une autre académie doit en être averti."""
+
+    def test_note_vide_pour_aix_et_presente_pour_les_autres(self):
+        import academie as a
+        self.assertEqual(a.note_academie('Aix-Marseille'), '')
+        n = a.note_academie('Créteil')
+        self.assertIn("consigne de l'académie d'Aix-Marseille", n)
+        self.assertIn("de l'académie de Créteil", n)
+        self.assertIn('Nice', a.note_academie('Nice'))
+
+    def test_assistance_et_inventaire(self):
+        import academie as a
+        self.assertEqual(a.adresse_assistance('Créteil'), 'ipackeps@ac-creteil.fr')
+        self.assertEqual(a.adresse_assistance('Lyon'), '')
+        self.assertIn('data/commun/audit60/aix_protocoles_2026.txt', a.FICHIERS_AIX)
+        self.assertIn('Aix-Marseille : protocoles et circuit EPS — 2026', a.titres_aix(kc.catalog()))
+
+    def test_selection_obligatoire_dans_l_interface(self):
+        src = lire('app.py')
+        self.assertIn('key="academie_utilisateur"', src)
+        self.assertIn('Veuillez choisir <strong>votre académie</strong>', src)

@@ -1,5 +1,6 @@
 from pathlib import Path
 from documentary_review import review_exam_answer, mark_excerpt
+from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
 import datetime
@@ -8,7 +9,7 @@ import re
 import smtplib
 import unicodedata
 import requests
-from knowledge_catalog import document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
+from knowledge_catalog import catalog, document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
 from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence, clean_video_placeholders
 import streamlit as st
 from email.mime.text import MIMEText
@@ -1367,6 +1368,15 @@ else:
     def valider_public():
         st.session_state.public_valide = True
 
+    # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
+    st.selectbox(
+        "Votre académie",
+        ACADEMIES,
+        index=None,
+        placeholder="Choisissez votre académie",
+        key="academie_utilisateur",
+    )
+
     niveau_scolaire = st.radio(
         "Public cible",
         ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
@@ -1379,7 +1389,18 @@ else:
     if st.session_state.get("niveau_actif_form"):
         st.session_state.public_valide = True
 
-    if not st.session_state.public_valide:
+    if not st.session_state.get("academie_utilisateur"):
+        st.markdown(
+            """
+            <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
+                <span style="color: #FCD34D; font-weight: bold; font-size: 13.5px;">
+                    👆 Veuillez choisir <strong>votre académie</strong> ci-dessus : certaines consignes (calendrier, circuit des protocoles, contacts) dépendent de l'académie.
+                </span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    elif not st.session_state.public_valide:
         st.markdown(
             """
             <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
@@ -1973,6 +1994,9 @@ if prompt_a_traiter:
             # ==================================================================
             if reponse_documentee:
                 texte_brut = '<p>' + html_lib.escape(reponse_documentee).replace('\n', '</p><p>') + '</p>'
+                _avert_acad = avertissement_reponse_directe(st.session_state.get("academie_utilisateur"))
+                if _avert_acad and source_documentee.get('title') in titres_aix(catalog()):
+                    texte_brut = '<p><strong>' + html_lib.escape(_avert_acad) + '</strong></p>' + texte_brut
                 sources_consultees = [(source_documentee.get('title', '') + ' — ' + reference_url(source_documentee, prompt), None)]
                 badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
             elif demande_precision:
@@ -2530,6 +2554,9 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
                         contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme", origin="program")
                     if verites_terrain_pierre.strip():
                         contexte_complet_ia += "\n\n" + mark_excerpt(verites_terrain_pierre, title="Retours d'assistance complémentaires")
+                    if note_academie(st.session_state.get("academie_utilisateur")):
+                        contexte_complet_ia += "\n\n" + mark_excerpt(note_academie(st.session_state.get("academie_utilisateur")),
+                                                                     title="Académie de l'utilisateur", origin="program")
 
                 consigne_ia = f"""Tu es l’assistant EPS destiné aux professionnels de l’éducation.
 Tu réponds sur la pédagogie, les textes institutionnels et les procédures iPackEPS, Cyclades, Imag’in et Santorin à partir des documents fournis.
@@ -2539,6 +2566,8 @@ CONSIGNES DE RÉPONSE :
 
 CONTEXTE DE LA DEMANDE :
 Public sélectionné : {niveau_actuel_form}
+Académie de l'utilisateur : {st.session_state.get("academie_utilisateur") or AIX}
+{note_academie(st.session_state.get("academie_utilisateur"))}
 Onglet : {contexte_choisi_nom}
 {directive_onglet}
 {bloc_video_consigne}
@@ -2722,8 +2751,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             # ou Imag'in (onglet Examens), ce n'est pas le bon interlocuteur (audit en ligne du 12/10/2026).
             "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
             "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-            "<a href='mailto:ipackeps@ac-aix-marseille.fr' style='color: #38BDF8 !important; text-decoration: underline;'>ipackeps@ac-aix-marseille.fr</a>"
-            "</div>"
+            + (f"<a href='mailto:{adresse_assistance(st.session_state.get('academie_utilisateur'))}' style='color: #38BDF8 !important; text-decoration: underline;'>{adresse_assistance(st.session_state.get('academie_utilisateur'))}</a>"
+               if adresse_assistance(st.session_state.get('academie_utilisateur')) else "iPackEPS de votre académie")
+            + "</div>"
         ) if mode == "ipack" else ""
 
         # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse

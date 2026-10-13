@@ -4012,7 +4012,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:difference|distingu|compar))(?=.*absent)(?=.*dispens)"
+      "(?=.*(?:difference|distingu|compar))(?=.*absent)(?=.*dispens)",
+      "^(?=.*\\babsen)(?=.*(?:santorin|saisi|noter|\\bnote\\b|code|mettre|coche))(?=.*(?:eleve|candidat|apprenti|\\bil\\b|\\belle\\b))(?!.*(?:enseignant|professeur|\\bprof\\b|collegue|correcteur|evaluateur|examinateur|coordonn).{0,25}absen)(?!.*absen.{0,25}(?:enseignant|professeur|\\bprof\\b|collegue|correcteur|evaluateur))(?!.*absente? (?:de|du|des|dans) (?:la |le |mon |son |sa )?(?:santorin|cyclades|liste|lot|ipack))"
     ],
     "url": "",
     "date_verification": "2026-10-12"

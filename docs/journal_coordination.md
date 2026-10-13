@@ -18,11 +18,18 @@ Attendu de l'autre partie : … (ou « rien »)
 ```
 
 ## État courant
-- Version candidate pour la mesure : 4488e07 (à confirmer en ligne, puis à figer).
+- Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
 - Prochaine étape : vérifier R04 en ligne, figer la version, puis passer la série de mesure de 50 questions (posée par l'enseignant, notée par la partie fiches ; série conservée hors dépôt, empreinte dans `docs/empreinte_serie_mesure_2026-10-13.md`).
 
 ## Entrées
+
+### 2026-10-13 19:30 — partie fiches — mesure sur 4488e07 (aucun commit de code ni de fiche)
+Fait : notation de la série de mesure (48 réponses notées sur 50, 2 non relevées). Questions et corrigé conservés hors dépôt.
+Constaté : 26 correctes (54 %), 14 partielles (29 %), 8 fausses (17 %). Lots précédents : environ 30 % de correctes.
+- Fausses : manipulations précises de Santorin (corriger une note, saisie non enregistrée, co-évaluation et deuxième correcteur, saisie par AFL et non de la note finale), protocole adapté en cours d'année (Cyclades et non iPackEPS), option EPS en ponctuel pour un élève scolarisé, section sportive scolaire et 20/20, une décision contradictoire (« éliminé » puis le contraire).
+- Partielles : 4 demandes de précision inutiles (candidat libre ou individuel inapte, examinateur au ponctuel, champ d'une course), 5 replis « réponse non confirmée » dont 3 avec le bon extrait.
+Attendu de l'autre partie : (1) demande de précision « PRÉCISIONS NÉCESSAIRES » qui se déclenche sur des questions de candidat libre/ponctuel où le texte permet de répondre ; (2) décision qui contredit ses propres conditions (vérification de cohérence décision/conditions ?). La partie fiches reprend les thèmes fausses ci-dessus par des fiches de situation.
 
 ### 2026-10-13 18:37 — partie programme — commit 4488e07 (version examinée)
 Fait : dépôt synchronisé sur f93f830, journal et règles de reprise lus ; 247 tests exécutés avec succès. Validation de 4488e07 comme candidate à figer pour la mesure. Les changements suivants jusqu'à f93f830 sont documentaires uniquement : code et fiches identiques.

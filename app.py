@@ -1196,6 +1196,10 @@ def _version_deployee():
 _sha = _version_deployee()
 st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + modele_ia
            + (" · version " + _sha if _sha else ""))
+st.info("Les consignes académiques données ici (calendrier, circuit iPackEPS → Cyclades → Santorin, "
+        "rôle de la DIEC, bulletins académiques) sont celles de l'académie d'Aix-Marseille. "
+        "Dans une autre académie, vérifiez-les auprès de votre division des examens. "
+        "Les textes nationaux et le fonctionnement de Santorin et Cyclades valent partout.")
 
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:

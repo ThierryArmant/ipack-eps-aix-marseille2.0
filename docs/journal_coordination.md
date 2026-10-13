@@ -20,9 +20,14 @@ Attendu de l'autre partie : … (ou « rien »)
 ## État courant
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
-- Prochaine étape : corriger les thèmes faux de la mesure (fiches) et les demandes de précision inutiles (programme), puis remesurer sur une nouvelle série inédite.
+- Prochaine étape : terminer le point 1 de la partie programme, figer une version intégrant les deux parties, puis mesurer sur une nouvelle série inédite de 50 questions (générée au gel, jamais utilisée pour corriger).
 
 ## Entrées
+
+### 2026-10-13 20:40 — partie fiches — thèmes faux de la mesure (voir git log)
+Fait : 7 fiches de situation (priorité 300) dans `data/examens/situations_2026_10_13/` : corriger une note dans Santorin, notes disparues, co-évaluation et deuxième correcteur, saisie par AFL et non note finale, protocole adapté en cours d'année dans Cyclades, option EPS sans ponctuel pour un scolarisé, section sportive sans 20/20 ; fiche du ponctuel bac GT relevée à 300. Exclusions ajoutées sur quatre fiches qui se déclenchaient à tort. Tests écrits avec des formulations reformulées, pas avec le texte des questions de mesure. Registre des natures à 456. 263 tests passent ; banque de 590 questions : aucune fiche attendue perdue.
+Constaté : point 1 de la partie programme toujours ouvert (portée des consignes d'Aix dans les phrases, académie nommée dans la question, adéquation de la décision).
+Convenu : la nouvelle série de 50 questions ne sera générée qu'au gel d'une version intégrant les deux parties, et ne servira pas à corriger.
 
 ### 2026-10-13 20:32 — partie fiches — test du choix d'académie avec Lyon (4cd06ea, aucun commit de code)
 Constaté : avec Lyon sélectionnée, les étiquettes portent bien « Aix-Marseille (non confirmé pour Lyon) » et aucune date d'Aix n'est donnée (validation des protocoles). Mais la prose reste affirmative : « un élève inapte total doit être inscrit comme APTE dans Cyclades » est présenté comme une règle générale ; seule l'étiquette nuance.

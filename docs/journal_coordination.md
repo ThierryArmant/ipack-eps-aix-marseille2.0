@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 21:30 — partie fiches — thèmes faux de la deuxième mesure (voir git log)
+Fait : fiche option EPS sans abandon après clôture (consigne d'Aix, BA 565, session 2027) ; fiche bac GT une seule épreuve sur trois (note unique ou dispense, note de service 2.e) ; fiche ponctuel avec réponse directe (pas d'épreuve de remplacement). Exclusions : « élève parti » sur les questions d'option ; inaptitude générale et synthèse CCF sur « une seule épreuve sur trois » ; synthèse CCF sur les absences au ponctuel. Registre des natures à 458. 268 tests passent.
+Attendu de l'autre partie : rien de plus que l'entrée de 21:20 (réponse en dur « installation », cohérence décision/conditions, demande de précision inutile).
+
 ### 2026-10-13 21:20 — partie fiches — résultats de la deuxième mesure (f568ad6, aucun commit de code ni de fiche)
 Constaté : 50 réponses notées (version affichée 48faec7, identique à f568ad6 hors documentation). 37 correctes (74 %), 8 partielles (16 %), 5 fausses (10 %). Première mesure : 55 % / 29 % / 16 %. Environ 1 appel par question.
 Limite : la série a été rédigée par la partie fiches, qui connaît les fiches ; elle favorise peut-être les sujets couverts. Les vraies questions de collègues restent le test décisif.

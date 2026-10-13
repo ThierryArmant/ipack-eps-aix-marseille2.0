@@ -9,3 +9,5 @@ Source fournie : diapositives 6 et 7. Recoupements : mémento Éduscol, recomman
 https://eduscol.education.gouv.fr/sites/default/files/document/memento-evaluer-les-eleves-de-3e-dans-le-cadre-des-nouvelles-modalites-d-attribution-du-diplome-national-du-brevet-123226.pdf
 https://eps.enseigne.ac-lyon.fr/spip/spip.php?article2015=
 https://bulacad.ac-aix-marseille.fr/uploads/BA/BA551S/BASPE_551.pdf
+
+Limite de saisie : une inaptitude à certaines APSA ne se saisit pas comme une série de DI dans le LSU. Le LSU reçoit les moyennes disciplinaires validées ou, pour une dispense réglementaire, la mention prévue. Le cas Santorin « deux dispenses + une note » du lycée ne s’applique pas au DNB ; ne pas transformer une note EPS en DI dans le LSU.

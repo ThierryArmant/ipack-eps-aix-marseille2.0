@@ -1,3 +1,4 @@
+[PORTEE: primaire]
 ### Sorties CM2 et premier degré : déplacement et activité physique
 Portée : école élémentaire, sorties sans nuitée. Vérifié le 10 octobre 2026. Ne pas importer la règle du second degré.
 Réponse courte : le taux du déplacement ne suffit pas à valider l’activité physique. Des taux nationaux minimaux existent au premier degré ; l’absence de ratio général au collège ne doit pas être transposée à l’école.

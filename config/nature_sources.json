@@ -5231,6 +5231,15 @@
    "sessions": [],
    "autres_academies_citees": [],
    "titre": "Santorin : export du détail des notes — accès établissement"
+  },
+  "data/textes/fiches/sortie_musee_velo_second_degre.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "titre": "Sortie au musée à vélo ou VTT : obligations et prévention au second degré"
   }
  }
 }

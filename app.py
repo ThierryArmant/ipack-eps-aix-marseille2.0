@@ -1933,6 +1933,8 @@ if prompt_a_traiter:
                 # une question sur le bac pro : 3 épreuves). On écarte donc ici les réponses qui visent un autre examen que
                 # celui de la question (ou, à défaut, que celui du public sélectionné).
                 _cibles = set()
+                if re.search(r"\bcm[12]\b|premier degre|elementaire|maternelle|ecole primaire", p_norm):
+                    _cibles.add("primaire")
                 if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b", p_norm):
                     _cibles.add("pro")
                 if re.search(r"\bcap\b", p_norm):
@@ -2511,6 +2513,7 @@ if prompt_a_traiter:
                             * 📚 SI la question est PÉDAGOGIQUE (comment enseigner, barèmes, situations, programmes, gestion de classe) : Réponds EN TANT QU'EXPERT PÉDAGOGIQUE. Donne des conseils concrets de terrain, des repères didactiques, des exemples d'exercices ou d'AFL. Ne parle PAS de textes juridiques ou d'accidents si ce n'est pas le sujet.
                             * ⚖️ SI la question est JURIDIQUE ou SÉCURITAIRE (Accident, APPN, litige) : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4).
                             * 👔 SI la question concerne la CARRIÈRE (Inspection, note) : Applique le droit de la fonction publique, sans mentionner l'art. L. 911-4.
+                        - OBLIGATIONS ET CONSEILS : respecter le caractère impératif ou recommandé des sources. Un enseignant requis ne devient pas une simple recommandation ; casque/gilet ont des conditions routières précises. Distinguer déplacement à vélo et pratique sportive de VTT avant d'appliquer un protocole APPN.
                         - DOCTRINE APPN : appliquer les exigences de sécurité de l'activité et le protocole académique. Un registre EPI concerne les équipements qui y sont soumis, pas toute activité de pleine nature. Ne pas inventer un taux national du second degré.
                     """
                 elif mode == "examens":

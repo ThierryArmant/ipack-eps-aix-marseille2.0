@@ -741,7 +741,9 @@
   "data/textes/premier_degré.txt": {
     "title": "premier degré",
     "statut": "synthese_non_revalidee",
-    "examens": []
+    "examens": [
+      "primaire"
+    ]
   },
   "data/textes/sorties_encadrement_2024.txt": {
     "title": "sorties encadrement 2024",
@@ -2845,7 +2847,10 @@
       "(?:sortie|transport|orientation|encadrement).*(?:cm[12]|elementaire|premier degre)|(?:cm[12]|elementaire|premier degre).*(?:sortie|transport|orientation|encadrement)"
     ],
     "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
-    "statut": "verifie_2026-10-10_trois_documents"
+    "statut": "verifie_2026-10-10_trois_documents",
+    "examens": [
+      "primaire"
+    ]
   },
   "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
     "title": "Réponses du correspondant examens EPS : association des candidats, Cyclades, IMAG'IN, Santorin",
@@ -5412,5 +5417,24 @@
       "pronote|ipack"
     ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article71"
+  },
+  "data/textes/fiches/sortie_musee_velo_second_degre.txt": {
+    "title": "Sortie au musée à vélo ou VTT : obligations et prévention au second degré",
+    "statut": "sources_nationales_relues_2026_10_13",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:velo|vtt|bicyclette|cyclis))(?=.*(?:musee|sortie|deplac|trajet|obligat|encadrement))"
+    ],
+    "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F34169"
   }
 }

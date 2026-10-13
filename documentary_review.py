@@ -447,6 +447,26 @@ def coherence_errors(claims, question):
     return errors
 
 
+def dnb_document_mismatch(question, public, packet):
+    """Un document de notation CCF lycée/CAP ne documente pas le LSU du collège."""
+    from knowledge_catalog import normalise
+    q = normalise(question)
+    if not (re.search(r'\bdnb\b|\bbrevet\b', q) or 'college' in normalise(public)):
+        return False
+    if packet.get('origin') == 'program':
+        return False
+    path = packet.get('path', '').replace('\\', '/')
+    title = normalise(packet.get('title', ''))
+    if re.search(r'dnb|brevet|college', normalise(path) + ' ' + title):
+        return False
+    body = packet.get('text', '')
+    scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', body)
+    if scopes and not any('dnb' in scope.split(',') for scope in scopes):
+        return True
+    return bool(re.search(r'santorin|cyclades', normalise(path + ' ' + title))
+                and re.search(r'\bccf\b|\baflp?\b|\bbac\b|\bcap\b|di \+ di', normalise(body)))
+
+
 def course_duration_mismatch(question, packet):
     """La fiche Courses (demi-fond/relais CA1) ne documente pas le dépôt du CA5."""
     q = ''.join(c for c in unicodedata.normalize('NFKD', question.lower()) if not unicodedata.combining(c))
@@ -462,6 +482,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['context_exact'] = documents
     audit['context_sha256'] = hashlib.sha256(documents.encode()).hexdigest()
     audit['documents'] = packets
+    audit['excluded_dnb_documents'] = [p['id'] for p in packets if dnb_document_mismatch(question, public, p)]
+    packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
     if focused:
         packets = focused + [p for p in packets if p['origin'] == 'program']

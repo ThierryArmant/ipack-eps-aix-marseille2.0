@@ -4589,5 +4589,23 @@
     "motifs": [
       "^(?=.*(?:\\bcfa\\b|\\bgreta\\b|\\bmfr\\b|\\baefe\\b|apprentis?\\b|hors siecle|lycee agricole|pas de base eleves))(?=.*(?:ipack|cyclades|export|import|eleves|classes|protocole|associ))"
     ]
+  },
+  "data/ipack/situations_2026_10_13/groupes_eps_non_importes.txt": {
+    "statut": "verifie_2026-10-13",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-13",
+    "title": "iPackEPS : élèves importés mais pas les groupes EPS",
+    "examens": [],
+    "motifs": [
+      "^(?=.*groupes?)(?=.*(?:import|synchro|recuper|pronote|ecole.?directe|\\bbee\\b|siecle|base eleves|export))(?=.*(?:pas|aucun|n.apparai|manqu|vide|absent|sans))(?!.*(?:cyclades.{0,40}(?:compte rendu|ignor|ine)|candidats ignores))"
+    ],
+    "exclure_motifs": [
+      "^(?!.*(?:ipack|pronote|\\bbee\\b|siecle|base eleves|ecole.?directe|application)).*cyclades"
+    ]
   }
 }

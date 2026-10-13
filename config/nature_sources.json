@@ -4185,6 +4185,16 @@
    "portee_texte": null,
    "titre": "nouveautes ipackeps 2025 2026"
   },
+  "data/ipack/situations_2026_10_13/groupes_eps_non_importes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : élèves importés mais pas les groupes EPS"
+  },
   "data/ipack/transcriptions_videos_tutoriels.txt": {
    "nature": [
     "consigne_academique",

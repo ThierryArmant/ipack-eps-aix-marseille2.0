@@ -82,29 +82,70 @@ def source_packets(context):
     return packets
 
 
+def _field(value, key):
+    return value.get(key) if isinstance(value, dict) else getattr(value, key, None)
+
+
+def response_token_usage(response):
+    """Compteurs retournés par le fournisseur ; jamais estimés depuis le texte."""
+    raw_usage = _field(getattr(response, 'raw', None), 'usage')
+    extra = getattr(response, 'additional_kwargs', None)
+    def count(*keys):
+        for source in (raw_usage, extra):
+            for key in keys:
+                value = _field(source, key)
+                if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+                    return value
+        return None
+    return {'input_tokens': count('prompt_tokens', 'input_tokens'),
+            'output_tokens': count('completion_tokens', 'output_tokens'),
+            'total_tokens': count('total_tokens')}
+
+
+def usage_summary(audit):
+    calls = audit.get('calls', [])
+    known = [c for c in calls if c.get('usage', {}).get('input_tokens') is not None
+             and c.get('usage', {}).get('output_tokens') is not None]
+    return {'scope': 'generation_only', 'calls': len(calls),
+            'failed_calls': sum('error' in c for c in calls),
+            'calls_with_usage': len(known), 'complete': len(known) == len(calls),
+            'input_tokens': sum(c['usage']['input_tokens'] for c in known),
+            'output_tokens': sum(c['usage']['output_tokens'] for c in known),
+            'total_tokens': sum(c['usage']['input_tokens'] + c['usage']['output_tokens'] for c in known),
+            'duration_seconds': round(sum(c.get('duration_seconds', 0) for c in calls), 3)}
+
+
 class TracedLLM:
     """Capture le texte EXACT passé à complete, pas une reconstruction a posteriori."""
-    def __init__(self, llm, audit):
+    def __init__(self, llm, audit, *, capture_text=True):
         self.llm = llm
         self.audit = audit
+        self.capture_text = capture_text
+        self.model = getattr(llm, 'model', '')
+        self.temperature = getattr(llm, 'temperature', None)
         audit.setdefault('calls', [])
         audit['model'] = str(getattr(llm, 'model', ''))
         audit['temperature'] = getattr(llm, 'temperature', None)
 
     def complete(self, prompt, **kwargs):
-        call = {'prompt': str(prompt), 'prompt_sha256': hashlib.sha256(str(prompt).encode()).hexdigest(),
-                'prompt_chars': len(str(prompt))}
+        call = {}
+        if self.capture_text:
+            call = {'prompt': str(prompt), 'prompt_sha256': hashlib.sha256(str(prompt).encode()).hexdigest(),
+                    'prompt_chars': len(str(prompt))}
         self.audit['calls'].append(call)
         start = time.monotonic()
         try:
             result = self.llm.complete(prompt, **kwargs)
-            call['output'] = str(result.text)
+            if self.capture_text:
+                call['output'] = str(result.text)
+            call['usage'] = response_token_usage(result)
             return result
         except Exception as exc:
             call['error'] = type(exc).__name__
             raise
         finally:
             call['duration_seconds'] = round(time.monotonic() - start, 3)
+            self.audit['usage_summary'] = usage_summary(self.audit)
 
 
 def _json_response(text):

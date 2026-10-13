@@ -1,5 +1,5 @@
 from pathlib import Path
-from documentary_review import review_exam_answer, mark_excerpt
+from documentary_review import review_exam_answer, mark_excerpt, TracedLLM, usage_summary
 from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
@@ -1540,6 +1540,8 @@ if prompt_a_traiter:
         fiches_diag = []   # (titre de la fiche, score) : passages transmis à l'IA, affichés en mode admin uniquement
         erreur_rag = ""
         diagnostic_ia = None
+        usage_ia = {}
+        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode == "examens" else Settings.llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
@@ -2381,7 +2383,7 @@ if prompt_a_traiter:
             if (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
                 try:
                     _resume_dur = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()[:900]
-                    _verdict = Settings.llm.complete(
+                    _verdict = llm_reponse.complete(
                         "Tu contrôles un assistant destiné aux professeurs d'EPS.\n"
                         "QUESTION DU PROFESSEUR :\n" + prompt + "\n\n"
                         "RÉPONSE TOUTE PRÊTE ENVISAGÉE :\n" + _resume_dur + "\n\n"
@@ -2630,7 +2632,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
                         reponse_ia = review_exam_answer(
-                            Settings.llm, question=prompt, public=niveau_actuel_form,
+                            llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
@@ -2638,10 +2640,10 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
                                              for p in diagnostic_ia['documents'] if p['id'] in _doc_utilises]
                     else:
-                        response = Settings.llm.complete(consigne_ia)
+                        response = llm_reponse.complete(consigne_ia)
                         reponse_ia = response.text
                         if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
-                            reponse_ia = Settings.llm.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
+                            reponse_ia = llm_reponse.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
                         reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
                     if mode == "examens":
                         # Ne pas ajouter de prose après le contrôle : elle n'aurait aucune preuve associée.
@@ -2846,13 +2848,15 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         )
 
         if diagnostic_ia is not None:
+            diagnostic_ia['usage_response'] = usage_summary(usage_ia)
             diagnostic_ia['answer_after_controls'] = texte_brut
             diagnostic_ia['displayed_body'] = texte_final
             diagnostic_ia['sources_affichees_finales'] = sources_consultees
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
-             "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None}
+             "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
+             "usage_ia": usage_summary(usage_ia) if mode == "examens" else None}
         )
 
         for video_name, video_url in VIDEOS_TUTOS.items():
@@ -2885,6 +2889,14 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             continue
         with st.chat_message(m["role"]):
             st.markdown(m["content"], unsafe_allow_html=True)
+            if m.get("usage_ia") is not None:
+                _usage = m["usage_ia"]
+                _qualif = "" if _usage['complete'] else " · relevé incomplet"
+                _jetons = (f"{_usage['input_tokens']} jetons d'entrée · {_usage['output_tokens']} jetons de sortie"
+                           if _usage['complete'] or _usage['calls_with_usage'] else "jetons indisponibles")
+                st.caption(f"Usage IA : {_usage['calls']} appels de génération · "
+                           f"{_jetons}"
+                           f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

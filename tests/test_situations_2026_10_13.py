@@ -62,6 +62,13 @@ class SituationsTests(unittest.TestCase):
         self.assertNotIn(k5, titres("Le collègue est absent le jour du CCF, qui saisit les notes ?", GT))
         self.assertNotIn(k5, titres("Élève arrivé en cours d'année absent de Santorin", GT))
 
+    def test_groupes_eps_non_importes_ipack(self):
+        t = 'iPackEPS : élèves importés mais pas les groupes EPS'
+        q = "La synchronisation avec BEE a importé les élèves mais pas les groupes d'EPS. Dois-je faire une manipulation ?"
+        self.assertIn(t, kc.priority_titles(q, GT, 'examens'))
+        self.assertIn(t, kc.priority_titles(q, GT, 'ipack'))
+        self.assertNotIn(t, titres("Cyclades affiche après l'import : le groupe élève importé ne correspond à aucun groupe lié aux protocoles", GT))
+
 
 if __name__ == '__main__':
     unittest.main()

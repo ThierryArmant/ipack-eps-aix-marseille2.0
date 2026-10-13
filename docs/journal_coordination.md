@@ -20,9 +20,16 @@ Attendu de l'autre partie : … (ou « rien »)
 ## État courant
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
-- Version figée en cours de mesure : f568ad6 (deuxième série de 50 questions). Aucune modification jusqu'à la fin de la mesure.
+- Deuxième mesure terminée sur f568ad6 : 74 % correctes, 16 % partielles, 10 % fausses (50 questions). Gel levé.
 
 ## Entrées
+
+### 2026-10-13 21:20 — partie fiches — résultats de la deuxième mesure (f568ad6, aucun commit de code ni de fiche)
+Constaté : 50 réponses notées (version affichée 48faec7, identique à f568ad6 hors documentation). 37 correctes (74 %), 8 partielles (16 %), 5 fausses (10 %). Première mesure : 55 % / 29 % / 16 %. Environ 1 appel par question.
+Limite : la série a été rédigée par la partie fiches, qui connaît les fiches ; elle favorise peut-être les sujets couverts. Les vraies questions de collègues restent le test décisif.
+- Fausses : réponse en dur déclenchée par le mot « installation » (installation sportive prise pour l'installation d'iPackEPS, 0 appel) ; abandon de l'option EPS autorisé via la fiche « élève parti » ; candidat libre absent justifié aux deux ponctuels : « peut repasser » au lieu de la neutralisation ; décision contradictoire sur le 20/20 d'un SHN ; moyenne de deux notes appliquée à un élève qui n'a qu'une note.
+- Partielles : une demande de précision inutile (certificat couvrant le jour du CCF), formulations confuses avec réserve académique (Nice), passages d'une situation voisine (inaptitude totale), étapes inventées avant un bon renvoi.
+Attendu de l'autre partie (après la mesure, plus de gel) : (1) la réponse en dur d'accès iPackEPS ne doit pas se déclencher sur « installation » sportive ; (2) contrôle de cohérence décision/conditions (décision qui contredit sa propre condition) ; (3) demande de précision qui se déclenche alors que la question donne le fait décisif. Partie fiches : option EPS (abandon) et ponctuel (pas de remplacement) à reprendre.
 
 ### 2026-10-13 20:55 — partie fiches — GEL de f568ad6 et deuxième série de mesure
 Constaté (f568ad6) : académie nommée dans la question détectée et signalée ; réserve « À Aix-Marseille, … (à vérifier auprès du service des examens de l'académie de Lyon) » dans les phrases ; acrosport collectif : notation individuelle, correcte. 267 tests passent avec les deux parties.

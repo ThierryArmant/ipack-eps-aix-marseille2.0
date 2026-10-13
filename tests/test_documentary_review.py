@@ -200,6 +200,17 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertNotIn('reglementaire', relevant['niveaux_autorises'])
         self.assertIn('aucun texte du Bulletin officiel', relevant['nature_declaree'])
 
+    def test_semantic_hit_cannot_impersonate_catalogue_selection_with_priority(self):
+        route = routing_tests.DocumentationTests()
+        route.setUp()
+        neighbor = SimpleNamespace(text='[PORTEE: gt] CAS VOISIN : une autre procédure ne répond pas à la correction.',
+                                   metadata={'path':'voisin.txt','title':'Voisin','priorite':999,'source':'voisin.txt'})
+        text, _, _, _ = route.route("J'ai verrouillé mon lot par erreur et je dois corriger une note.",
+                                   'Lycée Général & Techno', 'examens', [neighbor])
+        packets = source_packets(text)
+        self.assertEqual(next(p for p in packets if p['path']=='voisin.txt')['priority'], 0)
+        self.assertEqual(next(p for p in packets if p['path'].endswith('j2_procedure_verifiee.txt'))['priority'], 300)
+
 
 if __name__ == '__main__':
     unittest.main()

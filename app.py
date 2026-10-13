@@ -1888,7 +1888,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
-                            title=n.node.metadata.get('title', ''), priority=n.node.metadata.get('priorite', 0)) if mode == "examens" else _bloc)
+                            title=n.node.metadata.get('title', '')) if mode == "examens" else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:

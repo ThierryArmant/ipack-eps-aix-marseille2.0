@@ -87,6 +87,12 @@ class SituationsTests(unittest.TestCase):
             self.assertNotIn('fictives', texte)
             self.assertNotIn('ne correspondent pas à la réalité', texte)
 
+    def test_epreuve_collective_notation_individuelle(self):
+        t = 'Épreuve collective : notation individuelle'
+        self.assertIn(t, titres("En acrosport l'épreuve est collective : je peux mettre la même note à tout le groupe ?", GT))
+        self.assertIn(t, titres("CAP : en danse collective, une seule note pour tout le groupe ?"))
+        self.assertNotIn(t, titres("Inapte sur deux épreuves, une seule note : je la garde ?", GT))
+
 
 if __name__ == '__main__':
     unittest.main()

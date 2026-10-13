@@ -175,6 +175,10 @@ _SCHEMA = '''{"claims":[{"section":"decision|condition|etape|limite",
 "evidence":[{"document_id":"D1","quote":"Passage justificatif copié textuellement et avec ses conditions",
 "level":"reglementaire|academique|logiciel|assistance|documentaire"}]}]}'''
 
+_CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérifiée",
+"evidence":[{"document_id":"D1","quote":"Passage justificatif exact","level":"logiciel"}],
+"checks":{"supported":true,"applicable":true,"source_correct":true,"conditions_preserved":true}}]}'''
+
 
 def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions=''):
     """Deux appels : construire des affirmations depuis les preuves, puis les contrôler.
@@ -228,10 +232,27 @@ Chaque affirmation finale inclut checks : {"supported":true,"applicable":true,
 "source_correct":true,"conditions_preserved":true}. Mets false si tu ne peux confirmer un point.
 Ne certifie pas une affirmation contradictoire avec la question ou les passages.
 Réponds uniquement en JSON selon le même schéma augmenté des checks.
-''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(proposal, ensure_ascii=False) + \
+''' + _CHECKED_SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(proposal, ensure_ascii=False) + \
         '\nERREURS MECANIQUES :\n' + json.dumps(errors, ensure_ascii=False)
     final = _json_response(recorded.complete(verification).text)
     accepted, rejected = validate_claims(final, packets, checked=True)
+    if rejected:
+        # Réparer les erreurs exactes plutôt que jeter toute la réponse ou accepter une citation approximative.
+        audit['repair_rejections'] = rejected
+        repair = '''Corrige la liste finale en respectant les erreurs de validation ci-dessous.
+Ne reformule pas les citations : copie un passage contigu du document indiqué, avec ses conditions.
+Chaque affirmation et chaque étape doit être applicable aux faits de la question et impliquée par ce passage.
+Les niveaux de source interdits dans le document restent interdits. Ne prends pas un titre bibliographique
+ou une Nature de la source comme seule preuve d'une manipulation. Si un point n'est pas documenté,
+ne l'invente pas. Les constats d'absence ne sont pas des démarches. Préserve toutes les conditions
+nécessaires à la décision. Ne modifie pas les affirmations déjà correctes sauf contradiction.
+Pour CHAQUE affirmation, vérifie et fournis le champ checks avec ses quatre booléens.
+Réponds uniquement en JSON, avec au plus 16 affirmations. Une section est decision, condition, etape ou limite ;
+un niveau est reglementaire, academique, logiciel, assistance ou documentaire.
+''' + _CHECKED_SCHEMA + '\nDONNEES :\n' + data + '\nLISTE A CORRIGER :\n' + json.dumps(final, ensure_ascii=False) + \
+            '\nERREURS :\n' + json.dumps(rejected, ensure_ascii=False)
+        final = _json_response(recorded.complete(repair).text)
+        accepted, rejected = validate_claims(final, packets, checked=True)
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected
@@ -239,7 +260,8 @@ Réponds uniquement en JSON selon le même schéma augmenté des checks.
         raise ValueError('La décision ne peut pas être vérifiée dans les passages disponibles.')
     # Une suppression silencieuse de condition pourrait rendre fausse la décision affichée.
     if rejected:
-        raise ValueError('Une affirmation ou une condition reste sans justification vérifiable.')
+        reasons = sorted({e for r in rejected for e in r['errors']})
+        raise ValueError('Vérification incomplète : ' + ' ; '.join(reasons) + '.')
     rendered = render_claims(accepted, packets)
     audit['rendered_answer'] = rendered
     return rendered

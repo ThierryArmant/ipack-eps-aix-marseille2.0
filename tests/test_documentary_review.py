@@ -90,7 +90,7 @@ class DocumentaryReviewTests(unittest.TestCase):
         for key in CHECKS:
             bad = claim()
             bad['checks'][key] = False
-            llm = FakeLLM([{'claims': [claim()]}, {'claims': [claim(), bad]}])
+            llm = FakeLLM([{'claims': [claim()]}, {'claims': [claim(), bad]}, {'claims': [claim(), bad]}])
             with self.subTest(key=key), self.assertRaises(ValueError):
                 review_exam_answer(llm, question='Q', public='GT', documents=DOC)
 
@@ -104,8 +104,17 @@ class DocumentaryReviewTests(unittest.TestCase):
     def test_empty_or_invalid_final_does_not_fall_back_to_draft(self):
         for output in ('', {'claims': []}, {'claims': [claim(quote='Citation inventée suffisamment longue.')]}):
             with self.subTest(output=output), self.assertRaises(ValueError):
-                review_exam_answer(FakeLLM([{'claims': [claim()]}, output]),
+                review_exam_answer(FakeLLM([{'claims': [claim()]}, output, output]),
                                    question='Q', public='GT', documents=DOC, draft='à ne jamais afficher')
+
+    def test_one_targeted_repair_preserves_good_claims_and_exact_citations(self):
+        bad = claim(quote='Le responsable peut ouvrir tous les dossiers sans restriction.')
+        llm = FakeLLM([{'claims': [claim()]}, {'claims': [bad]}, {'claims': [claim()]}])
+        audit = {}
+        self.assertIn('Demandez', review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit))
+        self.assertEqual(len(audit['calls']), 3)
+        self.assertTrue(audit['repair_rejections'])
+        self.assertFalse(audit['final_rejections'])
 
     def test_model_error_is_traced_without_copying_secret_exception(self):
         audit = {}

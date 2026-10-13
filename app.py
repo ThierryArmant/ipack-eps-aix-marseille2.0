@@ -354,11 +354,76 @@ css_pur = f"""
         color: #FFFFFF; 
         text-align: center; 
         margin-bottom: 12px !important; 
-        background-color: #1E293B; 
-        border-radius: 6px !important; 
+        background-color: rgba(15, 23, 42, 0.88); 
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-top: 3px solid #38BDF8;
+        border-radius: 12px !important; 
         padding: 10px 12px; 
-        box-shadow: 0px 4px 8px rgba(0,0,0,0.2); 
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.35); 
     }}
+
+    /* Étapes : même encart sombre translucide, une couleur par étape (1 bleu, 2 ambre, 3 vert) */
+    .hub-step {{
+        display: flex; align-items: center; gap: 12px;
+        background: rgba(15, 23, 42, 0.88);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 12px; padding: 12px 16px; margin: 14px 0 10px 0;
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+    }}
+    .hub-step-num {{
+        flex: 0 0 34px; height: 34px; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-weight: 900; font-size: 16px; color: #0F172A;
+    }}
+    .hub-step-title {{ color: #FFFFFF; font-weight: 800; font-size: 15px; letter-spacing: 0.3px; }}
+    .hub-step-sub {{ color: #CBD5E1; font-size: 12.5px; margin-top: 2px; }}
+    .hub-step-cyan {{ border-left: 5px solid #38BDF8; }}
+    .hub-step-cyan .hub-step-num {{ background: #38BDF8; }}
+    .hub-step-amber {{ border-left: 5px solid #F59E0B; }}
+    .hub-step-amber .hub-step-num {{ background: #F59E0B; }}
+    .hub-step-green {{ border-left: 5px solid #10B981; }}
+    .hub-step-green .hub-step-num {{ background: #10B981; }}
+
+    /* Encart de l'étape 2 : académie et public dans le même bloc */
+    .st-key-etape2 {{
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-left: 5px solid #F59E0B;
+        border-radius: 14px; padding: 4px 16px 12px 16px; margin: 12px 0;
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+    }}
+    .st-key-etape2 .hub-step {{
+        background: transparent; border: none; box-shadow: none; backdrop-filter: none;
+        padding: 8px 0 4px 0; margin: 4px 0 6px 0;
+    }}
+    .hub-field {{
+        color: #FDE68A; font-weight: 800; font-size: 12.5px; text-transform: uppercase;
+        letter-spacing: 0.6px; margin: 8px 0 4px 2px;
+    }}
+    .st-key-etape2 div[data-baseweb="select"] > div {{
+        background-color: #F8FAFC !important; border: 2px solid rgba(245, 158, 11, 0.55) !important;
+        border-radius: 10px !important; min-height: 44px;
+    }}
+    .st-key-etape2 div[data-baseweb="select"] * {{ color: #0F172A !important; font-weight: 600; }}
+    .st-key-etape2 div[data-testid="stRadio"] {{
+        background-color: rgba(30, 41, 59, 0.7) !important; border: 1px solid rgba(148, 163, 184, 0.25) !important;
+        border-radius: 10px !important; box-shadow: none; margin-bottom: 4px !important;
+    }}
+
+    /* Messages d'aide : lisibles sur la photo, sans fond criard */
+    .hub-hint {{
+        background: rgba(15, 23, 42, 0.86);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border-radius: 12px; padding: 12px 16px; margin: 10px 0 12px 0;
+        color: #F1F5F9; font-size: 13.5px; line-height: 1.5; text-align: center;
+        box-shadow: 0px 4px 14px rgba(0,0,0,0.3);
+    }}
+    .hub-hint strong {{ color: #FFFFFF; }}
+    .hub-hint-amber {{ border: 1px solid rgba(245, 158, 11, 0.55); border-left: 5px solid #F59E0B; }}
+    .hub-hint-cyan {{ border: 1px solid rgba(56, 189, 248, 0.55); border-left: 5px solid #38BDF8; }}
     .column-title-top .instruction {{ 
         font-size: 13px !important; 
         font-weight: 800 !important; 
@@ -1281,7 +1346,7 @@ titre_affiche = label_titres.get(
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
 st.markdown(
-    f'<div class="column-title-top"><span class="instruction">⚙️ ÉTAPE 1 : CHOISISSEZ LE CONTEXTE DE VOTRE QUESTION</span><span class="mode-actuel">{titre_affiche}</span></div>',
+    f'<div class="hub-step hub-step-cyan"><span class="hub-step-num">1</span><div><div class="hub-step-title">Choisissez le contexte de votre question</div><div class="hub-step-sub">{titre_affiche}</div></div></div>',
     unsafe_allow_html=True,
 )
 
@@ -1336,91 +1401,68 @@ with col_b3:
 # ======================================================================
 prompt = None
 
+def _bandeau_etape(numero, titre, sous_titre, couleur):
+    """Bandeau d'étape homogène : fond sombre translucide, pastille numérotée et filet de couleur."""
+    st.markdown(
+        f'<div class="hub-step hub-step-{couleur}"><span class="hub-step-num">{numero}</span>'
+        f'<div><div class="hub-step-title">{titre}</div><div class="hub-step-sub">{sous_titre}</div></div></div>',
+        unsafe_allow_html=True,
+    )
+
+
+def _consigne(texte, couleur="amber"):
+    """Message d'aide (zone verrouillée, choix manquant) : lisible sur la photo de fond."""
+    st.markdown(f'<div class="hub-hint hub-hint-{couleur}">{texte}</div>', unsafe_allow_html=True)
+
+
 if not st.session_state.contexte_valide:
-    st.markdown(
-        """
-        <div style="background: linear-gradient(135deg, #1E293B, #0F172A); border: 2px dashed #38BDF8; padding: 20px; border-radius: 8px; text-align: center; margin-top: 15px; margin-bottom: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);">
-            <span style="color: #38BDF8; font-weight: 800; font-size: 15px; display: block; margin-bottom: 6px;">
-                🔒 SI VOUS AVEZ UNE AUTRE QUESTION
-            </span>
-            <span style="color: #F1F5F9; font-size: 13.5px;">
-                Veuillez sélectionner le <strong>contexte (Étape 1)</strong> puis le public cible pour poser une nouvelle question.
-            </span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    _consigne("🔒 <strong>Une autre question ?</strong> Choisissez d'abord le contexte (étape 1), "
+              "puis votre académie et votre public.", "cyan")
 else:
-    # 🎯 ÉTAPE 2 : SÉLECTION DU PUBLIC CIBLE (DÉVERROUILLÉE)
-    st.markdown(
-        """
-        <div style="background: linear-gradient(135deg, #F59E0B, #D97706); padding: 14px 18px; border-radius: 8px; border: 2px solid #FCD34D; margin-top: 15px; margin-bottom: 10px; box-shadow: 0px 4px 15px rgba(245, 158, 11, 0.4);">
-            <span style="color: #0F172A; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">🎯 ÉTAPE 2 : SÉLECTIONNEZ VOTRE PUBLIC CIBLE (Pour ajuster la réponse)</span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # ÉTAPE 2 : académie et public, réunis dans un même encart
+    with st.container(key="etape2"):
+        _bandeau_etape("2", "Votre académie et votre public",
+                       "Les consignes et la réponse s'adaptent à ces deux choix", "amber")
 
-    def valider_public():
-        st.session_state.public_valide = True
+        def valider_public():
+            st.session_state.public_valide = True
 
-    # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
-    st.selectbox(
-        "Votre académie",
-        ACADEMIES,
-        index=None,
-        placeholder="Choisissez votre académie",
-        key="academie_utilisateur",
-    )
+        # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
+        st.markdown('<div class="hub-field">🏫 Académie</div>', unsafe_allow_html=True)
+        st.selectbox(
+            "Votre académie",
+            ACADEMIES,
+            index=None,
+            placeholder="Choisissez votre académie",
+            key="academie_utilisateur",
+            label_visibility="collapsed",
+        )
 
-    niveau_scolaire = st.radio(
-        "Public cible",
-        ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
-        horizontal=True,
-        key="niveau_actif_form",
-        label_visibility="collapsed",
-        on_change=valider_public
-    )
+        st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
+        niveau_scolaire = st.radio(
+            "Public cible",
+            ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+            horizontal=True,
+            key="niveau_actif_form",
+            label_visibility="collapsed",
+            on_change=valider_public
+        )
 
     if st.session_state.get("niveau_actif_form"):
         st.session_state.public_valide = True
 
     if not st.session_state.get("academie_utilisateur"):
-        st.markdown(
-            """
-            <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
-                <span style="color: #FCD34D; font-weight: bold; font-size: 13.5px;">
-                    👆 Veuillez choisir <strong>votre académie</strong> ci-dessus : certaines consignes (calendrier, circuit des protocoles, contacts) dépendent de l'académie.
-                </span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        _consigne("👆 Choisissez <strong>votre académie</strong> : le calendrier, le circuit des protocoles "
+                  "et les contacts en dépendent.")
     elif not st.session_state.public_valide:
-        st.markdown(
-            """
-            <div style="background-color: rgba(30, 41, 59, 0.8); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; margin-bottom: 12px;">
-                <span style="color: #FCD34D; font-weight: bold; font-size: 13.5px;">
-                    👆 Veuillez cocher votre <strong>Public Cible (Étape 2)</strong> ci-dessus pour déverrouiller la zone de question.
-                </span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
     else:
-        # 🚀 ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
-        st.markdown(
-            """
-            <div class="column-title-top" style="margin-top: 15px;">
-                <span class="instruction">🚀 ÉTAPE 3</span>
-                <span class="mode-actuel">POSEZ VOTRE QUESTION</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
+        _bandeau_etape("3", "Posez votre question",
+                       "Une phrase complète : ce que vous faites, où ça bloque, le message affiché", "green")
 
         st.markdown(
-            '<div style="padding:10px 12px;margin-bottom:10px;background:#1E293B;border-left:4px solid #FBBF24;border-radius:6px;color:#FFFFFF;font-size:14px;line-height:1.5;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
+            '<div class="hub-hint hub-hint-amber" style="text-align:left;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
             unsafe_allow_html=True,
         )
 

@@ -1,5 +1,6 @@
 from pathlib import Path
 from documentary_review import review_exam_answer, mark_excerpt, TracedLLM, usage_summary
+from response_cache import ANSWER_CACHE, answer_key
 from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
@@ -1558,6 +1559,23 @@ if prompt_a_traiter:
             "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
+        _cache_key = None
+        if mode == "examens":
+            _cache_key = answer_key(prompt, academy=st.session_state.get("academie_utilisateur") or AIX,
+                                   public=niveau_actuel_form, mode=mode, version=_sha,
+                                   model=modele_ia, knowledge=fingerprint(),
+                                   selected_context=[mode_initial, niveau_initial])
+            _cached = ANSWER_CACHE.get(_cache_key)
+            if _cached is not None:
+                for _message in _cached['messages']:
+                    if _message.get('role') == 'assistant' and _message.get('type') == 'text':
+                        _message['usage_ia'] = {**usage_summary({}), 'cache_hit': True}
+                    st.session_state.messages_hub.append(_message)
+                log_interaction(question=prompt, reponse=_cached['body'], mode=mode,
+                                contexte=contexte_choisi_nom, niveau=niveau_actuel_form)
+                st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
+                st.session_state.reset_steps = True
+                st.rerun()
 
         # Valeurs par défaut : ces variables sont utilisées dans la mise en forme finale,
         # y compris dans le cas "hors-sujet" où elles ne sont pas recalculées plus bas.
@@ -2407,7 +2425,12 @@ if prompt_a_traiter:
             # Les réponses relues du catalogue ont déjà un déclencheur ciblé et une source.
             # L'arbitre pouvait les écarter (B4/F6), puis réintroduire une règle erronée
             # par génération libre. Garder ce contrôle pour les anciens disjoncteurs seuls.
-            if (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+            # Examens : une réponse héritée non documentée va directement aux fiches,
+            # sans payer un arbitre avant la rédaction et une éventuelle correction.
+            if mode == "examens" and not besoin_ia and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+                besoin_ia = True
+                texte_brut = ""
+            if mode != "examens" and (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
                 try:
                     _resume_dur = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()[:900]
                     _verdict = llm_reponse.complete(
@@ -2661,6 +2684,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         reponse_ia = review_exam_answer(
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
+                            academy=st.session_state.get("academie_utilisateur") or AIX,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
@@ -2905,6 +2929,14 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                     )
 
         st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
+        if (_cache_key and diagnostic_ia is not None and diagnostic_ia.get('accepted_claims')
+                and not diagnostic_ia.get('failure') and not diagnostic_ia.get('final_rejections')):
+            # Ne jamais partager les prompts, diagnostics ou blocs administrateur entre sessions.
+            _public_answer = (f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>'
+                              f'{texte_final}{bloc_sources}{footer_assistance}</div>')
+            _cache_messages = [{"role":"assistant", "type":"text", "content":_public_answer}]
+            _cache_messages += [dict(m) for m in st.session_state.messages_hub if m.get('type')=='video']
+            ANSWER_CACHE.put(_cache_key, {'messages':_cache_messages, 'body':texte_brut})
         st.session_state.reset_steps = True
         st.rerun()
 
@@ -2919,6 +2951,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             if m.get("usage_ia") is not None:
                 _usage = m["usage_ia"]
                 _qualif = "" if _usage['complete'] else " · relevé incomplet"
+                if _usage.get('cache_hit'):
+                    _qualif += " · réponse reprise du cache"
                 _jetons = (f"{_usage['input_tokens']} jetons d'entrée · {_usage['output_tokens']} jetons de sortie"
                            if _usage['complete'] or _usage['calls_with_usage'] else "jetons indisponibles")
                 st.caption(f"Usage IA : {_usage['calls']} appels de génération · "
@@ -2931,7 +2965,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                     st.code(m["extraits"], language=None)
             if m.get("diagnostic_ia") and st.session_state.get("is_admin", False):
                 with st.expander("Trace exacte des appels IA et vérification des affirmations"):
-                    st.caption("Les citations sont contrôlées dans les passages. L'implication et l'applicabilité sont évaluées par le modèle, pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
+                    st.caption("Le programme contrôle l'existence des passages et fixe les étiquettes de source. L'interprétation et l'applicabilité de la rédaction ne sont pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
                     st.json(m["diagnostic_ia"])
                     st.download_button("Télécharger la trace de cette réponse", json.dumps(m["diagnostic_ia"], ensure_ascii=False, indent=2),
                                        file_name="trace_lecture_ia.json", mime="application/json", key="trace_ia_" + str(id(m)))

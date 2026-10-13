@@ -4,7 +4,7 @@ import json
 import unittest
 from types import SimpleNamespace
 
-from documentary_review import mark_excerpt, source_packets, review_exam_answer, validate_claims, TracedLLM
+from documentary_review import mark_excerpt, source_packets, review_exam_answer, validate_claims, TracedLLM, render_claims
 import test_documentation as routing_tests
 
 TEXT = "L'opérateur demande au responsable habilité d'ouvrir le dossier. Une fois ouvert, il corrige la valeur puis referme le dossier."
@@ -50,7 +50,7 @@ class DocumentaryReviewTests(unittest.TestCase):
                                    draft='BROUILLON : le décret oblige à ouvrir le dossier.', audit=audit)
         self.assertIn("Demandez au responsable", result)
         self.assertIn('Documentation du logiciel', result)
-        self.assertEqual(len(llm.prompts), 2)
+        self.assertEqual(len(llm.prompts), 1)
         self.assertNotIn('BROUILLON', '\n'.join(llm.prompts))
         self.assertEqual(audit['context_exact'], DOC)
         self.assertEqual([c['prompt'] for c in audit['calls']], llm.prompts)
@@ -70,8 +70,9 @@ class DocumentaryReviewTests(unittest.TestCase):
     def test_software_packet_cannot_be_relabeled_as_regulatory(self):
         bad = claim(level='reglementaire')
         accepted, errors = validate_claims({'claims': [bad]}, source_packets(DOC))
-        self.assertFalse(accepted)
-        self.assertIn('nature de source incompatible', ' '.join(errors[0]['errors']))
+        self.assertFalse(errors)
+        self.assertIn('Documentation du logiciel', render_claims(accepted, source_packets(DOC)))
+        self.assertNotIn('Texte réglementaire', render_claims(accepted, source_packets(DOC)))
 
     def test_norm_reference_does_not_promote_unknown_guide_to_regulation(self):
         guide = mark_excerpt(TEXT + '\nRéférence : NOR MENE1234567N. https://www.education.gouv.fr/bo/2026/',
@@ -106,9 +107,8 @@ class DocumentaryReviewTests(unittest.TestCase):
         for key in CHECKS:
             bad = claim()
             bad['checks'][key] = False
-            llm = FakeLLM([{'claims': [claim()]}, {'claims': [claim(), bad]}, {'claims': [claim(), bad]}])
-            with self.subTest(key=key), self.assertRaises(ValueError):
-                review_exam_answer(llm, question='Q', public='GT', documents=DOC)
+            with self.subTest(key=key):
+                self.assertFalse(validate_claims({'claims':[bad]}, source_packets(DOC), checked=True)[0])
 
     def test_invalid_json_is_repaired_by_verification_not_published(self):
         llm = FakeLLM(['Réponse non structurée avec une référence inventée', {'claims': [claim()]}])
@@ -120,15 +120,15 @@ class DocumentaryReviewTests(unittest.TestCase):
     def test_empty_or_invalid_final_does_not_fall_back_to_draft(self):
         for output in ('', {'claims': []}, {'claims': [claim(quote='Citation inventée suffisamment longue.')]}):
             with self.subTest(output=output), self.assertRaises(ValueError):
-                review_exam_answer(FakeLLM([{'claims': [claim()]}, output, output]),
+                review_exam_answer(FakeLLM([output, output]),
                                    question='Q', public='GT', documents=DOC, draft='à ne jamais afficher')
 
     def test_one_targeted_repair_preserves_good_claims_and_exact_citations(self):
         bad = claim(quote='Le responsable peut ouvrir tous les dossiers sans restriction.')
-        llm = FakeLLM([{'claims': [claim()]}, {'claims': [bad]}, {'claims': [claim()]}])
+        llm = FakeLLM([{'claims': [bad]}, {'claims': [claim()]}])
         audit = {}
         self.assertIn('Demandez', review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit))
-        self.assertEqual(len(audit['calls']), 3)
+        self.assertEqual(len(audit['calls']), 2)
         self.assertTrue(audit['repair_rejections'])
         self.assertFalse(audit['final_rejections'])
 

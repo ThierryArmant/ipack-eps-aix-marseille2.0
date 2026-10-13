@@ -12,15 +12,19 @@ class AuditedFAQTests(unittest.TestCase):
         tree = ast.parse(Path('app.py').read_text())
         guards = [node.test for node in ast.walk(tree) if isinstance(node, ast.If)
                   and 'openai_api_key' in ast.unparse(node.test)
-                  and 'not besoin_ia' in ast.unparse(node.test)]
+                  and 'not besoin_ia' in ast.unparse(node.test)
+                  and any(isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id=='_verdict' for t in n.targets)
+                          for statement in node.body for n in ast.walk(statement))]
         self.assertEqual(len(guards), 1)
         condition = compile(ast.Expression(guards[0]), 'app.py', 'eval')
-        state = dict(besoin_ia=False, texte_brut='réponse', openai_api_key=True,
+        state = dict(mode='ipack', besoin_ia=False, texte_brut='réponse', openai_api_key=True,
                      est_question_trop_courte=False, est_mauvais_onglet=False,
                      demande_precision='', reponse_documentee='réponse relue')
         self.assertFalse(eval(condition, {}, state))
         state['reponse_documentee'] = ''
         self.assertTrue(eval(condition, {}, state))
+        state['mode'] = 'examens'
+        self.assertFalse(eval(condition, {}, state))
 
     def answer(self, question, public=GT):
         return kc.delivered_text(question, public, 'examens')

@@ -50,9 +50,14 @@ def source_packets(context):
         nature = re.search(r'^Nature de la source\s*:\s*(.+)$', body, re.M | re.I)
         nature_text = nature.group(1) if nature else ''
         # Une mention de BO dans une fiche ne suffit jamais à en faire un BO.
-        allowed = list(_LEVELS)
-        if nature_text and re.search(r'aucun texte.*Bulletin officiel|pas.*r[eè]gle.*note de service', nature_text, re.I):
-            allowed.remove('reglementaire')
+        allowed = [level for level in _LEVELS if level != 'reglementaire']
+        # Le niveau réglementaire nécessite une nature explicite ou un texte officiel transcrit.
+        # Un lien BO, un NOR, un titre de guide ou un nom de fichier ne suffisent pas.
+        explicit_regulatory = bool(nature_text and re.search(r'texte (?:national|r[eé]glementaire)|Bulletin officiel', nature_text, re.I))
+        original_regulatory = bool(re.search(r'^\s*=== TEXTE OFFICIEL\s*:', body, re.M))
+        denies_regulatory = bool(re.search(r'aucun texte.*Bulletin officiel|pas.*r[eè]gle.*note de service', nature_text, re.I))
+        if (explicit_regulatory or original_regulatory) and not denies_regulatory:
+            allowed.insert(0, 'reglementaire')
         document_id = f'D{len(packets)+1}'
         passages = []
         # Sélections stables : le programme copie le texte, le modèle choisit uniquement les identifiants.
@@ -233,6 +238,8 @@ Ne recopie pas les passages : le programme récupère leur texte exact depuis pa
 Un NOR présent dans une fiche ne prouve pas l'origine réglementaire d'une procédure.
 Une interdiction de décision ne prouve pas une impossibilité technique du logiciel.
 Ne développe un sigle que si son développement est présent dans un passage justificatif.
+Évite les répétitions : une décision, les conditions réellement nécessaires et les étapes utiles.
+Ne recopie pas les détails secondaires des autres passages (opérations inverses, autres menus, autres cas).
 N'ajoute ni lien, ni référence bibliographique, ni titre de source dans le texte des affirmations :
 leur attribution sera affichée depuis les preuves. Si la nature n'est pas établie, niveau documentaire.
 Les niveaux interdits par niveaux_autorises sont interdits. Cite les Nature de la source en contexte,
@@ -257,6 +264,9 @@ ne rend applicable la démarche prévue avant ce délai. Ne confonds pas nature 
 et nature d'un texte simplement mentionné. Les références sont affichées par le programme.
 Corrige les erreurs de sélection signalées. Fournis les passage_ids existants ; ne copie pas les citations.
 Vérifie aussi la complétude : restitue les branches, conditions, autorités et limites pertinentes.
+Supprime les doublons et les détails sans effet sur l'action demandée. Garde au plus 12 affirmations,
+sans répéter la décision parmi les conditions ou les limites. Le niveau documentaire est correct
+pour une synthèse citant une norme : ne la rebaptise pas texte réglementaire.
 Supprime les démarches inapplicables et les développements de sigles absents des preuves.
 Tu peux ajouter une affirmation manquante si elle est justifiée par un passage cité.
 Chaque affirmation finale inclut checks : {"supported":true,"applicable":true,

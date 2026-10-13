@@ -73,6 +73,13 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertFalse(accepted)
         self.assertIn('nature de source incompatible', ' '.join(errors[0]['errors']))
 
+    def test_norm_reference_does_not_promote_unknown_guide_to_regulation(self):
+        guide = mark_excerpt(TEXT + '\nRéférence : NOR MENE1234567N. https://www.education.gouv.fr/bo/2026/',
+                             path='texte_officiel_fake.txt', title='Guide avec lien BO')
+        self.assertNotIn('reglementaire', source_packets(guide)[0]['niveaux_autorises'])
+        official = mark_excerpt('=== TEXTE OFFICIEL : décret ===\n' + TEXT, title='Décret transcrit')
+        self.assertIn('reglementaire', source_packets(official)[0]['niveaux_autorises'])
+
     def test_reference_anywhere_in_context_does_not_support_claim(self):
         bad = claim(text='Selon MENE1234567N, ouvrez le dossier.')
         other = mark_excerpt('NOR MENE1234567N : calendrier annuel de certification.', title='Calendrier')

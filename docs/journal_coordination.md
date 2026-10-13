@@ -20,7 +20,7 @@ Attendu de l'autre partie : … (ou « rien »)
 ## État courant
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
-- Prochaine étape : vérifier R04 en ligne, figer la version, puis passer la série de mesure de 50 questions (posée par l'enseignant, notée par la partie fiches ; série conservée hors dépôt, empreinte dans `docs/empreinte_serie_mesure_2026-10-13.md`).
+- Prochaine étape : corriger les thèmes faux de la mesure (fiches) et les demandes de précision inutiles (programme), puis remesurer sur une nouvelle série inédite.
 
 ## Entrées
 

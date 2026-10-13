@@ -132,6 +132,32 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertEqual(packets[1]['path'], 'guide.txt')
         self.assertIn('seconde possibilité', packets[2]['text'])
 
+    def test_passage_selectors_resolve_to_exact_original_text(self):
+        packets = source_packets(DOC)
+        selected = claim()
+        selected['evidence'] = [{'document_id': 'D1', 'passage_ids': ['D1P1'], 'level': 'logiciel'}]
+        accepted, errors = validate_claims({'claims': [selected]}, packets, checked=True)
+        self.assertFalse(errors)
+        quote = accepted[0]['evidence'][0]['quote']
+        span = packets[0]['passages'][0]
+        self.assertEqual(quote, packets[0]['text'][span['start']:span['end']])
+        self.assertNotIn('passage_ids', accepted[0]['evidence'][0])
+
+    def test_selector_from_another_document_is_rejected(self):
+        selected = claim()
+        selected['evidence'] = [{'document_id': 'D1', 'passage_ids': ['D2P1'], 'level': 'logiciel'}]
+        packets = source_packets(DOC + '\n\n' + mark_excerpt('Autre texte documentaire sans cette procédure.'))
+        self.assertFalse(validate_claims({'claims': [selected]}, packets)[0])
+
+    def test_selector_pipeline_does_not_need_model_to_copy_quote(self):
+        selected = claim()
+        selected['evidence'] = [{'document_id': 'D1', 'passage_ids': ['D1P1'], 'level': 'logiciel'}]
+        audit = {}
+        result = review_exam_answer(FakeLLM([{'claims': [selected]}, {'claims': [selected]}]),
+                                   question='Q', public='GT', documents=DOC, audit=audit)
+        self.assertIn('Demandez', result)
+        self.assertEqual(audit['accepted_claims'][0]['evidence'][0]['quote'], source_packets(DOC)[0]['passages'][0]['text'])
+
     def test_metadata_only_and_markup_are_not_publishable_claims(self):
         for bad in (claim(quote='Nature de la source : fonctionnement du logiciel ; aucun texte du Bulletin officiel ne prescrit cette procédure.'),
                     claim(text='<script>alert(1)</script>')):

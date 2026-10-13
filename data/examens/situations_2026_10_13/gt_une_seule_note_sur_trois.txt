@@ -1,0 +1,11 @@
+### Bac GT : inapte, l'élève n'a pu passer qu'une seule épreuve sur trois — note unique ou dispense
+[PORTEE: gt]
+Sigles : CCF = contrôle en cours de formation ; APSA = activités physiques, sportives et artistiques.
+Quand une inaptitude attestée en cours d'année empêche le candidat de présenter deux épreuves de son ensemble certificatif, il n'a qu'une seule note : la règle de la moyenne de deux notes ne s'applique pas. C'est l'enseignant du groupe classe qui apprécie, entre deux possibilités prévues par la note de service :
+1. permettre une certification sur une seule épreuve : la moyenne du candidat retenue pour le baccalauréat n'est constituée que de cette seule note ;
+2. s'il considère les éléments d'appréciation trop réduits, ne pas formuler de proposition de note et mentionner « dispensé de l'épreuve d'éducation physique et sportive » : le coefficient de l'EPS est neutralisé.
+Avant cela, envisager l'adaptation de l'épreuve (inaptitude partielle) ou l'évaluation différée.
+Saisie dans Santorin : note unique retenue → « Dispensé » sur les deux APSA non évaluées et la note sur la troisième ; pas de note → « Dispensé » sur les trois épreuves. Dans les deux cas, une appréciation explique la décision à la commission académique.
+Nature de la source : texte national pour les possibilités ; documentation du logiciel pour la saisie.
+Sources : note de service du 20 février 2026, MENE2531948N, 2.e ; guide de saisie Santorin (inaptes avec une note).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

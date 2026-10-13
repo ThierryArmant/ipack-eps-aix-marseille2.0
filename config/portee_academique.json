@@ -780,6 +780,19 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_13/option_eps_abandon_aix_2027.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Option EPS : abandon en cours de terminale (consigne d'Aix-Marseille, session 2027)",
+     "lignes": [
+      "À Aix-Marseille, pour la session 2027 du baccalauréat général et technologique, le bulletin académique des inscriptions précise pour l'option EPS : inscription définitive, note automatiquement prise en compte, pas d'abandon de l'enseignement optionnel après la clôture des inscriptions, pas de régularisation après clôture.",
+      "Un élève inscrit à l'option ne peut donc pas l'abandonner en cours de terminale une fois les inscriptions closes : sa note d'option est prise en compte.",
+      "Dans une autre académie, se reporter au bulletin des inscriptions de cette académie et à son service des examens."
+     ]
+    }
+   ]
+  },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
    "academie": "aix-marseille",
    "sections": [

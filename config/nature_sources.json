@@ -1821,6 +1821,19 @@
    "portee_texte": null,
    "titre": "Épreuve collective : notation individuelle"
   },
+  "data/examens/situations_2026_10_13/gt_une_seule_note_sur_trois.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "gt",
+   "titre": "Bac GT : une seule épreuve passée sur trois (note unique ou dispense)"
+  },
   "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt": {
    "nature": [
     "logiciel"
@@ -1834,6 +1847,18 @@
    ],
    "portee_texte": null,
    "titre": "Établissement hors SIECLE (CFA, GRETA, MFR, AEFE) : associer les candidats dans Cyclades"
+  },
+  "data/examens/situations_2026_10_13/option_eps_abandon_aix_2027.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "gt",
+   "titre": "Option EPS : pas d'abandon après clôture des inscriptions (Aix-Marseille, 2027)"
   },
   "data/examens/situations_2026_10_13/option_eps_ponctuel_scolarise.txt": {
    "nature": [

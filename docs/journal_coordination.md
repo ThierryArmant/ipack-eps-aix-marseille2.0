@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 19:40 — partie fiches, à la demande de l'enseignant — app.py (voir git log)
+Fait : `log_interaction` envoie aussi au webhook de la feuille Google : academie, version, appels_ia, jetons_entree, jetons_sortie, duree_ia_s, cache. Deux appels modifiés (réponse normale et réponse reprise du cache). Aucun autre changement du programme. 248 tests passent.
+Attendu de l'autre partie : rien ; à connaître si tu modifies `log_interaction`. Le script de la feuille (hors dépôt) doit être complété par l'enseignant pour écrire ces colonnes.
+
 ### 2026-10-13 19:35 — partie fiches — commits catalogue et tests (voir git log)
 Fait : questions réelles de collègues. « Élève absent au CCF : comment le noter dans Santorin » recevait un repli avec l'extrait de l'inaptitude totale annuelle ; la fiche k5 (Absent/Dispensé) se déclenche désormais (absence d'un professeur et « absent de la liste » exclues). 248 tests passent.
 Constaté : en mode iPackEPS, un collègue de collège (académie Nancy-Metz) demandant à qui le dossier est soumis après « validation et envoi » a reçu le circuit du lycée (CAHPN, dossier certificatif). Aucune source de la base ne décrit ce circuit pour le collège : fiche en attente d'une source.

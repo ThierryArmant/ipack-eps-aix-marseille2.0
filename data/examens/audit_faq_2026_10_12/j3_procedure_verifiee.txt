@@ -1,5 +1,6 @@
 ### FAQ EPS — Santorin : clôturer le lot d'un collègue qui a oublié (ce n'est pas déverrouiller)
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Oui : le chef d'établissement peut clôturer à la place de l'enseignant un lot resté ouvert. Dans Santorin, portail établissement, suivi des lots : il clôture la saisie du lot.
 Condition : tous les candidats du lot doivent avoir une saisie (une note, « Absent » ou « Dispensé »). Tant qu'un seul candidat n'a rien, la clôture est impossible : compléter d'abord la saisie.
 Ne pas confondre deux opérations inverses :

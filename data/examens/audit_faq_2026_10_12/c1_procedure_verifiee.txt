@@ -1,5 +1,6 @@
 ### FAQ EPS — Évaluation différée : certificat couvrant le jour du CCF
 [PORTEE: gt]
+Sigles : CCF = contrôle en cours de formation ; CE = cas exceptionnel (mention de Santorin).
 Non : un certificat médical couvrant le jour du CCF ne relève pas d’une absence injustifiée à coder « Absent » ou zéro. Pour une inaptitude temporaire attestée, examiner une évaluation adaptée ou différée prévue au protocole. Si l’inaptitude persiste au rattrapage, l’enseignant apprécie les possibilités médicales et les éléments acquis : adaptation, certification sur deux épreuves, éventuellement une seule, ou dispense si les éléments sont trop réduits. Ces possibilités ne sont pas automatiques. Ne pas déclarer un CE collectif pour une inaptitude individuelle.
 
 Portée : National.

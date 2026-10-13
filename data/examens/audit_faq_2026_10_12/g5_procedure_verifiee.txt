@@ -1,5 +1,6 @@
 ### FAQ EPS — Santorin : élève dans le mauvais lot
 [PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques.
 Un élève placé dans le mauvais lot se déplace dans Santorin, sans toucher au protocole ni à Cyclades.
 - Qui : le chef d'établissement ou l'enseignant référent Santorin de l'établissement. Un enseignant non référent le leur demande.
 - Chemin : [Distribution] > [Lots] > flèche du lot de départ > onglet [Candidats] > sélectionner l'élève > [Déplacer vers un lot existant] > choisir le lot d'arrivée > [Déplacer].

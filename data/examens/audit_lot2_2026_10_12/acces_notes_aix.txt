@@ -1,5 +1,6 @@
 ### Aix : accès enseignant à la saisie EPS dans Santorin
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 À Aix-Marseille, passez par Imag’in depuis ESTEREL, rubrique Examens et concours, puis « Portail d’accès aux missions ». Sélectionnez la ligne « Notation EPS CCF » de l’examen concerné : il y a une ligne par examen. Dans Santorin, choisissez de nouveau l’examen puis ouvrez votre lot. L’accès direct Imag’in enseignant décrit dans le support est https://appli.ac-aix-marseille.fr/imagin/enseignant. La direction ou la personne habilitée vérifie la convocation et l’affectation si la mission ou le lot manque. Les notes certificatives se saisissent dans Santorin, pas dans iPackEPS. Il s’agit du circuit technique académique ; aucun autre calcul de moyenne ni calendrier ne doit être ajouté pour répondre à cette question d’accès.
 
 Source : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 1-2 ; guide académique des tutoriels examens.

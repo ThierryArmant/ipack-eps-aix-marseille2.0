@@ -1,5 +1,6 @@
 ### Après la saisie : harmonisation, clôture et remontée des notes (Santorin, Cyclades)
 [PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques ; CCF = contrôle en cours de formation.
 Ordre des étapes une fois les notes saisies :
 1. L'enseignant verrouille ses lots quand toutes les saisies sont faites ; le chef d'établissement vérifie et peut déverrouiller ou clôturer un lot oublié.
 2. La commission académique harmonise. Dans Santorin, le coordinateur académique dispose d'une « harmonisation en masse » : majoration ou minoration (au dixième de point) de la note finale, de toutes les APSA ou d'une APSA, selon des critères (département, établissement, diplôme, genre, note globale minimale ou maximale). L'arrondi de la note finale dépend du diplôme.

@@ -1,5 +1,6 @@
 ### FAQ EPS — Saisie / codes
 [PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques ; CCF = contrôle en cours de formation ; CE = cas exceptionnel (mention de Santorin).
 Dans Santorin, « Absent » et « Dispensé » ne s'emploient pas dans les mêmes situations (guide Santorin EPS de la DIEC) :
 - « Absent » : absence injustifiée ; vaut zéro pour l'APSA.
 - Absence justifiée par une inaptitude temporaire ou une force majeure reconnue : d'abord l'adaptation de l'épreuve ou l'évaluation différée prévue au protocole (appelée « épreuve de substitution » dans le support technique). On ne saisit pas « Dispensé » à ce stade.

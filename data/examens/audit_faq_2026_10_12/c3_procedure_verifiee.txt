@@ -1,5 +1,6 @@
 ### FAQ EPS — Évaluation différée : grève des transports, force majeure
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Une grève des trains ne constitue pas automatiquement une force majeure. Pour l’élève assidu effectivement empêché, le chef d’établissement examine les justificatifs après consultation de l’équipe pédagogique et peut autoriser une évaluation différée. Dans le guide Santorin EPS de la DIEC Aix-Marseille cité, cette situation se traite par l’épreuve de substitution avec le motif « force majeure ». Ce n’est ni une inaptitude médicale ni un blocage collectif du lycée.
 
 Portée : National + logiciel.

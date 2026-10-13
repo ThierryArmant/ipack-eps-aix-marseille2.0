@@ -1,5 +1,6 @@
 ### Santorin : examinateur non trouvé pour le mail déclaré
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Vérifiez d’abord la convocation de l’examinateur dans Imag’in sur la mission « Notation EPS CCF » : signataire défini et convocation éditée en PDF. Le seul envoi d’un mail ne remplace pas cette édition. Si la mission existe, comparez l’adresse d’examinateur déclarée dans Cyclades avec celle du personnel convoqué ; la direction corrige si nécessaire dans EPS > Contrôler / réaffecter des protocoles. Contrôlez ensuite la distribution Santorin et relancez-la selon les droits du rôle ; utilisez la distribution manuelle pour les candidats restants si nécessaire. Si des notes existent déjà, ne supprimez pas les lots pour recommencer : préserver les notes et demander le circuit de correction approprié. Le professeur signale le défaut ; la direction ou une personne habilitée réalise les actions administratives. Ces manipulations sont des procédures logicielles documentées, pas une obligation créée par un texte réglementaire EPS.
 
 Sources : DIEC Aix-Marseille, Notation EPS CCF — Santorin, février 2024, diapos 3 à 9 ; tutoriels Cyclades/Santorin de Créteil (distribution).

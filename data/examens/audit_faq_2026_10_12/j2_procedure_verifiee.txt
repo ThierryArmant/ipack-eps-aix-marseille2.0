@@ -1,5 +1,6 @@
 ### FAQ EPS — Verrouillage
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 L’enseignant ne peut pas déverrouiller son lot : il le demande au chef d’établissement. Le chef d’établissement déverrouille depuis son portail Santorin établissement > Correction > Liste des lots > cadenas (guide cité). Puis l’enseignant corrige la note, enregistre, vérifie toutes les données, puis reverrouille le lot. Ne pas laisser le lot ouvert après correction et ne pas échanger les identifiants du chef.
 
 Portée : Logiciel.

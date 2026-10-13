@@ -1,5 +1,6 @@
 ### FAQ EPS — Santorin : quand verrouiller son lot
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Non, pas après le premier CCF : l'enseignant verrouille son lot une seule fois, quand toutes les notes du lot sont saisies et vérifiées, évaluations différées (rattrapages) comprises.
 Une fois le lot verrouillé, seul le chef d'établissement peut le déverrouiller. Il est conseillé d'attendre la concertation de l'équipe sur les notes et les cas particuliers avant de verrouiller.
 La date limite de verrouillage est fixée chaque année par la circulaire EPS de l'académie ; pour la session 2027 à Aix-Marseille, elle n'est pas encore publiée.

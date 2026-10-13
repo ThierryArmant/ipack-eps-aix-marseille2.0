@@ -1,5 +1,6 @@
 ### Élève parti de l'établissement en cours d'année mais toujours inscrit à l'examen
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Tant que son inscription à l'examen n'est pas annulée, l'élève reste candidat. Il doit être convoqué aux épreuves restantes de son protocole (CCF et, le cas échéant, épreuve différée). S'il ne se présente pas, la situation est traitée comme une absence : au bac GT, une absence non justifiée entraîne zéro à l'épreuve (note de service du 20 février 2026, 2.d) ; au bac professionnel et au CAP, appliquer le texte du diplôme.
 Distinguer deux cas :
 - l'élève est inscrit dans un autre établissement : voir la fiche « élève arrivé en cours d'année » ; les notes déjà obtenues doivent être transmises au nouvel établissement ;

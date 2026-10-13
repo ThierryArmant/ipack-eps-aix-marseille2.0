@@ -1,5 +1,6 @@
 ### FAQ EPS — Distribution : qui distribue les lots et quand
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Le chef d'établissement, ou un référent qu'il désigne, après l'association de tous les candidats aux protocoles et les convocations Imag'in. Distribution automatique (un lot par protocole) de préférence. La date de fin de correction n'est pas obligatoire. Vérifier le rôle et le guide avant toute distribution ; ne pas supprimer un lot contenant des notes.
 
 Portée : DIEC + logiciel.

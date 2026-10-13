@@ -1,5 +1,6 @@
 ### FAQ EPS — Absence d'enseignant : donner l'accès à la saisie d'un lot
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Le chef d'établissement donne l'accès à quelqu'un d'autre : ajouter un collègue comme deuxième correcteur sur le lot (Distribution > Lots > Voir le détail > Correcteurs > Ajouter), réaffecter le lot ou le protocole, ou se convoquer lui-même. La personne doit être convoquée dans Imag'in (mission « Notation EPS CCF », PDF de la convocation généré). Prérequis : la personne chargée de saisir doit être convoquée sur la mission « Notation EPS CCF », un signataire défini, et la convocation éditée en PDF ; le seul envoi par mail ne remplace pas cette édition.
 
 Portée : Logiciel (documentation nationale du logiciel) + DIEC.

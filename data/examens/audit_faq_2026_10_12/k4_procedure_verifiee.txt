@@ -1,5 +1,6 @@
 ### FAQ EPS — Santorin : le 20/20 du sportif de haut niveau n'est pas proposé
 [PORTEE: gt,pro,cap]
+Sigles : APSA = activités physiques, sportives et artistiques ; CCF = contrôle en cours de formation ; SHN = sportif de haut niveau.
 Le 20/20 s'applique à l'APSA de la spécialité sportive. Vérifier dans l'ordre :
 1. Le protocole de l'élève contient-il l'APSA de sa spécialité ? Si non, l'associer à un protocole adapté qui la contient (créé dans Cyclades si les protocoles sont déjà transférés). Si oui, rien à recréer.
 2. La mention SHN figure-t-elle pour l'élève dans Santorin ? À Aix-Marseille, elle est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter.

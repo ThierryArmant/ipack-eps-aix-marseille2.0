@@ -1,5 +1,6 @@
 ### FAQ EPS — Imag'in / référent
 [PORTEE: gt,pro,cap]
+Sigles : CCF = contrôle en cours de formation.
 Oui, des guides académiques décrivent la délégation à un professeur d’EPS ayant la qualité « REFERENT » : Imag’in établissement > Convocation par mission > mission de notation EPS > modifier la convocation > ajouter la qualité REFERENT > Convoquer. Il accède ensuite à la distribution depuis son portail des missions. Cette procédure est documentée notamment à Dijon et Strasbourg ; son application à Aix-Marseille doit être confirmée par la DIEC pour le rôle et la version concernés. Ne pas la présenter comme une publication de la DIEC d’Aix.
 
 Portée : Logiciel (procédure décrite hors Aix).

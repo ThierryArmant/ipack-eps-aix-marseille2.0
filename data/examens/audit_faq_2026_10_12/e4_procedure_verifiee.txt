@@ -1,5 +1,6 @@
 ### FAQ EPS — Certification réduite : un seul élève non évalué, pas de CE sur le lot
 [PORTEE: gt,pro,cap]
+Sigles : CE = cas exceptionnel (mention de Santorin).
 Non : ne pas déclarer le CE sur le lot de toute la classe pour un seul candidat, car la neutralisation toucherait tous les élèves du lot. Le tutoriel Créteil (article 95) décrit un lot séparé pour le candidat puis la déclaration du CE après accord. Cette procédure locale ne doit pas être présentée comme une consigne confirmée d’Aix-Marseille : la direction doit faire confirmer par la DIEC et l’inspection la solution autorisée avant saisie. Ne pas saisir DI pour remplacer une absence de formation sans motif médical.
 
 Portée : Tutoriel Créteil — à confirmer pour Aix.

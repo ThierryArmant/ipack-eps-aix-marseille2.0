@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:20 — partie fiches — reprise des questions d'autres académies sur df05f09 (voir git log)
+Constaté : réponses courtes, 1 appel chacune. Émargement et téléconsultation désormais correctes (aucune consigne retrouvée pour Aix, autres académies attribuées). CAP protocole adapté, élève parti, SHN : partielles. Acrosport « même note pour tout le groupe » devenue FAUSSE (« peut attribuer la même note ») : la réponse courte a repris la fiche de la note unique d'un inapte.
+Fait : fiche `data/examens/situations_2026_10_13/epreuve_collective_notation_individuelle.txt` (priorité 300, texte national des trois diplômes). Registre des natures à 449. 261 tests passent.
+Attendu de l'autre partie : la réponse courte peut afficher seule une décision tirée d'un passage d'une autre situation (ici inaptitude). Vérifier que la décision porte sur la situation demandée avant de l'afficher sans rubriques.
+
 ### 2026-10-13 20:15 — partie fiches, en urgence — app.py (voir git log)
 Fait : hub en panne après 6e4a93c (ImportError sur `suggested_tab`) : Streamlit gardait l'ancien `response_controls` en mémoire. Le bloc de rechargement en tête d'`app.py` recharge désormais tous les modules du projet (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache) quand leur fichier change, avant les imports de fonctions. 260 tests passent. Réparation immédiate demandée à l'enseignant : Reboot app.
 Attendu de l'autre partie : en ajoutant un module importé par app.py, l'ajouter à cette liste de rechargement.

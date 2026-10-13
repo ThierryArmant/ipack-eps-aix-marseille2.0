@@ -56,6 +56,12 @@ class SituationsTests(unittest.TestCase):
         q = "Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?"
         self.assertIn('FAQ EPS — Inaptitude / DI+DI+Note', titres(q, GT))
 
+    def test_absent_au_ccf_saisie_santorin(self):
+        k5 = 'FAQ EPS — Saisie / codes'
+        self.assertIn(k5, titres("Un candidat est absent lors d'un CCF. Comment le noter sur Santorin ?", GT))
+        self.assertNotIn(k5, titres("Le collègue est absent le jour du CCF, qui saisit les notes ?", GT))
+        self.assertNotIn(k5, titres("Élève arrivé en cours d'année absent de Santorin", GT))
+
 
 if __name__ == '__main__':
     unittest.main()

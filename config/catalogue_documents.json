@@ -2431,7 +2431,6 @@
       "certificat|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
     ],
     "exclure_motifs": [],
-    "url": "https://eduscol.education.gouv.fr/5535/reglementation-concernant-les-amenagements-d-examens-pour-les-eleves-en-situation-de-handicap",
     "date_verification": "2026-10-11"
   },
   "data/examens/fiches/examens_104_situation_santorin_connexion_et_identifiant_refuse.txt": {
@@ -4472,6 +4471,24 @@
     ],
     "motifs": [
       "(?=.*(?:shn|haut niveau))(?=.*(?:santorin|propose pas|n.apparait pas|crayon|saisir le 20|mettre le 20|le 20 ?/ ?20|20 sur 20))"
+    ]
+  },
+  "data/examens/sigles_examens_eps.txt": {
+    "title": "Sigles des examens d'EPS",
+    "statut": "verifie_2026-10-13",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 5,
+    "date_verification": "2026-10-13",
+    "motifs": [
+      "\\b(?:aflp?s?|apsa|ccf|cahpn|shn|eppcs)\\b"
     ]
   }
 }

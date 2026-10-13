@@ -1,3 +1,4 @@
+from response_controls import suggested_tab
 from pathlib import Path
 import hashlib
 import importlib
@@ -2753,6 +2754,11 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         # Résultat : la réponse "HORS PÉRIMÈTRE INSTITUTIONNEL" n'était jamais affichée
         # ni enregistrée dans le Google Sheet. Il est maintenant exécuté dans tous les cas.
         # ==================================================================
+
+        _onglet_suggere = suggested_tab(prompt, mode_initial)
+        if _onglet_suggere:
+            texte_brut = ('<p><strong>Cette question relève de l’onglet « ' + _onglet_suggere +
+                          ' ».</strong> Pour vos prochaines questions sur ce sujet, choisissez cet onglet.</p>' + texte_brut)
 
         # ✅ L'IA entourait parfois le nom du tutoriel d'un lien inventé (https://example.com/...). On ne garde que le nom du fichier.
         texte_brut = re.sub(r"<a\s[^>]*>\s*([A-Za-z0-9_.-]+\.mp4)\s*</a>", r"\1", texte_brut, flags=re.IGNORECASE)

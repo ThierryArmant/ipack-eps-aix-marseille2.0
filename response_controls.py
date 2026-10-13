@@ -80,3 +80,18 @@ def clean_video_placeholders(answer):
     answer = re.sub(r"\[([A-Za-z0-9_\-]+\.mp4)\]\((?!https?://)[^)]*\)", r"\1", answer)
     answer = re.sub(r"\s*\((?:lien|url|adresse)[^()]{0,40}(?:ins[ée]rer|disponible|venir)[^()]*\)", "", answer, flags=re.IGNORECASE)
     return answer
+
+
+def suggested_tab(question, mode):
+    """Signalement de contexte, sans changer le public ni empêcher la réponse."""
+    import re
+    import unicodedata
+    q = ''.join(c for c in unicodedata.normalize('NFKD', question.lower())
+                if not unicodedata.combining(c))
+    ipack_groups = (re.search(r'\bbee\b|\bipack|pronote|ecole.?directe', q)
+                    and re.search(r'group|synchron|import', q))
+    if mode == 'examens' and ipack_groups and not re.search(r'export.{0,30}cyclades|lots?.{0,30}santorin', q):
+        return 'Assistance Technique iPackEPS'
+    if mode == 'ipack' and re.search(r'\bsantorin\b', q) and not re.search(r'\bipack', q):
+        return 'Réglementation Examens & Santorin'
+    return ''

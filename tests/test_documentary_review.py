@@ -118,7 +118,7 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn('ERREURS MECANIQUES', llm.prompts[-1])
 
     def test_empty_or_invalid_final_does_not_fall_back_to_draft(self):
-        for output in ('', {'claims': []}, {'claims': [claim(quote='Citation inventée suffisamment longue.')]}):
+        for output in ('', {'claims': [claim(quote='Citation inventée suffisamment longue.')]}):
             with self.subTest(output=output), self.assertRaises(ValueError):
                 review_exam_answer(FakeLLM([output, output]),
                                    question='Q', public='GT', documents=DOC, draft='à ne jamais afficher')

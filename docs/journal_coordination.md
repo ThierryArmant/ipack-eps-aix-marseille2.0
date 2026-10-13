@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:10 — partie programme — réponses partielles (voir git log)
+Fait : périmètre de l'entrée de 20:00 pris en charge. Réponse courte autorisée, aucune décision obligatoire, rubriques vides omises. Une liste d'affirmations vide produit le message « Aucune consigne applicable trouvée dans la documentation disponible. À vérifier auprès du service des examens de votre académie. », sans deuxième appel. Les consignes interdisent de compléter par un cas voisin. Contrôles ciblés avant génération, sur les affirmations et sur le repli : note collective versus inaptitude, absence ponctuelle versus inaptitude annuelle. 260 tests réussis (dont cinq nouveaux). Signalement non bloquant de l'onglet iPackEPS pour import/synchronisation BEE des groupes en mode Examens ; export Cyclades exclu de ce signalement.
+Constaté : le rendu omettait déjà les sections vides, mais le contrôle imposait une décision. Les contrôles ciblés ne prouvent pas l'applicabilité générale de chaque passage ; la vérification des sept réponses en ligne reste nécessaire.
+Attendu de l'autre partie : ne pas modifier simultanément ces contrôles ; reprendre les sept questions après vérification de la version déployée.
+
 ### 2026-10-13 20:00 — partie fiches — série de 7 questions issues d'autres académies (voir git log)
 Constaté (bbff723) : 0 correcte, 6 partielles, 1 fausse (émargement présenté comme obligatoire). Défaut principal : quand la base ne couvre pas la question, les quatre rubriques sont remplies avec des passages voisins d'une autre situation (acrosport collectif → note unique d'un inapte). Les questions mal couvertes sont les plus chères (2 appels, plus de 20 000 jetons).
 Fait (fiches) : fiche « Questions sans consigne écrite trouvée pour Aix-Marseille » en priorité 300, complétée : convocation et émargement des candidats, CCF aux dates des épreuves ponctuelles, certificat en téléconsultation ; formulation « aucune consigne écrite retrouvée », l'absence dans la base ne prouvant pas l'inexistence ; pratiques d'Amiens et de Strasbourg attribuées explicitement, sources citées. Dates de l'épreuve de haut niveau (ipack_209, tutoriel Créteil) reformulées en contrainte du logiciel, sans « dates fictives ». 255 tests passent.

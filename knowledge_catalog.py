@@ -11,6 +11,25 @@ def normalise(text):
                    if unicodedata.category(c) != 'Mn')
 
 
+_EQUIVALENCES = None
+
+
+def enrich(text):
+    """Question normalisée + termes officiels équivalents au langage courant (config/langage_collegues.json).
+
+    Rien n'est remplacé : les termes sont ajoutés, pour que les motifs existants restent valables."""
+    global _EQUIVALENCES
+    if _EQUIVALENCES is None:
+        try:
+            data = json.loads((Path(__file__).resolve().parent / 'config' / 'langage_collegues.json').read_text(encoding='utf-8'))
+            _EQUIVALENCES = [(re.compile(e['motif']), e['ajout']) for e in data.get('equivalences', [])]
+        except (OSError, ValueError, re.error):
+            _EQUIVALENCES = []
+    q = normalise(text)
+    ajouts = [ajout for motif, ajout in _EQUIVALENCES if motif.search(q)]
+    return q + (' || ' + ' ; '.join(ajouts) if ajouts else '')
+
+
 def active_paths(folder):
     """Parcours stable, récursif, sans les archives conservées pour traçabilité."""
     root = Path(folder)
@@ -169,10 +188,12 @@ def reference_notice(targets, question=None, public=None):
             continue
         if question is not None:
             q = normalise(question)
+            enriched = enrich(question)
             years = set(re.findall(r'\b20\d{2}\b', q))
             if years and md.get('sessions') and not years & set(md['sessions']):
                 continue
-            if not any(re.search(m, q) for m in md.get('motifs', [])):
+            # Motifs positifs : sur la question enrichie du langage courant ; exclusions : sur la question d'origine.
+            if not any(re.search(m, enriched) for m in md.get('motifs', [])):
                 continue
             if any(re.search(m, q) or (level and re.search(m, level)) for m in md.get('exclure_motifs', [])):
                 continue

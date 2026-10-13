@@ -25,6 +25,10 @@
         ],
         "reponse": "iPackEPS est une application en ligne : aucune version minimale à installer pour Cyclades ou Santorin et aucune mise à jour à effectuer soi-même. À Aix-Marseille, ouvrez iPackEPS dans un navigateur via ESTEREL ; les données sont sur le serveur, pas dans une installation locale à remplacer. Tout le monde utilise la version en cours. Pour l'export vers Cyclades, vérifier les protocoles validés et l'affectation des candidats aux groupes ; les notes certificatives se saisissent dans Santorin. En cas de blocage, contacter ipackeps@ac-aix-marseille.fr. Source : fiche d'accès iPackEPS et documentation de l'éditeur."
       }
+    ],
+    "exclure_motifs": [
+      "piscine|gymnase|stade|\\bmur\\b|bassin|\\bpiste\\b|travaux|ferme",
+      "^(?!.*ipack)(?=.*santorin)"
     ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {

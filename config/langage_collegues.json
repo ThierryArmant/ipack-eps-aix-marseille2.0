@@ -1,0 +1,74 @@
+{
+ "description": "Langage courant des collègues traduit en termes officiels, ajoutés à la question (sans rien remplacer) avant le choix des fiches. Motifs appliqués au texte en minuscules et sans accents.",
+ "date": "2026-10-13",
+ "equivalences": [
+  {
+   "motif": "\\bseche\\b|\\bsecher\\b|pas venue?\\b|jamais venue?|venue? a aucune|n.etait pas la|etait pas la|pas la le jour|\\bmanquait\\b|pas presente?\\b|ne s.est pas presente|a rate (?:un|le|son|sa) (?:ccf|epreuve)",
+   "ajout": "eleve absent ccf note"
+  },
+  {
+   "motif": "pas de mot\\b|sans mot\\b|pas de justif|sans justif|aucun justif",
+   "ajout": "sans justificatif"
+  },
+  {
+   "motif": "\\bcertif\\b|mot du (?:medecin|docteur)|ordonnance|arret maladie de l.eleve",
+   "ajout": "certificat medical"
+  },
+  {
+   "motif": "(?:collegue|\\bprof\\b|professeur|binome|enseignant|co.?evaluateur|correcteur).{0,30}(?:malade|en arret|arret maladie|absent|pas la|longue maladie|conge)|(?:malade|arret|absent).{0,15}(?:du|de mon|de ma|de la|d.un) (?:collegue|prof\\b|professeur|binome)",
+   "ajout": "enseignant absent co-evaluateur"
+  },
+  {
+   "motif": "\\bblesse|\\bblessure|cass[ea] (?:le|la|un|une)|fracture|entorse|cheville|\\bplatre|opere\\b|malade le jour",
+   "ajout": "eleve blesse inapte"
+  },
+  {
+   "motif": "cadenas|lot (?:est )?bloque|bloque mon lot|valide definitivement|plus modifier|rouvrir (?:mon|le|son) lot|deverrouill",
+   "ajout": "verrouiller deverrouiller lot corriger erreur"
+  },
+  {
+   "motif": "aucun lot|pas de lot|santorin (?:est )?vide|(?:apparai\\w*|vois) (?:pas|plus|aucun).{0,20}(?:santorin|lot)|il manque des (?:eleves|gamins|candidats)|manque des (?:eleves|gamins|candidats).{0,20}lot",
+   "ajout": "santorin eleves manquants dans les lots distribution des lots"
+  },
+  {
+   "motif": "\\bgamins?\\b|\\bgosses?\\b|\\bmomes?\\b",
+   "ajout": "eleve"
+  },
+  {
+   "motif": "(?:acce\\w*|trouve pas|ou est|rentrer mes notes|entrer mes notes).{0,25}santorin|pas de mission|mission .{0,15}imag",
+   "ajout": "santorin convocation mission imag'in"
+  },
+  {
+   "motif": "trich|copie sur|a copie\\b|coupe par|raccourci",
+   "ajout": "fraude"
+  },
+  {
+   "motif": "(?:mauvais|autre) (?:lot|groupe)|pas dans (?:le bon|son) lot|eleve d.une autre classe",
+   "ajout": "eleve dans le mauvais lot"
+  },
+  {
+   "motif": "pole espoirs?|pole france|liste ministerielle|sportif de haut niveau|\\bshn\\b",
+   "ajout": "sportif de haut niveau shn"
+  },
+  {
+   "motif": "(?:piscine|gymnase|mur|salle|stade|installation|bassin|piste).{0,30}(?:ferme|travaux|indisponible|hors service|pas dispo)|(?:plus de|pas de) (?:mur|piscine|gymnase|stade|piste)",
+   "ajout": "installation fermee activite impossible pour la classe evaluation"
+  },
+  {
+   "motif": "\\b3e (?:epreuve|ccf|activite)|troisieme (?:epreuve|ccf|activite)|dernier ccf|derniere epreuve",
+   "ajout": "troisieme epreuve"
+  },
+  {
+   "motif": "(?:mets|mettre|saisi\\w*|donne\\w*|rentre\\w*) (?:son |le |lui )?20\\b|\\b20 direct",
+   "ajout": "mettre le 20 sur 20"
+  },
+  {
+   "motif": "moyenne des (?:deux|2)\\b",
+   "ajout": "deux notes"
+  },
+  {
+   "motif": "absent.{0,40}(?:ca fait|\\b0\\b|zero)|(?:\\b0\\b|zero).{0,40}absent",
+   "ajout": "ccf note absence"
+  }
+ ]
+}

@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:32 — partie fiches — test du choix d'académie avec Lyon (4cd06ea, aucun commit de code)
+Constaté : avec Lyon sélectionnée, les étiquettes portent bien « Aix-Marseille (non confirmé pour Lyon) » et aucune date d'Aix n'est donnée (validation des protocoles). Mais la prose reste affirmative : « un élève inapte total doit être inscrit comme APTE dans Cyclades » est présenté comme une règle générale ; seule l'étiquette nuance.
+Attendu de l'autre partie : rendu déterministe — quand toutes les preuves d'une affirmation sont des passages marqués `not_confirmed_for`, préfixer la phrase par « À Aix-Marseille, » et ajouter « (à vérifier auprès du service des examens de l'académie de <académie>) ». Quand une partie seulement des preuves est marquée, ajouter seulement la mention finale.
+
 ### 2026-10-13 20:30 — partie fiches — constat académie nommée dans la question (d829449, aucun commit de code)
 Constaté : question « Je suis à Lyon : comment et quand faire valider mes protocoles pour 2027 ? » posée avec Aix-Marseille sélectionnée dans le menu : le hub a donné le circuit du BA 549 d'Aix et la date « 30 mai 2026 » comme applicables. Les passages d'Aix ne sont marqués que selon le menu.
 Attendu de l'autre partie : quand la question nomme une académie différente de celle du menu (Lyon, Créteil, Nice…), la traiter comme l'académie de l'utilisateur pour le marquage des consignes d'Aix, ou signaler l'écart avant de répondre (ex. « Vous avez sélectionné Aix-Marseille mais mentionnez Lyon »). `academie.ACADEMIES` donne la liste.

@@ -8,6 +8,7 @@ from test_documentary_review import FakeLLM, CHECKS
 
 FRAUD='data/examens/fraude_ccf_eps.txt'
 AIX_PROTOCOLES='data/commun/audit60/aix_protocoles_2026.txt'
+MIXTE_AIX='data/examens/audit_faq_2026_10_12/h1_procedure_verifiee.txt'
 
 
 def packets(path=FRAUD):
@@ -48,10 +49,22 @@ class SourceScopeTests(unittest.TestCase):
         self.assertTrue(marked)
         foreign=next(s for s in chosen[0]['passages'] if s['scope'].get('not_confirmed_for'))
         sent=model_passage(foreign)
-        self.assertIn('Fiche mixte, passage inventorié pour Aix-Marseille',sent['text'])
-        self.assertIn('application locale, à vérifier pour Créteil',sent['text'])
+        self.assertIn('Consigne de l’académie d’Aix-Marseille',sent['text'])
+        self.assertIn('non confirmée pour Créteil',sent['text'])
         self.assertEqual(foreign['text'],original[0]['text'][foreign['start']:foreign['end']])
         self.assertFalse(any(s['scope'].get('not_confirmed_for') for s in original[0]['passages']))
+
+    def test_mixed_fiche_keeps_national_frame_and_flags_local_application(self):
+        chosen,marked=select_academy(packets(MIXTE_AIX),'Créteil')
+        self.assertTrue(marked)
+        foreign=next(s for s in chosen[0]['passages'] if s['scope'].get('not_confirmed_for'))
+        sent=model_passage(foreign)['text']
+        self.assertIn('Fiche mixte, passage inventorié pour Aix-Marseille',sent)
+        self.assertIn('application locale, à vérifier pour Créteil',sent)
+
+    def test_absence_of_aix_instruction_is_not_an_aix_instruction(self):
+        import portee_registre
+        self.assertEqual(portee_registre.lignes_aix("Aucune consigne académique d’Aix propre à ce cas n’a été trouvée."),[])
 
     def test_software_is_not_promoted_by_model_or_other_academy(self):
         p='data/examens/audit_faq_2026_10_12/k2_procedure_verifiee.txt'
@@ -90,7 +103,7 @@ class SourceScopeTests(unittest.TestCase):
         self.assertEqual(data['academy'],'Créteil')
         self.assertEqual(len(llm.prompts),1)
         self.assertTrue(audit['marked_academic_passages'])
-        self.assertIn('Fiche mixte, passage inventorié pour Aix-Marseille',
+        self.assertIn('Consigne de l’académie d’Aix-Marseille',
                       '\n'.join(s['text'] for p in data['documents'] for s in p['passages']))
         self.assertFalse(audit['semantic_review'])
 

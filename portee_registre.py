@@ -20,6 +20,8 @@ AIX = re.compile(r"\bAix\b|Marseille|\bDIEC|ESTEREL|\bBA (?:sp[ée]cial )?n?°? 
                  r"bulletin acad[ée]mique d.Aix", re.I)
 GLOSE = re.compile(r"\((?!Source)(?=[^()]{0,80}\bDIEC\b)[^()]{0,80}\)", re.I)
 NATIONAL = re.compile(r"cadre national|texte national|\bMENE\d|\bBO\b|note de service|\barticle [DLR]\.? ?\d", re.I)
+# « Aucune consigne d'Aix trouvée » constate une absence : ce n'est pas une consigne d'Aix.
+ABSENCE = re.compile(r"\b(?:aucune|sans|pas de) consignes?[^.]{0,40}\bAix", re.I)
 IGNOREES = ('Sigles', 'Source', 'Sources', 'http', 'Nature de', 'Nature des', 'Fiche de contrôle',
             '[PORTEE', '[DOCUMENT', 'Portée :', 'Recoupement')
 REGLE = ("Ligne marquée si elle nomme explicitement l'académie d'Aix-Marseille (Aix, Marseille, DIEC, BA académique "
@@ -35,7 +37,7 @@ def lignes_aix(texte):
             section = ligne.strip()
             continue
         t = ligne.strip()
-        if not t or t.startswith(IGNOREES):
+        if not t or t.startswith(IGNOREES) or ABSENCE.search(t):
             continue
         section_aix = bool(re.search(r"\bAix\b|Marseille", section)) and not re.search(r"sans consigne", section, re.I)
         if AIX.search(GLOSE.sub('', t)) or (section_aix and not NATIONAL.search(t)):

@@ -14,7 +14,7 @@ if getattr(documentary_review, "_loaded_response_revision", None) != _response_r
     importlib.reload(source_scope)
     importlib.reload(documentary_review)
     documentary_review._loaded_response_revision = _response_revision
-from documentary_review import review_exam_answer, mark_excerpt, TracedLLM, usage_summary
+from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
 from response_cache import ANSWER_CACHE, answer_key
 from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
@@ -2722,9 +2722,20 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
                                       .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))
                 except Exception as e:
-                    texte_brut = f"Erreur de traitement IA : {str(e)}"
                     if diagnostic_ia is not None:
                         diagnostic_ia['failure'] = type(e).__name__
+                    if mode == "examens":
+                        diagnostic_ia = diagnostic_ia if diagnostic_ia is not None else {}
+                        diagnostic_ia['failure'] = type(e).__name__
+                        texte_brut = render_exam_fallback(
+                            diagnostic_ia, question=prompt, documents=contexte_complet_ia,
+                            academy=st.session_state.get("academie_utilisateur") or AIX,
+                        )
+                        _fallback_ids = set(diagnostic_ia.get('fallback_document_ids', []))
+                        sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
+                                             for p in diagnostic_ia.get('documents', []) if p['id'] in _fallback_ids]
+                    else:
+                        texte_brut = "Réponse non confirmée : veuillez renouveler votre demande."
 
         # ==================================================================
         # 7. MISE EN FORME FINALE, LOG ET AFFICHAGE

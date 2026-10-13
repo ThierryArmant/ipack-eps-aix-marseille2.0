@@ -30,16 +30,22 @@ def _racines(texte):
     return {m[:5] for m in re.findall(r"[a-z]{4,}", texte) if m not in _MOTS_VIDES}
 
 
+def lexical_support_details(text, supports):
+    """Mesure explicite du contrôle lexical pour les traces de diagnostic."""
+    claim = _racines(text)
+    shared = claim & _racines(' '.join(supports))
+    return {'claim_roots': sorted(claim), 'shared_roots': sorted(shared),
+            'coverage': len(shared) / len(claim) if claim else 1.0,
+            'minimum_shared': min(2, len(claim)), 'minimum_coverage': 0.3,
+            'passed': not claim or (len(shared) >= min(2, len(claim)) and len(shared) / len(claim) >= 0.3)}
+
+
 def lexical_support(text, supports):
     """Contrôle mécanique minimal : le passage cité doit partager le vocabulaire de l'affirmation.
 
     Il ne prouve pas l'implication, mais écarte une preuve prise dans une fiche sans rapport
     (EX290 : une règle sur la fraude rattachée à la fiche du modèle de PV)."""
-    claim = _racines(text)
-    if not claim:
-        return True
-    shared = claim & _racines(' '.join(supports))
-    return len(shared) >= min(2, len(claim)) and len(shared) / len(claim) >= 0.3
+    return lexical_support_details(text, supports)['passed']
 
 
 def mark_excerpt(text, *, path='', title='', priority=0, origin='document', url=''):
@@ -203,6 +209,7 @@ def validate_claims(data, packets, *, checked=False):
     accepted, rejected = [], []
     for i, claim in enumerate(data['claims']):
         errors = []
+        lexical_check = None
         if not isinstance(claim, dict):
             rejected.append({'index': i, 'errors': ['affirmation non structurée']})
             continue
@@ -268,15 +275,18 @@ def validate_claims(data, packets, *, checked=False):
                     errors.append('référence absente des documents justificatifs')
             if re.search(r'<[^>]+>', text):
                 errors.append('HTML interdit dans une affirmation')
-            if supports and not errors and not lexical_support(text, supports):
-                errors.append('passage cité sans rapport avec l’affirmation : choisir le passage qui l’énonce')
+            if supports and not errors:
+                lexical_check = lexical_support_details(text, supports)
+                if not lexical_check['passed']:
+                    errors.append('passage cité sans rapport avec l’affirmation : choisir le passage qui l’énonce')
         if checked:
             checks = claim.get('checks', {})
             if not isinstance(checks, dict) or any(checks.get(k) is not True for k in
                 ('supported', 'applicable', 'source_correct', 'conditions_preserved')):
                 errors.append('vérification sémantique non acquise')
         if errors:
-            rejected.append({'index': i, 'claim': claim, 'errors': errors})
+            rejected.append({'index': i, 'claim': claim, 'errors': errors,
+                             **({'lexical_check': lexical_check} if lexical_check is not None else {})})
         else:
             accepted.append({**claim, 'evidence': resolved_evidence})
     return accepted, rejected
@@ -300,6 +310,49 @@ def render_claims(claims, packets):
                     labels.append(label)
             output.append('<p>' + html.escape(c['text']) + '<br><small>' +
                           html.escape(' ; '.join(labels)) + '</small></p>')
+    return ''.join(output)
+
+
+def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseille'):
+    """Extrait documentaire de repli, jamais une décision générée incomplète.
+
+    Les passages restent cités littéralement, avec leur portée et leurs conditions.
+    Aucune exception technique ni affirmation rejetée n'est exposée au lecteur.
+    """
+    output = ['<h3>Réponse non confirmée</h3>',
+              '<p>Les passages disponibles ne permettent pas de confirmer une réponse complète à votre situation. '
+              'Faites vérifier la conduite à tenir auprès du service des examens de votre académie.</p>']
+    packets = audit.get('documents') or source_packets(documents)
+    selected_ids = audit.get('model_document_ids')
+    candidates = [p for p in packets if p.get('origin') == 'document'
+                  and (selected_ids is None or p['id'] in selected_ids)]
+    focused = [p for p in candidates if isinstance(p.get('priority'), (int, float)) and p['priority'] >= 300]
+    candidates = focused or candidates
+    roots = _racines(question)
+    ranked = sorted(candidates, key=lambda p: len(roots & _racines(p['title'] + ' ' + p['text'])), reverse=True)
+    audit['fallback_document_ids'] = []
+    audit['fallback_kind'] = 'unconfirmed_documentary_excerpt'
+    if not ranked or not (roots & _racines(ranked[0]['title'] + ' ' + ranked[0]['text'])):
+        return ''.join(output)
+    packet = select_academy([ranked[0]], academy)[0][0]
+    audit['fallback_document_ids'] = [packet['id']]
+    output.append('<h3>Documentation retrouvée — extrait à vérifier pour votre situation</h3>')
+    output.append('<p>' + html.escape(packet['title']) + '</p>')
+    excerpt_length = 0
+    displayed = 0
+    for span in packet['passages']:
+        # Ne jamais couper une phrase ou une condition au milieu.
+        if excerpt_length + len(span['text']) > 4000:
+            break
+        label = evidence_label({'scope': span.get('scope', {})}, packet, _LEVELS)
+        output.append('<blockquote>' + html.escape(span['text']).replace('\n', '<br>') +
+                      '<br><small>' + html.escape(label) + '</small></blockquote>')
+        excerpt_length += len(span['text'])
+        displayed += 1
+    audit['fallback_passage_ids'] = [s['id'] for s in packet['passages'][:displayed]]
+    audit['fallback_excerpt_complete'] = displayed == len(packet['passages'])
+    if displayed != len(packet['passages']):
+        output.append('<p>Extrait incomplet : consultez le document intégral pour ses autres conditions.</p>')
     return ''.join(output)
 
 
@@ -370,6 +423,7 @@ Réponds uniquement en JSON selon ce schéma :
 
     final, accepted, rejected = resolve(recorded.complete(prompt).text)
     audit['proposal'] = final
+    audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
     if rejected:
         repair = '''Corrige uniquement les erreurs mécaniques signalées.

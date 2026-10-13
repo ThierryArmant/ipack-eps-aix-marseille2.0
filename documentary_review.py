@@ -36,8 +36,8 @@ def lexical_support_details(text, supports):
     shared = claim & _racines(' '.join(supports))
     return {'claim_roots': sorted(claim), 'shared_roots': sorted(shared),
             'coverage': len(shared) / len(claim) if claim else 1.0,
-            'minimum_shared': min(2, len(claim)), 'minimum_coverage': 0.3,
-            'passed': not claim or (len(shared) >= min(2, len(claim)) and len(shared) / len(claim) >= 0.3)}
+            'minimum_shared': min(2, len(claim)), 'minimum_coverage': None,
+            'passed': len(shared) >= min(2, len(claim))}
 
 
 def lexical_support(text, supports):

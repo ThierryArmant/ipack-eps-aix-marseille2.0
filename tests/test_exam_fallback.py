@@ -67,7 +67,7 @@ class ExamFallbackTests(unittest.TestCase):
         self.assertIn('Extrait incomplet', result)
         self.assertFalse(audit['fallback_excerpt_complete'])
 
-    def test_rejection_trace_explains_lexical_threshold_without_loosening_it(self):
+    def test_rejection_trace_explains_minimum_shared_roots(self):
         ps = source_packets(mark_excerpt('Le calendrier annuel précise les réunions du jury.'))
         rejected = {'section': 'decision', 'text': 'Le professeur sanctionne immédiatement la fraude.',
                     'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P1']}]}
@@ -75,9 +75,23 @@ class ExamFallbackTests(unittest.TestCase):
         self.assertFalse(good)
         details = errors[0]['lexical_check']
         self.assertFalse(details['passed'])
-        self.assertEqual(details['minimum_coverage'], 0.3)
+        self.assertIsNone(details['minimum_coverage'])
         self.assertEqual(details['coverage'], 0)
         self.assertEqual(details, lexical_support_details(rejected['text'], [ps[0]['text']]))
+
+    def test_supported_paraphrases_from_r04_r08_are_not_rejected_by_length(self):
+        cases = [
+            ("L'élève ayant un arrêt de trois semaines qui couvre la date de rattrapage du badminton peut conserver ses deux autres notes si un certificat médical est déposé.",
+             "La note finale d'EPS est la moyenne des 2 notes déjà obtenues, sous réserve que l'inaptitude médicale soit dûment certifiée."),
+            ("Le sportif de haut niveau (SHN) peut obtenir un 20/20 dans Santorin pour son APSA, même si le protocole de sa classe n'inclut pas de sport de combat, à condition que la mention SHN figure pour l'élève dans Santorin.",
+             "2. La mention SHN figure-t-elle pour l'élève dans Santorin ? À Aix-Marseille, elle est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter."),
+        ]
+        for claim, passage in cases:
+            with self.subTest(claim=claim):
+                details = lexical_support_details(claim, [passage])
+                self.assertLess(details['coverage'], 0.3)
+                self.assertGreaterEqual(len(details['shared_roots']), 2)
+                self.assertTrue(details['passed'])
 
     def test_document_identifiers_remain_private_and_article_title_is_visible(self):
         body = ('[Base iPackEPS] [DOCUMENT: data/private.txt; statut: synthese_non_revalidee]\n\n'

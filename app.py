@@ -1,4 +1,19 @@
 from pathlib import Path
+import hashlib
+import importlib
+import source_scope
+import documentary_review
+
+# Streamlit can retain imported modules when the application is redeployed.
+# Reload the response modules once when their on-disk sources change.
+_response_revision = hashlib.sha256(
+    Path(source_scope.__file__).read_bytes()
+    + Path(documentary_review.__file__).read_bytes()
+).hexdigest()
+if getattr(documentary_review, "_loaded_response_revision", None) != _response_revision:
+    importlib.reload(source_scope)
+    importlib.reload(documentary_review)
+    documentary_review._loaded_response_revision = _response_revision
 from documentary_review import review_exam_answer, mark_excerpt, TracedLLM, usage_summary
 from response_cache import ANSWER_CACHE, answer_key
 from academie import ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix

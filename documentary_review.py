@@ -318,6 +318,7 @@ La nature des sources et leur origine sont fixées par le programme. N'invente n
 Une fiche peut être mixte. Explique les niveaux demandés sans attribuer une procédure logicielle au BO.
 Les passages marqués comme consignes d'Aix ne sont pas confirmés pour une autre académie :
 présente-les comme exemples d'Aix, et indique que la procédure locale doit être vérifiée.
+Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'application locale, jamais la validité du cadre national.
 Un acteur générique reste le service des examens de l'académie ; ne le rebaptise pas DIEC hors Aix.
 Une possibilité réglementaire ne prouve pas une possibilité technique du logiciel.
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.

@@ -2,7 +2,7 @@
 [PORTEE: gt,pro]
 Trois niveaux à distinguer :
 - Texte national : pour des cas très particuliers de handicap, le texte du bac permet de proposer une seule épreuve adaptée, le candidat étant évalué sur une seule note (note de service du 20 février 2026, 2.e). C’est donc réglementairement possible.
-- Logiciel : les mémos Cyclades consultés décrivent un protocole adapté d’au moins deux APSA au bac GT et pro (au moins une au CAP). Ce minimum vient du logiciel, pas du texte. La version de Cyclades en service n’a pas été vérifiée : il faut essayer la saisie, et si elle est refusée, le signaler.
+- Logiciel : les mémos Cyclades consultés décrivent un protocole adapté d’au moins deux APSA au bac GT et pro (au moins une au CAP). Ce minimum vient du logiciel, pas du texte. Ce minimum figure dans les mémos consultés ; la version de Cyclades en service n’a pas été vérifiée.
 - Démarche : en cas d’écart entre le texte et la saisie, l’établissement fait traiter ce cas par la DIEC et l’inspection pédagogique EPS. Ne pas ajouter une APSA fictive pour passer le contrôle du logiciel.
 Aucune consigne académique d’Aix propre à ce cas n’a été trouvée.
 Conclusion : l’élève n’a pas à passer une deuxième APSA pour satisfaire le logiciel ; c’est l’obstacle technique qui se traite avec la DIEC et l’inspection.

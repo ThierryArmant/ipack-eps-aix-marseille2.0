@@ -1,0 +1,12 @@
+### Sigles des examens d'EPS (à utiliser tels quels)
+- APSA : activités physiques, sportives et artistiques.
+- AFL : attendus de fin de lycée (bac général et technologique).
+- AFLP : attendus de fin de lycée professionnel (bac professionnel et CAP).
+- CA : champ d'apprentissage.
+- CCF : contrôle en cours de formation.
+- CAHPN : commission académique d'harmonisation et de proposition de notes.
+- SHN : sportif de haut niveau.
+- CE : cas exceptionnel (mention de Santorin).
+- EPPCS : éducation physique, pratiques et culture sportives (spécialité du bac général).
+- DIEC : division des examens et concours (Aix-Marseille).
+Ne pas développer ces sigles autrement.

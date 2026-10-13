@@ -9,7 +9,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 ### [SITUATION: SANTORIN REFUSE LA NOTE DE L'AFL2 OU DE L'AFL3 — IL FAUT D'ABORD L'AFL1]
 - Mots-clés : AFL2 bloqué, AFL3 impossible, AFLP2, ordre de saisie, case refuse la note, je ne peux pas saisir l'AFL2.
 - Formulations courantes des collègues : je n'arrive pas à saisir la note de l'AFL2 ; Santorin ne prend pas ma note d'AFL3 ; la case de l'AFLP2 reste vide ; pourquoi je ne peux pas mettre la deuxième note.
-- Règle de saisie : s'il n'y a pas de note en AFL1 (ou AFLP1), il n'est pas possible de mettre une note pour les autres AFL (ou AFLP). Il faut donc toujours commencer par saisir l'AFL1 / AFLP1 de l'activité, puis les suivants. (Source : guide Normandie 2025.)
+- Contrainte du logiciel Santorin, pas règle de la note de service : s'il n'y a pas de note en AFL1 (ou AFLP1), il n'est pas possible de mettre une note pour les autres AFL (ou AFLP). Il faut donc toujours commencer par saisir l'AFL1 / AFLP1 de l'activité, puis les suivants. (Source : guide Normandie 2025.)
 - À ne pas confondre avec des cases grisées pour tout le lot (bouton « Choisir les AFLP » non validé) ni avec un cadenas (lot verrouillé) : voir la fiche de diagnostic « mon protocole est bloqué ».
 
 ### [SITUATION: SAISIE DES NOTES DANS SANTORIN — LES GESTES QUI ÉVITENT DE PERDRE SA SAISIE]

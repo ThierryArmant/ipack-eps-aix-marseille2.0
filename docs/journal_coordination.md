@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:30 — partie fiches — constat académie nommée dans la question (d829449, aucun commit de code)
+Constaté : question « Je suis à Lyon : comment et quand faire valider mes protocoles pour 2027 ? » posée avec Aix-Marseille sélectionnée dans le menu : le hub a donné le circuit du BA 549 d'Aix et la date « 30 mai 2026 » comme applicables. Les passages d'Aix ne sont marqués que selon le menu.
+Attendu de l'autre partie : quand la question nomme une académie différente de celle du menu (Lyon, Créteil, Nice…), la traiter comme l'académie de l'utilisateur pour le marquage des consignes d'Aix, ou signaler l'écart avant de répondre (ex. « Vous avez sélectionné Aix-Marseille mais mentionnez Lyon »). `academie.ACADEMIES` donne la liste.
+
 ### 2026-10-13 20:20 — partie fiches — reprise des questions d'autres académies sur df05f09 (voir git log)
 Constaté : réponses courtes, 1 appel chacune. Émargement et téléconsultation désormais correctes (aucune consigne retrouvée pour Aix, autres académies attribuées). CAP protocole adapté, élève parti, SHN : partielles. Acrosport « même note pour tout le groupe » devenue FAUSSE (« peut attribuer la même note ») : la réponse courte a repris la fiche de la note unique d'un inapte.
 Fait : fiche `data/examens/situations_2026_10_13/epreuve_collective_notation_individuelle.txt` (priorité 300, texte national des trois diplômes). Registre des natures à 449. 261 tests passent.

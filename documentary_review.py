@@ -336,11 +336,19 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
         return ''.join(output)
     packet = select_academy([ranked[0]], academy)[0][0]
     audit['fallback_document_ids'] = [packet['id']]
+    display_spans = [s for s in packet['passages']
+                     if not re.match(r'^\s*(?:\[Base[^\]]*\]\s*)?\[(?:DOCUMENT|PORTEE)\s*:', s['text'])]
+    if packet['title'] == 'Passage documentaire':
+        heading = next((s['text'].splitlines()[0] for s in display_spans
+                        if s['text'].startswith(('[ARTICLE ', '### ', '# '))), '')
+        if heading:
+            packet = {**packet, 'title': heading.lstrip('# ').strip()}
+    audit['fallback_sources'] = [{'title': packet['title'], 'url': packet.get('url', '')}]
     output.append('<h3>Documentation retrouvée — extrait à vérifier pour votre situation</h3>')
     output.append('<p>' + html.escape(packet['title']) + '</p>')
     excerpt_length = 0
     displayed = 0
-    for span in packet['passages']:
+    for span in display_spans:
         # Ne jamais couper une phrase ou une condition au milieu.
         if excerpt_length + len(span['text']) > 4000:
             break
@@ -349,9 +357,9 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
                       '<br><small>' + html.escape(label) + '</small></blockquote>')
         excerpt_length += len(span['text'])
         displayed += 1
-    audit['fallback_passage_ids'] = [s['id'] for s in packet['passages'][:displayed]]
-    audit['fallback_excerpt_complete'] = displayed == len(packet['passages'])
-    if displayed != len(packet['passages']):
+    audit['fallback_passage_ids'] = [s['id'] for s in display_spans[:displayed]]
+    audit['fallback_excerpt_complete'] = displayed == len(display_spans)
+    if displayed != len(display_spans):
         output.append('<p>Extrait incomplet : consultez le document intégral pour ses autres conditions.</p>')
     return ''.join(output)
 

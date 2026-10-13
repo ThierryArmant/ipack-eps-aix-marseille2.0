@@ -2731,9 +2731,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             diagnostic_ia, question=prompt, documents=contexte_complet_ia,
                             academy=st.session_state.get("academie_utilisateur") or AIX,
                         )
-                        _fallback_ids = set(diagnostic_ia.get('fallback_document_ids', []))
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
-                                             for p in diagnostic_ia.get('documents', []) if p['id'] in _fallback_ids]
+                                             for p in diagnostic_ia.get('fallback_sources', [])]
                     else:
                         texte_brut = "Réponse non confirmée : veuillez renouveler votre demande."
 

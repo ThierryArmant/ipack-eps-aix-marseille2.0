@@ -1,7 +1,7 @@
 ### FAQ EPS — Santorin : cases de notes grisées en bac pro ou CAP (« Choisir AFLP »)
 [PORTEE: pro,cap]
 Sigles : APSA = activités physiques, sportives et artistiques ; AFLP = attendus de fin de lycée professionnel ; AFL = attendus de fin de lycée ; CCF = contrôle en cours de formation.
-Au bac professionnel et au CAP, les cases de notes restent grisées tant que les AFLP évalués n'ont pas été choisis.
+Au bac professionnel et au CAP, la cause la plus fréquente, à vérifier, est que les AFLP évalués n'ont pas encore été choisis : les cases restent alors grisées.
 - Dans Santorin, sur son lot, l'enseignant clique sur le bouton « Choisir AFLP » et indique, pour chaque APSA, les AFLP qu'il évalue. Les cases deviennent alors actives.
 - Ce choix vaut pour tous les élèves du protocole : il se fait une fois par APSA, pas élève par élève.
 - Il s'agit de choisir des AFLP, pas des APSA : les APSA viennent du protocole.

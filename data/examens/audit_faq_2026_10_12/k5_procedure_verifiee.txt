@@ -5,6 +5,10 @@ Dans Santorin, « Absent » et « Dispensé » ne s'emploient pas dans les même
 - « Absent » : absence injustifiée ; vaut zéro pour l'APSA.
 - Absence justifiée par une inaptitude temporaire ou une force majeure reconnue : d'abord l'adaptation de l'épreuve ou l'évaluation différée prévue au protocole (appelée « épreuve de substitution » dans le support technique). On ne saisit pas « Dispensé » à ce stade.
 - « Dispensé » : neutralise l'APSA dans le calcul, seulement quand la dispense est établie selon les règles du diplôme (inaptitude couvrant l'épreuve sans adaptation ni différé possible, ou décision de l'enseignant prévue par le texte). Un certificat médical ne suffit pas, à lui seul, à mettre « Dispensé » sur toutes les APSA : il faut vérifier sa durée et les épreuves qu'il couvre.
+Démarches dans l'ordre, et qui intervient :
+1. L'enseignant constate l'absence le jour de l'épreuve et recueille le justificatif : un certificat médical pour une raison de santé ; pour un autre empêchement (force majeure), un justificatif que le chef d'établissement apprécie. Le certificat médical n'est pas exigé pour une force majeure.
+2. Le chef d'établissement accorde l'évaluation différée prévue au protocole (après consultation de l'équipe pour une force majeure).
+3. L'enseignant fait passer l'épreuve différée et saisit la note dans Santorin ; « Absent » seulement si l'absence reste injustifiée ; « Dispensé » seulement si la dispense est établie selon le texte du diplôme.
 Ce n'est pas un code générique pour une difficulté administrative. Ne pas confondre ces codes avec le cas exceptionnel (CE) collectif autorisé.
 
 Portée : Logiciel + DIEC.

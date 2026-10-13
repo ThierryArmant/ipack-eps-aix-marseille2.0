@@ -1,7 +1,7 @@
 ### FAQ EPS — Saisie
 [PORTEE: gt]
 Sigles : APSA = activités physiques, sportives et artistiques ; AFLP = attendus de fin de lycée professionnel ; AFL = attendus de fin de lycée ; CCF = contrôle en cours de formation.
-Au bac GT, commencez par saisir l’AFL1 : sans cette note, la saisie des AFL2 et AFL3 peut être bloquée. Renseignez également la répartition AFL2/AFL3 choisie par l’élève. La procédure « Choisir AFLP » concerne le bac pro/CAP et ne doit pas être proposée pour les AFL du bac GT. Si le blocage persiste, relevez le message exact et l’état du lot.
+Au bac GT, vérifiez d’abord si l’AFL1 est saisie : c’est la cause la plus fréquente, sans être certaine, car sans note d’AFL1 la saisie des AFL2 et AFL3 peut être bloquée. Si l’AFL1 manque, la saisir en premier. Renseignez également la répartition AFL2/AFL3 choisie par l’élève. La procédure « Choisir AFLP » concerne le bac pro/CAP et ne doit pas être proposée pour les AFL du bac GT. Si le blocage persiste, relevez le message exact et l’état du lot.
 Cet ordre de saisie est une contrainte du logiciel Santorin, pas une règle de la note de service nationale. La note d’AFL1 n’est qu’une partie de la note de l’APSA : la saisir ne remplace pas les AFL2 et AFL3. Ne pas proposer « Dispensé » pour débloquer la saisie s’il n’y a pas d’inaptitude.
 
 Portée : Logiciel.

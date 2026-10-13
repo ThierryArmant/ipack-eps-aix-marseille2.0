@@ -1,0 +1,221 @@
+{
+  "description": "Attribution par passage exact. Synthèses de textes nationaux distinguées des guides logiciels et consignes académiques. Aucune correspondance floue ; un passage non attribué reste mixte. Les références proviennent des sources déclarées dans les fiches.",
+  "fichiers": {
+    "data/examens/audit_lot3_2026_10_12/fermeture_collective.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "La fermeture d’une installation ne permet pas de neutraliser automatiquement une activité pour la classe. La direction saisit l’inspection EPS et le service des examens ; le recteur peut autoriser la certification réduite prévue par le texte du diplôme après expertise de l’inspection. La commission académique ne remplace pas cette autorisation du recteur.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.d ; circulaire MENE2505383C (bac professionnel)"
+        },
+        {
+          "texte": "Une fois l’accord obtenu et les modalités de saisie confirmées, la direction ou le référent habilité ouvre le lot concerné dans Santorin, utilise « Déclarer CE » et sélectionne l’APSA à neutraliser. La mention touche tous les candidats du lot : vérifier qu’ils sont tous concernés. Ne pas imposer la création d’un lot séparé lorsque tout le lot est concerné ; le lot séparé relève du traitement particulier de candidats seulement, à faire confirmer.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Aix-Marseille Notation EPS CCF Santorin, février 2024, diapo 20"
+        }
+      ]
+    },
+    "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Au bac général et technologique, une absence effectivement non justifiée à un CCF ne donne pas droit à l’évaluation différée et entraîne zéro pour cette épreuve, non éliminatoire. Vérifiez d’abord les justificatifs : pour un candidat assidu empêché par un cas de force majeure, le chef d’établissement peut autoriser un différé après consultation de l’équipe pédagogique ; ne pas remplacer cette décision par une validation automatique du professeur ou par une exigence générale d’accord du recteur. Une inaptitude temporaire médicalement attestée relève de l’adaptation ou du différé prévu au protocole.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.d et 2.e"
+        },
+        {
+          "texte": "Pour l’absence injustifiée, appliquer le code de saisie du guide académique (la mention « Absent » traduit le zéro dans le guide Santorin concerné).",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin EPS"
+        }
+      ]
+    },
+    "data/examens/audit_faq_2026_10_12/k4_procedure_verifiee.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "1. Le protocole de l'élève contient-il l'APSA de sa spécialité ? Si non, l'associer à un protocole adapté qui la contient (créé dans Cyclades si les protocoles sont déjà transférés). Si oui, rien à recréer.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin EPS, février 2024, diapo 21"
+        },
+        {
+          "texte": "2. La mention SHN figure-t-elle pour l'élève dans Santorin ? À Aix-Marseille, elle est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "reference": "BA spécial 565 du 9 octobre 2026, §4.4 b",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "3. Dans le lot, en cliquant sur le crayon de notation de l'élève, une étape permet de choisir l'activité qui reçoit le 20/20.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin EPS, février 2024, diapo 21"
+        },
+        {
+          "texte": "Rappel : l'éligibilité ne se limite pas aux listes ministérielles (catégories du chapitre 4 de la note de service du bac GT ; textes propres au bac pro et au CAP), et l'aménagement suppose la proposition du comité de pilotage et la validation du recteur.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, chapitre 4"
+        }
+      ]
+    },
+    "data/examens/audit_faq_2026_10_12/k5_procedure_verifiee.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Dans Santorin, « Absent » et « Dispensé » ne s'emploient pas dans les mêmes situations (guide Santorin EPS de la DIEC) :",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin EPS, février 2024, diapo 22"
+        },
+        {
+          "texte": "- « Absent » : absence injustifiée ; vaut zéro pour l'APSA.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin EPS, février 2024, diapo 22"
+        }
+      ]
+    },
+    "data/commun/audit355/co_securite_sortie.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/audit60/aix_amenagements_2027.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/audit60/aix_protocoles_2026.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/audit60/pv_ccf_prudence.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/cap_inaptitude_temporaire.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/cap_shn_ccf.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/gt_shn_eligibilite.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/commun/parcours_sportifs/02_sport_etudes_organisations.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/examens/audit_faq_2026_10_12/g4_procedure_verifiee.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/examens/audit_lot1_2026_10_12/troisieme_impossible.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/examens/complement_reponses_validees.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    },
+    "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "consigne_academique"
+      ],
+      "passages": []
+    }
+  }
+}

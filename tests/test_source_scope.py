@@ -34,7 +34,7 @@ class SourceScopeTests(unittest.TestCase):
         good,errors=validate_claims({'claims':[c]},ps)
         self.assertFalse(errors)
         answer=render_claims(good,ps)
-        self.assertIn('Fiche mixte : circuit académique + cadre national',answer)
+        self.assertIn('Passage non attribué — fiche mixte : circuit académique + cadre national',answer)
         self.assertIn('origine académique : Aix-Marseille',answer)
         self.assertNotIn('Texte réglementaire :',answer)
 
@@ -51,8 +51,8 @@ class SourceScopeTests(unittest.TestCase):
         self.assertTrue(marked)
         foreign=next(s for s in chosen[0]['passages'] if s['scope'].get('not_confirmed_for'))
         sent=model_passage(foreign)
-        self.assertIn('Consigne de l’académie d’Aix-Marseille',sent['text'])
-        self.assertIn('non confirmée pour Créteil',sent['text'])
+        self.assertIn('application locale, à vérifier pour Créteil',sent['text'])
+        self.assertIn('Créteil',sent['text'])
         self.assertEqual(foreign['text'],original[0]['text'][foreign['start']:foreign['end']])
         self.assertFalse(any(s['scope'].get('not_confirmed_for') for s in original[0]['passages']))
 
@@ -115,7 +115,7 @@ class SourceScopeTests(unittest.TestCase):
         self.assertEqual(data['academy'],'Créteil')
         self.assertEqual(len(llm.prompts),1)
         self.assertTrue(audit['marked_academic_passages'])
-        self.assertIn('Consigne de l’académie d’Aix-Marseille',
+        self.assertIn('application locale, à vérifier pour Créteil',
                       '\n'.join(s['text'] for p in data['documents'] for s in p['passages']))
         self.assertFalse(audit['semantic_review'])
 

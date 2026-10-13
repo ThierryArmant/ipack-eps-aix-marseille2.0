@@ -482,6 +482,8 @@ Sélectionne le passage qui énonce effectivement la règle ou l'étape, pas une
 Si une affirmation réunit plusieurs étapes, cite tous les passages correspondants.
 La nature des sources et leur origine sont fixées par le programme. N'invente ni référence ni titre.
 Une fiche peut être mixte. Explique les niveaux demandés sans attribuer une procédure logicielle au BO.
+Sépare les affirmations qui relèvent de sources différentes : règle nationale, consigne académique et manipulation logicielle.
+Pour chaque affirmation, sélectionne les passages attribués qui la justifient. Une référence nationale citée dans un guide ne transforme pas tout ce guide en texte national.
 Les passages marqués comme consignes d'Aix ne sont pas confirmés pour une autre académie :
 présente-les comme exemples d'Aix, et indique que la procédure locale doit être vérifiée.
 Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'application locale, jamais la validité du cadre national.

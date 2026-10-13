@@ -23,6 +23,54 @@ def annotations(path):
     return _registry('nature_sources.json').get(_path(path))
 
 
+def attributed_segments(path, body, segments):
+    """Applique seulement les annotations exactes, uniques et non chevauchantes."""
+    record = _registry('nature_passages.json').get(_path(path))
+    if not record:
+        return segments
+    annotations = []
+    for annotation in record.get('passages', []):
+        text = annotation.get('texte', '')
+        kinds = annotation.get('nature', [])
+        if not text or body.count(text) != 1 or not kinds or any(k not in KINDS for k in kinds):
+            continue
+        start = body.index(text)
+        annotations.append((start, start + len(text), annotation))
+    annotations.sort(key=lambda item: item[0])
+    if any(a[1] > b[0] for a, b in zip(annotations, annotations[1:])):
+        annotations = []
+    result = []
+    for span in segments:
+        cuts = {span['start'], span['end']}
+        for start, end, _ in annotations:
+            if span['start'] <= start < end <= span['end']:
+                cuts.update((start, end))
+        cuts = sorted(cuts)
+        for start, end in zip(cuts, cuts[1:]):
+            text = body[start:end]
+            if not text.strip():
+                continue
+            scope = dict(span.get('scope', {}))
+            match = next((a for astart, aend, a in annotations if astart <= start and end <= aend), None)
+            # L'étiquette de toute la fiche ne doit pas remplacer une attribution manquante.
+            scope.pop('academy', None)
+            scope.pop('not_confirmed_for', None)
+            kinds = match['nature'] if match else record.get('nature_non_attribuee', ['a_verifier'])
+            scope.update(nature=kinds, level=KINDS[kinds[0]] if len(kinds)==1 else 'mixte',
+                         status='passage_attribue' if match else 'passage_non_attribue')
+            if match:
+                scope['reference'] = match.get('reference', '')
+                if match.get('academie'):
+                    scope['academy'] = match['academie']
+                elif kinds == ['texte_national']:
+                    scope.pop('file_academy', None)
+                    scope.pop('other_academies', None)
+            elif span.get('scope', {}).get('academy'):
+                scope['academy'] = span['scope']['academy']
+            result.append({'text':text,'start':start,'end':end,'scope':scope})
+    return result
+
+
 def scoped_segments(path, body):
     record=annotations(path)
     if record is None:
@@ -44,13 +92,13 @@ def scoped_segments(path, body):
                    'nature':kinds, 'file_academy':record.get('academie'),
                    'sessions':record.get('sessions', []),
                    'other_academies':record.get('autres_academies_citees', []),
-                   'status':'non_verifie' if 'a_verifier' in kinds else 'metadata_fiche'}
+                   'status':'non_verifie' if 'a_verifier' in kinds else ('passage_non_attribue' if len(kinds)>1 else 'metadata_fiche')}
             if marked:
                 scope['academy']='Aix-Marseille'
             segments.append({'text':text, 'start':offset, 'end':offset+len(text), 'scope':scope})
         offset+=len(line)
-    return segments or [{'text':body,'start':0,'end':len(body),
-                         'scope':{'level':'documentaire','status':'non_verifie'}}]
+    return attributed_segments(path, body, segments or [{'text':body,'start':0,'end':len(body),
+                         'scope':{'level':'documentaire','status':'non_verifie'}}])
 
 
 def select_academy(packets, academy):
@@ -93,7 +141,7 @@ def evidence_label(evidence, packet, labels):
     kinds=scope.get('nature', [])
     if len(kinds)>1:
         names={'texte_national':'cadre national','consigne_academique':'circuit académique','logiciel':'logiciel','a_verifier':'portée à vérifier'}
-        label='Fiche mixte : '+' + '.join(names.get(k,k) for k in kinds)
+        label=('Passage non attribué — fiche mixte : ' if scope.get('status') == 'passage_non_attribue' else 'Fiche mixte : ')+' + '.join(names.get(k,k) for k in kinds)
     else:
         label=labels.get(scope.get('level') or packet.get('display_level','documentaire'),'Portée à vérifier')
     if scope.get('academy'):
@@ -106,4 +154,6 @@ def evidence_label(evidence, packet, labels):
         label+=' — exemples cités : '+', '.join(scope['other_academies'])
     if scope.get('status')=='non_verifie':
         label+=' (portée à vérifier)'
+    if scope.get('reference'):
+        label+=' — '+scope['reference']
     return label+' : '+packet['title']

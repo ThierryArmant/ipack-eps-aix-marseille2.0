@@ -2718,17 +2718,20 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt"
+      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt",
+      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)"
     ],
     "exclusif_motifs": [
-      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt"
+      "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt",
+      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)"
     ],
     "exclure_motifs": [
       "option|eppcs",
       "inapt.*(?:total|toute l.annee).*(?:annee|terminale)",
       "inapt.*toute l.annee",
       "toute l.annee.*inapt",
-      "inapt.*total.*septembre.*juin"
+      "inapt.*total.*septembre.*juin",
+      "(?:collegue|professeur|\\bprof\\b|enseignant|evaluateur|examinateur).{0,40}(?:arret|malad)|(?:arret|malad).{0,30}(?:du|de la|d.un|d.une) (?:collegue|professeur|prof\\b|enseignant)"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"

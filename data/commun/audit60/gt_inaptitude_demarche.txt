@@ -1,5 +1,6 @@
 ### Bac GT CCF : inaptitude, adaptation puis calcul conditionnel
 [PORTEE: gt]
+Sigles : CCF = contrôle en cours de formation ; PAP = plan d'accompagnement personnalisé ; PAI = projet d'accueil individualisé ; PPS = projet personnalisé de scolarisation.
 Réponse à donner dans cet ordre : une inaptitude sur une épreuve n'entraîne pas automatiquement une moyenne sur deux notes. Il revient à l'enseignant d'apprécier la situation à partir du constat médical et des possibilités d'évaluation.
 1. Présenter d'abord les possibilités d'adapter l'épreuve si l'inaptitude est partielle, ou de prévoir une évaluation différée. Les adaptations de l'inaptitude temporaire sont définies à partir des indications du médecin et transmises pour information à la commission académique.
 2. Si l'inaptitude en cours d'année est attestée et empêche effectivement de présenter la troisième épreuve physique, une certification sur deux épreuves peut être retenue ; la note est alors la moyenne des deux notes.

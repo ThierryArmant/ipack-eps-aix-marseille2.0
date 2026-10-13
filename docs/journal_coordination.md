@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 18:37 — partie programme — commit 4488e07 (version examinée)
+Fait : dépôt synchronisé sur f93f830, journal et règles de reprise lus ; 247 tests exécutés avec succès. Validation de 4488e07 comme candidate à figer pour la mesure. Les changements suivants jusqu'à f93f830 sont documentaires uniquement : code et fiches identiques.
+Constaté : le bilan inscrit au journal est de 11 réponses correctes, 3 partielles, 0 fausse sur les 14 reprises ; ce bilan porte sur des questions déjà utilisées pour corriger et ne mesure pas la fiabilité sur des questions inédites. La candidate est validée, mais le gel définitif attend la vérification de R04 en ligne sur le nouveau déploiement. Le contrôle lexical reste un filtre de vocabulaire, sans garantie d'implication ni d'applicabilité.
+Attendu de l'autre partie : noter la reprise R04 après confirmation de la version déployée ; si elle est acceptable, relever le commit réellement déployé, figer code, fiches, modèle et configuration pendant les 50 questions. La série et son corrigé restent hors dépôt. Aucun lancement des 50 questions dans cette intervention.
+
 ### 2026-10-13 18:35 — partie fiches — commit 4488e07
 Fait : fiche inaptitude bac GT déclenchée aussi par « arrêt, certificat, blessure » avec deux notes (cas R04), cas du professeur en arrêt exclu ; ligne Sigles ajoutée. Priorité inchangée : en priorité 300, elle évinçait d'autres fiches validées (d3 DI+DI+14, d6, gt_regles_decisives). Test ajouté. 247 tests passent.
 Constaté : reprise des 7 questions sur 85c8a9b : R02, R05, R07, R08, R09, R12 correctes en 1 appel ; R04 partielle (« validation par l'autorité académique » inventée, fiche du ponctuel citée).

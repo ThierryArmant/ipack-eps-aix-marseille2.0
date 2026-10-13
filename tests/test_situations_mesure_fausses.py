@@ -42,6 +42,14 @@ class ThemesMesure(unittest.TestCase):
         from pathlib import Path
         self.assertIn("ne la repasse pas", Path('data/commun/audit60/gt_ponctuel_absence.txt').read_text(encoding='utf-8'))
 
+    def test_reprises_en_ligne(self):
+        self.assertIn('Bac GT : une seule épreuve passée sur trois (note unique ou dispense)',
+                      titres("Suite à une entorse, il n'a fait qu'un seul CCF sur trois : que devient sa note ?"))
+        self.assertIn('Bac GT : sportif de haut niveau, le 20/20 ne peut pas être la seule note',
+                      titres("Elle est en pôle espoir, elle a juste son 20 et rien d'autre ?"))
+        self.assertNotIn('Section sportive scolaire : pas de 20/20 à ce titre',
+                         titres("Elle est en pôle espoir, elle a juste son 20 et rien d'autre ?"))
+
 
 if __name__ == '__main__':
     unittest.main()

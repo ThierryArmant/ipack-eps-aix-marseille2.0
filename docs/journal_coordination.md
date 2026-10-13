@@ -24,6 +24,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-13 20:00 — partie fiches — série de 7 questions issues d'autres académies (voir git log)
+Constaté (bbff723) : 0 correcte, 6 partielles, 1 fausse (émargement présenté comme obligatoire). Défaut principal : quand la base ne couvre pas la question, les quatre rubriques sont remplies avec des passages voisins d'une autre situation (acrosport collectif → note unique d'un inapte). Les questions mal couvertes sont les plus chères (2 appels, plus de 20 000 jetons).
+Fait (fiches) : fiche « Questions sans consigne écrite trouvée pour Aix-Marseille » en priorité 300, complétée : convocation et émargement des candidats, CCF aux dates des épreuves ponctuelles, certificat en téléconsultation ; formulation « aucune consigne écrite retrouvée », l'absence dans la base ne prouvant pas l'inexistence ; pratiques d'Amiens et de Strasbourg attribuées explicitement, sources citées. Dates de l'épreuve de haut niveau (ipack_209, tutoriel Créteil) reformulées en contrainte du logiciel, sans « dates fictives ». 255 tests passent.
+Attendu de l'autre partie (programme, périmètre validé par l'enseignant) :
+- autoriser une réponse courte avec uniquement les éléments documentés ; omettre les rubriques sans information pertinente ;
+- si aucun passage ne répond à la question : « Aucune consigne applicable trouvée dans la documentation disponible. À vérifier auprès du service des examens de votre académie. » ;
+- écarter les passages voisins qui concernent une autre situation ;
+- question iPackEPS posée dans l'onglet Examens (synchronisation des groupes) : le signalement « mauvais onglet » ne s'est pas déclenché.
+
 ### 2026-10-13 19:55 — partie fiches — fiche groupes EPS non importés (voir git log)
 Fait : question réelle (« synchronisation BEE : élèves importés mais pas les groupes EPS ») : la réponse partait sur l'export Cyclades. Nouvelle fiche `data/ipack/situations_2026_10_13/groupes_eps_non_importes.txt` (priorité 300, modes examens et ipack) : groupes créés dans iPackEPS, placement des élèves, import Pronote/École-Directe. Registre des natures à 448 (retouche du compte dans `tests/test_source_scope.py`). 253 tests passent.
 Attendu de l'autre partie : rien. Remarque : la question a été posée dans l'onglet Examens alors qu'elle relève d'iPackEPS ; la fiche couvre les deux modes.

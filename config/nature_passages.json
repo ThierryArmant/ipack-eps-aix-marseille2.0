@@ -216,6 +216,31 @@
         "consigne_academique"
       ],
       "passages": []
+    },
+    "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel",
+        "texte_national"
+      ],
+      "passages": [
+        {
+          "texte": "Dans le cas décrit à l'assistance d'Aix-Marseille le 14 octobre 2026, certains groupes présentent le 3 × 500 m et d'autres le 3 × 1 min 30. Deux FCA correspondent à ces deux formats de demi-fond. Pour le dépôt sous l'entrée certificative « Courses », l'assistance préconise de réunir les deux FCA dans un même document PDF et de le redéposer à la place de l'ancien fichier qui ne contient que le 3 × 500 m. Cette consigne concerne le document de dépôt de l'établissement et des groupes différents ; elle ne constitue pas une autorisation générale de réunir n'importe quelles APSA du même champ, ni une validation de l'ensemble certificatif individuel.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Au bac général et technologique, dans le cadre ordinaire du CCF, les trois épreuves de l'ensemble certificatif d'un même candidat reposent sur trois APSA distinctes relevant de trois champs d'apprentissage différents. Deux épreuves du même champ ne peuvent donc pas compter comme deux des trois épreuves de cet ensemble. Déclarer ou faire valider les deux FCA ne lève pas cette exigence. Cette règle porte sur les épreuves retenues pour la certification du candidat ; elle ne prohibe pas leur pratique pendant la formation. Les aménagements réglementaires particuliers doivent être examinés séparément. Source : note de service du 20 février 2026, MENE2531948N, parties 1.a et 2.a.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N du 20 février 2026, parties 1.a et 2.a"
+        }
+      ]
     }
   }
 }

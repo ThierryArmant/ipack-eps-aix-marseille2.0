@@ -5260,6 +5260,20 @@
    "autres_academies_citees": [],
    "portee_texte": "dnb",
    "titre": "Programme EPS sixième : application à la rentrée 2027-2028"
+  },
+  "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "gt",
+   "titre": "Courses : deux FCA dans un PDF et limites du menu individuel"
   }
  }
 }

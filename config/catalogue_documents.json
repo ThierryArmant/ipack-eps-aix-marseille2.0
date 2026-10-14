@@ -1,4 +1,26 @@
 {
+  "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt": {
+    "title": "Courses : deux FCA dans un PDF et limites du menu individuel",
+    "statut": "courriel_source_anonymise_2026_10_14_et_texte_national",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
+    ],
+    "exclure_motifs": [
+      "course (?:en|de) duree"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
+    ]
+  },
   "data/examens/situations_2026_10_13/imagin_mission_epscc_cfa.txt": {
     "title": "IMAG’IN : mission de notation EPS CCF absente en CFA et distinction EPSAC",
     "statut": "guide_logiciel_lu_2026_10_13",

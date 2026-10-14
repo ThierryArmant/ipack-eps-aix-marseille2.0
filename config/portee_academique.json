@@ -1067,6 +1067,17 @@
     }
    ]
   },
+  "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Deux FCA de demi-fond dans un PDF : dépôt Courses et ensemble certificatif individuel",
+     "lignes": [
+      "Dans le cas décrit à l'assistance d'Aix-Marseille le 14 octobre 2026, certains groupes présentent le 3 × 500 m et d'autres le 3 × 1 min 30. Deux FCA correspondent à ces deux formats de demi-fond. Pour le dépôt sous l'entrée certificative « Courses », l'assistance préconise de réunir les deux FCA dans un même document PDF et de le redéposer à la place de l'ancien fichier qui ne contient que le 3 × 500 m. Cette consigne concerne le document de dépôt de l'établissement et des groupes différents ; elle ne constitue pas une autorisation générale de réunir n'importe quelles APSA du même champ, ni une validation de l'ensemble certificatif individuel."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
    "academie": "aix-marseille",
    "sections": [

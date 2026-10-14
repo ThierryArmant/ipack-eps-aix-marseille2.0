@@ -135,6 +135,8 @@ def clarification(question, public):
     general_rule = bool(re.search(r'afl ?2.{0,40}afl ?3', q))
     facts_given = bool(re.search(
         r"qu.une (?:seule )?note|une seule note|une note sur (?:deux|trois)|deux notes|"
+        r"(?:deux|2) inaptitudes?(?: totales?| partielles?)? et (?:une|1) note|"
+        r"not[eé]\w*.{0,25}(?:sur|que sur) (?:une|1) (?:seule )?[eé]preuve|"
         r"\bdi ?\+ ?di\b|di partout|(?:inapte|dispense)\w* sur (?:une|deux|1|2|les deux) (?:epreuves?|activites?)", q))
     exam_named = bool(re.search(r'\b(cap|dnb|brevet|college|lgt|gt)\b|bac(calaureat)?\s+(pro|professionnel|general|technologique)', q))
     if (general_rule or facts_given) and (public != 'Lycée Pro / CAP' or exam_named):
@@ -258,6 +260,12 @@ def effective_context(question, public, mode):
         public = 'Lycée Pro / CAP' if pro else 'Lycée Général & Techno' if gt else 'Collège (DNB)'
     # Une question sur iPackEPS lui-même (version, interfaçage) reste dans iPackEPS même si elle cite Cyclades.
     if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q) and not re.search(r"\bipack", q):
+        mode = 'examens'
+    # La décision réglementaire SHN est contrôlée par le circuit Examens.
+    # Une manipulation explicite dans le logiciel conserve le circuit technique.
+    if (mode == 'ipack' and re.search(r'\bshn\b|sportif de haut niveau', q)
+            and re.search(r'noter|notation|droit|\b20\s*/\s*20|un seul cycle|une seule epreuve', q)
+            and not re.search(r'saisir|saisie|menu|bouton|cliquer|enregistrer|declarer|\bipack', q)):
         mode = 'examens'
     return public, mode
 

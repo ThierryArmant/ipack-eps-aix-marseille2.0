@@ -18,7 +18,6 @@ for _module in (academie, knowledge_catalog, source_scope, documentary_review, r
         _module._loaded_revision = _revision
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
-from response_cache import ANSWER_CACHE, answer_key
 from academie import academy_context, ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
@@ -1588,25 +1587,7 @@ if prompt_a_traiter:
             "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
-        _cache_key = None
-        if mode == "examens":
-            _cache_key = answer_key(prompt, academy=academie_reponse,
-                                   public=niveau_actuel_form, mode=mode, version=_sha,
-                                   model=modele_ia, knowledge=fingerprint(),
-                                   selected_context=[mode_initial, niveau_initial, st.session_state.get("academie_utilisateur") or AIX])
-            _cached = ANSWER_CACHE.get(_cache_key)
-            if _cached is not None:
-                for _message in _cached['messages']:
-                    if _message.get('role') == 'assistant' and _message.get('type') == 'text':
-                        _message['usage_ia'] = {**usage_summary({}), 'cache_hit': True}
-                    st.session_state.messages_hub.append(_message)
-                log_interaction(question=prompt, reponse=_cached['body'], mode=mode,
-                                contexte=contexte_choisi_nom, niveau=niveau_actuel_form,
-                                usage={**usage_summary({}), 'cache_hit': True},
-                                academie=academie_reponse, version=_sha)
-                st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
-                st.session_state.reset_steps = True
-                st.rerun()
+        # Chaque soumission est réexaminée : aucune ancienne réponse réaffichée.
 
         # Valeurs par défaut : ces variables sont utilisées dans la mise en forme finale,
         # y compris dans le cas "hors-sujet" où elles ne sont pas recalculées plus bas.
@@ -2983,14 +2964,6 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                     )
 
         st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
-        if (_cache_key and diagnostic_ia is not None and diagnostic_ia.get('accepted_claims')
-                and not diagnostic_ia.get('failure') and not diagnostic_ia.get('final_rejections')):
-            # Ne jamais partager les prompts, diagnostics ou blocs administrateur entre sessions.
-            _public_answer = (f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>'
-                              f'{texte_final}{bloc_sources}{footer_assistance}</div>')
-            _cache_messages = [{"role":"assistant", "type":"text", "content":_public_answer}]
-            _cache_messages += [dict(m) for m in st.session_state.messages_hub if m.get('type')=='video']
-            ANSWER_CACHE.put(_cache_key, {'messages':_cache_messages, 'body':texte_brut})
         st.session_state.reset_steps = True
         st.rerun()
 

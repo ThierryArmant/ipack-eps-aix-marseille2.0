@@ -447,6 +447,45 @@ def coherence_errors(claims, question):
     return errors
 
 
+def conditional_extraction_errors(claims, question):
+    """Garde-fous sur les modalités des preuves citées, sans décider du résultat."""
+    def norm(text):
+        return ''.join(c for c in unicodedata.normalize('NFKD', text.lower())
+                       if not unicodedata.combining(c))
+    errors = []
+    for i, claim in enumerate(claims):
+        text = norm(claim['text'])
+        proofs = norm(' '.join(e.get('quote', '') for e in claim.get('evidence', [])))
+        # Contrôler la proposition de tête : un « si » ajouté plus loin ne
+        # corrige pas une conclusion catégorique placée avant « car ».
+        head = re.split(r'\bcar\b|\bpuisque\b|\bparce que\b|[.;]', text, maxsplit=1)[0]
+        conditional_source = bool(re.search(
+            r'peut etre retenu|peuvent etre retenu|soit.{0,100}(?:certifi|note)|'
+            r'si.{0,100}(?:appreciation|certifi|note)|pas.{0,25}decision automatique', proofs))
+        categorical_grade = bool(re.search(
+            r'\b(?:ne\s+)?doit\s+(?:pas\s+)?(?:etre\s+)?note|'
+            r'\baucune note\b|\bdispense obligatoire\b', head))
+        conditional_head = bool(re.search(r'\bsi\b|sous reserve|a condition|dans le cas|selon', head))
+        if conditional_source and categorical_grade and not conditional_head:
+            errors.append({'index': i, 'errors': [
+                'conclusion catégorique de notation tirée de possibilités conditionnelles : conserver les alternatives et leur condition']})
+        # La branche de dispense ne suffit pas à justifier l'interdiction
+        # générale de noter lorsque le passage permet une note unique.
+        if (claim['section'] == 'decision' and conditional_source
+                and re.search(r'une seule note|sur une seule epreuve', proofs)
+                and re.search(r'dispens', proofs)
+                and re.search(r'\b(?:une|1) note\b|une seule|deux inaptitudes|2 inaptitudes', norm(question))
+                and not (re.search(r'note|certifi', text) and re.search(r'dispens', text))):
+            # Les alternatives peuvent être réparties sur plusieurs affirmations.
+            all_text = norm(' '.join(c['text'] for c in claims))
+            if not (re.search(r'note|certifi', all_text) and re.search(r'dispens', all_text)):
+                errors.append({'index': i, 'errors': ['une alternative documentée (note unique ou dispense conditionnelle) est omise']})
+        asks_type = re.search(r'(?:demand|precis).{0,100}(?:total.{0,15}partiel|partiel.{0,15}total|caractere.{0,20}inapt)', text)
+        if asks_type and re.search(r'inaptitudes? totales?|inaptitudes? partielles?', norm(question)):
+            errors.append({'index': i, 'errors': ['caractère médical déjà précisé dans la question : demander uniquement les faits manquants']})
+    return errors
+
+
 def dnb_document_mismatch(question, public, packet):
     """Un document de notation CCF lycée/CAP ne documente pas le LSU du collège."""
     from knowledge_catalog import normalise
@@ -518,6 +557,11 @@ Quand une action est réservée à une autorité, nomme cette autorité et son r
 Restitue dans l'ordre les étapes indispensables de la procédure applicable, y compris la conservation des éléments lorsqu'elle est prescrite.
 Si la question demande de distinguer les niveaux, explique quels éléments relèvent du cadre national, du circuit académique et du logiciel, selon la nature déclarée dans les passages.
 Préserve les branches conditionnelles tant que la question ne permet pas de choisir.
+Extrais ensemble l’action possible, sa condition et l’autorité qui apprécie la situation.
+Lorsque le passage propose plusieurs issues, expose les issues pertinentes avec leurs conditions ;
+ne transforme pas « peut » ou « soit » en « doit » ou « ne doit pas ».
+Une phrase principale catégorique reste incorrecte même si sa justification contient une possibilité.
+Pour les précisions, compare chaque demande aux faits de la question et ne demande que ce qui manque.
 Cite les identifiants des passages justificatifs pour chaque affirmation ; ne recopie pas de citations.
 Sélectionne le passage qui énonce effectivement la règle ou l'étape, pas une introduction au sujet.
 Si une affirmation réunit plusieurs étapes, cite tous les passages correspondants.
@@ -549,6 +593,7 @@ Réponds uniquement en JSON selon ce schéma :
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
             errors.extend(coherence_errors(accepted, question))
+            errors.extend(conditional_extraction_errors(accepted, question))
             return parsed, accepted, errors
         except (ValueError, TypeError) as exc:
             return {'claims':[]}, [], [{'errors':[str(exc)]}]

@@ -38,8 +38,10 @@ class DocumentaryReviewTests(unittest.TestCase):
         text, sources, _, error = route.route(
             "Mon élève est inapte sur deux épreuves et n'a qu'une note de 14. Je saisis DI+DI+14 ou DI+DI+DI ?",
             'Lycée Général & Techno', 'examens')
-        self.assertIn('DI + DI + 14', text)
-        self.assertIn('DI + DI + DI', text)
+        self.assertIn('note réellement obtenue', text)
+        self.assertIn('Dispensé', text)
+        self.assertIn('trois épreuves', text)
+        self.assertIn('éléments d\'appréciation sont trop réduits', text)
         self.assertTrue(any('DI+DI+Note' in title for title, _ in sources))
         self.assertEqual(error, '')
 

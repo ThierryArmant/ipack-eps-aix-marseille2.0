@@ -994,7 +994,18 @@
     "title": "[SITUATION: VALIDATION DU DOSSIER]",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*referen[ct]iel)(?=.*(?:en attente|pas encore valid|toujours.{0,30}validation))"
+    ],
+    "exclure_motifs": [
+      "refuse|rejete|refus|rejet"
+    ]
   },
   "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt": {
     "title": "[SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]",
@@ -3334,7 +3345,8 @@
       "toute l.annee.*inapt",
       "inapt.*total.*septembre.*juin",
       "(?:collegue|professeur|\\bprof\\b|enseignant|evaluateur|examinateur).{0,40}(?:arret|malad)|(?:arret|malad).{0,30}(?:du|de la|d.un|d.une) (?:collegue|professeur|prof\\b|enseignant)",
-      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3"
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
+      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
@@ -4147,10 +4159,14 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:inapt|dispens))(?=.*(?:deux epreuves|deux activites|di.{0,8}di))(?=.*(?:une note|qu.une|note unique|di partout))"
+      "(?=.*(?:inapt|dispens))(?=.*(?:deux epreuves|deux activites|di.{0,8}di))(?=.*(?:une note|qu.une|note unique|di partout))",
+      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "date_verification": "2026-10-12"
+    "date_verification": "2026-10-12",
+    "exclure_motifs": [
+      "\\bcap\\b|bac ?pro|\\bbcp\\b|\\bdnb\\b|shn|haut niveau"
+    ]
   },
   "data/examens/audit_faq_2026_10_12/d5_procedure_verifiee.txt": {
     "title": "FAQ EPS — Inaptitude : possibilités avant la dispense",
@@ -4918,7 +4934,8 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
       "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))",
-      "(?=.*(?:shn|haut niveau|pole (?:france|espoir)|liste (?:elite|espoir|ministerielle)))(?=.*(?:juste (?:son |le )?20|seulement (?:son |le )?20|que (?:son |le )?20|c.est fini|aucune autre|rien d.autre|ne passe (?:pas|aucune|rien)|dispense des autres|autres epreuves))"
+      "(?=.*(?:shn|haut niveau|pole (?:france|espoir)|liste (?:elite|espoir|ministerielle)))(?=.*(?:juste (?:son |le )?20|seulement (?:son |le )?20|que (?:son |le )?20|c.est fini|aucune autre|rien d.autre|ne passe (?:pas|aucune|rien)|dispense des autres|autres epreuves))",
+      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))"
     ],
     "exclure_motifs": [
       "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
@@ -5401,7 +5418,8 @@
   "data/examens/situations_2026_10_13/gt_une_seule_note_sur_trois.txt": {
     "statut": "verifie_2026-10-13",
     "modes": [
-      "examens"
+      "examens",
+      "ipack"
     ],
     "prioritaire": true,
     "priorite": 300,
@@ -5412,10 +5430,12 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
-      "^(?=.*(?:qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3|deux epreuves manquees|rate deux|pas pu passer deux))(?=.*(?:inapt|bless|certificat|malad|arret|compte|retenu|garde|fracture|note))"
+      "^(?=.*(?:qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3|deux epreuves manquees|rate deux|pas pu passer deux))(?=.*(?:inapt|bless|certificat|malad|arret|compte|retenu|garde|fracture|note))",
+      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))"
     ],
     "exclure_motifs": [
-      "\\bcap\\b|bac ?pro|ponctuel|shn|haut niveau"
+      "\\bcap\\b|bac ?pro|ponctuel|shn|haut niveau",
+      "\\bcap\\b|bac ?pro|\\bbcp\\b|\\bdnb\\b|shn|haut niveau"
     ]
   },
   "data/examens/situations_2026_10_13/santorin_export_detail_notes.txt": {

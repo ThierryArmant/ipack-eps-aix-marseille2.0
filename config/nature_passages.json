@@ -241,6 +241,27 @@
           "reference": "MENE2531948N du 20 février 2026, parties 1.a et 2.a"
         }
       ]
+    },
+    "data/examens/audit_faq_2026_10_12/d3_procedure_verifiee.txt": {
+      "nature_non_attribuee": [
+        "a_verifier"
+      ],
+      "passages": [
+        {
+          "texte": "Lorsque l'inaptitude attestée empêche deux épreuves, l'enseignant du groupe classe apprécie deux possibilités : conserver une certification sur la seule épreuve évaluée, ou ne pas proposer de note si les éléments d'appréciation sont trop réduits et mentionner « dispensé de l'épreuve d'EPS », avec neutralisation du coefficient. Aucune de ces issues n'est automatique (note de service du 20 février 2026, 2.e).",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N du 20 février 2026, 2.e"
+        },
+        {
+          "texte": "Saisie dans Santorin : si la note unique est retenue, conserver la note réellement obtenue et « Dispensé » pour les deux APSA non évaluées, avec une appréciation justifiant le choix. Si aucune note n'est proposée, « Dispensé » sur les trois épreuves, avec appréciation.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide de saisie Santorin, inaptes avec une note"
+        }
+      ]
     }
   }
 }

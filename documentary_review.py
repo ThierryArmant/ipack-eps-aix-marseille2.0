@@ -340,6 +340,9 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'bac ?pro|\bbcp\b|\bcap\b', t)
+            and not re.search(r'\bshn\b|haut niveau', t)):
+        return True
     medical = r'inapt|dispens|certificat|medical|bless|entorse|arret maladie'
     # Une note de groupe ne pose pas une question de certification d'un inapte.
     if re.search(r'note.{0,25}collecti|collecti.{0,25}note|acrosport.{0,40}groupe|(?:meme|une seule|unique) note.{0,60}(?:groupe|equipe)|note.{0,30}(?:groupe|equipe)', q) and not re.search(medical, q):
@@ -357,6 +360,35 @@ def situation_mismatch(question, text):
     return False
 
 
+def editorial_instruction(text):
+    """Instructions de rédaction, sans les confondre avec une démarche métier."""
+    return bool(re.search(r"^\s*(?:[-*]\s*)?(?:réponse à donner|une réponse qui|ne (?:pas )?(?:transforme|transformer|développe|recopie)|"
+                          r"pour une situation individuelle, demander|les deux issues doivent être considérées)",
+                          text, re.I))
+
+
+def reader_excerpt(text):
+    lines = []
+    for line in text.splitlines():
+        sentences = re.split(r'(?<=[.!?])\s+', line)
+        lines.append(' '.join(s for s in sentences if not editorial_instruction(s)))
+    return '\n'.join(lines).strip()
+
+
+def case_value_errors(claims, question):
+    """Un exemple numérique de fiche ne devient pas la note réelle du candidat."""
+    known = set(re.findall(r'\d+(?:[,.]\d+)?', question))
+    errors = []
+    for i, claim in enumerate(claims):
+        text = claim['text']
+        values = re.findall(r'\bnote (?:de |est de )?(\d+(?:[,.]\d+)?)|'
+                            r'\bDI\s*\+\s*DI\s*\+\s*(\d+(?:[,.]\d+)?)', text, re.I)
+        if (any((a or b) not in known and (a or b) not in ('0', '20') for a,b in values)
+                and not re.search(r'par exemple|à titre d.exemple|exemple fictif', text, re.I)):
+            errors.append({'index': i, 'errors': ['note individuelle absente de la question : ne pas reprendre une valeur illustrative comme fait du candidat']})
+    return errors
+
+
 def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseille'):
     """Extrait documentaire de repli, jamais une décision générée incomplète.
 
@@ -372,7 +404,10 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
                   and (selected_ids is None or p['id'] in selected_ids)]
     focused = [p for p in candidates if isinstance(p.get('priority'), (int, float)) and p['priority'] >= 300]
     candidates = [p for p in (focused or candidates)
-                  if not situation_mismatch(question, p['title'])]
+                  if not situation_mismatch(question, p['title'])
+                  and not situation_mismatch(question, p['text'])]
+    if re.search(r'\bshn\b|haut niveau', question, re.I):
+        candidates = [p for p in candidates if re.search(r'\bSHN\b|haut niveau', p['text'], re.I)]
     roots = _racines(question)
     ranked = sorted(candidates, key=lambda p: len(roots & _racines(p['title'] + ' ' + p['text'])), reverse=True)
     audit['fallback_document_ids'] = []
@@ -383,7 +418,9 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     packet = select_academy([ranked[0]], academy)[0][0]
     audit['fallback_document_ids'] = [packet['id']]
     display_spans = [s for s in packet['passages']
-                     if not re.match(r'^\s*(?:\[Base[^\]]*\]\s*)?\[(?:DOCUMENT|PORTEE)\s*:', s['text'])]
+                     if not re.match(r'^\s*(?:\[Base[^\]]*\]\s*)?\[(?:DOCUMENT|PORTEE)\s*:', s['text'])
+                     and not editorial_instruction(s['text'])
+                     and not situation_mismatch(question, s['text'])]
     display_spans = [{**s, 'text': re.sub(r'^\[FICHE PRIORITAIRE[^\]]*\]\s*', '', s['text'])}
                      for s in display_spans]
     if packet['title'] == 'Passage documentaire':
@@ -401,7 +438,7 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
         if excerpt_length + len(span['text']) > 4000:
             break
         label = evidence_label({'scope': span.get('scope', {})}, packet, _LEVELS)
-        output.append('<blockquote>' + html.escape(span['text']).replace('\n', '<br>') +
+        output.append('<blockquote>' + html.escape(reader_excerpt(re.sub(r'^#{1,6}\s*', '', span['text']))).replace('\n', '<br>') +
                       '<br><small>' + html.escape(label) + '</small></blockquote>')
         excerpt_length += len(span['text'])
         displayed += 1
@@ -595,6 +632,9 @@ Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'applicatio
 Un acteur générique reste le service des examens de l'académie ; ne le rebaptise pas DIEC hors Aix.
 Une possibilité réglementaire ne prouve pas une possibilité technique du logiciel.
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.
+Les instructions de rédaction des fiches ne sont jamais des conseils à publier pour le collègue.
+Les chiffres d'un exemple de fiche ne sont pas les notes du candidat : conserver « la note obtenue » si sa valeur n'est pas fournie.
+Si la demande décrit une attente de validation, répondre au suivi d'une transmission déjà effectuée ; ne pas réduire la réponse à l'envoi initial.
 Ne développe un sigle que si son développement est donné dans les passages.
 Si une consigne manque, précise cette limite sans inventer de procédure.
 Vérifie que la décision et les conditions disent la même chose : une décision négative ne peut autoriser ensuite la même action.
@@ -606,6 +646,12 @@ Réponds uniquement en JSON selon ce schéma :
     def resolve(output):
         try:
             parsed = _json_response(output)
+            # Supprimer les seules consignes éditoriales, sans modifier une règle
+            # ni transformer une décision rejetée en réponse approuvée.
+            meta = [c for c in parsed['claims'] if isinstance(c, dict) and editorial_instruction(str(c.get('text', '')))]
+            if meta:
+                audit.setdefault('excluded_editorial_claims', []).extend(meta)
+                parsed['claims'] = [c for c in parsed['claims'] if c not in meta]
             accepted, errors = validate_claims(parsed, packets)
             for c in accepted[:]:
                 if situation_mismatch(question, c['text']) or any(
@@ -614,6 +660,7 @@ Réponds uniquement en JSON selon ce schéma :
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
             errors.extend(coherence_errors(accepted, question))
             errors.extend(conditional_extraction_errors(accepted, question))
+            errors.extend(case_value_errors(accepted, question))
             return parsed, accepted, errors
         except (ValueError, TypeError) as exc:
             return {'claims':[]}, [], [{'errors':[str(exc)]}]

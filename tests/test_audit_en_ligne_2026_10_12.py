@@ -86,9 +86,9 @@ class Lot4Tests(unittest.TestCase):
 
     def test_ex091_deux_issues_presentees(self):
         texte = kc.delivered_text("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT, 'examens')
-        self.assertIn('Issue 1', texte)
-        self.assertIn('Issue 2', texte)
-        self.assertIn('aucune n’est automatique', texte)
+        self.assertIn('certification sur la seule épreuve', texte)
+        self.assertIn('ne pas proposer de note', texte)
+        self.assertIn("Aucune de ces issues n'est automatique", texte)
 
     def test_mauvais_lot_et_mauvais_groupe_ont_leur_fiche(self):
         self.assertIn('FAQ EPS — Santorin : élève dans le mauvais lot', self.titres("Un élève est dans le mauvais lot dans Santorin."))
@@ -143,7 +143,7 @@ class Lot5Tests(unittest.TestCase):
 
     def test_ex091_reponse_en_tete(self):
         texte = kc.delivered_text("Inapte sur deux épreuves, mon élève n'a qu'une note (14). Je saisis quoi : DI+DI+14 ou DI partout ?", GT, 'examens')
-        self.assertTrue(texte.split('\n')[2].startswith('Les deux saisies sont possibles'))
+        self.assertIn('deux possibilités', texte.split('\n')[2])
 
 
 class Lot6Tests(unittest.TestCase):

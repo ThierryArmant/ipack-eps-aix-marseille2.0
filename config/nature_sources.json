@@ -805,7 +805,8 @@
   },
   "data/examens/audit_faq_2026_10_12/d3_procedure_verifiee.txt": {
    "nature": [
-    "texte_national"
+    "texte_national",
+    "logiciel"
    ],
    "academie": null,
    "sessions": [],

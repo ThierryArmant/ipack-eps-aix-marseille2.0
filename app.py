@@ -1598,7 +1598,7 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
-        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode == "examens" else Settings.llm
+        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode in ("examens", "ipack") else Settings.llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
@@ -1916,7 +1916,7 @@ if prompt_a_traiter:
                 _cibles = set()
                 if re.search(r"\bcm[12]\b|premier degre|elementaire|maternelle|ecole primaire", p_norm):
                     _cibles.add("primaire")
-                if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b", p_norm):
+                if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b|\bbcp\b", p_norm):
                     _cibles.add("pro")
                 if re.search(r"\bcap\b", p_norm):
                     _cibles.add("cap")
@@ -2525,7 +2525,7 @@ if prompt_a_traiter:
                     _qs = "".join(ch for ch in _ud2.normalize("NFD", prompt.lower()) if _ud2.category(ch) != "Mn")
                     _niv = str(niveau_actuel_form).lower()
                     _exams = []
-                    if re.search(r"bac ?pro\b|baccalaureat professionnel|\bbma\b", _qs):
+                    if re.search(r"bac ?pro\b|baccalaureat professionnel|\bbma\b|\bbcp\b", _qs):
                         _exams.append("pro")
                     if re.search(r"\bcap\b", _qs):
                         _exams.append("cap")

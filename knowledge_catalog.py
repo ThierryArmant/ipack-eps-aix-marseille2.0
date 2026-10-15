@@ -252,7 +252,7 @@ def documented_response(question, public, mode):
 def effective_context(question, public, mode):
     """Les diplômes explicites priment ; un protocole seul reste ambigu."""
     q = normalise(question)
-    pro = bool(re.search(r"\bbac(?:calaureat)?\s+(?:pro|professionnel)|\bcap\b", q))
+    pro = bool(re.search(r"\bbac(?:calaureat)?\s+(?:pro|professionnel)|\b(?:bcp|cap)\b", q))
     gt = bool(re.search(r"\bbac(?:calaureat)?\s+(?:gt|general|technologique)|\b(?:seconde|premiere|terminale)\b", q))
     college = bool(re.search(r"\bdnb\b|\bbrevet\b|\bcollege\b|"
                              r"(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
@@ -277,7 +277,7 @@ def priority_context(question, public, mode):
     niveau, mode = effective_context(question, public, mode)
     q = normalise(question)
     targets = set()
-    if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b", q):
+    if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b|\bbcp\b", q):
         targets.add('pro')
     if re.search(r'\bcap\b', q):
         targets.add('cap')

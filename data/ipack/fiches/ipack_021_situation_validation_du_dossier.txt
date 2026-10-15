@@ -3,3 +3,9 @@
 
 [SECTION: CAS_SPECIFIQUES_DES_APSA]
 
+### Référentiel déjà en attente de validation
+Un référentiel déclaré « en attente de validation » n'est pas déclaré refusé. La documentation disponible ne fixe pas de délai garanti de traitement : trois semaines ne permettent ni de conclure à un refus, ni d'affirmer qu'une validation est acquise.
+Si l'envoi du dossier certificatif a déjà été effectué, ne pas le refaire ni remplacer le référentiel uniquement à cause de l'attente. Vérifier le statut et la transmission dans le dossier certificatif ; si l'attente persiste sans information, demander le suivi auprès de l'assistance académique ou de la commission par le circuit de l'établissement. Une demande de suivi ne remplace pas la validation de la commission.
+La procédure de correction puis redépôt s'applique lorsqu'une demande de retouche ou un refus est effectivement communiqué, pas au seul constat d'attente.
+Source et limite : documentation iPackEPS, article 38 (remontée des référentiels et statut après dépôt), article 101 (référentiel rejeté). Aucun délai réglementaire de validation ni calendrier de commission fourni par ces extraits.
+

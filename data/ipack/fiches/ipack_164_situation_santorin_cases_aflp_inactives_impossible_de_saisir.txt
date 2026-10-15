@@ -1,4 +1,4 @@
 ### [SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]
-* CAUSE RÉELLE : Ce n'est pas un problème de droits d'utilisateur ou un bug informatique. La cause est une PROCÉDURE INCOMPLÈTE : le bouton « Choisir les AFLP » n'a pas été activé/validé en amont.
+* DIAGNOSTIC À VÉRIFIER : si les cases sont grisées ou inactives, vérifier que le bouton « Choisir les AFLP » a été activé et validé en amont. Ne pas conclure d'emblée à cette seule cause, ni exclure un autre blocage.
 * RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFL(P) qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
 

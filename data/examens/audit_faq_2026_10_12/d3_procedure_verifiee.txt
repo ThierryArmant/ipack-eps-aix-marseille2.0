@@ -1,12 +1,10 @@
 ### FAQ EPS — Inaptitude / DI+DI+Note
 [PORTEE: gt]
-Les deux saisies sont possibles : DI + DI + 14 ou DI + DI + DI. L’enseignant choisit entre elles selon la valeur de la note de 14 ; aucune n’est automatique (note de service du 20 février 2026, 2.e).
-- Issue 1, les éléments d’évaluation suffisent : certification sur une seule épreuve. La moyenne retenue n’est constituée que de cette note (ici 14). Saisie dans Santorin : DI + DI + 14, avec une appréciation qui justifie le choix.
-- Issue 2, les éléments d’appréciation sont trop réduits : pas de proposition de note, mention « dispensé de l’épreuve d’EPS », coefficient neutralisé. Saisie : dispensé sur les trois épreuves (DI + DI + DI), avec appréciation.
-Pour choisir, l’enseignant examine si la note de 14 représente réellement le niveau de l’élève (épreuve complète, moment de l’année, durée de l’inaptitude). Documenter la décision dans le dossier des cas particuliers. Une DI n’est pas un zéro à ajouter à une moyenne.
-Une réponse qui ne donne que DI + DI + 14, ou que DI partout, est incomplète : elle doit présenter les deux issues et le critère de choix.
+Lorsque l'inaptitude attestée empêche deux épreuves, l'enseignant du groupe classe apprécie deux possibilités : conserver une certification sur la seule épreuve évaluée, ou ne pas proposer de note si les éléments d'appréciation sont trop réduits et mentionner « dispensé de l'épreuve d'EPS », avec neutralisation du coefficient. Aucune de ces issues n'est automatique (note de service du 20 février 2026, 2.e).
+Saisie dans Santorin : si la note unique est retenue, conserver la note réellement obtenue et « Dispensé » pour les deux APSA non évaluées, avec une appréciation justifiant le choix. Si aucune note n'est proposée, « Dispensé » sur les trois épreuves, avec appréciation.
+Une DI n'est pas un zéro à ajouter à une moyenne. La valeur de la note, à elle seule, ne choisit pas la branche ; l'enseignant apprécie si les éléments d'évaluation sont suffisants. La décision et ses motifs sont documentés dans le dossier des cas particuliers.
 
-Portée : National.
-Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e.
+Nature de la source : cadre national pour les possibilités ; documentation du logiciel pour les saisies.
+Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e ; guide de saisie Santorin, cas des inaptes avec une note, repris dans la fiche de contrôle.
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

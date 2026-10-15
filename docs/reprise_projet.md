@@ -20,7 +20,7 @@
 - Le coût compte : viser un appel au modèle par question (un second seulement si la vérification échoue).
 
 ## État
-- Mode Examens : réponse appuyée sur les fiches spécifiques (priorité 300). Un appel de rédaction ; un second seulement si la vérification mécanique des passages échoue (`documentary_review.py`). Étiquettes de source fixées par le programme à partir de `config/nature_sources.json` (`source_scope.py`). Réponses validées mises en cache par question, académie, public, version et empreinte des fiches (`response_cache.py`).
+- Modes Examens et iPackEPS : réponse appuyée sur les fiches spécifiques (priorité 300). Un appel de rédaction ; un second seulement si la vérification mécanique des passages échoue (`documentary_review.py`). Étiquettes de source fixées par le programme à partir de `config/nature_sources.json` (`source_scope.py`). Le cache de réponses est désactivé dans app.py depuis le 14 octobre : chaque soumission est traitée indépendamment.
 - Choix de l'académie obligatoire avant la question (`academie.py`) ; hors Aix-Marseille, les passages listés dans `config/portee_academique.json` sont envoyés au modèle précédés de « [Consigne de l'académie d'Aix-Marseille — non confirmée pour …] ». Ce registre se régénère avec `python portee_registre.py --write` après toute modification de fiche.
 - Interface : parcours en trois étapes dans un panneau unique (contexte, académie et public, question).
 - Coût : avant le passage à un appel, EX290 consommait 3 appels et environ 17 000 jetons d'entrée. À remesurer en ligne (compteur sous chaque réponse).

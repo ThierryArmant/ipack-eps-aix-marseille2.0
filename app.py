@@ -1977,7 +1977,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '')
-                                         if mode == "examens" else _bloc)
+                                         if mode in ("examens", "ipack") else _bloc)
                         _provenance = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         if _provenance:
                             _sources.append((_provenance.group(1), None))
@@ -2012,7 +2012,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
-                            title=n.node.metadata.get('title', '')) if mode == "examens" else _bloc)
+                            title=n.node.metadata.get('title', '')) if mode in ("examens", "ipack") else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
@@ -2034,7 +2034,7 @@ if prompt_a_traiter:
                         _vus.add(_cle)
                         _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
                         _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt))
-                                         if mode == "examens" else _bloc)
+                                         if mode in ("examens", "ipack") else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)
                         _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
@@ -2653,7 +2653,7 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
 
 {verites_terrain_pierre}
 """
-                if mode == "examens":
+                if mode in ("examens", "ipack"):
                     contexte_complet_ia = extraits_doc
                     if faits_champs.strip():
                         contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme", origin="program")
@@ -2692,7 +2692,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
 """
 
                 try:
-                    if mode == "examens":
+                    if mode in ("examens", "ipack"):
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
@@ -2711,7 +2711,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
                             reponse_ia = llm_reponse.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
                         reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
-                    if mode == "examens":
+                    if mode in ("examens", "ipack"):
                         # Ne pas ajouter de prose après le contrôle : elle n'aurait aucune preuve associée.
                         texte_brut = reponse_ia
                     else:
@@ -2724,7 +2724,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 except Exception as e:
                     if diagnostic_ia is not None:
                         diagnostic_ia['failure'] = type(e).__name__
-                    if mode == "examens":
+                    if mode in ("examens", "ipack"):
                         diagnostic_ia = diagnostic_ia if diagnostic_ia is not None else {}
                         diagnostic_ia['failure'] = type(e).__name__
                         texte_brut = render_exam_fallback(
@@ -2928,7 +2928,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             mode=mode, 
             contexte=contexte_choisi_nom, 
             niveau=niveau_actuel_form,
-            usage=usage_summary(usage_ia) if mode == "examens" else None,
+            usage=usage_summary(usage_ia) if mode in ("examens", "ipack") else None,
             academie=academie_reponse,
             version=_sha
         )
@@ -2942,7 +2942,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
-             "usage_ia": usage_summary(usage_ia) if mode == "examens" else None}
+             "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack") else None}
         )
 
         for video_name, video_url in VIDEOS_TUTOS.items():

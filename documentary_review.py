@@ -347,6 +347,13 @@ def situation_mismatch(question, text):
     # Une absence ponctuelle ne documente pas une inaptitude annuelle.
     if re.search(r'absen|pas venu|seche', q) and not re.search(medical, q):
         return bool(re.search(r'inaptitude totale.{0,40}(?:annuelle|annee)|inaptitude.{0,40}toute l.annee', t))
+    # Un dossier encore en attente n'est pas un dossier refusé. Le titre
+    # d'une procédure de rejet reste incompatible même si sa dernière étape
+    # indique que le dossier repassera « en attente » après un nouveau dépôt.
+    pending = re.search(r'en attente|toujours.{0,30}validation|pas encore valide', q)
+    rejected = re.search(r'(?:a ete|est|statut|motif|notification|notifie|suite au).{0,20}(?:refus|rejet)|refuse|rejete', q)
+    if pending and not rejected:
+        return bool(re.search(r'rejet d.un referentiel|referentiel refuse|dossier rejete|statut rouge|motif (?:exact )?du refus', t))
     return False
 
 
@@ -480,6 +487,17 @@ def conditional_extraction_errors(claims, question):
             all_text = norm(' '.join(c['text'] for c in claims))
             if not (re.search(r'note|certifi', all_text) and re.search(r'dispens', all_text)):
                 errors.append({'index': i, 'errors': ['une alternative documentée (note unique ou dispense conditionnelle) est omise']})
+        # Une branche de statut tardif dans une fiche mixte ne s'applique
+        # pas à tout SHN. Vérifier son antécédent, pas seulement les mots communs.
+        late_status = r'statut.{0,35}(?:obtenu|declare|justifie).{0,20}apres.{0,45}(?:cloture|inscription)'
+        ordinary = r'conditions ordinaires|sans amenagement'
+        if (re.search(r'\bshn\b|sportif.{0,12}haut niveau', norm(question))
+                and re.search(late_status, proofs)
+                and re.search(ordinary, text)
+                and not re.search(late_status, norm(question))
+                and not re.search(r'\bsi\b|dans le cas|lorsque|sous reserve', head)):
+            errors.append({'index': i, 'errors': [
+                'conditions ordinaires tirées du cas de statut tardif non établi : conserver la condition de date']})
         asks_type = re.search(r'(?:demand|precis).{0,100}(?:total.{0,15}partiel|partiel.{0,15}total|caractere.{0,20}inapt)', text)
         if asks_type and re.search(r'inaptitudes? totales?|inaptitudes? partielles?', norm(question)):
             errors.append({'index': i, 'errors': ['caractère médical déjà précisé dans la question : demander uniquement les faits manquants']})
@@ -523,6 +541,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['documents'] = packets
     audit['excluded_dnb_documents'] = [p['id'] for p in packets if dnb_document_mismatch(question, public, p)]
     packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
+    audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
+    packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
     if focused:
         packets = focused + [p for p in packets if p['origin'] == 'program']

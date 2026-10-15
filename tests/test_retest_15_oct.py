@@ -3,7 +3,8 @@ import ast
 import unittest
 from pathlib import Path
 from documentary_review import (case_value_errors, mark_excerpt, render_exam_fallback,
-                                review_exam_answer, usage_summary, TracedLLM)
+                                review_exam_answer, usage_summary, TracedLLM, situation_mismatch,
+                                conditional_extraction_errors)
 from knowledge_catalog import priority_context, effective_context
 from test_documentary_review import FakeLLM
 
@@ -68,6 +69,21 @@ class RetestOctober15Tests(unittest.TestCase):
         public, mode = effective_context('En BCP, les cases AFLP sont inactives dans Santorin', 'Lycée Général & Techno', 'examens')
         self.assertEqual(public, 'Lycée Pro / CAP')
         self.assertEqual(mode, 'examens')
+
+    def test_shn_cycle_does_not_imply_terminal_exam(self):
+        q='SHN : un seul cycle évalué, comment noter ?'
+        self.assertTrue(situation_mismatch(q, "Le 20/20 ne peut pas être l'unique note pour l'examen ponctuel."))
+        self.assertFalse(situation_mismatch(q, "En CCF, le 20/20 ne peut pas être l'unique note."))
+
+    def test_shn_cycle_does_not_establish_medical_inaptitude(self):
+        c={'section':'limite','text':"Sans autre note, la situation relève des règles d'inaptitude.",'evidence':[]}
+        self.assertTrue(conditional_extraction_errors([c], 'SHN avec un seul cycle : comment noter ?'))
+        self.assertFalse(conditional_extraction_errors([c], 'SHN avec inaptitude médicale : comment noter ?'))
+
+    def test_shn_source_distinguishes_cycle_grade_from_specialty_twenty(self):
+        text=Path('data/examens/audit_lot4_2026_10_13/shn_note_unique.txt').read_text()
+        self.assertIn('note réellement obtenue lors du cycle',text)
+        self.assertIn('sans conclure automatiquement que deux notes suffisent',text)
 
     def test_ipack_and_exam_calls_use_the_same_outer_usage_trace(self):
         tree = ast.parse(Path('app.py').read_text())

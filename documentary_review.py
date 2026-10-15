@@ -340,6 +340,10 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'cycle|\bccf\b', q)
+            and not re.search(r'ponctuel', q)
+            and re.search(r'examen ponctuel', t) and not re.search(r'\bccf\b', t)):
+        return True
     if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'bac ?pro|\bbcp\b|\bcap\b', t)
             and not re.search(r'\bshn\b|haut niveau', t)):
         return True
@@ -538,6 +542,11 @@ def conditional_extraction_errors(claims, question):
         asks_type = re.search(r'(?:demand|precis).{0,100}(?:total.{0,15}partiel|partiel.{0,15}total|caractere.{0,20}inapt)', text)
         if asks_type and re.search(r'inaptitudes? totales?|inaptitudes? partielles?', norm(question)):
             errors.append({'index': i, 'errors': ['caractère médical déjà précisé dans la question : demander uniquement les faits manquants']})
+        if (re.search(r'\bshn\b|haut niveau', norm(question))
+                and not re.search(r'inapt|medical|bless|certificat|dispens|\bdi\b', norm(question))
+                and re.search(r'releve des regles d.inaptitude|(?:doit|faut).{0,20}dispens|est inapte', text)
+                and not re.search(r'\bsi\b.{0,60}(?:inapt|medical|certificat)', text)):
+            errors.append({'index': i, 'errors': ['inaptitude médicale déduite du seul statut SHN ou d’un cycle suivi : antécédent non établi']})
     return errors
 
 

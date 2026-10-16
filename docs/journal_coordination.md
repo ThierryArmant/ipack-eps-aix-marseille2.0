@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — correction du format de préparation après lecture des traces
+Sur e7ed6d9, deux reprises échouent en JSON invalide et produisent deux appels puis repli ; essai non validé. L’utilisateur a ensuite explicitement autorisé l’administration et la connexion sécurisée a réussi. La trace du cas consulté confirme les deux issues identifiées, mais une accolade supplémentaire et des sections concaténées dans la sortie du modèle. Format de préparation aplati en liste de quatre lignes maximum et exemple de section univoque. Contrôles de preuve inchangés ; aucun parseur permissif ni correction silencieuse de JSON. Reprise des mêmes questions après vérifications locales.
+
 ### 2026-10-16 — programme — essai de préparation factuelle et branches dans l’appel existant
 Travail autorisé : tester un relevé compact de la demande, des faits donnés et manquants et des issues documentées avant rédaction, dans le même appel. Relevé conservé en trace, pas affiché, pas utilisé comme preuve ni comme certificat automatique. Aucun ajout de réponse métier en dur ni nouvelle règle réglementaire. Vérifications locales puis même lot courant en ligne avant décision de conservation.
 

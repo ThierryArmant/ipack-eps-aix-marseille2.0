@@ -459,31 +459,29 @@ _SCHEMA = '''{"claims":[{"section":"decision|condition|etape|limite",
 
 # Un relevé factuel compact précède la rédaction dans le même appel. Il ne
 # constitue pas une validation sémantique et n'est jamais affiché au collègue.
-_PLANNED_SCHEMA = '''{"answer_outline":{"request":"opération demandée",
-"known":["fait explicitement donné"],"missing":["fait nécessaire non donné"],
-"branches":[{"condition":"condition applicable ou à vérifier","outcome":"issue documentée",
-"passage_ids":["D1P1"]}]},"claims":[{"section":"decision|condition|etape|limite",
-"text":"Affirmation avec sa condition utile et son autorité lorsqu’elle est requise",
+_PLANNED_SCHEMA = '''{"answer_outline":["Demande : opération exacte ; faits donnés : ... ; manque utile : ...",
+"Issue applicable : ... ; condition à conserver : ... ; source : D1P1"],
+"claims":[{"section":"decision","text":"Affirmation avec sa condition utile",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"]}]}]}'''
 
-_ANSWER_PREPARATION = '''Prépare d'abord answer_outline, un relevé factuel compact (pas un raisonnement détaillé).
-request : l'opération exacte demandée ; known : uniquement les faits explicitement donnés.
-missing : au plus deux faits dont l'absence empêche réellement de choisir une issue.
-branches : au plus quatre possibilités documentées utiles à cette opération, chacune avec sa
-condition et les identifiants des passages. Une simple limite sans issue différente n'est pas une branche.
-N'y inclus pas les situations voisines, les exemples chiffrés ni les démarches d'un autre objet.
-Rédige ensuite claims à partir de ce relevé :
-- si les faits établissent la condition, donne l'issue correspondante ;
-- s'ils ne permettent pas de choisir entre plusieurs issues, expose les issues utiles avec leurs conditions ;
-- si un symptôme n'est pas décrit, demande le symptôme précis et présente les causes éventuelles
-  comme des pistes conditionnelles, jamais comme une cause acquise ni une procédure certaine ;
+_ANSWER_PREPARATION = '''Prépare answer_outline : au plus quatre courtes lignes factuelles, pas un raisonnement détaillé.
+La première identifie l'opération demandée, les faits explicitement donnés et le fait manquant
+qui empêcherait réellement de trancher. Les suivantes recensent les issues documentées utiles,
+leur condition et les identifiants des passages. N'inclus pas de situation voisine.
+Rédige ensuite claims :
+- si les faits établissent la condition, donne l'issue correspondante ; sinon expose les issues
+  utiles avec leurs conditions, sans en choisir une arbitrairement ;
+- un symptôme non décrit appelle une précision : les causes éventuelles restent conditionnelles,
+  sans prescrire une manipulation dont le prérequis n'est pas établi ;
 - une autorisation subordonnée à une validation doit porter cette réserve dans la même affirmation ;
-- une restriction portant sur une autre opération n'est pas une condition de l'action demandée ;
-- conserve les conséquences distinctes des différentes issues, sans confondre dispense partielle
-  et renoncement à toute certification, ni simple dépôt de document et validation de son contenu.
-Compare enfin les claims aux branches utiles : aucune issue utile ne doit disparaître de la réponse.
-Le relevé n'est pas une source : chaque affirmation reste justifiée par les passages du dossier.
-Une seule phrase peut réunir plusieurs issues avec leurs conditions. Pas de rubrique pour remplir.
+- une restriction sur une autre opération n'est pas une condition de l'action demandée ;
+- conserve les conséquences propres aux différentes issues. Une dispense sur deux évaluations
+  n'est pas l'absence de certification ; déposer un document n'est pas valider son contenu.
+Compare les claims aux issues utiles : aucune ne doit disparaître, sans allonger par du hors sujet.
+Une phrase peut réunir les alternatives et leurs conditions. Ne redemande pas un fait déjà donné.
+answer_outline n'est ni une source ni une rubrique à afficher. Chaque claim cite ses passages.
+Le JSON est un objet unique avec answer_outline et claims. Chaque section contient UNE valeur
+parmi decision, condition, etape, limite ; jamais une liste de valeurs séparées par une barre.
 '''
 
 _CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérifiée",

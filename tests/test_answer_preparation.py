@@ -1,8 +1,14 @@
 import unittest
-from documentary_review import mark_excerpt, review_exam_answer
+import json
+from documentary_review import mark_excerpt, review_exam_answer, _PLANNED_SCHEMA
 from test_documentary_review import FakeLLM
 
 class AnswerPreparationTests(unittest.TestCase):
+    def test_schema_example_is_valid_json_and_uses_a_single_section(self):
+        example=json.loads(_PLANNED_SCHEMA)
+        self.assertIsInstance(example['answer_outline'],list)
+        self.assertEqual(example['claims'][0]['section'],'decision')
+
     def test_outline_stays_in_audit_without_extra_call_or_public_leak(self):
         outline={'request':'choisir une procédure','known':[],'missing':['symptôme exact'],
                  'branches':[{'condition':'si le dossier est ouvert','outcome':'corriger la valeur','passage_ids':['D1P1']}]}

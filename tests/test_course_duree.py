@@ -13,7 +13,8 @@ class CourseDureeTests(unittest.TestCase):
 
     def test_structural_fields_do_not_prove_deposit_procedure(self):
         code=Path('app.py').read_text()
-        self.assertIn('il ne prouve ni la validité du protocole complet ni une procédure de dépôt',code)
+        self.assertNotIn('verdict_champs', code)
+        self.assertIn('classification des libellés officiels', code)
         self.assertNotIn("Ces activités sont toutes dans des champs DIFFÉRENTS : elles peuvent figurer ensemble",code)
 
 

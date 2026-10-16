@@ -1318,8 +1318,9 @@ def _version_deployee():
     except Exception:
         return ""
 _sha = _version_deployee()
-st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + modele_ia
-           + (" · version " + _sha if _sha else ""))
+if st.session_state.get("is_admin", False):
+    st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + modele_ia
+               + (" · version " + _sha if _sha else ""))
 
 if st.session_state.get("is_admin", False):
     if "alerte_veille_dec" in st.session_state:

@@ -1,8 +1,29 @@
-### [SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]
-- Mots-clés : rôle coordonnateur eps, texte coordonnateur, mission coordination eps, imp coordination apsa, décret coordonnateur.
-- Instruction et Réponse de référence : 
-Il n'existe pas un décret unique et récent portant un « statut » de coordonnateur EPS, mais un ensemble de textes historiques, réglementaires et indemnitaires qui encadrent cette mission au sein des EPLE :
-1. Le cadre historique fondateur : La circulaire n° 2833 EPS/3 du 5 décembre 1962 et la note de service n° 82-355 du 16 août 1982, qui posent les bases de la coordination de la discipline et la répartition des moyens.
-2. Le cadre indemnitaire (IMP) : La circulaire n° 2015-058 du 29 avril 2015 relative aux Indemnités pour Mission Particulière (IMP), qui formalise la mission de coordination des Activités Physiques, Sportives et Artistiques (APSA) et du projet d'EPS.
-3. La lettre de mission opérationnelle : Établie et signée par le chef d'établissement après consultation de l'équipe pédagogique d'EPS, elle précise les attributions locales confiées au coordonnateur (gestion du matériel, animation de l'équipe, interface avec l'IA-IPR et la direction, pilotage des dossiers iPackEPS).
-4. Droits iPackEPS : vérifier les habilitations et les consignes de l’éditeur pour l’action concernée. Ne pas citer une version « v2026.2.x » non documentée ni garantir que tous les enseignants peuvent effectuer chaque actualisation.
+### Coordination EPS : conditions et montant de l’IMP
+Nature de la source : texte national.
+Portée : établissements publics du second degré ; coordination EPS, distincte de la coordination UNSS.
+Révision documentaire : 16 octobre 2026.
+
+## Conditions et réponse
+La mission de coordination EPS est mise en place dès lors qu’au moins trois enseignants d’EPS exercent dans l’établissement et assurent ensemble au moins 50 heures de service hebdomadaire.
+Le taux annuel est de 1 250 euros brut. Il est porté à 2 500 euros brut si l’établissement compte plus de quatre enseignants d’EPS en équivalent temps plein (ETP).
+2 500 euros correspondent à deux unités au taux de 1 250 euros pour la mission, et non à deux indemnités pour chaque membre de l’équipe.
+Le nombre d’élèves n’est pas le critère de ce barème. Distinguer le nombre de personnes des ETP assurés dans cet établissement : temps partiels et services partagés peuvent modifier le décompte. Ne pas assimiler automatiquement des heures supplémentaires à des ETP supplémentaires.
+Si le nombre de personnes est fourni sans leurs quotités, donner le taux supérieur sous la condition explicite de dépasser quatre ETP ; demander le décompte seulement pour confirmer son application.
+
+## Passage officiel déterminant
+Circulaire n° 2015-058 du 29 avril 2015, II.2 :
+« Taux annuel de 2 500 € si l'établissement compte plus de quatre enseignants d'EPS (en équivalent temps plein). »
+La même section fixe le seuil de mise en place, le taux de 1 250 euros et décrit les missions : animation pédagogique, organisation des APSA et des emplois du temps, installations, projet EPS et certifications.
+
+## Attribution et démarches
+L’attribution est subordonnée à l’exercice effectif de la mission. Le chef d’établissement propose au recteur les décisions individuelles d’attribution ; le recteur les valide. Les modalités de mise en œuvre sont présentées au conseil d’administration après avis du conseil pédagogique.
+Les modalités de répartition d’une mission partagée doivent être distinguées du taux prévu pour la coordination. Ne pas annoncer un droit individuel automatique à chaque professeur.
+Pour vérifier le décompte et la notification : chef d’établissement puis service rectoral gestionnaire de la rémunération ; le service des examens n’est pas l’interlocuteur de principe.
+
+## Références officielles
+- Circulaire n° 2015-058 du 29 avril 2015, NOR MENH1506032C, BO n°18 du 30 avril 2015, II.2 (coordination EPS) et I (attribution).
+https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm
+- Décret n° 2015-475 du 27 avril 2015, articles 1 à 3 et 6 à 9 : cadre indemnitaire et attribution.
+https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533522
+- Arrêté du 27 avril 2015, NOR MENH1505025A, article 1 : taux annuels de l’IMP.
+https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533649

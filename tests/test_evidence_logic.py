@@ -43,6 +43,17 @@ class EvidenceLogicTests(unittest.TestCase):
                 self.assertFalse(evidence_logic_errors([claim(text,proof)]))
         self.assertTrue(evidence_logic_errors([claim('Deux opérateurs suffisent.',proof)]))
 
+    def test_modal_possibility_keeps_its_pending_authority_assessment(self):
+        proof = "Il n'existe pas de ratio général ; le responsable apprécie la configuration."
+        for authority in ('responsable du site', 'directeur', 'chef de service'):
+            with self.subTest(authority=authority):
+                self.assertFalse(evidence_logic_errors([claim(
+                    f"Deux opérateurs peuvent suffire, mais cela dépend de l'appréciation du {authority}.", proof)]))
+                self.assertTrue(evidence_logic_errors([claim(
+                    f"Deux opérateurs suffisent, mais cela dépend de l'appréciation du {authority}.", proof)]))
+        self.assertTrue(evidence_logic_errors([claim(
+            "Deux opérateurs peuvent suffire. Cela dépend de l'appréciation du responsable.", proof)]))
+
     def test_uncertain_source_is_not_a_direct_proof_of_sufficiency(self):
         c=claim('Deux opérateurs suffisent.',"Il n'existe pas de ratio général.")
         c['evidence'].append({'quote':"Il n'est pas possible de confirmer que deux opérateurs suffisent."})

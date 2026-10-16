@@ -45,6 +45,18 @@ _UNCERTAIN = re.compile(
 _CONDITIONAL = re.compile(r'\bsi\b|sous reserve|a condition|apres (?:appreciation|validation|verification)|sous (?:le controle|la responsabilite)|selon|(?:valide|confirme|apprecie).{0,25}par')
 
 
+def conditional_possibility(text):
+    """Une possibilité explicitement suspendue à une appréciation n'est pas un constat.
+
+    La réserve doit appartenir à la même phrase et la proposition principale doit
+    être modale. « Suffisent, mais vérifier » reste une conclusion catégorique.
+    """
+    sentence = re.split(r'[.;!?]', normalized(text), maxsplit=1)[0]
+    return bool(re.search(r'\b(?:peut|peuvent|pourrait|pourraient)\s+suffire\b', proposition_head(text))
+                and re.search(r'\b(?:mais|cependant|toutefois)\b.{0,35}(?:depend|reste a)', sentence)
+                and re.search(r'appreciation|validation|evaluation|decision', sentence))
+
+
 def _objects(text):
     """Seulement pour rapprocher deux propositions ; jamais pour prouver une règle."""
     ignored = set('avoir etre pour dans avec sans mais ceci cela cette doit sont peut peuvent pas aucun aucune besoin necessaire necessite obligation obligatoire requis requise selon depend depends alors vous votre leurs les des une est cas conditions condition'.split())
@@ -67,6 +79,7 @@ def evidence_logic_errors(claims):
                 errors.append({'index': i, 'errors': [
                     'absence de prescription universelle transformée en absence de nécessité dans ce cas : conserver la portée et les faits manquants']})
         if (_SUFFICIENT.search(head) and not _CONDITIONAL.search(head) and not _UNCERTAIN.search(head)
+                and not conditional_possibility(claim['text'])
                 and any(_NO_STANDARD.search(p) for p in proofs)):
             direct = any(_SUFFICIENT.search(proposition_head(p)) and not _NO_STANDARD.search(p) and not _UNCERTAIN.search(proposition_head(p))
                          for p in proofs)

@@ -286,6 +286,41 @@
           "academie": "Aix-Marseille"
         }
       ]
+    },
+    "data/ipack/courriels_aix_2026_10_14/courses_depot_groupes.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Situation documentée : à Aix-Marseille, des groupes présentent le 3 × 500 m et d'autres le 3 × 1 min 30. L'établissement dispose de deux FCA pour ces deux formats de demi-fond, mais d'une seule entrée certificative « Courses » dans iPackEPS.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Dépôt : dans ce cas, l'assistance d'Aix-Marseille préconise de réunir les deux FCA dans un même document PDF et de le redéposer sous l'entrée certificative « Courses », à la place de l'ancien fichier ne contenant que le 3 × 500 m.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Objet : cette procédure concerne le fichier de l'établissement pour des groupes différents.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026",
+          "academie": "Aix-Marseille"
+        }
+      ]
     }
   }
 }

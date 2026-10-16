@@ -62,6 +62,29 @@ def _literal(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 
+def bind_faq_context(spans, body):
+    """Une réponse numérotée conserve les faits de sa question source.
+
+    Fusion exacte de voisins de même portée uniquement ; aucune condition inférée.
+    """
+    out=[]
+    i=0
+    while i < len(spans):
+        span=spans[i]
+        q=re.match(r"^\s*(?:[-*]\s*)?Q(\d+)\s*:", span['text'], re.I)
+        following=spans[i+1] if i+1 < len(spans) else None
+        r=re.match(r"^\s*(?:[-*]\s*)?R(\d+)\s*:", following['text'], re.I) if following else None
+        if (q and r and q.group(1)==r.group(1)
+                and span.get('scope')==following.get('scope')
+                and not body[span['end']:following['start']].strip()):
+            out.append({**span,'text':body[span['start']:following['end']], 'end':following['end']})
+            i+=2
+        else:
+            out.append(span)
+            i+=1
+    return out
+
+
 def source_packets(context):
     """Toutes les données effectivement disponibles, sans suppression silencieuse."""
     matches = list(_MARKER.finditer(context))
@@ -108,6 +131,8 @@ def source_packets(context):
         scoped = scoped_segments(identity.get('path', ''), body)
         if scoped is not None:
             passages = [{'id': document_id + 'P' + str(i + 1), **span} for i, span in enumerate(scoped)]
+        passages = bind_faq_context(passages, body)
+        passages = [{**span, 'id': document_id + 'P' + str(i+1)} for i, span in enumerate(passages)]
         # Affichage conservateur pour les fiches non annotées. Une fiche mixte reste documentaire.
         display_level = 'documentaire'
         if original_regulatory:
@@ -646,6 +671,10 @@ Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'applicatio
 Un acteur générique reste le service des examens de l'académie ; ne le rebaptise pas DIEC hors Aix.
 Une possibilité réglementaire ne prouve pas une possibilité technique du logiciel.
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.
+Dans une FAQ, la réponse s'applique aux faits de sa question source : si ces faits ne sont pas
+établis pour l'utilisateur, conserve-les comme conditions et demande le symptôme manquant.
+Pour chaque issue pertinente, conserve sa conséquence propre et son autorité ; ne mélange
+pas les démarches de deux branches et ne répète pas la décision dans une rubrique vide.
 Les instructions de rédaction des fiches ne sont jamais des conseils à publier pour le collègue.
 Les chiffres d'un exemple de fiche ne sont pas les notes du candidat : conserver « la note obtenue » si sa valeur n'est pas fournie.
 Si la demande décrit une attente de validation, répondre au suivi d'une transmission déjà effectuée ; ne pas réduire la réponse à l'envoi initial.

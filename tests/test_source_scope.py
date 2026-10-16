@@ -25,7 +25,7 @@ def supported(span,level='reglementaire'):
 class SourceScopeTests(unittest.TestCase):
     def test_registry_is_the_one_supplied_with_all_fiches(self):
         registry=json.loads(Path('config/nature_sources.json').read_text())['fichiers']
-        self.assertEqual(len(registry),490)
+        self.assertEqual(len(registry),491)
         self.assertEqual(annotations(FRAUD),registry[FRAUD])
 
     def test_mixed_fraud_is_never_relabelled_as_only_national_by_model(self):

@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme et fiches — prérequis de FAQ et séparation des opérations
+Après reprise complète de c42b4d0 : exclusion du résumé confirmée dans la trace SHN, réponse plus prudente et un seul appel. Deux défauts persistants : mélange des objets dépôt/certification et utilisation de réponses de FAQ sans préserver les symptômes de leur question. Essai générique : fusion exacte des paires Qn/Rn adjacentes de même portée, sans inférence ni changement du texte ; instruction de conserver ces prérequis et les conséquences des issues. Côté fiches, séparation du dépôt de deux formats pour des groupes différents de la question de l’ensemble individuel ; source d’assistance existante conservée, aucune règle nouvelle. Créteil n’a toujours pas pu être lu à distance ; aucune prétention de revalidation des tutoriels. Contrôles puis reprises réelles avant bilan.
+
 ### 2026-10-16 — programme — essai de contexte spécifique sans résumé générique
 Le format préparatoire simplifié sur 6f4d97d a été essayé sur quatre formulations : une réponse correcte, une réponse mêlant les saisies de deux branches, SHN encore trop affirmatif et diagnostic AFLP présumé. Il n’est pas retenu ; pas de prétention à une reprise complète de douze sur cette version. Retour au format initial. La trace administrateur montre que les résumés de règles du programme restent injectés avec les fiches prioritaires et peuvent abréger leurs conditions ; nouvelle comparaison isolée : retirer le bloc « REPÈRES DOCUMENTAIRES PAR EXAMEN » lorsque des documents spécifiques de priorité au moins 300 sont présents. Les véritables faits calculés restent transmis ; les repères restent disponibles aux recherches sans fiche spécifique. Aucun changement réglementaire ni réponse en dur.
 

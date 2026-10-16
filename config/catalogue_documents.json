@@ -12,13 +12,13 @@
       "examens"
     ],
     "motifs": [
-      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))"
     ],
     "exclure_motifs": [
       "course (?:en|de) duree"
     ],
     "exclusif_motifs": [
-      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))"
     ]
   },
   "data/examens/situations_2026_10_13/imagin_mission_epscc_cfa.txt": {
@@ -5550,6 +5550,29 @@
     "exclure_motifs": [
       "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))",
       "(?=.*(?:inapt|dispens|\\bdi\\b|ponctuel))"
+    ]
+  },
+  "data/ipack/courriels_aix_2026_10_14/courses_depot_groupes.txt": {
+    "title": "Courses — Déposer deux FCA de demi-fond pour des groupes différents",
+    "statut": "source_assistance_existante_structuree_2026_10_16",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
+    ],
+    "exclure_motifs": [
+      "course (?:en|de) duree",
+      "(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
     ]
   }
 }

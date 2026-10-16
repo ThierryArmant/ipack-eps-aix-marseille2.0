@@ -5298,6 +5298,19 @@
    "autres_academies_citees": [],
    "portee_texte": "National, bac GT, CCF.",
    "titre": "Bac GT, CCF — SHN : un seul cycle suivi, quelles notes sont disponibles ?"
+  },
+  "data/ipack/courriels_aix_2026_10_14/courses_depot_groupes.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Retour d’assistance iPackEPS Aix-Marseille pour le dépôt de deux formats de demi-fond.",
+   "titre": "Courses — Déposer deux FCA de demi-fond pour des groupes différents",
+   "type_source": "courriel_assistance",
+   "source_reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026"
   }
  }
 }

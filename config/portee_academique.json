@@ -1078,6 +1078,18 @@
     }
    ]
   },
+  "data/ipack/courriels_aix_2026_10_14/courses_depot_groupes.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Courses — Déposer deux FCA de demi-fond pour des groupes différents",
+     "lignes": [
+      "Situation documentée : à Aix-Marseille, des groupes présentent le 3 × 500 m et d'autres le 3 × 1 min 30. L'établissement dispose de deux FCA pour ces deux formats de demi-fond, mais d'une seule entrée certificative « Courses » dans iPackEPS.",
+      "Dépôt : dans ce cas, l'assistance d'Aix-Marseille préconise de réunir les deux FCA dans un même document PDF et de le redéposer sous l'entrée certificative « Courses », à la place de l'ancien fichier ne contenant que le 3 × 500 m."
+     ]
+    }
+   ]
+  },
   "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt": {
    "academie": "aix-marseille",
    "sections": [

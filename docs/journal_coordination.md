@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — clarification par une nouvelle question complète
+Fait : remplacement de la référence à une zone de précision absente par une invitation à poser une nouvelle question complète dans la zone habituelle, avec la demande initiale et l'objectif précisé. Aucun champ supplémentaire, aucun mécanisme de cache ajouté. Le circuit actuel efface l'ancien échange à chaque soumission et app.py n'appelle pas le cache de réponses importé. Le cache des ressources documentaires reste distinct.
+Constaté : compilation et contrôle du texte réussis. Cette modification de formulation n'est pas une correction démontrée des erreurs de restitution sur les autres sujets. Reprises en ligne demandées par l'utilisateur en cours.
+Attendu : vérifier l'affichage de la nouvelle consigne et comparer les cas connus sans annoncer de gain global sur cette seule modification.
+
 ### 2026-10-16 — programme — résultat de la comparaison du budget documentaire
 Constaté : la lecture du code et l'exécution locale du routage sur douze formulations montrent dix sélections ramenées aux seules fiches spécifiques (dont deux arrêts exclusifs avant recherche vectorielle). Augmenter les documents complémentaires de priorité nulle ne change pas ces sélections. Les retrievers locaux étaient instrumentés et simulés ; aucun résultat de génération n'en est déduit.
 Deux reprises réelles sur e3aaf9e, comparées aux mêmes formulations sur 20a2f8c, avec le même modèle, les mêmes fiches et les mêmes consignes. Budget de candidats et plafond global 10 vers 20 ; autres plafonds par base inchangés. Saisie bloquée : source plus ciblée et cause moins catégorique, mais manipulation encore prescrite sans symptôme identifié ; réponse non validée. Entrée 12531 vers 21821 jetons (+74 %), un appel dans les deux cas. Formulation ambiguë de champ : clarification affichée inchangée par le verdict existant, un appel et 12322 jetons d'entrée avant, deux appels et 39099 jetons cumulés après. Cet affichage ne prouve pas la qualité de la rédaction du modèle, car il est remplacé par le programme.

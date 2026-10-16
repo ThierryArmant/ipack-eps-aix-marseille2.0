@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — comparaison temporaire du budget documentaire
+Fait : budget de recherche et plafond documentaire portés de 10 à 20 pour une reprise comparative ciblée. Modèle, consignes, fiches, priorités et filtres conservés. Les autres plafonds par base restent identiques. Cette version est expérimentale et doit être retirée après la comparaison.
+Constaté : vérification locale du circuit sur douze formulations : deux arrêts exclusifs avant recherche complémentaire, huit autres sélections réduites aux fiches de priorité au moins 300 après recherche. Aucun résultat de génération déduit des retrievers simulés. Les deux autres formulations seules peuvent recevoir davantage de documents de recherche.
+Attendu : comparer les réponses concernées, distinguer plafond et nombre réellement retenu ; rétablir le budget initial après l'essai. Aucun contenu privé de test publié.
+
 ### 2026-10-16 — partie programme — rétablissement intégral du code mesuré bf588d1
 Constaté : après retrait du contrat expérimental, la question ambiguë de champ reçoit une décision fausse et une procédure voisine. La suppression du verdict postérieur au contrôle, conservée dans 4013c49, retire un garde-fou existant sans le remplacer efficacement. Ce second essai ne constitue donc pas une amélioration ; aucune réussite globale n'est annoncée.
 Fait : code et tests rétablis à bf588d1, suppression du module expérimental et de ses tests. Seul le présent historique de coordination diffère de la version précédente. Aucun nouveau cas ou réponse en dur n'est ajouté. Les limites connues de bf588d1 restent à corriger.

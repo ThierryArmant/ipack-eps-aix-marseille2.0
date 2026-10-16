@@ -749,7 +749,8 @@
     ],
     "exclure_motifs": [
       "shn|haut niveau|specialite sportive"
-    ]
+    ],
+    "priorite": 320
   },
   "data/textes/complement_obligations_service_eps.txt": {
     "title": "complement obligations service eps",

@@ -338,3 +338,12 @@ Fait : contrôle lexical des passages sans ratio (au moins 2 racines communes) ;
 
 ### 2026-10-13 15:28 — partie fiches — commits 48dc513, 61bc1f2
 Fait : trois fiches de situation en priorité 300 dans `data/examens/situations_2026_10_13/` (absence en CAP, bac pro inapte avec deux notes, établissement hors SIECLE) ; exclusion « deux notes » sur la fiche bac pro « une seule évaluation » ; registre des natures à 447 fiches (retouche du compte dans `tests/test_source_scope.py`).
+
+## 16 octobre 2026 — Tri documentaire après essais réglementaires
+
+- Séparation de l'encadrement général du second degré et de l'exception des groupes mixtes élémentaire-collège. Suppression de l'ancienne réponse directe chiffrée : les fiches fournissent désormais règles et conditions à analyser.
+- Extraction des moyens d'alerte APPN hors de la fiche égalité ; nouvelle fiche dédiée avec protocole VTT Éduscol et circulaire 2017-075.
+- Cadre de l'escalade au-delà du premier relais séparé des contrôles SAE/moulinette. Les contrôles et le rapport d'accident conservent un rang documentaire permettant leur lecture conjointe.
+- Compléments sourcés sur recours PPCR et intervenant EPS bénévole à l'école ; identification du véhicule personnel exceptionnel.
+- Un niveau primaire explicite n'est plus remplacé par le collège où travaille un adulte cité dans la question. L'onglet Textes ne porte plus le bandeau LSU sur ces demandes.
+- Aucun texte de réponse métier ajouté en dur ; restriction UNSS inchangée. Questions et réponses d'essai conservées hors dépôt. Les tests locaux ne constituent pas une validation des réponses générées ; comparaison en ligne à effectuer après publication.

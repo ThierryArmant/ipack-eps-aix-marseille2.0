@@ -4687,7 +4687,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]"
+   "titre": "Égalité filles-garçons : missions du service public"
   },
   "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt": {
    "nature": [
@@ -4697,7 +4697,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE]"
+   "titre": "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties"
   },
   "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
    "nature": [
@@ -4937,7 +4937,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "sorties encadrement 2024"
+   "titre": "Sorties au second degré : autorisation et encadrement général"
   },
   "data/ipack/courriels_aix_2026_10_13/classe_apprentis_absente.txt": {
    "nature": [
@@ -5371,6 +5371,46 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Usage pédagogique d’un système automatisé : données et évaluation"
+  },
+  "data/textes/fiches/sorties_mixte_cycle3_encadrement.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Sortie commune CM2–6e : exception du groupe mixte cycle 3"
+  },
+  "data/textes/fiches/appn_moyens_alerte_milieu_isole.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "APPN en milieu isolé : moyens d’alerte et organisation des secours"
+  },
+  "data/textes/fiches/escalade_relais_environnement_specifique.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Escalade au-delà du premier relais : environnement spécifique et cadre du projet"
+  },
+  "data/textes/fiches/intervenants_eps_ecole_agrement_reputation.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation"
   }
  }
 }

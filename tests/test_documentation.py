@@ -224,7 +224,7 @@ class DocumentationTests(unittest.TestCase):
     def test_mixed_cycle3_keeps_both_levels(self):
         text, _, _, _ = self.route('24 CM2 et 28 élèves de 6e, course orientation dans un parc public : encadrement ?', '1er degré', 'textes')
         self.assertIn('cycle 3', text)
-        self.assertIn('quatre adultes', text)
+        self.assertIn('tranche de quinze', text)
         self.assertIn('exclut les activités physiques', text)
 
     def test_climbing_final_teacher_check(self):

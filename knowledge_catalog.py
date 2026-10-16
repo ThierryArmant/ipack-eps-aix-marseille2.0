@@ -294,7 +294,14 @@ def effective_context(question, public, mode):
     gt = bool(re.search(r"\bbac(?:calaureat)?\s+(?:gt|general|technologique)|\b(?:seconde|premiere|terminale)\b", q))
     college = bool(re.search(r"\bdnb\b|\bbrevet\b|\bcollege\b|"
                              r"(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
-    if sum((pro, gt, college)) == 1:
+    primaire = bool(re.search(r"\b(?:cp|ce[12]|cm[12])\b|premier degre|elementaire|maternelle|ecole primaire", q))
+    # Le lieu de travail d'un adulte ne définit pas le public des élèves.
+    secondaire_explicit = bool(re.search(r"\bdnb\b|\bbrevet\b|(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
+    if primaire and not secondaire_explicit:
+        college = False
+    if primaire and not any((pro, gt, college)):
+        public = '1er degré'
+    elif sum((pro, gt, college)) == 1 and not primaire:
         public = 'Lycée Pro / CAP' if pro else 'Lycée Général & Techno' if gt else 'Collège (DNB)'
     # Une question sur iPackEPS lui-même (version, interfaçage) reste dans iPackEPS même si elle cite Cyclades.
     if mode == 'ipack' and re.search(r"\bcyclades\b|\bsantorin\b", q) and not re.search(r"\bipack", q):
@@ -319,13 +326,15 @@ def priority_context(question, public, mode):
         targets.add('pro')
     if re.search(r'\bcap\b', q):
         targets.add('cap')
-    if re.search(r"\b(dnb|brevet|college|collegiens?)\b", q):
+    if niveau == '1er degré':
+        targets.add('primaire')
+    elif re.search(r"\b(dnb|brevet|college|collegiens?)\b", q):
         targets.add('dnb')
     if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", q):
         targets.add('gt')
     if not targets:
         targets = {'Collège (DNB)': {'dnb'}, 'Lycée Général & Techno': {'gt'},
-                   'Lycée Pro / CAP': {'pro', 'cap'}}.get(niveau, set())
+                   'Lycée Pro / CAP': {'pro', 'cap'}, '1er degré': {'primaire'}}.get(niveau, set())
     texts = []
     for path, md in reference_notice(targets, question, niveau):
         if md.get('modes') and mode not in md['modes']:

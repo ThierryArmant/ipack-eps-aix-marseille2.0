@@ -1,0 +1,8 @@
+### Sortie commune école-collège au cycle 3
+[PORTEE: primaire,dnb]
+Champ : sortie sans nuitée associant effectivement élèves d'élémentaire et collégiens du cycle 3. Ne pas appliquer ce régime à un groupe uniquement collégien.
+Hors activités physiques et sportives : deux adultes, dont au moins un enseignant, jusqu'à trente élèves ; au-delà, un adulte supplémentaire par tranche de quinze élèves. Le tableau exclut les activités physiques et sportives : vérifier les règles EPS et les exigences propres à l'activité, sans conclure que ce barème suffit à l'autoriser.
+Le directeur autorise la participation de l'école ; le chef d'établissement celle du collège. L'exception de proximité et demi-journée de l'élémentaire ne se transpose pas automatiquement au groupe mixte.
+Sources : circulaire du 16 juillet 2024, annexe ; guides Éduscol décembre 2025, fiches 2 et 4.
+https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf

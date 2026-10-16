@@ -1919,18 +1919,18 @@ if prompt_a_traiter:
                 # une question sur le bac pro : 3 épreuves). On écarte donc ici les réponses qui visent un autre examen que
                 # celui de la question (ou, à défaut, que celui du public sélectionné).
                 _cibles = set()
-                if re.search(r"\bcm[12]\b|premier degre|elementaire|maternelle|ecole primaire", p_norm):
+                if re.search(r"\b(?:cp|ce[12]|cm[12])\b|premier degre|elementaire|maternelle|ecole primaire", p_norm):
                     _cibles.add("primaire")
                 if re.search(r"\bbac(calaureat)?s? ?pro\b|baccalaureat professionnel|\bbacs? professionnels?\b|\bbcp\b", p_norm):
                     _cibles.add("pro")
                 if re.search(r"\bcap\b", p_norm):
                     _cibles.add("cap")
-                if re.search(r"\b(dnb|brevet|college|collegiens?)\b|(eleves? de|classes? de|mes|nos|les) (sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", p_norm) or (est_college and not est_clairement_lycee):
+                if niveau_actuel_form != "1er degré" and (re.search(r"\b(dnb|brevet|college|collegiens?)\b|(eleves? de|classes? de|mes|nos|les) (sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", p_norm) or (est_college and not est_clairement_lycee)):
                     _cibles.add("dnb")
                 if re.search(r"bac(calaureat)? ?(general|techno|gt)\b|\blgt\b|voie (generale|techno)", p_norm):
                     _cibles.add("gt")
                 if not _cibles:
-                    _cibles = {"Collège (DNB)": {"dnb"}, "Lycée Général & Techno": {"gt"}, "Lycée Pro / CAP": {"pro", "cap"}}.get(niveau_actuel_form, set())
+                    _cibles = {"Collège (DNB)": {"dnb"}, "Lycée Général & Techno": {"gt"}, "Lycée Pro / CAP": {"pro", "cap"}, "1er degré": {"primaire"}}.get(niveau_actuel_form, set())
 
                 def _autre_examen(txt):
                     """Vrai si le passage ne contient que des réponses destinées à d'autres examens que celui visé."""
@@ -2483,7 +2483,7 @@ if prompt_a_traiter:
                 sources_consultees = []
 
             if besoin_ia:
-                if contexte_actif == "college":
+                if contexte_actif == "college" and mode != "textes":
                     badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
                 elif mode == "examens":
                     badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
@@ -2497,7 +2497,7 @@ if prompt_a_traiter:
                     3. ⚖️ SPÉCIFICITÉ ONGLET TEXTES, SÉCURITÉ ET PÉDAGOGIE :
                         - 🧠 ARBITRAGE D'INTENTION (TRÈS IMPORTANT) :
                             * 📚 SI la question est PÉDAGOGIQUE (comment enseigner, barèmes, situations, programmes, gestion de classe) : Réponds EN TANT QU'EXPERT PÉDAGOGIQUE. Donne des conseils concrets de terrain, des repères didactiques, des exemples d'exercices ou d'AFL. Ne parle PAS de textes juridiques ou d'accidents si ce n'est pas le sujet.
-                            * ⚖️ SI la question est JURIDIQUE ou SÉCURITAIRE (Accident, APPN, litige) : La réponse s'ouvre sur le double rappel protecteur (obligation de moyens renforcée, art. L. 911-4).
+                            * ⚖️ SI la question est JURIDIQUE ou SÉCURITAIRE (Accident, APPN, litige) : Traite d'abord la situation demandée. N'ajoute les régimes de responsabilité et l'art. L. 911-4 que si la question les appelle et si les passages transmis les étayent.
                             * 👔 SI la question concerne la CARRIÈRE (Inspection, note) : Applique le droit de la fonction publique, sans mentionner l'art. L. 911-4.
                         - OBLIGATIONS ET CONSEILS : respecter le caractère impératif ou recommandé des sources. Un enseignant requis ne devient pas une simple recommandation ; casque/gilet ont des conditions routières précises. Distinguer déplacement à vélo et pratique sportive de VTT avant d'appliquer un protocole APPN.
                         - DOCTRINE APPN : appliquer les exigences de sécurité de l'activité et le protocole académique. Un registre EPI concerne les équipements qui y sont soumis, pas toute activité de pleine nature. Ne pas inventer un taux national du second degré.

@@ -1,0 +1,9 @@
+### APPN en milieu isolé : moyens d'alerte
+[PORTEE: dnb,gt,pro,cap]
+Préparer les moyens de communication, les contacts d'urgence et l'organisation des secours en fonction du site, de l'itinéraire et de la couverture réellement disponible. Le protocole VTT prévoit notamment communication entre encadrants et trousse de secours.
+Un téléphone mobile sans réseau ne suffit pas à démontrer que l'alerte est possible. Vérifier les prescriptions académiques et les contraintes du site ; adapter ou renoncer si le dispositif de sécurité n'est pas assuré.
+Les références ci-dessous ne prescrivent pas universellement un téléphone satellite : cela ne dispense pas de moyens adaptés au terrain ni d'une exigence locale plus précise. Téléphone satellite, balise ou radio ne sont pas des garanties automatiques ; vérifier fonctionnement et intégration au dispositif.
+Pour une réponse sur le matériel nécessaire, préciser itinéraire, isolement, couverture et protocole applicable si ces faits manquent.
+Sources : circulaire 2017-075 du 19 avril 2017, II et III ; protocole VTT Éduscol, p. 1 à 3.
+https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm
+https://eduscol.education.gouv.fr/media/100683/download?attachment=

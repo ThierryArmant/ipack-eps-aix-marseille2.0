@@ -2,7 +2,6 @@
 - Avant d'autoriser chaque départ, les contrôles mutuels entre élèves sont suivis du contrôle final visuel et tactile du professeur sur l'encordement et du contrôle du système d'assurage. Une simple surveillance à distance ne suffit pas.
 - La pratique en moulinette doit comporter un dispositif empêchant le retour au sol, contrôlé par l'enseignant.
 - Le professeur adapte le nombre d'élèves simultanément actifs à la structure, à ses possibilités de contrôle et aux caractéristiques des élèves. Un binôme ou un trinôme ne constitue pas à lui seul une garantie de sécurité ; une leçon effectuée ne permet pas de conclure automatiquement à l'autonomie.
-- Pour 28 débutants, demander la configuration des voies, les dispositifs, les compétences réellement acquises et le protocole académique ; ne pas autoriser un fonctionnement que l'enseignant ne peut contrôler.
 Source nationale : circulaire 2017-075 du 19 avril 2017, NOR MENE1711773C, annexe escalade.
 https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm
 Recoupements : Éduscol, pratique de l'escalade ; protocole Rennes novembre 2017 (illustration académique, pas règle nationale supplémentaire).
@@ -14,4 +13,4 @@ Le professeur contrôle visuellement les supports et s'assure du contrôle péri
 Double nœud de huit au pontet avec nœud d'arrêt ; contrôle ultime du professeur après mise en tension de la chaîne d'assurage.
 Différentiel supérieur à 10 kg : le document prévoit une vrille par 10 kg en MOULINETTE. Ne pas transposer cette technique à la grimpe en tête. En tête, sans matériel adapté type OHM aux premiers points, l'élève le plus lourd ne grimpe pas. Respecter aussi le protocole académique et les préconisations fabricant ; ce document ne remplace pas une formation pratique.
 Site naturel : validation de l'espace par le chef, connaissance et repérage préalable du secteur par l'enseignant.
-https://eduscol.education.fr/document/50600/download
+https://eduscol.education.gouv.fr/media/100674/download?attachment=

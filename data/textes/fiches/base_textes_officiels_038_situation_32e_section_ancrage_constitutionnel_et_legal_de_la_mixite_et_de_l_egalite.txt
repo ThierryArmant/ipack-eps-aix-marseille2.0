@@ -1,21 +1,6 @@
 ### [SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]
 * LE PRINCIPE SUPÉRIEUR D'ÉGALITÉ (PREAMBULE DE LA CONSTITUTION DE 1946) : La loi garantit à la femme, dans tous les domaines, des droits égaux à ceux de l'homme. Ce principe constitutionnel s'impose de plein droit à l'ensemble des services publics de l'Éducation nationale et surclasse toute disposition locale.
 * MISSION PREMIÈRE DE MIXITÉ ET D'ÉGALITÉ (ART. L. 121-1 DU CODE DE L'ÉDUCATION) : Les écoles, les collèges, les lycées et les établissements d'enseignement supérieur contribuent à favoriser la mixité et l'égalité entre les hommes et les femmes, notamment en matière d'orientation. Ils assurent une formation à la vigilance contre les stéréotypes de genre et les violences sexistes.
-* L'OBLIGATION DE MIXITÉ DES CLASSES (ART. L. 311-2 DU CODE DE L'ÉDUCATION) : Les enseignements sont dispensés dans des classes mixtes, sous réserve de dérogations temporaires et motivées par des considérations pédagogiques spécifiques liées à l'organisation de certaines activités. L'organisation d'un enseignement séparé par genre de manière permanente est constitutive d'une illégalité administrative.
 * CADRE STRATÉGIQUE NATIONAL (CONVENTION INTERMINISTÉRIELLE POUR L'ÉGALITÉ) : Texte cadre pluriannuel engageant l'autorité publique à déployer une culture de l'égalité, à assurer une orientation scolaire moins genrée, et à prévenir les violences sexistes et sexuelles. Il impose l'intégration d'objectifs de parité et d'égal accès aux responsabilités au sein des instances du sport scolaire (UNSS / Association Sportive).
-======================================================================
-SÉCURITÉ APPN : OBLIGATION DE MOYENS DE SECOURS & ZONES BLANCHES
-======================================================================
-
-[SECTION: MOYENS_ALERTE_ZONE_BLANCHE_MILIEU_ISOLE]
-Mots-clés : telephone satellite, zone blanche course orientation, milieu hostile, secours isolement, balise inReach, secours montagne, alerte secours APPN.
-
-- Préparer un moyen d’alerte et une organisation des secours adaptés au site, à la couverture et au protocole académique. Une zone blanche impose de vérifier concrètement comment déclencher l’alerte ; renoncer ou adapter si la sécurité ne peut être garantie.
-- Ne pas présenter un téléphone satellite, une balise ou un canal radio comme une obligation nationale universelle ou une garantie de secours. Le matériel choisi doit être utilisable dans le site et intégré au dispositif de secours.
-- La circulaire 2017-116 concerne l’encadrement des écoles maternelles et élémentaires publiques ; elle ne constitue pas une prescription générale de téléphonie au collège ou au lycée.
-- L’article 121-3 du Code pénal ne qualifie pas automatiquement une sortie sans satellite de faute délibérée. La qualification juridique dépend des faits ; voir la fiche sur la responsabilité civile et pénale.
-Sources : https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm ; https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm ; https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208
-================================================================================
-RÉFÉRENTIEL JURIDIQUE & PROTOCOLE : TRANSPORT ET DÉPLACEMENT D'ÉLÈVES EN EPS ET SORTIES SCOLAIRES
-================================================================================
-
+Référence nationale : Code de l’éducation, article L. 121-1. Ressource ministérielle sur égalité filles-garçons et prévention des violences sexistes :
+https://eduscol.education.gouv.fr/6141/egalite-filles-garcons-et-prevention-des-violences-sexistes-et-sexuelles

@@ -53,7 +53,7 @@ class Audit355Tests(unittest.TestCase):
 
     def test_mixed_cycle3_answer_keeps_the_activity_exclusion(self):
         answer = self.answer('Sortie orientation 24 CM2 et 28 élèves de sixième dans un parc : encadrement ?', '1er degré', 'textes')
-        self.assertIn('quatre adultes', answer)
+        self.assertIn('tranche de quinze', answer)
         self.assertIn('exclut les activités physiques', answer)
         self.assertIn('directeur', answer)
         self.assertIn("chef d'établissement", answer)

@@ -770,13 +770,17 @@
     "examens": []
   },
   "data/textes/escalade_controles_securite.txt": {
-    "title": "escalade controles securite",
+    "title": "Escalade SAE et moulinette : contrôles du professeur",
     "statut": "verifie_2026-10-10",
     "examens": [],
     "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
     "prioritaire": true,
     "motifs": [
       "escalad|moulinette|assurage|encord"
+    ],
+    "priorite": 320,
+    "modes": [
+      "textes"
     ]
   },
   "data/textes/partenariats_defense_citoyennete.txt": {
@@ -792,22 +796,27 @@
     ]
   },
   "data/textes/sorties_encadrement_2024.txt": {
-    "title": "sorties encadrement 2024",
-    "statut": "verifie_2026-10-10",
-    "examens": [],
+    "title": "Sorties au second degré : autorisation et encadrement général",
+    "statut": "sources_officielles_relues_2026-10-16",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
     "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
     "prioritaire": true,
     "motifs": [
-      "sortie|voyage|cm2.*6e|orientation"
+      "sortie|voyage|encadr"
     ],
-    "priorite": 95,
-    "reponse_directe_motifs": [
-      "(?=.*cm2)(?=.*(?:sixiem|6e))"
-    ],
-    "reponse_directe": "Pour une sortie commune sans nuitée réunissant des élèves d'élémentaire et de collège au cycle 3, le taux général est appliqué au groupe mixte entier : deux adultes dont au moins un enseignant jusqu'à 30 élèves, puis un adulte supplémentaire par tranche de 15 élèves. Pour 52 élèves, cela donne quatre adultes. Ce barème exclut les activités physiques et sportives : il ne suffit donc pas à valider une sortie d'orientation. Il faut vérifier les règles EPS et le protocole académique, le lieu, les déplacements, l'organisation de la surveillance et les rôles des adultes. Le directeur autorise la participation de l'école, le chef d'établissement celle du collège. Précisez ces conditions pour établir l'encadrement de l'activité. Référence : circulaire MENE2407159C du 16 juillet 2024 et guides Éduscol, fiche 4.",
+    "priorite": 310,
     "exclure_motifs": [
       "fraud|trich|copi\\w* sur|\\bccf\\b|examen|baccalaur|santorin|cyclades|epreuve"
-    ]
+    ],
+    "modes": [
+      "textes"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/peda/base_pedagogique_edubase.txt": {
     "title": "base pedagogique edubase",
@@ -2473,16 +2482,26 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt": {
-    "title": "[SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]",
+    "title": "Égalité filles-garçons : missions du service public",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "url": "https://eduscol.education.gouv.fr/6141/egalite-filles-garcons-et-prevention-des-violences-sexistes-et-sexuelles"
   },
   "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt": {
-    "title": "[SITUATION: CADRE JURIDIQUE & TEXTES OFFICIELS DE RÉFÉRENCE]",
+    "title": "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties",
     "statut": "revu_2026-10-10_recoupement_sources",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "url": "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?:voiture|vehicule).*(?:perso|prive)|transport.*(?:eleves|enfants)"
+    ]
   },
   "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
     "title": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]",
@@ -2543,7 +2562,8 @@
     "motifs": [
       "ppcr|rendez.vous.*carriere|appreciation.*(finale|recours)|contester.*(avis|inspection)"
     ],
-    "date_verification": "2026-10-16"
+    "date_verification": "2026-10-16",
+    "url": "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006063298"
   },
   "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
     "title": "Promotions : hors-classe et classe exceptionnelle, corps EPS et agrégés",
@@ -3817,7 +3837,8 @@
       "sortie|voyage|aesh.*encadr|encadr.*aesh"
     ],
     "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "priorite": 320
   },
   "data/textes/fiches/accident_eleve_rapport_parents_2009.txt": {
     "title": "Accident scolaire : rapport et communication aux parents",
@@ -3835,10 +3856,11 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "accident.*(?:rapport|parent|declar|temoin|conserv)|rapport.*accident"
+      "accident|chute|blesse"
     ],
     "url": "https://www.education.gouv.fr/bo/2009/43/mene0915926c.html",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "priorite": 310
   },
   "data/commun/audit355/as_remplacement_forfait.txt": {
     "title": "AS : remplacement du forfait par des heures d’enseignement",
@@ -5835,5 +5857,80 @@
       "\\bia\\b|intelligence artificielle|outil.*automat|detect.*fraude|not.*automati"
     ],
     "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/sorties_mixte_cycle3_encadrement.txt": {
+    "title": "Sortie commune CM2–6e : exception du groupe mixte cycle 3",
+    "statut": "sources_officielles_relues_2026-10-16",
+    "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*(?:cm[12]|elementaire))(?=.*(?:6e|sixiem|college))"
+    ],
+    "date_verification": "2026-10-16",
+    "examens": [
+      "primaire",
+      "dnb"
+    ]
+  },
+  "data/textes/fiches/appn_moyens_alerte_milieu_isole.txt": {
+    "title": "APPN en milieu isolé : moyens d’alerte et organisation des secours",
+    "statut": "sources_officielles_relues_2026-10-16",
+    "url": "https://eduscol.education.gouv.fr/media/100683/download?attachment=",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "satellite|zone blanche|milieu (?:hostile|isole)|moyen.*alerte|alerte.*secours"
+    ],
+    "date_verification": "2026-10-16",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ]
+  },
+  "data/textes/fiches/escalade_relais_environnement_specifique.txt": {
+    "title": "Escalade au-delà du premier relais : environnement spécifique et cadre du projet",
+    "statut": "sources_officielles_relues_2026-10-16",
+    "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "escalad.*(?:relais|grande voie)|(?:relais|grande voie).*escalad"
+    ],
+    "date_verification": "2026-10-16",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ]
+  },
+  "data/textes/fiches/intervenants_eps_ecole_agrement_reputation.txt": {
+    "title": "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation",
+    "statut": "sources_officielles_relues_2026-10-16",
+    "url": "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?:parent|benevole|intervenant).*(?:eps|agre|enseign)|(?:agre|eps).*(?:parent|benevole|intervenant)"
+    ],
+    "date_verification": "2026-10-16",
+    "examens": [
+      "primaire"
+    ]
   }
 }

@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — rattachement des rejets logiques aux preuves concernées
+
+Reprise sur 52875f4 : deux appels, repli. Trace téléchargée et lue : deux pertes de réserve historique ajoutées à la sélection lexicale incorrecte. Les erreurs logiques portaient sur les indices de la liste déjà filtrée ; elles ne contenaient pas les preuves concernées, contrairement aux rejets lexicaux. Cela limitait le ciblage de la réparation lorsqu'il y avait plusieurs erreurs.
+
+Correction commune aux modes : chaque rejet indexé est rattaché immédiatement à l'affirmation effectivement contrôlée. Les références résolues passage_id sont renvoyées sous la forme passage_ids attendue par la réparation. Le brouillon reste exclu de ce prompt ; le feedback exact est conservé dans la trace privée. Test d'un rejet lexical précédant une erreur logique pour empêcher un décalage d'indices. Aucun seuil changé, pas de troisième appel, pas de réponse de cas. Validation locale et retests à suivre.
+
+
 ### 2026-10-17 — réparation observée et réserve des prescriptions anciennes
 
 Reprise administrateur sur 9b56760 : premier appel rejeté sur la même conclusion et le même passage général ; second appel modifie la conclusion et sélectionne les passages pertinents, final_rejections vide. Deux appels, 10 700 jetons d’entrée. Le repli transport est donc levé sur cette reprise. Limite restante relevée : contrôles et assurance issus de la note ancienne présentés sans conserver la confirmation actuelle demandée par la fiche. La réponse n'est pas déclarée intégralement validée.

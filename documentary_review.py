@@ -748,10 +748,18 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
-            errors.extend(evidence_logic.evidence_logic_errors(accepted))
-            errors.extend(coherence_errors(accepted, question))
-            errors.extend(conditional_extraction_errors(accepted, question))
-            errors.extend(case_value_errors(accepted, question))
+            checks = (evidence_logic.evidence_logic_errors(accepted),
+                      coherence_errors(accepted, question),
+                      conditional_extraction_errors(accepted, question),
+                      case_value_errors(accepted, question))
+            for results in checks:
+                for error in results:
+                    index = error.get('index')
+                    # L'index d'un contrôle porte sur les affirmations acceptées,
+                    # pas sur le brouillon initial après retrait d'un autre rejet.
+                    if isinstance(index, int) and 0 <= index < len(accepted):
+                        error = {**error, 'claim': accepted[index]}
+                    errors.append(error)
             return parsed, accepted, errors
         except (ValueError, TypeError) as exc:
             return {'claims':[]}, [], [{'errors':[str(exc)]}]
@@ -771,10 +779,16 @@ Réponds uniquement en JSON selon ce schéma :
                 continue
             evidence = claim.get('evidence')
             # Identifier la sélection qui a échoué sans réinjecter le brouillon.
-            item['rejected_evidence'] = [
-                {k: e[k] for k in ('document_id', 'passage_ids') if k in e}
-                for e in (evidence[:6] if isinstance(evidence, list) else []) if isinstance(e, dict)]
+            item['rejected_evidence'] = []
+            for e in (evidence[:6] if isinstance(evidence, list) else []):
+                if not isinstance(e, dict):
+                    continue
+                selected = {k: e[k] for k in ('document_id', 'passage_ids') if k in e}
+                if 'passage_id' in e:
+                    selected['passage_ids'] = [e['passage_id']]
+                item['rejected_evidence'].append(selected)
             item['section'] = claim.get('section')
+        audit['repair_feedback'] = feedback
         # Repartir des sources sans ancrer le modèle sur son brouillon erroné.
         repair = prompt + '''\nREPRISE APRES CONTROLE :
 Recompose la réponse complète depuis les passages, en couvrant tous les volets documentés de la question ; ne te limite pas aux affirmations rejetées et ne recopie pas une proposition qui a échoué.

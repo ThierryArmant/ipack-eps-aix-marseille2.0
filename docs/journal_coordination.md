@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — accès au navigateur rétabli et dernière reprise transport observée
+
+Après réinitialisation de la connexion de pilotage, formulaire et session administrateur retrouvés. Aucun constat de panne du hub déduit des expirations précédentes. Reprise transport sur 7fe7700 (code dc35d69) : deux appels, 9 745 jetons d'entrée, repli. Trace téléchargée et lue : le rejet final identifié porte sur les contrôles techniques annuels présentés comme une obligation actuelle sans conserver la confirmation des modalités actuelles prescrite par le passage ancien. Les autres affirmations non rejetées ne sont pas pour autant validées juridiquement ; notamment l'autorité et les conditions demandent toujours une lecture de fond. Le cas transport reste non validé. Aucun affaiblissement des contrôles effectué pour le faire passer.
+
+
 ### 2026-10-17 — contrôles des autres contextes et limite de la dernière reprise
 
 Sur dc35d69 observé : suppression d'un créneau iPackEPS restituée avec la procédure de l'article 20 et le tutoriel associé, un appel, 5 107 jetons d'entrée. Cas d'absence injustifiée bac GT et saisie Santorin : un appel, 5 423 jetons ; règle nationale et documentation logicielle distinguées. Ce sont des contrôles de non-régression ciblés sur des thèmes déjà corrigés, pas de nouveaux échecs résolus ni une mesure de fiabilité générale. 390 tests locaux réussis.

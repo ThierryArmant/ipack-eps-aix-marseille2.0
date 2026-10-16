@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — clarification existante avant recherche et génération
+Fait : déplacement de la demande d'objectif de course depuis le remplacement tardif de réponse vers le circuit de clarification préalable existant. La demande ambiguë arrête la recherche documentaire par question et la génération ; l'objectif déjà indiqué laisse poursuivre le circuit documentaire. La clarification conserve l'invitation à une nouvelle question complète. Aucun champ ni cache ajouté, aucune nouvelle règle de certification.
+Constaté : 323 tests locaux réussis, dont quatre contrôles du déclenchement et du non-déclenchement, du niveau scolaire et des branchements de recherche/génération. Vérification en ligne du compteur à zéro en cours. Les erreurs de fond des autres réponses restent distinctes de cette économie.
+Attendu : comparer ensuite les douze formulations à budget élargi, puis rétablir le plafond initial. Aucun gain global de fiabilité annoncé avant le relevé.
+
 ### 2026-10-16 — programme — clarification par une nouvelle question complète
 Fait : remplacement de la référence à une zone de précision absente par une invitation à poser une nouvelle question complète dans la zone habituelle, avec la demande initiale et l'objectif précisé. Aucun champ supplémentaire, aucun mécanisme de cache ajouté. Le circuit actuel efface l'ancien échange à chaque soumission et app.py n'appelle pas le cache de réponses importé. Le cache des ressources documentaires reste distinct.
 Constaté : compilation et contrôle du texte réussis. Cette modification de formulation n'est pas une correction démontrée des erreurs de restitution sur les autres sujets. Reprises en ligne demandées par l'utilisateur en cours.

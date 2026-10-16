@@ -2582,7 +2582,6 @@ if prompt_a_traiter:
                     # ✅ « COURSE EN DURÉE / COURSE DE DURÉE » : le demi-fond, lui, est toujours de la performance (CA1), sans question.
                     # Mais un collègue peut dire « course de durée » en pensant performance (c'est alors du demi-fond, CA1)
                     # ou entretien de soi (course en durée, CA5). Si rien ne le précise, on lui pose la question.
-                    _demande_precision_champ = False
                     _q_simple = _q_simple.replace("course de duree", "course en duree")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     if any(nom == "course en duree" for nom, _ca in _trouvees):
@@ -2601,15 +2600,7 @@ if prompt_a_traiter:
                                                   "La course en durée proprement dite vise l'entretien de soi et relève du champ 5.</p>"
                                                   "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
                                                   "à compléter par des activités d'autres champs.</p>")
-                        elif not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
-                            _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ|depos|referentiel|\bfca\b", _q_simple) is not None
-                    if _demande_precision_champ:
-                        verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> ce que vous mettez derrière « course en durée » : "
-                                          "<strong>performance</strong> mesurée (c'est alors du demi-fond, CA1) ou <strong>entretien</strong> de soi (course en durée, CA5) ?</p>"
-                                          "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
-                                          "Posez une nouvelle question complète dans la zone habituelle, en conservant votre demande initiale "
-                                          "et en précisant l’objectif : performance mesurée ou entretien de soi.</p>")
-                    elif verdict_champs:
+                    if verdict_champs:
                         pass
                     elif len(_trouvees) >= 2:
                         _par_champ = {}

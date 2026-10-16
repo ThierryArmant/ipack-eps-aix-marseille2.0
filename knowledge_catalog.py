@@ -105,7 +105,31 @@ def section_scopes(title):
     return sorted(scopes)
 
 
+def activity_goal_clarification(question, public):
+    """Ancienne clarification de champ, déplacée avant recherche et génération.
+
+    Aucun verdict de certification : demander l'objectif manquant seulement.
+    """
+    if public not in ('Lycée Général & Techno', 'Lycée Pro / CAP'):
+        return ''
+    q = normalise(question).replace('course de duree', 'course en duree')
+    if not re.search(r'\bcourse en duree\b', q):
+        return ''
+    if re.search(r'performance|\bca ?[15]\b|champ [15]|chrono|entretien', q):
+        return ''
+    if not re.search(r'protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ|depos|referentiel|\bfca\b', q):
+        return ''
+    return ("Pouvez-vous préciser ce que vous mettez derrière « course en durée » : "
+            "performance mesurée (demi-fond, CA1) ou entretien de soi (course en durée, CA5) ? "
+            "C'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
+            "Posez une nouvelle question complète dans la zone habituelle, en conservant votre demande initiale "
+            "et en précisant cet objectif.")
+
+
 def clarification(question, public):
+    goal = activity_goal_clarification(question, public)
+    if goal:
+        return goal
     q = normalise(question)
     # Les conditions médicales restent nécessaires pour choisir une valeur
     # individuelle, pas pour expliquer un circuit logiciel ou les possibilités.

@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — reprise programme et sélection réglementaire
+
+Reprise demandée par l’utilisateur dans une nouvelle fenêtre. Journal et dernière version lus, dépôt synchronisé. Trois générations publiques avant modification : voyage avec appréciation du chef en un appel ; grande voie avec cadre et accident mais contrôles concrets omis ; vélo prêté avec seule fiche accident et vérifications matérielles omises. Version de ces générations non établie par l’interface publique, qui réserve son affichage à l’administration.
+
+Modification annoncée du catalogue, dans le périmètre de reprise autorisé : la fiche vélo existante porte déjà le prêt, les défauts et la responsabilité (circulaire 2004-138, I.2 et annexe), mais ses motifs exigeaient sortie/trajet. Ajout d’un motif vélo + prêt/défectuosité/accident/responsabilité, sans changement du texte juridique. Programme : distinguer plusieurs opérations dans une même rubrique, limiter les répétitions et recomposer toute la réponse lors de la réparation. Aucun contrôle assoupli, aucune réponse de cas ajoutée, aucun appel supplémentaire systématique. 384 tests locaux réussis, compilation et diff vérifiés. La version est conservée avec chaque nouvelle réponse et affichée avec son compteur pour identifier les retests sans accès administrateur. Les générations après publication restent à vérifier ; ce lot ne déclare pas les quatre cas résolus.
+
+
 ### 2026-10-17 00:09 — partie programme et fiches — incident de démarrage et reprise limitée
 
 Correctif urgent publié : 48438c1 supprime la boucle de rechargement manuel des modules indiquée par la trace KeyError transmise par l'utilisateur. L'hypothèse de concurrence pendant le rechargement n'est pas présentée comme un diagnostic exhaustif sans journaux serveur. L'ouverture dans une session neuve, la navigation et plusieurs générations ont ensuite fonctionné sans ce plantage. Test de régression ajouté pour empêcher le retour de ce rechargement dans le point d'entrée.

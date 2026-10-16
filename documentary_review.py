@@ -688,6 +688,9 @@ Donne les autorités, conditions et délais explicitement documentés au lieu de
 Quand le passage énumère des conditions cumulatives, restitue ensemble celles qui concernent la demande : une autorisation générale ne remplace pas une validation spécifique. Ne confonds pas une condition documentée avec un fait non établi pour le cas ; donne la règle puis ce qui reste à vérifier.
 Ne fournis que les éléments documentés répondant à cette question.
 Les sections sont facultatives : omets toute rubrique sans information pertinente.
+Les sections classent les affirmations, elles ne limitent pas leur nombre : plusieurs étapes ou conditions peuvent appartenir à la même section.
+Pour une demande composée, consacre les affirmations aux opérations demandées avant d'ajouter des rappels généraux. Une phrase « cadre particulier » ne remplace ni les contrôles concrets ni les validations décrites dans les passages.
+Ne répète pas la même action en décision, condition et étape. Utilise cette place pour les autres volets explicitement demandés et documentés.
 Ne complète jamais une décision avec les conditions ou démarches d'une autre situation.
 Si aucun passage applicable ne répond, retourne exactement {"claims":[]}, sans remplir les rubriques.
 Une absence de consigne retrouvée ne prouve ni obligation, ni interdiction, ni inexistence d'une consigne.
@@ -763,7 +766,7 @@ Réponds uniquement en JSON selon ce schéma :
         feedback = [{k: v for k, v in error.items() if k != 'claim'} for error in rejected]
         # Repartir des sources sans ancrer le modèle sur son brouillon erroné.
         repair = prompt + '''\nREPRISE APRES CONTROLE :
-Réécris les affirmations rejetées depuis les passages ; ne recopie pas une proposition qui a échoué.
+Recompose la réponse complète depuis les passages, en couvrant tous les volets documentés de la question ; ne te limite pas aux affirmations rejetées et ne recopie pas une proposition qui a échoué.
 Conserve les conditions, exceptions et autorités dans la réponse. Une réserve tardive ne corrige pas une conclusion catégorique.
 Ne confonds pas une condition réglementaire documentée avec un fait manquant dans la question : donne la règle, puis indique ce qui reste à vérifier pour le cas.
 Sélectionne des document_id et passage_ids existants, avec les conditions utiles au cas.

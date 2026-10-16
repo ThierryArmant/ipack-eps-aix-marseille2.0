@@ -5674,7 +5674,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:velo|vtt|bicyclette|cyclis))(?=.*(?:musee|sortie|deplac|trajet|obligat|encadrement))"
+      "(?=.*(?:velo|vtt|bicyclette|cyclis))(?=.*(?:musee|sortie|deplac|trajet|obligat|encadrement))",
+      "(?=.*(?:velo|vtt|bicyclette|cyclis))(?=.*(?:pret|emprunt|cass|defect|accident|bless|responsab))"
     ],
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F34169"
   },

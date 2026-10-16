@@ -2933,6 +2933,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
+             "version": _sha,
              "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None}
         )
 
@@ -2976,6 +2977,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 _qualif = "" if _usage['complete'] else " · relevé incomplet"
                 if _usage.get('cache_hit'):
                     _qualif += " · réponse reprise du cache"
+                if m.get('version'):
+                    _qualif += " · version " + m['version']
                 _jetons = (f"{_usage['input_tokens']} jetons d'entrée · {_usage['output_tokens']} jetons de sortie"
                            if _usage['complete'] or _usage['calls_with_usage'] else "jetons indisponibles")
                 st.caption(f"Usage IA : {_usage['calls']} appels de génération · "

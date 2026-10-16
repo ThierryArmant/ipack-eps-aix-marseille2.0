@@ -46,3 +46,14 @@ class RegulationDocumentTriageTests(unittest.TestCase):
             p=next(p for p in c if stem in p)
             self.assertIn('https://',Path(p).read_text())
             self.assertNotIn('reponse_directe',c[p])
+
+    def test_borrowed_bicycle_damage_reaches_responsibility_without_outing_keyword(self):
+        body = kc.priority_context(
+            'Un vélo emprunté se casse en cours : responsabilité et vérifications ?',
+            'Collège (DNB)', 'textes')
+        self.assertIn('défauts décelables', body)
+        self.assertIn('lien causal', body)
+        self.assertIn('MENE0401637C', body)
+        unrelated = kc.priority_context('Un élève casse une vitre : responsabilité ?',
+                                        'Collège (DNB)', 'textes')
+        self.assertNotIn('Sortie au musée à vélo', unrelated)

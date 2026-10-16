@@ -4,7 +4,6 @@ import importlib
 import academie
 import knowledge_catalog
 import source_scope
-import answer_grounding
 import documentary_review
 import response_controls
 import response_cache
@@ -12,7 +11,7 @@ import response_cache
 # Streamlit peut conserver en mémoire les modules importés lors d'un redéploiement :
 # une fonction ajoutée dans un module provoque alors une ImportError. Chaque module du
 # projet est rechargé dès que son fichier change (ordre : dépendances d'abord).
-for _module in (academie, knowledge_catalog, source_scope, answer_grounding, documentary_review, response_controls, response_cache):
+for _module in (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache):
     _revision = hashlib.sha256(Path(_module.__file__).read_bytes()).hexdigest()
     if getattr(_module, "_loaded_revision", None) != _revision:
         _module = importlib.reload(_module)
@@ -2561,28 +2560,83 @@ if prompt_a_traiter:
                                              + "\n\n".join(_blocs) + "\n\n")
                 except Exception:
                     pass
+                verdict_champs = ""
                 if not est_college:
-                    # La table apporte des repères, jamais une réponse finale.
-                    # L'applicabilité et le dépôt restent justifiés par les fiches.
-                    import unicodedata as _ud
-                    _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower())
-                                        if _ud.category(ch) != "Mn").replace("-", " ")
-                    _q_simple = _q_simple.replace("course de duree", "course en duree")
-                    _trouvees = []
+                    # ✅ La table « activité → champ » n'est plus écrite dans le code : elle est lue dans config/activites_champs.csv,
+                    # un simple fichier à mettre à jour quand la liste nationale change (aucune modification du programme).
+                    _APSA_CHAMPS = []
                     try:
                         with open("config/activites_champs.csv", encoding="utf-8") as _f_champs:
                             for _ligne in _f_champs:
-                                _nom, _, _ca = _ligne.strip().partition(";")
-                                if _ca.isdigit() and re.search(r"\b" + re.escape(_nom), _q_simple):
-                                    _trouvees.append((_nom, int(_ca)))
-                    except OSError:
+                                _ligne = _ligne.strip()
+                                if not _ligne or _ligne.startswith("#") or _ligne.lower().startswith("activite"):
+                                    continue
+                                _a, _, _c = _ligne.partition(";")
+                                if _a.strip() and _c.strip().isdigit():
+                                    _APSA_CHAMPS.append((_a.strip().lower(), int(_c.strip())))
+                    except Exception:
+                        _APSA_CHAMPS = []
+                    import unicodedata as _ud
+                    _q_simple = "".join(ch for ch in _ud.normalize("NFD", prompt.lower()) if _ud.category(ch) != "Mn").replace("\u2019", "'").replace("-", " ")
+                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
+                    # ✅ « COURSE EN DURÉE / COURSE DE DURÉE » : le demi-fond, lui, est toujours de la performance (CA1), sans question.
+                    # Mais un collègue peut dire « course de durée » en pensant performance (c'est alors du demi-fond, CA1)
+                    # ou entretien de soi (course en durée, CA5). Si rien ne le précise, on lui pose la question.
+                    _demande_precision_champ = False
+                    _q_simple = _q_simple.replace("course de duree", "course en duree")
+                    _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
+                    if any(nom == "course en duree" for nom, _ca in _trouvees):
+                        if re.search(r"performance|\bca ?1\b|champ 1|chrono", _q_simple) and not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
+                            # performance mesurée : c'est du demi-fond (champ 1)
+                            _vues, _nouv = set(), []
+                            for nom, ca in _trouvees:
+                                if nom == "course en duree":
+                                    nom, ca = "demi fond", 1
+                                if nom not in _vues:
+                                    _vues.add(nom)
+                                    _nouv.append((nom, ca))
+                            _trouvees = _nouv
+                            if len(_trouvees) < 2:
+                                verdict_champs = ("<p><strong>Courir pour réaliser une performance mesurée, c'est du demi-fond : champ 1.</strong> "
+                                                  "La course en durée proprement dite vise l'entretien de soi et relève du champ 5.</p>"
+                                                  "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
+                                                  "à compléter par des activités d'autres champs.</p>")
+                        elif not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
+                            _demande_precision_champ = re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ|depos|referentiel|\bfca\b", _q_simple) is not None
+                    if _demande_precision_champ:
+                        verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> ce que vous mettez derrière « course en durée » : "
+                                          "<strong>performance</strong> mesurée (c'est alors du demi-fond, CA1) ou <strong>entretien</strong> de soi (course en durée, CA5) ?</p>"
+                                          "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
+                                          "Écrivez simplement « performance » ou « entretien » dans la zone de précision ci-dessous.</p>")
+                    elif verdict_champs:
                         pass
-                    if _trouvees:
-                        faits_champs += ("REPÈRES DE LA TABLE DES ACTIVITÉS (classification des libellés officiels, "
-                                         "pas interprétation certaine des mots du collègue). Ce constat ne prouve "
-                                         "ni la validité du protocole complet ni une procédure de dépôt. "
-                                         "Si un libellé courant est ambigu, vérifier l'objectif décrit avant de l'associer à la table.\n"
-                                         + "\n".join(f"- {nom} : champ {ca}" for nom, ca in _trouvees) + "\n")
+                    elif len(_trouvees) >= 2:
+                        _par_champ = {}
+                        for nom, ca in _trouvees:
+                            _par_champ.setdefault(ca, []).append(nom)
+                        _lignes = [f"- {nom} : champ d'apprentissage {ca}" for nom, ca in _trouvees]
+                        _memes = [" et ".join(noms) + f" (champ {ca})" for ca, noms in _par_champ.items() if len(noms) > 1]
+                        if _memes:
+                            _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
+                        else:
+                            _concl = "Ces activités relèvent de champs DIFFÉRENTS. Ce constat concerne uniquement la diversité des champs : il ne prouve ni la validité du protocole complet ni une procédure de dépôt de FCA ou de déclaration dans iPackEPS. Pour une question de dépôt, distinguer les activités et utiliser seulement une procédure documentée pour chacune."
+                        # Question du type « ces activités dans le même protocole, est-ce possible ? » : le verdict est calculé
+                        # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
+                        # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question
+                        # « ces deux activités dans le même protocole ? ». Le verdict en dur répondait alors à côté (courses / relais, boîte d'assistance).
+                        if (len(_q_simple) <= 260 and not re.search(r"fca|referentiel|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
+                                and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
+                            _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
+                            if _memes:
+                                verdict_champs = ("<p><strong>NON :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "
+                                                  "Un protocole d'examen ne peut pas contenir deux épreuves du même champ : gardez-en une seule et complétez avec une activité d'un autre champ.</p>"
+                                                  "<p>Champs des activités citées : " + _detail + ".</p>")
+                            else:
+                                verdict_champs = ("<p><strong>OUI :</strong> ces activités relèvent de champs d'apprentissage différents, elles peuvent figurer dans le même protocole d'examen.</p>"
+                                                  "<p>Champs des activités citées : " + _detail + ".</p>"
+                                                  "<p>Rappel : 3 épreuves de 3 champs différents au baccalauréat, 2 épreuves de 2 champs différents au CAP.</p>")
+                        faits_champs = ("FAITS VÉRIFIÉS PAR LE PROGRAMME (ils priment sur tout le reste, ne les contredis jamais) — champs d'apprentissage au lycée des activités citées dans la question :\n"
+                                        + "\n".join(_lignes) + "\n" + _concl + "\n")
 
                 # ✅ COLLÈGE : une question sur le zéro ou l'absence recevait la règle des circulaires du CAP et du bac pro.
                 if "coll" in str(niveau_actuel_form).lower() and re.search(r"z[ée]ro|absen|\b0\b", prompt.lower()):
@@ -2645,7 +2699,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         reponse_ia = review_exam_answer(
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
-                            academy=academie_reponse, require_grounding=False,
+                            academy=academie_reponse,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
@@ -2664,6 +2718,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         texte_brut = complete_gt_shn_conditions(prompt, reponse_ia, extraits_doc)
                         texte_brut = constrain_santorin_unlock(prompt, texte_brut, extraits_doc)
                         texte_brut = prevent_invented_gt_medical_sequence(prompt, texte_brut, extraits_doc)
+                    if verdict_champs:
+                        texte_brut = (verdict_champs.replace("en duree", "en durée").replace("demi fond", "demi-fond")
+                                      .replace("sauvetage (", "sauvetage aquatique (").replace("boxe (", "boxe française ("))
                 except Exception as e:
                     if diagnostic_ia is not None:
                         diagnostic_ia['failure'] = type(e).__name__

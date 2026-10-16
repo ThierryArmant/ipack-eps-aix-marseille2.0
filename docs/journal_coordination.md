@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — partie programme — rétablissement intégral du code mesuré bf588d1
+Constaté : après retrait du contrat expérimental, la question ambiguë de champ reçoit une décision fausse et une procédure voisine. La suppression du verdict postérieur au contrôle, conservée dans 4013c49, retire un garde-fou existant sans le remplacer efficacement. Ce second essai ne constitue donc pas une amélioration ; aucune réussite globale n'est annoncée.
+Fait : code et tests rétablis à bf588d1, suppression du module expérimental et de ses tests. Seul le présent historique de coordination diffère de la version précédente. Aucun nouveau cas ou réponse en dur n'est ajouté. Les limites connues de bf588d1 restent à corriger.
+Blocage : la tentative de connexion sécurisée à l'espace administrateur pour consulter les traces a été rejetée par la validation automatique, faute d'autorisation explicite de l'utilisateur pour cet accès aux traces privées. Aucun contournement. La cause interne exacte des rejets n'est pas connue ; ne pas la présenter comme établie.
+Attendu : autorisation explicite pour la connexion administrateur et la lecture des seules traces de retest, ou fourniture volontaire des traces exportées ; poursuivre les comparaisons publiques sans cet accès.
+
 ### 2026-10-16 — partie programme — retrait du contrôle expérimental après reprises réelles
 Constaté sur 0ef520a : quatre reprises ciblées (question complète de dépôt, diagnostic de saisie, ambiguïté de champ, cycle suivi) aboutissent au repli documentaire après deux appels, au lieu des réponses obtenues sur bf588d1. Les tests locaux ne prédisaient pas cette dégradation. Ces cas ne sont pas corrigés ; aucun résultat favorable n'est revendiqué.
 Fait : contrat expérimental désactivé dans le circuit de production. Les verdicts en dur postérieurs à la vérification restent supprimés. Aucune nouvelle réponse métier en dur ni modification de fiche. Le module expérimental reste disponible pour reproduire les rejets avec les traces administrateur ; il ne doit pas être réactivé sans vérification en ligne.

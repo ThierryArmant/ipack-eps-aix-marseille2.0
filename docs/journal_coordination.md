@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — partie programme — conclusion conditionnelle — commit 10c6421
+
+Ajustement de la consigne générale de rédaction : lorsque l’application de la règle dépend d’un fait non confirmé par la question, le résultat et sa condition apparaissent dans la première conclusion. Si les faits sont donnés, la réponse reste directe sans réserve inutile. Aucun cas IMP ajouté au programme ni modification des seuils documentaires. Modification de consigne uniquement ; nouvelle génération réelle à vérifier après publication.
+
+
 ### 2026-10-16 — partie fiches et programme — publication du lot métier et contrôle Textes
 
 Publication de l’ensemble du lot préparé, autorisée explicitement par l’utilisateur présent pour les essais. Intègre les quatorze fiches métier préparées, les huit reprises de sécurité/réglementation EPS, leurs références et métadonnées, les filtres des demandes courtes et le raccordement de Textes au contrôleur documentaire commun. Les modifications IMP et le bandeau technique déjà présents sur main sont conservés.

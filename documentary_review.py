@@ -331,6 +331,8 @@ def scoped_claim_text(claim):
         if not text.startswith(prefix):
             text = prefix + text
     targets = sorted({e['scope']['not_confirmed_for'] for e in marked})
+    if 'Non précisée' in targets:
+        return text + ' (application locale à vérifier auprès du service compétent de votre académie)'
     return text + ' (à vérifier auprès du service des examens de l’académie de ' + ', '.join(targets) + ')'
 
 

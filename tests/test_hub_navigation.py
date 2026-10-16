@@ -4,7 +4,7 @@ from pathlib import Path
 from hub_session import select_module, new_question, ready_for_question
 from academie import request_academy, NON_PRECISEE
 from tutorial_links import supporting_tutorials
-from knowledge_catalog import priority_context, catalog
+from knowledge_catalog import priority_context, catalog, reference_notice
 
 class HubNavigationTests(unittest.TestCase):
     def test_next_question_keeps_context_without_reusing_a_question(self):
@@ -50,3 +50,27 @@ class HubNavigationTests(unittest.TestCase):
         self.assertIn('[ARTICLE 20]',text)
         self.assertIn('[Supprimer]',text)
         self.assertNotIn('DIEC',text)
+
+class TimetableRecoveryIntentTests(unittest.TestCase):
+    def test_delete_procedure_does_not_select_recovery(self):
+        selected=reference_notice({'dnb'},'Comment effacer un créneau dans mon EDT ?','Collège (DNB)')
+        paths=[p for p,_ in selected]
+        self.assertTrue(any('ipack_068_' in p for p in paths))
+        self.assertFalse(any('suppression_prudence' in p for p in paths))
+    def test_recovery_guard_still_matches_deleted_data(self):
+        selected=reference_notice({'dnb'},"J'ai supprimé un groupe par erreur, comment le récupérer ?",'Collège (DNB)')
+        self.assertTrue(any('suppression_prudence' in p for p,_ in selected))
+
+class ExclusiveSelectionTests(unittest.TestCase):
+    def test_general_exclusive_fiche_does_not_erase_specific_fiche_in_either_tab(self):
+        from test_documentation import DocumentationTests
+        route=DocumentationTests();route.setUp()
+        specific='data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt'
+        general='data/commun/audit60/ipack_suppression_prudence.txt'
+        route.env['reference_notice']=lambda *args:[
+            (specific,{'title':'Procédure précise','priorite':300}),
+            (general,{'title':'Garde-fou général','priorite':0,'exclusif_motifs':['.*']})]
+        for mode in ('ipack','examens'):
+            text,_,_,error=route.route('Manipuler une plage de mon agenda','Collège (DNB)',mode)
+            self.assertEqual(error,'')
+            self.assertIn('[ARTICLE 20]',text)

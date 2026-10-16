@@ -2041,7 +2041,7 @@ if prompt_a_traiter:
                             # L'exclusivité arrête la recherche complémentaire ; elle conserve
                             # les fiches spécifiques déjà sélectionnées et leurs conditions.
                             _indices = [len(_extraits) - 1]
-                            if mode == "examens":
+                            if mode in ("examens", "ipack"):
                                 _indices = [i for i, priority in enumerate(_priorites_fiches[:-1])
                                             if priority >= 300 and priority > _md.get('priorite', 0)] + _indices
                             return ("\n\n".join(_extraits[i] for i in _indices),

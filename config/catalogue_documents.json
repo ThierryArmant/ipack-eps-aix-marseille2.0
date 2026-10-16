@@ -3319,10 +3319,10 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "supprim|recuper.*evaluation|restaur"
+      "recuper|restaur|recup|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
     ],
     "exclusif_motifs": [
-      "supprim|recuper.*evaluation|restaur"
+      "recuper|restaur|recup|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
     ],
     "exclure_motifs": [],
     "date_verification": "2026-10-11"

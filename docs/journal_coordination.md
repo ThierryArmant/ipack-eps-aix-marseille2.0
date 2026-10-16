@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme et sélection — première vérification du parcours et conflit suppression/restauration
+Sur 1ecfedf : public conservé, champ actif après réponse, deuxième question envoyée sans retoucher les filtres, aucun sélecteur d’académie en iPackEPS. La suppression EDT reçoit encore la fiche de récupération après suppression : son motif « supprim » est trop large ; son exclusivité efface même la fiche précise déjà sélectionnée en mode iPackEPS. Motif recentré sur la restauration ou l’erreur passée, et même préservation des fiches spécifiques qu’en mode Examens. Libellé neutre corrigé quand l’académie n’est pas précisée. Reprises de la suppression, du tutoriel et du parcours Examens à suivre ; aucune procédure en dur.
+
 ### 2026-10-16 — programme et sélection — formulaire persistant et tutoriels, retour utilisateur
 Correction autorisée : conserver module et public après réponse, académie demandée uniquement en Examens ; hors Examens, aucune académie présumée par défaut et prise en compte de celle nommée dans la question. Identité stable des sections et bouton explicite pour une nouvelle question. Restauration des tutoriels depuis les sources réellement citées, indépendamment du texte généré. Fiche EDT existante mise en priorité pour les opérations d’agenda, sans réponse en dur ni nouvelle procédure. La lecture distante de l’article Créteil est indisponible ; source locale existante et lien vidéo déjà référencé dans le programme, pas de revalidation revendiquée. Tests et reprises en ligne à suivre.
 

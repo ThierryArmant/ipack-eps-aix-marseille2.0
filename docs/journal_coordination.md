@@ -24,6 +24,16 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 00:09 — partie programme et fiches — incident de démarrage et reprise limitée
+
+Correctif urgent publié : 48438c1 supprime la boucle de rechargement manuel des modules indiquée par la trace KeyError transmise par l'utilisateur. L'hypothèse de concurrence pendant le rechargement n'est pas présentée comme un diagnostic exhaustif sans journaux serveur. L'ouverture dans une session neuve, la navigation et plusieurs générations ont ensuite fonctionné sans ce plantage. Test de régression ajouté pour empêcher le retour de ce rechargement dans le point d'entrée.
+
+Lot documentaire : d289b62 complète les fiches vélo/responsabilité et transport avec les références officielles ; a63cba9 précise les garanties du transport selon la note de 1986, en signalant ses références anciennes à confirmer. Les règles de responsabilité restent conditionnelles ; aucun constat de faute n'est déduit du seul accident. Références : circulaire EPS 2004-138, annexe ; réponse ministérielle 4573 du 11 juillet 2023 ; note 86-101, parties I-II.
+
+Programme final : a63cba9 retire la grille expérimentale de complétude, plus coûteuse sans progrès confirmé, compacte seulement les métadonnées de diagnostic hors du prompt, conserve les textes et portées, et reconstruit la réparation depuis les sources sans recopier le brouillon rejeté. Le contrôle distingue la possibilité modale explicitement suspendue à une appréciation et l'affirmation catégorique de suffisance. Aucun cas métier ajouté en réponse directe ; plafond de deux appels et restriction UNSS conservés. 1db31b4 ajoute le contrôle de démarrage. 383 tests locaux réussis ; ils ne valent pas validation juridique des générations.
+
+Limites : les quatre cas de réglementation ne sont PAS déclarés corrigés. Le voyage a encore produit un repli dans une reprise publique ; la version de cette dernière génération n'a pas pu être établie avec certitude après actualisation. La connexion administrateur sécurisée a été soumise, puis une observation du navigateur a expiré ; dernier commit affiché avant cette actualisation : 48438c1, dernier commit sur main avant cette entrée : 1db31b4. Reprendre les traces et comparer les cas sur une version effectivement observée, sans multiplier les passes ni modifier les contrôles à l'aveugle.
+
 ### 2026-10-16 — partie programme — conclusion conditionnelle — commit 10c6421
 
 Ajustement de la consigne générale de rédaction : lorsque l’application de la règle dépend d’un fait non confirmé par la question, le résultat et sa condition apparaissent dans la première conclusion. Si les faits sont donnés, la réponse reste directe sans réserve inutile. Aucun cas IMP ajouté au programme ni modification des seuils documentaires. Modification de consigne uniquement ; nouvelle génération réelle à vérifier après publication.

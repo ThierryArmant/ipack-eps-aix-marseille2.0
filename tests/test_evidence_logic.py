@@ -31,6 +31,22 @@ class EvidenceLogicTests(unittest.TestCase):
         proof='Le minimum est de deux opérateurs ; cet effectif suffit pour cette configuration.'
         self.assertFalse(evidence_logic_errors([claim('Deux opérateurs suffisent pour cette configuration.',proof)]))
 
+    def test_honest_uncertainty_is_not_rejected_as_a_sufficiency_claim(self):
+        proof="Il n'existe pas de ratio général ; le responsable apprécie la configuration."
+        for text in (
+                "Il n'est pas possible de confirmer que deux opérateurs suffisent.",
+                "L'absence de ratio ne permet pas de conclure que deux opérateurs suffisent.",
+                "Deux opérateurs ne sont pas automatiquement suffisants.",
+                "La suffisance de deux opérateurs reste à apprécier."):
+            with self.subTest(text=text):
+                self.assertFalse(evidence_logic_errors([claim(text,proof)]))
+        self.assertTrue(evidence_logic_errors([claim('Deux opérateurs suffisent.',proof)]))
+
+    def test_uncertain_source_is_not_a_direct_proof_of_sufficiency(self):
+        c=claim('Deux opérateurs suffisent.',"Il n'existe pas de ratio général.")
+        c['evidence'].append({'quote':"Il n'est pas possible de confirmer que deux opérateurs suffisent."})
+        self.assertTrue(evidence_logic_errors([c]))
+
     def test_explicit_exemption_is_not_rejected_because_other_rules_are_conditional(self):
         c=claim("Le contrôle externe n'est pas nécessaire.",'Le contrôle externe ne fait pas partie des obligations universelles.')
         c['evidence'].append({'quote':"Le contrôle externe n'est pas nécessaire pour cette configuration."})

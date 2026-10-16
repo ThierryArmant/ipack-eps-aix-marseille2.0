@@ -38,6 +38,10 @@ _NO_STANDARD = re.compile(
     r'(?:pas de|aucun|aucune|absence de).{0,65}(?:ratio|taux|minimum|seuil|bareme)|'
     r"(?:n[' ]existe|ne fixe|ne definit|ne prevoit).{0,25}(?:pas|aucun).{0,65}(?:ratio|taux|minimum|seuil|bareme)")
 _SUFFICIENT = re.compile(r'\bsuffi(?:t|sent|re|sant|sante|sants|santes)\b|\best conforme\b|\bsont conformes\b')
+_UNCERTAIN = re.compile(
+    r"(?:impossible|pas possible|ne peut pas|ne permet pas|ne permet.{0,12}pas).{0,35}(?:confirmer|conclure|garantir|determiner|dire)|"
+    r"(?:pas|ne).{0,45}automatiquement.{0,30}(?:suffi|necess|oblig)|"
+    r"reste a (?:apprecier|verifier|valider|determiner)")
 _CONDITIONAL = re.compile(r'\bsi\b|sous reserve|a condition|apres (?:appreciation|validation|verification)|sous (?:le controle|la responsabilite)|selon|(?:valide|confirme|apprecie).{0,25}par')
 
 
@@ -54,17 +58,17 @@ def evidence_logic_errors(claims):
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
         qualified_negative = bool(_UNIVERSAL.search(head))
-        categorical_no_need = bool(_NO_NEED.search(head)) and not qualified_negative and not _CONDITIONAL.search(head)
+        categorical_no_need = bool(_NO_NEED.search(head)) and not qualified_negative and not _CONDITIONAL.search(head) and not _UNCERTAIN.search(head)
         if categorical_no_need and any(_limited_rule(p) for p in proofs):
             # Un autre passage peut explicitement établir une dispense pour ce cas.
-            direct = any(_NO_NEED.search(proposition_head(p)) and not _UNIVERSAL.search(proposition_head(p))
+            direct = any(_NO_NEED.search(proposition_head(p)) and not _UNIVERSAL.search(proposition_head(p)) and not _UNCERTAIN.search(proposition_head(p))
                          for p in proofs)
             if not direct:
                 errors.append({'index': i, 'errors': [
                     'absence de prescription universelle transformée en absence de nécessité dans ce cas : conserver la portée et les faits manquants']})
-        if (_SUFFICIENT.search(head) and not _CONDITIONAL.search(head)
+        if (_SUFFICIENT.search(head) and not _CONDITIONAL.search(head) and not _UNCERTAIN.search(head)
                 and any(_NO_STANDARD.search(p) for p in proofs)):
-            direct = any(_SUFFICIENT.search(proposition_head(p)) and not _NO_STANDARD.search(p)
+            direct = any(_SUFFICIENT.search(proposition_head(p)) and not _NO_STANDARD.search(p) and not _UNCERTAIN.search(proposition_head(p))
                          for p in proofs)
             if not direct:
                 errors.append({'index': i, 'errors': [

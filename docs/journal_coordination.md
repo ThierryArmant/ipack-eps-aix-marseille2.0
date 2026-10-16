@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — vérifications de la publication 0471d29
+
+Publication sur main réalisée par le connecteur ; identité de l’arbre distant et de l’arbre testé confirmée. Version 0471d29 effectivement affichée sous les deux nouvelles réponses. Vélo prêté : un appel, 5 779 jetons d’entrée, réponse comportant désormais vérifications matérielles, défauts décelables, consignes, surveillance et lien causal. La sélection manquante est rétablie ; cela ne constitue pas une validation juridique générale. Escalade : un appel, 6 021 jetons ; les contrôles concrets restent omis malgré les passages présents. L’ajustement de consigne ne suffit donc pas sur ce volet ; ne pas le déclarer corrigé. Aucun gain global de fiabilité mesuré. 384 tests locaux réussis avant publication.
+
+
 ### 2026-10-17 — reprise programme et sélection réglementaire
 
 Reprise demandée par l’utilisateur dans une nouvelle fenêtre. Journal et dernière version lus, dépôt synchronisé. Trois générations publiques avant modification : voyage avec appréciation du chef en un appel ; grande voie avec cadre et accident mais contrôles concrets omis ; vélo prêté avec seule fiche accident et vérifications matérielles omises. Version de ces générations non établie par l’interface publique, qui réserve son affichage à l’administration.

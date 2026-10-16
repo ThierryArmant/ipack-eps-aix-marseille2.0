@@ -5275,6 +5275,29 @@
    "autres_academies_citees": [],
    "portee_texte": "gt",
    "titre": "Courses : deux FCA dans un PDF et limites du menu individuel"
+  },
+  "data/examens/pilote_shn_2026_10_16/reperer_mention_santorin.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "Consigne académique d'Aix-Marseille et procédure du logiciel, bac GT.",
+   "titre": "Santorin — Repérer la mention SHN dans un lot"
+  },
+  "data/examens/pilote_shn_2026_10_16/cycle_notes_disponibles_gt.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "National, bac GT, CCF.",
+   "titre": "Bac GT, CCF — SHN : un seul cycle suivi, quelles notes sont disponibles ?"
   }
  }
 }

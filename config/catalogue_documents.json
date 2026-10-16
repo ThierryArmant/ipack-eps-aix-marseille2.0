@@ -4934,11 +4934,11 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
       "(?=.*(?:shn|haut niveau|sportif de haut))(?=.*(?:inapt|dispens|\\bdi\\b|seule note|unique|qu.une note|que son 20|seulement (?:son|le) 20))",
-      "(?=.*(?:shn|haut niveau|pole (?:france|espoir)|liste (?:elite|espoir|ministerielle)))(?=.*(?:juste (?:son |le )?20|seulement (?:son |le )?20|que (?:son |le )?20|c.est fini|aucune autre|rien d.autre|ne passe (?:pas|aucune|rien)|dispense des autres|autres epreuves))",
-      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))"
+      "(?=.*(?:shn|haut niveau|pole (?:france|espoir)|liste (?:elite|espoir|ministerielle)))(?=.*(?:juste (?:son |le )?20|seulement (?:son |le )?20|que (?:son |le )?20|c.est fini|aucune autre|rien d.autre|ne passe (?:pas|aucune|rien)|dispense des autres|autres epreuves))"
     ],
     "exclure_motifs": [
-      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))",
+      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))(?!.*(?:inapt|dispens|\\bdi\\b|ponctuel))"
     ]
   },
   "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt": {
@@ -5123,7 +5123,7 @@
       "cap"
     ],
     "motifs": [
-      "(?=.*(?:shn|haut niveau))(?=.*(?:santorin|propose pas|n.apparait pas|crayon|saisir le 20|mettre le 20|le 20 ?/ ?20|20 sur 20))"
+      "(?=.*(?:shn|haut niveau))(?=.*(?:20|crayon|specialite|protocole|propose pas))"
     ],
     "exclure_motifs": [
       "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
@@ -5510,5 +5510,46 @@
       "(?=.*(?:programme|cycle 3))(?=.*(?:sixieme|6e|6eme|rentree|2026|2027))"
     ],
     "exclure_motifs": []
+  },
+  "data/examens/pilote_shn_2026_10_16/reperer_mention_santorin.txt": {
+    "statut": "pilote_2026-10-16",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "title": "Santorin — Repérer la mention SHN dans un lot",
+    "examens": [
+      "gt"
+    ],
+    "motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:reconn|reper|identifi|distingu|mention|statut))(?=.*(?:santorin|lot))"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))",
+      "(?=.*(?:20|crayon|protocole))"
+    ]
+  },
+  "data/examens/pilote_shn_2026_10_16/cycle_notes_disponibles_gt.txt": {
+    "statut": "pilote_2026-10-16",
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "title": "Bac GT, CCF — SHN : un seul cycle suivi, quelles notes sont disponibles ?",
+    "examens": [
+      "gt"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))"
+    ],
+    "exclure_motifs": [
+      "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))",
+      "(?=.*(?:inapt|dispens|\\bdi\\b|ponctuel))"
+    ]
   }
 }

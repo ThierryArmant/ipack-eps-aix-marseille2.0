@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — fiches et sélection — pilote limité SHN autorisé par l’utilisateur
+Essai : isoler le repérage de la mention dans un lot et l’identification des notes après un seul cycle. Sources existantes conservées, aucun ajout de réponse en dur, aucune hausse du nombre de passages ou d’appels. Contrôles locaux puis reprise du lot courant en ligne avant conclusion. Pas de réorganisation globale.
+
 ### 2026-10-16 — programme — douze reprises réelles après clarification préalable, retour au plafond dix
 Constaté sur 4c73ed3 : douze formulations réellement soumises, mêmes libellés que le relevé de référence. Sept réponses satisfaisantes sur le fond se maintiennent ; une clarification utile est désormais fournie sans recherche ni génération par question (zéro appel/zéro jeton vérifié aussi sur 435a208 au plafond dix). Quatre réponses restent non validées : développements voisins sur le repérage sportif, distinction insuffisante des évaluations disponibles, diagnostic logiciel prescrit sans symptôme établi et confusion entre dépôt et ensemble individuel. Aucune de ces quatre n'est déclarée corrigée.
 Consommation affichée : référence 20a2f8c, douze appels, 74849 jetons d'entrée et 2396 de sortie ; reprise après clarification préalable et plafond vingt, onze appels, 71817 jetons d'entrée et 2338 de sortie. La baisse totale provient de la clarification devenue gratuite, non de l'élargissement du contexte. Le seul cas de fond dont l'entrée augmente passe de 12531 à 21821 jetons (+74 %) ; meilleure source sélectionnée, mais réponse encore insuffisante. Les dix autres générations gardent le même volume d'entrée. Essai exploratoire, une génération par cas ; pas de mesure indépendante ni de gain statistique annoncé.

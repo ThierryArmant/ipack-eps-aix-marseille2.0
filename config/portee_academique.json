@@ -792,6 +792,17 @@
     }
    ]
   },
+  "data/examens/pilote_shn_2026_10_16/reperer_mention_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin — Repérer la mention SHN dans un lot",
+     "lignes": [
+      "Mention absente : à Aix-Marseille, la mention SHN est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter."
+     ]
+    }
+   ]
+  },
   "data/examens/sigles_examens_eps.txt": {
    "academie": "aix-marseille",
    "sections": [

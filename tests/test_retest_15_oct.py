@@ -28,7 +28,10 @@ class RetestOctober15Tests(unittest.TestCase):
 
     def test_shn_single_cycle_selects_shn_and_not_bac_pro_fallback(self):
         q = "Comment noter le SHN qui n'a participé qu'à un cycle ?"
-        self.assertIn('20/20 ne peut pas être la seule note', priority_context(q, 'Lycée Général & Techno', 'examens'))
+        text = priority_context(q, 'Lycée Général & Techno', 'examens')
+        self.assertIn('note réellement obtenue lors du cycle', text)
+        self.assertIn('sans conclure automatiquement que deux notes suffisent', text)
+        self.assertNotIn('DI + DI + 20', text)
         result = render_exam_fallback({}, question=q, documents=mark_excerpt('Les BAC PRO déclarent trois APSA dans Cyclades.', title='Passage documentaire', priority=300))
         self.assertNotIn('<blockquote>', result)
         self.assertNotIn('BAC PRO', result)

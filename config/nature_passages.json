@@ -262,6 +262,30 @@
           "reference": "Guide de saisie Santorin, inaptes avec une note"
         }
       ]
+    },
+    "data/examens/pilote_shn_2026_10_16/reperer_mention_santorin.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Repérage : vérifier si la mention SHN figure pour l'élève dans Santorin.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide DIEC Santorin bac 2024, diapo 21",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Mention absente : à Aix-Marseille, la mention SHN est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "reference": "BA spécial 565 du 9 octobre 2026, §4.4 b",
+          "academie": "Aix-Marseille"
+        }
+      ]
     }
   }
 }

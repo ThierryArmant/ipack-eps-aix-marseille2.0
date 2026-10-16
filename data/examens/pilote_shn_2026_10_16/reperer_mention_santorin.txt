@@ -1,0 +1,7 @@
+### Santorin — Repérer la mention SHN dans un lot
+[PORTEE: gt]
+Sigles : SHN = sportif de haut niveau ; DIEC = division des examens et concours.
+Repérage : vérifier si la mention SHN figure pour l'élève dans Santorin.
+Mention absente : à Aix-Marseille, la mention SHN est saisie dans Cyclades par le gestionnaire EPS de la DIEC. Si elle manque, le chef d'établissement le signale à la DIEC : ni l'enseignant ni l'établissement ne peuvent l'ajouter.
+Portée : consigne académique d'Aix-Marseille et procédure du logiciel, bac général et technologique.
+Sources : DIEC Aix-Marseille, « Notation de l'EPS en CCF — Santorin, bac 2024 », diapo 21 ; BA spécial 565 du 9 octobre 2026, inscriptions GT session 2027, §4.4 b.

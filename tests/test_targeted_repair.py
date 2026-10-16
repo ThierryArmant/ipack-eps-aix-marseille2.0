@@ -1,10 +1,19 @@
 """La réparation repart de la documentation sans recopier le brouillon rejeté."""
 import unittest
+import ast
+from pathlib import Path
 from documentary_review import mark_excerpt, review_exam_answer, source_packets, compact_model_packet
 from test_documentary_review import FakeLLM
 
 
 class TargetedRepairTests(unittest.TestCase):
+    def test_streamlit_entrypoint_does_not_manually_reload_shared_modules(self):
+        tree = ast.parse(Path('app.py').read_text())
+        self.assertFalse(any(isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
+                             and isinstance(n.func.value, ast.Name)
+                             and n.func.value.id == 'importlib' and n.func.attr == 'reload'
+                             for n in ast.walk(tree)))
+
     def test_repair_keeps_current_rules_without_reinjecting_bad_draft(self):
         text = 'Le responsable vérifie le dispositif avant de valider le dossier.'
         bad = {'claims': [{'section': 'decision', 'text': 'BROUILLON_FAUX_SANS_PREUVE',

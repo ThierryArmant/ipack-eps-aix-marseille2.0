@@ -11,6 +11,7 @@ import tutorial_links
 
 # Les modules sont importés normalement ; Streamlit invalide les imports au redéploiement.
 # Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
+# Pipeline documentaire : transmission compacte des preuves et réparation depuis les sources.
 from hub_session import select_module, new_question, ready_for_question
 from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab

@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — réparation autonome plus courte après lecture des traces
+
+Version 53faf1d observée : feedback contenant bien les identifiants des preuves pour tous les rejets indexés. Le modèle répète encore la conclusion générale rejetée et omet la réserve de l'assurance ; une affirmation sur les contrôles du véhicule est même rattachée au seul passage du conducteur. Le correctif de liaison fonctionne, mais cette génération n'est pas validée. Aucune baisse des seuils pour la faire passer.
+
+Le second appel est désormais construit comme une demande autonome de réparation, avec données, sources, contraintes et consignes institutionnelles conservées, sans recopier tout le prompt initial ni le brouillon. Objectif : limiter les consignes concurrentes et le volume répété. Pas de troisième appel ni de changement de modèle. 390 tests locaux réussis ; résultat réel à vérifier après publication. Les contrôles communs concernent Textes, Examens et iPackEPS ; les fiches grande voie/transport concernent Textes.
+
+
 ### 2026-10-17 — rattachement des rejets logiques aux preuves concernées
 
 Reprise sur 52875f4 : deux appels, repli. Trace téléchargée et lue : deux pertes de réserve historique ajoutées à la sélection lexicale incorrecte. Les erreurs logiques portaient sur les indices de la liste déjà filtrée ; elles ne contenaient pas les preuves concernées, contrairement aux rejets lexicaux. Cela limitait le ciblage de la réparation lorsqu'il y avait plusieurs erreurs.

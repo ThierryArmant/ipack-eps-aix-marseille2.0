@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — accès administrateur autorisé et cause du rejet transport identifiée
+
+Autorisation explicite reçue pour consulter les traces ; connexion sécurisée vérifiée par le mode administrateur actif. Reproduction sur 5d54511 : le premier et le second brouillon citent le même passage de règle générale pour une permission individuelle. Le contrôle lexical trouve une seule racine commune et rejette la conclusion aux deux tentatives ; ce n'est pas une panne de recherche ni un diagnostic déduit du seul repli. Les conditions détaillées sont présentes, mais une conclusion « sous certaines conditions » reste trop vague.
+
+Programme : la réparation reçoit désormais les identifiants des preuves rejetées et la rubrique concernée, sans le texte du brouillon. Elle doit sélectionner la règle qui établit réellement l'action ou reformuler le cadre documenté, sans gonfler le vocabulaire pour passer le contrôle. Contrôle générique des permissions formulées seulement « sous certaines conditions », avec maintien des possibilités explicitement conditionnées. Aucun seuil lexical abaissé, aucune citation automatiquement remplacée, aucun cas métier en dur, plafond de deux appels inchangé. 388 tests locaux réussis, compilation et diff vérifiés. Reprise en ligne à effectuer après publication ; aucun résultat global de fiabilité déduit de ces tests.
+
+
 ### 2026-10-17 — reprises observées sur 6dc509c
 
 Version affichée 6dc509c. Demande composée grande voie : un appel, 6 185 jetons d’entrée ; contrôles visuels/tactiles restitués, mais cadre et validations encore génériques. Variante centrée relais/redescente : un appel, 11 419 jetons d’entrée ; supervision même des élèves expérimentés, supports/ancrages/relais, protection, baudrier, encordement et contrôle final restitués. Ces reprises ne mesurent pas une fiabilité générale.

@@ -32,6 +32,15 @@ class EvidenceLogicTests(unittest.TestCase):
         bad['evidence'].append({'quote': "L'accord écrit n'est pas nécessaire pour cette opération."})
         self.assertFalse(evidence_logic_errors([bad]))
 
+    def test_vague_permission_does_not_replace_an_explicit_condition(self):
+        proof = 'Le responsable peut autoriser le dispositif après vérification des pièces.'
+        self.assertTrue(evidence_logic_errors([
+            claim('Vous pouvez utiliser le dispositif sous certaines conditions.', proof)]))
+        self.assertFalse(evidence_logic_errors([
+            claim('Vous pouvez utiliser le dispositif si le responsable valide les pièces.', proof)]))
+        self.assertFalse(evidence_logic_errors([
+            claim('Le dispositif est un recours exceptionnel.', proof)]))
+
     def test_no_standard_is_not_proof_of_sufficiency(self):
         for noun in ('ratio','seuil','minimum'):
             proof=f"Il n'existe pas de {noun} général ; le responsable apprécie la configuration."

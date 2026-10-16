@@ -764,12 +764,25 @@ Réponds uniquement en JSON selon ce schéma :
     audit['initial_rejections'] = rejected
     if rejected:
         feedback = [{k: v for k, v in error.items() if k != 'claim'} for error in rejected]
+        for item, error in zip(feedback, rejected):
+            claim = error.get('claim')
+            if not isinstance(claim, dict):
+                continue
+            evidence = claim.get('evidence')
+            # Identifier la sélection qui a échoué sans réinjecter le brouillon.
+            item['rejected_evidence'] = [
+                {k: e[k] for k in ('document_id', 'passage_ids') if k in e}
+                for e in (evidence[:6] if isinstance(evidence, list) else []) if isinstance(e, dict)]
+            item['section'] = claim.get('section')
         # Repartir des sources sans ancrer le modèle sur son brouillon erroné.
         repair = prompt + '''\nREPRISE APRES CONTROLE :
 Recompose la réponse complète depuis les passages, en couvrant tous les volets documentés de la question ; ne te limite pas aux affirmations rejetées et ne recopie pas une proposition qui a échoué.
 Conserve les conditions, exceptions et autorités dans la réponse. Une réserve tardive ne corrige pas une conclusion catégorique.
 Ne confonds pas une condition réglementaire documentée avec un fait manquant dans la question : donne la règle, puis indique ce qui reste à vérifier pour le cas.
 Sélectionne des document_id et passage_ids existants, avec les conditions utiles au cas.
+Les rejected_evidence identifient la sélection qui n'a pas justifié la proposition rejetée : ne répète pas le même raisonnement avec cette sélection.
+En cas d'échec lexical, relis le contenu des passages : choisis celui qui établit réellement l'action, ses conditions et son autorité, ou reformule la règle effectivement établie. N'ajoute pas de mots seulement pour satisfaire le contrôle.
+Une permission suivie de « sous certaines conditions » ne remplace pas les conditions concrètes dans la conclusion. Si l'autorisation du cas n'est pas établie, donne le cadre conditionnel documenté sans déclarer le cas autorisé.
 Supprime les affirmations concernant une autre situation et les rubriques non documentées.
 Une réponse courte ou {"claims":[]} est autorisée ; aucune décision n'est obligatoire.
 N'ajoute ni source ni procédure. Les étiquettes de source sont fixées par le programme.

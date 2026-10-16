@@ -69,6 +69,11 @@ def evidence_logic_errors(claims):
     for i, claim in enumerate(claims):
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
+        if (re.search(r'\b(?:vous pouvez|est autorise|sont autorises)\b', head)
+                and re.search(r'\bsous (?:certaines )?conditions\b', head)
+                and not _CONDITIONAL.search(head)):
+            errors.append({'index': i, 'errors': [
+                'permission assortie de conditions non précisées : énoncer les conditions concrètes dans la conclusion ou conserver le cadre sans autoriser le cas']})
         qualified_negative = bool(_UNIVERSAL.search(head))
         categorical_no_need = bool(_NO_NEED.search(head)) and not qualified_negative and not _CONDITIONAL.search(head) and not _UNCERTAIN.search(head)
         if categorical_no_need and any(_limited_rule(p) for p in proofs):

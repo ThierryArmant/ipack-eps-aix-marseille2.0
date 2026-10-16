@@ -29,6 +29,25 @@ class TargetedRepairTests(unittest.TestCase):
         self.assertIn('CONSIGNE_ACTUELLE', llm.prompts[-1])
         self.assertIn('responsable', result)
 
+    def test_repair_identifies_failed_passage_selection_without_copying_draft(self):
+        import json
+        docs = mark_excerpt('Le dispositif demeure exceptionnel.\n\n'
+                            'Le responsable valide le dispositif après vérification des pièces.')
+        bad = {'claims': [{'section': 'decision', 'text': 'BROUILLON_SANS_JUSTIFICATION',
+                           'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P1']}]}]}
+        good = {'claims': [{'section': 'condition',
+                            'text': 'Le responsable valide le dispositif après vérification des pièces.',
+                            'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P2']}]}]}
+        llm = FakeLLM([bad, good])
+        review_exam_answer(llm, question='Comment valider le dispositif ?', public='Collège',
+                           documents=docs, mode='textes')
+        feedback = json.loads(llm.prompts[1].split('ERREURS MECANIQUES :\n')[1])
+        self.assertEqual(feedback[0]['rejected_evidence'],
+                         [{'document_id': 'D1', 'passage_ids': ['D1P1']}])
+        self.assertEqual(feedback[0]['section'], 'decision')
+        self.assertNotIn('BROUILLON_SANS_JUSTIFICATION', llm.prompts[1])
+        self.assertEqual(len(llm.prompts), 2)
+
     def test_compact_payload_preserves_exact_text_ids_and_legal_scope(self):
         packet = source_packets(mark_excerpt('Une consigne locale précise les étapes.'))[0]
         span = packet['passages'][0]

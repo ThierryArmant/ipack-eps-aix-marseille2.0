@@ -347,3 +347,6 @@ Fait : trois fiches de situation en priorité 300 dans `data/examens/situations_
 - Compléments sourcés sur recours PPCR et intervenant EPS bénévole à l'école ; identification du véhicule personnel exceptionnel.
 - Un niveau primaire explicite n'est plus remplacé par le collège où travaille un adulte cité dans la question. L'onglet Textes ne porte plus le bandeau LSU sur ces demandes.
 - Aucun texte de réponse métier ajouté en dur ; restriction UNSS inchangée. Questions et réponses d'essai conservées hors dépôt. Les tests locaux ne constituent pas une validation des réponses générées ; comparaison en ligne à effectuer après publication.
+
+### Comparaison en ligne après tri
+Les dix demandes ont été rejouées. Les bonnes fiches sont mieux ciblées et le volume documentaire diminue, mais le modèle omet encore des conditions et inverse une exception d'agrément malgré une fiche pertinente. La fiche d'agrément a donc été reformulée en règles factuelles séparant réputation d'agrément et autorisation ; le prompt général demande de couvrir chaque sous-demande, d'appliquer les exceptions et de conserver l'autorité d'appréciation dans la conclusion. Pas de réponse de cas en dur, pas d'appel systématique supplémentaire. 367 tests locaux réussis ; contrôle en ligne à poursuivre sur cette dernière correction.

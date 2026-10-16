@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — approfondissement autorisé : grande voie et véhicule personnel
+
+Sources relues : circulaire 2017-075, I.2, II, III.3 et annexe escalade (BO MENE1711773C) ; réponse ministérielle 4573 du 11 juillet 2023 ; note 86-101, I et II, copie officielle hébergée par Nice (lien remplacé par la copie effectivement ouverte). La fiche grande voie explicite supervision des relais et contrôles avant départ, sans transposer les dispositifs de moulinette. La fiche transport met en tête la divergence recteur/chef et conserve le circuit à confirmer ; garanties conducteur/véhicule/assurance séparées avec références et limites des prescriptions anciennes. L'absence de mention générale d'accord écrit ne devient pas une dispense certaine.
+
+Programme : le contrôle générique de portée reconnaît désormais « exigence générale », en plus de « universelle ». Test de rejet d'une fausse dispense et maintien d'une dispense explicite documentée. Test du contenu des passages grande voie. Aucun texte de réponse métier ajouté au programme ni appel systématique supplémentaire. 386 tests locaux réussis ; ils ne prouvent pas la complétude réelle. Reprises sur version observée à effectuer après publication. Le registre de portée régénéré ne présente aucun changement.
+
+
 ### 2026-10-17 — vérifications de la publication 0471d29
 
 Publication sur main réalisée par le connecteur ; identité de l’arbre distant et de l’arbre testé confirmée. Version 0471d29 effectivement affichée sous les deux nouvelles réponses. Vélo prêté : un appel, 5 779 jetons d’entrée, réponse comportant désormais vérifications matérielles, défauts décelables, consignes, surveillance et lien causal. La sélection manquante est rétablie ; cela ne constitue pas une validation juridique générale. Escalade : un appel, 6 021 jetons ; les contrôles concrets restent omis malgré les passages présents. L’ajustement de consigne ne suffit donc pas sur ce volet ; ne pas le déclarer corrigé. Transport en véhicule personnel : reprise également observée sur 0471d29, deux appels, 9 933 jetons d’entrée. Réponse plus développée, mais contrôle détaillé des garanties et des conditions encore nécessaire ; cas non déclaré validé. Aucun gain global de fiabilité mesuré. 384 tests locaux réussis avant publication.

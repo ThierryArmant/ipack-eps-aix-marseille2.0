@@ -57,3 +57,13 @@ class RegulationDocumentTriageTests(unittest.TestCase):
         unrelated = kc.priority_context('Un élève casse une vitre : responsabilité ?',
                                         'Collège (DNB)', 'textes')
         self.assertNotIn('Sortie au musée à vélo', unrelated)
+
+    def test_specific_climbing_packet_contains_checks_not_only_project_authorisation(self):
+        from documentary_review import mark_excerpt, source_packets
+        path = 'data/textes/fiches/escalade_relais_environnement_specifique.txt'
+        packet = source_packets(mark_excerpt(Path(path).read_text(), path=path))[0]
+        controls = [s['text'] for s in packet['passages'] if s['text'].startswith('Contrôles')]
+        self.assertEqual(len(controls), 2)
+        self.assertIn('supervise', controls[0])
+        self.assertIn('visuelle et tactile', controls[1])
+        self.assertIn('ne décrivent pas', controls[1])

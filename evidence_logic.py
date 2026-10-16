@@ -20,7 +20,7 @@ def proposition_head(text):
 
 
 _UNIVERSAL = re.compile(r'universell|\bpartout\b|dans tous les cas|(?:nationale?|generale?).{0,18}(?:systematique|absolu)|systematiquement|automatiquement')
-_RULE_SCOPE = re.compile(r'universell|\bpartout\b|dans tous les cas|systematiquement')
+_RULE_SCOPE = re.compile(r'universell|\bpartout\b|dans tous les cas|systematiquement|\bgeneral(?:e|es|ement)?\b')
 _NORMATIVE = re.compile(r'prescri|oblig|requis|necessai|impos|interdi|exig|dispens')
 
 

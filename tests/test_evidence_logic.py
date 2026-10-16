@@ -24,6 +24,14 @@ class EvidenceLogicTests(unittest.TestCase):
         bad="Le dispositif n'est pas nécessaire, mais il faut vérifier les conditions du site."
         self.assertTrue(evidence_logic_errors([claim(bad,proof)]))
 
+    def test_general_absence_of_requirement_does_not_establish_local_exemption(self):
+        proof = "Ce passage ne pose pas une exigence générale d'accord écrit ; la procédure locale reste à vérifier."
+        bad = claim("L'accord écrit n'est pas nécessaire.", proof)
+        self.assertTrue(evidence_logic_errors([bad]))
+        self.assertFalse(evidence_logic_errors([claim(proof, proof)]))
+        bad['evidence'].append({'quote': "L'accord écrit n'est pas nécessaire pour cette opération."})
+        self.assertFalse(evidence_logic_errors([bad]))
+
     def test_no_standard_is_not_proof_of_sufficiency(self):
         for noun in ('ratio','seuil','minimum'):
             proof=f"Il n'existe pas de {noun} général ; le responsable apprécie la configuration."

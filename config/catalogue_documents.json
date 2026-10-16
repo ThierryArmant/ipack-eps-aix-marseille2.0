@@ -1256,7 +1256,24 @@
     "title": "[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie et Gestion des Emplois du Temps (EDT)",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:emploi du temps|\\bedt\\b|creneau))(?=.*(?:supprim|retir|effac|modifi|deplac|ajout|creer|semaine|colonne|agenda))"
+    ],
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article20",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/8pHcZ4gw6go",
+        "motifs": [
+          "supprim|cr[ée]er|ajouter un cr[ée]neau"
+        ]
+      }
+    ]
   },
   "data/ipack/fiches/ipack_069_article_42_dossiers_dossier_certificatif_protocoles_configuration_des_protocoles_des_epreu.txt": {
     "title": "[ARTICLE 42] [Dossiers]/[Dossier Certificatif]/[Protocoles] Configuration des Protocoles des Épreuves certificatives",

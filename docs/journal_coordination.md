@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme et sélection — formulaire persistant et tutoriels, retour utilisateur
+Correction autorisée : conserver module et public après réponse, académie demandée uniquement en Examens ; hors Examens, aucune académie présumée par défaut et prise en compte de celle nommée dans la question. Identité stable des sections et bouton explicite pour une nouvelle question. Restauration des tutoriels depuis les sources réellement citées, indépendamment du texte généré. Fiche EDT existante mise en priorité pour les opérations d’agenda, sans réponse en dur ni nouvelle procédure. La lecture distante de l’article Créteil est indisponible ; source locale existante et lien vidéo déjà référencé dans le programme, pas de revalidation revendiquée. Tests et reprises en ligne à suivre.
+
 ### 2026-10-16 — programme et fiches — bilan de clôture après douze reprises sur 8f66309
 Les douze formulations ont toutes été rejouées sur la même version, académie Aix-Marseille, mêmes contextes et plafond dix. Dix réponses satisfaisantes sur le fond, une clarification utile (course ambiguë, zéro appel), un diagnostic AFLP plus prudent mais encore perfectible : il présente les symptômes et des actions conditionnelles, sans poser directement la question de précision ; il n’est pas compté comme procédure de résolution confirmée. Le SHN porte désormais la réserve rectorale dans la décision et rappelle que deux notes ne suffisent pas automatiquement. La variante d’inaptitude totale restitue enfin le renoncement à toute proposition de note et la neutralisation.
 Sur cette dernière variante, le premier appel omet encore l’issue ; la trace administrateur montre que le contrôle corrigé rejette cette omission et que le second appel la rétablit. Ce contrôle existant ne doit plus prendre la dispense de certaines APSA pour la dispense globale. Aucun texte de réponse métier n’est produit par le programme.

@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 AIX = "Aix-Marseille"
+NON_PRECISEE = "Non précisée"
 
 ACADEMIES = [
     "Aix-Marseille", "Amiens", "Besançon", "Bordeaux", "Clermont-Ferrand", "Corse", "Créteil",
@@ -47,7 +48,7 @@ def note_academie(academie):
     """Consigne à transmettre au modèle quand l'utilisateur n'est pas d'Aix-Marseille ; vide sinon."""
     if est_aix(academie):
         return ""
-    nom = academie if academie not in ("Autre", "Établissement français à l'étranger") else None
+    nom = academie if academie not in ("Autre", "Établissement français à l'étranger", NON_PRECISEE) else None
     texte = (
         f"Académie de l'utilisateur : {academie}. "
         "Les documents contiennent des consignes propres à l'académie d'Aix-Marseille : DIEC d'Aix-Marseille, "
@@ -69,7 +70,7 @@ def avertissement_reponse_directe(academie):
     """Paragraphe affiché avant une réponse relue fondée sur une consigne d'Aix."""
     if est_aix(academie):
         return ""
-    lieu = ("dans votre académie de rattachement" if academie in ("Autre", "Établissement français à l'étranger")
+    lieu = ("dans votre académie de rattachement" if academie in ("Autre", "Établissement français à l'étranger", NON_PRECISEE)
             else f"dans l'académie de {academie}")
     return ("Attention : cette réponse repose sur une consigne de l'académie d'Aix-Marseille. "
             f"{lieu[0].upper() + lieu[1:]}, vérifiez-la auprès de votre division des examens et de votre inspection EPS.")
@@ -102,5 +103,10 @@ def academy_context(question, selected):
         return selected or AIX, ''
     effective = declared[0]
     notice = (f"Vous avez sélectionné {selected or AIX}, mais indiqué {effective} dans votre question. "
-              f"La réponse tient compte de l'académie de {effective}.") if effective != (selected or AIX) else ''
+              f"La réponse tient compte de l'académie de {effective}.") if selected not in (None, NON_PRECISEE) and effective != selected else ''
     return effective, notice
+
+
+def request_academy(question, mode, selected):
+    """Le choix d'académie ne s'applique qu'au parcours Examens."""
+    return academy_context(question, selected if mode == 'examens' else NON_PRECISEE)

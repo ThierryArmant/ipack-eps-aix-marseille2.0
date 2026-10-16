@@ -7,18 +7,22 @@ import source_scope
 import documentary_review
 import response_controls
 import response_cache
+import hub_session
+import tutorial_links
 
 # Streamlit peut conserver en mémoire les modules importés lors d'un redéploiement :
 # une fonction ajoutée dans un module provoque alors une ImportError. Chaque module du
 # projet est rechargé dès que son fichier change (ordre : dépendances d'abord).
-for _module in (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache):
+for _module in (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache, hub_session, tutorial_links):
     _revision = hashlib.sha256(Path(_module.__file__).read_bytes()).hexdigest()
     if getattr(_module, "_loaded_revision", None) != _revision:
         _module = importlib.reload(_module)
         _module._loaded_revision = _revision
+from hub_session import select_module, new_question, ready_for_question
+from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
-from academie import academy_context, ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
+from academie import academy_context, request_academy, ACADEMIES, AIX, note_academie, avertissement_reponse_directe, adresse_assistance, titres_aix
 import json
 import base64
 import datetime
@@ -249,13 +253,8 @@ if st.session_state.pop("relance_ctx", None) is not None:
     st.session_state.pop("current_prompt", None)
 st.session_state.pop("dernier_echange", None)
 
-# 🔄 RÉINITIALISATION TOTALE DES ÉTAPES POUR PERMETTRE UN NOUVEAU CHOIX DE CONTEXTE
-if st.session_state.reset_steps:
-    st.session_state.contexte_valide = True
-    st.session_state.public_valide = False
-    st.session_state.active_module = "ipack"
-    st.session_state.niveau_actif_form = None
-    st.session_state.reset_steps = False
+# Migration des anciennes sessions : ne plus effacer les choix après une réponse.
+st.session_state.reset_steps = False
 
 
 def incrementer_et_obtenir_visites():
@@ -1424,17 +1423,21 @@ def _consigne(texte, couleur="amber"):
 
 prompt = None
 _contexte_ok = bool(st.session_state.get("contexte_valide"))
-_academie_ok = bool(st.session_state.get("academie_utilisateur"))
+_academie_requise = module_actif == "examens"
+if _academie_requise and not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
+    st.session_state.academie_utilisateur = st.session_state.academie_memorisee
+if st.session_state.get("academie_utilisateur"):
+    st.session_state.academie_memorisee = st.session_state.academie_utilisateur
+_academie_ok = not _academie_requise or bool(st.session_state.get("academie_utilisateur"))
 if st.session_state.get("niveau_actif_form"):
     st.session_state.public_valide = True
 _public_ok = bool(st.session_state.get("public_valide"))
-_etape_active = 1 if not _contexte_ok else (2 if not (_academie_ok and _public_ok) else 3)
+_etape_active = 3 if ready_for_question(st.session_state) else (1 if not _contexte_ok else 2)
 
 
 def _cle_etape(numero):
-    # La clé donne la classe CSS de la section : active, faite ou verrouillée.
-    etat = "active" if numero == _etape_active else ("faite" if numero < _etape_active else "verrou")
-    return f"etape{numero}_{etat}"
+    # Une identité stable évite de recréer les widgets quand l'étape change d'état.
+    return f"etape{numero}"
 
 
 # PARCOURS EN TROIS ÉTAPES, RÉUNIES DANS UN SEUL PANNEAU
@@ -1452,47 +1455,40 @@ with st.container(key="parcours"):
 
         with col_b1:
             if st.button("🛠️ iPackEPS", use_container_width=True, key="btn_ip", type=btn_ip_type):
-                st.session_state.active_module = "ipack"
-                st.session_state.contexte_valide = True
-                st.session_state.public_valide = False
-                st.session_state.messages_hub = []
+                select_module(st.session_state, "ipack")
                 st.rerun()
         with col_b2:
             if st.button("📊 Examens &\nSantorin", use_container_width=True, key="btn_ex", type=btn_ex_type):
-                st.session_state.active_module = "examens"
-                st.session_state.contexte_valide = True
-                st.session_state.public_valide = False
-                st.session_state.messages_hub = []
+                select_module(st.session_state, "examens")
                 st.rerun()
         with col_b3:
             if st.button("🔒 Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type=btn_se_type):
-                st.session_state.active_module = "textes"
-                st.session_state.contexte_valide = True
-                st.session_state.public_valide = False
-                st.session_state.messages_hub = []
+                select_module(st.session_state, "textes")
                 st.rerun()
 
     # ÉTAPE 2 : ACADÉMIE ET PUBLIC
     with st.container(key=_cle_etape(2)):
         if not _contexte_ok:
-            _bandeau_etape("2", "Votre académie et votre public", "S'ouvre quand le contexte est choisi", "amber")
+            _bandeau_etape("2", "Votre académie et votre public" if _academie_requise else "Votre public", "S'ouvre quand le contexte est choisi", "amber")
         else:
-            _bandeau_etape("2", "Votre académie et votre public",
-                           "Les consignes et la réponse s'adaptent à ces deux choix", "amber")
+            _bandeau_etape("2", "Votre académie et votre public" if _academie_requise else "Votre public",
+                           "Les consignes et la réponse s'adaptent à ces deux choix" if _academie_requise else "La réponse s’adapte au public choisi", "amber")
 
             def valider_public():
                 st.session_state.public_valide = True
 
-            # Académie de l'utilisateur : le hub contient des consignes propres à Aix-Marseille (voir academie.py).
-            st.markdown('<div class="hub-field">🏫 Académie <span style="font-weight: 400; text-transform: none;">— Choisissez votre académie</span></div>', unsafe_allow_html=True)
-            st.selectbox(
-                "Votre académie",
-                ACADEMIES,
-                index=None,
-                placeholder="Choisissez votre académie",
-                key="academie_utilisateur",
-                label_visibility="collapsed",
-            )
+            if _academie_requise:
+                # La préférence est gardée hors widget quand ce dernier est absent des autres onglets.
+                if not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
+                    st.session_state.academie_utilisateur = st.session_state.academie_memorisee
+                def memoriser_academie():
+                    st.session_state.academie_memorisee = st.session_state.get("academie_utilisateur")
+                st.markdown('<div class="hub-field">🏫 Académie <span style="font-weight: 400; text-transform: none;">— Choisissez votre académie</span></div>', unsafe_allow_html=True)
+                st.selectbox("Votre académie", ACADEMIES, index=None,
+                             placeholder="Choisissez votre académie", key="academie_utilisateur",
+                             label_visibility="collapsed", on_change=memoriser_academie)
+            else:
+                st.caption("Si votre question concerne une consigne locale, indiquez l’académie dans votre question.")
 
             st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
             niveau_scolaire = st.radio(
@@ -1503,14 +1499,14 @@ with st.container(key="parcours"):
                 label_visibility="collapsed",
                 on_change=valider_public
             )
-            if st.session_state.get("academie_utilisateur") and not st.session_state.get("public_valide"):
+            if _academie_ok and not st.session_state.get("public_valide"):
                 _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
 
     # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
     with st.container(key=_cle_etape(3)):
         _bandeau_etape("3", "Posez votre question",
                        "Une phrase complète : ce que vous faites, où ça bloque, le message affiché"
-                       if _etape_active == 3 else "S'ouvre quand l'académie et le public sont choisis", "green")
+                       if _etape_active == 3 else ("S’ouvre quand l’académie et le public sont choisis" if _academie_requise else "S’ouvre quand le public est choisi"), "green")
         if _etape_active != 3:
             st.markdown('<div class="hub-champ-verrou">🔒 Décrivez votre problème en une phrase complète…</div>',
                         unsafe_allow_html=True)
@@ -1577,8 +1573,8 @@ if prompt_a_traiter:
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
         niveau_initial, mode_initial = niveau_actuel_form, mode
         niveau_actuel_form, mode = effective_context(prompt, niveau_actuel_form, mode)
-        academie_reponse, avertissement_academie_question = academy_context(
-            prompt, st.session_state.get("academie_utilisateur") or AIX)
+        academie_reponse, avertissement_academie_question = request_academy(
+            prompt, mode_initial, st.session_state.get("academie_utilisateur"))
         origine_reponse = "ia"
 
         onglets_noms = {
@@ -2955,8 +2951,13 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         {"role": "assistant", "type": "video", "content": _url}
                     )
 
+        if mode in ("examens", "ipack"):
+            _deja = {m["content"] for m in st.session_state.messages_hub if m.get("type") == "video"}
+            for _url in supporting_tutorials(diagnostic_ia, catalog()):
+                if _url not in _deja:
+                    st.session_state.messages_hub.append({"role":"assistant", "type":"video", "content":_url})
+
         st.session_state.nb_reponses = st.session_state.get("nb_reponses", 0) + 1
-        st.session_state.reset_steps = True
         st.rerun()
 
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
@@ -2995,6 +2996,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
         if m.get("type") == "video":
             with st.chat_message(m["role"]):
                 st.video(m["content"])
+
+    st.button("✍️ Poser une autre question", key="nouvelle_question",
+              on_click=lambda: new_question(st.session_state))
 
 
 

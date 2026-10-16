@@ -1,6 +1,4 @@
 from pathlib import Path
-import hashlib
-import importlib
 import academie
 import knowledge_catalog
 import source_scope
@@ -11,14 +9,8 @@ import response_cache
 import hub_session
 import tutorial_links
 
-# Streamlit peut conserver en mémoire les modules importés lors d'un redéploiement :
-# une fonction ajoutée dans un module provoque alors une ImportError. Chaque module du
-# projet est rechargé dès que son fichier change (ordre : dépendances d'abord).
-for _module in (academie, knowledge_catalog, source_scope, evidence_logic, documentary_review, response_controls, response_cache, hub_session, tutorial_links):
-    _revision = hashlib.sha256(Path(_module.__file__).read_bytes()).hexdigest()
-    if getattr(_module, "_loaded_revision", None) != _revision:
-        _module = importlib.reload(_module)
-        _module._loaded_revision = _revision
+# Les modules sont importés normalement ; Streamlit invalide les imports au redéploiement.
+# Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
 from hub_session import select_module, new_question, ready_for_question
 from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab
@@ -2698,7 +2690,6 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             academy=academie_reponse, mode=mode,
-                            require_coverage=(mode == 'textes'),
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}

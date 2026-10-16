@@ -4,6 +4,7 @@ import importlib
 import academie
 import knowledge_catalog
 import source_scope
+import evidence_logic
 import documentary_review
 import response_controls
 import response_cache
@@ -13,7 +14,7 @@ import tutorial_links
 # Streamlit peut conserver en mémoire les modules importés lors d'un redéploiement :
 # une fonction ajoutée dans un module provoque alors une ImportError. Chaque module du
 # projet est rechargé dès que son fichier change (ordre : dépendances d'abord).
-for _module in (academie, knowledge_catalog, source_scope, documentary_review, response_controls, response_cache, hub_session, tutorial_links):
+for _module in (academie, knowledge_catalog, source_scope, evidence_logic, documentary_review, response_controls, response_cache, hub_session, tutorial_links):
     _revision = hashlib.sha256(Path(_module.__file__).read_bytes()).hexdigest()
     if getattr(_module, "_loaded_revision", None) != _revision:
         _module = importlib.reload(_module)

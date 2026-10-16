@@ -350,3 +350,7 @@ Fait : trois fiches de situation en priorité 300 dans `data/examens/situations_
 
 ### Comparaison en ligne après tri
 Les dix demandes ont été rejouées. Les bonnes fiches sont mieux ciblées et le volume documentaire diminue, mais le modèle omet encore des conditions et inverse une exception d'agrément malgré une fiche pertinente. La fiche d'agrément a donc été reformulée en règles factuelles séparant réputation d'agrément et autorisation ; le prompt général demande de couvrir chaque sous-demande, d'appliquer les exceptions et de conserver l'autorité d'appréciation dans la conclusion. Pas de réponse de cas en dur, pas d'appel systématique supplémentaire. 367 tests locaux réussis ; contrôle en ligne à poursuivre sur cette dernière correction.
+
+## 16 octobre 2026 — Perte de portée entre preuve et conclusion
+
+Défaut reproduit localement : une citation exacte et un vocabulaire commun laissent passer « absence d'obligation universelle » devenu « inutile dans ce cas ». Contrôle générique ajouté dans evidence_logic.py, commun aux trois onglets : portée universelle/cas particulier, absence de seuil/suffisance, contradiction de nécessité avec une appréciation encore conditionnelle. Contraintes de preuve transmises avant rédaction ; contrôle après rédaction ; même réparation unique, aucun texte métier ajouté en dur. Documentation : docs/controle_portee_preuves_2026_10_16.md. Ce contrôle ne résout pas toutes les omissions et ne constitue pas une preuve juridique. Reprises en ligne à effectuer après publication.

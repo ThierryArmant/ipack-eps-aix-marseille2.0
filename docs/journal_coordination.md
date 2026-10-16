@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — comparaison complète à plafond vingt après clarification préalable
+Fait : clarification préalable vérifiée en ligne sur 435a208 : zéro appel et zéro jeton de génération pour la formulation ambiguë. À la demande de l'utilisateur, les douze formulations sont reprises avec candidats et plafond global portés de 10 à 20, sans changement des fiches, consignes, priorités ou autres plafonds par base. Version temporaire ; retour au plafond initial après les douze reprises.
+Attendu : distinguer économie de clarification et qualité des réponses de fond, relever appels et jetons, conserver les erreurs et réponses partielles comme non validées.
+
 ### 2026-10-16 — programme — clarification existante avant recherche et génération
 Fait : déplacement de la demande d'objectif de course depuis le remplacement tardif de réponse vers le circuit de clarification préalable existant. La demande ambiguë arrête la recherche documentaire par question et la génération ; l'objectif déjà indiqué laisse poursuivre le circuit documentaire. La clarification conserve l'invitation à une nouvelle question complète. Aucun champ ni cache ajouté, aucune nouvelle règle de certification.
 Constaté : 323 tests locaux réussis, dont quatre contrôles du déclenchement et du non-déclenchement, du niveau scolaire et des branchements de recherche/génération. Vérification en ligne du compteur à zéro en cours. Les erreurs de fond des autres réponses restent distinctes de cette économie.

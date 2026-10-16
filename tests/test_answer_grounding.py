@@ -77,9 +77,9 @@ class GroundingTests(unittest.TestCase):
         self.assertEqual(len(llm.prompts), 1)
         self.assertEqual(audit['accepted_claims'][0]['evidence'][0]['quote'], SOURCE)
 
-    def test_production_uses_contract_and_does_not_replace_verified_prose(self):
+    def test_experimental_contract_disabled_and_no_postcheck_replacement(self):
         code = Path('app.py').read_text()
-        self.assertIn('require_grounding=True', code)
+        self.assertIn('require_grounding=False', code)
         self.assertNotIn('verdict_champs', code)
         self.assertNotIn('zone de précision ci-dessous', code)
 

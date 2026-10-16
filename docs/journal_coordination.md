@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — partie programme — retrait du contrôle expérimental après reprises réelles
+Constaté sur 0ef520a : quatre reprises ciblées (question complète de dépôt, diagnostic de saisie, ambiguïté de champ, cycle suivi) aboutissent au repli documentaire après deux appels, au lieu des réponses obtenues sur bf588d1. Les tests locaux ne prédisaient pas cette dégradation. Ces cas ne sont pas corrigés ; aucun résultat favorable n'est revendiqué.
+Fait : contrat expérimental désactivé dans le circuit de production. Les verdicts en dur postérieurs à la vérification restent supprimés. Aucune nouvelle réponse métier en dur ni modification de fiche. Le module expérimental reste disponible pour reproduire les rejets avec les traces administrateur ; il ne doit pas être réactivé sans vérification en ligne.
+Attendu : analyser les traces exactes de 0ef520a, puis comparer les mêmes formulations sur la version de retrait. Les questions et réponses privées restent hors dépôt.
+
 ### 2026-10-15 22:04 — partie programme — application des preuves à la demande (voir git log)
 Fait : nouveau contrat transversal de restitution, activé pour Examens et iPackEPS : chaque affirmation porte un ancrage littéral dans la question, une phrase justificative ciblée, son rôle utile et les antécédents établis ou inconnus. Les ancrages et la présence des conditions sont vérifiés mécaniquement ; un antécédent explicite de la preuve ne peut être masqué par une liste de conditions vide. Une condition inconnue reste dans la même affirmation, y compris une démarche. L'attribution publiée suit la phrase ciblée plutôt que tous les passages voisins. La trace conserve les erreurs initiales et la réparation éventuelle. Aucun appel supplémentaire systématique, réparation unique après échec uniquement.
 Suppression des verdicts rédigés dans le programme sur les champs d'apprentissage et de leur remplacement postérieur à la vérification. La table des activités reste un repère conditionnel, sans autoriser à elle seule un protocole ou un dépôt. Les fiches, les priorités et les règles métier ne sont pas modifiées ; aucun cas ni texte de réponse ajouté en dur.

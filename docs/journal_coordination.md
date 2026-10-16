@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — contrôles des autres contextes et limite de la dernière reprise
+
+Sur dc35d69 observé : suppression d'un créneau iPackEPS restituée avec la procédure de l'article 20 et le tutoriel associé, un appel, 5 107 jetons d'entrée. Cas d'absence injustifiée bac GT et saisie Santorin : un appel, 5 423 jetons ; règle nationale et documentation logicielle distinguées. Ce sont des contrôles de non-régression ciblés sur des thèmes déjà corrigés, pas de nouveaux échecs résolus ni une mesure de fiabilité générale. 390 tests locaux réussis.
+
+La dernière reprise transport sur la réparation autonome n'a pas été achevée : deux observations consécutives du navigateur ont expiré. Le résultat final de ce cas sur dc35d69 n'est donc pas validé. Les symptômes étaient connus avant cette reprise ; les défauts précis de sélection de preuve et de rattachement des rejets ont été établis par les traces administrateur lues pendant cette session. Aucune attribution rétrospective à un outil de développement ni à un modèle particulier n'est déduite de ces constats.
+
+
 ### 2026-10-17 — réparation autonome plus courte après lecture des traces
 
 Version 53faf1d observée : feedback contenant bien les identifiants des preuves pour tous les rejets indexés. Le modèle répète encore la conclusion générale rejetée et omet la réserve de l'assurance ; une affirmation sur les contrôles du véhicule est même rattachée au seul passage du conducteur. Le correctif de liaison fonctionne, mais cette génération n'est pas validée. Aucune baisse des seuils pour la faire passer.

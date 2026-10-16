@@ -1467,8 +1467,8 @@
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
-   "portee_texte": null,
-   "titre": "complement saisie bloquee diagnostic"
+   "portee_texte": "Diagnostic logiciel conditionnel, sources existantes non revalidées en ligne.",
+   "titre": "Santorin — Saisie bloquée : identifier le symptôme avant la procédure"
   },
   "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
    "nature": [

@@ -673,9 +673,25 @@
     "examens": []
   },
   "data/examens/complement_saisie_bloquee_diagnostic.txt": {
-    "title": "complement saisie bloquee diagnostic",
-    "statut": "synthese_non_revalidee",
-    "examens": []
+    "title": "Santorin — Saisie bloquée : identifier le symptôme avant la procédure",
+    "statut": "diagnostic_conditionnel_sources_existantes_non_revalidees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:sais|aflp|notes))(?=.*(?:n.arriv|impossible|bloqu|gris|inactiv|peux pas))"
+    ],
+    "exclure_motifs": [
+      "absent.{0,15}(?:liste|lot)|aucun lot|eleves manquant"
+    ]
   },
   "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
     "title": "complement saisie santorin cas pratiques",

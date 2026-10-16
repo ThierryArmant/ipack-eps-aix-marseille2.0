@@ -542,17 +542,24 @@ def conditional_extraction_errors(claims, question):
         if conditional_source and categorical_grade and not conditional_head:
             errors.append({'index': i, 'errors': [
                 'conclusion catégorique de notation tirée de possibilités conditionnelles : conserver les alternatives et leur condition']})
-        # La branche de dispense ne suffit pas à justifier l'interdiction
-        # générale de noter lorsque le passage permet une note unique.
-        if (claim['section'] == 'decision' and conditional_source
-                and re.search(r'une seule note|sur une seule epreuve', proofs)
+        # Une dispense sur certaines évaluations n'est pas l'alternative
+        # consistant à ne proposer aucune note. Ne pas valider la couverture
+        # des deux issues sur la seule présence du mot « dispensé ».
+        choice_known = bool(re.search(
+            r"je (?:retiens|conserve)|j.ai (?:decide|choisi).{0,35}(?:note|certifi|dispens)|"
+            r"elements.{0,40}(?:suffisants|trop reduits)", norm(question)))
+        if (claim['section'] == 'decision' and conditional_source and not choice_known
+                and re.search(r'une seule note|sur (?:une|la) seule epreuve', proofs)
                 and re.search(r'dispens', proofs)
-                and re.search(r'\b(?:une|1) note\b|une seule|deux inaptitudes|2 inaptitudes', norm(question))
-                and not (re.search(r'note|certifi', text) and re.search(r'dispens', text))):
-            # Les alternatives peuvent être réparties sur plusieurs affirmations.
+                and re.search(r'\b(?:une|1) note\b|une seule|deux inaptitudes|2 inaptitudes', norm(question))):
             all_text = norm(' '.join(c['text'] for c in claims))
-            if not (re.search(r'note|certifi', all_text) and re.search(r'dispens', all_text)):
-                errors.append({'index': i, 'errors': ['une alternative documentée (note unique ou dispense conditionnelle) est omise']})
+            global_alternative = re.search(
+                r"(?:ne pas|pas de|aucune).{0,45}(?:propos|formul|recev|note)|"
+                r"dispens.{0,20}(?:de l.epreuve|d.eps|sur les trois|sur les 3)|"
+                r"neutralis.{0,20}coefficient|coefficient.{0,20}neutralis", all_text)
+            if not global_alternative:
+                errors.append({'index': i, 'errors': [
+                    'la dispense de certaines évaluations ne restitue pas l’autre issue documentée : ne proposer aucune note et ses conséquences ; conserver les deux issues avec leurs conditions']})
         # Une branche de statut tardif dans une fiche mixte ne s'applique
         # pas à tout SHN. Vérifier son antécédent, pas seulement les mots communs.
         late_status = r'statut.{0,35}(?:obtenu|declare|justifie).{0,20}apres.{0,45}(?:cloture|inscription)'

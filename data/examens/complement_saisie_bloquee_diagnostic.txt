@@ -1,9 +1,8 @@
-=== PRÉCISION : « PROTOCOLE BLOQUÉ / IMPOSSIBLE DE SAISIR LES NOTES » DANS SANTORIN (reformulation de fiches existantes, aucune information nouvelle) ===
-Ce fichier ne contient aucune procédure nouvelle. Il aide à identifier la bonne cause quand un enseignant dit « mon protocole est bloqué » ou « je ne peux plus saisir de notes ».
-
-### [DIAGNOSTIC : MON PROTOCOLE EST BLOQUÉ, JE NE PEUX PLUS SAISIR DE NOTES DANS SANTORIN]
-Il existe deux causes distinctes. Identifier celle qui correspond au symptôme avant de répondre, et ne pas les mélanger.
-- Cause 1, les cases de saisie des notes sont grisées ou inactives (cases AFL / AFLP) : vérifier d'abord si le choix des AFLP a été activé et validé ; ce symptôme seul ne prouve pas sa cause. Résolution : le professeur clique lui-même sur [choisir AFLP] dans Santorin, sur son lot, et déclare pour chaque APSA les AFL(P) qu'il évalue ; les cases de saisie deviennent alors actives.
-- Cause 2, un cadenas rouge ou fermé apparaît sur le lot (lot verrouillé) : l'enseignant n'a pas les droits informatiques pour le déverrouiller. Il faut contacter la direction : le chef d'établissement, sur son portail Santorin, va dans [Correction] > [Liste des lots] et clique sur le cadenas.
-- Pour saisir les notes et les statuts (DI / AB) : portail Santorin - Professeur, fonctionnalité [Corrections], ouvrir le lot puis la fiche de chaque élève.
-- Si l'utilisateur ne précise pas le symptôme, présenter les deux causes et lui demander laquelle correspond à ce qu'il voit : cases grisées, ou cadenas sur le lot.
+### Santorin — Saisie bloquée : identifier le symptôme avant la procédure
+[PORTEE: gt,pro,cap]
+Une impossibilité de saisir les notes ne précise pas le symptôme et ne permet pas d'identifier la cause. Si le symptôme n'est pas donné, demander ce qui apparaît exactement : cases grisées ou inactives, AFLP affichés X ou Y, cadenas sur le lot, ou message d'erreur à recopier sans données personnelles. Ne pas redemander ce qui est déjà décrit.
+Si les AFL(P) sont notés X ou Y et les champs d'une ou plusieurs APSA bloqués : vérifier le choix des AFLP dans Santorin. Le professeur utilise [choisir AFLP] sur son lot et déclare les AFL(P) évalués pour le protocole ; la FAQ décrit cette manipulation dans ce cas précis.
+Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir dans [Correction] > [Liste des lots], avec le cadenas.
+Les pistes ci-dessus correspondent à des symptômes distincts et ne constituent pas une liste exhaustive des causes. Une case grisée, sans autre indication, ne prouve pas que le choix des AFLP a été oublié.
+Portée : diagnostic logiciel conditionnel, reformulation de sources déjà présentes ; aucune règle réglementaire nouvelle. Tutoriels non revalidés en ligne lors de cette reprise.
+Sources de la base : tutoriels Créteil Cyclades Santorin, question de saisie Q6 et sa réponse ; complément de diagnostic de saisie déjà présent. Pour le déverrouillage : procédure établissement déjà décrite dans la base.

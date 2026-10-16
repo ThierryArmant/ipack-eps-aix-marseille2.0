@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — résultat de la comparaison du budget documentaire
+Constaté : la lecture du code et l'exécution locale du routage sur douze formulations montrent dix sélections ramenées aux seules fiches spécifiques (dont deux arrêts exclusifs avant recherche vectorielle). Augmenter les documents complémentaires de priorité nulle ne change pas ces sélections. Les retrievers locaux étaient instrumentés et simulés ; aucun résultat de génération n'en est déduit.
+Deux reprises réelles sur e3aaf9e, comparées aux mêmes formulations sur 20a2f8c, avec le même modèle, les mêmes fiches et les mêmes consignes. Budget de candidats et plafond global 10 vers 20 ; autres plafonds par base inchangés. Saisie bloquée : source plus ciblée et cause moins catégorique, mais manipulation encore prescrite sans symptôme identifié ; réponse non validée. Entrée 12531 vers 21821 jetons (+74 %), un appel dans les deux cas. Formulation ambiguë de champ : clarification affichée inchangée par le verdict existant, un appel et 12322 jetons d'entrée avant, deux appels et 39099 jetons cumulés après. Cet affichage ne prouve pas la qualité de la rédaction du modèle, car il est remplacé par le programme.
+Fait : retour au budget initial ; fichier applicatif identique à la version antérieure. Aucun ajout de fiche ou de réponse en dur. La comparaison est exploratoire, avec une seule reprise par cas : aucun gain global de fiabilité annoncé et aucun paramètre élargi conservé.
+Attendu : investiguer la sélection de la fiche spécifique du diagnostic et le maintien de ses conditions plutôt qu'augmenter globalement le contexte. Les traces administrateur n'ont pas été consultées.
+
 ### 2026-10-16 — programme — comparaison temporaire du budget documentaire
 Fait : budget de recherche et plafond documentaire portés de 10 à 20 pour une reprise comparative ciblée. Modèle, consignes, fiches, priorités et filtres conservés. Les autres plafonds par base restent identiques. Cette version est expérimentale et doit être retirée après la comparaison.
 Constaté : vérification locale du circuit sur douze formulations : deux arrêts exclusifs avant recherche complémentaire, huit autres sélections réduites aux fiches de priorité au moins 300 après recherche. Aucun résultat de génération déduit des retrievers simulés. Les deux autres formulations seules peuvent recevoir davantage de documents de recherche.

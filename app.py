@@ -959,7 +959,7 @@ def initialiser_base_santorin(cle_fremt):
     # memoire_examens_santorin.txt est déjà dans data/examens : on ne le recharge plus une 2e fois en un seul bloc
     # (il apparaissait en double dans les passages transmis à l'IA).
     return VectorStoreIndex.from_documents(docs_santorin).as_retriever(
-        similarity_top_k=20
+        similarity_top_k=10
     )
 
 
@@ -983,7 +983,7 @@ def initialiser_base_ipack(cle_fremt):
     docs_ipack.extend(charger_dossier_txt_securise("data/ipack", par_fiche=True))
     docs_ipack.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_ipack).as_retriever(
-        similarity_top_k=20
+        similarity_top_k=10
     )
 
 
@@ -1019,7 +1019,7 @@ def initialiser_base_textes(cle_fremt):
         docs_textes.extend(charger_dossier_txt_securise("data/textes/premier_degré"))
     docs_textes.extend(charger_consignes_ipack())
     return VectorStoreIndex.from_documents(docs_textes, recursive=True).as_retriever(
-        similarity_top_k=20
+        similarity_top_k=10
     )
 
 
@@ -1038,7 +1038,7 @@ def initialiser_base_peda(cle_fremt):
     ]
     docs_peda.extend(charger_dossier_txt_securise("data/peda"))
     return VectorStoreIndex.from_documents(docs_peda).as_retriever(
-        similarity_top_k=20
+        similarity_top_k=10
     )
 
 
@@ -1956,7 +1956,7 @@ if prompt_a_traiter:
 
                 def _ajouter_par_mots(nom_base, etiquette="", maximum=3):
                     nonlocal _erreur
-                    if len(_extraits) >= 20:
+                    if len(_extraits) >= 10:
                         return
                     try:
                         _passages = chercher_par_mots(recherche_mots, nom_base, prompt, maximum)
@@ -1966,7 +1966,7 @@ if prompt_a_traiter:
                         print(f"Erreur de recherche par mots dans {nom_base}: {e_mots}")
                         return
                     for _txt in _passages:
-                        if len(_extraits) >= 20:
+                        if len(_extraits) >= 10:
                             break
                         _cle = passage_key(_txt)
                         if _cle in _vus or _autre_examen(_txt):
@@ -1985,7 +1985,7 @@ if prompt_a_traiter:
 
                 def _ajouter(retriever, etiquette="", avec_sources=False, avec_diag=False, maximum=None):
                     nonlocal _erreur
-                    if not retriever or len(_extraits) >= 20:
+                    if not retriever or len(_extraits) >= 10:
                         return
                     try:
                         _nodes = retriever.retrieve(prompt)
@@ -1997,7 +1997,7 @@ if prompt_a_traiter:
                         return
                     _retenus = 0
                     for n in _nodes:
-                        if len(_extraits) >= 20:
+                        if len(_extraits) >= 10:
                             break
                         _txt = n.node.text or ""
                         _cle = passage_key(_txt)
@@ -2024,7 +2024,7 @@ if prompt_a_traiter:
                     for _path, _md in reference_notice(_cibles, prompt, niveau_actuel_form):
                         if _md.get('modes') and mode not in _md['modes']:
                             continue
-                        if len(_extraits) >= 20:
+                        if len(_extraits) >= 10:
                             break
                         with open(_path, encoding='utf-8') as _f:
                             _txt = _f.read()

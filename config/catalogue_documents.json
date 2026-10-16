@@ -2510,10 +2510,20 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt": {
-    "title": "[SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]",
-    "statut": "synthese_non_revalidee",
+    "title": "Coordination EPS : conditions et montant de l’IMP",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "\\bimp\\b|indemnit.*mission particuliere|coordonnat.*eps|coordinat.*eps|\\bcoordo\\b"
+    ],
+    "url": "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt": {
     "title": "[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)",

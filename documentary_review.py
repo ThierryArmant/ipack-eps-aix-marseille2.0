@@ -457,6 +457,35 @@ _SCHEMA = '''{"claims":[{"section":"decision|condition|etape|limite",
 "text":"Une affirmation précise",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"]}]}]}'''
 
+# Un relevé factuel compact précède la rédaction dans le même appel. Il ne
+# constitue pas une validation sémantique et n'est jamais affiché au collègue.
+_PLANNED_SCHEMA = '''{"answer_outline":{"request":"opération demandée",
+"known":["fait explicitement donné"],"missing":["fait nécessaire non donné"],
+"branches":[{"condition":"condition applicable ou à vérifier","outcome":"issue documentée",
+"passage_ids":["D1P1"]}]},"claims":[{"section":"decision|condition|etape|limite",
+"text":"Affirmation avec sa condition utile et son autorité lorsqu’elle est requise",
+"evidence":[{"document_id":"D1","passage_ids":["D1P1"]}]}]}'''
+
+_ANSWER_PREPARATION = '''Prépare d'abord answer_outline, un relevé factuel compact (pas un raisonnement détaillé).
+request : l'opération exacte demandée ; known : uniquement les faits explicitement donnés.
+missing : au plus deux faits dont l'absence empêche réellement de choisir une issue.
+branches : au plus quatre possibilités documentées utiles à cette opération, chacune avec sa
+condition et les identifiants des passages. Une simple limite sans issue différente n'est pas une branche.
+N'y inclus pas les situations voisines, les exemples chiffrés ni les démarches d'un autre objet.
+Rédige ensuite claims à partir de ce relevé :
+- si les faits établissent la condition, donne l'issue correspondante ;
+- s'ils ne permettent pas de choisir entre plusieurs issues, expose les issues utiles avec leurs conditions ;
+- si un symptôme n'est pas décrit, demande le symptôme précis et présente les causes éventuelles
+  comme des pistes conditionnelles, jamais comme une cause acquise ni une procédure certaine ;
+- une autorisation subordonnée à une validation doit porter cette réserve dans la même affirmation ;
+- une restriction portant sur une autre opération n'est pas une condition de l'action demandée ;
+- conserve les conséquences distinctes des différentes issues, sans confondre dispense partielle
+  et renoncement à toute certification, ni simple dépôt de document et validation de son contenu.
+Compare enfin les claims aux branches utiles : aucune issue utile ne doit disparaître de la réponse.
+Le relevé n'est pas une source : chaque affirmation reste justifiée par les passages du dossier.
+Une seule phrase peut réunir plusieurs issues avec leurs conditions. Pas de rubrique pour remplir.
+'''
+
 _CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérifiée",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"],"level":"logiciel"}],
 "checks":{"supported":true,"applicable":true,"source_correct":true,"conditions_preserved":true}}]}'''
@@ -650,7 +679,7 @@ Vérifie que la décision et les conditions disent la même chose : une décisio
 Une condition de statut non établie ne permet pas une décision affirmative. Si les faits ne tranchent pas, conserve les branches conditionnelles.
 Pas de HTML ni d'attribution bibliographique dans la prose. Au plus 12 affirmations, sans répétitions.
 Réponds uniquement en JSON selon ce schéma :
-''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
+''' + _ANSWER_PREPARATION + '\n' + _PLANNED_SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
 
     def resolve(output):
         try:
@@ -678,6 +707,7 @@ Réponds uniquement en JSON selon ce schéma :
         audit.update(accepted_claims=[], final_claims=[], final_rejections=[], semantic_review=False)
         return '<p>' + NO_APPLICABLE_GUIDANCE + '</p>'
     final, accepted, rejected = resolve(recorded.complete(prompt).text)
+    audit['answer_outline'] = final.get('answer_outline')
     audit['proposal'] = final
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
@@ -688,9 +718,10 @@ Supprime les affirmations concernant une autre situation et les rubriques non do
 Une réponse courte ou {"claims":[]} est autorisée ; aucune décision n'est obligatoire.
 N'ajoute ni source ni procédure. Les étiquettes de source sont fixées par le programme.
 Réponds uniquement en JSON selon le schéma, au plus 12 affirmations.
-''' + _SCHEMA + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(final, ensure_ascii=False) + '\nERREURS MECANIQUES :\n' + json.dumps(rejected, ensure_ascii=False)
+''' + _ANSWER_PREPARATION + '\n' + _PLANNED_SCHEMA + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(final, ensure_ascii=False) + '\nERREURS MECANIQUES :\n' + json.dumps(rejected, ensure_ascii=False)
         audit['repair_rejections'] = rejected
         final, accepted, rejected = resolve(recorded.complete(repair).text)
+    audit['final_answer_outline'] = final.get('answer_outline')
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

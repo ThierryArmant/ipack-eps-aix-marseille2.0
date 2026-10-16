@@ -29,6 +29,11 @@ def _limited_rule(text):
                 and re.search(r'\b(?:pas|aucun|aucune|absence|ne)\b', text))
 
 
+def _historical_confirmation(text):
+    return bool(re.search(r'\banciens?\b|\banciennes?\b|historique', text)
+                and re.search(r'actuel\w*.{0,60}confirm|confirm\w*.{0,60}actuel', text))
+
+
 _NO_NEED = re.compile(
     r"(?:n[' ]est|ne sont|n[' ]a|n[' ]ont).{0,18}(?:pas|aucun).{0,25}(?:necessaire|besoin|requis|obligatoire)|"
     r"(?:pas besoin|aucun besoin|inutile|facultatif|facultative)|"
@@ -69,6 +74,11 @@ def evidence_logic_errors(claims):
     for i, claim in enumerate(claims):
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
+        historical_pending = any(_historical_confirmation(p) for p in proofs)
+        if (historical_pending and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', head)
+                and not re.search(r'selon|d.apres|(?:note|texte|circulaire).{0,40}\b(?:19|20)\d{2}\b|a confirmer|reste a verifier', head)):
+            errors.append({'index': i, 'errors': [
+                'prescription ancienne dont les modalités actuelles sont à confirmer : attribuer la prescription à sa source datée et conserver la vérification actuelle, sans en faire une obligation actuelle certaine']})
         if (re.search(r'\b(?:vous pouvez|est autorise|sont autorises)\b', head)
                 and re.search(r'\bsous (?:certaines )?conditions\b', head)
                 and not _CONDITIONAL.search(head)):
@@ -113,6 +123,8 @@ def evidence_constraints(packets):
                 limits.append('absence_de_prescription_universelle_ne_prouve_pas_une_dispense_dans_le_cas')
             if _NO_STANDARD.search(text):
                 limits.append('absence_de_seuil_ne_prouve_pas_la_suffisance_du_dispositif')
+            if _historical_confirmation(text):
+                limits.append('prescription_ancienne_a_attribuer_et_modalites_actuelles_a_confirmer')
             if limits:
                 constraints.append({'document_id':packet['id'], 'passage_id':passage['id'], 'limits':limits})
     return constraints

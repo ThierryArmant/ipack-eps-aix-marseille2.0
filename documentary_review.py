@@ -704,6 +704,7 @@ ne transforme pas « peut » ou « soit » en « doit » ou « ne doit pas ».
 Une phrase principale catégorique reste incorrecte même si sa justification contient une possibilité.
 Pour les précisions, compare chaque demande aux faits de la question et ne demande que ce qui manque.
 Les evidence_constraints sont les limites explicites des passages : elles interdisent de conclure à une dispense locale ou à la suffisance d'un dispositif à partir du seul silence ou de l'absence de seuil.
+Lorsqu'un passage signale une prescription ancienne avec modalités actuelles à confirmer, attribue-la à son texte daté et conserve cette vérification dans la même affirmation ; ne la transforme pas en obligation actuelle certaine.
 Cite les identifiants des passages justificatifs pour chaque affirmation ; ne recopie pas de citations.
 Sélectionne le passage qui énonce effectivement la règle ou l'étape, pas une introduction au sujet.
 Si une affirmation réunit plusieurs étapes, cite tous les passages correspondants.

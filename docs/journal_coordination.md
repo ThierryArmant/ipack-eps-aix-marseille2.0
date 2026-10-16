@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — réparation observée et réserve des prescriptions anciennes
+
+Reprise administrateur sur 9b56760 : premier appel rejeté sur la même conclusion et le même passage général ; second appel modifie la conclusion et sélectionne les passages pertinents, final_rejections vide. Deux appels, 10 700 jetons d’entrée. Le repli transport est donc levé sur cette reprise. Limite restante relevée : contrôles et assurance issus de la note ancienne présentés sans conserver la confirmation actuelle demandée par la fiche. La réponse n'est pas déclarée intégralement validée.
+
+Complément générique du programme : une prescription dont la source signale à la fois l'ancienneté et des modalités actuelles à confirmer doit garder son attribution datée et la réserve actuelle. Limite transmise avant rédaction et contrôlée après. Test sur un dispositif fictif, maintien d'une obligation actuelle sans cette réserve. Aucun sujet transport codé dans ce contrôle, aucune règle métier ajoutée, aucun appel systématique supplémentaire. Tests et reprises après publication à consigner.
+
+
 ### 2026-10-17 — accès administrateur autorisé et cause du rejet transport identifiée
 
 Autorisation explicite reçue pour consulter les traces ; connexion sécurisée vérifiée par le mode administrateur actif. Reproduction sur 5d54511 : le premier et le second brouillon citent le même passage de règle générale pour une permission individuelle. Le contrôle lexical trouve une seule racine commune et rejette la conclusion aux deux tentatives ; ce n'est pas une panne de recherche ni un diagnostic déduit du seul repli. Les conditions détaillées sont présentes, mais une conclusion « sous certaines conditions » reste trop vague.

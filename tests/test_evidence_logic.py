@@ -41,6 +41,17 @@ class EvidenceLogicTests(unittest.TestCase):
         self.assertFalse(evidence_logic_errors([
             claim('Le dispositif est un recours exceptionnel.', proof)]))
 
+    def test_historical_prescription_keeps_current_confirmation_reservation(self):
+        proof = ('Le texte prévoit un contrôle annuel. Le référentiel est ancien ; '
+                 'les justificatifs actuels doivent être confirmés par le service compétent.')
+        self.assertTrue(evidence_logic_errors([
+            claim('Vous devez faire réaliser un contrôle annuel.', proof)]))
+        self.assertFalse(evidence_logic_errors([
+            claim('Selon la note de 1986, un contrôle annuel est prévu ; les justificatifs actuels restent à confirmer.', proof)]))
+        self.assertFalse(evidence_logic_errors([
+            claim('Vous devez faire réaliser un contrôle annuel.',
+                  'Le texte en vigueur prévoit un contrôle annuel. Le service confirme sa réception.')] ))
+
     def test_no_standard_is_not_proof_of_sufficiency(self):
         for noun in ('ratio','seuil','minimum'):
             proof=f"Il n'existe pas de {noun} général ; le responsable apprécie la configuration."

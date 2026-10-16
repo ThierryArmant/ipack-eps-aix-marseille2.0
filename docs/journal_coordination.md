@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — reprises observées sur 6dc509c
+
+Version affichée 6dc509c. Demande composée grande voie : un appel, 6 185 jetons d’entrée ; contrôles visuels/tactiles restitués, mais cadre et validations encore génériques. Variante centrée relais/redescente : un appel, 11 419 jetons d’entrée ; supervision même des élèves expérimentés, supports/ancrages/relais, protection, baudrier, encordement et contrôle final restitués. Ces reprises ne mesurent pas une fiabilité générale.
+
+Transport : deux appels, 10 533 jetons d’entrée, repli documentaire. Ne pas présenter le cas comme résolu. Une tentative d’ouverture sécurisée de l’administration pour lire les rejets a été refusée par la validation automatique faute d’autorisation explicite de cet accès privé ; aucune connexion réalisée. Pas de contournement ni d’affaiblissement des contrôles. La cause exacte du dernier rejet reste à lire dans la trace administrateur. Les essais publics ne permettent pas de l’établir.
+
+
 ### 2026-10-17 — approfondissement autorisé : grande voie et véhicule personnel
 
 Sources relues : circulaire 2017-075, I.2, II, III.3 et annexe escalade (BO MENE1711773C) ; réponse ministérielle 4573 du 11 juillet 2023 ; note 86-101, I et II, copie officielle hébergée par Nice (lien remplacé par la copie effectivement ouverte). La fiche grande voie explicite supervision des relais et contrôles avant départ, sans transposer les dispositifs de moulinette. La fiche transport met en tête la divergence recteur/chef et conserve le circuit à confirmer ; garanties conducteur/véhicule/assurance séparées avec références et limites des prescriptions anciennes. L'absence de mention générale d'accord écrit ne devient pas une dispense certaine.

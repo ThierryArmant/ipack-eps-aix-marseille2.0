@@ -753,8 +753,16 @@
   },
   "data/textes/complement_obligations_service_eps.txt": {
     "title": "complement obligations service eps",
-    "statut": "synthese_non_revalidee",
-    "examens": []
+    "statut": "article_4_actualise_2026-10-16",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service"
+    ]
   },
   "data/textes/complement_statuts_personnels_eps.txt": {
     "title": "complement statuts personnels eps",
@@ -2221,10 +2229,20 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt": {
-    "title": "[SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]",
-    "statut": "synthese_non_revalidee",
+    "title": "EPS : adaptation, sécurité et contestation d’une intervention pédagogique",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 260,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "contest.*inapt|inapt.*(?:pluie|froid)|plainte.*(?:eps|parade)"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt": {
     "title": "[SITUATION: 5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS]",
@@ -2294,10 +2312,20 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt": {
-    "title": "[SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]",
-    "statut": "revu_2026-10-10_recoupement_sources",
+    "title": "EPS : punitions, sanctions et évaluation scolaire",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "punition|sanction|disciplinaire|(?:baisser|retirer).{0,25}note|zero.{0,30}(?:bavard|tenue|comportement)"
+    ],
+    "url": "https://www.education.gouv.fr/bo/14/Hebdo22/MENE1406107C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
     "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
@@ -2306,10 +2334,19 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
-    "title": "[SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]",
-    "statut": "revu_2026-10-10_recoupement_sources",
+    "title": "Données des élèves : outils numériques, images et responsabilité",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "rgpd|droit.*image|filmer|captation|video.*eleve|donnee.*(personnell|eleve)|application.*(glide|streamlit)|hebergement"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt": {
     "title": "[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]",
@@ -2330,10 +2367,20 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt": {
-    "title": "[SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]",
-    "statut": "synthese_non_revalidee",
+    "title": "Sécurité en EPS : organisation des activités, matériel, différences entre élèves",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 260,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "securite.{0,35}(?:lancer|combat|gymn|boxe)|protege.dents|equipement.{0,30}boxe"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt": {
     "title": "[SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]",
@@ -2342,22 +2389,52 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt": {
-    "title": "[SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]",
-    "statut": "synthese_non_revalidee",
+    "title": "EPS : vigilance, facteurs de risque et prévention",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 180,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "risque.*accident|vigilance|statistique.*accident|58\\s*%"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt": {
-    "title": "[SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]",
-    "statut": "synthese_non_revalidee",
+    "title": "EPS : installations, déplacements réguliers et surveillance des vestiaires",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "vestiair|etat.*materiel|defectu|maintenance.*equipement"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt": {
-    "title": "[SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]",
-    "statut": "synthese_non_revalidee",
+    "title": "EPS : aides, parades, contacts corporels et intervention en cas de conflit",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "parade|contact.{0,20}corporel|interpos|bagarre|toucher.{0,20}eleve"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt": {
     "title": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]",
@@ -2438,34 +2515,81 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt": {
-    "title": "[SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]",
-    "statut": "synthese_non_revalidee",
+    "title": "EPS : chaleur, pollution et conditions météorologiques",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "canicul|pollution|forte.{0,15}chaleur|vigilance rouge|ozone|verglas|grand froid"
+    ],
+    "url": "https://www.education.gouv.fr/recommandations-aux-directeurs-d-ecole-et-chefs-d-etablissement-pour-prevenir-les-effets-de-la-456261",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt": {
-    "title": "[SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]",
-    "statut": "revu_2026-10-10_recoupement_sources",
+    "title": "Rendez-vous de carrière : évaluation et recours du professeur d’EPS",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "ppcr|rendez.vous.*carriere|appreciation.*(finale|recours)|contester.*(avis|inspection)"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
-    "title": "[SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]",
-    "statut": "revu_2026-10-10_recoupement_sources",
+    "title": "Promotions : hors-classe et classe exceptionnelle, corps EPS et agrégés",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "hors.classe|classe exceptionnelle|vivier|promotion.*grade|echelon special"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt": {
-    "title": "[SITUATION: 25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS]",
-    "statut": "synthese_non_revalidee",
+    "title": "Recrutement EPS : concours, session et parcours de formation",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "capeps|recrut.*eps|devenir.*prof|concours.*eps|formation.*laureat|master.*enseignement"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt": {
-    "title": "[SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]",
-    "statut": "synthese_non_revalidee",
+    "title": "Professeur d’EPS : mutation, vérification du barème et recours",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "mutation|mouvement.{0,20}(?:inter|intra)|recours.{0,30}affectation"
+    ],
+    "url": "https://www.education.gouv.fr/mutation-des-personnels-du-second-degre-siam-phase-interacademique-3218",
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt": {
     "title": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
@@ -2486,10 +2610,19 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt"
   },
   "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt": {
-    "title": "[SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]",
-    "statut": "synthese_non_revalidee",
+    "title": "Accident de service ou de trajet : déclaration de l’agent",
+    "statut": "sources_officielles_consultees_2026-10-16",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "accident.*(service|trajet|travail)|\\bcitis\\b|declar.*accident.*enseignant"
+    ],
+    "date_verification": "2026-10-16"
   },
   "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt": {
     "title": "[SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]",
@@ -5617,5 +5750,90 @@
     "exclusif_motifs": [
       "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))"
     ]
+  },
+  "data/textes/fiches/deplacements_reguliers_college_lycee.txt": {
+    "title": "Déplacements réguliers vers les installations : collège et lycée",
+    "statut": "synthese_ministerielle_consultee_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(deplac|trajet|rentr|retour|revenir|rejoindre).*(seul|autonom)|(seul|autonom).*(deplac|trajet|rentr|retour)|circulaire.*1996"
+    ],
+    "url": "https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf",
+    "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/imp_attribution_temps_partiel_remplacement.txt": {
+    "title": "IMP : attribution, temps partiel, partage et versement",
+    "statut": "sources_officielles_consultees_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "\\bimp\\b.*(temps partiel|partag|remplac|verse|pai|cumul|decharge|allegement)|mission particuliere.*(partag|remplac|pai)|indemnit.*(coordination|mission)"
+    ],
+    "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/pai_pratique_eps_sorties.txt": {
+    "title": "PAI : pratique EPS, adaptation et sorties",
+    "statut": "sources_officielles_consultees_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "\\bpai\\b|asthme|diabete|allergie|maladie chronique"
+    ],
+    "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/cumul_activite_accessoire.txt": {
+    "title": "Cumul : activité accessoire et emploi public",
+    "statut": "sources_officielles_consultees_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "cumul.*activit|activite accessoire|coach.*(prive|remuner)|micro.entrepr|auto.entrepr|travailler.*vacances"
+    ],
+    "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/signalement_violences_personnels.txt": {
+    "title": "Violences, discriminations et harcèlement envers les personnels",
+    "statut": "sources_officielles_consultees_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(harcelement|discrimination|agression|menace|agissement sexiste).*(personnel|prof|enseignant|collegue)|cellule.*ecoute|protection fonctionnelle"
+    ],
+    "date_verification": "2026-10-16"
+  },
+  "data/textes/fiches/ia_usages_pedagogiques.txt": {
+    "title": "Usage pédagogique d’un système automatisé : données et évaluation",
+    "statut": "sources_officielles_consultees_2026-10-16",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "\\bia\\b|intelligence artificielle|outil.*automat|detect.*fraude|not.*automati"
+    ],
+    "date_verification": "2026-10-16"
   }
 }

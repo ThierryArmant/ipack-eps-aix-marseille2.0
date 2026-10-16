@@ -1528,17 +1528,6 @@
     }
    ]
   },
-  "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### [SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]",
-     "lignes": [
-      "* CADRE JURIDIQUE DE SÉCURITÉ DES SYSTÈMES D'INFORMATION (SI) : L'application doit être inscrite au registre des activités de traitement de l'établissement. Le DPD indique les outils et hébergements autorisés (Aix-Marseille : dpd@ac-aix-marseille.fr). Il est formellement interdit de faire transiter, de stocker ou d'analyser des données nominatives d'élèves mineurs sur des serveurs ou des bases de données cloud externes non homologués par les services informatiques rectoraux (DANE/DRANE), afin d'exclure tout risque de fuite, de profilage ou d'exploitation commerciale des données."
-     ]
-    }
-   ]
-  },
   "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
    "academie": "aix-marseille",
    "sections": [

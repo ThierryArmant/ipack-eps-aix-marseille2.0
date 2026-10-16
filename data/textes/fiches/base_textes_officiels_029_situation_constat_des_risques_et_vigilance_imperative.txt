@@ -1,6 +1,16 @@
-### [SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]
-* PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Plus de 58 % des accidents scolaires en collège ont lieu pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
-* NATURE DES RISQUES : Aucune activité n'est dangereuse a priori, mais l'engagement physique et affectif majore les risques. Les causes majeures des accidents graves relèvent de l'environnement, de l'état des matériels et de l'inadaptation des exercices proposés.
-* EXIGENCE DE VIGILANCE : L'enseignant a l'obligation permanente de contrôler les équipements, de calibrer précisément les tâches demandées et de définir des consignes d'organisation rigoureuses.
+### EPS : vigilance, facteurs de risque et prévention
+Nature de la source : texte national — recommandations ministérielles.
+Portée : second degré. Révision documentaire : 16 octobre 2026.
 
-----------------------------------------------------------------------
+## Prévenir les risques
+La vigilance s’exerce pendant la préparation et la conduite de l’enseignement. Environnement, matériel, tâches proposées, consignes et possibilités des élèves doivent être pris en compte dans l’organisation.
+Le professeur doit être attentif à l’état du matériel et signaler par écrit les défectuosités au gestionnaire. L’entretien et la maintenance des équipements, hors petit matériel, relèvent des personnels spécialisés des gestionnaires ou propriétaires ; ne pas les confondre avec la vigilance de l’utilisateur.
+La circulaire souligne la fréquence des accidents en EPS à partir des données disponibles lors de sa rédaction. Son chiffre de 58 % au collège est une donnée historique citée en 2004, pas une statistique actuelle à présenter comme mesurée en 2026.
+Extrait, III.1.1 : « Cette vigilance s’exercera aussi bien dans la préparation que dans la conduite des actions d’enseignement. »
+
+## Responsabilité
+La survenue d’un accident ne suffit pas à établir automatiquement une faute. Les circonstances et causes doivent être analysées ; ne pas promettre une protection juridique automatique ni annoncer une responsabilité certaine.
+
+## Référence officielle
+Circulaire n°2004-138 du 13 juillet 2004, NOR MENE0401637C, BO n°32 du 9 septembre 2004 : I (risques et équipements), I.2 (matériel), III.1.1 (vigilance), III.2.3 (analyse des causes).
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm

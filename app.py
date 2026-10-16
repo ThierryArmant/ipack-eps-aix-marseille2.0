@@ -31,7 +31,7 @@ import re
 import smtplib
 import unicodedata
 import requests
-from knowledge_catalog import catalog, document_records, fingerprint, incompatible, clarification, reference_notice, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
+from knowledge_catalog import catalog, document_records, fingerprint, incompatible, clarification, reference_notice, has_text_reference, obsolete_reference, section_scopes, passage_key, documented_response, effective_context
 from response_controls import complete_gt_shn_conditions, documented_dnb_dispense, reference_url, constrain_santorin_unlock, prevent_invented_gt_medical_sequence, clean_video_placeholders
 import streamlit as st
 from email.mime.text import MIMEText
@@ -1595,7 +1595,7 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
-        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode in ("examens", "ipack") else Settings.llm
+        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else Settings.llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
@@ -1617,6 +1617,9 @@ if prompt_a_traiter:
         # ==================================================================
         # 2. DISJONCTEUR DE SÉCURITÉ : DÉTECTION DES SUJETS HORS-SUJET
         # ==================================================================
+        # Le catalogue connaît aussi les sujets professionnels courts (rémunération,
+        # carrière, etc.). Cette reconnaissance ouvre la recherche sans rédiger de réponse.
+        sujet_documente_textes = mode == "textes" and has_text_reference(prompt, niveau_actuel_form)
         if mode in ["ipack", "examens"]:
             est_totalement_hors_sujet = False
         else:
@@ -1674,7 +1677,10 @@ if prompt_a_traiter:
             # ✅ CORRECTION : les mots courts (ps, ms, cp, cap, bac, loi, eps...) sont cherchés
             # en mots entiers, pour qu'ils ne matchent plus à l'intérieur d'autres mots ("temps", "capacité"...)
             # Comparaison sans accents : "eleve" ou "élève" donnent le même résultat
-            est_totalement_hors_sujet = not contient_mot_cle(p_norm, [normaliser(m) for m in mots_cles_eps_admin])
+            est_totalement_hors_sujet = not (
+                sujet_documente_textes
+                or contient_mot_cle(p_norm, [normaliser(m) for m in mots_cles_eps_admin])
+            )
 
         if est_totalement_hors_sujet:
             rappel_hs = (
@@ -1875,7 +1881,9 @@ if prompt_a_traiter:
             # ✅ AJOUT : question trop courte (3 mots ou moins) sans réponse directe connue.
             # Avant, ce filtre était confié à l'IA : un appel complet (consignes + 10 passages) pour répondre « reformulez ».
             # Il est maintenant fait ici, sans appel à l'IA, donc sans coût.
-            est_question_trop_courte = (not est_cas_direct) and len(prompt.split()) <= 3
+            est_question_trop_courte = (
+                not est_cas_direct and not sujet_documente_textes and len(prompt.split()) <= 3
+            )
             if est_question_trop_courte:
                 est_cas_direct = True
 
@@ -1974,7 +1982,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '')
-                                         if mode in ("examens", "ipack") else _bloc)
+                                         if mode in ("examens", "ipack", "textes") else _bloc)
                         _provenance = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         if _provenance:
                             _sources.append((_provenance.group(1), None))
@@ -2009,7 +2017,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
-                            title=n.node.metadata.get('title', '')) if mode in ("examens", "ipack") else _bloc)
+                            title=n.node.metadata.get('title', '')) if mode in ("examens", "ipack", "textes") else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
@@ -2031,7 +2039,7 @@ if prompt_a_traiter:
                         _vus.add(_cle)
                         _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
                         _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt))
-                                         if mode in ("examens", "ipack") else _bloc)
+                                         if mode in ("examens", "ipack", "textes") else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)
                         _sources.append((_md.get('title', _path) + (' — ' + _url if _url else ''), None))
@@ -2042,7 +2050,7 @@ if prompt_a_traiter:
                             # L'exclusivité arrête la recherche complémentaire ; elle conserve
                             # les fiches spécifiques déjà sélectionnées et leurs conditions.
                             _indices = [len(_extraits) - 1]
-                            if mode in ("examens", "ipack"):
+                            if mode in ("examens", "ipack", "textes"):
                                 _indices = [i for i, priority in enumerate(_priorites_fiches[:-1])
                                             if priority >= 300 and priority > _md.get('priorite', 0)] + _indices
                             return ("\n\n".join(_extraits[i] for i in _indices),
@@ -2539,7 +2547,7 @@ if prompt_a_traiter:
                             _exams = ["gt"]
                     # Les repères de l'EPS obligatoire ne sont pas les textes
                     # de la spécialité EPPCS ni de l'enseignement optionnel.
-                    if _exams and not re.search(r'\beppcs\b|specialite eps|enseignement.*optionnel', _qs):
+                    if mode != "textes" and _exams and not re.search(r'\beppcs\b|specialite eps|enseignement.*optionnel', _qs):
                         _rub, _cur = {}, None
                         with open("config/faits_par_examen.txt", encoding="utf-8") as _f_faits:
                             for _l in _f_faits:
@@ -2642,7 +2650,7 @@ CONTEXTE DOCUMENTAIRE LOCAL (statut de vérification indiqué pour chaque extrai
 
 {verites_terrain_pierre}
 """
-                if mode in ("examens", "ipack"):
+                if mode in ("examens", "ipack", "textes"):
                     contexte_complet_ia = extraits_doc
                     if faits_champs.strip():
                         contexte_complet_ia += "\n\n" + mark_excerpt(faits_champs, title="Faits calculés par le programme", origin="program")
@@ -2681,14 +2689,14 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
 """
 
                 try:
-                    if mode in ("examens", "ipack"):
+                    if mode in ("examens", "ipack", "textes"):
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
                         reponse_ia = review_exam_answer(
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
-                            academy=academie_reponse,
+                            academy=academie_reponse, mode=mode,
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
@@ -2700,7 +2708,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         if "ne dispose pas de la procédure exacte" in reponse_ia[:300] and "[FICHE PRIORITAIRE" in extraits_doc:
                             reponse_ia = llm_reponse.complete(consigne_ia + RELANCE_FICHE_PRIORITAIRE).text
                         reponse_ia = retirer_phrase_absence_apres_reponse(reponse_ia)
-                    if mode in ("examens", "ipack"):
+                    if mode in ("examens", "ipack", "textes"):
                         # Ne pas ajouter de prose après le contrôle : elle n'aurait aucune preuve associée.
                         texte_brut = reponse_ia
                     else:
@@ -2713,12 +2721,12 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 except Exception as e:
                     if diagnostic_ia is not None:
                         diagnostic_ia['failure'] = type(e).__name__
-                    if mode in ("examens", "ipack"):
+                    if mode in ("examens", "ipack", "textes"):
                         diagnostic_ia = diagnostic_ia if diagnostic_ia is not None else {}
                         diagnostic_ia['failure'] = type(e).__name__
                         texte_brut = render_exam_fallback(
                             diagnostic_ia, question=prompt, documents=contexte_complet_ia,
-                            academy=academie_reponse,
+                            academy=academie_reponse, mode=mode,
                         )
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
                                              for p in diagnostic_ia.get('fallback_sources', [])]
@@ -2801,7 +2809,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             flags=re.IGNORECASE | re.MULTILINE,
         )
 
-        if mode == "textes":
+        if mode == "textes" and diagnostic_ia is None:
             texte_brut = re.sub(
                 r"("
                 r"Articles?\s+[\dLRDABab\.\-\s,–]+"
@@ -2917,7 +2925,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             mode=mode, 
             contexte=contexte_choisi_nom, 
             niveau=niveau_actuel_form,
-            usage=usage_summary(usage_ia) if mode in ("examens", "ipack") else None,
+            usage=usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None,
             academie=academie_reponse,
             version=_sha
         )
@@ -2931,7 +2939,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
-             "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack") else None}
+             "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None}
         )
 
         for video_name, video_url in VIDEOS_TUTOS.items():

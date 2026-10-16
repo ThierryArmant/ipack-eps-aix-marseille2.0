@@ -1,13 +1,19 @@
-### [SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]
-* ACTIVITÉS DE LANCERS (Javelot, Disque, Poids) : 
-  - Organisation spatiale : La zone de lancer (champ d'impact) doit être strictement délimitée, balisée et interdite d'accès de façon absolue pendant toute la durée des tirs. Pas d'organisation de pas de tir face-à-face.
-  - Sécurité active : Les engins de lancer ne doivent être récupérés par les élèves que de façon collective, coordonnée et sur signal sonore ou visuel explicite émis par l'enseignant, après l'arrêt complet de tous les lancers. Interdiction absolue de lancer en direction d'une zone non sécurisée ou en présence d'un élève situé en avant du pas de tir. L'enseignant doit maintenir une surveillance constante sur le pas de tir et la zone de chute.
-* ACTIVITÉS DE COMBAT (Lutte, Boxe éducative) :
-  - Hygiène et intégrité corporelle : Interdiction formelle et vérifiée du port de bijoux, bagues, montres, lunettes ou objets saillants. Le port du protège-dents et de protections adaptées (mitaines, protège-tibias) is obligatoire en boxe éducative.
-  - Gestion des gabarits et oppositions : L'enseignant doit impérativement constituer les binômes d'opposition en fonction de critères rigoureux de catégories de poids, de taille et de gabarits morphologiques afin d'exclure tout déséquilibre dangereux. 
-  - Protocole d'arrêt d'urgence : Mise en place et mémorisation obligatoire d'un signal sonore ou vocal unique, univoque et connu de tous les élèves ("STOP" ou coup de sifflet court) entraînant l'arrêt immédiat, absolu et total de tout contact physique ou échange, sous peine de sanction disciplinaire instantanée.
-* ACTIVITÉS GYMNIQUES ET ACROBATIQUES (Agrès, Acrosport) :
-  - Vérification technique du matériel : Obligation pour l'enseignant de procéder personnellement au contrôle visuel, mécanique et technique (goupilles de sécurité enclenchées, stabilité des embases, verrouillage des tendeurs, absence de déchirure des revêtements) de chaque agrès (barres, saut, poutre) avant l'accès des élèves aux ateliers.
-  - Parade et amortissement : Obligation d'organise des dispositifs d'amortissement (tapis de réception conformes à la hauteur de chute potentielle, tapis de liaison sans interstice). Constitution obligatoire de systèmes de parade active via des pareurs formés, évalués et positionnés aux emplacements critiques. L'enseignant doit valider la maîtrise technique de la parade par les élèves avant d'autoriser l'autonomie sur l'atelier.
-  - Surveillance des flux : L'enseignant doit organiser les rotations de façon à ce que le nombre de pratiquants simultanés soit compatible avec sa surveillance visuelle globale et permette une intervention manuelle immédiate en cas de déséquilibre.
+### Sécurité en EPS : organisation des activités, matériel, différences entre élèves
+Nature de la source : texte national — recommandations générales ; pas un règlement technique exhaustif par APSA.
+Portée : second degré. Vérification documentaire : 16 octobre 2026.
 
+## Principes documentés
+L’enseignant organise les tâches et les conditions de pratique pour prévenir les risques : environnement, matériel, organisation pédagogique et différences entre élèves doivent être pris en compte.
+Les écarts de taille, poids, âge et les incapacités occasionnelles ou permanentes doivent être considérés dans les situations et oppositions proposées.
+Les aides et parades nécessaires à la sécurité font partie de l’intervention pédagogique. Leur organisation dépend de l’activité, des apprentissages et des ressources des élèves.
+Les consignes concrètes de sécurité sont expliquées aux élèves, notamment au début de l’année puis de chaque cycle.
+Extrait, III.1.1 : « L’enseignant d’EPS doit constamment faire preuve de vigilance. »
+
+## Limites d’application
+Le texte général ne permet pas d’inventer une liste nationale exhaustive d’équipements obligatoires pour chaque forme de boxe, de lancer ou de gymnastique. Une obligation technique précise doit être appuyée par le texte ou protocole applicable à l’activité, à la forme de pratique et au public concernés.
+Ne pas présenter les règlements fédéraux comme automatiquement applicables à toute séance scolaire. Ne pas annoncer une sanction disciplinaire automatique à la suite d’un manquement de sécurité.
+Si le matériel obligatoire ou une organisation technique précise est demandé, identifier l’activité et la forme de pratique, puis rechercher la source spécifique ; à défaut, signaler ce qui reste non confirmé.
+
+## Référence officielle
+Circulaire n°2004-138 du 13 juillet 2004, NOR MENE0401637C, BO n°32 du 9 septembre 2004 : I (risques, matériels et organisation), II (contacts et interventions), III.1 (vigilance et information).
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm

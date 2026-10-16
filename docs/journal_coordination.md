@@ -24,6 +24,38 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — partie fiches et programme — publication du lot métier et contrôle Textes
+
+Publication de l’ensemble du lot préparé, autorisée explicitement par l’utilisateur présent pour les essais. Intègre les quatorze fiches métier préparées, les huit reprises de sécurité/réglementation EPS, leurs références et métadonnées, les filtres des demandes courtes et le raccordement de Textes au contrôleur documentaire commun. Les modifications IMP et le bandeau technique déjà présents sur main sont conservés.
+
+Validation préalable : 361 tests locaux réussis, compilation et contrôle du diff. Les tests avec un modèle simulé vérifient les mécanismes ; aucune nouvelle mesure de justesse des réponses réelles n’est revendiquée. Les essais sur la version publiée restent nécessaires. Aucun nouveau cas métier en réponse directe ajouté ; blocage UNSS conservé. L’ensemble des 70 fichiers n’est pas présenté comme revalidé.
+
+
+### 16 octobre 2026 — partie fiches et programme — préparation locale, non publiée
+
+Huit fiches EPS second degré relues contre les sources officielles (005, 019, 025, 029, 030, 031, 045, 049), catalogue et nature mis à jour. Inventaire des 70 fichiers, détail des modifications et limites dans docs/revision_reglementation_eps_2026_10_16.md. Les fichiers hors lot ne sont pas présentés comme revalidés.
+
+Le mode Textes est raccordé localement au contrôle documentaire commun : provenance, citations, sources utilisées, traces et coût. Réserves et replis adaptés au métier, faits de certification non injectés et ancien surlignage évité dans le rendu contrôlé. Aucun nouveau cas métier en réponse directe ; restriction UNSS conservée.
+
+361 tests locaux réussis, dont 6 nouveaux ; aucune génération réelle sur cette version isolée. Rien de ce lot n’est publié. La branche contient aussi les 14 fiches et filtres antérieurs : ne pas pousser tout le checkout sans comparaison. Dernier distant observé : 4a4ff6e. La fiche IMP et le bandeau technique ont été publiés séparément avant ce lot.
+
+
+### 2026-10-16 — programme — filtres des demandes courtes et sujets documentés
+Autorisation explicite de traiter les demandes courtes IMP et les documents associés. Deux filtres bloquaient les fiches : périmètre par mots-clés, puis seuil de trois mots. Reconnaissance commune depuis le catalogue, uniquement pour les fiches du mode Textes de priorité au moins 300 et réellement présentes ; motifs, exclusions et portées conservés. Aucun texte métier généré par le programme, aucun appel supplémentaire, aucun changement de mémoire ni de cache. Le circuit de restriction UNSS et sa réponse restent inchangés.
+Vérifications : compilation réussie ; 355 tests locaux passent, dont cinq nouveaux exécutant les expressions réelles des filtres (variantes professionnelles, hors sujet, clarification, modes, priorité UNSS). Les références documentaires sont sélectionnées ; aucune réponse du modèle sur la version modifiée n'est encore vérifiée. Lot local non poussé et non déployé, publication toujours conditionnée aux réponses réelles.
+
+
+### 2026-10-16 — validation préalable — publication conditionnelle non exécutée
+Demande : vérifier les réponses avec le journal puis publier si elles sont bonnes. Nouvel export lu : 158 échanges, premières entrées toujours 7cb8778 ; aucune réponse du lot local 45331ce. Contrôle du filtre réel par AST : formulations courtes IMP et recours PPCR encore rejetées avant recherche, alors que les fiches sont sélectionnables séparément. Absence de configuration et de dépendances de génération locale ; aucun retest du modèle sur les fiches modifiées revendiqué. Condition de publication non remplie, aucun push ni déploiement. Détails dans le relevé de renforcement.
+
+
+### 2026-10-16 — fiches — renforcement du métier, préparation locale non publiée
+Périmètre autorisé : élargir les références au métier de professeur d'EPS, chaque modification accompagnée de sa source officielle. Treize fiches du lot métier et une fiche sur les déplacements préparées : IMP, attribution et situations particulières, HSA, promotions, rendez-vous de carrière et recours, accident de service, recrutement, données et images, PAI, cumul d'activités, signalement, usages automatisés, actualité des voyages avec nuitée. Références et limites détaillées dans docs/renforcement_metier_eps_2026_10_16.md ; liste des treize fiches métier dans docs/lot_metier_eps_fichiers.json.
+Constaté : anciennes règles sur une HSA imposable et sur les viviers de classe exceptionnelle ; recours PPCR absent ; canal Colibris abusivement nationalisé pour les accidents. Corrections fondées sur les sources officielles indiquées dans chaque fiche. Documents académiques anciens ou discordants recensés sans assimilation au cadre national actuel. Recommandations CNIL conservées en documentation, sans attribution automatique à un texte réglementaire. Registres et priorités adaptés.
+Contrôles : 350 tests locaux passent, dont six nouveaux tests de sélection et de couverture. Le contrôle d'inventaire remplace le nombre figé 491 par la comparaison avec les fiches actives des quatre corpus réglementaires et logiciels. Aucun appel de génération en ligne, aucun gain de fiabilité mesuré. Application et fiche de groupe AS inchangées ; restriction UNSS et réponse existantes conservées. Pas de nouvelle réponse métier en dur. Le rejet de certaines demandes IMP courtes avant recherche reste un défaut du filtre général non modifié dans ce lot.
+État : aucun commit poussé, aucun déploiement. Avant publication, vérifier les réponses produites sur une version isolée et respecter l'accord demandé par l'utilisateur. Ne pas présenter ce lot comme une revue exhaustive de toutes les académies ou de tous les domaines.
+
+
 ### 2026-10-16 — programme et sélection — vérifications en ligne du formulaire et de l’EDT terminées
 Versions : 1ecfedf corrige le parcours ; 93f9382 corrige aussi le conflit suppression/restauration. 344 tests locaux passent. En ligne : deux questions iPackEPS successives posées sans retoucher les filtres ; champ actif après réponse, public conservé, aucun sélecteur d’académie. Le bouton de nouvelle question conserve le contexte et efface la réponse précédente. La suppression EDT reçoit le clic droit puis [Supprimer], source article 20, sans Aix-Marseille ni demande d’identifier à nouveau le logiciel. Le lecteur vidéo associé 8pHcZ4gw6go est présent sous la réponse même si le modèle ne recopie aucun nom de tutoriel. Une question déclarant Créteil reçoit la même manipulation et le contact d’assistance de Créteil, aucune référence imposée à Aix.
 Parcours Examens contrôlé : sélecteur d’académie présent, Créteil choisi, public lycée ; réponse nationale sur notation individuelle en un appel, champ toujours actif et Créteil conservé après réponse. Aller-retour Examens → iPackEPS → Examens : aucun sélecteur dans iPackEPS, Créteil restauré dans Examens et champ ouvert immédiatement. Onglet Sécurité : aucun sélecteur d’académie, champ ouvert avec le public conservé. La préférence d’Examens n’est pas utilisée comme académie implicite dans les autres modes.

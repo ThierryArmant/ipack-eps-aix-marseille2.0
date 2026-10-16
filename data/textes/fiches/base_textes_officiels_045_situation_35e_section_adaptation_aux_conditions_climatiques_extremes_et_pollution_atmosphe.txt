@@ -1,6 +1,24 @@
-### [SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]
-* GESTION DES VAGUES DE CHALEUR ET CANICULES (INSTRUCTION MINISTÉRIELLE & GUIDE CANICULE ÉDUCATION NATIONALE) :
-  - Vigilance Jaune / Orange : L'enseignant d'EPS adapte impérativement le contenu de sa leçon. Obligation d'alléger substantiellement l'intensité motrice et cardio-respiratoire, de supprimer les efforts maximaux prolongés en plein soleil, de privilégier les zones d'ombre, d'aménager des pauses hydratation rapprochées et de vérifier que chaque élève dispose d'une gourde d'eau.
-  - Vigilance Rouge : Interdiction formelle de toute pratique physique intense ou prolongée sur les installations extérieures. Obligation de repli vers des espaces intérieurs frais et ventilés pour des séances théoriques/méthodologiques ou suspension totale des cours d'EPS sur consigne préfectorale ou rectorale.
-* ÉPISODES DE POLLUTION DE L'AIR (OZONE O3, PARTICULES PM10, DIOXYDE D'AZOTE NO2) : En cas de déclenchement du niveau d'alerte préfectoral pour pollution atmosphérique, interdiction stricte de pratiquer des activités physiques intenses et prolongées en extérieur (ex : cycle demi-fond, test VMA). Obligation d'adapter l'enseignement vers des APSA d'intensité modérée en intérieur aéré ou d'ajuster individuellement la charge pour les élèves souffrant d'affections respiratoires chroniques (asthme, allergies, protocoles PAI).
-* CONDITIONS HIVERNALES ET GRAND FROID : Obligation pour l'enseignant de procéder à une reconnaissance visuelle préalable des plateaux sportifs et pistes extérieures (détection des plaques de verglas, sols gelés instables ou boue glissante). L'enseignant a le devoir statutaire d'annuler ou de délocaliser la pratique sur sol stabilisé afin de prévenir tout risque majeur de fracture ou de traumatisme corporel.
+### EPS : chaleur, pollution et conditions météorologiques
+Nature de la source : documentation ministérielle nationale et arrêté sanitaire, distingués ci-dessous.
+Portée : second degré ; adapter à la situation locale et aux consignes en vigueur. Révision documentaire : 16 octobre 2026.
+
+## Chaleur
+La page ministérielle du 26 mai 2026 demande de réduire les activités physiques et de supprimer les sorties aux heures les plus chaudes, d’assurer une hydratation régulière et de porter une attention particulière aux élèves fragiles. Éviter les expositions prolongées ; organiser l’accès à un endroit frais.
+Le chef d’établissement apprécie le maintien des sorties selon les risques et les consignes académiques ou départementales. La vigilance rouge peut conduire le préfet à fermer temporairement des établissements ; elle ne signifie pas une fermeture nationale automatique ni une annulation de toutes les séances d’EPS par le seul effet d’un code couleur.
+Extrait, « Consignes d’ordre général » : « Réduire les activités physiques et supprimer les sorties aux heures les plus chaudes. »
+Source : ministère de l’Éducation nationale, recommandations aux directeurs d’école et chefs d’établissement pour prévenir les effets de la chaleur, 26 mai 2026.
+https://www.education.gouv.fr/recommandations-aux-directeurs-d-ecole-et-chefs-d-etablissement-pour-prevenir-les-effets-de-la-456261
+
+## Pollution
+L’annexe de l’arrêté du 13 mars 2018 distingue populations vulnérables ou sensibles, population générale et polluants. Il s’agit de recommandations sanitaires à diffuser ; ne pas les transformer en interdiction préfectorale universelle.
+Pour la population générale, en épisode PM10, NO2 ou SO2, réduire voire reporter les activités intenses. Pour l’ozone, l’annexe permet leur maintien à l’intérieur pour cette population ; cela ne s’étend pas automatiquement aux élèves vulnérables ou sensibles.
+Pour les populations vulnérables ou sensibles, privilégier des activités modérées en épisode PM10, NO2 ou SO2 ; pour l’ozone, éviter les efforts intenses à l’extérieur et les sorties aux heures d’ensoleillement maximal, les activités peu intenses à l’intérieur pouvant être maintenues.
+Un gymnase n’est donc pas une solution universelle : préciser le polluant, les recommandations locales et les besoins des élèves, dont les PAI. Appliquer aussi les éventuelles mesures locales contraignantes.
+Extrait, population générale, PM10/NO2/SO2 : « réduisez, voire reportez, les activités physiques et sportives intenses ».
+Source : arrêté du 13 mars 2018, NOR SSAP1807710A, annexe remplaçant celle de l’arrêté du 20 août 2014.
+https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000036736002
+
+## Froid et sol dégradé
+Évaluer concrètement l’état du terrain, le matériel, les tâches et les capacités des élèves ; adapter l’organisation et écarter l’exposition à un danger constaté. La circulaire générale de sécurité ne fournit pas de température nationale unique d’annulation de l’EPS.
+Référence : circulaire n°2004-138 du 13 juillet 2004, I et III.1, vigilance et organisation de la sécurité.
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm

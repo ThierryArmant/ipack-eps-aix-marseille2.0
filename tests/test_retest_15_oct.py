@@ -92,7 +92,7 @@ class RetestOctober15Tests(unittest.TestCase):
         tree = ast.parse(Path('app.py').read_text())
         expression = next(n.value for n in ast.walk(tree) if isinstance(n, ast.Assign)
                           and any(isinstance(t, ast.Name) and t.id=='llm_reponse' for t in n.targets))
-        self.assertEqual(ast.unparse(expression.test), "mode in ('examens', 'ipack')")
+        self.assertEqual(ast.unparse(expression.test), "mode in ('examens', 'ipack', 'textes')")
 
 
 if __name__ == '__main__': unittest.main()

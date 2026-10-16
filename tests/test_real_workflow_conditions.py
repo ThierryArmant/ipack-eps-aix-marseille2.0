@@ -68,7 +68,7 @@ class WorkflowConditionsTests(unittest.TestCase):
         tree = ast.parse(Path('app.py').read_text())
         # Vérifier le chemin réel d'appel, pas seulement une consigne dans le prompt.
         branches = [n for n in ast.walk(tree) if isinstance(n, ast.If)
-                    and ast.unparse(n.test) == "mode in ('examens', 'ipack')"]
+                    and ast.unparse(n.test) == "mode in ('examens', 'ipack', 'textes')"]
         self.assertTrue(any(any(isinstance(x, ast.Call) and isinstance(x.func, ast.Name)
                                     and x.func.id == 'review_exam_answer'
                                     for child in b.body for x in ast.walk(child)) for b in branches))

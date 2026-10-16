@@ -1,0 +1,645 @@
+{
+  "date": "2026-10-16",
+  "limite": "Inventaire des fichiers actifs, pas une certification juridique. Une URL ne prouve ni actualité ni implication. Le premier degré est recensé, mais hors de ce lot EPS second degré.",
+  "fichiers": [
+    {
+      "path": "data/textes/complement_natation_scolaire.txt",
+      "titre": "Natation scolaire : texte actuel, ASNS et surveillance",
+      "liens": [
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm",
+        "https://eduscol.education.gouv.fr/5709/savoir-nager-en-securite-de-la-maternelle-au-lycee",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-premier-degre-101622.pdf",
+        "https://www.ac-lyon.fr/media/53854/download",
+        "https://eps.ac-besancon.fr/enseignement-de-la-natation-scolaire-au-28-02-2022/"
+      ],
+      "nombre_caracteres": 2119,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/complement_obligations_service_eps.txt",
+      "titre": "=== COMPLÉMENT SOURCÉ : OBLIGATIONS RÉGLEMENTAIRES DE SERVICE DES PROFESSEURS D'EPS ===",
+      "liens": [
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm",
+        "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038375945"
+      ],
+      "nombre_caracteres": 2075,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/complement_statuts_personnels_eps.txt",
+      "titre": "=== QUI PEUT ENSEIGNER OU ENCADRER L'EPS DANS LE SECOND DEGRÉ : STATUTS DES PERSONNELS ET INTERVENANTS ===",
+      "liens": [],
+      "nombre_caracteres": 12262,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/escalade_controles_securite.txt",
+      "titre": "Escalade en moulinette : contrôle professoral et retour au sol",
+      "liens": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.gouv.fr/6285/la-pratique-de-l-escalade-en-education-physique-et-sportive",
+        "https://pedagogie.ac-rennes.fr/sites/pedagogie.ac-rennes.fr/IMG/pdf/protocole_de_se_curite_escalade_academie_de_rennes_10.11.2017.pdf",
+        "https://eduscol.education.fr/document/50600/download"
+      ],
+      "nombre_caracteres": 2602,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/accident_eleve_rapport_parents_2009.txt",
+      "titre": "Accident scolaire : rapport et communication aux parents",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2009/43/mene0915926c.html",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000019017259"
+      ],
+      "nombre_caracteres": 1705,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_002_situation_1ere_section_responsabilite_civile_penale_et_protection_fonctionnelle.txt",
+      "titre": "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F32574",
+        "https://www.fonction-publique.gouv.fr/toutes-les-publications/faq-sur-la-protection-fonctionnelle-des-agents-publics"
+      ],
+      "nombre_caracteres": 4013,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt",
+      "titre": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]",
+      "liens": [],
+      "nombre_caracteres": 1921,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt",
+      "titre": "EPS : adaptation, sécurité et contestation d’une intervention pédagogique",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006526438",
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "nombre_caracteres": 2518,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt",
+      "titre": "[SITUATION: INAPTITUDE MÉDICALE, ADAPTATION ET PRÉSENCE EN EPS]",
+      "liens": [
+        "https://eduscol.education.gouv.fr/media/111129/download"
+      ],
+      "nombre_caracteres": 1224,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_008_situation_public_vise_et_modalites_d_obtention_par_defaut.txt",
+      "titre": "[SITUATION: TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA) — PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]",
+      "liens": [],
+      "nombre_caracteres": 1172,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_009_situation_logistique_administrative_et_calendrier_academique.txt",
+      "titre": "[SITUATION: LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C"
+      ],
+      "nombre_caracteres": 1084,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_010_situation_ouverture_protocolaire_aux_contractuels_et_detachements.txt",
+      "titre": "[SITUATION: OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS]",
+      "liens": [],
+      "nombre_caracteres": 613,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_011_situation_protocole_technique_de_l_epreuve_100_metres_en_continu.txt",
+      "titre": "[SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]",
+      "liens": [],
+      "nombre_caracteres": 1281,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_012_situation_motifs_d_elimination_immediate_test_non_valide.txt",
+      "titre": "[SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C",
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"
+      ],
+      "nombre_caracteres": 1705,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_013_situation_7e_section_pedagogie_horaires_et_dispositifs_de_suivi_au_college_cycles_3_4.txt",
+      "titre": "[SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]",
+      "liens": [
+        "https://eduscol.education.gouv.fr/5208/l-organisation-des-enseignements-au-college"
+      ],
+      "nombre_caracteres": 2101,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_014_situation_8e_section_socle_commun_sccc_et_exigences_du_dnb_session_2026.txt",
+      "titre": "[SITUATION: 8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)]",
+      "liens": [],
+      "nombre_caracteres": 2647,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_015_situation_9e_section_cadre_du_ccf_en_lycee_gt_specialite_eppcs_et_athletes_shn.txt",
+      "titre": "[SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+      ],
+      "nombre_caracteres": 2738,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt",
+      "titre": "[SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]",
+      "liens": [],
+      "nombre_caracteres": 6087,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt",
+      "titre": "EPS : punitions, sanctions et évaluation scolaire",
+      "liens": [
+        "https://www.education.gouv.fr/bo/14/Hebdo22/MENE1406107C.htm"
+      ],
+      "nombre_caracteres": 2282,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt",
+      "titre": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "nombre_caracteres": 2340,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt",
+      "titre": "Données des élèves : outils numériques, images et responsabilité",
+      "liens": [
+        "https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs",
+        "https://www.cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents"
+      ],
+      "nombre_caracteres": 1580,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt",
+      "titre": "[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/20/Hebdo47/MENE2034197C.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031093371"
+      ],
+      "nombre_caracteres": 1513,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt",
+      "titre": "[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]",
+      "liens": [],
+      "nombre_caracteres": 2515,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt",
+      "titre": "[SITUATION: INTERVENANTS EXTÉRIEURS — DISTINGUER PREMIER ET SECOND DEGRÉS]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm",
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "nombre_caracteres": 1523,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt",
+      "titre": "Sécurité en EPS : organisation des activités, matériel, différences entre élèves",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "nombre_caracteres": 2038,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt",
+      "titre": "[SITUATION: SÉCURITÉ DES APPN — CADRE NATIONAL ET PROTOCOLES PAR ACTIVITÉ]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.fr/document/50600/download",
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"
+      ],
+      "nombre_caracteres": 2785,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt",
+      "titre": "EPS : vigilance, facteurs de risque et prévention",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "nombre_caracteres": 1621,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt",
+      "titre": "EPS : installations, déplacements réguliers et surveillance des vestiaires",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+        "https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf"
+      ],
+      "nombre_caracteres": 2556,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt",
+      "titre": "EPS : aides, parades, contacts corporels et intervention en cas de conflit",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "nombre_caracteres": 1711,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt",
+      "titre": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395"
+      ],
+      "nombre_caracteres": 2435,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt",
+      "titre": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]",
+      "liens": [],
+      "nombre_caracteres": 1071,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt",
+      "titre": "[SITUATION: Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015]",
+      "liens": [],
+      "nombre_caracteres": 1207,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
+      "titre": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+      "liens": [],
+      "nombre_caracteres": 1128,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
+      "titre": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+      "liens": [],
+      "nombre_caracteres": 999,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt",
+      "titre": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1396"
+      ],
+      "nombre_caracteres": 2168,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt",
+      "titre": "[SITUATION: 32E SECTION : ANCRAGE CONSTITUTIONNEL ET LÉGAL DE LA MIXITÉ ET DE L'ÉGALITÉ]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208"
+      ],
+      "nombre_caracteres": 3385,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt",
+      "titre": "[SITUATION: TRANSPORT D’ÉLÈVES — CADRE JURIDIQUE ET AUTORISATIONS]",
+      "liens": [
+        "https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/Textes/as/Utilisation_vehicules_perso.NS_n__86-101_du_5-3-86_._BO_n_10_du_13_-3-86_RLR_571-0.pdf",
+        "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C"
+      ],
+      "nombre_caracteres": 2270,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt",
+      "titre": "[SITUATION: MINIBUS ET VÉHICULE PERSONNEL — CONDITIONS À VÉRIFIER]",
+      "liens": [],
+      "nombre_caracteres": 1206,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt",
+      "titre": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]",
+      "liens": [],
+      "nombre_caracteres": 707,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt",
+      "titre": "[SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]",
+      "liens": [],
+      "nombre_caracteres": 1699,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt",
+      "titre": "[SITUATION: SÉCURITÉ DES BUTS ET PANIERS — CONTRÔLES ET MISE HORS SERVICE]",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032432112"
+      ],
+      "nombre_caracteres": 1347,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt",
+      "titre": "[SITUATION: CERTIFICAT MÉDICAL EN ASSOCIATION SPORTIVE / UNSS]",
+      "liens": [
+        "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1030",
+        "https://www.unss.org/sport-sante"
+      ],
+      "nombre_caracteres": 1187,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt",
+      "titre": "EPS : chaleur, pollution et conditions météorologiques",
+      "liens": [
+        "https://www.education.gouv.fr/recommandations-aux-directeurs-d-ecole-et-chefs-d-etablissement-pour-prevenir-les-effets-de-la-456261",
+        "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000036736002",
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "nombre_caracteres": 3142,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt",
+      "titre": "Rendez-vous de carrière : évaluation et recours du professeur d’EPS",
+      "liens": [
+        "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006063298",
+        "https://www.education.gouv.fr/rendez-vous-de-carriere-mode-d-emploi-41627"
+      ],
+      "nombre_caracteres": 1345,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt",
+      "titre": "Promotions : hors-classe et classe exceptionnelle, corps EPS et agrégés",
+      "liens": [
+        "https://www.education.gouv.fr/sites/default/files/document/Annexe%201%20%E2%80%93%20Lignes%20directrices%20de%20gestion%20relatives%20%C3%A0%20la%20promotion%20et%20%C3%A0%20la%20valorisation%20des%20parcours%20des%20personnels%20enseignants%20des%20premier%20et%20second%20degr%C3%A9s,%20des%20personnels%20d%E2%80%99%C3%A9ducation%20et%20des%20psychologues%20de%20l%E2%80%99%C3%A9ducation%20nationale-4049.pdf",
+        "https://iprof.adc.education.fr/iprof/page_information_iprof_PGC.htm"
+      ],
+      "nombre_caracteres": 1798,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt",
+      "titre": "Recrutement EPS : concours, session et parcours de formation",
+      "liens": [
+        "https://www.devenirenseignant.gouv.fr/enseigner-l-education-physique-et-sportive-le-capeps-1396",
+        "https://www.devenirenseignant.gouv.fr/questions-reponses-la-reforme-de-la-formation-initiale-et-du-recrutement-des-personnels-enseignants-1523"
+      ],
+      "nombre_caracteres": 1488,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt",
+      "titre": "Professeur d’EPS : mutation, vérification du barème et recours",
+      "liens": [
+        "https://www.education.gouv.fr/mutation-des-personnels-du-second-degre-siam-phase-interacademique-3218",
+        "https://www.education.gouv.fr/resultats-des-mouvements-interacademique-specifique-national-et-postes-profil-309543"
+      ],
+      "nombre_caracteres": 2617,
+      "etat": "relecture_documentaire_partielle_2026-10-16"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt",
+      "titre": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
+      "liens": [],
+      "nombre_caracteres": 986,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt",
+      "titre": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
+      "liens": [],
+      "nombre_caracteres": 1385,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt",
+      "titre": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
+      "liens": [],
+      "nombre_caracteres": 721,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt",
+      "titre": "Accident de service ou de trajet : déclaration de l’agent",
+      "liens": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F33252",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/R53535"
+      ],
+      "nombre_caracteres": 1462,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt",
+      "titre": "[SITUATION: APPN AU SECOND DEGRÉ — CONTRÔLES, ENCADREMENT ET ALERTE]",
+      "liens": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
+      ],
+      "nombre_caracteres": 1525,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt",
+      "titre": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]",
+      "liens": [
+        "https://eduscol.education.gouv.fr/media/111129/download"
+      ],
+      "nombre_caracteres": 1325,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt",
+      "titre": "[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]",
+      "liens": [
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
+      ],
+      "nombre_caracteres": 4183,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt",
+      "titre": "Coordination EPS : conditions et montant de l’IMP",
+      "liens": [
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533522",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533649"
+      ],
+      "nombre_caracteres": 2843,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt",
+      "titre": "[ARTICLE 114] SORTIES ET APPN — AUTORISATIONS ET DÉLAIS",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
+      ],
+      "nombre_caracteres": 1031,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/correspondant_06_course_orientation_foret_chasse.txt",
+      "titre": "=== RÉPONSE D'UN IA-IPR EPS : COURSE D'ORIENTATION EN MILIEU FORESTIER ET PÉRIODE DE CHASSE ===",
+      "liens": [],
+      "nombre_caracteres": 1223,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/cumul_activite_accessoire.txt",
+      "titre": "Cumul : activité accessoire et emploi public",
+      "liens": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1648"
+      ],
+      "nombre_caracteres": 1248,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/demifond_college_vma_exemples.txt",
+      "titre": "Demi-fond au collège : pourcentages de VMA, exemples pédagogiques et exigences d'évaluation",
+      "liens": [
+        "https://eduscol.education.gouv.fr/5724/ressources-d-accompagnement-du-programme-d-education-physique-et-sportive-au-cycle-4",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/ra16c4epsdemifondnd565118pdf-78294.pdf"
+      ],
+      "nombre_caracteres": 1476,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/deplacements_reguliers_college_lycee.txt",
+      "titre": "Déplacements réguliers vers les installations : collège et lycée",
+      "liens": [
+        "https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf"
+      ],
+      "nombre_caracteres": 1691,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/ia_usages_pedagogiques.txt",
+      "titre": "Usage pédagogique d’un système automatisé : données et évaluation",
+      "liens": [
+        "https://cnil.fr/fr/enseignant-usage-systeme-ia"
+      ],
+      "nombre_caracteres": 1162,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/imp_attribution_temps_partiel_remplacement.txt",
+      "titre": "IMP : attribution, temps partiel, partage et versement",
+      "liens": [
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533522",
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm"
+      ],
+      "nombre_caracteres": 1429,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/pai_pratique_eps_sorties.txt",
+      "titre": "PAI : pratique EPS, adaptation et sorties",
+      "liens": [
+        "https://www.education.gouv.fr/bo/21/Hebdo9/MENE2104832C.htm"
+      ],
+      "nombre_caracteres": 1156,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt",
+      "titre": "Nouveau programme EPS cycle 3 : calendrier d'application en sixième",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo22/MENE2608631A",
+        "https://eduscol.education.gouv.fr/4773/education-physique-et-sportive-ressources-pour-le-cycle-3"
+      ],
+      "nombre_caracteres": 1097,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/signalement_violences_personnels.txt",
+      "titre": "Violences, discriminations et harcèlement envers les personnels",
+      "liens": [
+        "https://www.education.gouv.fr/dispositifs-de-lutte-contre-les-actes-de-violences-discriminations-harcelement-ou-agissements-504284",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043596646"
+      ],
+      "nombre_caracteres": 1542,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/sortie_musee_velo_second_degre.txt",
+      "titre": "Sortie au musée à vélo ou VTT : déplacement du second degré, obligations et prévention",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F34169"
+      ],
+      "nombre_caracteres": 3491,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/fiches/sorties_second_degre_guide_2025.txt",
+      "titre": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025",
+      "liens": [
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://eduscol.education.gouv.fr/5037/sorties-et-voyages-scolaires-dans-le-second-degre"
+      ],
+      "nombre_caracteres": 2843,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/partenariats_defense_citoyennete.txt",
+      "titre": "TITRE : Classes de Défense et de Sécurité Globale (CDSG) et Classes Engagées",
+      "liens": [],
+      "nombre_caracteres": 4345,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/premier_degré.txt",
+      "titre": "[PORTEE: primaire]",
+      "liens": [],
+      "nombre_caracteres": 31388,
+      "etat": "non_revalide_dans_ce_lot"
+    },
+    {
+      "path": "data/textes/sorties_encadrement_2024.txt",
+      "titre": "Sorties : second degré, groupe mixte CM2–6e et activités physiques",
+      "liens": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://eduscol.education.gouv.fr/5037/sorties-et-voyages-scolaires-dans-le-second-degre",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-premier-degre-101622.pdf"
+      ],
+      "nombre_caracteres": 2581,
+      "etat": "non_revalide_dans_ce_lot"
+    }
+  ]
+}

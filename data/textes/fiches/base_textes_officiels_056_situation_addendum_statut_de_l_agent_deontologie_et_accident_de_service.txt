@@ -1,13 +1,9 @@
-### [SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]
-* OBLIGATIONS STATUTAIRES DE L'AGENT (ART. L. 121-1 À L. 121-6 DU CODE GÉNÉRAL DE LA FONCTION PUBLIQUE - CGFP) : 
-  - Exercice des fonctions avec dignité, impartialité, intégrité et probité.
-  - Obligation stricte de neutralité et respect du principe de laïcité.
-  - Respect du secret professionnel et de la discrétion professionnelle pour toutes les informations recueillies dans l'exercice ou à l'occasion de l'exercice des fonctions (ex: notes de jurys, situations de handicap des élèves, données administratives).
+### Accident de service ou de trajet : déclaration de l’agent
+Nature de la source : texte national / documentation officielle citée ci-dessous.
+Distinguer l'accident de l'agent du rapport d'accident d'un élève, et le fonctionnaire du contractuel. Le CITIS concerne le fonctionnaire ; la reconnaissance de l'imputabilité ne découle pas du seul signalement.
+La déclaration associe un formulaire et un certificat médical. Le délai de principe est de quinze jours après l'accident. Lorsque la constatation médicale des lésions intervient dans les deux ans, le délai court dans les quinze jours de cette constatation ; les autres exceptions et pièces doivent être vérifiées dans la fiche officielle.
+Transmettre sans attendre au service employeur compétent et conserver les justificatifs. Le canal concret dépend de l'administration : Colibris n'est pas une obligation nationale universelle établie par cette référence. Identifier l'académie et consulter sa procédure actuelle. Une demande de protection fonctionnelle est distincte.
 
-* PROCÉDURE DÉMATÉRIALISÉE D'ACCIDENT DE SERVICE (AGENT) : 
-  - En cas d'accident survenu à l'enseignant dans l'exercice de ses fonctions ou sur le trajet, la déclaration initiale de reconnaissance d'accident de service (ainsi que les demandes de prolongation d'arrêts ou de remboursement de soins) ne transite plus par des formulaires papier traditionnels : elle s'effectue obligatoirement par voie numérique via l'espace personnel de l'agent sur la plateforme académique **Colibris** dans les délais réglementaires.
-======================================================================
-RÉFÉRENTIEL EXPERT NATIONAL - HUB EPS (2026)
-BASE DE CONNAISSANCES OFFICIELLE (RAG / SYSTEM PROMPT)
-======================================================================
-
+Sources officielles — consultées le 16 octobre 2026 :
+- Service Public / DILA, « Congé pour invalidité temporaire imputable au service (Citis) du fonctionnaire », partie Fonction publique d'État, déclaration et délais : https://www.service-public.gouv.fr/particuliers/vosdroits/F33252
+- Modèle officiel de déclaration destiné au fonctionnaire titulaire ou stagiaire : https://www.service-public.gouv.fr/particuliers/vosdroits/R53535

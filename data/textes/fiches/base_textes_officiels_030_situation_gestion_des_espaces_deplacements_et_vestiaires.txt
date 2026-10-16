@@ -1,6 +1,22 @@
-### [SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]
-* CONVETIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
-* SÉCURITÉ DES DÉPLACEMENTS : Les trajets vers les installations extérieures exigent une planification stricte. En cas d'incident, le professeur doit se référer au Protocole national des soins et des urgences (BO du 6 janvier 2000). Une qualification de premier secours valide est obligatoire au recrutement.
-* SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention et la présence physique de l'enseignant à l'intérieur du vestiaire sont légitimes et indispensables pour garantir la sécurité.
+### EPS : installations, déplacements réguliers et surveillance des vestiaires
+Nature de la source : texte national — circulaire de recommandations.
+Portée : second degré. Vérification documentaire : 16 octobre 2026.
 
-----------------------------------------------------------------------
+## Installations et matériels
+Les enseignants veillent à l’état d’utilisation des équipements et signalent au gestionnaire les défectuosités constatées. Les contrôles périodiques de conformité ne doivent pas être confondus avec la vigilance de l’utilisateur. Consulter les documents de contrôle disponibles et les conventions applicables aux installations.
+
+## Déplacements
+Distinguer les trajets réguliers vers une installation, les déplacements internes et les sorties occasionnelles. La circulaire EPS demande d’étudier les modalités des trajets et l’organisation en cas d’incident ; elle ne pose pas à elle seule une interdiction universelle de déplacement autonome.
+Pour les trajets réguliers au collège, l’encadrement est la règle ; en début ou fin de temps scolaire, un trajet individuel peut être prévu par le règlement intérieur pour les élèves autorisés par leurs représentants légaux. Au lycée, le règlement intérieur peut autoriser les trajets individuels de courte distance vers une activité scolaire.
+Si la question ne précise pas le déplacement, donner ce cadre puis demander le trajet et le moment concernés dans une nouvelle question complète.
+
+## Vestiaires : sécurité et intimité
+Le texte prévoit la séparation des vestiaires par sexe ; à défaut, l’enseignant adopte une solution adaptée à la situation et à la préservation de l’intimité.
+L’intervention dans les vestiaires peut être nécessaire pour prévenir ou interrompre chahut, rixe ou maltraitance. Ne pas transformer cette possibilité liée à la sécurité en présence permanente systématique.
+Extrait, I.1.2 : « l’intervention de l’enseignant à l’intérieur du vestiaire peut s’avérer indispensable ».
+
+## Références et passages
+- Circulaire n° 2004-138 du 13 juillet 2004, NOR MENE0401637C, BO n°32 du 9 septembre 2004 : I.1 (installations et déplacements), I.1.2 (vestiaires), III.1 (vigilance et information).
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm
+- Fiche ministérielle du 10 juillet 2019, question « Comment s’organisent les déplacements réguliers des élèves ? », renvoyant à la circulaire n°96-248 modifiée. Seule cette rubrique est reprise ici.
+https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf

@@ -1,6 +1,18 @@
-### [SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]
-* HÉTÉROGÉNÉITÉ DES CLASSES : L'enseignant doit adapter ses tâches aux différences interindividuelles (poids, taille, âge, sexe, inaptitudes temporaires) pour éviter les collisions et les comportements d'exclusion générateurs de risques.
-* LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire constitue une faute professionnelle en cas de dommage corporel.
-* INTERPOSITION EN CAS DE CONFLIT : En cas de violences ou de conflits entre élèves, le professeur d'EPS a l'obligation d'intervenir, y compris en s'interposant physiquement pour préserver l'intégrité des élèves, tout en proscrivant les sévices corporels.
+### EPS : aides, parades, contacts corporels et intervention en cas de conflit
+Nature de la source : texte national — recommandations ministérielles.
+Portée : second degré. Révision documentaire : 16 octobre 2026.
 
-----------------------------------------------------------------------
+## Aides et parades
+Les contacts liés à l’aide pédagogique et à la sécurité peuvent être nécessaires selon l’activité et la situation. Les consignes précises, l’observation de l’activité des élèves et l’organisation pédagogique permettent de les expliquer et de les adapter.
+La circulaire indique que ne pas apporter une aide ou une parade pourrait constituer une défaillance donnant lieu à un dommage important. Elle ne permet pas de qualifier automatiquement tout accident ou toute absence de contact de faute professionnelle.
+Extrait, II : « ne pas apporter une aide ou une parade pourrait constituer une défaillance dans l’intervention pédagogique ».
+
+## Adapter l’organisation
+L’enseignant prend en compte poids, taille, âge, incapacités et autres différences pertinentes pour proposer des tâches et conditions de pratique adaptées. Il informe les élèves sur les règles et les modes d’intervention nécessaires à l’activité.
+
+## Conflits entre élèves
+L’enseignant intervient pour préserver l’intégrité physique des élèves, y compris par une interposition physique si nécessaire, en évitant tout sévice corporel. Ne pas transformer cette disposition en obligation systématique d’un contact physique indépendamment du contexte.
+
+## Référence officielle
+Circulaire n°2004-138 du 13 juillet 2004, NOR MENE0401637C, BO n°32 du 9 septembre 2004 : II (différences interindividuelles et contacts corporels), III.1.2 (information des élèves).
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm

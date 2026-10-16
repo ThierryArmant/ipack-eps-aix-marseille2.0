@@ -4401,7 +4401,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]"
+   "titre": "EPS : adaptation, sécurité et contestation d’une intervention pédagogique"
   },
   "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt": {
    "nature": [
@@ -4517,7 +4517,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 13E SECTION : CODE DISCIPLINAIRE, CADRE DES PUNITIONS ET DES SANCTIONS]"
+   "titre": "EPS : punitions, sanctions et évaluation scolaire"
   },
   "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
    "nature": [
@@ -4531,13 +4531,13 @@
   },
   "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
    "nature": [
-    "texte_national"
+    "a_verifier"
    ],
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 15E SECTION : CONFORMITÉ RGPD, DRANE/DANE ET APPLICATIONS BAS-CODE/NO-CODE]"
+   "titre": "Données des élèves : outils numériques, images et responsabilité"
   },
   "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt": {
    "nature": [
@@ -4577,7 +4577,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 19E SECTION : PROTOCOLES DE SÉCURITÉ CHIRURGICAUX PAR FAMILLES D'APSA]"
+   "titre": "Sécurité en EPS : organisation des activités, matériel, différences entre élèves"
   },
   "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt": {
    "nature": [
@@ -4597,7 +4597,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE]"
+   "titre": "EPS : vigilance, facteurs de risque et prévention"
   },
   "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt": {
    "nature": [
@@ -4607,7 +4607,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES]"
+   "titre": "EPS : installations, déplacements réguliers et surveillance des vestiaires"
   },
   "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt": {
    "nature": [
@@ -4617,7 +4617,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)]"
+   "titre": "EPS : aides, parades, contacts corporels et intervention en cas de conflit"
   },
   "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt": {
    "nature": [
@@ -4751,13 +4751,13 @@
   },
   "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt": {
    "nature": [
-    "texte_national"
+    "a_verifier"
    ],
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
-   "portee_texte": null,
-   "titre": "[SITUATION: 35E SECTION : ADAPTATION AUX CONDITIONS CLIMATIQUES EXTRÊMES ET POLLUTION ATMOSPHÉRIQUE]"
+   "portee_texte": "Documentation ministérielle nationale ; nature à préciser au passage, ne pas qualifier toute la fiche de règlement.",
+   "titre": "EPS : chaleur, pollution et conditions météorologiques"
   },
   "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt": {
    "nature": [
@@ -4767,7 +4767,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 23E SECTION : CARRIÈRE, ÉVALUATION ET DISPOSITIF PPCR (AVANCEMENT D'ÉCHELON)]"
+   "titre": "Rendez-vous de carrière : évaluation et recours du professeur d’EPS"
   },
   "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt": {
    "nature": [
@@ -4777,7 +4777,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 24E SECTION : AVANCEMENT DE GRADE (HORS-CLASSE ET CLASSE EXCEPTIONNELLE)]"
+   "titre": "Promotions : hors-classe et classe exceptionnelle, corps EPS et agrégés"
   },
   "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt": {
    "nature": [
@@ -4787,17 +4787,17 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 25E SECTION : RECRUTEMENT, CONDITIONS D'ACCÈS AUX CORPS ET DÉTACHEMENTS]"
+   "titre": "Recrutement EPS : concours, session et parcours de formation"
   },
   "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt": {
    "nature": [
-    "texte_national"
+    "a_verifier"
    ],
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
-   "portee_texte": null,
-   "titre": "[SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]"
+   "portee_texte": "Documentation ministérielle nationale ; nature à préciser au passage, ne pas qualifier toute la fiche de règlement.",
+   "titre": "Professeur d’EPS : mutation, vérification du barème et recours"
   },
   "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt": {
    "nature": [
@@ -4837,7 +4837,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: ADDENDUM : STATUT DE L'AGENT, DÉONTOLOGIE ET ACCIDENT DE SERVICE]"
+   "titre": "Accident de service ou de trajet : déclaration de l’agent"
   },
   "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt": {
    "nature": [
@@ -4877,7 +4877,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: TEXTES DE RÉFÉRENCE ET RÔLE DU COORDONNATEUR EPS]"
+   "titre": "Coordination EPS : mission et indemnité pour mission particulière (IMP)"
   },
   "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt": {
    "nature": [
@@ -5311,6 +5311,66 @@
    "titre": "Courses — Déposer deux FCA de demi-fond pour des groupes différents",
    "type_source": "courriel_assistance",
    "source_reference": "Retour d’assistance iPackEPS Aix-Marseille du 14 octobre 2026"
+  },
+  "data/textes/fiches/deplacements_reguliers_college_lycee.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Déplacements réguliers vers les installations : collège et lycée"
+  },
+  "data/textes/fiches/imp_attribution_temps_partiel_remplacement.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "IMP : attribution, temps partiel, partage et versement"
+  },
+  "data/textes/fiches/pai_pratique_eps_sorties.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "PAI : pratique EPS, adaptation et sorties"
+  },
+  "data/textes/fiches/cumul_activite_accessoire.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Cumul : activité accessoire et emploi public"
+  },
+  "data/textes/fiches/signalement_violences_personnels.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Violences, discriminations et harcèlement envers les personnels"
+  },
+  "data/textes/fiches/ia_usages_pedagogiques.txt": {
+   "nature": [
+    "a_verifier"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Usage pédagogique d’un système automatisé : données et évaluation"
   }
  }
 }

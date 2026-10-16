@@ -25,7 +25,11 @@ def supported(span,level='reglementaire'):
 class SourceScopeTests(unittest.TestCase):
     def test_registry_is_the_one_supplied_with_all_fiches(self):
         registry=json.loads(Path('config/nature_sources.json').read_text())['fichiers']
-        self.assertEqual(len(registry),491)
+        # L'inventaire évolue avec les fiches ; vérifier la couverture réelle plutôt qu'un total figé.
+        expected = {p.as_posix() for folder in ('data/textes', 'data/ipack', 'data/examens', 'data/commun')
+                    for p in Path(folder).rglob('*.txt')
+                    if not {'archives', 'archive', 'a_verifier'} & set(p.parts)}
+        self.assertEqual(set(registry), expected)
         self.assertEqual(annotations(FRAUD),registry[FRAUD])
 
     def test_mixed_fraud_is_never_relabelled_as_only_national_by_model(self):

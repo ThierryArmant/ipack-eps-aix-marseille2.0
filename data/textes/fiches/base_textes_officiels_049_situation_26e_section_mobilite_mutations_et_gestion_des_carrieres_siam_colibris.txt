@@ -1,10 +1,21 @@
-### [SITUATION: 26E SECTION : MOBILITÉ, MUTATIONS ET GESTION DES CARRIÈRES (SIAM / COLIBRIS)]
-* LA MOBILITÉ INTERACADÉMIQUE (PHASE INTER - APPLICATION SIAM / I-PROF) : Organisée chaque année au cours du premier trimestre (saisie des vœux entre novembre et décembre), la phase interacadémique permet aux enseignants titulaires de demander un changement d'académie. 
-  - **Le calcul du barème** : Les mutations reposent sur un système de barème objectif tenant compte de la situation familiale (rapprochement de conjoints, autorité parentale conjointe, enfants à charge), de l'ancienneté de service, de l'échelon, et de bonifications spécifiques liées à l'exercice en zone prioritaire (Éducation prioritaire, REP/REP+, CLA - Contrats Locaux d'Accompagnement) ou au handicap (bénéficiaire de l'obligation d'emploi - BOE).
-  - **Le vœu préférentiel** : La reconduction identique et continue d'un premier vœu académique d'une année sur l'autre génère l'attribution de points de bonification d'ancienneté de vœu (vœu préférentiel) afin de valoriser l'ancienneté de la demande.
-* LA MOBILITÉ INTRA-ACADÉMIQUE (PHASE INTRA) : Une fois muté dans une académie (ou pour une mutation à l'intérieur de sa propre académie), l'agent participe au mouvement intra-académique piloté par les services de la DPAE / DREIC du Rectorat au printemps. L'affectation dans un établissement précis s'effectue en fonction des barèmes académiques, des vœux géographiques (zones de remplacement - ZRD, communes, établissements précis - REP) et des nécessités de service.
-* GESTION DES RECOURS ET VOIES DE CONTESTATION (APPLICATION COLIBRIS) : En cas de désaccord sur un refus de mutation, une affectation prononcée à titre provisoire ou une contestation de barème de mutation, l'agent dispose d'un droit de recours administratif (gracieux ou hiérarchique) ou de révision d'affectation. La saisine de l'administration s'effectue obligatoirement de manière dématérialisée via l'application ministérielle **Colibris** dans les délais stricts fixés par les circulaires rectorales.
-======================================================================
-CADRE JURIDIQUE ET STATUTAIRE : CARRIÈRE, ÉVALUATION ET PROMOTIONS
-======================================================================
+### Professeur d’EPS : mutation, vérification du barème et recours
+Nature de la source : documentation ministérielle nationale ; procédures annuelles.
+Portée : enseignants du second degré public. Sources de la campagne 2026 ; ne pas transposer ses dates aux campagnes suivantes. Révision documentaire : 16 octobre 2026.
 
+## Distinguer les démarches
+Le mouvement interacadémique détermine l’académie ; le mouvement intra-académique est organisé par le recteur pour l’affectation dans l’académie. Le mouvement ordinaire et les recrutements sur postes spécifiques ou à profil ne suivent pas nécessairement les mêmes critères : les postes à profil ne sont pas attribués au barème ordinaire.
+Les vœux du mouvement inter sont saisis sur SIAM via I-Prof selon le calendrier annuel. Les justificatifs, le barème affiché et la confirmation doivent être vérifiés dans les délais applicables.
+
+## Barème ou résultat : deux contestations différentes
+La modification du barème pendant sa période de vérification se demande auprès des services académiques compétents, avec les pièces utiles. Ne pas la confondre avec le recours après notification du résultat d’affectation.
+La page ministérielle relative aux résultats 2026 prévoit Colibris pour les recours interacadémiques, SPEN et POP ; une démarche intra-académique suit les consignes de l’académie concernée. Ne pas affirmer que tout recours professionnel passe obligatoirement par le même formulaire Colibris.
+Extrait de la page résultats : « Les recours relatifs au mouvement inter académique et aux mouvements SPEN et POP sont traités via la plateforme COLIBRIS ».
+
+## Précisions nécessaires
+Pour donner une procédure ou échéance individuelle : préciser la campagne, inter ou intra, l’académie et le stade (barème ou résultat). Les dates de 2026 ne répondent pas à une demande pour 2027. L’interlocuteur pertinent est la cellule mouvement ou le service gestionnaire des personnels, pas le service des examens.
+
+## Références officielles
+- Ministère, « Mutation des personnels du second degré (SIAM phase interacadémique) », page du 11 mars 2026 : étapes, barème, distinction inter/intra et textes de campagne.
+https://www.education.gouv.fr/mutation-des-personnels-du-second-degre-siam-phase-interacademique-3218
+- Ministère, « Résultats des mouvements interacadémique, spécifique national et postes à profil », page du 12 mai 2026 : cadre réglementaire, procédure et recours. Elle renvoie aux lignes directrices de gestion ministérielles du 22 octobre 2024.
+https://www.education.gouv.fr/resultats-des-mouvements-interacademique-specifique-national-et-postes-profil-309543

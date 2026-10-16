@@ -317,7 +317,7 @@ def validate_claims(data, packets, *, checked=False):
     return accepted, rejected
 
 
-def scoped_claim_text(claim):
+def scoped_claim_text(claim, *, mode="examens"):
     """La réserve académique apparaît dans la phrase et ne dépend pas du modèle."""
     evidence = claim['evidence']
     marked = [e for e in evidence if e.get('scope', {}).get('not_confirmed_for')]
@@ -333,10 +333,11 @@ def scoped_claim_text(claim):
     targets = sorted({e['scope']['not_confirmed_for'] for e in marked})
     if 'Non précisée' in targets:
         return text + ' (application locale à vérifier auprès du service compétent de votre académie)'
-    return text + ' (à vérifier auprès du service des examens de l’académie de ' + ', '.join(targets) + ')'
+    service = 'service compétent' if mode == 'textes' else 'service des examens'
+    return text + ' (à vérifier auprès du ' + service + ' de l’académie de ' + ', '.join(targets) + ')'
 
 
-def render_claims(claims, packets):
+def render_claims(claims, packets, *, mode="examens"):
     """Pas de troisième reformulation susceptible de perdre les sources contrôlées."""
     by_id = {p['id']: p for p in packets}
     output = []
@@ -352,13 +353,20 @@ def render_claims(claims, packets):
                 label = evidence_label(e, p, _LEVELS)
                 if label not in labels:
                     labels.append(label)
-            output.append('<p>' + html.escape(scoped_claim_text(c)) + '<br><small>' +
+            output.append('<p>' + html.escape(scoped_claim_text(c, mode=mode)) + '<br><small>' +
                           html.escape(' ; '.join(labels)) + '</small></p>')
     return ''.join(output)
 
 
 NO_APPLICABLE_GUIDANCE = ('Aucune consigne applicable trouvée dans la documentation disponible. '
                           'À vérifier auprès du service des examens de votre académie.')
+
+
+def no_applicable_guidance(mode):
+    if mode == 'textes':
+        return ('Aucune consigne applicable trouvée dans la documentation disponible. '
+                'À vérifier auprès du service compétent pour votre demande.')
+    return NO_APPLICABLE_GUIDANCE
 
 
 def situation_mismatch(question, text):
@@ -420,7 +428,7 @@ def case_value_errors(claims, question):
     return errors
 
 
-def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseille'):
+def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseille', mode='examens'):
     """Extrait documentaire de repli, jamais une décision générée incomplète.
 
     Les passages restent cités littéralement, avec leur portée et leurs conditions.
@@ -428,7 +436,9 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     """
     output = ['<h3>Réponse non confirmée</h3>',
               '<p>Les passages disponibles ne permettent pas de confirmer une réponse complète à votre situation. '
-              'Faites vérifier la conduite à tenir auprès du service des examens de votre académie.</p>']
+              'Faites vérifier la conduite à tenir auprès du service compétent pour votre demande.</p>']
+    if mode != 'textes':
+        output[1] = output[1].replace('service compétent pour votre demande', 'service des examens de votre académie')
     packets = audit.get('documents') or source_packets(documents)
     selected_ids = audit.get('model_document_ids')
     candidates = [p for p in packets if p.get('origin') == 'document'
@@ -445,7 +455,7 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     audit['fallback_kind'] = 'unconfirmed_documentary_excerpt'
     if not ranked or not (roots & _racines(ranked[0]['title'] + ' ' + ranked[0]['text'])):
         audit['fallback_kind'] = 'no_applicable_guidance'
-        return '<p>' + NO_APPLICABLE_GUIDANCE + '</p>'
+        return '<p>' + no_applicable_guidance(mode) + '</p>'
     packet = select_academy([ranked[0]], academy)[0][0]
     audit['fallback_document_ids'] = [packet['id']]
     display_spans = [s for s in packet['passages']
@@ -612,7 +622,7 @@ def course_duration_mismatch(question, packet):
     return packet.get('path') == 'data/ipack/complement_reponses_validees.txt'
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille'):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens'):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
     packets = source_packets(documents)
@@ -677,7 +687,7 @@ Pour chaque affirmation, sélectionne les passages attribués qui la justifient.
 Les passages marqués comme consignes d'Aix ne sont pas confirmés pour une autre académie :
 présente-les comme exemples d'Aix, et indique que la procédure locale doit être vérifiée.
 Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'application locale, jamais la validité du cadre national.
-Un acteur générique reste le service des examens de l'académie ; ne le rebaptise pas DIEC hors Aix.
+Identifie l’interlocuteur selon le sujet et les sources : gestionnaire des personnels ou rémunérations pour la carrière et les indemnités ; service des examens seulement pour une question d’examen. Ne rebaptise pas un service DIEC hors Aix.
 Une possibilité réglementaire ne prouve pas une possibilité technique du logiciel.
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.
 Dans une FAQ, la réponse s'applique aux faits de sa question source : si ces faits ne sont pas
@@ -719,7 +729,7 @@ Réponds uniquement en JSON selon ce schéma :
 
     if not packets:
         audit.update(accepted_claims=[], final_claims=[], final_rejections=[], semantic_review=False)
-        return '<p>' + NO_APPLICABLE_GUIDANCE + '</p>'
+        return '<p>' + no_applicable_guidance(mode) + '</p>'
     final, accepted, rejected = resolve(recorded.complete(prompt).text)
     audit['proposal'] = final
     audit['initial_accepted_claims'] = accepted
@@ -741,6 +751,6 @@ Réponds uniquement en JSON selon le schéma, au plus 12 affirmations.
     if rejected:
         reasons = sorted({str(e) for r in rejected for e in r['errors']})
         raise ValueError('Vérification mécanique incomplète : ' + ' ; '.join(reasons) + '.')
-    rendered = render_claims(accepted, packets) if accepted else '<p>' + NO_APPLICABLE_GUIDANCE + '</p>'
+    rendered = render_claims(accepted, packets, mode=mode) if accepted else '<p>' + no_applicable_guidance(mode) + '</p>'
     audit['rendered_answer'] = rendered
     return rendered

@@ -1,0 +1,8 @@
+### Usage pédagogique d’un système automatisé : données et évaluation
+Nature de la source : documentation officielle CNIL ; recommandations distinguées des règles légales.
+La CNIL rappelle que l'usage pédagogique traitant des données personnelles s'effectue, au second degré, sous la responsabilité du chef d'établissement. L'enseignant l'informe et associe le DPD ; finalité, base légale, information et sécurité doivent être examinées.
+L'autorisation des parents n'est pas, en principe, la base nécessaire à tout usage pédagogique : cela ne dispense pas d'informer et de respecter leurs droits. Éviter d'imposer un compte individuel grand public et vérifier la réutilisation des données.
+L'enseignant garde son pouvoir d'évaluation et de décision : une sortie du système ne suffit pas à attribuer une note ou une sanction. Les détecteurs de contenus générés ne prouvent pas une fraude. Ne pas transmettre d'informations nominatives ou médicales au Hub.
+
+Sources officielles — consultées le 16 octobre 2026 :
+- CNIL, FAQ enseignants du 20 juin 2025, rubriques responsabilité, autorisation, comptes et évaluation : https://cnil.fr/fr/enseignant-usage-systeme-ia

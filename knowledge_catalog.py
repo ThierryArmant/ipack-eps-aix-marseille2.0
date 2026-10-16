@@ -235,6 +235,20 @@ def reference_notice(targets, question=None, public=None):
     return sorted(result, key=lambda item: -item[1].get('priorite', 0))
 
 
+
+def has_text_reference(question, public):
+    """Un sujet professionnel reconnu par une fiche prioritaire n'est pas hors périmètre.
+
+    Ce repère autorise seulement la recherche : il ne produit ni réponse, ni décision.
+    Les fiches propres aux examens et aux logiciels ne sont pas utilisées pour élargir
+    l'onglet Textes. Les motifs et exclusions restent ceux du catalogue.
+    """
+    return any(md.get('priorite', 0) >= 300
+               and md.get('modes') == ['textes']
+               and Path(path).is_file()
+               for path, md in reference_notice(set(), question, public))
+
+
 def documented_response(question, public, mode):
     """Réponse relue et ciblée du catalogue, sans réécriture par le modèle."""
     q = normalise(question)

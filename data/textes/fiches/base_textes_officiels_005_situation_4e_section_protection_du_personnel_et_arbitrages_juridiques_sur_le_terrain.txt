@@ -1,8 +1,20 @@
-### [SITUATION: 4E SECTION : PROTECTION DU PERSONNEL ET ARBITRAGES JURIDIQUES SUR LE TERRAIN]
-* FRICTION 1 : CONTESTATIONS DE L'INAPTITUDE PARTIELLE EN CONDITIONS CLIMATIQUES DÉFAVORABLES : Cas où des familles menacent de déposer plainte pour "mise en danger d'autrui" lorsqu'un enseignant exige d'un élève inapte partiel sa présence sur le terrain (stade, installations extérieures) sous la pluie ou par basse température.
-  - CADRE DE PROTECTION DE L'AGENT : L'enseignant d'EPS est le seul juge de la déclinaison didactique de sa leçon. Si l'élève est inapte partiel, la décision de le maintenir en extérieur pour des tâches d'observation ou d'arbitrage relève du pouvoir de l'enseignant, sous réserve du respect strict des contre-indications du certificat médical (ex: interdiction d'effort, maintien au sec si stipulé). L'évaluation des conditions climatiques et de la faisabilité relève de la responsabilité professionnelle exclusive de l'enseignant, validée par sa hiérarchie.
-* FRICTION 2 : RECENSER ET DÉSAMORCER LES GRIEFS D'HARCÈLEMENT OU D'HUMILIATION : Recours ou contestations de parents visant les exigences physiques d'un cycle, l'évaluation de l'engagement ("refus d'effort", "manque d'investissement") ou les interventions de régulation de l'enseignant face à une baisse d'activité.
-  - CADRE DE PROTECTION DE L'AGENT : Les exigences d'effort et les barèmes d'évaluation applicables sont légalement adossés aux référentiels nationaux et aux protocoles d'établissement votés en conseil d'administration. L'enseignant sécurise juridiquement sa pratique en s'appuyant exclusivement sur des critères d'évaluation factuels, mesurables, observables et comportementaux (ex: fiches de compétences, grilles d'observation auto-gérées), éliminant tout qualificatif subjectif pouvant prêter à accusation d'arbitraire.
-* FRICTION 3 : GESTION DES CONTACTS PHYSIQUES INDISPENSABLES À LA SÉCURITÉ MATÉRIELLE : Mises en cause potentielles de l'enseignant lors des interventions manuelles directes de parade ou d'aide (Gymnastique, Acrosport, Escalade) pouvant donner lieu à des surinterprétations abusives de la part de l'élève ou de la famille.
-  - CADRE DE PROTECTION DE L'AGENT : L'enseignant doit privilégier, dès que la situation didactique le permet, l'utilisation de parades passives (matelas de sécurité, ceintures de guidage) ou de co-parades structurées et régulées par les élèves (pareurs préalablement formés et évalués). Si une parade manuelle directe par l'enseignant est techniquement obligatoire pour prévenir un risque de chute lourde, l'agent sanctuarise son geste en formalisant explicitement et collectivement la consigne en amont de l'exercice ("je vais intervenir manuellement au niveau de la taille/de l'épaule pour sécuriser la bascule").
+### EPS : adaptation, sécurité et contestation d’une intervention pédagogique
+Nature de la source : textes nationaux et recommandations ministérielles cités.
+Portée : second degré ; enseignement, distinct de la décision de certification. Révision documentaire : 16 octobre 2026.
 
+## Inaptitude et conditions de pratique
+L’inaptitude physique est justifiée par un certificat indiquant son caractère total ou partiel et sa durée. En cas d’inaptitude partielle, des indications fonctionnelles peuvent guider l’adaptation dans le respect du secret médical.
+Le professeur adapte les tâches aux possibilités des élèves et aux conditions réelles de sécurité. Un rôle d’observation ou d’arbitrage ne doit pas être présenté comme toujours compatible avec l’état de l’élève, les conditions météorologiques et les indications médicales. Distinguer inaptitude à la pratique, autorisation d’absence au cours et dispense d’épreuve d’examen.
+Extrait, R.312-2 : « ce certificat peut comporter, dans le respect du secret médical, des indications utiles pour adapter la pratique ».
+Source : Code de l’éducation, article R.312-2.
+https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006526438
+
+## Intervention pédagogique et contestation
+La préparation, les consignes, la surveillance, les caractéristiques des élèves et l’état du matériel sont des éléments à examiner pour apprécier la conduite pédagogique. Les explications données aux élèves et aux familles portent sur les objectifs, les consignes et les conditions effectives de sécurité.
+Le seul fait d’être enseignant, de disposer d’un barème ou d’avoir annoncé une parade ne garantit pas automatiquement la conformité de toute intervention ni une exonération de responsabilité. La circulaire demande une analyse des causes réelles de l’accident ; elle ne fournit pas de protection automatique contre une plainte ou une mise en cause.
+Les contacts nécessaires à l’aide ou à la parade s’expliquent par la situation pédagogique et la sécurité. La règle de vigilance ne justifie ni tout contact physique ni des sévices corporels.
+
+## Référence officielle
+Circulaire n°2004-138 du 13 juillet 2004, NOR MENE0401637C, BO n°32 du 9 septembre 2004 : II (adaptation et contacts), III.1 et III.2 (vigilance, information et analyse des causes).
+https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm
+Pour une agression, menace ou demande de protection fonctionnelle, consulter les textes propres à la protection des personnels ; cette fiche ne tranche pas l’issue d’un contentieux.

@@ -2698,6 +2698,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             academy=academie_reponse, mode=mode,
+                            require_coverage=(mode == 'textes'),
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}

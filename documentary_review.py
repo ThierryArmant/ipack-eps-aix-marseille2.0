@@ -10,7 +10,7 @@ import re
 import time
 import unicodedata
 from source_scope import scoped_segments, select_academy, evidence_label, model_passage
-from evidence_logic import evidence_logic_errors, evidence_constraints
+import evidence_logic
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Points à préciser'}
@@ -660,7 +660,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     recorded = TracedLLM(llm, audit)
     model_packets = [{**{k:v for k,v in p.items() if k not in ('text','sha256','passages')},
                       'passages':[model_passage(s) for s in p['passages']]} for p in packets]
-    audit['evidence_constraints'] = evidence_constraints(packets)
+    audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
     data = json.dumps({'public':public,'academy':academy,'question':question,'documents':model_packets,
                        'evidence_constraints':audit['evidence_constraints']}, ensure_ascii=False)
     prompt = '''Rédige une réponse EPS à partir des seuls passages fournis.
@@ -729,7 +729,7 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
-            errors.extend(evidence_logic_errors(accepted))
+            errors.extend(evidence_logic.evidence_logic_errors(accepted))
             errors.extend(coherence_errors(accepted, question))
             errors.extend(conditional_extraction_errors(accepted, question))
             errors.extend(case_value_errors(accepted, question))

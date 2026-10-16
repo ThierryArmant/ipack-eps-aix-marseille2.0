@@ -1,6 +1,7 @@
 """Pertes de portée : mêmes contrôles sur plusieurs domaines fictifs et le cas réel."""
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 from evidence_logic import evidence_logic_errors, evidence_constraints
 from documentary_review import mark_excerpt, review_exam_answer, source_packets, validate_claims
 from test_documentary_review import FakeLLM
@@ -89,6 +90,15 @@ class EvidenceLogicTests(unittest.TestCase):
                 self.assertEqual(len(llm.prompts),2)
                 self.assertIn('obligation universelle',result)
                 self.assertNotIn("Le module n'est pas nécessaire",result)
+
+    def test_shared_check_is_read_from_current_module_after_reload(self):
+        text='Le responsable vérifie le module avant la validation.'
+        c=claim(text);llm=FakeLLM([{'claims':[c]},{'claims':[c]}])
+        with patch('evidence_logic.evidence_logic_errors',side_effect=[
+                [{'index':0,'errors':['Contrôle rechargé']}], []]) as current:
+            review_exam_answer(llm,question='Comment valider le module ?',public='GT',documents=mark_excerpt(text))
+        self.assertEqual(current.call_count,2)
+        self.assertEqual(len(llm.prompts),2)
 
     def test_valid_answer_stays_one_call_and_repeated_error_is_not_rendered(self):
         proof="Le module n'est pas une obligation universelle ; son utilité dépend de la configuration."

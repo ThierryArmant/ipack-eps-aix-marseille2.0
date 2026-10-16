@@ -457,33 +457,6 @@ _SCHEMA = '''{"claims":[{"section":"decision|condition|etape|limite",
 "text":"Une affirmation précise",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"]}]}]}'''
 
-# Un relevé factuel compact précède la rédaction dans le même appel. Il ne
-# constitue pas une validation sémantique et n'est jamais affiché au collègue.
-_PLANNED_SCHEMA = '''{"answer_outline":["Demande : opération exacte ; faits donnés : ... ; manque utile : ...",
-"Issue applicable : ... ; condition à conserver : ... ; source : D1P1"],
-"claims":[{"section":"decision","text":"Affirmation avec sa condition utile",
-"evidence":[{"document_id":"D1","passage_ids":["D1P1"]}]}]}'''
-
-_ANSWER_PREPARATION = '''Prépare answer_outline : au plus quatre courtes lignes factuelles, pas un raisonnement détaillé.
-La première identifie l'opération demandée, les faits explicitement donnés et le fait manquant
-qui empêcherait réellement de trancher. Les suivantes recensent les issues documentées utiles,
-leur condition et les identifiants des passages. N'inclus pas de situation voisine.
-Rédige ensuite claims :
-- si les faits établissent la condition, donne l'issue correspondante ; sinon expose les issues
-  utiles avec leurs conditions, sans en choisir une arbitrairement ;
-- un symptôme non décrit appelle une précision : les causes éventuelles restent conditionnelles,
-  sans prescrire une manipulation dont le prérequis n'est pas établi ;
-- une autorisation subordonnée à une validation doit porter cette réserve dans la même affirmation ;
-- une restriction sur une autre opération n'est pas une condition de l'action demandée ;
-- conserve les conséquences propres aux différentes issues. Une dispense sur deux évaluations
-  n'est pas l'absence de certification ; déposer un document n'est pas valider son contenu.
-Compare les claims aux issues utiles : aucune ne doit disparaître, sans allonger par du hors sujet.
-Une phrase peut réunir les alternatives et leurs conditions. Ne redemande pas un fait déjà donné.
-answer_outline n'est ni une source ni une rubrique à afficher. Chaque claim cite ses passages.
-Le JSON est un objet unique avec answer_outline et claims. Chaque section contient UNE valeur
-parmi decision, condition, etape, limite ; jamais une liste de valeurs séparées par une barre.
-'''
-
 _CHECKED_SCHEMA = '''{"claims":[{"section":"decision","text":"Affirmation vérifiée",
 "evidence":[{"document_id":"D1","passage_ids":["D1P1"],"level":"logiciel"}],
 "checks":{"supported":true,"applicable":true,"source_correct":true,"conditions_preserved":true}}]}'''
@@ -618,7 +591,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
     if focused:
-        packets = focused + [p for p in packets if p['origin'] == 'program']
+        # Les résumés généraux générés par le programme ne complètent pas
+        # une fiche de situation : leurs règles abrégées peuvent perdre ses réserves.
+        generic = [p for p in packets if p['origin'] == 'program'
+                   and p['text'].lstrip().startswith('REPÈRES DOCUMENTAIRES PAR EXAMEN')]
+        audit['excluded_generic_program_documents'] = [p['id'] for p in generic]
+        packets = focused + [p for p in packets if p['origin'] == 'program' and p not in generic]
     audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
@@ -677,7 +655,7 @@ Vérifie que la décision et les conditions disent la même chose : une décisio
 Une condition de statut non établie ne permet pas une décision affirmative. Si les faits ne tranchent pas, conserve les branches conditionnelles.
 Pas de HTML ni d'attribution bibliographique dans la prose. Au plus 12 affirmations, sans répétitions.
 Réponds uniquement en JSON selon ce schéma :
-''' + _ANSWER_PREPARATION + '\n' + _PLANNED_SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
+''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
 
     def resolve(output):
         try:
@@ -705,7 +683,6 @@ Réponds uniquement en JSON selon ce schéma :
         audit.update(accepted_claims=[], final_claims=[], final_rejections=[], semantic_review=False)
         return '<p>' + NO_APPLICABLE_GUIDANCE + '</p>'
     final, accepted, rejected = resolve(recorded.complete(prompt).text)
-    audit['answer_outline'] = final.get('answer_outline')
     audit['proposal'] = final
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
@@ -716,10 +693,9 @@ Supprime les affirmations concernant une autre situation et les rubriques non do
 Une réponse courte ou {"claims":[]} est autorisée ; aucune décision n'est obligatoire.
 N'ajoute ni source ni procédure. Les étiquettes de source sont fixées par le programme.
 Réponds uniquement en JSON selon le schéma, au plus 12 affirmations.
-''' + _ANSWER_PREPARATION + '\n' + _PLANNED_SCHEMA + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(final, ensure_ascii=False) + '\nERREURS MECANIQUES :\n' + json.dumps(rejected, ensure_ascii=False)
+''' + _SCHEMA + '\nDONNEES :\n' + data + '\nPROPOSITION :\n' + json.dumps(final, ensure_ascii=False) + '\nERREURS MECANIQUES :\n' + json.dumps(rejected, ensure_ascii=False)
         audit['repair_rejections'] = rejected
         final, accepted, rejected = resolve(recorded.complete(repair).text)
-    audit['final_answer_outline'] = final.get('answer_outline')
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

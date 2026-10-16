@@ -24,6 +24,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme — essai de contexte spécifique sans résumé générique
+Le format préparatoire simplifié sur 6f4d97d a été essayé sur quatre formulations : une réponse correcte, une réponse mêlant les saisies de deux branches, SHN encore trop affirmatif et diagnostic AFLP présumé. Il n’est pas retenu ; pas de prétention à une reprise complète de douze sur cette version. Retour au format initial. La trace administrateur montre que les résumés de règles du programme restent injectés avec les fiches prioritaires et peuvent abréger leurs conditions ; nouvelle comparaison isolée : retirer le bloc « REPÈRES DOCUMENTAIRES PAR EXAMEN » lorsque des documents spécifiques de priorité au moins 300 sont présents. Les véritables faits calculés restent transmis ; les repères restent disponibles aux recherches sans fiche spécifique. Aucun changement réglementaire ni réponse en dur.
+
 ### 2026-10-16 — programme — correction du format de préparation après lecture des traces
 Sur e7ed6d9, deux reprises échouent en JSON invalide et produisent deux appels puis repli ; essai non validé. L’utilisateur a ensuite explicitement autorisé l’administration et la connexion sécurisée a réussi. La trace du cas consulté confirme les deux issues identifiées, mais une accolade supplémentaire et des sections concaténées dans la sortie du modèle. Format de préparation aplati en liste de quatre lignes maximum et exemple de section univoque. Contrôles de preuve inchangés ; aucun parseur permissif ni correction silencieuse de JSON. Reprise des mêmes questions après vérifications locales.
 

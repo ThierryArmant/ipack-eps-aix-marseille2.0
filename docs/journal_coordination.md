@@ -24,6 +24,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-16 — programme et fiches — reprise complète du pilote SHN sur 956df70
+Douze formulations du lot courant réellement soumises, académie Aix-Marseille, mêmes contextes et plafond dix passages. Repérage de la mention SHN : réponse ciblée, sans procédure du 20/20 (3 799 jetons d’entrée contre 4 286). Un seul cycle : distinction note du cycle / 20 de spécialité désormais explicite, mais décision encore trop affirmative ; réponse maintenue partielle. Deux témoins sur les inaptitudes omettent cette fois l’alternative dispense avec neutralisation, malgré des sources et volumes identiques : variation de rédaction, pas preuve d’une régression causée par le découpage. Les cas de dépôt de courses et de saisie AFLP restent non validés. Bilan de cette reprise : six réponses satisfaisantes sur le fond, cinq partielles, une clarification utile. Aucun score de fiabilité indépendante.
+Coût : onze appels de génération, 61 892 jetons d’entrée ; clarification course sans génération. La baisse par rapport au dernier essai à vingt passages (71 817) vient surtout du retour à dix sur la recherche AFLP ; sur les deux questions SHN seules, 8 223 contre 8 858 (−7,2 %). 326 tests locaux passent. Pilote conservé pour le ciblage amélioré, sans extension globale. Aucun ajout de règle métier en dur ni second appel systématique.
+Analyse : le contrôle de références et de proximité lexicale ne garantit pas la présence des alternatives ni le maintien des conditions. Prochaine piste à concevoir et tester : couverture de la demande et des branches applicables dans le même appel, avant tout élargissement du contexte. Créteil proposé par l’utilisateur comme source complémentaire si une procédure manque ; aucune nouvelle source Créteil n’a été ajoutée dans ce pilote.
+Attendu : aucune réorganisation générale ; les réponses partielles restent des échecs à traiter.
+
+
 ### 2026-10-16 — fiches et sélection — pilote limité SHN autorisé par l’utilisateur
 Essai : isoler le repérage de la mention dans un lot et l’identification des notes après un seul cycle. Sources existantes conservées, aucun ajout de réponse en dur, aucune hausse du nombre de passages ou d’appels. Contrôles locaux puis reprise du lot courant en ligne avant conclusion. Pas de réorganisation globale.
 

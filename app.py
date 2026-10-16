@@ -2607,7 +2607,8 @@ if prompt_a_traiter:
                         verdict_champs = ("<p><strong>Pouvez-vous préciser</strong> ce que vous mettez derrière « course en durée » : "
                                           "<strong>performance</strong> mesurée (c'est alors du demi-fond, CA1) ou <strong>entretien</strong> de soi (course en durée, CA5) ?</p>"
                                           "<p>La réponse en dépend : c'est ce que l'élève apprend et ce qui est évalué qui fixe le champ d'apprentissage, pas le nom de l'activité. "
-                                          "Écrivez simplement « performance » ou « entretien » dans la zone de précision ci-dessous.</p>")
+                                          "Posez une nouvelle question complète dans la zone habituelle, en conservant votre demande initiale "
+                                          "et en précisant l’objectif : performance mesurée ou entretien de soi.</p>")
                     elif verdict_champs:
                         pass
                     elif len(_trouvees) >= 2:

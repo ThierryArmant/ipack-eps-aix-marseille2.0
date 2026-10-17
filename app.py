@@ -12,7 +12,7 @@ import tutorial_links
 # Les modules sont importés normalement ; Streamlit invalide les imports au redéploiement.
 # Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
 # Pipeline documentaire : transmission compacte des preuves et réparation depuis les sources.
-from hub_session import select_module, new_question, ready_for_question
+from hub_session import select_module, select_public, allowed_modules, new_question, ready_for_question
 from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
@@ -1390,6 +1390,10 @@ label_titres = {
     ),
 }
 
+# Le premier degré ouvre exclusivement les textes, même dans une session existante.
+if st.session_state.get("niveau_actif_form") == "1er degré" and st.session_state.get("active_module") != "textes":
+    select_module(st.session_state, "textes")
+
 # On lit l'état actuel de la session (sécurisé)
 module_actif = st.session_state.get("active_module")
 
@@ -1426,7 +1430,7 @@ _academie_ok = not _academie_requise or bool(st.session_state.get("academie_util
 if st.session_state.get("niveau_actif_form"):
     st.session_state.public_valide = True
 _public_ok = bool(st.session_state.get("public_valide"))
-_etape_active = 3 if ready_for_question(st.session_state) else (1 if not _contexte_ok else 2)
+_etape_active = 3 if ready_for_question(st.session_state) else (1 if not _public_ok else 2)
 
 
 def _cle_etape(numero):
@@ -1437,64 +1441,61 @@ def _cle_etape(numero):
 # PARCOURS EN TROIS ÉTAPES, RÉUNIES DANS UN SEUL PANNEAU
 with st.container(key="parcours"):
 
-    # ÉTAPE 1 : CHOIX DU CONTEXTE
+    # ÉTAPE 1 : PUBLIC
     with st.container(key=_cle_etape(1)):
-        _bandeau_etape("1", "Choisissez le contexte de votre question", titre_affiche, "cyan")
-        col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+        _bandeau_etape("1", "Choisissez votre public", "Les contextes proposés s’adaptent au public choisi", "amber")
 
-        # 🔒 LE VERROU EST ICI : On définit la couleur en dur AVANT de créer les boutons
-        btn_ip_type = "primary" if module_actif == "ipack" else "secondary"
-        btn_ex_type = "primary" if module_actif == "examens" else "secondary"
-        btn_se_type = "primary" if module_actif == "textes" else "secondary"
+        def valider_public():
+            select_public(st.session_state, st.session_state.get("niveau_actif_form"))
 
-        with col_b1:
-            if st.button("🛠️ iPackEPS", use_container_width=True, key="btn_ip", type=btn_ip_type):
-                select_module(st.session_state, "ipack")
-                st.rerun()
-        with col_b2:
-            if st.button("📊 Examens", use_container_width=True, key="btn_ex", type=btn_ex_type):
-                select_module(st.session_state, "examens")
-                st.rerun()
-        with col_b3:
-            if st.button("🔒 Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se", type=btn_se_type):
-                select_module(st.session_state, "textes")
-                st.rerun()
+        st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
+        niveau_scolaire = st.radio(
+            "Public cible",
+            ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
+            index=None, horizontal=True, key="niveau_actif_form",
+            label_visibility="collapsed", on_change=valider_public,
+        )
 
-    # ÉTAPE 2 : ACADÉMIE ET PUBLIC
+    # ÉTAPE 2 : CONTEXTE ET ACADÉMIE SI NÉCESSAIRE
     with st.container(key=_cle_etape(2)):
-        if not _contexte_ok:
-            _bandeau_etape("2", "Votre académie et votre public" if _academie_requise else "Votre public", "S'ouvre quand le contexte est choisi", "amber")
-        else:
-            _bandeau_etape("2", "Votre académie et votre public" if _academie_requise else "Votre public",
-                           "Les consignes et la réponse s'adaptent à ces deux choix" if _academie_requise else "La réponse s’adapte au public choisi", "amber")
-
-            def valider_public():
-                st.session_state.public_valide = True
+        _bandeau_etape("2", "Choisissez le contexte de votre question",
+                       titre_affiche if _public_ok else "S’ouvre quand le public est choisi", "cyan")
+        if _public_ok:
+            modules_proposes = allowed_modules(st.session_state.get("niveau_actif_form"))
+            if modules_proposes == ("textes",):
+                st.button("📚 Textes & cadre réglementaire", use_container_width=True,
+                          key="btn_se", type="primary")
+            else:
+                col_b1, col_b2, col_b3 = st.columns(3, gap="small")
+                with col_b1:
+                    if st.button("🛠️ iPackEPS", use_container_width=True, key="btn_ip",
+                                 type="primary" if module_actif == "ipack" else "secondary"):
+                        select_module(st.session_state, "ipack")
+                        st.rerun()
+                with col_b2:
+                    if st.button("📊 Examens", use_container_width=True, key="btn_ex",
+                                 type="primary" if module_actif == "examens" else "secondary"):
+                        select_module(st.session_state, "examens")
+                        st.rerun()
+                with col_b3:
+                    if st.button("🔒 Sécurité &\nCadres Règl.", use_container_width=True, key="btn_se",
+                                 type="primary" if module_actif == "textes" else "secondary"):
+                        select_module(st.session_state, "textes")
+                        st.rerun()
 
             if _academie_requise:
-                # La préférence est gardée hors widget quand ce dernier est absent des autres onglets.
                 if not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
                     st.session_state.academie_utilisateur = st.session_state.academie_memorisee
+
                 def memoriser_academie():
                     st.session_state.academie_memorisee = st.session_state.get("academie_utilisateur")
+
                 st.markdown('<div class="hub-field">🏫 Académie <span style="font-weight: 400; text-transform: none;">— Choisissez votre académie</span></div>', unsafe_allow_html=True)
                 st.selectbox("Votre académie", ACADEMIES, index=None,
                              placeholder="Choisissez votre académie", key="academie_utilisateur",
                              label_visibility="collapsed", on_change=memoriser_academie)
             else:
                 st.caption("Si votre question concerne une consigne locale, indiquez l’académie dans votre question.")
-
-            st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
-            niveau_scolaire = st.radio(
-                "Public cible",
-                ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
-                horizontal=True,
-                key="niveau_actif_form",
-                label_visibility="collapsed",
-                on_change=valider_public
-            )
-            if _academie_ok and not st.session_state.get("public_valide"):
-                _consigne("👆 Choisissez <strong>votre public</strong> pour ouvrir la zone de question.")
 
     # ÉTAPE 3 : ZONE DE SAISIE DE LA QUESTION
     with st.container(key=_cle_etape(3)):

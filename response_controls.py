@@ -93,5 +93,5 @@ def suggested_tab(question, mode):
     if mode == 'examens' and ipack_groups and not re.search(r'export.{0,30}cyclades|lots?.{0,30}santorin', q):
         return 'Assistance Technique iPackEPS'
     if mode == 'ipack' and re.search(r'\bsantorin\b', q) and not re.search(r'\bipack', q):
-        return 'Examen'
+        return 'Examens'
     return ''

@@ -2097,7 +2097,7 @@ if prompt_a_traiter:
                 sources_consultees = [(source_documentee.get('title', '') + ' — ' + reference_url(source_documentee, prompt), None)]
                 badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
             elif demande_precision:
-                texte_brut = '<h3>PRÉCISIONS NÉCESSAIRES</h3><p>' + demande_precision + '</p>'
+                texte_brut = '<p>' + demande_precision + '</p>'
                 badge, color_card = 'PRÉCISIONS NÉCESSAIRES', 'general-card'
             elif est_question_trop_courte:
                 texte_brut = """<h3>✍️ POUVEZ-VOUS PRÉCISER VOTRE QUESTION ?</h3>

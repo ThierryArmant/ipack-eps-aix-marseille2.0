@@ -1,10 +1,14 @@
 ### [ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets
 - Mots-clés : dépôt des projets, axes des projets, projet d'établissement, projet EPS, projet AS, projet SSS, section sportive scolaire, classe Sports-Études, Dossier SSS, Dossier Sports-Études
 - Formulations courantes des collègues : pourquoi je ne peux pas déposer mon projet de section sportive ; où déposer le projet Sports-Études ; où configurer les axes des projets ; où déposer le projet de SSS
-- Réponse courte : Ces deux types de projets ne se déposent pas avec les autres : les Projets SSS se gèrent dans le module [Dossiers]/[Dossier SSS] et les Projets Sports-Études dans le module [Dossiers]/[Dossier Sports-Études].
+- Projets d’établissement, EPS et AS : la procédure « Évolutions majeures interface et modules (2026) », section 3, situe les documents des projets dans [Dossiers] > [Dossier EPS] > [Axes des projets]. Dans cette rubrique, repérer le projet concerné : établissement, EPS ou AS. Elle permet le dépôt de plusieurs documents distincts pour chaque projet.
+- Consultation d’un bilan d’une année antérieure : ce chemin donne accès à la rubrique des projets ; les sources disponibles ne précisent pas comment sélectionner une année précédente ni si le bilan recherché est encore conservé. Ne pas assimiler la reconduction des axes à une garantie d’archivage des documents. La démarche d’accès aux archives reste à confirmer auprès de l’assistance iPackEPS.
+- Cas distincts : les Projets SSS se gèrent dans [Dossiers] > [Dossier SSS] et les Projets Sports-Études dans [Dossiers] > [Dossier Sports-Études].
 - URL: spip.php?article27
 - Texte: Configuration des Axes des Projets (Établissement, EPS, AS, SSS). Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Les Projets.
 - QUESTIONS / RÉPONSES :
   - Q1 : Pourquoi ne puis-je pas déposer mon Projet de SSS ou Projet de Classe Sports-Études ?
   - R1 : Ces 2 types de projets sont gérés dans un module plus complexe d’iPackEPS. La gestion des Projets SSS se fait dans le module [Dossiers]/[Dossier SSS]. La gestion des Projets Sports-Études se fait dans le module [Dossiers]/[Dossier Sports-Études].
 
+
+Sources : article 27, « Dépôt des projets et Configuration des Axes des Projets » ; procédure « Évolutions majeures interface et modules (2026) », section 3 (dépôts multiples) ; corpus de rentrée article 51 pour la seule reconduction des axes. Le chemin historique Tableau de bord > Les Dossiers et Projets > Les Projets correspond à l’intitulé de l’article 27 ; le chemin ci-dessus est celui donné par la procédure 2026.

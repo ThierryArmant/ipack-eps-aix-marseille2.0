@@ -770,6 +770,9 @@
     ],
     "motifs": [
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service"
+    ],
+    "exclure_motifs": [
+      "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole"
     ]
   },
   "data/textes/complement_statuts_personnels_eps.txt": {
@@ -6222,5 +6225,22 @@
       "\\bccf\\b|differen|distingu|plutot que"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/textes/fiches/obligations_service_premier_degre_2013.txt": {
+    "title": "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "^(?=.*(?:108 ?h|\\b108\\b|obligations? de service|temps de service|\\bapc\\b|activites pedagogiques complementaires|conseils? d.ecole|animation pedagogique|24 ?h(?:eures)?\\b|maxim\\w* de service|decharge))(?=.*(?:ecole|premier degre|1er degre|professeurs? des ecoles|\\bpe\\b|instit|directeur|directrice|remplacant|brigade|maitre formateur|\\bpemf\\b|rased|ulis|maternelle|elementaire|\\bcp\\b|\\bce[12]\\b|\\bcm[12]\\b))"
+    ],
+    "exclure_motifs": [
+      "college|lycee|second degre|2nd degre|professeur d.eps|agrege|capeps|\\bas\\b|association sportive|\\bunss\\b|\\bhsa\\b"
+    ],
+    "url": "https://www.education.gouv.fr/bo/13/Hebdo8/MENH1303000C.htm"
   }
 }

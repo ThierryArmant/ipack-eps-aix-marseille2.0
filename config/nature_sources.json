@@ -5536,6 +5536,16 @@
    "autres_academies_citees": [],
    "portee_texte": "bac GT, cadre national",
    "titre": "Bac GT : épreuves de l'examen ponctuel (demi-fond, danse, tennis de table — annexe 2)"
+  },
+  "data/textes/fiches/obligations_service_premier_degre_2013.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "premier degré, cadre national (2013)",
+   "titre": "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)"
   }
  }
 }

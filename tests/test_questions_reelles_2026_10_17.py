@@ -123,6 +123,16 @@ class QuestionsReellesTests(unittest.TestCase):
         texte = Path('data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt').read_text(encoding='utf-8')
         self.assertIn('demi-fond, danse et tennis de table', texte)
 
+    def test_obligations_service_premier_et_second_degre_separees(self):
+        f = 'Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)'
+        o = 'complement obligations service eps'
+        t = titres("Comment se répartissent les 108 heures d'un professeur des écoles ?", '1er degré', 'textes')
+        self.assertIn(f, t)
+        self.assertNotIn(o, t)
+        t = titres("Quel est le maximum de service d'un professeur d'EPS ?", CLG, 'textes')
+        self.assertIn(o, t)
+        self.assertNotIn(f, t)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — observation finale sur 6147e63
+
+Deux appels, 10 551 jetons d'entrée, repli. Permission vague et réserve d'assurance toujours non conservées par la réparation ; une formulation de méta-contrôle est également mal sourcée. La demande de confirmation actuelle reste rejetée dans cette trace alors que la même phrase exacte passe avec le code local publié : écart d'exécution à investiguer, sans conclure à une cause de chargement des modules. Le numéro de version affiché ne suffit donc pas à valider le comportement de chaque contrôle. Suite du document dépliée et vérifiée : assurance et références accessibles sans couper les conditions. Les 392 tests locaux ne constituent pas une mesure de fiabilité du modèle. Cas transport toujours non confirmé ; aucun abaissement des contrôles pour le rendre artificiellement conforme.
+
 ### 2026-10-17 — confirmation actuelle distincte de la prescription historique
 
 Reprise réelle sur 6504e2f : le feedback contient bien les deux défauts auparavant masqués ; la permission vague et la réserve d'assurance restent omises après réparation. Un faux rejet supplémentaire concerne une phrase demandant de confirmer les modalités actuelles. Le contrôle distingue désormais l'obligation de vérifier/confirmer de l'obligation d'appliquer une prescription ancienne. Seule l'action de la première obligation est examinée ; ajouter une vérification après une prescription catégorique ne la valide pas. Test générique des deux directions. La suite dépliable du repli est présente en ligne. Validation locale : 392 tests réussis, compilation et contrôle de diff réussis ; cas transport toujours non confirmé.

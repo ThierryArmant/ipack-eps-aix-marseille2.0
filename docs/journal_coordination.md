@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — diagnostic des omissions persistantes et corrections ciblées
+
+Fait : reproduction de deux angles morts du contrôle générique : « est possible sous certaines conditions » non reconnu comme permission vague ; obligation historique dans la deuxième phrase ignorée lorsque seule la première proposition était examinée. Le contrôle examine désormais chaque phrase et couvre cette formulation de possibilité. Deux tests génériques ajoutés, sans réponse métier ni appel supplémentaire. Fiche transport : réserve sur le circuit rapprochée du passage de possibilité de 2023 ; attribution historique et confirmation actuelle regroupées avec les prescriptions d'effectif et d'assurance, références conservées. Aucun nouveau fondement juridique ajouté. Consignes générales et institutionnelles relues : elles demandent déjà de conserver les conditions ; aucune instruction imposant la permission inconditionnelle identifiée. Validation : 394 tests réussis. Reprise publique à effectuer ; la réussite des tests ne valide pas la réponse générée.
+
 ### 2026-10-17 — observation finale sur 6147e63
 
 Deux appels, 10 551 jetons d'entrée, repli. Permission vague et réserve d'assurance toujours non conservées par la réparation ; une formulation de méta-contrôle est également mal sourcée. La demande de confirmation actuelle reste rejetée dans cette trace alors que la même phrase exacte passe avec le code local publié : écart d'exécution à investiguer, sans conclure à une cause de chargement des modules. Le numéro de version affiché ne suffit donc pas à valider le comportement de chaque contrôle. Suite du document dépliée et vérifiée : assurance et références accessibles sans couper les conditions. Les 392 tests locaux ne constituent pas une mesure de fiabilité du modèle. Cas transport toujours non confirmé ; aucun abaissement des contrôles pour le rendre artificiellement conforme.

@@ -85,13 +85,19 @@ def evidence_logic_errors(claims):
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
         historical_pending = any(_historical_confirmation(p) for p in proofs)
-        if (historical_pending and not _verification_obligation(head) and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', head)
-                and not re.search(r'selon|d.apres|(?:note|texte|circulaire).{0,40}\b(?:19|20)\d{2}\b|a confirmer|reste a verifier', head)):
+        # Chaque phrase est contrôlée : une première vérification ne couvre
+        # pas une obligation catégorique ajoutée dans la phrase suivante.
+        heads = [proposition_head(sentence) for sentence in re.split(r'[.;!?]\s*', claim['text']) if sentence.strip()]
+        if historical_pending and any(
+                not _verification_obligation(part)
+                and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', part)
+                and not re.search(r'selon|d.apres|(?:note|texte|circulaire).{0,40}\b(?:19|20)\d{2}\b|a confirmer|reste a verifier', part)
+                for part in heads):
             errors.append({'index': i, 'errors': [
                 'prescription ancienne dont les modalités actuelles sont à confirmer : attribuer la prescription à sa source datée et conserver la vérification actuelle, sans en faire une obligation actuelle certaine']})
-        if (re.search(r'\b(?:vous pouvez|est autorise|sont autorises)\b', head)
-                and re.search(r'\bsous (?:certaines )?conditions\b', head)
-                and not _CONDITIONAL.search(head)):
+        if any(re.search(r'\b(?:vous pouvez|est autorise|sont autorises|est possible|sont possibles)\b', part)
+                and re.search(r'\bsous (?:certaines )?conditions\b', part)
+                and not _CONDITIONAL.search(part) for part in heads):
             errors.append({'index': i, 'errors': [
                 'permission assortie de conditions non précisées : énoncer les conditions concrètes dans la conclusion ou conserver le cadre sans autoriser le cas']})
         qualified_negative = bool(_UNIVERSAL.search(head))

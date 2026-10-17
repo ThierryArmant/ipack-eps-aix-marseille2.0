@@ -62,6 +62,26 @@ class EvidenceLogicTests(unittest.TestCase):
         self.assertTrue(evidence_logic_errors([claim(
             'Vous devez appliquer le contrôle annuel et devez vérifier les modalités.', proof)]))
 
+    def test_vague_permission_variants_and_later_sentences_are_checked(self):
+        proof = 'Le responsable peut autoriser le dispositif après vérification des pièces.'
+        for text in ('Le dispositif est possible sous certaines conditions.',
+                     'Une demande est nécessaire. Vous pouvez utiliser le dispositif sous conditions.'):
+            with self.subTest(text=text):
+                self.assertTrue(evidence_logic_errors([claim(text, proof)]))
+        self.assertFalse(evidence_logic_errors([claim(
+            'Le dispositif est possible si le responsable valide les pièces.', proof)]))
+
+    def test_later_historical_obligation_cannot_hide_behind_verification(self):
+        proof = 'Le référentiel est ancien ; les modalités actuelles doivent être confirmées.'
+        for text in ('Le responsable doit vérifier les pièces. Une garantie spéciale doit couvrir les occupants.',
+                     'Les pièces sont contrôlées ; une garantie spéciale est obligatoire.'):
+            with self.subTest(text=text):
+                self.assertTrue(evidence_logic_errors([claim(text, proof)]))
+        self.assertFalse(evidence_logic_errors([claim(
+            'Le responsable doit vérifier les pièces. Les modalités actuelles doivent être confirmées.', proof)]))
+        self.assertFalse(evidence_logic_errors([claim(
+            'Le responsable doit vérifier les pièces. Selon la note de 1986, une garantie spéciale est obligatoire ; ses modalités actuelles restent à confirmer.', proof)]))
+
     def test_no_standard_is_not_proof_of_sufficiency(self):
         for noun in ('ratio','seuil','minimum'):
             proof=f"Il n'existe pas de {noun} général ; le responsable apprécie la configuration."

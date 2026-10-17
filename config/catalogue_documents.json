@@ -1381,7 +1381,15 @@
     "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 325,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:sss|section sportive))(?=.*(?:ouverture|ouvrir))"
+    ]
   },
   "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt": {
     "title": "[ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire",
@@ -1399,7 +1407,15 @@
     "title": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 325,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:sss|section sportive))(?=.*(?:reconduc|renouv|fermet))"
+    ]
   },
   "data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt": {
     "title": "[ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études",

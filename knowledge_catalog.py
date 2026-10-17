@@ -139,6 +139,12 @@ def clarification(question, public):
         return ("Sur quel écran le vérificateur signale-t-il le problème : déclaration des APSA du dossier EPS "
                 "ou protocole d’un groupe dans le dossier certificatif ? Recopiez le message exact et indiquez "
                 "les APSA concernées, sans nom d’élève, pour identifier la vérification adaptée.")
+    # « Vœux SSS » ne dit pas quelle demande de campagne est envisagée.
+    if (re.search(r'voeux|vœux', q) and re.search(r'\bsss\b|section sportive', q)
+            and not re.search(r'ouvr|ouverture|reconduc|renouv|fermet|chang.{0,20}(?:apsa|activite)', q)):
+        return ("Ces vœux concernent-ils l’ouverture d’une section sportive, sa reconduction ou sa fermeture "
+                "pour l’année prochaine ? La démarche iPackEPS dépend du type de demande. "
+                "Pour une question de dates ou de pièces de campagne, indiquez aussi votre académie.")
     # Identifier le dossier avant d'en inventer le chemin. Cette clarification
     # ne décide ni du contenu du projet ni d'une règle institutionnelle.
     project_search = re.search(r'projet', q) and re.search(r'retrouv|consult|bilan|archive|precedent', q)

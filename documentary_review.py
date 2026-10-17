@@ -442,6 +442,13 @@ def situation_mismatch(question, text):
     if (not re.search(course_case, q) and re.search(course_case, t)
             and re.search(r'remplac|fusionn|selectionn|declar.{0,50}certificative', t)):
         return True
+    # Les dossiers de campagne SSS ne sont pas la configuration des groupes de rentrée.
+    sss_admin = (re.search(r'\bsss\b|section sportive', q)
+                 and re.search(r'voeux|vœux|reconduc|renouv|fermet|ouverture', q))
+    if (sss_admin and not re.search(r'groupe|placer.{0,20}eleve|repart.{0,20}eleve', q)
+            and re.search(r'(?:cre|configur|declar).{0,35}groupes?|plac.{0,25}eleves?', t)
+            and not re.search(r'reconduc|fermet|demande d.ouverture', t)):
+        return True
     # Un projet EPS/AS/d'établissement ne devient pas un dossier de section
     # sportive par simple voisinage lexical. Garder les documents comparatifs.
     ordinary_project = re.search(r'projet.{0,20}(?:pedagogique|\beps\b|\bas\b|etablissement)', q)

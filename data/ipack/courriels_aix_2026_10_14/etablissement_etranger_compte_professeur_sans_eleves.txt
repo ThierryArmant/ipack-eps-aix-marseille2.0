@@ -7,12 +7,7 @@ Ces consignes valent pour les établissements à l'étranger ou hors MEN rattach
 Il est normal que le dossier iPackEPS soit à 100 % sans élèves affectés aux groupes : ces établissements n'affectent pas d'élèves aux groupes dans iPackEPS.
 À Aix-Marseille, il est normal que Cyclades soit fermé pour la saisie des protocoles : cette saisie est fermée pour tous les établissements de l'académie, elle se fait entièrement dans iPackEPS, et c'est l'inspection qui transfère les protocoles d'iPackEPS vers Cyclades.
 Les élèves de ces établissements apparaissent ensuite dans Cyclades, puis dans Santorin à partir de janvier.
-Étape 1 : dans sa fiche Professeur, partie « Fonctions », cocher « Coordonnateur » et « Responsable de certification ».
-Étape 2 : déclarer les APSA certificatives dans [Dossiers et projets] > [Dossier EPS] > [APSA].
-Étape 3 : pour toute nouvelle APSA déclarée, déposer son référentiel dans [Dossiers et projets] > [Dossier certificatif] > [Référentiels certificatifs].
-Étape 4 : composer les ensembles certificatifs dans [Dossiers et projets] > [Dossier EPS] > [Groupes].
-Étape 5 : compléter les protocoles dans [Dossiers et projets] > [Dossier certificatif] > [Protocoles certificatifs], avec pour chaque APSA les dates d'évaluation et de rattrapage, et un co-évaluateur externe choisi en face de chaque évaluation.
-Résultat attendu : protocoles avec uniquement des coches vertes, et référentiels et protocoles à 100 % dans [Dossier certificatif].
+Démarche complète, dans cet ordre : 1) dans sa fiche Professeur, partie « Fonctions », cocher « Coordonnateur » et « Responsable de certification » ; 2) déclarer les APSA certificatives dans [Dossiers et projets] > [Dossier EPS] > [APSA] ; 3) pour toute nouvelle APSA, déposer son référentiel dans [Dossiers et projets] > [Dossier certificatif] > [Référentiels certificatifs] ; 4) composer les ensembles certificatifs dans [Dossiers et projets] > [Dossier EPS] > [Groupes] ; 5) compléter les protocoles dans [Dossiers et projets] > [Dossier certificatif] > [Protocoles certificatifs], avec pour chaque APSA les dates d'évaluation et de rattrapage et un co-évaluateur externe en face de chaque évaluation. Résultat attendu : protocoles avec uniquement des coches vertes, référentiels et protocoles à 100 % dans [Dossier certificatif].
 Si une erreur persiste après ces étapes, la signaler à l'assistance iPackEPS de l'académie.
 Limites : cet échange ne dit pas qui associe ensuite les élèves aux protocoles dans Cyclades ; ne pas l'affirmer.
 Nature de la source : retour écrit de l'assistance iPackEPS de l'académie d'Aix-Marseille, 14 octobre 2026, à un chef d'établissement d'un centre étranger (échange anonymisé) ; fonctionnement du logiciel.

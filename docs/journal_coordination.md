@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — libellés des voies de lycée
+
+Fait : « Lycée voie générale » et « Lycée voie professionnelle » affichés dans le choix du public et le rappel du contexte. Les valeurs internes sont conservées pour le routage et les fiches. Parcours public avant contexte maintenu, premier degré limité aux textes. Compilation et 13 tests de navigation réussis.
+
 ### 2026-10-17 — public avant contexte et premier degré limité aux textes
 
 Fait : ordre du parcours public → contexte → question. Aucun bouton de contexte avant sélection du public. Premier degré : activation automatique de textes, seul bouton Textes & cadre réglementaire ; iPackEPS et Examens masqués. Garde-fou de session empêchant un ancien mode Examens de rester actif pour le premier degré. Changement de public : ancienne réponse et question en attente effacées ; autres publics conservent les trois contextes et l'académie requise pour les examens. Validation : 402 tests réussis, compilation ; vérification publique à effectuer.

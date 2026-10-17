@@ -1,6 +1,7 @@
 ### Bac GT handicap : conservation de notes et étalement sont distincts
 [PORTEE: gt]
 En bac GT, un candidat en situation de handicap peut demander la conservation de notes, y compris inférieures à 10, dans les limites prévues, et rester éligible à une mention. L’étalement se demande avant la première session : le jury attend toutes les épreuves obligatoires pour la décision finale. La conservation après échec se demande à une nouvelle inscription ; renoncer à un bénéfice est définitif. Ne pas confondre les deux mécanismes ni généraliser aux autres diplômes.
+L'étalement du premier groupe ne permet pas de repasser plusieurs fois la même épreuve. La conservation des notes après échec ne s'applique pas pendant l'étalement en cours : elle attend la décision finale du jury. Ce cadre national vise les candidats en situation de handicap ; si le fondement de l'étalement n'est pas précisé, vérifier ce point. La source ne décrit pas un écran iPackEPS/Santorin ni le calendrier d'inscription de chaque académie.
 Nature de la source : synthèse de références nationales, sans procédure académique universelle.
 Source : Éduscol, février 2026 ; Code de l’éducation, articles D334-8/D334-14 et D336-8/D336-14 ; consultation du 13 octobre 2026.
 https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap

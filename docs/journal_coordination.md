@@ -24,6 +24,14 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — pertinence des dossiers et réserve académique regroupée
+
+Relecture d'un export : une demande de projet pédagogique était orientée sans justification vers un dossier de section sportive ; une demande d'étalement recevait des dates d'inscription et des consignes d'inaptitude locales sans rapport. L'imprécision justifie une clarification utile, pas le choix arbitraire d'un dossier. Sélection documentaire : article de configuration des projets, droits actuels d'actualisation et cadre national de l'étalement retrouvés sur les formulations usuelles. Exclusion des passages exclusivement SSS pour une demande de projet ordinaire, tout en conservant les documents comparatifs. Participation à une autre épreuve distincte d'une décision médicale individuelle dans la clarification.
+
+Affichage : une réserve académique globale visible avec origine et académie cible remplace l'ajout automatique à chaque phrase ; attributions détaillées conservées dans les références et absence de réserve pour les règles nationales non marquées. Aucune consigne étrangère déclarée applicable. Fiches documentaires sourcées ajoutées : unités facultatives du CAP (Éduscol, rubrique des diplômes professionnels) et neutralité commerciale des fournitures (circulaire MENE2219098C, 28 juin 2022). Cadre d'étalement recoupé avec Éduscol (demande avant première session, pas de conservation pendant l'étalement en cours, périmètre handicap explicite). Consignes de rédaction : demander la distinction qui change le chemin et omettre les branches sans lien avec la demande. Aucun appel supplémentaire ni seuil abaissé.
+
+Validation : 408 tests réussis, registre régénéré sans modification, compilation et contrôle de diff. Les essais réels ciblés restent à relever ; les tests locaux ne valident pas les réponses du modèle.
+
 ### 2026-10-17 — libellés des voies de lycée
 
 Fait : « Lycée voie générale » et « Lycée voie professionnelle » affichés dans le choix du public et le rappel du contexte. Les valeurs internes sont conservées pour le routage et les fiches. Parcours public avant contexte maintenu, premier degré limité aux textes. Compilation et 13 tests de navigation réussis.

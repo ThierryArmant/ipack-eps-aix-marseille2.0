@@ -138,6 +138,12 @@ def clarification(question, public):
                  r'(?:transform|modifi|corrig).{0,25}(?:note|dispense)|'
                  r'note.{0,30}transform|dispens.{0,25}deux activites', q):
         return ''
+    # Une question de participation à une autre épreuve ne demande pas de
+    # déterminer une note ou un statut médical individuel.
+    participation = re.search(r'epreuve facultative|\boption\b|peut.{0,30}(?:passer|presenter|participer)', q)
+    chooses_value = re.search(r'quelle? (?:note|code|statut)|je (?:mets|dois mettre)|je saisis|\b(?:di|disp|zero|0)\b', q)
+    if participation and not chooses_value:
+        return ''
     # La période couvrant l'épreuve est déjà donnée : laisser les passages exposer
     # les possibilités, sans transformer la question en choix médical automatique.
     if re.search(r'certificat(?: medical)?.{0,70}(?:couvr|valable|valide).{0,55}(?:jour|date|ccf|epreuve)|'

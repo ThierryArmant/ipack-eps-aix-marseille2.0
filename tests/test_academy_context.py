@@ -27,8 +27,9 @@ class AcademyContextTests(unittest.TestCase):
         packets = [{'id': 'D1', 'title': 'Guide', 'display_level': 'academique'}]
         for evidence, expected_prefix in (([marked], True), ([marked, national], False), ([national], False)):
             result = render_claims([{'section': 'decision', 'text': 'Le chef valide le dossier.', 'evidence': evidence}], packets)
-            self.assertEqual('<p>À Aix-Marseille,' in result, expected_prefix)
-            self.assertEqual('à vérifier auprès du service des examens de l’académie de Lyon' in result, marked in evidence)
+            self.assertNotIn('<p>À Aix-Marseille,', result)
+            self.assertEqual('ne sont pas confirmées pour Lyon' in result, marked in evidence)
+            self.assertIn('Le chef valide le dossier.', result)
 
     def test_ordinary_group_note_cannot_use_single_medical_note_evidence(self):
         docs = mark_excerpt('La note unique peut être conservée après inaptitude.', title='Note unique')

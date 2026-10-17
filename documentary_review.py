@@ -357,6 +357,16 @@ def render_claims(claims, packets, *, mode="examens"):
     """Prose contrôlée lisible ; attributions regroupées, accessibles à la demande."""
     by_id = {p['id']: p for p in packets}
     output, references = [], []
+    marked = [e['scope'] for c in claims for e in c['evidence']
+              if e.get('scope', {}).get('not_confirmed_for')]
+    if marked:
+        origins = ', '.join(sorted({s.get('academy', 'Aix-Marseille') for s in marked}))
+        targets = ', '.join(sorted({s['not_confirmed_for'] for s in marked}))
+        target = 'votre académie' if targets == 'Non précisée' else targets
+        output.append('<p><strong>Portée académique :</strong> les consignes locales citées pour ' +
+                      html.escape(origins) + ' ne sont pas confirmées pour ' + html.escape(target) +
+                      '. Elles sont données comme exemples à vérifier auprès du service compétent. '
+                      'Cette réserve ne concerne pas les règles nationales identifiées comme telles.</p>')
     for section, title in _SECTIONS.items():
         items = [c for c in claims if c['section'] == section]
         if not items:
@@ -372,7 +382,7 @@ def render_claims(claims, packets, *, mode="examens"):
                 number = references.index(reference) + 1
                 if number not in numbers:
                     numbers.append(number)
-            output.append('<p>' + html.escape(scoped_claim_text(c, mode=mode)) +
+            output.append('<p>' + html.escape(c['text']) +
                           ' <sup>[' + ', '.join(map(str, numbers)) + ']</sup></p>')
     if references:
         output.append('<details><summary>Références et portée des sources</summary>')
@@ -402,6 +412,13 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    # Un projet EPS/AS/d'établissement ne devient pas un dossier de section
+    # sportive par simple voisinage lexical. Garder les documents comparatifs.
+    ordinary_project = re.search(r'projet.{0,20}(?:pedagogique|\beps\b|\bas\b|etablissement)', q)
+    sss = r'\bsss\b|section sportive|dossier sss'
+    ordinary_text = re.search(r'projet.{0,20}(?:pedagogique|\beps\b|\bas\b|etablissement)|axes des projets', t)
+    if ordinary_project and not re.search(sss, q) and re.search(sss, t) and not ordinary_text:
+        return True
     if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'cycle|\bccf\b', q)
             and not re.search(r'ponctuel', q)
             and re.search(r'examen ponctuel', t) and not re.search(r'\bccf\b', t)):
@@ -713,6 +730,7 @@ N'infère jamais qu'un encadrement ou un dispositif suffit du seul fait qu'aucun
 Donne les autorités, conditions et délais explicitement documentés au lieu de les remplacer par « validations nécessaires » ou « voir le texte ». Signale séparément les éléments réellement non couverts.
 Quand le passage énumère des conditions cumulatives, restitue ensemble celles qui concernent la demande : une autorisation générale ne remplace pas une validation spécifique. Ne confonds pas une condition documentée avec un fait non établi pour le cas ; donne la règle puis ce qui reste à vérifier.
 Ne fournis que les éléments documentés répondant à cette question.
+Si plusieurs dossiers ou procédures restent possibles, n'en choisis pas un au seul motif qu'il est bien documenté : donne seulement le point commun établi et demande le type qui change le chemin. Une branche sans lien avec la demande ne doit pas être ajoutée pour remplir une rubrique.
 Les sections sont facultatives : omets toute rubrique sans information pertinente.
 Les sections classent les affirmations, elles ne limitent pas leur nombre : plusieurs étapes ou conditions peuvent appartenir à la même section.
 Pour une demande composée, consacre les affirmations aux opérations demandées avant d'ajouter des rappels généraux. Une phrase « cadre particulier » ne remplace ni les contrôles concrets ni les validations décrites dans les passages.

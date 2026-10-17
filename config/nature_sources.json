@@ -5411,6 +5411,26 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation"
+  },
+  "data/textes/fiches/fournitures_neutralite_commerciale.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national, sans procédure académique universelle",
+   "titre": "Fournitures et équipements demandés aux familles : neutralité commerciale"
+  },
+  "data/examens/cap_unites_facultatives.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national, sans procédure académique universelle",
+   "titre": "CAP : unités facultatives et distinction avec le bac professionnel"
   }
  }
 }

@@ -402,13 +402,14 @@
       "gt"
     ],
     "prioritaire": true,
-    "priorite": 300,
+    "priorite": 320,
     "modes": [
       "examens",
       "textes"
     ],
     "motifs": [
-      "(?=.*(?:handicap|amenagement))(?=.*(?:conserv.{0,20}note|benefice.{0,20}note|etalement))"
+      "(?=.*(?:handicap|amenagement))(?=.*(?:conserv.{0,20}note|benefice.{0,20}note|etalement))",
+      "etalement.{0,30}(?:sessions?|epreuves?)|(?:sessions?|epreuves?).{0,30}etale"
     ],
     "exclure_motifs": [
       "\\bcap\\b|bac pro|professionnel"
@@ -904,7 +905,15 @@
     "title": "[PROCÉDURE : ÉVOLUTIONS MAJEURES INTERFACE ET MODULES (2026)]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:actualis|modifi|droits?|qui peut))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof|classes))"
+    ]
   },
   "data/ipack/fiches/ipack_002_procedure_ordre_chronologique_de_deploiement_d_ipackeps_college_lycee.txt": {
     "title": "[PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]",
@@ -1205,7 +1214,15 @@
     "title": "[ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*projet)(?=.*(?:pedagog|axes|retrouv|consulter|annee|precedent))"
+    ]
   },
   "data/ipack/fiches/ipack_059_article_13_dossiers_dossiereps_equipe_eps_gestion_de_l_equipe_eps.txt": {
     "title": "[ARTICLE 13] [Dossiers]/[DossierEPS]/[Équipe EPS] Gestion de l’Équipe EPS",
@@ -5934,5 +5951,35 @@
     "examens": [
       "primaire"
     ]
+  },
+  "data/textes/fiches/fournitures_neutralite_commerciale.txt": {
+    "title": "Fournitures et équipements demandés aux familles : neutralité commerciale",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 330,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:marque|fourniture|equipement|tenue))(?=.*(?:impos|exig|achat|acheter|famill|commercial))"
+    ],
+    "url": "https://www.education.gouv.fr/bo/22/Hebdo26/MENE2219098C.htm"
+  },
+  "data/examens/cap_unites_facultatives.txt": {
+    "title": "CAP : unités facultatives et distinction avec le bac professionnel",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "modes": [
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*\\bcap\\b)(?=.*(?:facultativ|option))"
+    ],
+    "url": "https://eduscol.education.gouv.fr/5553/textes-de-reference-relatifs-aux-diplomes-professionnels"
   }
 }

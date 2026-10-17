@@ -20,9 +20,15 @@ Attendu de l'autre partie : … (ou « rien »)
 ## État courant
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
-- Deuxième mesure terminée sur f568ad6 : 74 % correctes, 16 % partielles, 10 % fausses (50 questions). Gel levé.
+- Deuxième mesure terminée sur f568ad6 : 74 % correctes, 16 % partielles, 10 % fausses (50 questions).
+- GEL en cours : troisième mesure sur f2b989b (17 octobre 2026). Aucune modification jusqu'à la fin de la notation.
 
 ## Entrées
+
+### 2026-10-17 22:45 — partie fiches — GEL de f2b989b et troisième série de mesure
+
+Fait : version f2b989b figée (tests réussis). Troisième série de 50 questions rédigée au gel, conservée hors dépôt ; empreinte dans `docs/empreinte_serie_mesure_3_2026-10-17.md`.
+Attendu de toutes les parties : AUCUNE modification de code, de fiche ou de configuration jusqu'à la fin de la mesure. Repères : deuxième mesure 74 % / 16 % / 10 % (f568ad6, 13 octobre).
 
 ### 2026-10-18 01:10 — partie fiches (seule) — erreur constatée sur a5467ad (famille menaçante)
 

@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — actualisation documentaire du contrôle technique
+
+Reprise du rejet transport : la fiche répétait une périodicité historique tout en demandant de confirmer son actualité. Vérification de trois ressources institutionnelles : guide DGESCO (obligations de contrôle technique), fiche DILA vérifiée au 1er janvier 2026 (régime automobile M1) et éclairage académique de 2016 signalant le retour au droit commun. L'exigence active est reformulée autour du respect du contrôle applicable et des justificatifs ; la périodicité ancienne est séparée comme précaution documentaire. La portée locale/premier degré de l'éclairage et l'absence de vérification directe du courrier de 1999 sont explicites. Aucun changement des seuils ni du nombre d'appels. Réserves sur le circuit d'autorisation maintenues. Validation locale : 390 tests réussis, registre régénéré sans changement et contrôle de diff réussi. Essai réel à suivre.
+
 ### 2026-10-17 — accès au navigateur rétabli et dernière reprise transport observée
 
 Après réinitialisation de la connexion de pilotage, formulaire et session administrateur retrouvés. Aucun constat de panne du hub déduit des expirations précédentes. Reprise transport sur 7fe7700 (code dc35d69) : deux appels, 9 745 jetons d'entrée, repli. Trace téléchargée et lue : le rejet final identifié porte sur les contrôles techniques annuels présentés comme une obligation actuelle sans conserver la confirmation des modalités actuelles prescrite par le passage ancien. Les autres affirmations non rejetées ne sont pas pour autant validées juridiquement ; notamment l'autorité et les conditions demandent toujours une lecture de fond. Le cas transport reste non validé. Aucun affaiblissement des contrôles effectué pour le faire passer.

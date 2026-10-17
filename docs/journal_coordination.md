@@ -528,3 +528,6 @@ Reprise utilisateur : une alerte non précisée « pas assez d'APSA certificativ
 
 ### Navigation simple — liste des classes
 Reprise utilisateur « Où rentrer la liste des classes ? » : chemin pertinent mais dépannage et import ajoutés sans demande. Consigne générale de rédaction : chemin documenté et action demandée, une seule rubrique Démarches si suffisante ; pas de panne supposée ni d'étapes ultérieures non demandées. Conditions indispensables et dépannage explicite conservés. Aucun chemin métier ajouté en dur et aucun appel supplémentaire. Réponse générée publique non rejouée à ce stade.
+
+## 17 octobre 2026 — Étalement : cadre et suivi opérationnel
+Reprise utilisateur : réponse nationale mieux ciblée mais tautologie sur la demande, périmètre handicap rejeté en fin de réponse et gestion EPS non couverte. Source existante structurée entre demande, suivi déjà accordé et conservation après échec, sans nouvelle règle ni procédure de saisie. Consignes générales : périmètre indispensable dès la première affirmation, distinguer demande initiale et suivi ; expliquer les conséquences établies, puis préciser si la question vise règles ou saisie lorsque le besoin reste ambigu. Absence de procédure logicielle à expliciter sans inventer code ou report automatique. Aucun appel supplémentaire ; réponse générée en ligne à reprendre.

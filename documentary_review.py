@@ -769,6 +769,9 @@ Extrais ensemble l’action possible, sa condition et l’autorité qui appréci
 Lorsque le passage propose plusieurs issues, expose les issues pertinentes avec leurs conditions ;
 ne transforme pas « peut » ou « soit » en « doit » ou « ne doit pas ».
 Une phrase principale catégorique reste incorrecte même si sa justification contient une possibilité.
+Place dès la première affirmation le périmètre indispensable de la règle (public, diplôme, dispositif ou situation qui la conditionne). Ne le reporte pas seulement dans une réserve finale : tant qu'il n'est pas confirmé, présente le cadre conditionnellement, sans l'appliquer au candidat.
+Pour une question sur la gestion d'un dispositif déjà nommé, explique ses conséquences documentées plutôt que de répondre que les bénéficiaires de ce dispositif peuvent le demander. Distingue demande initiale et suivi d'une situation déjà accordée.
+Si « comment sont gérés » peut viser les règles ou les opérations de saisie, donne brièvement les conséquences établies et demande quel volet est recherché. Si les sources ne décrivent pas la saisie, dis-le clairement ; n'invente ni code, ni écran, ni report automatique de notes.
 Pour les précisions, compare chaque demande aux faits de la question et ne demande que ce qui manque.
 Les evidence_constraints sont les limites explicites des passages : elles interdisent de conclure à une dispense locale ou à la suffisance d'un dispositif à partir du seul silence ou de l'absence de seuil.
 Lorsqu'un passage signale une prescription ancienne avec modalités actuelles à confirmer, attribue-la à son texte daté et conserve cette vérification dans la même affirmation ; ne la transforme pas en obligation actuelle certaine.

@@ -46,7 +46,7 @@ class SourceScopeTests(unittest.TestCase):
         # EX290 : la compétence de la commission de discipline est nationale, pas une consigne d'Aix.
         chosen,marked=select_academy(packets(),'Créteil')
         self.assertEqual(marked,[])
-        step4=next(s for s in chosen[0]['passages'] if s['text'].startswith('4. Ne pas saisir de zéro'))
+        step4=next(s for s in chosen[0]['passages'] if '4) Ne pas saisir de zéro' in s['text'])
         self.assertNotIn('Consigne de l’académie',model_passage(step4)['text'])
 
     def test_creteil_marks_inventory_passages_and_preserves_exact_evidence(self):

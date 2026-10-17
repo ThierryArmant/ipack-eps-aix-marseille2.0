@@ -6263,5 +6263,23 @@
       "sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?)|voyage|autorisation parentale|signature|accord des parents|assurance|exclusion de cours|droit a l.image|photo|video|\\bnotes?\\b|bulletin|pronote"
     ],
     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054541484"
+  },
+  "data/textes/fiches/decret_2025_1260_signalement_faits_etablissement.txt": {
+    "title": "Signalement des faits de violence par le directeur ou le chef d'établissement : « Faits établissement » (décret du 22 décembre 2025)",
+    "statut": "texte_officiel_lu_2026_10_17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:menac|agress|violen|insult|frapp|harcel|atteinte|fait grave|incident|bagarre|racis|antisemit|laicite|valeurs de la republique))(?=.*(?:signal|declar|remont|informer|prevenir|que faire|quelle (?:est la )?procedure|faits etablissement|directeur|chef d.etablissement|principal|proviseur|hierarchie))",
+      "faits etablissement|fait etablissement"
+    ],
+    "exclure_motifs": [
+      "sorties? (?:scolaires?|pedagogiques?|eps)|voyage|accident (?:de la route|de bus|de car)|chute|blesse en cours|\\bccf\\b|santorin|cyclades|ipack"
+    ],
+    "url": "https://www.legifrance.gouv.fr/eli/decret/2025/12/22/MENG2521400D/jo/texte"
   }
 }

@@ -142,6 +142,14 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn('dans la limite de cinq jours', texte)
         self.assertIn('MENE2613439D', texte)
 
+    def test_decret_2025_1260_faits_etablissement(self):
+        f = "Signalement des faits de violence par le directeur ou le chef d'établissement : « Faits établissement » (décret du 22 décembre 2025)"
+        self.assertIn(f, titres("Un élève a insulté un professeur d'EPS : le principal doit-il signaler l'incident ?", CLG, 'textes'))
+        self.assertNotIn(f, titres("Un élève s'est blessé en cours, que dois-je faire ?", CLG, 'textes'))
+        texte = Path('data/textes/fiches/decret_2025_1260_signalement_faits_etablissement.txt').read_text(encoding='utf-8')
+        self.assertIn('R. 411-11-2', texte)
+        self.assertIn('MENG2521400D', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

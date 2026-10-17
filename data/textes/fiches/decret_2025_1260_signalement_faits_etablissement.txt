@@ -1,0 +1,12 @@
+### Signalement obligatoire des faits de violence par le directeur d'école ou le chef d'établissement : application « Faits établissement » (décret du 22 décembre 2025)
+[PORTEE: primaire,dnb,gt,pro,cap]
+Sigles : DASEN = directeur académique des services de l'éducation nationale.
+Le directeur d'école (article R. 411-11-2 du code de l'éducation) et le chef d'établissement (article R. 421-10-2) informent sans délai l'autorité académique des faits de violence dont les élèves ou les personnels sont victimes, de tout fait grave mettant en danger la sécurité ou l'intégrité physique ou morale des élèves ou des personnels, et de tout fait portant atteinte aux valeurs de la République.
+Ce signalement se fait par l'application nationale « Faits établissement » ; c'est une obligation du directeur ou du chef d'établissement, pas une démarche de l'enseignant lui-même, qui informe son directeur ou son chef d'établissement des faits.
+Chaque fait est classé selon sa gravité (préoccupant, grave, très grave) et son type (atteinte aux personnes, à la sécurité ou au climat de l'établissement, aux valeurs de la République, aux biens) ; le signalement est transmis aux services départementaux, académiques ou ministériels selon la gravité.
+L'auteur présumé peut être un élève, un agent, un représentant légal d'élève, un ancien élève, un élève d'un autre établissement ou une personne extérieure ; le signalement mentionne les mesures prises, par exemple protection et secours, protection fonctionnelle accordée à l'agent, information des familles, mesures éducatives ou disciplinaires, signalement au procureur au titre de l'article 40 du code de procédure pénale, dépôt de plainte.
+Les données sont conservées cinq ans au plus ; les droits d'accès et de rectification s'exercent auprès du service de défense et de sécurité du ministère ; le droit d'opposition ne s'applique pas à ce traitement.
+Ce signalement administratif ne remplace pas les démarches de la personne victime : dépôt de plainte, demande de protection fonctionnelle, déclaration d'accident de service le cas échéant.
+Nature de la source : texte national (décret publié au Journal officiel).
+Source : décret n° 2025-1260 du 22 décembre 2025 relatif au signalement des faits de violence dans les établissements d'enseignement publics et à la création du traitement « Faits établissement », NOR MENG2521400D, JORF n° 300 du 23 décembre 2025, articles 1 à 8 ; en vigueur le lendemain de sa publication.
+https://www.legifrance.gouv.fr/eli/decret/2025/12/22/MENG2521400D/jo/texte

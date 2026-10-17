@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 01:00 — partie fiches (seule) — décret du 22 décembre 2025 « Faits établissement »
+
+Texte intégral copié depuis Légifrance par l'utilisateur. Fait : fiche `decret_2025_1260_signalement_faits_etablissement.txt` : obligation du directeur (R. 411-11-2) et du chef d'établissement (R. 421-10-2) de signaler sans délai les faits de violence, faits graves et atteintes aux valeurs de la République via « Faits établissement » ; gravité et types ; mesures mentionnées ; conservation cinq ans ; distinction avec les démarches de la victime. Absente de la base jusqu'ici. Exclue pour accidents, sorties et examens. Tests réussis.
+
 ### 2026-10-18 00:50 — partie fiches (seule) — premier degré et famille menaçante
 
 Fait : fiche obligations de service du premier degré (circulaire du 4 février 2013, MENH1303000C ; 24 h + 108 h ; limite : texte de 2013 à vérifier), séparée de la fiche du second degré par exclusions réciproques. Fiche décret n° 2026-687 du 28 juillet 2026 (NOR MENE2613439D, en vigueur le 30 juillet 2026) : famille menaçante, suspension d'accès conservatoire de cinq jours au plus, saisine du DASEN, dialogue obligatoire, R. 411-11-1-1 (radiation et réinscription par le maire), second degré (R. 421-12-1 selon la présentation fournie, à vérifier), suivi renforcé ; renvoi aux démarches de l'enseignant (plainte, protection fonctionnelle). Légifrance inaccessible depuis l'outil : contenu recoupé par deux présentations concordantes (Banque des Territoires, cabinet Landot). Une page syndicale fournie n'a servi qu'à identifier l'article L. 134-8 du CGFP, déjà couvert. « À la sortie du collège » ne déclenche plus les fiches de sorties scolaires. Tests réussis.

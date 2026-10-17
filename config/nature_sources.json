@@ -5556,6 +5556,16 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national (décret 2026)",
    "titre": "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)"
+  },
+  "data/textes/fiches/decret_2025_1260_signalement_faits_etablissement.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (décret 2025)",
+   "titre": "Signalement des faits de violence par le directeur ou le chef d'établissement : « Faits établissement » (décret du 22 décembre 2025)"
   }
  }
 }

@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — réponse d'équipe complétée par le circuit administratif
+
+Sur ac4643f : un appel, 10 436 jetons d'entrée. La réponse attribue l'actualisation à tous les enseignants, ajoute le référencement dans les bases et indique que l'administration met à jour la base pour un enseignant manquant. Une seule réserve académique visible. Le verbe « modifier » reste moins précis qu'« actualiser » dans la première phrase ; la suite limite l'opération et ne décrit pas une création libre de compte. Ces reprises sont des contrôles de cas déjà travaillés, pas une mesure indépendante. Demandes SSS imprécises et branches optionnelles hors sujet restent à vérifier ; ne pas annoncer toutes les réponses corrigées. Aucun autre changement après les 409 tests réussis.
+
 ### 2026-10-17 — reprises ciblées et distinction actualisation/création
 
 Sur e387f0e : recherche d'un projet sans type identifié → demande du type de dossier, zéro appel ; question générale sur une unité facultative → réponse au cadre du diplôme, sans clarification médicale, un appel (4 205 jetons d'entrée). Étalement hors académie : cadre national, mécanismes distincts, condition du handicap et fondement à vérifier présents, sans calendrier ni consigne d'inaptitude d'une autre académie ; un appel (4 364 jetons). Limites de rédaction : formulations encore parfois redondantes, résultat non assimilé à une validation générale.

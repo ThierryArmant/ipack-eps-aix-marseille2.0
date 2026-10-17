@@ -1488,7 +1488,7 @@ with st.container(key="parcours"):
             st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
             niveau_scolaire = st.radio(
                 "Public cible",
-                ["1er degré", "Collège (DNB)", "Lycée Général & Techno", "Lycée Pro / CAP"],
+                ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
                 horizontal=True,
                 key="niveau_actif_form",
                 label_visibility="collapsed",

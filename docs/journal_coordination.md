@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — précision du libellé au pluriel
+
+Fait : à la demande de l'enseignant, libellé final « Examens » avec un s dans la bannière, le bouton, les badges et les renvois. Fonctionnalités inchangées.
+
 ### 2026-10-17 — libellé Examen demandé dans la bannière
 
 Fait : bannière du mode, bouton, contexte de réponse et badges renommés « Examen » au singulier ; renvoi d'onglet aligné. Les fiches, la recherche et les fonctionnalités Santorin sont conservées. Compilation de l'application réussie. Commits 07edd7a et 4bda3a3.

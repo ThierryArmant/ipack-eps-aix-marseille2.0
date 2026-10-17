@@ -5500,6 +5500,16 @@
    "autres_academies_citees": [],
    "portee_texte": "CAP, cadre national",
    "titre": "CAP : notation du CCF par champ et épreuves du ponctuel (référentiel national)"
+  },
+  "data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (code de l'éducation)",
+   "titre": "Handicap et inaptitude partielle en EPS aux examens : code de l'éducation (D. 312-4 à D. 312-6, D. 351-27)"
   }
  }
 }

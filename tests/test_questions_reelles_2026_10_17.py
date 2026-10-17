@@ -102,6 +102,15 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn('une seule activité au lieu des deux', texte)
         self.assertIn('ne pas transposer la procédure « Déclarer CE »', texte)
 
+    def test_handicap_code_education_eduscol(self):
+        h = "Handicap et inaptitude partielle en EPS aux examens : code de l'éducation (D. 312-4 à D. 312-6, D. 351-27)"
+        self.assertIn(h, titres("Un élève en situation de handicap moteur peut-il passer une épreuve ponctuelle aménagée en EPS ?", GT, 'examens'))
+        self.assertIn(h, titres("Quand faut-il faire la demande d'aménagement d'examen pour le bac ?", GT, 'examens'))
+        self.assertNotIn(h, titres("Entorse de cheville : badminton adapté, protocole validé par commission avant évaluation ?", GT, 'examens'))
+        texte = Path('data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt').read_text(encoding='utf-8')
+        self.assertIn('D. 312-4', texte)
+        self.assertIn('une seule session', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

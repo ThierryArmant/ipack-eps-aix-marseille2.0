@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 00:10 — partie fiches (seule) — pages Éduscol handicap et aménagements
+
+Pages relues : « Réglementation… » (février 2026), « Organisation des examens… » (février 2026), « Incluscol » (septembre 2026) ; page EPS voie GT (septembre 2026).
+Fait : fiche prioritaire `data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt` : D. 312-4 (dispense CCF réservée aux inaptes totaux pour l'année), D. 312-5 (dispense médicale au ponctuel), D. 312-6 (CCF adapté ou ponctuel aménagé après avis du médecin scolaire), R. 312-2 (pas d'effet rétroactif, validité limitée à l'année), D. 351-27 (aménagements dont conservation cinq ans, étalement, tiers-temps), procédures, calendrier national (4e / seconde, fin du 2e trimestre), durées de validité, renvoi à la fiche Aix 2027 (AMEX pour les terminales GT). Exclue pour l'inaptitude temporaire.
+Page voie GT : seules manquent les annexes 1 et 2 de la note du 20 février 2026 (référentiels CCF et ponctuel) — téléchargement impossible depuis l'environnement, PDF demandés à l'utilisateur. Tests réussis.
+
 ### 2026-10-17 23:55 — partie fiches (seule) — documents fournis : CAP 2025 et SHN 2023
 
 Documents relus : circulaire CAP du 27 août 2025 (MENE2517122C) et ses annexes 1 et 2 ; circulaire bac GT SHN du 17 novembre 2023 (MENE2317755C).

@@ -692,6 +692,17 @@
     }
    ]
   },
+  "data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Handicap et inaptitude partielle en EPS aux examens : ce que prévoit le code de l'éducation",
+     "lignes": [
+      "Calendrier national de la demande (Éduscol) : pour le DNB et le CFG, en classe de quatrième, avant la fin du deuxième trimestre ; pour les baccalauréats général, technologique et professionnel, en classe de seconde, avant la fin du deuxième trimestre ; pour le CAP, le BTS et les autres examens, au plus tard à la date limite d'inscription. À Aix-Marseille pour la session 2027, AMEX reste utilisé pour les épreuves terminales du bac général et technologique : voir la fiche académique."
+     ]
+    }
+   ]
+  },
   "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
    "academie": "aix-marseille",
    "sections": [

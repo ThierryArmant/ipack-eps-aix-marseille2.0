@@ -6155,5 +6155,31 @@
       "absen|\\bsech|haut niveau|\\bshn\\b|installation|travaux|ferme|blesse|inapt|malade|dispens"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+  },
+  "data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt": {
+    "title": "Handicap et inaptitude partielle en EPS aux examens : code de l'éducation (D. 312-4 à D. 312-6, D. 351-27)",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "gt",
+      "pro",
+      "cap",
+      "dnb"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:handicap|inapte?s? partiel|inaptitude partielle|epreuve (?:ponctuelle )?amenagee|ccf adapte))(?=.*(?:eps|ccf|ponctuel|epreuve|examen))",
+      "(?=.*(?:conservation des notes|conserver (?:ses|les) notes|etalement|etaler|tiers.temps|majoration du temps))(?=.*(?:handicap|eps|examen|bac|\\bpap\\b|\\bpai\\b|\\bpps\\b))",
+      "(?=.*(?:retroacti|certificat.{0,40}(?:apres|anterieur|date)|duree de validite))(?=.*certificat)",
+      "(?=.*(?:amenagement|incluscol|amex|tiers.temps|handicap))(?=.*(?:quand|avant quand|date|delai|calendrier|valid|combien de temps|duree|redoubl|candidat libre|cned|hors contrat|quelle classe|seconde|quatrieme))"
+    ],
+    "exclure_motifs": [
+      "temporaire|blesse|entorse|fracture|en cours d.annee|cette semaine"
+    ],
+    "url": "https://eduscol.education.gouv.fr/5535/reglementation-concernant-les-amenagements-d-examens-pour-les-eleves-en-situation-de-handicap"
   }
 }

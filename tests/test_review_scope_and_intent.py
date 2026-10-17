@@ -76,3 +76,13 @@ class ExplicitScopeNoticeTests(unittest.TestCase):
         self.assertIn('handicap', result)
         self.assertEqual(result.count('Cadre traité'), 1)
         self.assertNotIn('Cadre traité', render_claims([], packets))
+
+    def test_team_refresh_frame_shown_even_if_model_says_modify(self):
+        path = 'data/ipack/fiches/equipe_eps_actualisation_logiciel.txt'
+        packets = [{'id': 'D1', 'title': 'Équipe', 'path': path}]
+        claim = {'section': 'decision', 'text': "Tous les enseignants peuvent modifier la liste de l'équipe EPS.",
+                 'evidence': [{'document_id': 'D1', 'scope': {'level': 'documentation_logiciel'}}]}
+        result = render_claims([claim], packets)
+        self.assertIn('Cadre traité', result)
+        self.assertIn('actualiser', result)
+        self.assertIn('bases administratives', result)

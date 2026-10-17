@@ -5440,7 +5440,8 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel",
-   "titre": "iPackEPS : actualisation de l’équipe EPS"
+   "titre": "iPackEPS : actualisation de l’équipe EPS",
+   "cadre_reponse": "Fonction iPackEPS : tout enseignant peut actualiser la liste de l’équipe EPS ; il ne la modifie pas à la main. Un collègue manquant se corrige dans les bases administratives de l’établissement, puis on actualise la liste."
   },
   "data/examens/amenagements_aix_2026_10_13/handicap_etalement_suivi_gt.txt": {
    "nature": [

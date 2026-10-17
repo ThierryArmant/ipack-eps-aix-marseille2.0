@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 21:20 — partie fiches (seule, partie programme au repos) — cadre « actualiser » sur l'équipe EPS
+
+Fait : `cadre_reponse` ajouté à la fiche `equipe_eps_actualisation_logiciel.txt` : « tout enseignant peut actualiser la liste ; il ne la modifie pas à la main ; un collègue manquant se corrige dans les bases administratives, puis on actualise ». Affiché par `render_claims` dès que la fiche est citée, même si le modèle écrit « modifier ». Aucun appel IA ajouté, aucune règle nouvelle. Test ajouté ; 422 tests réussis. Reprise en ligne à faire.
+
 ### 2026-10-17 — réponse d'équipe complétée par le circuit administratif
 
 Sur ac4643f : un appel, 10 436 jetons d'entrée. La réponse attribue l'actualisation à tous les enseignants, ajoute le référencement dans les bases et indique que l'administration met à jour la base pour un enseignant manquant. Une seule réserve académique visible. Le verbe « modifier » reste moins précis qu'« actualiser » dans la première phrase ; la suite limite l'opération et ne décrit pas une création libre de compte. Ces reprises sont des contrôles de cas déjà travaillés, pas une mesure indépendante. Demandes SSS imprécises et branches optionnelles hors sujet restent à vérifier ; ne pas annoncer toutes les réponses corrigées. Aucun autre changement après les 409 tests réussis.

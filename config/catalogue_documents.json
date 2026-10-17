@@ -6115,5 +6115,45 @@
     "exclusif_motifs": [
       "^(?=.*(?:(?:lycee|etablissement|centre|ecole|college|groupe scolaire)s?.{0,30}(?:a l.)?etrangers?\\b|(?:francais|implante)s? a l.etranger|\\baefe\\b|hors men\\b))(?=.*(?:onglet|compte|100 ?%|ferm|actualis|ajout\\w* .{0,20}classes|chef d.etablissement))"
     ]
+  },
+  "data/examens/cap_2026_10_17/cap_activite_impossible.txt": {
+    "title": "CAP : installation fermée ou activité impossible — une seule activité sur autorisation du recteur",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*\\bcap\\b)(?=.*(?:installation fermee|activite impossible|une seule activite|ne peu[tx] (?:pas )?(?:offrir|proposer)|impossibilite|plus de (?:piscine|gymnase|stade|salle)))"
+    ],
+    "exclure_motifs": [
+      "absen|\\bsech|haut niveau|\\bshn\\b|blesse|inapt|malade"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+  },
+  "data/examens/cap_2026_10_17/cap_referentiel_notation.txt": {
+    "title": "CAP : notation du CCF par champ et épreuves du ponctuel (référentiel national)",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*\\bcap\\b)(?=.*(?:bareme|\\d+ points|sur (?:12|8|20)\\b|aflp|fil de la sequence|fin de sequence|repartir|repartition|ponctuel|danse|demi.?fond|tennis de table|\\b800\\b|referentiel|notation|arrondi|combien d.(?:activites|apsa|epreuves)|deux activites|note finale))"
+    ],
+    "exclure_motifs": [
+      "absen|\\bsech|haut niveau|\\bshn\\b|installation|travaux|ferme|blesse|inapt|malade|dispens"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
   }
 }

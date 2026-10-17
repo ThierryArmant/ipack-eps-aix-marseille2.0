@@ -1,0 +1,12 @@
+### CAP : notation du CCF par champ et épreuves de l'examen ponctuel (référentiel national, annexes 1 et 2)
+[PORTEE: cap]
+Sigles : AFLP = attendus de fin de lycée professionnel ; CAP = certificat d'aptitude professionnelle ; CCF = contrôle en cours de formation.
+CCF du CAP : deux activités de deux champs d'apprentissage, chacune notée de 0 à 20 ; la note finale est la moyenne des deux notes, arrondie au point entier le plus proche après harmonisation par la commission académique (10,5 est arrondi à 11).
+Dans chaque activité du CCF, la note sur 20 se compose de deux parties : la situation d'évaluation de fin de séquence, notée sur 12 points, qui porte sur les deux premiers AFLP du champ ; et l'évaluation au fil de la séquence, notée sur 8 points, qui porte sur deux AFLP retenus par l'enseignant parmi les quatre autres AFLP du champ.
+Pour la partie notée sur 8 points, le candidat choisit en fin de formation, avant la situation d'évaluation, la répartition des 8 points entre les deux AFLP retenus, avec au minimum 2 points pour un AFLP.
+Toute situation d'évaluation, individuelle ou collective, donne lieu à une notation individuelle.
+Examen ponctuel terminal du CAP : le candidat choisit une épreuve parmi celles de l'annexe 2 : danse (chorégraphie de 1 minute 30 à 2 minutes, préparation de 15 à 20 minutes observée par le jury), demi-fond (800 m chronométré, échauffement de 15 à 20 minutes évalué, temps de passage donné à 400 m, estimation de son temps), ou tennis de table (matchs en poules homogènes, deux sets gagnants de 11 points, échauffements observés). L'épreuve est notée sur 20 points ; à son inscription, le candidat est réputé apte à l'épreuve choisie.
+Ces règles sont nationales ; la déclinaison du référentiel par activité est faite par l'équipe pédagogique et validée par la commission académique.
+Nature de la source : texte national (circulaire EPS du CAP et ses annexes).
+Source : circulaire du 27 août 2025, NOR MENE2517122C, parties 2.1 et 2.2, annexe 1 (fiches des cinq champs d'apprentissage, CCF) et annexe 2 (épreuves de l'examen ponctuel), applicable à compter de la session 2026.
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

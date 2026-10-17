@@ -5474,6 +5474,32 @@
    "autres_academies_citees": [],
    "portee_texte": "centres étrangers et hors MEN rattachés à Aix-Marseille",
    "titre": "Aix-Marseille : établissement à l'étranger ou hors MEN — compte professeur, pas d'élèves, protocoles transférés par l'inspection"
+  },
+  "data/examens/cap_2026_10_17/cap_activite_impossible.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "CAP, cadre national",
+   "titre": "CAP : installation fermée ou activité impossible — une seule activité sur autorisation du recteur"
+  },
+  "data/examens/cap_2026_10_17/cap_referentiel_notation.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "CAP, cadre national",
+   "titre": "CAP : notation du CCF par champ et épreuves du ponctuel (référentiel national)"
   }
  }
 }

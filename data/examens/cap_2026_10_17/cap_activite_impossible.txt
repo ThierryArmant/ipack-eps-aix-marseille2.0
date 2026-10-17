@@ -1,0 +1,11 @@
+### CAP : installation fermée ou activité impossible pour l'établissement (CCF)
+[PORTEE: cap]
+Sigles : CAP = certificat d'aptitude professionnelle ; CCF = contrôle en cours de formation.
+Au CAP, le CCF porte sur deux activités relevant de deux champs d'apprentissage ; la note finale est la moyenne des deux notes.
+Si l'établissement ne peut pas offrir l'une des deux activités pour des raisons techniques ou matérielles (installation fermée, travaux, piscine ou gymnase indisponible), il peut être exceptionnellement autorisé par le recteur, après expertise de l'inspection pédagogique, à faire évaluer l'EPS obligatoire en CCF sur une seule activité au lieu des deux.
+Cette évaluation sur une seule activité n'est pas automatique : la direction demande l'autorisation du recteur, qui statue après expertise de l'inspection pédagogique.
+En cas d'impossibilité majeure attestée par les corps d'inspection pendant la réalisation d'au moins une des activités, l'établissement peut demander au recteur l'autorisation d'inscrire ses candidats à l'examen ponctuel terminal.
+Ce texte ne décrit pas la saisie dans Santorin de ce cas pour le CAP : ne pas transposer la procédure « Déclarer CE » prévue pour le bac ; suivre la consigne du service des examens de l'académie.
+Nature de la source : texte national (circulaire EPS du CAP).
+Source : circulaire du 27 août 2025, NOR MENE2517122C, partie 2.1, « Situations particulières », applicable à compter de la session 2026.
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

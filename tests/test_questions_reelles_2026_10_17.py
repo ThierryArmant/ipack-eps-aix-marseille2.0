@@ -89,6 +89,19 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertNotIn('complement natation scolaire',
                          titres("Piscine fermée pour toute la classe : natation non évaluée, Santorin ?", GT, 'examens'))
 
+    def test_cap_circulaire_2025_fiches_prioritaires(self):
+        pro = 'Lycée Pro / CAP'
+        inst = 'CAP : installation fermée ou activité impossible — une seule activité sur autorisation du recteur'
+        ref = 'CAP : notation du CCF par champ et épreuves du ponctuel (référentiel national)'
+        self.assertIn(inst, titres("Les travaux bloquent cette installation : quelles possibilités pour le CAP ?", pro, 'examens'))
+        self.assertIn(ref, titres("En CAP, comment sont répartis les 8 points au fil de la séquence ?", pro, 'examens'))
+        self.assertIn(ref, titres("CAP : quelles épreuves au ponctuel pour un candidat libre ?", pro, 'examens'))
+        t = titres("Bac pro : le gymnase est fermé, que faire pour la troisième activité ?", pro, 'examens')
+        self.assertNotIn(inst, t)
+        texte = Path('data/examens/cap_2026_10_17/cap_activite_impossible.txt').read_text(encoding='utf-8')
+        self.assertIn('une seule activité au lieu des deux', texte)
+        self.assertIn('ne pas transposer la procédure « Déclarer CE »', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

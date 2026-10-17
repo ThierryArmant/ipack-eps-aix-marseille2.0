@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 23:55 — partie fiches (seule) — documents fournis : CAP 2025 et SHN 2023
+
+Documents relus : circulaire CAP du 27 août 2025 (MENE2517122C) et ses annexes 1 et 2 ; circulaire bac GT SHN du 17 novembre 2023 (MENE2317755C).
+Fait : deux fiches prioritaires CAP (`data/examens/cap_2026_10_17/`) : activité impossible pour l'établissement (une seule activité sur autorisation du recteur après expertise de l'inspection ; impossibilité majeure → ponctuel ; pas de transposition de « Déclarer CE ») ; notation du CCF (12 points fin de séquence + 8 points au fil de la séquence, répartition par le candidat, 2 points minimum) et épreuves du ponctuel (danse, demi-fond 800 m, tennis de table). La règle « une activité au lieu des deux » n'était jusqu'ici que dans une fiche non prioritaire et dans le texte archivé de 2020. Annexes absentes de la base active jusqu'ici.
+Non ajouté : circulaire SHN 2023, remplacée par la note de service du 20 février 2026 déjà présente (mêmes catégories). Tests réussis.
+
 ### 2026-10-17 23:35 — partie fiches (seule) — audit des déclenchements multiples (2)
 
 Méthode : mêmes 439 questions ; relevé des cas où deux fiches de priorité ≥ 300 partent ensemble (transmises seules au modèle). 103 cas : la plupart sont des paires cohérentes (DI+DI+note et une seule épreuve sur trois ; 20/20 SHN ; sorties). Intrus corrigés : « Accident scolaire » déclenché dans les questions de note, d'inaptitude, de protocole ou de co-évaluation (enrichissement « blessé » et « malade le jour ») — exclu sauf mention de rapport, déclaration, responsabilité, assurance, parents, secours ou accident ; « complément natation scolaire » réservé à l'onglet Textes. Paire FAQ saisie/codes + absence CAP conservée (complémentaires). Tests réussis.

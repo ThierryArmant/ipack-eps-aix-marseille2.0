@@ -2855,24 +2855,12 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{niveau_actuel_form}</b>.</em></div>"
         )
 
-        footer_assistance = (
-            "<div style='margin-top: 14px; padding: 10px; background-color: rgba(250, 204, 21, 0.1); color: #FDE047; border-radius: 6px; font-size: 12.5px; border: 1px solid rgba(250, 204, 21, 0.3);'>"
-            "<strong>« IA en apprentissage constant, je peux parfois trébucher sur les subtilités juridiques ou didactiques malgré le soin apporté à ma copie. "
-            "À l'image de mes aînés, je vous invite vivement à croiser et vérifier cette réponse avec les textes officiels ou votre hiérarchie. »</strong>"
-            "</div>"
-        ) if mode == "textes" else (
-            # Renvoi vers l'assistance iPackEPS : seulement pour les questions iPackEPS. Pour Cyclades, Santorin
-            # ou Imag'in (onglet Examens), ce n'est pas le bon interlocuteur (audit en ligne du 12/10/2026).
-            "<div style='margin-top: 14px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.15); font-size: 12.5px; color: #CBD5E1;'>"
-            "Bien entendu si ma réponse ne vous a pas aidé vous pouvez toujours contacter l'assistance "
-            + (f"<a href='mailto:{adresse_assistance(academie_reponse)}' style='color: #38BDF8 !important; text-decoration: underline;'>{adresse_assistance(academie_reponse)}</a>"
-               if adresse_assistance(academie_reponse) else "iPackEPS de votre académie")
-            + "</div>"
-        ) if mode == "ipack" else ""
+        # Les limites concrètes figurent dans la réponse, sans avertissement générique répété.
+        footer_assistance = ""
 
         # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
         bloc_sources = ""
-        if sources_consultees:
+        if sources_consultees and not (diagnostic_ia and diagnostic_ia.get("rendered_answer")):
             # On ne garde que les documents proches du meilleur résultat (évite d'afficher des sources peu pertinentes)
             scores = [sc for _, sc in sources_consultees if sc is not None]
             meilleur = max(scores) if scores else None
@@ -2886,9 +2874,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             if vus:
                 bloc_sources = (
                     "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #38BDF8; font-size: 12.5px; color: #CBD5E1;'>"
-                    "<strong>📚 Documents de référence consultés pour cette réponse :</strong><br>"
+                    "<details><summary>Références institutionnelles</summary>"
                     + "<br>".join("• " + v for v in vus[:5])
-                    + "</div>"
+                    + "</details></div>"
                 )
 
         # 🔎 DIAGNOSTIC (MODE ADMIN UNIQUEMENT) : quelles fiches la recherche a transmises à l'IA pour cette question.
@@ -2906,7 +2894,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 lignes_diag.insert(0, "↪️ Réponse en dur écartée par l'arbitre : " + html_lib.escape(reponse_en_dur_ecartee) + "…")
             bloc_diag = (
                 "<div style='margin-top: 14px; padding: 8px 10px; border-left: 3px solid #F59E0B; font-size: 12px; color: #CBD5E1;'>"
-                "<strong>🔎 Admin — fiches transmises à l'IA :</strong><br>" + "<br>".join(lignes_diag) + "</div>"
+                "<details><summary>Diagnostic administrateur — fiches transmises</summary>" + "<br>".join(lignes_diag) + "</details></div>"
             )
 
         formatted_answer = (

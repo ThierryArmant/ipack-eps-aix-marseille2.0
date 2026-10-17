@@ -37,10 +37,11 @@ class AuditEnLigneTests(unittest.TestCase):
         self.assertNotIn("créer les classes directement dans la gestion des groupes", texte)
         self.assertIn("Les élèves ne passent pas par iPackEPS", texte)
 
-    def test_pied_de_reponse_ipackeps_seulement_en_mode_ipack(self):
+    def test_no_generic_assistance_footer_is_appended_to_answers(self):
         src = lire('app.py')
-        self.assertRegex(src, r'\+ "</div>"\s*\) if mode == "ipack" else ""')
-        self.assertIn('adresse_assistance(academie_reponse)', src)
+        self.assertIn('footer_assistance = ""', src)
+        self.assertNotIn("Bien entendu si ma réponse ne vous a pas aidé", src)
+        self.assertNotIn("IA en apprentissage constant, je peux parfois trébucher", src)
 
 
 if __name__ == '__main__':

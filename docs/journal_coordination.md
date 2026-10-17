@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — rédaction essentielle et références regroupées
+
+Fait : consignes de génération et réparation recentrées sur les démarches établies, les confirmations utiles et les réserves dans la même affirmation. Aucune permission vague à remplacer par une autre ; commencer par la confirmation lorsqu'elle conditionne l'action. Viser une à six affirmations sans omettre les conditions indispensables. Pas de troisième appel, ni changement de modèle, ni conclusion métier codée. Affichage : attributions regroupées et numérotées dans un volet de références avec liens ; portée académique conservée dans la prose ; extraits de repli intégralement accessibles mais repliés par défaut ; retrait du pied générique répétitif ; diagnostic administrateur replié. Tests de conservation des réserves visibles, unicité des références et repli des extraits. L'ancien test de présence obligatoire du pied d'assistance est remplacé conformément à la demande de concision. Validation : 399 tests réussis et compilation. Reprise publique à effectuer.
+
 ### 2026-10-17 — trace administrateur relue : année confondue avec une note
 
 Reprise administrateur sur ebf6519 : deux appels, 14 110 jetons d'entrée. Trace téléchargée et lue. Rejets finaux : permission vague répétée, seuil historique de surveillance sans attribution/réserve, et faux rejet de « note de 1986 » comme valeur de note d'élève absente de la question. Correction générique de case_value_errors : références « note de AAAA » (années 19xx/20xx) exclues de l'extraction de résultats individuels ; maintien du rejet des notes et séquences DI inventées. Le contrôle historique couvre désormais « requise », présent dans l'affirmation d'assurance omettant sa réserve mais jusque-là non détecté. Deux tests ajoutés, 396 tests réussis. Aucun seuil abaissé, aucun appel ajouté, aucun texte métier en dur. Le cas reste non validé sur le fond ; ces motifs proviennent de la trace réelle, pas d'une hypothèse sur la fiche ou une consigne résiduelle.

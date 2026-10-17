@@ -822,7 +822,8 @@
     ],
     "priorite": 310,
     "exclure_motifs": [
-      "fraud|trich|copi\\w* sur|\\bccf\\b|examen|baccalaur|santorin|cyclades|epreuve"
+      "fraud|trich|copi\\w* sur|\\bccf\\b|examen|baccalaur|santorin|cyclades|epreuve",
+      "^(?!.*(?:sortie (?:scolaire|pedagogique|eps|de classe|facultative|obligatoire)|voyage)).*a la sortie (?:du|de l|de la|des)"
     ],
     "modes": [
       "textes"
@@ -3901,7 +3902,10 @@
     ],
     "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
     "date_verification": "2026-10-11",
-    "priorite": 320
+    "priorite": 320,
+    "exclure_motifs": [
+      "^(?!.*(?:sortie (?:scolaire|pedagogique|eps|de classe|facultative|obligatoire)|voyage)).*a la sortie (?:du|de l|de la|des)"
+    ]
   },
   "data/textes/fiches/accident_eleve_rapport_parents_2009.txt": {
     "title": "Accident scolaire : rapport et communication aux parents",
@@ -6242,5 +6246,22 @@
       "college|lycee|second degre|2nd degre|professeur d.eps|agrege|capeps|\\bas\\b|association sportive|\\bunss\\b|\\bhsa\\b"
     ],
     "url": "https://www.education.gouv.fr/bo/13/Hebdo8/MENH1303000C.htm"
+  },
+  "data/textes/fiches/decret_2026_687_famille_menacante.txt": {
+    "title": "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)",
+    "statut": "source_officielle_recoupee_2026_10_17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "^(?=.*(?:parents?|famille|pere|mere|responsables? legaux|beau.?pere|frere|oncle))(?=.*(?:menac|agress|insult|violen|perturb|harcel|frapp|intimid|crie|hurl|injur|exclu|interdi|radi|changement d.ecole|changer d.ecole|changer d.etablissement))"
+    ],
+    "exclure_motifs": [
+      "sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?)|voyage|autorisation parentale|signature|accord des parents|assurance|exclusion de cours|droit a l.image|photo|video|\\bnotes?\\b|bulletin|pronote"
+    ],
+    "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054541484"
   }
 }

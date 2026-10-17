@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 00:50 — partie fiches (seule) — premier degré et famille menaçante
+
+Fait : fiche obligations de service du premier degré (circulaire du 4 février 2013, MENH1303000C ; 24 h + 108 h ; limite : texte de 2013 à vérifier), séparée de la fiche du second degré par exclusions réciproques. Fiche décret n° 2026-687 du 28 juillet 2026 (NOR MENE2613439D, en vigueur le 30 juillet 2026) : famille menaçante, suspension d'accès conservatoire de cinq jours au plus, saisine du DASEN, dialogue obligatoire, R. 411-11-1-1 (radiation et réinscription par le maire), second degré (R. 421-12-1 selon la présentation fournie, à vérifier), suivi renforcé ; renvoi aux démarches de l'enseignant (plainte, protection fonctionnelle). Légifrance inaccessible depuis l'outil : contenu recoupé par deux présentations concordantes (Banque des Territoires, cabinet Landot). Une page syndicale fournie n'a servi qu'à identifier l'article L. 134-8 du CGFP, déjà couvert. « À la sortie du collège » ne déclenche plus les fiches de sorties scolaires. Tests réussis.
+
 ### 2026-10-18 00:30 — partie fiches (seule) — annexes 1 et 2 de la note bac GT du 20 février 2026
 
 Fournies par l'utilisateur (PDF du BO n° 9 du 26 février 2026). Fait : `gt_referentiel_ccf.txt` (AFL1 sur 12, AFL2-AFL3 sur 8 en 4-4 / 6-2 / 2-6 annoncé avant l'épreuve, rôles choisis parmi au moins deux, cinq champs, seuils nationaux médians CA1 dont 800 m, 1500 m, 50 m crawl, longueur) et `gt_referentiel_ponctuel.txt` (deux épreuves de deux champs parmi demi-fond, danse, tennis de table, plus une activité académique éventuelle ; 14 + 6 points par épreuve ; déroulement de chaque épreuve ; absences et inaptitude). Concordant avec la fiche barème iPackEPS et le BA d'Aix 2027. Exclusions : comparaison CCF/ponctuel, CAP, bac pro, inaptitude, absence, SHN, option, paramétrage iPackEPS. Tests réussis.

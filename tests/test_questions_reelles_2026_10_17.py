@@ -133,6 +133,15 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn(o, t)
         self.assertNotIn(f, t)
 
+    def test_decret_2026_687_famille_menacante(self):
+        d = "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)"
+        self.assertIn(d, titres("Un parent menace un professeur des écoles devant l'école. Quelle est la procédure ?", '1er degré', 'textes'))
+        self.assertIn(d, titres("Le père d'un élève m'a insulté et menacé à la sortie du collège, que faire ?", CLG, 'textes'))
+        self.assertNotIn(d, titres("Faut-il l'autorisation des parents pour une sortie facultative ?", CLG, 'textes'))
+        texte = Path('data/textes/fiches/decret_2026_687_famille_menacante.txt').read_text(encoding='utf-8')
+        self.assertIn('dans la limite de cinq jours', texte)
+        self.assertIn('MENE2613439D', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

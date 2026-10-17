@@ -5546,6 +5546,16 @@
    "autres_academies_citees": [],
    "portee_texte": "premier degré, cadre national (2013)",
    "titre": "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)"
+  },
+  "data/textes/fiches/decret_2026_687_famille_menacante.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (décret 2026)",
+   "titre": "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)"
   }
  }
 }

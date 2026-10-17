@@ -79,6 +79,16 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertTrue(lexical_support("Le principal autorise l'élève à passer l'épreuve différée.",
                                         ["Le chef d'établissement peut autoriser le candidat à une épreuve différée."]))
 
+    def test_accident_scolaire_hors_questions_de_note(self):
+        a = 'Accident scolaire : rapport et communication aux parents'
+        pro = 'Lycée Pro / CAP'
+        self.assertNotIn(a, titres("Bac pro : blessé avant la troisième épreuve, il a déjà deux notes. Quelle note finale ?", pro, 'examens'))
+        self.assertNotIn(a, titres("Mon binôme est malade le jour du CCF, je note seul ?", GT, 'examens'))
+        self.assertIn(a, titres("Un élève s'est blessé pendant le CCF : faut-il faire un rapport d'accident ?", GT, 'examens'))
+        self.assertIn(a, titres("Un élève s'est blessé en cours, que dois-je faire ?", CLG, 'textes'))
+        self.assertNotIn('complement natation scolaire',
+                         titres("Piscine fermée pour toute la classe : natation non évaluée, Santorin ?", GT, 'examens'))
+
 
 if __name__ == '__main__':
     unittest.main()

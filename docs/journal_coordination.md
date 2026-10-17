@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 23:35 — partie fiches (seule) — audit des déclenchements multiples (2)
+
+Méthode : mêmes 439 questions ; relevé des cas où deux fiches de priorité ≥ 300 partent ensemble (transmises seules au modèle). 103 cas : la plupart sont des paires cohérentes (DI+DI+note et une seule épreuve sur trois ; 20/20 SHN ; sorties). Intrus corrigés : « Accident scolaire » déclenché dans les questions de note, d'inaptitude, de protocole ou de co-évaluation (enrichissement « blessé » et « malade le jour ») — exclu sauf mention de rapport, déclaration, responsabilité, assurance, parents, secours ou accident ; « complément natation scolaire » réservé à l'onglet Textes. Paire FAQ saisie/codes + absence CAP conservée (complémentaires). Tests réussis.
+
 ### 2026-10-17 23:20 — partie fiches (seule) — audit du vocabulaire et des déclencheurs (1)
 
 Méthode : 439 questions connues (tests, journal, formulations courantes des fiches) posées dans les trois contextes ; relevé des cas où aucune fiche transmise ne partage deux racines avec la question. Constat principal : le défaut fréquent est la mauvaise fiche transmise, pas le vocabulaire.

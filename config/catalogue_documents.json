@@ -754,7 +754,10 @@
     "exclure_motifs": [
       "shn|haut niveau|specialite sportive"
     ],
-    "priorite": 320
+    "priorite": 320,
+    "modes": [
+      "textes"
+    ]
   },
   "data/textes/complement_obligations_service_eps.txt": {
     "title": "complement obligations service eps",
@@ -3917,7 +3920,10 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2009/43/mene0915926c.html",
     "date_verification": "2026-10-11",
-    "priorite": 310
+    "priorite": 310,
+    "exclure_motifs": [
+      "^(?!.*(?:rapport|declar|responsab|assuran|parents|secours|accident|chute|plainte|temoin)).*(?:\\bccf\\b|epreuves?|\\bnotes?\\b|noter|inapt|protocole|santorin|cyclades|dispens|moyenne|evalu|binome|co.?evaluat)"
+    ]
   },
   "data/commun/audit355/as_remplacement_forfait.txt": {
     "title": "AS : remplacement du forfait par des heures d’enseignement",

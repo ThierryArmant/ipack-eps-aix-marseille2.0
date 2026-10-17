@@ -9,7 +9,7 @@ import json
 import re
 import time
 import unicodedata
-from source_scope import scoped_segments, select_academy, evidence_label, model_passage
+from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
@@ -369,6 +369,16 @@ def render_claims(claims, packets, *, mode="examens"):
     """Prose contrôlée lisible ; attributions regroupées, accessibles à la demande."""
     by_id = {p['id']: p for p in packets}
     output, references = [], []
+    # Certains dispositifs exigent un cadre explicite, fixé par la source et non par le modèle.
+    used_ids = {e['document_id'] for c in claims for e in c['evidence']}
+    scope_notices = []
+    for packet in packets:
+        if packet['id'] not in used_ids:
+            continue
+        notice = (annotations(packet.get('path', '')) or {}).get('cadre_reponse', '')
+        if notice and notice not in scope_notices:
+            scope_notices.append(notice)
+            output.append('<p><strong>Cadre traité :</strong> ' + html.escape(notice) + '</p>')
     marked = [e['scope'] for c in claims for e in c['evidence']
               if e.get('scope', {}).get('not_confirmed_for')]
     if marked:

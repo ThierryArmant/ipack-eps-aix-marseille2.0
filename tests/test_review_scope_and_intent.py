@@ -63,3 +63,16 @@ class ScopeIntentTests(unittest.TestCase):
         cap = kc.priority_context('CAP — unité facultative EPS', 'Lycée Pro / CAP', 'examens')
         self.assertIn('ne prévoit pas', cap)
         self.assertIn('mobilité', cap)
+
+
+class ExplicitScopeNoticeTests(unittest.TestCase):
+    def test_used_source_scope_cannot_be_omitted_by_generation(self):
+        path = 'data/examens/amenagements_aix_2026_10_13/handicap_etalement_suivi_gt.txt'
+        packets = [{'id': 'D1', 'title': 'Suivi', 'path': path}]
+        claim = {'section': 'decision', 'text': 'Le jury attend la fin des épreuves.',
+                 'evidence': [{'document_id': 'D1', 'scope': {'level': 'synthese_reglementaire'}}]}
+        result = render_claims([claim], packets)
+        self.assertIn('Cadre traité', result)
+        self.assertIn('handicap', result)
+        self.assertEqual(result.count('Cadre traité'), 1)
+        self.assertNotIn('Cadre traité', render_claims([], packets))

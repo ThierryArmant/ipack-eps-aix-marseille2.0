@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 01:10 — partie fiches (seule) — erreur constatée sur a5467ad (famille menaçante)
+
+Constaté : « le directeur doit suspendre l'accès pendant cinq jours » — possibilité transformée en obligation et plafond en durée fixe (même erreur que le résumé de presse fourni). Un appel, 6 663 jetons. Fait : ligne de la fiche réécrite (« possibilité, pas une obligation » ; « durée maximale, pas une durée fixe ») ; retrait de « appel des forces de l'ordre », non sourcé ; démarches de l'enseignant limitées à ce que les textes citent (information du directeur, plainte, protection fonctionnelle CGFP L. 134-1). Reprise en ligne à faire.
+
 ### 2026-10-18 01:00 — partie fiches (seule) — décret du 22 décembre 2025 « Faits établissement »
 
 Texte intégral copié depuis Légifrance par l'utilisateur. Fait : fiche `decret_2025_1260_signalement_faits_etablissement.txt` : obligation du directeur (R. 411-11-2) et du chef d'établissement (R. 421-10-2) de signaler sans délai les faits de violence, faits graves et atteintes aux valeurs de la République via « Faits établissement » ; gravité et types ; mesures mentionnées ; conservation cinq ans ; distinction avec les démarches de la victime. Absente de la base jusqu'ici. Exclue pour accidents, sorties et examens. Tests réussis.

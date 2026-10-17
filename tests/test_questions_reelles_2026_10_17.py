@@ -139,7 +139,9 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn(d, titres("Le père d'un élève m'a insulté et menacé à la sortie du collège, que faire ?", CLG, 'textes'))
         self.assertNotIn(d, titres("Faut-il l'autorisation des parents pour une sortie facultative ?", CLG, 'textes'))
         texte = Path('data/textes/fiches/decret_2026_687_famille_menacante.txt').read_text(encoding='utf-8')
-        self.assertIn('dans la limite de cinq jours', texte)
+        self.assertIn('pas une obligation', texte)
+        self.assertIn('durée maximale, pas une durée fixe', texte)
+        self.assertNotIn('forces de l', texte)
         self.assertIn('MENE2613439D', texte)
 
     def test_decret_2025_1260_faits_etablissement(self):

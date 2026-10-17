@@ -58,12 +58,17 @@ class ExamFallbackTests(unittest.TestCase):
                 self.assertNotIn('<blockquote>', result)
 
     def test_excerpt_does_not_cut_condition_or_redisplay_html_as_markup(self):
-        body = 'Le dossier est ouvert uniquement après vérification. <script>secret</script>\n\n' + 'Condition obligatoire ' * 250
+        body = 'Le dossier est ouvert uniquement après vérification. <script>secret</script>\n\n' + 'Condition obligatoire ' * 250 + ' <script>fin</script>'
         audit = {'documents': source_packets(mark_excerpt(body, title='Dossier'))}
         result = render_exam_fallback(audit, question='Dossier ?')
         self.assertNotIn('<script>', result)
         self.assertIn('&lt;script&gt;', result)
-        self.assertNotIn('Condition obligatoire', result)
+        self.assertIn('Condition obligatoire', result)
+        self.assertIn('&lt;script&gt;fin&lt;/script&gt;', result)
+        self.assertIn('<details>', result)
+        self.assertIn('Afficher la suite du document', result)
+        self.assertEqual(audit['fallback_available_passage_ids'], ['D1P1', 'D1P2'])
+        self.assertEqual(audit['fallback_passage_ids'], ['D1P1'])
         self.assertIn('Extrait incomplet', result)
         self.assertFalse(audit['fallback_excerpt_complete'])
 

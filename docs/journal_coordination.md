@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — repli documentaire complet après rejet persistant
+
+Sur a474c03, le passage actualisé du contrôle technique est présent et n'est plus rejeté dans la reprise administrateur. Deux appels restent insuffisants : permission générale sans conditions concrètes et réserve actuelle de l'assurance omise. Le cas n'est pas validé. Un défaut distinct du repli est observé : le budget d'affichage coupe avant des garanties utiles. Correction commune aux trois modes : garder le début lisible, puis rendre accessibles tous les autres passages du document sélectionné dans une suite dépliable, dans l'ordre et avec leur attribution. Aucun brouillon rejeté publié, aucune levée des contrôles ni appel supplémentaire. Test de conservation intégrale d'une condition longue et d'échappement HTML. Validation locale : 390 tests réussis, compilation et contrôle de diff réussis. Vérification en ligne à suivre.
+
 ### 2026-10-17 — actualisation documentaire du contrôle technique
 
 Reprise du rejet transport : la fiche répétait une périodicité historique tout en demandant de confirmer son actualité. Vérification de trois ressources institutionnelles : guide DGESCO (obligations de contrôle technique), fiche DILA vérifiée au 1er janvier 2026 (régime automobile M1) et éclairage académique de 2016 signalant le retour au droit commun. L'exigence active est reformulée autour du respect du contrôle applicable et des justificatifs ; la périodicité ancienne est séparée comme précaution documentaire. La portée locale/premier degré de l'éclairage et l'absence de vérification directe du courrier de 1999 sont explicites. Aucun changement des seuils ni du nombre d'appels. Réserves sur le circuit d'autorisation maintenues. Validation locale : 390 tests réussis, registre régénéré sans changement et contrôle de diff réussi. Essai réel à suivre.

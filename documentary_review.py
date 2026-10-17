@@ -502,7 +502,16 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     audit['fallback_passage_ids'] = [s['id'] for s in display_spans[:displayed]]
     audit['fallback_excerpt_complete'] = displayed == len(display_spans)
     if displayed != len(display_spans):
-        output.append('<p>Extrait incomplet : consultez le document intégral pour ses autres conditions.</p>')
+        output.append('<p>Extrait incomplet ci-dessus : la suite contient les autres conditions et références.</p>')
+        output.append('<details><summary>Afficher la suite du document (conditions et références)</summary>')
+        # Le budget limite l'affichage initial, jamais l'accès aux conditions.
+        # Reprendre les passages entiers, dans l'ordre, sans publier le brouillon.
+        for span in display_spans[displayed:]:
+            label = evidence_label({'scope': span.get('scope', {})}, packet, _LEVELS)
+            output.append('<blockquote>' + html.escape(reader_excerpt(re.sub(r'^#{1,6}\s*', '', span['text']))).replace('\n', '<br>') +
+                          '<br><small>' + html.escape(label) + '</small></blockquote>')
+        output.append('</details>')
+    audit['fallback_available_passage_ids'] = [s['id'] for s in display_spans]
     return ''.join(output)
 
 

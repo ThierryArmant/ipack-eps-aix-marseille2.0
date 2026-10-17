@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 from evidence_logic import evidence_logic_errors, evidence_constraints
-from documentary_review import mark_excerpt, review_exam_answer, source_packets, validate_claims
+from documentary_review import mark_excerpt, review_exam_answer, source_packets, validate_claims, case_value_errors
 from test_documentary_review import FakeLLM
 
 
@@ -81,6 +81,21 @@ class EvidenceLogicTests(unittest.TestCase):
             'Le responsable doit vérifier les pièces. Les modalités actuelles doivent être confirmées.', proof)]))
         self.assertFalse(evidence_logic_errors([claim(
             'Le responsable doit vérifier les pièces. Selon la note de 1986, une garantie spéciale est obligatoire ; ses modalités actuelles restent à confirmer.', proof)]))
+
+    def test_dated_note_is_not_an_invented_pupil_grade(self):
+        for year in ('1986', '2026'):
+            text = f'Les modalités de la note de {year} doivent être confirmées.'
+            self.assertFalse(case_value_errors([claim(text)], 'Quelles modalités vérifier ?'))
+        self.assertTrue(case_value_errors([claim('La note de 14 est conservée.')], 'Une seule évaluation ?'))
+        self.assertTrue(case_value_errors([claim('DI + DI + 14 est retenu.')], 'Une seule évaluation ?'))
+        self.assertFalse(case_value_errors([claim('La note de 14 est conservée.')], 'La note obtenue est 14.'))
+
+    def test_required_historical_guarantee_keeps_its_reservation(self):
+        proof = 'Prescription historique : les couvertures actuelles doivent être confirmées.'
+        self.assertTrue(evidence_logic_errors([claim(
+            'Une garantie spéciale est requise pour le dispositif.', proof)]))
+        self.assertFalse(evidence_logic_errors([claim(
+            'Selon la note de 1986, une garantie spéciale est requise ; les couvertures actuelles restent à confirmer.', proof)]))
 
     def test_no_standard_is_not_proof_of_sufficiency(self):
         for noun in ('ratio','seuil','minimum'):

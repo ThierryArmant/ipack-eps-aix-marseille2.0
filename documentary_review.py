@@ -436,8 +436,10 @@ def case_value_errors(claims, question):
     errors = []
     for i, claim in enumerate(claims):
         text = claim['text']
+        # « note de 1986 » désigne un texte daté, pas un résultat d'élève.
+        numeric_text = re.sub(r'\bnote de (?:19|20)\d{2}\b', 'référence datée', text, flags=re.I)
         values = re.findall(r'\bnote (?:de |est de )?(\d+(?:[,.]\d+)?)|'
-                            r'\bDI\s*\+\s*DI\s*\+\s*(\d+(?:[,.]\d+)?)', text, re.I)
+                            r'\bDI\s*\+\s*DI\s*\+\s*(\d+(?:[,.]\d+)?)', numeric_text, re.I)
         if (any((a or b) not in known and (a or b) not in ('0', '20') for a,b in values)
                 and not re.search(r'par exemple|à titre d.exemple|exemple fictif', text, re.I)):
             errors.append({'index': i, 'errors': ['note individuelle absente de la question : ne pas reprendre une valeur illustrative comme fait du candidat']})

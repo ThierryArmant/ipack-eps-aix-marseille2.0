@@ -90,7 +90,7 @@ def evidence_logic_errors(claims):
         heads = [proposition_head(sentence) for sentence in re.split(r'[.;!?]\s*', claim['text']) if sentence.strip()]
         if historical_pending and any(
                 not _verification_obligation(part)
-                and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', part)
+                and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]|\brequis(?:e|es)?\b', part)
                 and not re.search(r'selon|d.apres|(?:note|texte|circulaire).{0,40}\b(?:19|20)\d{2}\b|a confirmer|reste a verifier', part)
                 for part in heads):
             errors.append({'index': i, 'errors': [

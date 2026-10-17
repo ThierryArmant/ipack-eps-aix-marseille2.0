@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 22:00 — partie fiches (seule) — reprises en ligne sur 4752f98
+
+Correctes : élève arrivé absent d'iPackEPS (actualisation, base élèves, placement) ; import Pronote (article 88 seul, 7 086 jetons) ; collègue absent de l'équipe (cadre « actualiser » affiché) ; reconduction SSS (article 94) ; ponctuel d'un candidat individuel (deux activités, sans option EPS). Un appel chacune.
+Marque de tenue : « Réponse non confirmée » après deux appels malgré la bonne fiche. Reproduit localement : la fiche employait le vocabulaire de la circulaire (enseignants, exiger l'achat, matériel) et le modèle celui de la question (professeur, acheter, tenue, familles) ; une seule racine commune, contrôle lexical en échec sur une affirmation juste. Fiche reformulée avec le vocabulaire des collègues, règle inchangée, contrôle inchangé. 427 tests. Risque général : d'autres fiches écrites dans la langue des textes peuvent subir le même rejet.
+
 ### 2026-10-17 21:45 — partie fiches (seule) — questions réelles du journal (13 au 17 octobre)
 
 Relecture de l'historique de la feuille. Défauts de sélection corrigés, sans appel IA ajouté :

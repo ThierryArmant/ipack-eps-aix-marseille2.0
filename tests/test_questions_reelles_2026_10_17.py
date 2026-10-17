@@ -41,6 +41,14 @@ class QuestionsReellesTests(unittest.TestCase):
     def test_collegue_absent_de_l_equipe(self):
         self.assertIn(EQUIPE, titres("Un collègue n'apparaît pas dans la liste de l'équipe EPS"))
 
+    def test_marque_de_tenue_formulation_des_collegues_acceptee(self):
+        from documentary_review import mark_excerpt, source_packets, lexical_support_details
+        p = 'data/textes/fiches/fournitures_neutralite_commerciale.txt'
+        packet = source_packets(mark_excerpt(Path(p).read_text(encoding='utf-8'), path=p, title='t', priority=330))[0]
+        for t in ("Le professeur ne peut pas demander aux familles d'acheter une tenue d'EPS d'une marque précise.",
+                  "Non, le professeur ne peut pas imposer une marque de tenue aux familles."):
+            self.assertTrue(any(lexical_support_details(t, [s['text']])['passed'] for s in packet['passages']), t)
+
 
 if __name__ == '__main__':
     unittest.main()

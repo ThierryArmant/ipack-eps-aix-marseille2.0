@@ -403,6 +403,9 @@ def no_applicable_guidance(mode):
     if mode == 'textes':
         return ('Aucune consigne applicable trouvée dans la documentation disponible. '
                 'À vérifier auprès du service compétent pour votre demande.')
+    if mode == 'ipack':
+        return ('Aucune consigne applicable trouvée dans la documentation disponible. '
+                'À vérifier auprès de l’assistance iPackEPS de votre académie.')
     return NO_APPLICABLE_GUIDANCE
 
 
@@ -483,8 +486,10 @@ def render_exam_fallback(audit, *, question, documents='', academy='Aix-Marseill
     output = ['<h3>Réponse non confirmée</h3>',
               '<p>Les passages disponibles ne permettent pas de confirmer une réponse complète à votre situation. '
               'Faites vérifier la conduite à tenir auprès du service compétent pour votre demande.</p>']
-    if mode != 'textes':
+    if mode == 'examens':
         output[1] = output[1].replace('service compétent pour votre demande', 'service des examens de votre académie')
+    elif mode == 'ipack':
+        output[1] = output[1].replace('service compétent pour votre demande', 'service d’assistance iPackEPS de votre académie')
     packets = audit.get('documents') or source_packets(documents)
     selected_ids = audit.get('model_document_ids')
     candidates = [p for p in packets if p.get('origin') == 'document'

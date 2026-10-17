@@ -131,6 +131,13 @@ def clarification(question, public):
     if goal:
         return goal
     q = normalise(question)
+    # Identifier le dossier avant d'en inventer le chemin. Cette clarification
+    # ne décide ni du contenu du projet ni d'une règle institutionnelle.
+    project_search = re.search(r'projet', q) and re.search(r'retrouv|consult|bilan|archive|precedent', q)
+    project_type = re.search(r'\beps\b|\bas\b|etablissement|\bsss\b|section sportive|sports.etudes', q)
+    if project_search and not project_type:
+        return ("Quel type de projet recherchez-vous : projet EPS, projet d'AS, projet d'établissement "
+                "ou projet de section sportive scolaire ? Le chemin dépend du dossier concerné.")
     # Les conditions médicales restent nécessaires pour choisir une valeur
     # individuelle, pas pour expliquer un circuit logiciel ou les possibilités.
     if re.search(r'dispens.{0,20}epreuve.{0,15}eps|\baflp\d?\b|'

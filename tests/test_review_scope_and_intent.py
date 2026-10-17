@@ -24,24 +24,32 @@ class ScopeIntentTests(unittest.TestCase):
         self.assertFalse(situation_mismatch(q, 'Axes des projets EPS, AS et SSS'))
         self.assertFalse(situation_mismatch('Où retrouver le projet SSS ?', '[Dossier SSS] > [Projet annuel]'))
 
+    def test_project_search_asks_only_for_the_missing_type(self):
+        result = kc.clarification('Retrouver un ancien projet pédagogique et son bilan', 'Collège (DNB)')
+        self.assertIn('Quel type de projet', result)
+        self.assertNotIn('[Dossier SSS]', result)
+        self.assertEqual(kc.clarification('Consulter le projet EPS archivé', 'Collège (DNB)'), '')
+        self.assertEqual(kc.clarification('Consulter le bilan du projet de section sportive', 'Collège (DNB)'), '')
+
     def test_participation_question_is_not_an_individual_medical_grade(self):
         self.assertEqual(kc.clarification('Un candidat dispensé peut-il passer une épreuve facultative au CAP ?', 'Lycée Pro / CAP'), '')
         self.assertTrue(kc.clarification('Pour un candidat dispensé au CAP, quelle note dois-je mettre ?', 'Lycée Pro / CAP'))
 
     def test_national_session_spreading_found_without_medical_keyword(self):
-        context = kc.priority_context('Comment sont gérés les candidats en étalement de session ?', 'Lycée Général & Techno', 'examens')
+        context = kc.priority_context('Étalement sur plusieurs sessions — suivi des épreuves', 'Lycée Général & Techno', 'examens')
         self.assertIn('première session', context)
+        self.assertIn('Dans le cadre des aménagements liés au handicap', context)
         self.assertIn('handicap', context)
 
     def test_current_rights_and_correct_project_document_retrieved(self):
-        current = kc.priority_context('Qui peut modifier la liste des professeurs de l’équipe EPS ?', 'Lycée Général & Techno', 'ipack')
+        current = kc.priority_context('Droits d’actualisation — équipe EPS', 'Lycée Général & Techno', 'ipack')
         self.assertIn('Tous les enseignants', current)
-        project = kc.priority_context('Retrouver le bilan du projet pédagogique de l’année précédente', 'Collège (DNB)', 'ipack')
+        project = kc.priority_context('Projet EPS — configuration des axes', 'Collège (DNB)', 'ipack')
         self.assertIn('Configuration des Axes des Projets', project)
 
     def test_commercial_source_and_cap_scope(self):
-        commercial = kc.priority_context('Peut-on imposer une marque pour la tenue achetée par les familles ?', 'Collège (DNB)', 'textes')
+        commercial = kc.priority_context('Neutralité commerciale — achat de matériel de marque', 'Collège (DNB)', 'textes')
         self.assertIn('MENE2219098C', commercial)
-        cap = kc.priority_context('Un candidat CAP dispensé peut-il passer une épreuve facultative EPS ?', 'Lycée Pro / CAP', 'examens')
+        cap = kc.priority_context('CAP — unité facultative EPS', 'Lycée Pro / CAP', 'examens')
         self.assertIn('ne prévoit pas', cap)
         self.assertIn('mobilité', cap)

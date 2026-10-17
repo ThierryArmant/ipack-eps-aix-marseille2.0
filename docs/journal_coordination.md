@@ -24,6 +24,14 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — dossier non identifié : précision utile avant génération
+
+Le contrôle du projet ordinaire sur de8cc91 n'oriente plus vers la section sportive, mais aboutit à un repli après deux appels. Recherche d'un projet sans type identifiable : clarification du type de dossier avant génération, sans supposer une section sportive ni demander de nouveau l'année déjà donnée. Les recherches d'un projet EPS/AS/établissement/SSS explicitement identifié ne sont pas bloquées. Le repli iPackEPS renvoie à l'assistance de l'outil, pas au service des examens par défaut. Périmètre du handicap rapproché des règles d'étalement dans la fiche. 409 tests réussis, compilation et contrôle de diff. Reprises à observer après publication.
+
+### 2026-10-17 — première reprise et périmètre des aménagements
+
+Sur de8cc91, une demande d'étalement hors académie reçoit désormais le cadre national, sans dates d'inscription ni consignes d'inaptitude locales. Un appel, 4 227 jetons d'entrée. Réserve restante : le cadre du handicap n'est pas nommé clairement dans la réponse. Fiche réorganisée pour rapprocher cette condition de chaque mécanisme et demander le fondement manquant ; pas de nouvelle règle ni de modification des contrôles. Tests formulés comme intentions génériques. 408 tests réussis. Reprise de la fiche précisée à vérifier.
+
 ### 2026-10-17 — pertinence des dossiers et réserve académique regroupée
 
 Relecture d'un export : une demande de projet pédagogique était orientée sans justification vers un dossier de section sportive ; une demande d'étalement recevait des dates d'inscription et des consignes d'inaptitude locales sans rapport. L'imprécision justifie une clarification utile, pas le choix arbitraire d'un dossier. Sélection documentaire : article de configuration des projets, droits actuels d'actualisation et cadre national de l'étalement retrouvés sur les formulations usuelles. Exclusion des passages exclusivement SSS pour une demande de projet ordinaire, tout en conservant les documents comparatifs. Participation à une autre épreuve distincte d'une décision médicale individuelle dans la clarification.

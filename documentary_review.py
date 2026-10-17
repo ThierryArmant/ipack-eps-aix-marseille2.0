@@ -4,6 +4,7 @@ Les citations sont vérifiées mécaniquement. Leur implication et l'applicabili
 restent contrôlées par un modèle : cela ne constitue pas une preuve juridique.
 """
 import hashlib
+from pathlib import Path
 import html
 import json
 import re
@@ -24,11 +25,29 @@ _MOTS_VIDES = set("""avant apres aussi autre autres avoir cette celle celui ceux
 service services examen examens etablissement academie academique document documents fourni fournis precise precisee""".split())
 
 
+def _equivalences():
+    """Synonymes stricts (config/langage_collegues.json) ramenés à une racine commune."""
+    try:
+        groupes = json.loads((Path(__file__).resolve().parent / 'config' / 'langage_collegues.json')
+                             .read_text(encoding='utf-8'))['equivalences_verification']['groupes']
+    except (OSError, KeyError, TypeError, ValueError):
+        return {}
+    table = {}
+    for groupe in groupes:
+        racines = [m[:5] for m in groupe]
+        for r in racines:
+            table[r] = racines[0]
+    return table
+
+
+_EQUIVALENCES = _equivalences()
+
+
 def _racines(texte):
-    """Racines (5 lettres) des mots porteurs de sens, sans accents."""
+    """Racines (5 lettres) des mots porteurs de sens, sans accents ; synonymes stricts unifiés."""
     texte = unicodedata.normalize('NFKD', str(texte).lower())
     texte = ''.join(c for c in texte if not unicodedata.combining(c))
-    return {m[:5] for m in re.findall(r"[a-z]{4,}", texte) if m not in _MOTS_VIDES}
+    return {_EQUIVALENCES.get(m[:5], m[:5]) for m in re.findall(r"[a-z]{4,}", texte) if m not in _MOTS_VIDES}
 
 
 def lexical_support_details(text, supports):

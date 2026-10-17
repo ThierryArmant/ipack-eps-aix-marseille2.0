@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 22:10 — partie fiches (seule, retouche programme) — synonymes stricts dans le contrôle lexical
+
+Fait : `equivalences_verification` dans `config/langage_collegues.json` (professeur/enseignant, acheter/achat, exiger/imposer, famille/parents, note/noter/notation) ; `_racines` de `documentary_review.py` ramène ces mots à une racine commune. Seuil inchangé (deux racines partagées) ; une preuve sans rapport reste rejetée (test). N'ajouter que des synonymes exacts. 429 tests.
+
 ### 2026-10-17 22:00 — partie fiches (seule) — reprises en ligne sur 4752f98
 
 Correctes : élève arrivé absent d'iPackEPS (actualisation, base élèves, placement) ; import Pronote (article 88 seul, 7 086 jetons) ; collègue absent de l'équipe (cadre « actualiser » affiché) ; reconduction SSS (article 94) ; ponctuel d'un candidat individuel (deux activités, sans option EPS). Un appel chacune.

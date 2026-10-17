@@ -70,5 +70,36 @@
    "motif": "absent.{0,40}(?:ca fait|\\b0\\b|zero)|(?:\\b0\\b|zero).{0,40}absent",
    "ajout": "ccf note absence"
   }
- ]
+ ],
+ "equivalences_verification": {
+  "description": "Mots strictement équivalents pour le contrôle lexical d'une affirmation (racines de 5 lettres, sans accents). N'ajouter que des synonymes exacts dans le contexte scolaire : le contrôle doit continuer à rejeter une preuve sans rapport.",
+  "groupes": [
+   [
+    "professeur",
+    "enseignant",
+    "profs",
+    "prof"
+   ],
+   [
+    "acheter",
+    "achat",
+    "achete"
+   ],
+   [
+    "exiger",
+    "imposer",
+    "impose",
+    "exige"
+   ],
+   [
+    "famille",
+    "parents"
+   ],
+   [
+    "note",
+    "noter",
+    "notation"
+   ]
+  ]
+ }
 }

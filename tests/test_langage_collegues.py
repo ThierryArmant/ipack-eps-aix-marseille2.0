@@ -42,5 +42,17 @@ class LangageCollegues(unittest.TestCase):
         self.assertNotIn('Accès iPackEPS et portail ESTEREL', titres("Le gymnase est indisponible, on ne pourra pas faire la troisième activité"))
 
 
+
+class VerificationSynonymesTests(unittest.TestCase):
+    def test_synonymes_stricts_acceptes_par_le_controle(self):
+        from documentary_review import lexical_support
+        src = ["La circulaire interdit aux enseignants d'exiger l'achat d'un matériel d'une marque donnée."]
+        self.assertTrue(lexical_support("Le professeur ne peut pas imposer aux familles d'acheter une marque.", src))
+
+    def test_preuve_sans_rapport_toujours_rejetee(self):
+        from documentary_review import lexical_support
+        self.assertFalse(lexical_support("Le professeur doit noter la fraude au CCF.",
+                                         ["Le modèle de procès-verbal est signé par le chef d'établissement."]))
+
 if __name__ == '__main__':
     unittest.main()

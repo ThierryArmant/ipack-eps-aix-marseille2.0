@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — confirmation actuelle distincte de la prescription historique
+
+Reprise réelle sur 6504e2f : le feedback contient bien les deux défauts auparavant masqués ; la permission vague et la réserve d'assurance restent omises après réparation. Un faux rejet supplémentaire concerne une phrase demandant de confirmer les modalités actuelles. Le contrôle distingue désormais l'obligation de vérifier/confirmer de l'obligation d'appliquer une prescription ancienne. Seule l'action de la première obligation est examinée ; ajouter une vérification après une prescription catégorique ne la valide pas. Test générique des deux directions. La suite dépliable du repli est présente en ligne. Validation locale : 392 tests réussis, compilation et contrôle de diff réussis ; cas transport toujours non confirmé.
+
 ### 2026-10-17 — défaut de rédaction masqué par une mauvaise citation
 
 La reprise administrateur sur a474c03 révèle un défaut du feedback : une permission vague rejetée pour citation sans rapport n'atteignait pas les contrôles logiques. Le second appel recevait seulement l'erreur de sélection, changeait de passage et répétait la permission vague. Les erreurs de rédaction indépendantes des preuves sont désormais ajoutées aux rejets documentaires dès le premier appel, sans donner de citations non validées au contrôle. La réparation reçoit ainsi les deux motifs ensemble. Aucun relâchement de validation, aucune réponse métier codée. Régression générique avec citation erronée et permission vague simultanées. Validation : 391 tests réussis, compilation et contrôle de diff réussis. Essai réel à suivre.

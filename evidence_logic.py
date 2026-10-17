@@ -29,6 +29,16 @@ def _limited_rule(text):
                 and re.search(r'\b(?:pas|aucun|aucune|absence|ne)\b', text))
 
 
+def _verification_obligation(head):
+    # Examiner la première obligation : une vérification ajoutée plus loin
+    # ne neutralise pas une prescription ancienne formulée auparavant.
+    obligation = re.search(r'\b(?:doit|doivent|devez)\b', head)
+    if not obligation:
+        return False
+    action = head[obligation.end():].strip()
+    return bool(re.match(r'(?:faire\s+)?(?:confirmer|verifier)\b|etre\s+(?:confirme|verifie)\w*\b', action))
+
+
 def _historical_confirmation(text):
     return bool(re.search(r'\banciens?\b|\banciennes?\b|historique', text)
                 and re.search(r'actuel\w*.{0,60}confirm|confirm\w*.{0,60}actuel', text))
@@ -75,7 +85,7 @@ def evidence_logic_errors(claims):
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
         historical_pending = any(_historical_confirmation(p) for p in proofs)
-        if (historical_pending and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', head)
+        if (historical_pending and not _verification_obligation(head) and re.search(r'\bdoit\b|\bdoivent\b|\bdevez\b|obligatoire|exig[eé]', head)
                 and not re.search(r'selon|d.apres|(?:note|texte|circulaire).{0,40}\b(?:19|20)\d{2}\b|a confirmer|reste a verifier', head)):
             errors.append({'index': i, 'errors': [
                 'prescription ancienne dont les modalités actuelles sont à confirmer : attribuer la prescription à sa source datée et conserver la vérification actuelle, sans en faire une obligation actuelle certaine']})

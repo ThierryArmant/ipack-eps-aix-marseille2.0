@@ -1269,8 +1269,7 @@ verifier_veille_eduscol(tavily_client)
 # ======================================================================
 # 🔑 ZONE SECRÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
 # ======================================================================
-with st.sidebar:
-    st.markdown("### ⚙️ Espace Administration")
+with st.expander("⚙️ Administration", expanded=False):
     mot_de_passe_entre = st.text_input("Mot de passe admin", type="password")
     if mot_de_passe_entre == admin_secret_key:
         st.session_state.is_admin = True

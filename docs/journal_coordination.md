@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — reprise publique après correction des deux angles morts
+
+Version 0c22c1a observée : deux appels, 14 110 jetons d'entrée, repli « Réponse non confirmée ». La fiche affichée contient bien les réserves rapprochées, dont le circuit et les prescriptions historiques. Cette observation prouve le déploiement du contenu et le maintien d'un rejet ; elle ne permet pas d'attribuer le rejet restant à un contrôle particulier sans nouvelle trace administrateur. Les deux défauts génériques sont reproduits et corrigés localement, 394 tests passent ; le cas transport reste non validé.
+
 ### 2026-10-17 — diagnostic des omissions persistantes et corrections ciblées
 
 Fait : reproduction de deux angles morts du contrôle générique : « est possible sous certaines conditions » non reconnu comme permission vague ; obligation historique dans la deuxième phrase ignorée lorsque seule la première proposition était examinée. Le contrôle examine désormais chaque phrase et couvre cette formulation de possibilité. Deux tests génériques ajoutés, sans réponse métier ni appel supplémentaire. Fiche transport : réserve sur le circuit rapprochée du passage de possibilité de 2023 ; attribution historique et confirmation actuelle regroupées avec les prescriptions d'effectif et d'assurance, références conservées. Aucun nouveau fondement juridique ajouté. Consignes générales et institutionnelles relues : elles demandent déjà de conserver les conditions ; aucune instruction imposant la permission inconditionnelle identifiée. Validation : 394 tests réussis. Reprise publique à effectuer ; la réussite des tests ne valide pas la réponse générée.

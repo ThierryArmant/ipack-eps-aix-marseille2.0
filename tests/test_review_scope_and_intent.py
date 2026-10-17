@@ -37,9 +37,17 @@ class ScopeIntentTests(unittest.TestCase):
 
     def test_national_session_spreading_found_without_medical_keyword(self):
         context = kc.priority_context('Étalement sur plusieurs sessions — suivi des épreuves', 'Lycée Général & Techno', 'examens')
-        self.assertIn('première session', context)
-        self.assertIn('Dans le cadre des aménagements liés au handicap', context)
+        self.assertIn('sans décision finale', context)
+        self.assertIn('le jury attend', context)
+        self.assertNotIn('peuvent demander un étalement', context)
         self.assertIn('handicap', context)
+
+    def test_initial_request_and_conservation_keep_their_document(self):
+        for question in ('Comment demander un étalement des épreuves au titre du handicap ?',
+                         'Conservation de notes après échec et étalement des sessions handicap'):
+            context = kc.priority_context(question, 'Lycée Général & Techno', 'examens')
+            self.assertIn('La demande précède la première session', context)
+            self.assertIn('conservation de notes après un échec', context)
 
     def test_current_rights_and_correct_project_document_retrieved(self):
         current = kc.priority_context('Droits d’actualisation — équipe EPS', 'Lycée Général & Techno', 'ipack')

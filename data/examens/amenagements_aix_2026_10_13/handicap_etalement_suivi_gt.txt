@@ -1,0 +1,15 @@
+### Bac GT : suivi d’un étalement des épreuves déjà accordé au titre du handicap
+[PORTEE: gt]
+Nature de la source : synthèse de références nationales.
+Portée : baccalauréat général et technologique, étalement accordé dans le cadre des aménagements liés au handicap. Ce cadre doit être confirmé pour le candidat concerné.
+
+Dans ce cadre, le jury attend que toutes les épreuves obligatoires aient été présentées avant de prendre sa décision finale.
+
+Dans l’intervalle, le relevé partiel porte la mention « sans décision finale ».
+
+L’étalement ne permet pas de repasser plusieurs fois la même épreuve du premier groupe.
+
+Limite documentaire : cette source explique le suivi réglementaire ; elle ne décrit ni la saisie des notes EPS, ni les codes ou écrans d’iPackEPS, Cyclades ou Santorin. Une demande de gestion peut donc viser soit le suivi des épreuves et du jury, soit les opérations de saisie EPS ; ce second besoin doit être précisé et documenté avant de proposer une manipulation.
+
+Source : Éduscol, février 2026 ; Code de l’éducation, articles D334-8/D334-14 et D336-8/D336-14. Extraction du volet suivi de la fiche conservation et étalement, sans ajout de règle.
+https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap

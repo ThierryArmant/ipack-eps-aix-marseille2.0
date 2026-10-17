@@ -5441,6 +5441,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel",
    "titre": "iPackEPS : actualisation de l’équipe EPS"
+  },
+  "data/examens/amenagements_aix_2026_10_13/handicap_etalement_suivi_gt.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Bac GT : étalement au titre du handicap",
+   "titre": "Bac GT : suivi d’un étalement accordé au titre du handicap"
   }
  }
 }

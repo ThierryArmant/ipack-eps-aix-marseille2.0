@@ -412,7 +412,8 @@
       "etalement.{0,30}(?:sessions?|epreuves?)|(?:sessions?|epreuves?).{0,30}etale"
     ],
     "exclure_motifs": [
-      "\\bcap\\b|bac pro|professionnel"
+      "\\bcap\\b|bac pro|professionnel",
+      "(?=.*etalement)(?=.*(?:ger|gestion|suiv|deja|comment))(?!.*(?:conserv|benefice|demander|demande initiale|condition.{0,15}(?:obtenir|demande)))"
     ],
     "sessions": [],
     "url": "https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap"
@@ -5995,5 +5996,29 @@
       "(?=.*(?:actualis|modifi|ajout|absen|manquant))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof))"
     ],
     "origine": "Procédure iPackEPS 2026 et réponses du correspondant ; fonctions logicielles uniquement"
+  },
+  "data/examens/amenagements_aix_2026_10_13/handicap_etalement_suivi_gt.txt": {
+    "title": "Bac GT : suivi d’un étalement accordé au titre du handicap",
+    "statut": "extraction_source_nationale_suivi",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*etalement)(?=.*(?:ger|gestion|suiv|deja|comment))(?!.*(?:conserv|benefice|demander|demande initiale|condition.{0,15}(?:obtenir|demande)))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac pro|professionnel"
+    ],
+    "exclusif_motifs": [
+      "(?=.*etalement)(?=.*(?:ger|gestion|suiv|deja|comment))(?!.*(?:conserv|benefice|demander|demande initiale|condition.{0,15}(?:obtenir|demande)))"
+    ],
+    "sessions": [],
+    "url": "https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap"
   }
 }

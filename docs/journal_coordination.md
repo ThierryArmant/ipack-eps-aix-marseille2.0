@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 22:40 — partie fiches (seule) — reprise du cas centre étranger (0404048)
+
+Constaté : réponse partielle, deux appels, 12 993 jetons. « Ajouter des classes dans Cyclades » (au lieu d'iPackEPS) ; omissions : compte professeur suffisant, 100 % sans élèves normal, fonctions à cocher, transfert par l'inspection, Santorin en janvier. Quatre fiches prioritaires transmises dont deux hors sujet : « Blocages des lycées » (« Cyclades est fermé » lu comme lycée fermé) et « une fenêtre Cyclades/Santorin » (« deux classes » + « onglet »).
+Fait : fiche réécrite en lignes autonomes avec le vocabulaire de la question ; priorité 340 et exclusive quand la question porte sur l'onglet, le compte, le 100 %, la fermeture ou l'ajout de classes (la question « comment nos élèves arrivent dans Cyclades » garde la fiche g3). Fiches blocages : exclues quand « fermé » se rapporte à Cyclades, Santorin, iPackEPS, la saisie ou les protocoles sans mot de blocage ; fiche onglets exclue pour « onglet chef/administrateur/professeur ». Tests réussis.
+
 ### 2026-10-17 22:25 — partie fiches (seule) — centre étranger : compte professeur, pas d'élèves
 
 Fait : fiche anonymisée `data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt` (priorité 320) d'après l'échange de l'assistance d'Aix du 14 octobre 2026 : accès de profil professeur sur l'identité de l'établissement, import classes/élèves inactif hors MEN et AEFE, pas d'affectation d'élèves, 100 % normal, saisie Cyclades fermée et transfert des protocoles par l'inspection, élèves dans Cyclades puis Santorin à partir de janvier, étapes à suivre. Formulation rapprochée de la fiche du 13 octobre (« accès institutionnel ») pour éviter une contradiction ; renvoi vers elle si l'erreur persiste. Ne dit pas qui associe les élèves dans Cyclades. Déclencheur limité aux établissements à l'étranger, AEFE, hors MEN ; CFA et « élève étranger » exclus. Registre régénéré. Tests réussis.

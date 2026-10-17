@@ -4201,7 +4201,10 @@
       "(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "date_verification": "2026-10-12"
+    "date_verification": "2026-10-12",
+    "exclure_motifs": [
+      "^(?!.*(?:blocag|blocus|barricad|greve|manifest)).*(?:cyclades|santorin|ipack|application|saisie|protocoles?)\\W+(?:\\w+\\W+){0,3}ferm"
+    ]
   },
   "data/commun/blocages_lycees_ccf_pro.txt": {
     "title": "Blocages des lycées : CCF EPS — bac PRO",
@@ -4220,7 +4223,10 @@
       "(?=.*(?:blocag|(?:lycee|etablissement|portail|entree|grilles?)\\W+(?:\\w+\\W+){0,3}bloqu|bloqu\\w*\\W+(?:\\w+\\W+){0,3}(?:lycee|etablissement)|blocus|barricad|lycee.*ferm|fermeture.*lycee|etablissement.*ferm|fermeture.*etablissement))(?=.*(?:ccf|eps|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?|examen))"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
-    "date_verification": "2026-10-12"
+    "date_verification": "2026-10-12",
+    "exclure_motifs": [
+      "^(?!.*(?:blocag|blocus|barricad|greve|manifest)).*(?:cyclades|santorin|ipack|application|saisie|protocoles?)\\W+(?:\\w+\\W+){0,3}ferm"
+    ]
   },
   "data/examens/audit_faq_2026_10_12/a1_procedure_verifiee.txt": {
     "title": "FAQ EPS — Absence d'enseignant : co-évaluateur absent le jour du CCF (bac GT)",
@@ -4989,7 +4995,10 @@
     ],
     "url": "https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
+    "statut": "reponse_relue_audit_lot2_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "exclure_motifs": [
+      "onglets? (?:du |de |d.)?(?:chef|administrat|professeur)"
+    ]
   },
   "data/examens/audit_lot2_2026_10_12/inscription_inaptitude_gt.txt": {
     "title": "Aix : inscriptions terminale GT, APTE en CCF et inaptitude médicale",
@@ -6080,7 +6089,7 @@
       "cap"
     ],
     "prioritaire": true,
-    "priorite": 320,
+    "priorite": 340,
     "modes": [
       "ipack",
       "examens"
@@ -6091,6 +6100,9 @@
     "exclure_motifs": [
       "\\bcfa\\b|\\bgreta\\b|\\bmfr\\b|lycee agricole|apprenti|candidat (?:libre|individuel)|cned"
     ],
-    "origine": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 (anonymisé)"
+    "origine": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 (anonymisé)",
+    "exclusif_motifs": [
+      "^(?=.*(?:(?:lycee|etablissement|centre|ecole|college|groupe scolaire)s?.{0,30}(?:a l.)?etrangers?\\b|(?:francais|implante)s? a l.etranger|\\baefe\\b|hors men\\b))(?=.*(?:onglet|compte|100 ?%|ferm|actualis|ajout\\w* .{0,20}classes|chef d.etablissement))"
+    ]
   }
 }

@@ -56,8 +56,11 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertNotIn(t, titres("Un élève étranger nouvellement arrivé n'apparaît pas dans ma classe"))
         self.assertNotIn(t, titres("Nous sommes un CFA, aucun apprenti n'apparaît dans iPackEPS"))
         texte = Path('data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt').read_text(encoding='utf-8')
-        self.assertIn("l'inspection transfère les protocoles", texte)
+        self.assertIn("c'est l'inspection qui transfère les protocoles", texte)
         self.assertNotIn('@', texte)
+        q = ("Lycée français à l'étranger : je n'ai pas l'onglet chef d'établissement, Cyclades est fermé "
+             "pour les protocoles et le dossier est à 100 % sans élèves.")
+        self.assertEqual([t], titres(q, GT, 'examens'))
 
 
 if __name__ == '__main__':

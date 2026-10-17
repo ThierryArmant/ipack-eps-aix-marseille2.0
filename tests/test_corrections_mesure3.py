@@ -62,6 +62,14 @@ class CorrectionsMesure3(unittest.TestCase):
         texte = Path('data/examens/regles_dnb_eps.txt').read_text(encoding='utf-8')
         self.assertIn("saisir « Dispensé » pour l'EPS dans le LSU", texte)
 
+    def test_fiches_examen_hors_onglet_textes(self):
+        r = t("Un élève a une dispense d'EPS d'un mois : doit-il venir en cours ?", CLG, 'textes')
+        self.assertFalse(any(x.startswith('DNB') for x in r), r)
+        self.assertIn('DNB EPS : inaptitude, dispense, PAP, PAI et PPS',
+                      t("En troisième, un élève est dispensé d'EPS toute l'année : que met-on dans le LSU ?", CLG, 'examens'))
+        self.assertIn('Certificat d’inaptitude : rôle médical et rôle pédagogique',
+                      t("Un élève a un certificat médical pour deux semaines : que fait-il en EPS ?", CLG, 'textes'))
+
 
 if __name__ == '__main__':
     unittest.main()

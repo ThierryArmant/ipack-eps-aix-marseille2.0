@@ -730,6 +730,10 @@
         ],
         "reponse": "Pour un élève de troisième scolarisé en établissement, absent à l'évaluation de remplacement : si l'absence n'est pas dûment justifiée, zéro est attribué pour l'enseignement concerné. Si elle est dûment justifiée, l'élève est à nouveau convoqué. Il s'agit du contrôle continu du DNB, pas d'un CCF EPS du lycée. À compter de la session 2027, la source est la note du 11 septembre 2026, NOR MENE2623194N, II.4.3.1 (BO spécial n° 4 du 17 septembre 2026), qui abroge la note du 2 septembre 2025. Pour un dossier de la session 2026, vérifier l'ancien texte MENE2515977N. https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
       }
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
@@ -869,6 +873,10 @@
     ],
     "exclure_motifs": [
       "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/cap_session_2026.txt": {
@@ -884,6 +892,10 @@
     ],
     "exclure_motifs": [
       "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/referentiel_champs_activites_afl.txt": {
@@ -2831,7 +2843,11 @@
       "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/02_lsu_cyclades_santorin.txt": {
     "title": "DNB : LSU, Cyclades, Santorin et harmonisation",
@@ -2855,7 +2871,11 @@
     "urls_par_session": {
       "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
       "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
-    }
+    },
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/03_absences_representativite.txt": {
     "title": "DNB : absence, moyenne représentative, En attente, rattrapage et remplacement",
@@ -2875,7 +2895,11 @@
       "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/04_inaptitudes_dispenses.txt": {
     "title": "DNB EPS : inaptitude, dispense, PAP, PAI et PPS",
@@ -2894,7 +2918,11 @@
       "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA551S/BASPE_551.pdf"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/05_competences_apsa_shn.txt": {
     "title": "DNB EPS : compétences, note sur 20, trois APSA et sportifs de haut niveau",
@@ -2913,7 +2941,11 @@
       "https://eduscol.education.gouv.fr/5604/modalites-d-attribution-du-diplome-national-du-brevet"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/06_oral_parcours_eps.txt": {
     "title": "DNB : oral, projet EPS et parcours éducatifs",
@@ -2936,7 +2968,11 @@
     "urls_par_session": {
       "2026": "https://www.education.gouv.fr/bo/2025/Hebdo33/MENE2515977N",
       "2027": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2623228N"
-    }
+    },
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/07_incluscol_amenagements.txt": {
     "title": "DNB : Incluscol et demandes d'aménagements d'examen",
@@ -2955,7 +2991,11 @@
       "https://eduscol.education.gouv.fr/sites/default/files/document/guide-utilisateur-incluscol-chef-detablissementpdf-113391.pdf"
     ],
     "support": "Diaporama académique DNB, mars 2026",
-    "date_verification": "2026-10-10"
+    "date_verification": "2026-10-10",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/dnb/08_sessions_sources_dates.txt": {
     "title": "DNB : session 2026 ou 2027, textes et dates",
@@ -2982,6 +3022,10 @@
     },
     "exclure_motifs": [
       "sss|section sportive|sortie|natation|escalade|sport.?etudes"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/gt_option_eps_lsl.txt": {
@@ -3003,6 +3047,10 @@
     ],
     "exclusif_motifs": [
       "(?=.*option)(?=.*(?:cyclades|santorin|ccf|lsl|lsu))"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/pro_shn_ccf.txt": {
@@ -3015,7 +3063,11 @@
       "shn|haut niveau|specialite sportive"
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
-    "statut": "verifie_2026-10-10_portee_explicite"
+    "statut": "verifie_2026-10-10_portee_explicite",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/archives/retires_non_verifies/ipack_152_thematique_l_evaluation_en_eps_sportifs_de_haut_niveau_shn.txt": {
     "title": "Thématique : L'évaluation en EPS (Sportifs de Haut Niveau / SHN)",
@@ -3043,7 +3095,11 @@
     "motifs": [
       "inapt|dispens|une.*note|note.*conserv"
     ],
-    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
     "title": "### [SITUATION: SECTION SPORTIVE SCOLAIRE : PRATIQUE SUPPLEMENTAIRE ET EPS OBLIGATOIRE]",
@@ -3102,7 +3158,11 @@
       "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039034347",
       "https://www.ac-aix-marseille.fr/media/39065/download"
     ],
-    "statut": "verifie_2026-10-10_trois_documents_session_2026"
+    "statut": "verifie_2026-10-10_trois_documents_session_2026",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/archives/retires_non_verifies/base_textes_officiels_007_situation_6e_section_conformite_securite_en_milieu_aquatique_et_natation_scolaire.txt": {
     "title": "[SITUATION: 6E SECTION : CONFORMITÉ SÉCURITÉ EN MILIEU AQUATIQUE ET NATATION SCOLAIRE]",
@@ -3137,6 +3197,10 @@
     "priorite": 90,
     "exclure_motifs": [
       "^(?=.*(?:shn|haut niveau))(?=.*(?:(?:apres|depuis) (?:la )?(?:cloture|fin) des inscriptions|apres (?:l.)?inscription|tardi|statut (?:obtenu|acquis|arrive) (?:en|apres|trop)|obtenu (?:son|le) statut.{0,40}apres))"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/sorties_premier_degre.txt": {
@@ -3149,6 +3213,9 @@
     "statut": "verifie_2026-10-10_trois_documents",
     "examens": [
       "primaire"
+    ],
+    "modes": [
+      "textes"
     ]
   },
   "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
@@ -3306,7 +3373,8 @@
     "examens": [],
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "motifs": [
@@ -3995,6 +4063,10 @@
       "ponctuel|shn|haut niveau",
       "(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations)",
       "(?:inapte?s?|inaptitude|dispense?s?|blesse?s?) (?:sur|a|pour|lors d.) ?une (?:seule )?(?:des )?(?:trois |3 )?(?:epreuves?|activites?|ccf|apsa)|une (?:seule )?des (?:trois|3) (?:epreuves|activites|ccf|apsa)"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
     ]
   },
   "data/commun/audit355/aix_marche_adaptee.txt": {
@@ -4010,7 +4082,11 @@
       "maladie chronique|aucune.{0,25}activite|marche.{0,20}adapt|epreuve.{0,20}academique.{0,20}adapt"
     ],
     "statut": "verifie_2026-10-11_portee_session_2026 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
-    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/audit355/aix_codes_absence_gt.txt": {
     "title": "Aix : codes d’absence au bac GT",
@@ -4023,7 +4099,11 @@
       "(?=.*santorin)(?=.*\\bab\\b)(?=.*\\bdi\\b)"
     ],
     "statut": "verifie_2026-10-11_portee_session_2026 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
-    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf"
+    "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "modes": [
+      "examens",
+      "ipack"
+    ]
   },
   "data/commun/audit355/bac_pro_formation_continue.txt": {
     "title": "Bac pro : formation continue et dispense EPS",

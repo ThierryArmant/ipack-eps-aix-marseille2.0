@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — réponse transport affichée après réparation concise
+
+Reprise administrateur sur ac29e3e, trace téléchargée et lue : cinq affirmations, deux appels, 14 429 jetons d'entrée ; final_rejections vide, aucune exception. Le premier appel est rejeté pour permission vague/mauvaise preuve et prescription historique sans réserve ; le second commence par la confirmation du circuit académique et conserve les vérifications d'assurance et de contrôle technique ainsi que la réserve du seuil historique de surveillance. Présentation observée : attributions répétées remplacées par [1], un volet de références, diagnostic replié, pied générique absent. Limite de fond : la réponse ne restitue pas explicitement le champ obligatoire/facultatif et l'information des parents ; le déblocage et l'allègement observés ne valent donc pas validation juridique intégrale ni mesure de fiabilité générale. 399 tests locaux réussis.
+
 ### 2026-10-17 — rédaction essentielle et références regroupées
 
 Fait : consignes de génération et réparation recentrées sur les démarches établies, les confirmations utiles et les réserves dans la même affirmation. Aucune permission vague à remplacer par une autre ; commencer par la confirmation lorsqu'elle conditionne l'action. Viser une à six affirmations sans omettre les conditions indispensables. Pas de troisième appel, ni changement de modèle, ni conclusion métier codée. Affichage : attributions regroupées et numérotées dans un volet de références avec liens ; portée académique conservée dans la prose ; extraits de repli intégralement accessibles mais repliés par défaut ; retrait du pied générique répétitif ; diagnostic administrateur replié. Tests de conservation des réserves visibles, unicité des références et repli des extraits. L'ancien test de présence obligatoire du pied d'assistance est remplacé conformément à la demande de concision. Validation : 399 tests réussis et compilation. Reprise publique à effectuer.

@@ -1,7 +1,7 @@
 ### Aix-Marseille : établissement à l'étranger ou hors ministère — compte professeur, pas d'élèves dans iPackEPS, protocoles transférés par l'inspection
 [PORTEE: gt,pro,cap]
 Sigles : AEFE = Agence pour l'enseignement français à l'étranger ; MEN = ministère de l'Éducation nationale ; RNE = identifiant de l'établissement ; SIECLE = base élèves des établissements.
-Réponse directe : pour un établissement à l'étranger ou hors MEN rattaché à Aix-Marseille, il est normal de ne pas pouvoir actualiser ni ajouter de classes, de n'avoir aucun élève dans iPackEPS et de ne pas avoir la main dans Cyclades pour les protocoles.
+Réponse directe : pour un établissement à l'étranger ou hors MEN rattaché à Aix-Marseille (c'est le cas des établissements de Tunisie, gérés par l'académie d'Aix-Marseille), il est normal de ne pas pouvoir actualiser ni ajouter de classes, de n'avoir aucun élève dans iPackEPS et de ne pas avoir la main dans Cyclades pour les protocoles.
 À Aix-Marseille, pour les centres étrangers, seul un accès de profil professeur est ouvert, à partir de l'identité de l'établissement (construite sur son RNE) : c'est le compte institutionnel utilisé par l'établissement, il n'y a pas d'onglet chef d'établissement à obtenir. Les prérogatives de ce compte suffisent pour déposer les référentiels et saisir les protocoles.
 À Aix-Marseille, l'importation des classes et des élèves n'est pas active pour les établissements hors MEN et AEFE : la base élèves de ces établissements n'est pas SIECLE, donc les élèves ne seront jamais dans iPackEPS.
 Les élèves n'ont pas à être affectés aux groupes dans iPackEPS : un dossier certificatif à 100 % sans élèves affectés est normal pour ces établissements.

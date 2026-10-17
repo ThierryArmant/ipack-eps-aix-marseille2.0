@@ -16,7 +16,7 @@ Le problème principal n'est donc pas l'absence de fiches. C'est **quelle fiche 
 ## 2. Pourquoi iPackEPS est meilleur qu'Examens et Textes
 
 1. **Les fiches iPackEPS répondent à une question à la fois.** Un chemin de menu, un symptôme, une cause. Les fiches d'examen et de textes sont souvent des synthèses : une ligne porte trois ou quatre règles conditionnelles (inaptitude → moyenne de deux notes / note unique / dispense). Le modèle choisit alors la mauvaise branche.
-2. **Très peu de fiches ciblées ont une « Réponse directe ».** C'est 10 sur 166. Or cette ligne s'est montrée la correction la plus efficace (SHN ponctuel, DNB dispensé, laïcité…). Sans elle, le modèle reconstruit la conclusion à partir de règles dispersées.
+2. **Les fiches Textes s'ouvrent souvent sur des métadonnées ou une liste thématique.** Une vingtaine de fiches ciblées de l'onglet Textes commencent par « Nature de la source : … » et couvrent un thème large (carrière, sorties, RGPD…), sans phrase qui réponde. Les fiches d'examen, elles, commencent presque toutes par la réponse (« Oui… », « Non… »). Pour une question précise, la ligne « Réponse directe » s'est montrée la correction la plus efficace (SHN ponctuel, DNB dispensé, laïcité…).
 3. **Des fiches d'examen débordaient sur l'onglet Textes.** 24 fiches prioritaires n'avaient aucun onglet déclaré, dont 9 fiches DNB. Exemple : une question sur une dispense d'un mois recevait la fiche « examen DNB ». Corrigé (3d8586b).
 4. **Des fiches générales à motifs très larges.** Exemple : « Bac GT : CCF, activité établissement et harmonisation », qui se déclenche sur « ponctuel », « commission », « inapt… note »… Elle arrive sur beaucoup de questions d'examen avec des lignes de plus de 1 500 caractères. Quand elle accompagne une fiche ciblée, le modèle peut mélanger les deux.
 5. **Une fiche ciblée (priorité ≥ 300) exclut la recherche documentaire.** C'est voulu, contre le bruit. Mais si la fiche ciblée est voisine sans être exacte, rien ne vient corriger. M08 et M09 ont échoué ainsi.
@@ -33,7 +33,7 @@ Le problème principal n'est donc pas l'absence de fiches. C'est **quelle fiche 
 
 ## 4. Trous restants (par ordre d'impact)
 
-1. **Lignes « Réponse directe » manquantes** sur 156 fiches ciblées. C'est le plus gros levier. À faire par lots, en commençant par les fiches d'examen les plus sollicitées, et seulement à partir du texte de la fiche (aucune règle nouvelle).
+1. **Fiches Textes thématiques à découper en fiches-réponses courtes**, chacune ouverte par sa réponse. C'est le plus gros levier pour l'onglet Textes. À faire question réelle par question réelle (historique des collègues), seulement à partir du texte de la fiche, sans règle nouvelle.
 2. **Fiche générale GT à découper** : chaque bloc (activités / commission / inaptitude / absence du professeur) en fiche courte et ciblée. Cela évite qu'un bloc voisin pollue la réponse.
 3. **Textes nationaux d'inaptitude à intégrer** : circulaire 90-107 du 17 mai 1990, arrêté du 13 septembre 1989, décret 88-977. Le texte officiel est à fournir : Légifrance n'est pas accessible d'ici.
 4. **Sans source aujourd'hui** :

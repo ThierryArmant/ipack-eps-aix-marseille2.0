@@ -78,8 +78,20 @@ def bind_faq_context(spans, body):
         if (q and r and q.group(1)==r.group(1)
                 and span.get('scope')==following.get('scope')
                 and not body[span['end']:following['start']].strip()):
-            out.append({**span,'text':body[span['start']:following['end']], 'end':following['end']})
-            i+=2
+            # Garder aussi les sous-puces de la réponse avec sa question :
+            # une restriction née d'un cas particulier ne devient pas universelle.
+            end = i + 2
+            last = following
+            while end < len(spans):
+                candidate = spans[end]
+                if (re.match(r"^\s*(?:[-*]\s*)?(?:Q\d+\b|R\d+\b|#{1,6}\s)", candidate['text'], re.I)
+                        or candidate.get('scope') != span.get('scope')
+                        or body[last['end']:candidate['start']].strip()):
+                    break
+                last = candidate
+                end += 1
+            out.append({**span, 'text': body[span['start']:last['end']], 'end': last['end']})
+            i = end
         else:
             out.append(span)
             i+=1
@@ -415,6 +427,11 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    # Le correctif d'une APSA Courses ne répond pas à un incident non identifié.
+    course_case = r'\bcourses\b|relais.?vitesse|demi.fond|\bhaies\b|\bsauts\b|\blancers\b'
+    if (not re.search(course_case, q) and re.search(course_case, t)
+            and re.search(r'remplac|fusionn|selectionn|declar.{0,50}certificative', t)):
+        return True
     # Un projet EPS/AS/d'établissement ne devient pas un dossier de section
     # sportive par simple voisinage lexical. Garder les documents comparatifs.
     ordinary_project = re.search(r'projet.{0,20}(?:pedagogique|\beps\b|\bas\b|etablissement)', q)

@@ -131,6 +131,14 @@ def clarification(question, public):
     if goal:
         return goal
     q = normalise(question)
+    # Une alerte de comptage sans écran ni message exact ne permet pas de
+    # choisir entre déclaration des activités et contrôle d'un protocole.
+    if (re.search(r'ipack|verificateur', q) and re.search(r'apsa', q)
+            and re.search(r'pas assez|insuffisant|plus (?:que |de )?3|nombre', q)
+            and not re.search(r'protocole|ensemble certificatif|dossier.{0,15}apsa|\bcourses\b|relais|demi.fond', q)):
+        return ("Sur quel écran le vérificateur signale-t-il le problème : déclaration des APSA du dossier EPS "
+                "ou protocole d’un groupe dans le dossier certificatif ? Recopiez le message exact et indiquez "
+                "les APSA concernées, sans nom d’élève, pour identifier la vérification adaptée.")
     # Identifier le dossier avant d'en inventer le chemin. Cette clarification
     # ne décide ni du contenu du projet ni d'une règle institutionnelle.
     project_search = re.search(r'projet', q) and re.search(r'retrouv|consult|bilan|archive|precedent', q)

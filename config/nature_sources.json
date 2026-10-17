@@ -5463,6 +5463,17 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel",
    "titre": "iPackEPS : élève absent de la liste, comment l'ajouter"
+  },
+  "data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt": {
+   "nature": [
+    "consigne_academique",
+    "logiciel"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "centres étrangers et hors MEN rattachés à Aix-Marseille",
+   "titre": "Aix-Marseille : établissement à l'étranger ou hors MEN — compte professeur, pas d'élèves, protocoles transférés par l'inspection"
   }
  }
 }

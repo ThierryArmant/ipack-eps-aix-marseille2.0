@@ -49,6 +49,16 @@ class QuestionsReellesTests(unittest.TestCase):
                   "Non, le professeur ne peut pas imposer une marque de tenue aux familles."):
             self.assertTrue(any(lexical_support_details(t, [s['text']])['passed'] for s in packet['passages']), t)
 
+    def test_centre_etranger_sans_eleves(self):
+        t = "Aix-Marseille : établissement à l'étranger ou hors MEN — compte professeur, pas d'élèves, protocoles transférés par l'inspection"
+        self.assertIn(t, titres("Lycée français à l'étranger : je ne peux pas actualiser mes classes et je n'ai pas l'onglet chef d'établissement."))
+        self.assertIn(t, titres("Établissement AEFE : la saisie des protocoles est fermée dans Cyclades, comment faire ?", GT, 'examens'))
+        self.assertNotIn(t, titres("Un élève étranger nouvellement arrivé n'apparaît pas dans ma classe"))
+        self.assertNotIn(t, titres("Nous sommes un CFA, aucun apprenti n'apparaît dans iPackEPS"))
+        texte = Path('data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt').read_text(encoding='utf-8')
+        self.assertIn("l'inspection transfère les protocoles", texte)
+        self.assertNotIn('@', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -6070,5 +6070,27 @@
     "exclure_motifs": [
       "santorin|\\blots?\\b|cyclades|protocole|equipe|collegue|professeur|enseignant|groupes? eps.{0,30}(?:pas|aucun)"
     ]
+  },
+  "data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt": {
+    "title": "Aix-Marseille : établissement à l'étranger ou hors MEN — compte professeur, pas d'élèves, protocoles transférés par l'inspection",
+    "statut": "courriel_source_anonymise_2026_10_14",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "^(?=.*(?:(?:lycee|etablissement|centre|ecole|college|groupe scolaire)s?.{0,30}(?:a l.)?etrangers?\\b|(?:francais|implante)s? a l.etranger|\\baefe\\b|hors men\\b|ne gere pas.{0,40}siecle|pas (?:la base |sur |dans )?siecle))(?=.*(?:classes?|actualis|import|affect|protocole|cyclades|chef d.etablissement|100 ?%|eleves?|groupes?|compte|acces))"
+    ],
+    "exclure_motifs": [
+      "\\bcfa\\b|\\bgreta\\b|\\bmfr\\b|lycee agricole|apprenti|candidat (?:libre|individuel)|cned"
+    ],
+    "origine": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 (anonymisé)"
   }
 }

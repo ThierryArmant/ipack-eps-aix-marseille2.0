@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 22:25 — partie fiches (seule) — centre étranger : compte professeur, pas d'élèves
+
+Fait : fiche anonymisée `data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt` (priorité 320) d'après l'échange de l'assistance d'Aix du 14 octobre 2026 : accès de profil professeur sur l'identité de l'établissement, import classes/élèves inactif hors MEN et AEFE, pas d'affectation d'élèves, 100 % normal, saisie Cyclades fermée et transfert des protocoles par l'inspection, élèves dans Cyclades puis Santorin à partir de janvier, étapes à suivre. Formulation rapprochée de la fiche du 13 octobre (« accès institutionnel ») pour éviter une contradiction ; renvoi vers elle si l'erreur persiste. Ne dit pas qui associe les élèves dans Cyclades. Déclencheur limité aux établissements à l'étranger, AEFE, hors MEN ; CFA et « élève étranger » exclus. Registre régénéré. Tests réussis.
+
 ### 2026-10-17 22:10 — partie fiches (seule, retouche programme) — synonymes stricts dans le contrôle lexical
 
 Fait : `equivalences_verification` dans `config/langage_collegues.json` (professeur/enseignant, acheter/achat, exiger/imposer, famille/parents, note/noter/notation) ; `_racines` de `documentary_review.py` ramène ces mots à une racine commune. Seuil inchangé (deux racines partagées) ; une preuve sans rapport reste rejetée (test). N'ajouter que des synonymes exacts. 429 tests.

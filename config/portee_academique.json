@@ -1101,6 +1101,30 @@
     }
    ]
   },
+  "data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : établissement à l'étranger ou hors ministère — compte professeur, pas d'élèves dans iPackEPS, protocoles transférés par l'inspection",
+     "lignes": [
+      "Réponse directe : pour un établissement à l'étranger ou hors MEN rattaché à Aix-Marseille, il est normal de ne pas pouvoir actualiser ni ajouter de classes, de n'avoir aucun élève dans iPackEPS et de ne pas avoir la main dans Cyclades pour les protocoles.",
+      "À Aix-Marseille, pour les centres étrangers, seul un accès de profil professeur est ouvert, à partir de l'identité de l'établissement (construite sur son RNE) : c'est le compte institutionnel utilisé par l'établissement, il n'y a pas d'onglet chef d'établissement à obtenir. Les prérogatives de ce compte suffisent pour déposer les référentiels et saisir les protocoles.",
+      "À Aix-Marseille, l'importation des classes et des élèves n'est pas active pour les établissements hors MEN et AEFE : la base élèves de ces établissements n'est pas SIECLE, donc les élèves ne seront jamais dans iPackEPS.",
+      "Les élèves n'ont pas à être affectés aux groupes dans iPackEPS : un dossier certificatif à 100 % sans élèves affectés est normal pour ces établissements.",
+      "À Aix-Marseille, la saisie des protocoles EPS dans Cyclades est fermée pour tous les établissements : cette phase se fait entièrement dans iPackEPS, puis l'inspection transfère les protocoles d'iPackEPS vers Cyclades. Les élèves apparaissent ensuite dans Cyclades, puis dans Santorin à partir de janvier.",
+      "Ce qu'il faut faire dans iPackEPS, dans cet ordre :",
+      "1. Dans la partie « Fonctions » de sa fiche Professeur, cocher « Coordonnateur » et « Responsable de certification ».",
+      "2. Déclarer les APSA certificatives : [Dossiers et projets] > [Dossier EPS] > [APSA].",
+      "3. Pour toute nouvelle APSA déclarée, déposer le référentiel : [Dossiers et projets] > [Dossier certificatif] > [Référentiels certificatifs].",
+      "4. Composer les ensembles certificatifs : [Dossiers et projets] > [Dossier EPS] > [Groupes].",
+      "5. Compléter les protocoles : [Dossiers et projets] > [Dossier certificatif] > [Protocoles certificatifs] ; pour chaque APSA, préciser les dates d'évaluation et de rattrapage, et choisir un co-évaluateur externe en face de chaque évaluation.",
+      "Résultat attendu : protocoles uniquement avec des coches vertes, et niveau d'achèvement des référentiels et des protocoles à 100 % dans [Dossier certificatif].",
+      "Si une erreur persiste après ces étapes (séquences certificatives refusées, par exemple), voir la fiche sur les centres étrangers suivis par le service : vérifications puis signalement.",
+      "Limites : cette réponse ne dit pas qui associe ensuite les élèves aux protocoles dans Cyclades ; ne pas l'affirmer. Hors Aix-Marseille, l'ouverture des accès et le circuit de transfert dépendent de l'académie de rattachement."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
    "academie": "aix-marseille",
    "sections": [

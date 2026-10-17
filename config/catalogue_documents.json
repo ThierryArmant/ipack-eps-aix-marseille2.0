@@ -3540,7 +3540,8 @@
     "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "modes": [
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "prioritaire": true,
     "motifs": [
@@ -6418,5 +6419,79 @@
     "exclure_motifs": [
       "\\bcap\\b|bac ?pro|professionnelle|premiere et (?:la )?terminale"
     ]
+  },
+  "data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt": {
+    "statut": "texte_officiel_relu_2026_10_17",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "title": "Bac GT : contrôle adapté pour inaptitude partielle permanente ou handicap (note 2026, 2.e)",
+    "priorite": 320,
+    "motifs": [
+      "^(?=.*(?:inaptitude (?:partielle )?(?:permanente|definitive)|inapte (?:partiel\\w* )?(?:a l.annee|toute l.annee|permanent)|handicap|controle adapte|epreuves? adaptees?))(?=.*(?:evalu|organis|ccf|note|bac|epreuve|certif))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac ?pro|\\bdnb\\b|brevet|college|option|\\bshn\\b|haut niveau|ipack|saisir|bouton|temporaire|en cours d.annee|blesse|totale|totalement|dispens"
+    ]
+  },
+  "data/examens/mesure3_corrections/gt_protocole_communique_candidats.txt": {
+    "statut": "texte_officiel_relu_2026_10_17",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "title": "Bac GT : protocole porté à la connaissance des élèves et familles (note 2026, 2.b)",
+    "priorite": 305,
+    "motifs": [
+      "^(?=.*protocole)(?=.*(?:eleves?|candidats?|familles?|parents))(?=.*(?:connaitre|connaissance|communiqu|informer|information|afficher|diffus|transmettre aux|sous quelle forme))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac ?pro|\\bdnb\\b|ipack|saisir|bouton|depos|cyclades|valid(?:er|ation) (?:le|du) protocole"
+    ]
+  },
+  "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt": {
+    "title": "iPackEPS : envoi du dossier pour validation impossible (bouton grisé)",
+    "statut": "extraction_technique_sources_existantes_2026-10-17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*(?:gris|inaccessible|inactif|ne (?:s.)?affiche pas|impossible|n.arrive pas|je ne peux pas))(?=.*(?:envoy|valider|validation|soumettre|transmettre))(?=.*(?:dossier|protocole))"
+    ],
+    "exclure_motifs": [
+      "verrouill|santorin|notes?\\b|aflp?\\b|cyclades|changement d.activite|certificat medical|referentiel"
+    ]
+  },
+  "data/textes/fiches/dispense_inaptitude_presence_cours.txt": {
+    "title": "Élève inapte ou dispensé : présence en cours d'EPS",
+    "statut": "sources_relues_2026-10-17_lacune_signalee",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "^(?=.*(?:dispens|inapt|certificat))(?=.*(?:venir en cours|venir en eps|etre present|presence|assister|rester en cours|rester au cours|doit[- ]il venir|vient en cours|absent))"
+    ],
+    "exclure_motifs": [
+      "ccf|\\bbac\\b|\\bdnb\\b|\\bcap\\b|examen|ipack|saisir|santorin|lsu|note"
+    ],
+    "url": "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2023/09/Les-inaptitudes-en-EPS-2023-09.pdf",
+    "date_verification": "2026-10-17"
   }
 }

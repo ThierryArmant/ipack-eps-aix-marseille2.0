@@ -70,6 +70,30 @@ class CorrectionsMesure3(unittest.TestCase):
         self.assertIn('Certificat d’inaptitude : rôle médical et rôle pédagogique',
                       t("Un élève a un certificat médical pour deux semaines : que fait-il en EPS ?", CLG, 'textes'))
 
+    def test_controle_adapte_inaptitude_permanente_gt(self):
+        s = 'Bac GT : contrôle adapté pour inaptitude partielle permanente ou handicap (note 2026, 2.e)'
+        self.assertIn(s, t("Mon élève de première a un handicap moteur attesté : comment l'évaluer en CCF ?"))
+        self.assertNotIn(s, t("Un élève totalement inapte toute l'année de terminale : note EPS au bac ?"))
+        self.assertNotIn(s, t("Bac pro : élève en inaptitude partielle permanente, comment l'évaluer ?", PRO))
+        texte = Path('data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt').read_text(encoding='utf-8')
+        self.assertIn('ou exceptionnellement une seule', texte)
+
+    def test_protocole_porte_a_connaissance_familles(self):
+        s = "Bac GT : protocole porté à la connaissance des élèves et familles (note 2026, 2.b)"
+        self.assertIn(s, t("Faut-il informer les parents du protocole d'évaluation du bac en EPS ?"))
+        self.assertNotIn(s, t("Comment déposer notre protocole dans iPackEPS ?", GT, 'ipack'))
+
+    def test_envoi_dossier_bouton_grise(self):
+        s = 'iPackEPS : envoi du dossier pour validation impossible (bouton grisé)'
+        self.assertIn(s, t("Je n'arrive pas à envoyer le dossier pour validation, le bouton est grisé", GT, 'ipack'))
+        self.assertNotIn(s, t("Le bouton Verrouiller est grisé dans Santorin", GT, 'ipack'))
+
+    def test_presence_cours_inapte_et_video_textes(self):
+        self.assertIn("Élève inapte ou dispensé : présence en cours d'EPS",
+                      t("Mon élève a un certificat d'inaptitude de trois semaines, doit-il être présent en EPS ?", CLG, 'textes'))
+        self.assertIn('Vidéo EPS : démarche institutionnelle et périmètre iPackEPS',
+                      t("Ai-je le droit de filmer mes élèves en acrosport ?", CLG, 'textes'))
+
 
 if __name__ == '__main__':
     unittest.main()

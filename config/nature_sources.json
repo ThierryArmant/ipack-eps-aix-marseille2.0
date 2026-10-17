@@ -5587,6 +5587,50 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel ; cadre national",
    "titre": "iPackEPS : terminale générale et technologique dans le même groupe EPS (oui)"
+  },
+  "data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : contrôle adapté, inaptitude partielle permanente (note 2026, 2.e)"
+  },
+  "data/examens/mesure3_corrections/gt_protocole_communique_candidats.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : protocole communiqué aux élèves et familles (note 2026, 2.b)"
+  },
+  "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : envoi du dossier pour validation impossible"
+  },
+  "data/textes/fiches/dispense_inaptitude_presence_cours.txt": {
+   "nature": [
+    "texte_national",
+    "consigne_academique"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Martinique"
+   ],
+   "portee_texte": "code de l'éducation (national) ; distinction inaptitude/dispense d'après d'autres académies",
+   "titre": "Élève inapte ou dispensé : présence en cours d'EPS"
   }
  }
 }

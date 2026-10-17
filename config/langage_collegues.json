@@ -51,7 +51,7 @@
    "ajout": "sportif de haut niveau shn"
   },
   {
-   "motif": "(?:piscine|gymnase|mur|salle|stade|installation|bassin|piste).{0,30}(?:ferme|travaux|indisponible|hors service|pas dispo)|(?:plus de|pas de) (?:mur|piscine|gymnase|stade|piste)",
+   "motif": "(?:piscine|gymnase|mur|salle|stade|installation|bassin|piste).{0,30}(?:ferme|travaux|indisponible|hors service|pas dispo)|(?:plus de|pas de) (?:mur|piscine|gymnase|stade|piste)|(?:travaux|fermee?s?|indisponible|inutilisable|hors service|bloqu\\w*).{0,30}(?:piscine|gymnase|\\bmur\\b|salle|stade|installation|bassin|piste)|(?:piscine|gymnase|salle|stade|installation|bassin|piste).{0,30}inutilisable",
    "ajout": "installation fermee activite impossible pour la classe evaluation"
   },
   {
@@ -99,6 +99,15 @@
     "note",
     "noter",
     "notation"
+   ],
+   [
+    "eleve",
+    "candidat"
+   ],
+   [
+    "chef",
+    "principal",
+    "proviseur"
    ]
   ]
  }

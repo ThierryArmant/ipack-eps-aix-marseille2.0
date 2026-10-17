@@ -62,6 +62,23 @@ class QuestionsReellesTests(unittest.TestCase):
              "pour les protocoles et le dossier est à 100 % sans élèves.")
         self.assertEqual([t], titres(q, GT, 'examens'))
 
+    def test_audit_declencheurs_17_octobre(self):
+        cert = 'Certificat d’inaptitude : rôle médical et rôle pédagogique'
+        self.assertNotIn(cert, titres("Le vérificateur me dit que je n’ai pas assez d’APSA certificatives"))
+        self.assertIn(cert, titres("Mon élève a un certificat médical pour le CCF", GT, 'examens'))
+        acces = 'Accès iPackEPS et portail ESTEREL'
+        self.assertNotIn(acces, titres("Où déclarer mes installations sportives ?", CLG))
+        self.assertNotIn(acces, titres("CAP : notre installation est inutilisable, comment organiser le CCF ?", 'Lycée Pro / CAP', 'examens'))
+        self.assertIn(acces, titres("Je n'arrive pas à installer iPackEPS sur mon ordinateur"))
+        sss = '### [SITUATION: SECTION SPORTIVE SCOLAIRE : PRATIQUE SUPPLEMENTAIRE ET EPS OBLIGATOIRE]'
+        self.assertNotIn(sss, titres("Comment préparer les vœux SSS ?", CLG))
+        self.assertIn(sss, titres("Un élève de section sportive est-il dispensé d'EPS ?", CLG, 'textes'))
+
+    def test_synonymes_eleve_candidat_et_chef(self):
+        from documentary_review import lexical_support
+        self.assertTrue(lexical_support("Le principal autorise l'élève à passer l'épreuve différée.",
+                                        ["Le chef d'établissement peut autoriser le candidat à une épreuve différée."]))
+
 
 if __name__ == '__main__':
     unittest.main()

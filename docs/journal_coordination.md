@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 23:20 — partie fiches (seule) — audit du vocabulaire et des déclencheurs (1)
+
+Méthode : 439 questions connues (tests, journal, formulations courantes des fiches) posées dans les trois contextes ; relevé des cas où aucune fiche transmise ne partage deux racines avec la question. Constat principal : le défaut fréquent est la mauvaise fiche transmise, pas le vocabulaire.
+Fait : « certificat » ne déclenche plus les fiches médicales sur « APSA certificatives » (motif `certificats?\b`) ; fiche d'accès iPackEPS exclue pour les installations sportives et une installation inutilisable ; fiche pédagogique SSS exclue pour les démarches du dossier (vœux, reconduction, fermeture, projet, signature, dépôt…) ; dictionnaire : installation fermée aussi dans l'ordre « travaux… installation » ; fiche des obligations de service : ligne HSA en vocabulaire courant (décret 2014-940, art. 4, III) ; synonymes stricts ajoutés au contrôle : élève/candidat, chef/principal/proviseur.
+Non traité, sans source : installation fermée en CAP (la fiche « Installation fermée pour une classe » ne couvre que bac GT et bac pro). Tests réussis.
+
 ### 2026-10-17 23:00 — partie fiches (seule, retouche programme) — listes attachées à leur introduction
 
 Constaté : les fiches enregistrées sont découpées ligne par ligne ; 199 listes (107 fiches) séparaient les étapes d'une démarche, et le modèle n'en citait qu'une partie (centre étranger : étape « cocher les fonctions » omise).

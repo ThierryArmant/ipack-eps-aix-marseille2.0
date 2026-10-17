@@ -619,7 +619,9 @@
     ],
     "exclure_motifs": [
       "piscine|gymnase|stade|\\bmur\\b|bassin|\\bpiste\\b|travaux|ferme",
-      "^(?!.*ipack)(?=.*santorin)"
+      "^(?!.*ipack)(?=.*santorin)",
+      "installations? sportives?|equipements? sportifs?|declarer (?:mes |les |nos )?installations?",
+      "inutilisable|indisponible|hors service|(?:notre|cette|l.) installation(?!.{0,20}(?:ipack|application|logiciel))"
     ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {
@@ -3038,7 +3040,10 @@
       "https://pedagogie.ac-montpellier.fr/sites/default/files/2026-05/2026_%20LIVRET%20D%27ACCOMPAGNEMENT%20ACADEMIQUE%20DES%20SSS_VML4%20_compressed.pdf"
     ],
     "limites": "Trois documents concordants sur les faits retenus ; déclinaisons du même cadre national, pas trois normes indépendantes. Aucun menu local validé.",
-    "url": "https://www.education.gouv.fr/bo/2023/Hebdo48/MENE2334358C"
+    "url": "https://www.education.gouv.fr/bo/2023/Hebdo48/MENE2334358C",
+    "exclure_motifs": [
+      "v(?:oe|œ)ux?|reconduc|reconduire|fermeture|ouverture|dossier|projet|bilan|\\bsign\\w*|depos|evolution|ipack|module|creer.{0,20}groupes?|groupes? sss|\\bplacer\\b"
+    ]
   },
   "data/commun/parcours_sportifs/02_sport_etudes_organisations.txt": {
     "title": "### [SITUATION: SPORT-ETUDES : CLASSE COLLECTIVE OU AMENAGEMENT INDIVIDUEL]",
@@ -3286,7 +3291,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "certificat|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
+      "certificats?\\b|\\bpap\\b|\\bpai\\b|\\bpps\\b|handicap"
     ],
     "exclure_motifs": [],
     "date_verification": "2026-10-11"
@@ -3688,7 +3693,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "certificat|modele.*inapt|annexe.*(?:7|8)"
+      "certificats?\\b|modele.*inapt|annexe.*(?:7|8)"
     ],
     "exclusif_motifs": [],
     "exclure_motifs": [

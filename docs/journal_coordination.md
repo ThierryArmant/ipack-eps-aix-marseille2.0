@@ -24,6 +24,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — reprises ciblées et distinction actualisation/création
+
+Sur e387f0e : recherche d'un projet sans type identifié → demande du type de dossier, zéro appel ; question générale sur une unité facultative → réponse au cadre du diplôme, sans clarification médicale, un appel (4 205 jetons d'entrée). Étalement hors académie : cadre national, mécanismes distincts, condition du handicap et fondement à vérifier présents, sans calendrier ni consigne d'inaptitude d'une autre académie ; un appel (4 364 jetons). Limites de rédaction : formulations encore parfois redondantes, résultat non assimilé à une validation générale.
+
+Droits de l'équipe : l'ancien monopole du coordonnateur a disparu, mais « modifier la liste » reste trop large pour une simple actualisation. Le contexte prioritaire inclut désormais aussi la procédure des données administratives, qui précise que la liste n'est pas saisie à la main et comment corriger une absence dans les bases. Les deux opérations doivent rester distinctes. Test de présence de ces deux documents, 409 tests réussis. Aucune nouvelle réponse métier codée, aucun appel supplémentaire. Autres thèmes relus : conserver les précautions de responsabilité, d'image et d'assurance ; le choix d'activités et les demandes SSS imprécises nécessitent encore de supprimer les branches hors sujet ou de préciser la demande. Pas de nouvelle mesure globale de fiabilité.
+
 ### 2026-10-17 — dossier non identifié : précision utile avant génération
 
 Le contrôle du projet ordinaire sur de8cc91 n'oriente plus vers la section sportive, mais aboutit à un repli après deux appels. Recherche d'un projet sans type identifiable : clarification du type de dossier avant génération, sans supposer une section sportive ni demander de nouveau l'année déjà donnée. Les recherches d'un projet EPS/AS/établissement/SSS explicitement identifié ne sont pas bloquées. Le repli iPackEPS renvoie à l'assistance de l'outil, pas au service des examens par défaut. Périmètre du handicap rapproché des règles d'étalement dans la fiche. 409 tests réussis, compilation et contrôle de diff. Reprises à observer après publication.

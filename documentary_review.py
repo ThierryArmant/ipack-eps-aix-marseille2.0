@@ -752,6 +752,16 @@ Réponds uniquement en JSON selon ce schéma :
                 audit.setdefault('excluded_editorial_claims', []).extend(meta)
                 parsed['claims'] = [c for c in parsed['claims'] if c not in meta]
             accepted, errors = validate_claims(parsed, packets)
+            # Un mauvais passage ne doit pas masquer un défaut de rédaction
+            # indépendant des preuves (par exemple une permission trop vague).
+            # Ne donner aucune citation non validée à ces contrôles.
+            for error in errors:
+                claim = error.get('claim')
+                if isinstance(claim, dict) and isinstance(claim.get('text'), str):
+                    wording = evidence_logic.evidence_logic_errors([
+                        {'text': claim['text'], 'evidence': []}])
+                    for issue in wording:
+                        error['errors'].extend(e for e in issue['errors'] if e not in error['errors'])
             for c in accepted[:]:
                 if situation_mismatch(question, c['text']) or any(
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):

@@ -71,6 +71,25 @@ class TargetedRepairTests(unittest.TestCase):
         self.assertEqual(audit['repair_feedback'], feedback)
         self.assertNotIn('BROUILLON_SANS_JUSTIFICATION', llm.prompts[1])
 
+    def test_lexical_rejection_does_not_hide_source_independent_wording_error(self):
+        import json
+        docs = mark_excerpt('Le responsable vérifie les pièces du dossier avant validation.')
+        bad = {'claims': [{'section': 'decision',
+                           'text': 'Vous pouvez utiliser le dispositif sous certaines conditions.',
+                           'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P1']}]}]}
+        good = {'claims': [{'section': 'condition',
+                            'text': 'Le responsable vérifie les pièces du dossier avant validation.',
+                            'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P1']}]}]}
+        llm, audit = FakeLLM([bad, good]), {}
+        review_exam_answer(llm, question='Comment valider le dossier ?', public='Collège',
+                           documents=docs, mode='textes', audit=audit)
+        feedback = audit['repair_feedback'][0]
+        self.assertEqual(len(feedback['errors']), 2)
+        self.assertIn('passage cité sans rapport', feedback['errors'][0])
+        self.assertIn('conditions non précisées', feedback['errors'][1])
+        self.assertNotIn(bad['claims'][0]['text'], llm.prompts[1])
+        self.assertEqual(len(llm.prompts), 2)
+
     def test_compact_payload_preserves_exact_text_ids_and_legal_scope(self):
         packet = source_packets(mark_excerpt('Une consigne locale précise les étapes.'))[0]
         span = packet['passages'][0]

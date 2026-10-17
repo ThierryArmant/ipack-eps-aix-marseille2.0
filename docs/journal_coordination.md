@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — défaut de rédaction masqué par une mauvaise citation
+
+La reprise administrateur sur a474c03 révèle un défaut du feedback : une permission vague rejetée pour citation sans rapport n'atteignait pas les contrôles logiques. Le second appel recevait seulement l'erreur de sélection, changeait de passage et répétait la permission vague. Les erreurs de rédaction indépendantes des preuves sont désormais ajoutées aux rejets documentaires dès le premier appel, sans donner de citations non validées au contrôle. La réparation reçoit ainsi les deux motifs ensemble. Aucun relâchement de validation, aucune réponse métier codée. Régression générique avec citation erronée et permission vague simultanées. Validation : 391 tests réussis, compilation et contrôle de diff réussis. Essai réel à suivre.
+
 ### 2026-10-17 — repli documentaire complet après rejet persistant
 
 Sur a474c03, le passage actualisé du contrôle technique est présent et n'est plus rejeté dans la reprise administrateur. Deux appels restent insuffisants : permission générale sans conditions concrètes et réserve actuelle de l'assurance omise. Le cas n'est pas validé. Un défaut distinct du repli est observé : le budget d'affichage coupe avant des garanties utiles. Correction commune aux trois modes : garder le début lisible, puis rendre accessibles tous les autres passages du document sélectionné dans une suite dépliable, dans l'ordre et avec leur attribution. Aucun brouillon rejeté publié, aucune levée des contrôles ni appel supplémentaire. Test de conservation intégrale d'une condition longue et d'échappement HTML. Validation locale : 390 tests réussis, compilation et contrôle de diff réussis. Vérification en ligne à suivre.

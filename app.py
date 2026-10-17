@@ -1382,8 +1382,7 @@ label_titres = {
         " Inaptitudes)"
     ),
     "examens": (
-        "📊 Mode Actif : Réglementation Examens & Santorin (Copies Numérisées &"
-        " Jurys)"
+        "📊 Mode Actif : Examen"
     ),
     "textes": (
         "🔒 Mode Actif : SÉCURITÉ & Responsabilité Juridique (Textes Officiels &"
@@ -1453,7 +1452,7 @@ with st.container(key="parcours"):
                 select_module(st.session_state, "ipack")
                 st.rerun()
         with col_b2:
-            if st.button("📊 Examens &\nSantorin", use_container_width=True, key="btn_ex", type=btn_ex_type):
+            if st.button("📊 Examen", use_container_width=True, key="btn_ex", type=btn_ex_type):
                 select_module(st.session_state, "examens")
                 st.rerun()
         with col_b3:
@@ -1574,7 +1573,7 @@ if prompt_a_traiter:
 
         onglets_noms = {
             "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
-            "examens": "l'onglet Réglementation Examens & Santorin (Copies Numérisées)",
+            "examens": "l'onglet Examen",
             "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }
         contexte_choisi_nom = onglets_noms.get(mode, "un onglet de l'application")
@@ -2113,7 +2112,7 @@ if prompt_a_traiter:
 
             elif est_mauvais_onglet and not (est_tasa or est_unss):
                 if est_mauvais_onglet_examens:
-                    onglet_conseille = "Réglementation Examens & Santorin"
+                    onglet_conseille = "Examen"
                     objet_onglet = "la saisie des notes, les lots et les copies dans Santorin"
                 else:
                     onglet_conseille = "Assistance Technique iPackEPS"
@@ -2162,7 +2161,7 @@ if prompt_a_traiter:
             elif est_sujet_secours:
                 texte_brut = """<h3>⚠️ PAS DE SUJET DE SECOURS EN EPS</h3>
 <p><strong>NON :</strong> il n'existe pas de sujet de secours en EPS. Cela figurait dans d'anciens textes, ce n'est plus le cas. Il n'y a pas non plus de sujet écrit ou papier : l'évaluation est pratique.</p>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_cap_3epreuves:
                 # Le BA spécial n° 549 d'Aix-Marseille (session 2026) permet d'organiser 3 épreuves si l'élève
@@ -2172,7 +2171,7 @@ if prompt_a_traiter:
 <p>Si l'établissement organise <strong>3 épreuves</strong>, l'élève <strong>retient 2 épreuves en début d'année</strong> (bulletin académique spécial n° 549 d'Aix-Marseille, session 2026). Faire passer les 3 épreuves pour garder ensuite les 2 meilleures notes n'est pas prévu.</p>
 <p><strong>Plus de 3 activités, ou un choix en fin d'année :</strong> aucun texte relu ne prévoit un choix de 2 épreuves parmi 4 en fin d'année ; un protocole qui regroupe toutes les activités est refusé. Pour le faire valider : créer un protocole par combinaison de 2 épreuves (méthode indiquée par le correspondant iPackEPS d'Aix-Marseille), répartir les élèves dans ces protocoles <strong>en début d'année</strong>, puis soumettre les protocoles à la commission académique.</p>
 <p>Pour la session 2027, vérifiez cette consigne dans le bulletin académique EPS de votre académie dès sa parution.</p>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_eleve_arrivant:
                 texte_brut = """<h3>📋 ÉLÈVE ARRIVANT EN COURS D'ANNÉE (EXAMEN)</h3>
@@ -2181,7 +2180,7 @@ if prompt_a_traiter:
   <li><strong>[Étape 1]</strong> Dans <strong>Cyclades</strong>, lui affecter un protocole.</li>
   <li><strong>[Étape 2]</strong> Dans <strong>Santorin</strong>, procéder à une nouvelle distribution automatique des lots : l'élève apparaît alors dans le lot de son enseignant.</li>
 </ol>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_apsa_etablissement_vs_nationale:
                 texte_brut = """<h3>⚠️ ERREUR DE SAISIE : APSA ÉTABLISSEMENT VS LISTE NATIONALE (BAC GT)</h3>
@@ -2204,7 +2203,7 @@ if prompt_a_traiter:
   <li><strong>[Étape 3]</strong> Validez l'action de clôture/verrouillage du lot en bas de l'interface.</li>
 </ol>
 📺 Tutoriel associé : Verrouiller_lot_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_deverrouiller_lot:
                 texte_brut = """<h3>🔒 CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN</h3>
@@ -2217,7 +2216,7 @@ if prompt_a_traiter:
 </ol>
 <p><em>Ne contactez pas la DEC pour cela : le déverrouillage fait partie des prérogatives du chef d'établissement.</em></p>
 📺 Tutoriel associé : Deverrouiller_lots_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_dispense_totale:
                 texte_brut = """<h3>🏥 ÉLÈVE INAPTE SUR TOUTE LA PÉRIODE DE CERTIFICATION : QUE SAISIR ?</h3>
@@ -2225,12 +2224,12 @@ if prompt_a_traiter:
 <p><strong>À ne pas confondre :</strong> « Dispensé » (inaptitude médicale justifiée par un certificat) n'est pas « Absent ». Une absence non justifiée donne 0/20 ; une dispense ne donne aucune note.</p>
 <p><strong>Certificat médical :</strong> il se déclare et se dépose dans iPackEPS, menu <strong>[Mes Élèves] &gt; [Visualisation]</strong>, onglet <strong>[Inaptitudes]</strong> ; il sera contrôlé par la commission académique.</p>
 <p><strong>Aucune note n'est saisie dans iPackEPS :</strong> les notes et les statuts d'examen se saisissent uniquement dans Santorin.</p>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_exclusion:
                 texte_brut = """<h3>⚠️ ÉLÈVE EXCLU DE L'ÉTABLISSEMENT PENDANT LA PÉRIODE D'ÉVALUATION</h3>
 <p>Un candidat exclu de l'établissement, qui n'a pas pu se présenter à l'épreuve pour cette raison, est <strong>dispensé</strong> de l'épreuve : son exclusion pendant la période d'évaluation constitue un cas de force majeure. On ne lui met pas zéro.</p>"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_aucun_eleve:
                 texte_brut = """<h3>⚠️ PROBLÈMES D'IMPORT SIÈCLE / ARENA À LA RENTRÉE</h3>
@@ -2261,7 +2260,7 @@ if prompt_a_traiter:
 <p><strong>Qui :</strong> le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même.</p>
 <p><strong>Chemin :</strong> <strong>[Distribution]</strong> > <strong>[Lots]</strong> > <strong>[Candidats]</strong> > <strong>[Déplacer vers un lot existant]</strong>.</p>
 📺 Tutoriel associé : Deplacer_eleves_lots_santorin.mp4"""
-                badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                badge, color_card = "📊 EXAMEN", "santorin-card"
 
             elif est_sss_projet_sans_groupe:
                 texte_brut = """<h3>🧩 PROJET ANNUEL SSS : « AUCUN GROUPE DE TYPE SSS » OU « AUCUNE APSA ASSOCIÉE »</h3>
@@ -2480,7 +2479,7 @@ if prompt_a_traiter:
                 if contexte_actif == "college" and mode != "textes":
                     badge, color_card = "📚 COLLÈGE & CONTRÔLE CONTINU (LSU)", "general-card"
                 elif mode == "examens":
-                    badge, color_card = "📊 EXAMENS & SANTORIN", "santorin-card"
+                    badge, color_card = "📊 EXAMEN", "santorin-card"
                 elif mode == "ipack":
                     badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
                 else:

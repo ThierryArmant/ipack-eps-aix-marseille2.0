@@ -6181,5 +6181,46 @@
       "temporaire|blesse|entorse|fracture|en cours d.annee|cette semaine"
     ],
     "url": "https://eduscol.education.gouv.fr/5535/reglementation-concernant-les-amenagements-d-examens-pour-les-eleves-en-situation-de-handicap"
+  },
+  "data/examens/eduscol_2026_10_17/gt_referentiel_ccf.txt": {
+    "title": "Bac GT : référentiel national du CCF (AFL1 sur 12, AFL2-AFL3 sur 8, seuils nationaux)",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:\\bafl ?[123]\\b|\\bafl\\b|bareme|12 points|8 points|repartition|\\b4.4\\b|\\b6.2\\b|\\b2.6\\b|seuil|referentiel national|role (?:choisi|evalue)|roles? de l.eleve|carnet d.entrainement|champs? d.apprentissage|combien de points))"
+    ],
+    "exclure_motifs": [
+      "ponctuel|candidat (?:libre|individuel)|cned|\\bcap\\b|bac ?pro|\\bbcp\\b|aflp|absen|\\bsech|inapt|dispens|blesse|\\bshn\\b|haut niveau|option|eppcs|\\bdnb\\b|college|parametr|personnalis|sans pratiquer|uniquement|seulement"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt": {
+    "title": "Bac GT : épreuves de l'examen ponctuel (demi-fond, danse, tennis de table — annexe 2)",
+    "statut": "source_officielle_lue_2026_10_17",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*(?:ponctuel|candidat (?:individuel|libre)|\\bcned\\b))(?=.*(?:epreuves?|activites?|choi|danse|demi.?fond|\\b800\\b|tennis de table|deroul|bareme|points|referentiel|combien|quelles?))"
+    ],
+    "exclure_motifs": [
+      "absen|malade|repass|\\bcap\\b|bac ?pro|option|eppcs|\\bshn\\b|haut niveau|\\bdnb\\b",
+      "\\bccf\\b|differen|distingu|plutot que"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
   }
 }

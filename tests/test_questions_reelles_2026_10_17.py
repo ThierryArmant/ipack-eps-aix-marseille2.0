@@ -111,6 +111,18 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn('D. 312-4', texte)
         self.assertIn('une seule session', texte)
 
+    def test_referentiels_bac_gt_annexes(self):
+        ccf = 'Bac GT : référentiel national du CCF (AFL1 sur 12, AFL2-AFL3 sur 8, seuils nationaux)'
+        pon = "Bac GT : épreuves de l'examen ponctuel (demi-fond, danse, tennis de table — annexe 2)"
+        q = "Un candidat individuel au bac général choisit-il librement trois activités pour son épreuve ponctuelle d'EPS ?"
+        self.assertIn(pon, titres(q, GT, 'examens'))
+        self.assertNotIn(ccf, titres(q, GT, 'examens'))
+        self.assertIn(ccf, titres("Un élève peut-il choisir de mettre 6 points sur l'AFL2 et 2 sur l'AFL3 ?", GT, 'examens'))
+        self.assertNotIn(ccf, titres("Peut-on certifier uniquement AFL2 et AFL3 sans pratiquer ?", GT, 'examens'))
+        self.assertNotIn(pon, titres("Un candidat libre absent au ponctuel avec certificat, il repasse ?", GT, 'examens'))
+        texte = Path('data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt').read_text(encoding='utf-8')
+        self.assertIn('demi-fond, danse et tennis de table', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

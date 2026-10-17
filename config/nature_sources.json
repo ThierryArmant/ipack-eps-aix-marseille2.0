@@ -5510,6 +5510,32 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national (code de l'éducation)",
    "titre": "Handicap et inaptitude partielle en EPS aux examens : code de l'éducation (D. 312-4 à D. 312-6, D. 351-27)"
+  },
+  "data/examens/eduscol_2026_10_17/gt_referentiel_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : référentiel national du CCF (AFL1 sur 12, AFL2-AFL3 sur 8, seuils nationaux)"
+  },
+  "data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : épreuves de l'examen ponctuel (demi-fond, danse, tennis de table — annexe 2)"
   }
  }
 }

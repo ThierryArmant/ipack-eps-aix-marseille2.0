@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 00:30 — partie fiches (seule) — annexes 1 et 2 de la note bac GT du 20 février 2026
+
+Fournies par l'utilisateur (PDF du BO n° 9 du 26 février 2026). Fait : `gt_referentiel_ccf.txt` (AFL1 sur 12, AFL2-AFL3 sur 8 en 4-4 / 6-2 / 2-6 annoncé avant l'épreuve, rôles choisis parmi au moins deux, cinq champs, seuils nationaux médians CA1 dont 800 m, 1500 m, 50 m crawl, longueur) et `gt_referentiel_ponctuel.txt` (deux épreuves de deux champs parmi demi-fond, danse, tennis de table, plus une activité académique éventuelle ; 14 + 6 points par épreuve ; déroulement de chaque épreuve ; absences et inaptitude). Concordant avec la fiche barème iPackEPS et le BA d'Aix 2027. Exclusions : comparaison CCF/ponctuel, CAP, bac pro, inaptitude, absence, SHN, option, paramétrage iPackEPS. Tests réussis.
+
 ### 2026-10-18 00:10 — partie fiches (seule) — pages Éduscol handicap et aménagements
 
 Pages relues : « Réglementation… » (février 2026), « Organisation des examens… » (février 2026), « Incluscol » (septembre 2026) ; page EPS voie GT (septembre 2026).

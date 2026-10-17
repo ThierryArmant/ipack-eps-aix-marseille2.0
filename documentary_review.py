@@ -117,6 +117,44 @@ def bind_faq_context(spans, body):
     return out
 
 
+_LIST_ITEM = re.compile(r"^\s*(?:[-*•]\s+|\d+[.)]\s+|-?\s*\[?[EÉ]tape \d+\]?\s*:?\s)")
+_LIST_STOP = re.compile(r"^\s*(?:[-*]\s*)?(?:Q\d+\s*:|R\d+\s*:|#{1,6}\s|Sources?\b|Nature de)", re.I)
+_LIST_MAX = 1500
+
+
+def bind_list_items(spans, body):
+    """Une liste reste attachée à sa phrase d'introduction.
+
+    Le découpage ligne par ligne séparait les étapes d'une démarche : le modèle n'en
+    citait qu'une partie. Fusion exacte de lignes contiguës de même portée, bornée en
+    longueur ; une ligne locale n'est jamais fusionnée avec une ligne d'une autre portée.
+    """
+    out = []
+    i = 0
+    while i < len(spans):
+        span = spans[i]
+        text = span['text'].strip()
+        starts = (text.endswith(':') or re.match(r"^\s*(?:-\s*)?(?:1[.)]|\[?[EÉ]tape 1\]?)\s", span['text'])) and not _LIST_STOP.match(span['text'])
+        end, last = i + 1, span
+        if starts:
+            while end < len(spans):
+                candidate = spans[end]
+                if (not _LIST_ITEM.match(candidate['text']) or _LIST_STOP.match(candidate['text'])
+                        or candidate.get('scope') != span.get('scope')
+                        or body[last['end']:candidate['start']].strip()
+                        or candidate['end'] - span['start'] > _LIST_MAX):
+                    break
+                last = candidate
+                end += 1
+        if end - i >= 2:
+            out.append({**span, 'text': body[span['start']:last['end']], 'end': last['end']})
+            i = end
+        else:
+            out.append(span)
+            i += 1
+    return out
+
+
 def source_packets(context):
     """Toutes les données effectivement disponibles, sans suppression silencieuse."""
     matches = list(_MARKER.finditer(context))
@@ -164,6 +202,7 @@ def source_packets(context):
         if scoped is not None:
             passages = [{'id': document_id + 'P' + str(i + 1), **span} for i, span in enumerate(scoped)]
         passages = bind_faq_context(passages, body)
+        passages = bind_list_items(passages, body)
         passages = [{**span, 'id': document_id + 'P' + str(i+1)} for i, span in enumerate(passages)]
         # Affichage conservateur pour les fiches non annotées. Une fiche mixte reste documentaire.
         display_level = 'documentaire'

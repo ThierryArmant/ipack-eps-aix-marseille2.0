@@ -24,6 +24,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 23:00 — partie fiches (seule, retouche programme) — listes attachées à leur introduction
+
+Constaté : les fiches enregistrées sont découpées ligne par ligne ; 199 listes (107 fiches) séparaient les étapes d'une démarche, et le modèle n'en citait qu'une partie (centre étranger : étape « cocher les fonctions » omise).
+Fait : `bind_list_items` dans `documentary_review.py`, après `bind_faq_context` : une ligne d'introduction terminée par « : » (ou une étape 1) et ses éléments contigus forment un seul passage, fusion exacte, même portée obligatoire, 1 500 caractères au plus ; lignes Q/R, titres, « Sources » et « Nature » jamais absorbés. Aucune fiche modifiée. 231 passages fusionnés ; 13 listes restent séparées (portée différente, dont des lignes d'Aix, ou longueur). Tests dédiés ; suite complète réussie.
+
 ### 2026-10-17 22:40 — partie fiches (seule) — reprise du cas centre étranger (0404048)
 
 Constaté : réponse partielle, deux appels, 12 993 jetons. « Ajouter des classes dans Cyclades » (au lieu d'iPackEPS) ; omissions : compte professeur suffisant, 100 % sans élèves normal, fonctions à cocher, transfert par l'inspection, Santorin en janvier. Quatre fiches prioritaires transmises dont deux hors sujet : « Blocages des lycées » (« Cyclades est fermé » lu comme lycée fermé) et « une fenêtre Cyclades/Santorin » (« deux classes » + « onglet »).

@@ -5431,6 +5431,16 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national, sans procédure académique universelle",
    "titre": "CAP : unités facultatives et distinction avec le bac professionnel"
+  },
+  "data/ipack/fiches/equipe_eps_actualisation_logiciel.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel",
+   "titre": "iPackEPS : actualisation de l’équipe EPS"
   }
  }
 }

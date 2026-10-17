@@ -114,6 +114,10 @@ def select_academy(packets, academy):
         spans=[]
         for span in packet['passages']:
             scope=dict(span.get('scope', {}))
+            if scope.get('nature') == ['logiciel']:
+                # Une origine documentaire académique ne limite pas une fonction du logiciel.
+                scope.pop('academy', None)
+                scope.pop('not_confirmed_for', None)
             if scope.get('academy') and academy not in scope.get('academies_applicables', [scope['academy']]):
                 scope['not_confirmed_for']=academy
                 marked.append({'document_id':packet['id'],'passage_id':span['id'],

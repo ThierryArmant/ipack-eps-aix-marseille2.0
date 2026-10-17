@@ -3111,15 +3111,7 @@
     "statut": "reponse_correspondant_academique_2025-2026",
     "examens": [],
     "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
-    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte",
-    "prioritaire": true,
-    "priorite": 320,
-    "modes": [
-      "ipack"
-    ],
-    "motifs": [
-      "(?=.*(?:actualis|modifi|ajout|absen|manquant))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof))"
-    ]
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
   },
   "data/ipack/fiches/correspondant_02_classes_groupes_protocoles.txt": {
     "title": "Réponses du correspondant iPackEPS : classes, groupes et protocoles",
@@ -5989,5 +5981,19 @@
       "(?=.*\\bcap\\b)(?=.*(?:facultativ|option))"
     ],
     "url": "https://eduscol.education.gouv.fr/5553/textes-de-reference-relatifs-aux-diplomes-professionnels"
+  },
+  "data/ipack/fiches/equipe_eps_actualisation_logiciel.txt": {
+    "title": "iPackEPS : actualisation de l’équipe EPS",
+    "statut": "extraction_technique_sources_existantes",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:actualis|modifi|ajout|absen|manquant))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof))"
+    ],
+    "origine": "Procédure iPackEPS 2026 et réponses du correspondant ; fonctions logicielles uniquement"
   }
 }

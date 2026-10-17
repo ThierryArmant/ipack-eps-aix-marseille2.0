@@ -44,7 +44,8 @@ class ScopeIntentTests(unittest.TestCase):
     def test_current_rights_and_correct_project_document_retrieved(self):
         current = kc.priority_context('Droits d’actualisation — équipe EPS', 'Lycée Général & Techno', 'ipack')
         self.assertIn('Tous les enseignants', current)
-        self.assertIn("n'est pas saisie à la main", current)
+        self.assertIn("ne signifie pas créer librement un compte enseignant", current)
+        self.assertNotIn("portail ESTEREL", current)
         project = kc.priority_context('Projet EPS — configuration des axes', 'Collège (DNB)', 'ipack')
         self.assertIn('Configuration des Axes des Projets', project)
 

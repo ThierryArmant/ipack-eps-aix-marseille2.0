@@ -11,7 +11,7 @@ class PartialAnswersTests(unittest.TestCase):
                                  'evidence': [{'document_id': 'D1', 'passage_ids': ['D1P1']}]}]}])
         result = review_exam_answer(llm, question='Note collective en acrosport ?', public='GT', documents=doc)
         self.assertIn('Conditions', result)
-        for heading in ('Décision', 'Démarches', 'Points à préciser'):
+        for heading in ('Décision', 'Démarches', 'Limites et précisions'):
             self.assertNotIn(heading, result)
         self.assertEqual(len(llm.prompts), 1)
 

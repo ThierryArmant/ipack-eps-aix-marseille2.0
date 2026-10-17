@@ -519,3 +519,6 @@ Résultats des reprises publiques : huit soumissions, cinq sujets. Téléphone s
 
 ## 17 octobre 2026 — Portée des fiches techniques iPackEPS
 La suppression du choix académique dans iPackEPS laissait passer une réserve « Non précisée » depuis une fiche mixte. Extraction des seules fonctions équipe EPS dans une fiche logicielle dédiée, prioritaire à la place de la fiche mêlant accès locaux et fonctions communes. Distinction actualisation / création administrative conservée ; aucun délai local ou nom de portail généralisé. Une source de nature exclusivement logiciel ne déclenche plus une réserve académique du seul fait de son origine. Les consignes locales et les fiches mixtes restent qualifiées. Vérification locale de la restitution et de la sélection ; réponse générée en ligne non rejouée à ce stade.
+
+### Ajustement de rédaction — actualiser / modifier
+La reprise utilisateur a confirmé l'absence de réserve académique, mais le modèle remplaçait encore « actualiser » par « modifier ». Consigne générale de précision des opérations logicielles ajoutée à la rédaction : distinguer actualisation/synchronisation et modification/création des données. Pas de remplacement automatique de réponse ni d'appel supplémentaire. Rubrique « limite » renommée « Limites et précisions », pour couvrir les limites établies aussi bien que les faits manquants.

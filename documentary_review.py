@@ -13,7 +13,7 @@ from source_scope import scoped_segments, select_academy, evidence_label, model_
 import evidence_logic
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
-_SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Points à préciser'}
+_SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
 _LEVELS = {'reglementaire': 'Texte réglementaire', 'academique': 'Document académique',
            'synthese_reglementaire': 'Synthèse d’un texte réglementaire',
            'logiciel': 'Documentation du logiciel', 'assistance': "Retour d'assistance", 'documentaire': 'Passage documentaire',
@@ -766,6 +766,7 @@ présente-les comme exemples d'Aix, et indique que la procédure locale doit êt
 Pour une fiche mixte inventoriée pour Aix, cette réserve concerne l'application locale, jamais la validité du cadre national.
 Identifie l’interlocuteur selon le sujet et les sources : gestionnaire des personnels ou rémunérations pour la carrière et les indemnités ; service des examens seulement pour une question d’examen. Ne rebaptise pas un service DIEC hors Aix.
 Une possibilité réglementaire ne prouve pas une possibilité technique du logiciel.
+Pour une fonction logicielle, conserve le verbe précis documenté : actualiser ou synchroniser une liste ne signifie pas modifier librement ses données, créer ou supprimer des comptes. Même si la question emploie « modifier », réponds avec l'opération réellement autorisée et ses limites.
 Une condition générale exclue par les faits n'est pas une démarche à accomplir.
 Dans une FAQ, la réponse s'applique aux faits de sa question source : si ces faits ne sont pas
 établis pour l'utilisateur, conserve-les comme conditions et demande le symptôme manquant.

@@ -25,6 +25,20 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 23:30 — partie fiches (seule) — corrections après la troisième mesure
+
+Fait (formulations des tests différentes de la série) :
+- SHN et ponctuel : fiche `mesure3_corrections/gt_shn_ponctuel_a_sa_demande.txt` (note 2026, 4.b : à sa demande, sans condition d'impossibilité) ; fiche ponctuel « publics » exclue pour SHN/Espoirs/collectifs nationaux ; dictionnaire : listes Espoirs et collectifs nationaux → SHN.
+- Bac pro inapte sur une des trois épreuves : fiche « deux notes sur trois » déclenchée, fiche « une seule évaluation » exclue.
+- Fermeture d'un jour (panne de piscine) : réponse directe dans la fiche installation fermée (report à la date de rattrapage du protocole, pas de cas exceptionnel) ; la procédure recteur/CE réservée à la fermeture durable.
+- Reprise de la programmation : fiche ipack_305 prioritaire sur « récupérer… l'an dernier » ; fiche « suppression » exclue sans mot de suppression.
+- Terminales générale et technologique : fiche directe « oui, même groupe possible » (ipack_016 et note 2026).
+- Sortie vélo au premier degré : réponse directe « le taux de déplacement ne suffit pas ; taux de l'activité absent de la base, à vérifier » (aucun chiffre inventé).
+- Course d'orientation dans un lieu public : pas d'autorisation municipale générale dans les sources ; ne rien affirmer, vérifier les règles du site.
+- Natation et motif religieux : fiche laïcité prioritaire avec réponse directe (charte de la laïcité) ; natation scolaire exclue.
+- DNB dispense : réponse directe « Dispensé » dans le LSU, enseignement neutralisé.
+Tests dédiés ; suite complète réussie. Reprises en ligne à faire avec des formulations nouvelles.
+
 ### 2026-10-17 23:10 — partie fiches — résultats de la troisième mesure (f2b989b, version affichée bc51b14) — GEL LEVÉ
 
 Constaté : 50 réponses notées (série rédigée au gel, empreinte publiée). 32 correctes (64 %), 11 partielles (22 %), 7 fausses (14 %). Par onglet : Examens 60 / 25 / 15 ; iPackEPS 80 / 7 / 13 ; Textes 53 / 33 / 13. Le plus souvent un appel, 5 000 à 10 000 jetons d'entrée. Deuxième mesure (13 octobre, f568ad6) : 74 / 16 / 10 ; séries différentes, celle-ci couvre les trois onglets.

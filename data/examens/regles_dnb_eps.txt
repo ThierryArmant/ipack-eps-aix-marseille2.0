@@ -1,5 +1,6 @@
 ### DNB EPS : contrôle continu, LSU et Cyclades — portée et session
 [PORTEE: dnb]
+Réponse directe pour un élève de troisième dispensé d'EPS toute l'année par une dispense réglementaire : saisir « Dispensé » pour l'EPS dans le LSU ; une dispense réglementaire neutralise l'enseignement concerné, qui ne compte donc pas dans la moyenne du contrôle continu ; vérifier le fondement et la durée de la dispense.
 ATTENTION SESSION : à compter de 2027, le texte principal du contrôle continu est la note du 11 septembre 2026, NOR MENE2623194N, qui abroge la note du 2 septembre 2025 (MENE2515977N, session 2026). La note MENE2623228N définit les épreuves terminales : ne pas lui attribuer les règles du contrôle continu.
 https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N
 - Les moyennes annuelles validées par le conseil de classe sont renseignées dans le LSU puis transmises à Cyclades ; le chef d'établissement garantit leur représentativité (II.3). Ce n'est pas le CCF EPS du lycée. Ne pas nier les outils académiques d'harmonisation utilisés au DNB.

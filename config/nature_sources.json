@@ -5566,6 +5566,27 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national (décret 2025)",
    "titre": "Signalement des faits de violence par le directeur ou le chef d'établissement : « Faits établissement » (décret du 22 décembre 2025)"
+  },
+  "data/examens/mesure3_corrections/gt_shn_ponctuel_a_sa_demande.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : SHN et examen ponctuel à sa demande (note 2026, 4.b)"
+  },
+  "data/ipack/situations_2026_10_17/groupe_mixte_general_technologique.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel ; cadre national",
+   "titre": "iPackEPS : terminale générale et technologique dans le même groupe EPS (oui)"
   }
  }
 }

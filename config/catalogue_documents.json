@@ -752,7 +752,8 @@
       "natation|nager|aquatique|asns"
     ],
     "exclure_motifs": [
-      "shn|haut niveau|specialite sportive"
+      "shn|haut niveau|specialite sportive",
+      "religi|laicite|ramadan|convictions?|culte|croyance"
     ],
     "priorite": 320,
     "modes": [
@@ -2290,7 +2291,18 @@
     "title": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/base_textes_officiels.txt"
+    "origine": "data/archives/compilations/base_textes_officiels.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "^(?=.*(?:religi|laicite|ramadan|jeune|voile|burkini|convictions?|culte|croyance))(?=.*(?:eps|natation|piscine|cours|tenue|mixite|participer|refus|dispens|nager))"
+    ],
+    "exclure_motifs": [
+      "marque|fourniture|commercial"
+    ]
   },
   "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt": {
     "title": "EPS : adaptation, sécurité et contestation d’une intervention pédagogique",
@@ -3550,7 +3562,9 @@
     "exclusif_motifs": [
       "recuper|restaur|recup|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "^(?!.*(?:supprim|efface|perdu|disparu)).*(?:programmation|an dernier|annee derniere|annee precedente)"
+    ],
     "date_verification": "2026-10-11"
   },
   "data/commun/audit60/gt_ponctuel_absence.txt": {
@@ -3573,7 +3587,8 @@
       "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
     ],
     "exclure_motifs": [
-      "option|eppcs"
+      "option|eppcs",
+      "\\bshn\\b|haut niveau|espoirs?|pole (?:france|espoir)|collectifs? nationaux|liste ministerielle"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
@@ -3627,7 +3642,8 @@
     ],
     "exclure_motifs": [
       "(?:dupliqu|copi|repren|recopi).*programmation",
-      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)"
+      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)",
+      "an dernier|annee derniere|l.an passe|recuper|reprendre"
     ],
     "date_verification": "2026-10-11",
     "url": "https://eps.dis.ac-guyane.fr/IMG/pdf/ipack_dossier_etablissement.pdf"
@@ -3783,7 +3799,8 @@
     "prioritaire": true,
     "motifs": [
       "(?:dupliqu|copi|repren|recopi).*programmation",
-      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)"
+      "programmation.*(?:derniere|precedent|passe|dupliqu|copi)",
+      "(?:recuper|recup|reprendre|reutilis|garder|conserver|retrouver).{0,40}programmation|programmation.{0,40}(?:an dernier|annee derniere|l.an passe|annee precedente|de l.annee d.avant)"
     ],
     "exclusif_motifs": [
       "(?:dupliqu|copi|repren|recopi).*programmation",
@@ -3791,7 +3808,8 @@
     ],
     "exclure_motifs": [],
     "date_verification": "2026-10-11",
-    "url": "https://ipackeps.ac-creteil.fr/spip.php?article51"
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article51",
+    "priorite": 300
   },
   "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
     "title": "Bac GT : inaptitude totale annuelle sans évaluation",
@@ -3975,7 +3993,8 @@
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "exclure_motifs": [
       "ponctuel|shn|haut niveau",
-      "(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations)"
+      "(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations)",
+      "(?:inapte?s?|inaptitude|dispense?s?|blesse?s?) (?:sur|a|pour|lors d.) ?une (?:seule )?(?:des )?(?:trois |3 )?(?:epreuves?|activites?|ccf|apsa)|une (?:seule )?des (?:trois|3) (?:epreuves|activites|ccf|apsa)"
     ]
   },
   "data/commun/audit355/aix_marche_adaptee.txt": {
@@ -5476,7 +5495,8 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
     "motifs": [
-      "^(?=.*(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations|activites notees))(?=.*(?:inapt|bless|certificat|dispens|n.a pas pu|ne peut pas passer))(?!.*\\bcap\\b)"
+      "^(?=.*(?:\\bdeux|\\b2) (?:autres |premieres )?(?:notes|ccf|epreuves|evaluations|activites notees))(?=.*(?:inapt|bless|certificat|dispens|n.a pas pu|ne peut pas passer))(?!.*\\bcap\\b)",
+      "^(?=.*(?:(?:inapte?s?|inaptitude|dispense?s?|blesse?s?) (?:sur|a|pour|lors d.) ?une (?:seule )?(?:des )?(?:trois |3 )?(?:epreuves?|activites?|ccf|apsa)|une (?:seule )?des (?:trois|3) (?:epreuves|activites|ccf|apsa)))(?=.*(?:bac ?pro|\\bbcp\\b|professionnel))(?!.*\\bcap\\b)"
     ],
     "exclure_motifs": [
       "\\bbac(?:calaureat)? ?(?:general|techno|gt)\\b|\\blgt\\b|\\bshn\\b|haut niveau"
@@ -6281,5 +6301,42 @@
       "sorties? (?:scolaires?|pedagogiques?|eps)|voyage|accident (?:de la route|de bus|de car)|chute|blesse en cours|\\bccf\\b|santorin|cyclades|ipack"
     ],
     "url": "https://www.legifrance.gouv.fr/eli/decret/2025/12/22/MENG2521400D/jo/texte"
+  },
+  "data/examens/mesure3_corrections/gt_shn_ponctuel_a_sa_demande.txt": {
+    "title": "Bac GT : SHN et examen ponctuel à sa demande (note 2026, 4.b)",
+    "statut": "texte_officiel_relu_2026_10_17",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*(?:\\bshn\\b|haut niveau|espoirs?|pole (?:france|espoir)|collectifs? nationaux|liste ministerielle|sportif de haut))(?=.*(?:ponctuel|plutot que (?:le )?ccf|au lieu du ccf|choisir|passer en ponctuel))"
+    ],
+    "exclure_motifs": [
+      "option|eppcs|\\bcap\\b|bac ?pro"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/ipack/situations_2026_10_17/groupe_mixte_general_technologique.txt": {
+    "title": "iPackEPS : terminale générale et technologique dans le même groupe EPS (oui)",
+    "statut": "extraction_technique_sources_existantes_2026-10-17",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "^(?=.*(?:general|generale|\\bstmg\\b|\\bst2s\\b|\\bsti2d\\b|\\bstl\\b))(?=.*(?:techno|\\bstmg\\b|\\bst2s\\b|\\bsti2d\\b|\\bstl\\b))(?=.*(?:groupe|meme classe|melang|ensemble|regroup))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac ?pro|professionnelle|premiere et (?:la )?terminale"
+    ]
   }
 }

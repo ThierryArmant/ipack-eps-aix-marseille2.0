@@ -1,0 +1,8 @@
+### iPackEPS : terminale générale et terminale technologique dans le même groupe EPS
+[PORTEE: gt]
+Réponse directe : oui ; des élèves de terminale générale et de terminale technologique peuvent être dans le même groupe EPS d'iPackEPS, car ils passent la même épreuve d'EPS des baccalauréats général et technologique, avec le même référentiel national.
+Condition : un groupe d'examen correspond à un protocole Cyclades ; les élèves du groupe doivent avoir le même ensemble certificatif, les mêmes dates d'épreuves et le même enseignant.
+En revanche, il faut des groupes distincts pour des élèves qui ne passent pas le même examen ou pas au même niveau : terminale professionnelle et terminale générale, CAP et bac pro, première et terminale. Le message « Ce n'est pas possible car les élèves ne suivent pas la même scolarité » signale ce type de mélange.
+Nature de la source : fonctionnement du logiciel iPackEPS et cadre national du baccalauréat général et technologique.
+Sources : situation iPackEPS « Erreur de type de scolarité (classes mixtes) » ; note de service du 20 février 2026, NOR MENE2531948N (épreuve d'EPS commune aux baccalauréats général et technologique).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

@@ -47,7 +47,7 @@
    "ajout": "eleve dans le mauvais lot"
   },
   {
-   "motif": "pole espoirs?|pole france|liste ministerielle|sportif de haut niveau|\\bshn\\b",
+   "motif": "pole espoirs?|pole france|liste ministerielle|sportif de haut niveau|\\bshn\\b|liste espoirs?|sportifs? espoirs?|collectifs? nationaux",
    "ajout": "sportif de haut niveau shn"
   },
   {

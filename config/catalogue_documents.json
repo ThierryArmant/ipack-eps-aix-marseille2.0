@@ -1280,7 +1280,18 @@
     "title": "[ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "^(?=.*(?:pronote|ecole.?directe|fichier csv|\\bcsv\\b))(?=.*(?:import\\w*|recuper\\w*|export\\w* (?:les |mes |des )?(?:eleves|groupes)|fichier))"
+    ],
+    "exclure_motifs": [
+      "\\bnotes?\\b|moyenne|bulletin|resultat|appreciation"
+    ]
   },
   "data/ipack/fiches/ipack_067_article_19_dossiers_dossiereps_equipements_gestion_des_equipements_sportifs.txt": {
     "title": "[ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs",
@@ -3171,7 +3182,8 @@
     ],
     "exclure_motifs": [
       "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
-      "(?:erreur|message|fonctionne pas|marche pas).*pronote"
+      "(?:erreur|message|fonctionne pas|marche pas).*pronote",
+      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)"
     ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article104",
     "date_verification": "2026-10-11",
@@ -3254,7 +3266,8 @@
       "option|eppcs",
       "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))",
       "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
-      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3"
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
+      "candidat (?:individuel|libre)|\\bcned\\b"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -3390,7 +3403,10 @@
     "motifs": [
       "notes?|moyenne|resultats|pronote|bulletin|hors connexion|synchronis"
     ],
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclure_motifs": [
+      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)"
+    ]
   },
   "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
     "title": "[SITUATION: FILMER OU PHOTOGRAPHIER DES ÉLÈVES EN EPS — DROIT À L'IMAGE, RGPD, STOCKAGE]",
@@ -3538,7 +3554,8 @@
     "prioritaire": true,
     "motifs": [
       "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel",
-      "^(?=.*(?:candidat (?:individuel|libre)|ponctuel))(?=.*(?:absent|pas presente|ne s.est pas presente|absence|malade))"
+      "^(?=.*(?:candidat (?:individuel|libre)|ponctuel))(?=.*(?:absent|pas presente|ne s.est pas presente|absence|malade))",
+      "^(?=.*(?:candidat (?:individuel|libre)|\\bcned\\b|ponctuel))(?=.*(?:choisi\\w*|choix|combien|quelles? (?:activites|epreuves)|trois activites|deux activites))"
     ],
     "exclusif_motifs": [
       "quels.*(eleves|candidats).*ponctuel|ponctuel.*(?:plutot|absence|absent)|absence.*ponctuel"
@@ -6009,7 +6026,7 @@
       "ipack"
     ],
     "motifs": [
-      "(?=.*(?:actualis|modifi|ajout|absen|manquant))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof))"
+      "(?=.*(?:actualis|modifi|ajout|absen|manqu|apparai|pas dans|mettre a jour))(?=.*(?:equipe eps|liste des (?:prof|enseign)|liste de.{0,12}prof))"
     ],
     "origine": "Procédure iPackEPS 2026 et réponses du correspondant ; fonctions logicielles uniquement"
   },
@@ -6036,5 +6053,22 @@
     ],
     "sessions": [],
     "url": "https://eduscol.education.gouv.fr/5541/conservation-des-notes-dans-le-cadre-des-etalements-des-epreuves-pour-le-baccalaureat-general-et-technologique-pour-les-eleves-en-situation-de-handicap"
+  },
+  "data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt": {
+    "statut": "extraction_technique_sources_existantes_2026-10-17",
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-17",
+    "title": "iPackEPS : élève absent de la liste, comment l'ajouter",
+    "examens": [],
+    "motifs": [
+      "^(?=.*\\beleves?\\b)(?=.*(?:ajout\\w*|rajout\\w*|cree\\w*|creer|inscri\\w*|mettre))(?=.*(?:manuel\\w*|a la main|absent de la liste|pas dans la liste|n.apparai\\w* pas|manqu\\w*|arrive\\w*|nouvel))"
+    ],
+    "exclure_motifs": [
+      "santorin|\\blots?\\b|cyclades|protocole|equipe|collegue|professeur|enseignant|groupes? eps.{0,30}(?:pas|aucun)"
+    ]
   }
 }

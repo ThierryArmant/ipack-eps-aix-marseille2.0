@@ -1,0 +1,11 @@
+### iPackEPS : élève absent de la liste, comment l'ajouter
+[PORTEE: gt,pro,cap,dnb]
+Sigles : SIECLE = base élèves des établissements.
+Dans un établissement alimenté par la base élèves (SIECLE), la liste des élèves vient de cette base : les articles iPackEPS ne décrivent pas de formulaire pour créer librement un élève.
+Élève arrivé en cours d'année, changé de classe ou liste pas à jour : [Dossiers] > [Dossier EPS] > [Classes], menu [importation élèves] > [Actualiser].
+S'il n'apparaît toujours pas : il doit d'abord être inscrit dans la base élèves de l'établissement ; faire vérifier son inscription par l'administration, puis actualiser de nouveau.
+Une fois l'élève dans sa classe, le placer dans son groupe EPS, AS ou SSS par [Dossiers] > [Dossier EPS] > [Élèves].
+Après un import de groupes Pronote ou École Directe, si quelques élèves « n'ont pas été retrouvés », les ajouter dans le groupe par la procédure habituelle de placement des élèves, et signaler à l'administration que les corrections doivent être faites dans SIECLE.
+Établissement non alimenté par SIECLE (CFA, GRETA, MFR, établissement à l'étranger) : iPackEPS ne contient pas d'élèves ; les candidats sont associés aux protocoles directement dans Cyclades, menu [EPS] > [Associer les élèves à un protocole].
+Nature de la source : fonctionnement du logiciel iPackEPS, articles 14, 18 et 88 de l'assistance iPackEPS.
+Sources : assistance iPackEPS, articles 18 (placement des élèves, question 3), 88 (import Pronote / École Directe) et 14 (configuration des classes et import des élèves) ; fiche « Établissement hors SIECLE ».

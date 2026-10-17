@@ -5453,6 +5453,16 @@
    "portee_texte": "Bac GT : étalement au titre du handicap",
    "titre": "Bac GT : suivi d’un étalement accordé au titre du handicap",
    "cadre_reponse": "Baccalauréat général et technologique : étalement des épreuves accordé au titre des aménagements liés au handicap."
+  },
+  "data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel",
+   "titre": "iPackEPS : élève absent de la liste, comment l'ajouter"
   }
  }
 }

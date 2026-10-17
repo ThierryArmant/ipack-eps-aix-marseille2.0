@@ -24,6 +24,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 21:45 — partie fiches (seule) — questions réelles du journal (13 au 17 octobre)
+
+Relecture de l'historique de la feuille. Défauts de sélection corrigés, sans appel IA ajouté :
+- « ajouter un élève manuellement » (Rennes) : aucune fiche retenue, réponse inventée (« libellé, adresse, catégorie »). Fiche `data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt` (articles 14, 18, 88, hors SIECLE) : actualiser l'import, faire inscrire dans la base élèves, placer dans le groupe ; pas de création libre documentée.
+- « importer des élèves Pronote » (Rennes) : fiches de notes/périmètre retenues à la place de l'article 88. Article 88 prioritaire (300) sur import/récupération Pronote ou École Directe, hors questions de notes ; fiches de périmètre exclues pour un import d'élèves ou de groupes sans « note ».
+- Ponctuel d'un candidat individuel : fiche CCF « activité établissement » retenue (d'où les informations sur l'option EPS). Fiche ponctuel déclenchée par choix/combien d'activités ; fiche CCF exclue pour candidat individuel/libre/CNED.
+- Équipe EPS : « un collègue n'apparaît pas dans la liste » ne déclenchait pas la fiche d'actualisation ; motif élargi.
+Constaté sans correction : dates de saisie des protocoles (aucune date dans la base, renvoi à la circulaire conforme) ; marque de tenue déjà orientée vers la fiche de neutralité commerciale. 426 tests réussis. Reprises en ligne à faire.
+
 ### 2026-10-17 21:20 — partie fiches (seule, partie programme au repos) — cadre « actualiser » sur l'équipe EPS
 
 Fait : `cadre_reponse` ajouté à la fiche `equipe_eps_actualisation_logiciel.txt` : « tout enseignant peut actualiser la liste ; il ne la modifie pas à la main ; un collègue manquant se corrige dans les bases administratives, puis on actualise ». Affiché par `render_claims` dès que la fiche est citée, même si le modèle écrit « modifier ». Aucun appel IA ajouté, aucune règle nouvelle. Test ajouté ; 422 tests réussis. Reprise en ligne à faire.

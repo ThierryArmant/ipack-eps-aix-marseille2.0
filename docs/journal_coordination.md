@@ -21,9 +21,16 @@ Attendu de l'autre partie : … (ou « rien »)
 - Version mesurée : 4488e07 (figée pendant la mesure, terminée le 13 octobre au soir).
 - Série de réserve (14 questions), après reprises : 11 correctes, 3 partielles (R04, R06, R14), 0 fausse ; environ 1 appel par question. Ces questions ont servi à corriger : le chiffre surestime le niveau réel.
 - Deuxième mesure terminée sur f568ad6 : 74 % correctes, 16 % partielles, 10 % fausses (50 questions).
-- GEL en cours : troisième mesure sur f2b989b (17 octobre 2026). Aucune modification jusqu'à la fin de la notation.
+- Troisième mesure terminée sur f2b989b (17 octobre 2026) : 64 % correctes, 22 % partielles, 14 % fausses (50 questions, trois onglets). Gel levé.
 
 ## Entrées
+
+### 2026-10-17 23:10 — partie fiches — résultats de la troisième mesure (f2b989b, version affichée bc51b14) — GEL LEVÉ
+
+Constaté : 50 réponses notées (série rédigée au gel, empreinte publiée). 32 correctes (64 %), 11 partielles (22 %), 7 fausses (14 %). Par onglet : Examens 60 / 25 / 15 ; iPackEPS 80 / 7 / 13 ; Textes 53 / 33 / 13. Le plus souvent un appel, 5 000 à 10 000 jetons d'entrée. Deuxième mesure (13 octobre, f568ad6) : 74 / 16 / 10 ; séries différentes, celle-ci couvre les trois onglets.
+Fausses : sportif sur liste Espoir et ponctuel (condition erronée « impossibilité du CCF ») ; bac pro inapte sur une épreuve (note unique au lieu de la moyenne des deux notes) ; panne de piscine le jour du CCF (certification réduite au lieu du rattrapage) ; reprise de la programmation (fiche « suppression » retenue) ; terminales générale et technologique dans un même groupe (dit impossible) ; sortie vélo en CM2 (taux de déplacement appliqué à une activité physique) ; course d'orientation dans un parc (autorisation de la mairie inventée).
+Partielles : quatre « réponses non confirmées » (DNB et dispense alors que la fiche contient la règle ; natation et motif religieux ; TZR), réponses à côté (protocole connu des élèves, remplacement d'une activité, dispense d'un mois), oublis (contrôle adapté, téléphone personnel, rôles en cas d'accident).
+Limite : série rédigée par la partie fiches. Les questions ne servent pas à corriger mot pour mot ; les corrections portent sur les règles et les déclencheurs en cause.
 
 ### 2026-10-17 22:45 — partie fiches — GEL de f2b989b et troisième série de mesure
 

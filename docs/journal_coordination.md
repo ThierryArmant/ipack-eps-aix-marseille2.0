@@ -24,6 +24,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-17 — libellé Examen demandé dans la bannière
+
+Fait : bannière du mode, bouton, contexte de réponse et badges renommés « Examen » au singulier ; renvoi d'onglet aligné. Les fiches, la recherche et les fonctionnalités Santorin sont conservées. Compilation de l'application réussie. Commits 07edd7a et 4bda3a3.
+
 ### 2026-10-17 — réponse transport affichée après réparation concise
 
 Reprise administrateur sur ac29e3e, trace téléchargée et lue : cinq affirmations, deux appels, 14 429 jetons d'entrée ; final_rejections vide, aucune exception. Le premier appel est rejeté pour permission vague/mauvaise preuve et prescription historique sans réserve ; le second commence par la confirmation du circuit académique et conserve les vérifications d'assurance et de contrôle technique ainsi que la réserve du seuil historique de surveillance. Présentation observée : attributions répétées remplacées par [1], un volet de références, diagnostic replié, pied générique absent. Limite de fond : la réponse ne restitue pas explicitement le champ obligatoire/facultatif et l'information des parents ; le déblocage et l'allègement observés ne valent donc pas validation juridique intégrale ni mesure de fiabilité générale. 399 tests locaux réussis.

@@ -12,7 +12,7 @@ import tutorial_links
 # Les modules sont importés normalement ; Streamlit invalide les imports au redéploiement.
 # Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
 # Pipeline documentaire : transmission compacte des preuves et réparation depuis les sources.
-from hub_session import select_module, select_public, allowed_modules, new_question, ready_for_question
+from hub_session import select_module, select_public, allowed_modules, public_label, new_question, ready_for_question
 from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
@@ -1452,7 +1452,7 @@ with st.container(key="parcours"):
         niveau_scolaire = st.radio(
             "Public cible",
             ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
-            index=None, horizontal=True, key="niveau_actif_form",
+            index=None, horizontal=True, key="niveau_actif_form", format_func=public_label,
             label_visibility="collapsed", on_change=valider_public,
         )
 
@@ -2852,7 +2852,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         texte_final = texte_final.replace("\n", "<br>")
 
         phrase_contexte = (
-            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{niveau_actuel_form}</b>.</em></div>"
+            f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{public_label(niveau_actuel_form)}</b>.</em></div>"
         )
 
         # Les limites concrètes figurent dans la réponse, sans avertissement générique répété.

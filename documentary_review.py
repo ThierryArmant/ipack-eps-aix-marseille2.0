@@ -1026,6 +1026,13 @@ Réponds uniquement en JSON selon ce schéma :
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
     if rejected:
+        # Mesure agrégée sans appel IA et sans modifier les règles de validation.
+        # Ne pas publier les brouillons ou les questions dans les journaux publics.
+        audit['first_pass_rejection_count'] = len(rejected)
+        audit['first_pass_rejection_reasons'] = sorted({
+            str(reason) for item in rejected for reason in item.get('errors', [])
+        })
+        audit['repair_trigger'] = 'mechanical_validation'
         feedback = [{k: v for k, v in error.items() if k != 'claim'} for error in rejected]
         for item, error in zip(feedback, rejected):
             claim = error.get('claim')
@@ -1063,6 +1070,8 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
 """ + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data + '\nERREURS MECANIQUES :\n' + json.dumps(feedback, ensure_ascii=False)
         audit['repair_rejections'] = rejected
         final, accepted, rejected = resolve(recorded.complete(repair).text)
+    audit['repair_performed'] = bool(audit.get('repair_trigger'))
+    audit['repair_successful'] = bool(audit.get('repair_trigger')) and not bool(rejected)
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

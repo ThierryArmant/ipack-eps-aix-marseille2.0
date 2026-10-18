@@ -1,4 +1,6 @@
 ### Données des élèves : outils numériques, images et responsabilité
+Réponse directe — publier des photos d'élèves mineurs : l'accord des représentants légaux est demandé (CNIL), avec le formulaire institutionnel précisant la finalité, les supports et la durée.
+Réponse directe — outil ou application en ligne avec des données d'élèves : faire examiner le projet par le responsable de traitement et le délégué à la protection des données (DPD) avant usage ; l'accord des parents ne remplace pas ces obligations.
 Nature de la source : documentation officielle CNIL ; recommandations distinguées des règles légales.
 Qualifier l'usage : analyse pédagogique d'une vidéo, publication d'une image, outil collaboratif ou système automatisé. Le droit à l'image et la base légale du traitement de données sont deux questions à examiner.
 Pour une publication de photographies d'élèves mineurs, la CNIL demande l'accord des représentants légaux. Décrire finalité, supports et durée avec le formulaire institutionnel adapté. Aucune règle générale imposant partout la signature des deux parents en début d'année ou un effacement en fin de chaque séance n'est établie par ces sources.

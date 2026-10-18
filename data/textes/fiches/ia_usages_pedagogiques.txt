@@ -1,4 +1,5 @@
 ### Usage pédagogique d’un système automatisé : données et évaluation
+Réponse directe — outil automatisé traitant des données d'élèves : usage sous la responsabilité du chef d'établissement, que l'enseignant informe, en associant le DPD ; un détecteur de contenus générés ne prouve pas une fraude et le résultat du système ne suffit pas à attribuer une note.
 Nature de la source : documentation officielle CNIL ; recommandations distinguées des règles légales.
 La CNIL rappelle que l'usage pédagogique traitant des données personnelles s'effectue, au second degré, sous la responsabilité du chef d'établissement. L'enseignant l'informe et associe le DPD ; finalité, base légale, information et sécurité doivent être examinées.
 L'autorisation des parents n'est pas, en principe, la base nécessaire à tout usage pédagogique : cela ne dispense pas d'informer et de respecter leurs droits. Éviter d'imposer un compte individuel grand public et vérifier la réutilisation des données.

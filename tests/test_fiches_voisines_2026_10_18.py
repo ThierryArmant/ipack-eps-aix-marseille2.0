@@ -42,6 +42,19 @@ class FichesVoisines(unittest.TestCase):
                       t("Puis-je emmener des élèves dans ma voiture au cross ?", CLG, 'textes'))
         self.assertTrue(any('Sorties' in x for x in t("Faut-il une autorisation des parents pour une sortie scolaire à la journée ?", CLG, 'textes')))
 
+    def test_fiches_textes_ouvrent_sur_une_reponse(self):
+        from pathlib import Path
+        import json, re
+        cat = json.loads(Path('config/catalogue_documents.json').read_text(encoding='utf-8'))
+        sans = []
+        for p, md in cat.items():
+            if md.get('prioritaire') and md.get('priorite', 0) >= 300 and md.get('modes') == ['textes'] and Path(p).is_file():
+                lignes = [l for l in Path(p).read_text(encoding='utf-8').splitlines()
+                          if l.strip() and not re.match(r'(###|\[PORTEE|Sigles|===)', l)]
+                if lignes and lignes[0].startswith(('Nature de la source', 'Portée')):
+                    sans.append(p)
+        self.assertEqual([], sans)
+
 
 if __name__ == '__main__':
     unittest.main()

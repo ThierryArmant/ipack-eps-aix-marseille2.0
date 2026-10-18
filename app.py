@@ -647,7 +647,8 @@ st.markdown(css_pur, unsafe_allow_html=True)
 # ======================================================================
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 tavily_api_key = st.secrets.get("TAVILY_API_KEY")
-admin_secret_key = st.secrets.get("ADMIN_PASSWORD", "thierryAdmin2026")
+# Aucun mot de passe de secours dans le code : sans secret configuré, l'accès admin reste fermé.
+admin_secret_key = st.secrets.get("ADMIN_PASSWORD") or None
 tavily_client = None
 if tavily_api_key and TavilyClient:
     try:
@@ -1271,7 +1272,7 @@ verifier_veille_eduscol(tavily_client)
 # ======================================================================
 with st.expander("⚙️ Administration", expanded=False):
     mot_de_passe_entre = st.text_input("Mot de passe admin", type="password")
-    if mot_de_passe_entre == admin_secret_key:
+    if admin_secret_key and mot_de_passe_entre == admin_secret_key:
         st.session_state.is_admin = True
         st.success("Mode Admin activé (Veilles visibles)")
     elif mot_de_passe_entre:

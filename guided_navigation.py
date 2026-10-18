@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent
 MENU = ROOT / 'data/ipack/plan_des_menus_professeur_2026.txt'
 COLLEGE = ROOT / 'config/guide_ipack_college.json'
 LYCEE_GT = ROOT / 'config/guide_ipack_lycee_gt.json'
+LYCEE_PRO = ROOT / 'config/guide_ipack_lycee_pro.json'
 
 
 def guide_file(public):
@@ -15,6 +16,8 @@ def guide_file(public):
         return COLLEGE
     if public in ('Lycée voie générale', 'Lycée Général & Techno'):
         return LYCEE_GT
+    if public in ('Lycée voie professionnelle', 'Lycée Pro / CAP'):
+        return LYCEE_PRO
     return None
 
 

@@ -141,7 +141,7 @@ class GuideCollegeTests(unittest.TestCase):
             for e in b['entrees']:
                 self.assertIn('prerequis', e)
         ui = UI('Configurer les périodes')
-        guide.render_guide(ui, 'r', 'Lycée voie professionnelle')
+        guide.render_guide(ui, 'r', 'Autre public')
         self.assertIn('dans l’ordre', ui.infos[0])
         with patch.object(guide, 'SOURCE', Path('absent.txt')):
             self.assertEqual(guide.order_rule(), '')
@@ -170,7 +170,7 @@ class GuideCollegeTests(unittest.TestCase):
 
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')
-        guide.render_guide(ui, 'l', 'Lycée voie professionnelle')
+        guide.render_guide(ui, 'l', 'Autre public')
         self.assertIn('Périodes', ui.shown)
 
     def test_fiches_de_la_visite_sans_donnees_personnelles(self):
@@ -196,7 +196,9 @@ class GuideLyceeGTTests(unittest.TestCase):
     def test_public_lycee_gt_utilise_son_menu(self):
         for public in ('Lycée voie générale', 'Lycée Général & Techno'):
             self.assertEqual(guide.guide_file(public), guide.LYCEE_GT)
-        self.assertIsNone(guide.guide_file('Lycée voie professionnelle'))
+        self.assertEqual(guide.guide_file('Lycée voie professionnelle'), guide.LYCEE_PRO)
+        self.assertEqual(guide.guide_file('Lycée Pro / CAP'), guide.LYCEE_PRO)
+        self.assertIsNone(guide.guide_file('1er degré'))
         ui = UI("Dépôt Référentiels Certificatifs", rub='Dossier Certificatif')
         guide.render_guide(ui, 'g', 'Lycée voie générale')
         self.assertIn('[Dépôt Référentiels Certificatifs]', ui.shown)
@@ -225,6 +227,18 @@ class GuideLyceeGTTests(unittest.TestCase):
         self.assertIn('obligatoire en voie générale', steps); self.assertIn('coches vertes', steps)
         steps = ' '.join(s['clic'] for s in self.routes['Trouver les élèves sans groupe'])
         self.assertIn('« Statut »', steps); self.assertIn('[Ajouter -->]', steps)
+
+    def test_voie_pro_meme_demarche_page_apsa_propre(self):
+        routes = guide.college_routes(guide.LYCEE_PRO)
+        self.assertEqual(set(routes), set(self.routes))
+        clics = ' '.join(s['clic'] for r in routes.values() for s in r)
+        self.assertIn('[APSA de Collège ou Voie Professionnelle]', clics)
+        self.assertNotIn('[APSA de Lycée Général ou Technologique]', clics)
+        self.assertIn('obligatoire seulement en voie générale', clics)
+
+    def test_boutons_envoyer_et_exporter(self):
+        clics = ' '.join(s['clic'] for s in self.routes['Déposer un référentiel'] + self.routes['Transférer vers Cyclades'])
+        self.assertIn('dépôt ou remplacement', clics); self.assertIn('Importer ce fichier dans Cyclades', clics)
 
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):

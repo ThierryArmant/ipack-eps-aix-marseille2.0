@@ -28,14 +28,14 @@ class GuidedTests(unittest.TestCase):
         goal='Me repérer depuis le début'
         state={}
         ui=FakeUI([goal],state,'C’est fait · Suivant →')
-        guide.render_guide(ui,'test','Lycée voie professionnelle')
+        guide.render_guide(ui,'test','Autre public')
         self.assertEqual(state['test_position_0'],1)
         ui=FakeUI([goal],state,'← Retour')
-        guide.render_guide(ui,'test','Lycée voie professionnelle')
+        guide.render_guide(ui,'test','Autre public')
         self.assertEqual(state['test_position_0'],0)
     def test_completion_and_no_source(self):
         goal='Configurer les périodes'
         for answer in ['Oui','Non, j’ai encore besoin d’aide']:
-            guide.render_guide(FakeUI([goal,'C’est fait',answer]),'x','Lycée voie professionnelle')
+            guide.render_guide(FakeUI([goal,'C’est fait',answer]),'x','Autre public')
         with patch.object(guide,'documented_steps',return_value=([],'')):
             self.assertEqual(guide.routes(),{})

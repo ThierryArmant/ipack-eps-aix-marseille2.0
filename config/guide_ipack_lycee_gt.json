@@ -353,10 +353,10 @@
     "preuve": "1) [Dépôt Référentiels Certificatifs]"
    },
    {
-    "clic": "Ligne de l'APSA → [Envoyer]",
+    "clic": "Ligne de l'APSA → [Envoyer] (dépôt ou remplacement)",
     "video": null,
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "sur la ligne de l'APSA, bouton [Envoyer]"
+    "preuve": "il sert à déposer un référentiel ou à remplacer un référentiel déjà déposé"
    }
   ],
   "Dates d'épreuve, rattrapage et co-évaluateur": [
@@ -417,6 +417,12 @@
     "video": null,
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
     "preuve": "bouton [Exporter les Elèves]"
+   },
+   {
+    "clic": "Importer ce fichier dans Cyclades : groupes créés et élèves placés",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "ce fichier s'importe directement dans Cyclades pour créer les groupes"
    }
   ],
   "Soumettre le dossier certificatif": [

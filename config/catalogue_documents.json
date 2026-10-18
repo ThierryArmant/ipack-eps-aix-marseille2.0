@@ -6671,5 +6671,17 @@
     "exclusif_motifs": [
       "^(?=.*(?:gymnase|equipement|installation))(?=.*(?:\\bnom\\b|renomm|libelle|appellation|ancien))"
     ]
+  },
+  "data/ipack/plan_des_menus_professeur_2026.txt": {
+    "title": "iPackEPS : plan des menus de l'espace professeur (version 2026.2.1.1)",
+    "statut": "releve_ecran_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "visite.{0,12}ia.?ipr|ia.?ipr.{0,25}visite|gestion (?:de l.)?as\\b|agenda (?:de l.)?equipe|materiel divers|enquete (?:des )?equipements|statistiques? (?:de l.)?enquete|export\\w*.{0,12}fichier.{0,12}eleves|bibliotheque|dossards?|bordereaux?|publipostage|plan des menus|dans quel menu|ou (?:se )?trouve(?:r)? (?:le |la |les )?(?:rubrique|menu|module)|uf2s|gerer les s\\.?a|cahier de suivi|mettre au rebut|voeux de (?:jury|formation)|competences particulieres|specialites sportives"
+    ]
   }
 }

@@ -163,6 +163,12 @@ class FichesVoisines(unittest.TestCase):
         self.assertTrue(situation_mismatch("Mon élève a été absent au deuxième CCF pour un enterrement, peut-il rattraper ?", titre))
         self.assertFalse(situation_mismatch("Notre collègue est en arrêt depuis deux mois, que faire pour le CCF ?", titre))
 
+    def test_plan_des_menus_ipackeps(self):
+        plan = "iPackEPS : plan des menus de l'espace professeur (version 2026.2.1.1)"
+        for q in ("Comment imprimer des dossards pour le cross ?", "Où remplir l'enquête équipements ?",
+                  "Où saisir la visite de l'IA-IPR dans iPackEPS ?", "Comment exporter mon fichier élèves vers un autre logiciel ?"):
+            self.assertIn(plan, t(q, CLG, 'ipack'), q)
+
 
 if __name__ == '__main__':
     unittest.main()

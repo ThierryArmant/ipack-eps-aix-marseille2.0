@@ -5723,6 +5723,18 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS : modifier un équipement sportif"
+  },
+  "data/ipack/plan_des_menus_professeur_2026.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies (modules activés selon l'académie)",
+   "titre": "iPackEPS : plan des menus de l'espace professeur"
   }
  }
 }

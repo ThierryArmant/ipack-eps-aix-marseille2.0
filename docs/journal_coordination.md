@@ -730,3 +730,6 @@ Entrée initiale ajoutée sur indication de Thierry : lien vers l'article 34 « 
 
 ### 18 octobre 2026 — demande générique de secours iPackEPS
 « aide moi je suis perdu », « je ne sais pas par où commencer », etc. ouvrent directement le guide avec un message rassurant, sans génération IA. Détection limitée aux formulations génériques, aux publics collège/lycées et au mode iPackEPS. Les questions contenant un objet métier (classes perdues, import des élèves…) conservent leur traitement habituel. Aucun compteur de répétition. Tests positifs/négatifs et compilation réussis.
+
+### 18 octobre 2026 — tolérance aux fautes dans les appels au secours
+Le test utilisateur « aide moi sui sperdu » échappait à la liste de mots et provoquait une réponse Arena hors sujet. Ajout d'une comparaison approchée de la demande entière aux formulations génériques (espaces déplacés, lettres omises/inversées), en complément du détecteur. Tests sur cette phrase exacte et variantes ; maintien des exclusions des questions métier, des autres modes et du premier degré.

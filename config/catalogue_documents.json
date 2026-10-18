@@ -1000,7 +1000,10 @@
       "ipack"
     ],
     "motifs": [
-      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|absent|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+    ],
+    "exclure_motifs": [
+      "rempla"
     ]
   },
   "data/ipack/fiches/ipack_008_situation_absence_d_un_correcteur_enseignant_sur_santorin.txt": {
@@ -1027,7 +1030,10 @@
       "ipack"
     ],
     "motifs": [
-      "(?:partag|deux enseignants|deux professeurs|collegue).{0,60}(?:meme )?lot|lots?.{0,40}(?:partag|collegue|deux enseignants)|(?:ajouter|deuxieme|second) correcteur|co.?correct"
+      "(?:ajouter|deuxieme|second) correcteur|co.?correct|partag\\w*.{0,30}lots?|lots?.{0,30}partag|(?:deux enseignants|deux professeurs|a deux).{0,60}(?:meme )?lot|collegue.{0,40}(?:aussi|egalement) (?:saisir|corriger)"
+    ],
+    "exclure_motifs": [
+      "rempla"
     ]
   },
   "data/ipack/fiches/ipack_013_situation_refresh_et_synchronisation_esterel_portail_arena.txt": {
@@ -1269,7 +1275,10 @@
       "ipack"
     ],
     "motifs": [
-      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|absent|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+    ],
+    "exclure_motifs": [
+      "rempla"
     ]
   },
   "data/ipack/fiches/ipack_046_situation_cycle_athletisme_adaptation_protocoles_ccf.txt": {
@@ -5484,7 +5493,8 @@
     "prioritaire": true,
     "priorite": 340,
     "motifs": [
-      "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))"
+      "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))",
+      "(?=.*(?:panne|intemperie|ferme\\w* (?:un|le|ce) jour|ponctuel))(?=.*(?:piscine|installation|gymnase|stade))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -7582,9 +7592,12 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "cas exceptionnel|tout (?:le|un) groupe.{0,60}(?:pas pu|non evalu|pas ete evalu)"
+      "cas exceptionnel",
+      "(?=.*(?:tout (?:le|mon|un|notre) groupe|toute la classe|tout le lot|ensemble du groupe|toute ma classe))(?=.*(?:pas pu|pas ete|non evalu|impossible|ne peut pas etre evalu|pas pouvoir))"
     ],
-    "exclure_motifs": []
+    "exclure_motifs": [
+      "inapt|un seul|seul un|blesse|malade"
+    ]
   },
   "data/examens/santorin_cas_pratiques/11_installation_fermee_ou_professeur_non_remplace_un_seul.txt": {
     "title": "Santorin : Installation fermée ou professeur non remplacé — un seul élève (ou quelques-uns) n'a pas p",
@@ -7658,7 +7671,7 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)"
+      "protocoles?.{0,40}valid\\w*.{0,100}(?:ordre|etapes?|ensuite|apres|faire|cyclades|santorin|saisie)|(?:ordre|etapes?|chronologie|dans quel ordre).{0,80}(?:cyclades|santorin|export|import|associ|distribu|saisie)|qui harmonise|apres la saisie.{0,60}(?:harmonis|qui|connaissent)"
     ],
     "exclure_motifs": []
   },

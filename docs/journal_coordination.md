@@ -1118,3 +1118,12 @@ Audit `docs/audit_exploitation_ipack_2026_10_18.md` lu. Appliqué (fiches et cat
 
 ### 18 octobre 2026 23:51 — Claude : passage de relais sur l'onglet Examens
 Thierry indique que GPT reprend l'onglet Examens. Claude n'y touche plus (fiches `data/examens/` et motifs des fiches à mode `examens`) sauf demande. État laissé : complément Santorin découpé en 14 fiches `data/examens/santorin_cas_pratiques/` (original en `retrieval_enabled: false`), `data/examens/erreurs_cyclades_santorin.txt`, fiches Santorin officielles prioritaires, 53 questions Examens sans fiche listées par thème dans l'entrée de 23 h 36 (règles : combinaisons d'activités, dispense/DI, décret 2026, protocoles adaptés…). Les questions types Examens de `tests/test_selection_questions_types.py` peuvent être modifiées par GPT si une meilleure fiche principale est retenue. Claude reste sur iPackEPS, le guide et l'ergonomie.
+
+### 19 octobre 2026 0 h 10 — Claude : raccordements de l'audit Examens appliqués
+Audit `docs/audit_exploitation_examens_2026_10_18.md` lu. Bogue de Claude confirmé : en découpant le complément Santorin, la fiche 14 avait reçu les motifs de la fiche 02 (son titre contient « saisie des notes »). Corrigé (catalogue seulement) :
+1. Fiche 14 (de la validation des protocoles à la saisie) : motifs propres — protocoles validés + ordre / étapes / Cyclades / Santorin / saisie, « dans quel ordre », « qui harmonise ». Contre-exemples « note 4,5 » et « notes disparues après Réinitialiser » → fiche 02 seulement.
+2. Fiche 10 (cas exceptionnel pour tout un groupe) : reconnaissance indépendante de l'ordre des mots (groupe entier + impossibilité) ; exclut inapte, un seul élève, blessé, malade.
+3. Remplaçant : `ipack_007` / `ipack_045` (aucun lot) n'acceptent plus « absent » (apporté par l'enrichissement « enseignant absent ») et excluent « rempla » ; `ipack_011` (correction partagée) exige un vrai partage (deuxième correcteur, lot partagé, deux enseignants sur le même lot) et exclut « rempla ». « Je remplace un collègue absent… lots » → seulement les deux fiches d'accès remplaçant.
+4. Panne ponctuelle : `fermeture_collective.txt` (sa réponse directe traite déjà la fermeture d'un jour : report à la date de rattrapage, ni neutralisation ni CE) + motif panne / intempérie / fermée un jour + installation.
+5. `examens_102` et `examens_103` laissés hors catalogue : règles d'examen (coefficient, arrondi, calcul en cas d'inaptitude) à recouper avec MENE2531948N par la partie règles ; Claude ne les certifie pas.
+5 questions types ajoutées. Suite : 565 tests OK.

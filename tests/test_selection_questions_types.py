@@ -59,6 +59,13 @@ CAS = [
     ('je veux ajouter une section sportive mais elle ne figure pas dans les menus', GT, 'ipack', 'iPackEPS : Dossier SSS', []),
     ("comment imprimer une feuille d'appel pour mon groupe ?", COL, 'ipack', "iPackEPS : imprimer une feuille d'appel", []),
     ('comment donner les droits administrateur à un autre collègue ?', COL, 'ipack', "iPackEPS : droits de coordonnateur", []),
+    # Raccordements signalés par l'audit Examens de GPT (19 octobre, 0 h).
+    ("nos protocoles sont validés : dans quel ordre faire Cyclades et Santorin jusqu'à la saisie des notes ?", GT, 'examens', 'Santorin : De la validation des protocoles', []),
+    ('mes notes ont disparu après le bouton Réinitialiser', GT, 'examens', 'Santorin : Saisie des notes', ['Santorin : De la validation des protocoles']),
+    ("la même activité n'a pas pu être évaluée pour tout mon groupe de bac pro : comment saisir ?", PRO, 'examens', "Santorin : Une activité n'a pas pu être évaluée", []),
+    ('je remplace un collègue absent : comment accéder à ses lots dans Santorin ?', GT, 'examens', '[SITUATION: ACCÈS REMPLAÇANT SANTORIN]',
+     ['[ERREUR : AUCUN LOT À CORRIGER]', '[SITUATION: CORRECTION PARTAGÉE SANTORIN]']),
+    ('une panne de piscine le jour du CCF oblige-t-elle à certifier sur deux notes ?', GT, 'examens', 'Installation fermée pour une classe', []),
 ]
 
 

@@ -18,7 +18,9 @@ def render(st):
                                      "nouvelle_reponse": answer})
             batch["index"] += 1
             batch["waiting"] = False
-    with st.expander("🧪 Retest IA privé — 113 questions", expanded=bool(batch)):
+    st.markdown("""<div style="background:#17365d;color:#fff;border:3px solid #f6b73c;border-radius:12px;padding:16px 20px;margin:18px 0 8px 0;font-size:22px;font-weight:800">🧪 ADMINISTRATION — TESTS IA DU HUB<br><span style="font-size:15px;font-weight:500">Outil réservé à l’administrateur • 5 ou 113 questions</span></div>""", unsafe_allow_html=True)
+    with st.container(border=True):
+        st.info("⬇️ IMPORTER LE FICHIER CSV, PUIS LANCER LES TESTS CI-DESSOUS")
         st.warning("Les tests utilisent la clé IA du HUB et peuvent être facturés. "
                    "Les résultats restent dans cette session et sont à télécharger avant de la quitter.")
         uploaded = st.file_uploader("Fichier privé des 113 questions", type=["csv"], key="audit113_live_csv")

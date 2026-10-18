@@ -834,3 +834,33 @@ Contrôle de routage après la visite : cette formulation du correspondant ne d�
 
 ### 18 octobre 2026 — document de reprise
 `docs/reprise_pour_gpt_2026-10-18.md` : règles, travail du jour (visites collège et lycée, guide pas à pas, playlist), où modifier quoi, reste à faire. Lien ajouté en tête de `docs/reprise_projet.md`.
+
+
+### 18 octobre 2026 — GPT → Claude : récapitulatif de reprise, lot Textes publié
+Travail demandé par Thierry : remettre en ordre toutes les fiches Textes et améliorer leur exploitation, pendant que Claude prend en charge les visites et les menus iPackEPS. J'ai lu les dernières entrées du journal jusqu'au document de reprise de Claude ; cette entrée conserve ses ajouts.
+
+**Commits à conserver et à récupérer avant publication**
+- `922dfb385e8ab897a2df2c6a7e2a9b48dc38dbae` : premier lot documentaire, 18 fiches corrigées.
+- `06e0db8cea380b9abeb0938a08fbc9bdf56d6a18` : classement des 83 fiches Textes et corrections de reconnaissance/sélection.
+Ces deux lots sont déjà sur main. Ne pas réintroduire les anciennes synthèses depuis une copie antérieure.
+
+**Ce qui a été fait**
+1. Les 83 fiches Textes sont classées dans 12 domaines, sans déplacement des chemins historiques. Index lisible : `docs/index_fiches_textes.md` ; registre : `config/classement_textes.json` ; champ `domaine_textes` dans le catalogue. Le classement porte sur tout le corpus ; la relecture juridique approfondie ne porte pas encore sur toutes les fiches.
+2. Premier lot : retrait d'affirmations non étayées et correction des références, notamment dans la grande synthèse premier degré, les obligations de service, la responsabilité/protection, les urgences, les programmes et la certification CAP/bac pro. Sources officielles et limites précisées. Les anciennes versions sont conservées sous `data/archives/audit_textes_2026_10_18/`, hors recherche active.
+3. Deuxième lot : suppression de l'annexe juridique ancienne dans `data/programmes_officiels_eps.txt`, chargée en parallèle des fiches et susceptible de réintroduire les erreurs. La synthèse pédagogique restante est qualifiée et datée ; ne pas la présenter comme une citation officielle intégrale.
+4. Deux fiches ciblées ajoutées pour le premier degré : `direction_ecole_autorite_fonctionnelle.txt` et `sorties_premier_degre_autorisations.txt`. Le doublon urgence 060 est conservé mais exclu de la recherche (`retrieval_enabled=false`), remplacé par 023.
+5. Trois défauts transversaux corrigés dans `knowledge_catalog.py` : correspondance entre le public affiché « Collège » et les anciens identifiants internes ; cibles vides dans `has_text_reference` qui écartaient les fiches à portée explicite ; formulations trop littérales. Les alias des lycées sont aussi reconnus. Les motifs contextuels restent bornés au public. `hub_session.py` conserve l'affichage « Collège ».
+6. Meilleur accès aux fiches sur tenue/discipline, neutralité commerciale, mobilité, IMP/quotité, équipements, accompagnateurs et questions primaires. Il s'agit de sélectionner les sources, sans ajouter de réponses types au générateur.
+
+**Validation et limites à transmettre fidèlement**
+- 516 tests locaux réussis sur le deuxième lot ; aucun changement du modèle ni du nombre d'appels IA.
+- Sur 24 formulations de diagnostic utilisées pour les réglages : fiche prioritaire trouvée dans 23 cas contre 12 auparavant ; sujet reconnu dans 23 contre 11.
+- Cette mesure ne génère pas de réponse IA : ce n'est ni un taux de bonnes réponses, ni un test indépendant, ni la preuve que l'objectif de 80 % est atteint.
+- Aucune campagne de questions en production dans ces deux lots. Une question sur les formations hors service reste trop large pour imposer une fiche/règle unique.
+
+**Coordination et suite**
+- Aucun changement d'`app.py`, du guide ou de ses menus par mes deux lots Textes. Les ajouts vidéo du catalogue de Claude ont été conservés.
+- Rapport détaillé et sujets restant à contrôler : `docs/audit_textes_2026_10_18.md`. Mesure de diagnostic : `docs/mesure_couverture_textes_2026_10_18.json`.
+- Après ajout d'une fiche Textes, exécuter `python text_inventory.py` ; compléter sa classification explicite si le script signale un fichier inconnu. Le classement ne remplace pas la vérification de la source, de la date, de la portée et des conditions.
+- Suite prioritaire : série indépendante de nouvelles questions Textes, contrôle de la fiche sélectionnée puis de chaque affirmation de la réponse au regard de sa source ; distinguer réponse correcte, partielle, erronée et clarification justifiée. Ne pas annoncer 80 % avant cette mesure.
+- Règle de Thierry maintenue : pas d'affirmation réglementaire sans source adaptée ; en l'absence de preuve suffisante, préciser la limite ou demander une précision, sans inventer une procédure.

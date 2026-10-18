@@ -766,3 +766,6 @@ Texte des étapes, sous-menus, légendes et libellés du guide forcés en blanc 
 
 ### 18 octobre 2026 — vidéo « fiche Établissement »
 Vidéo https://youtu.be/-Ka0fNtMLBk (déjà « 1. Saisie établissement » du parcours fléché) : présente dans le pas à pas (rubrique Établissement et première étape de l'ordre de rentrée) ; rattachée en plus aux fiches « première connexion » et « classes » (motif fiche établissement), pour accompagner les réponses qui renvoient à la fiche Établissement.
+
+### 18 octobre 2026 — guide : boutons lisibles
+Correctif : la règle « texte blanc » du guide rendait le bouton « Découvrir l'interface iPackEPS » blanc sur blanc. Boutons du guide : fond blanc, texte foncé, bordure bleue.

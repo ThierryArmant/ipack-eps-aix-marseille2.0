@@ -527,6 +527,18 @@ css_pur = f"""
     div[class*="st-key-guide_callout_"] div[role="radiogroup"] label p {{
         color: #FFFFFF !important;
     }}
+    /* Boutons du guide (fond clair) : texte foncé, sinon blanc sur blanc */
+    div[class*="st-key-guide_callout_"] div[data-testid="stLinkButton"] div[data-testid="stMarkdownContainer"] p,
+    div[class*="st-key-guide_callout_"] div[data-testid="stButton"] div[data-testid="stMarkdownContainer"] p,
+    div[class*="st-key-guide_callout_"] div[data-testid="stLinkButton"] a,
+    div[class*="st-key-guide_callout_"] div[data-testid="stButton"] button {{
+        color: #0F273B !important;
+    }}
+    div[class*="st-key-guide_callout_"] div[data-testid="stLinkButton"] a,
+    div[class*="st-key-guide_callout_"] div[data-testid="stButton"] button {{
+        background: #FFFFFF !important;
+        border: 1px solid #38BDF8 !important;
+    }}
     div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary:hover {{
         background: #16405A !important;
     }}

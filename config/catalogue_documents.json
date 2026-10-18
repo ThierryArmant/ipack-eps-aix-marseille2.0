@@ -884,7 +884,8 @@
       "ccf|notes?|epreuv|inapt|dispens|absen|bac"
     ],
     "exclure_motifs": [
-      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
+      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))",
+      "(?:ou|comment) (?:faire pour |puis.je |dois.je |on |je )?(?:saisir|declarer|creer|importer|deposer|renseigner|configurer|parametrer|indiquer)|\\bmenu\\b|bouton|\\bcliqu"
     ],
     "modes": [
       "examens",
@@ -903,7 +904,8 @@
       "ccf|notes?|epreuv|inapt|dispens|absen|cap"
     ],
     "exclure_motifs": [
-      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))"
+      "^(?=.*(?:cyclades|santorin|i ?pack|onglet|\\blots?\\b|grise|ou sont|je ne vois|je ne trouve|manque des candidats))",
+      "(?:ou|comment) (?:faire pour |puis.je |dois.je |on |je )?(?:saisir|declarer|creer|importer|deposer|renseigner|configurer|parametrer|indiquer)|\\bmenu\\b|bouton|\\bcliqu"
     ],
     "modes": [
       "examens",
@@ -3008,8 +3010,7 @@
       "2027": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N"
     },
     "modes": [
-      "examens",
-      "ipack"
+      "examens"
     ]
   },
   "data/commun/dnb/03_absences_representativite.txt": {
@@ -3078,8 +3079,7 @@
     "support": "Diaporama académique DNB, mars 2026",
     "date_verification": "2026-10-10",
     "modes": [
-      "examens",
-      "ipack"
+      "examens"
     ]
   },
   "data/commun/dnb/06_oral_parcours_eps.txt": {
@@ -6939,7 +6939,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:barrette|melang|alignee|en menus?|deux classes|2 classes|plusieurs classes|trois classes|3 classes))(?=.*(?:groupe|mode|declar|cree|organis))|quel mode|mode (?:seul|mixte|groupe)|import\\w*.{0,50}(?:fonctionn|reussi|marche|bien passe|verifier)|(?:verifier|savoir).{0,40}import"
+      "(?=.*(?:barrette|melang|alignee|en menus?|deux classes|2 classes|plusieurs classes|trois classes|3 classes))(?=.*(?:groupe|mode|declar|cree|organis))|quel mode|mode (?:seul|mixte|groupe)|import\\w*.{0,50}(?:fonctionn|reussi|marche|bien passe|verifier)|(?:verifier|savoir).{0,40}import",
+      "import\\w*.{0,30}(?:mes |les |des )?eleves|eleves.{0,30}import|(?:actualiser|configurer|organiser|afficher|trouver|voir).{0,30}(?:mes |les )?classes\\b|classes?.{0,30}(?:n.apparai|vide|manque)"
     ],
     "exclure_motifs": [
       "\\bas\\b|association sportive|unss|section sportive"
@@ -6972,7 +6973,8 @@
     "priorite": 300,
     "motifs": [
       "(?=.*(?:\\bas\\b|association sportive|unss|section sportive|\\bsss\\b))(?=.*(?:eleve|licencie))(?=.*(?:plac|mettre|ajout|vois pas|voit pas|apparai|trouve pas|vide|liste|groupe))",
-      "(?:repartir|placer|affecter|mettre|basculer).{0,40}(?:mes |les )?eleves.{0,40}(?:dans|leurs?|aux?|en) groupes?|bouton.{0,40}(?:repartir|placer|affecter)"
+      "(?:repartir|placer|affecter|mettre|basculer).{0,40}(?:mes |les )?eleves.{0,40}(?:dans|leurs?|aux?|en) groupes?|bouton.{0,40}(?:repartir|placer|affecter)",
+      "(?:creer|faire|ajouter|constituer).{0,20}(?:un |mes |des |les )?groupes?\\b|(?:vois|voit|trouve) pas (?:mes |les )?eleves|eleves.{0,40}(?:n.apparai|absents? de la liste|manquent)"
     ],
     "exclure_motifs": [
       "rattrap|ccf|examen|note|inapt",
@@ -6985,6 +6987,14 @@
     "examens": [],
     "modes": [
       "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "emplois? du temps|\\bedt\\b|agenda equipe|creneaux?.{0,40}(?:creer|ajouter|saisir|faire|configur|cours)|(?:creer|ajouter|saisir|faire|configur).{0,40}creneaux?|(?:associer|rattacher|lier).{0,40}(?:gymnase|installation|equipement)|equipements? sporti"
+    ],
+    "exclure_motifs": [
+      "supprim|effac|restaur|recuper|reprendre|annee derniere|an dernier"
     ]
   },
   "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt": {
@@ -7203,10 +7213,11 @@
     "prioritaire": true,
     "priorite": 310,
     "motifs": [
-      "co.?evaluat\\w*.{0,40}(?:obligatoire|necessaire|faut.il|doit.on|indiquer|renseign|saisir|choisir|designer)|(?:obligatoire|faut.il|doit.on).{0,40}co.?evaluat|protocole.{0,40}(?:invalide|pas valide|non valide|vert|icone|coche|rouge)|(?:invalide|pas valide).{0,30}protocole|sans groupe|exporter les eleves|export.{0,20}cyclades|bouton envoyer|(?:deposer|remplacer|envoyer).{0,30}referentiel|classes? d.examen|(?:cfa|mfr|aefe).{0,60}(?:classe|groupe)|ensemble certificatif.{0,40}(?:compos|gerer les s|sequence)|composer.{0,30}(?:protocole|epreuve)"
+      "co.?evaluat\\w*.{0,40}(?:obligatoire|necessaire|faut.il|doit.on|indiquer|renseign|saisir|choisir|designer)|(?:obligatoire|faut.il|doit.on).{0,40}co.?evaluat|protocole.{0,40}(?:invalide|pas valide|non valide|vert|icone|coche|rouge)|(?:invalide|pas valide).{0,30}protocole|sans groupe|exporter les eleves|export.{0,20}cyclades|bouton envoyer|(?:deposer|remplacer|envoyer).{0,30}referentiel|classes? d.examen|(?:cfa|mfr|aefe).{0,60}(?:classe|groupe)|ensemble certificatif.{0,40}(?:compos|gerer les s|sequence)|composer.{0,30}(?:protocole|epreuve)",
+      "moins de (?:3|trois|2|deux) apsa|apsa.{0,30}certificatives?.{0,30}(?:declarees|insuffisant|manque)"
     ],
     "exclure_motifs": [
-      "\\bdnb\\b|brevet|college|absen|arret|malad|\\bseul\\b|bless|entorse|inapt|adapt|handicap|remplac|fraude|certificat|note"
+      "\\bdnb\\b|brevet|college|absen|arret|malad|\\bseul\\b|bless|entorse|inapt|adapt|handicap|remplac|fraude|certificat(?!i)|note"
     ]
   },
   "data/ipack/fiches/ipack_308_situation_enseignant_qui_change_d_etablissement.txt": {

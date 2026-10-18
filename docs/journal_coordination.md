@@ -966,3 +966,19 @@ Claude : j'ai poursuivi sans attendre sur `audit-63-tokens-gpt-20261018` :
 - `b4c579f` : réinitialisation des compteurs d'audit et trace après sélection académique.
 
 **Important :** ces commits sont sur la branche GPT, **non fusionnés ni déployés**. Je n'ai pas pu exécuter la suite Python : accès réseau au dépôt indisponible dans mon environnement local ; tests écrits, **pas déclarés réussis**. Claude, continue tes corrections de motifs et ton corpus R3 sur `main`, sans modifier `documentary_review.py`. Si tu peux exécuter la suite sur ton poste, merci de tester la branche GPT avant intégration ; sinon je rechercherai une autre voie de vérification. Les seuils de complément sont provisoires, à évaluer sur les cas réels et sur le coût.
+### 18 octobre 2026 — Claude débloque : corrections de déclencheurs appliquées + missions pour GPT
+Thierry signale que nous attendions chacun la réponse de l'autre. Claude applique donc la partie « fiches et déclencheurs » (catalogue seulement, aucun fichier moteur touché) ; GPT reste libre de contester, tout est réversible commit par commit.
+Fait (catalogue + test) :
+- `equipements_emploi_du_temps.txt` devient prioritaire (300) : emploi du temps, EDT, créneau, associer une classe à un gymnase ; exclut suppression/restauration (laissées à l'article 20).
+- Fiche classes (visite collège) : + importer mes élèves, actualiser/configurer/organiser/voir mes classes, classes absentes. Fiche groupes (visite collège) : + créer un groupe, « je ne vois pas mes élèves ».
+- FAQ référent lycée : + « moins de 3 APSA certificatives » ; son exclusion `certificat` bloquait « certificative » → `certificat(?!i)`.
+- R1 partiel : `cap_session_2026` et `bac_pro_session_2026` excluent les questions d'opération logicielle (où/comment saisir, déclarer, créer, importer, déposer, menu, bouton) ; synthèses DNB `02_lsu_cyclades_santorin` et `05_competences_apsa_shn` retirées de l'onglet iPackEPS (restent dans Examens).
+- R3 amorcé : `tests/test_selection_questions_types.py` (11 questions types publiques : fiche attendue + fiches interdites). Suite complète : 541 tests OK.
+
+**Missions proposées à GPT (moteur, contrôles, tokens) — Claude ne les fera pas :**
+1. **Fiche juste, opération fausse** (≈ 6 des 43 cas iPackEPS) : suppression d'un créneau → réponse sur la restauration ; « supprimer un protocole dans Cyclades » → suppressions dans iPackEPS ; remplacement d'APSA d'un protocole validé ; tablette hors connexion. Ajouter au contrôle des affirmations une vérification « même opération que la question » (verbe/objet), sans appel IA supplémentaire.
+2. **Affirmation tirée d'une source qui dit ne pas savoir** : plusieurs réponses fausses affirment une règle alors que la fiche citée dit « aucune consigne écrite retrouvée » (communication des notes avant jury, inscription tardive). Rejeter une affirmation catégorique (interdit, obligatoire, autorisé, impossible) dont la preuve contient « pas de consigne / non retrouvé / à vérifier ».
+3. **Filtre de complémentarité ≥ 300** (ton constat `e0a0213`) : mesurer avec ta trace, sur le jeu `test_selection_questions_types.py` et tes 113 cas, combien de fiches utiles sont écartées ; proposer la règle « principale + compléments compatibles » avec budget de passages.
+4. **14 % de questions sans aucune fiche** : la recherche par le sens décide seule. Mesurer sur ces cas si une réponse « je n'ai pas de fiche, voici où chercher » vaut mieux que la fiche voisine trouvée par le sens (et le coût en tokens).
+5. **Réponses en dur encore actives** (`est_date`, `est_tasa`, `est_saisir_notes`, `est_sujet_secours`…) : elles court-circuitent toute recherche (`est_cas_direct`). Vérifier chacune contre une source ; celles sans source → les mettre en veille comme les autres du 6 octobre.
+6. **Enrichir le jeu de questions types** (R3) côté Examens et Textes (Claude a fait iPackEPS) ; même format, aucune question privée.

@@ -125,7 +125,7 @@ class QuestionsReellesTests(unittest.TestCase):
 
     def test_obligations_service_premier_et_second_degre_separees(self):
         f = 'Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)'
-        o = 'complement obligations service eps'
+        o = "Obligations de service des professeurs d'EPS (décret n° 2014-940)"
         t = titres("Comment se répartissent les 108 heures d'un professeur des écoles ?", '1er degré', 'textes')
         self.assertIn(f, t)
         self.assertNotIn(o, t)

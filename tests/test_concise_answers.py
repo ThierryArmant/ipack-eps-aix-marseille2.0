@@ -11,7 +11,7 @@ class ConciseAnswerTests(unittest.TestCase):
                   ('Faire confirmer la procédure par le responsable avant toute utilisation.',
                    'Présenter les justificatifs pour la vérification.')]
         result = render_claims(claims, packets)
-        visible, details = result.split('<details>', 1)
+        visible, details = result.split('<details', 1)
         self.assertIn('avant toute utilisation', visible)
         self.assertNotIn('Guide institutionnel', visible)
         self.assertEqual(details.count('Guide institutionnel'), 1)
@@ -21,7 +21,7 @@ class ConciseAnswerTests(unittest.TestCase):
     def test_unconfirmed_fallback_does_not_expand_internal_fiche(self):
         text = 'Le responsable valide le dispositif après vérification des pièces.'
         result = render_exam_fallback({}, question='Qui valide le dispositif ?', documents=mark_excerpt(text), mode='textes')
-        visible, details = result.split('<details>', 1)
+        visible, details = result.split('<details', 1)
         self.assertIn('Réponse non confirmée', visible)
         self.assertNotIn(text, visible)
         self.assertIn(text, details)

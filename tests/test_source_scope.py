@@ -38,9 +38,9 @@ class SourceScopeTests(unittest.TestCase):
         good,errors=validate_claims({'claims':[c]},ps)
         self.assertFalse(errors)
         answer=render_claims(good,ps)
-        self.assertIn('Passage non attribué — fiche mixte : circuit académique + cadre national',answer)
+        self.assertIn('Document combinant circuit académique + cadre national',answer)
         self.assertIn('origine académique : Aix-Marseille',answer)
-        self.assertNotIn('Texte réglementaire :',answer)
+        self.assertNotIn('Texte officiel :',answer)
 
     def test_creteil_keeps_national_fraud_steps_unmarked(self):
         # EX290 : la compétence de la commission de discipline est nationale, pas une consigne d'Aix.
@@ -80,7 +80,7 @@ class SourceScopeTests(unittest.TestCase):
         answer=render_claims(good,ps)
         self.assertIn('Documentation du logiciel',answer)
         self.assertIn('exemples cités : Dijon, Normandie',answer)
-        self.assertNotIn('Texte réglementaire',answer)
+        self.assertNotIn('Texte officiel',answer)
 
     def test_model_cannot_inject_scope_metadata_in_legacy_quote(self):
         ps=source_packets(mark_excerpt('Un document sans nature ni origine établie doit être vérifié.'))
@@ -90,7 +90,7 @@ class SourceScopeTests(unittest.TestCase):
         good,_=validate_claims({'claims':[c]},ps)
         answer=render_claims(good,ps)
         self.assertNotIn('faux BO',answer)
-        self.assertNotIn('Texte réglementaire',answer)
+        self.assertNotIn('Texte officiel',answer)
 
     def test_unrelated_passage_is_rejected(self):
         # EX290 : une règle sur la fraude ne peut pas être prouvée par la fiche du modèle de PV.

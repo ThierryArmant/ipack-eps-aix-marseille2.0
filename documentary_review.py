@@ -15,10 +15,11 @@ import evidence_logic
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
-_LEVELS = {'reglementaire': 'Texte réglementaire', 'academique': 'Document académique',
-           'synthese_reglementaire': 'Synthèse d’un texte réglementaire',
-           'logiciel': 'Documentation du logiciel', 'assistance': "Retour d'assistance", 'documentaire': 'Passage documentaire',
-           'programme': 'Repère du programme', 'non_documente': 'Information non documentée'}
+# Libellés lus par les collègues : mots simples, sans jargon documentaire.
+_LEVELS = {'reglementaire': 'Texte officiel', 'academique': 'Document de l’académie',
+           'synthese_reglementaire': 'Résumé d’un texte officiel',
+           'logiciel': 'Documentation du logiciel', 'assistance': "Réponse de l'assistance", 'documentaire': 'Document de référence',
+           'programme': 'Vérification faite par le hub', 'non_documente': 'Information non documentée'}
 
 
 _MOTS_VIDES = set("""avant apres aussi autre autres avoir cette celle celui ceux comme dans depuis doit doivent donc elle elles entre etre leur leurs lors meme mais pour peut peuvent plus sans selon sera sont tout toute toutes tous votre vous quand quel quelle quels quelles alors ainsi encore chaque
@@ -465,7 +466,11 @@ def render_claims(claims, packets, *, mode="examens"):
             output.append('<p>' + html.escape(c['text']) +
                           ' <sup>[' + ', '.join(map(str, numbers)) + ']</sup></p>')
     if references:
-        output.append('<details><summary>Références et portée des sources</summary>')
+        # Bloc ouvert et encadré : replié, il passait inaperçu et les collègues ne voyaient pas les sources.
+        output.append('<details open style="margin-top:0.8em;padding:0.5em 0.8em;border-left:4px solid #2563eb;'
+                      'background:rgba(37,99,235,0.08);border-radius:6px">'
+                      '<summary style="font-weight:700;cursor:pointer">📚 Références et portée des sources ('
+                      + str(len(references)) + ')</summary>')
         for number, (label, url) in enumerate(references, 1):
             source = html.escape(label)
             if url.startswith(('https://', 'http://')):

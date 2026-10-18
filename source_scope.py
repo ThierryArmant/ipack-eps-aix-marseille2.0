@@ -153,7 +153,7 @@ def evidence_label(evidence, packet, labels):
     kinds=scope.get('nature', [])
     if len(kinds)>1:
         names={'texte_national':'cadre national','consigne_academique':'circuit académique','logiciel':'logiciel','a_verifier':'portée à vérifier'}
-        label=('Passage non attribué — fiche mixte : ' if scope.get('status') == 'passage_non_attribue' else 'Fiche mixte : ')+' + '.join(names.get(k,k) for k in kinds)
+        label='Document combinant ' + ' + '.join(names.get(k,k) for k in kinds)
     else:
         label=labels.get(scope.get('level') or packet.get('display_level','documentaire'),'Portée à vérifier')
     if scope.get('academy'):

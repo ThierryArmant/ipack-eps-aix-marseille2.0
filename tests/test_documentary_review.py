@@ -74,7 +74,7 @@ class DocumentaryReviewTests(unittest.TestCase):
         accepted, errors = validate_claims({'claims': [bad]}, source_packets(DOC))
         self.assertFalse(errors)
         self.assertIn('Documentation du logiciel', render_claims(accepted, source_packets(DOC)))
-        self.assertNotIn('Texte réglementaire', render_claims(accepted, source_packets(DOC)))
+        self.assertNotIn('Texte officiel', render_claims(accepted, source_packets(DOC)))
 
     def test_norm_reference_does_not_promote_unknown_guide_to_regulation(self):
         guide = mark_excerpt(TEXT + '\nRéférence : NOR MENE1234567N. https://www.education.gouv.fr/bo/2026/',

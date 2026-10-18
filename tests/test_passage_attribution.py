@@ -43,7 +43,7 @@ class PassageAttributionTests(unittest.TestCase):
         national=next(s for s in packet['passages'] if 'Le recteur' in s['text'] or 'le recteur peut' in s['text'])
         software=next(s for s in packet['passages'] if 'Déclarer CE' in s['text'])
         a=answer_for(packet,national); b=answer_for(packet,software)
-        self.assertIn('Synthèse d’un texte réglementaire',a)
+        self.assertIn('Résumé d’un texte officiel',a)
         self.assertIn('MENE2531948N',a)
         self.assertNotIn('À Aix-Marseille,',a)
         self.assertNotIn('non confirmé pour Lyon',a)

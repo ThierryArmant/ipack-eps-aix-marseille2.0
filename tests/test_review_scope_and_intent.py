@@ -11,7 +11,7 @@ class ScopeIntentTests(unittest.TestCase):
         claims.append({'section': 'condition', 'text': 'La règle nationale demeure applicable.', 'evidence': [national]})
         ps = [{'id': 'D1', 'title': 'Guide local', 'display_level': 'academique'},
               {'id': 'D2', 'title': 'Texte national', 'display_level': 'reglementaire'}]
-        result = render_claims(claims, ps).split('<details>')[0]
+        result = render_claims(claims, ps).split('<details')[0]
         self.assertEqual(result.count('Aix-Marseille'), 1)
         self.assertEqual(result.count('Versailles'), 1)
         self.assertIn('ne sont pas confirmées', result)

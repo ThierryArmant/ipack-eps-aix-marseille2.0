@@ -88,7 +88,7 @@ class FichesVoisines(unittest.TestCase):
         self.assertEqual(["Remplacer une activité d'un protocole validé par une autre (travaux, installation indisponible)"], t(q))
         self.assertIn('Installation fermée pour une classe : autorisation puis CE',
                       t("La piscine est fermée pour toute la classe, l'évaluation de natation est impossible, que faire dans Santorin ?"))
-        self.assertIn('complement obligations service eps',
+        self.assertIn("Obligations de service des professeurs d'EPS (décret n° 2014-940)",
                       t("Je suis TZR sur deux établissements, qui fixe mon emploi du temps ?", CLG, 'textes'))
         from pathlib import Path
         code = Path('app.py').read_text(encoding='utf-8')

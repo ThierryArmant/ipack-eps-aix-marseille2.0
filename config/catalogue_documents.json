@@ -6699,6 +6699,14 @@
     ],
     "exclure_motifs": [
       "santorin|cyclades|imag.in|verrouill"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/-Ka0fNtMLBk",
+        "motifs": [
+          "\\[[ÉE]tablissement\\]|fiche [ée]tablissement"
+        ]
+      }
     ]
   },
   "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt": {
@@ -6747,6 +6755,14 @@
     "examens": [],
     "modes": [
       "ipack"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/-Ka0fNtMLBk",
+        "motifs": [
+          "fiche [ée]tablissement|nature de votre [ée]tablissement"
+        ]
+      }
     ]
   },
   "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt": {

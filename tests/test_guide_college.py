@@ -123,6 +123,16 @@ class GuideCollegeTests(unittest.TestCase):
         with patch.object(guide, 'SOURCE', Path('absent.txt')):
             self.assertEqual(guide.order_rule(), '')
 
+    def test_video_etablissement_dans_le_guide_et_les_fiches(self):
+        url = 'https://youtu.be/-Ka0fNtMLBk'
+        etab = self.routes['Établissement : vérifier la fiche'][0]
+        self.assertEqual(guide.video_url(etab['video']), url)
+        self.assertEqual(guide.video_url(self.routes['Me repérer depuis le début (ordre de rentrée)'][0]['video']), url)
+        cat = json.loads(Path('config/catalogue_documents.json').read_text(encoding='utf-8'))
+        for k in ('data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt',
+                  'data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt'):
+            self.assertIn(url, [t['url'] for t in cat[k]['tutoriels']])
+
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')
         guide.render_guide(ui, 'l', 'Lycée voie générale')

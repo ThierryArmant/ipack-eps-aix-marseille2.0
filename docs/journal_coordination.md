@@ -763,3 +763,6 @@ Libellé écrit au masculin et au féminin, à la demande de Thierry.
 
 ### 18 octobre 2026 — guide : étapes en blanc
 Texte des étapes, sous-menus, légendes et libellés du guide forcés en blanc (lisibilité sur fond sombre), à la demande de Thierry. Style limité aux conteneurs du guide.
+
+### 18 octobre 2026 — vidéo « fiche Établissement »
+Vidéo https://youtu.be/-Ka0fNtMLBk (déjà « 1. Saisie établissement » du parcours fléché) : présente dans le pas à pas (rubrique Établissement et première étape de l'ordre de rentrée) ; rattachée en plus aux fiches « première connexion » et « classes » (motif fiche établissement), pour accompagner les réponses qui renvoient à la fiche Établissement.

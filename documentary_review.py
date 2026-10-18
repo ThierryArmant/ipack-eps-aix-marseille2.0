@@ -892,6 +892,9 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['marked_academic_passages'] = marked
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
+    audit['model_packet_count'] = len(packets)
+    audit['model_passage_count'] = sum(len(p['passages']) for p in packets)
+    audit['model_passage_chars'] = sum(len(str(s.get('text', ''))) for p in packets for s in p['passages'])
     if re.search(r'course (?:en|de) dur[eé]e', question.lower()) and re.search(r'd[eé]pos', question.lower()):
         instructions += ('\nLa question porte sur un DEPOT, pas seulement sur la compatibilité des champs. '
                          'Distinguer dépôt de deux FCA, regroupement dans un fichier et ensemble certificatif. '
@@ -934,6 +937,8 @@ Ne répète pas la même action en décision, condition et étape. Utilise cette
 Ne complète jamais une décision avec les conditions ou démarches d'une autre situation.
 Si aucun passage applicable ne répond, retourne exactement {"claims":[]}, sans remplir les rubriques.
 Une absence de consigne retrouvée ne prouve ni obligation, ni interdiction, ni inexistence d'une consigne.
+Une fiche applicable qui énonce explicitement qu'une fonction n'est pas prise en charge constitue une réponse documentaire utile : explique cette limite au collègue, sans inventer une fonction de remplacement. Ne confonds pas une interdiction ou limite explicitement documentée avec l'absence de documentation.
+Lorsqu'une fiche applicable répond à une partie précise de la demande, restitue cette partie et ses conditions avant d'indiquer ce qui reste inconnu. Ne retourne {"claims":[]} que si aucun passage applicable ne permet une affirmation utile sur l'objet demandé.
 Quand une action est réservée à une autorité, nomme cette autorité et son rôle d'après les passages.
 Restitue dans l'ordre les étapes indispensables de la procédure applicable, y compris la conservation des éléments lorsqu'elle est prescrite.
 Si la question demande de distinguer les niveaux, explique quels éléments relèvent du cadre national, du circuit académique et du logiciel, selon la nature déclarée dans les passages.

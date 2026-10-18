@@ -23,6 +23,12 @@ CAS = [
     ("où saisir les protocoles d'évaluation", GT, 'ipack', 'iPackEPS lycée : Dossier Certificatif', []),
     ('le co-évaluateur est-il obligatoire ?', PRO, 'ipack', None, []),
     ('comment ajouter un collègue TZR', COL, 'ipack', 'iPackEPS : équipe EPS', []),
+    # Fiche d'accès découpée (18 octobre) : une question ne reçoit que sa situation.
+    ("je n'ai pas accès au dossier certificatif", GT, 'ipack', 'iPackEPS : Ma Fiche Professeur', ['Accès iPackEPS et portail ESTEREL']),
+    ("iPackEPS n'apparaît pas dans mon portail", COL, 'ipack', 'Accès iPackEPS et portail ESTEREL', []),
+    ("erreur 403 quand j'ouvre ipack", COL, 'ipack', 'Accès iPackEPS et portail ESTEREL', ['DNB : calcul']),
+    ("j'ai un message instance en rouge", COL, 'ipack', "iPackEPS : message d'erreur « Instance »", ['Accès iPackEPS et portail ESTEREL']),
+    ('cité scolaire : il manque des collègues au collège', COL, 'ipack', 'iPackEPS : cité scolaire', ['Accès iPackEPS et portail ESTEREL']),
 ]
 
 

@@ -1,0 +1,8 @@
+### iPackEPS : message d'erreur « Instance » en rouge
+Réponse directe — fermez tous les onglets du navigateur où iPackEPS est ouvert, ou cliquez sur votre identifiant en haut à droite puis sur « Retour au portail », et rouvrez iPackEPS. Cela réinitialise la session.
+- Mots-clés : erreur instance, message rouge, instance, session, plusieurs onglets, retour au portail, déconnexion.
+- Formulations courantes des collègues : j'ai un message d'erreur Instance en rouge ; iPackEPS affiche Instance ; que faire quand iPackEPS affiche une erreur d'instance.
+- Ce message vient d'une session ouverte dans plusieurs onglets ou restée ouverte : ce n'est pas un problème de droits, il n'y a personne à contacter.
+- (Source : guide des examens EPS de l'académie de Normandie.)
+Nature de la source : fonctionnement du logiciel iPackEPS (session de navigation) ; fonction commune à toutes les académies.
+Source : guide des examens EPS de l'académie de Normandie, repris dans la fiche d'accès iPackEPS du hub.

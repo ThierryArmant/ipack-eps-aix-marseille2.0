@@ -1,4 +1,5 @@
 ### [ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe
+Réponse directe — importer des groupes d'élèves depuis Pronote ou École Directe : exporter le groupe en fichier depuis le logiciel de vie scolaire, l'enregistrer, puis dans iPackEPS cliquer sur [Importer un fichier d'élèves] et choisir ce fichier. Ne pas ouvrir le fichier CSV dans Excel (accents détruits, classes « 1-1 » changées en dates) : le modifier si besoin dans le Bloc-notes, enregistré en UTF-8 avec séparateur point-virgule.
 - Mots-clés : import d'élèves, Pronote, École Directe, fichier CSV, Importer un fichier d'élèves, Importer un fichier Pronote, Excel, UTF-8, séparateur point-virgule, accents corrompus, classes non retrouvées, colonnes non trouvées
 - Formulations courantes des collègues : Comment récupérer mes groupes de Pronote dans iPackEPS ? ; Mon fichier CSV ne s'importe pas, que faire ? ; Les accents sont cassés et ma classe 1-1 est devenue une date ; iPackEPS dit que des classes ou des élèves n'ont pas été retrouvés ; Comment exporter mes groupes depuis École Directe ?
 - URL: spip.php?article88

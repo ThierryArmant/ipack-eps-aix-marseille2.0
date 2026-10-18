@@ -779,6 +779,10 @@ def dnb_document_mismatch(question, public, packet):
     if re.search(r'dnb|brevet|college', normalise(path) + ' ' + title):
         return False
     body = packet.get('text', '')
+    # L'absence d'un balisage PORTEE ne rend pas un dossier d'examen applicable au collège.
+    exam_route = normalise(path.replace('_', ' ') + ' ' + title)
+    if re.search(r'dossier certificatif|protocoles?.{0,30}(?:epreuves? certificatives?|examens?)', exam_route):
+        return True
     scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', body)
     if scopes and not any('dnb' in scope.split(',') for scope in scopes):
         return True

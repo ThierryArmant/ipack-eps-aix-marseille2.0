@@ -129,14 +129,12 @@ def activity_goal_clarification(question, public):
 def teaching_registration_clarification(question):
     """L'activité et la classe ne déterminent pas la rubrique à renseigner."""
     q = normalise(question)
-    teaching = re.search(r"enseign|je (?:fais|pratique)|(?:mes|avec les|avec mes).{0,20}(?:eleves|classes|[3-6](?:e|eme))", q)
-    registration = re.search(r'renseign|saisir|saisie|declar|enregistr|rentrer|indiquer', q)
+    teaching = re.search(r"enseign|je (?:fais|pratique)|(?:ma|mes|avec les|avec ma|avec mes).{0,20}(?:eleves|classes?|[3-6](?:e|eme))", q)
+    registration = re.search(r'renseign|rempl|saisir|saisie|declar|enregistr|rentrer|indiquer', q)
     target = re.search(r'programmation|sequences?|groupes?|emploi du temps|dossier|fiche|specialit|competence|'
                        r'liste.{0,15}apsa|(?:dans|menu|rubrique).{0,20}apsa|protocole|certific|notes?|evaluation|inapt', q)
     if teaching and registration and not target:
-        return ("Pouvez-vous préciser ce que vous souhaitez renseigner dans iPackEPS et dans quelle rubrique ? "
-                "Parlez-vous de la programmation de la classe, d’un groupe, d’une séquence d’apprentissage "
-                "ou d’une autre rubrique ? Indiquez aussi l’écran où vous vous trouvez, si vous êtes déjà dans l’application.")
+        return "Pouvez-vous préciser ce que vous souhaitez renseigner dans iPackEPS ?"
     return ''
 
 

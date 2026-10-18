@@ -94,6 +94,14 @@ class FichesVoisines(unittest.TestCase):
         code = Path('app.py').read_text(encoding='utf-8')
         self.assertIn('Question de REMPLACEMENT', code)
 
+    def test_tzr_decret_99_823(self):
+        s = 'TZR : zone, établissement de rattachement, service et heures (décret n° 99-823)'
+        self.assertIn(s, t("Entre deux remplacements, que doit faire un TZR ?", CLG, 'textes'))
+        self.assertIn(s, t("Je suis TZR, mes heures au-delà de mon service sont-elles payées ?", CLG, 'textes'))
+        from pathlib import Path
+        texte = Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8')
+        self.assertIn("ne dit pas quel chef d'établissement arrête l'emploi du temps", texte)
+
 
 if __name__ == '__main__':
     unittest.main()

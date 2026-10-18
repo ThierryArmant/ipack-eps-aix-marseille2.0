@@ -775,7 +775,7 @@
     ],
     "motifs": [
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service",
-      "\\btzr\\b|\\bissr\\b|service partage|complement de service|(?:deux|plusieurs|2) etablissements"
+      "service partage|complement de service|(?:deux|plusieurs|2) etablissements"
     ],
     "exclure_motifs": [
       "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole"
@@ -6593,6 +6593,24 @@
       "un seul (?:eleve|candidat)|seul un (?:eleve|candidat)|inapt|blesse|protocole adapte|standard|professeur|enseignant absent|collegue|\\bshn\\b|haut niveau|option|lot\\b|santorin|groupe.{0,20}importe"
     ],
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+    "date_verification": "2026-10-18"
+  },
+  "data/textes/fiches/tzr_decret_99_823_remplacement.txt": {
+    "title": "TZR : zone, établissement de rattachement, service et heures (décret n° 99-823)",
+    "statut": "texte_officiel_fourni_utilisateur_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 330,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "\\btzr\\b|zone de remplacement|titulaire.{0,20}remplacement|\\bissr\\b|etablissement de rattachement|\\brad\\b|residence administrative|(?:je suis|en tant que|comme) remplacant"
+    ],
+    "exclure_motifs": [
+      "imp\\b|indemnite de mission"
+    ],
+    "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000577415",
     "date_verification": "2026-10-18"
   }
 }

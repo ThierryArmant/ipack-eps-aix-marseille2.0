@@ -5679,6 +5679,16 @@
    "autres_academies_citees": [],
    "portee_texte": "procédure iPackEPS commune ; circuit Cyclades propre à Aix-Marseille ; cadre national GT",
    "titre": "Remplacer une activité d'un protocole validé"
+  },
+  "data/textes/fiches/tzr_decret_99_823_remplacement.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national, enseignants du second degré public",
+   "titre": "TZR : décret n° 99-823 relatif au remplacement"
   }
  }
 }

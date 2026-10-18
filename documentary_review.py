@@ -12,7 +12,7 @@ import time
 import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
-from claim_guards import unsupported_certainty, operation_errors
+from claim_guards import unsupported_certainty, operation_errors, documentary_limit
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
@@ -405,6 +405,51 @@ def validate_claims(data, packets, *, checked=False):
         else:
             accepted.append({**claim, 'evidence': resolved_evidence})
     return accepted, rejected
+
+
+def source_limits_for_rejections(rejections, packets, question):
+    """Copier seulement les preuves littérales d'une perte de réserve documentaire.
+
+    Aucun nouveau choix de source, aucune réparation d'une autre erreur.
+    La réponse reconstruite repasse ensuite tous les contrôles existants.
+    """
+    by_id = {p['id']: p for p in packets}
+    result, seen = [], set()
+    for rejection in rejections:
+        errors = rejection.get('errors', [])
+        if not errors or any(not str(e).startswith('absence de consigne transformée') for e in errors):
+            return []
+        claim = rejection.get('claim', {})
+        found = False
+        for evidence in claim.get('evidence', []):
+            packet = by_id.get(evidence.get('document_id'))
+            if not packet:
+                return []
+            selected = evidence.get('passage_ids')
+            if selected:
+                spans = [span for span in packet['passages'] if span['id'] in selected]
+            else:
+                spans = [{'text': evidence.get('quote', '')}]
+            for span in spans:
+                text = span['text'].strip().lstrip('-* ')
+                if (not documentary_limit(text) or len(text) > 1800
+                        or len(_racines(question) & _racines(text)) < 2
+                        or situation_mismatch(question, text) or editorial_instruction(text)):
+                    continue
+                found = True
+                key = (packet['id'], span.get('id'), text)
+                if key in seen:
+                    continue
+                seen.add(key)
+                proof = {'document_id': packet['id']}
+                if span.get('id'):
+                    proof['passage_ids'] = [span['id']]
+                else:
+                    proof['quote'] = span['text']
+                result.append({'section': 'limite', 'text': text, 'evidence': [proof]})
+        if not found:
+            return []
+    return result if len(result) <= 2 else []
 
 
 def scoped_claim_text(claim, *, mode="examens"):
@@ -1063,6 +1108,28 @@ Réponds uniquement en JSON selon ce schéma :
     audit['proposal'] = final
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
+    audit['documentary_limit_extraction'] = False
+    if rejected:
+        limits = source_limits_for_rejections(rejected, packets, question)
+        if limits:
+            # Conserver les affirmations déjà valides ; repasser tous les contrôles.
+            preserved = []
+            for c in accepted:
+                evidence = []
+                for e in c['evidence']:
+                    proof = {'document_id': e['document_id']}
+                    if e.get('passage_id'):
+                        proof['passage_ids'] = [e['passage_id']]
+                    else:
+                        proof['quote'] = e['quote']
+                    evidence.append(proof)
+                preserved.append({**c, 'evidence': evidence})
+            extracted, checked_limits, limit_errors = resolve(json.dumps({'claims': preserved + limits}, ensure_ascii=False))
+            if not limit_errors:
+                audit['first_pass_rejection_count'] = len(rejected)
+                audit['first_pass_rejection_reasons'] = sorted({str(e) for r in rejected for e in r['errors']})
+                audit['documentary_limit_extraction'] = True
+                final, accepted, rejected = extracted, checked_limits, []
     if rejected:
         # Mesure agrégée sans appel IA et sans modifier les règles de validation.
         # Ne pas publier les brouillons ou les questions dans les journaux publics.

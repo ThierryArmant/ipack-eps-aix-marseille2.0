@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:15 — partie programme — éviter une seconde rédaction du silence documentaire
+
+Fait : lorsque le seul rejet est une réserve documentaire transformée en certitude, le programme peut reprendre **littéralement le passage déjà cité**, avec ses conditions et son origine. Aucun nouveau choix de source ni réponse métier préécrite : recoupement avec la question, longueur bornée, retrait des consignes éditoriales, deux passages au plus ; l'ensemble repasse tous les contrôles habituels. Une preuve inconnue, une autre erreur ou un passage voisin conserve la réparation normale. Le constat littéral borné au corpus n'est plus rejeté comme une règle catégorique. Aucun prompt ni passage supplémentaire envoyé au modèle.
+
+Validation : **560 tests réussis en 48,215 s**, dont sept nouveaux tests (absence de second appel simulé, conservation de la source et de ses réserves, fiche annotée réelle, refus d'un document inconnu, d'une autre erreur, d'un sujet voisin ou d'une consigne éditoriale). Compilation/diff vérifiés. Code publié après autorisation utilisateur ; comparaison réelle à suivre avec le cas déjà testé, sans nouvelle série payante. L'économie est attendue uniquement lorsque cette extraction s'applique, pas annoncée globalement. Dernière entrée de la partie fiches sur l'import collège et le guide lue et conservée.
+
+
 ### 2026-10-18 23:07 — partie programme — déploiement aa44903 constaté en ligne
 
 Fait : publication sur main autorisée par l'utilisateur, version aa44903 effectivement affichée sous la réponse après rechargement du Hub. Même cas générique de communication des notes avant jury, lycée GT/Aix : résultat « Réponse non confirmée », avec extraits accessibles ; l'affirmation injustifiée d'inexistence d'une règle n'est plus publiée. Coût affiché : 2 appels, 10 814 jetons d'entrée + 253 de sortie = 11 067, contre 1 appel et 6 362 jetons avant publication sur ce cas. Réponse désormais prudente mais incomplète ; **pas d'économie démontrée**, au contraire coût supérieur sur cet essai. Ce seul test ne valide pas tout le Hub.

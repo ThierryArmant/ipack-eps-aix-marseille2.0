@@ -7,11 +7,22 @@ _CATEGORICAL = re.compile(r"\b(?:interdit\w*|obligatoire\w*|autorise\w*|impossib
 _LIMIT = re.compile(r"(?:ne|n').{0,55}(?:peut|permet|permettent).{0,20}pas.{0,35}(?:confirmer|affirmer|conclure|etablir)|(?:pas|aucun\w*).{0,65}(?:consigne|texte|regle|procedure).{0,60}(?:retrouv|etabli)|reste a (?:verifier|confirmer)|a faire confirmer")
 
 
+def documentary_limit(text):
+    """Constat de recherche borné au corpus, jamais une inexistence de règle."""
+    value = normalized(text)
+    if re.search(r"n'existe|n'existent|reponse directe|ne pas repondre|pour les (?:questions|situations)", value):
+        return False
+    return bool(re.search(r"aucun texte de la base|aucune consigne de la base|(?:aucun\w*|pas de|absence de).{0,75}(?:consigne|texte|regle|procedure).{0,65}(?:retrouv|dans (?:la base|le corpus|la documentation))", value))
+
+
 def unsupported_certainty(text, supports):
     """Le silence documentaire seul ne prouve jamais une prescription."""
     proof = [normalized(p) for p in supports if p]
     documentary_absence = lambda p: bool(_ABSENCE.search(p) or re.search(r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", p))
     if not proof or not all(documentary_absence(p) for p in proof):
+        return False
+    # Une reprise littérale d'un constat limité au corpus ne le généralise pas.
+    if documentary_limit(text) and any(normalized(text).strip().lstrip('-* ') == p.strip().lstrip('-* ') for p in proof):
         return False
     # Vérifier auprès d'un service reste une démarche sûre ; une réserve dans
     # une autre phrase ne sauve pas une conclusion catégorique.

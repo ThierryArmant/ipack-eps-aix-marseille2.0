@@ -5713,6 +5713,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement iPackEPS commun ; contenu de la liste académique propre à chaque académie",
    "titre": "iPackEPS : liste académique, pas de FCA à déposer"
+  },
+  "data/ipack/situations_2026_10_17/equipement_modifier_nom.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : modifier un équipement sportif"
   }
  }
 }

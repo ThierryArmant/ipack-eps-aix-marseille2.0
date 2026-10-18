@@ -6652,5 +6652,24 @@
     "motifs": [
       "^(?=.*(?:\\bfca\\b|referentiel|fiche certificative|fiche))(?=.*(?:liste academique|apsa academique|activites? academiques?|epreuves? academiques?|apsa? de la liste|cross.?training|ultimate))(?=.*(?:depos|telecharg|envoy|bloqu|pas de|manque|97 ?%|non envoy|avancement))"
     ]
+  },
+  "data/ipack/situations_2026_10_17/equipement_modifier_nom.txt": {
+    "title": "iPackEPS : modifier le nom ou les informations d'un équipement sportif",
+    "statut": "reponse_correspondant_academique_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*(?:gymnase|equipement|installation|piscine|stade|salle de sport|plateau sportif|bassin))(?=.*(?:\\bnom\\b|renomm|libelle|appellation|modifi|changer|change de nom|erron|faux|ancien|mise a jour|mettre a jour|synchro|effacer|supprim))"
+    ],
+    "exclure_motifs": [
+      "emploi du temps|creneau|edt|code res"
+    ],
+    "exclusif_motifs": [
+      "^(?=.*(?:gymnase|equipement|installation))(?=.*(?:\\bnom\\b|renomm|libelle|appellation|ancien))"
+    ]
   }
 }

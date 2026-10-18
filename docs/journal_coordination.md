@@ -685,3 +685,6 @@ Huit questions correctes de la série 3 reposées : huit réponses correctes (gr
 
 ## 18 octobre 2026 — Questions iPackEPS relevées sur internet (56315ff)
 Onze questions : 5 correctes (AEFE, CFA, MFR, collègues mal rattachés entre lycée pro et lycée technique, CAP), 6 partielles, aucune grave. Point corrigé : « je n'arrive pas à déposer la FCA d'une APSA académique » recevait seulement la déclaration de l'APSA ; la réponse du correspondant (liste académique : FCA fournie par l'inspection, rien à déposer, commentaire « APSA de la liste académique » ; cross-training en épreuve d'établissement à Aix) est extraite en fiche ciblée. Restent partielles faute de source précise : couleurs des modules, renommage d'un équipement (la réponse citait la fiche établissement), message « Aucun élève dans cet établissement ».
+
+## 18 octobre 2026 — Équipement sportif : modifier son nom (réponse du correspondant)
+J'avais jugé fausse, sans source, la réponse du hub sur le renommage d'un gymnase. L'utilisateur, correspondant iPackEPS, a donné le chemin avec captures : Tableau de bord > Dossiers et projets > Dossier EPS > Équipements sportifs > Gestion des équipements, sélectionner l'équipement puis [Modifier l'Équipement]. Fiche ciblée créée (libellé, ville, adresse ; message si aucune sélection ; ajouter, effacer ; distinction avec la fiche établissement issue de RAMSESE).

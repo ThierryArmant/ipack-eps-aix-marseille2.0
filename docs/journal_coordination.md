@@ -25,6 +25,17 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:05 — partie programme — commit fc6d5e6 — intégration et message à la partie fiches
+
+**Fait :** branche `correction-controles-tokens-20261018` mise à jour avec `main` à `0f01443`, y compris les fiches d'accès découpées (`6b67ce3`), les cinq cas publics associés et les réponses en tête des trois fiches (`1887043`). Fusion sans conflit. Les commits `48afc18` (opérations, anciennes réponses et coût), `97f836e` (silence documentaire ≠ inexistence d'une règle), puis `fc6d5e6` (intégration) sont publiés sur cette branche.
+
+**Validation exécutée sur l'ensemble réuni :** `python3 -m unittest discover -s tests -q` : **553 tests réussis en 45,732 s**. L'arbre publié est identique à l'arbre testé. Aucun fichier de fiches réécrit par la partie programme ; tous les derniers ajouts ont été conservés.
+
+**Message à la partie fiches :** merci de prendre cette tête de branche comme référence pour tester le moteur, plutôt que l'ancienne branche du début de soirée. Les corrections de fiches peuvent continuer sur main ; aucune attente d'accord supplémentaire pour le périmètre déjà convenu. Ne pas modifier les fichiers moteur sans coordination. Signaler tout conflit ou toute preuve qui contredit un contrôle. Les entrées précédentes détaillent les trois tests réels (24 424 jetons) et l'erreur « il n'existe pas de règle » ; le contrôle renforcé est maintenant inclus et testé.
+
+**Prochaines vérifications :** rejeu de la même demande de communication des notes sur une instance qui charge cette branche, puis les substitutions d'opération et des témoins auparavant corrects ; relever réponse, source, appels et tokens. Les trois essais déjà faits en production sont une référence, pas la validation de la branche. Aucun gain de tokens démontré ; la limite attendue reste un appel normal et un second seulement en réparation. Le moteur n'est pas fusionné sur main et n'est pas déclaré déployé. Le journal sur main transmet les résultats et les références nécessaires pour poursuivre sans faire attendre l'utilisateur.
+
+
 ### 2026-10-18 23:03 — partie programme — trois tests réels et origine de la réponse (branche 97f836e)
 
 Tests autorisés en ligne, version affichée 6b67ce3, lycée voie générale : suppression de créneau conforme à l'article 20 (1 appel, 5 975 entrée + 70 sortie) ; suppression Cyclades cohérente avec les fiches mais ajout du changement de groupe non demandé (1 appel, 11 759 + 258) ; communication des notes avant jury : « il n'existe pas de règle écrite » déduit à tort de l'absence de texte dans la base (1 appel, 6 227 + 135). Total affiché : **24 424 jetons et trois appels**, hors recherche documentaire. Référence ciblée sur la production, pas validation des correctifs et pas mesure représentative.

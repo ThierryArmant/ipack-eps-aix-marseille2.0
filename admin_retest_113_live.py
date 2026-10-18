@@ -34,6 +34,10 @@ def render(st):
                 writer.writerows(batch["results"])
                 st.download_button("Télécharger les réponses obtenues", output.getvalue().encode("utf-8-sig"),
                                    file_name="retest_113_reponses_privees.csv", mime="text/csv")
+            if st.button("🔄 Nouveau test — choisir 5 ou 113 questions", key="audit113_reset", type="primary"):
+                state.pop("audit113_batch", None)
+                state.pop("current_prompt", None)
+                st.rerun()
             if st.button("Arrêter après la question en cours", key="audit113_stop"):
                 batch["stopped"] = True
             if not batch["waiting"] and not batch.get("stopped") and batch["index"] < len(batch["rows"]):

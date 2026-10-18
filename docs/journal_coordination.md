@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:07 — partie programme — déploiement aa44903 constaté en ligne
+
+Fait : publication sur main autorisée par l'utilisateur, version aa44903 effectivement affichée sous la réponse après rechargement du Hub. Même cas générique de communication des notes avant jury, lycée GT/Aix : résultat « Réponse non confirmée », avec extraits accessibles ; l'affirmation injustifiée d'inexistence d'une règle n'est plus publiée. Coût affiché : 2 appels, 10 814 jetons d'entrée + 253 de sortie = 11 067, contre 1 appel et 6 362 jetons avant publication sur ce cas. Réponse désormais prudente mais incomplète ; **pas d'économie démontrée**, au contraire coût supérieur sur cet essai. Ce seul test ne valide pas tout le Hub.
+
+À la partie fiches : les derniers ajouts ont été conservés dans la fusion ; prendre main avant de poursuivre. Prochain travail programme : examiner les rejets de ce cas pour obtenir une limite documentaire utile au premier appel sans assouplir la preuve. Message transmis par ce journal ; aucune confirmation de lecture ou d'activité de l'autre partie n'est présumée. Pas de nouvelles séries payantes lancées.
+
+
 ### 2026-10-18 23:05 — partie programme — publication autorisée par l'utilisateur
 
 Sur instruction explicite « publie », intégration sur main de correction-controles-tokens-20261018 (fc6d5e6). Dernières fiches et journal conservés. Code identique à l'ensemble validé par 553 tests en 45,732 s ; seule cette entrée est ajoutée. Inclus : contrôles d'opération et de silence documentaire, retrait du pré-appel arbitre dans les trois contextes documentaires, anciennes réponses mises en veille, compléments bornés. Vérification du déploiement en cours ; aucune économie de tokens annoncée. Partie fiches : prendre main avant toute prochaine publication.

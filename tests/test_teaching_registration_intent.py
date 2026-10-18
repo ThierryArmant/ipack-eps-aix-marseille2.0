@@ -14,6 +14,9 @@ class TeachingRegistrationIntentTests(unittest.TestCase):
                 self.assertNotIn('certificative', result)
                 self.assertNotIn('créer', result)
 
+    def test_legacy_two_argument_call_keeps_the_clarification(self):
+        self.assertIn('quelle rubrique', clarification("J'enseigne le foot à mes 6eme4, comment renseigner ça ?", 'Collège (DNB)'))
+
     def test_explicit_target_is_not_blocked(self):
         for q in ("J'enseigne le foot à mes 6e4 : comment créer la séquence d'apprentissage ?",
                   "J'enseigne le foot : où renseigner ma spécialité dans ma fiche professeur ?",

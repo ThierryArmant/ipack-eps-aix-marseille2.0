@@ -141,7 +141,7 @@ def teaching_registration_clarification(question):
 
 
 def clarification(question, public, *, mode=None):
-    if mode == "ipack":
+    if mode in (None, "ipack"):
         teaching = teaching_registration_clarification(question)
         if teaching:
             return teaching

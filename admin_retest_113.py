@@ -46,6 +46,7 @@ def render(st):
         st.success(f"Fichier validé : {len(rows)} questions · iPackEPS {counts['ipack']} · Examens {counts['examens']} · Textes {counts['textes']}")
         st.caption("Les questions ne sont ni affichées ni enregistrées dans GitHub ou dans les journaux.")
         if st.button("Contrôler le routage documentaire (sans IA)", key="audit113_run"):
+            st.session_state.pop("audit113_output", None)
             import knowledge_catalog as kc
             result = []
             bar = st.progress(0)
@@ -62,6 +63,8 @@ def render(st):
             writer = csv.DictWriter(output, fieldnames=list(result[0]), delimiter=";")
             writer.writeheader()
             writer.writerows(result)
-            st.download_button("Télécharger le diagnostic", data=output.getvalue().encode("utf-8-sig"),
+            st.session_state["audit113_output"] = output.getvalue().encode("utf-8-sig")
+        if st.session_state.get("audit113_output"):
+            st.download_button("Télécharger le diagnostic", data=st.session_state["audit113_output"],
                                file_name="audit_113_routage.csv", mime="text/csv", key="audit113_download")
             st.warning("0/113 réponses IA rejouées : ce diagnostic ne mesure pas la qualité des réponses.")

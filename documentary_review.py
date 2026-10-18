@@ -889,6 +889,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
     audit['document_selection_after_focus'] = [p['id'] for p in packets]
+    audit['excluded_by_priority_focus'] = [p['id'] for p in audit['documents'] if p['id'] in audit['document_selection_before_focus'] and p['id'] not in audit['document_selection_after_focus']]
     audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
     packets, marked = select_academy(packets, academy)
     audit['academy'] = academy
@@ -1079,7 +1080,9 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
         audit['repair_rejections'] = rejected
         final, accepted, rejected = resolve(recorded.complete(repair).text)
     audit['repair_performed'] = bool(audit.get('repair_trigger'))
-    audit['repair_successful'] = bool(audit.get('repair_trigger')) and not bool(rejected)
+    # Une réponse vide peut être mécaniquement valide, mais n'est pas une réparation utile.
+    audit['repair_successful'] = bool(audit.get('repair_trigger')) and bool(accepted) and not bool(rejected)
+    audit['repair_empty'] = bool(audit.get('repair_trigger')) and not bool(accepted) and not bool(rejected)
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

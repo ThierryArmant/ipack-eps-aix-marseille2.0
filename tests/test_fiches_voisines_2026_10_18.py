@@ -125,6 +125,16 @@ class FichesVoisines(unittest.TestCase):
         self.assertIn('ne pas conclure à une obligation', Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8'))
         self.assertIn('if mode == "textes" and demande_precision.startswith', Path('app.py').read_text(encoding='utf-8'))
 
+    def test_premisse_et_objet_non_couvert_dans_la_consigne(self):
+        from pathlib import Path
+        code = Path('documentary_review.py').read_text(encoding='utf-8')
+        self.assertIn('PRÉMISSE DE LA QUESTION — règle prioritaire', code)
+        self.assertIn('OBJET NON COUVERT — règle prioritaire', code)
+        from documentary_review import render_exam_fallback, source_packets, mark_excerpt
+        audit = {'documents': source_packets(mark_excerpt("L'appel et les absences se saisissent dans Pronote.", title='Appel'))}
+        r = render_exam_fallback(audit, question="Notre gymnase apparaît sous son ancienne appellation dans le module équipements", mode='ipack')
+        self.assertNotIn('Pronote', r)
+
 
 if __name__ == '__main__':
     unittest.main()

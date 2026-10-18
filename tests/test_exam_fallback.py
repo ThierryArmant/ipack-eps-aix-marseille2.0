@@ -60,7 +60,7 @@ class ExamFallbackTests(unittest.TestCase):
     def test_excerpt_does_not_cut_condition_or_redisplay_html_as_markup(self):
         body = 'Le dossier est ouvert uniquement après vérification. <script>secret</script>\n\n' + 'Condition obligatoire ' * 250 + ' <script>fin</script>'
         audit = {'documents': source_packets(mark_excerpt(body, title='Dossier'))}
-        result = render_exam_fallback(audit, question='Dossier ?')
+        result = render_exam_fallback(audit, question='Dossier ouvert après vérification ?')
         self.assertNotIn('<script>', result)
         self.assertIn('&lt;script&gt;', result)
         self.assertIn('Condition obligatoire', result)

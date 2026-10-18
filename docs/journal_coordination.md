@@ -733,3 +733,6 @@ Entrée initiale ajoutée sur indication de Thierry : lien vers l'article 34 « 
 
 ### 18 octobre 2026 — tolérance aux fautes dans les appels au secours
 Le test utilisateur « aide moi sui sperdu » échappait à la liste de mots et provoquait une réponse Arena hors sujet. Ajout d'une comparaison approchée de la demande entière aux formulations génériques (espaces déplacés, lettres omises/inversées), en complément du détecteur. Tests sur cette phrase exacte et variantes ; maintien des exclusions des questions métier, des autres modes et du premier degré.
+
+### 18 octobre 2026 — bouton permanent « Vous êtes perdu ? »
+À la demande de Thierry : bouton au-dessus du champ de question, uniquement en iPackEPS une fois le public choisi. Ouvre/ferme directement le guide sans saisie, sans requête documentaire et sans appel IA. État du guide distinct par public ; masqué dans les autres modules. La détection des demandes écrites reste un accès complémentaire.

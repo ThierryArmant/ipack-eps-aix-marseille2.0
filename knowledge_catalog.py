@@ -149,9 +149,8 @@ def clarification(question, public):
     # ne décide ni du contenu du projet ni d'une règle institutionnelle.
     project_search = re.search(r'projet', q) and re.search(r'retrouv|consult|bilan|archive|precedent', q)
     project_type = re.search(r'\beps\b|\bas\b|etablissement|\bsss\b|section sportive|sports.etudes', q)
-    if project_search and not project_type:
-        return ("Quel type de projet recherchez-vous : projet EPS, projet d'AS, projet d'établissement "
-                "ou projet de section sportive scolaire ? Le chemin dépend du dossier concerné.")
+    # Relevé à l'écran (18/10/2026) : établissement, EPS, AS et SSS sont tous dans [Dossier EPS] > [Projets] ;
+    # la fiche ciblée répond directement, sans demander le type de projet.
     # Les conditions médicales restent nécessaires pour choisir une valeur
     # individuelle, pas pour expliquer un circuit logiciel ou les possibilités.
     if re.search(r'dispens.{0,20}epreuve.{0,15}eps|\baflp\d?\b|'

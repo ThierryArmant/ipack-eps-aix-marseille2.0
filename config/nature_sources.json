@@ -5745,6 +5745,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS : première connexion, fiche professeur d'abord"
+  },
+  "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : où sont les projets"
   }
  }
 }

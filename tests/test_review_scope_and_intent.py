@@ -26,7 +26,7 @@ class ScopeIntentTests(unittest.TestCase):
 
     def test_project_search_asks_only_for_the_missing_type(self):
         result = kc.clarification('Retrouver un ancien projet pédagogique et son bilan', 'Collège (DNB)')
-        self.assertIn('Quel type de projet', result)
+        self.assertEqual(result, '')
         self.assertNotIn('[Dossier SSS]', result)
         self.assertEqual(kc.clarification('Consulter le projet EPS archivé', 'Collège (DNB)'), '')
         self.assertEqual(kc.clarification('Consulter le bilan du projet de section sportive', 'Collège (DNB)'), '')

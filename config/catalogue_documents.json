@@ -6700,5 +6700,21 @@
     "exclure_motifs": [
       "santorin|cyclades|imag.in|verrouill"
     ]
+  },
+  "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt": {
+    "title": "iPackEPS : où déposer et retrouver les projets (établissement, EPS, AS, SSS)",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*projets?)(?=.*(?:retrouv|consult|depos|deposer|ou |saisir|remplir|axes?|archiv|precedent|an dernier|reconduit|recopi|trouve))"
+    ],
+    "exclure_motifs": [
+      "programmation|bilan annuel|evolution|reconduction|fermeture|ouverture|appn"
+    ]
   }
 }

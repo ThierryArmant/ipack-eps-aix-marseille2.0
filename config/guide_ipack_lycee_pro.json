@@ -36,7 +36,7 @@
     "clic": "[Dossier EPS] → [APSA] → [APSA de Collège ou Voie Professionnelle]",
     "video": "3.1 Dossier EPS — APSA",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "[Dossier EPS] > [APSA] > [APSA de Collège ou Voie Professionnelle]"
+    "preuve": "on passe par la tuile [APSA de Collège ou Voie Professionnelle]"
    },
    {
     "clic": "[Dossier EPS] → [Périodes]",
@@ -304,7 +304,7 @@
     "clic": "[Dossier EPS] → [APSA] → [APSA de Collège ou Voie Professionnelle]",
     "video": "3.1 Dossier EPS — APSA",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "[Dossier EPS] > [APSA] > [APSA de Collège ou Voie Professionnelle]"
+    "preuve": "on passe par la tuile [APSA de Collège ou Voie Professionnelle]"
    },
    {
     "clic": "APSA absente : « + » dans une liste (ou [Créer une APSA])",

@@ -760,3 +760,6 @@ Demandes de Thierry : (1) afficher à côté du guide la consigne de hiérarchie
 
 ### 18 octobre 2026 — bouton « Vous êtes perdu(e) ? »
 Libellé écrit au masculin et au féminin, à la demande de Thierry.
+
+### 18 octobre 2026 — guide : étapes en blanc
+Texte des étapes, sous-menus, légendes et libellés du guide forcés en blanc (lisibilité sur fond sombre), à la demande de Thierry. Style limité aux conteneurs du guide.

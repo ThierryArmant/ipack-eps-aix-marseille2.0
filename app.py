@@ -519,6 +519,14 @@ css_pur = f"""
         font-size: 17px !important;
         font-weight: 750 !important;
     }}
+    /* Étapes du pas à pas, sous-menus et légendes : en blanc pour rester lisibles sur fond sombre */
+    div[class*="st-key-guide_callout_"] div[data-testid="stMarkdownContainer"] p,
+    div[class*="st-key-guide_callout_"] div[data-testid="stMarkdownContainer"] strong,
+    div[class*="st-key-guide_callout_"] div[data-testid="stCaptionContainer"],
+    div[class*="st-key-guide_callout_"] div[data-testid="stWidgetLabel"] p,
+    div[class*="st-key-guide_callout_"] div[role="radiogroup"] label p {{
+        color: #FFFFFF !important;
+    }}
     div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary:hover {{
         background: #16405A !important;
     }}

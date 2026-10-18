@@ -1888,6 +1888,10 @@ if prompt_a_traiter:
                 origine_reponse = "direct"
 
             demande_precision = "" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form)
+            # Onglet Textes : une question sur un certificat ou une dispense n'est pas le choix d'une note d'examen ;
+            # la demande de précisions médicales empêchait de répondre (et de corriger une fausse prémisse).
+            if mode == "textes" and demande_precision.startswith("Pour décider d'une note"):
+                demande_precision = ""
             if demande_precision:
                 est_cas_direct = True
                 origine_reponse = 'clarification'

@@ -107,6 +107,24 @@ class FichesVoisines(unittest.TestCase):
         self.assertIn("réduit d'une heure", obl)
         self.assertNotIn("ne prévoient pas de pondération", obl)
 
+    def test_questions_a_l_aveugle_18_octobre(self):
+        from pathlib import Path
+        r = t("Le coordonnateur est absent : le principal peut-il valider seul les grilles de CCF du DNB et les téléverser dans Santorin ?", CLG)
+        self.assertIn("DNB : qui valide les notes d'EPS de troisième (conseil de classe, LSU), pas de grilles dans Santorin", r)
+        r = t("Formateur académique, mes heures de formation hors de mon établissement de rattachement sont-elles des heures supplémentaires ?", GT, 'textes')
+        self.assertIn("Obligations de service des professeurs d'EPS (décret n° 2014-940)", r)
+        self.assertFalse(any(x.startswith('TZR') for x in r), r)
+        r = t("La note de service impose 48 heures pour remettre un certificat médical, mon proviseur refuse la dispense : recours ?", GT, 'textes')
+        self.assertIn("Certificat d'inaptitude : contenu, durée, reprise et médecin scolaire (arrêté du 13 septembre 1989)", r)
+        self.assertIn('Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité',
+                      t("Un élève veut faire EPS en survêtement ample pour motif religieux, le règlement intérieur l'interdit aux agrès", CLG, 'textes'))
+        lai = Path('data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt').read_text(encoding='utf-8')
+        self.assertIn('ne pas exclure seul', lai)
+        self.assertNotIn('exclusivement à deux exigences', lai)
+        self.assertIn('aucune règle nationale des 48 heures', Path('data/textes/fiches/arrete_1989_certificat_inaptitude.txt').read_text(encoding='utf-8'))
+        self.assertIn('ne pas conclure à une obligation', Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8'))
+        self.assertIn('if mode == "textes" and demande_precision.startswith', Path('app.py').read_text(encoding='utf-8'))
+
 
 if __name__ == '__main__':
     unittest.main()

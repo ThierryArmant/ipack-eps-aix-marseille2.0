@@ -4391,7 +4391,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]"
+   "titre": "Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité"
   },
   "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt": {
    "nature": [
@@ -5689,6 +5689,19 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national, enseignants du second degré public",
    "titre": "TZR : décret n° 99-823 et note de service n° 99-152"
+  },
+  "data/examens/mesure3_corrections/dnb_qui_valide_moyennes_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026",
+    "2027"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "DNB, cadre national",
+   "titre": "DNB : qui valide les moyennes d'EPS de troisième"
   }
  }
 }

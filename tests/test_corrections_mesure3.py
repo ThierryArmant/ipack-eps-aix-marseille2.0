@@ -52,7 +52,7 @@ class CorrectionsMesure3(unittest.TestCase):
         self.assertIn("ne prévoient pas d'autorisation générale de la mairie", co)
 
     def test_laicite_et_natation(self):
-        lai = '[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]'
+        lai = 'Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité'
         r = t("Une famille ne veut pas que sa fille aille à la piscine pour motif religieux : que dire ?", CLG, 'textes')
         self.assertIn(lai, r)
         self.assertNotIn('complement natation scolaire', r)

@@ -776,7 +776,8 @@
     "motifs": [
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service",
       "service partage|complement de service|(?:deux|plusieurs|2) etablissements",
-      "ponder|\\bors\\b|service (?:hebdomadaire|d.enseignement)|combien d.heures.{0,30}(?:prof|enseign|service)|heure de reduction|reduction de service|autre discipline"
+      "ponder|\\bors\\b|service (?:hebdomadaire|d.enseignement)|combien d.heures.{0,30}(?:prof|enseign|service)|heure de reduction|reduction de service|autre discipline",
+      "formateur academique|caffa"
     ],
     "exclure_motifs": [
       "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole"
@@ -2302,8 +2303,8 @@
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F32574"
   },
   "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt": {
-    "title": "[SITUATION: 3E SECTION : VALEURS DE LA RÉPUBLIQUE, LAÏCITÉ ET SCOLARISATION INCLUSIVE]",
-    "statut": "synthese_non_revalidee",
+    "title": "Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité",
+    "statut": "texte_officiel_relu_2026-10-18",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "prioritaire": true,
@@ -2312,7 +2313,7 @@
       "textes"
     ],
     "motifs": [
-      "^(?=.*(?:religi|laicite|ramadan|jeune|voile|burkini|convictions?|culte|croyance))(?=.*(?:eps|natation|piscine|cours|tenue|mixite|participer|refus|dispens|nager))"
+      "^(?=.*(?:religi|laicite|ramadan|jeune|voile|burkini|convictions?|culte|croyance|culturel))(?=.*(?:eps|natation|piscine|cours|tenue|mixite|participer|refus|dispens|nager|survetement|short|seance))"
     ],
     "exclure_motifs": [
       "marque|fourniture|commercial"
@@ -6561,10 +6562,10 @@
       "textes"
     ],
     "motifs": [
-      "^(?=.*(?:certificat|inapt|medecin scolaire|medecin de sante scolaire|dispens))(?=.*(?:contenir|contenu|mentionn|indiqu|modele|formulaire|diagnostic|secret medical|duree|(?:trois|quatre|cinq|six|plusieurs|[3-9]) mois|suivi|fin du certificat|termine|expire|reprend|reprise|nouveau certificat|medecin scolaire|medecin de sante scolaire|faire examiner|examen medical|demander (?:un|l.)examen|88.977|1989|valable|validite))"
+      "^(?=.*(?:certificat|inapt|medecin scolaire|medecin de sante scolaire|dispens))(?=.*(?:contenir|contenu|mentionn|indiqu|modele|formulaire|diagnostic|secret medical|duree|(?:trois|quatre|cinq|six|plusieurs|[3-9]) mois|suivi|fin du certificat|termine|expire|reprend|reprise|nouveau certificat|medecin scolaire|medecin de sante scolaire|faire examiner|examen medical|demander (?:un|l.)examen|88.977|1989|valable|validite|delai|48 ?h|heures|transmettre|transmission))"
     ],
     "exclure_motifs": [
-      "ccf|\\bbac\\b|\\bdnb\\b|\\bcap\\b|examen (?:du|de l)|ipack|saisir|santorin|cyclades|lsu|\\bnote\\b|retroacti|apres (?:le|l.)(?:ccf|epreuve)",
+      "ccf|\\bbac\\b|\\bdnb\\b|\\bcap\\b|examen (?:du|de l)|ipack|saisir|santorin|cyclades|lsu|\\bnote\\b(?! de service)|retroacti|apres (?:le|l.)(?:ccf|epreuve)",
       "accident|rapport|appel.{0,30}parents|prevenir (?:les )?parents"
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000684730",
@@ -6606,12 +6607,33 @@
       "textes"
     ],
     "motifs": [
-      "\\btzr\\b|zone de remplacement|titulaire.{0,20}remplacement|\\bissr\\b|etablissement de rattachement|\\brad\\b|residence administrative|(?:je suis|en tant que|comme) remplacant"
+      "\\btza?r\\b|zone de remplacement|titulaire.{0,20}remplacement|\\bissr\\b|etablissement de rattachement|\\brad\\b|residence administrative|(?:je suis|en tant que|comme) remplacant"
     ],
     "exclure_motifs": [
-      "imp\\b|indemnite de mission"
+      "imp\\b|indemnite de mission|formateur"
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000577415",
+    "date_verification": "2026-10-18"
+  },
+  "data/examens/mesure3_corrections/dnb_qui_valide_moyennes_eps.txt": {
+    "title": "DNB : qui valide les notes d'EPS de troisième (conseil de classe, LSU), pas de grilles dans Santorin",
+    "statut": "sources_existantes_regroupees_2026-10-18",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "^(?=.*(?:\\bdnb\\b|brevet|college|troisieme|\\b3e\\b|3eme))(?=.*(?:grilles?|valider|validation|signer|televers|depos\\w* dans santorin|santorin|qui valide|\\bccf\\b))(?=.*(?:chef|principal|coordonnat|conseil de classe|equipe|qui|seul|notes?|moyennes?))"
+    ],
+    "exclure_motifs": [
+      "dispens|inapt|absen.{0,40}(?:evaluation|controle)|zero|lsu.{0,30}(?:code|saisir dispens)|epreuves? terminales?|oral|ecrit|candidat (?:libre|individuel)|cned"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
     "date_verification": "2026-10-18"
   }
 }

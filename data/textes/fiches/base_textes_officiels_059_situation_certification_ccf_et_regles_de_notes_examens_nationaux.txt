@@ -1,9 +1,11 @@
-### [SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]
-* CALCUL DE LA NOTE FINALE :
-  - BAC PRO & BMA (circulaire du 2 avril 2025, NOR MENE2505383C modifiée) : moyenne des 3 activités, calculée par Santorin.
-  - CAP (circulaire du 27 août 2025, NOR MENE2517122C modifiée) : moyenne des 2 activités, calculée par Santorin.
-  - Bac GT (note de service du 20 février 2026, MENE2531948N) : moyenne des 3 épreuves ; une épreuve DI est neutralisée.
-* GESTION DES LOTS SANTORIN ET PROCÉDURES : 
-  Le verrouillage et le déverrouillage des lots de notes dans Santorin relèvent du chef d'établissement : l'enseignant verrouille ses lots, le chef les déverrouille dans son portail Santorin, [Correction] > [Liste des lots], en cliquant sur le cadenas.
-* INAPTITUDES : le médecin atteste l’inaptitude, l’enseignant adapte l’enseignement et la direction organise les éventuelles dispenses de présence selon le circuit de l’établissement. Un certificat ne vaut pas automatiquement absence autorisée. Ne pas limiter systématiquement un élève inapte partiel à l’observation ou l’arbitrage ; rechercher une pratique compatible. Pour la certification, appliquer le texte propre au diplôme.
-Source : https://eduscol.education.gouv.fr/media/111129/download ; voir cadre_administratif_des_inaptitude_medicales_et_adaptations.
+### Certification EPS : règles nationales distinctes des procédures Santorin
+[PORTEE: gt,pro,cap]
+Nature de la source : textes nationaux. Révision : 18 octobre 2026.
+Identifier le diplôme, la session, la forme d'évaluation (CCF ou ponctuel), le nombre de notes et la situation du candidat avant de déterminer le calcul. Les régimes d'inaptitude, d'absence et de sportif de haut niveau ne sont pas interchangeables.
+Bac général et technologique en CCF : le régime général comporte trois épreuves. Pour une inaptitude, appliquer les dispositions adaptées de la partie 3 ; ne pas annoncer qu'un code informatique DI neutralise automatiquement toute épreuve sans examiner la situation.
+Source : note de service du 20 février 2026, NOR MENE2531948N.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+Bac professionnel/BMA et CAP : consulter la fiche certification en voie professionnelle et les fiches ciblées du diplôme. Le CCF ordinaire du bac professionnel porte sur trois activités ; celui du CAP sur deux. Les dispositions adaptées peuvent modifier ce régime ; elles ne se déduisent pas d'une moyenne arithmétique seule.
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C
+Le verrouillage, le déverrouillage, les codes et les écrans Santorin relèvent d'une documentation logicielle et, le cas échéant, d'un circuit académique identifié. Ces textes nationaux ne suffisent pas à confirmer un bouton, un rôle utilisateur ou une procédure de lot ; ne pas leur attribuer ces consignes.

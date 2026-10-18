@@ -1,12 +1,12 @@
 ### Premier degré : obligations de service des professeurs des écoles (24 heures et 108 heures annuelles)
 [PORTEE: primaire]
-Sigles : APC = activités pédagogiques complémentaires ; IEN = inspecteur de l'éducation nationale ; DASEN = directeur académique des services de l'éducation nationale ; PPS = projet personnalisé de scolarisation ; Rased = réseau d'aides spécialisées aux élèves en difficulté.
-Un professeur des écoles doit 24 heures d'enseignement hebdomadaires devant les élèves, plus 108 heures annuelles (3 heures par semaine en moyenne), sous la responsabilité de l'IEN de circonscription.
-Répartition des 108 heures : 60 heures pour les APC (36 heures auprès de petits groupes d'élèves et 24 heures forfaitaires d'identification des besoins et d'organisation) ; 24 heures forfaitaires de travaux en équipes pédagogiques, de relations avec les parents et de suivi des PPS ; 18 heures d'animation pédagogique et de formation continue, dont au moins la moitié en formation continue, une partie pouvant se faire à distance ; 6 heures de conseils d'école.
-Temps partiel ou poste fractionné : le service comporte le même temps d'enseignement devant élèves qu'un temps complet de la quotité concernée et sa part des 108 heures ; titulaire remplaçant : mêmes obligations, les 108 heures sont globalisées selon les écoles où il intervient et il en transmet le décompte à l'IEN.
-Maître formateur : 18 heures d'enseignement en classe et 6 heures d'accompagnement de stagiaires ou d'étudiants, plus 36 heures annuelles (24 heures d'équipes et de relations, 6 heures d'animation, 6 heures de conseils d'école) ; les APC qu'il assure volontairement sont payées en heures supplémentaires.
-Directeur d'école : il organise les 60 heures d'APC et de travail en équipe et bénéficie d'un allègement ou d'une décharge sur ces 60 heures, fixé par d'autres textes. Enseignants spécialisés (Rased, classes de l'inclusion scolaire, devenues Ulis) : 108 heures annuelles de concertation, d'équipes, de relations avec les parents et de conseils d'école.
-Limite : texte de 2013, qui a pu être modifié depuis (contenu des 18 heures de formation, organisation des APC, décharges de direction) ; pour une situation précise ou récente, vérifier auprès de l'IEN de circonscription ou de la DSDEN.
-Nature de la source : texte national (circulaire publiée au Bulletin officiel).
-Source : circulaire n° 2013-019 du 4 février 2013, NOR MENH1303000C, BO n° 8 du 21 février 2013, abrogeant la circulaire n° 2010-081 du 2 juin 2010.
-https://www.education.gouv.fr/bo/13/Hebdo8/MENH1303000C.htm
+Réponse directe — régime général à temps complet : 24 heures d'enseignement hebdomadaires et 108 heures annuelles pour les activités et missions complémentaires (décret n° 2008-775, article 1, version en vigueur depuis le 1er avril 2017).
+Répartition actuelle des 108 heures : 36 heures d'activités pédagogiques complémentaires (APC) ; 48 heures de travaux en équipes pédagogiques, relations avec les parents et élaboration/suivi des projets personnalisés de scolarisation ; 18 heures de formation continue et animation pédagogique, dont au moins la moitié en formation continue ; 6 heures de conseils d'école obligatoires (article 2).
+L'ancienne ventilation présentée par la circulaire de 2013 n'est pas le cadre à utiliser pour une réponse actuelle : l'article 2 a été modifié par le décret n° 2017-444 du 29 mars 2017. Le nom historique de ce fichier ne détermine pas la date du droit applicable.
+Les 108 heures sont réparties et effectuées sous la responsabilité de l'IEN de circonscription, sans préjudice des modalités de l'article R411-13 du Code de l'éducation (article 3 modifié en 2023).
+Pour un temps partiel, une décharge de direction, un maître formateur, un poste spécialisé ou un remplacement, identifier le statut et la quotité avant de chiffrer le service ; cette fiche donne le régime général et ne confirme pas les anciennes modalités particulières de 2013.
+Nature de la source : texte national, version consolidée officielle. Vérification : 18 octobre 2026.
+Sources : décret n° 2008-775 du 30 juillet 2008 modifié, articles 1 à 3 ; décret modificatif n° 2017-444 du 29 mars 2017.
+https://www.legifrance.gouv.fr/loda/id/LEGIARTI000034326460/
+https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000034326460
+https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000047971117/

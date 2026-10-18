@@ -4423,7 +4423,7 @@
    ],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]"
+   "titre": "[SITUATION: TEST D'APTITUDE AU SAUVETAGE AQUATIQUE (TASA) — PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]"
   },
   "data/textes/fiches/base_textes_officiels_009_situation_logistique_administrative_et_calendrier_academique.txt": {
    "nature": [
@@ -4497,7 +4497,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]"
+   "titre": "Lycée GT : séparer EPS commune, option EPS et spécialité EPPCS"
   },
   "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt": {
    "nature": [
@@ -4507,7 +4507,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]"
+   "titre": "Certification EPS en voie professionnelle : distinguer CAP et bac professionnel/BMA"
   },
   "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt": {
    "nature": [
@@ -4557,7 +4557,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]"
+   "titre": "Accident ou urgence en EPS : alerte, régulation et compte rendu"
   },
   "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt": {
    "nature": [
@@ -4627,7 +4627,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]"
+   "titre": "Responsabilité de l'enseignant : distinguer les régimes civil et pénal"
   },
   "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt": {
    "nature": [
@@ -4637,7 +4637,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]"
+   "titre": "Maternelle : domaine d’apprentissage lié à l’activité physique"
   },
   "data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt": {
    "nature": [
@@ -4647,7 +4647,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: Texte de référence : Arrêté du 9-11-2015 - BO spécial n°11 du 26-11-2015]"
+   "titre": "Cycle 2 : distinguer calendrier des programmes et exemples pédagogiques"
   },
   "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
    "nature": [
@@ -4717,7 +4717,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]"
+   "titre": "Transport en EPS et à l'association sportive : autorisations et assurances"
   },
   "data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt": {
    "nature": [
@@ -4857,7 +4857,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]"
+   "titre": "Certification EPS : règles nationales distinctes des procédures Santorin"
   },
   "data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt": {
    "nature": [
@@ -4867,7 +4867,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]"
+   "titre": "Gestion d’une urgence : se reporter au protocole national et au rapport d’accident"
   },
   "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt": {
    "nature": [
@@ -4927,7 +4927,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "premier degré"
+   "titre": "Premier degré : repères institutionnels et orientation vers les textes applicables"
   },
   "data/textes/sorties_encadrement_2024.txt": {
    "nature": [
@@ -5545,7 +5545,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": "premier degré, cadre national (2013)",
-   "titre": "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)"
+   "titre": "Premier degré : obligations de service des professeurs des écoles (24 heures et 108 heures annuelles)"
   },
   "data/textes/fiches/decret_2026_687_famille_menacante.txt": {
    "nature": [

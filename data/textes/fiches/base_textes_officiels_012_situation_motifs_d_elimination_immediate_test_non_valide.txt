@@ -1,5 +1,5 @@
 ### [SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]
-Le test est invalidé et arrêté si le candidat commet l'une des fautes suivantes :
+Le test n'est pas validé si le candidat commet l'une des fautes suivantes :
   - Absence de départ plongé.
   - Reprise d'appui au sol ou sur la ligne d'eau durant la partie nagée.
   - Action de s'accrocher au mur lors du virage (seul le contact avec la paroi verticale est autorisé).
@@ -12,3 +12,5 @@ Le test est invalidé et arrêté si le candidat commet l'une des fautes suivant
 ----------------------------------------------------------------------
 * ACCÈS AUX ACTIVITÉS NAUTIQUES : distinguer le Pass-nautique et l’ASNS ; les textes prévoient l’ASNS comme justification possible dans le cadre applicable. Ne pas exiger systématiquement un Pass-nautique supplémentaire d’un titulaire de l’ASNS. Le Pass-nautique n’est pas le test de sauvetage de recrutement EPS. Pour son parcours et ses conditions de réalisation, voir complement_natation_scolaire et la note de service de février 2022.
 Sources : https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C ; https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm
+
+Référence officielle relue le 18 octobre 2026. Ne pas confondre ce test de qualification des personnels avec l’ASNS ou le Pass-nautique des élèves.

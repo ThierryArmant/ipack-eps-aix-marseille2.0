@@ -778,3 +778,10 @@ Sur demande de Thierry : [✓ J'ai trouvé] referme le guide, efface sa progress
 
 ### 18 octobre 2026 — encadré d'ordre sous « Voir comment faire »
 Sur demande de Thierry : phrase complète d'origine rétablie (« Bon à savoir : iPackEPS se remplit dans l'ordre… »), affichée sous l'étape et sa vidéo, plus au-dessus du menu.
+
+
+### 18 octobre 2026 — GPT — audit de la rubrique Textes, premier lot documentaire
+Répartition confirmée par Thierry : Claude garde le pas à pas ; GPT traite les fiches Textes. Inventaire de 81 fichiers actifs ; 18 fiches retouchées, sans prétendre revalider l'ensemble du corpus. Rapport détaillé et inventaire : docs/audit_textes_2026_10_18.md.
+Défaut transversal : de grandes synthèses anciennes peuvent réintroduire des affirmations non vérifiées malgré les fiches ciblées corrigées. Corrections : 108 heures actualisées sur décret consolidé (36/48/18/6) ; doctrine primaire remplacée par un index borné, retrait des jurisprudences sans décisions identifiées ; références liberté pédagogique et protection fonctionnelle corrigées ; séparation CAP/bac pro/ponctuel et des arrondis, adaptations 2025 réintégrées ; retrait des prescriptions PSE/équivalences BPJEPS non sourcées dans la fiche ; textes nationaux séparés des procédures Santorin ; urgences sans gestes médicaux imposés hors contexte ; source 2026 rattachée aux cinq fiches TASA ; programme cycle 2 daté par classe, objectifs maternelle corrigés, chiffres EPPCS non attribués retirés. Le retrait d'une assertion non prouvée ne prétend pas démontrer son contraire.
+Versions avant correction conservées sous data/archives/audit_textes_2026_10_18 (hors RAG actif). Catalogue et titres des natures de source actualisés. Les ajouts vidéo de Claude dans le catalogue ont été conservés par fusion des seules entrées Textes. Aucun changement d'app.py, du guide, du modèle, du nombre d'appels IA ou du prompt.
+Validation : tests documentaires et de routage locaux ; aucune série de questions IA en production. Les tests ne constituent pas une certification juridique ni une mesure du taux de bonnes réponses. Les sujets non relus intégralement restent listés dans le rapport.

@@ -1,0 +1,32 @@
+### [SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]
+* DÉCLENCHEMENT DE LA CHAÎNE DE SECOURS (BO n° 1 / 2000) : 
+  En cas d'accident grave, alerte immédiate des services de secours extérieurs (SAMU 15 / Pompiers 18 ou 112), application des premiers gestes de secours (PSC1) et mise en sécurité du reste de la classe.
+* INTERDICTION ABSOLUE DE TRANSPORT PERSONNEL : 
+  Il est formellement interdit à un enseignant de transporter un élève blessé dans son véhicule personnel. Le transport sanitaire relève exclusivement des services de secours officiels.
+* RAPPORT D'ACCIDENT ADMINISTRATIF : 
+  L’enseignant transmet sans délai son compte rendu factuel à la direction ; le chef d’établissement établit le rapport officiel dans les 48 heures pour l’autorité hiérarchique. Voir accident_eleve_rapport_parents_2009.
+======================================================================
+CADRE JURIDIQUE : DISTINCTION ENTRE COMMISSION DE DISCIPLINE UNSS ET DOSSIER ADMINISTRATIF DE L'ENSEIGNANT D'EPS
+======================================================================
+
+1. Nature juridique de l'UNSS et de ses instances :
+- Bien qu'elle soit placée sous la tutelle du ministère chargé de l'Éducation nationale pour accomplir une mission de service public, l'Union Nationale du Sport Scolaire (UNSS) est juridiquement une association déclarée (régie par la loi du 1er juillet 1901).
+- Les commissions de discipline créées au sein de l'UNSS ont un champ de compétence strictement limité aux élèves, aux équipes ou aux Associations Sportives (AS) scolaires lors des compétitions et rencontres sportives.
+
+2. Incompétence disciplinaire absolue vis-à-vis des enseignants :
+- L'UNSS n'exerce aucun rôle d'employeur ni de pouvoir hiérarchique sur les professeurs d'EPS, qui sont des fonctionnaires de l'État relevant du Ministère de l'Éducation Nationale.
+- Une commission de discipline de l'UNSS ne dispose d'aucune base légale pour prononcer une sanction professionnelle à l'encontre d'un enseignant d'EPS, ni pour porter une mention, un avertissement ou une trace quelconque dans son dossier administratif.
+
+3. Exclusivité du pouvoir disciplinaire de l'État :
+- La gestion de la carrière, de la discipline professionnelle et l'attribution de sanctions à l'encontre d'un agent public relèvent exclusivement de l'autorité académique (Recteur ou DSDEN).
+- Toute mesure disciplinaire visant un enseignant obéit strictement aux règles de la fonction publique de l'État et aux conseils de discipline habilités, garantissant une étanchéité totale face aux instances associatives sportives.
+=== DOCTRINE : SORTIES SCOLAIRES, APPN, ÉLÈVES NON-PARTICIPANTS ET TIERS ACCOMPAGNATEURS ===
+
+- L’article L911-4 règle la substitution de responsabilité civile ; il n’énonce pas une interdiction générale de toute tâche de surveillance confiée à un accompagnateur.
+- Le professeur conserve ses responsabilités et organise l’encadrement. Les adultes non enseignants autorisés peuvent participer à une sortie selon les rôles définis par le chef d’établissement ; leurs qualifications et les contraintes de l’activité doivent être respectées.
+- Un AESH ne compte pas dans le taux d’encadrement d’une sortie. Sa mission dépend de l’accompagnement prévu pour les élèves ; ne pas assimiler automatiquement AESH, parent accompagnateur et accompagnement individuel exclusif de tout élève ULIS.
+- Pour un élève non-participant, prévoir une prise en charge sûre et explicitement organisée. Ne pas le laisser isolé sans surveillance ; ne pas inventer une interdiction universelle de toute surveillance par un adulte bénévole autorisé.
+- En APPN, le contrôle final de sécurité ne peut être remplacé par celui d’un élève ; appliquer le protocole académique et une organisation permettant les contrôles requis. La qualification de faute grave dépend des faits, et ne résulte pas automatiquement de chaque séparation visuelle momentanée.
+Sources : guide Éduscol sorties second degré, fiche 4 ; circulaire 2017-075, parties I.2 et II.
+https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf
+https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm

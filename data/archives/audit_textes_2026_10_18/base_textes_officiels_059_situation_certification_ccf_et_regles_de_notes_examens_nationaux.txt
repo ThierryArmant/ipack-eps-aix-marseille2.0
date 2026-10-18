@@ -1,0 +1,9 @@
+### [SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]
+* CALCUL DE LA NOTE FINALE :
+  - BAC PRO & BMA (circulaire du 2 avril 2025, NOR MENE2505383C modifiée) : moyenne des 3 activités, calculée par Santorin.
+  - CAP (circulaire du 27 août 2025, NOR MENE2517122C modifiée) : moyenne des 2 activités, calculée par Santorin.
+  - Bac GT (note de service du 20 février 2026, MENE2531948N) : moyenne des 3 épreuves ; une épreuve DI est neutralisée.
+* GESTION DES LOTS SANTORIN ET PROCÉDURES : 
+  Le verrouillage et le déverrouillage des lots de notes dans Santorin relèvent du chef d'établissement : l'enseignant verrouille ses lots, le chef les déverrouille dans son portail Santorin, [Correction] > [Liste des lots], en cliquant sur le cadenas.
+* INAPTITUDES : le médecin atteste l’inaptitude, l’enseignant adapte l’enseignement et la direction organise les éventuelles dispenses de présence selon le circuit de l’établissement. Un certificat ne vaut pas automatiquement absence autorisée. Ne pas limiter systématiquement un élève inapte partiel à l’observation ou l’arbitrage ; rechercher une pratique compatible. Pour la certification, appliquer le texte propre au diplôme.
+Source : https://eduscol.education.gouv.fr/media/111129/download ; voir cadre_administratif_des_inaptitude_medicales_et_adaptations.

@@ -142,11 +142,20 @@ class FichesVoisines(unittest.TestCase):
             "Un élève rate la dernière épreuve de CCF pour un stage obligatoire validé par le lycée : note de remplacement ?")))
         nat = Path('data/textes/complement_natation_scolaire.txt').read_text(encoding='utf-8')
         self.assertIn("ne s'applique pas au collège ni au lycée", nat)
-        self.assertIn('dues au titre du service', Path('data/textes/complement_obligations_service_eps.txt').read_text(encoding='utf-8'))
+        self.assertIn("oui, les 3 heures d'AS sont dues", Path('data/textes/complement_obligations_service_eps.txt').read_text(encoding='utf-8'))
         dnb = {'origin': 'document', 'text': '[PORTEE: dnb] LSU : saisir Dispensé.'}
         self.assertTrue(lycee_dnb_mismatch('Que mettre dans le LSU pour une élève dispensée ?', GT, dnb))
         self.assertFalse(lycee_dnb_mismatch('Que mettre dans le LSU au DNB ?', GT, dnb))
         self.assertFalse(lycee_dnb_mismatch('Que mettre dans le LSU ?', CLG, dnb))
+
+    def test_elements_absents_des_sources(self):
+        from documentary_review import absent_terms, absent_terms_notice
+        P = [{'title': 'Santorin', 'text': "Choisir AFLP. Verrouiller le lot. Projet EPS déposé en PDF. TZR."}]
+        self.assertEqual(['« incohérence grille groupe »'], absent_terms('message rouge “incohérence grille groupe”', P))
+        self.assertEqual(['DHG'], absent_terms('incompatibilité avec la DHG', P))
+        self.assertEqual(['PDF/A'], absent_terms('format PDF/A obligatoire ?', P))
+        self.assertEqual([], absent_terms('URGENT ! un TZR et le bouton "Verrouiller le lot"', P))
+        self.assertIn('ne mentionnent pas', absent_terms_notice(['DHG']))
 
 
 if __name__ == '__main__':

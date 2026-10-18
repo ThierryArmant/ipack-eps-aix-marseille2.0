@@ -796,6 +796,36 @@ def course_duration_mismatch(question, packet):
     return packet.get('path') == 'data/ipack/complement_reponses_validees.txt'
 
 
+_SIGLES_COURANTS = {'EPS', 'CCF', 'AS', 'IA', 'BAC', 'GT', 'CAP', 'PRO', 'DNB', 'LP', 'LGT', 'OK', 'SVP', 'NB'}
+
+
+def absent_terms(question, packets):
+    """Éléments précis de la question (message cité entre guillemets, sigle) absents de tous les passages.
+
+    Contrôle mécanique, sans appel au modèle : il ne juge pas la question, il signale qu'un élément
+    affirmé ou présupposé n'apparaît dans aucune source transmise, pour éviter de bâtir la réponse dessus.
+    """
+    from knowledge_catalog import normalise
+    corpus = ' '.join(normalise(p.get('title', '') + ' ' + p.get('text', '')) for p in packets)
+    corpus_words = set(re.findall(r'[a-z0-9/]+', corpus))
+    found = []
+    for quoted in re.findall(r'[«“"]\s*([^«»“”"]{3,80}?)\s*[»”"]', question):
+        if len(quoted.split()) >= 2 and normalise(quoted) not in corpus:
+            found.append('« ' + quoted.strip() + ' »')
+    for sigle in re.findall(r'\b[A-Z][A-Z0-9]{1,4}(?:/[A-Z0-9]{1,3})?\b', question):
+        if sigle in _SIGLES_COURANTS or sigle in [f.strip('« »') for f in found]:
+            continue
+        if sigle.lower() not in corpus_words and sigle not in found:
+            found.append(sigle)
+    return found
+
+
+def absent_terms_notice(terms):
+    return ('<p><strong>Point non trouvé dans les sources :</strong> les documents retrouvés pour cette question ne mentionnent pas '
+            + html.escape(', '.join(terms)) + '. La réponse ci-dessous ne le confirme pas : '
+            'faites vérifier ce point auprès du service compétent.</p>')
+
+
 def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens'):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
@@ -832,6 +862,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'Si cet objet n’est pas précisé, poser cette seule question utile. '
                          'La procédure [Courses] du CA1 ne décrit pas le dépôt de Course en durée du CA5. '
                          'Ne pas inventer le libellé du menu ni un regroupement des deux FCA.')
+    missing = absent_terms(question, packets)
+    audit['absent_terms'] = missing
+    if missing:
+        instructions += ('\nÉLÉMENTS DE LA QUESTION ABSENTS DE TOUS LES PASSAGES : ' + ', '.join(missing)
+                         + '. Ne les présente jamais comme établis et ne bâtis aucune affirmation sur eux ; '
+                         'réponds seulement sur ce que les passages établissent pour le même objet, sinon retourne {"claims":[]}.')
     recorded = TracedLLM(llm, audit)
     model_packets = [compact_model_packet(p) for p in packets]
     audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
@@ -1000,5 +1036,7 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
         reasons = sorted({str(e) for r in rejected for e in r['errors']})
         raise ValueError('Vérification mécanique incomplète : ' + ' ; '.join(reasons) + '.')
     rendered = render_claims(accepted, packets, mode=mode) if accepted else '<p>' + no_applicable_guidance(mode) + '</p>'
+    if missing:
+        rendered = absent_terms_notice(missing) + rendered
     audit['rendered_answer'] = rendered
     return rendered

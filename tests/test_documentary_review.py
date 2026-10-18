@@ -130,6 +130,18 @@ class DocumentaryReviewTests(unittest.TestCase):
                 review_exam_answer(FakeLLM([output, output]),
                                    question='Q', public='GT', documents=DOC, draft='à ne jamais afficher')
 
+    def test_empty_repair_is_not_counted_as_success(self):
+        llm = FakeLLM([{'claims': [claim(quote='Citation inventée suffisamment longue.')]}, {'claims': []}])
+        audit = {}
+        try:
+            review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit)
+        except ValueError:
+            pass  # Selon la voie de sortie, une réponse vide peut être refusée.
+        self.assertEqual(len(llm.prompts), 2)
+        self.assertTrue(audit['repair_performed'])
+        self.assertFalse(audit['repair_successful'])
+        self.assertTrue(audit['repair_empty'])
+
     def test_one_targeted_repair_preserves_good_claims_and_exact_citations(self):
         bad = claim(quote='Le responsable peut ouvrir tous les dossiers sans restriction.')
         llm = FakeLLM([{'claims': [bad]}, {'claims': [claim()]}])

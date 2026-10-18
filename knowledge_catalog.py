@@ -149,6 +149,13 @@ def clarification(question, public, *, mode=None):
     if goal:
         return goal
     q = normalise(question)
+    # Les procédures de licences UNSS ne sont pas documentées par des sources
+    # dont l'utilisation a été autorisée pour le HUB. Ne jamais substituer
+    # une fiche iPackEPS sur les élèves ou les groupes à cette demande.
+    if re.search(r'\bunss\b', q) and re.search(r'licenc|affili|adhes', q):
+        return ("Je ne dispose pas de documentation autorisée permettant de confirmer "
+                "la procédure de licence ou d'affiliation UNSS. Je ne peux donc pas "
+                "vous indiquer de manipulation fiable dans iPackEPS.")
     # Une alerte de comptage sans écran ni message exact ne permet pas de
     # choisir entre déclaration des activités et contrôle d'un protocole.
     if (re.search(r'ipack|verificateur', q) and re.search(r'apsa', q)

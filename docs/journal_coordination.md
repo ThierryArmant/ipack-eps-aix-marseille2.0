@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:03 — partie programme — trois tests réels et origine de la réponse (branche 97f836e)
+
+Tests autorisés en ligne, version affichée 6b67ce3, lycée voie générale : suppression de créneau conforme à l'article 20 (1 appel, 5 975 entrée + 70 sortie) ; suppression Cyclades cohérente avec les fiches mais ajout du changement de groupe non demandé (1 appel, 11 759 + 258) ; communication des notes avant jury : « il n'existe pas de règle écrite » déduit à tort de l'absence de texte dans la base (1 appel, 6 227 + 135). Total affiché : **24 424 jetons et trois appels**, hors recherche documentaire. Référence ciblée sur la production, pas validation des correctifs et pas mesure représentative.
+
+À la demande utilisateur, vérification des consignes en dur : aucune phrase correspondante dans app.py ; l'entrée du catalogue points_sans_consigne_aix.txt ne contient pas de réponse directe exécutable. Décision/Conditions sont des libellés fixes du rendu ; la fiche contient des consignes de prudence et le prompt interdit déjà de conclure à l'inexistence d'une consigne. La perte de cette réserve vient ici de la génération.
+
+Contrôle renforcé sur correction-controles-tokens-20261018 (97f836e) : bloquer une affirmation d'inexistence de règle lorsque les preuves ne disent que « aucun texte de la base… ». Test conservant une réponse qui énonce seulement la limite documentaire. **553 tests réussis** (44,440 s), sans appel payant supplémentaire. Correctif non déployé, réponse après réparation et coût réel encore à vérifier. Aucun gain de tokens annoncé, aucune fiche modifiée. Dernières entrées sur les fiches d'accès et les réponses en tête lues ; ces changements ne sont pas encore intégrés dans la validation de la branche.
+
+
 ### 2026-10-18 — partie programme — commit 48afc18 — contrôles et coût, branche de validation
 
 Fait sur `correction-controles-tokens-20261018`, sans déploiement du moteur :

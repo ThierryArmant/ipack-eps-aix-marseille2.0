@@ -268,6 +268,9 @@ class GuideLyceeGTTests(unittest.TestCase):
                   'à quoi sert le bouton exporter les élèves ?']:
             self.assertIn(t, kc.priority_titles(q, 'Lycée Général & Techno', 'ipack'), q)
         self.assertNotIn(t, kc.priority_titles('mon élève est inapte, quelle note ?', 'Lycée Général & Techno', 'ipack'))
+        for q in ['Mon co-évaluateur est absent, j’évalue seul ?',
+                  "Entorse de la cheville : l'élève peut faire un badminton adapté. Faut-il un nouveau protocole validé par la commission ?"]:
+            self.assertNotIn(t, kc.priority_titles(q, 'Lycée Pro / CAP', 'examens'), q)
         steps = ' '.join(s['clic'] for s in self.routes['CFA, MFR, AEFE : créer directement les groupes'])
         self.assertIn('[Associer les élèves à un protocole]', steps)
 

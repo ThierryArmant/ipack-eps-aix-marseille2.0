@@ -7111,10 +7111,10 @@
     "prioritaire": true,
     "priorite": 310,
     "motifs": [
-      "co.?evaluat|protocole.{0,40}(?:valid|invalide|vert|icone|coche|rouge)|(?:valid|invalide).{0,30}protocole|sans groupe|exporter les eleves|export.{0,20}cyclades|bouton envoyer|(?:deposer|remplacer|envoyer).{0,30}referentiel|classes? d.examen|(?:cfa|mfr|aefe).{0,60}(?:classe|groupe)|ensemble certificatif|composer.{0,30}(?:protocole|epreuve)"
+      "co.?evaluat\\w*.{0,40}(?:obligatoire|necessaire|faut.il|doit.on|indiquer|renseign|saisir|choisir|designer)|(?:obligatoire|faut.il|doit.on).{0,40}co.?evaluat|protocole.{0,40}(?:invalide|pas valide|non valide|vert|icone|coche|rouge)|(?:invalide|pas valide).{0,30}protocole|sans groupe|exporter les eleves|export.{0,20}cyclades|bouton envoyer|(?:deposer|remplacer|envoyer).{0,30}referentiel|classes? d.examen|(?:cfa|mfr|aefe).{0,60}(?:classe|groupe)|ensemble certificatif.{0,40}(?:compos|gerer les s|sequence)|composer.{0,30}(?:protocole|epreuve)"
     ],
     "exclure_motifs": [
-      "\\bdnb\\b|brevet|college"
+      "\\bdnb\\b|brevet|college|absen|arret|malad|\\bseul\\b|bless|entorse|inapt|adapt|handicap|remplac|fraude|certificat|note"
     ]
   }
 }

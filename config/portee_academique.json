@@ -1535,12 +1535,6 @@
    "academie": "aix-marseille",
    "sections": [
     {
-     "section": "### [SITUATION: QUI CONTACTER POUR QUOI — ASSISTANCE iPackEPS, DEC, INSPECTION, CHEF D'ÉTABLISSEMENT]",
-     "lignes": [
-      "- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran)."
-     ]
-    },
-    {
      "section": "### [SITUATION: CONTACTER LA DIASEP (BASE RAMSESE) — ADRESSE MAIL]",
      "lignes": [
       "- Académie d'Aix-Marseille : ce.diasep@ac-aix-marseille.fr"
@@ -1555,6 +1549,18 @@
      "section": "### [NOUVEAUTÉS 2025-2026 — ACCÉDER À iPackEPS DEPUIS ARENA ET OBTENIR DE L'AIDE]",
      "lignes": [
       "- Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Dans les académies qui utilisent ARENA : dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels », en bas de page (conseil : l'ajouter aux favoris). Le document de l'éditeur décrit encore l'ancien portail, où iPackEPS était dans [Enquêtes et Pilotage] > « Pilotage académique » : si l'un des deux intitulés n'apparaît pas, chercher l'autre."
+     ]
+    }
+   ]
+  },
+  "data/ipack/qui_contacter_assistance_ipackeps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)",
+     "lignes": [
+      "Réponse directe — un bug ou un blocage d'iPackEPS non résolu (lien absent, établissement ou enseignant absent, module à activer) : le correspondant académique iPackEPS ; à Aix-Marseille : ipackeps@ac-aix-marseille.fr, en précisant l'établissement et son UAI, le menu concerné, le message d'erreur exact, avec une capture d'écran.",
+      "- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran)."
      ]
     }
    ]

@@ -5937,6 +5937,17 @@
    ],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS : message d'erreur « Instance »"
+  },
+  "data/ipack/qui_contacter_assistance_ipackeps.txt": {
+   "nature": [
+    "logiciel",
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : qui contacter pour quoi (assistance, DEC, inspection)"
   }
  }
 }

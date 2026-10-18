@@ -1054,7 +1054,15 @@
     "title": "[SITUATION: SECONDE PRÉPA / CLASSES HORS-NOMENCLATURE]",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "seconde prepa|2nde prepa|hors nomenclature|(?:types? de classes?|liste des classes).{0,40}(?:existe pas|n.existe|absent|pas dans)|n.existe pas dans la liste"
+    ]
   },
   "data/ipack/fiches/ipack_018_situation_groupes_d_options_et_double_niveau.txt": {
     "title": "[SITUATION: GROUPES D'OPTIONS ET DOUBLE NIVEAU]",
@@ -1322,7 +1330,15 @@
     "title": "[ARTICLE 18] [Dossiers]/[DossierEPS]/[Élèves] Placement des Élèves dans les Groupes",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "n.autorise pas (?:le )?cycle|cycle scolaire"
+    ]
   },
   "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt": {
     "title": "[ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe",
@@ -1345,7 +1361,18 @@
     "title": "[ARTICLE 19] [Dossiers]/[DossierEPS]/[Équipements] Gestion des Équipements Sportifs",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "installations? sportives?.{0,60}(?:ou|renseign|declar|ajout|module|ipack|utilise)|(?:ou|comment|renseign|declar|ajout).{0,40}installations? sportives?|code res\\b"
+    ],
+    "exclure_motifs": [
+      "fermee?|indisponib|travaux|inutilisable|hors service"
+    ]
   },
   "data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt": {
     "title": "[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie et Gestion des Emplois du Temps (EDT)",
@@ -1545,7 +1572,15 @@
     "title": "[ARTICLE 26] [Matériel] Gestion du Matériel EPI (Équipements de Protection Individuels)",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "\\bepi\\b|registre.{0,30}(?:materiel|epi|escalade)|alertes? (?:jaunes?|rouges?)|materiel.{0,30}escalade"
+    ]
   },
   "data/ipack/fiches/ipack_095_article_77_offre_de_formation_groupes_et_apsas.txt": {
     "title": "[ARTICLE 77] [Offre de Formation] / [Groupes et APSAs]",
@@ -2279,7 +2314,18 @@
     "title": "[SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?:deux|2|plusieurs) etablissements.{0,60}(?:passer|basculer|changer|acceder|choisir)|(?:passer|basculer|changer).{0,30}(?:de l.un a l.autre|d.etablissement)|selecteur d.etablissement|(?:college et (?:un )?lycee|lycee et (?:un )?college).{0,60}(?:passer|basculer|changer|acceder)"
+    ],
+    "exclure_motifs": [
+      "cite scolaire|manqu|absent"
+    ]
   },
   "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
     "title": "[SITUATION: ÉLÈVE AYANT FAIT L'OBJET D'UNE SANCTION DISCIPLINAIRE (EXCLUSION) PENDANT UN CCF]",
@@ -6756,7 +6802,7 @@
       "ipack"
     ],
     "motifs": [
-      "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
+      "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
     ],
     "exclusif_motifs": [
       "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
@@ -7126,7 +7172,8 @@
     "priorite": 305,
     "motifs": [
       "(?:ou|comment).{0,40}(?:saisir|declarer|indiquer|renseigner).{0,40}(?:epreuves?|dates? d.(?:evaluation|epreuve)|evaluateurs?)|transferer.{0,40}(?:groupes?|eleves?).{0,30}cyclades|(?:fiche|eleve).{0,30}cas particulier.{0,80}(?:depos|commission|harmonisation)|dossier certificatif",
-      "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer).{0,30}(?:les )?protocoles?(?: d.evaluation)?"
+      "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer).{0,30}(?:les )?protocoles?(?: d.evaluation)?",
+      "\\bfca\\b|fiches? certificatives? d.activite"
     ],
     "exclure_motifs": [
       "\\bdnb\\b|brevet|college|absen|inapt|bless|fraude"
@@ -7267,5 +7314,22 @@
       "\\binstance\\b"
     ],
     "exclure_motifs": []
+  },
+  "data/ipack/qui_contacter_assistance_ipackeps.txt": {
+    "title": "iPackEPS : qui contacter pour quoi (assistance, DEC, inspection)",
+    "statut": "extrait_fiche_contacts_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 285,
+    "motifs": [
+      "(?:referent|correspondant) academique|a qui (?:m.adresser|ecrire|signaler|demander)|qui (?:contacter|peut me debloquer)|(?:bug|bogue).{0,60}(?:ipack|hub)|(?:ipack|hub).{0,60}(?:bug|bogue)|assistance ipack|adresse.{0,30}(?:assistance|support)"
+    ],
+    "exclure_motifs": [
+      "diasep|ramses|chef d.etablissement.{0,30}(?:faux|nom)"
+    ]
   }
 }

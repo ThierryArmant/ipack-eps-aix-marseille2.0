@@ -1,0 +1,14 @@
+### iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)
+Réponse directe — un bug ou un blocage d'iPackEPS non résolu (lien absent, établissement ou enseignant absent, module à activer) : le correspondant académique iPackEPS ; à Aix-Marseille : ipackeps@ac-aix-marseille.fr, en précisant l'établissement et son UAI, le menu concerné, le message d'erreur exact, avec une capture d'écran.
+- Mots-clés : qui contacter, à qui m'adresser, assistance, correspondant académique, DEC, division des examens, inspection pédagogique, IA-IPR, chef d'établissement, secrétariat des examens, service informatique.
+- Formulations courantes des collègues : à qui écrire ; qui peut me débloquer ; est-ce la DEC ou l'inspection ; qui s'occupe de ce problème.
+- Le coordonnateur EPS de l'établissement : envoyer le dossier pour validation (l'actualisation de l'équipe, des classes et des élèves est ouverte à tous les enseignants depuis la version 2026.2.x).
+- Le chef d'établissement (ou le secrétariat des examens) : importer les élèves dans Cyclades, créer les missions Imag'in, réaffecter un protocole, distribuer les lots, ajouter un correcteur, déverrouiller un lot, signer les dossiers (enquête natation, section sportive, APPN).
+- Le correspondant académique iPackEPS (assistance iPackEPS de son académie) : iPackEPS n'apparaît pas dans ARENA, établissement absent, enseignant absent de l'équipe, module à activer (section sportive), bug de l'application.
+- La DEC (division des examens et concours) de son académie : inscriptions des candidats, missions et convocations Imag'in, incohérences de données, statut de sportif de haut niveau, calendrier et dates limites des examens.
+- L'inspection pédagogique régionale (IA-IPR d'EPS) et la commission académique : validation ou réouverture des protocoles, référentiels, cas exceptionnel, sections sportives, projets APPN.
+- Le rectorat, service des personnels : statut, contrat et affectation d'un enseignant ou d'un vacataire.
+- Chaque académie a ses propres adresses de contact et son propre calendrier.
+- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran).
+Nature de la source : synthèse des circuits d'assistance iPackEPS et des examens ; adresse de l'assistance propre à Aix-Marseille.
+Source : fiche « messages d'erreur et contacts » du hub (section « qui contacter pour quoi »), extraite pour être transmise seule.

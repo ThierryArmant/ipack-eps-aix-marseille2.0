@@ -1,5 +1,5 @@
 {
- "description": "Pas à pas iPackEPS lycée professionnel et CAP : même structure et même procédure que la voie générale et technologique (correspondant académique, 18 octobre 2026), 2 APSA certificatives au CAP au lieu de 3 ; page APSA « APSA de Collège ou Voie Professionnelle ».",
+ "description": "Pas à pas iPackEPS lycée professionnel et CAP : même structure et même procédure que la voie générale et technologique (référent de la FAQ lycée, 18 octobre 2026), 2 APSA certificatives au CAP au lieu de 3 ; page APSA « APSA de Collège ou Voie Professionnelle ».",
  "parcours": {
   "Me repérer depuis le début (ordre de rentrée)": [
    {
@@ -465,6 +465,12 @@
     "video": "3.1 Dossier EPS — Groupes",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
     "preuve": "Les élèves seront évalués sur cette APSA pour l'examen"
+   },
+   {
+    "clic": "Pas d'export des élèves : dans Cyclades, [EPS] → [Associer les élèves à un protocole]",
+    "video": null,
+    "source": "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt",
+    "preuve": "menu [EPS] > [Associer les élèves à un protocole]"
    }
   ],
   "Trouver les élèves sans groupe": [

@@ -4,5 +4,5 @@ Portée : académie d'Aix-Marseille ; dates propres à l'académie, à ne pas ap
 Réponse directe — date limite de dépôt des référentiels : à Aix-Marseille, les référentiels se déposent tout au long de l'année, jusqu'au 30 mai, pour une validation des référentiels l'année suivante.
 Réponse directe — quand faire l'export vers Cyclades : l'export ([Dossier Certificatif] > [Cyclades] > [Export Elèves] > [Exporter les Elèves]) se fait seulement quand deux conditions sont remplies : 1) les protocoles ont été validés par la CAHPN et déposés dans Cyclades par l'inspection ; 2) les candidats ont été importés dans Cyclades par la DIEC (division des examens et concours du rectorat).
 Avant ces deux étapes, l'export n'est pas à faire : attendre l'information de l'inspection et du service des examens.
-Nature de la source : consigne académique (Aix-Marseille), donnée par le correspondant académique iPackEPS le 18 octobre 2026.
-Source : correspondant académique iPackEPS d'Aix-Marseille, 18 octobre 2026.
+Nature de la source : consigne académique (Aix-Marseille), donnée par le référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille le 18 octobre 2026.
+Source : référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille, 18 octobre 2026.

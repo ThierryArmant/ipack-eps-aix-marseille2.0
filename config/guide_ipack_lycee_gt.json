@@ -465,6 +465,12 @@
     "video": "3.1 Dossier EPS — Groupes",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
     "preuve": "Les élèves seront évalués sur cette APSA pour l'examen"
+   },
+   {
+    "clic": "Pas d'export des élèves : dans Cyclades, [EPS] → [Associer les élèves à un protocole]",
+    "video": null,
+    "source": "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt",
+    "preuve": "menu [EPS] > [Associer les élèves à un protocole]"
    }
   ],
   "Trouver les élèves sans groupe": [

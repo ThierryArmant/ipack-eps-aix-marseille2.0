@@ -1580,6 +1580,18 @@
     }
    ]
   },
+  "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS lycée : déclarer une APSA certificative et construire le protocole d'examen d'un groupe",
+     "lignes": [
+      "Réponse directe — classes d'examen, deux contextes (référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille) : 1) établissement de l'Éducation nationale : importer les classes puis définir leur organisation ([Dossier EPS] > [Classes] : [Actualiser], [Configuration des Classes], [Organisation des Classes] avec le mode et les professeurs, [Importation des Élèves]) : les classes d'examen doivent être organisées ; 2) établissement hors Éducation nationale (CFA, MFR, établissement AEFE à l'étranger) : il ne passe pas par [Classes] ; il va directement dans [Dossier EPS] > [Groupes] créer ses groupes ([Créer un groupe], puis [Gérer les S.A.]).",
+      "Explications du référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille (18 octobre 2026) — les trois étapes de l'examen :"
+     ]
+    }
+   ]
+  },
   "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1589,6 +1601,18 @@
       "Réponse directe — date limite de dépôt des référentiels : à Aix-Marseille, les référentiels se déposent tout au long de l'année, jusqu'au 30 mai, pour une validation des référentiels l'année suivante.",
       "Réponse directe — quand faire l'export vers Cyclades : l'export ([Dossier Certificatif] > [Cyclades] > [Export Elèves] > [Exporter les Elèves]) se fait seulement quand deux conditions sont remplies : 1) les protocoles ont été validés par la CAHPN et déposés dans Cyclades par l'inspection ; 2) les candidats ont été importés dans Cyclades par la DIEC (division des examens et concours du rectorat).",
       "Avant ces deux étapes, l'export n'est pas à faire : attendre l'information de l'inspection et du service des examens."
+     ]
+    }
+   ]
+  },
+  "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS lycée : le Dossier Certificatif (référentiels, protocoles, documents CAHPN, export Cyclades)",
+     "lignes": [
+      "Réponse directe — moment de l'export vers Cyclades : seulement quand les protocoles ont été validés par la CAHPN et déposés dans Cyclades par l'inspection, et que les candidats ont été importés dans Cyclades par le service des examens du rectorat (référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille). Dates : fixées par chaque académie.",
+      "Voie professionnelle (bac pro) et CAP : même démarche selon le référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille ; à l'examen, 3 épreuves pour le baccalauréat, 2 pour le CAP ; le co-évaluateur n'est obligatoire que pour la voie générale."
      ]
     }
    ]

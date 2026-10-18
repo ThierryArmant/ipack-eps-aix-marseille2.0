@@ -7040,5 +7040,26 @@
     "exclure_motifs": [
       "rattrap|date d.evaluation|co.?evaluat"
     ]
+  },
+  "data/ipack/visite_lycee_2026_10_18/faq_lycee_referent_2026_10_18.txt": {
+    "title": "iPackEPS lycée : réponses du référent de la FAQ lycée",
+    "statut": "reponse_referent_faq_lycee_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "motifs": [
+      "co.?evaluat|protocole.{0,40}(?:valid|invalide|vert|icone|coche|rouge)|(?:valid|invalide).{0,30}protocole|sans groupe|exporter les eleves|export.{0,20}cyclades|bouton envoyer|(?:deposer|remplacer|envoyer).{0,30}referentiel|classes? d.examen|(?:cfa|mfr|aefe).{0,60}(?:classe|groupe)|ensemble certificatif|composer.{0,30}(?:protocole|epreuve)"
+    ],
+    "exclure_motifs": [
+      "\\bdnb\\b|brevet|college"
+    ]
   }
 }

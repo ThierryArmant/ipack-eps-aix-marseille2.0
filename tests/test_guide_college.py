@@ -251,6 +251,16 @@ class GuideLyceeGTTests(unittest.TestCase):
         guide.render_guide(ui, 'c', 'Lycée voie générale')
         self.assertTrue(ui.infos[0].startswith('Avant d’exporter vers Cyclades'))
 
+    def test_faq_lycee_referent_prioritaire(self):
+        import knowledge_catalog as kc
+        t = 'iPackEPS lycée : réponses du référent de la FAQ lycée'
+        for q in ['le co-évaluateur est-il obligatoire ?', 'comment trouver les élèves sans groupe ?',
+                  'à quoi sert le bouton exporter les élèves ?']:
+            self.assertIn(t, kc.priority_titles(q, 'Lycée Général & Techno', 'ipack'), q)
+        self.assertNotIn(t, kc.priority_titles('mon élève est inapte, quelle note ?', 'Lycée Général & Techno', 'ipack'))
+        steps = ' '.join(s['clic'] for s in self.routes['CFA, MFR, AEFE : créer directement les groupes'])
+        self.assertIn('[Associer les élèves à un protocole]', steps)
+
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):
             t = f.read_text(encoding='utf-8')

@@ -5905,6 +5905,16 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Aix-Marseille : calendrier du Dossier Certificatif"
+  },
+  "data/ipack/visite_lycee_2026_10_18/faq_lycee_referent_2026_10_18.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS lycée : réponses du référent de la FAQ lycée"
   }
  }
 }

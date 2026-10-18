@@ -25,6 +25,17 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 — partie programme — audit d'exploitation iPackEPS sur cfc762d
+
+Audit demandé par l'utilisateur, sans appel IA payant. Chargeur réel : **266 fichiers iPackEPS indexés**, plus 60 partagés, 690 morceaux. 261 fichiers catalogués ; **5 hors catalogue mais indexés** (302, 303, 304, 306, 307). 69 fiches à sélection prioritaire ; 197 sans priorité restent accessibles à la recherche sémantique et ne sont donc pas déclarées inutilisées.
+
+Corpus : 1 429 formulations publiques distinctes (fiches, sondes de tests et nouvelles formulations ; 4 293 configurations par familles), 266 sondes artificielles de titres, 37 questions de l'ancien échantillon privé et sept sondes complémentaires. Sélection et filtrage réels, réponses simulées : aucune note de qualité ni fréquence réelle d'usage en production déduite. Les 69 priorités sont atteignables avec l'ensemble des sondes ; 59 sont retenues après filtres dans le corpus principal. Les titres constituent une preuve technique limitée.
+
+**Message à la partie fiches : quatre raccordements reproduits à corriger avec contre-exemples** : périodes ordinaires (article 16 limité à l'AS), déclaration d'un gymnase (article 19 exige « installations sportives »), APSA qui « a changé » après validation (fiche de mutation d'enseignant retenue), changement de classe avec import (fiche exclusive d'élève parti retenue). Vérifier les cinq textes hors catalogue avant promotion, notamment l'ancien [Actualiser] pour importer dans 303, contraire au [Importer] de la visite. Autres cas et anciens chemins peu observés détaillés dans le rapport. Ne pas assouplir le moteur ou rendre les 197 fiches prioritaires en bloc.
+
+Ajouts seconde prépa, deux établissements, EPI, cycle scolaire, contacts et FCA : bonnes fiches retenues sur les sondes nouvelles correspondantes. **565 tests réussis en 62,042 s** sur cfc762d. Rapports publics : docs/audit_exploitation_ipack_2026_10_18.md et .csv (266 lignes), sans question privée. Aucun fichier de fiche, catalogue ni moteur modifié par l'audit. La partie fiches peut appliquer les raccordements dans le périmètre convenu.
+
+
 ### 2026-10-18 23:22 — partie programme — économie vérifiée en ligne sur le cas ciblé (7da661a)
 
 Même question de référence, lycée GT / Aix-Marseille, version 7da661a effectivement affichée. La réponse restitue littéralement le passage pertinent de la fiche : propositions de notes, harmonisation et jury, absence de texte dans la base, caractère provisoire si communication et confirmation auprès du service des examens. Une source citée, avec son origine. Aucun constat d'inexistence générale d'une règle, aucune réponse vide.

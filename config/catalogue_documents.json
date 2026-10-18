@@ -7111,7 +7111,8 @@
     "prioritaire": true,
     "priorite": 305,
     "motifs": [
-      "(?:ou|comment).{0,40}(?:saisir|declarer|indiquer|renseigner).{0,40}(?:epreuves?|dates? d.(?:evaluation|epreuve)|evaluateurs?)|transferer.{0,40}(?:groupes?|eleves?).{0,30}cyclades|(?:fiche|eleve).{0,30}cas particulier.{0,80}(?:depos|commission|harmonisation)|dossier certificatif"
+      "(?:ou|comment).{0,40}(?:saisir|declarer|indiquer|renseigner).{0,40}(?:epreuves?|dates? d.(?:evaluation|epreuve)|evaluateurs?)|transferer.{0,40}(?:groupes?|eleves?).{0,30}cyclades|(?:fiche|eleve).{0,30}cas particulier.{0,80}(?:depos|commission|harmonisation)|dossier certificatif",
+      "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer).{0,30}(?:les )?protocoles?(?: d.evaluation)?"
     ],
     "exclure_motifs": [
       "\\bdnb\\b|brevet|college|absen|inapt|bless|fraude"
@@ -7166,7 +7167,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?:declarer|saisir|indiquer|deposer).{0,40}inapt\\w*.{0,60}(?:ipack|logiciel)|inapt\\w*.{0,30}(?:sur|dans) ipack|certificats? medica\\w*.{0,40}(?:deposer|ipack)|voeux de jury|jury.{0,40}(?:crpe|capeps|agregation)"
+      "(?:declarer|saisir|indiquer|deposer).{0,40}inapt\\w*.{0,60}(?:ipack|logiciel)|inapt\\w*.{0,30}(?:sur|dans) ipack|certificats? medica\\w*.{0,40}(?:deposer|ipack)|voeux de jury|jury.{0,40}(?:crpe|capeps|agregation)",
+      "(?:combien|nombre|statistiques?|bilan).{0,60}inapt"
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {

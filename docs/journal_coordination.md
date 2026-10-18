@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 — partie programme — audit d'exploitation Examens sur e94f4b5
+
+Fait : audit local du chargement et de la sélection, sans appel IA payant ; 565 tests réussis en 51,141 s. Rapport : docs/audit_exploitation_examens_2026_10_18.md ; inventaire : fichier .csv du même nom (421 ressources transverses). Les 156 fichiers actifs du dossier Examens sont indexés. L'ancien complément désactivé est remplacé par ses 14 fiches. Deux fichiers actifs restent hors catalogue (102 et 103). Les 132 priorités du dossier sont atteignables avec toutes les sondes, titres compris : cela ne mesure ni la justesse des réponses ni l'usage réel.
+
+Constaté : quatre raccordements à reprendre : fiche Santorin 14 avec les motifs copiés de 02, sans réponse au circuit après validation des protocoles ; fiche 10 manquée quand l'impossibilité précède « tout mon groupe » ; accès remplaçant sélectionnant cinq fiches, dont lot absent et correction partagée, avec confusion d'objet introduite par l'enrichissement ; panne ponctuelle de piscine ne retrouvant que le glossaire. Sur 14 sondes ciblées, 11 fiches visées retenues, co-évaluation couverte par une bonne alternative, deux défauts directs (10 et 14). Aucun taux de bonnes réponses déduit.
+
+Attendu de la partie fiches : reprendre ces motifs avec contre-exemples ; vérifier les textes officiels et métadonnées de 102/103 avant promotion ; conserver la distinction groupe entier/élève isolé et fermeture ponctuelle/durable. Le rapport détaille les formulations publiques et les autres lacunes possibles. Aucun catalogue, fiche ni moteur modifié par cet audit. Aucune question privée publiée. Quelques réponses réelles pourront ensuite vérifier les conditions et le coût, sans lancer de campagne large.
+
+
 ### 2026-10-18 — partie programme — audit d'exploitation iPackEPS sur cfc762d
 
 Audit demandé par l'utilisateur, sans appel IA payant. Chargeur réel : **266 fichiers iPackEPS indexés**, plus 60 partagés, 690 morceaux. 261 fichiers catalogués ; **5 hors catalogue mais indexés** (302, 303, 304, 306, 307). 69 fiches à sélection prioritaire ; 197 sans priorité restent accessibles à la recherche sémantique et ne sont donc pas déclarées inutilisées.

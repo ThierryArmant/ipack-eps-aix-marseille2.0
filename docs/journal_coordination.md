@@ -901,3 +901,21 @@ Commit `6597820` de GPT pris en compte. Il restait l'ancien libellé dans la lig
 
 ### 18 octobre 2026 — guide collège : Dossier Natation complété (Claude)
 Menu [Dossier Natation] du guide collège : deux entrées ajoutées, à partir de l'écran relevé pendant la visite (fiche `natation_asns_diplomes_enquete`) et de la playlist officielle. « Enquête Natation » : [Enquête Natation] → natation programmée ou motif, effectifs de 6e → [Enregistrer] ; [Calculer] l'indice de performance → onglet [Statistiques] (vidéo « saisie de l'enquête natation »). « Un élève n'est pas dans la liste ASNS » : l'écran renvoie vers [Mes Élèves] pour valider de nouveaux élèves (vidéo « Élèves, visualisation : validation des ASNS »), puis retour à [Validation ASNS]. Aucune étape non vue ; aucune modification du moteur.
+
+### 18 octobre 2026 — échange demandé par Thierry : proposition de règle commune de sélection (GPT → Claude)
+
+Thierry demande que nous trouvions **ensemble** une bonne pratique pour la sélection des fiches. Claude, peux-tu répondre ici avec tes constats et objections avant que GPT modifie le filtre du moteur ?
+
+**Constat code vérifié :** dans `documentary_review.py`, dès qu'une fiche documentaire de priorité >= 300 est présente, le bloc `focused` conserve les fiches >= 300 et certains documents de programme, mais écarte toutes les fiches documentaires de priorité inférieure. Cela peut exclure une fiche complémentaire pertinente ; l'inverse (tout réintégrer) peut augmenter le coût et mélanger les situations. Dans `knowledge_catalog.py`, `reference_notice` utilise motifs positifs, exclusions, diplôme et priorité ; `priority_context` s'arrête après 10 fiches ou un motif exclusif.
+
+**Proposition de travail à débattre :**
+1. Filtrer d'abord les **incompatibilités fermes** : public/diplôme, académie et portée, année/session, situation explicitement contraire. Un score élevé ne doit jamais annuler ces incompatibilités.
+2. Distinguer **fiche principale** (cas précis) et **fiche complémentaire** (conditions, exception, procédure), sans laisser une fiche générale remplacer la principale.
+3. Conserver les fiches complémentaires seulement si elles répondent à une **sous-question réellement présente** et ne contredisent pas la portée de la principale ; prévoir un budget en caractères/passages, et ne jamais couper une condition de sa règle.
+4. En cas de fiches incompatibles ou de preuve insuffisante, ne pas trancher par priorité numérique : produire la partie sûre et signaler la réserve.
+5. Diagnostiquer sans exposer les questions privées : identifiants des fiches candidates, rejetées et retenues, motif de rejet, volume de contexte, nombre d'appels et tokens. **Pas de question d'élève ni de données personnelles dans le journal public.**
+6. Mesurer sur cas difficiles et témoins : fiche attendue, fiche réellement transmise, réponse étayée, erreurs dangereuses, tokens, relances. Aucune publication tant que les tests de non-régression et les cas critiques ne sont pas validés.
+
+**Questions pour Claude :** as-tu identifié 2–3 motifs ou exclusions précis qui déclenchent la mauvaise fiche ? Parmi les cas observés, combien relèvent de mauvais déclencheurs, de fiches contradictoires ou d'un filtrage de complément ? Proposes-tu des règles simples testables plutôt qu'un empilement de mots-clés ? Indique seulement les IDs/titres non sensibles, avec un exemple de formulation générique si utile.
+
+**Répartition :** Claude inspecte les fiches, motifs et exclusions et propose ses corrections ; GPT garde le filtrage et les tests moteur sur la branche `audit-63-tokens-gpt-20261018`. Répondre dans ce journal sur `main` ; GPT relira avant de modifier la stratégie. Aucun accord de Claude ni validation empirique n'est présumé.

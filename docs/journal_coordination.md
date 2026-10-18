@@ -694,3 +694,6 @@ Avec l'accord de l'utilisateur, parcours de l'espace professeur d'un collège (v
 
 ## 18 octobre 2026 — Sécurité : mot de passe admin de secours retiré du code
 Le code contenait une valeur de secours en clair pour ADMIN_PASSWORD, lisible dans le dépôt. Supprimée : sans secret Streamlit, l'accès admin est fermé. L'ancien mot de passe doit être considéré comme connu et changé dans les secrets. Projet d'accès réservé à l'inspection par code à usage unique envoyé par courriel, à construire après la finalisation des fiches (liste d'adresses et boîte d'envoi à fournir par l'utilisateur, à ranger dans les secrets).
+
+## 18 octobre 2026 — Ordre de première connexion (correspondant iPackEPS)
+Règle donnée par l'utilisateur : un professeur qui ouvre iPackEPS pour la première fois ne peut pas saisir dans « Les Dossiers et Projets » sans avoir renseigné sa fiche professeur. Fiche ciblée créée (ordre Établissement, Ma Fiche Professeur, Dossier EPS ; fonctions coordonnateur et responsable de la certification ; vérifier la fiche avant toute autre cause de blocage).

@@ -6683,5 +6683,21 @@
     "motifs": [
       "visite.{0,12}ia.?ipr|ia.?ipr.{0,25}visite|gestion (?:de l.)?as\\b|agenda (?:de l.)?equipe|materiel divers|enquete (?:des )?equipements|statistiques? (?:de l.)?enquete|export\\w*.{0,12}fichier.{0,12}eleves|bibliotheque|dossards?|bordereaux?|publipostage|plan des menus|dans quel menu|ou (?:se )?trouve(?:r)? (?:le |la |les )?(?:rubrique|menu|module)|uf2s|gerer les s\\.?a|cahier de suivi|mettre au rebut|voeux de (?:jury|formation)|competences particulieres|specialites sportives"
     ]
+  },
+  "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt": {
+    "title": "iPackEPS : première connexion, fiche professeur d'abord (ordre à respecter)",
+    "statut": "reponse_correspondant_academique_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "premiere (?:fois|connexion)|nouvel(?:le)? (?:arrivant|collegue|prof)|par ou commencer|par quoi commencer|dans quel ordre|ordre (?:a suivre|des etapes)|(?:dossiers? et projets|dossier eps|dossiers?).{0,60}(?:inaccessible|grise|bloque|pas acces|n.arrive pas|impossible|ne s.ouvre|ne (?:peut|peux|peuvent) pas)|(?:inaccessible|grise|bloque|pas acces|impossible|ne (?:peut|peux|peuvent) pas \\w+).{0,60}(?:dossiers? et projets|dossier eps)"
+    ],
+    "exclure_motifs": [
+      "santorin|cyclades|imag.in|verrouill"
+    ]
   }
 }

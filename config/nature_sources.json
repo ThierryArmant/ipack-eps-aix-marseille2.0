@@ -5735,6 +5735,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies (modules activés selon l'académie)",
    "titre": "iPackEPS : plan des menus de l'espace professeur"
+  },
+  "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : première connexion, fiche professeur d'abord"
   }
  }
 }

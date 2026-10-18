@@ -1,0 +1,7 @@
+### iPackEPS : première connexion et rentrée — l'ordre à respecter (fiche professeur d'abord)
+Réponse directe : un professeur qui ouvre iPackEPS pour la première fois (ou à une nouvelle année scolaire) ne peut pas aller saisir dans [Les Dossiers et Projets] tant qu'il n'a pas renseigné sa propre fiche professeur : commencer par [Tableau de bord] > [Ma Fiche Professeur], puis seulement ensuite les dossiers.
+Ordre à suivre depuis le tableau de bord : 1) [Établissement] : vérifier la fiche de l'établissement ; 2) [Ma Fiche Professeur] : chaque enseignant renseigne sa fiche (Statut, Service, Fonctions…) ; 3) [Les Dossiers et Projets] > [Dossier EPS] : projets, équipe, classes, APSA, périodes, groupes, élèves, équipements, emplois du temps.
+Dans [Ma Fiche Professeur] > [Fonctions], cocher « Coordonnateur EPS » (et « Responsable de la Certification » pour les examens au lycée) si c'est votre rôle : sans cette déclaration, les modules de préparation des examens ne sont pas modifiables. Les fonctions sont à redéclarer à chaque rentrée.
+Si un dossier ou un module reste inaccessible, vérifier d'abord que la fiche professeur est complète avant de chercher une autre cause.
+Nature de la source : fonctionnement du logiciel iPackEPS ; règle d'ordre donnée par le correspondant académique iPackEPS (Aix-Marseille) le 18 octobre 2026 ; fonction commune à toutes les académies.
+Source : correspondant académique iPackEPS, 18 octobre 2026 ; fiches « Se déclarer coordonnateur EPS » et « Collège : que remplir dans iPackEPS » du corpus.

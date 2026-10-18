@@ -16,7 +16,8 @@ def requests_guide(question, mode, public):
     # sans assimiler une question métier complète à un appel au secours générique.
     examples = ('aide moi', 'aidez moi', 'aide moi je suis perdu',
                 'aide moi suis perdu', 'je suis perdu', 'je suis perdue',
-                'je suis perdu dans ipackeps', 'je ne sais pas par ou commencer')
+                'je suis perdu dans ipackeps', 'je ne sais pas par ou commencer',
+                'je comprends pas comment remplir', 'je ne comprends pas comment remplir')
     if compact and any(SequenceMatcher(None, compact, ''.join(example.split())).ratio() >= 0.88
                        for example in examples):
         return True

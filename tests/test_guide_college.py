@@ -183,6 +183,17 @@ class GuideCollegeTests(unittest.TestCase):
         self.assertNotIn(t, kc.priority_titles('nouvel élève en natation, quelle évaluation ?', 'Collège', 'ipack'))
         self.assertIn('[Importer]', Path('data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt').read_text(encoding='utf-8'))
 
+    def test_formulations_reelles_du_journal_ipack(self):
+        import knowledge_catalog as kc
+        cas = [("Mes élèves de trois classes sont mélangés en barrette pour l'EPS, comment je crée mes groupes dans iPackEPS ?", 'Lycée Général & Techno', 'iPackEPS : classes, actualiser, configurer, organiser, importer'),
+               ('Je deviens coordonnateur EPS cette année, où est-ce que je le déclare dans iPackEPS ?', 'Collège (DNB)', 'iPackEPS : Ma Fiche Professeur, fonctions et Enregistrer'),
+               ("Je n'arrive pas à passer le cross-training en certificatif, le bouton reste bloqué sur non, pourquoi ?", 'Lycée Général & Techno', "iPackEPS lycée : APSA certificative et protocole d'un groupe"),
+               ("Je suis en collège et j'ai des alertes sur le dossier certificatif", 'Collège (DNB)', '[ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique')]
+        for q, p, t in cas:
+            self.assertIn(t, kc.priority_titles(q, p, 'ipack'), q)
+        self.assertNotIn('iPackEPS : déclaration d’inaptitude, sans calcul de moyenne',
+                         kc.priority_titles("Je suis en collège et j'ai des alertes sur le dossier certificatif", 'Collège (DNB)', 'ipack'))
+
     def test_fiches_de_la_visite_sans_donnees_personnelles(self):
         for f in Path('data/ipack/visite_college_2026_10_18').glob('*.txt'):
             t = f.read_text(encoding='utf-8')

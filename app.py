@@ -1265,10 +1265,7 @@ if st.session_state.get("is_admin", False):
 # 6. ÉTAPE 1 : CHOIX DU CONTEXTE (3 ONGLETS)
 # ======================================================================
 label_titres = {
-    "ipack": (
-        "🛠️ Mode Actif : Assistance Technique iPackEPS (Gestion du CCF &"
-        " Inaptitudes)"
-    ),
+    "ipack": "🛠️ Mode Actif : Assistance Technique iPackEPS",
     "examens": (
         "📊 Mode Actif : Examens"
     ),

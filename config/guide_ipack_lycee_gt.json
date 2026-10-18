@@ -135,22 +135,22 @@
   ],
   "Placer des élèves dans un groupe": [
    {
-    "clic": "[Dossier EPS] → [Élèves] → à droite : votre groupe",
+    "clic": "[Dossier EPS] → [Élèves] → à gauche Visualisation « Classes » → la ou les classes",
     "video": "3.1 Dossier EPS — Élèves",
-    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
-    "preuve": "à droite, choisir le groupe de destination"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Élèves] ; à gauche, Visualisation « Classes », puis la ou les classes souhaitées"
    },
    {
-    "clic": "À gauche : Visualisation « Classes » → niveau → classe",
+    "clic": "À droite : Type « EPS » → le groupe créé",
     "video": "3.1 Dossier EPS — Élèves",
-    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
-    "preuve": "Visualisation « Classes », puis le niveau (Type), puis la classe (Sélection)"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "à droite, Type « EPS » et le groupe créé"
    },
    {
     "clic": "Cocher les élèves → [Ajouter -->]",
     "video": "3.1 Dossier EPS — Élèves",
-    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
-    "preuve": "cliquer sur [Ajouter -->]"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "cocher les élèves à basculer, puis [Ajouter -->]"
    }
   ],
   "Créer un créneau d'emploi du temps": [
@@ -327,10 +327,10 @@
     "preuve": "[Créer une nouvelle Période] avec date de début et date de fin"
    },
    {
-    "clic": "[Dossier EPS] → [Groupes] → [Groupes EPS] → [Gérer les S.A.] sur le groupe",
+    "clic": "[Dossier EPS] → [Groupes] → [Gérer les S.A.] : composer l'ensemble certificatif",
     "video": "3.1 Dossier EPS — Groupes",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "[Dossier EPS] > [Groupes] > [Groupes EPS] > [Gérer les S.A.] sur le groupe"
+    "preuve": "[Dossier EPS] > [Groupes] > [Gérer les S.A.] : on compose les ensembles certificatifs"
    },
    {
     "clic": "APSA → « évalués sur cette APSA pour l'examen » OUI ou NON → période → [Ajouter]",
@@ -363,20 +363,26 @@
    {
     "clic": "[Dossier Certificatif] → [Protocole d'Évaluation des Épreuves Certificatives]",
     "video": null,
-    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "2) [Protocole d'Évaluation des Épreuves Certificatives]"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Étape 3 — [Les Dossiers et Projets] > [Dossier Certificatif] > [Protocole d'Évaluation des Épreuves Certificatives]"
    },
    {
-    "clic": "Choisir l'examen → la ligne du groupe",
+    "clic": "Choisir l'examen : vos groupes remontent comme protocoles",
     "video": null,
-    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "Choisir l'examen (« Voie Générale et Technologique »"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "choisir l'examen concerné ; ce qui a été fait dans [Groupes] remonte ici comme protocole"
    },
    {
-    "clic": "« Configurez l'épreuve » : dates, co-évaluateur → [Enregistrer]",
+    "clic": "Pour chaque APSA : date d'évaluation, date de rattrapage, co-évaluateur (obligatoire en voie générale) → [Enregistrer]",
     "video": null,
-    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "panneau « Configurez l'épreuve » : Date Évaluation, Date Rattrapage, « Sélectionnez le co-évaluateur… », [Enregistrer]"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Le co-évaluateur n'est obligatoire que pour la voie générale"
+   },
+   {
+    "clic": "Vérifier les colonnes Validité et Référentiel : coches vertes",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "les protocoles ne sont valides que lorsque les icônes sont des coches vertes"
    }
   ],
   "Déposer les documents pour la CAHPN": [
@@ -401,10 +407,10 @@
     "preuve": "[Bilan Protocoles] liste le statut du protocole de chaque groupe d'examen"
    },
    {
-    "clic": "Élèves sans groupe : les placer dans un groupe d'examen",
+    "clic": "Élèves sans groupe : [Dossier EPS] → [Élèves] → Visualisation « Statut »",
     "video": null,
-    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "« Elèves sans Groupe EPS »"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Visualisation « Statut », puis dans Type le statut des élèves sans groupe"
    },
    {
     "clic": "[Export Elèves] → [Exporter les Elèves]",
@@ -453,6 +459,26 @@
     "video": "3.1 Dossier EPS — Groupes",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
     "preuve": "Les élèves seront évalués sur cette APSA pour l'examen"
+   }
+  ],
+  "Trouver les élèves sans groupe": [
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à gauche Visualisation « Statut »",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Visualisation « Statut », puis dans Type le statut des élèves sans groupe"
+   },
+   {
+    "clic": "Type : élèves sans groupe (Sélection pour affiner)",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "la liste « Sélection » permet d'affiner au besoin"
+   },
+   {
+    "clic": "À droite : Type « EPS » et le groupe → cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "à droite, Type « EPS » et le groupe créé ; cocher les élèves à basculer, puis [Ajouter -->]"
    }
   ]
  },
@@ -558,11 +584,19 @@
      ]
     },
     {
-     "libelle": "Élèves : placer des élèves dans un groupe",
+     "libelle": "Élèves : placer des élèves dans un groupe d’examen",
      "parcours": "Placer des élèves dans un groupe",
      "prerequis": [
       "[Classes] (élèves importés)",
       "[Groupes] (groupe créé)"
+     ]
+    },
+    {
+     "libelle": "Élèves : trouver les élèves sans groupe",
+     "parcours": "Trouver les élèves sans groupe",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[Groupes] (groupes créés)"
      ]
     },
     {

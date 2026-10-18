@@ -220,6 +220,12 @@ class GuideLyceeGTTests(unittest.TestCase):
         orga = self.routes['Voir mes classes et importer mes élèves'][2]['clic']
         self.assertIn("obligatoire pour les classes d'examen", orga)
 
+    def test_protocole_validite_et_eleves_sans_groupe(self):
+        steps = ' '.join(s['clic'] for s in self.routes["Dates d'épreuve, rattrapage et co-évaluateur"])
+        self.assertIn('obligatoire en voie générale', steps); self.assertIn('coches vertes', steps)
+        steps = ' '.join(s['clic'] for s in self.routes['Trouver les élèves sans groupe'])
+        self.assertIn('« Statut »', steps); self.assertIn('[Ajouter -->]', steps)
+
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):
             t = f.read_text(encoding='utf-8')

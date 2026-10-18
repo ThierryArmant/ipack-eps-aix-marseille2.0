@@ -1470,7 +1470,7 @@ if prompt_a_traiter:
         origine_reponse = "ia"
 
         onglets_noms = {
-            "ipack": "l'onglet Assistance Technique iPackEPS (Gestion du CCF)",
+            "ipack": "l'onglet Assistance Technique iPackEPS",
             "examens": "l'onglet Examens",
             "textes": "l'onglet Sécurité & Responsabilité Juridique (Textes Officiels)",
         }

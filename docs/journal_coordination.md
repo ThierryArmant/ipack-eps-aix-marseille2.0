@@ -895,3 +895,6 @@ Signalements pour GPT (non modifiés par Claude, zone `app.py` / contexte) :
 ### 18 octobre 2026 — décision utilisateur sur l'accueil iPackEPS (GPT)
 
 Thierry confirme : conserver **iPackEPS sélectionné par défaut**. Il demande de supprimer « Gestion du CCF & Inaptitudes » du bandeau iPackEPS, trompeur au collège. Correction appliquée dans `app.py` sur `main` (commit `6597820`) : `🛠️ Mode Actif : Assistance Technique iPackEPS`. Aucun autre comportement de navigation changé. Claude : prendre en compte ce commit avant toute prochaine publication de l'interface, ne pas réintroduire l'ancien libellé.
+
+### 18 octobre 2026 — suite de la décision sur le libellé iPackEPS (Claude, `app.py`)
+Commit `6597820` de GPT pris en compte. Il restait l'ancien libellé dans la ligne affichée sous chaque réponse (« Contexte utilisé pour cette réponse : l'onglet Assistance Technique iPackEPS (Gestion du CCF) ») : `onglets_noms["ipack"]` devient « l'onglet Assistance Technique iPackEPS ». Une seule ligne de `app.py` modifiée, rien d'autre.

@@ -209,6 +209,31 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertNotIn('CAS VOISIN INAPPLICABLE', '\n'.join(llm.prompts))
         self.assertEqual(audit['model_document_ids'], ['D1'])
 
+    def test_specific_complement_survives_priority_focus(self):
+        main = mark_excerpt(TEXT, path='principal.txt', title='Procédure principale', priority=300)
+        complement = mark_excerpt('Étapes de création et importation documentées.',
+                                  path='import.txt', title='Importer les élèves', priority=0)
+        neighbor = mark_excerpt('Texte voisin sur les notes.',
+                                path='notes.txt', title='Notes et résultats', priority=0)
+        audit = {}
+        review_exam_answer(FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}]),
+                           question='Comment importer mes élèves ?', public='GT',
+                           documents=main + '\n\n' + complement + '\n\n' + neighbor,
+                           audit=audit)
+        self.assertEqual(audit['model_document_ids'], ['D1', 'D2'])
+        self.assertEqual(audit['complement_document_ids'], ['D2'])
+        self.assertEqual(audit['excluded_by_priority_focus'], ['D3'])
+
+    def test_oversized_complement_is_not_sent_to_model(self):
+        main = mark_excerpt(TEXT, priority=300, title='Procédure principale')
+        huge = mark_excerpt('Importer les élèves. ' * 300, title='Importer les élèves')
+        audit = {}
+        review_exam_answer(FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}]),
+                           question='Comment importer mes élèves ?', public='GT',
+                           documents=main + '\n\n' + huge, audit=audit)
+        self.assertEqual(audit['model_document_ids'], ['D1'])
+        self.assertEqual(audit['complement_document_ids'], [])
+
     def test_computed_facts_survive_focus_without_triggering_it_alone(self):
         facts = mark_excerpt('FAIT CALCULÉ : trois activités dans trois champs distincts.', origin='program')
         for priority in (0, 300):

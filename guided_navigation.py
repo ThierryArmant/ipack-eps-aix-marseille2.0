@@ -102,8 +102,11 @@ def video_url(video_key):
     return next((v['url'] for v in videos if v.get('etape') == video_key), '')
 
 
-ORDER_RULE = ('**iPackEPS se remplit dans l’ordre** : Établissement → Ma Fiche Professeur → Dossier EPS, '
-              'puis de gauche à droite. Une étape sautée bloque la suite : pas d’allers-retours inutiles.')
+ORDER_RULE = ('**Bon à savoir : iPackEPS se remplit dans l’ordre.** '
+              'D’abord [Établissement], puis [Ma Fiche Professeur], puis [Dossier EPS] ; '
+              'dans chaque écran, de gauche à droite et de haut en bas. '
+              'Une étape sautée bloque les suivantes : complétez-la avant d’avancer, '
+              'vous éviterez des allers-retours.')
 
 
 def order_rule():
@@ -136,9 +139,6 @@ def render_guide(st, key, public, on_done=None):
     if not available:
         st.info('Guide indisponible pour le moment.')
         return
-    rule = order_rule()
-    if rule:
-        st.info(rule)
     menu = college_menu(available) if college else []
     if menu:
         left, right = st.columns(2)
@@ -177,6 +177,9 @@ def render_guide(st, key, public, on_done=None):
     if url:
         with st.expander('📺 Voir comment faire'):
             st.video(url)
+    rule = order_rule()
+    if rule:
+        st.info(rule)
     prefix = state_key + '_' + str(position)
     if position < len(route) - 1:
         if st.button('C’est fait · Suivant →', key=prefix + '_next'):

@@ -775,3 +775,6 @@ Sur demande de Thierry : le menu par dossiers détaille déjà chaque écran ; l
 
 ### 18 octobre 2026 — guide : « J'ai trouvé » referme tout, interface épurée
 Sur demande de Thierry : [✓ J'ai trouvé] referme le guide, efface sa progression et ramène au champ « Posez votre question » (bouton « Vous êtes perdu(e) ? » refermé ; dans une réponse, le guide disparaît). Épuration : encadré d'ordre raccourci à une phrase, libellés des listes masqués (placeholder « Choisissez un dossier… »), suppression de la légende sans vidéo et du bouton « Repartir du début » (la rubrique « Je ne sais pas par où commencer » le remplace).
+
+### 18 octobre 2026 — encadré d'ordre sous « Voir comment faire »
+Sur demande de Thierry : phrase complète d'origine rétablie (« Bon à savoir : iPackEPS se remplit dans l'ordre… »), affichée sous l'étape et sa vidéo, plus au-dessus du menu.

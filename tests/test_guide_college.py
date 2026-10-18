@@ -116,14 +116,16 @@ class GuideCollegeTests(unittest.TestCase):
         self.assertNotIn('Modifier un équipement sportif', routes)
         self.assertIn('Voir mes classes et importer mes élèves', routes)
 
-    def test_regle_d_ordre_affichee_a_cote(self):
+    def test_regle_d_ordre_sous_voir_comment_faire(self):
         ui = UI(None)
         guide.render_guide(ui, 'r', 'Collège')
-        self.assertIn('dans l’ordre', ui.infos[0])
+        self.assertEqual(ui.infos, [])
+        ui = UI('Classes', rub='Dossier EPS')
+        guide.render_guide(ui, 'r', 'Collège')
+        self.assertIn('dans l’ordre', ui.infos[0]); self.assertIn('allers-retours', ui.infos[0])
         ui = UI('Configurer les périodes')
         guide.render_guide(ui, 'r', 'Lycée voie générale')
-        self.assertIn('dans l’ordre', ui.infos[0]); self.assertIn('allers-retours', ui.infos[0])
-        self.assertLess(len(ui.infos[0]), 200)
+        self.assertIn('dans l’ordre', ui.infos[0])
         with patch.object(guide, 'SOURCE', Path('absent.txt')):
             self.assertEqual(guide.order_rule(), '')
 

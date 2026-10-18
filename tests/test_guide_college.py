@@ -115,9 +115,16 @@ class GuideCollegeTests(unittest.TestCase):
         self.assertEqual(atteints, set(self.routes))
 
     def test_sous_menu_unique_ouvre_directement_le_pas_a_pas(self):
-        ui = UI(None, rub='Dossier Natation')
+        ui = UI(None, rub='Dossier APPN')
         guide.render_guide(ui, 'n', 'Collège')
-        self.assertIn('[Dossier Natation]', ui.shown); self.assertEqual(ui.radios, [])
+        self.assertIn('[Dossier APPN]', ui.shown); self.assertEqual(ui.radios, [])
+
+    def test_natation_trois_entrees(self):
+        ui = UI("Enquête Natation", rub='Dossier Natation')
+        guide.render_guide(ui, 'nat', 'Collège')
+        self.assertEqual(len(ui.radios[0]), 3)
+        self.assertIn('[Enquête Natation]', ui.shown); self.assertIn('[Calculer]', ui.shown)
+        self.assertIn('[Enquête Natation] · Lancer le tutoriel vidéo', ui.shown)
 
     def test_etape_sans_preuve_retire_le_parcours(self):
         bad = json.loads(Path('config/guide_ipack_college.json').read_text(encoding='utf-8'))
@@ -164,12 +171,12 @@ class GuideCollegeTests(unittest.TestCase):
             self.assertIn(url, [t['url'] for t in cat[k]['tutoriels']])
 
     def test_j_ai_trouve_referme_le_guide(self):
-        state = {'f_rub': 'Dossier Natation', 'f_position_0': 1, 'autre': 1}
-        ui = UI(None, state, rub='Dossier Natation')
+        state = {'f_rub': 'Dossier APPN', 'f_position_0': 1, 'autre': 1}
+        ui = UI(None, state, rub='Dossier APPN')
         guide.render_guide(ui, 'f', 'Collège', on_done=lambda: state.__setitem__('ferme', True))
-        pos = list(guide.college_routes()).index('Imprimer les attestations du savoir-nager (ASNS)')
+        pos = list(guide.college_routes()).index(next(e['parcours'] for b in guide.college_menu(guide.college_routes()) if b['rubrique'] == 'Dossier APPN' for e in b['entrees']))
         state['f_position_' + str(pos)] = 1
-        ui = UI(None, state, rub='Dossier Natation')
+        ui = UI(None, state, rub='Dossier APPN')
         guide.render_guide(ui, 'f', 'Collège', on_done=lambda: state.__setitem__('ferme', True))
         ui.callbacks['✓ J’ai trouvé']()
         self.assertTrue(state['ferme']); self.assertEqual(state['autre'], 1)

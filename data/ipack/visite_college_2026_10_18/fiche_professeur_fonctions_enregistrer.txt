@@ -1,0 +1,9 @@
+### iPackEPS : Ma Fiche Professeur — statut, fonctions (coordonnateur EPS) et bouton Enregistrer
+Réponse directe — se déclarer coordonnateur EPS : [Tableau de bord] > [Ma Fiche Professeur] > [Fonctions] : dans le cadre « Fonctions EPS dans l'établissement », cocher « Coordonnateur EPS », puis cliquer sur [Enregistrer] (bouton vert en bas à droite) ; le nom apparaît ensuite dans [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Fonctions] > Coordination.
+Autres fonctions du même cadre : Trésorier d'AS, Secrétaire d'AS, Référent Haut-Niveau, Référent Génération 2030, Responsable de la Certification, Coordonnateur Section Sportive Scolaire, Coordonnateur Sport-Études, Référent CHAD, Contrôleur EPI Escalade, Coordonnateur Biqualification.
+Réponse directe — règle générale : après toute modification (fiche professeur, fenêtre d'un écran), cliquer sur [Enregistrer] ; sinon rien n'est conservé.
+Statut : les données de statut sont reprises de la base du rectorat (l'écran indique « base EPP du rectorat ») ; une erreur se signale au service gestionnaire, pas dans iPackEPS.
+Ordre : la fiche Établissement, puis Ma Fiche Professeur, se complètent avant les dossiers ; si vous avez respecté cet ordre, les dossiers et vos classes devraient vous être accessibles.
+Parcours guidé : [Tableau de bord] → [Ma Fiche Professeur] → [Fonctions] → cocher la fonction → [Enregistrer].
+Nature de la source : fonctionnement du logiciel iPackEPS (espace professeur, version 2026.2.1.1), relevé à l'écran avec le correspondant académique iPackEPS ; fonction commune à toutes les académies.
+Source : visite guidée de l'espace professeur iPackEPS (collège) avec le correspondant académique iPackEPS, 18 octobre 2026 ; textes affichés à l'écran cités entre guillemets.

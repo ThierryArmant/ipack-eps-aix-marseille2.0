@@ -153,7 +153,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Tout enseignant d'EPS affecté par le rectorat dans l'établissement (titulaire, TZR, contractuel, stagiaire) apparaît automatiquement dans l'équipe EPS, après un clic sur [Actualiser] par un enseignant de l'équipe. Chacun accède à iPackEPS par le portail académique (ESTEREL à Aix-Marseille) et remplit sa propre fiche professeur.
 - Un enseignant nouvellement affecté qui n'apparaît toujours pas après [Actualiser] : les affectations ne sont pas encore à jour dans les bases du rectorat. Attendre quelques jours et actualiser à nouveau. On ne peut pas le créer à la main.
 - Un enseignant qui a eu deux comptes (ancien contractuel titularisé, TZR) doit se connecter à ARENA avec son identifiant le plus récent, sinon il voit son ancien établissement ou aucun.
-- Un remplaçant : ouvrir SA fiche dans l'équipe EPS et indiquer, dans la zone « Remplacement », qui il remplace ; il récupère les groupes et l'emploi du temps du titulaire.
+- Un remplaçant : dans [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l'équipe], cliquer sur le crayon [Modifier] de SA ligne et choisir, dans le champ « Remplace » de la fenêtre « Professeur », qui il remplace, puis [Enregistrer] (libellés relevés à l'écran le 18 octobre 2026) ; il récupère les groupes et l'emploi du temps du titulaire.
 - Un enseignant sans activité dans l'établissement cette année : le déclarer « non actif » avec [Modifier].
 - Une personne qui n'est pas enseignant d'EPS dans les bases du rectorat se déclare comme intervenant extérieur, pas comme professeur.
 

@@ -1,0 +1,9 @@
+### iPackEPS : Dossier Natation — imprimer les attestations ASNS (diplômes), enquête natation, statistiques
+Réponse directe — imprimer les attestations du savoir-nager (ASNS) : [Tableau de bord] > [Les Dossiers et Projets] > [Dossier Natation] > [Validation ASNS] (« Import / Impression des ASNS ») : sélectionner les élèves, compléter éventuellement « Date Attestation » et « Enseignant », puis [Imprimer les diplômes de la sélection].
+Réponse directe — un élève n'est pas dans la liste : l'écran indique « Les élèves ci-dessous ont validé l'ASNS. Pour valider de nouveaux élèves, retournez dans [Tableau de bord]/[Mes Élèves] ».
+La liste peut être exportée avec [Exporter la grille ci-dessous (.xlsx)] ; filtre « Année de validation ».
+Enquête Natation : « La natation est-elle inscrite à votre programmation EPS ? » ; si non, cocher un motif (pas de créneau disponible, pas de piscine proche / problème de transport, moyens budgétaires insuffisants, piscine fermée, autre ou pas de motif) ; effectifs des élèves de 6e (« ne prendre en compte que des élèves du Cycle 3 (6ème) ») ; « N'oubliez pas d'enregistrer vos réponses » : [Enregistrer]. Bloc « calcul de votre indice de Performance » : [Calculer], puis l'onglet [Statistiques] pour comparer à son secteur.
+Statistiques Enquête Natation : statistiques globales de l'année, filtres département, commune, public ou privé, exports Excel.
+Parcours guidé : [Les Dossiers et Projets] → [Dossier Natation] → [Validation ASNS] → [Imprimer les diplômes de la sélection].
+Nature de la source : fonctionnement du logiciel iPackEPS (espace professeur, version 2026.2.1.1), relevé à l'écran avec le correspondant académique iPackEPS ; fonction commune à toutes les académies.
+Source : visite guidée de l'espace professeur iPackEPS (collège) avec le correspondant académique iPackEPS, 18 octobre 2026 ; textes affichés à l'écran cités entre guillemets.

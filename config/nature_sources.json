@@ -5755,6 +5755,96 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS : où sont les projets"
+  },
+  "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : équipe EPS (actualiser, intervenants, TZR qui remplace)"
+  },
+  "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : Ma Fiche Professeur, fonctions et Enregistrer"
+  },
+  "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : classes, actualiser, configurer, organiser, importer"
+  },
+  "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : APSA, périodes et séquences d'une classe"
+  },
+  "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : créer un groupe (AS, SSS) et y placer les élèves"
+  },
+  "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : équipements sportifs et créneaux d'emploi du temps"
+  },
+  "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : Dossier Natation, attestations ASNS et enquête"
+  },
+  "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : Dossier APPN, demande de validation"
+  },
+  "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : Dossier SSS, campagne et section absente"
   }
  }
 }

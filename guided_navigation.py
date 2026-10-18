@@ -4,6 +4,32 @@ import re
 from navigation_help import SOURCE
 ROOT = Path(__file__).resolve().parent
 MENU = ROOT / 'data/ipack/plan_des_menus_professeur_2026.txt'
+COLLEGE = ROOT / 'config/guide_ipack_college.json'
+
+
+def is_college(public):
+    return str(public or '').startswith('Collège')
+
+
+def college_routes():
+    """Parcours collège relevés à l'écran ; une étape sans preuve dans sa fiche retire tout le parcours."""
+    import json
+    try:
+        data = json.loads(COLLEGE.read_text(encoding='utf-8'))['parcours']
+    except (OSError, ValueError, KeyError):
+        return {}
+    valid = {}
+    for goal, steps in data.items():
+        ok = bool(steps)
+        for step in steps:
+            path = ROOT / step.get('source', '')
+            try:
+                ok = ok and bool(step.get('clic')) and step.get('preuve', '') != '' and step['preuve'] in path.read_text(encoding='utf-8')
+            except OSError:
+                ok = False
+        if ok:
+            valid[goal] = steps
+    return valid
 
 
 def documented_steps():
@@ -65,8 +91,20 @@ def step_presentation(goal, position, text):
     return label, url
 
 
+def video_url(video_key):
+    import json
+    if not video_key:
+        return ''
+    try:
+        videos = json.loads((ROOT / 'config/tutoriels_parcours_college.json').read_text(encoding='utf-8'))['tutoriels']
+    except (OSError, ValueError, KeyError):
+        return ''
+    return next((v['url'] for v in videos if v.get('etape') == video_key), '')
+
+
 def render_guide(st, key, public):
-    available = routes()
+    college = is_college(public) and college_routes()
+    available = college or routes()
     if not available:
         st.info('Guide indisponible pour le moment.')
         return
@@ -74,13 +112,17 @@ def render_guide(st, key, public):
     goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
     if goal is None:
         return
-    if goal == 'Je ne sais pas encore':
-        goal = 'Me repérer depuis le début'
+    first = list(available)[0]
+    if goal == 'Je ne sais pas encore' or goal not in available:
+        goal = first
     route = available[goal]
     state_key = key + '_position_' + str(list(available).index(goal))
-    position = st.session_state.get(state_key, 0)
-    text, path = route[position]
-    label, url = step_presentation(goal, position, text)
+    position = min(st.session_state.get(state_key, 0), len(route) - 1)
+    if college:
+        label, url = route[position]['clic'], video_url(route[position].get('video'))
+    else:
+        text, path = route[position]
+        label, url = step_presentation(goal, position, text)
     st.write(f'**Étape {position + 1}/{len(route)} · {label}**')
     if url:
         with st.expander('📺 Voir comment faire'):
@@ -101,5 +143,5 @@ def render_guide(st, key, public):
             st.rerun()
     def restart():
         st.session_state[key + '_position_0'] = 0
-        st.session_state[key + '_goal'] = 'Me repérer depuis le début'
+        st.session_state[key + '_goal'] = first
     st.button('Je suis encore perdu · Repartir du début', key=prefix + '_restart', on_click=restart)

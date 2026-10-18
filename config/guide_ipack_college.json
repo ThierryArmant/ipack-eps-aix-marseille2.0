@@ -1,0 +1,275 @@
+{
+ "description": "Pas à pas iPackEPS collège : un clic par étape, boutons exacts relevés à l'écran (version 2026.2.1.1) avec le correspondant académique le 18 octobre 2026. Chaque étape cite sa fiche source et une phrase de cette fiche qui la justifie (contrôlée par les tests). Aucune saisie dans le guide.",
+ "parcours": {
+  "Me repérer depuis le début (ordre de rentrée)": [
+   {
+    "clic": "Tableau de bord → [Établissement]",
+    "video": "1. Saisie établissement",
+    "source": "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt",
+    "preuve": "1) [Établissement]"
+   },
+   {
+    "clic": "Tableau de bord → [Ma Fiche Professeur] → [Enregistrer]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt",
+    "preuve": "cliquer sur [Enregistrer]"
+   },
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier EPS] → [Projets]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Dossier EPS] > [Projets (Étab, EPS, AS)]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Équipe EPS et Intervenants Extérieurs] → [Actualiser]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "[Membres de l'équipe] : cliquer sur [Actualiser]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Classes] : actualiser, configurer, organiser, importer",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "Étape 1 — [Dossier EPS] > [Classes] > [Configuration des Classes] > [Actualiser]"
+   },
+   {
+    "clic": "[Dossier EPS] → [APSA]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "1) [Dossier EPS] > [APSA]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Périodes]",
+    "video": "3.1 Dossier EPS — Périodes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "2) [Dossier EPS] > [Périodes]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Gérer les S.A.]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "[Gérer les S.A.], choisir l'APSA et la période"
+   },
+   {
+    "clic": "[Dossier EPS] → [Élèves]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Étape 2 — placer les élèves : [Dossier EPS] > [Élèves]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Équipements Sportifs]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Dossier EPS] > [Équipements Sportifs] > [Configuration des Équipements]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Emplois du temps] → [Agenda Équipe]",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Dossier EPS] > [Emplois du temps] > [Agenda Équipe]"
+   }
+  ],
+  "Voir mes classes et importer mes élèves": [
+   {
+    "clic": "[Dossier EPS] → [Classes] → [Configuration des Classes] → [Actualiser]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Configuration des Classes] > [Actualiser]"
+   },
+   {
+    "clic": "Crayon [Modifier] sur la classe → cycle → [Enregistrer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "choisir le cycle (par exemple Troisième pour une classe de 3e), puis [Enregistrer]"
+   },
+   {
+    "clic": "[Organisation des Classes] → crayon [Modifier] → mode et votre nom → [Enregistrer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "cocher son nom dans « Professeurs attribués à la classe » ; [Enregistrer]"
+   },
+   {
+    "clic": "[Importation des Élèves] → [Importer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Classes] > [Importation des Élèves] > [Importer]"
+   }
+  ],
+  "Déclarer l'activité enseignée à une classe": [
+   {
+    "clic": "[Dossier EPS] → [APSA] → choisir l'APSA dans la liste (ou [Créer une APSA])",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "APSA absente de la liste : [Créer une APSA]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Périodes] → [Créer une nouvelle Période]",
+    "video": "3.1 Dossier EPS — Périodes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "[Créer une nouvelle Période] avec date de début et date de fin"
+   },
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Groupes EPS] → [Gérer les S.A.] sur la classe",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "3) [Dossier EPS] > [Groupes] > [Groupes EPS] : sur la ligne de la classe, [Gérer les S.A.]"
+   },
+   {
+    "clic": "Choisir l'APSA et la période → [Ajouter]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "choisir l'APSA et la période (ses dates apparaissent), puis [Ajouter]"
+   }
+  ],
+  "Créer un groupe d'AS et y placer des élèves": [
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Groupes AS] → [Créer un groupe]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "[Groupes AS]"
+   },
+   {
+    "clic": "[Gérer les S.A.] → période [Année]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "[Gérer les S.A.] avec la période [Année]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à droite : votre groupe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "à droite, choisir le groupe de destination"
+   },
+   {
+    "clic": "À gauche : Visualisation « Classes » → niveau → classe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Visualisation « Classes », puis le niveau (Type), puis la classe (Sélection)"
+   },
+   {
+    "clic": "Cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "cliquer sur [Ajouter -->]"
+   }
+  ],
+  "Créer un créneau d'emploi du temps": [
+   {
+    "clic": "[Dossier EPS] → [Emplois du temps] → [Agenda Équipe] → votre nom",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "choisir son nom dans « Agenda de »"
+   },
+   {
+    "clic": "Double-clic sur la case horaire",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "double-cliquer sur la case horaire"
+   },
+   {
+    "clic": "Groupe, séquence, équipement → [Créer le créneau]",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "puis [Créer le créneau]"
+   }
+  ],
+  "Modifier un équipement sportif": [
+   {
+    "clic": "[Dossier EPS] → [Équipements Sportifs] → [Configuration des Équipements]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Équipements Sportifs] > [Configuration des Équipements]"
+   },
+   {
+    "clic": "Sélectionner l'équipement → [Modifier l'Équipement]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "sélectionner un équipement puis [Modifier l'Équipement]"
+   }
+  ],
+  "Mettre à jour l'équipe EPS (TZR, collègue absent)": [
+   {
+    "clic": "[Dossier EPS] → [Équipe EPS et Intervenants Extérieurs] → [Membres de l'équipe] → [Actualiser]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "[Membres de l'équipe] : cliquer sur [Actualiser]"
+   },
+   {
+    "clic": "TZR : crayon [Modifier] sur sa ligne → « Remplace » → [Enregistrer]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "choisir dans « Remplace » le collègue remplacé"
+   }
+  ],
+  "Me déclarer coordonnateur EPS": [
+   {
+    "clic": "Tableau de bord → [Ma Fiche Professeur] → [Fonctions]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt",
+    "preuve": "[Ma Fiche Professeur] > [Fonctions]"
+   },
+   {
+    "clic": "Cocher « Coordonnateur EPS » → [Enregistrer]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt",
+    "preuve": "cocher « Coordonnateur EPS », puis cliquer sur [Enregistrer]"
+   }
+  ],
+  "Retrouver un projet ou ses axes": [
+   {
+    "clic": "[Dossier EPS] → [Projets (Étab, EPS, AS)]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Dossier EPS] > [Projets (Étab, EPS, AS)]"
+   },
+   {
+    "clic": "Menu de gauche : [Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]"
+   }
+  ],
+  "Envoyer le dossier EPS pour validation (coordonnateur)": [
+   {
+    "clic": "[Dossier EPS] → [Vérification]",
+    "video": null,
+    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "preuve": "bouton [Vérification]"
+   },
+   {
+    "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
+    "video": null,
+    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "preuve": "« Dossier terminé, nous le soumettons pour validation »"
+   }
+  ],
+  "Imprimer les attestations du savoir-nager (ASNS)": [
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier Natation] → [Validation ASNS]",
+    "video": null,
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "[Dossier Natation] > [Validation ASNS]"
+   },
+   {
+    "clic": "Cocher les élèves → [Imprimer les diplômes de la sélection]",
+    "video": null,
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "[Imprimer les diplômes de la sélection]"
+   }
+  ],
+  "Demander la validation d'une sortie APPN": [
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier APPN] → activité → [Créer]",
+    "video": "3.6 Dossier APPN — Demande de validation",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt",
+    "preuve": "choisir l'activité, préciser le détail"
+   },
+   {
+    "clic": "Déposer projet, protocole, convention → [Enregistrer]",
+    "video": "3.6 Dossier APPN — Demande de validation",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt",
+    "preuve": "convention signée avec l'organisme d'accueil, annexe éventuelle ; [Enregistrer]"
+   }
+  ]
+ }
+}

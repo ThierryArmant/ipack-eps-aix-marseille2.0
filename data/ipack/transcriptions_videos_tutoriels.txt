@@ -179,8 +179,8 @@ Source : transcription du commentaire audio des vidéos officielles associées a
 - Formulations courantes des collègues : un collègue est remplacé, dois-je tout ressaisir ; comment donner les groupes au remplaçant ; le titulaire revient, comment lui rendre ses classes.
 - Vidéo : https://www.youtube.com/watch?v=C3gSSacJxNo
 - Chemin : Tableau de bord > Dossiers et Projets > Dossier EPS > Équipe EPS.
-- Ne rien ressaisir. Ouvrir la fiche du REMPLAÇANT et, dans la zone « Remplacement », sélectionner la personne remplacée, puis enregistrer. Tous les groupes et tout l'emploi du temps du titulaire passent au remplaçant (l'emploi du temps du titulaire devient vide).
-- Retour du titulaire : rouvrir la fiche du remplaçant, choisir « aucun remplaçant » dans la zone remplacement. Le titulaire récupère ses groupes et son emploi du temps.
+- Ne rien ressaisir. Ouvrir la fiche du REMPLAÇANT (crayon [Modifier] sur sa ligne dans [Membres de l'équipe]) et, dans le champ « Remplace » (libellé de l'écran 2026.2.1.1), sélectionner la personne remplacée, puis [Enregistrer]. Tous les groupes et tout l'emploi du temps du titulaire passent au remplaçant (l'emploi du temps du titulaire devient vide).
+- Retour du titulaire : rouvrir la fiche du remplaçant, choisir « aucun remplaçant » dans le champ « Remplace ». Le titulaire récupère ses groupes et son emploi du temps.
 
 ### [SITUATION: CLASSES — CONFIGURATION, ORGANISATION (MODE SEUL OU MIXTE / GROUPE / SANS PROFESSEUR D'EPS) ET IMPORT DES ÉLÈVES (vidéo)]
 - Mots-clés : configuration des classes, cycle scolaire, série, organisation des classes, mode seul ou mixte, mode groupe, classe sans professeur d'EPS, importation des élèves, coche verte, actualiser.

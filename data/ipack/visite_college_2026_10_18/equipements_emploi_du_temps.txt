@@ -1,0 +1,9 @@
+### iPackEPS : équipements sportifs et emploi du temps (créer un créneau)
+Réponse directe — équipements : [Dossier EPS] > [Équipements Sportifs] > [Configuration des Équipements] : liste des installations de l'établissement ; [Ajouter un Équipement Sportif], ou sélectionner un équipement puis [Modifier l'Équipement] ou [Effacer l'Équipement] (sans sélection : « Vous devez sélectionner l'équipement à modifier »). Cette page ne rattache pas les cours aux installations.
+Réponse directe — associer sa classe à un gymnase ou une installation : cela se fait dans l'emploi du temps, en créant le créneau, pas en modifiant l'équipement.
+Réponse directe — créer un créneau : [Dossier EPS] > [Emplois du temps] > [Agenda Équipe] : choisir son nom dans « Agenda de », puis double-cliquer sur la case horaire ; fenêtre « Configurez un nouveau créneau… » : groupe, séquence d'apprentissage, équipement, jour, « répéter toutes les N semaines », date de début et de fin, heure de début et de fin, puis [Créer le créneau].
+Si la liste des groupes, des séquences ou des équipements est vide dans cette fenêtre, l'étape correspondante n'a pas été faite : [Organisation des Classes] (professeur attribué), [Groupes] > [Gérer les S.A.], ou [Équipements Sportifs].
+[Édition Créneaux] (« Édition simplifiée des Créneaux ») : liste des créneaux d'un enseignant ou d'une classe, pour repérer les doublons et les périodes ou horaires erronés.
+Parcours guidé : [Dossier EPS] → [Emplois du temps] → [Agenda Équipe] → double-clic sur la case → [Créer le créneau].
+Nature de la source : fonctionnement du logiciel iPackEPS (espace professeur, version 2026.2.1.1), relevé à l'écran avec le correspondant académique iPackEPS ; fonction commune à toutes les académies.
+Source : visite guidée de l'espace professeur iPackEPS (collège) avec le correspondant académique iPackEPS, 18 octobre 2026 ; textes affichés à l'écran cités entre guillemets.

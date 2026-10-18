@@ -6716,5 +6716,103 @@
     "exclure_motifs": [
       "programmation|bilan annuel|evolution|reconduction|fermeture|ouverture|appn"
     ]
+  },
+  "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt": {
+    "title": "iPackEPS : équipe EPS (actualiser, intervenants, TZR qui remplace)",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:\\btzr\\b|remplacant|remplace un|remplace une|remplace mon|remplace ma|collegue (?:n.apparai|manque|absent de l.equipe)))(?=.*(?:ipack|equipe|membre|actif|declar|saisi|apparai|indiquer|renseign))"
+    ],
+    "exclure_motifs": [
+      "\\bnote\\b(?! de service)|ccf|epreuve|santorin|cyclades|lot|apsa|activite|protocole"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt": {
+    "title": "iPackEPS : Ma Fiche Professeur, fonctions et Enregistrer",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt": {
+    "title": "iPackEPS : classes, actualiser, configurer, organiser, importer",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt": {
+    "title": "iPackEPS : APSA, périodes et séquences d'une classe",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt": {
+    "title": "iPackEPS : créer un groupe (AS, SSS) et y placer les élèves",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:\\bas\\b|association sportive|unss|section sportive|\\bsss\\b))(?=.*(?:eleve|licencie))(?=.*(?:plac|mettre|ajout|vois pas|voit pas|apparai|trouve pas|vide|liste|groupe))"
+    ],
+    "exclure_motifs": [
+      "rattrap|ccf|examen|note|inapt"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt": {
+    "title": "iPackEPS : équipements sportifs et créneaux d'emploi du temps",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt": {
+    "title": "iPackEPS : Dossier Natation, attestations ASNS et enquête",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:asns|savoir.?nager|attestation.{0,20}natation|natation))(?=.*(?:attestation|diplome|imprim|editer|edition))"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt": {
+    "title": "iPackEPS : Dossier APPN, demande de validation",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt": {
+    "title": "iPackEPS : Dossier SSS, campagne et section absente",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:\\bsss\\b|section sportive))(?=.*(?:haut niveau|\\bshn\\b|campagne|demande d.ouverture))"
+    ]
   }
 }

@@ -22,7 +22,7 @@ class QuestionsReellesTests(unittest.TestCase):
         self.assertIn(AJOUT, titres("Un nouvel élève n'apparaît pas dans ma classe, comment le rajouter ?", CLG))
         self.assertNotIn(AJOUT, titres("Élève arrivé en cours d'année absent de Santorin", GT, 'examens'))
         texte = Path('data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt').read_text(encoding='utf-8')
-        self.assertIn('[importation élèves] > [Actualiser]', texte)
+        self.assertIn('[Importation des Élèves] > [Importer]', texte)
         self.assertIn('ne décrivent pas de formulaire', texte)
 
     def test_import_pronote_sans_fiches_de_notes(self):

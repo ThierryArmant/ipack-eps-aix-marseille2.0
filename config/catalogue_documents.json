@@ -6694,7 +6694,8 @@
       "ipack"
     ],
     "motifs": [
-      "premiere (?:fois|connexion)|nouvel(?:le)? (?:arrivant|collegue|prof)|par ou commencer|par quoi commencer|dans quel ordre|ordre (?:a suivre|des etapes)|(?:dossiers? et projets|dossier eps|dossiers?).{0,60}(?:inaccessible|grise|bloque|pas acces|n.arrive pas|impossible|ne s.ouvre|ne (?:peut|peux|peuvent) pas)|(?:inaccessible|grise|bloque|pas acces|impossible|ne (?:peut|peux|peuvent) pas \\w+).{0,60}(?:dossiers? et projets|dossier eps)"
+      "premiere (?:fois|connexion)|nouvel(?:le)? (?:arrivant|collegue|prof)|par ou commencer|par quoi commencer|dans quel ordre|ordre (?:a suivre|des etapes)|(?:dossiers? et projets|dossier eps|dossiers?).{0,60}(?:inaccessible|grise|bloque|pas acces|n.arrive pas|impossible|ne s.ouvre|ne (?:peut|peux|peuvent) pas)|(?:inaccessible|grise|bloque|pas acces|impossible|ne (?:peut|peux|peuvent) pas \\w+).{0,60}(?:dossiers? et projets|dossier eps)",
+      "(?:vois|voit|trouve|apparai\\w*|affiche\\w*).{0,25}(?:pas|plus|aucune?).{0,25}(?:mes |les |nos )?classes|(?:mes |les |nos )?classes.{0,30}(?:n.apparai\\w*|ne s.affich\\w*|vides?|absentes?|introuvables?)|(?:pas|aucun) acces a rien|acces a rien"
     ],
     "exclure_motifs": [
       "santorin|cyclades|imag.in|verrouill"

@@ -884,3 +884,10 @@ L'ancienne veille Tavily de l'espace admin affichait chaque mois « de nouvelles
 
 ### 18 octobre 2026 — guide : toutes les étapes d'un coup, bouton « Lancer le tutoriel vidéo »
 Demande de Thierry : le bouton « C'est fait · Suivant » n'aidait pas et alourdissait. Supprimé, ainsi que « Retour » : le parcours choisi affiche maintenant toutes ses étapes numérotées. L'étape qui a une vidéo est le bandeau bleu « ▶ N. [chemin] · Lancer le tutoriel vidéo » ; une même vidéo n'est proposée qu'une fois par parcours. « ✓ J'ai trouvé » reste en bas et referme le guide. Répartition rappelée par GPT respectée : Claude garde menus, guide et ergonomie ; aucune modification des fonctions de recherche, de contexte ou d'affichage des réponses.
+
+### 18 octobre 2026 — test en ligne des parcours du guide (Claude) et signalements pour GPT
+Testé sur le site en ligne (largeur téléphone, environ 640 px) : Collège > Dossier EPS > Classes ; Lycée voie générale > Dossier Certificatif > Protocole d'Évaluation et Cyclades ; Lycée voie professionnelle > Dossier EPS > APSA (tuile « APSA de Collège ou Voie Professionnelle ») ; 1er degré (pas d'iPackEPS, pas de guide : cohérent). Prérequis, bandeaux vidéo, vidéo intégrée et « J'ai trouvé » fonctionnent ; changer de public referme le guide.
+Correction faite (guides lycée GT et pro, parcours « Transférer vers Cyclades ») : l'étape « Élèves sans groupe » s'arrêtait à Visualisation « Statut » ; ajout de « → Sélection « élèves sans groupes » » (déjà dans la phrase preuve).
+Signalements pour GPT (non modifiés par Claude, zone `app.py` / contexte) :
+1. Le libellé « Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes) » s'affiche aussi pour le Collège, où il n'y a ni CCF ni dossier certificatif : libellé trompeur. Proposition : « Assistance Technique iPackEPS » seul, ou un libellé par public.
+2. iPackEPS est le contexte sélectionné par défaut au chargement (Collège et lycées) : à confirmer avec Thierry si c'est voulu.

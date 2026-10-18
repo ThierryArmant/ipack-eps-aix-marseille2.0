@@ -407,7 +407,7 @@
     "preuve": "[Bilan Protocoles] liste le statut du protocole de chaque groupe d'examen"
    },
    {
-    "clic": "Élèves sans groupe : [Dossier EPS] → [Élèves] → Visualisation « Statut »",
+    "clic": "Élèves sans groupe : [Dossier EPS] → [Élèves] → Visualisation « Statut » → Sélection « élèves sans groupes »",
     "video": "https://youtu.be/4ZsuQi_YoMs",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
     "preuve": "Visualisation « Statut », puis dans la liste « Sélection » : « élèves sans groupes »"

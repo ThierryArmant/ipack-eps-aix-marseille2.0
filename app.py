@@ -1910,7 +1910,9 @@ if prompt_a_traiter:
             elif est_cas_direct:
                 origine_reponse = "direct"
 
-            demande_precision = "" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form)
+            from guide_request import requests_guide, MESSAGE as GUIDE_MESSAGE
+            _guide_demande = requests_guide(prompt, mode, niveau_actuel_form)
+            demande_precision = GUIDE_MESSAGE if _guide_demande else ("" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form))
             # Onglet Textes : une question sur un certificat ou une dispense n'est pas le choix d'une note d'examen ;
             # la demande de précisions médicales empêchait de répondre (et de corriger une fausse prémisse).
             if mode == "textes" and demande_precision.startswith("Pour décider d'une note"):
@@ -2125,7 +2127,7 @@ if prompt_a_traiter:
                 badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
             elif demande_precision:
                 texte_brut = '<p>' + demande_precision + '</p>'
-                badge, color_card = 'PRÉCISIONS NÉCESSAIRES', 'general-card'
+                badge, color_card = ('AIDE iPACKEPS' if _guide_demande else 'PRÉCISIONS NÉCESSAIRES'), 'general-card'
             elif est_question_trop_courte:
                 texte_brut = """<h3>✍️ POUVEZ-VOUS PRÉCISER VOTRE QUESTION ?</h3>
 <p>Votre demande est trop courte pour que je retrouve la bonne fiche. Pour une réponse précise du premier coup, décrivez en une ou deux phrases :</p>
@@ -2954,7 +2956,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             diagnostic_ia['sources_affichees_finales'] = sources_consultees
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
-             "aide_reperage": offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut),
+             "aide_reperage": _guide_demande or offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut),
+             "guide_ouvert": _guide_demande,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
              "version": _sha,
@@ -3010,7 +3013,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
             if m.get("aide_reperage"):
                 from guided_navigation import render_guide
-                with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici") :
+                with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici", expanded=m.get("guide_ouvert", False)) :
                     render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")))
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):

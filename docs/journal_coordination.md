@@ -25,6 +25,22 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 — partie programme — commit 48afc18 — contrôles et coût, branche de validation
+
+Fait sur `correction-controles-tokens-20261018`, sans déploiement du moteur :
+- Reprise du correctif de compléments de la branche du 18 octobre (deux fiches au plus, 4 500 caractères par fiche et 6 000 au total), avec traces de sélection et de réparation. Retrait de deux consignes redondantes ajoutées dans le prompt.
+- Dans les trois contextes documentaires, retrait de l'appel arbitre avant la rédaction : un appel normal, un second seulement après échec du contrôle. Tests d'absence de troisième appel.
+- Mise en veille des réponses héritées calendrier, TASA, sujet de secours et saisie des notes : elles doivent passer par les fiches.
+- Contrôles mécaniques ciblés, sans appel supplémentaire : ne pas remplacer suppression par restauration (ou inversement), ni une suppression dans Cyclades par une suppression dans iPackEPS ; ne pas transformer des preuves qui signalent uniquement une consigne non retrouvée en permission/interdiction/obligation certaine. Ces contrôles ne constituent pas une vérification sémantique exhaustive.
+- Ajout de cinq cas publics Examens/Textes, en complément du corpus de sélection existant. Aucune question privée ajoutée au dépôt.
+
+Vérifié localement : `python3 -m unittest discover -s tests -q` : **552 tests réussis** (42,881 s). Compilation des trois fichiers programme et contrôle des espaces réussis.
+
+Diagnostic sur les 113 questions historiques, hors dépôt : 87 déclenchent au moins une fiche prioritaire, 26 aucune. Comparaison avant/après avec le routage du banc de tests, sans index sémantique en ligne et avec sorties simulées : cinq questions conservent une fiche complémentaire supplémentaire ; volume total des prompts 1 337 952 → 1 349 465 caractères (**+0,86 %**), augmentation maximale de 3 946 caractères sur une question ; 86 appels simulés dans chaque version. Les autres cas ne produisent aucun appel dans ce banc. Ce n'est ni un rejeu de réponses réelles ni une mesure de tokens ; aucune économie de tokens démontrée. Le retrait de l'arbitre est vérifié séparément par les tests de routage.
+
+Suite nécessaire : rejeu réel contrôlé avec le même modèle, comparaison réponses/sources/tokens sur les cas insuffisants et témoins auparavant corrects. La clé API n'est pas disponible dans l'environnement local ; les secrets de production n'ont pas été consultés. Conserver le moteur hors production jusqu'à cette validation. Missions encore ouvertes : contrôle des autres substitutions d'opération, mesure réelle des cas sans fiche prioritaire, audit des autres anciennes réponses. Aucun taux d'amélioration réel n'est annoncé.
+
+
 ### 2026-10-17 23:30 — partie fiches (seule) — corrections après la troisième mesure
 
 Fait (formulations des tests différentes de la série) :

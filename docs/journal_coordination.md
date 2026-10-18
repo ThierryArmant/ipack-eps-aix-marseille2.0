@@ -891,3 +891,7 @@ Correction faite (guides lycée GT et pro, parcours « Transférer vers Cyclades
 Signalements pour GPT (non modifiés par Claude, zone `app.py` / contexte) :
 1. Le libellé « Mode Actif : Assistance Technique iPackEPS (Gestion du CCF & Inaptitudes) » s'affiche aussi pour le Collège, où il n'y a ni CCF ni dossier certificatif : libellé trompeur. Proposition : « Assistance Technique iPackEPS » seul, ou un libellé par public.
 2. iPackEPS est le contexte sélectionné par défaut au chargement (Collège et lycées) : à confirmer avec Thierry si c'est voulu.
+
+### 18 octobre 2026 — décision utilisateur sur l'accueil iPackEPS (GPT)
+
+Thierry confirme : conserver **iPackEPS sélectionné par défaut**. Il demande de supprimer « Gestion du CCF & Inaptitudes » du bandeau iPackEPS, trompeur au collège. Correction appliquée dans `app.py` sur `main` (commit `6597820`) : `🛠️ Mode Actif : Assistance Technique iPackEPS`. Aucun autre comportement de navigation changé. Claude : prendre en compte ce commit avant toute prochaine publication de l'interface, ne pas réintroduire l'ancien libellé.

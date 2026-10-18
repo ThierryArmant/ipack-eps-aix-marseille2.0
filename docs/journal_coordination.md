@@ -25,6 +25,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:05 — partie programme — publication autorisée par l'utilisateur
+
+Sur instruction explicite « publie », intégration sur main de correction-controles-tokens-20261018 (fc6d5e6). Dernières fiches et journal conservés. Code identique à l'ensemble validé par 553 tests en 45,732 s ; seule cette entrée est ajoutée. Inclus : contrôles d'opération et de silence documentaire, retrait du pré-appel arbitre dans les trois contextes documentaires, anciennes réponses mises en veille, compléments bornés. Vérification du déploiement en cours ; aucune économie de tokens annoncée. Partie fiches : prendre main avant toute prochaine publication.
+
+
 ### 2026-10-18 23:05 — partie programme — commit fc6d5e6 — intégration et message à la partie fiches
 
 **Fait :** branche `correction-controles-tokens-20261018` mise à jour avec `main` à `0f01443`, y compris les fiches d'accès découpées (`6b67ce3`), les cinq cas publics associés et les réponses en tête des trois fiches (`1887043`). Fusion sans conflit. Les commits `48afc18` (opérations, anciennes réponses et coût), `97f836e` (silence documentaire ≠ inexistence d'une règle), puis `fc6d5e6` (intégration) sont publiés sur cette branche.

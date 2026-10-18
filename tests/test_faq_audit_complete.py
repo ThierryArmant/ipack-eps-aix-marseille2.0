@@ -8,7 +8,7 @@ GT = 'Lycée Général & Techno'
 
 
 class AuditedFAQTests(unittest.TestCase):
-    def test_reviewed_reply_bypasses_llm_arbiter_but_legacy_reply_does_not(self):
+    def test_documentary_replies_bypass_paid_arbiter(self):
         tree = ast.parse(Path('app.py').read_text())
         guards = [node.test for node in ast.walk(tree) if isinstance(node, ast.If)
                   and 'openai_api_key' in ast.unparse(node.test)
@@ -22,9 +22,11 @@ class AuditedFAQTests(unittest.TestCase):
                      demande_precision='', reponse_documentee='réponse relue')
         self.assertFalse(eval(condition, {}, state))
         state['reponse_documentee'] = ''
+        for mode in ('ipack', 'examens', 'textes'):
+            state['mode'] = mode
+            self.assertFalse(eval(condition, {}, state))
+        state['mode'] = 'pedagogie'
         self.assertTrue(eval(condition, {}, state))
-        state['mode'] = 'examens'
-        self.assertFalse(eval(condition, {}, state))
 
     def answer(self, question, public=GT):
         return kc.delivered_text(question, public, 'examens')

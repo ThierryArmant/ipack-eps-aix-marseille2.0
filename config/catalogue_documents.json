@@ -4384,7 +4384,7 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:collegue|enseignant|professeur))(?=.*(?:maladie|arret|conge|absen))(?=.*(?:notes sur papier|a evalu|deja evalu|notes existent))(?=.*(?:saisi|saisir|santorin))"
+      "(?=.*(?:collegue|enseignant|professeur))(?=.*(?:maladie|arret|conge|absen))(?=.*(?:notes sur papier|a evalu|deja evalu|notes existent|a sa place|a leur place|n.a pas (?:valide|saisi|verrouill|termine)|pas (?:encore )?(?:valide|saisi|verrouill)|qui (?:peut )?saisi))(?=.*(?:saisi|saisir|santorin))"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "date_verification": "2026-10-12"
@@ -5487,6 +5487,9 @@
     ],
     "motifs": [
       "(?=.*(?:grise|inactive|bloquee?s?|ne (?:peux|peut) pas saisir|impossible de saisir|choisir (?:les )?aflp))(?=.*(?:case|note|aflp|lot|saisi))(?!.*(?:protocole cyclades|groupe d.eleves|e-?mail|adresse))"
+    ],
+    "exclure_motifs": [
+      "livret|bulletin|trimestre|moyenne annuelle|lsl\\b"
     ]
   },
   "data/examens/audit_faq_2026_10_12/k4_procedure_verifiee.txt": {

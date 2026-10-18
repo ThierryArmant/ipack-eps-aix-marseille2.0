@@ -5915,6 +5915,28 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS lycée : réponses du référent de la FAQ lycée"
+  },
+  "data/ipack/acces_cite_scolaire_equipe_stsweb.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : cité scolaire, enseignants absents de l'équipe (STSWEB)"
+  },
+  "data/ipack/acces_erreur_instance.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Normandie"
+   ],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS : message d'erreur « Instance »"
   }
  }
 }

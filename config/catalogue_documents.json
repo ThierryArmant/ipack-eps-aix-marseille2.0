@@ -601,9 +601,11 @@
       "examens"
     ],
     "motifs": [
-      "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|connexion|acced|acces",
+      "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|\\barena\\b",
+      "(?:acced\\w*|acces|connect\\w*|ouvrir|entrer|lien).{0,40}(?:ipack|application|logiciel|portail)|ipack.{0,60}(?:n.apparai|introuvable|absent|ne s.ouvre|bloqu|plus acces|pas acces)",
+      "\\b40[03]\\b|forbidden|bad request|not found|page (?:blanche|vierge)|aucun etablissement|ancien etablissement",
       "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)",
-      "\\binstance\\b|mot de passe|\\bipad\\b|\\bmac\\b|windows|double.?cliqu|ne se lance|ordinateur (?:personnel|perso)|message de securite"
+      "mot de passe|\\bipad\\b|\\bmac\\b|windows|double.?cliqu|ne se lance|ordinateur (?:personnel|perso)|message de securite"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "reponse_directe_motifs": [
@@ -622,7 +624,8 @@
       "piscine|gymnase|stade|\\bmur\\b|bassin|\\bpiste\\b|travaux|ferme",
       "^(?!.*ipack)(?=.*santorin)",
       "installations? sportives?|equipements? sportifs?|declarer (?:mes |les |nos )?installations?",
-      "inutilisable|indisponible|hors service|(?:notre|cette|l.) installation(?!.{0,20}(?:ipack|application|logiciel))"
+      "inutilisable|indisponible|hors service|(?:notre|cette|l.) installation(?!.{0,20}(?:ipack|application|logiciel))",
+      "(?:pas|plus) (?:d.)?acces.{0,30}(?:au |aux |a l.|a la )?(?:module|menu|dossier|onglet|certificati)|\\binstance\\b"
     ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {
@@ -2970,7 +2973,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "calcul|compte|40|60|800|mention|coeff|moyenne.*moyenne",
+      "calcul|compte|\\b40\\b|\\b60\\b|\\b800\\b|mention|coeff|moyenne.*moyenne",
       "(evalu|note).*eps.*(dnb|brevet)|(dnb|brevet).*eps"
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031742288",
@@ -6918,7 +6921,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?:deviens|devenir|declarer|declare|nomme|designe).{0,40}coordo|coordo\\w*.{0,40}(?:ou|comment).{0,30}(?:declar|cocher|indiquer)"
+      "(?:deviens|devenir|declarer|declare|nomme|designe).{0,40}coordo|coordo\\w*.{0,40}(?:ou|comment).{0,30}(?:declar|cocher|indiquer)",
+      "(?:pas|plus) (?:d.)?acces.{0,30}(?:a |au |aux |a l.|a la )?(?:certains |des |tous les )?(?:modules?|menus?|dossier certificatif|onglets?)|(?:modules?|menus?).{0,30}(?:grise|absent|manqu|n.apparai)|ne vois pas (?:tous les|certains) menus"
     ]
   },
   "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt": {
@@ -7232,5 +7236,36 @@
     "motifs": [
       "(?:change|changer|mute|mutation|nouvel etablissement|autre academie|nouvelle academie).{0,80}(?:donnees|protocoles?|groupes?|suivent|perdu|garde)"
     ]
+  },
+  "data/ipack/acces_cite_scolaire_equipe_stsweb.txt": {
+    "title": "iPackEPS : cité scolaire, enseignants absents de l'équipe (STSWEB)",
+    "statut": "extrait_fiche_acces_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 305,
+    "motifs": [
+      "cite scolaire",
+      "(?=.*(?:college|lycee))(?=.*(?:deux etablissements|les deux|collegues?|enseignants?|professeurs?|stagiaire)).*(?:manqu|n.apparai|absent|incomplet|que sur)",
+      "stsweb|sts.?web|repartition des services"
+    ],
+    "exclure_motifs": []
+  },
+  "data/ipack/acces_erreur_instance.txt": {
+    "title": "iPackEPS : message d'erreur « Instance »",
+    "statut": "extrait_fiche_acces_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "motifs": [
+      "\\binstance\\b"
+    ],
+    "exclure_motifs": []
   }
 }

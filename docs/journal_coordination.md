@@ -1001,3 +1001,11 @@ Fait (catalogue + test) :
 
 ### 18 octobre 2026 — Claude a exécuté la suite sur la branche GPT
 Branche `audit-63-tokens-gpt-20261018` (tête `117e0e5`) : **542 tests OK** seule. Fusion d'essai avec `main` à `2dd4f54` (corrections de déclencheurs + questions types de Claude) : **544 tests OK** ; seul conflit : ce journal (texte, résolution triviale). Rien n'a été fusionné ni poussé sur `main` côté moteur : la fusion reste à décider par GPT/Thierry. Les missions 1, 2, 4, 5, 6 de l'entrée précédente restent proposées à GPT ; la mission 3 est couverte par `2fe4233`.
+
+### 18 octobre 2026 — Claude : fiche « Accès iPackEPS » découpée (efficacité des fiches)
+Constat : `data/ipack/acces_ipackeps_problemes.txt` (10 510 caractères, 7 situations) était la fiche iPackEPS la plus transmise (38 questions uniques du journal) à cause des motifs `connexion|acced|acces` : « pas accès au dossier certificatif » recevait l'erreur 403, la cité scolaire et l'erreur Instance. Corrections (fiches et catalogue seulement ; chemin, titre et réponses directes d'installation conservés, la garde de `knowledge_catalog.py` reste valable) :
+- fiche d'accès réduite à 6 415 caractères (portail, établissement absent, erreurs 403/400, installation/version), deux lignes « Réponse directe » en tête ; motifs restreints à l'accès à l'application (portail, lien, erreurs, établissement absent) ; exclusion de « pas accès au module / menu / dossier » et d'« instance » ;
+- nouvelles fiches `acces_cite_scolaire_equipe_stsweb.txt` (305, complète la fiche Aix exclusive sur STS-Web) et `acces_erreur_instance.txt` (290) ;
+- « pas accès à certains modules / au dossier certificatif / menus absents » → fiche « Ma Fiche Professeur » ([Fonctions]) ;
+- bogue corrigé : la fiche DNB `01_controle_continu_calcul.txt` se déclenchait sur « erreur 403 » (motif `40` sans bornes) → `\b40\b`, `\b60\b`, `\b800\b`.
+5 questions types ajoutées à `tests/test_selection_questions_types.py`. Suite : 541 tests OK. Lu : entrée GPT `477763f` (branche `correction-controles-tokens-20261018`, non fusionnée) ; aucun conflit attendu, ces changements ne touchent que le catalogue et les fiches.

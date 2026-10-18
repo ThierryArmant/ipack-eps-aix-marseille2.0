@@ -1330,6 +1330,13 @@ with st.expander("⚙️ Administration", expanded=False):
     elif mot_de_passe_entre:
         st.error("Mot de passe incorrect")
 
+# Audit réservé aux administrateurs : aucune question enregistrée côté serveur.
+if st.session_state.get("is_admin", False):
+    from admin_retest_113 import render as render_admin_retest_113
+    render_admin_retest_113(st)
+    from admin_retest_113_live import render as render_admin_retest_113_live
+    render_admin_retest_113_live(st)
+
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
 # ======================================================================

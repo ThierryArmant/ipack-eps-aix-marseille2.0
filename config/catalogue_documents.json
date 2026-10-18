@@ -6999,5 +6999,29 @@
     },
     "motifs": [],
     "domaine_textes": "06_sorties_transports"
+  },
+  "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt": {
+    "title": "iPackEPS lycée : Dossier Certificatif (référentiels, protocoles, CAHPN, Cyclades)",
+    "statut": "releve_ecran_lecture_seule_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
+    "title": "iPackEPS lycée : APSA certificative et protocole d'un groupe",
+    "statut": "releve_ecran_lecture_seule_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt": {
+    "title": "iPackEPS lycée : niveaux de formation, vœux de jury, inaptitudes",
+    "statut": "releve_ecran_lecture_seule_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
   }
 }

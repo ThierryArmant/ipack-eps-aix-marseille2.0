@@ -5865,6 +5865,36 @@
    "autres_academies_citees": [],
    "portee_texte": "primaire",
    "titre": "École : autorisation des sorties et voyages scolaires"
+  },
+  "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS lycée : Dossier Certificatif (référentiels, protocoles, CAHPN, Cyclades)"
+  },
+  "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS lycée : APSA certificative et protocole d'un groupe"
+  },
+  "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS lycée : niveaux de formation, vœux de jury, inaptitudes"
   }
  }
 }

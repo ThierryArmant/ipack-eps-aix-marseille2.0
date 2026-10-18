@@ -141,7 +141,7 @@ class GuideCollegeTests(unittest.TestCase):
             for e in b['entrees']:
                 self.assertIn('prerequis', e)
         ui = UI('Configurer les périodes')
-        guide.render_guide(ui, 'r', 'Lycée voie générale')
+        guide.render_guide(ui, 'r', 'Lycée voie professionnelle')
         self.assertIn('dans l’ordre', ui.infos[0])
         with patch.object(guide, 'SOURCE', Path('absent.txt')):
             self.assertEqual(guide.order_rule(), '')
@@ -170,7 +170,7 @@ class GuideCollegeTests(unittest.TestCase):
 
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')
-        guide.render_guide(ui, 'l', 'Lycée voie générale')
+        guide.render_guide(ui, 'l', 'Lycée voie professionnelle')
         self.assertIn('Périodes', ui.shown)
 
     def test_fiches_de_la_visite_sans_donnees_personnelles(self):
@@ -179,6 +179,42 @@ class GuideCollegeTests(unittest.TestCase):
             for mot in ('ARMANT', 'Armant', 'Giono', 'GIONO', 'tarmant', 'ORANGE'):
                 self.assertNotIn(mot, t, f)
             self.assertIn('Nature de la source', t)
+
+
+class GuideLyceeGTTests(unittest.TestCase):
+    def setUp(self):
+        self.routes = guide.college_routes(guide.LYCEE_GT)
+        self.raw = json.loads(Path('config/guide_ipack_lycee_gt.json').read_text(encoding='utf-8'))
+
+    def test_etapes_prouvees_et_menu_complet(self):
+        self.assertEqual(set(self.routes), set(self.raw['parcours']))
+        menu = guide.college_menu(self.routes, guide.LYCEE_GT)
+        self.assertEqual({e['parcours'] for b in menu for e in b['entrees']}, set(self.routes))
+        names = [b['rubrique'] for b in menu]
+        self.assertLess(names.index('Dossier EPS'), names.index('Dossier Certificatif'))
+
+    def test_public_lycee_gt_utilise_son_menu(self):
+        for public in ('Lycée voie générale', 'Lycée Général & Techno'):
+            self.assertEqual(guide.guide_file(public), guide.LYCEE_GT)
+        self.assertIsNone(guide.guide_file('Lycée voie professionnelle'))
+        ui = UI("Dépôt Référentiels Certificatifs", rub='Dossier Certificatif')
+        guide.render_guide(ui, 'g', 'Lycée voie générale')
+        self.assertIn('[Dépôt Référentiels Certificatifs]', ui.shown)
+        self.assertTrue(ui.infos[0].startswith('Avant [Dossier Certificatif], vous devez avoir complété : [Dossier EPS] > [APSA]'))
+
+    def test_protocole_et_certification(self):
+        steps = ' '.join(s['clic'] for s in self.routes["Construire le protocole d'examen d'un groupe"])
+        self.assertIn('[Gérer les S.A.]', steps); self.assertIn("pour l'examen", steps); self.assertIn('[Ajouter]', steps)
+        steps = ' '.join(s['clic'] for s in self.routes['Déclarer une APSA certificative'])
+        self.assertIn('« Certificative » OUI', steps)
+        rentree = [s['clic'] for s in self.routes['Me repérer depuis le début (ordre de rentrée)']]
+        self.assertIn('[Dossier Certificatif]', rentree[-1])
+
+    def test_fiches_lycee_sans_nom(self):
+        for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):
+            t = f.read_text(encoding='utf-8')
+            for mot in ('BERRICHON', 'DUPRAT', 'MOUTET', 'GAUTHIER', "L'ARC", 'ORANGE', 'Armant'):
+                self.assertNotIn(mot, t, f)
 
 
 if __name__ == '__main__':

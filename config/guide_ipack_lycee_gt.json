@@ -1,0 +1,653 @@
+{
+ "description": "Pas à pas iPackEPS lycée général et technologique : écrans relevés en lecture seule le 18 octobre 2026 (version 2026.2.1.1) ; écrans communs avec le collège repris des fiches de la visite collège (menus identiques vérifiés). Chaque étape cite sa fiche et une phrase de cette fiche.",
+ "parcours": {
+  "Me repérer depuis le début (ordre de rentrée)": [
+   {
+    "clic": "Tableau de bord → [Établissement]",
+    "video": "1. Saisie établissement",
+    "source": "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt",
+    "preuve": "1) [Établissement]"
+   },
+   {
+    "clic": "Tableau de bord → [Ma Fiche Professeur] → [Enregistrer]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt",
+    "preuve": "cliquer sur [Enregistrer]"
+   },
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier EPS] → [Projets]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Dossier EPS] > [Projets (Étab, EPS, AS)]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Équipe EPS et Intervenants Extérieurs] → [Actualiser]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "[Membres de l'équipe] : cliquer sur [Actualiser]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Classes] : actualiser, configurer, organiser, importer",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "Étape 1 — [Dossier EPS] > [Classes] > [Configuration des Classes] > [Actualiser]"
+   },
+   {
+    "clic": "[Dossier EPS] → [APSA] → [APSA de Lycée Général ou Technologique]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Dossier EPS] > [APSA] > [APSA de Lycée Général ou Technologique]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Périodes]",
+    "video": "3.1 Dossier EPS — Périodes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "2) [Dossier EPS] > [Périodes]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Gérer les S.A.]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "[Gérer les S.A.], choisir l'APSA et la période"
+   },
+   {
+    "clic": "[Dossier EPS] → [Élèves]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Étape 2 — placer les élèves : [Dossier EPS] > [Élèves]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Équipements Sportifs]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Dossier EPS] > [Équipements Sportifs] > [Configuration des Équipements]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Emplois du temps] → [Agenda Équipe]",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Dossier EPS] > [Emplois du temps] > [Agenda Équipe]"
+   },
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier Certificatif]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "[Tableau de bord] > [Les Dossiers et Projets] > [Dossier Certificatif]"
+   }
+  ],
+  "Voir mes classes et importer mes élèves": [
+   {
+    "clic": "[Dossier EPS] → [Classes] → [Configuration des Classes] → [Actualiser]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Configuration des Classes] > [Actualiser]"
+   },
+   {
+    "clic": "Crayon [Modifier] sur la classe → cycle → [Enregistrer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "choisir le cycle (par exemple Troisième pour une classe de 3e), puis [Enregistrer]"
+   },
+   {
+    "clic": "[Organisation des Classes] → crayon [Modifier] → mode et votre nom → [Enregistrer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "cocher son nom dans « Professeurs attribués à la classe » ; [Enregistrer]"
+   },
+   {
+    "clic": "[Importation des Élèves] → [Importer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Classes] > [Importation des Élèves] > [Importer]"
+   }
+  ],
+  "Créer un groupe d'AS et y placer des élèves": [
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Groupes AS] → [Créer un groupe]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "[Groupes AS]"
+   },
+   {
+    "clic": "[Gérer les S.A.] → période [Année]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "[Gérer les S.A.] avec la période [Année]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à droite : votre groupe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "à droite, choisir le groupe de destination"
+   },
+   {
+    "clic": "À gauche : Visualisation « Classes » → niveau → classe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Visualisation « Classes », puis le niveau (Type), puis la classe (Sélection)"
+   },
+   {
+    "clic": "Cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "cliquer sur [Ajouter -->]"
+   }
+  ],
+  "Placer des élèves dans un groupe": [
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à droite : votre groupe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "à droite, choisir le groupe de destination"
+   },
+   {
+    "clic": "À gauche : Visualisation « Classes » → niveau → classe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Visualisation « Classes », puis le niveau (Type), puis la classe (Sélection)"
+   },
+   {
+    "clic": "Cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "cliquer sur [Ajouter -->]"
+   }
+  ],
+  "Créer un créneau d'emploi du temps": [
+   {
+    "clic": "[Dossier EPS] → [Emplois du temps] → [Agenda Équipe] → votre nom",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "choisir son nom dans « Agenda de »"
+   },
+   {
+    "clic": "Double-clic sur la case horaire",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "double-cliquer sur la case horaire"
+   },
+   {
+    "clic": "Groupe, séquence, équipement → [Créer le créneau]",
+    "video": "3.1 Dossier EPS — Emplois du temps",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "puis [Créer le créneau]"
+   }
+  ],
+  "Modifier un équipement sportif": [
+   {
+    "clic": "[Dossier EPS] → [Équipements Sportifs] → [Configuration des Équipements]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "[Équipements Sportifs] > [Configuration des Équipements]"
+   },
+   {
+    "clic": "Sélectionner l'équipement → [Modifier l'Équipement]",
+    "video": "3.1 Dossier EPS — Équipements sportifs",
+    "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
+    "preuve": "sélectionner un équipement puis [Modifier l'Équipement]"
+   }
+  ],
+  "Mettre à jour l'équipe EPS (TZR, collègue absent)": [
+   {
+    "clic": "[Dossier EPS] → [Équipe EPS et Intervenants Extérieurs] → [Membres de l'équipe] → [Actualiser]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "[Membres de l'équipe] : cliquer sur [Actualiser]"
+   },
+   {
+    "clic": "TZR : crayon [Modifier] sur sa ligne → « Remplace » → [Enregistrer]",
+    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+    "preuve": "choisir dans « Remplace » le collègue remplacé"
+   }
+  ],
+  "Retrouver un projet ou ses axes": [
+   {
+    "clic": "[Dossier EPS] → [Projets (Étab, EPS, AS)]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Dossier EPS] > [Projets (Étab, EPS, AS)]"
+   },
+   {
+    "clic": "Menu de gauche : [Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]",
+    "video": "3.1 Dossier EPS — Les axes du projet",
+    "source": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+    "preuve": "[Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]"
+   }
+  ],
+  "Envoyer le dossier EPS pour validation (coordonnateur)": [
+   {
+    "clic": "[Dossier EPS] → [Vérification]",
+    "video": null,
+    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "preuve": "bouton [Vérification]"
+   },
+   {
+    "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
+    "video": null,
+    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "preuve": "« Dossier terminé, nous le soumettons pour validation »"
+   }
+  ],
+  "Section sportive : ma section n'apparaît pas": [
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Sections Sportives Scolaires] → [Créer un groupe]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt",
+    "preuve": "créer le groupe dans [Dossier EPS] > [Groupes] > [Sections Sportives Scolaires] et lui associer son APSA"
+   },
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier Section Sportive Scolaire] → [Projet Annuel SSS]",
+    "video": "3.4 Dossier SSS — Projet annuel SSS",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt",
+    "preuve": "[Dossier Section Sportive Scolaire] → [Projet Annuel SSS]"
+   }
+  ],
+  "Demander la validation d'une sortie APPN": [
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier APPN] → activité → [Créer]",
+    "video": "3.6 Dossier APPN — Demande de validation",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt",
+    "preuve": "choisir l'activité, préciser le détail"
+   },
+   {
+    "clic": "Déposer projet, protocole, convention → [Enregistrer]",
+    "video": "3.6 Dossier APPN — Demande de validation",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt",
+    "preuve": "convention signée avec l'organisme d'accueil, annexe éventuelle ; [Enregistrer]"
+   }
+  ],
+  "Me déclarer coordonnateur ou responsable de la certification": [
+   {
+    "clic": "Tableau de bord → [Ma Fiche Professeur] → [Fonctions]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "[Fonctions] : « Coordonnateur EPS », « Responsable de la Certification »"
+   },
+   {
+    "clic": "Cocher la fonction → [Enregistrer]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "« Responsable de la Certification »… puis [Enregistrer]"
+   }
+  ],
+  "Faire mes vœux de jury": [
+   {
+    "clic": "Tableau de bord → [Ma Fiche Professeur] → [Vœux de Jury]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "[Ma Fiche Professeur] > [Vœux de Jury]"
+   },
+   {
+    "clic": "Vœu 1, Vœu 2 → [Enregistrer]",
+    "video": "2. Ma fiche Professeur",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "disponibilité, Vœu 1, Vœu 2"
+   }
+  ],
+  "Établissement : niveaux de formation": [
+   {
+    "clic": "Tableau de bord → [Établissement] → [Configuration]",
+    "video": "1. Saisie établissement",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "[Configuration] : « Niveaux de Formation de l'établissement"
+   },
+   {
+    "clic": "Cocher les niveaux de vos classes → [Enregistrer]",
+    "video": "1. Saisie établissement",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "École, College, Lycée Général et Technologique, Lycée Voie Professionnelle ; [Enregistrer]"
+   }
+  ],
+  "Déclarer une APSA certificative": [
+   {
+    "clic": "[Dossier EPS] → [APSA] → [APSA de Lycée Général ou Technologique]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Dossier EPS] > [APSA] > [APSA de Lycée Général ou Technologique]"
+   },
+   {
+    "clic": "APSA absente : « + » dans une liste (ou [Créer une APSA])",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "trois listes avec le bouton « + »"
+   },
+   {
+    "clic": "Crayon [Modif.] sur l'APSA → « Certificative » OUI → [Enregistrer]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "« Certificative » OUI/NON, « Certificative Adaptée » OUI/NON, puis [Enregistrer]"
+   }
+  ],
+  "Construire le protocole d'examen d'un groupe": [
+   {
+    "clic": "[Dossier EPS] → [Périodes] → [Créer une nouvelle Période]",
+    "video": "3.1 Dossier EPS — Périodes",
+    "source": "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+    "preuve": "[Créer une nouvelle Période] avec date de début et date de fin"
+   },
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Groupes EPS] → [Gérer les S.A.] sur le groupe",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Dossier EPS] > [Groupes] > [Groupes EPS] > [Gérer les S.A.] sur le groupe"
+   },
+   {
+    "clic": "APSA → « évalués sur cette APSA pour l'examen » OUI ou NON → période → [Ajouter]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Les élèves seront évalués sur cette APSA pour l'examen"
+   },
+   {
+    "clic": "Vérifier « État du Protocole » dans la même fenêtre",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "« État du Protocole » (par exemple « Le protocole est valide »)"
+   }
+  ],
+  "Déposer un référentiel": [
+   {
+    "clic": "[Dossier Certificatif] → [Dépôt Référentiels Certificatifs]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "1) [Dépôt Référentiels Certificatifs]"
+   },
+   {
+    "clic": "Ligne de l'APSA → [Envoyer]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "sur la ligne de l'APSA, bouton [Envoyer]"
+   }
+  ],
+  "Dates d'épreuve, rattrapage et co-évaluateur": [
+   {
+    "clic": "[Dossier Certificatif] → [Protocole d'Évaluation des Épreuves Certificatives]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "2) [Protocole d'Évaluation des Épreuves Certificatives]"
+   },
+   {
+    "clic": "Choisir l'examen → la ligne du groupe",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "Choisir l'examen (« Voie Générale et Technologique »"
+   },
+   {
+    "clic": "« Configurez l'épreuve » : dates, co-évaluateur → [Enregistrer]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "panneau « Configurez l'épreuve » : Date Évaluation, Date Rattrapage, « Sélectionnez le co-évaluateur… », [Enregistrer]"
+   }
+  ],
+  "Déposer les documents pour la CAHPN": [
+   {
+    "clic": "[Dossier Certificatif] → [Dépôt de Documents pour la CAHPN]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "3) [Dépôt de Documents pour la CAHPN]"
+   },
+   {
+    "clic": "Fiche établissement, notes, inaptes, certificats, fiches individuelles",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "Dépôt de la Fiche Établissement ; Dépôt des fichiers de notes"
+   }
+  ],
+  "Transférer vers Cyclades": [
+   {
+    "clic": "[Dossier Certificatif] → [Cyclades] → [Bilan Protocoles]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "[Bilan Protocoles] liste le statut du protocole de chaque groupe d'examen"
+   },
+   {
+    "clic": "Élèves sans groupe : les placer dans un groupe d'examen",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "« Elèves sans Groupe EPS »"
+   },
+   {
+    "clic": "[Export Elèves] → [Exporter les Elèves]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "bouton [Exporter les Elèves]"
+   }
+  ],
+  "Soumettre le dossier certificatif": [
+   {
+    "clic": "[Dossier Certificatif] : blocs « Référentiels » et « Protocoles »",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "deux blocs distincts, « Référentiels d'Évaluation » et « Protocoles d'Évaluation »"
+   },
+   {
+    "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "passer « Dossier terminé, nous le soumettons pour validation » sur OUI"
+   }
+  ],
+  "Certificats médicaux d'inaptitude": [
+   {
+    "clic": "[Mes Élèves] → [Visualisation] → onglet [Inaptitudes]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes]"
+   },
+   {
+    "clic": "Déposer le certificat de l'élève ; liste : [Mes Élèves] → [Inaptitudes]",
+    "video": null,
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "[Mes Élèves] > [Inaptitudes] liste les inaptitudes"
+   }
+  ]
+ },
+ "menu": [
+  {
+   "rubrique": "Je ne sais pas par où commencer",
+   "entrees": [
+    {
+     "libelle": "Ordre de rentrée",
+     "parcours": "Me repérer depuis le début (ordre de rentrée)",
+     "prerequis": []
+    }
+   ]
+  },
+  {
+   "rubrique": "Établissement",
+   "entrees": [
+    {
+     "libelle": "Niveaux de formation",
+     "parcours": "Établissement : niveaux de formation",
+     "prerequis": []
+    }
+   ]
+  },
+  {
+   "rubrique": "Ma Fiche Professeur",
+   "entrees": [
+    {
+     "libelle": "Fonctions : coordonnateur, responsable de la certification",
+     "parcours": "Me déclarer coordonnateur ou responsable de la certification",
+     "prerequis": [
+      "[Établissement]"
+     ]
+    },
+    {
+     "libelle": "Vœux de Jury",
+     "parcours": "Faire mes vœux de jury",
+     "prerequis": [
+      "[Établissement]"
+     ]
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier EPS",
+   "entrees": [
+    {
+     "libelle": "Projets",
+     "parcours": "Retrouver un projet ou ses axes",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
+    },
+    {
+     "libelle": "Équipe EPS et Intervenants Extérieurs",
+     "parcours": "Mettre à jour l'équipe EPS (TZR, collègue absent)",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
+    },
+    {
+     "libelle": "Classes",
+     "parcours": "Voir mes classes et importer mes élèves",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
+    },
+    {
+     "libelle": "APSA : déclarer une APSA certificative",
+     "parcours": "Déclarer une APSA certificative",
+     "prerequis": [
+      "[Classes]"
+     ]
+    },
+    {
+     "libelle": "Périodes · Groupes : protocole d'examen d'un groupe",
+     "parcours": "Construire le protocole d'examen d'un groupe",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[APSA] (APSA certificatives)"
+     ]
+    },
+    {
+     "libelle": "Groupes AS : créer le groupe et ses élèves",
+     "parcours": "Créer un groupe d'AS et y placer des élèves",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[APSA]",
+      "[Périodes] (dont la période [Année])"
+     ]
+    },
+    {
+     "libelle": "Élèves : placer des élèves dans un groupe",
+     "parcours": "Placer des élèves dans un groupe",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[Groupes] (groupe créé)"
+     ]
+    },
+    {
+     "libelle": "Équipements Sportifs",
+     "parcours": "Modifier un équipement sportif",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
+    },
+    {
+     "libelle": "Emplois du temps",
+     "parcours": "Créer un créneau d'emploi du temps",
+     "prerequis": [
+      "[Classes] (votre nom attribué)",
+      "[Groupes] (séquences ajoutées)",
+      "[Équipements Sportifs]"
+     ]
+    },
+    {
+     "libelle": "Envoyer le dossier pour validation",
+     "parcours": "Envoyer le dossier EPS pour validation (coordonnateur)",
+     "prerequis": [
+      "tout le [Dossier EPS]",
+      "[Ma Fiche Professeur] > [Fonctions] (« Coordonnateur EPS » coché)"
+     ],
+     "cible": "d’envoyer le dossier EPS pour validation"
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier Certificatif",
+   "entrees": [
+    {
+     "libelle": "Dépôt Référentiels Certificatifs",
+     "parcours": "Déposer un référentiel",
+     "prerequis": [
+      "[Dossier EPS] > [APSA] (APSA déclarée certificative)",
+      "[Groupes] (APSA attribuée à un groupe)"
+     ]
+    },
+    {
+     "libelle": "Protocole d'Évaluation : dates, rattrapage, co-évaluateur",
+     "parcours": "Dates d'épreuve, rattrapage et co-évaluateur",
+     "prerequis": [
+      "[Groupes] (séquences évaluées pour l'examen)"
+     ]
+    },
+    {
+     "libelle": "Dépôt de Documents pour la CAHPN",
+     "parcours": "Déposer les documents pour la CAHPN",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
+    },
+    {
+     "libelle": "Cyclades : bilan et export des élèves",
+     "parcours": "Transférer vers Cyclades",
+     "prerequis": [
+      "[Groupes] (protocoles valides)",
+      "[Élèves] (élèves placés dans leur groupe)"
+     ]
+    },
+    {
+     "libelle": "Soumettre le dossier certificatif",
+     "parcours": "Soumettre le dossier certificatif",
+     "prerequis": [
+      "les référentiels déposés",
+      "les épreuves configurées"
+     ],
+     "cible": "de soumettre le dossier certificatif"
+    }
+   ]
+  },
+  {
+   "rubrique": "Mes Élèves",
+   "entrees": [
+    {
+     "libelle": "Inaptitudes : certificats médicaux",
+     "parcours": "Certificats médicaux d'inaptitude",
+     "prerequis": [
+      "[Classes] (élèves importés)"
+     ]
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier Section Sportive Scolaire",
+   "entrees": [
+    {
+     "libelle": "Ma section n'apparaît pas",
+     "parcours": "Section sportive : ma section n'apparaît pas",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier APPN",
+   "entrees": [
+    {
+     "libelle": "Demander la validation d'une sortie",
+     "parcours": "Demander la validation d'une sortie APPN",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
+    }
+   ]
+  }
+ ]
+}

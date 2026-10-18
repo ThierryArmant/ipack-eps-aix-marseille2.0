@@ -28,10 +28,10 @@ class GuidedTests(unittest.TestCase):
         goal='Me repérer depuis le début'
         state={}
         ui=FakeUI([goal],state,'C’est fait · Suivant →')
-        guide.render_guide(ui,'test','Lycée voie générale')
+        guide.render_guide(ui,'test','Lycée voie professionnelle')
         self.assertEqual(state['test_position_0'],1)
         ui=FakeUI([goal],state,'← Retour')
-        guide.render_guide(ui,'test','Lycée voie générale')
+        guide.render_guide(ui,'test','Lycée voie professionnelle')
         self.assertEqual(state['test_position_0'],0)
     def test_completion_and_no_source(self):
         goal='Configurer les périodes'

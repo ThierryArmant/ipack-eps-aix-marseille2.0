@@ -5,17 +5,28 @@ from navigation_help import SOURCE
 ROOT = Path(__file__).resolve().parent
 MENU = ROOT / 'data/ipack/plan_des_menus_professeur_2026.txt'
 COLLEGE = ROOT / 'config/guide_ipack_college.json'
+LYCEE_GT = ROOT / 'config/guide_ipack_lycee_gt.json'
+
+
+def guide_file(public):
+    """Guide à menu relevé à l'écran : collège, lycée général et technologique ; sinon parcours simples."""
+    public = str(public or '')
+    if public.startswith('Collège'):
+        return COLLEGE
+    if public in ('Lycée voie générale', 'Lycée Général & Techno'):
+        return LYCEE_GT
+    return None
 
 
 def is_college(public):
     return str(public or '').startswith('Collège')
 
 
-def college_routes():
-    """Parcours collège relevés à l'écran ; une étape sans preuve dans sa fiche retire tout le parcours."""
+def college_routes(path=None):
+    """Parcours relevés à l'écran ; une étape sans preuve dans sa fiche retire tout le parcours."""
     import json
     try:
-        data = json.loads(COLLEGE.read_text(encoding='utf-8'))['parcours']
+        data = json.loads((path or COLLEGE).read_text(encoding='utf-8'))['parcours']
     except (OSError, ValueError, KeyError):
         return {}
     valid = {}
@@ -118,11 +129,11 @@ def order_rule():
     return ORDER_RULE if 'dans l\'ordre, de gauche à droite et de haut en bas' in text else ''
 
 
-def college_menu(available):
+def college_menu(available, path=None):
     """Menu à deux niveaux qui suit les intitulés de l'écran iPackEPS ; entrées sans parcours valide retirées."""
     import json
     try:
-        menu = json.loads(COLLEGE.read_text(encoding='utf-8')).get('menu', [])
+        menu = json.loads((path or COLLEGE).read_text(encoding='utf-8')).get('menu', [])
     except (OSError, ValueError):
         return []
     out = []
@@ -148,12 +159,13 @@ def prerequisite_text(rubrique, entry):
 
 
 def render_guide(st, key, public, on_done=None):
-    college = is_college(public) and college_routes()
+    path = guide_file(public)
+    college = bool(path) and college_routes(path)
     available = college or routes()
     if not available:
         st.info('Guide indisponible pour le moment.')
         return
-    menu = college_menu(available) if college else []
+    menu = college_menu(available, path) if college else []
     if menu:
         left, right = st.columns(2)
         names = [b['rubrique'] for b in menu]

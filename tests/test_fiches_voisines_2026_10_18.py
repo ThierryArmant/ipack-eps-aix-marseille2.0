@@ -95,12 +95,17 @@ class FichesVoisines(unittest.TestCase):
         self.assertIn('Question de REMPLACEMENT', code)
 
     def test_tzr_decret_99_823(self):
-        s = 'TZR : zone, établissement de rattachement, service et heures (décret n° 99-823)'
+        s = 'TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)'
         self.assertIn(s, t("Entre deux remplacements, que doit faire un TZR ?", CLG, 'textes'))
         self.assertIn(s, t("Je suis TZR, mes heures au-delà de mon service sont-elles payées ?", CLG, 'textes'))
         from pathlib import Path
         texte = Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8')
-        self.assertIn("ne dit pas quel chef d'établissement arrête l'emploi du temps", texte)
+        self.assertIn("service inscrit à l'emploi du temps de l'agent remplacé", texte)
+        self.assertIn("chef de l'établissement de rattachement qui définit son service", texte)
+        self.assertIn("le hub ne contient pas le texte de l'ISSR", texte)
+        obl = Path('data/textes/complement_obligations_service_eps.txt').read_text(encoding='utf-8')
+        self.assertIn("réduit d'une heure", obl)
+        self.assertNotIn("ne prévoient pas de pondération", obl)
 
 
 if __name__ == '__main__':

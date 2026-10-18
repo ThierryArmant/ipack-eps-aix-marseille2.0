@@ -1,22 +1,26 @@
 === COMPLÉMENT SOURCÉ : OBLIGATIONS RÉGLEMENTAIRES DE SERVICE DES PROFESSEURS D'EPS ===
-Réponse directe — maximum de service : 20 heures pour un professeur d'EPS et 17 heures pour un agrégé d'EPS, dont 3 heures d'association sportive comprises dans ce maximum.
-Réponse directe — service partagé entre plusieurs établissements (dont TZR) : les sources du hub ne précisent ni quel chef d'établissement arrête l'emploi du temps, ni le calcul des indemnités ; pour le TZR, voir la fiche du décret n° 99-823 ; s'adresser aux chefs d'établissement concernés et à la DRH rectorale ; le maximum de service reste celui du corps (20 heures, 17 pour un agrégé, AS comprise).
-Réponse directe — heures supplémentaires : le chef d'établissement peut imposer jusqu'à deux heures supplémentaires par semaine, sauf empêchement pour raison de santé ; au-delà, elles ne peuvent pas être imposées.
+Réponse directe — maximum de service : 20 heures hebdomadaires pour un professeur d'EPS (et un chargé d'enseignement d'EPS), 17 heures pour un agrégé d'EPS (décret n° 2014-940, article 2) ; les 3 heures d'association sportive sont comprises dans ce maximum (circulaire d'application MENH1506031C).
+Réponse directe — service sur deux établissements (complément de service) : le recteur peut appeler l'enseignant à compléter son service dans un autre établissement ; son maximum de service est réduit d'une heure si cet établissement est dans une autre commune, ou s'il exerce dans deux autres établissements qui ne forment pas un même ensemble immobilier (décret n° 2014-940, article 4, I).
+Réponse directe — emploi du temps et indemnités sur plusieurs établissements : le décret ne dit pas quel chef d'établissement arrête l'emploi du temps, et le hub ne contient pas le texte des indemnités (ISSR pour un TZR) : s'adresser aux chefs d'établissement concernés et à la DRH rectorale ; pour un TZR, voir aussi la fiche du décret n° 99-823.
+Réponse directe — heures supplémentaires : dans l'intérêt du service, un professeur d'EPS peut être tenu d'effectuer deux heures supplémentaires hebdomadaires en plus de son maximum de service, sauf empêchement pour raison de santé ; au-delà, elles ne peuvent pas lui être imposées (article 4, III, modifié par le décret n° 2019-309).
+Réponse directe — pondération : en éducation prioritaire (établissements inscrits sur la liste fixée par arrêté), chaque heure d'enseignement compte pour 1,1, y compris en EPS (article 8) ; la pondération de 1,1 du cycle terminal de la voie générale et technologique (article 6) ne concerne pas les professeurs d'EPS, mais les agrégés hors EPS, les certifiés, les PLP et les professeurs documentalistes.
+
+### [SITUATION: OBLIGATIONS DE SERVICE D'UN PROFESSEUR D'EPS (HEURES D'ENSEIGNEMENT, ASSOCIATION SPORTIVE, COMPLÉMENT DE SERVICE)]
+- Professeur d'EPS, chargé d'enseignement d'EPS : maximum de 20 heures hebdomadaires ; professeur agrégé d'EPS : 17 heures (article 2, I).
+- Les 3 heures consacrées au développement de l'association sportive font partie intégrante du maximum de service : elles ne sont pas une obligation supplémentaire (circulaire d'application).
+- Missions liées au service d'enseignement (article 2, II) : préparation et recherches personnelles, aide et suivi du travail des élèves, évaluation, conseil en orientation, relations avec les parents, travail en équipe pédagogique et, le cas échéant, en équipe pluriprofessionnelle.
+- Complément de service (article 4, I) : quand l'enseignant ne peut pas assurer tout son service dans son établissement d'affectation, le recteur peut l'appeler à le compléter dans un autre établissement ; réduction d'une heure du maximum si l'autre établissement est dans une commune différente, ou si le complément se fait dans deux autres établissements n'appartenant pas à un même ensemble immobilier (article L. 216-4 du code de l'éducation).
+- Autre discipline (article 4, II) : compléter son service dans une autre discipline demande l'accord de l'enseignant et suppose que cet enseignement corresponde à ses compétences.
+- Heures supplémentaires (article 4, III) : deux heures hebdomadaires peuvent être exigées dans l'intérêt du service, sauf raison de santé.
+- Missions particulières (article 3) : avec l'accord de l'enseignant, dans l'établissement ou à l'échelon académique ; un allègement de service peut être attribué par le recteur, après proposition du conseil d'administration pour une mission d'établissement.
+- Formateur académique (article 3-1) : titulaire du CAFFA, allègement de 3 à 6 heures fixé par arrêté du recteur.
+- Pondérations (articles 6 à 8) : éducation prioritaire 1,1 pour tous les enseignants visés, dont l'EPS ; cycle terminal GT 1,1 seulement pour les agrégés (hors EPS), certifiés, PLP et documentalistes, sans réduire le service de plus d'une heure ; BTS 1,25.
+- Ces textes s'appliquent aux enseignants de l'enseignement public du second degré. Pour un cas individuel (temps partiel, complément de service, TZR, décharge), s'adresser au chef d'établissement ou à la DRH rectorale.
+
+Nature de la source : texte national (décret en vigueur au 18 octobre 2026 et circulaire d'application).
 Sources :
-- Décret n° 2014-940 du 20 août 2014 relatif aux obligations de service et aux missions des personnels enseignants exerçant dans un établissement public d'enseignement du second degré.
-- Circulaire d'application publiée au BO (NOR MENH1506031C) : https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm
-Ces textes s'appliquent aux professeurs de l'enseignement public du second degré. Pour un cas individuel (temps partiel, complément de service, TZR, décharge), renvoyer vers le chef d'établissement ou la DRH rectorale.
-
-### [SITUATION: OBLIGATIONS DE SERVICE D'UN PROFESSEUR D'EPS (HEURES D'ENSEIGNEMENT ET ASSOCIATION SPORTIVE)]
-- Professeur d'EPS : le maximum de service est de 20 heures, dont 3 heures consacrées au développement de l'association sportive (AS).
-- Professeur agrégé d'EPS : 17 heures, dont 3 heures consacrées au développement de l'association sportive.
-- Les 3 heures d'AS font partie intégrante du maximum de service : elles ne sont pas une obligation supplémentaire.
-- Heure supplémentaire : un enseignant d'EPS peut être tenu d'effectuer deux heures supplémentaires hebdomadaires en sus de son maximum de service, sauf empêchement pour raison de santé (article 4 du décret n° 2014-940).
-- Heures supplémentaires imposées (HSA) : le chef d'établissement peut imposer à un professeur d'EPS jusqu'à deux heures supplémentaires par semaine en plus de son maximum de service, sauf empêchement pour raison de santé ; au-delà, les heures supplémentaires ne peuvent pas être imposées (article 4, III, du décret n° 2014-940, modifié en 2019).
-- Pondération : ces textes ne prévoient pas de pondération spécifique pour les heures d'EPS.
-
-### Actualisation de la disposition sur les heures supplémentaires
-La limite d'une heure correspondait à une rédaction antérieure. L'article 4, III, modifié par le décret n° 2019-309 du 11 avril 2019, prévoit deux heures, sauf empêchement pour raison de santé, pour les catégories qu'il vise. Identifier le statut et la quotité avant toute application individuelle. La circulaire de 2015 ne suffit pas pour établir cette limite actuelle.
-Source officielle : https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038375945
+- Décret n° 2014-940 du 20 août 2014 relatif aux obligations de service et aux missions des personnels enseignants exerçant dans un établissement public d'enseignement du second degré, NOR MENH1407664D, version consolidée Légifrance (dernière modification : décret n° 2019-309 du 11 avril 2019), consultée le 18 octobre 2026.
+https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029389197
+- Circulaire d'application, NOR MENH1506031C : https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm
 Extrait, article 4, III : « deux heures supplémentaires hebdomadaires en sus de leur maximum de service ».
-Consultation : 16 octobre 2026.
+https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038375945

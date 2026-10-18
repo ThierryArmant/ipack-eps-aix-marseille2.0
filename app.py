@@ -1533,16 +1533,6 @@ with st.container(key="parcours"):
                 unsafe_allow_html=True,
             )
 
-            if st.session_state.get("active_module") == "ipack":
-                _guide_public = st.session_state.get("niveau_actif_form", "")
-                _guide_toggle = "guide_direct_" + _guide_public
-                if st.button("❓ Vous êtes perdu ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
-                    st.session_state[_guide_toggle] = not st.session_state.get(_guide_toggle, False)
-                if st.session_state.get(_guide_toggle, False):
-                    from guided_navigation import render_guide
-                    with st.container(key="guide_callout_direct"):
-                        render_guide(st, "direct_" + _guide_public, public_label(_guide_public))
-
             with st.form(key="form_question_hub", clear_on_submit=True):
                 col_input, col_submit = st.columns([5, 1])
                 with col_input:
@@ -1565,6 +1555,17 @@ with st.container(key="parcours"):
                     with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
                         # On stocke temporairement la question dans la session pour déclencher la suite
                         st.session_state.current_prompt = prompt
+
+            if st.session_state.get("active_module") == "ipack":
+                _guide_public = st.session_state.get("niveau_actif_form", "")
+                _guide_toggle = "guide_direct_" + _guide_public
+                if st.button("❓ Vous êtes perdu ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
+                    st.session_state[_guide_toggle] = not st.session_state.get(_guide_toggle, False)
+                if st.session_state.get(_guide_toggle, False):
+                    from guided_navigation import render_guide
+                    with st.container(key="guide_callout_direct"):
+                        render_guide(st, "direct_" + _guide_public, public_label(_guide_public))
+
 
 
 # ======================================================================

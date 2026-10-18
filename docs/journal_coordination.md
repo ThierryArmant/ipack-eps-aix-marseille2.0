@@ -736,3 +736,6 @@ Le test utilisateur « aide moi sui sperdu » échappait à la liste de mots et 
 
 ### 18 octobre 2026 — bouton permanent « Vous êtes perdu ? »
 À la demande de Thierry : bouton au-dessus du champ de question, uniquement en iPackEPS une fois le public choisi. Ouvre/ferme directement le guide sans saisie, sans requête documentaire et sans appel IA. État du guide distinct par public ; masqué dans les autres modules. La détection des demandes écrites reste un accès complémentaire.
+
+### 18 octobre 2026 — emplacement du bouton d'aide
+Sur demande de Thierry, le bouton « Vous êtes perdu ? » et son guide sont déplacés sous la barre de rédaction, après le formulaire. Fonctionnement inchangé.

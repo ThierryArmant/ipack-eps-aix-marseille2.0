@@ -1921,8 +1921,9 @@ if prompt_a_traiter:
             elif est_cas_direct:
                 origine_reponse = "direct"
 
-            from guide_request import requests_guide, MESSAGE as GUIDE_MESSAGE
-            _guide_demande = requests_guide(prompt, mode, niveau_actuel_form)
+            from guide_request import requests_guide, vague_request_opens_guide, MESSAGE as GUIDE_MESSAGE
+            _guide_demande = (requests_guide(prompt, mode, niveau_actuel_form)
+                              or vague_request_opens_guide(prompt, mode, niveau_actuel_form))
             demande_precision = GUIDE_MESSAGE if _guide_demande else ("" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form))
             # Onglet Textes : une question sur un certificat ou une dispense n'est pas le choix d'une note d'examen ;
             # la demande de précisions médicales empêchait de répondre (et de corriger une fausse prémisse).

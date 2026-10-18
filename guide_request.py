@@ -25,3 +25,12 @@ def requests_guide(question, mode, public):
     allowed = set('aide aidez aider moi nous pouvez vous peux tu svp s il te vous plait bonjour merci je j on suis est perdu perdue perdus perdues completement totalement un peu vraiment ici dans sur avec ipack ipackeps le hub ne n sais sait savons pas plus par ou quoi comment commencer faire me m y retrouver guide guider besoin d de et au secours rien comprends comprend comprendrais arrive utiliser'.split())
     return (bool(words) and set(words) <= allowed and
             bool(re.search(r'perdu|par ou commencer|(?:aide|aidez|guide|guidez)[ -]moi|au secours|(?:m.y|me) retrouver', q)))
+
+
+def vague_request_opens_guide(question, mode, public):
+    """Demande de saisie sans rubrique (« j'enseigne le foot à mes 6e4, comment renseigner ça ? ») :
+    le guide s'ouvre directement, sans appel IA, au lieu d'une simple demande de précision."""
+    if mode != 'ipack' or public not in PUBLICS:
+        return False
+    from knowledge_catalog import teaching_registration_clarification
+    return bool(teaching_registration_clarification(question))

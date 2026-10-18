@@ -11,3 +11,22 @@ class RequestTests(unittest.TestCase):
         for mode in ['textes','examens']:
             self.assertFalse(requests_guide('aide moi je suis perdu',mode,'Collège'))
         self.assertFalse(requests_guide('je suis perdu','ipack','1er degré'))
+
+
+class VagueRequestTests(unittest.TestCase):
+    def test_demande_evasive_ouvre_le_guide(self):
+        from guide_request import vague_request_opens_guide
+        for q in ["J'enseigne le foot à mes 6eme4, comment renseigner ça ?",
+                  "je ne sais pas comment remplir iPack pour déclarer l'activité foot avec ma classe"]:
+            self.assertTrue(vague_request_opens_guide(q, 'ipack', 'Collège'), q)
+            self.assertFalse(vague_request_opens_guide(q, 'examens', 'Collège'), q)
+            self.assertFalse(vague_request_opens_guide(q, 'ipack', '1er degré'), q)
+        for q in ["Comment créer une séquence de foot pour ma 6e4 dans les groupes ?",
+                  "Où trouver la liste des APSA ?", "je ne trouve pas mon nouvel élève"]:
+            self.assertFalse(vague_request_opens_guide(q, 'ipack', 'Collège'), q)
+
+    def test_app_branche_le_guide_avant_toute_generation(self):
+        from pathlib import Path
+        src = Path('app.py').read_text(encoding='utf-8')
+        self.assertIn('or vague_request_opens_guide(prompt, mode, niveau_actuel_form)', src)
+        self.assertIn('demande_precision = GUIDE_MESSAGE if _guide_demande', src)

@@ -1,0 +1,7 @@
+### iPackEPS collège : pas de protocole d'examen ni de dossier certificatif
+Réponse directe — au collège, [Les Dossiers et Projets] > [Dossier Certificatif] affiche : « Cette Fonctionnalité est désactivée dans votre académie, ou votre établissement n'est pas considéré comme proposant une certification ». Les protocoles d'examen, les référentiels, leur validation par la commission académique et l'export vers Cyclades concernent les lycées (bac général et technologique, bac professionnel, CAP), pas le collège.
+Au collège, ce qui se fait dans iPackEPS : le [Dossier EPS] (classes, APSA, périodes, groupes, élèves, équipements, emploi du temps), puis son envoi pour validation ([Dossier EPS] > [Vérification]) ; ainsi que les dossiers Natation, Section Sportive Scolaire et APPN si l'établissement est concerné.
+Pour l'EPS au DNB (contrôle continu), voir les fiches DNB : les moyennes validées en conseil de classe sont renseignées dans LSU ; ce n'est pas un protocole iPackEPS.
+Changer une activité en cours d'année au collège : il s'agit de la programmation du [Dossier EPS] ([APSA], [Périodes], [Groupes] > [Gérer les S.A.]), pas d'un protocole validé par une commission.
+Nature de la source : fonctionnement du logiciel iPackEPS (espace professeur collège, version 2026.2.1.1), message relevé à l'écran avec le correspondant académique iPackEPS ; fonction commune à toutes les académies.
+Source : visite guidée de l'espace professeur iPackEPS (collège) avec le correspondant académique iPackEPS, 18 octobre 2026 ; texte affiché à l'écran cité entre guillemets.

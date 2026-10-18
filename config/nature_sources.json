@@ -6168,6 +6168,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement des applications nationales Cyclades et Santorin",
    "titre": "Cyclades et Santorin : messages d'erreur"
+  },
+  "data/ipack/visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
+   "titre": "iPackEPS collège : pas de protocole d'examen ni de dossier certificatif"
   }
  }
 }

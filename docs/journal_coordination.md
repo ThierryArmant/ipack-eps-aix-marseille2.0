@@ -1127,3 +1127,11 @@ Audit `docs/audit_exploitation_examens_2026_10_18.md` lu. Bogue de Claude confir
 4. Panne ponctuelle : `fermeture_collective.txt` (sa réponse directe traite déjà la fermeture d'un jour : report à la date de rattrapage, ni neutralisation ni CE) + motif panne / intempérie / fermée un jour + installation.
 5. `examens_102` et `examens_103` laissés hors catalogue : règles d'examen (coefficient, arrondi, calcul en cas d'inaptitude) à recouper avec MENE2531948N par la partie règles ; Claude ne les certifie pas.
 5 questions types ajoutées. Suite : 565 tests OK.
+
+### 19 octobre 2026 0 h 25 — Claude : reprise des 43 cas iPackEPS notés partiels ou faux (sélection)
+Sélection actuelle recalculée localement sur les 43 cas iPackEPS de la notation en aveugle (copie privée). Corrections (fiches et catalogue) :
+- Nouvelle fiche `visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt` (310, DNB seulement) : message relevé à l'écran au collège (« Cette Fonctionnalité est désactivée… certification ») ; pas de protocole d'examen ni de commission au collège ; DNB → LSU ; changer d'activité = programmation du Dossier EPS. Couvre les 3 cas collège « protocoles validés / jusqu'à quand / remplacer une APSA » (procédure lycée appliquée au collège). Exclut sécurité, APPN, natation, SSS, LSU.
+- Bogues de motifs « mot dans le mot » : « rentrer » déclenchait la fiche rentrée (`rentr[e]?e` → `\brentree\b`) et la fiche d'accès (`entrer` → `\bentrer`, idem `acces`, `ouvrir`, `lien`). « Fiche … n'est pas certificative » → fiche lycée APSA certificative.
+- `ipack_026` (responsables d'établissement) : DIASEP présentée comme le service d'Aix-Marseille (adresse), délai « 24 h » retiré (non sourcé) — remarque de la notation.
+- Fiche DNB `04_inaptitudes_dispenses` exclue des questions de comptage (« combien d'élèves inaptes »).
+Restent pour la partie rédaction/contrôle (GPT) les cas où la bonne fiche est déjà transmise mais mal exploitée (créneau, tablette, Cyclades vs iPackEPS, bouton grisé). Sans source : durée de conservation des données (DPO), fusion de demi-groupes, licences UNSS (hors iPackEPS ; pas de texte UNSS autorisé). 5 questions types ajoutées. Suite : 565 tests OK.

@@ -603,7 +603,7 @@
     ],
     "motifs": [
       "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|\\barena\\b",
-      "(?:acced\\w*|acces|connect\\w*|ouvrir|entrer|lien).{0,40}(?:ipack|application|logiciel|portail)|ipack.{0,60}(?:n.apparai|introuvable|absent|ne s.ouvre|bloqu|plus acces|pas acces)",
+      "(?:acced\\w*|\\bacces|connect\\w*|\\bouvrir|\\bentrer|\\blien).{0,40}(?:ipack|application|logiciel|portail)|ipack.{0,60}(?:n.apparai|introuvable|absent|ne s.ouvre|bloqu|plus acces|pas acces)",
       "\\b40[03]\\b|forbidden|bad request|not found|page (?:blanche|vierge)|aucun etablissement|ancien etablissement",
       "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)",
       "mot de passe|\\bipad\\b|\\bmac\\b|windows|double.?cliqu|ne se lance|ordinateur (?:personnel|perso)|message de securite"
@@ -3179,6 +3179,9 @@
     "modes": [
       "examens",
       "ipack"
+    ],
+    "exclure_motifs": [
+      "combien|nombre d.eleves|statisti"
     ]
   },
   "data/commun/dnb/05_competences_apsa_shn.txt": {
@@ -3550,7 +3553,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "creer.*classe|nouvelle classe|rentr[e]?e|eleves.*apparai|import.*(siecle|onde)|ajouter.*collegue|archivage|passage d.annee",
+      "creer.*classe|nouvelle classe|\\brentree\\b|eleves.*apparai|import.*(siecle|onde)|ajouter.*collegue|archivage|passage d.annee",
       "passage d.annee|nouvelle annee|annee suivante"
     ],
     "exclure_motifs": [],
@@ -7278,7 +7281,8 @@
     "prioritaire": true,
     "priorite": 305,
     "motifs": [
-      "(?:declarer|indiquer|choisir|mettre).{0,40}(?:activites?|apsa).{0,60}(?:bac|examen|certificati|terminales?)|(?:passer|mettre|rendre|retirer|enlever).{0,40}(?:en |une |l.)?(?:activite |apsa )?certificati|certificati\\w*.{0,30}(?:bloque|reste|bouton)|protocoles?.{0,30}(?:cfa|mfr)|etapes? prealables?.{0,30}protocoles?|associer.{0,30}apsa.{0,40}groupes? d.examen"
+      "(?:declarer|indiquer|choisir|mettre).{0,40}(?:activites?|apsa).{0,60}(?:bac|examen|certificati|terminales?)|(?:passer|mettre|rendre|retirer|enlever).{0,40}(?:en |une |l.)?(?:activite |apsa )?certificati|certificati\\w*.{0,30}(?:bloque|reste|bouton)|protocoles?.{0,30}(?:cfa|mfr)|etapes? prealables?.{0,30}protocoles?|associer.{0,30}apsa.{0,40}groupes? d.examen",
+      "(?:fiche|apsa|activite|epreuve).{0,40}(?:n.est pas|pas|non) certificative|non certificative"
     ],
     "exclure_motifs": [
       "\\bdnb\\b|brevet|absen|inapt|bless|fraude|note"
@@ -7763,5 +7767,24 @@
       "feuille d.appel|bordereau|fiche (?:d.observation )?vierge|imprimer.{0,40}(?:liste des eleves|liste de (?:mes |la )?(?:classe|groupe))|publipostage"
     ],
     "exclure_motifs": []
+  },
+  "data/ipack/visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt": {
+    "title": "iPackEPS collège : pas de protocole d'examen ni de dossier certificatif",
+    "statut": "releve_ecran_correspondant_2026-10-18",
+    "examens": [
+      "dnb"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "motifs": [
+      "protocoles?|dossier certificatif|referentiels? (?:certificati|d.evaluation)|commission (?:academique|d.harmonisation)|\\bcahpn\\b|\\bfca\\b"
+    ],
+    "exclure_motifs": [
+      "securite|appn|sortie|escalade|natation|section sportive|\\bsss\\b|\\blsu\\b"
+    ]
   }
 }

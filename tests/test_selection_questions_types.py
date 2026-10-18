@@ -66,6 +66,13 @@ CAS = [
     ('je remplace un collègue absent : comment accéder à ses lots dans Santorin ?', GT, 'examens', '[SITUATION: ACCÈS REMPLAÇANT SANTORIN]',
      ['[ERREUR : AUCUN LOT À CORRIGER]', '[SITUATION: CORRECTION PARTAGÉE SANTORIN]']),
     ('une panne de piscine le jour du CCF oblige-t-elle à certifier sur deux notes ?', GT, 'examens', 'Installation fermée pour une classe', []),
+    # Cas iPackEPS notés partiels ou faux (formulations génériques), 19 octobre.
+    ("je rentre les protocoles dans iPackEPS, on me répond que cette fiche n'est pas certificative", GT, 'ipack',
+     'iPackEPS lycée : APSA certificative', ['Accès iPackEPS et portail ESTEREL', 'iPackEPS : rentrée']),
+    ('que faut-il refaire à la rentrée dans iPackEPS ?', COL, 'ipack', 'iPackEPS : rentrée', []),
+    ('comment savoir si nos protocoles ont été validés par la commission ?', COL, 'ipack', "iPackEPS collège : pas de protocole d'examen", []),
+    ('comment valider le protocole de sécurité APPN ?', COL, 'ipack', 'iPackEPS : Dossier APPN', ["iPackEPS collège : pas de protocole d'examen"]),
+    ("combien d'élèves sont déclarés inaptes dans l'établissement ?", COL, 'ipack', None, ['DNB EPS : inaptitude']),
 ]
 
 

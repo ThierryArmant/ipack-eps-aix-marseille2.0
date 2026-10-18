@@ -1346,6 +1346,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_026_situation_mise_a_jour_des_responsables_et_contacts_d_etablissement.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: MISE À JOUR DES RESPONSABLES ET CONTACTS D'ÉTABLISSEMENT]",
+     "lignes": [
+      "- Instruction : L'application iPackEPS extrait automatiquement ses données de contacts (Chef d'établissement, Adjoints, Secrétaire général, Agent comptable) depuis le référentiel national RAMSESE. L'assistance iPackEPS n'a pas la main pour modifier ces fiches. En cas d'erreur ou de personnel non mis à jour (ex : ancien adjoint resté dans la base), le chef d'établissement demande la correction au service du rectorat qui gère RAMSESE ; à Aix-Marseille, c'est la DIASEP (ce.diasep@ac-aix-marseille.fr). La correction est ensuite reprise par iPackEPS ; aucun délai n'est garanti par les sources."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_027_situation_rattachement_des_enseignants_externes_partages_greta_cfa_aefe_vacataires.txt": {
    "academie": "aix-marseille",
    "sections": [

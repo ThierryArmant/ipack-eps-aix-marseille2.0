@@ -876,6 +876,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
+    audit['focused_document_ids'] = [p['id'] for p in focused]
+    audit['document_selection_before_focus'] = [p['id'] for p in packets]
     if focused:
         # Les résumés généraux générés par le programme ne complètent pas
         # une fiche de situation : leurs règles abrégées peuvent perdre ses réserves.
@@ -886,6 +888,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
+    audit['document_selection_after_focus'] = [p['id'] for p in packets]
     audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
     packets, marked = select_academy(packets, academy)
     audit['academy'] = academy

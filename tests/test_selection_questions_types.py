@@ -73,6 +73,14 @@ CAS = [
     ('comment savoir si nos protocoles ont été validés par la commission ?', COL, 'ipack', "iPackEPS collège : pas de protocole d'examen", []),
     ('comment valider le protocole de sécurité APPN ?', COL, 'ipack', 'iPackEPS : Dossier APPN', ["iPackEPS collège : pas de protocole d'examen"]),
     ("combien d'élèves sont déclarés inaptes dans l'établissement ?", COL, 'ipack', None, ['DNB EPS : inaptitude']),
+    # Calcul national GT : source dédiée, sans l'appliquer à la saisie ou aux autres diplômes.
+    ("Quel est le coefficient de l'EPS au bac général ?", GT, 'examens', 'Bac GT : calcul, arrondi', []),
+    ("Comment arrondir la note finale EPS au bac ?", GT, 'examens', 'Bac GT : calcul, arrondi', []),
+    ("Les notes EPS de première comptent-elles au bac ?", GT, 'examens', 'Bac GT : calcul, arrondi', []),
+    ("Comment saisir la moyenne finale dans Santorin ?", GT, 'examens', None, ['Bac GT : calcul, arrondi']),
+    ("Quel coefficient EPS au CAP ?", PRO, 'examens', None, ['Bac GT : calcul, arrondi']),
+    ("Nos protocoles sont validés : dans quel ordre faire Cyclades et Santorin jusqu'à la saisie des notes ?", GT, 'examens', 'Santorin : De la validation', ['Santorin : verrouillage']),
+
 ]
 
 

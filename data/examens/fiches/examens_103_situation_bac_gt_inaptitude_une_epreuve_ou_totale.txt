@@ -1,8 +1,9 @@
-### [SITUATION: BAC GÉNÉRAL ET TECHNOLOGIQUE — INAPTITUDE À UNE ÉPREUVE OU À TOUTE L'ANNÉE : CALCUL DE LA NOTE]
-- Mots-clés : inaptitude, inapte à une épreuve, inapte toute l'année, inaptitude totale, inaptitude partielle, moyenne des deux notes, une seule note, dispensé de l'épreuve, neutralisation du coefficient, DI, certificat médical, épreuve adaptée, épreuve différée.
-- Formulations courantes des collègues : un élève est inapte sur une des trois épreuves, comment est calculée sa note ; un élève est inapte toute l'année de terminale ; que devient la note d'EPS d'un élève dispensé ; quel certificat faut-il.
-- Réponse courte : si la troisième épreuve est impossible, le candidat est noté sur la moyenne des deux notes. Si deux épreuves ne peuvent être réalisées, l’enseignant apprécie si la note unique peut être conservée ou si une dispense est nécessaire. Si aucune épreuve n'est possible, l'élève est « dispensé de l'épreuve d'EPS » et le coefficient de l'EPS est neutralisé dans le calcul de la note finale.
-- Avant d'en arriver là : pour une inaptitude partielle ou temporaire, l'établissement prévoit une épreuve adaptée ou différée. L'évaluation ne peut pas reposer uniquement sur l'AFL2 et l'AFL3.
-- Certificat : l'inaptitude est prononcée par l'autorité médicale ; l'enseignant du groupe apprécie la situation. Le certificat doit être présenté au moment de l'inaptitude (dès le début de l'année pour une inaptitude longue) et classé dans iPackEPS (onglet [Inaptitudes] de la fiche élève).
-- Ne pas déduire un code de saisie automatique du seul mot inaptitude. Vérifier le motif, le diplôme et le guide technique applicable ; absence justifiée, inaptitude et absence injustifiée sont distinctes.
-- Texte de référence : note de service du 20 février 2026 (NOR MENE2531948N, BO n° 9 du 26 février 2026).
+### Bac GT : inaptitude en CCF et conservation conditionnelle des notes
+[PORTEE: gt]
+Une inaptitude ne déclenche pas automatiquement une moyenne sur deux notes, une note unique ou une dispense. Pour une inaptitude momentanée attestée médicalement en cours d’année, l’enseignant du groupe apprécie la situation : adaptation si l’inaptitude est partielle, évaluation différée, ou certification réduite selon les possibilités réelles.
+Si cette inaptitude empêche la troisième épreuve physique, une certification sur deux épreuves peut être retenue : la note est alors leur moyenne. Si elle empêche les deux autres épreuves, une certification sur une seule note peut être retenue. Lorsque les éléments d’appréciation sont trop réduits, l’enseignant peut ne pas proposer de note et mentionner la dispense de l’épreuve d’EPS ; le coefficient est alors neutralisé.
+Le handicap ou l’inaptitude partielle permanente relève du contrôle adapté : propositions d’adaptation soumises à la commission académique. Une dispense n’est pas déduite de la seule présence d’un certificat ; les handicaps empêchant toute pratique adaptée peuvent donner lieu à une dispense.
+L’évaluation ne peut porter seulement sur AFL2 et AFL3. Distinguer les règles de certification des codes et menus de saisie : cette fiche nationale ne prescrit ni code Santorin ni classement dans iPackEPS.
+Nature de la source : texte national.
+Source vérifiée le 19 octobre 2026 : note de service du 20 février 2026, MENE2531948N, parties 2.d et 2.e, applicable depuis la session 2026.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

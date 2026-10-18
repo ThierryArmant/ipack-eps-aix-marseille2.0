@@ -3676,7 +3676,9 @@
     "motifs": [
       "santorin.*(valid|verrouill|corrig)|valid.*santorin|note.*ccf.*(corrig|validation)|trompe.*note.*ccf"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "(?=.*protocoles?)(?=.*(?:dans quel ordre|ordre des etapes|jusqu.a la saisie))(?!.*(?:erreur|corrig|verrouill|deverrouill))"
+    ],
     "url": "https://www.ac-aix-marseille.fr/media/28712/download",
     "date_verification": "2026-10-11",
     "exclusif_motifs": [
@@ -7786,5 +7788,40 @@
     "exclure_motifs": [
       "securite|appn|sortie|escalade|natation|section sportive|\\bsss\\b|\\blsu\\b"
     ]
+  },
+  "data/examens/fiches/examens_102_situation_bac_gt_calcul_note_finale_eps_coefficient.txt": {
+    "title": "Bac GT : calcul, arrondi et coefficient de l’EPS obligatoire",
+    "statut": "verifie_sources_officielles_2026-10-19",
+    "date_verification": "2026-10-19",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "motifs": [
+      "(?=.*(?:eps|ccf|bac|baccalaureat))(?=.*(?:coefficient|combien (?:compte|pese)|arrondi|arrondir|calcul.{0,30}(?:note finale|moyenne)|(?:note finale|moyenne).{0,30}calcul))",
+      "(?=.*(?:notes?|moyennes?))(?=.*premiere)(?=.*(?:bac|ccf|certific|compte))"
+    ],
+    "exclure_motifs": [
+      "option|eppcs|inapt|dispens|absen|ponctuel|candidat (?:individuel|libre)|cned|\\bcap\\b|bac ?pro|\\bdnb\\b",
+      "saisi|santorin|cyclades|ipack|verrouill"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/examens/fiches/examens_103_situation_bac_gt_inaptitude_une_epreuve_ou_totale.txt": {
+    "title": "Bac GT : inaptitude en CCF et conservation conditionnelle des notes",
+    "statut": "verifie_source_officielle_2026-10-19",
+    "date_verification": "2026-10-19",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens"
+    ],
+    "prioritaire": false,
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
   }
 }

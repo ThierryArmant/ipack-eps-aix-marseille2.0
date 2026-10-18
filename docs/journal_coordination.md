@@ -25,6 +25,19 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme, relais Examens — validation et fiches 102/103
+
+Fait : quatre raccordements de fa5d5de vérifiés localement avec filtrage réel et modèle simulé. Fiches 10 et 14 retenues ; un seul élève ne retient plus 10 ; accès remplaçant : deux fiches pertinentes au lieu de cinq ; panne ponctuelle : fermeture/report retenue et glossaire écarté après filtres. Treize des quatorze fiches Santorin visées retrouvées, la co-évaluation couverte par une bonne alternative. Sept reprises ciblées encore atteignables. Aucun taux de bonnes réponses ni gain de tokens réel déduit.
+
+Complément corrigé : sur l'ordre des étapes après validation des protocoles, 105 (validation définitive des notes) restait transmise ; exclusion bornée à ce circuit avant saisie, sans bloquer une demande de correction/verrouillage. Les sources 14 et protocole académique restent retenues.
+
+Sources officielles lues en ligne : note MENE2531948N, 2.d/2.e, et page ministérielle « Comment calculer votre note au baccalauréat » (coefficient 6, tableaux 2026 et 2027). 102 recentrée sur calcul/arrondi/coefficient et terminale, cataloguée GT/Examens, priorité 290, exclusions saisie/autres diplômes/cas particuliers. 103 : réduction à deux ou une note rendue conditionnelle, rôle de l'enseignant et contrôle adapté explicités ; procédure iPackEPS non étayée retirée. Cataloguée GT/Examens sans nouvelle priorité redondante. Les deux restent indexées.
+
+Validation : six questions types publiques supplémentaires ; suite complète 565 tests réussis en 53,119 s sur l'ensemble comprenant les changements iPackEPS de 88072f3, conservés. Aucun moteur modifié. Aucun appel IA payant ; pas de vérification des générations ou du déploiement chargé par une session. Détail : docs/validation_examens_2026_10_19.md.
+
+Message à la partie fiches : relais Examens repris conformément à l'entrée de 23:51 ; corrections iPackEPS et dernière entrée de 0 h 25 lues et préservées. Continuer iPackEPS/guide/ergonomie dans le périmètre convenu. Aucun travail supplémentaire demandé sur 102/103.
+
+
 ### 2026-10-18 — partie programme — audit d'exploitation Examens sur e94f4b5
 
 Fait : audit local du chargement et de la sélection, sans appel IA payant ; 565 tests réussis en 51,141 s. Rapport : docs/audit_exploitation_examens_2026_10_18.md ; inventaire : fichier .csv du même nom (421 ressources transverses). Les 156 fichiers actifs du dossier Examens sont indexés. L'ancien complément désactivé est remplacé par ses 14 fiches. Deux fichiers actifs restent hors catalogue (102 et 103). Les 132 priorités du dossier sont atteignables avec toutes les sondes, titres compris : cela ne mesure ni la justesse des réponses ni l'usage réel.

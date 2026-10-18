@@ -1,8 +1,9 @@
-### [SITUATION: BAC GÉNÉRAL ET TECHNOLOGIQUE — CALCUL DE LA NOTE FINALE D'EPS ET COEFFICIENT]
-- Mots-clés : note finale EPS, calcul de la note, moyenne des trois épreuves, arrondi, harmonisation, coefficient, coefficient 6, contrôle continu, bac général, bac technologique, poids de l'EPS.
-- Formulations courantes des collègues : comment est calculée la note finale d'EPS au bac ; quel est le coefficient de l'EPS ; la note est-elle arrondie ; combien compte l'EPS au bac.
-- Réponse courte : la note d'EPS est la moyenne des trois épreuves du CCF, arrondie au point entier le plus proche après harmonisation par la commission académique. Elle compte avec un coefficient 6 dans le contrôle continu du baccalauréat.
-- Chaque épreuve est notée sur 20 (AFL1 sur 12 points, AFL2 et AFL3 sur 8 points répartis au choix de l'élève).
-- Candidats à l'examen ponctuel (candidats individuels, CNED) : moyenne de deux épreuves de deux champs d'apprentissage différents.
-- Une absence non justifiée à une épreuve donne la note 0, non éliminatoire. Un élève dispensé de l'épreuve d'EPS voit le coefficient de l'EPS neutralisé.
-- Texte de référence : note de service du 20 février 2026 (NOR MENE2531948N, BO n° 9 du 26 février 2026).
+### Bac GT : calcul, arrondi et coefficient de l’EPS obligatoire
+[PORTEE: gt]
+Réponse courte : dans le cas ordinaire du CCF, la note finale est la moyenne des trois épreuves de terminale ; l’arrondi au point entier le plus proche intervient après l’harmonisation académique. L’EPS obligatoire compte avec un coefficient 6 au baccalauréat général et technologique.
+Les notes des bulletins de première ne remplacent pas les notes certificatives de terminale. Les situations d’inaptitude, de dispense ou d’impossibilité matérielle relèvent de règles particulières : ne pas appliquer automatiquement la moyenne sur trois.
+Le coefficient 6 concerne l’enseignement commun obligatoire, pas l’option EPS ni la spécialité EPPCS. Il figure dans le bloc du contrôle continu pour les candidats scolaires ; cela ne transforme pas la moyenne des bulletins en note certificative d’EPS.
+Nature de la source : texte national et information officielle du ministère.
+Sources vérifiées le 19 octobre 2026 : note de service du 20 février 2026, MENE2531948N, partie 2.d (moyenne, terminale et arrondi) ; page ministérielle « Comment calculer votre note au baccalauréat », rubrique contrôle continu et tableaux jusqu’à 2026 et à compter de 2027 (coefficient 6).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+https://www.education.gouv.fr/reussir-au-lycee/comment-calculer-votre-note-au-baccalaureat-325511

@@ -1173,151 +1173,10 @@ retriever_peda = initialiser_base_peda(timestamp_fichier)
 
 
 # ======================================================================
-# 🔔 VEILLES AUTOMATIQUES TAVILY (DEC & ÉDUSCOL)
+# 🔔 VEILLE MENSUELLE (rapport déposé chaque mois dans docs/veille/ par une tâche programmée)
 # ======================================================================
-def verifier_veille_dec(tavily_client):
-    if not tavily_client:
-        return
-
-    fichier_suivi = "dernier_check_dec.txt"
-    fichier_date_alerte = "date_alerte_dec.txt"
-    fichier_url_alerte = "url_alerte_dec.txt"
-    mois_actuel = datetime.datetime.now().strftime("%Y-%m")
-    aujourdhui = datetime.date.today()
-
-    url_defaut = "https://www.ac-aix-marseille.fr"
-
-    if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
-        try:
-            with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
-            with open(fichier_url_alerte, "r", encoding="utf-8") as f:
-                url_sauvegardee = f.read().strip()
-
-            st.session_state.date_veille_dec = date_alerte.strftime("%d/%m/%Y")
-            st.session_state.alerte_veille_dec = (
-                f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées. "
-                f"[🔗 Accéder à la page académique]({url_sauvegardee})"
-            )
-        except Exception:
-            pass
-
-    a_deja_ete_fait = False
-    if os.path.exists(fichier_suivi):
-        try:
-            with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel:
-                    a_deja_ete_fait = True
-        except Exception:
-            pass
-
-    if not a_deja_ete_fait:
-        url_trouvee = url_defaut
-        try:
-            recherche_veille = tavily_client.search(
-                query=(
-                    "circulaire examen EPS DEC Aix-Marseille mise à jour"
-                    f" {datetime.datetime.now().year}"
-                ),
-                max_results=2,
-                include_domains=["ac-aix-marseille.fr", "education.gouv.fr"],
-            )
-            results = recherche_veille.get("results")
-            if results:
-                url_trouvee = results[0].get("url", url_defaut)
-        except Exception:
-            pass
-
-        try:
-            with open(fichier_suivi, "w", encoding="utf-8") as f:
-                f.write(mois_actuel)
-            with open(fichier_date_alerte, "w", encoding="utf-8") as f:
-                f.write(aujourdhui.strftime("%Y-%m-%d"))
-            with open(fichier_url_alerte, "w", encoding="utf-8") as f:
-                f.write(url_trouvee)
-        except Exception:
-            pass
-
-        st.session_state.date_veille_dec = aujourdhui.strftime("%d/%m/%Y")
-        st.session_state.alerte_veille_dec = (
-            f"🔔 **Veille réglementaire DEC** : De nouvelles informations ou mises à jour ont été détectées sur le portail académique. "
-            f"[🔗 Accéder à la page académique]({url_trouvee})"
-        )
-
-
-def verifier_veille_eduscol(tavily_client):
-    if not tavily_client:
-        return
-
-    fichier_suivi = "dernier_check_eduscol.txt"
-    fichier_date_alerte = "date_alerte_eduscol.txt"
-    fichier_url_alerte = "url_alerte_eduscol.txt"
-    mois_actuel = datetime.datetime.now().strftime("%Y-%m")
-    aujourdhui = datetime.date.today()
-
-    url_defaut = "https://eduscol.education.fr"
-
-    if os.path.exists(fichier_date_alerte) and os.path.exists(fichier_url_alerte):
-        try:
-            with open(fichier_date_alerte, "r", encoding="utf-8") as f:
-                date_alerte_str = f.read().strip()
-                date_alerte = datetime.datetime.strptime(date_alerte_str, "%Y-%m-%d").date()
-            with open(fichier_url_alerte, "r", encoding="utf-8") as f:
-                url_sauvegardee = f.read().strip()
-
-            st.session_state.date_veille_eduscol = date_alerte.strftime("%d/%m/%Y")
-            st.session_state.alerte_veille_eduscol = (
-                f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles en EPS ont été détectés. "
-                f"[🔗 Consulter la ressource]({url_sauvegardee})"
-            )
-        except Exception:
-            pass
-
-    a_deja_ete_fait = False
-    if os.path.exists(fichier_suivi):
-        try:
-            with open(fichier_suivi, "r", encoding="utf-8") as f:
-                if f.read().strip() == mois_actuel:
-                    a_deja_ete_fait = True
-        except Exception:
-            pass
-
-    if not a_deja_ete_fait:
-        url_trouvee = url_defaut
-        try:
-            recherche_veille = tavily_client.search(
-                query=(
-                    "EPS éducation physique et sportive nouveau texte officiel Eduscol"
-                    f" {datetime.datetime.now().year}"
-                ),
-                max_results=2,
-                include_domains=["eduscol.education.fr", "education.gouv.fr"],
-            )
-            results = recherche_veille.get("results")
-            if results:
-                url_trouvee = results[0].get("url", url_defaut)
-        except Exception:
-            pass
-
-        try:
-            with open(fichier_suivi, "w", encoding="utf-8") as f:
-                f.write(mois_actuel)
-            with open(fichier_date_alerte, "w", encoding="utf-8") as f:
-                f.write(aujourdhui.strftime("%Y-%m-%d"))
-            with open(fichier_url_alerte, "w", encoding="utf-8") as f:
-                f.write(url_trouvee)
-        except Exception:
-            pass
-
-        st.session_state.date_veille_eduscol = aujourdhui.strftime("%d/%m/%Y")
-        st.session_state.alerte_veille_eduscol = (
-            f"🔔 **Veille Éduscol** : De nouveaux textes ou ressources officielles ont été détectés. "
-            f"[🔗 Consulter la ressource]({url_trouvee})"
-        )
-
-verifier_veille_dec(tavily_client)
-verifier_veille_eduscol(tavily_client)
+# L'ancienne veille Tavily affichait « nouveau » chaque mois sans comparer avec le mois précédent :
+# remplacée par la lecture du dernier rapport, sans appel réseau ni IA.
 
 # ======================================================================
 # 🔑 ZONE SECRÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
@@ -1376,61 +1235,31 @@ if st.session_state.get("is_admin", False):
                + (" · version " + _sha if _sha else ""))
 
 if st.session_state.get("is_admin", False):
-    if "alerte_veille_dec" in st.session_state:
-        date_alerte = st.session_state.get("date_veille_dec", "Récemment")
-        texte_alerte_dec = st.session_state.get("alerte_veille_dec", "")
-        
-        lien_html_dec = ""
-        match_dec = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_dec)
-        if match_dec:
-            libelle_lien, url_lien = match_dec.groups()
-            lien_html_dec = f'<br><a href="{url_lien}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien}</a>'
-
-        st.markdown(
-            f"""
+    import html as _html_veille
+    from veille_mensuelle import dernier_rapport, texte_bandeau
+    _rapport_veille = dernier_rapport()
+    _titre_veille, _phrase_veille = texte_bandeau(_rapport_veille)
+    _liste_veille = ""
+    if _rapport_veille and _rapport_veille["titres"]:
+        _liste_veille = "<ul style='margin: 6px 0 0 18px; padding: 0;'>" + "".join(
+            f'<li><a href="{_html_veille.escape(u)}" target="_blank" style="color: #FFB020 !important;">{_html_veille.escape(t)}</a></li>'
+            for t, u in _rapport_veille["titres"]) + "</ul>"
+    _lien_veille = (f'<br><a href="{_rapport_veille["url"]}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">Lire le rapport complet</a>'
+                    if _rapport_veille else "")
+    st.markdown(
+        f"""
         <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
             <div style="display: flex; align-items: flex-start; gap: 12px;">
-                <span style="font-size: 22px; margin-top: 2px;">🚨</span>
+                <span style="font-size: 22px; margin-top: 2px;">🔔</span>
                 <div style="width: 100%;">
-                    <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">Veille réglementaire DEC (Admin) — Détectée le {date_alerte}</strong>
-                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
-                        De nouvelles informations ou mises à jour ont été détectées sur les portails officiels.
-                        {lien_html_dec}
-                    </div>
+                    <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">{_html_veille.escape(_titre_veille)} (admin)</strong>
+                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">{_html_veille.escape(_phrase_veille)}{_liste_veille}{_lien_veille}</div>
                 </div>
             </div>
         </div>
         """,
-            unsafe_allow_html=True,
-        )
-
-    if "alerte_veille_eduscol" in st.session_state:
-        date_alerte_edu = st.session_state.get("date_veille_eduscol", "Récemment")
-        texte_alerte_edu = st.session_state.get("alerte_veille_eduscol", "")
-
-        lien_html_edu = ""
-        match_edu = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', texte_alerte_edu)
-        if match_edu:
-            libelle_lien_edu, url_lien_edu = match_edu.groups()
-            lien_html_edu = f'<br><a href="{url_lien_edu}" target="_blank" style="color: #38BDF8 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">{libelle_lien_edu}</a>'
-
-        st.markdown(
-            f"""
-        <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #38BDF8; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
-            <div style="display: flex; align-items: flex-start; gap: 12px;">
-                <span style="font-size: 22px; margin-top: 2px;">📘</span>
-                <div style="width: 100%;">
-                    <strong style="color: #38BDF8 !important; font-size: 14px; text-transform: uppercase;">Veille Éduscol (Admin) — Détectée le {date_alerte_edu}</strong>
-                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">
-                        De nouveaux textes ou ressources officielles ont été mis en ligne.
-                        {lien_html_edu}
-                    </div>
-                </div>
-            </div>
-        </div>
-        """,
-            unsafe_allow_html=True,
-        )
+        unsafe_allow_html=True,
+    )
 
 # ======================================================================
 # 6. ÉTAPE 1 : CHOIX DU CONTEXTE (3 ONGLETS)

@@ -79,3 +79,8 @@ class ClaimGuardsTests(unittest.TestCase):
         self.assertTrue(any('mode not in' in ast.unparse(node.test)
                             and all(m in ast.unparse(node.test) for m in ('examens', 'ipack', 'textes'))
                             for node in arbiters))
+
+    def test_corpus_silence_does_not_prove_nonexistence(self):
+        proof = "Aucun texte de la base n'interdit ni n'organise cette communication. Faire confirmer la consigne."
+        self.assertTrue(unsupported_certainty("Il n'existe pas de règle écrite interdisant cette communication.", [proof]))
+        self.assertFalse(unsupported_certainty("Aucun texte de la base ne permet de confirmer une interdiction de cette communication.", [proof]))

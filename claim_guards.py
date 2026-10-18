@@ -10,12 +10,14 @@ _LIMIT = re.compile(r"(?:ne|n').{0,55}(?:peut|permet|permettent).{0,20}pas.{0,35
 def unsupported_certainty(text, supports):
     """Le silence documentaire seul ne prouve jamais une prescription."""
     proof = [normalized(p) for p in supports if p]
-    if not proof or not all(_ABSENCE.search(p) for p in proof):
+    documentary_absence = lambda p: bool(_ABSENCE.search(p) or re.search(r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", p))
+    if not proof or not all(documentary_absence(p) for p in proof):
         return False
     # Vérifier auprès d'un service reste une démarche sûre ; une réserve dans
     # une autre phrase ne sauve pas une conclusion catégorique.
     for sentence in re.split(r'[.;!?]', normalized(text)):
-        if not _CATEGORICAL.search(sentence) or _LIMIT.search(sentence):
+        nonexistent_rule = re.search(r"(?:n'existe|ne existe|n'existent).{0,12}pas.{0,45}(?:regle|consigne|texte|interdiction)|aucune.{0,20}(?:regle|consigne|interdiction).{0,20}n'existe", sentence)
+        if (not _CATEGORICAL.search(sentence) and not nonexistent_rule) or _LIMIT.search(sentence):
             continue
         if re.search(r'\b(?:doit|doivent|devez)\s+(?:faire\s+)?(?:verifier|confirmer|consulter|demander)\b', sentence):
             continue

@@ -89,10 +89,10 @@
     "preuve": "choisir le cycle (par exemple Troisième pour une classe de 3e), puis [Enregistrer]"
    },
    {
-    "clic": "[Organisation des Classes] → crayon [Modifier] → mode et votre nom → [Enregistrer]",
+    "clic": "[Organisation des Classes] → crayon [Modifier] → mode et votre nom → [Enregistrer] (obligatoire pour les classes d'examen)",
     "video": "3.1 Dossier EPS — Classes",
-    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
-    "preuve": "cocher son nom dans « Professeurs attribués à la classe » ; [Enregistrer]"
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "les classes d'examen doivent être organisées"
    },
    {
     "clic": "[Importation des Élèves] → [Importer]",
@@ -440,6 +440,20 @@
     "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
     "preuve": "[Mes Élèves] > [Inaptitudes] liste les inaptitudes"
    }
+  ],
+  "CFA, MFR, AEFE : créer directement les groupes": [
+   {
+    "clic": "Pas de [Classes] : [Dossier EPS] → [Groupes] → [Groupes EPS] → [Créer un groupe]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "il ne passe pas par [Classes] ; il va directement dans [Dossier EPS] > [Groupes] créer ses groupes"
+   },
+   {
+    "clic": "[Gérer les S.A.] → APSA → « évalués pour l'examen » → période → [Ajouter]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Les élèves seront évalués sur cette APSA pour l'examen"
+   }
   ]
  },
  "menu": [
@@ -502,12 +516,22 @@
      ]
     },
     {
-     "libelle": "Classes",
+     "libelle": "Classes (établissement de l’Éducation nationale)",
      "parcours": "Voir mes classes et importer mes élèves",
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
      ]
+    },
+    {
+     "libelle": "CFA, MFR, AEFE : pas de classes, groupes directement",
+     "parcours": "CFA, MFR, AEFE : créer directement les groupes",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]",
+      "[APSA] (APSA certificatives)"
+     ],
+     "cible": "de créer vos groupes"
     },
     {
      "libelle": "APSA : déclarer une APSA certificative",

@@ -210,6 +210,16 @@ class GuideLyceeGTTests(unittest.TestCase):
         rentree = [s['clic'] for s in self.routes['Me repérer depuis le début (ordre de rentrée)']]
         self.assertIn('[Dossier Certificatif]', rentree[-1])
 
+    def test_deux_contextes_de_classes(self):
+        menu = guide.college_menu(self.routes, guide.LYCEE_GT)
+        eps = [e['libelle'] for b in menu if b['rubrique'] == 'Dossier EPS' for e in b['entrees']]
+        i = eps.index('Classes (établissement de l’Éducation nationale)')
+        self.assertTrue(eps[i + 1].startswith('CFA, MFR, AEFE'))
+        steps = [s['clic'] for s in self.routes['CFA, MFR, AEFE : créer directement les groupes']]
+        self.assertIn('Pas de [Classes]', steps[0]); self.assertIn('[Créer un groupe]', steps[0])
+        orga = self.routes['Voir mes classes et importer mes élèves'][2]['clic']
+        self.assertIn("obligatoire pour les classes d'examen", orga)
+
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):
             t = f.read_text(encoding='utf-8')

@@ -5702,6 +5702,17 @@
    "autres_academies_citees": [],
    "portee_texte": "DNB, cadre national",
    "titre": "DNB : qui valide les moyennes d'EPS de troisième"
+  },
+  "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt": {
+   "nature": [
+    "logiciel",
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement iPackEPS commun ; contenu de la liste académique propre à chaque académie",
+   "titre": "iPackEPS : liste académique, pas de FCA à déposer"
   }
  }
 }

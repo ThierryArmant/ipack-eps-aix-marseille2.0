@@ -1,0 +1,6 @@
+### iPackEPS : épreuve de la liste académique — pas de FCA à déposer
+Réponse directe : c'est normal ; pour une épreuve de la liste académique, la fiche (FCA) est fournie par l'inspection pédagogique (IA-IPR) et l'établissement n'a pas de référentiel à déposer ; la barre d'avancement peut rester incomplète : ne pas en tenir compte et transmettre le dossier en indiquant en commentaire « APSA de la liste académique ».
+Vérifier d'abord que l'activité figure bien sur la liste académique de votre académie : à Aix-Marseille, le cross-training n'y est pas, c'est une épreuve d'établissement (d'autres académies l'inscrivent sur leur liste) ; une épreuve d'établissement suppose l'accord préalable de l'inspection et une seule est possible par ensemble.
+Pour s'écarter de la proposition académique, déclarer l'activité comme épreuve d'établissement, sous réserve de la validation préalable de l'inspection et qu'aucune autre épreuve d'établissement ne soit déjà programmée.
+Nature de la source : fonctionnement du logiciel iPackEPS et réponses du correspondant académique iPackEPS (Aix-Marseille) ; la composition de la liste académique dépend de chaque académie.
+Source : réponses écrites du correspondant iPackEPS, « Épreuve de la liste académique : pas de FCA à déposer » et « Cross-training, épreuve d'établissement », 2025-2026.

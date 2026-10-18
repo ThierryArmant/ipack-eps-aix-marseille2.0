@@ -6638,5 +6638,19 @@
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Special4/MENE2623194N",
     "date_verification": "2026-10-18"
+  },
+  "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt": {
+    "title": "iPackEPS : épreuve de la liste académique, pas de FCA à déposer",
+    "statut": "extraction_technique_sources_existantes_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "^(?=.*(?:\\bfca\\b|referentiel|fiche certificative|fiche))(?=.*(?:liste academique|apsa academique|activites? academiques?|epreuves? academiques?|apsa? de la liste|cross.?training|ultimate))(?=.*(?:depos|telecharg|envoy|bloqu|pas de|manque|97 ?%|non envoy|avancement))"
+    ]
   }
 }

@@ -1558,6 +1558,17 @@
     }
    ]
   },
+  "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS : épreuve de la liste académique — pas de FCA à déposer",
+     "lignes": [
+      "Vérifier d'abord que l'activité figure bien sur la liste académique de votre académie : à Aix-Marseille, le cross-training n'y est pas, c'est une épreuve d'établissement (d'autres académies l'inscrivent sur leur liste) ; une épreuve d'établissement suppose l'accord préalable de l'inspection et une seule est possible par ensemble."
+     ]
+    }
+   ]
+  },
   "data/ipack/transcriptions_videos_tutoriels.txt": {
    "academie": "aix-marseille",
    "sections": [

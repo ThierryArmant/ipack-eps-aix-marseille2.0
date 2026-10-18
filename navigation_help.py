@@ -8,7 +8,7 @@ SOURCE = Path(__file__).resolve().parent / 'data/ipack/situations_2026_10_17/ord
 
 
 def offer_navigation_help(mode, public, origin, body):
-    return (mode == 'ipack' and public == 'Collège (DNB)' and origin == 'clarification'
+    return (mode == 'ipack' and public in ('Collège', 'Collège (DNB)') and origin == 'clarification'
             and CLARIFICATION in body)
 
 

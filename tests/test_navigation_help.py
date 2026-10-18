@@ -7,6 +7,7 @@ from navigation_help import offer_navigation_help, documented_navigation_help, C
 class NavigationHelpTests(unittest.TestCase):
     def test_only_specific_college_technical_clarification_offers_help(self):
         self.assertTrue(offer_navigation_help('ipack', 'Collège (DNB)', 'clarification', CLARIFICATION))
+        self.assertTrue(offer_navigation_help('ipack', 'Collège', 'clarification', CLARIFICATION))
         for args in (('textes','Collège (DNB)','clarification',CLARIFICATION),
                      ('examens','Collège (DNB)','clarification',CLARIFICATION),
                      ('ipack','Lycée Général & Techno','clarification',CLARIFICATION),

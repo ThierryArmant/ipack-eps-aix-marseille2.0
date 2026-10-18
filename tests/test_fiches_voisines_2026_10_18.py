@@ -55,6 +55,17 @@ class FichesVoisines(unittest.TestCase):
                     sans.append(p)
         self.assertEqual([], sans)
 
+    def test_arrete_1989_certificat(self):
+        s = "Certificat d'inaptitude : contenu, durée, reprise et médecin scolaire (arrêté du 13 septembre 1989)"
+        self.assertIn(s, t("Que doit indiquer le certificat médical d'inaptitude ?", CLG, 'textes'))
+        self.assertIn(s, t("Mon élève est inapte depuis quatre mois, qui assure le suivi ?", CLG, 'textes'))
+        self.assertIn(s, t("Puis-je demander qu'un élève soit examiné par le médecin scolaire ?", CLG, 'textes'))
+        self.assertNotIn(s, t("Mon élève est inapte depuis quatre mois, quelle note au CCF ?"))
+        from pathlib import Path
+        texte = Path('data/textes/fiches/arrete_1989_certificat_inaptitude.txt').read_text(encoding='utf-8')
+        self.assertIn('considéré apte à reprendre', texte)
+        self.assertIn('abrogé depuis le 24 mai 2006', texte)
+
 
 if __name__ == '__main__':
     unittest.main()

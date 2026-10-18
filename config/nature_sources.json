@@ -5655,6 +5655,16 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Bac GT : absence prolongée du professeur et CCF"
+  },
+  "data/textes/fiches/arrete_1989_certificat_inaptitude.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national, établissements publics et privés sous contrat",
+   "titre": "Certificat d'inaptitude : arrêté du 13 septembre 1989"
   }
  }
 }

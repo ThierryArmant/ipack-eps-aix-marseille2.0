@@ -662,9 +662,10 @@
      "libelle": "Cyclades : bilan et export des élèves",
      "parcours": "Transférer vers Cyclades",
      "prerequis": [
-      "[Groupes] (protocoles valides)",
-      "[Élèves] (élèves placés dans leur groupe)"
-     ]
+      "les protocoles validés par la CAHPN et déposés dans Cyclades par l'inspection",
+      "les candidats importés dans Cyclades par le service des examens"
+     ],
+     "cible": "d’exporter vers Cyclades"
     },
     {
      "libelle": "Soumettre le dossier certificatif",

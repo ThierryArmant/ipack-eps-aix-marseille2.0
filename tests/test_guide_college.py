@@ -240,6 +240,17 @@ class GuideLyceeGTTests(unittest.TestCase):
         clics = ' '.join(s['clic'] for s in self.routes['Déposer un référentiel'] + self.routes['Transférer vers Cyclades'])
         self.assertIn('dépôt ou remplacement', clics); self.assertIn('Importer ce fichier dans Cyclades', clics)
 
+    def test_calendrier_aix_et_conditions_export(self):
+        import knowledge_catalog as kc
+        for q in ["quand faire l'export cyclades ?", "jusqu'à quand déposer un référentiel ?"]:
+            self.assertIn('Aix-Marseille : calendrier du Dossier Certificatif', kc.priority_titles(q, 'Lycée Général & Techno', 'ipack'), q)
+        self.assertNotIn('Aix-Marseille : calendrier du Dossier Certificatif', kc.priority_titles('quand saisir les dates de rattrapage ?', 'Lycée Général & Techno', 'ipack'))
+        t = Path('data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt').read_text(encoding='utf-8')
+        self.assertIn('jusqu\'au 30 mai', t); self.assertIn('DIEC', t); self.assertIn('[PORTEE: gt,pro,cap]', t)
+        ui = UI('Cyclades : bilan et export des élèves', rub='Dossier Certificatif')
+        guide.render_guide(ui, 'c', 'Lycée voie générale')
+        self.assertTrue(ui.infos[0].startswith('Avant d’exporter vers Cyclades'))
+
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):
             t = f.read_text(encoding='utf-8')

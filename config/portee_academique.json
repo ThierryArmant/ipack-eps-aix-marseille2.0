@@ -1580,6 +1580,19 @@
     }
    ]
   },
+  "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Aix-Marseille : calendrier du Dossier Certificatif (dépôt des référentiels, export vers Cyclades)",
+     "lignes": [
+      "Réponse directe — date limite de dépôt des référentiels : à Aix-Marseille, les référentiels se déposent tout au long de l'année, jusqu'au 30 mai, pour une validation des référentiels l'année suivante.",
+      "Réponse directe — quand faire l'export vers Cyclades : l'export ([Dossier Certificatif] > [Cyclades] > [Export Elèves] > [Exporter les Elèves]) se fait seulement quand deux conditions sont remplies : 1) les protocoles ont été validés par la CAHPN et déposés dans Cyclades par l'inspection ; 2) les candidats ont été importés dans Cyclades par la DIEC (division des examens et concours du rectorat).",
+      "Avant ces deux étapes, l'export n'est pas à faire : attendre l'information de l'inspection et du service des examens."
+     ]
+    }
+   ]
+  },
   "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
    "academie": "aix-marseille",
    "sections": [

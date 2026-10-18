@@ -7023,5 +7023,22 @@
     "modes": [
       "ipack"
     ]
+  },
+  "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {
+    "title": "Aix-Marseille : calendrier du Dossier Certificatif",
+    "statut": "reponse_correspondant_academique_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:referentiel|export|cyclades))(?=.*(?:date|quand|calendrier|limite|30 mai|avant le|delai|moment|periode))"
+    ],
+    "exclure_motifs": [
+      "rattrap|date d.evaluation|co.?evaluat"
+    ]
   }
 }

@@ -5895,6 +5895,16 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS lycée : niveaux de formation, vœux de jury, inaptitudes"
+  },
+  "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Aix-Marseille : calendrier du Dossier Certificatif"
   }
  }
 }

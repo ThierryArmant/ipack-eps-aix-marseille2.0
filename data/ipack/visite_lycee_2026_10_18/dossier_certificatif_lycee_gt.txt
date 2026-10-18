@@ -1,4 +1,5 @@
 ### iPackEPS lycée : le Dossier Certificatif (référentiels, protocoles, documents CAHPN, export Cyclades)
+Réponse directe — [Tableau de bord] > [Les Dossiers et Projets] > [Dossier Certificatif], à remplir après le [Dossier EPS] ; quatre rubriques dans l'ordre de l'écran : [Dépôt Référentiels Certificatifs] (bouton [Envoyer] sur la ligne de l'APSA), [Protocole d'Évaluation des Épreuves Certificatives] (dates d'évaluation, de rattrapage, co-évaluateur), [Dépôt de Documents pour la CAHPN], [Cyclades] ([Bilan Protocoles], export des élèves).
 Accès : [Tableau de bord] > [Les Dossiers et Projets] > [Dossier Certificatif] (ou, sur le tableau de bord, « État de validation de vos Dossiers » > Dossier Certificatif > « Consulter votre dossier »). Il se remplit après le [Dossier EPS] : les APSA certificatives et les groupes d'examen viennent du Dossier EPS.
 L'écran renvoie à la documentation de l'assistance : « Les étapes nécessaires pour que vos données iPackEPS soient transférées vers Cyclades », puis « Les saisies sur Cyclades / Santorin ».
 Quatre rubriques, dans l'ordre de l'écran :

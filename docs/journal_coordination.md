@@ -1009,3 +1009,6 @@ Constat : `data/ipack/acces_ipackeps_problemes.txt` (10 510 caractères, 7 situa
 - « pas accès à certains modules / au dossier certificatif / menus absents » → fiche « Ma Fiche Professeur » ([Fonctions]) ;
 - bogue corrigé : la fiche DNB `01_controle_continu_calcul.txt` se déclenchait sur « erreur 403 » (motif `40` sans bornes) → `\b40\b`, `\b60\b`, `\b800\b`.
 5 questions types ajoutées à `tests/test_selection_questions_types.py`. Suite : 541 tests OK. Lu : entrée GPT `477763f` (branche `correction-controles-tokens-20261018`, non fusionnée) ; aucun conflit attendu, ces changements ne touchent que le catalogue et les fiches.
+
+### 18 octobre 2026 — Claude : réponse directe en tête des fiches iPackEPS les plus transmises
+Trois fiches très souvent choisies n'avaient pas de réponse en tête (l'IA devait la chercher dans 5 à 6 000 caractères) : Dossier Certificatif lycée, article 88 (import Pronote / École Directe), procédure de rentrée `ipack_000`. Ajout d'une ligne « Réponse directe — … » résumant uniquement ce que la fiche contient déjà (chemin, boutons, ordre) ; aucun contenu nouveau. Le tutoriel `import_eleves_pronote.mp4` de l'article 88 est conservé : il correspond à une vidéo réelle (`app.py`, table des tutoriels). Suite : 541 tests OK.

@@ -799,6 +799,26 @@ def course_duration_mismatch(question, packet):
 _SIGLES_COURANTS = {'EPS', 'CCF', 'AS', 'IA', 'BAC', 'GT', 'CAP', 'PRO', 'DNB', 'LP', 'LGT', 'OK', 'SVP', 'NB'}
 
 
+_CORPUS_WORDS = None
+
+
+def _corpus_words():
+    """Vocabulaire de toute la documentation active : un sigle connu ailleurs n'est pas une invention."""
+    global _CORPUS_WORDS
+    if _CORPUS_WORDS is None:
+        from knowledge_catalog import normalise
+        words = set()
+        for f in Path(__file__).resolve().parent.joinpath('data').rglob('*.txt'):
+            if 'archives' in f.parts:
+                continue
+            try:
+                words |= set(re.findall(r'[a-z0-9/]+', normalise(f.read_text(encoding='utf-8'))))
+            except OSError:
+                continue
+        _CORPUS_WORDS = words
+    return _CORPUS_WORDS
+
+
 def absent_terms(question, packets):
     """Éléments précis de la question (message cité entre guillemets, sigle) absents de tous les passages.
 
@@ -815,7 +835,9 @@ def absent_terms(question, packets):
     for sigle in re.findall(r'\b[A-Z][A-Z0-9]{1,4}(?:/[A-Z0-9]{1,3})?\b', question):
         if sigle in _SIGLES_COURANTS or sigle in [f.strip('« »') for f in found]:
             continue
-        if sigle.lower() not in corpus_words and sigle not in found:
+        # Un sigle connu de la documentation (UNSS, FCA, EPI…) peut manquer des passages transmis sans être
+        # une invention : seul un sigle inconnu de toute la base est signalé.
+        if sigle.lower() not in corpus_words and sigle.lower() not in _corpus_words() and sigle not in found:
             found.append(sigle)
     return found
 

@@ -77,6 +77,23 @@ class FichesVoisines(unittest.TestCase):
         code = Path('app.py').read_text(encoding='utf-8')
         self.assertIn('comportement|refus|bavard|insolen|tenue|sanction|punition|discipl|travaill', code)
 
+    def test_reprises_du_18_octobre(self):
+        q = ("Un élève s'est blessé lors d'un déplacement vers une installation sportive municipale. Qui doit passer "
+             "l'appel téléphonique aux parents et quel est le délai de transmission du rapport d'accident ?")
+        r = t(q, CLG, 'textes')
+        self.assertIn('Accident scolaire : rapport et communication aux parents', r)
+        self.assertFalse(any('arrêté du 13 septembre 1989' in x for x in r), r)
+        q = ("Notre protocole validé par la commission : à cause de travaux au gymnase, nous devons remplacer "
+             "le volley-ball par le badminton. Quelle procédure, faut-il refaire signer les familles ?")
+        self.assertEqual(["Remplacer une activité d'un protocole validé par une autre (travaux, installation indisponible)"], t(q))
+        self.assertIn('Installation fermée pour une classe : autorisation puis CE',
+                      t("La piscine est fermée pour toute la classe, l'évaluation de natation est impossible, que faire dans Santorin ?"))
+        self.assertIn('complement obligations service eps',
+                      t("Je suis TZR sur deux établissements, qui fixe mon emploi du temps ?", CLG, 'textes'))
+        from pathlib import Path
+        code = Path('app.py').read_text(encoding='utf-8')
+        self.assertIn('Question de REMPLACEMENT', code)
+
 
 if __name__ == '__main__':
     unittest.main()

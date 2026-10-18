@@ -5665,6 +5665,20 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national, établissements publics et privés sous contrat",
    "titre": "Certificat d'inaptitude : arrêté du 13 septembre 1989"
+  },
+  "data/examens/mesure3_corrections/remplacer_activite_protocole_valide.txt": {
+   "nature": [
+    "logiciel",
+    "consigne_academique",
+    "texte_national"
+   ],
+   "academie": "aix-marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": "procédure iPackEPS commune ; circuit Cyclades propre à Aix-Marseille ; cadre national GT",
+   "titre": "Remplacer une activité d'un protocole validé"
   }
  }
 }

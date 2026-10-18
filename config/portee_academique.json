@@ -792,6 +792,17 @@
     }
    ]
   },
+  "data/examens/mesure3_corrections/remplacer_activite_protocole_valide.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Remplacer une activité d'un protocole déjà validé par une autre (travaux, installation indisponible)",
+     "lignes": [
+      "À Aix-Marseille : créer le nouveau protocole dans iPackEPS (Dossiers > Dossier certificatif) et prévenir l'inspection pédagogique au préalable ; elle assure le transfert vers Cyclades selon le circuit académique ; ne pas modifier librement dans Cyclades un protocole déjà validé. Dans une autre académie, suivre le circuit de l'inspection et du service des examens."
+     ]
+    }
+   ]
+  },
   "data/examens/option_eps_individuel_2026.txt": {
    "academie": "aix-marseille",
    "sections": [

@@ -2606,7 +2606,13 @@ if prompt_a_traiter:
                             _par_champ.setdefault(ca, []).append(nom)
                         _lignes = [f"- {nom} : champ d'apprentissage {ca}" for nom, ca in _trouvees]
                         _memes = [" et ".join(noms) + f" (champ {ca})" for ca, noms in _par_champ.items() if len(noms) > 1]
-                        if _memes:
+                        # « remplacer le volley par le badminton » : les deux activités ne sont pas évaluées ensemble.
+                        _remplacement = bool(re.search(r"remplac|a la place|substitu|changer .{0,40}(?:pour|par|contre)|au lieu d", _q_simple))
+                        if _memes and _remplacement:
+                            _concl = ("Question de REMPLACEMENT d'une activité par une autre : " + " ; ".join(_memes)
+                                      + ". Remplacer l'une par l'autre conserve le même champ d'apprentissage dans l'ensemble certificatif ; "
+                                      "ne pas écrire qu'elles seraient évaluées ensemble ni que le remplacement est impossible pour cette raison.")
+                        elif _memes:
                             _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
                         else:
                             _concl = "Ces activités relèvent de champs DIFFÉRENTS. Ce constat concerne uniquement la diversité des champs : il ne prouve ni la validité du protocole complet ni une procédure de dépôt de FCA ou de déclaration dans iPackEPS. Pour une question de dépôt, distinguer les activités et utiliser seulement une procédure documentée pour chacune."
@@ -2614,7 +2620,7 @@ if prompt_a_traiter:
                         # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
                         # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question
                         # « ces deux activités dans le même protocole ? ». Le verdict en dur répondait alors à côté (courses / relais, boîte d'assistance).
-                        if (len(_q_simple) <= 260 and not re.search(r"fca|referentiel|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
+                        if (len(_q_simple) <= 260 and not _remplacement and not re.search(r"fca|referentiel|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
                                 and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
                             _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
                             if _memes:

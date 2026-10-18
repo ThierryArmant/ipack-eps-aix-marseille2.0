@@ -410,7 +410,7 @@
     "clic": "Élèves sans groupe : [Dossier EPS] → [Élèves] → Visualisation « Statut »",
     "video": null,
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "Visualisation « Statut », puis dans Type le statut des élèves sans groupe"
+    "preuve": "Visualisation « Statut », puis dans la liste « Sélection » : « élèves sans groupes »"
    },
    {
     "clic": "[Export Elèves] → [Exporter les Elèves]",
@@ -472,13 +472,13 @@
     "clic": "[Dossier EPS] → [Élèves] → à gauche Visualisation « Statut »",
     "video": "3.1 Dossier EPS — Élèves",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "Visualisation « Statut », puis dans Type le statut des élèves sans groupe"
+    "preuve": "Visualisation « Statut », puis dans la liste « Sélection » : « élèves sans groupes »"
    },
    {
-    "clic": "Type : élèves sans groupe (Sélection pour affiner)",
+    "clic": "Sélection : « élèves sans groupes »",
     "video": "3.1 Dossier EPS — Élèves",
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-    "preuve": "la liste « Sélection » permet d'affiner au besoin"
+    "preuve": "« élèves sans groupes » : tous les élèves qui ne sont dans aucun groupe s'affichent"
    },
    {
     "clic": "À droite : Type « EPS » et le groupe → cocher les élèves → [Ajouter -->]",

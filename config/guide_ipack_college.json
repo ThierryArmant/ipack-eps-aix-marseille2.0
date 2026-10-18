@@ -312,6 +312,40 @@
     "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
     "preuve": "cliquer sur [Ajouter -->]"
    }
+  ],
+  "Remplir l'enquête natation": [
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier Natation] → [Enquête Natation]",
+    "video": "https://youtu.be/tcuNAUFzI8w",
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "Enquête Natation : « La natation est-elle inscrite à votre programmation EPS ? »"
+   },
+   {
+    "clic": "Natation programmée ? Sinon un motif ; effectifs de 6e → [Enregistrer]",
+    "video": "https://youtu.be/tcuNAUFzI8w",
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "« N'oubliez pas d'enregistrer vos réponses » : [Enregistrer]"
+   },
+   {
+    "clic": "Indice de performance : [Calculer] → onglet [Statistiques]",
+    "video": "https://youtu.be/tcuNAUFzI8w",
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "[Calculer], puis l'onglet [Statistiques]"
+   }
+  ],
+  "Un élève n'est pas dans la liste ASNS": [
+   {
+    "clic": "Tableau de bord → [Mes Élèves] : valider l'ASNS de l'élève",
+    "video": "https://youtu.be/xlXcb8Z5ZQU",
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "Pour valider de nouveaux élèves, retournez dans [Tableau de bord]/[Mes Élèves]"
+   },
+   {
+    "clic": "[Dossier Natation] → [Validation ASNS] : l'élève apparaît",
+    "video": "https://youtu.be/JmhwQNyagOI",
+    "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+    "preuve": "Les élèves ci-dessous ont validé l'ASNS"
+   }
   ]
  },
  "menu": [
@@ -432,6 +466,20 @@
     {
      "libelle": "Validation ASNS : imprimer les attestations",
      "parcours": "Imprimer les attestations du savoir-nager (ASNS)",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
+    },
+    {
+     "libelle": "Un élève n'est pas dans la liste ASNS",
+     "parcours": "Un élève n'est pas dans la liste ASNS",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
+    },
+    {
+     "libelle": "Enquête Natation",
+     "parcours": "Remplir l'enquête natation",
      "prerequis": [
       "le [Dossier EPS]"
      ]

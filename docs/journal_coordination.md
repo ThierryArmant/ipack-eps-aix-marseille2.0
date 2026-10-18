@@ -898,3 +898,6 @@ Thierry confirme : conserver **iPackEPS sélectionné par défaut**. Il demande 
 
 ### 18 octobre 2026 — suite de la décision sur le libellé iPackEPS (Claude, `app.py`)
 Commit `6597820` de GPT pris en compte. Il restait l'ancien libellé dans la ligne affichée sous chaque réponse (« Contexte utilisé pour cette réponse : l'onglet Assistance Technique iPackEPS (Gestion du CCF) ») : `onglets_noms["ipack"]` devient « l'onglet Assistance Technique iPackEPS ». Une seule ligne de `app.py` modifiée, rien d'autre.
+
+### 18 octobre 2026 — guide collège : Dossier Natation complété (Claude)
+Menu [Dossier Natation] du guide collège : deux entrées ajoutées, à partir de l'écran relevé pendant la visite (fiche `natation_asns_diplomes_enquete`) et de la playlist officielle. « Enquête Natation » : [Enquête Natation] → natation programmée ou motif, effectifs de 6e → [Enregistrer] ; [Calculer] l'indice de performance → onglet [Statistiques] (vidéo « saisie de l'enquête natation »). « Un élève n'est pas dans la liste ASNS » : l'écran renvoie vers [Mes Élèves] pour valider de nouveaux élèves (vidéo « Élèves, visualisation : validation des ASNS »), puis retour à [Validation ASNS]. Aucune étape non vue ; aucune modification du moteur.

@@ -769,3 +769,6 @@ Vidéo https://youtu.be/-Ka0fNtMLBk (déjà « 1. Saisie établissement » du pa
 
 ### 18 octobre 2026 — guide : boutons lisibles
 Correctif : la règle « texte blanc » du guide rendait le bouton « Découvrir l'interface iPackEPS » blanc sur blanc. Boutons du guide : fond blanc, texte foncé, bordure bleue.
+
+### 18 octobre 2026 — lien « Découvrir l'interface iPackEPS » retiré du guide
+Sur demande de Thierry : le menu par dossiers détaille déjà chaque écran ; le lien vers l'article 34 est supprimé.

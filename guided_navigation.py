@@ -139,7 +139,6 @@ def render_guide(st, key, public):
     if not available:
         st.info('Guide indisponible pour le moment.')
         return
-    st.link_button('▶ Découvrir l’interface iPackEPS', 'https://ipackeps.ac-creteil.fr/spip.php?article34')
     rule = order_rule()
     if rule:
         st.info(rule)

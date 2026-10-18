@@ -5948,6 +5948,226 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "iPackEPS : qui contacter pour quoi (assistance, DEC, inspection)"
+  },
+  "data/examens/santorin_cas_pratiques/01_santorin_refuse_la_note_de_l_afl2_ou_de_l_afl3_il_faut.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Santorin refuse la note de l'afl2 ou de l'afl3 — il faut d'abord l'afl1"
+  },
+  "data/examens/santorin_cas_pratiques/02_saisie_des_notes_dans_santorin_les_gestes_qui_evitent_d.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Saisie des notes dans santorin — les gestes qui évitent de perdre sa saisie"
+  },
+  "data/examens/santorin_cas_pratiques/03_quand_remplir_le_champ_appreciations_dans_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Quand remplir le champ « appréciations » dans santorin ?"
+  },
+  "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Élève inapte toute l'année, ou avec une seule note sur trois — que saisir dans santorin ?"
+  },
+  "data/examens/santorin_cas_pratiques/05_faut_il_verrouiller_son_lot_tout_de_suite_apres_la_sais.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Faut-il verrouiller son lot tout de suite après la saisie ?"
+  },
+  "data/examens/santorin_cas_pratiques/06_peut_on_ouvrir_cyclades_ou_santorin_dans_plusieurs_ongl.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Peut-on ouvrir cyclades ou santorin dans plusieurs onglets ?"
+  },
+  "data/examens/santorin_cas_pratiques/07_qui_saisit_les_notes_de_ccf_et_que_faire_si_l_evaluateu.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Qui saisit les notes de ccf, et que faire si l'évaluateur est absent ?"
+  },
+  "data/examens/santorin_cas_pratiques/08_extraire_les_notes_saisies_dans_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Extraire les notes saisies dans santorin"
+  },
+  "data/examens/santorin_cas_pratiques/09_vocabulaire_epreuve_de_substitution_de_rattrapage_diffe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Vocabulaire — épreuve de substitution, de rattrapage, différée"
+  },
+  "data/examens/santorin_cas_pratiques/10_une_activite_n_a_pas_pu_etre_evaluee_pour_tout_un_group.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Une activité n'a pas pu être évaluée pour tout un groupe — cas exceptionnel (ce)"
+  },
+  "data/examens/santorin_cas_pratiques/11_installation_fermee_ou_professeur_non_remplace_un_seul.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Installation fermée ou professeur non remplacé — un seul élève (ou quelques-uns) n'a pas p"
+  },
+  "data/examens/santorin_cas_pratiques/12_note_de_l_enseignement_optionnel_d_eps_option_eps_ou_se.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Note de l'enseignement optionnel d'eps (option eps) — où se saisit-elle ?"
+  },
+  "data/examens/santorin_cas_pratiques/13_co_evaluation_obligatoire_ou_non_selon_l_examen_bac_gt.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : Co-évaluation — obligatoire ou non selon l'examen (bac gt, bac pro, cap, dnb)"
+  },
+  "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie",
+    "Strasbourg"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin : De la validation des protocoles à la saisie des notes — les étapes dans l'ordre et qui les"
+  },
+  "data/examens/erreurs_cyclades_santorin.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement des applications nationales Cyclades et Santorin",
+   "titre": "Cyclades et Santorin : messages d'erreur"
   }
  }
 }

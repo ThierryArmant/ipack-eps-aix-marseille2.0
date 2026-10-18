@@ -1,0 +1,12 @@
+### Santorin / Cyclades : Installation fermée ou professeur non remplacé — un seul élève (ou quelques-uns) n'a pas pu être évalué
+- Mots-clés : cas exceptionnel, CE, un seul élève, élève isolé, quelques élèves, piscine fermée, installation indisponible, lot à part, nouveau lot, référent Santorin.
+- Formulations courantes des collègues : la piscine est fermée, un seul de mes élèves n'a pas pu être évalué ; un élève arrivé après la fermeture de l'installation n'a pas de note ; le CE ne concerne qu'un élève de mon lot, comment faire.
+- La procédure existe pour un élève isolé : la donner.
+- Condition : la raison est externe à l'élève (installation indisponible, professeur absent non remplacé, séquence trop courte). Si la raison est médicale ou une absence, ce n'est pas un cas exceptionnel : épreuve différée, dispense ou règles d'absence du diplôme.
+- Étape 1 : demander l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), par l'inspection pédagogique et la division des examens.
+- Étape 2 : ne pas déclarer le CE sur le lot entier. Le chef d'établissement, ou l'enseignant référent Santorin, crée un lot à part et y place uniquement le ou les élèves concernés.
+- Étape 3 : sur ce lot à part, avant la saisie des notes, cliquer sur [Déclarer CE] et sélectionner l'APSA à écarter. Les autres élèves, restés dans le lot d'origine, sont notés normalement.
+- (Tutoriel officiel iPackEPS, article 95, cas d'un seul élève du lot.)
+- Vidéo : https://www.youtube.com/watch?v=E2VMoq7sLgI
+Nature de la source : fonctionnement des applications nationales Santorin et Cyclades (manipulations identiques dans toutes les académies) ; dates et contacts propres à chaque académie.
+Source : guides publics d'autres académies — Académie de Normandie, « Guide des examens EPS — Session 2025 » : https://codimd.apps.education.fr/s/sCi9raCjJ; Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf; Académie de Strasbourg, « FAQ iPackEPS / Cyclades / Santorin » du 29 mars 2024 : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf; Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_SaisiesCycladesSantorin.pdf.

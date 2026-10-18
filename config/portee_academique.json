@@ -825,6 +825,50 @@
     }
    ]
   },
+  "data/examens/santorin_cas_pratiques/03_quand_remplir_le_champ_appreciations_dans_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin / Cyclades : Quand remplir le champ « appréciations » dans santorin ?",
+     "lignes": [
+      "- Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.) Les sources citées concernent d’autres académies : vérifier le circuit applicable à Aix ; ne pas en déduire une dispense automatique ni une exemption de justificatif."
+     ]
+    }
+   ]
+  },
+  "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin / Cyclades : Élève inapte toute l'année, ou avec une seule note sur trois — que saisir dans santorin ?",
+     "lignes": [
+      "- AIX-MARSEILLE : la dispense automatique avec deux activités non évaluées et une seule note n’est pas confirmée par une source officielle vérifiée dans cette base. Ne pas supprimer la note automatiquement ; apprécier le cas selon le texte propre au diplôme et les justificatifs, puis suivre les consignes de la commission."
+     ]
+    }
+   ]
+  },
+  "data/examens/santorin_cas_pratiques/10_une_activite_n_a_pas_pu_etre_evaluee_pour_tout_un_group.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin / Cyclades : Une activité n'a pas pu être évaluée pour tout un groupe — cas exceptionnel (ce)",
+     "lignes": [
+      "- Quand une activité ne peut pas être évaluée pour l'ensemble d'un groupe pour une raison technique ou matérielle (installation indisponible, professeur absent non remplacé), l'établissement demande l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), par l'inspection pédagogique et la division des examens. Le cas exceptionnel n'est pas une réponse à l'inaptitude médicale ou à l'absence d'un élève : ces situations se traitent par l'épreuve différée, la dispense ou les règles d'absence du diplôme. (Sources : support Besançon 2025 ; support de la division des examens d'Aix-Marseille, 2024.)"
+     ]
+    }
+   ]
+  },
+  "data/examens/santorin_cas_pratiques/11_installation_fermee_ou_professeur_non_remplace_un_seul.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Santorin / Cyclades : Installation fermée ou professeur non remplacé — un seul élève (ou quelques-uns) n'a pas pu être évalué",
+     "lignes": [
+      "- Étape 1 : demander l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), par l'inspection pédagogique et la division des examens."
+     ]
+    }
+   ]
+  },
   "data/examens/sigles_examens_eps.txt": {
    "academie": "aix-marseille",
    "sections": [

@@ -38,6 +38,15 @@ CAS = [
     ("à qui m'adresser pour un bug iPackEPS", GT, 'ipack', 'iPackEPS : qui contacter pour quoi', []),
     ('on a transmis nos protocoles, je veux changer une APSA', GT, 'ipack', "Remplacer une activité d'un protocole", []),
     ('où déposer les fiches certificatives d’activité (FCA) ?', GT, 'ipack', 'iPackEPS lycée : Dossier Certificatif', []),
+    # Onglet Examens : fiches Santorin / Cyclades découpées ou rendues prioritaires (18 octobre).
+    ('Santorin refuse ma note 4,5', GT, 'examens', 'Santorin : Saisie des notes', []),
+    ("l'appréciation est-elle obligatoire dans Santorin ?", GT, 'examens', 'Santorin : Quand remplir le champ', []),
+    ('faut-il verrouiller le lot avant la fin des rattrapages ?', GT, 'examens', 'Santorin : Faut-il verrouiller', []),
+    ('comment partager un lot Santorin avec un collègue ?', GT, 'examens', '[SITUATION: CORRECTION PARTAGÉE SANTORIN]', []),
+    ('mon remplaçant doit saisir les notes dans Santorin', GT, 'examens', '[SITUATION: ACCÈS REMPLAÇANT SANTORIN', ['Santorin : Vocabulaire']),
+    ('je ne trouve pas le lot de ma classe dans Santorin', GT, 'examens', '[ERREUR : AUCUN LOT À CORRIGER]', []),
+    ("compte-rendu d'import Cyclades : candidats ignorés et INE non inscrits", GT, 'examens', "Cyclades et Santorin : messages d'erreur", []),
+    ('une copie est illisible dans Santorin', GT, 'examens', '[SITUATION: SANTORIN POUR LES CORRECTEURS', []),
 ]
 
 

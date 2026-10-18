@@ -1,0 +1,10 @@
+### Santorin / Cyclades : Saisie des notes dans santorin — les gestes qui évitent de perdre sa saisie
+- Mots-clés : virgule, point décimal, 6.5, bouton Enregistrer, réinitialiser, notes effacées, saisie perdue, entrée.
+- Formulations courantes des collègues : Santorin refuse ma note à virgule ; mes notes ont disparu ; j'ai cliqué sur réinitialiser ; faut-il enregistrer à chaque élève ; comment valider une note.
+- Décimales : utiliser le point « . » et non la virgule (exemple : 6.5).
+- Appuyer sur la touche Entrée pour valider la note et passer à l'AFL (ou AFLP) suivant.
+- Enregistrer obligatoirement, avec le bouton situé en bas à droite, après chaque APSA.
+- Ne pas cliquer sur « Réinitialiser » quand plusieurs APSA sont déjà saisies : la saisie serait effacée.
+- La saisie se fait élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP, et non une note globale. (Sources : support Besançon 2025, document Corse 2024-2025.)
+Nature de la source : fonctionnement des applications nationales Santorin et Cyclades (manipulations identiques dans toutes les académies) ; dates et contacts propres à chaque académie.
+Source : guides publics d'autres académies — Académie de Normandie, « Guide des examens EPS — Session 2025 » : https://codimd.apps.education.fr/s/sCi9raCjJ; Académie de Besançon, support de visio « Cyclades / Santorin » du 15 janvier 2025 : https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2025/02/25-01-15.-Support-visio-Cyclades_Santorin-VF.pdf; Académie de Strasbourg, « FAQ iPackEPS / Cyclades / Santorin » du 29 mars 2024 : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/ipr/packeps/20240329_FAQ_Cyclades.pdf; Académie de Corse, « Interfaçage iPackEPS / Cyclades 2024-2025 » : https://sites.ac-corse.fr/eps/wp-content/uploads/sites/24/2024/03/iPackEPS_Interfacage-Cyclades_2024-2025_SaisiesCycladesSantorin.pdf.

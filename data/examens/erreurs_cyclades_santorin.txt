@@ -1,0 +1,16 @@
+### Cyclades et Santorin : messages d'erreur, ce qu'ils veulent dire
+- Mots-clés : message d'erreur, Cyclades, Santorin, candidats ignorés, INE non inscrit, adresses mail non retrouvées, incohérences de données, erreur données, passage du protocole, bouton grisé, verrouiller désactivé, cases inactives.
+- Formulations courantes des collègues : Santorin affiche une erreur ; Cyclades me met un message ; la distribution des lots plante ; je ne peux pas saisir ; le bouton est grisé.
+- Compte-rendu d'import Cyclades, « candidats ignorés car inconnus ou non inscrits » : normal, le fichier contient les élèves de tous les examens ; vérifier seulement que le traitement s'est bien déroulé.
+- Bouton d'import absent dans Cyclades : la commission n'a pas encore validé tous les protocoles de l'établissement.
+- Seule l'option « protocole adapté » est proposée à la création : les protocoles ont déjà été validés par la commission.
+- Distribution des lots, liste d'« adresses mail non retrouvées » : mission Imag'in non créée pour ces enseignants, ou adresse différente entre Cyclades et Imag'in ; créer les missions, sinon passer par la distribution manuelle.
+- Alerte « incohérences de données sur les candidats » dans Santorin : élèves ayant changé d'établissement, désinscrits ou démissionnaires ; le chef d'établissement met à jour l'inscription, sinon contacter la DEC de son académie.
+- « Erreur données : passage du protocole … vers le protocole …, des APSA sont modifiées » : des notes avaient été saisies sur une APSA remplacée ; rouvrir la fiche de chaque élève concerné et cliquer sur [Enregistrer].
+- Cases de saisie des AFL ou AFLP inactives : le professeur n'a pas cliqué sur [Choisir AFLP] pour son lot.
+- Note à virgule non prise : taper un point (4.5) puis Entrée.
+- Bouton [Verrouiller] grisé : un élève au moins n'a pas d'évaluation sur chacune des APSA.
+- Cadenas fermé, saisie impossible : lot verrouillé ; seul le chef d'établissement peut le rouvrir.
+- Menu « EPS – Gestion des épreuves EPS » ou « Portail d'accès aux missions » absent dans Imag'in : le chef d'établissement n'a pas créé la mission d'évaluation EPS.
+Nature de la source : fonctionnement des applications nationales Cyclades et Santorin.
+Source : fiche « messages d'erreur et contacts » du hub (section Cyclades / Santorin), extraite pour être transmise seule.

@@ -704,7 +704,8 @@
   "data/examens/complement_saisie_santorin_cas_pratiques.txt": {
     "title": "complement saisie santorin cas pratiques",
     "statut": "synthese_non_revalidee",
-    "examens": []
+    "examens": [],
+    "retrieval_enabled": false
   },
   "data/examens/regles_dnb_eps.txt": {
     "title": "DNB EPS : contrôle continu et LSU, repères 2026 et 2027",
@@ -990,7 +991,16 @@
     "title": "[ERREUR : AUCUN LOT À CORRIGER]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|absent|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+    ]
   },
   "data/ipack/fiches/ipack_008_situation_absence_d_un_correcteur_enseignant_sur_santorin.txt": {
     "title": "[SITUATION: ABSENCE D'UN CORRECTEUR / ENSEIGNANT SUR SANTORIN]",
@@ -1008,7 +1018,16 @@
     "title": "[SITUATION: CORRECTION PARTAGÉE SANTORIN]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?:partag|deux enseignants|deux professeurs|collegue).{0,60}(?:meme )?lot|lots?.{0,40}(?:partag|collegue|deux enseignants)|(?:ajouter|deuxieme|second) correcteur|co.?correct"
+    ]
   },
   "data/ipack/fiches/ipack_013_situation_refresh_et_synchronisation_esterel_portail_arena.txt": {
     "title": "[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL (PORTAIL ARENA)]",
@@ -1223,13 +1242,34 @@
     "title": "[SITUATION: ACCÈS REMPLAÇANT SANTORIN]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "rempla\\w*.{0,80}(?:santorin|lots?|codes?|saisir (?:les |ses )?notes)|(?:santorin|lots?).{0,60}rempla"
+    ],
+    "exclure_motifs": [
+      "note de remplacement|epreuve de remplacement|decret"
+    ]
   },
   "data/ipack/fiches/ipack_045_situation_message_aucun_lot_a_corriger.txt": {
     "title": "[SITUATION: MESSAGE AUCUN LOT A CORRIGER]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?:ne (?:vois|trouve) pas|introuvable|aucun|pas (?:de|mon)).{0,30}lots?|lots?.{0,40}(?:n.appara|introuvable|absent|manqu)|qui distribu\\w*.{0,20}lots?|distribution des lots"
+    ]
   },
   "data/ipack/fiches/ipack_046_situation_cycle_athletisme_adaptation_protocoles_ccf.txt": {
     "title": "[SITUATION: CYCLE ATHLÉTISME ADAPTATION PROTOCOLES CCF]",
@@ -2018,7 +2058,19 @@
     "title": "[SITUATION: SANTORIN — ACCÈS REMPLAÇANT (CHRONOLOGIE)]",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "rempla\\w*.{0,80}(?:santorin|lots?|codes?|saisir (?:les |ses )?notes)|(?:santorin|lots?).{0,60}rempla"
+    ],
+    "exclure_motifs": [
+      "note de remplacement|epreuve de remplacement|decret"
+    ]
   },
   "data/ipack/fiches/ipack_167_situation_santorin_aucun_lot_a_corriger_distribution.txt": {
     "title": "[SITUATION: SANTORIN — AUCUN LOT A CORRIGER (DISTRIBUTION)]",
@@ -2074,7 +2126,16 @@
     "title": "[SITUATION: SUPPRIMER UN PROTOCOLE DANS iPackEPS (ET NON DANS CYCLADES)]",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "supprim\\w*.{0,40}protocole|protocole.{0,40}(?:supprim|errone)"
+    ]
   },
   "data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt": {
     "title": "[SITUATION: IPACKEPS — RÉPARTIR LES ÉLÈVES DANS LES GROUPES]",
@@ -7331,5 +7392,300 @@
     "exclure_motifs": [
       "diasep|ramses|chef d.etablissement.{0,30}(?:faux|nom)"
     ]
+  },
+  "data/examens/santorin_cas_pratiques/01_santorin_refuse_la_note_de_l_afl2_ou_de_l_afl3_il_faut.txt": {
+    "title": "Santorin : Santorin refuse la note de l'afl2 ou de l'afl3 — il faut d'abord l'afl1",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "afl ?[23].{0,60}(?:refus|impossible|vide|grise|bloqu)|(?:refus|vide|bloqu).{0,40}afl ?[23]|d.abord.{0,20}afl ?1"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/02_saisie_des_notes_dans_santorin_les_gestes_qui_evitent_d.txt": {
+    "title": "Santorin : Saisie des notes dans santorin — les gestes qui évitent de perdre sa saisie",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/03_quand_remplir_le_champ_appreciations_dans_santorin.txt": {
+    "title": "Santorin : Quand remplir le champ « appréciations » dans santorin ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "appreciations?"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
+    "title": "Santorin : Élève inapte toute l'année, ou avec une seule note sur trois — que saisir dans santorin ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "(?=.*santorin)(?=.*(?:inapt|dispens|une seule note|une note sur))"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/05_faut_il_verrouiller_son_lot_tout_de_suite_apres_la_sais.txt": {
+    "title": "Santorin : Faut-il verrouiller son lot tout de suite après la saisie ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "verrouill"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/06_peut_on_ouvrir_cyclades_ou_santorin_dans_plusieurs_ongl.txt": {
+    "title": "Santorin : Peut-on ouvrir cyclades ou santorin dans plusieurs onglets ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "(?:plusieurs|deux|autre|un) onglets?|onglets? (?:differents|ouverts?)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/07_qui_saisit_les_notes_de_ccf_et_que_faire_si_l_evaluateu.txt": {
+    "title": "Santorin : Qui saisit les notes de ccf, et que faire si l'évaluateur est absent ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "(?:qui|chef d.etablissement|proviseur|direction).{0,40}saisi\\w*.{0,30}notes?|saisi\\w*.{0,30}(?:ses |les )?notes?.{0,40}(?:a (?:sa|la) place|absent)|evaluateur.{0,30}absent|enseignant (?:est )?absent.{0,60}(?:saisi|notes?)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/08_extraire_les_notes_saisies_dans_santorin.txt": {
+    "title": "Santorin : Extraire les notes saisies dans santorin",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "(?:extraire|exporter|recuperer|sortir|fichier|tableau|imprimer).{0,50}notes?.{0,60}(?:santorin|saisies|commission)|recapitulatif.{0,30}notes"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/09_vocabulaire_epreuve_de_substitution_de_rattrapage_diffe.txt": {
+    "title": "Santorin : Vocabulaire — épreuve de substitution, de rattrapage, différée",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "substitution|difference.{0,40}(?:rattrapage|substitution|differee)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/10_une_activite_n_a_pas_pu_etre_evaluee_pour_tout_un_group.txt": {
+    "title": "Santorin : Une activité n'a pas pu être évaluée pour tout un groupe — cas exceptionnel (ce)",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "cas exceptionnel|tout (?:le|un) groupe.{0,60}(?:pas pu|non evalu|pas ete evalu)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/11_installation_fermee_ou_professeur_non_remplace_un_seul.txt": {
+    "title": "Santorin : Installation fermée ou professeur non remplacé — un seul élève (ou quelques-uns) n'a pas p",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "(?:installation|piscine|gymnase).{0,40}(?:fermee?|indisponible).{0,100}(?:un seul|eleve|quelques)|professeur non remplace|un seul.{0,40}(?:pas pu|n.a pas pu) (?:etre )?evalu"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/12_note_de_l_enseignement_optionnel_d_eps_option_eps_ou_se.txt": {
+    "title": "Santorin : Note de l'enseignement optionnel d'eps (option eps) — où se saisit-elle ?",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "option (?:eps|facultative)|enseignement optionnel"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/13_co_evaluation_obligatoire_ou_non_selon_l_examen_bac_gt.txt": {
+    "title": "Santorin : Co-évaluation — obligatoire ou non selon l'examen (bac gt, bac pro, cap, dnb)",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "co.?evaluat|deux enseignants.{0,40}(?:evalu|not|saisi)|evaluer a deux"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt": {
+    "title": "Santorin : De la validation des protocoles à la saisie des notes — les étapes dans l'ordre et qui les",
+    "statut": "extrait_complement_santorin_2026-10-18",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 270,
+    "motifs": [
+      "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)"
+    ],
+    "exclure_motifs": []
+  },
+  "data/examens/fiches/examens_101_situation_santorin_correction_et_annotation_copie.txt": {
+    "title": "[SITUATION: SANTORIN POUR LES CORRECTEURS — À QUOI IL SERT, OUVRIR, ANNOTER ET NOTER UNE COPIE DÉMAT",
+    "statut": "fiche_existante_rendue_prioritaire_2026-10-18",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 275,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "copie.{0,40}(?:illisible|tronqu|manqu|annot|dematerialis)|annot\\w*.{0,30}copie|pages? manquant|qu.est.ce que santorin|a quoi sert santorin"
+    ]
+  },
+  "data/examens/erreurs_cyclades_santorin.txt": {
+    "title": "Cyclades et Santorin : messages d'erreur",
+    "statut": "extrait_fiche_messages_2026-10-18",
+    "examens": [],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 275,
+    "motifs": [
+      "\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|candidats? ignores?|\\bine\\b.{0,20}(?:non inscrit|inconnu)|incoherences? de donnees|cadenas|passage du protocole|cases?.{0,30}inactives?|adresses? (?:mail )?non retrouvees|bouton d.import|seul.{0,30}protocole adapte.{0,30}propose|verrouill\\w*.{0,20}grise|grise.{0,20}verrouill"
+    ],
+    "exclure_motifs": []
   }
 }

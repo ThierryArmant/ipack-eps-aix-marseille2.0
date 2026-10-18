@@ -1,0 +1,13 @@
+### Santorin / Cyclades : De la validation des protocoles à la saisie des notes — les étapes dans l'ordre et qui les fait
+- Mots-clés : étapes après validation, protocoles validés, export Cyclades, import, association des élèves, distribution des lots, saisie, verrouillage, qui fait quoi.
+- Formulations courantes des collègues : nos protocoles sont validés, que fait-on maintenant ; quelles sont les étapes jusqu'à la saisie des notes ; dans quel ordre faire Cyclades et Santorin ; à partir de quand peut-on saisir.
+- Les opérations commencent une fois les protocoles des établissements validés par la commission académique ; le calendrier dépend de chaque académie et de chaque session.
+- Étape 1, professeur ou chef d'établissement : dans iPackEPS, générer le fichier d'export des groupes et des élèves ([Dossiers] > [Dossier Certificatif] > [Cyclades]). Tous les élèves des classes à examen doivent d'abord être placés dans un groupe.
+- Étape 2, chef d'établissement : importer ce fichier dans Cyclades (une seule fenêtre Cyclades ouverte, dans le bon examen).
+- Étape 3, enseignants et chef d'établissement : dans Cyclades, vérifier que chaque élève est bien rattaché à son protocole …2313 tokens truncated…ab absent » et la non-délivrance du diplôme. Ne pas assimiler ce cas à une moyenne de zéros.
+* **Cases AFLP inactives :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
+
+Sources : MENE2531948N (bac GT), MENE2505383C (bac pro), MENE2517122C (CAP), session 2026 et suivantes.
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C
+https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C

@@ -819,3 +819,6 @@ Précisions de Thierry. Fiche académique (portée Aix-Marseille, [PORTEE: gt,pr
 
 ### 18 octobre 2026 — page APSA du lycée (deux tuiles)
 Écran relu : [Dossier EPS] > [APSA] = « Gestion des APSAs de votre établissement », tuiles [APSA de Collège ou Voie Professionnelle] et [APSA de Lycée Général ou Technologique]. Thierry : lycée général et professionnel, c'est pareil ; la voie pro passe par la première tuile, même structure. Si cette tuile affiche « votre établissement ne gère pas de classe de collège ou voie professionnelle » : vérifier les niveaux de formation dans [Établissement] > [Configuration]. Fiche lycée et guide voie pro mis à jour.
+
+### 18 octobre 2026 — lycée : Mes Élèves, Statistiques, Mes Documents
+Écrans relus (lecture seule) et ajoutés à la fiche lycée : Visualisation des élèves (Classes, Groupes, Statut, Professeur ; onglets Général, Scolarité, APSA, Savoir Nager, Inaptitudes), Statistiques et Offre de Formation (Groupes et APSA de l'académie, Statistiques Inaptitudes), Mes Documents (Documents, Publipostage, Bibliothèque). Aucune fiche élève ouverte.

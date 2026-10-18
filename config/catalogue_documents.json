@@ -6592,7 +6592,7 @@
       "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
     ],
     "exclure_motifs": [
-      "un seul (?:eleve|candidat)|seul un (?:eleve|candidat)|inapt|blesse|protocole adapte|standard|professeur|enseignant absent|collegue|\\bshn\\b|haut niveau|option|lot\\b|santorin|groupe.{0,20}importe"
+      "un seul (?:eleve|candidat)|seul un (?:eleve|candidat)|inapt|blesse|protocole adapte|standard|professeur|enseignant absent|collegue|\\bshn\\b|haut niveau|option|lot\\b|santorin|groupe.{0,20}importe|absen|stage|rate |manqu|note de remplacement|epreuve de (?:repli|substitution)|rattrap|differe"
     ],
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
     "date_verification": "2026-10-18"

@@ -776,6 +776,18 @@ def dnb_document_mismatch(question, public, packet):
                 and re.search(r'\bccf\b|\baflp?\b|\bbac\b|\bcap\b|di \+ di', normalise(body)))
 
 
+def lycee_dnb_mismatch(question, public, packet):
+    """Une fiche réservée au DNB ne documente pas un élève de lycée (LSU, contrôle continu de troisième)."""
+    from knowledge_catalog import normalise
+    q, pub = normalise(question), normalise(public)
+    if 'lycee' not in pub or re.search(r'\bdnb\b|\bbrevet\b|college|troisieme|\b3e\b|3eme', q):
+        return False
+    if packet.get('origin') == 'program':
+        return False
+    scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', packet.get('text', ''))
+    return bool(scopes) and all(set(x.strip() for x in scope.split(',')) == {'dnb'} for scope in scopes)
+
+
 def course_duration_mismatch(question, packet):
     """La fiche Courses (demi-fond/relais CA1) ne documente pas le dépôt du CA5."""
     q = ''.join(c for c in unicodedata.normalize('NFKD', question.lower()) if not unicodedata.combining(c))
@@ -793,6 +805,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['documents'] = packets
     audit['excluded_dnb_documents'] = [p['id'] for p in packets if dnb_document_mismatch(question, public, p)]
     packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
+    audit['excluded_lycee_dnb_documents'] = [p['id'] for p in packets if lycee_dnb_mismatch(question, public, p)]
+    packets = [p for p in packets if not lycee_dnb_mismatch(question, public, p)]
     audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]

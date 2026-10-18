@@ -135,6 +135,19 @@ class FichesVoisines(unittest.TestCase):
         r = render_exam_fallback(audit, question="Notre gymnase apparaît sous son ancienne appellation dans le module équipements", mode='ipack')
         self.assertNotIn('Pronote', r)
 
+    def test_corrections_serie_realiste(self):
+        from pathlib import Path
+        from documentary_review import lycee_dnb_mismatch
+        self.assertFalse(any('Remplacer une activité' in x for x in t(
+            "Un élève rate la dernière épreuve de CCF pour un stage obligatoire validé par le lycée : note de remplacement ?")))
+        nat = Path('data/textes/complement_natation_scolaire.txt').read_text(encoding='utf-8')
+        self.assertIn("ne s'applique pas au collège ni au lycée", nat)
+        self.assertIn('dues au titre du service', Path('data/textes/complement_obligations_service_eps.txt').read_text(encoding='utf-8'))
+        dnb = {'origin': 'document', 'text': '[PORTEE: dnb] LSU : saisir Dispensé.'}
+        self.assertTrue(lycee_dnb_mismatch('Que mettre dans le LSU pour une élève dispensée ?', GT, dnb))
+        self.assertFalse(lycee_dnb_mismatch('Que mettre dans le LSU au DNB ?', GT, dnb))
+        self.assertFalse(lycee_dnb_mismatch('Que mettre dans le LSU ?', CLG, dnb))
+
 
 if __name__ == '__main__':
     unittest.main()

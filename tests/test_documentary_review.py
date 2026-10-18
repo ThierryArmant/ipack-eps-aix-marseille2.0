@@ -53,6 +53,11 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn("Demandez au responsable", result)
         self.assertIn('Documentation du logiciel', result)
         self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['repair_performed'])
+        self.assertFalse(audit['repair_successful'])
+        self.assertEqual(audit['model_packet_count'], 1)
+        self.assertGreater(audit['model_passage_count'], 0)
+        self.assertGreater(audit['model_passage_chars'], 0)
         self.assertNotIn('BROUILLON', '\n'.join(llm.prompts))
         self.assertEqual(audit['context_exact'], DOC)
         self.assertEqual([c['prompt'] for c in audit['calls']], llm.prompts)
@@ -132,6 +137,11 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn('Demandez', review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit))
         self.assertEqual(len(audit['calls']), 2)
         self.assertTrue(audit['repair_rejections'])
+        self.assertEqual(audit['first_pass_rejection_count'], 1)
+        self.assertTrue(audit['first_pass_rejection_reasons'])
+        self.assertEqual(audit['repair_trigger'], 'mechanical_validation')
+        self.assertTrue(audit['repair_performed'])
+        self.assertTrue(audit['repair_successful'])
         self.assertFalse(audit['final_rejections'])
 
     def test_model_error_is_traced_without_copying_secret_exception(self):

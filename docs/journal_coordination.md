@@ -1095,3 +1095,14 @@ Recensement local (copie privée, rien de publié) : 87 questions uniques de l'o
 - Fiches officielles rendues prioritaires (275) : `ipack_011` correction partagée Santorin, `ipack_044` et `ipack_166` accès remplaçant Santorin, `ipack_177` supprimer un protocole (iPackEPS / Cyclades), `ipack_007` et `ipack_045` aucun lot à corriger, `examens_101` copies dématérialisées.
 Effet sur les 87 : **34 trouvent maintenant une fiche** (sélection locale, sans appel IA). 8 questions types publiques ajoutées. Suite : 565 tests OK.
 Restent sans fiche, à traiter **avec des sources réglementaires** (partie règles, GPT ou textes à fournir par Thierry) : validité d'une combinaison d'activités pour un protocole de bac GT (champ de chaque activité ; ex. demi-fond + course en durée, haies + javelot), élève dispensé ou DI (0 ou pas, LSU), décret de février 2026 sur les épreuves de remplacement, changement de statut candidat individuel → scolaire, protocole adapté et commission, notes de première, fiches individuelles (format), sujet de secours (réponse en veille depuis 23 h). Ne pas répondre à ces questions par les fiches Santorin.
+
+### 18 octobre 2026 — Claude : raccordements de l'audit GPT appliqués
+Audit `docs/audit_exploitation_ipack_2026_10_18.md` lu. Appliqué (fiches et catalogue seulement) :
+- Périodes ordinaires : fiche visite `apsa_periodes_sequences` + « configurer / paramétrer les périodes ».
+- Gymnase : article 19 + « déclarer / ajouter / nouveau gymnase, équipement, stade, piscine, salle, terrain » (exclusions fermeture/travaux conservées).
+- APSA « a changé » après validation : fiche de remplacement d'activité + « a changé », « changement d'APSA » ; fiche de mutation `ipack_308` bornée au changement d'établissement / mutation / académie (contre-exemple « je change d'établissement… » toujours retenu).
+- Changement de classe : `ipack_303` corrigée (import = [Importation des Élèves] > [Importer], [Actualiser] seulement pour la liste des classes, d'après la visite), cataloguée et prioritaire (305) ; la fiche exclusive « élève parti » exclut désormais « changé de classe / nouvelle classe » (contre-exemple « élève parti… sans groupe » toujours retenu).
+- Section sportive absente des menus (lycée) : fiche Dossier SSS (activation par l'inspection) + « section sportive … ne figure pas / n'apparaît pas ».
+- Hors catalogue : `ipack_302` et `ipack_304` catalogués sans priorité (contenu non revérifié) ; `ipack_306` (droits coordonnateur / administrateur, cohérent avec la fiche professeur de la visite) prioritaire 280 ; `ipack_307` (feuille d'appel, bordereaux) prioritaire 280 après vérification de [Mes Documents] > [Documents] / [Publipostage] sur l'écran lycée, et retrait des étapes de création non vues.
+- Non traité faute de source : récupérer l'emploi du temps de l'année précédente.
+9 questions types ajoutées (dont 3 contre-exemples). Suite : 565 tests OK.

@@ -531,7 +531,8 @@
       "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
     ],
     "exclure_motifs": [
-      "option|eppcs|abandon|transmettre.{0,15}note|moyenne|releve de note"
+      "option|eppcs|abandon|transmettre.{0,15}note|moyenne|releve de note",
+      "chang\\w* de classe|nouvelle classe|ancienne classe"
     ],
     "exclusif_motifs": [
       "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
@@ -1408,7 +1409,8 @@
       "ipack"
     ],
     "motifs": [
-      "installations? sportives?.{0,60}(?:ou|renseign|declar|ajout|module|ipack|utilise)|(?:ou|comment|renseign|declar|ajout).{0,40}installations? sportives?|code res\\b"
+      "installations? sportives?.{0,60}(?:ou|renseign|declar|ajout|module|ipack|utilise)|(?:ou|comment|renseign|declar|ajout).{0,40}installations? sportives?|code res\\b",
+      "(?:declarer|ajouter|creer|nouveau|nouvel|renseigner).{0,40}(?:gymnase|equipement|stade|piscine|salle de sport|dojo|terrain)"
     ],
     "exclure_motifs": [
       "fermee?|indisponib|travaux|inutilisable|hors service"
@@ -6863,7 +6865,7 @@
       "ipack"
     ],
     "motifs": [
-      "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
+      "^(?=.*(?:remplac|substitu|a change|changement d.(?:apsa|activite)|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
     ],
     "exclusif_motifs": [
       "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
@@ -7067,7 +7069,7 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?:ou|comment).{0,40}(?:defini|definir|creer|saisir|declar)\\w*.{0,30}periodes?|associer.{0,30}apsa.{0,30}groupes?"
+      "(?:ou|comment).{0,40}(?:defini|definir|creer|saisir|declar|configur|parametr)\\w*.{0,30}periodes?|associer.{0,30}apsa.{0,30}groupes?"
     ],
     "exclure_motifs": [
       "\\bbac\\b|examen|certificati|terminale|protocole"
@@ -7148,7 +7150,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:\\bsss\\b|section sportive))(?=.*(?:haut niveau|\\bshn\\b|campagne|demande d.ouverture))"
+      "(?=.*(?:\\bsss\\b|section sportive))(?=.*(?:haut niveau|\\bshn\\b|campagne|demande d.ouverture))",
+      "(?:section sportive|\\bsss\\b).{0,60}(?:ne figure pas|n.apparai|absent|pas dans|introuvable)"
     ]
   },
   "data/textes/fiches/direction_ecole_autorite_fonctionnelle.txt": {
@@ -7342,7 +7345,7 @@
     "prioritaire": true,
     "priorite": 290,
     "motifs": [
-      "(?:change|changer|mute|mutation|nouvel etablissement|autre academie|nouvelle academie).{0,80}(?:donnees|protocoles?|groupes?|suivent|perdu|garde)"
+      "(?:(?:je |on )?change(?:r|ment)? d.etablissement|mute|mutation|nouvel etablissement|autre academie|nouvelle academie).{0,80}(?:donnees|protocoles?|groupes?|suivent|perdu|garde)"
     ]
   },
   "data/ipack/acces_cite_scolaire_equipe_stsweb.txt": {
@@ -7685,6 +7688,66 @@
     "priorite": 275,
     "motifs": [
       "\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|candidats? ignores?|\\bine\\b.{0,20}(?:non inscrit|inconnu)|incoherences? de donnees|cadenas|passage du protocole|cases?.{0,30}inactives?|adresses? (?:mail )?non retrouvees|bouton d.import|seul.{0,30}protocole adapte.{0,30}propose|verrouill\\w*.{0,20}grise|grise.{0,20}verrouill"
+    ],
+    "exclure_motifs": []
+  },
+  "data/ipack/fiches/ipack_302_situation_suppression_par_erreur_recuperation.txt": {
+    "title": "iPackEPS : suppression par erreur, récupération",
+    "statut": "fiche_raccordee_audit_gpt_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/fiches/ipack_304_situation_bareme_personnalise_d_une_apsa.txt": {
+    "title": "iPackEPS : barème personnalisé d'une APSA",
+    "statut": "fiche_raccordee_audit_gpt_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ]
+  },
+  "data/ipack/fiches/ipack_303_situation_eleve_change_de_classe_en_cours_d_annee.txt": {
+    "title": "iPackEPS : élève qui change de classe en cours d'année",
+    "statut": "fiche_raccordee_audit_gpt_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 305,
+    "motifs": [
+      "(?:change|changement|passe|bascul\\w*|deplac\\w*)\\w* (?:de|d.une) classe|nouvelle classe|ancienne classe|(?:deplacer|basculer|changer) un eleve.{0,40}classe"
+    ],
+    "exclure_motifs": []
+  },
+  "data/ipack/fiches/ipack_306_situation_droits_coordonnateur_et_administrateur.txt": {
+    "title": "iPackEPS : droits de coordonnateur ou d'administrateur",
+    "statut": "fiche_raccordee_audit_gpt_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 280,
+    "motifs": [
+      "droits? (?:d.)?administrat|(?:donner|transmettre|passer).{0,30}(?:les )?(?:droits|la main)|changer de coordonnat|prerogatives?|(?:coordonnat\\w*|responsable de (?:la )?certification).{0,60}(?:droits|peut)"
+    ],
+    "exclure_motifs": [
+      "mot de passe"
+    ]
+  },
+  "data/ipack/fiches/ipack_307_situation_imprimer_feuille_appel_ou_fiche_vierge.txt": {
+    "title": "iPackEPS : imprimer une feuille d'appel, un bordereau ou une fiche vierge",
+    "statut": "fiche_raccordee_audit_gpt_2026-10-18",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 280,
+    "motifs": [
+      "feuille d.appel|bordereau|fiche (?:d.observation )?vierge|imprimer.{0,40}(?:liste des eleves|liste de (?:mes |la )?(?:classe|groupe))|publipostage"
     ],
     "exclure_motifs": []
   }

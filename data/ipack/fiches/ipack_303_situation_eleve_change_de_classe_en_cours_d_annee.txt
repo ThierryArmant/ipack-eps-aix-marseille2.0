@@ -1,7 +1,9 @@
 ### [SITUATION: ÉLÈVE QUI CHANGE DE CLASSE EN COURS D'ANNÉE — METTRE À JOUR iPackEPS SANS RIEN PERDRE]
 - Mots-clés : changement de classe, élève changé de classe, basculer un élève, déplacer un élève, ancienne classe, nouvelle classe, perdre ses notes, actualiser, importation élèves, SIECLE.
 - Formulations courantes des collègues : un élève a changé de classe, comment le basculer sans perdre ses notes ; l'élève apparaît toujours dans son ancienne classe ; comment déplacer un élève d'une classe à une autre.
-- Réponse courte : le changement de classe se fait d'abord dans SIECLE par l'administration. Dans iPackEPS, il suffit ensuite d'actualiser : [Dossiers] > [Dossier EPS] > [Classes], [gestion Classes] > [Actualiser], puis [importation élèves] > [Actualiser]. Tout enseignant peut le faire. Ne supprimer ni séquence ni groupe.
+- Réponse courte : le changement de classe se fait d'abord dans SIECLE par l'administration. Dans iPackEPS, ensuite : [Dossier EPS] > [Classes] > [Configuration des Classes] > [Actualiser], puis [Classes] > [Importation des Élèves] > [Importer] (bouton relevé lors de la visite de l'espace professeur du 18 octobre 2026 ; [Actualiser] ne sert qu'à la liste des classes). Tout enseignant de l'équipe peut le faire. Ne supprimer ni séquence ni groupe.
 - Ensuite, vérifier que l'élève est placé dans le bon groupe : [Dossiers] > [Dossier EPS] > [Élèves].
 - Aucune note n'est perdue : les notes ne sont pas stockées dans iPackEPS (Pronote ou ÉcoleDirecte pour l'année, Santorin pour les examens).
-- Si l'élève n'apparaît toujours pas dans sa nouvelle classe après actualisation : la modification n'est pas encore faite dans SIECLE, il faut la demander au secrétariat.
+- Si l'élève n'apparaît toujours pas dans sa nouvelle classe après actualisation et import : la modification n'est pas encore faite dans SIECLE, il faut la demander au secrétariat.
+Nature de la source : fonctionnement du logiciel iPackEPS ; boutons vérifiés à l'écran avec le correspondant académique iPackEPS (18 octobre 2026).
+Source : fiche de situation du hub, chemins corrigés d'après la visite de l'espace professeur.

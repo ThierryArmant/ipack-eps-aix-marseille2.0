@@ -47,6 +47,18 @@ CAS = [
     ('je ne trouve pas le lot de ma classe dans Santorin', GT, 'examens', '[ERREUR : AUCUN LOT À CORRIGER]', []),
     ("compte-rendu d'import Cyclades : candidats ignorés et INE non inscrits", GT, 'examens', "Cyclades et Santorin : messages d'erreur", []),
     ('une copie est illisible dans Santorin', GT, 'examens', '[SITUATION: SANTORIN POUR LES CORRECTEURS', []),
+    # Raccordements signalés par l'audit GPT du 18 octobre (avec contre-exemples).
+    ("comment configurer les périodes des séquences d'apprentissage ?", COL, 'ipack', "iPackEPS : APSA, périodes et séquences", []),
+    ('où déclarer le nouveau gymnase utilisé avec mes classes ?', COL, 'ipack', '[ARTICLE 19]', ['Accès iPackEPS et portail ESTEREL']),
+    ('une APSA a changé après validation du protocole : comment corriger ?', GT, 'ipack', "Remplacer une activité d'un protocole",
+     ["[SITUATION: ENSEIGNANT QUI CHANGE D'ÉTABLISSEMENT"]),
+    ("je change d'établissement, mes protocoles me suivent-ils ?", GT, 'ipack', "[SITUATION: ENSEIGNANT QUI CHANGE D'ÉTABLISSEMENT", []),
+    ('un élève a changé de classe, comment importer sa nouvelle affectation ?', COL, 'ipack', "iPackEPS : élève qui change de classe",
+     ['Aix : élève parti encore affiché']),
+    ('un élève est parti, il apparaît sans groupe', GT, 'ipack', 'Aix : élève parti encore affiché', ["iPackEPS : élève qui change de classe"]),
+    ('je veux ajouter une section sportive mais elle ne figure pas dans les menus', GT, 'ipack', 'iPackEPS : Dossier SSS', []),
+    ("comment imprimer une feuille d'appel pour mon groupe ?", COL, 'ipack', "iPackEPS : imprimer une feuille d'appel", []),
+    ('comment donner les droits administrateur à un autre collègue ?', COL, 'ipack', "iPackEPS : droits de coordonnateur", []),
 ]
 
 

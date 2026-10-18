@@ -320,7 +320,8 @@
    "entrees": [
     {
      "libelle": "Ordre de rentrée",
-     "parcours": "Me repérer depuis le début (ordre de rentrée)"
+     "parcours": "Me repérer depuis le début (ordre de rentrée)",
+     "prerequis": []
     }
    ]
   },
@@ -329,7 +330,8 @@
    "entrees": [
     {
      "libelle": "Fiche Établissement",
-     "parcours": "Établissement : vérifier la fiche"
+     "parcours": "Établissement : vérifier la fiche",
+     "prerequis": []
     }
    ]
   },
@@ -338,7 +340,10 @@
    "entrees": [
     {
      "libelle": "Fonctions : coordonnateur EPS",
-     "parcours": "Me déclarer coordonnateur EPS"
+     "parcours": "Me déclarer coordonnateur EPS",
+     "prerequis": [
+      "[Établissement]"
+     ]
     }
    ]
   },
@@ -347,39 +352,77 @@
    "entrees": [
     {
      "libelle": "Projets",
-     "parcours": "Retrouver un projet ou ses axes"
+     "parcours": "Retrouver un projet ou ses axes",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
     },
     {
      "libelle": "Équipe EPS et Intervenants Extérieurs",
-     "parcours": "Mettre à jour l'équipe EPS (TZR, collègue absent)"
+     "parcours": "Mettre à jour l'équipe EPS (TZR, collègue absent)",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
     },
     {
      "libelle": "Classes",
-     "parcours": "Voir mes classes et importer mes élèves"
+     "parcours": "Voir mes classes et importer mes élèves",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
     },
     {
      "libelle": "APSA · Périodes · Groupes : déclarer l'activité d'une classe",
-     "parcours": "Déclarer l'activité enseignée à une classe"
+     "parcours": "Déclarer l'activité enseignée à une classe",
+     "prerequis": [
+      "[Classes] (configurées, organisées avec votre nom)"
+     ]
     },
     {
      "libelle": "Groupes AS : créer le groupe et ses élèves",
-     "parcours": "Créer un groupe d'AS et y placer des élèves"
+     "parcours": "Créer un groupe d'AS et y placer des élèves",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[APSA]",
+      "[Périodes] (dont la période [Année])"
+     ]
     },
     {
      "libelle": "Élèves : placer des élèves dans un groupe",
-     "parcours": "Placer des élèves dans un groupe"
+     "parcours": "Placer des élèves dans un groupe",
+     "prerequis": [
+      "[Classes] (élèves importés)",
+      "[Groupes] (groupe créé)"
+     ]
     },
     {
      "libelle": "Équipements Sportifs",
-     "parcours": "Modifier un équipement sportif"
+     "parcours": "Modifier un équipement sportif",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
     },
     {
      "libelle": "Emplois du temps",
-     "parcours": "Créer un créneau d'emploi du temps"
+     "parcours": "Créer un créneau d'emploi du temps",
+     "prerequis": [
+      "[Classes] (votre nom attribué)",
+      "[Groupes] (séquences ajoutées)",
+      "[Équipements Sportifs]"
+     ]
     },
     {
      "libelle": "Envoyer le dossier pour validation",
-     "parcours": "Envoyer le dossier EPS pour validation (coordonnateur)"
+     "parcours": "Envoyer le dossier EPS pour validation (coordonnateur)",
+     "prerequis": [
+      "tout le [Dossier EPS]",
+      "[Ma Fiche Professeur] > [Fonctions] (« Coordonnateur EPS » coché)"
+     ],
+     "cible": "d’envoyer le dossier pour validation"
     }
    ]
   },
@@ -388,7 +431,10 @@
    "entrees": [
     {
      "libelle": "Validation ASNS : imprimer les attestations",
-     "parcours": "Imprimer les attestations du savoir-nager (ASNS)"
+     "parcours": "Imprimer les attestations du savoir-nager (ASNS)",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
     }
    ]
   },
@@ -397,7 +443,10 @@
    "entrees": [
     {
      "libelle": "Ma section n'apparaît pas",
-     "parcours": "Section sportive : ma section n'apparaît pas"
+     "parcours": "Section sportive : ma section n'apparaît pas",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
     }
    ]
   },
@@ -406,7 +455,10 @@
    "entrees": [
     {
      "libelle": "Demander la validation d'une sortie",
-     "parcours": "Demander la validation d'une sortie APPN"
+     "parcours": "Demander la validation d'une sortie APPN",
+     "prerequis": [
+      "le [Dossier EPS]"
+     ]
     }
    ]
   }

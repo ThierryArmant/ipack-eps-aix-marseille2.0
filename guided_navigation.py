@@ -133,6 +133,20 @@ def college_menu(available):
     return out
 
 
+def prerequisite_text(rubrique, entry):
+    """« Avant [Projets], vous devez avoir complété… » : remplace le rappel général d'ordre."""
+    items = entry.get('prerequis') or []
+    if not items:
+        return ''
+    if entry.get('cible'):
+        target = entry['cible']
+    elif rubrique == 'Dossier EPS':
+        target = '[' + entry['libelle'].split(' : ')[0].split(' · ')[0] + ']'
+    else:
+        target = '[' + rubrique + ']'
+    return 'Avant ' + target + ', vous devez avoir complété : ' + ' → '.join(items) + '.'
+
+
 def render_guide(st, key, public, on_done=None):
     college = is_college(public) and college_routes()
     available = college or routes()
@@ -150,15 +164,18 @@ def render_guide(st, key, public, on_done=None):
             return
         entries = menu[names.index(rubrique)]['entrees']
         if len(entries) == 1:
-            goal = entries[0]['parcours']
+            entry = entries[0]
         else:
             with right:
                 choice = st.radio('Sous-menu', [e['libelle'] for e in entries], index=None,
                                   key=key + '_sub_' + str(names.index(rubrique)), label_visibility='collapsed')
             if choice is None:
                 return
-            goal = next(e['parcours'] for e in entries if e['libelle'] == choice)
+            entry = next(e for e in entries if e['libelle'] == choice)
+        goal = entry['parcours']
+        before = prerequisite_text(rubrique, entry)
     else:
+        before = ''
         goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
         if goal is None:
             return
@@ -174,6 +191,8 @@ def render_guide(st, key, public, on_done=None):
         text, path = route[position]
         label, url = step_presentation(goal, position, text)
     prefix = state_key + '_' + str(position)
+    if before:
+        st.info(before)
     st.write(f'**Étape {position + 1}/{len(route)}**')
     if url:
         # L'intitulé de l'étape est lui-même le lien : un clic affiche ou masque la vidéo.
@@ -185,9 +204,10 @@ def render_guide(st, key, public, on_done=None):
             st.video(url)
     else:
         st.write(f'**{label}**')
-    rule = order_rule()
-    if rule:
-        st.info(rule)
+    if not college:
+        rule = order_rule()
+        if rule:
+            st.info(rule)
     if position < len(route) - 1:
         if st.button('C’est fait · Suivant →', key=prefix + '_next'):
             st.session_state[state_key] = position + 1

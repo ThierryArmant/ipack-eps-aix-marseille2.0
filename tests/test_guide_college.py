@@ -124,13 +124,22 @@ class GuideCollegeTests(unittest.TestCase):
         self.assertNotIn('Modifier un équipement sportif', routes)
         self.assertIn('Voir mes classes et importer mes élèves', routes)
 
-    def test_regle_d_ordre_sous_voir_comment_faire(self):
+    def test_prerequis_remplacent_le_rappel_general(self):
         ui = UI(None)
         guide.render_guide(ui, 'r', 'Collège')
         self.assertEqual(ui.infos, [])
-        ui = UI('Classes', rub='Dossier EPS')
+        ui = UI('Projets', rub='Dossier EPS')
         guide.render_guide(ui, 'r', 'Collège')
-        self.assertIn('dans l’ordre', ui.infos[0]); self.assertIn('allers-retours', ui.infos[0])
+        self.assertEqual(ui.infos, ['Avant [Projets], vous devez avoir complété : [Établissement] → [Ma Fiche Professeur].'])
+        ui = UI(None, rub='Établissement')
+        guide.render_guide(ui, 'r', 'Collège')
+        self.assertEqual(ui.infos, [])
+        ui = UI('Envoyer le dossier pour validation', rub='Dossier EPS')
+        guide.render_guide(ui, 'r', 'Collège')
+        self.assertTrue(ui.infos[0].startswith('Avant d’envoyer le dossier'))
+        for b in guide.college_menu(self.routes):
+            for e in b['entrees']:
+                self.assertIn('prerequis', e)
         ui = UI('Configurer les périodes')
         guide.render_guide(ui, 'r', 'Lycée voie générale')
         self.assertIn('dans l’ordre', ui.infos[0])

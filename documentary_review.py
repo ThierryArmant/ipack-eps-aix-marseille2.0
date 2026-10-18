@@ -526,6 +526,10 @@ def situation_mismatch(question, text):
     if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'bac ?pro|\bbcp\b|\bcap\b', t)
             and not re.search(r'\bshn\b|haut niveau', t)):
         return True
+    # L'absence prolongée du professeur ne documente pas l'absence d'un élève à une épreuve.
+    if (re.search(r'absence prolongee du professeur', t)
+            and not re.search(r'\bprof\b|professeur|enseignant|collegue|remplacant|non remplace|arret', q)):
+        return True
     medical = r'inapt|dispens|certificat|medical|bless|entorse|arret maladie'
     # Une note de groupe ne pose pas une question de certification d'un inapte.
     if re.search(r'note.{0,25}collecti|collecti.{0,25}note|acrosport.{0,40}groupe|(?:meme|une seule|unique) note.{0,60}(?:groupe|equipe)|note.{0,30}(?:groupe|equipe)', q) and not re.search(medical, q):

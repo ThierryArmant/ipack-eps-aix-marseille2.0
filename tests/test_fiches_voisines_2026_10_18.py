@@ -157,6 +157,12 @@ class FichesVoisines(unittest.TestCase):
         self.assertEqual([], absent_terms('URGENT ! un TZR et le bouton "Verrouiller le lot"', P))
         self.assertIn('ne mentionnent pas', absent_terms_notice(['DHG']))
 
+    def test_absence_eleve_sans_fiche_absence_professeur(self):
+        from documentary_review import situation_mismatch
+        titre = 'Bac GT : absence prolongée du professeur et CCF'
+        self.assertTrue(situation_mismatch("Mon élève a été absent au deuxième CCF pour un enterrement, peut-il rattraper ?", titre))
+        self.assertFalse(situation_mismatch("Notre collègue est en arrêt depuis deux mois, que faire pour le CCF ?", titre))
+
 
 if __name__ == '__main__':
     unittest.main()

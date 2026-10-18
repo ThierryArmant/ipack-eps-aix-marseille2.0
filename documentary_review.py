@@ -500,6 +500,12 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    # Enseigner une activité à une classe ne déclare pas une spécialité personnelle.
+    teaching = re.search(r"enseign|je fais|(?:mes|avec mes|avec les).{0,20}(?:eleves|classes|[3-6](?:e|eme))", q)
+    personal = r'specialit(?:e|es) (?:sportive|personnelle)|(?:ma|mes) specialit|fiche (?:prof|enseignant)|competence personnelle|voeux de formation|vœux de formation'
+    if teaching and not re.search(personal, q) and re.search(personal, t):
+        return True
+
     # Le correctif d'une APSA Courses ne répond pas à un incident non identifié.
     course_case = r'\bcourses\b|relais.?vitesse|demi.fond|\bhaies\b|\bsauts\b|\blancers\b'
     if (not re.search(course_case, q) and re.search(course_case, t)

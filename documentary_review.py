@@ -869,6 +869,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['context_exact'] = documents
     audit['context_sha256'] = hashlib.sha256(documents.encode()).hexdigest()
     audit['documents'] = packets
+    audit['repair_trigger'] = None
+    audit['first_pass_rejection_count'] = 0
+    audit['first_pass_rejection_reasons'] = []
+    audit['repair_performed'] = False
+    audit['repair_successful'] = False
+    audit['repair_empty'] = False
     audit['excluded_dnb_documents'] = [p['id'] for p in packets if dnb_document_mismatch(question, public, p)]
     packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
     audit['excluded_lycee_dnb_documents'] = [p['id'] for p in packets if lycee_dnb_mismatch(question, public, p)]
@@ -896,6 +902,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['marked_academic_passages'] = marked
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
+    audit['document_selection_after_academy'] = [p['id'] for p in packets]
     audit['model_packet_count'] = len(packets)
     audit['model_passage_count'] = sum(len(p['passages']) for p in packets)
     audit['model_passage_chars'] = sum(len(str(s.get('text', ''))) for p in packets for s in p['passages'])

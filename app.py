@@ -8,6 +8,7 @@ import response_controls
 import response_cache
 import hub_session
 import tutorial_links
+from navigation_help import offer_navigation_help, documented_navigation_help
 
 # Les modules sont importés normalement ; Streamlit invalide les imports au redéploiement.
 # Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
@@ -2932,6 +2933,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             diagnostic_ia['sources_affichees_finales'] = sources_consultees
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
+             "aide_reperage": offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut),
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
              "version": _sha,
@@ -2985,6 +2987,11 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 st.caption(f"Usage IA : {_usage['calls']} appels de génération · "
                            f"{_jetons}"
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
+            if m.get("aide_reperage"):
+                aide = documented_navigation_help()
+                if aide:
+                    with st.expander("🧭 Besoin d’aide pour vous repérer depuis le début ?"):
+                        st.markdown(aide, unsafe_allow_html=True)
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

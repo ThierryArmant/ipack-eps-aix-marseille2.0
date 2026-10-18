@@ -6321,7 +6321,8 @@
     "title": "iPackEPS : élève absent de la liste, comment l'ajouter",
     "examens": [],
     "motifs": [
-      "^(?=.*\\beleves?\\b)(?=.*(?:ajout\\w*|rajout\\w*|cree\\w*|creer|inscri\\w*|mettre))(?=.*(?:manuel\\w*|a la main|absent de la liste|pas dans la liste|n.apparai\\w* pas|manqu\\w*|arrive\\w*|nouvel))"
+      "^(?=.*\\beleves?\\b)(?=.*(?:ajout\\w*|rajout\\w*|cree\\w*|creer|inscri\\w*|mettre))(?=.*(?:manuel\\w*|a la main|absent de la liste|pas dans la liste|n.apparai\\w* pas|manqu\\w*|arrive\\w*|nouvel))",
+      "(?=.*(?:nouv\\w* eleve|eleve.{0,25}(?:arrive|nouveau|nouvelle)))(?=.*(?:trouve pas|vois pas|voit pas|apparai|absent|manqu|liste|introuvable))"
     ],
     "exclure_motifs": [
       "santorin|\\blots?\\b|cyclades|protocole|equipe|collegue|professeur|enseignant|groupes? eps.{0,30}(?:pas|aucun)"

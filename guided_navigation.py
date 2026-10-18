@@ -173,14 +173,21 @@ def render_guide(st, key, public, on_done=None):
     else:
         text, path = route[position]
         label, url = step_presentation(goal, position, text)
-    st.write(f'**Étape {position + 1}/{len(route)} · {label}**')
+    prefix = state_key + '_' + str(position)
+    st.write(f'**Étape {position + 1}/{len(route)}**')
     if url:
-        with st.expander('📺 Voir comment faire'):
+        # L'intitulé de l'étape est lui-même le lien : un clic affiche ou masque la vidéo.
+        show = prefix + '_show_video'
+        def toggle():
+            st.session_state[show] = not st.session_state.get(show, False)
+        st.button(f'▶ {label}', key=prefix + '_video', on_click=toggle, use_container_width=True)
+        if st.session_state.get(show, False):
             st.video(url)
+    else:
+        st.write(f'**{label}**')
     rule = order_rule()
     if rule:
         st.info(rule)
-    prefix = state_key + '_' + str(position)
     if position < len(route) - 1:
         if st.button('C’est fait · Suivant →', key=prefix + '_next'):
             st.session_state[state_key] = position + 1

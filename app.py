@@ -539,6 +539,16 @@ css_pur = f"""
         background: #FFFFFF !important;
         border: 1px solid #38BDF8 !important;
     }}
+    /* Intitulé d'étape cliquable (ouvre la vidéo) : surligné */
+    div[class*="st-key-guide_callout_"] div[class*="_video"] button {{
+        background: #38BDF8 !important;
+        border: 2px solid #7DD3FC !important;
+        justify-content: flex-start !important;
+    }}
+    div[class*="st-key-guide_callout_"] div[class*="_video"] button div[data-testid="stMarkdownContainer"] p {{
+        color: #0F273B !important;
+        font-weight: 700 !important;
+    }}
     div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary:hover {{
         background: #16405A !important;
     }}

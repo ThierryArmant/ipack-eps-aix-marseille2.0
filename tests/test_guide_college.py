@@ -20,6 +20,8 @@ class UI:
         self.callbacks[label] = k.get('on_click')
         return label == self.click
     def write(self, text): self.written.append(text)
+    @property
+    def shown(self): return ' '.join(self.written + list(getattr(self, 'callbacks', {})))
     def info(self, text): self.infos.append(text)
     def video(self, url): self.videos.append(url)
     def text_input(self, *a, **k): self.inputs += 1
@@ -73,15 +75,21 @@ class GuideCollegeTests(unittest.TestCase):
         state = {}
         ui = UI('Classes', state, rub='Dossier EPS')
         guide.render_guide(ui, 't', 'Collège')
-        self.assertIn('[Actualiser]', ui.written[0]); self.assertEqual(ui.inputs, 0)
+        self.assertIn('[Actualiser]', ui.shown); self.assertEqual(ui.inputs, 0)
+        self.assertEqual(ui.videos, [])
+        etape = next(l for l in ui.callbacks if l.startswith('▶') and '[Actualiser]' in l)
+        ui.callbacks[etape]()
+        ui = UI('Classes', state, rub='Dossier EPS')
+        guide.render_guide(ui, 't', 'Collège')
         self.assertTrue(ui.videos and ui.videos[0].startswith('https://'))
+        self.assertNotIn('📺 Voir comment faire', ui.shown)
         guide.render_guide(UI('Classes', state, 'C’est fait · Suivant →', rub='Dossier EPS'), 't', 'Collège')
         ui = UI('Classes', state, rub='Dossier EPS')
         guide.render_guide(ui, 't', 'Collège (DNB)')
         self.assertIn('Étape 2/4', ui.written[0])
         ui = UI(None, {}, rub='Je ne sais pas par où commencer')
         guide.render_guide(ui, 'u', 'Collège')
-        self.assertIn('[Établissement]', ui.written[0]); self.assertEqual(ui.radios, [])
+        self.assertIn('[Établissement]', ui.shown); self.assertEqual(ui.radios, [])
 
     def test_menu_suit_les_intitules_de_l_ecran(self):
         ui = UI(None)
@@ -102,7 +110,7 @@ class GuideCollegeTests(unittest.TestCase):
     def test_sous_menu_unique_ouvre_directement_le_pas_a_pas(self):
         ui = UI(None, rub='Dossier Natation')
         guide.render_guide(ui, 'n', 'Collège')
-        self.assertIn('[Dossier Natation]', ui.written[0]); self.assertEqual(ui.radios, [])
+        self.assertIn('[Dossier Natation]', ui.shown); self.assertEqual(ui.radios, [])
 
     def test_etape_sans_preuve_retire_le_parcours(self):
         bad = json.loads(Path('config/guide_ipack_college.json').read_text(encoding='utf-8'))
@@ -154,7 +162,7 @@ class GuideCollegeTests(unittest.TestCase):
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')
         guide.render_guide(ui, 'l', 'Lycée voie générale')
-        self.assertIn('Périodes', ui.written[0])
+        self.assertIn('Périodes', ui.shown)
 
     def test_fiches_de_la_visite_sans_donnees_personnelles(self):
         for f in Path('data/ipack/visite_college_2026_10_18').glob('*.txt'):

@@ -26,10 +26,10 @@ class GuidedTests(unittest.TestCase):
     def test_next_back_and_blocked_branches(self):
         goal='Me repérer depuis le début'
         state={}
-        ui=FakeUI([goal,'C’est fait'],state,'Étape suivante →')
+        ui=FakeUI([goal],state,'C’est fait · Suivant →')
         guide.render_guide(ui,'test','Collège')
         self.assertEqual(state['test_position_0'],1)
-        ui=FakeUI([goal,'Je bloque dans cet écran'],state,'← Étape précédente')
+        ui=FakeUI([goal],state,'← Retour')
         guide.render_guide(ui,'test','Collège')
         self.assertEqual(state['test_position_0'],0)
     def test_completion_and_no_source(self):

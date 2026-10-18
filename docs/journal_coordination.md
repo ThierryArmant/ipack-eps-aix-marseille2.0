@@ -723,3 +723,7 @@ L'utilisateur signale qu'une succession de clarifications peut laisser le collè
 
 ### 18 octobre 2026 — visibilité de l'entrée du guide
 À la demande de Thierry, l'entrée du pas à pas porte désormais « ❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici », dans un encadré bleu contrasté. Style limité à ce composant, sans modifier les autres panneaux. Aucun changement du parcours ni appel IA supplémentaire.
+
+### 18 octobre 2026 — guidage simplifié, clics et vidéos
+Thierry demande de supprimer les paragraphes et toute saisie dans le guide. Retrait des champs, des phrases générées à copier et des explications longues. Chaque étape affiche uniquement un intitulé court, la vidéo associée explicitement depuis le catalogue existant et les boutons suivant/retour/recommencer/terminé. Pas de vidéo choisie par IA, pas de lecture automatique. Les vidéos existantes restent à revalider lors de la visite avec Claude ; l'introduction Dossier EPS n'a pas de vidéo unique et invite à choisir une rubrique. Périmètre inchangé : iPackEPS collège et lycées.
+Entrée initiale ajoutée sur indication de Thierry : lien vers l'article 34 « Découvrir l'interface iPackEPS ». Lecture distante indisponible ; aucune URL de vidéo extraite ou inventée. L'ancienne fiche article 34 est archivée parmi les non vérifiées : ce lien n'en réactive pas le contenu dans les réponses IA.

@@ -44,52 +44,62 @@ def routes():
     }
 
 
+def step_presentation(goal, position, text):
+    """Libellés courts et vidéos explicitement associées, sans recherche IA."""
+    import json
+    labels = {
+        'Me repérer depuis le début': [('Établissement', '1. Saisie établissement'), ('Ma fiche Professeur', '2. Ma fiche Professeur'), ('Dossier EPS', None)],
+        'Renseigner une activité avec une classe ou un groupe': [('Dossier EPS → Groupes', '3.1 Dossier EPS — Groupes'), ('Groupes → Gérer les S.A.', '3.1 Dossier EPS — Groupes')],
+        'Configurer les classes ou importer les élèves': [('Classes → Configuration', '3.1 Dossier EPS — Classes'), ('Classes → Organisation', '3.1 Dossier EPS — Classes'), ('Classes → Importation des élèves', '3.1 Dossier EPS — Classes')],
+        'Trouver les activités de l’établissement': [('Dossier EPS → APSA', '3.1 Dossier EPS — APSA')],
+        'Configurer les périodes': [('Dossier EPS → Périodes', '3.1 Dossier EPS — Périodes')],
+        'Placer des élèves dans un groupe': [('Dossier EPS → Élèves', '3.1 Dossier EPS — Élèves')],
+        'Retrouver un projet ou son bilan': [('Dossier EPS → Projets', '3.1 Dossier EPS — Les axes du projet')],
+    }
+    label, video_key = labels[goal][position]
+    try:
+        videos = json.loads((ROOT / 'config/tutoriels_parcours_college.json').read_text(encoding='utf-8'))['tutoriels']
+    except (OSError, ValueError, KeyError):
+        videos = []
+    url = next((v['url'] for v in videos if v.get('etape') == video_key), '')
+    return label, url
+
+
 def render_guide(st, key, public):
     available = routes()
-    if not available or any(not p.is_file() for route in available.values() for _, p in route):
-        st.info('Le parcours documenté est indisponible. Précisez le titre de votre écran dans votre question.')
+    if not available:
+        st.info('Guide indisponible pour le moment.')
         return
-    st.caption('Version de test · iPackEPS uniquement · aucun appel à l’IA pour les choix et les étapes')
-    goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'],
-                    index=None, key=key + '_goal')
+    st.link_button('▶ Découvrir l’interface iPackEPS', 'https://ipackeps.ac-creteil.fr/spip.php?article34')
+    goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
     if goal is None:
         return
     if goal == 'Je ne sais pas encore':
-        st.info('Vous pouvez choisir « Me repérer depuis le début ». Sinon, décrivez le résultat souhaité et les mots visibles à l’écran ; il n’est pas nécessaire de connaître le nom du module.')
-        return
+        goal = 'Me repérer depuis le début'
     route = available[goal]
     state_key = key + '_position_' + str(list(available).index(goal))
     position = st.session_state.get(state_key, 0)
     text, path = route[position]
-    st.write(f'**Étape {position + 1} sur {len(route)}**')
-    st.info(text)
-    st.caption('Si cette étape est déjà réalisée, passez à la suivante sans recommencer les saisies.')
+    label, url = step_presentation(goal, position, text)
+    st.write(f'**Étape {position + 1}/{len(route)} · {label}**')
+    if url:
+        with st.expander('📺 Voir comment faire'):
+            st.video(url)
+    else:
+        st.caption('Choisissez ensuite la rubrique qui vous intéresse dans la liste ci-dessus.')
     prefix = state_key + '_' + str(position)
-    status = st.radio('Où en êtes-vous maintenant ?', ['C’est fait', 'Je ne trouve pas cet écran', 'Je bloque dans cet écran'],
-                      index=None, key=prefix + '_status')
-    if status in ('Je ne trouve pas cet écran', 'Je bloque dans cet écran'):
-        st.write('Précisez votre blocage en quelques mots :')
-        detail = st.text_input('Titre, bouton introuvable ou message affiché (sans données personnelles)', key=prefix + '_detail')
-        question = f'Dans iPackEPS ({public}), je souhaite : {goal.lower()}. Étape concernée : {text} Mon problème : {status.lower()}. {detail}'.strip()
-        st.code(question, language=None)
-        st.caption('Copiez cette demande puis cliquez sur « Poser une autre question ». Le guide ne lance aucune réponse automatiquement.')
-    if status == 'C’est fait' and position < len(route) - 1:
-        if st.button('Étape suivante →', key=prefix + '_next'):
+    if position < len(route) - 1:
+        if st.button('C’est fait · Suivant →', key=prefix + '_next'):
             st.session_state[state_key] = position + 1
             st.rerun()
+    else:
+        if st.button('✓ J’ai trouvé', key=prefix + '_done'):
+            st.success('Vous pouvez fermer le guide ou choisir une autre rubrique.')
     if position > 0:
-        if st.button('← Étape précédente', key=prefix + '_back'):
+        if st.button('← Retour', key=prefix + '_back'):
             st.session_state[state_key] = position - 1
             st.rerun()
-    if status == 'C’est fait' and position == len(route) - 1:
-        result = st.radio('Avez-vous trouvé ce que vous cherchiez ?', ['Oui', 'Non, j’ai encore besoin d’aide'], index=None, key=prefix + '_result')
-        if result == 'Oui':
-            st.success('Parcours terminé. Vous pouvez fermer cette aide.')
-        elif result:
-            st.info('Cette version du guide s’arrête au dernier écran documenté. Pour continuer, précisez le champ ou le bouton qui vous bloque ; aucune étape supplémentaire ne sera inventée.')
-            detail = st.text_input('Que voyez-vous, et que souhaitez-vous obtenir ? (sans données personnelles)', key=prefix + '_end_detail')
-            st.code(f'Dans iPackEPS ({public}), je souhaite : {goal.lower()}. J’ai suivi le parcours jusqu’à : {text} Je bloque ensuite : {detail}', language=None)
-            st.caption('Copiez cette demande et cliquez sur « Poser une autre question ».')
-    with st.expander('Source de cette étape'):
-        st.write(path.read_text(encoding='utf-8').splitlines()[0].lstrip('# '))
-        st.caption('Documentation du logiciel. Les dates et les circuits académiques restent à vérifier lorsqu’ils interviennent dans votre démarche.')
+    def restart():
+        st.session_state[key + '_position_0'] = 0
+        st.session_state[key + '_goal'] = 'Me repérer depuis le début'
+    st.button('Je suis encore perdu · Repartir du début', key=prefix + '_restart', on_click=restart)

@@ -169,6 +169,15 @@ class FichesVoisines(unittest.TestCase):
                   "Où saisir la visite de l'IA-IPR dans iPackEPS ?", "Comment exporter mon fichier élèves vers un autre logiciel ?"):
             self.assertIn(plan, t(q, CLG, 'ipack'), q)
 
+    def test_parcours_video_college(self):
+        from tutorial_links import supporting_tutorials
+        audit = {'documents': [{'id': 'D1', 'path': 'data/ipack/situations_2026_10_17/equipement_modifier_nom.txt'}],
+                 'accepted_claims': [{'section': 'etape', 'text': "Ouvrir [Dossier EPS] > [Équipements sportifs] puis Modifier.",
+                                      'evidence': [{'document_id': 'D1'}]}]}
+        self.assertEqual(['https://youtu.be/mRK9rhUgL44'], supporting_tutorials(audit, kc.catalog()))
+        audit['documents'][0]['path'] = 'data/textes/fiches/autre.txt'
+        self.assertEqual([], supporting_tutorials(audit, kc.catalog()))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -697,3 +697,4 @@ Le code contenait une valeur de secours en clair pour ADMIN_PASSWORD, lisible da
 
 ## 18 octobre 2026 — Ordre de première connexion (correspondant iPackEPS)
 Règle donnée par l'utilisateur : un professeur qui ouvre iPackEPS pour la première fois ne peut pas saisir dans « Les Dossiers et Projets » sans avoir renseigné sa fiche professeur. Fiche ciblée créée (ordre Établissement, Ma Fiche Professeur, Dossier EPS ; fonctions coordonnateur et responsable de la certification ; vérifier la fiche avant toute autre cause de blocage).
+Carte mentale « iPackEPS Collèges » de l'assistance (fournie par l'utilisateur) : ordre confirmé (établissement, fiche professeur, dossiers) et ajouté à la fiche ; ses 15 liens vidéo (un par étape) sont enregistrés dans config/tutoriels_parcours_college.json et proposés par le hub quand une étape acceptée d'une réponse iPackEPS cite le module et que la fiche utilisée n'a pas déjà sa propre vidéo.

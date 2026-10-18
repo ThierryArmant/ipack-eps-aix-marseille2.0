@@ -1,0 +1,20 @@
+{
+ "description": "Parcours vidéo fléché « iPackEPS Collèges » de l'assistance iPackEPS d'Aix-Marseille (carte mentale fournie par le correspondant académique le 18 octobre 2026). Vidéo proposée seulement si une étape acceptée de la réponse cite le module et si la fiche utilisée n'a pas déjà sa propre vidéo.",
+ "tutoriels": [
+  {"etape": "1. Saisie établissement", "motif": "\\[?(?:Fiche )?[ÉE]tablissement\\]?(?! du rectorat)|Gestion de l.établissement", "url": "https://youtu.be/-Ka0fNtMLBk"},
+  {"etape": "2. Ma fiche Professeur", "motif": "Ma [Ff]iche [Pp]rofesseur", "url": "https://youtu.be/WoTtGxzawAI"},
+  {"etape": "3.1 Dossier EPS — Les axes du projet", "motif": "[Aa]xes? (?:des|du) [Pp]rojets?|\\[Projets?\\]", "url": "https://dai.ly/x7l0ibb"},
+  {"etape": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs", "motif": "[ÉE]quipe EPS|[Ii]ntervenants? [Ee]xt[ée]rieurs?", "url": "https://youtu.be/x8DzrCRL_D8"},
+  {"etape": "3.1 Dossier EPS — Classes", "motif": "\\[Classes\\]|[Cc]onfiguration des [Cc]lasses|[Oo]rganisation des [Cc]lasses|[Ii]mport(?:ation)? des [ée]l[èe]ves", "url": "https://youtu.be/tu8J1RBUTwk"},
+  {"etape": "3.1 Dossier EPS — APSA", "motif": "\\[APSAs?\\]|Dossier EPS\\]? ?> ?\\[?APSA", "url": "https://youtu.be/YtRkV7gmlpQ"},
+  {"etape": "3.1 Dossier EPS — Périodes", "motif": "\\[P[ée]riodes\\]|[Cc]r[ée]er une nouvelle [Pp][ée]riode", "url": "https://youtu.be/NdaUc8WaVdU"},
+  {"etape": "3.1 Dossier EPS — Groupes", "motif": "\\[Groupes\\]|[Cc]r[ée]er un groupe", "url": "https://youtu.be/4mqx_sWqSbE"},
+  {"etape": "3.1 Dossier EPS — Élèves", "motif": "Dossier EPS\\]? ?> ?\\[?[ÉE]l[èe]ves|[Pp]lac(?:er|ez) (?:les|vos) [ée]l[èe]ves dans les groupes", "url": "https://youtu.be/QPhqFI4czhA"},
+  {"etape": "3.1 Dossier EPS — Équipements sportifs", "motif": "[ÉE]quipements? [Ss]portifs?", "url": "https://youtu.be/mRK9rhUgL44"},
+  {"etape": "3.1 Dossier EPS — Emplois du temps", "motif": "[Ee]mplois? du temps|\\[EDT\\]|Agenda [ÉE]quipe|[ÉE]dition (?:des )?[Cc]r[ée]neaux", "url": "https://youtu.be/uCF9kxUDaI8"},
+  {"etape": "3.4 Dossier SSS — Demande d'ouverture", "motif": "[Dd]emande d.ouverture", "url": "https://youtu.be/FUJzYLskCGQ"},
+  {"etape": "3.4 Dossier SSS — Projet annuel SSS", "motif": "[Pp]rojet [Aa]nnuel (?:de )?(?:SSS|[Ss]ection)", "url": "https://youtu.be/SizZ4vGQ4nU"},
+  {"etape": "3.4 Dossier SSS — Bilan de votre SSS", "motif": "[Bb]ilan (?:[Aa]nnuel )?(?:de votre |de la )?(?:SSS|[Ss]ection)", "url": "https://youtu.be/iH54YEF_2XY"},
+  {"etape": "3.6 Dossier APPN — Demande de validation", "motif": "APPN", "url": "https://youtu.be/RUlrS0a1YA0"}
+ ]
+}

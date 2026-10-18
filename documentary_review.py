@@ -890,7 +890,27 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
         generic = [p for p in packets if p['origin'] == 'program'
                    and p['text'].lstrip().startswith('REPÈRES DOCUMENTAIRES PAR EXAMEN')]
         audit['excluded_generic_program_documents'] = [p['id'] for p in generic]
-        packets = focused + [p for p in packets if p['origin'] == 'program' and p not in generic]
+        # Une fiche moins prioritaire peut documenter une sous-question précise.
+        # Ne jamais réintroduire une fiche sur un seul mot générique (« note », « CAP »).
+        # Deux racines communes au TITRE (et non au corps) sont exigées ; budget borné.
+        question_roots = _racines(question)
+        complements = []
+        complement_chars = 0
+        for candidate in packets:
+            if candidate['origin'] != 'document' or candidate in focused:
+                continue
+            if len(question_roots & _racines(candidate['title'])) < 2:
+                continue
+            if situation_mismatch(question, candidate['text']):
+                continue
+            size = len(candidate['text'])
+            if size > 4500 or complement_chars + size > 6000 or len(complements) >= 2:
+                continue
+            complements.append(candidate)
+            complement_chars += size
+        audit['complement_document_ids'] = [p['id'] for p in complements]
+        audit['complement_document_chars'] = complement_chars
+        packets = focused + complements + [p for p in packets if p['origin'] == 'program' and p not in generic]
     audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]

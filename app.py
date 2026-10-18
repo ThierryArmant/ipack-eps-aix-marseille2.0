@@ -2988,10 +2988,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                            f"{_jetons}"
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
             if m.get("aide_reperage"):
-                aide = documented_navigation_help()
-                if aide:
-                    with st.expander("🧭 Besoin d’aide pour vous repérer depuis le début ?"):
-                        st.markdown(aide, unsafe_allow_html=True)
+                from guided_navigation import render_guide
+                with st.expander("🧭 Être guidé pas à pas"):
+                    render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")))
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

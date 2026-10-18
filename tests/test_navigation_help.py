@@ -8,9 +8,10 @@ class NavigationHelpTests(unittest.TestCase):
     def test_only_specific_college_technical_clarification_offers_help(self):
         self.assertTrue(offer_navigation_help('ipack', 'Collège (DNB)', 'clarification', CLARIFICATION))
         self.assertTrue(offer_navigation_help('ipack', 'Collège', 'clarification', CLARIFICATION))
+        self.assertTrue(offer_navigation_help('ipack', 'Lycée Général & Techno', 'clarification', CLARIFICATION))
+        self.assertTrue(offer_navigation_help('ipack', 'Lycée Pro / CAP', 'clarification', CLARIFICATION))
         for args in (('textes','Collège (DNB)','clarification',CLARIFICATION),
                      ('examens','Collège (DNB)','clarification',CLARIFICATION),
-                     ('ipack','Lycée Général & Techno','clarification',CLARIFICATION),
                      ('ipack','Collège (DNB)','ia',CLARIFICATION),
                      ('ipack','Collège (DNB)','clarification','Précisez le diplôme.'),
                      ('ipack','Collège (DNB)','documentee','Chemin connu')):

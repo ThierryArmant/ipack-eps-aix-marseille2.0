@@ -6543,6 +6543,10 @@
       "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
       "candidat (?:individuel|libre)|\\bcned\\b",
       "binome|co.?evaluat|correcteur|jour (?:du|de l.) (?:ccf|epreuve)"
+    ],
+    "priorite": 300,
+    "exclusif_motifs": [
+      "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
     ]
   },
   "data/textes/fiches/arrete_1989_certificat_inaptitude.txt": {

@@ -66,6 +66,17 @@ class FichesVoisines(unittest.TestCase):
         self.assertIn('considéré apte à reprendre', texte)
         self.assertIn('abrogé depuis le 24 mai 2006', texte)
 
+    def test_arret_long_fiche_exclusive(self):
+        q = "Mon collègue est en arrêt depuis la Toussaint, mes terminales n'ont pas fait leur deuxième CCF : que faire ?"
+        texte = kc.priority_context(q, GT, 'examens')
+        self.assertIn('absence prolongée du professeur', texte)
+        self.assertNotIn('co-évaluateur absent le jour du CCF', texte)
+
+    def test_zero_disciplinaire_college_sans_fait_d_absence(self):
+        from pathlib import Path
+        code = Path('app.py').read_text(encoding='utf-8')
+        self.assertIn('comportement|refus|bavard|insolen|tenue|sanction|punition|discipl|travaill', code)
+
 
 if __name__ == '__main__':
     unittest.main()

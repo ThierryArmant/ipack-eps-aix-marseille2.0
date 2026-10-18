@@ -2629,7 +2629,10 @@ if prompt_a_traiter:
                                         + "\n".join(_lignes) + "\n" + _concl + "\n")
 
                 # ✅ COLLÈGE : une question sur le zéro ou l'absence recevait la règle des circulaires du CAP et du bac pro.
-                if "coll" in str(niveau_actuel_form).lower() and re.search(r"z[ée]ro|absen|\b0\b", prompt.lower()):
+                # Réservé aux absences à une évaluation : une question de comportement (zéro disciplinaire) relève de la circulaire de 2014.
+                if ("coll" in str(niveau_actuel_form).lower() and re.search(r"absen|pas venu|manqu", prompt.lower())
+                        and re.search(r"[ée]valu|contr[ôo]le|devoir|note|moyenne|z[ée]ro|\b0\b|rattrap|remplacement", prompt.lower())
+                        and not re.search(r"comportement|refus|bavard|insolen|tenue|sanction|punition|discipl|travaill", prompt.lower())):
                     faits_champs += ("FAIT VÉRIFIÉ PAR LE PROGRAMME (il prime sur tout le reste) — la question concerne le COLLÈGE : les circulaires du CAP, "
                                      "du baccalauréat professionnel et du baccalauréat général (« absence non justifiée = zéro ») ne s'appliquent PAS au collège et ne doivent pas être citées. "
                                      "Au collège, on ne met pas zéro pour une absence à une évaluation ordinaire : si la moyenne n'est pas représentative, mention « En attente », "

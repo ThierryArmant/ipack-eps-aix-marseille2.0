@@ -502,6 +502,27 @@ css_pur = f"""
         text-align: center !important; 
     }}
     
+    /* Appel au guidage : style limité à son encadré. */
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] details {{
+        background: #0F273B !important;
+        border: 2px solid #38BDF8 !important;
+        border-left: 7px solid #38BDF8 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }}
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary {{
+        padding: 16px !important;
+        cursor: pointer;
+    }}
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary p {{
+        color: #FFFFFF !important;
+        font-size: 17px !important;
+        font-weight: 750 !important;
+    }}
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary:hover {{
+        background: #16405A !important;
+    }}
+
     /* Notice RGPD : encart contrasté, lisible sur la photo de fond */
     .st-key-notice_rgpd div[data-testid="stExpander"] details {{
         background-color: rgba(15, 23, 42, 0.92) !important;
@@ -2989,7 +3010,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
             if m.get("aide_reperage"):
                 from guided_navigation import render_guide
-                with st.expander("🧭 Être guidé pas à pas"):
+                with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici") :
                     render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")))
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):

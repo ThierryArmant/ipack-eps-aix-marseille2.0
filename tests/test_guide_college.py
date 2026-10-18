@@ -15,7 +15,10 @@ class UI:
         self.options = options; return self.rub
     def radio(self, label, options, **k):
         self.radios.append(options); return self.goal
-    def button(self, label, **k): return label == self.click
+    def button(self, label, **k):
+        self.callbacks = getattr(self, 'callbacks', {}) if 'callbacks' in self.__dict__ else {}
+        self.callbacks[label] = k.get('on_click')
+        return label == self.click
     def write(self, text): self.written.append(text)
     def info(self, text): self.infos.append(text)
     def video(self, url): self.videos.append(url)
@@ -120,6 +123,7 @@ class GuideCollegeTests(unittest.TestCase):
         ui = UI('Configurer les périodes')
         guide.render_guide(ui, 'r', 'Lycée voie générale')
         self.assertIn('dans l’ordre', ui.infos[0]); self.assertIn('allers-retours', ui.infos[0])
+        self.assertLess(len(ui.infos[0]), 200)
         with patch.object(guide, 'SOURCE', Path('absent.txt')):
             self.assertEqual(guide.order_rule(), '')
 
@@ -132,6 +136,18 @@ class GuideCollegeTests(unittest.TestCase):
         for k in ('data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt',
                   'data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt'):
             self.assertIn(url, [t['url'] for t in cat[k]['tutoriels']])
+
+    def test_j_ai_trouve_referme_le_guide(self):
+        state = {'f_rub': 'Dossier Natation', 'f_position_0': 1, 'autre': 1}
+        ui = UI(None, state, rub='Dossier Natation')
+        guide.render_guide(ui, 'f', 'Collège', on_done=lambda: state.__setitem__('ferme', True))
+        pos = list(guide.college_routes()).index('Imprimer les attestations du savoir-nager (ASNS)')
+        state['f_position_' + str(pos)] = 1
+        ui = UI(None, state, rub='Dossier Natation')
+        guide.render_guide(ui, 'f', 'Collège', on_done=lambda: state.__setitem__('ferme', True))
+        ui.callbacks['✓ J’ai trouvé']()
+        self.assertTrue(state['ferme']); self.assertEqual(state['autre'], 1)
+        self.assertFalse([k for k in state if k.startswith('f_')])
 
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')

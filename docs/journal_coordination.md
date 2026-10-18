@@ -772,3 +772,6 @@ Correctif : la règle « texte blanc » du guide rendait le bouton « Découvrir
 
 ### 18 octobre 2026 — lien « Découvrir l'interface iPackEPS » retiré du guide
 Sur demande de Thierry : le menu par dossiers détaille déjà chaque écran ; le lien vers l'article 34 est supprimé.
+
+### 18 octobre 2026 — guide : « J'ai trouvé » referme tout, interface épurée
+Sur demande de Thierry : [✓ J'ai trouvé] referme le guide, efface sa progression et ramène au champ « Posez votre question » (bouton « Vous êtes perdu(e) ? » refermé ; dans une réponse, le guide disparaît). Épuration : encadré d'ordre raccourci à une phrase, libellés des listes masqués (placeholder « Choisissez un dossier… »), suppression de la légende sans vidéo et du bouton « Repartir du début » (la rubrique « Je ne sais pas par où commencer » le remplace).

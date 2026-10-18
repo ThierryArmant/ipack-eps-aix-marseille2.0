@@ -102,11 +102,8 @@ def video_url(video_key):
     return next((v['url'] for v in videos if v.get('etape') == video_key), '')
 
 
-ORDER_RULE = ('**Bon à savoir : iPackEPS se remplit dans l’ordre.** '
-              'D’abord [Établissement], puis [Ma Fiche Professeur], puis [Dossier EPS] ; '
-              'dans chaque écran, de gauche à droite et de haut en bas. '
-              'Une étape sautée bloque les suivantes : complétez-la avant d’avancer, '
-              'vous éviterez des allers-retours.')
+ORDER_RULE = ('**iPackEPS se remplit dans l’ordre** : Établissement → Ma Fiche Professeur → Dossier EPS, '
+              'puis de gauche à droite. Une étape sautée bloque la suite : pas d’allers-retours inutiles.')
 
 
 def order_rule():
@@ -133,7 +130,7 @@ def college_menu(available):
     return out
 
 
-def render_guide(st, key, public):
+def render_guide(st, key, public, on_done=None):
     college = is_college(public) and college_routes()
     available = college or routes()
     if not available:
@@ -147,7 +144,7 @@ def render_guide(st, key, public):
         left, right = st.columns(2)
         names = [b['rubrique'] for b in menu]
         with left:
-            rubrique = st.selectbox('Rubrique iPackEPS', names, index=None,
+            rubrique = st.selectbox('Rubrique iPackEPS', names, index=None, label_visibility='collapsed',
                                     placeholder='Choisissez un dossier…', key=key + '_rub')
         if rubrique not in names:
             return
@@ -157,16 +154,14 @@ def render_guide(st, key, public):
         else:
             with right:
                 choice = st.radio('Sous-menu', [e['libelle'] for e in entries], index=None,
-                                  key=key + '_sub_' + str(names.index(rubrique)))
+                                  key=key + '_sub_' + str(names.index(rubrique)), label_visibility='collapsed')
             if choice is None:
                 return
             goal = next(e['parcours'] for e in entries if e['libelle'] == choice)
-        first_rubrique = names[0]
     else:
         goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
         if goal is None:
             return
-        first_rubrique = None
     first = list(available)[0]
     if goal == 'Je ne sais pas encore' or goal not in available:
         goal = first
@@ -182,24 +177,21 @@ def render_guide(st, key, public):
     if url:
         with st.expander('📺 Voir comment faire'):
             st.video(url)
-    else:
-        st.caption('Choisissez ensuite la rubrique qui vous intéresse dans la liste ci-dessus.')
     prefix = state_key + '_' + str(position)
     if position < len(route) - 1:
         if st.button('C’est fait · Suivant →', key=prefix + '_next'):
             st.session_state[state_key] = position + 1
             st.rerun()
     else:
-        if st.button('✓ J’ai trouvé', key=prefix + '_done'):
-            st.success('Vous pouvez fermer le guide ou choisir une autre rubrique.')
+        def done():
+            # Le guide se referme et repart de zéro ; retour au champ « Posez votre question ».
+            for k in [k for k in st.session_state if str(k).startswith(key + '_')]:
+                del st.session_state[k]
+            if on_done:
+                on_done()
+        st.button('✓ J’ai trouvé', key=prefix + '_done', on_click=done)
     if position > 0:
         if st.button('← Retour', key=prefix + '_back'):
             st.session_state[state_key] = position - 1
             st.rerun()
-    def restart():
-        st.session_state[key + '_position_' + str(list(available).index(first))] = 0
-        if first_rubrique:
-            st.session_state[key + '_rub'] = first_rubrique
-        else:
-            st.session_state[key + '_goal'] = first
-    st.button('Je suis encore perdu(e) · Repartir du début', key=prefix + '_restart', on_click=restart)
+

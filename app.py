@@ -1584,7 +1584,8 @@ with st.container(key="parcours"):
                 if st.session_state.get(_guide_toggle, False):
                     from guided_navigation import render_guide
                     with st.container(key="guide_callout_direct"):
-                        render_guide(st, "direct_" + _guide_public, public_label(_guide_public))
+                        render_guide(st, "direct_" + _guide_public, public_label(_guide_public),
+                                     on_done=lambda k=_guide_toggle: st.session_state.__setitem__(k, False))
 
 
 
@@ -3046,7 +3047,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             if m.get("aide_reperage"):
                 from guided_navigation import render_guide
                 with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici", expanded=m.get("guide_ouvert", False)) :
-                    render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")))
+                    render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")),
+                                 on_done=lambda m=m: m.update(aide_reperage=False, guide_ouvert=False))
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

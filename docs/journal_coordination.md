@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:22 — partie programme — économie vérifiée en ligne sur le cas ciblé (7da661a)
+
+Même question de référence, lycée GT / Aix-Marseille, version 7da661a effectivement affichée. La réponse restitue littéralement le passage pertinent de la fiche : propositions de notes, harmonisation et jury, absence de texte dans la base, caractère provisoire si communication et confirmation auprès du service des examens. Une source citée, avec son origine. Aucun constat d'inexistence générale d'une règle, aucune réponse vide.
+
+Compteur réel : **0 appel de génération, 0 jeton d'entrée, 0 de sortie, 0 s d'appels**, hors recherche documentaire. Comparaisons sur ce même cas : aa44903 = 2 appels / 11 067 jetons ; essai 8fa67ff = 2 appels / 11 084 jetons ; 7da661a = 0 génération / 0 jeton de génération. Économie vérifiée pour ce cas et pour cette partie du coût uniquement. La recherche documentaire et ses éventuels embeddings ne sont pas mesurés par ce compteur. Aucun gain global de fiabilité ou de coût extrapolé.
+
+Code validé par 565 tests avant publication ; les garde-fous maintiennent le parcours normal pour les questions composées, sujets voisins et fiches prioritaires concurrentes. Message à la partie fiches : prendre main, conserver les préfixes de sujet précis et la réserve dans le même passage ; ne pas transformer « aucun texte de la base retrouvé » en inexistence d'une règle. Pas de nouvelle série payante lancée après ce contrôle concluant.
+
+
 ### 2026-10-18 23:20 — partie programme — constat d'échec du premier allègement et extraction préalable bornée
 
 Essai réel de 8fa67ff : le même cas affiche encore « Réponse non confirmée », 2 appels, 10 814 + 270 = 11 084 jetons. **L'économie attendue du premier mécanisme n'a pas été obtenue sur ce cas**, malgré les tests locaux ; ce résultat n'est pas masqué.

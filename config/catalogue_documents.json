@@ -823,7 +823,7 @@
     "url": "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
     "prioritaire": true,
     "motifs": [
-      "sortie|voyage|encadr"
+      "(?:sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?|nature|appn|plein air|a la (?:journee|piscine|neige|mer|montagne)|avec (?:les|mes|des|ma|mon) (?:eleves|classes?))|voyages?|sortie.{0,40}(?:autoris|parents|nuitee|encadr|accompagn|elever?s? (?:dehors|hors))|(?:organis|emmener|amener|partir).{0,30}(?:eleves|classe).{0,30}(?:dehors|hors de l|en sortie|a l.exterieur))|encadr\\w*.{0,40}(?:sortie|voyage|deplacement|nuitee)|(?:sortie|voyage|deplacement|nuitee).{0,40}encadr"
     ],
     "priorite": 310,
     "exclure_motifs": [
@@ -2579,7 +2579,7 @@
     "prioritaire": true,
     "priorite": 320,
     "motifs": [
-      "(?:voiture|vehicule).*(?:perso|prive)|transport.*(?:eleves|enfants)"
+      "(?:voiture|vehicule).*(?:perso|prive)|(?:transport|emmener|conduire|amener).*(?:eleves|enfants).*(?:voiture|vehicule|perso|prive|covoitur|ma |mon )|covoitur"
     ]
   },
   "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
@@ -2752,7 +2752,7 @@
       "textes"
     ],
     "motifs": [
-      "\\bimp\\b|indemnit.*mission particuliere|coordonnat.*eps|coordinat.*eps|\\bcoordo\\b"
+      "\\bimp\\b|indemnit.*mission particuliere|(?:coordonnat|coordinat|\\bcoordo\\b)\\w*.*(?:\\bimp\\b|indemn|montant|paye|remuner|prime|combien|taux|euros|mission|role|conditions?|droit)|(?:\\bimp\\b|indemn|montant|paye|remuner|prime|combien|taux|euros|mission|role|conditions?|droit).*(?:coordonnat|coordinat|\\bcoordo\\b)"
     ],
     "url": "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm",
     "date_verification": "2026-10-16"
@@ -3339,7 +3339,6 @@
     "date_verification": "2026-10-11"
   },
   "data/commun/audit60/gt_regles_decisives.txt": {
-    "title": "Bac GT : CCF, activité établissement et harmonisation",
     "statut": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
     "examens": [
       "gt"
@@ -3349,19 +3348,20 @@
       "examens"
     ],
     "prioritaire": true,
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "title": "Bac GT : ensemble certificatif, listes d'activités et commission académique",
     "motifs": [
-      "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)|(?:evaluation|epreuve) (?:adaptee|differee)|adapt\\w* (?:l.|une |son |cette )?epreuve|(?:note|moyenne|calcul\\w*|dispens\\w*).{0,40}inapt|inapt.{0,60}(?:note|moyenne|calcul|dispens|deux epreuves|troisieme|une (?:seule )?epreuve|adapt|differ)",
-      "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
+      "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)"
     ],
     "exclure_motifs": [
       "option|eppcs",
       "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))",
       "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
       "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
-      "candidat (?:individuel|libre)|\\bcned\\b"
+      "candidat (?:individuel|libre)|\\bcned\\b",
+      "inapt|dispens|blesse|certificat|absen|adapt|entorse"
     ],
-    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
-    "date_verification": "2026-10-12",
     "exclusif_motifs": [
       "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf",
       "commission.*harmonisation"
@@ -3985,13 +3985,14 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "sortie|voyage|aesh.*encadr|encadr.*aesh"
+      "(?:sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?|nature|appn|plein air|a la (?:journee|piscine|neige|mer|montagne)|avec (?:les|mes|des|ma|mon) (?:eleves|classes?))|voyages?|sortie.{0,40}(?:autoris|parents|nuitee|encadr|accompagn|elever?s? (?:dehors|hors))|(?:organis|emmener|amener|partir).{0,30}(?:eleves|classe).{0,30}(?:dehors|hors de l|en sortie|a l.exterieur))|aesh.*encadr|encadr.*aesh"
     ],
     "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
     "date_verification": "2026-10-11",
     "priorite": 320,
     "exclure_motifs": [
-      "^(?!.*(?:sortie (?:scolaire|pedagogique|eps|de classe|facultative|obligatoire)|voyage)).*a la sortie (?:du|de l|de la|des)"
+      "^(?!.*(?:sortie (?:scolaire|pedagogique|eps|de classe|facultative|obligatoire)|voyage)).*a la sortie (?:du|de l|de la|des)",
+      "\\bccf\\b|santorin|cyclades|fichier|export|lots?\\b"
     ]
   },
   "data/textes/fiches/accident_eleve_rapport_parents_2009.txt": {
@@ -4016,7 +4017,8 @@
     "date_verification": "2026-10-11",
     "priorite": 310,
     "exclure_motifs": [
-      "^(?!.*(?:rapport|declar|responsab|assuran|parents|secours|accident|chute|plainte|temoin)).*(?:\\bccf\\b|epreuves?|\\bnotes?\\b|noter|inapt|protocole|santorin|cyclades|dispens|moyenne|evalu|binome|co.?evaluat)"
+      "^(?!.*(?:rapport|declar|responsab|assuran|parents|secours|plainte|pendant le cours|en cours d.eps|pendant l.eps|en eps|temoin)).*(?:\\bccf\\b|epreuves?|\\bnotes?\\b|noter|inapt|protocole|santorin|cyclades|dispens|moyenne|evalu|binome|co.?evaluat|adapt\\w*|validation|certifi\\w*)",
+      "vacances|week.?end|au club|en club|a la maison|en dehors (?:de l.|du )(?:college|lycee|etablissement|ecole)|accident de (?:ski|voiture|scooter|velo|moto)"
     ]
   },
   "data/commun/audit355/as_remplacement_forfait.txt": {
@@ -6493,5 +6495,54 @@
     ],
     "url": "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2023/09/Les-inaptitudes-en-EPS-2023-09.pdf",
     "date_verification": "2026-10-17"
+  },
+  "data/commun/audit60/gt_inaptitude_possibilites_ccf.txt": {
+    "statut": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "title": "Bac GT : inaptitude en CCF, les possibilités",
+    "motifs": [
+      "(?:evaluation|epreuve) (?:adaptee|differee)|adapt\\w* (?:l.|une |son |cette )?epreuve|(?:note|moyenne|calcul\\w*|dispens\\w*).{0,40}inapt|inapt.{0,60}(?:note|moyenne|calcul|dispens|deux epreuves|troisieme|une (?:seule )?epreuve|adapt|differ)",
+      "(?=.*(?:inapt|entorse|blesse|certificat))(?=.*(?:adapt|commission|valid))"
+    ],
+    "exclure_motifs": [
+      "option|eppcs",
+      "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))",
+      "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
+      "candidat (?:individuel|libre)|\\bcned\\b"
+    ]
+  },
+  "data/commun/audit60/gt_absence_professeur_ccf.txt": {
+    "statut": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "date_verification": "2026-10-12",
+    "title": "Bac GT : absence prolongée du professeur et CCF",
+    "motifs": [
+      "(?=.*(?:absen(?:ce|t|te|ts|tes)\\s+(?:(?:du|de|des|le|la|les|d.un|d.une|de mon|de notre)\\s+)?(?:prof(?:esseur)?s?|enseignants?)\\b|(?:prof(?:esseur)?s?|enseignants?|remplacants?)\\s+(?:(?:est|sont|a ete|ont ete|etait|etaient)\\s+)?(?:absen|non remplac|pas remplac)|(?:sans|pas de)\\s+remplacant))(?=.*(?:ccf|rattrap|cycle|sequence|certifi|epreuve|evalu|notes?))"
+    ],
+    "exclure_motifs": [
+      "option|eppcs",
+      "^(?=.*(?:fichier|export|saisi|verrouill|santorin|cyclades|i ?pack))",
+      "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
+      "candidat (?:individuel|libre)|\\bcned\\b",
+      "binome|co.?evaluat|correcteur|jour (?:du|de l.) (?:ccf|epreuve)"
+    ]
   }
 }

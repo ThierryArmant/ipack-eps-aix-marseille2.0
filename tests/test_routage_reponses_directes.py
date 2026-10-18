@@ -39,7 +39,7 @@ CAS = [
  ("iPackEPS me bloque avec un message", GT, None),
  ("Un candidat libre peut-il passer l'option EPS en ponctuel ?", GT, 'Option EPS'),
  ("Notre lycée n'a pas l'option, peut-il la passer en ponctuel ?", GT, None),
- ("Mes élèves n'ont que deux notes à cause d'un professeur non remplacé.", GT, 'activité établissement'),
+ ("Mes élèves n'ont que deux notes à cause d'un professeur non remplacé.", GT, 'absence prolongée du professeur'),
  ("Je suis chef d'établissement et l'enseignant est absent, puis-je saisir ses notes ?", GT, None),
  ("Cyclades : mon élève absent au CCF, il manque sa note dans la liste", GT, None),
  ("Je suis seul en EPS : l'enseignant est absent, comment certifier le CCF ? ensuite je saisis dans Santorin", GT, None),

@@ -215,7 +215,7 @@
    ],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "Bac GT : CCF, activité établissement et harmonisation"
+   "titre": "Bac GT : ensemble certificatif, listes d'activités et commission académique"
   },
   "data/commun/audit60/inaptitude_totale_annee_terminale.txt": {
    "nature": [
@@ -5631,6 +5631,30 @@
    ],
    "portee_texte": "code de l'éducation (national) ; distinction inaptitude/dispense d'après d'autres académies",
    "titre": "Élève inapte ou dispensé : présence en cours d'EPS"
+  },
+  "data/commun/audit60/gt_inaptitude_possibilites_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT : inaptitude en CCF, les possibilités"
+  },
+  "data/commun/audit60/gt_absence_professeur_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac GT : absence prolongée du professeur et CCF"
   }
  }
 }

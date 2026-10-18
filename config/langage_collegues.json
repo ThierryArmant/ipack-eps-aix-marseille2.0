@@ -16,10 +16,14 @@
   },
   {
    "motif": "(?:collegue|\\bprof\\b|professeur|binome|enseignant|co.?evaluateur|correcteur).{0,30}(?:malade|en arret|arret maladie|absent|pas la|longue maladie|conge)|(?:malade|arret|absent).{0,15}(?:du|de mon|de ma|de la|d.un) (?:collegue|prof\\b|professeur|binome)",
-   "ajout": "enseignant absent co-evaluateur"
+   "ajout": "enseignant absent"
   },
   {
-   "motif": "\\bblesse|\\bblessure|cass[ea] (?:le|la|un|une)|fracture|entorse|cheville|\\bplatre|opere\\b|malade le jour",
+   "motif": "(?=.*(?:binome|co.?evaluat|correcteur|evalu\\w* avec moi|(?:collegue|\\bprof\\b|professeur|enseignant).{0,40}jour (?:du|de l.) (?:ccf|epreuve)))(?=.*(?:malade|arret|absent|pas la|conge))",
+   "ajout": "co-evaluateur"
+  },
+  {
+   "motif": "\\bblesse|\\bblessure|cass[ea] (?:le|la|un|une)|fracture|entorse|cheville|\\bplatre|opere\\b|^(?!.*(?:collegue|\\bprof\\b|professeur|binome|enseignant|co.?evaluat|correcteur).{0,30}malade le jour).*malade le jour",
    "ajout": "eleve blesse inapte"
   },
   {

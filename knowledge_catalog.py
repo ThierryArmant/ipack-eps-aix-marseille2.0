@@ -58,6 +58,8 @@ def document_records(folder):
     if folder in ('data/ipack', 'data/examens', 'data/textes'):
         paths += active_paths('data/commun')
     for p in paths:
+        if entries.get(p.as_posix(), {}).get('retrieval_enabled') is False:
+            continue
         content = p.read_text(encoding='utf-8')
         signature = hashlib.sha256(content.encode()).hexdigest()
         if signature in seen:
@@ -253,11 +255,19 @@ _LEVEL_WORD = {'Collège (DNB)': 'college', 'Lycée Général & Techno': 'lycee'
                'Lycée Pro / CAP': 'lycee', '1er degré': 'ecole primaire'}
 
 
+def canonical_public(public):
+    return {'Collège': 'Collège (DNB)', 'Lycée voie générale': 'Lycée Général & Techno',
+            'Lycée voie professionnelle': 'Lycée Pro / CAP'}.get(public, public)
+
+
 def reference_notice(targets, question=None, public=None):
     entries = catalog()
     result = []
+    public = canonical_public(public)
     level = _LEVEL_WORD.get(public, '')
     for path, md in entries.items():
+        if md.get('retrieval_enabled') is False:
+            continue
         if not md.get('prioritaire') or (md.get('examens') and not set(md['examens']) & set(targets)):
             continue
         if question is not None:
@@ -267,7 +277,8 @@ def reference_notice(targets, question=None, public=None):
             if years and md.get('sessions') and not years & set(md['sessions']):
                 continue
             # Motifs positifs : sur la question enrichie du langage courant ; exclusions : sur la question d'origine.
-            if not any(re.search(m, enriched) for m in md.get('motifs', [])):
+            scoped_patterns = md.get('motifs_contextuels', {}).get(public, [])
+            if not any(re.search(m, enriched) for m in md.get('motifs', []) + scoped_patterns):
                 continue
             if any(re.search(m, q) or (level and re.search(m, level)) for m in md.get('exclure_motifs', [])):
                 continue
@@ -285,10 +296,13 @@ def has_text_reference(question, public):
     Les fiches propres aux examens et aux logiciels ne sont pas utilisées pour élargir
     l'onglet Textes. Les motifs et exclusions restent ceux du catalogue.
     """
+    public, _ = effective_context(question, public, 'textes')
+    targets = {'Collège (DNB)': {'dnb'}, 'Lycée Général & Techno': {'gt'},
+               'Lycée Pro / CAP': {'pro', 'cap'}, '1er degré': {'primaire'}}.get(public, set())
     return any(md.get('priorite', 0) >= 300
                and md.get('modes') == ['textes']
                and Path(path).is_file()
-               for path, md in reference_notice(set(), question, public))
+               for path, md in reference_notice(targets, question, public))
 
 
 def documented_response(question, public, mode):
@@ -331,6 +345,7 @@ def documented_response(question, public, mode):
 
 def effective_context(question, public, mode):
     """Les diplômes explicites priment ; un protocole seul reste ambigu."""
+    public = canonical_public(public)
     q = normalise(question)
     pro = bool(re.search(r"\bbac(?:calaureat)?\s+(?:pro|professionnel)|\b(?:bcp|cap)\b", q))
     gt = bool(re.search(r"\bbac(?:calaureat)?\s+(?:gt|general|technologique)|\b(?:seconde|premiere|terminale)\b", q))

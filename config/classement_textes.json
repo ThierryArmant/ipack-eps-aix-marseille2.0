@@ -1,0 +1,1252 @@
+{
+  "date": "2026-10-18",
+  "regle": "Classement éditorial : ne certifie pas le fond juridique. Les publics non explicités ne sont pas inférés.",
+  "domaines": {
+    "01_service_statuts": "Service, statuts, rémunération et qualifications EPS",
+    "02_carriere": "Carrière, recrutement, mobilité et recours",
+    "03_responsabilite": "Responsabilité et protection des personnels",
+    "04_vie_etablissement": "Vie scolaire, direction, laïcité et égalité",
+    "05_sante": "Santé, inaptitudes et inclusion",
+    "06_sorties_transports": "Sorties, voyages, transports et accompagnateurs",
+    "07_securite": "Sécurité des activités, équipements et APPN",
+    "08_urgences": "Urgences et accidents des élèves",
+    "09_programmes": "Programmes, horaires et ressources pédagogiques",
+    "10_examens": "Certification et aménagements des examens",
+    "11_numerique": "Données personnelles, images et intelligence artificielle",
+    "12_reperes": "Repères transversaux, dispositifs et circuits académiques"
+  },
+  "fiches": [
+    {
+      "path": "data/textes/complement_natation_scolaire.txt",
+      "title": "complement natation scolaire",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm",
+        "https://eduscol.education.gouv.fr/5709/savoir-nager-en-securite-de-la-maternelle-au-lycee",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-premier-degre-101622.pdf",
+        "https://www.ac-lyon.fr/media/53854/download",
+        "https://eps.ac-besancon.fr/enseignement-de-la-natation-scolaire-au-28-02-2022/"
+      ],
+      "statut": "verifie_2026-10-10",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/complement_obligations_service_eps.txt",
+      "title": "Obligations de service des professeurs d'EPS (décret n° 2014-940)",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029389197",
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm",
+        "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038375945"
+      ],
+      "statut": "article_4_actualise_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/complement_statuts_personnels_eps.txt",
+      "title": "complement statuts personnels eps",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/escalade_controles_securite.txt",
+      "title": "Escalade SAE et moulinette : contrôles du professeur",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.gouv.fr/6285/la-pratique-de-l-escalade-en-education-physique-et-sportive",
+        "https://pedagogie.ac-rennes.fr/sites/pedagogie.ac-rennes.fr/IMG/pdf/protocole_de_se_curite_escalade_academie_de_rennes_10.11.2017.pdf",
+        "https://eduscol.education.gouv.fr/media/100674/download?attachment="
+      ],
+      "statut": "verifie_2026-10-10",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/accident_eleve_rapport_parents_2009.txt",
+      "title": "Accident scolaire : rapport et communication aux parents",
+      "domaine": "08_urgences",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2009/43/mene0915926c.html",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000019017259"
+      ],
+      "statut": "source_officielle_relue_2026-10-11",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/appn_moyens_alerte_milieu_isole.txt",
+      "title": "APPN en milieu isolé : moyens d’alerte et organisation des secours",
+      "domaine": "07_securite",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.gouv.fr/media/100683/download?attachment="
+      ],
+      "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/arrete_1989_certificat_inaptitude.txt",
+      "title": "Certificat d'inaptitude : contenu, durée, reprise et médecin scolaire (arrêté du 13 septembre 1989)",
+      "domaine": "05_sante",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000684730"
+      ],
+      "statut": "texte_officiel_fourni_utilisateur_2026-10-18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_002_situation_1ere_section_responsabilite_civile_penale_et_protection_fonctionnelle.txt",
+      "title": "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208",
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044427614",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525569/",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F32574",
+        "https://www.fonction-publique.gouv.fr/toutes-les-publications/faq-sur-la-protection-fonctionnelle-des-agents-publics"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_004_situation_3e_section_valeurs_de_la_republique_laicite_et_scolarisation_inclusive.txt",
+      "title": "Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.uni-trier.de/universitaet/fachbereiche-faecher/fachbereich-v/forschung/ievr/forschungsschwerpunkte/staatskirchenrecht/frankreich/circulaire-18-mai-2004"
+      ],
+      "statut": "texte_officiel_relu_2026-10-18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_005_situation_4e_section_protection_du_personnel_et_arbitrages_juridiques_sur_le_terrain.txt",
+      "title": "EPS : adaptation, sécurité et contestation d’une intervention pédagogique",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006526438",
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_006_situation_5e_section_cadre_administratif_des_inaptitude_medicales_et_adaptations.txt",
+      "title": "[SITUATION: 5E SECTION : CADRE ADMINISTRATIF DES INAPTITUDE MEDICALES ET ADAPTATIONS]",
+      "domaine": "05_sante",
+      "publics_explicites": [],
+      "sources": [
+        "https://eduscol.education.gouv.fr/media/111129/download"
+      ],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_008_situation_public_vise_et_modalites_d_obtention_par_defaut.txt",
+      "title": "[SITUATION: PUBLIC VISÉ ET MODALITÉS D'OBTENTION PAR DÉFAUT]",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_009_situation_logistique_administrative_et_calendrier_academique.txt",
+      "title": "[SITUATION: LOGISTIQUE ADMINISTRATIVE ET CALENDRIER ACADÉMIQUE]",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_010_situation_ouverture_protocolaire_aux_contractuels_et_detachements.txt",
+      "title": "[SITUATION: OUVERTURE PROTOCOLAIRE AUX CONTRACTUELS ET DÉTACHEMENTS]",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_011_situation_protocole_technique_de_l_epreuve_100_metres_en_continu.txt",
+      "title": "[SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_012_situation_motifs_d_elimination_immediate_test_non_valide.txt",
+      "title": "[SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo16/MENH2607093C",
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_013_situation_7e_section_pedagogie_horaires_et_dispositifs_de_suivi_au_college_cycles_3_4.txt",
+      "title": "[SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]",
+      "domaine": "09_programmes",
+      "publics_explicites": [],
+      "sources": [
+        "https://eduscol.education.gouv.fr/5208/l-organisation-des-enseignements-au-college"
+      ],
+      "statut": "correction_bornee_2026_10_18_relecture_complete_a_poursuivre",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_014_situation_8e_section_socle_commun_sccc_et_exigences_du_dnb_session_2026.txt",
+      "title": "[SITUATION: 8E SECTION : SOCLE COMMUN (SCCC) ET EXIGENCES DU DNB (SESSION 2026)]",
+      "domaine": "10_examens",
+      "publics_explicites": [
+        "dnb"
+      ],
+      "sources": [],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_015_situation_9e_section_cadre_du_ccf_en_lycee_gt_specialite_eppcs_et_athletes_shn.txt",
+      "title": "[SITUATION: 9E SECTION : CADRE DU CCF EN LYCÉE GT, SPÉCIALITÉ EPPCS ET ATHLÈTES SHN]",
+      "domaine": "10_examens",
+      "publics_explicites": [
+        "gt"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+        "https://www.education.gouv.fr/bo/21/Hebdo25/MENE2116606A.htm",
+        "https://www.education.gouv.fr/bo/21/Hebdo25/MENE2116605A.htm",
+        "https://eduscol.education.gouv.fr/5784/programmes-et-ressources-en-education-physique-et-sportive-eps-voie-gt"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt",
+      "title": "[SITUATION: 10E SECTION : CERTIFICATION EN VOIE PROFESSIONNELLE (CAP / BAC PRO)]",
+      "domaine": "10_examens",
+      "publics_explicites": [
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+        "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+        "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526357C",
+        "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526679C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_019_situation_13e_section_code_disciplinaire_cadre_des_punitions_et_des_sanctions.txt",
+      "title": "EPS : punitions, sanctions et évaluation scolaire",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/14/Hebdo22/MENE1406107C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt",
+      "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt",
+      "title": "Données des élèves : outils numériques, images et responsabilité",
+      "domaine": "11_numerique",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs",
+        "https://www.cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt",
+      "title": "[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]",
+      "domaine": "10_examens",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/20/Hebdo47/MENE2034197C.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031093371"
+      ],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt",
+      "title": "[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]",
+      "domaine": "08_urgences",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2000/hs1/texte.htm",
+        "https://www.education.gouv.fr/bo/2009/43/mene0915926c.htm"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt",
+      "title": "[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm",
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt",
+      "title": "Sécurité en EPS : organisation des activités, matériel, différences entre élèves",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt",
+      "title": "[SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]",
+      "domaine": "07_securite",
+      "publics_explicites": [
+        "college",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://eduscol.education.fr/document/50600/download",
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt",
+      "title": "EPS : vigilance, facteurs de risque et prévention",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_030_situation_gestion_des_espaces_deplacements_et_vestiaires.txt",
+      "title": "EPS : installations, déplacements réguliers et surveillance des vestiaires",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+        "https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_031_situation_traitement_didactique_et_contacts_corporels_aides_et_parades.txt",
+      "title": "EPS : aides, parades, contacts corporels et intervention en cas de conflit",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt",
+      "title": "[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt",
+      "title": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://eduscol.education.fr/document/5641/download",
+        "https://eduscol.education.fr/document/13441/download"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt",
+      "title": "Cycle 2 : calendrier des programmes EPS par classe",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo22/MENE2608631A"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
+      "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+      "domaine": "09_programmes",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
+      "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
+      "domaine": "09_programmes",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt",
+      "title": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1396"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt",
+      "title": "Égalité filles-garçons : missions du service public",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://eduscol.education.gouv.fr/6141/egalite-filles-garcons-et-prevention-des-violences-sexistes-et-sexuelles"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt",
+      "title": "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.pedagogie.ac-nice.fr/eps/wp-content/uploads/sites/20/2014/04/Note-de-service-no-86-101-du-5-mars-1986-1.pdf",
+        "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/vdmcstimener-un-projet251462750108pdf-89655.pdf",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F2878",
+        "https://www1.ac-nancy-metz.fr/dsden54/veille/pdf/I.5.4.pdf"
+      ],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt",
+      "title": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt",
+      "title": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt",
+      "title": "[SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt",
+      "title": "[SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032432112"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt",
+      "title": "[SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]",
+      "domaine": "05_sante",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1030",
+        "https://www.unss.org/sport-sante"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt",
+      "title": "EPS : chaleur, pollution et conditions météorologiques",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/recommandations-aux-directeurs-d-ecole-et-chefs-d-etablissement-pour-prevenir-les-effets-de-la-456261",
+        "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000036736002",
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_046_situation_23e_section_carriere_evaluation_et_dispositif_ppcr_avancement_d_echelon.txt",
+      "title": "Rendez-vous de carrière : évaluation et recours du professeur d’EPS",
+      "domaine": "02_carriere",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006063298",
+        "https://www.education.gouv.fr/rendez-vous-de-carriere-mode-d-emploi-41627"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_047_situation_24e_section_avancement_de_grade_hors_classe_et_classe_exceptionnelle.txt",
+      "title": "Promotions : hors-classe et classe exceptionnelle, corps EPS et agrégés",
+      "domaine": "02_carriere",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/sites/default/files/document/Annexe%201%20%E2%80%93%20Lignes%20directrices%20de%20gestion%20relatives%20%C3%A0%20la%20promotion%20et%20%C3%A0%20la%20valorisation%20des%20parcours%20des%20personnels%20enseignants%20des%20premier%20et%20second%20degr%C3%A9s,%20des%20personnels%20d%E2%80%99%C3%A9ducation%20et%20des%20psychologues%20de%20l%E2%80%99%C3%A9ducation%20nationale-4049.pdf",
+        "https://iprof.adc.education.fr/iprof/page_information_iprof_PGC.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_048_situation_25e_section_recrutement_conditions_d_acces_aux_corps_et_detachements.txt",
+      "title": "Recrutement EPS : concours, session et parcours de formation",
+      "domaine": "02_carriere",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.devenirenseignant.gouv.fr/enseigner-l-education-physique-et-sportive-le-capeps-1396",
+        "https://www.devenirenseignant.gouv.fr/questions-reponses-la-reforme-de-la-formation-initiale-et-du-recrutement-des-personnels-enseignants-1523"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt",
+      "title": "Professeur d’EPS : mutation, vérification du barème et recours",
+      "domaine": "02_carriere",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/mutation-des-personnels-du-second-degre-siam-phase-interacademique-3218",
+        "https://www.education.gouv.fr/resultats-des-mouvements-interacademique-specifique-national-et-postes-profil-309543"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt",
+      "title": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
+      "domaine": "02_carriere",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt",
+      "title": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
+      "domaine": "12_reperes",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt",
+      "title": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
+      "domaine": "12_reperes",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt",
+      "title": "Accident de service ou de trajet : déclaration de l’agent",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F33252",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/R53535"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt",
+      "title": "[SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
+      ],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt",
+      "title": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]",
+      "domaine": "10_examens",
+      "publics_explicites": [
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+        "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+        "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt",
+      "title": "[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]",
+      "domaine": "08_urgences",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2000/hs1/texte.htm",
+        "https://www.education.gouv.fr/bo/2009/43/mene0915926c.htm"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": false,
+      "remplace_par": "data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt",
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt",
+      "title": "Coordination EPS : conditions et montant de l’IMP",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533522",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533649"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt",
+      "title": "[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
+      ],
+      "statut": "revu_2026-10-10_recoupement_sources",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/correspondant_06_course_orientation_foret_chasse.txt",
+      "title": "Réponse d'un IA-IPR EPS : course d'orientation en forêt et chasse",
+      "domaine": "07_securite",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "reponse_correspondant_academique_2025-2026",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/fiches/cumul_activite_accessoire.txt",
+      "title": "Cumul : activité accessoire et emploi public",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F1648"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/decret_2025_1260_signalement_faits_etablissement.txt",
+      "title": "Signalement des faits de violence par le directeur ou le chef d'établissement : « Faits établissement » (décret du 22 décembre 2025)",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/eli/decret/2025/12/22/MENG2521400D/jo/texte"
+      ],
+      "statut": "texte_officiel_lu_2026_10_17",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/decret_2026_687_famille_menacante.txt",
+      "title": "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054541484"
+      ],
+      "statut": "source_officielle_recoupee_2026_10_17",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/demifond_college_vma_exemples.txt",
+      "title": "Demi-fond collège : VMA et exemples pédagogiques, sans barème national imposé",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "dnb"
+      ],
+      "sources": [
+        "https://eduscol.education.gouv.fr/5724/ressources-d-accompagnement-du-programme-d-education-physique-et-sportive-au-cycle-4",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/ra16c4epsdemifondnd565118pdf-78294.pdf"
+      ],
+      "statut": "source_officielle_lue_2026_10_13",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/deplacements_reguliers_college_lycee.txt",
+      "title": "Déplacements réguliers vers les installations : collège et lycée",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/sites/default/files/document/Les%20d%C3%A9placements%20d%26%23039%3B%C3%A9l%C3%A8ves%20%28d%C3%A9placements%20r%C3%A9guliers%2C%20sorties%2C%20voyages%29-238530.pdf"
+      ],
+      "statut": "synthese_ministerielle_consultee_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/direction_ecole_autorite_fonctionnelle.txt",
+      "title": "Direction d’école : autorité fonctionnelle et consignes",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047970057"
+      ],
+      "statut": "source_officielle_relue_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/dispense_inaptitude_presence_cours.txt",
+      "title": "Élève inapte ou dispensé : présence en cours d'EPS",
+      "domaine": "05_sante",
+      "publics_explicites": [],
+      "sources": [
+        "https://eps.ac-besancon.fr/wp-content/uploads/sites/36/2023/09/Les-inaptitudes-en-EPS-2023-09.pdf"
+      ],
+      "statut": "sources_relues_2026-10-17_lacune_signalee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/escalade_relais_environnement_specifique.txt",
+      "title": "Escalade au-delà du premier relais : environnement spécifique et cadre du projet",
+      "domaine": "07_securite",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000025276534"
+      ],
+      "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/fournitures_neutralite_commerciale.txt",
+      "title": "Fournitures et équipements demandés aux familles : neutralité commerciale",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/22/Hebdo26/MENE2219098C.htm"
+      ],
+      "statut": "source_officielle_lue_2026_10_17",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/ia_usages_pedagogiques.txt",
+      "title": "Usage pédagogique d’un système automatisé : données et évaluation",
+      "domaine": "11_numerique",
+      "publics_explicites": [],
+      "sources": [
+        "https://cnil.fr/fr/enseignant-usage-systeme-ia"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/imp_attribution_temps_partiel_remplacement.txt",
+      "title": "IMP : attribution, temps partiel, partage et versement",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000030533522",
+        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506032C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/intervenants_eps_ecole_agrement_reputation.txt",
+      "title": "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm"
+      ],
+      "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/obligations_service_premier_degre_2013.txt",
+      "title": "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/LEGIARTI000034326460/",
+        "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000034326460",
+        "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000047971117/"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/pai_pratique_eps_sorties.txt",
+      "title": "PAI : pratique EPS, adaptation et sorties",
+      "domaine": "05_sante",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/21/Hebdo9/MENE2104832C.htm"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt",
+      "title": "Programme EPS sixième : application à la rentrée 2027-2028",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "dnb"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo22/MENE2608631A",
+        "https://eduscol.education.gouv.fr/4773/education-physique-et-sportive-ressources-pour-le-cycle-3"
+      ],
+      "statut": "source_officielle_lue_2026_10_13",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/signalement_violences_personnels.txt",
+      "title": "Violences, discriminations et harcèlement envers les personnels",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/dispositifs-de-lutte-contre-les-actes-de-violences-discriminations-harcelement-ou-agissements-504284",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043596646"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sortie_musee_velo_second_degre.txt",
+      "title": "Sortie au musée à vélo ou VTT : obligations et prévention au second degré",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2004/32/MENE0401637C.htm",
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F34169"
+      ],
+      "statut": "sources_nationales_relues_2026_10_13",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sorties_mixte_cycle3_encadrement.txt",
+      "title": "Sortie commune CM2–6e : exception du groupe mixte cycle 3",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "primaire",
+        "dnb"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sorties_premier_degre_autorisations.txt",
+      "title": "École : autorisation des sorties et voyages scolaires",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C"
+      ],
+      "statut": "source_officielle_relue_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sorties_second_degre_guide_2025.txt",
+      "title": "Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://eduscol.education.gouv.fr/5037/sorties-et-voyages-scolaires-dans-le-second-degre"
+      ],
+      "statut": "source_officielle_relue_2026-10-11",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/tzr_decret_99_823_remplacement.txt",
+      "title": "TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.education.gouv.fr/bo/1999/45/default.htm",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000577415"
+      ],
+      "statut": "texte_officiel_fourni_utilisateur_2026-10-18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/partenariats_defense_citoyennete.txt",
+      "title": "partenariats defense citoyennete",
+      "domaine": "12_reperes",
+      "publics_explicites": [],
+      "sources": [],
+      "statut": "synthese_non_revalidee",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": true
+    },
+    {
+      "path": "data/textes/premier_degré.txt",
+      "title": "premier degré",
+      "domaine": "12_reperes",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047970057",
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://www.legifrance.gouv.fr/loda/id/LEGIARTI000034326460/",
+        "https://www.education.gouv.fr/bo/17/Hebdo34/MENE1717944C.htm",
+        "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000030254395",
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417208"
+      ],
+      "statut": "sources_officielles_relues_2026_10_18",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/sorties_encadrement_2024.txt",
+      "title": "Sorties au second degré : autorisation et encadrement général",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
+      ],
+      "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    }
+  ]
+}

@@ -5845,6 +5845,26 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS : Dossier SSS, campagne et section absente"
+  },
+  "data/textes/fiches/direction_ecole_autorite_fonctionnelle.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "primaire",
+   "titre": "Direction d’école : autorité fonctionnelle et consignes"
+  },
+  "data/textes/fiches/sorties_premier_degre_autorisations.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "primaire",
+   "titre": "École : autorisation des sorties et voyages scolaires"
   }
  }
 }

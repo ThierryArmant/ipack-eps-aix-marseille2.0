@@ -1,7 +1,7 @@
 ======================================================================
-RÉFÉRENTIEL NATIONAL DES PROGRAMMES D'EPS EN VIGUEUR (COLLÈGE & LYCÉES)
+SYNTHÈSE PÉDAGOGIQUE DES PROGRAMMES D'EPS — PORTÉE ET DATES À IDENTIFIER
 ======================================================================
-[DIRECTIVE RAG] : Ce document constitue la base réglementaire exclusive pour l'onglet Cadrage & Référentiels.
+Nature : synthèse pédagogique, non exclusive et distincte du texte officiel. Les formulations ci-dessous ne sont pas des citations des programmes et ne fondent pas une obligation de certification.
 Chaque section détaille les finalités, compétences générales et attendus par champ d'apprentissage (CA).
 
 ----------------------------------------------------------------------
@@ -49,7 +49,7 @@ Textes de référence : Arrêté du 17-1-2019 - BO spécial n°1 du 22-01-2019
   - CA 2 : Adapter son déplacement à des environnements variés et incertains (APPN).
     -> AFL 1 : Conduire un déplacement optimisé, fluide et adapté aux caractéristiques et à l'incertitude du milieu.
     -> AFL 2 : Prévoir, gérer l'itinéraire, le matériel de sécurité et la planification de la trajectoire.
-    -> AFL 3 : Assurer la sécurité absolue de son partenaire (assurage dynamique, parade) et respecter la charte éco-citoyenne.
+    -> AFL 3 : Contribuer à la sécurité de son partenaire (assurage dynamique, parade) et respecter la charte éco-citoyenne.
   - CA 3 : Réaliser une prestation corporelle destinée à être vue ou appréciée (Artistique/Acrobatique).
     -> AFL 1 : Composer et interpréter une séquence corporelle de haute maîtrise devant un public.
     -> AFL 2 : Utiliser des procédés de composition complexes (unisson, cascade, contrastes) et des outils de régulation numérique.
@@ -71,44 +71,15 @@ Textes de référence : Arrêté du 3-4-2019 - BO spécial n°5 du 11-04-2019
 
 * LES COMPÉTENCES GÉNÉRALES (CG) EN VOIE PRO :
   Identiques au Lycée G&T, mais orientées vers la santé au travail, la prévention des troubles musculosquelettiques (TMS) et la gestion de la fatigue professionnelle.
-======================================================================
-CADRE CADRAGE RÉGLEMENTAIRE - SÉCURITÉ ET RESPONSABILITÉ EN EPS
-======================================================================
-[TEXTE DE RÉFÉRENCE] : Circulaire n° 2004-138 du 13 juillet 2004 (NOR : MENE0401637C)
-Objet : Risques particuliers à l'enseignement de l'EPS et au sport scolaire.
 
-----------------------------------------------------------------------
-1. CONSTAT DES RISQUES ET VIGILANCE IMPÉRATIVE
-----------------------------------------------------------------------
-* PREMIER FACTEUR D'ACCIDENT : L'EPS est la première source d'accidents en milieu scolaire. Une part importante des accidents scolaires survient pendant les séances d'EPS (pratique proprement dite ou temps périphériques).
-* NATURE DES RISQUES : Aucune activité n'est dangereuse a priori, mais l'engagement physique et affectif majore les risques. Les causes majeures des accidents graves relèvent de l'environnement, de l'état des matériels et de l'inadaptation des exercices proposés.
-* EXIGENCE DE VIGILANCE : L'enseignant a l'obligation permanente de contrôler les équipements, de calibrer précisément les tâches demandées et de définir des consignes d'organisation rigoureuses.
-
-----------------------------------------------------------------------
-2. GESTION DES ESPACES, DÉPLACEMENTS ET VESTIAIRES
-----------------------------------------------------------------------
-* CONVENTIONNEMENT DES INSTALLATIONS : Pour les équipements extérieurs mis à disposition, une convention est obligatoire entre l'établissement, la collectivité de rattachement et le propriétaire (Art. 40 de la loi du 6 juillet 2000). Les défectuosités doivent être signalées par ÉCRIT au gestionnaire.
-* SÉCURITÉ DES DÉPLACEMENTS : Les trajets vers les installations extérieures exigent une planification stricte. En cas d'incident, le professeur doit se référer au Protocole national des soins et des urgences (BO du 6 janvier 2000). Une qualification de premier secours valide est obligatoire au recrutement.
-* SURVEILLANCE DES VESTIAIRES : Les vestiaires doivent être séparés par sexe. Le temps d'habillage doit être maîtrisé. Face aux risques de chahuts, de rixes ou de maltraitances, l'intervention de l'enseignant dans le vestiaire peut être légitime pour garantir la sécurité ; l'organisation de la surveillance se règle avec la direction de l'établissement.
-
-----------------------------------------------------------------------
-3. TRAITEMENT DIDACTIQUE ET CONTACTS CORPORELS (AIDES ET PARADES)
-----------------------------------------------------------------------
-* HÉTÉROGÉNÉITÉ DES CLASSES : L'enseignant doit adapter ses tâches aux différences interindividuelles (poids, taille, âge, sexe, inaptitudes temporaires) pour éviter les collisions et les comportements d'exclusion générateurs de risques.
-* LÉGITIMITÉ DES CONTACTS PHYSIQUES : En EPS, les contacts corporels entre l'enseignant et l'élève sont constants, nécessaires et réglementaires. Ils relèvent exclusivement de l'aide pédagogique, de la parade de sécurité ou de la prévention des accidents. Ne pas apporter une aide ou une parade nécessaire peut être retenu comme une faute en cas de dommage corporel.
-* INTERPOSITION EN CAS DE CONFLIT : En cas de violences ou de conflits entre élèves, le professeur d'EPS a l'obligation d'intervenir, y compris en s'interposant physiquement pour préserver l'intégrité des élèves, tout en proscrivant les sévices corporels.
-
-----------------------------------------------------------------------
-4. LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)
-----------------------------------------------------------------------
-* RESPONSABILITÉ CIVILE (SUBSTITUTION DE L'ÉTAT) : Fondée sur la Loi du 5 avril 1937 (Art. L. 911-4 du Code de l'éducation). En cas d'accident subi ou causé par un élève sous la surveillance d'un enseignant, la responsabilité de l'État se substitue à celle de l'agent. L'enseignant ne peut jamais être poursuivi devant les tribunaux civils par la victime.
-* CONDITION DE LA FAUTE CIVILE : L'État n'indemnise la victime que si une faute, une imprudence ou une négligence de l'enseignant est prouvée (articles 1240 et 1241 du Code civil, anciens articles 1382 et 1383).
-* RESPONSABILITÉ PÉNALE (STRICTEMENT PERSONNELLE) : Le principe de substitution ne s'applique pas au pénal (Art. 121-1 du Code pénal : "nul n'est responsable pénalement que de son propre fait"). Un enseignant peut être poursuivi personnellement pour délit non intentionnel (homicide involontaire, blessures involontaires).
-* PROTECTION ISSUE DE LA LOI FAUCHON (LOI DU 10 JUILLET 2000) : Pour un auteur indirect (l'enseignant qui a créé la situation du dommage sans porter le coup direct), la responsabilité pénale ne peut être engagée que s'il est prouvé :
-  - Soit la violation manifestement délibérée d'une obligation particulière de sécurité prévue par la loi ou le règlement (décret/arrêté).
-  - Soit une "faute caractérisée" exposant autrui à un risque d'une particulière gravité que l'enseignant ne pouvait ignorer.
-* AUTONOMIE DES FAUTES : Un enseignant peut être relaxé par le juge pénal (absence de faute caractérisée) mais l'État peut tout de même être condamné au civil à indemniser la famille si une simple négligence ou faute civile (art. 1241 du Code civil, ancien art. 1383) est démontrée.
-
-* STRUCTURE DES CHAMPS D'APPRENTISSAGE (CA) :
-  - La voie professionnelle s'appuie sur les mêmes 5 Champs d'Apprentissage (CA1 à CA5) que la voie générale.
-  - L'accent est mis sur l'AFL 2 (Savoir se préparer et s'entraîner) et l'AFL 3 (Rôles sociaux et sécurité active) pour développer des compétences directement transférables dans le monde du travail (ergonomie, posture de sécurité, gestion du stress).
+### Références nationales et limites de cette synthèse
+Pour le cycle 3 : l'arrêté du 22 avril 2026 s'applique au CM1 dès 2026-2027, au CM2 et à la sixième en 2027-2028. Identifier classe et année ; ne pas appliquer uniformément le programme de 2015 à tout le cycle.
+https://www.education.gouv.fr/bo/2026/Hebdo22/MENE2608631A
+Lycée GT : programme commun fixé en 2019 ; option EPS modifiée en 2021 et spécialité EPPCS distincte. Pour un libellé officiel d'AFL, consulter l'annexe, pas une reformulation de ce fichier.
+https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm
+https://www.education.gouv.fr/bo/21/Hebdo25/MENE2116605A.htm
+https://www.education.gouv.fr/bo/21/Hebdo25/MENE2116606A.htm
+Voie professionnelle : programme du 3 avril 2019, NOR MENE1908621A ; les attendus sont les AFLP, distincts des AFL de la voie générale. Ne pas transposer les formulations AFL2/AFL3 ci-dessus en règle du bac professionnel ou du CAP.
+https://www.education.gouv.fr/bo/19/Special5/MENE1908621A.htm
+Les paragraphes de droit et de sécurité autrefois ajoutés à ce fichier ont été retirés : utiliser les fiches Textes dédiées et sourcées. Ce fichier ne constitue ni un protocole APPN, ni un régime de responsabilité, ni un référentiel de certification.
+Révision du périmètre et des sources : 18 octobre 2026.

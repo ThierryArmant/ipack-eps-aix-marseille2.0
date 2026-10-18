@@ -102,3 +102,19 @@ Ce lot ne certifie pas toutes les affirmations de toutes les fiches. Priorités 
 | `data/textes/partenariats_defense_citoyennete.txt` | Inventorié, pas de certification nouvelle | 0 | synthese_non_revalidee |
 | `data/textes/premier_degré.txt` | Révisé | 7 | sources_officielles_relues_2026_10_18 |
 | `data/textes/sorties_encadrement_2024.txt` | Inventorié, pas de certification nouvelle | 2 | sources_officielles_relues_2026-10-16 |
+
+## Deuxième lot : classement complet et accès aux documents
+
+83 fiches sont désormais classées dans 12 domaines via `config/classement_textes.json`, avec index lisible `docs/index_fiches_textes.md`. Les fichiers restent à leurs chemins historiques. Cette classification est éditoriale, pas une validation du droit. La fiche 060, doublon de la fiche 023 sur les urgences, reste conservée mais est exclue de la recherche par le catalogue.
+
+Défauts de circuit reproduits :
+
+- L'interface transmet « Collège » alors que plusieurs filtres attendaient « Collège (DNB) ». Normalisation du public pour la recherche ; l'affichage reste « Collège ».
+- `has_text_reference` appelait `reference_notice` avec un ensemble de publics vide : les fiches portant une portée explicite étaient exclues de cette reconnaissance. Il utilise maintenant le public effectivement choisi ou précisé dans la question.
+- Certains motifs exigeaient que le professeur répète le public dans sa question malgré son choix dans le formulaire. Ajout de motifs contextuels limités au public déclaré (108 heures, direction et autorisation des sorties au primaire).
+- Des formulations usuelles ne trouvaient pas leurs fiches : demander une marque de chaussures, exclusion pour oubli de tenue, changement d'académie, mi-temps et IMP, vérification des buts, adultes accompagnant une sortie. Motifs de recherche élargis, sans nouvelles réponses en dur.
+- `data/programmes_officiels_eps.txt` est chargé séparément par l'application : son annexe juridique répétait des affirmations retirées des fiches spécialisées. Annexe retirée, source historique archivée, synthèse pédagogique présentée comme telle et distinction AFL/AFLP explicitée. Les attendus détaillés restent à contrôler dans les annexes officielles.
+
+Mesure locale : sur 24 formulations diagnostiques, une fiche prioritaire est trouvée pour 12 avant et 23 après ; reconnaissance du sujet : 11 avant, 23 après. Ce sont des résultats de sélection documentaire, pas des notes de réponses IA. Les questions ont servi au réglage et ne prouvent pas l'atteinte de 80 % de réponses correctes. Le dernier cas sans fiche prioritaire (« Qui fixe les périodes de formation en dehors de mon service ? ») appelle une clarification du dispositif ; ne pas fabriquer une règle générique pour le faire passer.
+
+Validation : 516 tests locaux passent. Une nouvelle campagne de réponses générées, sur des cas indépendants et une version figée, reste nécessaire pour mesurer la cible de 80 % annoncée par Thierry. La répartition entre manques de couverture, mauvais passages, raisonnement et restitution exige les traces de cette campagne ; le taux de 50 % signalé par Thierry n'a pas été recalculé ici.

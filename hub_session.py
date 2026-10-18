@@ -37,6 +37,7 @@ def ready_for_question(state):
 def public_label(public):
     """Libellé affiché ; les identifiants utilisés par la recherche restent stables."""
     return {
+        'Collège (DNB)': 'Collège',
         'Lycée Général & Techno': 'Lycée voie générale',
         'Lycée Pro / CAP': 'Lycée voie professionnelle',
     }.get(public, public)

@@ -1,0 +1,281 @@
+{
+  "limite": "Série diagnostique locale de sélection documentaire. Aucun appel IA, aucun score de qualité de réponse. Les cas ont servi au réglage et ne sont pas un test indépendant.",
+  "resume": {
+    "nombre": 24,
+    "avec_fiche_prioritaire_avant": 12,
+    "avec_fiche_prioritaire_apres": 23,
+    "reconnus_avant": 11,
+    "reconnus_apres": 23
+  },
+  "cas": [
+    {
+      "public": "Collège",
+      "question": "Je suis menacé par un parent, quels sont mes droits ?",
+      "titres_avant": [
+        "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)"
+      ],
+      "titres_apres": [
+        "Parent ou famille menaçant : suspension d'accès, DASEN et changement d'école (décret du 28 juillet 2026)"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Une famille exige de changer ma note en EPS : dois-je accepter ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Les élèves peuvent-ils refuser la piscine pour motif religieux ?",
+      "titres_avant": [
+        "Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité"
+      ],
+      "titres_apres": [
+        "Laïcité en EPS : participation aux cours, signes et tenues, hygiène et sécurité"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Puis-je exclure un élève de mon cours pour oubli de tenue ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "EPS : punitions, sanctions et évaluation scolaire"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Mon chef veut imposer deux heures supplémentaires : est-ce obligatoire ?",
+      "titres_avant": [
+        "Obligations de service des professeurs d'EPS (décret n° 2014-940)"
+      ],
+      "titres_apres": [
+        "Obligations de service des professeurs d'EPS (décret n° 2014-940)"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Je travaille dans trois établissements : réduction de service ?",
+      "titres_avant": [
+        "Obligations de service des professeurs d'EPS (décret n° 2014-940)"
+      ],
+      "titres_apres": [
+        "Obligations de service des professeurs d'EPS (décret n° 2014-940)"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "À mi-temps, ai-je droit à une IMP complète ?",
+      "titres_avant": [
+        "Coordination EPS : conditions et montant de l’IMP"
+      ],
+      "titres_apres": [
+        "Coordination EPS : conditions et montant de l’IMP",
+        "IMP : attribution, temps partiel, partage et versement"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Un élève avec PAI peut-il partir en sortie ?",
+      "titres_avant": [
+        "Certificat d’inaptitude : rôle médical et rôle pédagogique",
+        "PAI : pratique EPS, adaptation et sorties"
+      ],
+      "titres_apres": [
+        "Certificat d’inaptitude : rôle médical et rôle pédagogique",
+        "PAI : pratique EPS, adaptation et sorties"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Puis-je garder les vidéos des élèves sur mon téléphone personnel ?",
+      "titres_avant": [
+        "Données des élèves : outils numériques, images et responsabilité",
+        "Vidéo EPS : démarche institutionnelle et périmètre iPackEPS"
+      ],
+      "titres_apres": [
+        "Données des élèves : outils numériques, images et responsabilité",
+        "Vidéo EPS : démarche institutionnelle et périmètre iPackEPS"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Puis-je demander une marque de chaussures à mes élèves ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Fournitures et équipements demandés aux familles : neutralité commerciale"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Je veux transporter mes élèves avec ma voiture.",
+      "titres_avant": [
+        "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties"
+      ],
+      "titres_apres": [
+        "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Combien d’adultes pour une sortie de 48 élèves ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Sorties au second degré : autorisation et encadrement général"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Dois-je laisser un élève inapte assister au cours ?",
+      "titres_avant": [
+        "Élève inapte ou dispensé : présence en cours d'EPS"
+      ],
+      "titres_apres": [
+        "Élève inapte ou dispensé : présence en cours d'EPS"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Je veux changer d’académie : comment faire ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Professeur d’EPS : mutation, vérification du barème et recours"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Un parent accompagnateur doit-il être agréé ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Qui doit vérifier les buts avant le cours ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "[SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Puis-je faire cours dehors lors d’une alerte pollution ?",
+      "titres_avant": [
+        "EPS : chaleur, pollution et conditions météorologiques"
+      ],
+      "titres_apres": [
+        "EPS : chaleur, pollution et conditions météorologiques"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Comment demander ma protection fonctionnelle ?",
+      "titres_avant": [
+        "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
+        "Violences, discriminations et harcèlement envers les personnels"
+      ],
+      "titres_apres": [
+        "[SITUATION: 1ÈRE SECTION : RESPONSABILITÉ CIVILE, PÉNALE ET PROTECTION FONCTIONNELLE]",
+        "Violences, discriminations et harcèlement envers les personnels"
+      ],
+      "sujet_reconnu_avant": true,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "Collège",
+      "question": "Qui fixe les périodes de formation en dehors de mon service ?",
+      "titres_avant": [],
+      "titres_apres": [],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": false
+    },
+    {
+      "public": "1er degré",
+      "question": "Le directeur peut-il me donner des consignes ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Direction d’école : autorité fonctionnelle et consignes"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "1er degré",
+      "question": "Comment se répartissent les 108 heures ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "1er degré",
+      "question": "Quel programme EPS en CP cette année ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "Cycle 2 : calendrier des programmes EPS par classe"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "1er degré",
+      "question": "Qui autorise un voyage scolaire avec une nuitée ?",
+      "titres_avant": [],
+      "titres_apres": [
+        "École : autorisation des sorties et voyages scolaires"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    },
+    {
+      "public": "1er degré",
+      "question": "Un parent professeur EPS peut-il encadrer bénévolement ?",
+      "titres_avant": [
+        "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation"
+      ],
+      "titres_apres": [
+        "EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation"
+      ],
+      "sujet_reconnu_avant": false,
+      "sujet_reconnu_apres": true
+    }
+  ]
+}

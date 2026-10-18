@@ -12,6 +12,7 @@ import time
 import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
+from claim_guards import unsupported_certainty, operation_errors
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
@@ -387,6 +388,8 @@ def validate_claims(data, packets, *, checked=False):
                     errors.append('référence absente des documents justificatifs')
             if re.search(r'<[^>]+>', text):
                 errors.append('HTML interdit dans une affirmation')
+            if unsupported_certainty(text, supports):
+                errors.append('absence de consigne transformée en règle certaine : conserver la réserve documentaire')
             if supports and not errors:
                 lexical_check = lexical_support_details(text, supports)
                 if not lexical_check['passed']:
@@ -869,6 +872,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['context_exact'] = documents
     audit['context_sha256'] = hashlib.sha256(documents.encode()).hexdigest()
     audit['documents'] = packets
+    audit['repair_trigger'] = None
+    audit['first_pass_rejection_count'] = 0
+    audit['first_pass_rejection_reasons'] = []
+    audit['repair_performed'] = False
+    audit['repair_successful'] = False
+    audit['repair_empty'] = False
     audit['excluded_dnb_documents'] = [p['id'] for p in packets if dnb_document_mismatch(question, public, p)]
     packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
     audit['excluded_lycee_dnb_documents'] = [p['id'] for p in packets if lycee_dnb_mismatch(question, public, p)]
@@ -876,22 +885,50 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
+    audit['focused_document_ids'] = [p['id'] for p in focused]
+    audit['document_selection_before_focus'] = [p['id'] for p in packets]
     if focused:
         # Les résumés généraux générés par le programme ne complètent pas
         # une fiche de situation : leurs règles abrégées peuvent perdre ses réserves.
         generic = [p for p in packets if p['origin'] == 'program'
                    and p['text'].lstrip().startswith('REPÈRES DOCUMENTAIRES PAR EXAMEN')]
         audit['excluded_generic_program_documents'] = [p['id'] for p in generic]
-        packets = focused + [p for p in packets if p['origin'] == 'program' and p not in generic]
+        # Une fiche moins prioritaire peut documenter une sous-question précise.
+        # Ne jamais réintroduire une fiche sur un seul mot générique (« note », « CAP »).
+        # Deux racines communes au TITRE (et non au corps) sont exigées ; budget borné.
+        question_roots = _racines(question)
+        complements = []
+        complement_chars = 0
+        for candidate in packets:
+            if candidate['origin'] != 'document' or candidate in focused:
+                continue
+            if len(question_roots & _racines(candidate['title'])) < 2:
+                continue
+            if situation_mismatch(question, candidate['text']):
+                continue
+            size = len(candidate['text'])
+            if size > 4500 or complement_chars + size > 6000 or len(complements) >= 2:
+                continue
+            complements.append(candidate)
+            complement_chars += size
+        audit['complement_document_ids'] = [p['id'] for p in complements]
+        audit['complement_document_chars'] = complement_chars
+        packets = focused + complements + [p for p in packets if p['origin'] == 'program' and p not in generic]
     audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
+    audit['document_selection_after_focus'] = [p['id'] for p in packets]
+    audit['excluded_by_priority_focus'] = [p['id'] for p in audit['documents'] if p['id'] in audit['document_selection_before_focus'] and p['id'] not in audit['document_selection_after_focus']]
     audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
     packets, marked = select_academy(packets, academy)
     audit['academy'] = academy
     audit['marked_academic_passages'] = marked
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
+    audit['document_selection_after_academy'] = [p['id'] for p in packets]
+    audit['model_packet_count'] = len(packets)
+    audit['model_passage_count'] = sum(len(p['passages']) for p in packets)
+    audit['model_passage_chars'] = sum(len(str(s.get('text', ''))) for p in packets for s in p['passages'])
     if re.search(r'course (?:en|de) dur[eé]e', question.lower()) and re.search(r'd[eé]pos', question.lower()):
         instructions += ('\nLa question porte sur un DEPOT, pas seulement sur la compatibilité des champs. '
                          'Distinguer dépôt de deux FCA, regroupement dans un fichier et ensemble certificatif. '
@@ -1002,7 +1039,8 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
-            checks = (evidence_logic.evidence_logic_errors(accepted),
+            checks = (operation_errors(accepted, question),
+                      evidence_logic.evidence_logic_errors(accepted),
                       coherence_errors(accepted, question),
                       conditional_extraction_errors(accepted, question),
                       case_value_errors(accepted, question))
@@ -1026,6 +1064,13 @@ Réponds uniquement en JSON selon ce schéma :
     audit['initial_accepted_claims'] = accepted
     audit['initial_rejections'] = rejected
     if rejected:
+        # Mesure agrégée sans appel IA et sans modifier les règles de validation.
+        # Ne pas publier les brouillons ou les questions dans les journaux publics.
+        audit['first_pass_rejection_count'] = len(rejected)
+        audit['first_pass_rejection_reasons'] = sorted({
+            str(reason) for item in rejected for reason in item.get('errors', [])
+        })
+        audit['repair_trigger'] = 'mechanical_validation'
         feedback = [{k: v for k, v in error.items() if k != 'claim'} for error in rejected]
         for item, error in zip(feedback, rejected):
             claim = error.get('claim')
@@ -1063,6 +1108,10 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
 """ + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data + '\nERREURS MECANIQUES :\n' + json.dumps(feedback, ensure_ascii=False)
         audit['repair_rejections'] = rejected
         final, accepted, rejected = resolve(recorded.complete(repair).text)
+    audit['repair_performed'] = bool(audit.get('repair_trigger'))
+    # Une réponse vide peut être mécaniquement valide, mais n'est pas une réparation utile.
+    audit['repair_successful'] = bool(audit.get('repair_trigger')) and bool(accepted) and not bool(rejected)
+    audit['repair_empty'] = bool(audit.get('repair_trigger')) and not bool(accepted) and not bool(rejected)
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

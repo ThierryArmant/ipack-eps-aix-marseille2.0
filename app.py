@@ -1754,6 +1754,12 @@ if prompt_a_traiter:
             est_referentiels_rentree = False  # « cochez les champs d'apprentissage » -> procédure exacte dans la base
             est_equipe_eps = False            # ne parlait pas de l'intervenant extérieur (cas du vacataire)
 
+            # Ces anciennes réponses sans preuve sélectionnée contournent les fiches.
+            est_date = False
+            est_tasa = False
+            est_sujet_secours = False
+            est_saisir_notes = False
+
             est_dispense_totale = False  # décision médicale : contexte du diplôme et textes actuels requis
 
             est_cas_direct = (
@@ -2342,12 +2348,12 @@ if prompt_a_traiter:
             # Les réponses relues du catalogue ont déjà un déclencheur ciblé et une source.
             # L'arbitre pouvait les écarter (B4/F6), puis réintroduire une règle erronée
             # par génération libre. Garder ce contrôle pour les anciens disjoncteurs seuls.
-            # Examens : une réponse héritée non documentée va directement aux fiches,
+            # Les trois contextes documentaires : une réponse héritée va aux fiches,
             # sans payer un arbitre avant la rédaction et une éventuelle correction.
-            if mode == "examens" and not besoin_ia and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+            if mode in ("examens", "ipack", "textes") and not besoin_ia and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
                 besoin_ia = True
                 texte_brut = ""
-            if mode != "examens" and (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+            if mode not in ("examens", "ipack", "textes") and (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
                 try:
                     _resume_dur = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", texte_brut)).strip()[:900]
                     _verdict = llm_reponse.complete(

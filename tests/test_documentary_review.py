@@ -53,6 +53,11 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn("Demandez au responsable", result)
         self.assertIn('Documentation du logiciel', result)
         self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['repair_performed'])
+        self.assertFalse(audit['repair_successful'])
+        self.assertEqual(audit['model_packet_count'], 1)
+        self.assertGreater(audit['model_passage_count'], 0)
+        self.assertGreater(audit['model_passage_chars'], 0)
         self.assertNotIn('BROUILLON', '\n'.join(llm.prompts))
         self.assertEqual(audit['context_exact'], DOC)
         self.assertEqual([c['prompt'] for c in audit['calls']], llm.prompts)
@@ -125,6 +130,18 @@ class DocumentaryReviewTests(unittest.TestCase):
                 review_exam_answer(FakeLLM([output, output]),
                                    question='Q', public='GT', documents=DOC, draft='à ne jamais afficher')
 
+    def test_empty_repair_is_not_counted_as_success(self):
+        llm = FakeLLM([{'claims': [claim(quote='Citation inventée suffisamment longue.')]}, {'claims': []}])
+        audit = {}
+        try:
+            review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit)
+        except ValueError:
+            pass  # Selon la voie de sortie, une réponse vide peut être refusée.
+        self.assertEqual(len(llm.prompts), 2)
+        self.assertTrue(audit['repair_performed'])
+        self.assertFalse(audit['repair_successful'])
+        self.assertTrue(audit['repair_empty'])
+
     def test_one_targeted_repair_preserves_good_claims_and_exact_citations(self):
         bad = claim(quote='Le responsable peut ouvrir tous les dossiers sans restriction.')
         llm = FakeLLM([{'claims': [bad]}, {'claims': [claim()]}])
@@ -132,6 +149,11 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn('Demandez', review_exam_answer(llm, question='Q', public='GT', documents=DOC, audit=audit))
         self.assertEqual(len(audit['calls']), 2)
         self.assertTrue(audit['repair_rejections'])
+        self.assertEqual(audit['first_pass_rejection_count'], 1)
+        self.assertTrue(audit['first_pass_rejection_reasons'])
+        self.assertEqual(audit['repair_trigger'], 'mechanical_validation')
+        self.assertTrue(audit['repair_performed'])
+        self.assertTrue(audit['repair_successful'])
         self.assertFalse(audit['final_rejections'])
 
     def test_model_error_is_traced_without_copying_secret_exception(self):
@@ -186,6 +208,31 @@ class DocumentaryReviewTests(unittest.TestCase):
         self.assertIn('CAS VOISIN INAPPLICABLE', audit['context_exact'])
         self.assertNotIn('CAS VOISIN INAPPLICABLE', '\n'.join(llm.prompts))
         self.assertEqual(audit['model_document_ids'], ['D1'])
+
+    def test_specific_complement_survives_priority_focus(self):
+        main = mark_excerpt(TEXT, path='principal.txt', title='Procédure principale', priority=300)
+        complement = mark_excerpt('Étapes de création et importation documentées.',
+                                  path='import.txt', title='Importer les élèves', priority=0)
+        neighbor = mark_excerpt('Texte voisin sur les notes.',
+                                path='notes.txt', title='Notes et résultats', priority=0)
+        audit = {}
+        review_exam_answer(FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}]),
+                           question='Comment importer mes élèves ?', public='GT',
+                           documents=main + '\n\n' + complement + '\n\n' + neighbor,
+                           audit=audit)
+        self.assertEqual(audit['model_document_ids'], ['D1', 'D2'])
+        self.assertEqual(audit['complement_document_ids'], ['D2'])
+        self.assertEqual(audit['excluded_by_priority_focus'], ['D3'])
+
+    def test_oversized_complement_is_not_sent_to_model(self):
+        main = mark_excerpt(TEXT, priority=300, title='Procédure principale')
+        huge = mark_excerpt('Importer les élèves. ' * 300, title='Importer les élèves')
+        audit = {}
+        review_exam_answer(FakeLLM([{'claims': [claim()]}, {'claims': [claim()]}]),
+                           question='Comment importer mes élèves ?', public='GT',
+                           documents=main + '\n\n' + huge, audit=audit)
+        self.assertEqual(audit['model_document_ids'], ['D1'])
+        self.assertEqual(audit['complement_document_ids'], [])
 
     def test_computed_facts_survive_focus_without_triggering_it_alone(self):
         facts = mark_excerpt('FAIT CALCULÉ : trois activités dans trois champs distincts.', origin='program')

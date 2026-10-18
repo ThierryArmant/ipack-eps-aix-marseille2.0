@@ -9,6 +9,7 @@ class FakeUI:
     def button(self,label,**kwargs): return label == self.click
     def text_input(self,*args,**kwargs): return 'bouton absent'
     def rerun(self): pass
+    def columns(self, *a, **k): return (self, self)
     def expander(self,*args,**kwargs): return self
     def __enter__(self): return self
     def __exit__(self,*args): pass

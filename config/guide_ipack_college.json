@@ -270,6 +270,145 @@
     "source": "data/ipack/visite_college_2026_10_18/dossier_appn_demande_validation.txt",
     "preuve": "convention signée avec l'organisme d'accueil, annexe éventuelle ; [Enregistrer]"
    }
+  ],
+  "Établissement : vérifier la fiche": [
+   {
+    "clic": "Tableau de bord → [Établissement] → [Enregistrer]",
+    "video": "1. Saisie établissement",
+    "source": "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt",
+    "preuve": "1) [Établissement] : vérifier la fiche de l'établissement"
+   }
+  ],
+  "Section sportive : ma section n'apparaît pas": [
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Sections Sportives Scolaires] → [Créer un groupe]",
+    "video": "3.1 Dossier EPS — Groupes",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt",
+    "preuve": "créer le groupe dans [Dossier EPS] > [Groupes] > [Sections Sportives Scolaires] et lui associer son APSA"
+   },
+   {
+    "clic": "[Les Dossiers et Projets] → [Dossier Section Sportive Scolaire] → [Projet Annuel SSS]",
+    "video": "3.4 Dossier SSS — Projet annuel SSS",
+    "source": "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt",
+    "preuve": "[Dossier Section Sportive Scolaire] → [Projet Annuel SSS]"
+   }
+  ],
+  "Placer des élèves dans un groupe": [
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à droite : votre groupe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "à droite, choisir le groupe de destination"
+   },
+   {
+    "clic": "À gauche : Visualisation « Classes » → niveau → classe",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "Visualisation « Classes », puis le niveau (Type), puis la classe (Sélection)"
+   },
+   {
+    "clic": "Cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt",
+    "preuve": "cliquer sur [Ajouter -->]"
+   }
   ]
- }
+ },
+ "menu": [
+  {
+   "rubrique": "Je ne sais pas par où commencer",
+   "entrees": [
+    {
+     "libelle": "Ordre de rentrée",
+     "parcours": "Me repérer depuis le début (ordre de rentrée)"
+    }
+   ]
+  },
+  {
+   "rubrique": "Établissement",
+   "entrees": [
+    {
+     "libelle": "Fiche Établissement",
+     "parcours": "Établissement : vérifier la fiche"
+    }
+   ]
+  },
+  {
+   "rubrique": "Ma Fiche Professeur",
+   "entrees": [
+    {
+     "libelle": "Fonctions : coordonnateur EPS",
+     "parcours": "Me déclarer coordonnateur EPS"
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier EPS",
+   "entrees": [
+    {
+     "libelle": "Projets",
+     "parcours": "Retrouver un projet ou ses axes"
+    },
+    {
+     "libelle": "Équipe EPS et Intervenants Extérieurs",
+     "parcours": "Mettre à jour l'équipe EPS (TZR, collègue absent)"
+    },
+    {
+     "libelle": "Classes",
+     "parcours": "Voir mes classes et importer mes élèves"
+    },
+    {
+     "libelle": "APSA · Périodes · Groupes : déclarer l'activité d'une classe",
+     "parcours": "Déclarer l'activité enseignée à une classe"
+    },
+    {
+     "libelle": "Groupes AS : créer le groupe et ses élèves",
+     "parcours": "Créer un groupe d'AS et y placer des élèves"
+    },
+    {
+     "libelle": "Élèves : placer des élèves dans un groupe",
+     "parcours": "Placer des élèves dans un groupe"
+    },
+    {
+     "libelle": "Équipements Sportifs",
+     "parcours": "Modifier un équipement sportif"
+    },
+    {
+     "libelle": "Emplois du temps",
+     "parcours": "Créer un créneau d'emploi du temps"
+    },
+    {
+     "libelle": "Envoyer le dossier pour validation",
+     "parcours": "Envoyer le dossier EPS pour validation (coordonnateur)"
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier Natation",
+   "entrees": [
+    {
+     "libelle": "Validation ASNS : imprimer les attestations",
+     "parcours": "Imprimer les attestations du savoir-nager (ASNS)"
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier Section Sportive Scolaire",
+   "entrees": [
+    {
+     "libelle": "Ma section n'apparaît pas",
+     "parcours": "Section sportive : ma section n'apparaît pas"
+    }
+   ]
+  },
+  {
+   "rubrique": "Dossier APPN",
+   "entrees": [
+    {
+     "libelle": "Demander la validation d'une sortie",
+     "parcours": "Demander la validation d'une sortie APPN"
+    }
+   ]
+  }
+ ]
 }

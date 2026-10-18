@@ -7,12 +7,17 @@ import guided_navigation as guide
 
 
 class UI:
-    def __init__(self, goal, state=None, click=''):
+    def __init__(self, goal, state=None, click='', rub=None):
         self.goal = goal; self.session_state = {} if state is None else state; self.click = click
+        self.rub = rub; self.radios = []; self.infos = []
         self.written = []; self.videos = []; self.inputs = 0
-    def radio(self, *a, **k): return self.goal
+    def selectbox(self, label, options, **k):
+        self.options = options; return self.rub
+    def radio(self, label, options, **k):
+        self.radios.append(options); return self.goal
     def button(self, label, **k): return label == self.click
     def write(self, text): self.written.append(text)
+    def info(self, text): self.infos.append(text)
     def video(self, url): self.videos.append(url)
     def text_input(self, *a, **k): self.inputs += 1
     def text_area(self, *a, **k): self.inputs += 1
@@ -20,6 +25,7 @@ class UI:
     def __enter__(self): return self
     def __exit__(self, *a): pass
     def rerun(self): pass
+    def columns(self, *a, **k): return (self, self)
     def __getattr__(self, name): return lambda *a, **k: None
 
 
@@ -62,17 +68,38 @@ class GuideCollegeTests(unittest.TestCase):
 
     def test_affichage_college_clics_video_sans_saisie(self):
         state = {}
-        ui = UI('Voir mes classes et importer mes élèves', state)
+        ui = UI('Classes', state, rub='Dossier EPS')
         guide.render_guide(ui, 't', 'Collège')
         self.assertIn('[Actualiser]', ui.written[0]); self.assertEqual(ui.inputs, 0)
         self.assertTrue(ui.videos and ui.videos[0].startswith('https://'))
-        guide.render_guide(UI('Voir mes classes et importer mes élèves', state, 'C’est fait · Suivant →'), 't', 'Collège')
-        ui = UI('Voir mes classes et importer mes élèves', state)
+        guide.render_guide(UI('Classes', state, 'C’est fait · Suivant →', rub='Dossier EPS'), 't', 'Collège')
+        ui = UI('Classes', state, rub='Dossier EPS')
         guide.render_guide(ui, 't', 'Collège (DNB)')
         self.assertIn('Étape 2/4', ui.written[0])
-        ui = UI('Je ne sais pas encore', {})
+        ui = UI(None, {}, rub='Je ne sais pas par où commencer')
         guide.render_guide(ui, 'u', 'Collège')
-        self.assertIn('[Établissement]', ui.written[0])
+        self.assertIn('[Établissement]', ui.written[0]); self.assertEqual(ui.radios, [])
+
+    def test_menu_suit_les_intitules_de_l_ecran(self):
+        ui = UI(None)
+        guide.render_guide(ui, 'm', 'Collège')
+        self.assertEqual(ui.options[1:4], ['Établissement', 'Ma Fiche Professeur', 'Dossier EPS'])
+        self.assertEqual(ui.written, [])
+        ui = UI(None, rub='Dossier EPS')
+        guide.render_guide(ui, 'm', 'Collège')
+        sous = ui.radios[0]
+        ordre = ['Projets', 'Équipe EPS', 'Classes', 'APSA', 'Groupes AS', 'Élèves', 'Équipements', 'Emplois du temps']
+        pos = [next(i for i, x in enumerate(sous) if x.startswith(o)) for o in ordre]
+        self.assertEqual(pos, sorted(pos))
+        self.assertEqual(ui.written, [])
+        menu = guide.college_menu(self.routes)
+        atteints = {e['parcours'] for b in menu for e in b['entrees']}
+        self.assertEqual(atteints, set(self.routes))
+
+    def test_sous_menu_unique_ouvre_directement_le_pas_a_pas(self):
+        ui = UI(None, rub='Dossier Natation')
+        guide.render_guide(ui, 'n', 'Collège')
+        self.assertIn('[Dossier Natation]', ui.written[0]); self.assertEqual(ui.radios, [])
 
     def test_etape_sans_preuve_retire_le_parcours(self):
         bad = json.loads(Path('config/guide_ipack_college.json').read_text(encoding='utf-8'))
@@ -85,6 +112,16 @@ class GuideCollegeTests(unittest.TestCase):
                 routes = guide.college_routes()
         self.assertNotIn('Modifier un équipement sportif', routes)
         self.assertIn('Voir mes classes et importer mes élèves', routes)
+
+    def test_regle_d_ordre_affichee_a_cote(self):
+        ui = UI(None)
+        guide.render_guide(ui, 'r', 'Collège')
+        self.assertIn('dans l’ordre', ui.infos[0])
+        ui = UI('Configurer les périodes')
+        guide.render_guide(ui, 'r', 'Lycée voie générale')
+        self.assertIn('dans l’ordre', ui.infos[0]); self.assertIn('allers-retours', ui.infos[0])
+        with patch.object(guide, 'SOURCE', Path('absent.txt')):
+            self.assertEqual(guide.order_rule(), '')
 
     def test_lycee_garde_ses_parcours(self):
         ui = UI('Configurer les périodes')

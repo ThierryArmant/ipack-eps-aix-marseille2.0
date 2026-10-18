@@ -102,6 +102,37 @@ def video_url(video_key):
     return next((v['url'] for v in videos if v.get('etape') == video_key), '')
 
 
+ORDER_RULE = ('**Bon à savoir : iPackEPS se remplit dans l’ordre.** '
+              'D’abord [Établissement], puis [Ma Fiche Professeur], puis [Dossier EPS] ; '
+              'dans chaque écran, de gauche à droite et de haut en bas. '
+              'Une étape sautée bloque les suivantes : complétez-la avant d’avancer, '
+              'vous éviterez des allers-retours.')
+
+
+def order_rule():
+    """Affichée seulement si la fiche validée par le correspondant porte toujours cette règle."""
+    try:
+        text = SOURCE.read_text(encoding='utf-8')
+    except OSError:
+        return ''
+    return ORDER_RULE if 'dans l\'ordre, de gauche à droite et de haut en bas' in text else ''
+
+
+def college_menu(available):
+    """Menu à deux niveaux qui suit les intitulés de l'écran iPackEPS ; entrées sans parcours valide retirées."""
+    import json
+    try:
+        menu = json.loads(COLLEGE.read_text(encoding='utf-8')).get('menu', [])
+    except (OSError, ValueError):
+        return []
+    out = []
+    for block in menu:
+        entries = [e for e in block.get('entrees', []) if e.get('parcours') in available]
+        if entries:
+            out.append({'rubrique': block['rubrique'], 'entrees': entries})
+    return out
+
+
 def render_guide(st, key, public):
     college = is_college(public) and college_routes()
     available = college or routes()
@@ -109,9 +140,34 @@ def render_guide(st, key, public):
         st.info('Guide indisponible pour le moment.')
         return
     st.link_button('▶ Découvrir l’interface iPackEPS', 'https://ipackeps.ac-creteil.fr/spip.php?article34')
-    goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
-    if goal is None:
-        return
+    rule = order_rule()
+    if rule:
+        st.info(rule)
+    menu = college_menu(available) if college else []
+    if menu:
+        left, right = st.columns(2)
+        names = [b['rubrique'] for b in menu]
+        with left:
+            rubrique = st.selectbox('Rubrique iPackEPS', names, index=None,
+                                    placeholder='Choisissez un dossier…', key=key + '_rub')
+        if rubrique not in names:
+            return
+        entries = menu[names.index(rubrique)]['entrees']
+        if len(entries) == 1:
+            goal = entries[0]['parcours']
+        else:
+            with right:
+                choice = st.radio('Sous-menu', [e['libelle'] for e in entries], index=None,
+                                  key=key + '_sub_' + str(names.index(rubrique)))
+            if choice is None:
+                return
+            goal = next(e['parcours'] for e in entries if e['libelle'] == choice)
+        first_rubrique = names[0]
+    else:
+        goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
+        if goal is None:
+            return
+        first_rubrique = None
     first = list(available)[0]
     if goal == 'Je ne sais pas encore' or goal not in available:
         goal = first
@@ -142,6 +198,9 @@ def render_guide(st, key, public):
             st.session_state[state_key] = position - 1
             st.rerun()
     def restart():
-        st.session_state[key + '_position_0'] = 0
-        st.session_state[key + '_goal'] = first
+        st.session_state[key + '_position_' + str(list(available).index(first))] = 0
+        if first_rubrique:
+            st.session_state[key + '_rub'] = first_rubrique
+        else:
+            st.session_state[key + '_goal'] = first
     st.button('Je suis encore perdu · Repartir du début', key=prefix + '_restart', on_click=restart)

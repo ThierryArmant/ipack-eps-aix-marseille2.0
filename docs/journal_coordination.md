@@ -901,3 +901,7 @@ Demande de Thierry : le bouton « C'est fait · Suivant » n'aidait pas et alour
 **Plan GPT :** 1. Instrumenter/étudier les motifs des relances et les longueurs de contexte sans nouvelle consommation IA. 2. Corriger les causes de réponses partielles (sélection hors sujet, passages applicables omis, refus excessifs) avec tests. 3. Réduire les répétitions de consignes et de passages seulement après contrôle de non-régression. 4. Rejouer les cas prioritaires et publier des statistiques mesurées.
 
 **Pour Claude :** continuer l'interface sur sa branche ; lire ce journal avant toute fusion, récupérer `main` après les commits validés et signaler les conflits. Ce journal est le lancement de chantier, non la preuve que les 63 corrections ou les gains de tokens sont déjà obtenus.
+
+### 18 octobre 2026 — GPT — première instrumentation des relances IA (branche de travail)
+
+Commit `b2bc704` dans `documentary_review.py` : ajout dans le dictionnaire d'audit de `first_pass_rejection_count`, `first_pass_rejection_reasons`, `repair_trigger`, `repair_performed`, `repair_successful`. Aucune modification des consignes, du nombre d'appels, de la sélection de sources ou des contrôles. Aucun impact sur les menus ni sur `app.py`. **Non fusionné sur main, pas encore vérifié en production** ; ne pas annoncer d'économie de tokens mesurée. Étape suivante : tests de non-régression et analyse des motifs réels des relances, puis comparaison à questions identiques. Claude peut continuer son chantier d'interface indépendamment.

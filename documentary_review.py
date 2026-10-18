@@ -452,6 +452,36 @@ def source_limits_for_rejections(rejections, packets, question):
     return result if len(result) <= 2 else []
 
 
+def explicit_source_limit(question, packets):
+    """Un sujet explicite et une limite écrite dans l'unique fiche prioritaire.
+
+    Le préfixe du passage (avant « : ») doit recouper l'objet demandé ;
+    aucun passage voisin, aucune synthèse générale, aucune question composée.
+    """
+    q = evidence_logic.normalized(question)
+    if question.count('?') > 1 or re.search(r'\b(?:et|egalement|aussi)\b|ainsi que|;', q):
+        return []
+    focused = [p for p in packets if p.get('origin') == 'document'
+               and isinstance(p.get('priority'), (int, float)) and p['priority'] >= 300]
+    if len(focused) != 1:
+        return []
+    packet = focused[0]
+    candidates = []
+    for span in packet['passages']:
+        text = span['text'].strip().lstrip('-* ')
+        topic, separator, _ = text.partition(':')
+        roots = _racines(topic)
+        shared = len(roots & _racines(question))
+        if (not separator or len(topic) > 160 or len(text) > 1800
+                or shared < 2 or shared / max(len(roots), 1) < 0.67
+                or not documentary_limit(text) or editorial_instruction(text)
+                or situation_mismatch(question, text)):
+            continue
+        candidates.append({'section': 'limite', 'text': text,
+                           'evidence': [{'document_id': packet['id'], 'passage_ids': [span['id']]}]})
+    return candidates if len(candidates) == 1 else []
+
+
 def scoped_claim_text(claim, *, mode="examens"):
     """La réserve académique apparaît dans la phrase et ne dépend pas du modèle."""
     evidence = claim['evidence']
@@ -1101,6 +1131,17 @@ Réponds uniquement en JSON selon ce schéma :
         except (ValueError, TypeError) as exc:
             return {'claims':[]}, [], [{'errors':[str(exc)]}]
 
+    audit['explicit_source_limit'] = False
+    limits = explicit_source_limit(question, packets)
+    if limits:
+        final, accepted, errors = resolve(json.dumps({'claims': limits}, ensure_ascii=False))
+        if not errors:
+            audit.update(explicit_source_limit=True, proposal=None, initial_accepted_claims=[],
+                         initial_rejections=[], accepted_claims=accepted, final_claims=final['claims'],
+                         final_rejections=[], documentary_limit_extraction=False, semantic_review=False)
+            rendered = render_claims(accepted, packets, mode=mode)
+            audit['rendered_answer'] = rendered
+            return rendered
     if not packets:
         audit.update(accepted_claims=[], final_claims=[], final_rejections=[], semantic_review=False)
         return '<p>' + no_applicable_guidance(mode) + '</p>'

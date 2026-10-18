@@ -73,8 +73,53 @@ class DocumentaryLimitExtractionTests(unittest.TestCase):
         llm, audit = FakeLLM([output]), {}
         answer = review_exam_answer(llm, question='Peut-on communiquer les notes de CCF aux élèves ?',
                                    public='Lycée Général & Techno', documents=docs, audit=audit)
-        self.assertEqual(len(llm.prompts), 1)
-        self.assertTrue(audit['documentary_limit_extraction'])
+        self.assertEqual(len(llm.prompts), 0)
+        self.assertTrue(audit['explicit_source_limit'])
         self.assertIn('provisoires', answer)
         self.assertIn('Faire confirmer', answer)
         self.assertTrue(audit['accepted_claims'][0]['evidence'][0]['scope'])
+
+    def test_explicit_topic_and_limit_need_no_model_call(self):
+        doc = mark_excerpt('Publication du résultat provisoire : ' + PROOF,
+                           title='Limite documentaire', priority=300)
+        llm, audit = FakeLLM([]), {}
+        answer = review_exam_answer(llm, question=QUESTION, public='GT', documents=doc, audit=audit)
+        self.assertEqual(len(llm.prompts), 0)
+        self.assertTrue(audit['explicit_source_limit'])
+        self.assertIn('Faire confirmer', answer)
+
+    def test_compound_question_keeps_normal_model_path(self):
+        doc = mark_excerpt('Publication du résultat provisoire : ' + PROOF,
+                           title='Limite documentaire', priority=300)
+        llm, audit = FakeLLM([{'claims': []}]), {}
+        review_exam_answer(llm, question=QUESTION + ' Et comment supprimer un créneau ?',
+                           public='GT', documents=doc, audit=audit)
+        self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['explicit_source_limit'])
+
+    def test_competing_priority_document_keeps_normal_model_path(self):
+        doc = mark_excerpt('Publication du résultat provisoire : ' + PROOF,
+                           title='Limite documentaire', priority=300)
+        doc += '\n\n' + mark_excerpt('Une autre règle concerne la publication du résultat provisoire.',
+                            title='Autre cadre applicable', priority=300)
+        llm, audit = FakeLLM([{'claims': []}]), {}
+        review_exam_answer(llm, question=QUESTION, public='GT', documents=doc, audit=audit)
+        self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['explicit_source_limit'])
+
+    def test_neighbouring_topic_keeps_normal_model_path(self):
+        doc = mark_excerpt('Publication du résultat provisoire : ' + PROOF,
+                           title='Limite documentaire', priority=300)
+        llm, audit = FakeLLM([{'claims': []}]), {}
+        review_exam_answer(llm, question='Comment supprimer un créneau de mon planning ?',
+                           public='GT', documents=doc, audit=audit)
+        self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['explicit_source_limit'])
+
+    def test_low_priority_document_cannot_bypass_model(self):
+        doc = mark_excerpt('Publication du résultat provisoire : ' + PROOF,
+                           title='Limite documentaire', priority=20)
+        llm, audit = FakeLLM([{'claims': []}]), {}
+        review_exam_answer(llm, question=QUESTION, public='GT', documents=doc, audit=audit)
+        self.assertEqual(len(llm.prompts), 1)
+        self.assertFalse(audit['explicit_source_limit'])

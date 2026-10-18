@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-18 23:20 — partie programme — constat d'échec du premier allègement et extraction préalable bornée
+
+Essai réel de 8fa67ff : le même cas affiche encore « Réponse non confirmée », 2 appels, 10 814 + 270 = 11 084 jetons. **L'économie attendue du premier mécanisme n'a pas été obtenue sur ce cas**, malgré les tests locaux ; ce résultat n'est pas masqué.
+
+Correction suivante : avant toute génération, restituer littéralement une réserve écrite uniquement si une seule fiche prioritaire est présente, si le sujet du passage avant « : » partage au moins deux racines et les deux tiers de ses racines avec la question, et si un seul passage candidat existe. Questions composées, autres sujets et fiches prioritaires concurrentes : parcours normal. Citation, portée, conditions et tous les contrôles restent appliqués ; aucune réponse métier ni question particulière codée dans le moteur. Le repli après premier rejet reste disponible pour les autres cas.
+
+Validation : **565 tests réussis en 48,285 s**. Douze tests spécifiques incluent une fiche annotée réelle, le refus des voisins et consignes éditoriales, une question composée et une concurrence de fiches. Aucun nouveau prompt ni appel systématique. Publication autorisée ; une seule reprise réelle à suivre pour mesurer l'effet. Aucun gain global annoncé.
+
+
 ### 2026-10-18 23:15 — partie programme — éviter une seconde rédaction du silence documentaire
 
 Fait : lorsque le seul rejet est une réserve documentaire transformée en certitude, le programme peut reprendre **littéralement le passage déjà cité**, avec ses conditions et son origine. Aucun nouveau choix de source ni réponse métier préécrite : recoupement avec la question, longueur bornée, retrait des consignes éditoriales, deux passages au plus ; l'ensemble repasse tous les contrôles habituels. Une preuve inconnue, une autre erreur ou un passage voisin conserve la réparation normale. Le constat littéral borné au corpus n'est plus rejeté comme une règle catégorique. Aucun prompt ni passage supplémentaire envoyé au modèle.

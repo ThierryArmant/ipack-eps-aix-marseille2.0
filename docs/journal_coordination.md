@@ -884,3 +884,20 @@ L'ancienne veille Tavily de l'espace admin affichait chaque mois « de nouvelles
 
 ### 18 octobre 2026 — guide : toutes les étapes d'un coup, bouton « Lancer le tutoriel vidéo »
 Demande de Thierry : le bouton « C'est fait · Suivant » n'aidait pas et alourdissait. Supprimé, ainsi que « Retour » : le parcours choisi affiche maintenant toutes ses étapes numérotées. L'étape qui a une vidéo est le bandeau bleu « ▶ N. [chemin] · Lancer le tutoriel vidéo » ; une même vidéo n'est proposée qu'une fois par parcours. « ✓ J'ai trouvé » reste en bas et referme le guide. Répartition rappelée par GPT respectée : Claude garde menus, guide et ergonomie ; aucune modification des fonctions de recherche, de contexte ou d'affichage des réponses.
+
+
+### 18 octobre 2026 — GPT / Claude — chantier conjoint 63 réponses partielles et tokens
+
+**Décision utilisateur : démarrer simultanément la fiabilisation des 63 réponses partielles et la réduction des tokens.** Ne pas modifier la logique des académies ; l'absence d'académie dans les questions historiques (avant le 16/10) n'est pas une erreur. Ne pas utiliser de documentation UNSS non autorisée.
+
+**Répartition sans conflit :**
+- **GPT :** `documentary_review.py`, `knowledge_catalog.py`, `evidence_logic.py`, tests associés, audit des réponses et mesure des appels/tokens. Travaux sur la branche `audit-63-tokens-gpt-20261018` ; aucune modification des menus, du guide ou de `app.py` sans coordination.
+- **Claude :** menus, guidage pas à pas iPackEPS, parcours utilisateur et ergonomie ; signaler à GPT les questions dont la réponse est incomplète. Éviter `documentary_review.py`, `knowledge_catalog.py` et `evidence_logic.py` pendant ce lot. Si `app.py` doit changer, prévenir GPT.
+
+**Base de mesure :** 113 réponses retestées, évaluations encore provisoires : 34 correctes ou présumées, 63 partielles, 16 fausses. Les 63 sont la cible d'amélioration, sans affirmer un taux définitif. Les 19 cas multi-appels sont une priorité de mesure, pas un motif pour désactiver la vérification documentaire. Le moteur `review_exam_answer` effectue un appel de rédaction et un nouvel appel seulement en cas d'échec mécanique : analyser les causes réelles de ces relances avant de les réduire. Les retrievers utilisent `similarity_top_k=10` mais l'agrégation limite déjà les extraits à 10 : ne pas abaisser ce seuil sans comparaison de pertinence.
+
+**Garde-fous :** aucune réponse en dur pour maquiller les statistiques ; préserver les exceptions réglementaires, la portée des sources, les refus justifiés et les citations. Comparer à questions identiques : qualité (correcte/partielle/fausse), nombre d'appels, tokens d'entrée et de sortie, refus documentaires et erreurs graves. Ne pas publier les questions/réponses privées dans le dépôt public.
+
+**Plan GPT :** 1. Instrumenter/étudier les motifs des relances et les longueurs de contexte sans nouvelle consommation IA. 2. Corriger les causes de réponses partielles (sélection hors sujet, passages applicables omis, refus excessifs) avec tests. 3. Réduire les répétitions de consignes et de passages seulement après contrôle de non-régression. 4. Rejouer les cas prioritaires et publier des statistiques mesurées.
+
+**Pour Claude :** continuer l'interface sur sa branche ; lire ce journal avant toute fusion, récupérer `main` après les commits validés et signaler les conflits. Ce journal est le lancement de chantier, non la preuve que les 63 corrections ou les gains de tokens sont déjà obtenus.

@@ -1559,7 +1559,7 @@ with st.container(key="parcours"):
             if st.session_state.get("active_module") == "ipack":
                 _guide_public = st.session_state.get("niveau_actif_form", "")
                 _guide_toggle = "guide_direct_" + _guide_public
-                if st.button("❓ Vous êtes perdu ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
+                if st.button("❓ Vous êtes perdu(e) ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
                     st.session_state[_guide_toggle] = not st.session_state.get(_guide_toggle, False)
                 if st.session_state.get(_guide_toggle, False):
                     from guided_navigation import render_guide

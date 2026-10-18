@@ -203,4 +203,4 @@ def render_guide(st, key, public):
             st.session_state[key + '_rub'] = first_rubrique
         else:
             st.session_state[key + '_goal'] = first
-    st.button('Je suis encore perdu · Repartir du début', key=prefix + '_restart', on_click=restart)
+    st.button('Je suis encore perdu(e) · Repartir du début', key=prefix + '_restart', on_click=restart)

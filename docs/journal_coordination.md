@@ -757,3 +757,6 @@ Demandes de Thierry : (1) afficher à côté du guide la consigne de hiérarchie
 - Encadré « Bon à savoir : iPackEPS se remplit dans l'ordre… » (Établissement, puis Ma Fiche Professeur, puis Dossier EPS ; de gauche à droite et de haut en bas ; une étape sautée bloque les suivantes). Affiché seulement si la fiche « première connexion » validée par le correspondant porte toujours cette règle ; collège et lycées.
 - Collège : liste déroulante « Rubrique iPackEPS » (Je ne sais pas par où commencer, Établissement, Ma Fiche Professeur, Dossier EPS, Dossier Natation, Dossier Section Sportive Scolaire, Dossier APPN) ; le sous-menu s'ouvre à côté dans l'ordre de l'écran (Dossier EPS : Projets, Équipe EPS et Intervenants Extérieurs, Classes, APSA·Périodes·Groupes, Groupes AS, Élèves, Équipements Sportifs, Emplois du temps, envoi pour validation). Une rubrique à une seule entrée ouvre directement son pas à pas. Deux parcours ajoutés : fiche Établissement, section sportive absente ; « Placer des élèves dans un groupe » isolé du parcours AS. Tous les parcours sont atteignables depuis le menu (test).
 - Lycées : liste simple inchangée, avec l'encadré d'ordre.
+
+### 18 octobre 2026 — bouton « Vous êtes perdu(e) ? »
+Libellé écrit au masculin et au féminin, à la demande de Thierry.

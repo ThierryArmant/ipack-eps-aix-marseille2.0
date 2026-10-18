@@ -104,7 +104,14 @@ def main():
     size = int(sys.argv[3]) if len(sys.argv) > 3 else 200
     out.mkdir(parents=True, exist_ok=True)
     rows = read_rows(src)
-    data, seen = [], set()
+    data, seen, todo = [], set(), {}
+    for r in rows:
+        q = column(r, 'question').strip()
+        if len(q) >= 8:
+            todo.setdefault((q, mode_of(column(r, 'mode', 'onglet', 'module')), public_of(column(r, 'niveau', 'public'))), None)
+    from multiprocessing import Pool
+    with Pool(4) as pool:
+        routes = dict(zip(todo, pool.starmap(route, list(todo), chunksize=8)))
     for i, r in enumerate(rows, 1):
         q = column(r, 'question').strip()
         if len(q) < 8:
@@ -114,7 +121,7 @@ def main():
         key = (norm(q), mode, public)
         dup = key in seen
         seen.add(key)
-        kind, title = route(q, mode, public)
+        kind, title = routes[(q, mode, public)]
         data.append({'ligne': i, 'date': column(r, 'date', 'horodat', 'timestamp'), 'mode': mode, 'public': public,
                      'question': q, 'reponse': column(r, 'reponse', 'réponse'), 'version': column(r, 'version'),
                      'traitement': kind, 'fiche': title, 'doublon': 'oui' if dup else ''})

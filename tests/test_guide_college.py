@@ -34,6 +34,9 @@ class UI:
     def __getattr__(self, name): return lambda *a, **k: None
 
 
+PLAYLIST = {v['url'] for v in json.loads(Path('config/playlist_tutoriels_ipackeps.json').read_text(encoding='utf-8'))['videos']}
+
+
 class GuideCollegeTests(unittest.TestCase):
     def setUp(self):
         self.routes = guide.college_routes()
@@ -45,7 +48,7 @@ class GuideCollegeTests(unittest.TestCase):
         for goal, steps in self.routes.items():
             for step in steps:
                 self.assertIn(step['preuve'], Path(step['source']).read_text(encoding='utf-8'), (goal, step))
-                self.assertTrue(step['video'] is None or step['video'] in videos, step)
+                self.assertTrue(step['video'] is None or step['video'] in videos or step['video'] in PLAYLIST, step)
                 self.assertLessEqual(len(step['clic']), 95, step['clic'])
 
     def test_question_foot_6e4_activite_enseignee(self):
@@ -260,6 +263,16 @@ class GuideLyceeGTTests(unittest.TestCase):
         self.assertNotIn(t, kc.priority_titles('mon élève est inapte, quelle note ?', 'Lycée Général & Techno', 'ipack'))
         steps = ' '.join(s['clic'] for s in self.routes['CFA, MFR, AEFE : créer directement les groupes'])
         self.assertIn('[Associer les élèves à un protocole]', steps)
+
+    def test_videos_des_guides_dans_la_playlist(self):
+        cles = {t['etape'] for t in json.loads(Path('config/tutoriels_parcours_college.json').read_text(encoding='utf-8'))['tutoriels']}
+        for f in (guide.COLLEGE, guide.LYCEE_GT, guide.LYCEE_PRO):
+            for r in json.loads(f.read_text(encoding='utf-8'))['parcours'].values():
+                for s in r:
+                    self.assertTrue(s['video'] is None or s['video'] in cles or s['video'] in PLAYLIST, s)
+        self.assertEqual(guide.video_url('https://youtu.be/t7b1yl4ATcU'), 'https://youtu.be/t7b1yl4ATcU')
+        export = self.routes['Transférer vers Cyclades'][2]['video']
+        self.assertEqual(export, 'https://youtu.be/t7b1yl4ATcU')
 
     def test_fiches_lycee_sans_nom(self):
         for f in Path('data/ipack/visite_lycee_2026_10_18').glob('*.txt'):

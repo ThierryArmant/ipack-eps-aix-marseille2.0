@@ -162,13 +162,13 @@
    },
    {
     "clic": "Double-clic sur la case horaire",
-    "video": "3.1 Dossier EPS — Emplois du temps",
+    "video": "https://youtu.be/8pHcZ4gw6go",
     "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
     "preuve": "double-cliquer sur la case horaire"
    },
    {
     "clic": "Groupe, séquence, équipement → [Créer le créneau]",
-    "video": "3.1 Dossier EPS — Emplois du temps",
+    "video": "https://youtu.be/8pHcZ4gw6go",
     "source": "data/ipack/visite_college_2026_10_18/equipements_emploi_du_temps.txt",
     "preuve": "puis [Créer le créneau]"
    }
@@ -196,7 +196,7 @@
    },
    {
     "clic": "TZR : crayon [Modifier] sur sa ligne → « Remplace » → [Enregistrer]",
-    "video": "3.1 Dossier EPS — L'équipe EPS et les intervenants extérieurs",
+    "video": "https://youtu.be/C3gSSacJxNo",
     "source": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
     "preuve": "choisir dans « Remplace » le collègue remplacé"
    }
@@ -232,13 +232,13 @@
   "Envoyer le dossier EPS pour validation (coordonnateur)": [
    {
     "clic": "[Dossier EPS] → [Vérification]",
-    "video": null,
+    "video": "https://youtu.be/ToTBgO_nMAI",
     "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
     "preuve": "bouton [Vérification]"
    },
    {
     "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
-    "video": null,
+    "video": "https://youtu.be/ToTBgO_nMAI",
     "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
     "preuve": "« Dossier terminé, nous le soumettons pour validation »"
    }
@@ -246,13 +246,13 @@
   "Imprimer les attestations du savoir-nager (ASNS)": [
    {
     "clic": "[Les Dossiers et Projets] → [Dossier Natation] → [Validation ASNS]",
-    "video": null,
+    "video": "https://youtu.be/JmhwQNyagOI",
     "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
     "preuve": "[Dossier Natation] > [Validation ASNS]"
    },
    {
     "clic": "Cocher les élèves → [Imprimer les diplômes de la sélection]",
-    "video": null,
+    "video": "https://youtu.be/JmhwQNyagOI",
     "source": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
     "preuve": "[Imprimer les diplômes de la sélection]"
    }

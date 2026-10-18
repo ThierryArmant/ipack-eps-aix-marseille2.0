@@ -1,0 +1,466 @@
+{
+ "description": "Liste de lecture YouTube « iPackEPS » de l'assistance (EPS Créteil), lien « Playlist des tutoriels » en bas des pages iPackEPS. Relevé le 18 octobre 2026 : 107 vidéos annoncées, 92 visibles (les autres sont indisponibles ou privées). Titres reformulés courts.",
+ "playlist": "https://www.youtube.com/playlist?list=PLI9OmEQb8i20YTYsAkPbGTcKHBadQxynq",
+ "videos": [
+  {
+   "id": "dpijdybbbWo",
+   "titre": "Gestion du Matériel EPI (Équipements de Protection Individuels)",
+   "url": "https://youtu.be/dpijdybbbWo"
+  },
+  {
+   "id": "qEvM8o5JxIE",
+   "titre": "Santorin : distribution manuelle des lots de correction",
+   "url": "https://youtu.be/qEvM8o5JxIE"
+  },
+  {
+   "id": "DyNQkjXP6p4",
+   "titre": "Imag'In/Santorin : connexion et accès aux lots de mon/mes établissement(s)",
+   "url": "https://youtu.be/DyNQkjXP6p4"
+  },
+  {
+   "id": "E2VMoq7sLgI",
+   "titre": "Santorin, chef d'établissement : créer un nouveau lot et y placer un élève",
+   "url": "https://youtu.be/E2VMoq7sLgI"
+  },
+  {
+   "id": "7yr1bFlvlFg",
+   "titre": "Demande de reconduction ou fermeture de votre section sportive scolaire",
+   "url": "https://youtu.be/7yr1bFlvlFg"
+  },
+  {
+   "id": "1EothsjU1Kc",
+   "titre": "Gestion des dossiers Section Sportive Scolaire",
+   "url": "https://youtu.be/1EothsjU1Kc"
+  },
+  {
+   "id": "YjvU7KCuJpk",
+   "titre": "Dépôt de documents pour la CAHPN : contrôle des certificats médicaux",
+   "url": "https://youtu.be/YjvU7KCuJpk"
+  },
+  {
+   "id": "rymsmysEhek",
+   "titre": "Accès à la bibliothèque de documents d'iPackEPS",
+   "url": "https://youtu.be/rymsmysEhek"
+  },
+  {
+   "id": "g1PAzRq4Dh0",
+   "titre": "Suivi des inaptitudes des élèves",
+   "url": "https://youtu.be/g1PAzRq4Dh0"
+  },
+  {
+   "id": "AEXIn3d6K6U",
+   "titre": "Configurer les classes Sports-Études",
+   "url": "https://youtu.be/AEXIn3d6K6U"
+  },
+  {
+   "id": "koUcZtmJKEM",
+   "titre": "Dossier EPS > Projets : configuration des projets (Établissement, EPS, AS, SSS)",
+   "url": "https://youtu.be/koUcZtmJKEM"
+  },
+  {
+   "id": "zypGSbpJFnU",
+   "titre": "Déclaration des APSA certificatives en CAP : cas spécial",
+   "url": "https://youtu.be/zypGSbpJFnU"
+  },
+  {
+   "id": "b29_2hEqzoU",
+   "titre": "Connexion via le nouveau portail ARENA",
+   "url": "https://youtu.be/b29_2hEqzoU"
+  },
+  {
+   "id": "C3gSSacJxNo",
+   "titre": "Gestion des remplacements",
+   "url": "https://youtu.be/C3gSSacJxNo"
+  },
+  {
+   "id": "7WVCGZ5fLqA",
+   "titre": "Interface professeur : gestion de l'équipe EPS",
+   "url": "https://youtu.be/7WVCGZ5fLqA"
+  },
+  {
+   "id": "RlScDjd8kHk",
+   "titre": "Import d'élèves de groupes Pronote : corriger les données erronées",
+   "url": "https://youtu.be/RlScDjd8kHk"
+  },
+  {
+   "id": "HtFmE-6rCl4",
+   "titre": "Les tableaux de bord",
+   "url": "https://youtu.be/HtFmE-6rCl4"
+  },
+  {
+   "id": "jNHJEzqaPGc",
+   "titre": "Statistiques inaptitudes",
+   "url": "https://youtu.be/jNHJEzqaPGc"
+  },
+  {
+   "id": "hUJGLP5XOYM",
+   "titre": "Dépôt de documents pour la CAHPN : fiche individuelle cas particulier",
+   "url": "https://youtu.be/hUJGLP5XOYM"
+  },
+  {
+   "id": "GR8ZcaEigm4",
+   "titre": "Dépôt de documents pour la CAHPN : fiche établissement",
+   "url": "https://youtu.be/GR8ZcaEigm4"
+  },
+  {
+   "id": "34w4Z6dd1dM",
+   "titre": "Mes Élèves > Visualisation > Inaptitudes : déclaration des inaptitudes",
+   "url": "https://youtu.be/34w4Z6dd1dM"
+  },
+  {
+   "id": "0njoZigh_5w",
+   "titre": "Créer des convocations pour les enseignants EPS",
+   "url": "https://youtu.be/0njoZigh_5w"
+  },
+  {
+   "id": "ImAk9BcpiO4",
+   "titre": "Chef d'établissement : contrôler/réaffecter des protocoles aux enseignants",
+   "url": "https://youtu.be/ImAk9BcpiO4"
+  },
+  {
+   "id": "3ThO5nLNzJg",
+   "titre": "Accès aux statistiques",
+   "url": "https://youtu.be/3ThO5nLNzJg"
+  },
+  {
+   "id": "YoOC_CdOQ_I",
+   "titre": "Professeur : connexion à Cyclades",
+   "url": "https://youtu.be/YoOC_CdOQ_I"
+  },
+  {
+   "id": "T_-j01ovoA4",
+   "titre": "Dépôt des référentiels d'évaluation",
+   "url": "https://youtu.be/T_-j01ovoA4"
+  },
+  {
+   "id": "c9DSvKX2Pqc",
+   "titre": "Module Offre de Formation / Groupes et APSA",
+   "url": "https://youtu.be/c9DSvKX2Pqc"
+  },
+  {
+   "id": "ksCcLEe2lP8",
+   "titre": "Dossier Certificatif, référentiels : supprimer des APSA",
+   "url": "https://youtu.be/ksCcLEe2lP8"
+  },
+  {
+   "id": "Ap17Gn69ruU",
+   "titre": "Santorin, chef d'établissement : vérification de la distribution",
+   "url": "https://youtu.be/Ap17Gn69ruU"
+  },
+  {
+   "id": "WKbg51eUQVs",
+   "titre": "Santorin, chef d'établissement : déplacer des élèves d'un lot",
+   "url": "https://youtu.be/WKbg51eUQVs"
+  },
+  {
+   "id": "iOMHPSMC7lM",
+   "titre": "Santorin, chef d'établissement : (dé)verrouiller les lots de correction",
+   "url": "https://youtu.be/iOMHPSMC7lM"
+  },
+  {
+   "id": "a4sp4ULplCE",
+   "titre": "Santorin, enseignant : verrouiller les lots de correction EPS",
+   "url": "https://youtu.be/a4sp4ULplCE"
+  },
+  {
+   "id": "v1fJI1zCRCM",
+   "titre": "Santorin, commission académique : vérification de la clôture des lots",
+   "url": "https://youtu.be/v1fJI1zCRCM"
+  },
+  {
+   "id": "KooSwcy4gAA",
+   "titre": "Santorin, chef d'établissement : export du fichier de notes EPS",
+   "url": "https://youtu.be/KooSwcy4gAA"
+  },
+  {
+   "id": "fmMl82KkZt4",
+   "titre": "Santorin, chef d'établissement : ajouter un évaluateur dans un lot",
+   "url": "https://youtu.be/fmMl82KkZt4"
+  },
+  {
+   "id": "hFLv_cAuq30",
+   "titre": "Santorin, professeur : saisie des notes EPS",
+   "url": "https://youtu.be/hFLv_cAuq30"
+  },
+  {
+   "id": "-EtWyhSzNlM",
+   "titre": "Santorin, chef d'établissement : distribution des lots de correction",
+   "url": "https://youtu.be/-EtWyhSzNlM"
+  },
+  {
+   "id": "57xZDq_vyDE",
+   "titre": "Cyclades, chef d'établissement : créer des protocoles en cours d'année",
+   "url": "https://youtu.be/57xZDq_vyDE"
+  },
+  {
+   "id": "YCLktNeYbPw",
+   "titre": "Cyclades, chef d'établissement : vérifier l'affectation des élèves dans les protocoles",
+   "url": "https://youtu.be/YCLktNeYbPw"
+  },
+  {
+   "id": "4ZsuQi_YoMs",
+   "titre": "Interface professeur/chef d'établissement : transfert des élèves et groupes vers Cyclades",
+   "url": "https://youtu.be/4ZsuQi_YoMs"
+  },
+  {
+   "id": "LbwvtkoaEcg",
+   "titre": "Santorin, chef d'établissement : distribution des lots EPS",
+   "url": "https://youtu.be/LbwvtkoaEcg"
+  },
+  {
+   "id": "Bq7_ooQuZtU",
+   "titre": "Renseignement des protocoles d'évaluation aux examens",
+   "url": "https://youtu.be/Bq7_ooQuZtU"
+  },
+  {
+   "id": "CUybrlkTtJ0",
+   "titre": "Gestion de l'enseignement adapté (déclaration des APSA, groupes et séquences)",
+   "url": "https://youtu.be/CUybrlkTtJ0"
+  },
+  {
+   "id": "t7b1yl4ATcU",
+   "titre": "Dossier Certificatif : exporter les groupes et élèves vers Cyclades",
+   "url": "https://youtu.be/t7b1yl4ATcU"
+  },
+  {
+   "id": "YtRkV7gmlpQ",
+   "titre": "Dossier EPS > APSA : déclaration des APSA pratiquées dans l'établissement",
+   "url": "https://youtu.be/YtRkV7gmlpQ"
+  },
+  {
+   "id": "ToTBgO_nMAI",
+   "titre": "Soumettre à validation le dossier EPS ou certificatif",
+   "url": "https://youtu.be/ToTBgO_nMAI"
+  },
+  {
+   "id": "cdu0NKjmBs4",
+   "titre": "Corriger les alertes sur le Dossier Certificatif en collège",
+   "url": "https://youtu.be/cdu0NKjmBs4"
+  },
+  {
+   "id": "y4Woi0RY50I",
+   "titre": "Renseigner les séquences d'apprentissage des groupes",
+   "url": "https://youtu.be/y4Woi0RY50I"
+  },
+  {
+   "id": "4mqx_sWqSbE",
+   "titre": "Gestion des groupes (EPS, AS, SSS…)",
+   "url": "https://youtu.be/4mqx_sWqSbE"
+  },
+  {
+   "id": "WoTtGxzawAI",
+   "titre": "Modifier sa fiche professeur",
+   "url": "https://youtu.be/WoTtGxzawAI"
+  },
+  {
+   "id": "-Ka0fNtMLBk",
+   "titre": "Configuration de la fiche établissement",
+   "url": "https://youtu.be/-Ka0fNtMLBk"
+  },
+  {
+   "id": "AhczBJAXG24",
+   "titre": "Connexion via le portail ARENA",
+   "url": "https://youtu.be/AhczBJAXG24"
+  },
+  {
+   "id": "rUKz8xMU_Ls",
+   "titre": "Dépôt de documents pour la CAHPN : dépôt de la liste des inaptes et des notes",
+   "url": "https://youtu.be/rUKz8xMU_Ls"
+  },
+  {
+   "id": "FZ1KSuuKkEA",
+   "titre": "Dépôt de documents pour la CAHPN : introduction",
+   "url": "https://youtu.be/FZ1KSuuKkEA"
+  },
+  {
+   "id": "xEkzJl2Kiyk",
+   "titre": "iPackEPS : présentation (teaser)",
+   "url": "https://youtu.be/xEkzJl2Kiyk"
+  },
+  {
+   "id": "2iSTkzR0fns",
+   "titre": "Interface chef d'établissement : validation des dossiers",
+   "url": "https://youtu.be/2iSTkzR0fns"
+  },
+  {
+   "id": "jOt-pUj-5Hc",
+   "titre": "Interface chef d'établissement : présentation d'iPackEPS",
+   "url": "https://youtu.be/jOt-pUj-5Hc"
+  },
+  {
+   "id": "z5OR9Q_67Dk",
+   "titre": "Interface professeur : gestion de cross (LogiCross)",
+   "url": "https://youtu.be/z5OR9Q_67Dk"
+  },
+  {
+   "id": "IvKjTl6AjHw",
+   "titre": "Interface professeur : gestion de cross (liaison iPackEPS / logiciel de cross)",
+   "url": "https://youtu.be/IvKjTl6AjHw"
+  },
+  {
+   "id": "Ghb8re7CK7c",
+   "titre": "Interface professeur : documents, gestion des dossards de cross",
+   "url": "https://youtu.be/Ghb8re7CK7c"
+  },
+  {
+   "id": "p3sESovUCp8",
+   "titre": "Assistance : afficher les erreurs du navigateur internet",
+   "url": "https://youtu.be/p3sESovUCp8"
+  },
+  {
+   "id": "bxd0QQs-X4Q",
+   "titre": "Interface professeur : imprimer pour chaque élève sa programmation",
+   "url": "https://youtu.be/bxd0QQs-X4Q"
+  },
+  {
+   "id": "tcuNAUFzI8w",
+   "titre": "Interface professeur : saisie de l'enquête natation",
+   "url": "https://youtu.be/tcuNAUFzI8w"
+  },
+  {
+   "id": "-B4KHX0x0Oc",
+   "titre": "Interface professeur : éditions de documents administratifs (ancienne version)",
+   "url": "https://youtu.be/-B4KHX0x0Oc"
+  },
+  {
+   "id": "JmhwQNyagOI",
+   "titre": "Interface professeur : import et impression des ASNS",
+   "url": "https://youtu.be/JmhwQNyagOI"
+  },
+  {
+   "id": "zdpARu52Rxc",
+   "titre": "Impression de documents administratifs (bordereaux d'émargement, de notes…)",
+   "url": "https://youtu.be/zdpARu52Rxc"
+  },
+  {
+   "id": "k2p4BWv-gC8",
+   "titre": "Interface professeur : publipostage",
+   "url": "https://youtu.be/k2p4BWv-gC8"
+  },
+  {
+   "id": "RUlrS0a1YA0",
+   "titre": "Dépôt de demande de validation de projet APPN à environnement spécifique",
+   "url": "https://youtu.be/RUlrS0a1YA0"
+  },
+  {
+   "id": "N5lXmznTIBY",
+   "titre": "Formation lycée 2021 : replay du webinaire",
+   "url": "https://youtu.be/N5lXmznTIBY"
+  },
+  {
+   "id": "pcb_G_asVJA",
+   "titre": "Formation collège 2021 : replay du webinaire",
+   "url": "https://youtu.be/pcb_G_asVJA"
+  },
+  {
+   "id": "x8DzrCRL_D8",
+   "titre": "Dossier EPS : équipe EPS (et AEFE)",
+   "url": "https://youtu.be/x8DzrCRL_D8"
+  },
+  {
+   "id": "do_8PVQDuqE",
+   "titre": "Les manipulations à chaque nouvelle année scolaire",
+   "url": "https://youtu.be/do_8PVQDuqE"
+  },
+  {
+   "id": "xlXcb8Z5ZQU",
+   "titre": "Élèves, visualisation : validation des ASNS",
+   "url": "https://youtu.be/xlXcb8Z5ZQU"
+  },
+  {
+   "id": "4tjPIbnhzDU",
+   "titre": "Interface professeur : Mes Élèves, visualisation",
+   "url": "https://youtu.be/4tjPIbnhzDU"
+  },
+  {
+   "id": "QPhqFI4czhA",
+   "titre": "Dossier EPS : élèves",
+   "url": "https://youtu.be/QPhqFI4czhA"
+  },
+  {
+   "id": "NdaUc8WaVdU",
+   "titre": "Dossier EPS : configuration des périodes",
+   "url": "https://youtu.be/NdaUc8WaVdU"
+  },
+  {
+   "id": "tu8J1RBUTwk",
+   "titre": "Dossier EPS : configuration des classes",
+   "url": "https://youtu.be/tu8J1RBUTwk"
+  },
+  {
+   "id": "60ewmvjwQqs",
+   "titre": "Dossier EPS : recherche d'équipements",
+   "url": "https://youtu.be/60ewmvjwQqs"
+  },
+  {
+   "id": "1KJTsfyo6yg",
+   "titre": "Dossier EPS : équipements, emploi du temps des équipements",
+   "url": "https://youtu.be/1KJTsfyo6yg"
+  },
+  {
+   "id": "jzk3Q5aHiuw",
+   "titre": "Dossier EPS : équipements, configuration",
+   "url": "https://youtu.be/jzk3Q5aHiuw"
+  },
+  {
+   "id": "mRK9rhUgL44",
+   "titre": "Dossier EPS : gestion des équipements",
+   "url": "https://youtu.be/mRK9rhUgL44"
+  },
+  {
+   "id": "II-YNue3TB4",
+   "titre": "Tutoriels et assistance : utilisation d'iPackEPS",
+   "url": "https://youtu.be/II-YNue3TB4"
+  },
+  {
+   "id": "ay6RRLRMGz8",
+   "titre": "Version 2021.1.1 : présentation des nouveautés (ancienne version)",
+   "url": "https://youtu.be/ay6RRLRMGz8"
+  },
+  {
+   "id": "vnY5hfKzN08",
+   "titre": "EDT : vérification et alertes sur les créneaux saisis ou manquants",
+   "url": "https://youtu.be/vnY5hfKzN08"
+  },
+  {
+   "id": "8pHcZ4gw6go",
+   "titre": "EDT : création et suppression de créneaux",
+   "url": "https://youtu.be/8pHcZ4gw6go"
+  },
+  {
+   "id": "uCF9kxUDaI8",
+   "titre": "EDT : introduction",
+   "url": "https://youtu.be/uCF9kxUDaI8"
+  },
+  {
+   "id": "-Rkgq18uZjI",
+   "titre": "Dossier Certificatif : configuration des épreuves certificatives",
+   "url": "https://youtu.be/-Rkgq18uZjI"
+  },
+  {
+   "id": "0YYinzmME8c",
+   "titre": "Démonstration de saisie complète des données sur iPackEPS",
+   "url": "https://youtu.be/0YYinzmME8c"
+  },
+  {
+   "id": "zi7K-hkYzig",
+   "titre": "Saisie des emplois du temps : gestion des créneaux",
+   "url": "https://youtu.be/zi7K-hkYzig"
+  },
+  {
+   "id": "iH54YEF_2XY",
+   "titre": "Renseigner le bilan de section sportive scolaire",
+   "url": "https://youtu.be/iH54YEF_2XY"
+  },
+  {
+   "id": "SizZ4vGQ4nU",
+   "titre": "Projet annuel de section sportive scolaire",
+   "url": "https://youtu.be/SizZ4vGQ4nU"
+  },
+  {
+   "id": "FUJzYLskCGQ",
+   "titre": "Demande d'ouverture de section sportive scolaire",
+   "url": "https://youtu.be/FUJzYLskCGQ"
+  }
+ ]
+}

@@ -7006,6 +7006,38 @@
     "examens": [],
     "modes": [
       "ipack"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/T_-j01ovoA4",
+        "motifs": [
+          "[Rr][ée]f[ée]rentiel"
+        ]
+      },
+      {
+        "url": "https://youtu.be/-Rkgq18uZjI",
+        "motifs": [
+          "[Pp]rotocole d.[ÉE]valuation|[Cc]o.?[ée]valuateur|[Dd]ate (?:d.[ée]valuation|de rattrapage)"
+        ]
+      },
+      {
+        "url": "https://youtu.be/t7b1yl4ATcU",
+        "motifs": [
+          "[Ee]xport(?:er)? (?:les )?[ÉEé]l[èe]ves|Cyclades"
+        ]
+      },
+      {
+        "url": "https://youtu.be/FZ1KSuuKkEA",
+        "motifs": [
+          "CAHPN"
+        ]
+      },
+      {
+        "url": "https://youtu.be/ToTBgO_nMAI",
+        "motifs": [
+          "soumettons pour validation|[Ss]oumettre"
+        ]
+      }
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
@@ -7014,6 +7046,20 @@
     "examens": [],
     "modes": [
       "ipack"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/y4Woi0RY50I",
+        "motifs": [
+          "G[ée]rer les S\\.A\\.|[Ss][ée]quences? d.[Aa]pprentissage"
+        ]
+      },
+      {
+        "url": "https://youtu.be/YtRkV7gmlpQ",
+        "motifs": [
+          "\\[APSA"
+        ]
+      }
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt": {
@@ -7022,6 +7068,14 @@
     "examens": [],
     "modes": [
       "ipack"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/34w4Z6dd1dM",
+        "motifs": [
+          "[Ii]naptitude"
+        ]
+      }
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt": {

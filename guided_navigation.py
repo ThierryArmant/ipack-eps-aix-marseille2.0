@@ -109,6 +109,8 @@ def video_url(video_key):
     import json
     if not video_key:
         return ''
+    if str(video_key).startswith('https://'):
+        return video_key
     try:
         videos = json.loads((ROOT / 'config/tutoriels_parcours_college.json').read_text(encoding='utf-8'))['tutoriels']
     except (OSError, ValueError, KeyError):

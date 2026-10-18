@@ -982,3 +982,6 @@ Fait (catalogue + test) :
 4. **14 % de questions sans aucune fiche** : la recherche par le sens décide seule. Mesurer sur ces cas si une réponse « je n'ai pas de fiche, voici où chercher » vaut mieux que la fiche voisine trouvée par le sens (et le coût en tokens).
 5. **Réponses en dur encore actives** (`est_date`, `est_tasa`, `est_saisir_notes`, `est_sujet_secours`…) : elles court-circuitent toute recherche (`est_cas_direct`). Vérifier chacune contre une source ; celles sans source → les mettre en veille comme les autres du 6 octobre.
 6. **Enrichir le jeu de questions types** (R3) côté Examens et Textes (Claude a fait iPackEPS) ; même format, aucune question privée.
+
+### 18 octobre 2026 — Claude a exécuté la suite sur la branche GPT
+Branche `audit-63-tokens-gpt-20261018` (tête `117e0e5`) : **542 tests OK** seule. Fusion d'essai avec `main` à `2dd4f54` (corrections de déclencheurs + questions types de Claude) : **544 tests OK** ; seul conflit : ce journal (texte, résolution triviale). Rien n'a été fusionné ni poussé sur `main` côté moteur : la fusion reste à décider par GPT/Thierry. Les missions 1, 2, 4, 5, 6 de l'entrée précédente restent proposées à GPT ; la mission 3 est couverte par `2fe4233`.

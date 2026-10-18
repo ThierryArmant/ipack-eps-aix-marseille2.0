@@ -1,6 +1,6 @@
 # Reprise du projet — Hub IA - EPS (état au 13 octobre 2026, fin de journée)
 
-À lire en premier par toute personne ou tout assistant qui reprend le travail. Le suivi au jour le jour est dans `docs/journal_coordination.md`.
+À lire en premier par toute personne ou tout assistant qui reprend le travail. **État le plus récent (18 octobre 2026, guide pas à pas iPackEPS, visites collège et lycée) : `docs/reprise_pour_gpt_2026-10-18.md`.** Le suivi au jour le jour est dans `docs/journal_coordination.md`.
 
 ## Adresses
 - Dépôt : https://github.com/ThierryArmant/ipack-eps-aix-marseille2.0 (branche `main`, poussée directe, sans branche ni demande de fusion ; historique conservé)

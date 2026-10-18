@@ -831,3 +831,6 @@ Liste YouTube de l'assistance relevée dans le navigateur : 107 vidéos annoncé
 
 ### 18 octobre 2026 — « je ne trouve pas mon nouvel élève »
 Contrôle de routage après la visite : cette formulation du correspondant ne déclenchait aucune fiche ciblée. Motif ajouté à la fiche « élève absent de la liste » (nouvel élève + introuvable/absent/n'apparaît pas), qui donne désormais [Importation des Élèves] > [Importer].
+
+### 18 octobre 2026 — document de reprise
+`docs/reprise_pour_gpt_2026-10-18.md` : règles, travail du jour (visites collège et lycée, guide pas à pas, playlist), où modifier quoi, reste à faire. Lien ajouté en tête de `docs/reprise_projet.md`.

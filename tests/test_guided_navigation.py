@@ -24,15 +24,14 @@ class GuidedTests(unittest.TestCase):
                 self.assertTrue(path.is_file())
                 self.assertTrue(text)
                 self.assertNotIn('certificative',text)
-    def test_next_back_and_blocked_branches(self):
+    def test_toutes_les_etapes_sans_bouton_suivant(self):
         goal='Me repérer depuis le début'
-        state={}
-        ui=FakeUI([goal],state,'C’est fait · Suivant →')
+        ui=FakeUI([goal],{},'')
+        labels=[]
+        ui.button=lambda label,**k: labels.append(label) or False
         guide.render_guide(ui,'test','Autre public')
-        self.assertEqual(state['test_position_0'],1)
-        ui=FakeUI([goal],state,'← Retour')
-        guide.render_guide(ui,'test','Autre public')
-        self.assertEqual(state['test_position_0'],0)
+        self.assertFalse(any('Suivant' in l or 'Retour' in l for l in labels))
+        self.assertIn('✓ J’ai trouvé', labels)
     def test_completion_and_no_source(self):
         goal='Configurer les périodes'
         for answer in ['Oui','Non, j’ai encore besoin d’aide']:

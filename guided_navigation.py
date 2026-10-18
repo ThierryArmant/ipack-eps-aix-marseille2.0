@@ -200,45 +200,37 @@ def render_guide(st, key, public, on_done=None):
     if goal == 'Je ne sais pas encore' or goal not in available:
         goal = first
     route = available[goal]
-    state_key = key + '_position_' + str(list(available).index(goal))
-    position = min(st.session_state.get(state_key, 0), len(route) - 1)
-    if college:
-        label, url = route[position]['clic'], video_url(route[position].get('video'))
-    else:
-        text, path = route[position]
-        label, url = step_presentation(goal, position, text)
-    prefix = state_key + '_' + str(position)
+    state_key = key + '_parcours_' + str(list(available).index(goal))
     if before:
         st.info(before)
-    st.write(f'**Étape {position + 1}/{len(route)}**')
-    if url:
-        # L'intitulé de l'étape est lui-même le lien : un clic affiche ou masque la vidéo.
-        show = prefix + '_show_video'
-        def toggle():
-            st.session_state[show] = not st.session_state.get(show, False)
-        st.button(f'▶ {label}', key=prefix + '_video', on_click=toggle, use_container_width=True)
-        if st.session_state.get(show, False):
-            st.video(url)
-    else:
-        st.write(f'**{label}**')
+    # Toutes les étapes d'un coup (pas de bouton « Suivant ») ; chaque vidéo n'est proposée qu'une fois.
+    deja = set()
+    for position, step in enumerate(route):
+        if college:
+            label, url = step['clic'], video_url(step.get('video'))
+        else:
+            text, path = step
+            label, url = step_presentation(goal, position, text)
+        prefix = state_key + '_' + str(position)
+        if url and url not in deja:
+            deja.add(url)
+            show = prefix + '_show_video'
+            def toggle(show=show):
+                st.session_state[show] = not st.session_state.get(show, False)
+            st.button(f'▶ {position + 1}. {label} · Lancer le tutoriel vidéo', key=prefix + '_video',
+                      on_click=toggle, use_container_width=True)
+            if st.session_state.get(show, False):
+                st.video(url)
+        else:
+            st.write(f'**{position + 1}. {label}**')
     if not college:
         rule = order_rule()
         if rule:
             st.info(rule)
-    if position < len(route) - 1:
-        if st.button('C’est fait · Suivant →', key=prefix + '_next'):
-            st.session_state[state_key] = position + 1
-            st.rerun()
-    else:
-        def done():
-            # Le guide se referme et repart de zéro ; retour au champ « Posez votre question ».
-            for k in [k for k in st.session_state if str(k).startswith(key + '_')]:
-                del st.session_state[k]
-            if on_done:
-                on_done()
-        st.button('✓ J’ai trouvé', key=prefix + '_done', on_click=done)
-    if position > 0:
-        if st.button('← Retour', key=prefix + '_back'):
-            st.session_state[state_key] = position - 1
-            st.rerun()
-
+    def done():
+        # Le guide se referme et repart de zéro ; retour au champ « Posez votre question ».
+        for k in [k for k in st.session_state if str(k).startswith(key + '_')]:
+            del st.session_state[k]
+        if on_done:
+            on_done()
+    st.button('✓ J’ai trouvé', key=state_key + '_done', on_click=done)

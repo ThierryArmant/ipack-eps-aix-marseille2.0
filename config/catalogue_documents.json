@@ -2850,12 +2850,15 @@
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "url": "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
     "modes": [
-      "textes"
+      "textes",
+      "examens",
+      "ipack"
     ],
     "prioritaire": true,
     "priorite": 320,
     "motifs": [
-      "(?:voiture|vehicule).*(?:perso|prive)|(?:transport|emmener|conduire|amener).*(?:eleves|enfants).*(?:voiture|vehicule|perso|prive|covoitur|ma |mon )|covoitur"
+      "(?:voiture|vehicule).*(?:perso|prive)|(?:transport|emmener|conduire|amener).*(?:eleves|enfants).*(?:voiture|vehicule|perso|prive|covoitur|ma |mon )|covoitur",
+      "minibus|mini.bus|(?:louer|location).{0,40}(?:vehicule|minibus)|ordre de mission.{0,60}(?:conduire|transport|vehicule)"
     ],
     "domaine_textes": "06_sorties_transports"
   },

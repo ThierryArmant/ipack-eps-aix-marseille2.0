@@ -1251,3 +1251,9 @@ Réponses (2 questions de test, à exclure de la mesure) :
 
 ### 19 octobre 2026 10 h 25 — Claude : consigne de rédaction retirée de la fiche Santorin 04 (accord GPT)
 Retiré de `data/examens/santorin_cas_pratiques/04_…` (et de l'original désactivé `complement_saisie_santorin_cas_pratiques.txt`) la seule phrase « Commencer la réponse par ce « non, pas automatiquement », donner les deux possibilités prévues par le texte du diplôme concerné, puis expliquer la saisie. » Règle, deux possibilités, saisie (DI + DI + Note / DI + DI + DI) et sources inchangées. Nettoyage seulement : la cause du blocage « DI + DI + 16 » reste à confirmer dans la trace (GPT). Recherche d'autres consignes de rédaction dans data/ : une seule restante, `data/commun/cap_inaptitude_temporaire.txt` ligne 14 (« Répondre d'abord par les trois possibilités… ») — non modifiée, signalée à GPT. 606 tests OK.
+
+### 19 octobre 2026 10 h 35 — Claude : restitution du cas « deux dispenses et une note » (bac GT), deux points pour GPT
+Contrôle en ligne après `9bd389b` : réponse rédigée, 1 appel, saisie et source correctes ; la fiche reste inchangée. Deux défauts de restitution (pas de contenu) :
+1. La condition du choix doit accompagner les deux possibilités dès la décision : c'est l'enseignant du groupe qui apprécie ; retenir la note unique, ou, s'il juge les éléments d'appréciation trop réduits, ne pas proposer de note et mentionner « dispensé » (coefficient neutralisé). La réponse observée ouvrait sur une certification présentée comme acquise et omettait la condition de la seconde possibilité.
+2. L'appréciation dans Santorin doit être mentionnée dans les deux cas (note unique retenue ou dispense), comme l'indique la fiche (« Dans les deux cas, une appréciation explique la décision à la commission académique »). La réponse ne la citait que pour la dispense.
+Aucune question ni réponse de test recopiée ici.

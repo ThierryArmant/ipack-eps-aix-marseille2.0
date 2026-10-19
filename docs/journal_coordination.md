@@ -1603,3 +1603,7 @@ Validation : 705 tests locaux réussis, sans appel payant à l’IA. Rejeu en li
 ### 19 octobre 2026 — Complétude du contrôle adapté GT
 Le rejeu confirme la correction de la condition temporelle, mais la rédaction omet désormais les trois configurations. La consigne ciblée place les modalités 3/2/1 au premier plan et demande de les réunir dans une affirmation sourcée, avant les formalités, sans allonger par des répétitions. Aucun ajout de règle en dur dans la réponse ni de seconde passe obligatoire.
 Validation : 705 tests locaux réussis ; formulation réelle à confirmer par le rejeu utilisateur, sans appel payant effectué ici.
+
+### 19 octobre 2026 — Retour au rappel de rédaction précédent
+À la demande de l’utilisateur après rejeu, retrait du seul ajustement de rédaction cb11220. documentary_review.py revient exactement à son contenu de 81b16b1. Les autres corrections restent en place. La réponse précédente était plus fidèle mais encore incomplète ; ce retour ne garantit pas une rédaction identique par le modèle. Aucun appel IA effectué.
+Validation : identité du fichier avec 81b16b1 vérifiée ; 8 tests ciblés réussis.

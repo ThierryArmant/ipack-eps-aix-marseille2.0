@@ -658,6 +658,24 @@ def situation_mismatch(question, text):
     if teaching and not re.search(personal, q) and re.search(personal, t):
         return True
 
+    # Une activité établissement n'est pas une demande de certification réduite.
+    if (re.search(r'activites? (?:d.)?etablissement', q)
+            and not re.search(r'impossib|inapt|dispens|une seule|deux (?:activites|epreuves)|redui', q)
+            and re.search(r'certification reduite|une seule activite realisable|(?:ne peut pas|impossib).{0,70}(?:trois activites|activites retenues)', t)):
+        return True
+
+    # Un accès aux groupes iPackEPS n'est pas une mission de notation Santorin.
+    if (re.search(r'remplac', q) and re.search(r'group|classe|emploi du temps', q)
+            and not re.search(r'santorin|cyclades|imag.in|\blots?\b|\bccf\b', q)
+            and re.search(r'santorin', t) and re.search(r'acces|mission|convoc', t)):
+        return True
+    # Un cycle suivi en raison du statut SHN ne prouve aucune inaptitude médicale.
+    if (re.search(r'\bshn\b|haut niveau', q)
+            and not re.search(r'inapt|medical|bless|certificat|dispens|\bdi\b', q)
+            and not re.search(r'\bshn\b|haut niveau', t)
+            and re.search(r'inapt|certificat medical|dispens', t)):
+        return True
+
     # Le correctif d'une APSA Courses ne répond pas à un incident non identifié.
     course_case = r'\bcourses\b|relais.?vitesse|demi.fond|\bhaies\b|\bsauts\b|\blancers\b'
     if (not re.search(course_case, q) and re.search(course_case, t)
@@ -980,7 +998,7 @@ def dnb_document_mismatch(question, public, packet):
     declared = set(packet.get('scopes') or [])
     if declared and 'dnb' not in declared and declared <= {'gt', 'pro', 'cap', 'primaire'}:
         return True
-    if scopes and not any('dnb' in scope.split(',') for scope in scopes):
+    if scopes and not any({'dnb', 'college'} & {x.strip() for x in scope.split(',')} for scope in scopes):
         return True
     body_norm = normalise(body)
     software = re.search(r'santorin|cyclades', normalise(path + ' ' + title) + ' ' + body_norm)
@@ -1000,6 +1018,29 @@ def lycee_dnb_mismatch(question, public, packet):
         return False
     scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', packet.get('text', ''))
     return bool(scopes) and all(set(x.strip() for x in scope.split(',')) == {'dnb'} for scope in scopes)
+
+
+def catalogue_focus_match(question, packet):
+    """Une intention explicitement décrite peut centrer le contexte sans changer le rang."""
+    if packet.get('origin') != 'document' or packet.get('selection') != 'catalogue':
+        return False
+    from knowledge_catalog import catalog, normalise
+    patterns = catalog().get(packet.get('path', ''), {}).get('centrer_motifs', [])
+    return any(re.search(pattern, normalise(question)) for pattern in patterns)
+
+
+def packet_covered_by_focus(candidate, focused):
+    """Retire seulement une copie déjà présente, jamais une autre section du même fichier."""
+    peers = [p for p in focused
+             if (p.get('path') and p['path'] == candidate.get('path'))
+             or (p.get('url') and p['url'] == candidate.get('url'))]
+    if not peers:
+        return False
+    def clean(text):
+        text = re.sub(r'\[[^\]\n]+\]', '', text)
+        return re.sub(r'\s+', ' ', text).strip()
+    fragments = [clean(s['text']) for s in candidate['passages'] if clean(s['text'])]
+    return bool(fragments) and any(all(fragment in clean(peer['text']) for fragment in fragments) for peer in peers)
 
 
 def course_duration_mismatch(question, packet):
@@ -1081,7 +1122,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not lycee_dnb_mismatch(question, public, p)]
     audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
-    focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
+    focused = [p for p in packets if catalogue_focus_match(question, p)
+               or (p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300)]
     if not focused:
         # Une sélection explicite du catalogue reste ciblée sous le seuil historique 300.
         # Un résultat sémantique ne bénéficie pas de cette confiance supplémentaire.
@@ -1104,6 +1146,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
         complement_chars = 0
         for candidate in packets:
             if candidate['origin'] != 'document' or candidate in focused:
+                continue
+            if packet_covered_by_focus(candidate, focused):
                 continue
             targeted_catalogue = (candidate.get('selection') == 'catalogue'
                                   and isinstance(candidate.get('priority'), (int, float))

@@ -6234,6 +6234,18 @@
    "autres_academies_citees": [],
    "portee_texte": "Documentation iPackEPS : vidéo officielle Les tableaux de bord ; ouverture des modules selon académie et campagne.",
    "titre": "iPackEPS : tableaux de bord, progression des saisies et modules inactifs"
+  },
+  "data/ipack/visite_college_2026_10_18/remplacant_transfert_groupes.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": "Procédure iPackEPS, vidéo officielle",
+   "titre": "iPackEPS : transfert des groupes au remplaçant"
   }
  }
 }

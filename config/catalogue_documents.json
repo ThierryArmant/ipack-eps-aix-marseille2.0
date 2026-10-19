@@ -740,6 +740,9 @@
     "modes": [
       "examens",
       "ipack"
+    ],
+    "centrer_motifs": [
+      "(?=.*dispens)(?=.*(?:lsu|brevet|dnb))"
     ]
   },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
@@ -3206,6 +3209,9 @@
     ],
     "exclure_motifs": [
       "combien|nombre d.eleves|statisti"
+    ],
+    "centrer_motifs": [
+      "(?=.*dispens)(?=.*(?:lsu|brevet|dnb))"
     ]
   },
   "data/commun/dnb/05_competences_apsa_shn.txt": {
@@ -3350,6 +3356,9 @@
     "modes": [
       "examens",
       "ipack"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))(?!.*(?:inapt|dispens|medical|blesse|ponctuel))"
     ]
   },
   "data/archives/retires_non_verifies/ipack_152_thematique_l_evaluation_en_eps_sportifs_de_haut_niveau_shn.txt": {
@@ -3445,6 +3454,9 @@
     "modes": [
       "examens",
       "ipack"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:shn|haut niveau))(?=.*(?:un seul|qu.un|qu.a un|qu.a une|une seule))(?=.*(?:cycle|epreuve|evaluation))(?!.*(?:inapt|dispens|medical|blesse|ponctuel))"
     ]
   },
   "data/archives/retires_non_verifies/base_textes_officiels_007_situation_6e_section_conformite_securite_en_milieu_aquatique_et_natation_scolaire.txt": {
@@ -3646,11 +3658,14 @@
       "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
       "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
       "candidat (?:individuel|libre)|\\bcned\\b",
-      "inapt|dispens|blesse|certificat|absen|adapt|entorse"
+      "inapt|dispens|blesse|\\bcertificats?\\b|absen|adapt|entorse"
     ],
     "exclusif_motifs": [
       "difference.*ccf.*ponctuel|difference.*ponctuel.*ccf",
       "commission.*harmonisation"
+    ],
+    "centrer_motifs": [
+      "activites? (?:d.)?etablissement"
     ]
   },
   "data/commun/audit60/certificat_medical.txt": {
@@ -4453,7 +4468,10 @@
       "course.*orientation|\\bco\\b.*(?:foret|sortie|binome|trinome)|battue|eleve.*(?:perdu|manquant)"
     ],
     "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "centrer_motifs": [
+      "(?=.*(?:course.*orientation|\\bco\\b))(?=.*(?:parc|public|mair|gestionnaire))(?=.*autoris)"
+    ]
   },
   "data/examens/option_eps_individuel_2026.txt": {
     "title": "Option EPS : candidats individuels",
@@ -6838,7 +6856,7 @@
     "title": "Bac GT : inaptitude en CCF, les possibilités",
     "motifs": [
       "(?:evaluation|epreuve) (?:adaptee|differee)|adapt\\w* (?:l.|une |son |cette )?epreuve|(?:note|moyenne|calcul\\w*|dispens\\w*).{0,40}inapt|inapt.{0,60}(?:note|moyenne|calcul|dispens|deux epreuves|troisieme|une (?:seule )?epreuve|adapt|differ)",
-      "(?=.*(?:inapt|entorse|blesse|certificat))(?=.*(?:adapt|commission|valid))"
+      "(?=.*(?:inapt|entorse|blesse|\\bcertificats?\\b))(?=.*(?:adapt|commission|valid))"
     ],
     "exclure_motifs": [
       "option|eppcs",
@@ -7885,5 +7903,26 @@
         "url": "https://www.youtube.com/watch?v=HtFmE-6rCl4"
       }
     ]
+  },
+  "data/ipack/visite_college_2026_10_18/remplacant_transfert_groupes.txt": {
+    "title": "iPackEPS : transférer les groupes et l’emploi du temps au remplaçant",
+    "statut": "extrait_transcription_existante_video_officielle",
+    "examens": [
+      "dnb",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "motifs": [
+      "(?=.*remplac)(?=.*(?:groupes?|classes?|emploi du temps))"
+    ],
+    "centrer_motifs": [
+      "(?=.*remplac)(?=.*(?:groupes?|classes?|emploi du temps))(?!.*(?:santorin|cyclades|imag.in|\\blots?\\b|\\bccf\\b))"
+    ],
+    "url": "https://www.youtube.com/watch?v=C3gSSacJxNo"
   }
 }

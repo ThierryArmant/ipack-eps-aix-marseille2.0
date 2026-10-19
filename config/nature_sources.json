@@ -6220,6 +6220,16 @@
    ],
    "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
    "titre": "Santorin / Cyclades : Santorin — dans quel menu se fait chaque opération (sommaire des tutoriels « i"
+  },
+  "data/ipack/situations_2026_10_19/tableaux_bord_verification_modules.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Documentation iPackEPS : vidéo officielle Les tableaux de bord ; ouverture des modules selon académie et campagne.",
+   "titre": "iPackEPS : tableaux de bord, progression des saisies et modules inactifs"
   }
  }
 }

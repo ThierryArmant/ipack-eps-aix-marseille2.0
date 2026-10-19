@@ -2413,6 +2413,14 @@
     ],
     "exclure_motifs": [
       "cite scolaire|manqu|absent"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/HtFmE-6rCl4",
+        "motifs": [
+          "[ée]tablissement|tableau de bord|ariane"
+        ]
+      }
     ]
   },
   "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
@@ -6097,7 +6105,9 @@
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "motifs": [
       "^(?=.*(?:qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3|deux epreuves manquees|rate deux|pas pu passer deux))(?=.*(?:inapt|bless|certificat|malad|arret|compte|retenu|garde|fracture|note))",
-      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))"
+      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))",
+      "(?=.*(?:\\bdi\\b|dispens|inapt))(?=.*(?:\\bune (?:seule )?note\\b|\\bnote unique\\b|\\b1 note\\b))(?=.*(?:(?:deux|2).{0,25}(?:epreuves?|activites?|apsa)|(?:epreuves?|activites?|apsa).{0,25}(?:deux|2)|\\bdi\\b.{0,15}\\bdi\\b))",
+      "\\bdi\\s*\\+\\s*di\\s*\\+\\s*\\d+(?:[.,]\\d+)?\\b"
     ],
     "exclure_motifs": [
       "\\bcap\\b|bac ?pro|ponctuel|shn|haut niveau",
@@ -7065,6 +7075,9 @@
     "motifs": [
       "(?:deviens|devenir|declarer|declare|nomme|designe).{0,40}coordo|coordo\\w*.{0,40}(?:ou|comment).{0,30}(?:declar|cocher|indiquer)",
       "(?:pas|plus) (?:d.)?acces.{0,30}(?:a |au |aux |a l.|a la )?(?:certains |des |tous les )?(?:modules?|menus?|dossier certificatif|onglets?)|(?:modules?|menus?).{0,30}(?:grise|absent|manqu|n.apparai)|ne vois pas (?:tous les|certains) menus"
+    ],
+    "exclure_motifs": [
+      "^(?!.*(?:coordo|fonction|fiche professeur|responsable.{0,20}certification|droits?)).*(?:modules?.{0,30}(?:gris|inactif|desactiv)|(?:gris|inactif|desactiv).{0,30}modules?)"
     ]
   },
   "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt": {
@@ -7841,5 +7854,30 @@
     ],
     "prioritaire": false,
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/ipack/situations_2026_10_19/tableaux_bord_verification_modules.txt": {
+    "title": "iPackEPS : tableaux de bord, progression des saisies et modules inactifs",
+    "statut": "extrait_transcription_video_officielle",
+    "origine": "data/ipack/transcriptions_videos_tutoriels.txt",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 280,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:pourcent|pour cent|%|jauge|avancement|progression|reste.{0,20}saisir|manque.{0,30}saisi|saisi.{0,30}manque))(?=.*(?:saisi|dossiers?|modules?|donnees?|rempli|complet|ou on en est|ou j.en suis|avancement|jauge))",
+      "(?:modules?|enquete natation).{0,50}(?:gris|inactif|desactiv|ferme|indisponible|pas accessible)|(?:gris|inactif|desactiv|indisponible).{0,50}modules?",
+      "verification des donnees|fil d.ariane|revenir.{0,30}(?:menu precedent|tableau de bord)"
+    ],
+    "exclure_motifs": [
+      "santorin|cyclades|imag.in|verrouill|(?:bouton|envoi).{0,40}(?:dossier|validation)|(?:note|bareme|moyenne).{0,30}(?:pourcent|%)",
+      "coordo|fiche professeur|responsable.{0,20}certification|fonction.{0,30}(?:coch|declar)|droits? d.acces"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://www.youtube.com/watch?v=HtFmE-6rCl4"
+      }
+    ]
   }
 }

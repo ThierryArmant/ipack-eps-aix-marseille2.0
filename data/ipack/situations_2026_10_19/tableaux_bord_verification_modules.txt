@@ -1,0 +1,10 @@
+### [SITUATION: NAVIGUER DANS iPackEPS — TABLEAUX DE BORD IMBRIQUÉS, FIL D'ARIANE, VÉRIFICATION DES DONNÉES, MODULE GRISÉ (vidéo)]
+- Mots-clés : tableau de bord, fil d'Ariane, revenir en arrière, vérification des données, jauge, 100 %, rapport détaillé, module désactivé, campagne fermée.
+- Formulations courantes des collègues : comment revenir au menu précédent ; comment savoir ce qu'il me reste à saisir ; un module est grisé ou inactif ; l'enquête natation n'est pas accessible.
+- Vidéo : https://www.youtube.com/watch?v=HtFmE-6rCl4
+- iPackEPS fonctionne par tableaux de bord imbriqués : accueil, puis Dossiers et Projets, puis Dossier EPS. En haut de chaque fenêtre, le fil d'Ariane permet de remonter d'un, deux ou trois niveaux.
+- La plupart des tableaux de bord ont un bouton « vérification des données » : une jauge apparaît sur chaque module (100 % ou non), avec un rapport détaillé de ce qui manque.
+- Un module inactif n'est pas une panne : soit l'académie n'utilise pas ce module, soit il n'est ouvert que pendant sa campagne de saisie (exemple : l'enquête natation).
+
+Nature de la source : documentation du logiciel iPackEPS ; transcription de la vidéo officielle « Les tableaux de bord ». Les conditions d’ouverture des modules dépendent de l’académie et de la campagne ; ce passage ne fixe aucun calendrier.
+Origine : extrait sans modification du passage « NAVIGUER DANS iPackEPS » de data/ipack/transcriptions_videos_tutoriels.txt, raccordé le 19 octobre 2026.

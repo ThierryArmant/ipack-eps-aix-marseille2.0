@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 10:00 — partie programme — branchement du guide Examens et sélection ciblée
+Fait : bouton « Vous êtes perdu(e) ? » raccordé au guide Examens pour les lycées GT et pro/CAP, avec état de navigation distinct d’iPackEPS. Parcours en trois phases, sans génération ni calendrier académique ajouté. Conservation du guide et de la restauration documentaire de la partie fiches.
+Fait : raccordement d’un extrait exact de la vidéo des tableaux de bord (progression et modules inactifs), lien explicite de la vidéo multi-établissements et variantes DI + DI + note numérique vers la fiche GT existante ; exclusions de diplôme conservées. La fiche Appréciations reste inchangée après lecture de l’étape 10 et des liens de la phase 3. Audit documentaire dans docs/audit_faq_normandie_2025_2026_10_19.md.
+Validation : 600 tests locaux réussis, sans appel payant ; tests de branchement réel du bouton, séparation des états, sélection finale et absence de marques de sortie tronquée dans data/. Aucun appel payant pour ces tests. Aucun gain de qualité ou de coût des réponses en ligne annoncé.
+Attendu de l’autre partie : rien pour ce branchement. Les trois nouvelles fiches restaurées restent disponibles dans la base ; leur sélection ciblée et le rejeu des réponses restent des vérifications distinctes.
+
+
 ### 2026-10-19 — partie programme — rejeu ciblé en ligne après corrections conjointes
 Fait : huit questions antérieures rejouées sans modification par l'outil administrateur, une par une, mêmes modes/publics/académies. Sept résultats en f8b874b ; dernier résultat en 9c9a5c0, publié pendant le rejeu (fiches de bascule et registre modifiés, sans changement du code ni des fiches d'import). Le lot n'est donc pas strictement figé. Questions, réponses et relevés détaillés restent privés.
 Constaté : la bascule multi-établissements fournit le sélecteur et qualifie le délai indicatif ; les imports retrouvent leur procédure. Le handicap reste incorrectement rapproché d'une blessure temporaire ; la demande sur les lots reste partielle, avec un lien de source à contrôler ; la note unique reste non confirmée ; le DNB ne publie plus la procédure lycée mais ne restitue pas de réponse utile. La conservation des données reçoit une réserve pertinente sans durée inventée. Les cinq boutons d'import, le chemin complet de l'équipe et la récupération après suppression ne sont pas tous validés par ce lot.

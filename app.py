@@ -1421,15 +1421,18 @@ with st.container(key="parcours"):
                         # On stocke temporairement la question dans la session pour déclencher la suite
                         st.session_state.current_prompt = prompt
 
-            if st.session_state.get("active_module") == "ipack":
+            _guide_mode = st.session_state.get("active_module")
+            _guide_level = st.session_state.get("niveau_actif_form", "")
+            if _guide_mode == "ipack" or (_guide_mode == "examens" and _guide_level in ("Lycée Général & Techno", "Lycée Pro / CAP")):
                 _guide_public = st.session_state.get("niveau_actif_form", "")
-                _guide_toggle = "guide_direct_" + _guide_public
+                _guide_toggle = "guide_direct_" + _guide_mode + "_" + _guide_public
                 if st.button("❓ Vous êtes perdu(e) ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
                     st.session_state[_guide_toggle] = not st.session_state.get(_guide_toggle, False)
                 if st.session_state.get(_guide_toggle, False):
                     from guided_navigation import render_guide
                     with st.container(key="guide_callout_direct"):
-                        render_guide(st, "direct_" + _guide_public, public_label(_guide_public),
+                        render_guide(st, "direct_" + _guide_mode + "_" + _guide_public, public_label(_guide_public),
+                                     mode=_guide_mode,
                                      on_done=lambda k=_guide_toggle: st.session_state.__setitem__(k, False))
 
 

@@ -141,6 +141,14 @@ def teaching_registration_clarification(question):
 
 
 def clarification(question, public, *, mode=None):
+    q = normalise(question)
+    # Le contexte iPackEPS ne désigne pas le logiciel dans lequel le collègue
+    # saisit ses notes. Identifier l'outil avant toute procédure de déblocage.
+    if (mode == 'ipack' and re.search(r'\bnotes?\b', q)
+            and re.search(r'sais|enregistr|rentr|mettre|modifi|cases?', q)
+            and re.search(r'ne peux (?:plus|pas)|n.arrive (?:plus|pas)|impossible|bloqu|grise|inacti', q)
+            and not re.search(r'ipack|santorin|cyclades|pronote|ecole.?directe|\blsu\b|\bccf\b|\baflp?\b|\blots?\b|protocole', q)):
+        return ("Dans quel logiciel la saisie est-elle bloquée : Santorin, Pronote/ÉcoleDirecte ou iPackEPS ?")
     if mode in (None, "ipack"):
         teaching = teaching_registration_clarification(question)
         if teaching:

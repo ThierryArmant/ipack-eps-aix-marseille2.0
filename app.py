@@ -1826,7 +1826,7 @@ if prompt_a_traiter:
                 GUIDE_MESSAGE = GUIDE_MESSAGE_EXAMENS
             elif _guide_demande and suggested_entries(prompt, public_label(niveau_actuel_form)):
                 GUIDE_MESSAGE = GUIDE_MESSAGE_PARCOURS  # le guide affiche déjà le parcours : plus de rubrique à choisir
-            demande_precision = GUIDE_MESSAGE if _guide_demande else ("" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form))
+            demande_precision = GUIDE_MESSAGE if _guide_demande else ("" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form, mode=mode))
             # Onglet Textes : une question sur un certificat ou une dispense n'est pas le choix d'une note d'examen ;
             # la demande de précisions médicales empêchait de répondre (et de corriger une fausse prémisse).
             if mode == "textes" and demande_precision.startswith("Pour décider d'une note"):

@@ -1365,3 +1365,18 @@ Validation après points 1, 2, 4 : 7 cas ajoutés à `tests/test_selection_quest
 - **Signalé par Thierry, à faire (GPT, restitution)** : onglet Textes, « tous les textes en lien avec les sorties scolaires » — les références listées (« Résumé d'un texte officiel : … ») n'ont pas de lien vers le texte cité. Ajouter l'URL de la source quand la fiche en contient une (ligne « Source » / URL du catalogue).
 - Rappel de protection des données : couleur des sous-titres d'étape (#CBD5E1), même petite taille.
 - **Liens vers les textes cités (signalé par Thierry, fait par Claude)** : les passages venus de la recherche (mots et vecteurs) étaient marqués sans URL, d'où des références sans lien (onglet Textes, sorties scolaires). `app.py` : `_url_source(path, texte, question)` donne l'URL du catalogue pour le fichier, sinon la première adresse web du passage ; passée à `mark_excerpt` dans les deux branches de `_recherche_documentaire`. Tests : `LienSourceTests` ; `test_documentation` charge aussi `_url_source`. Suite complète : 627 réussis. Non vérifié sur le hub.
+
+
+### 19 octobre 2026 — Partie programme : reprise après les corrections de sélection et d'ergonomie
+
+Lecture du relais jusqu'au commit 9d3e23d. Les corrections publiées de sélection, d'accueil, de parcours suggérés et de liens sont conservées. Le prototype local qui remplaçait l'ouverture du guide pour une activité de classe n'est pas intégré : le parcours direct sans génération a été validé sur le terrain et reste prioritaire.
+
+- [x] Point 5 : une impossibilité de saisir des notes dans le contexte iPackEPS, sans logiciel ni lot/CCF/AFL(P) indiqué dans la question, demande uniquement dans quel logiciel la saisie est bloquée. Ce circuit de clarification ne lance pas de génération. Si l'outil ou le circuit est déjà indiqué, il n'est pas redemandé. L'appel de clarification reçoit maintenant le mode actif, ce qui borne cette demande au contexte iPackEPS.
+- [x] Certificat médical, Créteil : la trace privée fournie précédemment a déjà révélé le faux rejet lexical d'une réserve académique ; correction publiée en 590d7c3 et relecture locale des brouillons réussie. Cela ne constitue pas une nouvelle validation en ligne.
+- [ ] SHN, bulletin/synthèse et cas de note unique formulé autrement : les fiches prioritaires sont présentes dans la sélection actuelle, mais les motifs exacts des anciens refus restent à déterminer sur leurs traces. Les réponses finales du tableau ne permettent pas de reconstruire ces motifs. Ne pas annoncer ces cas corrigés sans preuve.
+- [ ] Curseurs académiques : conserver l'absence de fiche tant que l'écran n'a pas été relevé ; aucune procédure inventée.
+- Cas DNB avec trois CCF : écarté de la mesure d'usage ordinaire à la demande de l'utilisateur ; reste éventuellement un test distinct de prémisse incorrecte, sans nouvel appel demandé.
+
+Aucune fiche modifiée et aucun appel au service IA. Les réponses ou questions privées ne sont pas recopiées.
+
+Validation : 631 tests réussis sur la reprise intégrant les publications de la partie affichage et fiches. Les quatre tests ajoutés couvrent l’identification du logiciel, les cas déjà précisés, les autres modes et la transmission du mode par l’application. Aucun essai génératif en ligne.

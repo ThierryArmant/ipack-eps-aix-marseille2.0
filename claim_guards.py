@@ -18,7 +18,7 @@ def documentary_limit(text):
 def unsupported_certainty(text, supports):
     """Le silence documentaire seul ne prouve jamais une prescription."""
     proof = [normalized(p) for p in supports if p]
-    documentary_absence = lambda p: bool(_ABSENCE.search(p) or re.search(r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", p))
+    documentary_absence = lambda p: bool(_ABSENCE.search(p) or re.search(r"(?:les )?sources.{0,40}ne prevoient pas|aucun texte (?:des sources|de la base|du corpus).{0,25}ne prevoit", p) or re.search(r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", p))
     if not proof or not all(documentary_absence(p) for p in proof):
         return False
     # Une reprise littérale d'un constat limité au corpus ne le généralise pas.
@@ -27,7 +27,7 @@ def unsupported_certainty(text, supports):
     # Vérifier auprès d'un service reste une démarche sûre ; une réserve dans
     # une autre phrase ne sauve pas une conclusion catégorique.
     for sentence in re.split(r'[.;!?]', normalized(text)):
-        nonexistent_rule = re.search(r"(?:n'existe|ne existe|n'existent).{0,12}pas.{0,45}(?:regle|consigne|texte|interdiction)|aucune.{0,20}(?:regle|consigne|interdiction).{0,20}n'existe", sentence)
+        nonexistent_rule = re.search(r"(?:n'existe|ne existe|n'existent).{0,12}pas.{0,45}(?:regle|consigne|texte|interdiction|autorisation)|aucune.{0,20}(?:regle|consigne|interdiction).{0,20}n'existe", sentence)
         if (not _CATEGORICAL.search(sentence) and not nonexistent_rule) or _LIMIT.search(sentence):
             continue
         if re.search(r'\b(?:doit|doivent|devez)\s+(?:faire\s+)?(?:verifier|confirmer|consulter|demander)\b', sentence):

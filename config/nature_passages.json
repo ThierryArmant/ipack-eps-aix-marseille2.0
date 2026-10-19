@@ -344,6 +344,70 @@
           "academie": "Aix-Marseille"
         }
       ]
+    },
+    "data/ipack/courriels_aix_2026_10_14/etablissement_etranger_compte_professeur_sans_eleves.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Ces consignes valent pour les établissements à l'étranger ou hors MEN rattachés à l'académie d'Aix-Marseille, comme les établissements de Tunisie.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "À Aix-Marseille, pour ces établissements, il est normal de ne pas avoir d'onglet chef d'établissement : seul un accès de profil professeur est ouvert, sur l'identité de l'établissement (son RNE), et ce compte professeur suffit pour déposer les référentiels et saisir les protocoles.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "À Aix-Marseille, il est normal de ne pas pouvoir ajouter ni actualiser les classes dans iPackEPS : l'importation des classes et des élèves n'est pas active pour les établissements hors MEN et AEFE, dont la base élèves n'est pas SIECLE ; les élèves ne seront jamais dans iPackEPS.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "Il est normal que le dossier iPackEPS soit à 100 % sans élèves affectés aux groupes : ces établissements n'affectent pas d'élèves aux groupes dans iPackEPS.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "À Aix-Marseille, il est normal que Cyclades soit fermé pour la saisie des protocoles : cette saisie est fermée pour tous les établissements de l'académie, elle se fait entièrement dans iPackEPS, et c'est l'inspection qui transfère les protocoles d'iPackEPS vers Cyclades.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "Les élèves de ces établissements apparaissent ensuite dans Cyclades, puis dans Santorin à partir de janvier.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        },
+        {
+          "texte": "Démarche complète, dans cet ordre : 1) dans sa fiche Professeur, partie « Fonctions », cocher « Coordonnateur » et « Responsable de certification » ; 2) déclarer les APSA certificatives dans [Dossiers et projets] > [Dossier EPS] > [APSA] ; 3) pour toute nouvelle APSA, déposer son référentiel dans [Dossiers et projets] > [Dossier certificatif] > [Référentiels certificatifs] ; 4) composer les ensembles certificatifs dans [Dossiers et projets] > [Dossier EPS] > [Groupes] ; 5) compléter les protocoles dans [Dossiers et projets] > [Dossier certificatif] > [Protocoles certificatifs], avec pour chaque APSA les dates d'évaluation et de rattrapage et un co-évaluateur externe en face de chaque évaluation. Résultat attendu : protocoles avec uniquement des coches vertes, référentiels et protocoles à 100 % dans [Dossier certificatif].",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
+        }
+      ]
     }
   }
 }

@@ -627,6 +627,9 @@
       "installations? sportives?|equipements? sportifs?|declarer (?:mes |les |nos )?installations?",
       "inutilisable|indisponible|hors service|(?:notre|cette|l.) installation(?!.{0,20}(?:ipack|application|logiciel))",
       "(?:pas|plus) (?:d.)?acces.{0,30}(?:au |aux |a l.|a la )?(?:module|menu|dossier|onglet|certificati)|\\binstance\\b"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:connect|connex|acced|acces))(?=.*(?:ipack|portail))(?=.*ordinateur (?:personnel|perso))"
     ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {

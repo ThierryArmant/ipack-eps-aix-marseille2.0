@@ -1333,3 +1333,25 @@ Complément (même jour, après essai sur le hub) : pour une demande vague qui o
 - Complément : le paragraphe « Concrètement : » (une phrase par ligne) couvre aussi les guides lycée GT (25 parcours), lycée pro (25, avec la liste [APSA de Collège ou Voie Professionnelle] et le co-évaluateur obligatoire seulement en voie générale) et Examens (12 étapes). Même contrôle : aucun bouton hors des étapes et prérequis du parcours. Suite complète réussie.
 - Piège sémantique repéré sur le hub par Thierry : « je fais foot dans l'AS, je le déclare où ? » (lycée) proposait « APSA certificative ». Les déclencheurs de l'AS et de la section sportive comptent désormais double (plus le nom de l'activité) : l'AS l'emporte sur la simple mention d'une activité ; « tu as… », « il as… » et « as de/du/une… » ne valent pas AS. Tests ajoutés.
 - Onglet Examens, lycée : « je suis perdu », « aidez-moi », « par où commencer » ouvrent maintenant le guide des 12 étapes sans appel IA (comme dans iPackEPS), avec le bandeau « AIDE EXAMENS » et le message « choisissez simplement une phase de l'examen » ; le guide sous la réponse est celui d'Examens (`mode_guide`). Collège et Textes inchangés. Bouton de fin de guide renommé « ✓ C'est fait ».
+
+
+### 19 octobre 2026 13 h — Claude : chantier « ce qui reste fragile » (relais possible pour GPT, mis à jour au fil de l'eau)
+
+Demande de Thierry : travailler les trois points fragiles du bilan (choix de fiche, réponses bloquées, sujets sans fiche). GPT hors quota : Claude intervient aussi sur `config/catalogue_documents.json`, avec tests. **Si cette entrée s'arrête en cours de route, reprendre à la première case non cochée.** Outil de contrôle sans appel IA : `kc.priority_titles(question, public, mode)` et `kc.clarification(question, public, mode=mode)` ; bancs `tests/test_selection_questions_types.py` (ajouter les cas dans CAS).
+
+Diagnostic de sélection (code 395a34d, sans appel IA) sur les questions de la série de traces du matin :
+- Inscription tardive / absent des listes d'émargement Cyclades (Examens GT) : reçoit « Questions sans consigne écrite trouvée pour Aix-Marseille » (motifs `retard`+`epreuve` et `emarg`, priorité 300), qui parle de l'élève **arrivé en retard le jour du CCF** : mauvaise source. La bonne fiche existe : `data/examens/cyclades_candidats_absents.txt` (vérifier l'inscription, l'établissement, l'INE ; la direction contacte le service des examens), mais son motif exclut tout texte contenant « épreuve ».
+- Curseurs académiques (iPackEPS GT) : « note de service » déclenche le motif `notes?` des fiches « iPackEPS : notes, moyennes… » (`data/commun/audit60/ipack_perimetre.txt`) et « PÉRIMÈTRE » (`ipack_300`) : mauvaise source. Aucune fiche ne décrit des « curseurs académiques » ; à relever à l'écran avant d'écrire une fiche.
+- « Je ne peux plus saisir mes notes » (iPackEPS GT) : fiches de périmètre correctes ; le complément `data/ipack/complement_saisie_notes_bloquee.txt` (Santorin, AFLP) s'ajoute par similarité ; réponse contradictoire observée. À traiter après les deux premiers.
+- Fiches individuelles « format particulier ou feuille libre ? » (Examens GT) : aucune fiche prioritaire ; la fiche FICHE INDIVIDUELLE POUR LA COMMISSION est dans `data/examens/complement_cyclades_protocoles_cas_enseignant.txt` (sans motif).
+- Conservation des données iPackEPS : aucune fiche prioritaire ; fiche existante `data/commun/audit60/ipack_archivage_prudence.txt` (motif limité à archiv/historique/passage d'année).
+- Certificat médical CCF (Examens pro, Créteil) : fiches pertinentes sélectionnées ; blocage à analyser sur trace (portée Créteil ?).
+
+Plan et avancement :
+- [ ] 1. Inscription tardive → `cyclades_candidats_absents.txt` ; « sans consigne » écartée quand il s'agit d'inscription.
+- [ ] 2. « note de service » ne déclenche plus les fiches de notes.
+- [ ] 3. Fiches individuelles → fiche commission.
+- [ ] 4. Conservation des données → fiche prudence archivage.
+- [ ] 5. Saisie des notes impossible (onglet iPackEPS) : réponse cohérente.
+- [ ] 6. Blocages : contrôle de sélection des 13 bloquées du rejeu (fichier privé, hors dépôt).
+- [ ] 7. Sujets sans fiche : liste à relever à l'écran avec Thierry (curseurs académiques…).

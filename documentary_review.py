@@ -939,6 +939,7 @@ def conditional_extraction_errors(claims, question):
         retained_grade = re.search(r'(?:sa |la |une |cette )?note.{0,65}(?:sera|est|reste|constitue)|'
                                    r'conserv.{0,25}(?:note|\d)|reten.{0,25}(?:note|\d)', head)
         decision_reserved = re.search(
+            r"(?:a condition que|\bsi\b).{0,45}(?:enseignant|professeur).{0,40}(?:valid|retien|conserv)\w*.{0,30}(?:note|certification)|"
             r'appreci|elements.{0,30}suffis|choi|decid|peut|pourra|sous reserve|'
             r'\bsi\b.{0,70}(?:note.{0,25}(?:est |a ete )?retenue|certification.{0,25}(?:est |a ete )?(?:retenue|accordee))', head)
         if (conditional_source and retained_grade and not decision_reserved

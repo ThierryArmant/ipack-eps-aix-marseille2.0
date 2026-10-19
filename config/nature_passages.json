@@ -283,6 +283,20 @@
             "logiciel"
           ],
           "reference": "Guide de saisie Santorin, inaptes avec une note"
+        },
+        {
+          "texte": "Une DI n'est pas un zéro à ajouter à une moyenne.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Guide de saisie Santorin, inaptes avec une note"
+        },
+        {
+          "texte": "La valeur de la note, à elle seule, ne choisit pas la branche ; l'enseignant apprécie si les éléments d'évaluation sont suffisants.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N du 20 février 2026, 2.e"
         }
       ]
     },

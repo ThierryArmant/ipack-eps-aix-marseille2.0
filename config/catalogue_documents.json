@@ -6947,7 +6947,8 @@
     "prioritaire": true,
     "priorite": 330,
     "modes": [
-      "textes"
+      "textes",
+      "examens"
     ],
     "motifs": [
       "\\btza?r\\b|zone de remplacement|titulaire.{0,20}remplacement|\\bissr\\b|etablissement de rattachement|\\brad\\b|residence administrative|(?:je suis|en tant que|comme) remplacant"

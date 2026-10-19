@@ -492,6 +492,98 @@
     "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
     "preuve": "à droite, Type « EPS » et le groupe créé ; cocher les élèves à basculer, puis [Ajouter -->]"
    }
+  ],
+  "Examen : les étapes dans l'ordre": [
+   {
+    "clic": "Rentrée · [Dossier EPS] → [APSA] → [APSA de Collège ou Voie Professionnelle]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "on passe par la tuile [APSA de Collège ou Voie Professionnelle]"
+   },
+   {
+    "clic": "Crayon [Modif.] sur l'APSA → « Certificative » OUI → [Enregistrer]",
+    "video": "3.1 Dossier EPS — APSA",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "« Certificative » OUI/NON, « Certificative Adaptée » OUI/NON, puis [Enregistrer]"
+   },
+   {
+    "clic": "[Dossier Certificatif] → [Dépôt Référentiels Certificatifs]",
+    "video": "https://youtu.be/T_-j01ovoA4",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "1) [Dépôt Référentiels Certificatifs]"
+   },
+   {
+    "clic": "Ligne de l'APSA → [Envoyer] (dépôt ou remplacement)",
+    "video": "https://youtu.be/T_-j01ovoA4",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "il sert à déposer un référentiel ou à remplacer un référentiel déjà déposé"
+   },
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Gérer les S.A.] : composer l'ensemble certificatif",
+    "video": "https://youtu.be/y4Woi0RY50I",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Dossier EPS] > [Groupes] > [Gérer les S.A.] : on compose les ensembles certificatifs"
+   },
+   {
+    "clic": "[Dossier Certificatif] → [Protocole d'Évaluation des Épreuves Certificatives]",
+    "video": "https://youtu.be/-Rkgq18uZjI",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Étape 3 — [Les Dossiers et Projets] > [Dossier Certificatif] > [Protocole d'Évaluation des Épreuves Certificatives]"
+   },
+   {
+    "clic": "Pour chaque APSA : date d'évaluation, date de rattrapage, co-évaluateur si besoin (obligatoire seulement en voie générale) → [Enregistrer]",
+    "video": "https://youtu.be/-Rkgq18uZjI",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Le co-évaluateur n'est obligatoire que pour la voie générale"
+   },
+   {
+    "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
+    "video": "https://youtu.be/ToTBgO_nMAI",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "passer « Dossier terminé, nous le soumettons pour validation » sur OUI"
+   },
+   {
+    "clic": "Janvier · [Dossier EPS] → [Classes] → [Configuration des Classes] → [Actualiser]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Configuration des Classes] > [Actualiser]"
+   },
+   {
+    "clic": "[Importation des Élèves] → [Importer]",
+    "video": "3.1 Dossier EPS — Classes",
+    "source": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+    "preuve": "[Classes] > [Importation des Élèves] > [Importer]"
+   },
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à gauche Visualisation « Statut »",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Visualisation « Statut », puis dans la liste « Sélection » : « élèves sans groupes »"
+   },
+   {
+    "clic": "Sélection : « élèves sans groupes »",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "« élèves sans groupes » : tous les élèves qui ne sont dans aucun groupe s'affichent"
+   },
+   {
+    "clic": "[Export Elèves] → [Exporter les Elèves]",
+    "video": "https://youtu.be/t7b1yl4ATcU",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "bouton [Exporter les Elèves]"
+   },
+   {
+    "clic": "Importer ce fichier dans Cyclades : groupes créés et élèves placés",
+    "video": "https://youtu.be/t7b1yl4ATcU",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "ce fichier s'importe directement dans Cyclades pour créer les groupes"
+   },
+   {
+    "clic": "Fin d'année · [Dossier Certificatif] → [Dépôt de Documents pour la CAHPN]",
+    "video": "https://youtu.be/FZ1KSuuKkEA",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "3) [Dépôt de Documents pour la CAHPN]"
+   }
   ]
  },
  "menu": [
@@ -502,6 +594,14 @@
      "libelle": "Ordre de rentrée",
      "parcours": "Me repérer depuis le début (ordre de rentrée)",
      "prerequis": []
+    },
+    {
+     "libelle": "Examen : les étapes dans l'ordre (rentrée → janvier → fin d'année)",
+     "parcours": "Examen : les étapes dans l'ordre",
+     "prerequis": [
+      "[Établissement]",
+      "[Ma Fiche Professeur]"
+     ]
     }
    ]
   },

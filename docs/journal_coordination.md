@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — conservation des conditions et distinction des sources
+Fait : contrôle des notes présentées comme acquises alors que la preuve réserve une décision d’appréciation ; contrôle de conservation du caractère indicatif/non garanti des délais. Consigne de navigation renforcée pour conserver le chemin de retour au point de départ. Sur demande explicite de distinction, affichage du niveau documentaire issu des métadonnées devant les affirmations ; indication bornée de l’absence de passage national retenu, sans conclure à l’absence de texte applicable. Les fiches mixtes restent présentées comme mixtes.
+Validation : 606 tests locaux réussis, plus les 32 tests des guides relancés après intégration du dernier changement de parcours ; six nouveaux tests sur conditions, délais, attributions et consigne initiale. Aucun appel de génération payant. Aucun gain de qualité ou de coût en production annoncé ; les contrôles ne prouvent pas une compréhension sémantique générale.
+Coordination : les pas à pas et les fiches restent inchangés ; leur inspection peut continuer. Rejeu ciblé après déploiement pour vérifier le comportement réel, en particulier le chemin complet multi-établissements (consigne de rédaction, sans insertion automatique de clics).
+Attendu de l’autre partie : poursuivre l’inspection des pas à pas sans modifier le moteur de réponse pendant cette correction.
+
+
 ### 2026-10-19 10:00 — partie programme — branchement du guide Examens et sélection ciblée
 Fait : bouton « Vous êtes perdu(e) ? » raccordé au guide Examens pour les lycées GT et pro/CAP, avec état de navigation distinct d’iPackEPS. Parcours en trois phases, sans génération ni calendrier académique ajouté. Conservation du guide et de la restauration documentaire de la partie fiches.
 Fait : raccordement d’un extrait exact de la vidéo des tableaux de bord (progression et modules inactifs), lien explicite de la vidéo multi-établissements et variantes DI + DI + note numérique vers la fiche GT existante ; exclusions de diplôme conservées. La fiche Appréciations reste inchangée après lecture de l’étape 10 et des liens de la phase 3. Audit documentaire dans docs/audit_faq_normandie_2025_2026_10_19.md.

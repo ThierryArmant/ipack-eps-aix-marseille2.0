@@ -532,10 +532,21 @@ def scoped_claim_text(claim, *, mode="examens"):
     return text + ' (à vérifier auprès du ' + service + ' de l’académie de ' + ', '.join(targets) + ')'
 
 
-def render_claims(claims, packets, *, mode="examens"):
+def render_claims(claims, packets, *, mode="examens", question=""):
     """Prose contrôlée lisible ; attributions regroupées, accessibles à la demande."""
     by_id = {p['id']: p for p in packets}
     output, references = [], []
+    distinguish = bool(re.search(r'disting|diff[eé]renc|s[eé]par', question, re.I)
+                       and re.search(r'national|acad[eé]mi|logiciel', question, re.I))
+    if distinguish:
+        national = any('texte_national' in span.get('scope', {}).get('nature', [])
+                       or span.get('scope', {}).get('level') in ('reglementaire', 'synthese_reglementaire')
+                       for p in packets for span in p['passages'])
+        national = national or any(p.get('display_level') == 'reglementaire' or
+                                  'reglementaire' in p.get('niveaux_autorises', []) for p in packets)
+        if not national:
+            output.append('<p><strong>Cadre national :</strong> aucun passage de portée nationale '
+                          'n’a été retenu pour cette réponse ; cela ne prouve pas l’absence de texte applicable.</p>')
     # Certains dispositifs exigent un cadre explicite, fixé par la source et non par le modèle.
     used_ids = {e['document_id'] for c in claims for e in c['evidence']}
     scope_notices = []
@@ -571,7 +582,14 @@ def render_claims(claims, packets, *, mode="examens"):
                 number = references.index(reference) + 1
                 if number not in numbers:
                     numbers.append(number)
-            output.append('<p>' + html.escape(c['text']) +
+            labels = []
+            if distinguish:
+                for e in c['evidence']:
+                    label = evidence_label(e, by_id[e['document_id']], _LEVELS).split(' — ', 1)[0].split(' : ', 1)[0]
+                    if label not in labels:
+                        labels.append(label)
+            prefix = '<strong>' + html.escape(' / '.join(labels)) + ' :</strong> ' if labels else ''
+            output.append('<p>' + prefix + html.escape(c['text']) +
                           ' <sup>[' + ', '.join(map(str, numbers)) + ']</sup></p>')
     if references:
         # Bloc ouvert et encadré : replié, il passait inaperçu et les collègues ne voyaient pas les sources.
@@ -837,7 +855,8 @@ def conditional_extraction_errors(claims, question):
         head = re.split(r'\bcar\b|\bpuisque\b|\bparce que\b|[.;]', text, maxsplit=1)[0]
         conditional_source = bool(re.search(
             r'peut etre retenu|peuvent etre retenu|soit.{0,100}(?:certifi|note)|'
-            r'si.{0,100}(?:appreciation|certifi|note)|pas.{0,25}decision automatique', proofs))
+            r'si.{0,100}(?:appreciation|certifi|note)|pas.{0,25}decision automatique|'
+            r'apprecie.{0,60}(?:possibilites|certification)|deux possibilites', proofs))
         categorical_grade = bool(re.search(
             r'\b(?:ne\s+)?doit\s+(?:pas\s+)?(?:etre\s+)?note|'
             r'\baucune note\b|\bdispense obligatoire\b', head))
@@ -845,6 +864,15 @@ def conditional_extraction_errors(claims, question):
         if conditional_source and categorical_grade and not conditional_head:
             errors.append({'index': i, 'errors': [
                 'conclusion catégorique de notation tirée de possibilités conditionnelles : conserver les alternatives et leur condition']})
+        # Le seul « si » de l'antécédent (deux DI, une note) ne conserve pas
+        # la décision réservée à l'enseignant : vérifier l'issue annoncée.
+        retained_grade = re.search(r'(?:sa |la |une |cette )?note.{0,65}(?:sera|est|reste|constitue)|'
+                                   r'conserv.{0,25}(?:note|\d)|reten.{0,25}(?:note|\d)', head)
+        decision_reserved = re.search(r'appreci|elements.{0,30}suffis|choi|decid|peut|pourra|sous reserve', head)
+        if (conditional_source and retained_grade and not decision_reserved
+                and not re.search(r'je (?:retiens|conserve)|j.ai (?:decide|choisi)', norm(question))):
+            errors.append({'index': i, 'errors': [
+                'note présentée comme acquise sans la décision documentée de l’enseignant : conserver cette condition dans la même proposition']})
         # Une dispense sur certaines évaluations n'est pas l'alternative
         # consistant à ne proposer aucune note. Ne pas valider la couverture
         # des deux issues sur la seule présence du mot « dispensé ».
@@ -863,6 +891,12 @@ def conditional_extraction_errors(claims, question):
             if not global_alternative:
                 errors.append({'index': i, 'errors': [
                     'la dispense de certaines évaluations ne restitue pas l’autre issue documentée : ne proposer aucune note et ses conséquences ; conserver les deux issues avec leurs conditions']})
+        # Un ordre de grandeur de l'assistance n'est pas un délai garanti.
+        if (re.search(r'delai indicatif|sans garantie', proofs)
+                and re.search(r'\d+\s*(?:h\b|heures?\b|jours?\b)', text)
+                and not re.search(r'indicatif|sans garantie|non garanti', text)):
+            errors.append({'index': i, 'errors': [
+                'délai indicatif de la source présenté sans sa réserve : conserver son caractère indicatif et non garanti']})
         # Une branche de statut tardif dans une fiche mixte ne s'applique
         # pas à tout SHN. Vérifier son antécédent, pas seulement les mots communs.
         late_status = r'statut.{0,35}(?:obtenu|declare|justifie).{0,20}apres.{0,45}(?:cloture|inscription)'
@@ -1090,11 +1124,13 @@ Une réponse courte est suffisante, mais elle doit couvrir chaque demande explic
 Avant de rédiger, repère les différentes demandes, puis la règle générale, ses exceptions et les faits permettant de choisir la branche applicable. Ne publie pas ce travail préparatoire.
 Une exception documentée prime sur la règle générale lorsque ses conditions sont établies. Distingue les formalités : la dispense ou la satisfaction de l'une n'emporte pas celles des autres.
 N'infère jamais qu'un encadrement ou un dispositif suffit du seul fait qu'aucun minimum chiffré n'est fixé. Une appréciation réservée à une autorité doit figurer dans la même proposition que la possibilité conditionnelle.
+Un délai présenté comme indicatif ou sans garantie doit garder ces réserves dans la même affirmation, même si tu écris « environ ».
 Donne les autorités, conditions et délais explicitement documentés au lieu de les remplacer par « validations nécessaires » ou « voir le texte ». Signale séparément les éléments réellement non couverts.
 Quand le passage énumère des conditions cumulatives, restitue ensemble celles qui concernent la demande : une autorisation générale ne remplace pas une validation spécifique. Ne confonds pas une condition documentée avec un fait non établi pour le cas ; donne la règle puis ce qui reste à vérifier.
 Ne fournis que les éléments documentés répondant à cette question.
 Si plusieurs dossiers ou procédures restent possibles, n'en choisis pas un au seul motif qu'il est bien documenté : donne seulement le point commun établi et demande le type qui change le chemin. Une branche sans lien avec la demande ne doit pas être ajoutée pour remplir une rubrique.
 Les sections sont facultatives : omets toute rubrique sans information pertinente.
+Pour changer de contexte depuis un écran quelconque, conserve aussi le chemin de retour documenté vers le point de départ (fil d’Ariane, tableau de bord), puis les clics de changement. Ne remplace pas cette navigation par une nouvelle connexion.
 Pour un chemin documenté, conserve la rubrique finale qui permet d'accéder à la fonction demandée : ne t'arrête pas au module parent. Si une seconde partie de la demande (année antérieure, archive, historique) n'est pas couverte par ce chemin, indique cette limite plutôt que de présenter le chemin partiel comme une résolution complète.
 Pour une simple demande de navigation (« où saisir », « où rentrer », « dans quel menu »), donne directement le chemin documenté et l'action demandée, dans une seule rubrique Démarches si cela suffit. N'ajoute ni diagnostic, ni vérification de liste vide, ni import ou étape ultérieure sans demande explicite. Une condition indispensable reste à mentionner si les passages l'établissent ; ne suppose pas une panne ou une configuration incomplète. Si la question signale aussi un problème (liste vide, blocage, erreur), conserve les vérifications documentées qui répondent à ce problème.
 Les sections classent les affirmations, elles ne limitent pas leur nombre : plusieurs étapes ou conditions peuvent appartenir à la même section.
@@ -1106,6 +1142,7 @@ Une absence de consigne retrouvée ne prouve ni obligation, ni interdiction, ni 
 Quand une action est réservée à une autorité, nomme cette autorité et son rôle d'après les passages.
 Restitue dans l'ordre les étapes indispensables de la procédure applicable, y compris la conservation des éléments lorsqu'elle est prescrite.
 Si la question demande de distinguer les niveaux, explique quels éléments relèvent du cadre national, du circuit académique et du logiciel, selon la nature déclarée dans les passages.
+Ne présente pas une note comme acquise du seul fait de deux dispenses : si la source réserve le choix à l’enseignant, place cette appréciation dans la même proposition que la conservation de la note.
 Préserve les branches conditionnelles tant que la question ne permet pas de choisir.
 Extrais ensemble l’action possible, sa condition et l’autorité qui apprécie la situation.
 Lorsque le passage propose plusieurs issues, expose les issues pertinentes avec leurs conditions ;
@@ -1196,7 +1233,7 @@ Réponds uniquement en JSON selon ce schéma :
             audit.update(explicit_source_limit=True, proposal=None, initial_accepted_claims=[],
                          initial_rejections=[], accepted_claims=accepted, final_claims=final['claims'],
                          final_rejections=[], documentary_limit_extraction=False, semantic_review=False)
-            rendered = render_claims(accepted, packets, mode=mode)
+            rendered = render_claims(accepted, packets, mode=mode, question=question)
             audit['rendered_answer'] = rendered
             return rendered
     if not packets:
@@ -1285,7 +1322,7 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
     if rejected:
         reasons = sorted({str(e) for r in rejected for e in r['errors']})
         raise ValueError('Vérification mécanique incomplète : ' + ' ; '.join(reasons) + '.')
-    rendered = render_claims(accepted, packets, mode=mode) if accepted else '<p>' + no_applicable_guidance(mode) + '</p>'
+    rendered = render_claims(accepted, packets, mode=mode, question=question) if accepted else '<p>' + no_applicable_guidance(mode) + '</p>'
     if missing:
         rendered = absent_terms_notice(missing) + rendered
     audit['rendered_answer'] = rendered

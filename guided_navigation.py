@@ -290,7 +290,9 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
             st.write(f'**{position + 1}. {label}**')
     if explication:
         # Les mêmes étapes en phrases complètes, pour qui ne connaît pas encore les écrans.
-        st.markdown('**Concrètement :** ' + explication)
+        # Une phrase par ligne, pour aérer la lecture.
+        phrases = re.split(r'(?<=[.!?])\s+(?=[A-ZÀÂÉÈÊÎÔÙÛÇ])', explication.strip())
+        st.markdown('**Concrètement :**\n\n' + '\n\n'.join(phrases))
     if not college:
         rule = order_rule()
         if rule:

@@ -303,4 +303,4 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
             del st.session_state[k]
         if on_done:
             on_done()
-    st.button('✓ J’ai trouvé', key=state_key + '_done', on_click=done)
+    st.button('✓ C’est fait', key=state_key + '_done', on_click=done)

@@ -178,7 +178,7 @@ class GuideCollegeTests(unittest.TestCase):
         state['f_position_' + str(pos)] = 1
         ui = UI(None, state, rub='Dossier APPN')
         guide.render_guide(ui, 'f', 'Collège', on_done=lambda: state.__setitem__('ferme', True))
-        ui.callbacks['✓ J’ai trouvé']()
+        ui.callbacks['✓ C’est fait']()
         self.assertTrue(state['ferme']); self.assertEqual(state['autre'], 1)
         self.assertFalse([k for k in state if k.startswith('f_')])
 

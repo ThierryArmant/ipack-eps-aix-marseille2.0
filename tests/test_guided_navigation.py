@@ -31,7 +31,7 @@ class GuidedTests(unittest.TestCase):
         ui.button=lambda label,**k: labels.append(label) or False
         guide.render_guide(ui,'test','Autre public')
         self.assertFalse(any('Suivant' in l or 'Retour' in l for l in labels))
-        self.assertIn('✓ J’ai trouvé', labels)
+        self.assertIn('✓ C’est fait', labels)
     def test_completion_and_no_source(self):
         goal='Configurer les périodes'
         for answer in ['Oui','Non, j’ai encore besoin d’aide']:

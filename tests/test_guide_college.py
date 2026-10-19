@@ -270,7 +270,7 @@ class GuideLyceeGTTests(unittest.TestCase):
 
     def test_boutons_envoyer_et_exporter(self):
         clics = ' '.join(s['clic'] for s in self.routes['Déposer un référentiel'] + self.routes['Transférer vers Cyclades'])
-        self.assertIn('dépôt ou remplacement', clics); self.assertIn('Importer ce fichier dans Cyclades', clics)
+        self.assertIn('dépôt ou remplacement', clics); self.assertIn('importe ce fichier dans Cyclades', clics)
 
     def test_calendrier_aix_et_conditions_export(self):
         import knowledge_catalog as kc

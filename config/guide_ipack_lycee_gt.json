@@ -419,7 +419,7 @@
     "preuve": "bouton [Exporter les Elèves]"
    },
    {
-    "clic": "Importer ce fichier dans Cyclades : groupes créés et élèves placés",
+    "clic": "Le chef d'établissement importe ce fichier dans Cyclades : groupes et élèves placés",
     "video": "https://youtu.be/t7b1yl4ATcU",
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
     "preuve": "ce fichier s'importe directement dans Cyclades pour créer les groupes"
@@ -573,7 +573,7 @@
     "preuve": "bouton [Exporter les Elèves]"
    },
    {
-    "clic": "Importer ce fichier dans Cyclades : groupes créés et élèves placés",
+    "clic": "Le chef d'établissement importe ce fichier dans Cyclades : groupes et élèves placés",
     "video": "https://youtu.be/t7b1yl4ATcU",
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
     "preuve": "ce fichier s'importe directement dans Cyclades pour créer les groupes"

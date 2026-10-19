@@ -537,8 +537,13 @@ def scoped_claim_text(claim, *, mode="examens"):
     if len(marked) == len(evidence) and len(origins) == 1:
         origin = next(iter(origins))
         prefix = 'À Aix-Marseille, ' if origin == 'Aix-Marseille' else 'Dans la ' + origin[0].lower() + origin[1:] + ', '
-        if not text.startswith(prefix):
-            text = prefix + text
+        # L'origine ajoutée par le programme peut déjà ouvrir une phrase
+        # rédigée par le modèle. La déplacer en tête sans la répéter.
+        text = re.sub(r'(^|(?<=[.!?])\s+)' + re.escape(prefix.rstrip()) + r'\s*',
+                      r'\1', text).strip()
+        if re.match(r"(?:Le |La |Les |Un |Une |Il |Elle |Ils |Elles |Ce |Cette |Ces |Pour |Si |En |L[’'])", text):
+            text = text[0].lower() + text[1:]
+        text = prefix + text
     targets = sorted({e['scope']['not_confirmed_for'] for e in marked})
     if 'Non précisée' in targets:
         return text + ' (application locale à vérifier auprès du service compétent de votre académie)'

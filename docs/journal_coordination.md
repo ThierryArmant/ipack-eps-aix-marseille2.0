@@ -1393,3 +1393,18 @@ Deux faux rejets reproduits :
 Relecture locale des brouillons privés sans appel au service IA : la première rédaction SHN passe les contrôles en un appel simulé ; le brouillon bulletin reste accepté. Ce résultat ne mesure ni le coût ni le comportement d'une nouvelle génération en ligne. Aucune fiche, aucun catalogue ni écran modifié.
 
 Validation : 635 tests réussis, dont les contrôles de contradictions réelles et de branches étrangères conservés ; relecture locale des deux traces reçues, aucun nouvel appel IA payant.
+
+
+### 19 octobre 2026 — Partie programme et fiches : documents individuels distincts des bulletins de notes
+
+Le rejeu privé du bulletin ne bloque plus, mais la réponse étend l'absence de carnet de notes à tout document individuel. Deux fiches de périmètre précisent désormais la distinction : un bulletin de notes relève du logiciel de vie scolaire ; une « fiche de synthèse » demande de préciser son contenu ; la programmation EPS individuelle est, elle, documentée dans iPackEPS.
+
+Fondement : article 56 déjà inventorié et transcription déjà présente de la vidéo officielle EPS Créteil « Programmation » (bxd0QQs-X4Q). Ils décrivent [Mes Documents] > [Documents administratifs] > [Programmation], choix de la classe et des élèves, puis [Édition programmation] pour un PDF avec une page par élève. Aucun nouveau bouton ni document supposé « fiche de synthèse » n'est inventé. La distinction est aussi conservée dans la réponse courte pour borner l'usage de ce passage. Vérification locale : le routage documentaire réel transmet cette distinction pour une demande de bulletin/synthèse.
+
+Affichage : une origine académique déjà présente au début d'une phrase du modèle est déplacée en tête de l'affirmation, sans répétition ; la réserve sur l'académie destinataire reste affichée. Correction de la casse après le préfixe, sans mettre en minuscules les sigles.
+
+Aucun appel IA payant. Les changements documentaires ne garantissent pas la formulation d'une prochaine génération ; le résultat reste à confirmer en ligne. Les parcours et l'accueil restent inchangés.
+
+Mesure ciblée reçue après 0841f3e : réponse SHN rédigée en ligne, un appel sans rejet, 6 174 jetons d'entrée + 327 de sortie (6 501 au total), contre deux appels et 11 178 jetons pour l'essai précédent. Validation de ce seul essai, pas d'un taux global de réussite. La trace privée reste hors dépôt.
+
+Validation de ce lot : 636 tests réussis, dont la vérification de non-répétition de l’origine académique. Aucun nouveau test génératif lancé par la partie programme.

@@ -48,7 +48,18 @@ class GuardApplicabilityTests(unittest.TestCase):
         claim = {'section': 'condition', 'text': 'Le document doit utiliser le formulaire local.', 'evidence': evidence}
         packets = [{'id': 'D1', 'path': '', 'url': '', 'title': 'Procédure locale', 'display_level': 'academique'}]
         rendered = render_claims([claim], packets)
-        self.assertIn('À Aix-Marseille, Le document', rendered)
+        self.assertIn('À Aix-Marseille, le document', rendered)
         self.assertIn('service des examens de l’académie de Créteil', rendered)
         evidence[0]['scope'] = {'nature': ['logiciel']}
         self.assertNotIn('À Aix-Marseille', render_claims([claim], packets))
+
+    def test_academic_origin_is_not_repeated_inside_the_same_claim(self):
+        from documentary_review import scoped_claim_text
+        claim = {'text': "La mention doit figurer dans le dossier. À Aix-Marseille, elle est enregistrée par le service.",
+                 'evidence': [{'scope': {'academy': 'Aix-Marseille', 'not_confirmed_for': 'Créteil'}}]}
+        text = scoped_claim_text(claim)
+        self.assertEqual(text.count('À Aix-Marseille'), 1)
+        self.assertTrue(text.startswith('À Aix-Marseille, la mention'))
+        self.assertIn('service des examens de l’académie de Créteil', text)
+        claim['text'] = 'À Aix-Marseille, les documents sont transmis par le service.'
+        self.assertEqual(scoped_claim_text(claim).count('À Aix-Marseille'), 1)

@@ -40,7 +40,7 @@ Inventaire dans `config/playlist_tutoriels_ipackeps.json` (92 vidéos visibles s
 
 ## 4. Reste à faire
 1. Mesure réelle après les vacances (export de l'historique vers le 9 novembre ; noter correct / partiel / faux avant de corriger).
-2. Vérifier sur un vrai lycée professionnel la fenêtre « Configuration d'une APSA » (case « Certificative ») — Thierry dit que c'est la même structure que la voie générale.
+2. ~~Fenêtre « Configuration d'une APSA » en voie professionnelle~~ : fait — montré par Thierry pendant la visite du lycée et confirmé par le référent de la FAQ lycée : même structure et même démarche que la voie générale, par la tuile [APSA de Collège ou Voie Professionnelle] (fiche `apsa_certificative_et_protocole_groupe_lycee_gt.txt`).
 3. Question ouverte : quand un TZR complète le service d'un collègue, faut-il passer le collègue remplacé sur NON ? Ne rien affirmer au-delà du texte de l'écran.
 4. Nom exact des cases que l'IPR coche pour activer une section sportive : à relever lors de la visite de l'espace IPR.
 5. Espace IPR (après finalisation des fiches) : accès réservé par code envoyé à des adresses autorisées ; liste des adresses et boîte d'envoi à placer dans les secrets Streamlit ; visite en lecture seule (ne jamais cliquer Valider, Refuser, Envoyer, Enregistrer).

@@ -14,6 +14,7 @@ from navigation_help import offer_navigation_help, documented_navigation_help
 # Ne pas appeler importlib.reload depuis plusieurs sessions concurrentes.
 # Pipeline documentaire : transmission compacte des preuves et réparation depuis les sources.
 from hub_session import select_module, select_public, allowed_modules, public_label, new_question, ready_for_question
+from guided_navigation import suggested_entries
 from tutorial_links import supporting_tutorials
 from response_controls import suggested_tab
 from documentary_review import review_exam_answer, render_exam_fallback, mark_excerpt, TracedLLM, usage_summary
@@ -1457,6 +1458,7 @@ if prompt_a_traiter:
         "role": "user",
         "type": "text",
         "content": f"<span style='color: white;'>{question_affichee}</span>",
+        "question_brute": prompt,
     })
     
     # --- SPINNER NATIF STREAMLIT (ZÉRO DOUBLE BARRE / ZÉRO GLITCH) ---
@@ -2845,7 +2847,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             diagnostic_ia['sources_affichees_finales'] = sources_consultees
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
-             "aide_reperage": _guide_demande or offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut),
+             "aide_reperage": (_guide_demande or offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut)
+                               or (mode == "ipack" and bool(suggested_entries(prompt, public_label(niveau_actuel_form))))),
              "guide_ouvert": _guide_demande,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
@@ -2883,9 +2886,12 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
 if "messages_hub" in st.session_state and st.session_state.messages_hub:
     st.markdown('<div style="margin-top: 15px;">', unsafe_allow_html=True)
     # La question et la réponse, puis les tutoriels associés.
+    _question_guide = ""
     for m in st.session_state.messages_hub:
         if m.get("type") == "video":
             continue
+        if m.get("role") == "user":
+            _question_guide = m.get("question_brute", "")
         with st.chat_message(m["role"]):
             st.markdown(m["content"], unsafe_allow_html=True)
             if m.get("usage_ia") is not None:
@@ -2904,7 +2910,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 from guided_navigation import render_guide
                 with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici", expanded=m.get("guide_ouvert", False)) :
                     render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")),
-                                 on_done=lambda m=m: m.update(aide_reperage=False, guide_ouvert=False))
+                                 on_done=lambda m=m: m.update(aide_reperage=False, guide_ouvert=False),
+                                 question=_question_guide)
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

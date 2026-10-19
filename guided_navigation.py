@@ -8,6 +8,7 @@ COLLEGE = ROOT / 'config/guide_ipack_college.json'
 LYCEE_GT = ROOT / 'config/guide_ipack_lycee_gt.json'
 LYCEE_PRO = ROOT / 'config/guide_ipack_lycee_pro.json'
 EXAMENS_LYCEE = ROOT / 'config/guide_examens_lycee.json'
+DECLENCHEURS = ROOT / 'config/guide_declencheurs.json'
 
 
 def guide_file(public, mode=None):
@@ -168,7 +169,51 @@ def prerequisite_text(rubrique, entry):
     return 'Avant ' + target + ', vous devez avoir complété : ' + ' → '.join(items) + '.'
 
 
-def render_guide(st, key, public, on_done=None, mode=None):
+def _normalise(text):
+    import unicodedata
+    text = str(text or '').lower().replace('\u2019', "'").replace('`', "'")
+    return ''.join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
+
+
+def suggested_entries(question, public, mode=None, limit=2, path=None):
+    """Parcours du guide qui correspondent aux mots de la question (config/guide_declencheurs.json).
+    Renvoie [(rubrique, entrée)] les mieux notés, au plus `limit` ; liste vide si rien ne correspond.
+    Le collègue n'a pas à connaître le module : la question mène au parcours, le menu reste en recours."""
+    import json
+    guide = guide_file(public, mode)
+    if not guide or not question:
+        return []
+    try:
+        config = json.loads((path or DECLENCHEURS).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return []
+    q = _normalise(question)
+    apsa = config.get('apsa', '')
+    menu = college_menu(college_routes(guide), guide)
+    scored = []
+    for block in menu:
+        for entry in block['entrees']:
+            score = 0
+            for pattern in config.get('parcours', {}).get(entry['parcours'], []):
+                pattern = apsa if pattern == '@apsa' else pattern
+                try:
+                    score += bool(pattern and re.search(pattern, q))
+                except re.error:
+                    pass
+            if score:
+                scored.append((score, block['rubrique'], entry))
+    if not scored:
+        return []
+    best = max(s for s, _, _ in scored)
+    seen, out = set(), []
+    for score, rubrique, entry in sorted(scored, key=lambda x: -x[0]):
+        if score == best and entry['parcours'] not in seen:
+            seen.add(entry['parcours'])
+            out.append((rubrique, entry))
+    return out[:limit]
+
+
+def render_guide(st, key, public, on_done=None, mode=None, question=None):
     path = guide_file(public, mode)
     college = bool(path) and college_routes(path)
     available = college or ([] if mode == 'examens' else routes())
@@ -176,7 +221,19 @@ def render_guide(st, key, public, on_done=None, mode=None):
         st.info('Guide indisponible pour le moment.')
         return
     menu = college_menu(available, path) if college else []
-    if menu:
+    suggestions = suggested_entries(question, public, mode) if menu else []
+    picked = None
+    if suggestions:
+        autre = 'Autre chose : voir tout le menu'
+        st.markdown('**Le parcours qui correspond à votre question :**')
+        choice = st.radio('Parcours proposé', [e['libelle'] for _, e in suggestions] + [autre],
+                          index=0, key=key + '_suggestion', label_visibility='collapsed')
+        picked = next(((r, e) for r, e in suggestions if e['libelle'] == choice), None)
+    if picked:
+        rubrique, entry = picked
+        goal = entry['parcours']
+        before = prerequisite_text(rubrique, entry)
+    elif menu:
         left, right = st.columns(2)
         names = [b['rubrique'] for b in menu]
         with left:

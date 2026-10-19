@@ -1310,3 +1310,14 @@ Retour d'un collègue (question et réponse non recopiées). Classement : **mauv
 - Ergonomie (sans urgence) : quand la question correspond à un parcours du guide, proposer ce parcours directement plutôt que tout le menu du Dossier EPS ; un collègue qui ne sait pas quel module ouvrir ne peut pas choisir dans le menu.
 
 Aucune fiche modifiée.
+
+
+### 19 octobre 2026 — Partie affichage : le guide propose d'abord le parcours qui correspond à la question
+
+Suite au retour d'un collègue (« s'il savait dans quel module chercher, il n'aurait pas besoin de poser la question »). Sélection documentaire et contrôles non touchés ; fiches inchangées.
+
+- Nouveau fichier `config/guide_declencheurs.json` : pour chaque parcours des guides iPackEPS (collège, lycée GT, lycée pro), les mots de la question qui y mènent (une liste commune d'APSA sert aux parcours « déclarer l'activité », « APSA certificative », « protocole d'examen »).
+- `guided_navigation.suggested_entries(question, public, mode)` : renvoie le ou les deux parcours les mieux notés ; rien si aucun mot ne correspond, rien dans l'onglet Examens.
+- `render_guide(..., question=...)` : en tête du guide, « Le parcours qui correspond à votre question » avec ce parcours présélectionné et ses étapes affichées ; « Autre chose : voir tout le menu » ramène au menu habituel.
+- `app.py` (trois retouches d'affichage) : la question brute est gardée avec le message utilisateur ; le guide sous la réponse la reçoit ; dans l'onglet iPackEPS, le guide replié « Être guidé pas à pas » est aussi proposé quand un parcours correspond à la question. Le contenu de la réponse n'est pas modifié.
+- Tests : `tests/test_guide_suggestion.py` (déclarer le foot d'une 6e → parcours APSA · Périodes · Groupes ; « renseigner » ne vaut pas « enseigner » ; questions sans rapport → rien ; déclencheurs valides et rattachés à des parcours existants). Suite complète : 619 tests réussis.

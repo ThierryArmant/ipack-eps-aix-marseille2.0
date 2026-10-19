@@ -827,7 +827,10 @@
     "modes": [
       "textes"
     ],
-    "domaine_textes": "07_securite"
+    "domaine_textes": "07_securite",
+    "exclure_motifs": [
+      "minibus|(?:louer|location).{0,40}(?:vehicule|minibus|car|bus)|(?:pas de|sans) (?:bus|car)|transport|voiture|vehicule"
+    ]
   },
   "data/textes/partenariats_defense_citoyennete.txt": {
     "title": "partenariats defense citoyennete",
@@ -2857,11 +2860,22 @@
     "domaine_textes": "06_sorties_transports"
   },
   "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt": {
-    "title": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]",
-    "statut": "revu_2026-10-10_recoupement_sources",
+    "title": "Minibus (de l'établissement ou loué) et véhicule personnel : conditions à vérifier",
+    "statut": "complete_minibus_2026-10-19",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "06_sorties_transports"
+    "domaine_textes": "06_sorties_transports",
+    "prioritaire": true,
+    "priorite": 330,
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "minibus|mini.bus|\\bminicar\\b|(?:louer|location|loue).{0,40}(?:vehicule|minibus|car|bus|camion|voiture|9 places)|(?:pas de|sans|aucun) (?:bus|car|autocar|transporteur)|9 places"
+    ],
+    "url": "https://eduscol.education.fr/document/52179/download"
   },
   "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt": {
     "title": "[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]",

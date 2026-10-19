@@ -1,12 +1,8 @@
 ### [SITUATION: MENACE DE RECOURS JURIDIQUE D'UN PARENT SUR UNE NOTE DE CCF]
-Mots-clés : recours tribunal administratif, contestation de note, parent d'élève avocat, contestation CCF, souveraineté du jury.
-- Règle de droit : Une note attribuée lors d'une épreuve de CCF en cours d'année n'est PAS une décision administrative individuelle susceptible de recours contentieux direct. Il s'agit d'une simple « proposition de note ».
-- Souveraineté du jury : seul le jury du baccalauréat, nommé par le recteur, arrête la note définitive.
-- Conduite à tenir face au parent : 
-  1. Ne pas modifier la proposition de note sous la pression. Une erreur matérielle doit toutefois être signalée et corrigée selon le circuit habilité, avec traçabilité.
-  2. Rappeler que la note reste provisoire jusqu'à l'harmonisation académique (CAHPN).
-  3. Fournir sur demande la grille critériée renseignée (AFL) issue du référentiel validé pour justifier de l'équité de traitement.
-- Formulations courantes des collègues : un parent conteste la note de CCF de son enfant ; quelle procédure suivre ; un parent veut faire changer la note ; un parent menace d'un recours.
-- Après la publication des résultats : la famille peut demander la communication des documents d'évaluation, puis former un recours gracieux auprès du recteur contre la décision du jury, et enfin un recours contentieux devant le tribunal administratif. Avant les résultats, il n'y a pas de procédure de contestation de la proposition de note.
-- Protection fonctionnelle : L'enseignant est couvert par la protection de l'État (art. L. 911-4 du Code de l'éducation).
-
+En CCF EPS, examiner la demande d’explication et une éventuelle erreur matérielle dans l’établissement, sans modifier la note sous pression.
+Au bac GT, la CAHPN harmonise les propositions ; le jury d’examen décide du résultat définitif.
+Après notification des résultats, consultation et contestation suivent la procédure détaillée dans la fiche « Contestation de note : explication, erreur matérielle et décision du jury ». Un désaccord ne donne pas droit à une seconde correction.
+Nature : cadre national et information institutionnelle, sans procédure logicielle.
+Sources : Service Public F22331 et MENE2531948N, 2.c et 2.d, relus le 19 octobre 2026.
+https://www.service-public.gouv.fr/particuliers/vosdroits/F22331
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

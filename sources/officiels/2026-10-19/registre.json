@@ -1,0 +1,57 @@
+[
+  {
+    "nor": "MENE2531948N",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+    "consultation": "2026-10-19",
+    "copie": "sources/officiels/2026-10-19/MENE2531948N.md",
+    "lecture": "data/commun/textes_sources/MENE2531948N.txt",
+    "sha256_copie": "94b296f53eec106458ca35bf27b36d6284ee22c5304ac82d8f547729065bdf5c",
+    "sha256_lecture": "af37a0f96327840af95fbc5da614d9e430620609e7dae6d5a374a5b8ae087922",
+    "annexes_pdf_reproduites": false,
+    "indexe": true
+  },
+  {
+    "nor": "MENE2505383C",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "consultation": "2026-10-19",
+    "copie": "sources/officiels/2026-10-19/MENE2505383C.md",
+    "lecture": "data/commun/textes_sources/MENE2505383C.txt",
+    "sha256_copie": "f666a66109a98cdfaf4f806a38b06abf0b1dd3cf85a9545aafad580946b2a066",
+    "sha256_lecture": "45450e959aa02b2a2fc7d8a9324e3415b0cda4bd52ca9171e8734a9a7913a27c",
+    "annexes_pdf_reproduites": false,
+    "indexe": true
+  },
+  {
+    "nor": "MENE2517122C",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C",
+    "consultation": "2026-10-19",
+    "copie": "sources/officiels/2026-10-19/MENE2517122C.md",
+    "lecture": "data/commun/textes_sources/MENE2517122C.txt",
+    "sha256_copie": "c81b3ffd259af8464998eed2f4862a04e75f98e3e8c79d662861cce8ef6f6f38",
+    "sha256_lecture": "010c4914d7a8101a6f88f1a5330a54aa66f3df24531d3875b8ea58e3df3f881a",
+    "annexes_pdf_reproduites": false,
+    "indexe": true
+  },
+  {
+    "nor": "MENE2526357C",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526357C",
+    "consultation": "2026-10-19",
+    "copie": "sources/officiels/2026-10-19/MENE2526357C.md",
+    "lecture": "data/commun/textes_sources/MENE2526357C.txt",
+    "sha256_copie": "954a8b964159929100939de2e8dd8fbb309241572db844022dc0be8dbc5d30a0",
+    "sha256_lecture": "1f36bacd7184924d79fa264f6c6d69fc18f565bb5d721c4b24c2a86450a1b0d0",
+    "annexes_pdf_reproduites": false,
+    "indexe": false
+  },
+  {
+    "nor": "MENE2526679C",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526679C",
+    "consultation": "2026-10-19",
+    "copie": "sources/officiels/2026-10-19/MENE2526679C.md",
+    "lecture": "data/commun/textes_sources/MENE2526679C.txt",
+    "sha256_copie": "02f4804b65a7c6e35faa6d62b30bcc93f6f7daca013af30a0a6ffa8ee945059a",
+    "sha256_lecture": "451cb479569174126417183e338a4fbcb4b8782c355881b19cfc717b876ff6a7",
+    "annexes_pdf_reproduites": false,
+    "indexe": false
+  }
+]

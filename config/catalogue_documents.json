@@ -3825,7 +3825,10 @@
       "amenag|amex|incluscol"
     ],
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F22331",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "centrer_motifs": [
+      "contest|recours|parent.*note"
+    ]
   },
   "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt": {
     "title": "[SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]",
@@ -8008,5 +8011,106 @@
     "url": "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
     "date_verification": "2026-10-19",
     "domaine_textes": "06_sorties_transports"
+  },
+  "data/examens/validation_menu_cadre_national_gt.txt": {
+    "title": "Bac GT : faire valider le menu et le protocole d’évaluation",
+    "statut": "texte_national_relu_2026-10-19",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 60,
+    "motifs": [
+      "(?=.*(?:valider|validation|valides?))(?=.*(?:liste.*apsa|menu.*etablissement))"
+    ],
+    "centrer_motifs": [
+      "^(?!.*(?:aix|marseille))(?=.*(?:valider|validation|valides?))(?=.*(?:liste.*apsa|menu.*etablissement))"
+    ],
+    "exclusif_motifs": [
+      "^(?!.*(?:aix|marseille))(?=.*(?:valider|validation|valides?))(?=.*(?:liste.*apsa|menu.*etablissement))"
+    ],
+    "exclure_motifs": [
+      "\\bcap\\b|bac ?pro|\\bdnb\\b|brevet|college|option|eppcs"
+    ],
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/commun/textes_sources/MENE2531948N.txt": {
+    "title": "Texte national MENE2531948N — corps du texte hors annexes",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": false,
+    "retrieval_enabled": true,
+    "statut": "source_officielle_copie_textuelle_2026-10-19",
+    "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+  },
+  "data/commun/textes_sources/MENE2505383C.txt": {
+    "title": "Texte national MENE2505383C — corps du texte hors annexes",
+    "examens": [
+      "pro"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": false,
+    "retrieval_enabled": true,
+    "statut": "source_officielle_copie_textuelle_2026-10-19_lecture_consolidee_24_octobre_2025",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C"
+  },
+  "data/commun/textes_sources/MENE2517122C.txt": {
+    "title": "Texte national MENE2517122C — corps du texte hors annexes",
+    "examens": [
+      "cap"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": false,
+    "retrieval_enabled": true,
+    "statut": "source_officielle_copie_textuelle_2026-10-19_lecture_consolidee_24_octobre_2025",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
+  },
+  "data/commun/textes_sources/MENE2526357C.txt": {
+    "title": "Texte national MENE2526357C — corps du texte hors annexes",
+    "examens": [
+      "pro"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": false,
+    "retrieval_enabled": false,
+    "statut": "source_officielle_copie_textuelle_2026-10-19",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526357C"
+  },
+  "data/commun/textes_sources/MENE2526679C.txt": {
+    "title": "Texte national MENE2526679C — corps du texte hors annexes",
+    "examens": [
+      "cap"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": false,
+    "retrieval_enabled": false,
+    "statut": "source_officielle_copie_textuelle_2026-10-19",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526679C"
   }
 }

@@ -1074,6 +1074,16 @@ def response_focus_notes(question, packets):
         notes.append('EPPCS : distinguer l’écrit et les deux parties pratique/analyse de l’épreuve dite orale ; donner leurs durées et points documentés, en indiquant la session applicable.')
     if 'data/commun/gt_shn_eligibilite.txt' in paths and re.search(r'regime|amenagem|disposition|benefici', q) and not re.search(r'statut.*tardi|apres.*inscription', q):
         notes.append('SHN : répondre sur les aménagements concrets, pas uniquement sur l’éligibilité ; garder validation, distinction CCF/ponctuel et limite de la note unique avec les modalités citées.')
+    if 'data/commun/audit60/pro_cap_absences.txt' in paths and re.search(r'fonction|evalu|harmonis|calcul', q):
+        notes.append('Bac pro/CAP : distinguer les diplômes et leurs arrondis ; attribuer la transmission des propositions à l’établissement, puis l’harmonisation à la commission académique.')
+    if 'data/examens/validation_menu_cadre_national_gt.txt' in paths:
+        notes.append('Validation du menu GT : donner la transmission et la validation nationales ; ne pas inventer pour une académie le canal de dépôt ou les échéances d’une autre.')
+    if ('data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt' in paths
+            and re.search(r'comment|organis|adapter|possibilit', q)
+            and not re.search(r'une seule|deux epreuves|trois epreuves', q)):
+        notes.append('Contrôle adapté GT : nommer le CCF et donner les configurations trois, deux, exceptionnellement une épreuve avec leurs réserves ; distinguer santé scolaire, proposition de l’équipe et commission.')
+    if 'data/commun/audit60/contestation_note.txt' in paths:
+        notes.append('Contestation : distinguer explication ou correction matérielle en cours d’année et recours après notification ; ne pas confondre harmonisation par la commission et décision du jury.')
     return notes
 
 

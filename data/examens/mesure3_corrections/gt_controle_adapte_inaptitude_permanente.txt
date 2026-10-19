@@ -1,9 +1,12 @@
 ### Bac GT : élève en inaptitude partielle permanente ou en situation de handicap — organiser le contrôle adapté
 [PORTEE: gt]
 Sigles : CCF = contrôle en cours de formation ; PPS = projet personnalisé de scolarisation ; PAI = projet d'accueil individualisé.
-Réponse directe : l'élève reste évalué en CCF dans le cadre du contrôle adapté ; l'équipe EPS construit, avec les services de santé scolaire, un ensemble certificatif adapté (trois épreuves dont au moins une adaptée, ou deux épreuves adaptées, ou exceptionnellement une seule), l'inscrit dans le protocole d'évaluation et le soumet à la commission académique ; la dispense d'épreuve est réservée aux handicaps qui ne permettent aucune pratique adaptée.
+Réponse directe : l'élève reste évalué en contrôle en cours de formation (CCF), avec un contrôle adapté construit par l'équipe EPS et les services de santé scolaire, inscrit au protocole et soumis à la commission académique. Il ne s'agit pas du calcul d'une moyenne ordinaire de contrôle continu. La dispense d'épreuve est réservée aux handicaps qui ne permettent aucune pratique adaptée.
 Une inaptitude ou un handicap attesté en début d'année par l'autorité médicale peut empêcher une pratique régulière ou complète de l'EPS sans interdire une pratique adaptée.
-Les trois cas possibles en CCF : 1) trois épreuves de trois champs d'apprentissage différents, dont au moins une adaptée ; 2) deux épreuves adaptées relevant, autant que possible, de deux champs différents ; 3) pour des cas très particuliers, une seule épreuve adaptée, l'élève étant alors noté sur une seule note.
+Les trois possibilités documentées en CCF sont :
+1. Trois épreuves de trois champs d'apprentissage différents, dont au moins une adaptée.
+2. Deux épreuves adaptées relevant, autant que possible, de deux champs différents.
+3. Pour des cas très particuliers, une seule épreuve adaptée, l'élève étant alors noté sur une seule note.
 Les adaptations sont proposées après concertation au sein de l'établissement entre les professeurs d'EPS et les services de santé scolaire, en tenant compte du PPS ou du PAI s'il existe ; les propositions d'adaptation sont soumises à la commission académique d'harmonisation et de proposition de notes.
 Les épreuves adaptées sont de préférence choisies dans les listes nationale, académique ou d'établissement ; si l'élève ne peut pratiquer aucune de ces activités, l'établissement peut proposer à la commission académique une nouvelle activité respectueuse des exigences de l'examen.
 Si aucune adaptation n'est possible dans l'établissement, une épreuve adaptée en examen ponctuel terminal, définie par le recteur, peut être proposée.

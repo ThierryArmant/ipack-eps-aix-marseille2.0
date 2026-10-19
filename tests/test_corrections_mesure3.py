@@ -76,7 +76,7 @@ class CorrectionsMesure3(unittest.TestCase):
         self.assertNotIn(s, t("Un élève totalement inapte toute l'année de terminale : note EPS au bac ?"))
         self.assertNotIn(s, t("Bac pro : élève en inaptitude partielle permanente, comment l'évaluer ?", PRO))
         texte = Path('data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt').read_text(encoding='utf-8')
-        self.assertIn('ou exceptionnellement une seule', texte)
+        self.assertIn('Pour des cas très particuliers, une seule épreuve adaptée', texte)
 
     def test_protocole_porte_a_connaissance_familles(self):
         s = "Bac GT : protocole porté à la connaissance des élèves et familles (note 2026, 2.b)"

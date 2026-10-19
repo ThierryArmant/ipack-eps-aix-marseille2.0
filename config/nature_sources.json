@@ -173,12 +173,12 @@
   },
   "data/commun/audit60/contestation_note.txt": {
    "nature": [
-    "a_verifier"
+    "texte_national"
    ],
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
-   "portee_texte": null,
+   "portee_texte": "cadre national et information institutionnelle Service Public ; distinction avant/après résultat",
    "titre": "Contestation de note : explication, erreur matérielle et décision du jury"
   },
   "data/commun/audit60/gt_inaptitude_demarche.txt": {
@@ -3714,12 +3714,12 @@
   },
   "data/ipack/fiches/ipack_179_situation_menace_de_recours_juridique_d_un_parent_sur_une_note_de_ccf.txt": {
    "nature": [
-    "logiciel"
+    "texte_national"
    ],
    "academie": null,
    "sessions": [],
    "autres_academies_citees": [],
-   "portee_texte": null,
+   "portee_texte": "cadre national et information institutionnelle Service Public ; distinction avant/après résultat",
    "titre": "[SITUATION: MENACE DE RECOURS JURIDIQUE D'UN PARENT SUR UNE NOTE DE CCF]"
   },
   "data/ipack/fiches/ipack_180_situation_horaires_de_passation_des_epreuves_de_ccf_mercredi_hors_cours.txt": {
@@ -6267,6 +6267,66 @@
    "autres_academies_citees": [],
    "portee_texte": "second degré ; transport d'élèves par un enseignant",
    "titre": "Texte transport des élèves : enseignant au volant (minibus, véhicule loué ou personnel) — règle, surveillance, ordre de mission, responsabilités"
+  },
+  "data/examens/validation_menu_cadre_national_gt.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "bac GT, cadre national",
+   "titre": "Bac GT : validation du menu et du protocole"
+  },
+  "data/commun/textes_sources/MENE2531948N.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "gt",
+   "titre": "Texte national MENE2531948N — corps du texte hors annexes"
+  },
+  "data/commun/textes_sources/MENE2505383C.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "pro",
+   "titre": "Texte national MENE2505383C — corps du texte hors annexes"
+  },
+  "data/commun/textes_sources/MENE2517122C.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cap",
+   "titre": "Texte national MENE2517122C — corps du texte hors annexes"
+  },
+  "data/commun/textes_sources/MENE2526357C.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "pro",
+   "titre": "Texte national MENE2526357C — corps du texte hors annexes"
+  },
+  "data/commun/textes_sources/MENE2526679C.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cap",
+   "titre": "Texte national MENE2526679C — corps du texte hors annexes"
   }
  }
 }

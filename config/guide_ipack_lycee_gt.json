@@ -758,11 +758,13 @@
      ]
     },
     {
-     "libelle": "Dépôt de Documents pour la CAHPN",
-     "parcours": "Déposer les documents pour la CAHPN",
+     "libelle": "Soumettre le dossier certificatif",
+     "parcours": "Soumettre le dossier certificatif",
      "prerequis": [
-      "le [Dossier EPS]"
-     ]
+      "les référentiels déposés",
+      "les épreuves configurées"
+     ],
+     "cible": "de soumettre le dossier certificatif"
     },
     {
      "libelle": "Cyclades : bilan et export des élèves",
@@ -774,13 +776,11 @@
      "cible": "d’exporter vers Cyclades"
     },
     {
-     "libelle": "Soumettre le dossier certificatif",
-     "parcours": "Soumettre le dossier certificatif",
+     "libelle": "Dépôt de Documents pour la CAHPN",
+     "parcours": "Déposer les documents pour la CAHPN",
      "prerequis": [
-      "les référentiels déposés",
-      "les épreuves configurées"
-     ],
-     "cible": "de soumettre le dossier certificatif"
+      "le [Dossier EPS]"
+     ]
     }
    ]
   },

@@ -233,6 +233,7 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
         rubrique, entry = picked
         goal = entry['parcours']
         before = prerequisite_text(rubrique, entry)
+        explication = entry.get('explication', '')
     elif menu:
         left, right = st.columns(2)
         names = [b['rubrique'] for b in menu]
@@ -253,8 +254,10 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
             entry = next(e for e in entries if e['libelle'] == choice)
         goal = entry['parcours']
         before = prerequisite_text(rubrique, entry)
+        explication = entry.get('explication', '')
     else:
         before = ''
+        explication = ''
         goal = st.radio('Que souhaitez-vous faire ?', list(available) + ['Je ne sais pas encore'], index=None, key=key + '_goal')
         if goal is None:
             return
@@ -285,6 +288,9 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
                 st.video(url)
         else:
             st.write(f'**{position + 1}. {label}**')
+    if explication:
+        # Les mêmes étapes en phrases complètes, pour qui ne connaît pas encore les écrans.
+        st.markdown('**En phrases :** ' + explication)
     if not college:
         rule = order_rule()
         if rule:

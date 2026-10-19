@@ -1,5 +1,7 @@
 ### [SITUATION: ERREUR « ÉTABLISSEMENT NON TROUVÉ » / SANS ADRESSE]
-- Instruction : Si un personnel de direction ou enseignant (ex : Lycée Militaire RNE 0131596P) fait face au message « L'Établissement n'a pas été trouvé dans la base », il s'agit d'une anomalie technique remontée à la DSI. Malgré ce message visuel, l'accès à l'établissement reste techniquement opérationnel dans l'application.
+- Réponse directe — sur la page d'accueil d'iPackEPS (bloc « Sélectionnez votre établissement »), la carte d'un établissement inconnu d'iPackEPS affiche : « L'Établissement n'a pas été trouvé dans la base de données. Merci de contacter le Support technique si vous avez des heures EPS dans cet établissement. » Cette carte n'a pas de bouton [Entrer] : on ne peut pas travailler dans cet établissement tant que le support n'a pas réglé l'anomalie (les autres établissements du compte restent accessibles par leur bouton [Entrer]).
+- Que faire : écrire au support (à Aix-Marseille : ipackeps@ac-aix-marseille.fr) en indiquant l'identifiant de connexion et le code UAI (RNE) de l'établissement concerné, si vous y avez bien des heures d'EPS.
+- Nature de la source : fonctionnement du logiciel iPackEPS, écran relevé le 19 octobre 2026 (version 2026.2.1.1) avec le correspondant académique iPackEPS ; l'ancienne mention d'un accès « techniquement opérationnel » malgré le message n'est pas confirmée par l'écran et a été retirée.
 
 [SECTION: CONFIGURATION_CLASSES_ET_PROTOCOLES_IPACKEPS]
 

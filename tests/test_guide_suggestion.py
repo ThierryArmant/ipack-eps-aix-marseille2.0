@@ -56,3 +56,23 @@ class GuideMessageTests(unittest.TestCase):
         self.assertNotIn('choisissez simplement une rubrique', MESSAGE_PARCOURS)
         src = (ROOT / 'app.py').read_text(encoding='utf-8')
         self.assertIn('GUIDE_MESSAGE = GUIDE_MESSAGE_PARCOURS', src)
+
+
+class GuideExplicationTests(unittest.TestCase):
+    def test_explication_ne_cite_que_des_boutons_du_parcours(self):
+        for name in ('college', 'lycee_gt', 'lycee_pro'):
+            g = json.loads((ROOT / f'config/guide_ipack_{name}.json').read_text(encoding='utf-8'))
+            for block in g['menu']:
+                for entry in block['entrees']:
+                    texte = entry.get('explication', '')
+                    if not texte:
+                        continue
+                    clics = ' '.join(s['clic'] for s in g['parcours'][entry['parcours']]) + ' ' + ' '.join(entry.get('prerequis') or [])
+                    for bouton in re.findall(r'\[[^\]]+\]', texte):
+                        self.assertIn(bouton, clics, (name, entry['parcours'], bouton))
+
+    def test_college_explique_chaque_parcours(self):
+        g = json.loads((ROOT / 'config/guide_ipack_college.json').read_text(encoding='utf-8'))
+        for block in g['menu']:
+            for entry in block['entrees']:
+                self.assertTrue(entry.get('explication'), entry['parcours'])

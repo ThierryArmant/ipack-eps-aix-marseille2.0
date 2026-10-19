@@ -1323,3 +1323,10 @@ Suite au retour d'un collègue (« s'il savait dans quel module chercher, il n'a
 - Tests : `tests/test_guide_suggestion.py` (déclarer le foot d'une 6e → parcours APSA · Périodes · Groupes ; « renseigner » ne vaut pas « enseigner » ; questions sans rapport → rien ; déclencheurs valides et rattachés à des parcours existants). Suite complète : 619 tests réussis.
 
 Complément (même jour, après essai sur le hub) : pour une demande vague qui ouvre le guide sans appel IA, le message « choisissez simplement une rubrique » devient, quand un parcours correspond, « Le guide ci-dessous affiche le parcours qui correspond à votre question : suivez les étapes dans l'ordre » (`guide_request.MESSAGE_PARCOURS`). Essai terrain sur la question du foot en 6e : parcours APSA · Périodes · Groupes proposé directement, 0 appel IA ; retour du collègue : « Là c'est parfait ».
+
+
+### 19 octobre 2026 — Partie fiches et affichage : « Établissement non trouvé » corrigée ; guide collège expliqué en phrases
+
+- Fiche `ipack_015` (accord de Thierry, GPT hors quota) : retrait de l'affirmation fausse « l'accès reste techniquement opérationnel » et du lycée nommé. Écran relevé le 19 octobre : la carte d'un établissement non trouvé n'a pas de bouton [Entrer] ; écrire au support avec identifiant et UAI. Registre de portée régénéré. Les deux autres corrections en attente (ipack_021, collège sans dossier certificatif) restent non publiées.
+- Guide collège (retour d'un collègue) : après les étapes, un paragraphe « En phrases : » reprend la navigation avec des phrases complètes (champ `explication` des entrées du menu). Il n'apporte aucun fait nouveau : les boutons cités sont ceux des étapes et prérequis du parcours (contrôlé par `tests/test_guide_suggestion.py`). Lycée GT et pro : à faire.
+- Suite complète : 622 tests réussis.

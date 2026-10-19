@@ -355,7 +355,8 @@
     {
      "libelle": "Ordre de rentrée",
      "parcours": "Me repérer depuis le début (ordre de rentrée)",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "À chaque rentrée, on remplit iPackEPS dans l'ordre, en partant du tableau de bord. Commencez par vérifier la fiche [Établissement], puis ouvrez [Ma Fiche Professeur] et cliquez sur [Enregistrer]. Entrez ensuite dans [Les Dossiers et Projets], puis [Dossier EPS] : regardez d'abord les [Projets], puis mettez à jour l'[Équipe EPS et Intervenants Extérieurs] avec [Actualiser]. Passez aux [Classes] pour les actualiser, les configurer, les organiser et importer les élèves. Déclarez ensuite les activités : [APSA], puis [Périodes], puis dans [Groupes] le bouton [Gérer les S.A.]. Placez les élèves dans leurs groupes avec [Élèves], vérifiez les [Équipements Sportifs], et terminez par les [Emplois du temps] dans l'[Agenda Équipe]."
     }
    ]
   },
@@ -365,7 +366,8 @@
     {
      "libelle": "Fiche Établissement",
      "parcours": "Établissement : vérifier la fiche",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "Depuis le tableau de bord, ouvrez [Établissement]. Relisez les informations affichées, corrigez ce qui doit l'être, puis cliquez sur [Enregistrer]. C'est la toute première étape de l'année : les autres écrans s'appuient sur elle."
     }
    ]
   },
@@ -377,7 +379,8 @@
      "parcours": "Me déclarer coordonnateur EPS",
      "prerequis": [
       "[Établissement]"
-     ]
+     ],
+     "explication": "Vérifiez d'abord que la fiche [Établissement] est à jour. Ensuite, depuis le tableau de bord, ouvrez [Ma Fiche Professeur] et allez dans [Fonctions]. Cochez « Coordonnateur EPS », puis cliquez sur [Enregistrer] pour que la fonction soit prise en compte."
     }
    ]
   },
@@ -390,7 +393,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Une fois [Établissement] et [Ma Fiche Professeur] complétés, entrez dans le [Dossier EPS] et ouvrez [Projets (Étab, EPS, AS)]. Le menu de gauche vous laisse alors choisir le projet voulu : [Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]. Ses axes s'y trouvent."
     },
     {
      "libelle": "Équipe EPS et Intervenants Extérieurs",
@@ -398,7 +402,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Équipe EPS et Intervenants Extérieurs], puis [Membres de l'équipe], et cliquez sur [Actualiser] pour faire apparaître les collègues. Pour un TZR, cliquez sur le crayon [Modifier] de sa ligne, indiquez qui il « Remplace », puis cliquez sur [Enregistrer]."
     },
     {
      "libelle": "Classes",
@@ -406,14 +411,16 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Classes] puis [Configuration des Classes] et cliquez sur [Actualiser] pour récupérer les classes. Sur chaque classe, cliquez sur le crayon [Modifier], indiquez son cycle, puis [Enregistrer]. Passez ensuite à [Organisation des Classes] : avec le crayon [Modifier], choisissez le mode et attribuez-vous la classe à votre nom, puis [Enregistrer]. Enfin, dans [Importation des Élèves], cliquez sur [Importer] pour faire entrer les élèves."
     },
     {
      "libelle": "APSA · Périodes · Groupes : déclarer l'activité d'une classe",
      "parcours": "Déclarer l'activité enseignée à une classe",
      "prerequis": [
       "[Classes] (configurées, organisées avec votre nom)"
-     ]
+     ],
+     "explication": "Pour déclarer qu'une classe pratique une activité, il faut d'abord que vos [Classes] soient configurées et organisées avec votre nom. Commencez par le [Dossier EPS], rubrique [APSA] : choisissez l'activité dans la liste prédéfinie ; seulement si elle n'y est pas, utilisez [Créer une APSA]. Allez ensuite dans [Périodes] : la période de l'année où vous enseignez cette activité doit exister, sinon créez-la avec [Créer une nouvelle Période] en indiquant ses dates. Enfin, ouvrez [Groupes] puis [Groupes EPS], repérez la ligne de votre classe et cliquez sur [Gérer les S.A.] : choisissez l'APSA et la période, puis cliquez sur [Ajouter]. L'activité apparaît alors dans les séquences d'apprentissage de la classe, avec ses dates."
     },
     {
      "libelle": "Groupes AS : créer le groupe et ses élèves",
@@ -422,7 +429,8 @@
       "[Classes] (élèves importés)",
       "[APSA]",
       "[Périodes] (dont la période [Année])"
-     ]
+     ],
+     "explication": "Avant de commencer, les élèves doivent être importés dans [Classes], l'activité déclarée dans [APSA], et la période [Année] créée dans [Périodes]. Dans le [Dossier EPS], ouvrez [Groupes], puis [Groupes AS], et cliquez sur [Créer un groupe]. Avec [Gérer les S.A.], associez l'activité au groupe sur la période [Année]. Ensuite, ouvrez [Élèves] : choisissez votre groupe à droite ; à gauche, en visualisation « Classes », choisissez le niveau puis la classe ; cochez les élèves et cliquez sur [Ajouter -->]."
     },
     {
      "libelle": "Élèves : placer des élèves dans un groupe",
@@ -430,7 +438,8 @@
      "prerequis": [
       "[Classes] (élèves importés)",
       "[Groupes] (groupe créé)"
-     ]
+     ],
+     "explication": "Il faut que les élèves soient déjà importés dans [Classes] et que le groupe existe dans [Groupes]. Dans le [Dossier EPS], ouvrez [Élèves]. À droite, sélectionnez votre groupe. À gauche, en visualisation « Classes », choisissez le niveau puis la classe. Cochez les élèves concernés et cliquez sur [Ajouter -->] : ils passent dans le groupe."
     },
     {
      "libelle": "Équipements Sportifs",
@@ -438,7 +447,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Équipements Sportifs] puis [Configuration des Équipements]. Sélectionnez l'équipement à changer et cliquez sur [Modifier l'Équipement]."
     },
     {
      "libelle": "Emplois du temps",
@@ -447,7 +457,8 @@
       "[Classes] (votre nom attribué)",
       "[Groupes] (séquences ajoutées)",
       "[Équipements Sportifs]"
-     ]
+     ],
+     "explication": "Il faut d'abord que vos [Classes] soient à votre nom, que les séquences aient été ajoutées dans [Groupes] et que les [Équipements Sportifs] existent. Dans le [Dossier EPS], ouvrez [Emplois du temps], puis [Agenda Équipe], et choisissez votre nom. Double-cliquez sur la case horaire voulue, choisissez le groupe, la séquence et l'équipement, puis cliquez sur [Créer le créneau]."
     },
     {
      "libelle": "Envoyer le dossier pour validation",
@@ -456,7 +467,8 @@
       "tout le [Dossier EPS]",
       "[Ma Fiche Professeur] > [Fonctions] (« Coordonnateur EPS » coché)"
      ],
-     "cible": "d’envoyer le dossier pour validation"
+     "cible": "d’envoyer le dossier pour validation",
+     "explication": "Cette étape est réservée au coordonnateur : « Coordonnateur EPS » doit être coché dans [Ma Fiche Professeur] > [Fonctions], et tout le [Dossier EPS] doit être rempli. Dans le [Dossier EPS], ouvrez [Vérification]. Pour la ligne « Dossier terminé, nous le soumettons pour validation », choisissez OUI, puis cliquez sur [Enregistrer]."
     }
    ]
   },
@@ -468,21 +480,24 @@
      "parcours": "Imprimer les attestations du savoir-nager (ASNS)",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "Une fois le [Dossier EPS] rempli, entrez dans [Les Dossiers et Projets], puis [Dossier Natation], et ouvrez [Validation ASNS]. Cochez les élèves voulus, puis cliquez sur [Imprimer les diplômes de la sélection]."
     },
     {
      "libelle": "Un élève n'est pas dans la liste ASNS",
      "parcours": "Un élève n'est pas dans la liste ASNS",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "Un élève n'apparaît dans la liste que si son savoir-nager a été validé. Depuis le tableau de bord, ouvrez [Mes Élèves] et validez l'ASNS de cet élève. Revenez ensuite dans [Dossier Natation] > [Validation ASNS] : il y apparaît."
     },
     {
      "libelle": "Enquête Natation",
      "parcours": "Remplir l'enquête natation",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "Une fois le [Dossier EPS] rempli, entrez dans [Les Dossiers et Projets], puis [Dossier Natation], et ouvrez [Enquête Natation]. Indiquez si la natation est programmée, sinon donnez un motif, puis renseignez les effectifs de 6e et cliquez sur [Enregistrer]. Pour l'indice de performance, cliquez sur [Calculer], puis consultez l'onglet [Statistiques]."
     }
    ]
   },
@@ -494,7 +509,8 @@
      "parcours": "Section sportive : ma section n'apparaît pas",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "La section n'apparaît que si son groupe existe dans le [Dossier EPS]. Ouvrez [Groupes], puis [Sections Sportives Scolaires], et cliquez sur [Créer un groupe]. Ensuite, entrez dans [Les Dossiers et Projets], puis [Dossier Section Sportive Scolaire], et ouvrez le [Projet Annuel SSS]."
     }
    ]
   },
@@ -506,7 +522,8 @@
      "parcours": "Demander la validation d'une sortie APPN",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "Une fois le [Dossier EPS] rempli, entrez dans [Les Dossiers et Projets], puis [Dossier APPN]. Choisissez l'activité et cliquez sur [Créer]. Déposez le projet, le protocole et la convention, puis cliquez sur [Enregistrer]."
     }
    ]
   }

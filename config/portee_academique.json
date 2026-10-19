@@ -1325,6 +1325,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_015_situation_erreur_etablissement_non_trouve_sans_adresse.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ERREUR « ÉTABLISSEMENT NON TROUVÉ » / SANS ADRESSE]",
+     "lignes": [
+      "- Que faire : écrire au support (à Aix-Marseille : ipackeps@ac-aix-marseille.fr) en indiquant l'identifiant de connexion et le code UAI (RNE) de l'établissement concerné, si vous y avez bien des heures d'EPS."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_019_situation_annulation_modification_d_intitule_de_groupe.txt": {
    "academie": "aix-marseille",
    "sections": [

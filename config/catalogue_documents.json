@@ -4308,7 +4308,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "(?:sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?|nature|appn|plein air|a la (?:journee|piscine|neige|mer|montagne)|avec (?:les|mes|des|ma|mon) (?:eleves|classes?))|voyages?|sortie.{0,40}(?:autoris|parents|nuitee|encadr|accompagn|elever?s? (?:dehors|hors))|(?:organis|emmener|amener|partir).{0,30}(?:eleves|classe).{0,30}(?:dehors|hors de l|en sortie|a l.exterieur))|aesh.*encadr|encadr.*aesh"
+      "(?:sorties? (?:scolaires?|pedagogiques?|eps|de classe|facultatives?|obligatoires?|nature|appn|plein air|a la (?:journee|piscine|neige|mer|montagne)|avec (?:les|mes|des|ma|mon) (?:eleves|classes?))|voyages?|sortie.{0,40}(?:autoris|parents|nuitee|encadr|accompagn|elever?s? (?:dehors|hors))|(?:organis|emmener|amener|partir).{0,30}(?:eleves|classe).{0,30}(?:dehors|hors de l|en sortie|a l.exterieur))|aesh.*encadr|encadr.*aesh",
+      "\\baesh\\b.{0,80}(?:sortie|accompagn|encadr)|(?:sortie|accompagn|encadr).{0,80}\\baesh\\b|service civique"
     ],
     "url": "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
     "date_verification": "2026-10-11",
@@ -5667,7 +5668,8 @@
     ],
     "url": "https://eps-pedagogie.web.ac-grenoble.fr/sites/default/files/media-fichiers/2024-10/5_memo-fdr_gerer_eps-ccf_v3.0.pdf",
     "motifs": [
-      "harmonisation en masse|cloture (?:de l.epreuve|academique|des notes|de la saisie)|notes?.{0,20}remont|remont\\w*.{0,20}notes?|notes?.{0,40}(?:a|ont|a-t-elle|ont-elles) (?:change|ete (?:modifi|baiss|augment|majore|minore))|(?:change|majore|minore|baisse|modifie)\\w*.{0,30}(?:par|apres) (?:la )?(?:commission|cahpn|harmonisation)"
+      "harmonisation en masse|cloture (?:de l.epreuve|academique|des notes|de la saisie)|notes?.{0,20}remont|remont\\w*.{0,20}notes?|notes?.{0,40}(?:a|ont|a-t-elle|ont-elles) (?:change|ete (?:modifi|baiss|augment|majore|minore))|(?:change|majore|minore|baisse|modifie)\\w*.{0,30}(?:par|apres) (?:la )?(?:commission|cahpn|harmonisation)",
+      "(?:releve|note finale|note (?:obtenue|definitive|du bac)).{0,80}(?:pas celle|differ|modifi|change|baiss|augment)|(?:pas celle|differente?).{0,40}(?:saisi|mise|mis)"
     ]
   },
   "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {

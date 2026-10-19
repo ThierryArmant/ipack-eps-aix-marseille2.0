@@ -1501,3 +1501,16 @@ Notation Gemini (consigne « réponse attendue puis comparaison ») : 41 / 7 / 2
 - Appréciation dans Santorin (fiche 03) : ligne « Réponse directe » ajoutée — pas pour chaque élève, mais à renseigner pour 0, AB, DI + DI + Note (sens inchangé, déjà dans la fiche).
 - **Reste pour GPT** : vidéo / RGPD (bonne fiche `ipack_301` sélectionnée mais sortie « Aucune consigne applicable » avec 0 appel IA : court-circuit du programme) ; bloquées n° 28 (certificat sur papier libre) et n° 47 (compte rendu de commission d'établissement) à voir sur trace.
 3 tests de sélection ajoutés ; suite complète réussie.
+
+### 19 octobre 2026 18 h 20 — Claude : série de 70 questions (académies Lille, Nantes, Poitiers ; Gemini), version 0c60796
+30 questions gardées hors de vue pour la mesure finale. Questions et réponses privées, non recopiées. Lecture non aveugle par Claude : ~47 correctes (67 %), ~20 partielles (29 %), 3 fausses (4 %). **7 réponses bloquées (10 %)**, surtout Textes (accident, transport) et Examens (DI + DI + note encore).
+Portée académique : bonne tenue — les consignes d'Aix citées pour Lille/Nantes/Poitiers portent la réserve « à vérifier auprès du service des examens de l'académie de … ».
+Corrigé (sélection, sans IA) :
+- note du relevé différente de la note saisie → fiche harmonisation/clôture (recevait la fiche saisie AFL1 : réponse fausse) ;
+- AESH comptée dans l'encadrement d'une sortie → guide Éduscol des sorties (qui dit : AESH non comptabilisée) ; la réponse affirmait le contraire.
+**Pour GPT (traces à demander à Thierry)** :
+- bloquées : candidat individuel devenu scolaire ; bac pro une seule activité évaluée ; neutraliser une absence sans certificat (autre académie) ; **DI + DI + note à Aix** (récurrent) ; élève poignet cassé en sortie ; plainte pénale et avocat ; transport d'élèves en voiture personnelle (fiche présente) ;
+- inaptitude totale annuelle, coefficient : la bonne fiche « Bac GT : inaptitude totale annuelle sans évaluation » est sélectionnée, 2 appels, puis « Aucune consigne applicable » (rejet total) ;
+- partielles de rédaction : sortie CO pendant les heures de cours (obligatoire → pas d'autorisation parentale, à dire) ; refus pour défaut d'assurance (le guide dit : attestation non exigible) ; enterrement le jour du CCF ; choix différé / deux notes « par l'enseignant ».
+- Sans fiche : élève qui change de groupe d'examen en cours d'année dans le même lycée (réponse fausse sur un changement d'établissement) ; durée de conservation des fiches d'évaluation CCF ; accord d'image pour l'épreuve filmée de la spécialité EPPCS.
+2 tests de sélection ajoutés ; suite complète réussie.

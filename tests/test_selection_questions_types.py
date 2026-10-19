@@ -94,6 +94,8 @@ CAS = [
     ("Où trouver la liste des nouveautés de la dernière version d'iPackEPS ?", GT, 'ipack', 'Nouveautés iPackEPS 2025-2026', []),
     ("Comment indiquer dans Santorin qu'un élève a passé une épreuve de rattrapage ?", GT, 'examens', 'Santorin : Saisie des notes', ['iPackEPS lycée : Dossier Certificatif']),
     ("où saisir les dates de rattrapage du protocole ?", GT, 'ipack', 'iPackEPS lycée : Dossier Certificatif', []),
+    ("La note d'EPS de mon élève sur son relevé n'est pas celle que j'ai saisie. Pourquoi ?", GT, 'examens', 'Après la saisie : harmonisation', []),
+    ("L'AESH de la classe peut-elle compter comme accompagnatrice de la sortie ?", GT, 'textes', 'Sorties et voyages scolaires : guide Éduscol', []),
     ("Je ne peux plus saisir mes notes.", GT, 'ipack', 'iPackEPS : notes, moyennes', []),
     ("Combien de temps iPackEPS conserve-t-il les données de mes élèves, et à qui poser la question ?", GT, 'ipack', 'Passage d’année : conservation des données', []),
 ]

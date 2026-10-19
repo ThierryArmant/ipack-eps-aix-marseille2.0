@@ -48,3 +48,11 @@ class GuideSuggestionTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class GuideMessageTests(unittest.TestCase):
+    def test_message_adapte_quand_le_parcours_est_affiche(self):
+        from guide_request import MESSAGE_PARCOURS
+        self.assertNotIn('choisissez simplement une rubrique', MESSAGE_PARCOURS)
+        src = (ROOT / 'app.py').read_text(encoding='utf-8')
+        self.assertIn('GUIDE_MESSAGE = GUIDE_MESSAGE_PARCOURS', src)

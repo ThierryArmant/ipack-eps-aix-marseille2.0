@@ -4,6 +4,8 @@ from difflib import SequenceMatcher
 import unicodedata
 
 MESSAGE = 'Pas d’inquiétude, nous allons avancer étape par étape. Ouvrez le guide ci-dessous et choisissez simplement une rubrique.'
+# Quand la question mène à un parcours précis, le guide l'affiche déjà : plus de rubrique à choisir.
+MESSAGE_PARCOURS = 'Pas d’inquiétude, nous allons avancer étape par étape. Le guide ci-dessous affiche le parcours qui correspond à votre question : suivez les étapes dans l’ordre.'
 PUBLICS = ('Collège', 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP', 'Lycée voie générale', 'Lycée voie professionnelle')
 
 def requests_guide(question, mode, public):

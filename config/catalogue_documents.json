@@ -653,9 +653,17 @@
     "examens": []
   },
   "data/ipack/nouveautes_ipackeps_2025_2026.txt": {
-    "title": "nouveautes ipackeps 2025 2026",
+    "title": "Nouveautés iPackEPS 2025-2026 (document de l'éditeur, version 2025.3.x)",
     "statut": "synthese_non_revalidee",
-    "examens": []
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 290,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "nouveaut|nouvelles? fonctionnalit|(?:derniere|nouvelle) version|changelog|notes? de version|quoi de neuf|ce qui (?:a )?change.{0,30}ipack"
+    ]
   },
   "data/ipack/transcriptions_videos_tutoriels.txt": {
     "title": "transcriptions videos tutoriels",
@@ -7321,7 +7329,8 @@
       "\\bfca\\b|fiches? certificatives? d.activite"
     ],
     "exclure_motifs": [
-      "\\bdnb\\b|brevet|college|absen|inapt|bless|fraude"
+      "\\bdnb\\b|brevet|college|absen|inapt|bless|fraude",
+      "^(?!.*ipack).*santorin"
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
@@ -7513,7 +7522,8 @@
     "priorite": 270,
     "motifs": [
       "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)",
-      "note globale|(?:sur 20|/20).{0,60}\\bafl|\\bafl\\w*.{0,60}(?:sur 20|/20)|notes? par afl"
+      "note globale|(?:sur 20|/20).{0,60}\\bafl|\\bafl\\w*.{0,60}(?:sur 20|/20)|notes? par afl",
+      "(?:rattrapage|differe).{0,80}santorin|santorin.{0,80}(?:rattrapage|differe)"
     ],
     "exclure_motifs": []
   },
@@ -7570,7 +7580,8 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "verrouill"
+      "verrouill",
+      "(?:rattrapage|differe).{0,80}santorin|santorin.{0,80}(?:rattrapage|differe)"
     ],
     "exclure_motifs": []
   },
@@ -7646,7 +7657,8 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "substitution|difference.{0,40}(?:rattrapage|substitution|differee)"
+      "substitution|difference.{0,40}(?:rattrapage|substitution|differee)",
+      "(?:rattrapage|differe|substitution).{0,80}santorin|santorin.{0,80}(?:rattrapage|differe|substitution)"
     ],
     "exclure_motifs": []
   },

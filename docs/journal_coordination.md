@@ -1493,3 +1493,11 @@ Défauts à traiter (contrôle de sélection sans IA) :
 - Appréciation obligatoire dans Santorin : bonne fiche, réponse incomplète (« pas obligatoire ») alors que la fiche dit qu'elle se remplit pour 0, AB et DI + DI + Note — rédaction.
 - Bloquées : certificat d'inaptitude sur papier libre déposé dans iPackEPS ; dépôt du compte rendu d'une commission d'établissement (collège) — à voir sur trace.
 - Partielles notables : historique d'un projet après changement de serveur (limite seule) ; élèves absents après la rentrée (mélange avec placement dans les groupes) ; protocole SHN (création « dans Cyclades » douteuse) ; protocole refusé par la commission (répond sur l'ajout d'un protocole standard) ; règles d'un club d'escalade moins strictes que le protocole académique (ne tranche pas).
+
+### 19 octobre 2026 17 h 55 — Claude : corrections après la série de 50 (gel levé)
+Notation Gemini (consigne « réponse attendue puis comparaison ») : 41 / 7 / 2 ; jugée trop indulgente (n° 41 compté faux à tort : le collège n'a pas de Dossier Certificatif, relevé à l'écran ; n° 32 et 38 surévalués). Estimation retenue : ~72-75 % correctes, ~4 % fausses.
+- Nouveautés de la dernière version : `nouveautes_ipackeps_2025_2026.txt` reçoit une entrée de catalogue (prioritaire, onglet iPackEPS, motif nouveautés / nouvelles fonctionnalités / dernière version).
+- Rattrapage **dans Santorin** : la fiche iPackEPS Dossier Certificatif est écartée quand la question cite Santorin sans iPackEPS ; Santorin 02 (saisie), 05 (verrouiller après les différés) et 09 (vocabulaire rattrapage/différée) reçoivent un motif rattrapage + Santorin. La question iPackEPS « dates de rattrapage du protocole » garde la fiche Dossier Certificatif.
+- Appréciation dans Santorin (fiche 03) : ligne « Réponse directe » ajoutée — pas pour chaque élève, mais à renseigner pour 0, AB, DI + DI + Note (sens inchangé, déjà dans la fiche).
+- **Reste pour GPT** : vidéo / RGPD (bonne fiche `ipack_301` sélectionnée mais sortie « Aucune consigne applicable » avec 0 appel IA : court-circuit du programme) ; bloquées n° 28 (certificat sur papier libre) et n° 47 (compte rendu de commission d'établissement) à voir sur trace.
+3 tests de sélection ajoutés ; suite complète réussie.

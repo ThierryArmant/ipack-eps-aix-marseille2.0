@@ -1,6 +1,7 @@
 ### Santorin / Cyclades : Quand remplir le champ « appréciations » dans santorin ?
 - Mots-clés : appréciation, commentaire, justification, note zéro, AB, absent, DI + DI + note, cas particulier, commission.
 - Formulations courantes des collègues : dois-je mettre une appréciation pour chaque élève ; que mettre dans le champ appréciation ; faut-il justifier un zéro.
+- Réponse directe — l'appréciation est-elle obligatoire ? Pas pour chaque élève : le champ ne se remplit que pour les cas particuliers, mais dans ces cas (note de 0, absence AB, DI + DI + Note) il faut la renseigner, car c'est elle qui justifie la situation devant la commission.
 - Le champ « Appréciations », visible sur la fiche de l'élève, se remplit uniquement pour les cas particuliers : il sert à justifier une note de 0, une absence (AB), ou le cas « deux dispenses + une note » (DI + DI + Note). (Sources : guide Normandie 2025, support Besançon 2025.) Les sources citées concernent d’autres académies : vérifier le circuit applicable à Aix ; ne pas en déduire une dispense automatique ni une exemption de justificatif.
 - La commission académique lit cette appréciation pour valider ou non la situation.
 Nature de la source : fonctionnement des applications nationales Santorin et Cyclades (manipulations identiques dans toutes les académies) ; dates et contacts propres à chaque académie.

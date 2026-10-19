@@ -91,6 +91,9 @@ CAS = [
     ("cité scolaire : je dois remplir deux dossiers EPS ?", GT, 'ipack', 'Cité scolaire (collège + lycée)', []),
     ("En cité scolaire j'ai des heures au collège et au lycée, ai-je droit à une heure de réduction ?", GT, 'textes', 'Cité scolaire (collège + lycée)', []),
     ("Dans notre cité scolaire, qui organise le DNB et le bac EPS ?", COL, 'examens', 'Cité scolaire (collège + lycée)', []),
+    ("Où trouver la liste des nouveautés de la dernière version d'iPackEPS ?", GT, 'ipack', 'Nouveautés iPackEPS 2025-2026', []),
+    ("Comment indiquer dans Santorin qu'un élève a passé une épreuve de rattrapage ?", GT, 'examens', 'Santorin : Saisie des notes', ['iPackEPS lycée : Dossier Certificatif']),
+    ("où saisir les dates de rattrapage du protocole ?", GT, 'ipack', 'iPackEPS lycée : Dossier Certificatif', []),
     ("Je ne peux plus saisir mes notes.", GT, 'ipack', 'iPackEPS : notes, moyennes', []),
     ("Combien de temps iPackEPS conserve-t-il les données de mes élèves, et à qui poser la question ?", GT, 'ipack', 'Passage d’année : conservation des données', []),
 ]

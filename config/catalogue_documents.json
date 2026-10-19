@@ -2361,8 +2361,24 @@
   "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt": {
     "title": "[SITUATION: INTERDICTION D'IMPROVISER UN CONTRÔLE ADAPTÉ (FCA) À LA VOLÉE]",
     "statut": "synthese_non_revalidee",
-    "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "motifs": [
+      "(?=.*(?:protocoles? adaptes?|controle adapte|handicap|blesse))(?=.*(?:creer|faire|declarer|commencer|saisir|adapter|cours d.annee|ipack))"
+    ],
+    "exclure_motifs": [
+      "\\bdnb\\b|college|santorin|\\blot\\b|note finale|moyenne"
+    ]
   },
   "data/ipack/fiches/ipack_213_situation_corruption_des_accents_et_des_classes_csv_piege_d_excel.txt": {
     "title": "[SITUATION: CORRUPTION DES ACCENTS ET DES CLASSES CSV (PIÈGE D'EXCEL)]",
@@ -6986,11 +7002,12 @@
       "ipack"
     ],
     "motifs": [
-      "premiere (?:fois|connexion)|nouvel(?:le)? (?:arrivant|collegue|prof)|par ou commencer|par quoi commencer|dans quel ordre|ordre (?:a suivre|des etapes)|(?:dossiers? et projets|dossier eps|dossiers?).{0,60}(?:inaccessible|grise|bloque|pas acces|n.arrive pas|impossible|ne s.ouvre|ne (?:peut|peux|peuvent) pas)|(?:inaccessible|grise|bloque|pas acces|impossible|ne (?:peut|peux|peuvent) pas \\w+).{0,60}(?:dossiers? et projets|dossier eps)",
+      "premiere (?:fois|connexion)|nouvel(?:le)? (?:arrivant|collegue|prof)|(?:par (?:ou|quoi) commencer|dans quel ordre|ordre (?:a suivre|des etapes)).{0,80}(?:ipack|application|logiciel|dossiers?|remplir|saisi\\w*|rentree)|(?:ipack|application|logiciel).{0,80}(?:par (?:ou|quoi) commencer|dans quel ordre)|(?:dossiers? et projets|dossier eps|dossiers?).{0,60}(?:inaccessible|grise|bloque|pas acces|n.arrive pas|impossible|ne s.ouvre|ne (?:peut|peux|peuvent) pas)|(?:inaccessible|grise|bloque|pas acces|impossible|ne (?:peut|peux|peuvent) pas \\w+).{0,60}(?:dossiers? et projets|dossier eps)",
       "(?:vois|voit|trouve|apparai\\w*|affiche\\w*).{0,25}(?:pas|plus|aucune?).{0,25}(?:mes |les |nos )?classes|(?:mes |les |nos )?classes.{0,30}(?:n.apparai\\w*|ne s.affich\\w*|vides?|absentes?|introuvables?)|(?:pas|aucun) acces a rien|acces a rien"
     ],
     "exclure_motifs": [
-      "santorin|cyclades|imag.in|verrouill"
+      "santorin|cyclades|imag.in|verrouill",
+      "protocole adapte|handicap|inapt|amenag|\\bpap\\b|\\bpps\\b|\\bpai\\b"
     ],
     "tutoriels": [
       {
@@ -7027,12 +7044,13 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:\\btzr\\b|remplacant|remplace un|remplace une|remplace mon|remplace ma|collegue (?:n.apparai|manque|absent de l.equipe)))(?=.*(?:ipack|equipe|membre|actif|declar|saisi|apparai|indiquer|renseign))",
+      "(?=.*(?:\\btzr\\b|remplacant|remplace un|remplace une|remplace mon|remplace ma|collegue (?:n.apparai|manque|absent de l.equipe)))(?=.*(?:equipe|membre|actif|declar|saisi|apparai|indiquer|renseign))",
       "(?:ajouter|rajouter|inscrire|faire figurer|n.apparai\\w* pas|apparaissent pas|manque).{0,60}(?:contractuel|collegues?|professeurs?|enseignants?|prof)\\b|intervenant exterieur|statut intervenant"
     ],
     "exclure_motifs": [
       "\\bnote\\b(?! de service)|ccf|epreuve|santorin|cyclades|lot|apsa|activite|protocole",
-      "\\bnote\\b(?! de service)|ccf|epreuve|santorin|cyclades|\\blot|apsa|activite|protocole|jury"
+      "\\bnote\\b(?! de service)|ccf|epreuve|santorin|cyclades|\\blot|apsa|activite|protocole|jury",
+      "(?:deux|2|plusieurs) (?:lycees?|colleges?|etablissements?)|de l.un a l.autre|bascul|changer d.etablissement|selecteur|college et (?:un )?lycee|lycee et (?:un )?college"
     ]
   },
   "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt": {

@@ -70,11 +70,40 @@ def lexical_support(text, supports):
     return lexical_support_details(text, supports)['passed']
 
 
-def mark_excerpt(text, *, path='', title='', priority=0, origin='document', url=''):
+def mark_excerpt(text, *, path='', title='', priority=0, origin='document', url='', selection='', scopes=None):
     """Identité du passage conservée même après concaténation du contexte."""
     identity = json.dumps({'path': str(path or ''), 'title': str(title or ''), 'priority': priority,
-                           'origin': origin, 'url': str(url or '')}, ensure_ascii=False)
+                           'origin': origin, 'url': str(url or ''), 'selection': selection,
+                           'scopes': list(scopes or [])}, ensure_ascii=False)
     return f'[EXTRAIT_IDENTIFIE: {identity}]\n{text}'
+
+
+def selection_subject(question):
+    """Les instructions finales sur les sources ne désignent pas le sujet métier."""
+    parts = re.split(r'(?<=[.!?;])\s+', question)
+    kept = []
+    for part in parts:
+        norm = unicodedata.normalize('NFKD', part.lower())
+        norm = ''.join(c for c in norm if not unicodedata.combining(c))
+        editorial = (re.match(r'(?:distingue|indique|cite|mentionne|precise|donne|si un element manque)', norm)
+                     and re.search(r'sources?|documentaire|texte national|consigne academique|fonctionnement du logiciel|element manque', norm))
+        if not editorial:
+            kept.append(part)
+    return ' '.join(kept) or question
+
+
+def selection_roots(text):
+    """Recoupement de sujet, sans la table de synonymes des contrôles de preuves.
+
+    Cette table relie notamment enseignant et professeur ; elle ne doit pas
+    transformer un préfixe de « professionnel » en indice de sujet commun.
+    """
+    norm = unicodedata.normalize('NFKD', text.lower())
+    norm = ''.join(c for c in norm if not unicodedata.combining(c))
+    stop = _MOTS_VIDES | {'eps', 'bac', 'cap', 'pro', 'gt', 'ipack', 'ipackeps',
+                         'question', 'reponse', 'distingue', 'distinction', 'texte', 'national',
+                         'professeur', 'enseignant', 'enseigne', 'lycee', 'college', 'annee', 'actuel', 'courant'}
+    return {w[:6] for w in re.findall(r'[a-z]{3,}', norm) if w not in stop}
 
 
 def _literal(text):
@@ -216,6 +245,7 @@ def source_packets(context):
             display_level = 'programme'
         packets.append({'id': document_id, 'path': identity.get('path', ''),
                         'title': title, 'priority': identity.get('priority', 0),
+                        'selection': identity.get('selection', ''), 'scopes': identity.get('scopes', []),
                         'origin': identity.get('origin', 'document'), 'url': identity.get('url', ''),
                         'nature_declaree': nature_text, 'niveaux_autorises': allowed,
                         'display_level': display_level,
@@ -590,6 +620,17 @@ def situation_mismatch(question, text):
             and re.search(r'remplac|fusionn|selectionn|declar.{0,50}certificative', t)):
         return True
     # Les dossiers de campagne SSS ne sont pas la configuration des groupes de rentrée.
+    def note_count(value):
+        counts = set()
+        for count, pattern in ((1, r"une (?:seule )?note|note unique|1 note"),
+                               (2, r"deux notes|2 notes"), (3, r"trois notes|3 notes")):
+            if re.search(pattern, value):
+                counts.add(count)
+        return counts
+    requested_notes = note_count(q)
+    procedure_notes = note_count(t)
+    if len(requested_notes) == 1 and len(procedure_notes) == 1 and requested_notes != procedure_notes:
+        return True
     sss_admin = (re.search(r'\bsss\b|section sportive', q)
                  and re.search(r'voeux|vœux|reconduc|renouv|fermet|ouverture', q))
     if (sss_admin and not re.search(r'groupe|placer.{0,20}eleve|repart.{0,20}eleve', q)
@@ -862,10 +903,17 @@ def dnb_document_mismatch(question, public, packet):
     if re.search(r'dossier certificatif|protocoles?.{0,30}(?:epreuves? certificatives?|examens?)', exam_route):
         return True
     scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', body)
+    declared = set(packet.get('scopes') or [])
+    if declared and 'dnb' not in declared and declared <= {'gt', 'pro', 'cap', 'primaire'}:
+        return True
     if scopes and not any('dnb' in scope.split(',') for scope in scopes):
         return True
-    return bool(re.search(r'santorin|cyclades', normalise(path + ' ' + title))
-                and re.search(r'\bccf\b|\baflp?\b|\bbac\b|\bcap\b|di \+ di', normalise(body)))
+    body_norm = normalise(body)
+    software = re.search(r'santorin|cyclades', normalise(path + ' ' + title) + ' ' + body_norm)
+    lycee_assessment = re.search(r'\bccf\b|\baflp?\b|\bbac\b|\bcap\b|di \+ di', body_norm)
+    # Un document qui explique explicitement le circuit DNB/LSU reste disponible.
+    dnb_explanation = re.search(r'\bdnb\b|\bbrevet\b|\blsu\b|college', body_norm)
+    return bool(software and lycee_assessment and not dnb_explanation)
 
 
 def lycee_dnb_mismatch(question, public, packet):
@@ -960,6 +1008,12 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
     packets = [p for p in packets if not situation_mismatch(question, p['title'])]
     focused = [p for p in packets if p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300]
+    if not focused:
+        # Une sélection explicite du catalogue reste ciblée sous le seuil historique 300.
+        # Un résultat sémantique ne bénéficie pas de cette confiance supplémentaire.
+        focused = [p for p in packets if p['origin'] == 'document'
+                   and p.get('selection') == 'catalogue'
+                   and isinstance(p['priority'], (int, float)) and p['priority'] >= 200]
     audit['focused_document_ids'] = [p['id'] for p in focused]
     audit['document_selection_before_focus'] = [p['id'] for p in packets]
     if focused:
@@ -970,14 +1024,17 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
         audit['excluded_generic_program_documents'] = [p['id'] for p in generic]
         # Une fiche moins prioritaire peut documenter une sous-question précise.
         # Ne jamais réintroduire une fiche sur un seul mot générique (« note », « CAP »).
-        # Deux racines communes au TITRE (et non au corps) sont exigées ; budget borné.
-        question_roots = _racines(question)
+        # Hors sélection explicite du catalogue, deux racines communes au titre sont exigées.
+        question_roots = selection_roots(selection_subject(question))
         complements = []
         complement_chars = 0
         for candidate in packets:
             if candidate['origin'] != 'document' or candidate in focused:
                 continue
-            if len(question_roots & _racines(candidate['title'])) < 2:
+            targeted_catalogue = (candidate.get('selection') == 'catalogue'
+                                  and isinstance(candidate.get('priority'), (int, float))
+                                  and candidate['priority'] >= 200)
+            if not targeted_catalogue and len(question_roots & selection_roots(candidate['title'])) < 2:
                 continue
             if situation_mismatch(question, candidate['text']):
                 continue

@@ -80,3 +80,20 @@ Les questions types vérifient surtout la présence d'un titre attendu et quelqu
 6. Mesurer ensuite la longueur des instructions et des passages ; alléger avec preuves de non-régression, puis quelques reprises réelles seulement.
 
 Aucune correction fonctionnelle appliquée par ce diagnostic. Aucun gain de fiabilité ou de tokens annoncé.
+
+
+## Suite : corrections de sélection du 19 octobre
+
+Le diagnostic ci-dessus décrit la version antérieure. Les corrections suivantes sont appliquées ensuite :
+
+- La provenance de sélection (`catalogue`) et les diplômes sont conservés dans l'identité du passage. Une fiche explicitement ciblée à partir de la priorité 200 peut focaliser le contexte en l'absence de priorité 300 ; avec une priorité 300, elle reste admissible comme complément sous les budgets existants. La fiche multi-établissements reste à 280. Un résultat vectoriel ne peut pas revendiquer cette provenance par sa seule priorité.
+- Le filtre de complémentarité distingue le sujet des demandes finales de présentation des sources. Son recoupement lexical n'utilise plus les synonymes destinés à vérifier les preuves.
+- Le titre réel du fragment est conservé après découpage et après recherche par mots. Les portées déclarées des résultats vectoriels arrivent jusqu'au filtre DNB ; le corps est également contrôlé pour les procédures lycée, en préservant les explications explicites du circuit DNB/LSU.
+- Une procédure portant explicitement sur un nombre unique de notes incompatible avec celui demandé est écartée. Un passage présentant plusieurs possibilités reste admissible.
+- Trois entrées du catalogue sont corrigées avec l'accord de la partie fiches : démarrage conditionné au contexte logiciel et exclusions adaptées ; équipe EPS distinguée du changement d'établissement ; déclenchement explicite de la fiche 212 sur l'adaptation, sans déclenchement par la seule inaptitude. Le statut documentaire de cette fiche est conservé.
+
+Les nouveaux tests contrôlent aussi la sélection finale avant génération, et pas uniquement les titres du catalogue. Ils utilisent des sondes publiques distinctes du corpus privé, un modèle simulé et des retrievers contrôlés.
+
+### Points encore ouverts
+
+Le parcours sans fiche prioritaire conserve encore des voisins lexicaux non pertinents dans certains cas. Le parcours DNB peut encore présenter des documents mixtes ou des tutoriels insuffisamment qualifiés : le filtrage renforcé ne constitue pas un inventaire complet de leurs portées. Le volume fixe des consignes, les doublons de fragments et le budget global du contexte restent à examiner. Aucun gain de qualité ni de coût en production n'est déduit de ces tests locaux. Le rejeu comparatif des réponses reste nécessaire après publication et identification de la version déployée.

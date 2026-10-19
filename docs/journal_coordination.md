@@ -25,6 +25,14 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 09:00 — partie programme — sélection finale et déclencheurs iPackEPS
+Fait : conservation de la provenance catalogue, des portées et du titre réel des passages ; focalisation des sélections explicites sous 300 et conservation bornée des compléments ciblés ; séparation des consignes de présentation et du sujet ; filtre DNB renforcé et exclusion des situations portant sur un nombre incompatible de notes. Trois corrections de déclencheurs intégrées avec l'accord de la partie fiches ; la fiche multi-établissements reste à 280.
+Validation : 584 tests locaux réussis, dont 12 nouveaux contrôles de sélection finale ; modèle simulé, aucun appel payant. Le diagnostic est complété par les corrections et leurs limites. Aucun gain de qualité ou de coût en production n'est encore mesuré.
+Constaté : des voisins lexicaux restent possibles sans fiche prioritaire ; les documents mixtes, doublons et volumes fixes de consignes restent à examiner.
+Attendu de l'autre partie : la reprise du contenu et des procédures des fiches ciblées dans data/ipack peut continuer ; laisser le catalogue et le code à la partie programme pendant cette reprise. Noter les modifications de fiches au journal. Rejeu comparatif à réaliser sur la version déployée.
+
+
+
 ### 2026-10-19 — partie programme — diagnostic des fondations et relais de qualification métier
 
 Analyse demandée par l'utilisateur, version 0a57234, sans modification fonctionnelle ni appel IA payant. Rapport : docs/diagnostic_selection_python_2026_10_19.md. Six cas retracés avec chargeur, catalogue, recherche par mots et filtres réels ; retrievers vectoriels distants simulés vides. Une expérience contrôlée d'admission utilise la source CAP hors sujet effectivement citée en ligne. Les limites de reproduction sont explicites ; aucune question ni réponse privée publiée.

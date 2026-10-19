@@ -971,6 +971,8 @@ def charger_dossier_txt_securise(chemin_dossier, par_fiche=False):
             if obsolete_reference(morceau):
                 continue  # anciennes références : conservées mais non utilisées pour la session courante
             md_morceau = dict(metadata)
+            fragment_title = next((line.lstrip('# ').strip() for line in morceau.splitlines() if line.strip()), '')
+            md_morceau['title'] = fragment_title or metadata.get('title', '')
             md_morceau['examens'] = metadata.get('examens') or section_scopes(morceau.splitlines()[0])
             portee = ','.join(md_morceau['examens'])
             entete = ('[PORTEE: ' + portee + ']\n') if portee else ''
@@ -1885,7 +1887,9 @@ if prompt_a_traiter:
                         _vus.add(_cle)
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
-                        _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '')
+                        _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '',
+                            title=next((line.lstrip('# ').strip() for line in _txt.splitlines()
+                                        if line.strip() and not line.startswith(('[DOCUMENT:', '[PORTEE:'))), ''))
                                          if mode in ("examens", "ipack", "textes") else _bloc)
                         _provenance = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         if _provenance:
@@ -1921,7 +1925,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
-                            title=n.node.metadata.get('title', '')) if mode in ("examens", "ipack", "textes") else _bloc)
+                            title=n.node.metadata.get('title', ''), scopes=n.node.metadata.get('examens', [])) if mode in ("examens", "ipack", "textes") else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
                         if avec_diag:
@@ -1942,7 +1946,7 @@ if prompt_a_traiter:
                             continue
                         _vus.add(_cle)
                         _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
-                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt))
+                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt), selection='catalogue', scopes=_md.get('examens', []))
                                          if mode in ("examens", "ipack", "textes") else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)

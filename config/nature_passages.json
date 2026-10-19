@@ -201,7 +201,16 @@
         "texte_national",
         "consigne_academique"
       ],
-      "passages": []
+      "passages": [
+        {
+          "texte": "Certificat médical : il se déclare et se dépose dans iPackEPS, menu [Mes Élèves] > [Visualisation], onglet [Inaptitudes] ; il sera contrôlé par la commission académique.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "Aix-Marseille",
+          "reference": "Circuit académique Aix-Marseille : déclaration et dépôt des certificats dans iPackEPS"
+        }
+      ]
     },
     "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt": {
       "nature_non_attribuee": [

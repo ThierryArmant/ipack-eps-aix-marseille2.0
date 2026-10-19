@@ -3614,7 +3614,8 @@
       "export.*vers pronote",
       "export.*(?:des |mes )?notes",
       "suivre.*resultats.*(?:annees|6e|troisieme|3e)"
-    ]
+    ],
+    "priorite": 200
   },
   "data/commun/audit60/ipack_rentree.txt": {
     "title": "iPackEPS : rentrée, classes, élèves et collègue",
@@ -3997,7 +3998,8 @@
     ],
     "exclure_motifs": [
       "option|eppcs",
-      "\\bshn\\b|haut niveau|espoirs?|pole (?:france|espoir)|collectifs? nationaux|liste ministerielle"
+      "\\bshn\\b|haut niveau|espoirs?|pole (?:france|espoir)|collectifs? nationaux|liste ministerielle",
+      "^(?!.*ponctuel).*(?:\\bccf\\b|controle en cours de formation)"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
@@ -5519,7 +5521,8 @@
     "prioritaire": true,
     "priorite": 330,
     "motifs": [
-      "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))"
+      "(?=.*(?:rattrap|evaluation differee|epreuve differee))(?=.*(?:apres chaque|fin d.annee|positionnement))(?=.*(?:doit|date|quand|juste))",
+      "(?=.*(?:\\bccf\\b|controle en cours de formation))(?=.*(?:rattrap|differe))(?=.*(?:organis|absen|justifi))"
     ],
     "url": "https://eduscol.education.gouv.fr/media/111129/download",
     "date_verification": "2026-10-12",

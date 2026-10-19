@@ -683,6 +683,11 @@ def situation_mismatch(question, text):
             and not re.search(r'santorin|cyclades|imag.in|\blots?\b|\bccf\b', q)
             and re.search(r'santorin', t) and re.search(r'acces|mission|convoc', t)):
         return True
+    # Une procédure explicitement CCF ne relève pas de l'absence au ponctuel.
+    if (re.search(r'\bccf\b|controle en cours de formation', q)
+            and not re.search(r'ponctuel', q)
+            and re.search(r'ponctuel', t) and not re.search(r'\bccf\b|controle en cours de formation', t)):
+        return True
     # Un cycle suivi en raison du statut SHN ne prouve aucune inaptitude médicale.
     if (re.search(r'\bshn\b|haut niveau', q)
             and not re.search(r'inapt|medical|bless|certificat|dispens|\bdi\b', q)
@@ -1024,7 +1029,11 @@ def dnb_document_mismatch(question, public, packet):
     dnb_explanation = re.search(r'\bdnb\b|\bbrevet\b|\blsu\b|college', body_norm)
     general_privacy = (re.search(r'video|photo|image|rgpd', exam_route)
                        and not re.search(r'eppcs|epccs|specialite|epreuve|certificati', exam_route))
-    return bool(software and lycee_assessment and not dnb_explanation and not general_privacy)
+    # Fiche de périmètre générale : citer Santorin pour le distinguer du carnet
+    # de notes ne la réserve pas au lycée. Les portées explicites ci-dessus priment.
+    general_perimeter = path == 'data/commun/audit60/ipack_perimetre.txt'
+    return bool(software and lycee_assessment and not dnb_explanation
+                and not general_privacy and not general_perimeter)
 
 
 def lycee_dnb_mismatch(question, public, packet):

@@ -2487,7 +2487,10 @@ if prompt_a_traiter:
                             _exams = ["gt"]
                     # Les repères de l'EPS obligatoire ne sont pas les textes
                     # de la spécialité EPPCS ni de l'enseignement optionnel.
-                    if mode != "textes" and _exams and not re.search(r'\beppcs\b|specialite eps|enseignement.*optionnel', _qs):
+                    if mode != "textes" and _exams and not re.search(r'\beppcs\b|specialite eps|enseignement.*optionnel', _qs) and not (
+                            mode == 'ipack' and re.search(r'export|transfer', _qs)
+                                     and re.search(r'pronote|ecoledirecte|ecole.directe', _qs)
+                                     and not re.search(r'\bdnb\b|brevet|cyclades|santorin|\bccf\b', _qs)):
                         _rub, _cur = {}, None
                         with open("config/faits_par_examen.txt", encoding="utf-8") as _f_faits:
                             for _l in _f_faits:

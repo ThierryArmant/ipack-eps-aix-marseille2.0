@@ -1380,3 +1380,16 @@ Lecture du relais jusqu'au commit 9d3e23d. Les corrections publiées de sélecti
 Aucune fiche modifiée et aucun appel au service IA. Les réponses ou questions privées ne sont pas recopiées.
 
 Validation : 631 tests réussis sur la reprise intégrant les publications de la partie affichage et fiches. Les quatre tests ajoutés couvrent l’identification du logiciel, les cas déjà précisés, les autres modes et la transmission du mode par l’application. Aucun essai génératif en ligne.
+
+
+### 19 octobre 2026 — Partie programme : traces SHN et bulletin retrouvées après rejeu ciblé
+
+Deux nouvelles traces privées sur 02acc94 : bulletin/synthèse rédigé en un appel sans rejet ; protocole SHN bloqué après deux appels. Le succès mécanique du bulletin ne valide pas une généralisation à tous les documents individuels, et son contexte reste volumineux. Aucune nouvelle fiche nécessaire pour expliquer le rejet SHN observé.
+
+Deux faux rejets reproduits :
+- Le contrôle de cohérence assimilait l'attribution d'un 20/20 à une spécialité à la possibilité d'en faire l'unique note ou la note finale. Ces objets et la saisie manuelle sont maintenant distingués ; deux autorisations contradictoires portant sur le même objet restent rejetées.
+- Le filtre de diplôme prenait une mention comparative du bac professionnel ou du CAP au milieu d'un rappel d'éligibilité pour une branche étrangère au sujet SHN. Il vise désormais une branche explicitement introduite par le diplôme ; les autres filtres de portée et de niveau restent actifs.
+
+Relecture locale des brouillons privés sans appel au service IA : la première rédaction SHN passe les contrôles en un appel simulé ; le brouillon bulletin reste accepté. Ce résultat ne mesure ni le coût ni le comportement d'une nouvelle génération en ligne. Aucune fiche, aucun catalogue ni écran modifié.
+
+Validation : 635 tests réussis, dont les contrôles de contradictions réelles et de branches étrangères conservés ; relecture locale des deux traces reçues, aucun nouvel appel IA payant.

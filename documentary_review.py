@@ -687,7 +687,8 @@ def situation_mismatch(question, text):
             and not re.search(r'ponctuel', q)
             and re.search(r'examen ponctuel', t) and not re.search(r'\bccf\b', t)):
         return True
-    if (re.search(r'\bshn\b|haut niveau', q) and re.search(r'bac ?pro|\bbcp\b|\bcap\b', t)
+    if (re.search(r'\bshn\b|haut niveau', q)
+            and re.match(r'(?:[-*]\s*)?(?:(?:au|en|pour le|pour un candidat au)\s+)?(?:bac ?pro|bcp|cap)\b', t)
             and not re.search(r'\bshn\b|haut niveau', t)):
         return True
     # L'absence prolongée du professeur ne documente pas l'absence d'un élève à une épreuve.
@@ -855,7 +856,17 @@ def coherence_errors(claims, question):
             if claim['section'] == 'decision' and re.match(r'^non\b', text) and pos and not re.search(conditional + r'|automati', norm(question)):
                 errors.append({'index': i, 'errors': ['décision négative suivie d’une autorisation sur le même objet']})
             if neg or pos:
-                states.setdefault(outcome, []).append((i, neg))
+                # Un résultat attribué, sa suffisance pour certifier et sa
+                # saisie manuelle ne sont pas la même permission.
+                subject = outcome
+                if outcome == outcomes[0]:
+                    if re.search(r'(?:seule|unique) note', text):
+                        subject += ':note_unique'
+                    elif re.search(r'note finale|moyenne finale', text):
+                        subject += ':resultat_final'
+                    elif re.search(r'(?:saisir|entrer|taper).{0,30}(?:a la main|manuellement)', text):
+                        subject += ':saisie_manuelle'
+                states.setdefault(subject, []).append((i, neg))
     for outcome, entries in states.items():
         if len({negative for _, negative in entries}) > 1:
             errors.append({'indices': [i for i, _ in entries], 'errors': ['autorisation et interdiction contradictoires sur le même objet']})

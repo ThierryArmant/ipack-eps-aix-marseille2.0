@@ -1353,7 +1353,7 @@ Plan et avancement :
 - [~] 3. Fiches individuelles : non modifié. La section se trouve dans un complément sans entrée de catalogue ; la recherche générale la retrouve déjà (réponse du matin correcte sur le fond). Défaut restant = phrase hors sujet DI+DI+note reprise (rédaction).
 - [x] 4. Conservation des données → `ipack_archivage_prudence.txt` (motif conservation/données/combien de temps ajouté).
 - [ ] 5. Saisie des notes impossible (onglet iPackEPS) : réponse cohérente.
-- [ ] 6. Blocages : contrôle de sélection des 13 bloquées du rejeu (fichier privé, hors dépôt).
+- [x] 6. Blocages — sélection actuelle des 13 bloquées du rejeu (contrôle sans appel IA) : R020/R053 conservation → fiche prudence archivage (corrigé point 4) ; R062/R070 inscription tardive → fiche Cyclades (point 1) ; R035 note globale ou AFLP en bac pro → ne recevait que « Sigles » : motif ajouté à Santorin 02 (« la saisie se fait par AFL/AFLP, pas une note globale ») ; R069 curseurs → plus de fiche de notes, aucune fiche (point 7) ; R088 fiches individuelles → aucune prioritaire (point 3) ; R104 → fiches de périmètre. **Bonne fiche déjà présente, blocage à voir sur trace (contrôle ou rédaction)** : R023 SHN, R024 DNB trois notes Santorin (collège), R047 bulletin/synthèse, R084 certificat médical (Créteil), R092 DI+DI+note Aix.
 - [ ] 7. Sujets sans fiche : liste à relever à l'écran avec Thierry (curseurs académiques…).
 
 Validation après points 1, 2, 4 : 7 cas ajoutés à `tests/test_selection_questions_types.py` ; suite complète réussie. Non vérifié sur le hub (aucun appel IA fait).

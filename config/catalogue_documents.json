@@ -7482,7 +7482,8 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)"
+      "virgule|\\b\\d+[,.]5\\b.{0,40}(?:refus|accept|prend|erreur)|(?:refuse|prend pas|n.accepte pas).{0,20}(?:ma |la |une )?note|notes?.{0,40}(?:disparu|effac|vide|perdu)|tout (?:est )?vide|reinitialis|enregistr\\w*.{0,40}(?:chaque|apres|seulement|quand)",
+      "note globale|(?:sur 20|/20).{0,60}\\bafl|\\bafl\\w*.{0,60}(?:sur 20|/20)|notes? par afl"
     ],
     "exclure_motifs": []
   },

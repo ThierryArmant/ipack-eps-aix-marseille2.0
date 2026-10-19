@@ -86,6 +86,7 @@ CAS = [
     ("Un élève arrive en retard le jour du CCF, peut-il passer l'épreuve ?", GT, 'examens', 'Questions sans consigne écrite trouvée', []),
     ("Les repères d'évaluation sous forme de curseurs académiques ne sont pas actualisés dans iPackEPS alors que la note de service est sortie",
      GT, 'ipack', None, ['iPackEPS : notes, moyennes', "[SITUATION: PÉRIMÈTRE"]),
+    ("Pour le CCF en bac pro, faut-il saisir une note globale sur 20 ou les notes par AFLP dans Santorin ?", PRO, 'examens', 'Santorin : Saisie des notes', []),
     ("Je ne peux plus saisir mes notes.", GT, 'ipack', 'iPackEPS : notes, moyennes', []),
     ("Combien de temps iPackEPS conserve-t-il les données de mes élèves, et à qui poser la question ?", GT, 'ipack', 'Passage d’année : conservation des données', []),
 ]

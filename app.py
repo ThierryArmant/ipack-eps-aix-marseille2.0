@@ -2913,9 +2913,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
             if m.get("diagnostic_ia") and st.session_state.get("is_admin", False):
                 with st.expander("Trace exacte des appels IA et vérification des affirmations"):
                     st.caption("Le programme contrôle l'existence des passages et fixe les étiquettes de source. L'interprétation et l'applicabilité de la rédaction ne sont pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
-                    st.json(m["diagnostic_ia"])
                     st.download_button("Télécharger la trace de cette réponse", json.dumps(m["diagnostic_ia"], ensure_ascii=False, indent=2),
-                                       file_name="trace_lecture_ia.json", mime="application/json", key="trace_ia_" + str(id(m)))
+                                       file_name="trace_lecture_ia.json", mime="application/json", key="trace_ia_" + str(id(m)), on_click="ignore")
+                    st.json(m["diagnostic_ia"])
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Les tutoriels associés restent affichés après la réponse.

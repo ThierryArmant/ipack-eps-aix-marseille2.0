@@ -179,14 +179,16 @@
      "parcours": "1. Déposer les référentiels (iPackEPS)",
      "prerequis": [
       "[Dossier EPS] > [APSA] (APSA certificatives)"
-     ]
+     ],
+     "cible": "l'étape 1"
     },
     {
      "libelle": "Étape 2 : saisir les protocoles",
      "parcours": "2. Saisir les protocoles (iPackEPS)",
      "prerequis": [
       "[Dossier EPS] > [Classes], [APSA] et [Périodes]"
-     ]
+     ],
+     "cible": "l'étape 2"
     }
    ]
   },
@@ -198,42 +200,48 @@
      "parcours": "3. Associer les candidats aux groupes (iPackEPS)",
      "prerequis": [
       "[Classes] (élèves importés)"
-     ]
+     ],
+     "cible": "l'étape 3"
     },
     {
      "libelle": "Étape 4 : fichier iPackEPS → Cyclades",
      "parcours": "4. Générer le fichier puis l'importer dans Cyclades",
      "prerequis": [
       "la validation des protocoles par la commission académique"
-     ]
+     ],
+     "cible": "l'étape 4"
     },
     {
      "libelle": "Étape 5 : Cyclades, protocoles et affectations",
      "parcours": "5. Cyclades : vérifier protocoles et affectations",
      "prerequis": [
       "l'import du fichier dans Cyclades"
-     ]
+     ],
+     "cible": "l'étape 5"
     },
     {
      "libelle": "Étape 6 : Santorin, distribuer les lots",
      "parcours": "6. Santorin : distribuer les lots de correction",
      "prerequis": [
       "la vérification dans Cyclades"
-     ]
+     ],
+     "cible": "l'étape 6"
     },
     {
      "libelle": "Étape 7 : Santorin, saisir notes et appréciations",
      "parcours": "7. Santorin : saisir les notes et les appréciations",
      "prerequis": [
       "la distribution des lots"
-     ]
+     ],
+     "cible": "l'étape 7"
     },
     {
      "libelle": "Étape 8 : Santorin, verrouiller son lot",
      "parcours": "8. Santorin : verrouiller son lot",
      "prerequis": [
       "la saisie de toutes les notes du lot"
-     ]
+     ],
+     "cible": "l'étape 8"
     }
    ]
   },
@@ -255,7 +263,8 @@
      "parcours": "11. Déposer le dossier établissement pour la CAHPN",
      "prerequis": [
       "les étapes 9 et 10"
-     ]
+     ],
+     "cible": "l'étape 11"
     },
     {
      "libelle": "Option EPS : où vont les notes",

@@ -102,7 +102,7 @@ class FichesVoisines(unittest.TestCase):
         texte = Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8')
         self.assertIn("service inscrit à l'emploi du temps de l'agent remplacé", texte)
         self.assertIn("chef de l'établissement de rattachement qui définit son service", texte)
-        self.assertIn("le hub ne contient pas le texte de l'ISSR", texte)
+        self.assertIn("Pas d'ISSR pour le remplacement continu", texte)
         obl = Path('data/textes/complement_obligations_service_eps.txt').read_text(encoding='utf-8')
         self.assertIn("réduit d'une heure", obl)
         self.assertNotIn("ne prévoient pas de pondération", obl)

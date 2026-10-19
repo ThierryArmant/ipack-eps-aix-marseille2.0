@@ -1714,6 +1714,17 @@
      ]
     }
    ]
+  },
+  "data/textes/fiches/tzr_decret_99_823_remplacement.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### TZR (remplacement dans le second degré) : zone, établissement de rattachement, emploi du temps, service et heures (décret n° 99-823, note de service n° 99-152)",
+     "lignes": [
+      "E3C : les épreuves communes de contrôle continu du baccalauréat ont été supprimées (annonce ministérielle de 2021) ; la note du bac repose désormais sur le contrôle continu des bulletins. Selon le correspondant académique iPackEPS d'Aix-Marseille, l'organisation des devoirs communs et examens blancs internes, et la convocation des élèves, relèvent de l'autonomie de chaque établissement (chef d'établissement, en concertation avec les équipes) ; aucun texte du hub ne fixe qui arrête l'emploi du temps d'un enseignant partagé ce jour-là : voir avec les deux chefs d'établissement."
+     ]
+    }
+   ]
   }
  },
  "regle": "Ligne marquée si elle nomme explicitement l'académie d'Aix-Marseille (Aix, Marseille, DIEC, BA académique numéroté, ESTEREL, adresse ac-aix), hors simple glose « DIEC à Aix-Marseille » entre parenthèses. Toute ligne d'une section dont le titre nomme Aix est marquée, sauf les lignes de cadre national. Les règles nationales et le fonctionnement des logiciels ne sont pas marqués. Généré par portee_registre.py."

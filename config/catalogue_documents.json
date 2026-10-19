@@ -782,7 +782,8 @@
     "priorite": 320,
     "modes": [
       "textes",
-      "examens"
+      "examens",
+      "ipack"
     ],
     "motifs": [
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service",
@@ -791,7 +792,8 @@
       "formateur academique|caffa"
     ],
     "exclure_motifs": [
-      "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole"
+      "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole",
+      "ipack|logiciel|(?:passer|changer|basculer|acceder|entrer).{0,40}etablissement|etablissement.{0,40}(?:passer|changer|basculer|n.apparai|introuvable)|\\bclasses?\\b|\\bgroupes?\\b|equipe eps|actualis|ne (?:vois|trouve) pas"
     ],
     "domaine_textes": "01_service_statuts"
   },
@@ -6949,13 +6951,15 @@
     "priorite": 330,
     "modes": [
       "textes",
-      "examens"
+      "examens",
+      "ipack"
     ],
     "motifs": [
       "\\btza?r\\b|zone de remplacement|titulaire.{0,20}remplacement|\\bissr\\b|etablissement de rattachement|\\brad\\b|residence administrative|(?:je suis|en tant que|comme) remplacant"
     ],
     "exclure_motifs": [
-      "imp\\b|indemnite de mission|formateur"
+      "imp\\b|indemnite de mission|formateur",
+      "ipack|logiciel|(?:passer|changer|basculer|acceder|entrer).{0,40}etablissement|etablissement.{0,40}(?:passer|changer|basculer|n.apparai|introuvable)|\\bclasses?\\b|\\bgroupes?\\b|equipe eps|actualis|ne (?:vois|trouve) pas"
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000577415",
     "date_verification": "2026-10-18",

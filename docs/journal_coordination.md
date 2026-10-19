@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — conservation des prescriptions communes déjà citées
+Constaté : le premier rejeu ciblé après la précision de consigne répond en un appel mais rattache encore la formalité commune à une seule issue. La consigne seule ne suffit pas.
+Fait : une phrase explicitement commune aux deux issues, présente dans une preuve déjà citée et validée, est conservée littéralement avec attribution si sa formulation exacte manque à la réponse. Une preuve non utilisée ne produit aucun ajout. Chaque ajout repasse la validation des citations et les contrôles habituels ; aucun appel de génération supplémentaire.
+Validation : deux nouveaux tests de restitution effective et d’exclusion d’un passage non cité ; 611 tests locaux réussis. Résultat et consommation du second rejeu à relever après publication. Aucun gain général annoncé.
+Attendu de l’autre partie : rien ; les fiches et les pas à pas restent inchangés.
+
+
 ### 2026-10-19 — partie programme — restituer conditions propres et formalités communes
 Fait : consigne de rédaction précisée pour réunir dès la décision l’autorité qui apprécie, les issues et leurs conditions propres. Les passages qui indiquent une formalité commune aux deux issues sont signalés avant génération par une contrainte documentaire, afin de ne pas rattacher la formalité à une seule branche. Pas de nouvelle réponse métier en dur ni de nouvelle passe systématique. Fiches et pas à pas inchangés.
 Validation : 36 tests ciblés réussis sur logique des preuves, conditions et fidélité des sources, dont deux nouveaux contrôles de formalité commune et contre-exemple limité à une branche. Rejeu en ligne ciblé à suivre ; les tests locaux ne prouvent pas la qualité de rédaction du modèle.

@@ -532,6 +532,30 @@ def scoped_claim_text(claim, *, mode="examens"):
     return text + ' (à vérifier auprès du ' + service + ' de l’académie de ' + ', '.join(targets) + ')'
 
 
+def restore_shared_prescriptions(claims, packets):
+    """Conserver une prescription commune explicite dans les seules preuves déjà validées."""
+    additions = []
+    corpus = ' '.join(c['text'] for c in claims).casefold()
+    for claim in claims:
+        for evidence in claim['evidence']:
+            for match in re.finditer(r'(?:Dans les deux cas|Dans ces deux cas|Quelle que soit l[’\']issue)[^.!?\n]*[.!?]', evidence.get('quote', ''), re.I):
+                sentence = match.group().strip()
+                if sentence.casefold() in corpus:
+                    continue
+                proof = {'document_id': evidence['document_id']}
+                if evidence.get('passage_id'):
+                    proof['passage_ids'] = [evidence['passage_id']]
+                else:
+                    proof['quote'] = sentence
+                    proof['level'] = evidence['level']
+                candidate = {'section': 'etape', 'text': sentence, 'evidence': [proof]}
+                validated, errors = validate_claims({'claims': [candidate]}, packets)
+                if not errors:
+                    additions.extend(validated)
+                    corpus += ' ' + sentence.casefold()
+    return additions
+
+
 def render_claims(claims, packets, *, mode="examens", question=""):
     """Prose contrôlée lisible ; attributions regroupées, accessibles à la demande."""
     by_id = {p['id']: p for p in packets}
@@ -1210,6 +1234,10 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
+            common = restore_shared_prescriptions(accepted, packets)
+            if common:
+                accepted.extend(common)
+                audit['restored_shared_prescriptions'] = common
             checks = (operation_errors(accepted, question),
                       evidence_logic.evidence_logic_errors(accepted),
                       coherence_errors(accepted, question),

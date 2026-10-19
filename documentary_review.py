@@ -868,7 +868,9 @@ def conditional_extraction_errors(claims, question):
         # la décision réservée à l'enseignant : vérifier l'issue annoncée.
         retained_grade = re.search(r'(?:sa |la |une |cette )?note.{0,65}(?:sera|est|reste|constitue)|'
                                    r'conserv.{0,25}(?:note|\d)|reten.{0,25}(?:note|\d)', head)
-        decision_reserved = re.search(r'appreci|elements.{0,30}suffis|choi|decid|peut|pourra|sous reserve', head)
+        decision_reserved = re.search(
+            r'appreci|elements.{0,30}suffis|choi|decid|peut|pourra|sous reserve|'
+            r'\bsi\b.{0,70}(?:note.{0,25}(?:est |a ete )?retenue|certification.{0,25}(?:est |a ete )?(?:retenue|accordee))', head)
         if (conditional_source and retained_grade and not decision_reserved
                 and not re.search(r'je (?:retiens|conserve)|j.ai (?:decide|choisi)', norm(question))):
             errors.append({'index': i, 'errors': [

@@ -17,6 +17,14 @@ class SourceFidelityTests(unittest.TestCase):
         for text in ['Les comptes remontent en 72 h.','Cela peut prendre environ 72 heures.']:
             self.assertTrue(conditional_extraction_errors([self.proof(text,source)],'Mon établissement manque'))
         self.assertFalse(conditional_extraction_errors([self.proof('Les 72 h sont un délai indicatif sans garantie.',source)],'Mon établissement manque'))
+    def test_retained_mark_branch_is_not_an_automatic_decision(self):
+        source='Saisie : note unique retenue, conserver cette note ; pas de note, dispenser des trois épreuves. Une appréciation explique la décision.'
+        for text in ['Si une note unique est retenue, conserver la note sur la troisième épreuve.',
+                     'Pour la saisie, si la note est retenue, conserver cette note.']:
+            self.assertFalse(conditional_extraction_errors([self.proof(text,source,'etape')],'Une seule évaluation : quelle saisie ?'))
+        bad='Si le candidat a une note unique, sa note sera conservée pour le baccalauréat.'
+        self.assertTrue(conditional_extraction_errors([self.proof(bad,source,'etape')],'Une seule évaluation : quelle saisie ?'))
+
     def test_fixed_documented_delay_stays_valid(self):
         self.assertFalse(conditional_extraction_errors([self.proof('Le délai est de 3 jours.','Le délai est de 3 jours.')],'Quel délai ?'))
     def test_requested_distinction_uses_registry_and_marks_missing_national(self):

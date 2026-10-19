@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — faux rejet d’une branche de saisie conditionnelle
+Diagnostic : la trace privée de la version 95d8288 identifie le contrôle des conditions comme unique motif de rejet, aux deux passes. Une branche de saisie explicitement subordonnée à une note déjà retenue était confondue avec une conservation automatique de la note. La fiche spécialisée était sélectionnée et la consigne éditoriale retirée de la fiche 04 n’est pas la cause de ce rejet.
+Fait : reconnaissance de l’antécédent de décision déjà prise (« si la note est retenue ») dans le contrôle existant, sans désactiver la validation des preuves ni accepter la seule présence d’une note comme décision. Test positif et contre-exemple sans décision retenue.
+Validation : réponse réparée enregistrée dans la trace réinjectée localement avec modèle simulé : tous les contrôles passent, sans rejet. Aucun appel payant et aucune question de mesure ni réponse publiée dans le dépôt. 607 tests locaux réussis. Le coût d’une future génération reste à mesurer ; ce test ne prouve pas qu’elle réussira au premier appel.
+Attendu de l’autre partie : rien pour ce faux rejet ; inspection des pas à pas indépendante.
+
+
 ### 2026-10-19 — partie programme — conservation des conditions et distinction des sources
 Fait : contrôle des notes présentées comme acquises alors que la preuve réserve une décision d’appréciation ; contrôle de conservation du caractère indicatif/non garanti des délais. Consigne de navigation renforcée pour conserver le chemin de retour au point de départ. Sur demande explicite de distinction, affichage du niveau documentaire issu des métadonnées devant les affirmations ; indication bornée de l’absence de passage national retenu, sans conclure à l’absence de texte applicable. Les fiches mixtes restent présentées comme mixtes.
 Validation : 606 tests locaux réussis, plus les 32 tests des guides relancés après intégration du dernier changement de parcours ; six nouveaux tests sur conditions, délais, attributions et consigne initiale. Aucun appel de génération payant. Aucun gain de qualité ou de coût en production annoncé ; les contrôles ne prouvent pas une compréhension sémantique générale.

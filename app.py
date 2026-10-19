@@ -2805,6 +2805,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         texte_final = re.sub(r"(</?" + _balises_bloc + r"\b[^>]*>)[ \t]*\n\s*", r"\1", texte_final)
         texte_final = re.sub(r"\n{3,}", "\n\n", texte_final)
         texte_final = texte_final.replace("\n", "<br>")
+        # Terme défini par les textes (« à titre exceptionnel », transport d'élèves) : surligné et défini sous la réponse.
+        from termes_definis import mark_exceptionnel
+        texte_final = mark_exceptionnel(texte_final, prompt)
 
         phrase_contexte = (
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{public_label(niveau_actuel_form)}</b>.</em></div>"

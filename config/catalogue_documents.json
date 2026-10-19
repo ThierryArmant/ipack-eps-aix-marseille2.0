@@ -2415,10 +2415,12 @@
     "prioritaire": true,
     "priorite": 280,
     "modes": [
-      "ipack"
+      "ipack",
+      "examens"
     ],
     "motifs": [
-      "(?:deux|2|plusieurs) etablissements.{0,60}(?:passer|basculer|changer|acceder|choisir)|(?:passer|basculer|changer).{0,30}(?:de l.un a l.autre|d.etablissement)|selecteur d.etablissement|(?:college et (?:un )?lycee|lycee et (?:un )?college).{0,60}(?:passer|basculer|changer|acceder)"
+      "(?:deux|2|plusieurs) etablissements.{0,60}(?:passer|basculer|changer|acceder|choisir)|(?:passer|basculer|changer).{0,30}(?:de l.un a l.autre|d.etablissement)|selecteur d.etablissement|(?:college et (?:un )?lycee|lycee et (?:un )?college).{0,60}(?:passer|basculer|changer|acceder)",
+      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)"
     ],
     "exclure_motifs": [
       "cite scolaire|manqu|absent"
@@ -2430,6 +2432,9 @@
           "[ée]tablissement|tableau de bord|ariane"
         ]
       }
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)"
     ]
   },
   "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
@@ -7016,10 +7021,7 @@
       "^(?=.*(?:gymnase|equipement|installation|piscine|stade|salle de sport|plateau sportif|bassin))(?=.*(?:\\bnom\\b|renomm|libelle|appellation|modifi|changer|change de nom|erron|faux|ancien|mise a jour|mettre a jour|synchro|effacer|supprim))"
     ],
     "exclure_motifs": [
-      "emploi du temps|creneau|edt|code res"
-    ],
-    "exclusif_motifs": [
-      "^(?=.*(?:gymnase|equipement|installation))(?=.*(?:\\bnom\\b|renomm|libelle|appellation|ancien))"
+      "code res"
     ]
   },
   "data/ipack/plan_des_menus_professeur_2026.txt": {
@@ -7182,7 +7184,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "emplois? du temps|\\bedt\\b|agenda equipe|creneaux?.{0,40}(?:creer|ajouter|saisir|faire|configur|cours)|(?:creer|ajouter|saisir|faire|configur).{0,40}creneaux?|(?:associer|rattacher|lier).{0,40}(?:gymnase|installation|equipement)|equipements? sporti"
+      "emplois? du temps|\\bedt\\b|agenda equipe|creneaux?.{0,40}(?:creer|ajouter|saisir|faire|configur|cours)|(?:creer|ajouter|saisir|faire|configur).{0,40}creneaux?|(?:associer|rattacher|lier).{0,40}(?:gymnase|installation|equipement)|equipements? sporti",
+      "(?:associer|rattacher|lier).{0,40}creneaux?|creneaux?.{0,40}(?:associer|rattacher|lier|bloqu)"
     ],
     "exclure_motifs": [
       "supprim|effac|restaur|recuper|reprendre|annee derniere|an dernier"

@@ -408,6 +408,21 @@
           "reference": "Assistance iPackEPS Aix-Marseille, courriel du 14 octobre 2026 — établissements étrangers ou hors MEN rattachés à cette académie"
         }
       ]
+    },
+    "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Intégration dans plusieurs établissements : vérifier que chaque établissement où l'enseignant assure des heures EPS apparaît dans le choix des établissements. Pour un établissement absent, demander à son administration de vérifier l'installation dans sa base des personnels, puis contacter l'assistance si nécessaire. Le relevé ne fixe aucun ordre de priorité entre les établissements pour cette intégration ; il ne désigne pas un établissement principal chargé de saisir les services ou les classes des autres. Travailler dans le contexte de l'établissement concerné, identifié dans le bandeau, en utilisant [Entrer] et « Changer d'Établissement » comme indiqué ci-dessus.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Relevé de navigation du 19 octobre 2026 : choix des établissements ; aucune priorité d’intégration établie par le relevé"
+        }
+      ]
     }
   }
 }

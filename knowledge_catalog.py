@@ -138,7 +138,7 @@ def teaching_registration_clarification(question):
     teaching = re.search(r"enseign|je (?:fais|pratique)|(?:ma|mes|avec les|avec ma|avec mes).{0,20}(?:eleves|classes?|[3-6](?:e|eme))", q)
     registration = re.search(r'renseign|rempl|saisir|saisie|declar|enregistr|rentrer|indiquer', q)
     target = re.search(r'programmation|sequences?|groupes?|emploi du temps|dossier|fiche|specialit|competence|'
-                       r'liste.{0,15}apsa|(?:dans|menu|rubrique).{0,20}apsa|protocole|certific|notes?|evaluation|inapt', q)
+                       r'affectation|services?\b|etablissement|examen|compte|acces|liste.{0,15}apsa|(?:dans|menu|rubrique).{0,20}apsa|protocole|certific|notes?|evaluation|inapt', q)
     if teaching and registration and not target:
         return "Pouvez-vous préciser ce que vous souhaitez renseigner dans iPackEPS ?"
     return ''
@@ -146,6 +146,11 @@ def teaching_registration_clarification(question):
 
 def clarification(question, public, *, mode=None):
     q = normalise(question)
+    # Le message seul ne permet pas de choisir un module ni de diagnostiquer un agenda.
+    if (mode == 'ipack' and re.search(r'informations? manquantes?', q)
+            and not re.search(r'classe|groupe|agenda|creneau|protocole|referentiel|fiche professeur|fiche etablissement|equipement|certificat|sequence|apsa|periode|eleve|dossier (?:eps|certificatif)|menu|rubrique', q)):
+        return ("Dans quel écran ou menu d’iPackEPS apparaît « informations manquantes » ? "
+                "Le message seul ne permet pas d’identifier le champ à compléter.")
     # Le contexte iPackEPS ne désigne pas le logiciel dans lequel le collègue
     # saisit ses notes. Identifier l'outil avant toute procédure de déblocage.
     if (mode == 'ipack' and re.search(r'\bnotes?\b', q)
@@ -287,6 +292,10 @@ def reference_notice(targets, question=None, public=None):
     for path, md in entries.items():
         if md.get('retrieval_enabled') is False:
             continue
+        if (question and staff_service_question(question)
+                and not re.search(r'eleve|classe de|\bdnb\b|\bbrevet\b|\blsu\b', normalise(question))
+                and (path.startswith('data/commun/dnb/') or path == 'data/examens/regles_dnb_eps.txt')):
+            continue
         if not md.get('prioritaire') or (md.get('examens') and not set(md['examens']) & set(targets)):
             continue
         if question is not None:
@@ -362,6 +371,12 @@ def documented_response(question, public, mode):
     return '', {}
 
 
+def staff_service_question(question):
+    q = normalise(question)
+    return bool(re.search(r'\bors\b|\bissr\b|obligations? de service', q)
+                or (re.search(r'\btzr\b', q) and re.search(r'affect|service|emploi du temps|indemni|rattachement', q)))
+
+
 def effective_context(question, public, mode):
     """Les diplômes explicites priment ; un protocole seul reste ambigu."""
     public = canonical_public(public)
@@ -373,6 +388,12 @@ def effective_context(question, public, mode):
     primaire = bool(re.search(r"\b(?:cp|ce[12]|cm[12])\b|premier degre|elementaire|maternelle|ecole primaire", q))
     # Le lieu de travail d'un adulte ne définit pas le public des élèves.
     secondaire_explicit = bool(re.search(r"\bdnb\b|\bbrevet\b|(?:eleves?|classes?|mes|nos|les|de|en) (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)\b", q))
+    statut_adulte = staff_service_question(question)
+    logiciel = bool(re.search(r'ipack|santorin|cyclades|pronote|\blsu\b', q))
+    if statut_adulte and not secondaire_explicit:
+        college = False
+    if statut_adulte and not logiciel:
+        mode = 'textes'
     if primaire and not secondaire_explicit:
         college = False
     if primaire and not any((pro, gt, college)):

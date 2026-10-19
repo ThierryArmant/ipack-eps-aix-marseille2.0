@@ -80,3 +80,40 @@ def activity_field_errors(claims, *, public=None):
         if denied_distinctness or same_field:
             errors.append({'index': i, 'errors': ['activités explicitement classées dans deux champs différents par la table documentaire : ne pas affirmer qu’elles constituent le même champ ou ne sont pas distinctes']})
     return errors
+
+
+def workflow_fidelity_errors(claims, question):
+    """Préserver les opérations/préalables explicitement cités, sans créer de règle."""
+    q = normalized(question)
+    combined = normalized(' '.join(c.get('text', '') for c in claims))
+    errors = []
+    for i, c in enumerate(claims):
+        text = normalized(c.get('text', ''))
+        proof = normalized(' '.join(e.get('quote', '') for e in c.get('evidence', [])))
+        bounded = bool(re.search(r"(?:ne|n').{0,45}(?:permet|precise|documente|confirme|fixe|indique|etablit).{0,20}pas|(?:pas|non) document|a verifier|reste a confirmer", text))
+        if (re.search(r'rapport|accident', q) and re.search(r'etabl\w*.{0,65}48', proof)
+                and not re.search(r'(?:transm|envoy|adress)\w*.{0,55}48', proof)
+                and not bounded
+                and (re.search(r'delai.{0,35}(?:transmission|envoi)', text)
+                     or re.search(r'(?:transm|envoy|adress)\w*.{0,65}48', text))
+                and re.search(r'48', text)):
+            errors.append({'index':i, 'errors':['le délai cité porte sur l’établissement du rapport, pas sur un délai exact de transmission ; conserver cette opération et signaler la limite']})
+        if (re.search(r'protocole.{0,40}(?:dnb|brevet)', text)
+                and not re.search(r'\bdnb\b|brevet|college', proof)):
+            errors.append({'index':i, 'errors':['une fiche générique ne justifie pas un protocole DNB ; utiliser le passage qui précise le circuit collège']})
+        if (re.search(r'equipement|gymnase|installation', q)
+                and re.search(r'(?:forcer|forcee).{0,30}synchro|synchro\w*.{0,30}(?:forcer|forcee)', text)
+                and not bounded and (not re.search(r'(?:cliquer|bouton|commande).{0,40}synchro', proof)
+                                     or re.search(r'ne documente pas|pas de commande|aucune commande|sans commande', proof))):
+            errors.append({'index':i, 'errors':['modifier un libellé ne prouve pas une commande de synchronisation forcée : conserver l’action documentée']})
+        if (re.search(r'export|import', q) and 'cyclades' in q
+                and re.search(r'apres l.import des candidats dans cyclades', proof)
+                and re.search(r'export|generer un fichier|importe directement', text)
+                and not bounded and not re.search(r'(?:candidats?|eleves?).{0,65}(?:import|present|figur|charg|enregistr)|(?:import|charg|enregistr)\w*.{0,50}(?:candidats?|eleves?)|cyclades.{0,30}(?:contien|contenir).{0,30}(?:candidats?|eleves?)', combined)):
+            errors.append({'index':i, 'errors':['l’import préalable des candidats par le rectorat fait partie des préalables cités ; le conserver avec la validation des protocoles']})
+        if (re.search(r'import|organis', q) and re.search(r'restreint|organis|ordre|configur', q)
+                and 'organisation des classes' in proof and 'importation des eleves' in proof
+                and c.get('section') == 'etape' and re.search(r'configur', text)
+                and re.search(r'import', text) and not re.search(r'\borganisation\b', combined)):
+            errors.append({'index':i, 'errors':['le parcours cité passe par Organisation des Classes avant l’import ; conserver cette étape pour attribuer le professeur']})
+    return errors

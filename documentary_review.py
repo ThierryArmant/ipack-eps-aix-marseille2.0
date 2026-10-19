@@ -12,7 +12,7 @@ import time
 import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
-from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors
+from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
@@ -661,6 +661,11 @@ def situation_mismatch(question, text):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    from knowledge_catalog import staff_service_question
+    if (staff_service_question(question) and not re.search(r'eleve|classe de|\bdnb\b|\bbrevet\b|\blsu\b', q)
+            and re.search(r'dnb|brevet|controle continu.{0,15}(?:college|troisieme)|livret scolaire|\blsu\b', t)
+            and not re.search(r'obligations? de service|\bors\b|\bissr\b|rattachement|titulaire sur zone', t)):
+        return True
     # Enseigner une activité à une classe ne déclare pas une spécialité personnelle.
     teaching = re.search(r"\b(?:j.enseigne|enseigner|j.apprends|je fais pratiquer)\b|(?:je fais|je pratique|enseigne).{0,60}(?:avec|a mes|aux).{0,20}(?:eleves|classes)|(?:avec mes|avec les).{0,20}(?:eleves|classes|[3-6](?:e|eme))", q)
     personal = r'specialit(?:e|es) (?:sportive|personnelle)|(?:ma|mes) specialit|fiche (?:prof|enseignant)|competence personnelle|voeux de formation|vœux de formation'
@@ -1097,7 +1102,7 @@ def absent_terms(question, packets):
         if len(quoted.split()) >= 2 and normalise(quoted) not in corpus:
             found.append('« ' + quoted.strip() + ' »')
     for sigle in re.findall(r'\b[A-Z][A-Z0-9]{1,4}(?:/[A-Z0-9]{1,3})?\b', question):
-        if sigle in _SIGLES_COURANTS or sigle in [f.strip('« »') for f in found]:
+        if sigle in (_SIGLES_COURANTS | {'RAD', 'ORS'}) or sigle in [f.strip('« »') for f in found]:
             continue
         # Un sigle connu de la documentation (UNSS, FCA, EPI…) peut manquer des passages transmis sans être
         # une invention : seul un sigle inconnu de toute la base est signalé.
@@ -1309,6 +1314,7 @@ Réponds uniquement en JSON selon ce schéma :
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
             checks = (operation_errors(accepted, question),
+                      workflow_fidelity_errors(accepted, question),
                       activity_field_errors(accepted, public=public),
                       evidence_logic.evidence_logic_errors(accepted),
                       coherence_errors(accepted, question),

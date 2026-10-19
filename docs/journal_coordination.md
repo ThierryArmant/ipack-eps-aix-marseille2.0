@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — restituer conditions propres et formalités communes
+Fait : consigne de rédaction précisée pour réunir dès la décision l’autorité qui apprécie, les issues et leurs conditions propres. Les passages qui indiquent une formalité commune aux deux issues sont signalés avant génération par une contrainte documentaire, afin de ne pas rattacher la formalité à une seule branche. Pas de nouvelle réponse métier en dur ni de nouvelle passe systématique. Fiches et pas à pas inchangés.
+Validation : 36 tests ciblés réussis sur logique des preuves, conditions et fidélité des sources, dont deux nouveaux contrôles de formalité commune et contre-exemple limité à une branche. Rejeu en ligne ciblé à suivre ; les tests locaux ne prouvent pas la qualité de rédaction du modèle.
+Attendu de l’autre partie : rien ; inspection des pas à pas indépendante.
+
+
 ### 2026-10-19 — partie programme — faux rejet d’une branche de saisie conditionnelle
 Diagnostic : la trace privée de la version 95d8288 identifie le contrôle des conditions comme unique motif de rejet, aux deux passes. Une branche de saisie explicitement subordonnée à une note déjà retenue était confondue avec une conservation automatique de la note. La fiche spécialisée était sélectionnée et la consigne éditoriale retirée de la fiche 04 n’est pas la cause de ce rejet.
 Fait : reconnaissance de l’antécédent de décision déjà prise (« si la note est retenue ») dans le contrôle existant, sans désactiver la validation des preuves ni accepter la seule présence d’une note comme décision. Test positif et contre-exemple sans décision retenue.

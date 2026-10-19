@@ -135,6 +135,8 @@ def evidence_constraints(packets):
         for passage in packet.get('passages', []):
             text = normalized(passage['text'])
             limits = []
+            if re.search(r'dans (?:les |ces )?deux cas|quelle que soit l.issue', text):
+                limits.append('prescription_commune_aux_deux_issues_a_restituer_pour_les_deux_branches')
             if _limited_rule(text):
                 limits.append('absence_de_prescription_universelle_ne_prouve_pas_une_dispense_dans_le_cas')
             if _NO_STANDARD.search(text):

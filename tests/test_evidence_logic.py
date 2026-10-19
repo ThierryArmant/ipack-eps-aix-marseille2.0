@@ -194,3 +194,13 @@ class EvidenceLogicTests(unittest.TestCase):
             review_exam_answer(FakeLLM([{'claims':[bad]},{'claims':[bad]}]),question='Module nécessaire ?',public='GT',documents=mark_excerpt(proof),audit=audit)
         self.assertNotIn('rendered_answer',audit)
         self.assertTrue(audit['final_rejections'])
+
+class SharedBranchPrescriptionTests(unittest.TestCase):
+    def test_common_formality_is_signalled_before_generation(self):
+        for text in ['Dans les deux cas, un rapport est transmis.', 'Quelle que soit l’issue, un rapport est transmis.']:
+            constraints=evidence_constraints(source_packets(mark_excerpt(text)))
+            self.assertIn('prescription_commune_aux_deux_issues_a_restituer_pour_les_deux_branches',constraints[0]['limits'])
+            self.assertEqual('D1P1',constraints[0]['passage_id'])
+    def test_branch_specific_formality_is_not_generalized(self):
+        constraints=evidence_constraints(source_packets(mark_excerpt('Si la demande est refusée, un rapport est transmis.')))
+        self.assertFalse(constraints)

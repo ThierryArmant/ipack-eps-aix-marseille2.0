@@ -18,7 +18,7 @@
    - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Classes].
    - Étape A : Déclarer et configurer les structures de classes (attribution des cycles scolaires, ex: 6e à 3e au collège).
    - Étape B : Importer les élèves (synchronisation SIÈCLE). L'import Pronote / École-Directe sert seulement à reprendre des groupes déjà constitués : bouton [Import Pronote] dans [Dossiers] => [Dossier EPS] => [Élèves] (article 88).
-   - Étape C : En cas de mouvement en cours d'année, actualiser via [Gestion Classes] => [Actualiser] puis [importation élèves] => [Actualiser].
+   - Étape C : En cas de mouvement en cours d'année, actualiser via [Configuration des Classes] > [Actualiser], puis [Importation des Élèves] > [Importer] (écran relevé le 18 octobre 2026, version 2026.2.1.1 : dans [Importation des Élèves], le bouton est [Importer] ; [Actualiser] sert à la liste des classes dans [Configuration des Classes]).
 
 5. Organisation des Groupes et Programmation :
    - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Groupes].

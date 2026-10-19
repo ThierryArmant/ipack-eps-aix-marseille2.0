@@ -3,7 +3,7 @@ Mots-clés : prénom d'usage, changement de nom, transition de genre, identité 
 - Procédure :
   1. L'enseignant ne doit rien modifier manuellement dans iPackEPS.
   2. Le secrétariat de scolarité doit mettre à jour la base SIÈCLE de l'établissement.
-  3. Un enseignant de l'équipe EPS effectue dans iPackEPS : [Gestion Classes] > [Actualiser] puis [Importation élèves] > [Actualiser].
+  3. Un enseignant de l'équipe EPS effectue dans iPackEPS : [Configuration des Classes] > [Actualiser], puis [Importation des Élèves] > [Importer] (écran relevé le 18 octobre 2026, version 2026.2.1.1 : dans [Importation des Élèves], le bouton est [Importer] ; [Actualiser] sert à la liste des classes dans [Configuration des Classes]).
   4. L'identifiant national (INE) garantit la continuité du dossier de l'élève sans perte d'historique.
 
 [SECTION: COMPORTEMENT_ET_DIAGNOSTIC_DE_L_ENSEIGNANT_DEBUTANT]

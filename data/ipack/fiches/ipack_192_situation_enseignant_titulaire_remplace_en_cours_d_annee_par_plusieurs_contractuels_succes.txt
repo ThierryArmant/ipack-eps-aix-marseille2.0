@@ -3,7 +3,7 @@ Mots-clés : changement de remplaçant, contractuel parti, historique des saisie
 - Règle de conservation : Les données saisies dans iPackEPS sont rattachées à la structure de la classe/groupe et à l'établissement, jamais au compte personnel de l'enseignant.
 - Procédure d'installation du remplaçant (iPackEPS) :
   1. Dès notification du contrat RH, le chef d'établissement affecte le remplaçant sur STSWEB.
-  2. Un enseignant de l'équipe EPS clique sur [Dossier EPS] > [Équipe EPS] > [Actualiser] (comptes remontés en général sous 48 h).
+  2. Un enseignant de l'équipe EPS clique sur [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l'équipe] > [Actualiser] (chemin relevé à l'écran le 18 octobre 2026 ; comptes remontés ensuite, 48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie).
   3. Dans [Organisation des classes], réaffecter le nouveau professeur sur les groupes concernés.
   4. Le nouveau professeur accède immédiatement à l'ensemble des séquences et groupes précédemment enregistrés par son prédécesseur sans aucune perte de données.
 

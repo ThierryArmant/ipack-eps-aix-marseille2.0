@@ -1178,3 +1178,11 @@ Sélection actuelle recalculée localement sur les 43 cas iPackEPS de la notatio
 - `ipack_026` (responsables d'établissement) : DIASEP présentée comme le service d'Aix-Marseille (adresse), délai « 24 h » retiré (non sourcé) — remarque de la notation.
 - Fiche DNB `04_inaptitudes_dispenses` exclue des questions de comptage (« combien d'élèves inaptes »).
 Restent pour la partie rédaction/contrôle (GPT) les cas où la bonne fiche est déjà transmise mais mal exploitée (créneau, tablette, Cyclades vs iPackEPS, bouton grisé). Sans source : durée de conservation des données (DPO), fusion de demi-groupes, licences UNSS (hors iPackEPS ; pas de texte UNSS autorisé). 5 questions types ajoutées. Suite : 565 tests OK.
+
+### 19 octobre 2026 9 h 05 — Claude : contenu des fiches iPackEPS confronté à la visite (data/ipack seulement)
+Périmètre convenu : contenu des fiches, ni catalogue ni code (seul `config/portee_academique.json`, registre régénéré par `portee_registre.py --write`, change). Corrections :
+- Import des élèves : 5 fiches officielles donnaient « [gestion Classes] > [Actualiser], puis [importation élèves] > [Actualiser] » (`ipack_001`, `ipack_002`, `ipack_060` R4, `ipack_178`, `ipack_183`) → « [Configuration des Classes] > [Actualiser], puis [Importation des Élèves] > [Importer] », avec la mention datée de l'écran relevé le 18 octobre (même forme que `ipack_065`).
+- Équipe EPS : `ipack_192` → chemin vu à l'écran [Équipe EPS et Intervenants Extérieurs] > [Membres de l'équipe] > [Actualiser].
+- Délai « 48 h » présenté comme règle (`ipack_222`, `ipack_308`, `ipack_027`, `correspondant_01`, `ipack_192`) → « 48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie » (source : courriel d'assistance du 13 octobre, fiche `enseignants_deux_structures_sts`).
+- `ipack_302` (suppression par erreur) : ne plus prescrire de recréer d'emblée ; l'absence de corbeille documentée ne prouve pas l'impossibilité ; écrire d'abord à l'assistance (cohérent avec `ipack_suppression_prudence`).
+Contrôles : autres boutons de la visite ([Créer un groupe], [Créer une APSA], [Ajouter -->], créneau, [Vérification]) sans contradiction trouvée dans data/ipack. Suite : 584 tests OK sur 1249750 + ces fiches. Pas d'incidence sur le rejeu au-delà du contenu de ces fiches.

@@ -1206,7 +1206,8 @@
     {
      "section": "### [SITUATION: UN ENSEIGNANT D'EPS N'APPARAÎT PAS DANS LA LISTE DES PROFESSEURS DE L'ÉTABLISSEMENT]",
      "lignes": [
-      "- Réponse : la liste des professeurs n'est pas saisie à la main dans iPackEPS. Elle est alimentée automatiquement par les bases académiques des personnels (dans l'académie d'Aix-Marseille : la base STS-Web de l'établissement). Tout enseignant qui intervient auprès des élèves de l'établissement, même à temps partiel, doit y figurer."
+      "- Réponse : la liste des professeurs n'est pas saisie à la main dans iPackEPS. Elle est alimentée automatiquement par les bases académiques des personnels (dans l'académie d'Aix-Marseille : la base STS-Web de l'établissement). Tout enseignant qui intervient auprès des élèves de l'établissement, même à temps partiel, doit y figurer.",
+      "- Procédure : demander à l'administration de l'établissement de mettre à jour la base des enseignants (installation de l'enseignant, discipline, classes). Une synchronisation automatique a lieu chaque jour ; une fois la base à jour, les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie). Cliquer ensuite sur « Actualiser » dans [Dossier EPS] > [Équipe EPS]."
      ]
     },
     {
@@ -1363,7 +1364,7 @@
     {
      "section": "### [SITUATION: RATTACHEMENT DES ENSEIGNANTS EXTERNES / PARTAGÉS (GRETA, CFA, AEFE, VACATAIRES)]",
      "lignes": [
-      "- Instruction : la liste des enseignants d'iPackEPS vient des bases académiques des personnels (dans l'académie d'Aix-Marseille : STS-Web de l'établissement). Si un enseignant (par exemple un collègue en complément de service, rattaché administrativement à un autre établissement) n'apparaît pas dans l'équipe EPS, l'assistance ne peut pas le forcer : l'administration de l'établissement doit l'installer dans STS-Web (identité, discipline, classes). Les comptes remontent en général sous 48 h ; cliquer ensuite sur « Actualiser » dans [Dossier EPS] > [Équipe EPS]."
+      "- Instruction : la liste des enseignants d'iPackEPS vient des bases académiques des personnels (dans l'académie d'Aix-Marseille : STS-Web de l'établissement). Si un enseignant (par exemple un collègue en complément de service, rattaché administrativement à un autre établissement) n'apparaît pas dans l'équipe EPS, l'assistance ne peut pas le forcer : l'administration de l'établissement doit l'installer dans STS-Web (identité, discipline, classes). Les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie) ; cliquer ensuite sur « Actualiser » dans [Dossier EPS] > [Équipe EPS]."
      ]
     }
    ]
@@ -1466,6 +1467,7 @@
     {
      "section": "### [SITUATION: ENSEIGNANT TITULAIRE REMPLACÉ EN COURS D'ANNÉE PAR PLUSIEURS CONTRACTUELS SUCCESSIFS]",
      "lignes": [
+      "2. Un enseignant de l'équipe EPS clique sur [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l'équipe] > [Actualiser] (chemin relevé à l'écran le 18 octobre 2026 ; comptes remontés ensuite, 48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie).",
       "- Pour toute question sur l'hébergement, la durée de conservation ou un outil numérique : le délégué à la protection des données de l'académie (Aix-Marseille : dpd@ac-aix-marseille.fr)."
      ]
     }
@@ -1523,7 +1525,7 @@
      "section": "### [SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]",
      "lignes": [
       "- Mots-clés : TZR, enseignant partagé, multi-établissements, sélecteur d'établissement, ESTEREL, STS-Web, classes invisibles, second établissement, secrétariat, affectation",
-      "- Procédure de bascule : Sur la page d'accueil d'iPackEPS (après connexion au portail académique, ESTEREL à Aix-Marseille), choisir l'établissement voulu avec le sélecteur d'établissement (article 43). Si l'établissement n'apparaît pas, l'enseignant n'est pas encore installé dans la base des personnels de cet établissement (STS-Web à Aix-Marseille) : demander à son administration de le faire ; les comptes remontent en général sous 48 h."
+      "- Procédure de bascule : Sur la page d'accueil d'iPackEPS (après connexion au portail académique, ESTEREL à Aix-Marseille), choisir l'établissement voulu avec le sélecteur d'établissement (article 43). Si l'établissement n'apparaît pas, l'enseignant n'est pas encore installé dans la base des personnels de cet établissement (STS-Web à Aix-Marseille) : demander à son administration de le faire ; les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie)."
      ]
     }
    ]
@@ -1558,7 +1560,7 @@
     {
      "section": "### [SITUATION: SUPPRESSION PAR ERREUR DANS iPackEPS — ÉVALUATION, SÉQUENCE, GROUPE OU DOCUMENT SUPPRIMÉ : PEUT-ON LE RÉCUPÉRER ?]",
      "lignes": [
-      "- Réponse courte : aucune corbeille ni procédure de restauration n'est documentée dans iPackEPS. Il faut recréer l'élément, ou écrire sans attendre à l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+      "- Réponse courte : aucune corbeille ni procédure de restauration n'est documentée dans iPackEPS, ce qui ne prouve pas que la récupération soit impossible. Avant de tout recréer, écrire sans attendre à l'assistance iPackEPS de son académie (Aix-Marseille : ipackeps@ac-aix-marseille.fr), qui dira si une intervention est possible."
      ]
     }
    ]
@@ -1580,7 +1582,7 @@
     {
      "section": "### [SITUATION: ENSEIGNANT QUI CHANGE D'ÉTABLISSEMENT (MUTATION) — CE QUI LE SUIT ET CE QUI RESTE]",
      "lignes": [
-      "- Dans le nouvel établissement : l'enseignant y apparaît dès que l'administration l'a installé dans la base des personnels (STS-Web à Aix-Marseille, en général sous 48 h). Il choisit l'établissement avec le sélecteur d'établissement sur la page d'accueil (article 43), puis travaille dans le dossier de sa nouvelle équipe.",
+      "- Dans le nouvel établissement : l'enseignant y apparaît dès que l'administration l'a installé dans la base des personnels (STS-Web à Aix-Marseille ; remontée sous 48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie). Il choisit l'établissement avec le sélecteur d'établissement sur la page d'accueil (article 43), puis travaille dans le dossier de sa nouvelle équipe.",
       "- En cas de doute ou de blocage d'accès : ipackeps@ac-aix-marseille.fr."
      ]
     }

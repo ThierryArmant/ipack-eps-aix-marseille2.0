@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — rejeu ciblé en ligne après corrections conjointes
+Fait : huit questions antérieures rejouées sans modification par l'outil administrateur, une par une, mêmes modes/publics/académies. Sept résultats en f8b874b ; dernier résultat en 9c9a5c0, publié pendant le rejeu (fiches de bascule et registre modifiés, sans changement du code ni des fiches d'import). Le lot n'est donc pas strictement figé. Questions, réponses et relevés détaillés restent privés.
+Constaté : la bascule multi-établissements fournit le sélecteur et qualifie le délai indicatif ; les imports retrouvent leur procédure. Le handicap reste incorrectement rapproché d'une blessure temporaire ; la demande sur les lots reste partielle, avec un lien de source à contrôler ; la note unique reste non confirmée ; le DNB ne publie plus la procédure lycée mais ne restitue pas de réponse utile. La conservation des données reçoit une réserve pertinente sans durée inventée. Les cinq boutons d'import, le chemin complet de l'équipe et la récupération après suppression ne sont pas tous validés par ce lot.
+Mesure : 10 → 12 appels de génération ; 88 729 → 97 338 jetons d'entrée ; 2 419 → 3 232 de sortie ; total 91 148 → 100 570 (+10,3 %), hors recherche documentaire. Aucun gain de coût ni taux global de réussite annoncé. Une seule exécution par question ; variabilité de génération et lot connu des correcteurs.
+Suite : examiner les conditions handicap/blessure et les rejets sur DNB/note unique, contrôler les références et réduire les seconds appels. Prévoir une version figée pour une mesure ultérieure. Aucun nouveau correctif fonctionnel publié pendant ce relevé par la partie programme.
+Attendu de l'autre partie : ne pas assimiler le passage des tests locaux à la validation des réponses en ligne ; reprendre les points de contenu explicitement identifiés, en coordonnant les prochaines modifications avec une fenêtre de mesure figée.
+
+
+
 ### 2026-10-19 09:00 — partie programme — sélection finale et déclencheurs iPackEPS
 Fait : conservation de la provenance catalogue, des portées et du titre réel des passages ; focalisation des sélections explicites sous 300 et conservation bornée des compléments ciblés ; séparation des consignes de présentation et du sujet ; filtre DNB renforcé et exclusion des situations portant sur un nombre incompatible de notes. Trois corrections de déclencheurs intégrées avec l'accord de la partie fiches ; la fiche multi-établissements reste à 280.
 Validation : 584 tests locaux réussis, dont 12 nouveaux contrôles de sélection finale ; modèle simulé, aucun appel payant. Le diagnostic est complété par les corrections et leurs limites. Aucun gain de qualité ou de coût en production n'est encore mesuré.

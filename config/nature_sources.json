@@ -6178,6 +6178,48 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
    "titre": "iPackEPS collège : pas de protocole d'examen ni de dossier certificatif"
+  },
+  "data/examens/santorin_cas_pratiques/15_eleve_arrive_en_cours_d_annee_avec_une_note_de_ccf.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin / Cyclades : Élève arrivé en cours d'année avec une note de ccf déjà obtenue dans son ancie"
+  },
+  "data/examens/santorin_cas_pratiques/16_eleve_present_qui_refuse_ou_abandonne_l_epreuve.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin / Cyclades : Élève présent qui refuse de passer l'épreuve ou abandonne en cours d'épreuve ("
+  },
+  "data/examens/santorin_cas_pratiques/17_santorin_dans_quel_menu_se_fait_chaque_operation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Besançon",
+    "Corse",
+    "Normandie"
+   ],
+   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "titre": "Santorin / Cyclades : Santorin — dans quel menu se fait chaque opération (sommaire des tutoriels « i"
   }
  }
 }

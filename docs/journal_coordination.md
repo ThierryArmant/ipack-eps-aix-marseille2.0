@@ -1357,3 +1357,9 @@ Plan et avancement :
 - [ ] 7. Sujets sans fiche : liste à relever à l'écran avec Thierry (curseurs académiques…).
 
 Validation après points 1, 2, 4 : 7 cas ajoutés à `tests/test_selection_questions_types.py` ; suite complète réussie. Non vérifié sur le hub (aucun appel IA fait).
+
+### 19 octobre 2026 13 h 10 — Claude : accueil, étape 4 « Ou suivez le guide pas à pas »
+- `app.py` : le bouton « ❓ Vous êtes perdu(e) ? » devient une étape 4 au même style que l'étape 3 (« Ou suivez le guide pas à pas », bouton « 🧭 Ouvrir le guide pas à pas ») : inciter au guide, qui ne coûte aucun appel IA. Même condition d'affichage (iPackEPS ; Examens au lycée).
+- Le cadre « Protection des données » est retiré au-dessus du champ ; le même texte est affiché en petit et discret juste sous la barre de question (gain d'une hauteur).
+- Test `test_examens_guide_integration` : l'interface factice accepte `markdown`. Suite complète réussie.
+- **Signalé par Thierry, à faire (GPT, restitution)** : onglet Textes, « tous les textes en lien avec les sorties scolaires » — les références listées (« Résumé d'un texte officiel : … ») n'ont pas de lien vers le texte cité. Ajouter l'URL de la source quand la fiche en contient une (ligne « Source » / URL du catalogue).

@@ -13,6 +13,7 @@ class GuideEntryTests(TestCase):
             def __init__(self): self.session_state={'active_module':mode,'niveau_actif_form':public};self.buttons=[]
             def button(self,label,**kw): self.buttons.append(kw['key']);return True
             def container(self,**kw): return nullcontext()
+            def markdown(self,*a,**kw): pass
         ui=UI()
         with patch('guided_navigation.render_guide') as render:
             exec(compile(ast.fix_missing_locations(ast.Module(body=[block],type_ignores=[])),'app.py','exec'),{'st':ui,'_guide_mode':mode,'_guide_level':public,'public_label':lambda s:s})

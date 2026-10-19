@@ -1394,11 +1394,6 @@ with st.container(key="parcours"):
             st.markdown('<div class="hub-champ-verrou">🔒 Décrivez votre problème en une phrase complète…</div>',
                         unsafe_allow_html=True)
         else:
-            st.markdown(
-                '<div class="hub-hint hub-hint-amber" style="text-align:left;"><strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. Vérifiez vos copier-coller avant l’envoi.</div>',
-                unsafe_allow_html=True,
-            )
-
             with st.form(key="form_question_hub", clear_on_submit=True):
                 col_input, col_submit = st.columns([5, 1])
                 with col_input:
@@ -1413,6 +1408,13 @@ with st.container(key="parcours"):
                     bouton_envoyer = st.form_submit_button(
                         "🚀 Poser la question", use_container_width=True, type="primary"
                     )
+                # Rappel discret sous la barre (l'œil reste sur la question) ; libère la hauteur d'un cadre.
+                st.markdown(
+                    '<div style="font-size:0.78rem;opacity:0.65;text-align:left;margin-top:-0.4rem;">'
+                    '<strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. '
+                    'Vérifiez vos copier-coller avant l’envoi.</div>',
+                    unsafe_allow_html=True,
+                )
 
                 if bouton_envoyer and prompt_brut.strip():
                     prompt = prompt_brut.strip()
@@ -1427,7 +1429,13 @@ with st.container(key="parcours"):
             if _guide_mode == "ipack" or (_guide_mode == "examens" and _guide_level in ("Lycée Général & Techno", "Lycée Pro / CAP")):
                 _guide_public = st.session_state.get("niveau_actif_form", "")
                 _guide_toggle = "guide_direct_" + _guide_mode + "_" + _guide_public
-                if st.button("❓ Vous êtes perdu(e) ?", key="ouvrir_" + _guide_toggle, use_container_width=True):
+                # Étape 4 : le guide pas à pas, sans appel IA (ne coûte rien) ; même style que l'étape en cours.
+                st.markdown(
+                    '<div class="hub-step hub-step-active"><span class="hub-step-num">4</span>'
+                    '<div><div class="hub-step-title">Ou suivez le guide pas à pas</div>'
+                    '<div class="hub-step-sub">Choisissez ce que vous voulez faire : les étapes et les vidéos s’affichent tout de suite</div></div></div>',
+                    unsafe_allow_html=True)
+                if st.button("🧭 Ouvrir le guide pas à pas", key="ouvrir_" + _guide_toggle, use_container_width=True):
                     st.session_state[_guide_toggle] = not st.session_state.get(_guide_toggle, False)
                 if st.session_state.get(_guide_toggle, False):
                     from guided_navigation import render_guide

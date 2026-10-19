@@ -3671,7 +3671,10 @@
       "dossier certificatif"
     ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article82",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "centrer_motifs": [
+      "(?=.*(?:inapt|certificat))(?=.*(?:enregistr|declar|saisir|depos))"
+    ]
   },
   "data/commun/audit60/gt_regles_decisives.txt": {
     "statut": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -3702,7 +3705,7 @@
       "commission.*harmonisation"
     ],
     "centrer_motifs": [
-      "activites? (?:d.)?etablissement"
+      "(?=.*(?:combien|nombre))(?=.*(?:epreuves|activites|apsa))(?=.*(?:ccf|bac))"
     ]
   },
   "data/commun/audit60/certificat_medical.txt": {

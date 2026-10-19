@@ -1563,3 +1563,18 @@ Base de travail : 2c750ca. Mesure privée conservée, sans réécriture des rés
 - Historique reçu en lecture seule : les 30 formulations de la dernière mesure figurent déjà avant le 19 octobre. Des réponses antérieures sur l’export et le différé étaient mieux orientées. Les anciennes lignes ne renseignent ni version ni académie : dégradation observable, mais aucun correctif précis ne peut en être désigné responsable sur cette seule base.
 - Le tableau Google transmis nécessite une connexion dans le navigateur de contrôle ; le fichier historique fourni ensuite a permis la comparaison.
 - Validation finale : 691 tests passent sur cette version, dont les six nouveaux cas ciblés. Les réponses réelles après publication restent à mesurer ; ces tests ne constituent pas un taux de fiabilité métier.
+
+
+### 19 octobre 2026 — Suite : complétude des réponses partielles
+
+Base : 9fd6818. Aucun changement du journal privé ni rejeu payant.
+
+- Déclaration d’inaptitude : centrer le contexte sur la fiche technique quand l’action demandée est enregistrer/déclarer/saisir/déposer. Garder la distinction avec le calcul de moyenne ; aucune priorité augmentée.
+- Nombre d’épreuves au bac GT : centrer la fiche des règles d’ensemble pour les demandes de nombre ; rappeler dans les consignes internes de conserver nombre, champs et « au moins deux » activités nationales, sans exiger trois activités nationales.
+- EPPCS : source officielle MENE2622650N relue en ligne. La fiche décrit les deux parties pratique/analyse de l’épreuve dite orale et précise le choix du support pratique. Les durées et points sont distingués ; la session 2027 reste explicitement séparée de l’historique 2026.
+- SHN : source nationale MENE2531948N, 4.a et 4.b, relue en ligne. Ajout des aménagements concrets après validation, en distinguant CCF, ponctuel, calendrier, spécialité et impossibilité de retenir le 20 comme unique note. Attribution exacte du nouveau passage comme texte national, sans réserve académique sur cette règle.
+- Mécanisme : quelques indications internes de complétude, seulement lorsque la fiche concernée est réellement fournie et la demande correspond. Elles ne sont ni des preuves ni du contenu à citer. Aucun nouveau contrôle bloquant ni appel supplémentaire ajouté.
+- Six tests ciblés sans appel distant : absence d’indication sans source, ciblage du chemin, maintien du minimum national, structure EPPCS, conditions et portée SHN, transmission des indications à une génération simulée unique.
+- À reprendre séparément : réponses sur comparaison CCF/ponctuel, adaptation handicap, harmonisation voie professionnelle et contestation de note. Ne pas annoncer que toutes les réponses partielles sont corrigées.
+- Source retrouvée pour le chantier vidéo EPPCS : MENE2622650N, I.B, indications complémentaires, décrit registre des traitements, consentement via Cyclades et floutage des autres personnes. Fiche spécialisée non créée dans ce lot.
+- Validation : 697 tests passent, dont les six nouveaux cas ciblés. Aucun appel d’IA distant pour cette validation. L’effet sur les réponses réelles et les jetons reste à mesurer après publication.

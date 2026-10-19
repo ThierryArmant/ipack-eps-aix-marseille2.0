@@ -159,7 +159,15 @@
         "texte_national",
         "consigne_academique"
       ],
-      "passages": []
+      "passages": [
+        {
+          "texte": "Aménagements de l’EPS obligatoire au bac GT, après proposition du comité de pilotage et validation du recteur : en CCF, trois épreuves de trois champs différents, avec 20/20 sur la spécialité sportive ; ce 20 ne peut pas être l’unique note retenue. Les modalités d’enseignement et le calendrier peuvent être adaptés sur le cycle terminal. Un SHN scolarisé peut demander le ponctuel ; pour le ponctuel aménagé validé, deux activités de deux champs différents, avec 20/20 sur la spécialité et une évaluation sur la seconde activité. Là encore, ce 20 ne peut pas être l’unique note. Ce dispositif concerne l’EPS obligatoire, pas les points de la partie pratique d’EPPCS.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N du 20 février 2026, 4.a et 4.b"
+        }
+      ]
     },
     "data/commun/parcours_sportifs/01_sss_eps_obligatoire.txt": {
       "nature_non_attribuee": [

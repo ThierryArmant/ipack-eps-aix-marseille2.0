@@ -40,7 +40,7 @@
       "publics_explicites": [],
       "sources": [
         "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029389197",
-        "https://www.education.gouv.fr/bo/15/Hebdo14/MENH1506031C.htm",
+        "https://www.education.gouv.fr/bo/15/Hebdo18/MENH1506031C.htm",
         "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038375945"
       ],
       "statut": "article_4_actualise_2026-10-16",
@@ -591,14 +591,19 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt",
-      "title": "[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]",
+      "title": "Minibus (de l'établissement ou loué) et véhicule personnel : conditions à vérifier",
       "domaine": "06_sorties_transports",
       "publics_explicites": [],
-      "sources": [],
-      "statut": "revu_2026-10-10_recoupement_sources",
+      "sources": [
+        "https://www.pedagogie.ac-nice.fr/eps/wp-content/uploads/sites/20/2014/04/Note-de-service-no-86-101-du-5-mars-1986-1.pdf",
+        "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+        "https://eduscol.education.fr/document/52179/download",
+        "https://www.ac-rennes.fr/media/27688/download"
+      ],
+      "statut": "complete_minibus_2026-10-19",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt",
@@ -1189,7 +1194,7 @@
       "domaine": "01_service_statuts",
       "publics_explicites": [],
       "sources": [
-        "https://www.education.gouv.fr/bo/1999/45/default.htm",
+        "https://www.education.gouv.fr/bo/1999/36/perso.htm",
         "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000577415"
       ],
       "statut": "texte_officiel_fourni_utilisateur_2026-10-18",
@@ -1244,6 +1249,23 @@
         "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
       ],
       "statut": "sources_officielles_relues_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/texte_transport_des_eleves.txt",
+      "title": "Texte transport des élèves : enseignant au volant (minibus, véhicule loué ou personnel) — règle, surveillance, ordre de mission, responsabilités",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [],
+      "sources": [
+        "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+        "https://www.senat.fr/questions/base/2002/qSEQ020801617.html",
+        "https://www.pedagogie.ac-nice.fr/eps/wp-content/uploads/sites/20/2014/04/Note-de-service-no-86-101-du-5-mars-1986-1.pdf",
+        "https://www.education.gouv.fr/bo/2024/Hebdo27/MENV2415662J",
+        "https://eduscol.education.fr/document/52179/download"
+      ],
+      "statut": "textes_fournis_par_thierry_2026-10-19",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false

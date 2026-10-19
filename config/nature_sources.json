@@ -6257,6 +6257,16 @@
    "autres_academies_citees": [],
    "portee_texte": "cités scolaires (collège + lycée)",
    "titre": "Cité scolaire (collège + lycée) : ce qui se fait séparément, ce qui compte comme un seul établissement"
+  },
+  "data/textes/texte_transport_des_eleves.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "second degré ; transport d'élèves par un enseignant",
+   "titre": "Texte transport des élèves : enseignant au volant (minibus, véhicule loué ou personnel) — règle, surveillance, ordre de mission, responsabilités"
   }
  }
 }

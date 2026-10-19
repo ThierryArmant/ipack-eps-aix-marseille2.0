@@ -26,7 +26,7 @@ NAMED = {
  'dispense_inaptitude':5,'escalade_relais':7,'fournitures_neutralite':4,
  'ia_usages':11,'imp_attribution':1,'intervenants_eps':6,'obligations_service_premier':1,
  'pai_pratique':5,'programme_eps_sixieme':9,'signalement_violences':3,
- 'sortie_musee':6,'sorties_mixte':6,'sorties_premier':6,'sorties_second':6,
+ 'sortie_musee':6,'sorties_mixte':6,'sorties_premier':6,'sorties_second':6,'texte_transport':6,
  'tzr_decret':1,'partenariats_defense':12,'premier_degré':12,'sorties_encadrement':6,
 }
 

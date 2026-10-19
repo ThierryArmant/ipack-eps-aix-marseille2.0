@@ -7984,5 +7984,23 @@
     ],
     "url": "https://www.education.gouv.fr/bo/15/Hebdo18/MENH1506031C.htm",
     "date_verification": "2026-10-19"
+  },
+  "data/textes/texte_transport_des_eleves.txt": {
+    "title": "Texte transport des élèves : enseignant au volant (minibus, véhicule loué ou personnel) — règle, surveillance, ordre de mission, responsabilités",
+    "statut": "textes_fournis_par_thierry_2026-10-19",
+    "examens": [],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "motifs": [
+      "minibus|mini.bus|(?:louer|location|loue).{0,40}(?:vehicule|minibus|car|bus|camion|voiture|9 places)|(?:pas de|sans|aucun) (?:bus|car|autocar|transporteur)|9 places|ordre de mission|(?:conduire|transporter|emmener|amener).{0,40}(?:eleves|enfants|equipe)|(?:voiture|vehicule).{0,30}(?:perso|prive|de service|de l.etablissement)|covoitur"
+    ],
+    "url": "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
+    "date_verification": "2026-10-19",
+    "domaine_textes": "06_sorties_transports"
   }
 }

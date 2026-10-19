@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-83 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+84 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -63,14 +63,14 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Élève inapte ou dispensé : présence en cours d'EPS](../data/textes/fiches/dispense_inaptitude_presence_cours.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [PAI : pratique EPS, adaptation et sorties](../data/textes/fiches/pai_pratique_eps_sorties.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 
-## Sorties, voyages, transports et accompagnateurs (14)
+## Sorties, voyages, transports et accompagnateurs (15)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
 | [[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]](../data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt) | Non balisé | 2 | Relecture à poursuivre |
 | [[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]](../data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt) | Non balisé | 3 | Relecture à poursuivre |
 | [Transport d’élèves en véhicule personnel : recours exceptionnel et garanties](../data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt) | Non balisé | 6 | Références présentes ; statut détaillé au catalogue |
-| [[SITUATION: LES DEUX TYPES DE VÉHICULES ET LEURS CONDITIONS STRICTES]](../data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt) | Non balisé | 0 | Relecture à poursuivre |
+| [Minibus (de l'établissement ou loué) et véhicule personnel : conditions à vérifier](../data/textes/fiches/base_textes_officiels_040_situation_les_deux_types_de_vehicules_et_leurs_conditions_strictes.txt) | Non balisé | 4 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: CADRE PARTICULIER : EPS OBLIGATOIRE vs ASSOCIATION SPORTIVE (AS / UNSS)]](../data/textes/fiches/base_textes_officiels_041_situation_cadre_particulier_eps_obligatoire_vs_association_sportive_as_unss.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: FEUILLE DE ROUTE OPÉRATIONNELLE : DÉCISIONS DU CHEF D'ÉTABLISSEMENT]](../data/textes/fiches/base_textes_officiels_042_situation_feuille_de_route_operationnelle_decisions_du_chef_d_etablissement.txt) | Non balisé | 0 | Relecture à poursuivre |
 | [[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)](../data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
@@ -81,6 +81,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [École : autorisation des sorties et voyages scolaires](../data/textes/fiches/sorties_premier_degre_autorisations.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
 | [Sorties et voyages scolaires : guide Éduscol second degré, décembre 2025](../data/textes/fiches/sorties_second_degre_guide_2025.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Sorties au second degré : autorisation et encadrement général](../data/textes/sorties_encadrement_2024.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Texte transport des élèves : enseignant au volant (minibus, véhicule loué ou personnel) — règle, surveillance, ordre de mission, responsabilités](../data/textes/texte_transport_des_eleves.txt) | Non balisé | 5 | Références présentes ; statut détaillé au catalogue |
 
 ## Sécurité des activités, équipements et APPN (14)
 

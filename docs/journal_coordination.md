@@ -1607,3 +1607,7 @@ Validation : 705 tests locaux réussis ; formulation réelle à confirmer par le
 ### 19 octobre 2026 — Retour au rappel de rédaction précédent
 À la demande de l’utilisateur après rejeu, retrait du seul ajustement de rédaction cb11220. documentary_review.py revient exactement à son contenu de 81b16b1. Les autres corrections restent en place. La réponse précédente était plus fidèle mais encore incomplète ; ce retour ne garantit pas une rédaction identique par le modèle. Aucun appel IA effectué.
 Validation : identité du fichier avec 81b16b1 vérifiée ; 8 tests ciblés réussis.
+
+### 19 octobre 2026 — Sélection nationale du contrôle adapté GT
+Pour une question générale sur les modalités d’évaluation d’un handicap, lorsque la fiche nationale GT complète est déjà présente, ne plus transmettre les fiches voisines de blessure temporaire et leurs doublons. La règle ne s’applique pas aux demandes de saisie, aux logiciels, certificats, démarches administratives ou blessures en cours d’année. La fiche reste entière, configurations et réserves comprises. Attribution exacte en texte national du passage réglementaire sur l’inaptitude temporaire dans la fiche iPack 212 ; la suite logicielle n’est pas reclassée en règle nationale. Aucun nouveau contrôle bloquant ni appel IA.
+Validation : 708 tests locaux réussis, dont trois vérifications ciblées (contenu exact du paquet, maintien des demandes voisines, nature du passage). Aucun appel payant ; effet rédactionnel à confirmer sur le hub.

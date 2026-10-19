@@ -501,6 +501,21 @@
           "reference": "Relevé de navigation du 19 octobre 2026 : choix des établissements ; aucune priorité d’intégration établie par le relevé"
         }
       ]
+    },
+    "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Pour une inaptitude temporaire en cours d'année (bac GT, MENE2531948N, contrôle adapté) : l'enseignant du groupe adapte l'épreuve sur les indications du médecin (adaptations transmises pour information à la commission académique), ou renvoie à une évaluation différée, ou certifie sur deux épreuves ou sur une seule, ou ne propose pas de note (« dispensé »).",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e — inaptitude temporaire"
+        }
+      ]
     }
   }
 }

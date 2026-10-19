@@ -1089,6 +1089,19 @@ def response_focus_notes(question, packets):
     return notes
 
 
+def handicap_overview_packets(question, packets):
+    """Une vue d'ensemble nationale n'a pas besoin des procédures de blessure/saisie."""
+    from knowledge_catalog import normalise
+    q = normalise(question)
+    anchor = 'data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt'
+    selected = [p for p in packets if p.get('path') == anchor]
+    if (not selected or not re.search(r'handicap|inaptitude.*permanente', q)
+            or not re.search(r'evalu|epreuves?|controle adapte', q)
+            or re.search(r'ipack|cyclades|santorin|blesse|temporaire|cours d.annee|sais|declar|depos|creer|certificat|amex|incluscol|mdph|recours|delai|inscri|protocole|valid|transf|shn|sportif|option|eppcs', q)):
+        return packets
+    return [p for p in packets if p.get('origin') != 'document' or p in selected]
+
+
 def packet_covered_by_focus(candidate, focused):
     """Retire seulement une copie déjà présente, jamais une autre section du même fichier."""
     peers = [p for p in focused
@@ -1227,6 +1240,9 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_course_duration_documents'] = [p['id'] for p in packets if course_duration_mismatch(question, p)]
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
+    before_handicap = packets
+    packets = handicap_overview_packets(question, packets)
+    audit['excluded_handicap_overview_documents'] = [p['id'] for p in before_handicap if p not in packets]
     audit['document_selection_after_focus'] = [p['id'] for p in packets]
     audit['excluded_by_priority_focus'] = [p['id'] for p in audit['documents'] if p['id'] in audit['document_selection_before_focus'] and p['id'] not in audit['document_selection_after_focus']]
     audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'

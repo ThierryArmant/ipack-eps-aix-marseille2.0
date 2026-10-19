@@ -54,3 +54,29 @@ def operation_errors(claims, question):
         if wrong_action or wrong_tool:
             errors.append({'index': i, 'errors': ['opération ou logiciel différent de la demande : conserver l’action et l’outil demandés, ou signaler la limite documentaire']})
     return errors
+
+
+def activity_field_errors(claims, *, public=None):
+    """Refuse un classement explicitement contraire à la table documentaire.
+
+    Ne statue ni sur un dépôt ni sur la validation d'un ensemble complet.
+    """
+    if public is not None and not re.search(r'lycee|\bgt\b', normalized(public)):
+        return []
+    from pathlib import Path
+    rows = (Path(__file__).resolve().parent / 'config' / 'activites_champs.csv').read_text().splitlines()
+    fields = [(name, int(field)) for line in rows if ';' in line
+              for name, field in [line.split(';', 1)] if field.isdigit()]
+    errors = []
+    for i, claim in enumerate(claims):
+        text = normalized(claim.get('text', '')).replace('-', ' ').replace('course de duree', 'course en duree')
+        if re.search(r"\bsi\b|lorsque|dans le cas", text):
+            continue
+        named = [(name, field) for name, field in fields if re.search(r'\b' + re.escape(name) + r'\b', text)]
+        if len(named) != 2 or named[0][1] == named[1][1]:
+            continue
+        denied_distinctness = re.search(r"ne peuvent.{0,45}pas.{0,90}(?:deux epreuves distinctes|deux activites distinctes)", text)
+        same_field = re.search(r"(?:relevent (?:bien )?du|appartiennent (?:bien )?au) meme champ", text)
+        if denied_distinctness or same_field:
+            errors.append({'index': i, 'errors': ['activités explicitement classées dans deux champs différents par la table documentaire : ne pas affirmer qu’elles constituent le même champ ou ne sont pas distinctes']})
+    return errors

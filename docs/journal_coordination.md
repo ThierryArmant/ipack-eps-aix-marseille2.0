@@ -1442,3 +1442,20 @@ Contrôles locaux sans génération : contexte documentaire relu avec les extrai
 Mesure locale de sélection (caractères des passages, avant → après) : SHN professionnel/CAP 11 223 → 4 657 ; TZR/service 14 395 → 9 533 ; CO/parc 14 080 → 3 449 ; transfert au remplaçant 8 229 → 2 820 ; dispense DNB/LSU 18 823 → 6 775 ; activité établissement 15 272 → 4 037. Ces valeurs ne sont pas une mesure de jetons ni une validation de nouvelles réponses générées.
 
 Validation : 645 tests réussis. Huit tests supplémentaires couvrent le ciblage borné sans hausse de priorité, les demandes réellement mixtes avec Santorin ou une inaptitude, le maintien des deux diplômes professionnel/CAP, le LSU et les sessions DNB, la portée collège et la conservation d’une section documentaire distincte. Aucun appel IA payant.
+
+### 19 octobre 2026 — Partie programme et fiches : le rejeu du dépôt reste faux après la suppression de la clarification
+
+Retour privé reçu après publication : la clarification a disparu, mais une nouvelle réponse interdit un regroupement de FCA en s’appuyant sur les seuls faits de classement calculés, puis nie que CA1 et CA5 constituent deux épreuves distinctes. Ce cas n’est donc pas validé en ligne malgré les tests techniques précédents. La réponse affichée établit le défaut de restitution ; sans le nouveau fichier de trace, elle ne reconstitue pas les deux éventuelles rédactions internes.
+
+Corrections de ce lot :
+- Le bloc calculé « champs d’apprentissage au lycée des activités citées » n’est plus envoyé comme preuve prioritaire lorsqu’il s’agit d’un dépôt. Les règles et distinctions restent fournies par la fiche sourcée.
+- Un classement calculé seul ne peut justifier une permission ou une interdiction de dépôt. Un rappel qui explique seulement cette limite reste accepté.
+- La fiche énonce maintenant positivement la distinction individuelle : demi-fond CA1 et course en durée d’entretien CA5 peuvent constituer deux des trois épreuves, avec une troisième activité d’un autre champ et des référentiels validés. Deux formats de demi-fond restent du même champ. Fondement : MENE2531948N, 1.a et 2.a, et programme EPS lycée.
+- La procédure locale connue demeure le document regroupant deux FCA de demi-fond. Le regroupement CA1/CA5 n’est pas documenté ici : ce constat n’autorise pas à déclarer qu’il est interdit. Une ancienne phrase du complément « ni fusionner sa FCA » était trop impérative ; elle est remplacée par cette limite documentaire.
+- Vérification bornée au lycée : une affirmation nommant explicitement deux activités ne peut les déclarer du même champ ou non distinctes si la table documentaire existante indique deux champs différents. Les explications conditionnelles de requalification et les activités réellement du même champ restent acceptées. Ce contrôle ne valide ni un dépôt ni un ensemble complet.
+
+Sources complémentaires apportées par le gestionnaire : tableau programme EPS LGT de Grenoble relu pour les objectifs des champs ; référentiel national CCF du ministère fourni (document portant l’en-tête 2019) consulté, sans en importer les anciens barèmes ni le présenter comme une nouvelle consigne de dépôt à Aix-Marseille. Les attributions par passage et le registre académique sont actualisés.
+
+L’objectif utilisateur est 90 % de réponses fiables, à mesurer sur les réponses ; le nombre de tests logiciels n’est pas un taux de réussite métier. Aucun appel IA payant lancé, aucun rejeu automatique demandé. La formulation après ce lot reste à vérifier en ligne ; ne pas annoncer ce cas résolu sur les seuls tests.
+
+Validation : 651 tests réussis. Les six nouveaux cas couvrent l’interdiction de dépôt non prouvée par un classement calculé, l’acceptation d’un simple rappel de limite, le retrait de ces faits du prompt de dépôt, le rejet des deux formulations de classement contradictoire, le maintien des branches conditionnelles et des champs réellement identiques, et le bornage au lycée. Ces vérifications sont locales avec sorties simulées, sans nouvel appel au modèle.

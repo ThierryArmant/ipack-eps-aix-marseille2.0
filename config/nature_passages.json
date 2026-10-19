@@ -241,20 +241,27 @@
           "reference": "MENE2531948N du 20 février 2026, parties 1.a et 2.a"
         },
         {
-          "texte": "Distinction des activités : le demi-fond recherche une performance mesurée et relève du CA1 ; la course en durée visant le développement des ressources et l'entretien de soi relève du CA5. Ces deux activités ne relèvent donc pas du même champ. Le nom courant « course de durée » ne suffit pas à transformer une épreuve chronométrée de demi-fond en activité du CA5. Cette distinction explique les deux cas au collègue ; elle ne nécessite pas de lui demander d'abord de classer lui-même son activité. Source : programme et référentiel national du bac GT, synthèse Éduscol du corpus.",
+          "texte": "Distinction des activités : le demi-fond recherche une performance mesurée et relève du CA1 ; la course en durée visant le développement des ressources et l'entretien de soi relève du CA5. Ces deux activités ne relèvent donc pas du même champ. Le nom courant « course de durée » ne suffit pas à transformer une épreuve chronométrée de demi-fond en activité du CA5. Cette différence de champs ne constitue pas une interdiction de dépôt dans un même fichier : la règle des trois champs porte sur l'ensemble certificatif individuel. Source : programme et référentiel national du bac GT, synthèse Éduscol du corpus.",
           "nature": [
             "texte_national"
           ],
           "reference": "Programme EPS lycée et référentiel national CCF, synthèse Éduscol du corpus"
         },
         {
-          "texte": "À Aix-Marseille, le retour du modérateur du 14 octobre 2026 confirme que proposer plusieurs FCA pour la même activité n'est pas interdit par l'exigence des trois champs de l'ensemble individuel. Le dépôt de deux FCA dans un document a déjà été pratiqué. Exemple : les deux FCA de demi-fond peuvent être validées, mais un candidat ne peut pas retenir à la fois le 3 × 500 m et le 3 × 1 min 30 comme deux épreuves de son ensemble certificatif ordinaire. Cette confirmation académique porte sur le dépôt décrit, pas sur une procédure de fusion d'une FCA du CA1 et d'une FCA du CA5.",
+          "texte": "À Aix-Marseille, le retour du modérateur du 14 octobre 2026 confirme que proposer plusieurs FCA pour la même activité n'est pas interdit par l'exigence des trois champs de l'ensemble individuel. Le dépôt de deux FCA dans un document a déjà été pratiqué. Exemple : les deux FCA de demi-fond peuvent être validées, mais un candidat ne peut pas retenir à la fois le 3 × 500 m et le 3 × 1 min 30 comme deux épreuves de son ensemble certificatif ordinaire. Cette confirmation académique porte sur le dépôt décrit, pas sur une procédure de fusion d'une FCA du CA1 et d'une FCA du CA5. Une procédure de fusion CA1/CA5 n'est pas documentée ici ; cette limite documentaire ne démontre pas qu'un tel regroupement est interdit.",
           "nature": [
             "consigne_academique",
             "logiciel"
           ],
           "reference": "Confirmation du modérateur académique du 14 octobre 2026, échange privé anonymisé",
           "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Pour l'ensemble certificatif individuel ordinaire du bac GT, le demi-fond (CA1) et la course en durée d'entretien (CA5) sont deux activités de champs différents : elles peuvent constituer deux des trois épreuves, avec une troisième activité d'un autre champ et des référentiels validés. Cela ne signifie pas que deux formats de demi-fond (CA1), comme le 3 × 500 m et le 3 × 1 min 30, deviennent deux champs différents. Source : MENE2531948N, 1.a et 2.a, et programme EPS du lycée.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N, 1.a et 2.a ; programme EPS lycée"
         }
       ]
     },

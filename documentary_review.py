@@ -12,7 +12,7 @@ import time
 import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
-from claim_guards import unsupported_certainty, operation_errors, documentary_limit
+from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
@@ -432,6 +432,15 @@ def validate_claims(data, packets, *, checked=False):
                     errors.append('référence absente des documents justificatifs')
             if re.search(r'<[^>]+>', text):
                 errors.append('HTML interdit dans une affirmation')
+            # Un classement de champs calculé n'établit aucune procédure de dépôt.
+            program_fields_only = bool(resolved_evidence) and all(
+                by_id[e['document_id']].get('origin') == 'program'
+                and re.search(r'champs? d.apprentissage|champ [1-5]', evidence_logic.normalized(by_id[e['document_id']]['text']))
+                for e in resolved_evidence)
+            field_limit_notice = re.search(r'ne.{0,55}(?:permet|suffit|prouve|demontre).{0,25}pas|ne prouve ni', evidence_logic.normalized(text))
+            if (program_fields_only and not field_limit_notice and re.search(r'depos|depot|regroup|pdf|fichier', evidence_logic.normalized(text))
+                    and re.search(r'impossible|pas possible|\binterdit(?:e|es|s)?\b|\bautorise(?:e|es|s)?\b|oblig|(?:ne peut|ne peuvent).{0,20}pas', evidence_logic.normalized(text))):
+                errors.append('un classement de champs ne prouve ni autorisation ni interdiction de dépôt : citer la source de dépôt')
             if unsupported_certainty(text, supports):
                 errors.append('absence de consigne transformée en règle certaine : conserver la réserve documentaire')
             if supports and not errors:
@@ -1173,6 +1182,13 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets, marked = select_academy(packets, academy)
     audit['academy'] = academy
     audit['marked_academic_passages'] = marked
+    # Pour le dépôt, le classement calculé est déjà expliqué dans la fiche ;
+    # ne pas le présenter au modèle comme une preuve de procédure prioritaire.
+    field_calculations = [p for p in packets if p.get('origin') == 'program'
+                          and re.search(r'depos|depot|regroup|meme (?:pdf|document)', evidence_logic.normalized(question))
+                          and "champs d'apprentissage au lycee des activites citees" in evidence_logic.normalized(p['text'])]
+    audit['excluded_field_calculation_documents'] = [p['id'] for p in field_calculations]
+    packets = [p for p in packets if p not in field_calculations]
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
     audit['document_selection_after_academy'] = [p['id'] for p in packets]
@@ -1184,7 +1200,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'Distinguer dépôt de deux FCA, regroupement dans un fichier et ensemble certificatif. '
                          'Répondre directement sur le dépôt et expliquer la différence avec l’ensemble individuel, sans demander au collègue de classer lui-même les activités. '
                          'La procédure [Courses] du CA1 ne décrit pas le dépôt de Course en durée du CA5. '
-                         'Ne pas inventer le libellé du menu ni un regroupement des deux FCA.')
+                         'Une procédure non documentée ne prouve pas une interdiction. Ne pas inventer le libellé du menu ni présenter le regroupement CA1/CA5 comme confirmé.')
     missing = absent_terms(question, packets)
     audit['absent_terms'] = missing
     if missing:
@@ -1293,6 +1309,7 @@ Réponds uniquement en JSON selon ce schéma :
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
             checks = (operation_errors(accepted, question),
+                      activity_field_errors(accepted, public=public),
                       evidence_logic.evidence_logic_errors(accepted),
                       coherence_errors(accepted, question),
                       conditional_extraction_errors(accepted, question),

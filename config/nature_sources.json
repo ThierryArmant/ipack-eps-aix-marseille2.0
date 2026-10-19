@@ -5996,6 +5996,7 @@
   },
   "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
    "nature": [
+    "texte_national",
     "logiciel"
    ],
    "academie": null,
@@ -6006,7 +6007,7 @@
     "Normandie",
     "Strasbourg"
    ],
-   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "portee_texte": "règles nationales des diplômes (références citées) et fonctionnement de Santorin et Cyclades",
    "titre": "Santorin : Élève inapte toute l'année, ou avec une seule note sur trois — que saisir dans santorin ?"
   },
   "data/examens/santorin_cas_pratiques/05_faut_il_verrouiller_son_lot_tout_de_suite_apres_la_sais.txt": {
@@ -6131,6 +6132,7 @@
   },
   "data/examens/santorin_cas_pratiques/13_co_evaluation_obligatoire_ou_non_selon_l_examen_bac_gt.txt": {
    "nature": [
+    "texte_national",
     "logiciel"
    ],
    "academie": null,
@@ -6141,11 +6143,12 @@
     "Normandie",
     "Strasbourg"
    ],
-   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "portee_texte": "règles nationales des diplômes (références citées) et fonctionnement de Santorin et Cyclades",
    "titre": "Santorin : Co-évaluation — obligatoire ou non selon l'examen (bac gt, bac pro, cap, dnb)"
   },
   "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt": {
    "nature": [
+    "texte_national",
     "logiciel"
    ],
    "academie": null,
@@ -6156,7 +6159,7 @@
     "Normandie",
     "Strasbourg"
    ],
-   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "portee_texte": "règles nationales des diplômes (références citées) et fonctionnement de Santorin et Cyclades",
    "titre": "Santorin : De la validation des protocoles à la saisie des notes — les étapes dans l'ordre et qui les"
   },
   "data/examens/erreurs_cyclades_santorin.txt": {
@@ -6195,6 +6198,7 @@
   },
   "data/examens/santorin_cas_pratiques/16_eleve_present_qui_refuse_ou_abandonne_l_epreuve.txt": {
    "nature": [
+    "texte_national",
     "logiciel"
    ],
    "academie": null,
@@ -6204,7 +6208,7 @@
     "Corse",
     "Normandie"
    ],
-   "portee_texte": "fonctionnement des applications nationales Santorin et Cyclades",
+   "portee_texte": "règles nationales des diplômes (références citées) et fonctionnement de Santorin et Cyclades",
    "titre": "Santorin / Cyclades : Élève présent qui refuse de passer l'épreuve ou abandonne en cours d'épreuve ("
   },
   "data/examens/santorin_cas_pratiques/17_santorin_dans_quel_menu_se_fait_chaque_operation.txt": {

@@ -1595,3 +1595,7 @@ Base : 3d87a5c. Aucun rejeu distant payant ; conservation des résultats privés
 - Huit nouveaux tests : routage menu national/Aix, attribution locale dans la phrase, harmonisation pro/CAP, trois configurations adaptées, contestation sans classement logiciel, présence et consolidation des textes dans le chargeur, génération nationale simulée sans réparation.
 
 Validation finale : 705 tests locaux réussis ; aucun appel payant à l’IA. Vérification des réponses sur le hub encore nécessaire.
+
+### 19 octobre 2026 — Nuances du contrôle adapté GT
+Le retour en ligne a montré une restitution trop stricte malgré une fiche correcte : deux champs présentés comme obligatoires au lieu d’autant que possible, et attestation en début d’année généralisée. Rappel de rédaction ciblé sur la fiche GT, y compris pour une question précise sur deux épreuves ; distinction explicite du handicap découvert en cours d’année. Aucun nouveau contrôle bloquant ni appel IA ajouté. Traces privées conservées hors dépôt.
+Validation : 705 tests locaux réussis, sans appel payant à l’IA. Rejeu en ligne nécessaire pour confirmer la formulation réelle.

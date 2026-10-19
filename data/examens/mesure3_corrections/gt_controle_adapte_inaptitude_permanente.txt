@@ -3,6 +3,7 @@
 Sigles : CCF = contrôle en cours de formation ; PPS = projet personnalisé de scolarisation ; PAI = projet d'accueil individualisé.
 Réponse directe : l'élève reste évalué en contrôle en cours de formation (CCF), avec un contrôle adapté construit par l'équipe EPS et les services de santé scolaire, inscrit au protocole et soumis à la commission académique. Il ne s'agit pas du calcul d'une moyenne ordinaire de contrôle continu. La dispense d'épreuve est réservée aux handicaps qui ne permettent aucune pratique adaptée.
 Une inaptitude ou un handicap attesté en début d'année par l'autorité médicale peut empêcher une pratique régulière ou complète de l'EPS sans interdire une pratique adaptée.
+Cette situation connue en début d’année ne signifie pas qu’un handicap découvert en cours d’année exclut le contrôle adapté : les propositions d’adaptation sont alors également soumises à la commission académique.
 Les trois possibilités documentées en CCF sont :
 1. Trois épreuves de trois champs d'apprentissage différents, dont au moins une adaptée.
 2. Deux épreuves adaptées relevant, autant que possible, de deux champs différents.

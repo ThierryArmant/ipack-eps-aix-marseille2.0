@@ -1078,6 +1078,8 @@ def response_focus_notes(question, packets):
         notes.append('Bac pro/CAP : distinguer les diplômes et leurs arrondis ; attribuer la transmission des propositions à l’établissement, puis l’harmonisation à la commission académique.')
     if 'data/examens/validation_menu_cadre_national_gt.txt' in paths:
         notes.append('Validation du menu GT : donner la transmission et la validation nationales ; ne pas inventer pour une académie le canal de dépôt ou les échéances d’une autre.')
+    if 'data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt' in paths:
+        notes.append('Contrôle adapté GT : si deux épreuves sont mentionnées, conserver explicitement « autant que possible de deux champs différents » : deux champs ne sont pas une obligation absolue. Le handicap ou l’inaptitude attesté en début d’année décrit une situation, pas une condition générale excluant un handicap découvert en cours d’année ; les propositions dans ce dernier cas sont aussi soumises à la commission académique. Ne pas présenter une attestation en début d’année comme obligatoire pour tout contrôle adapté.')
     if ('data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt' in paths
             and re.search(r'comment|organis|adapter|possibilit', q)
             and not re.search(r'une seule|deux epreuves|trois epreuves', q)):

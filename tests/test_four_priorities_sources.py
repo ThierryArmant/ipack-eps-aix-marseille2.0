@@ -55,7 +55,11 @@ class FourPrioritiesTests(unittest.TestCase):
         for fragment in ['Trois épreuves de trois champs', 'Deux épreuves adaptées', 'autant que possible', 'cas très particuliers', 'une seule épreuve adaptée', 'contrôle en cours de formation']:
             self.assertIn(fragment,text)
         self.assertTrue(response_focus_notes('Comment adapter l’évaluation pour un handicap au bac GT ?',ps))
-        self.assertEqual(response_focus_notes('Deux épreuves adaptées : quels champs ?',ps),[])
+        focused=' '.join(response_focus_notes('Deux épreuves adaptées : quels champs ?',ps))
+        self.assertIn('autant que possible',focused)
+        self.assertIn('pas une obligation absolue',focused)
+        self.assertIn('handicap découvert en cours d’année',focused)
+        self.assertEqual(response_focus_notes('Deux épreuves adaptées : quels champs ?', []), [])
 
     def test_grade_appeal_no_software_label_and_no_blanket_ban(self):
         path='data/ipack/fiches/ipack_179_situation_menace_de_recours_juridique_d_un_parent_sur_une_note_de_ccf.txt'

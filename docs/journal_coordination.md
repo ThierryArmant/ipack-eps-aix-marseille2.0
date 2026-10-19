@@ -1297,3 +1297,16 @@ Les fiches restent inchangées. Les contrôles mécaniques confondaient des dema
 Vérification privée sans appel au service IA : les brouillons enregistrés des cas de conservation, de saisie et de réserve académique passent sans réparation ; les interdictions injustifiées sont rejetées et restituées sous forme de limite documentaire. Les réponses déjà acceptées sur les curseurs et la fiche individuelle ne sont pas validées par cette correction : leurs problèmes de pertinence et de portée restent à traiter séparément. Aucun gain global de fiabilité ni de coût réel n'est annoncé avant mesure.
 
 Validation : suite complète de 612 tests réussie ; six tests ciblés de périmètre et dix tests de portée/intention réussis après attribution dans la phrase. Relecture des brouillons privés enregistrés sans génération distante ; aucune fiche ni réglage de recherche modifié.
+
+
+### 19 octobre 2026 — Partie fiches : cas terrain collège, déclarer l'activité enseignée à une classe
+
+Retour d'un collègue (question et réponse non recopiées). Classement : **mauvaise source** ; la rédaction est fidèle à la fiche reçue, la fiche n'est pas en cause.
+
+- Fiche transmise à tort : `data/ipack/fiches/ipack_057_article_11_fiche_professeur_renseigner_sa_fiche_professeur.txt` (spécialité sportive absente de la liste prédéfinie, fiche professeur). Elle a conduit à « créer l'APSA à la main » pour une activité déjà dans la liste prédéfinie.
+- Fiche attendue, présente au catalogue : `data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt` ([APSA] liste prédéfinie → [Périodes] → [Groupes EPS] > [Gérer les S.A.] > [Ajouter]) ; entrée du guide collège « APSA · Périodes · Groupes : déclarer l'activité d'une classe ».
+- À vérifier côté programme après la correction 590d7c3 (formulation d'enseignement) : que cette question naturelle mène bien à `apsa_periodes_sequences.txt`, et pas seulement qu'elle écarte `ipack_057`.
+- Bandeau observé : « Assistance Technique iPackEPS (Gestion du CCF) — Niveau : Collège » ; pas de CCF au collège, libellé à corriger.
+- Ergonomie (sans urgence) : quand la question correspond à un parcours du guide, proposer ce parcours directement plutôt que tout le menu du Dossier EPS ; un collègue qui ne sait pas quel module ouvrir ne peut pas choisir dans le menu.
+
+Aucune fiche modifiée.

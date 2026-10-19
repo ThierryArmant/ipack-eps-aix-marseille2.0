@@ -1514,3 +1514,10 @@ Corrigé (sélection, sans IA) :
 - partielles de rédaction : sortie CO pendant les heures de cours (obligatoire → pas d'autorisation parentale, à dire) ; refus pour défaut d'assurance (le guide dit : attestation non exigible) ; enterrement le jour du CCF ; choix différé / deux notes « par l'enseignant ».
 - Sans fiche : élève qui change de groupe d'examen en cours d'année dans le même lycée (réponse fausse sur un changement d'établissement) ; durée de conservation des fiches d'évaluation CCF ; accord d'image pour l'épreuve filmée de la spécialité EPPCS.
 2 tests de sélection ajoutés ; suite complète réussie.
+
+### 19 octobre 2026 18 h 30 — Claude : traces des bloquées (série de 70), rejouées sur c2ffc37
+- 1. Candidat individuel devenu scolaire : **plus bloquée** (2 appels, réparation réussie, réserve Poitiers). Premier rejet : « passage cité sans rapport ».
+- 2. Bac pro, une seule activité évaluée : **plus bloquée** (1 appel, 4 affirmations acceptées, fiches bac pro inaptitude).
+- 3. Neutraliser une absence sans certificat (Aix, demandé depuis Lille) : bloquée. L'affirmation « certificat requis ; l'accord du chef ne suffit pas » est rejetée parce que **la preuve ne cite aucun passage** (passage_id vide, D1 = « Aix-Marseille : certificats EPS — 2026 ») ; la réparation reproduit le défaut. Classement : rédaction (citation absente), pas fiche.
+- 4. **DI + DI + note à Aix** (récurrent) : bloquée. L'affirmation garde pourtant la condition (« à condition que l'enseignant du groupe classe valide cette note unique ») avec le bon passage (D1P3, fiche note unique ou dispense) ; le contrôle « note présentée comme acquise sans la décision documentée de l'enseignant » la rejette quand même. Classement : **rejet injustifié probable** (ou le contrôle attend aussi l'alternative « dispense » : à préciser dans le motif de rejet) — **GPT, priorité**, c'est la question qui bloque depuis plusieurs jours.
+- Traces 5 à 8 (poignet cassé, plainte pénale, voiture personnelle, inaptitude annuelle/coefficient) non encore fournies.

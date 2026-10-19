@@ -290,7 +290,7 @@ def render_guide(st, key, public, on_done=None, mode=None, question=None):
             st.write(f'**{position + 1}. {label}**')
     if explication:
         # Les mêmes étapes en phrases complètes, pour qui ne connaît pas encore les écrans.
-        st.markdown('**En phrases :** ' + explication)
+        st.markdown('**Concrètement :** ' + explication)
     if not college:
         rule = order_rule()
         if rule:

@@ -12,13 +12,13 @@
       "examens"
     ],
     "motifs": [
-      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))"
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))",
+      "(?=.*(?:depos|depot|regroup|reuni))(?=.*course (?:en|de) duree)(?=.*demi.?fond)"
     ],
-    "exclure_motifs": [
-      "course (?:en|de) duree"
-    ],
+    "exclure_motifs": [],
     "exclusif_motifs": [
-      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))"
+      "(?=.*(?:fca|referentiel))(?=.*(?:courses|demi.?fond|3\\s*[x×]\\s*500|3\\s*[x×]\\s*1))(?=.*(?:deux|2|regroup|reuni|meme pdf|meme document|chaque format))(?=.*(?:ensemble certificatif|meme (?:eleve|candidat)|menu individuel|trois epreuves|3 epreuves))",
+      "(?=.*(?:depos|depot|regroup|reuni))(?=.*course (?:en|de) duree)(?=.*demi.?fond)"
     ]
   },
   "data/examens/situations_2026_10_13/imagin_mission_epscc_cfa.txt": {

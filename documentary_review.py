@@ -1138,7 +1138,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     if re.search(r'course (?:en|de) dur[eé]e', question.lower()) and re.search(r'd[eé]pos', question.lower()):
         instructions += ('\nLa question porte sur un DEPOT, pas seulement sur la compatibilité des champs. '
                          'Distinguer dépôt de deux FCA, regroupement dans un fichier et ensemble certificatif. '
-                         'Si cet objet n’est pas précisé, poser cette seule question utile. '
+                         'Répondre directement sur le dépôt et expliquer la différence avec l’ensemble individuel, sans demander au collègue de classer lui-même les activités. '
                          'La procédure [Courses] du CA1 ne décrit pas le dépôt de Course en durée du CA5. '
                          'Ne pas inventer le libellé du menu ni un regroupement des deux FCA.')
     missing = absent_terms(question, packets)

@@ -1408,3 +1408,17 @@ Aucun appel IA payant. Les changements documentaires ne garantissent pas la form
 Mesure ciblée reçue après 0841f3e : réponse SHN rédigée en ligne, un appel sans rejet, 6 174 jetons d'entrée + 327 de sortie (6 501 au total), contre deux appels et 11 178 jetons pour l'essai précédent. Validation de ce seul essai, pas d'un taux global de réussite. La trace privée reste hors dépôt.
 
 Validation de ce lot : 636 tests réussis, dont la vérification de non-répétition de l’origine académique. Aucun nouveau test génératif lancé par la partie programme.
+
+### 19 octobre 2026 — Partie programme et fiches : dépôt des FCA distinct de l’ensemble individuel
+
+Reprise demandée à partir d’une confirmation académique fournie par le gestionnaire. La fiche existante `data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt` distinguait déjà les deux objets, mais la clarification anticipée empêchait sa consultation pour une demande de dépôt évoquant la course en durée. Le catalogue l’excluait aussi sur ces mots.
+
+- La demande de dépôt accède maintenant à cette fiche sans exiger le classement préalable de l’activité par le collègue. Les autres demandes nécessitant réellement une précision gardent leurs contrôles.
+- La fiche explique CA1 (demi-fond, performance) et CA5 (course en durée, entretien de soi), le dépôt documenté de plusieurs FCA et l’exigence des champs distincts pour l’ensemble certificatif individuel ordinaire. La confirmation du modérateur du 14 octobre 2026 est résumée et anonymisée ; ni les identités ni la conversation brute ne sont publiées.
+- Le retour académique documente deux formats de demi-fond réunis dans un document ; il n’est pas étendu à une procédure de fusion CA1/CA5 non observée. Les attributions par passage séparent la confirmation d’Aix-Marseille du cadre national.
+- Le calcul des champs dans `app.py` ne donne plus de verdict individuel automatique à une demande de dépôt. Le complément de rédaction distingue les objets sans réintroduire la clarification.
+- Source nationale relue : MENE2531948N, 1.a et 2.a (trois champs distincts). Le PDF d’aide de Grenoble concerne une FCA d’APSA CA2 : il ne justifie pas une procédure de dépôt à Aix-Marseille et n’est pas ajouté comme telle. L’extrait relatif aux fiches individuelles pour la commission et à DI+DI+note reste à vérifier avec sa session et son diplôme ; aucune règle de note n’est modifiée dans ce lot.
+
+Relais pour la partie fiches : conserver cette séparation dépôt / ensemble individuel ; ne pas remplacer cette explication par une demande de classement CA1/CA5. Les parcours et l’ergonomie sont conservés. Aucun appel IA payant, aucun rejeu automatique ; le résultat de rédaction reste à mesurer en ligne.
+
+Validation : 637 tests réussis, dont le routage de la demande naturelle de dépôt, l’absence de verdict individuel automatique sur un dépôt et la séparation de portée académique/nationale des nouveaux passages. Aucun essai génératif en ligne lancé.

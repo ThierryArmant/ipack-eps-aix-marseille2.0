@@ -117,6 +117,10 @@ def activity_goal_clarification(question, public):
     q = normalise(question).replace('course de duree', 'course en duree')
     if not re.search(r'\bcourse en duree\b', q):
         return ''
+    # Le dépôt et l'ensemble individuel sont deux objets : la fiche explique
+    # la distinction sans exiger du collègue le classement préalable en CA.
+    if re.search(r'depos|depot|regroup|reuni|meme (?:pdf|document)|\bfca\b|referentiel', q):
+        return ''
     if re.search(r'performance|\bca ?[15]\b|champ [15]|chrono|entretien', q):
         return ''
     if not re.search(r'protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible|champ|depos|referentiel|\bfca\b', q):

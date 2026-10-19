@@ -2526,7 +2526,7 @@ if prompt_a_traiter:
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     # ✅ « COURSE EN DURÉE / COURSE DE DURÉE » : le demi-fond, lui, est toujours de la performance (CA1), sans question.
                     # Mais un collègue peut dire « course de durée » en pensant performance (c'est alors du demi-fond, CA1)
-                    # ou entretien de soi (course en durée, CA5). Si rien ne le précise, on lui pose la question.
+                    # ou entretien de soi (course en durée, CA5). Pour un dépôt, la fiche explique les deux objets.
                     _q_simple = _q_simple.replace("course de duree", "course en duree")
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     if any(nom == "course en duree" for nom, _ca in _trouvees):
@@ -2540,7 +2540,7 @@ if prompt_a_traiter:
                                     _vues.add(nom)
                                     _nouv.append((nom, ca))
                             _trouvees = _nouv
-                            if len(_trouvees) < 2:
+                            if len(_trouvees) < 2 and not re.search(r"depos|depot|fca|referentiel", _q_simple):
                                 verdict_champs = ("<p><strong>Courir pour réaliser une performance mesurée, c'est du demi-fond : champ 1.</strong> "
                                                   "La course en durée proprement dite vise l'entretien de soi et relève du champ 5.</p>"
                                                   "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
@@ -2560,14 +2560,14 @@ if prompt_a_traiter:
                                       + ". Remplacer l'une par l'autre conserve le même champ d'apprentissage dans l'ensemble certificatif ; "
                                       "ne pas écrire qu'elles seraient évaluées ensemble ni que le remplacement est impossible pour cette raison.")
                         elif _memes:
-                            _concl = "Activités du MÊME champ, donc impossibles ensemble dans un même protocole d'examen : " + " ; ".join(_memes) + ". Les autres activités citées sont dans un champ différent."
+                            _concl = "Activités du MÊME champ : elles ne peuvent pas compter comme deux épreuves de l’ensemble certificatif individuel ordinaire : " + " ; ".join(_memes) + ". Cette limite individuelle n’interdit pas le dépôt de plusieurs FCA pour la même activité ; utiliser la source académique pour la procédure de dépôt."
                         else:
                             _concl = "Ces activités relèvent de champs DIFFÉRENTS. Ce constat concerne uniquement la diversité des champs : il ne prouve ni la validité du protocole complet ni une procédure de dépôt de FCA ou de déclaration dans iPackEPS. Pour une question de dépôt, distinguer les activités et utiliser seulement une procédure documentée pour chacune."
                         # Question du type « ces activités dans le même protocole, est-ce possible ? » : le verdict est calculé
                         # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
                         # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question
                         # « ces deux activités dans le même protocole ? ». Le verdict en dur répondait alors à côté (courses / relais, boîte d'assistance).
-                        if (len(_q_simple) <= 260 and not _remplacement and not re.search(r"fca|referentiel|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
+                        if (len(_q_simple) <= 260 and not _remplacement and not re.search(r"fca|referentiel|depos|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
                                 and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
                             _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
                             if _memes:

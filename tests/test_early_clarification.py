@@ -5,11 +5,10 @@ from knowledge_catalog import clarification
 
 
 class EarlyClarificationTests(unittest.TestCase):
-    def test_ambiguous_goal_requests_new_complete_question(self):
-        text = clarification('Déposer une FCA de course de durée et demi-fond ?', 'Lycée Général & Techno')
-        self.assertIn('nouvelle question complète', text)
-        self.assertIn('demande initiale', text)
-        self.assertNotIn('zone de précision', text)
+    def test_deposit_is_answered_without_preliminary_field_classification(self):
+        for q in ('Déposer une FCA de course de durée et demi-fond ?',
+                  'peut on deposer une activite course de durée et demi fond'):
+            self.assertEqual(clarification(q, 'Lycée Général & Techno'), '')
 
     def test_known_goal_and_distinct_formats_are_not_blocked(self):
         for q in ('Déposer course de durée CA5 et demi-fond CA1 ?',
@@ -21,6 +20,19 @@ class EarlyClarificationTests(unittest.TestCase):
         for public in ('1er degré', 'Collège (DNB)'):
             self.assertEqual(clarification('Quel champ pour la course en durée ?', public), '')
 
+    def test_deposit_does_not_receive_automatic_individual_verdict(self):
+        import re
+        tree = ast.parse(Path('app.py').read_text())
+        block = next(n for n in ast.walk(tree) if isinstance(n, ast.If)
+                     and ast.unparse(n.test) == 'not est_college'
+                     and any(isinstance(x, ast.Assign) and any(isinstance(t, ast.Name)
+                             and t.id == '_APSA_CHAMPS' for t in x.targets) for x in n.body))
+        for q in ('peut on deposer une activite course de durée et demi fond dans le même document',
+                  'Déposer deux FCA de course de durée performance et demi-fond dans le même document ?'):
+            env = dict(prompt=q, est_college=False, re=re, faits_champs='', verdict_champs='')
+            exec(compile(ast.Module(body=[block], type_ignores=[]), '<champs>', 'exec'), env)
+            self.assertEqual(env['verdict_champs'], '')
+
     def test_real_handler_skips_search_and_generation_when_clarification_exists(self):
         # Exécute les vrais tests de branchement, avec des appels qui échouent
         # si le circuit tente malgré tout une recherche ou une génération.
@@ -29,7 +41,7 @@ class EarlyClarificationTests(unittest.TestCase):
                       and ast.unparse(n.test) == 'openai_api_key and (not est_cas_direct)')
         generation = next(n for n in ast.walk(tree) if isinstance(n, ast.If)
                           and ast.unparse(n.test) == 'besoin_ia')
-        q = 'Déposer course de durée et demi-fond ?'
+        q = 'Course en durée dans le même ensemble certificatif, est-ce possible ?'
         precision = clarification(q, 'Lycée Général & Techno')
         self.assertTrue(precision)
         e = dict(openai_api_key=True, est_cas_direct=bool(precision), besoin_ia=False)

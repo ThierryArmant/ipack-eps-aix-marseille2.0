@@ -1725,17 +1725,6 @@
      ]
     }
    ]
-  },
-  "data/textes/texte_transport_des_eleves.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### TEXTE TRANSPORT DES ÉLÈVES — enseignant au volant (minibus de l'établissement ou loué, véhicule personnel) : règle, conditions, ordre de mission, surveillance, responsabilités",
-     "lignes": [
-      "Ce que les textes ne règlent pas : une consigne écrite propre à l'académie d'Aix-Marseille sur les minibus n'est pas dans le hub ; le contrôle technique annuel d'un minibus évoqué par certains guides de la fonction publique territoriale (centre de gestion de Haute-Corse, 2020) vise d'abord les véhicules affectés au transport public ou scolaire : faire vérifier par le propriétaire ou le loueur. Faire confirmer le circuit local par la direction."
-     ]
-    }
-   ]
   }
  },
  "regle": "Ligne marquée si elle nomme explicitement l'académie d'Aix-Marseille (Aix, Marseille, DIEC, BA académique numéroté, ESTEREL, adresse ac-aix), hors simple glose « DIEC à Aix-Marseille » entre parenthèses. Toute ligne d'une section dont le titre nomme Aix est marquée, sauf les lignes de cadre national. Les règles nationales et le fonctionnement des logiciels ne sont pas marqués. Généré par portee_registre.py."

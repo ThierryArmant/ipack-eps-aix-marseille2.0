@@ -6246,6 +6246,17 @@
    ],
    "portee_texte": "Procédure iPackEPS, vidéo officielle",
    "titre": "iPackEPS : transfert des groupes au remplaçant"
+  },
+  "data/commun/cite_scolaire_college_lycee.txt": {
+   "nature": [
+    "logiciel",
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cités scolaires (collège + lycée)",
+   "titre": "Cité scolaire (collège + lycée) : ce qui se fait séparément, ce qui compte comme un seul établissement"
   }
  }
 }

@@ -7930,5 +7930,22 @@
       "(?=.*remplac)(?=.*(?:groupes?|classes?|emploi du temps))(?!.*(?:santorin|cyclades|imag.in|\\blots?\\b|\\bccf\\b))"
     ],
     "url": "https://www.youtube.com/watch?v=C3gSSacJxNo"
+  },
+  "data/commun/cite_scolaire_college_lycee.txt": {
+    "title": "Cité scolaire (collège + lycée) : ce qui se fait séparément, ce qui compte comme un seul établissement",
+    "statut": "synthese_fiches_existantes_2026-10-19",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "cite[s]? scolaires?|(?:college|colleg).{0,15}(?:et|\\+|/).{0,5}lycee.{0,60}(?:meme|ensemble|structure|deux entites|cite)"
+    ],
+    "url": "https://www.education.gouv.fr/bo/15/Hebdo18/MENH1506031C.htm",
+    "date_verification": "2026-10-19"
   }
 }

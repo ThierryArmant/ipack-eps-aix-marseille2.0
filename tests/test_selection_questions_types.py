@@ -88,6 +88,9 @@ CAS = [
      GT, 'ipack', None, ['iPackEPS : notes, moyennes', "[SITUATION: PÉRIMÈTRE"]),
     ("Pour le CCF en bac pro, faut-il saisir une note globale sur 20 ou les notes par AFLP dans Santorin ?", PRO, 'examens', 'Santorin : Saisie des notes', []),
     ("Je suis TZR sur un collège et un lycée : qui fixe mon emploi du temps, comment sont calculées mes ORS et mon ISSR ?", COL, 'examens', 'TZR : zone, rattachement', []),
+    ("cité scolaire : je dois remplir deux dossiers EPS ?", GT, 'ipack', 'Cité scolaire (collège + lycée)', []),
+    ("En cité scolaire j'ai des heures au collège et au lycée, ai-je droit à une heure de réduction ?", GT, 'textes', 'Cité scolaire (collège + lycée)', []),
+    ("Dans notre cité scolaire, qui organise le DNB et le bac EPS ?", COL, 'examens', 'Cité scolaire (collège + lycée)', []),
     ("Je ne peux plus saisir mes notes.", GT, 'ipack', 'iPackEPS : notes, moyennes', []),
     ("Combien de temps iPackEPS conserve-t-il les données de mes élèves, et à qui poser la question ?", GT, 'ipack', 'Passage d’année : conservation des données', []),
 ]

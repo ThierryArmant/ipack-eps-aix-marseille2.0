@@ -1283,3 +1283,17 @@ Contrôle en ligne après `9bd389b` : réponse rédigée, 1 appel, saisie et sou
 1. La condition du choix doit accompagner les deux possibilités dès la décision : c'est l'enseignant du groupe qui apprécie ; retenir la note unique, ou, s'il juge les éléments d'appréciation trop réduits, ne pas proposer de note et mentionner « dispensé » (coefficient neutralisé). La réponse observée ouvrait sur une certification présentée comme acquise et omettait la condition de la seconde possibilité.
 2. L'appréciation dans Santorin doit être mentionnée dans les deux cas (note unique retenue ou dispense), comme l'indique la fiche (« Dans les deux cas, une appréciation explique la décision à la commission académique »). La réponse ne la citait que pour la dispense.
 Aucune question ni réponse de test recopiée ici.
+
+
+### 19 octobre 2026 — Partie programme : périmètre des contrôles après lecture des traces privées
+
+Les fiches restent inchangées. Les contrôles mécaniques confondaient des demandes de conservation ou de saisie de données avec des décisions conditionnelles de certification.
+
+- L'intention d'enseigner une activité nécessite désormais une formulation d'enseignement ; le seul possessif devant « élèves » ne suffit plus à exclure un passage mentionnant la fiche professeur.
+- Le contrôle des alternatives de certification reconnaît les mots entiers et le contexte certificatif, au lieu de trouver une condition dans un mot comme « saisie ». L'alternative documentée « note unique retenue » reste contrôlée.
+- Une réserve académique pure peut être justifiée par les métadonnées des passages cités (académie d'origine et académie non confirmée). Cette exception ne valide ni une obligation locale ni une procédure métier ; références, passages et autres contrôles restent nécessaires. Une prescription purement académique non confirmée dans l’académie demandée est aussi attribuée dans sa phrase, avec le circuit de vérification, sans attendre que le modèle le fasse.
+- Une interdiction exprimée par « ne peut pas » est contrôlée lorsque les seuls justificatifs disent qu'aucune règle n'a été trouvée ou retrouvée. Le programme conserve alors la réserve documentaire existante plutôt que l'interdiction inventée.
+
+Vérification privée sans appel au service IA : les brouillons enregistrés des cas de conservation, de saisie et de réserve académique passent sans réparation ; les interdictions injustifiées sont rejetées et restituées sous forme de limite documentaire. Les réponses déjà acceptées sur les curseurs et la fiche individuelle ne sont pas validées par cette correction : leurs problèmes de pertinence et de portée restent à traiter séparément. Aucun gain global de fiabilité ni de coût réel n'est annoncé avant mesure.
+
+Validation : suite complète de 612 tests réussie ; six tests ciblés de périmètre et dix tests de portée/intention réussis après attribution dans la phrase. Relecture des brouillons privés enregistrés sans génération distante ; aucune fiche ni réglage de recherche modifié.

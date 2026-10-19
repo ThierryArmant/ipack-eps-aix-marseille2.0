@@ -346,6 +346,20 @@ def _json_response(text):
     return data
 
 
+def metadata_scope_notice(text, evidence):
+    """Vérifier uniquement une réserve académique, sans prescription métier."""
+    match = re.fullmatch(
+        r"Les consignes de l.académie d[’'](.+?)(?: concernant [^.;]+)? "
+        r"ne sont pas confirmées pour l.académie (?:de |d[’'])([^.;]+)[.]?",
+        text, re.I)
+    if not match or not evidence:
+        return False
+    origin, target = (evidence_logic.normalized(v) for v in match.groups())
+    return all(evidence_logic.normalized(e.get('scope', {}).get('academy', '')) == origin
+               and evidence_logic.normalized(e.get('scope', {}).get('not_confirmed_for', '')) == target
+               for e in evidence)
+
+
 def validate_claims(data, packets, *, checked=False):
     """Identité, citations, portée déclarée, et références : refus sans preuve."""
     by_id = {p['id']: p for p in packets}
@@ -422,7 +436,7 @@ def validate_claims(data, packets, *, checked=False):
                 errors.append('absence de consigne transformée en règle certaine : conserver la réserve documentaire')
             if supports and not errors:
                 lexical_check = lexical_support_details(text, supports)
-                if not lexical_check['passed']:
+                if not lexical_check['passed'] and not metadata_scope_notice(text, resolved_evidence):
                     errors.append('passage cité sans rapport avec l’affirmation : choisir le passage qui l’énonce')
         if checked:
             checks = claim.get('checks', {})
@@ -589,7 +603,14 @@ def render_claims(claims, packets, *, mode="examens", question=""):
                     if label not in labels:
                         labels.append(label)
             prefix = '<strong>' + html.escape(' / '.join(labels)) + ' :</strong> ' if labels else ''
-            output.append('<p>' + prefix + html.escape(c['text']) +
+            # Une prescription purement académique doit être attribuée dans
+            # sa phrase ; le bandeau général ne suffit pas à la rendre locale.
+            local_only = bool(c['evidence']) and all(
+                e.get('scope', {}).get('nature') == ['consigne_academique']
+                and e.get('scope', {}).get('not_confirmed_for') for e in c['evidence'])
+            text = (scoped_claim_text(c, mode=mode)
+                    if local_only and not metadata_scope_notice(c['text'], c['evidence']) else c['text'])
+            output.append('<p>' + prefix + html.escape(text) +
                           ' <sup>[' + ', '.join(map(str, numbers)) + ']</sup></p>')
     if references:
         # Bloc ouvert et encadré : replié, il passait inaperçu et les collègues ne voyaient pas les sources.
@@ -627,7 +648,7 @@ def situation_mismatch(question, text):
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
     # Enseigner une activité à une classe ne déclare pas une spécialité personnelle.
-    teaching = re.search(r"enseign|je fais|(?:mes|avec mes|avec les).{0,20}(?:eleves|classes|[3-6](?:e|eme))", q)
+    teaching = re.search(r"\b(?:j.enseigne|enseigner|j.apprends|je fais pratiquer)\b|(?:je fais|je pratique|enseigne).{0,60}(?:avec|a mes|aux).{0,20}(?:eleves|classes)|(?:avec mes|avec les).{0,20}(?:eleves|classes|[3-6](?:e|eme))", q)
     personal = r'specialit(?:e|es) (?:sportive|personnelle)|(?:ma|mes) specialit|fiche (?:prof|enseignant)|competence personnelle|voeux de formation|vœux de formation'
     if teaching and not re.search(personal, q) and re.search(personal, t):
         return True
@@ -854,9 +875,10 @@ def conditional_extraction_errors(claims, question):
         # corrige pas une conclusion catégorique placée avant « car ».
         head = re.split(r'\bcar\b|\bpuisque\b|\bparce que\b|[.;]', text, maxsplit=1)[0]
         conditional_source = bool(re.search(
-            r'peut etre retenu|peuvent etre retenu|soit.{0,100}(?:certifi|note)|'
-            r'si.{0,100}(?:appreciation|certifi|note)|pas.{0,25}decision automatique|'
-            r'apprecie.{0,60}(?:possibilites|certification)|deux possibilites', proofs))
+            r'peut etre retenu|peuvent etre retenu|note unique retenue|\bsoit\b.{0,100}(?:certifi|\bnote\b)|'
+            r'\bsi\b.{0,100}(?:appreciation|certifi|\bnote\b)|pas.{0,25}decision automatique|'
+            r'apprecie.{0,60}(?:possibilites|certification)|deux possibilites', proofs)
+            and re.search(r'certifi|dispens|epreuv|appreciation|note unique|seule note', proofs))
         categorical_grade = bool(re.search(
             r'\b(?:ne\s+)?doit\s+(?:pas\s+)?(?:etre\s+)?note|'
             r'\baucune note\b|\bdispense obligatoire\b', head))

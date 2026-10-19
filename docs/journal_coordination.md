@@ -1599,3 +1599,7 @@ Validation finale : 705 tests locaux réussis ; aucun appel payant à l’IA. V�
 ### 19 octobre 2026 — Nuances du contrôle adapté GT
 Le retour en ligne a montré une restitution trop stricte malgré une fiche correcte : deux champs présentés comme obligatoires au lieu d’autant que possible, et attestation en début d’année généralisée. Rappel de rédaction ciblé sur la fiche GT, y compris pour une question précise sur deux épreuves ; distinction explicite du handicap découvert en cours d’année. Aucun nouveau contrôle bloquant ni appel IA ajouté. Traces privées conservées hors dépôt.
 Validation : 705 tests locaux réussis, sans appel payant à l’IA. Rejeu en ligne nécessaire pour confirmer la formulation réelle.
+
+### 19 octobre 2026 — Complétude du contrôle adapté GT
+Le rejeu confirme la correction de la condition temporelle, mais la rédaction omet désormais les trois configurations. La consigne ciblée place les modalités 3/2/1 au premier plan et demande de les réunir dans une affirmation sourcée, avant les formalités, sans allonger par des répétitions. Aucun ajout de règle en dur dans la réponse ni de seconde passe obligatoire.
+Validation : 705 tests locaux réussis ; formulation réelle à confirmer par le rejeu utilisateur, sans appel payant effectué ici.

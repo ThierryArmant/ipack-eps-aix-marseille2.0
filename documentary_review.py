@@ -1083,7 +1083,7 @@ def response_focus_notes(question, packets):
     if ('data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt' in paths
             and re.search(r'comment|organis|adapter|possibilit', q)
             and not re.search(r'une seule|deux epreuves|trois epreuves', q)):
-        notes.append('Contrôle adapté GT : nommer le CCF et donner les configurations trois, deux, exceptionnellement une épreuve avec leurs réserves ; distinguer santé scolaire, proposition de l’équipe et commission.')
+        notes.append('Pour cette demande générale sur le contrôle adapté GT, les configurations d’évaluation constituent la réponse principale : produire une affirmation dans Démarches réunissant les trois possibilités documentées — trois épreuves de trois champs dont au moins une adaptée ; deux épreuves adaptées relevant autant que possible de deux champs différents ; pour des cas très particuliers, une seule épreuve adaptée, avec une seule note. Citer le passage qui les énumère. Ne pas remplacer ces modalités par la seule procédure de concertation ou de validation. Présenter ensuite les acteurs et la validation, sans répétition entre Décision et Conditions ; nommer le CCF.')
     if 'data/commun/audit60/contestation_note.txt' in paths:
         notes.append('Contestation : distinguer explication ou correction matérielle en cours d’année et recours après notification ; ne pas confondre harmonisation par la commission et décision du jury.')
     return notes

@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — retour demandé à la rédaction antérieure
+Fait : annulation des modifications de rédaction et de conservation automatique des prescriptions communes introduites en 3f9d032 et 9363501. Les quatre fichiers programme/tests concernés sont restaurés exactement à leur contenu de 9bd389b. Le correctif du faux rejet conditionnel reste actif. Historique, journal, fiches et pas à pas conservés, sans déplacement forcé de branche.
+Motif : l’utilisateur privilégie le comportement antérieur observé en un appel ; les derniers essais n’ont pas validé l’amélioration recherchée. Les deux précisions de restitution restent connues et non résolues. Aucun nouveau rejeu payant pour ce retour.
+Validation : identités des quatre fichiers restaurés vérifiées contre 9bd389b, dont la suite locale de 607 tests avait réussi. Retour de comportement attendu, sans garantie d’une génération identique.
+Attendu de l’autre partie : rien ; conserver les corrections documentaires indépendantes.
+
+
 ### 2026-10-19 — partie programme — résultat du rejeu ciblé après conservation des prescriptions
 Mesure : premier essai en 3f9d032, un appel, 5 414 jetons d’entrée et 280 de sortie ; formalité commune encore rattachée à une seule branche. Second essai après correctif 9363501, deux appels, 8 960 jetons d’entrée et 581 de sortie. La condition de dispense et la formalité commune sont restituées, mais la réponse contient une contradiction sur le nombre d’épreuves passées. Résultat non validé ; aucun gain de coût annoncé. Arrêt des tests après ces deux essais.
 Validation : 611 tests locaux réussis avant publication ; ils ne détectent pas toute contradiction sémantique générée. Relevé complet et traces remis à l’utilisateur hors dépôt public ; aucune question ni réponse de mesure publiée ici.

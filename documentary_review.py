@@ -532,30 +532,6 @@ def scoped_claim_text(claim, *, mode="examens"):
     return text + ' (à vérifier auprès du ' + service + ' de l’académie de ' + ', '.join(targets) + ')'
 
 
-def restore_shared_prescriptions(claims, packets):
-    """Conserver une prescription commune explicite dans les seules preuves déjà validées."""
-    additions = []
-    corpus = ' '.join(c['text'] for c in claims).casefold()
-    for claim in claims:
-        for evidence in claim['evidence']:
-            for match in re.finditer(r'(?:Dans les deux cas|Dans ces deux cas|Quelle que soit l[’\']issue)[^.!?\n]*[.!?]', evidence.get('quote', ''), re.I):
-                sentence = match.group().strip()
-                if sentence.casefold() in corpus:
-                    continue
-                proof = {'document_id': evidence['document_id']}
-                if evidence.get('passage_id'):
-                    proof['passage_ids'] = [evidence['passage_id']]
-                else:
-                    proof['quote'] = sentence
-                    proof['level'] = evidence['level']
-                candidate = {'section': 'etape', 'text': sentence, 'evidence': [proof]}
-                validated, errors = validate_claims({'claims': [candidate]}, packets)
-                if not errors:
-                    additions.extend(validated)
-                    corpus += ' ' + sentence.casefold()
-    return additions
-
-
 def render_claims(claims, packets, *, mode="examens", question=""):
     """Prose contrôlée lisible ; attributions regroupées, accessibles à la demande."""
     by_id = {p['id']: p for p in packets}
@@ -1171,8 +1147,8 @@ Si la question demande de distinguer les niveaux, explique quels éléments rel�
 Ne présente pas une note comme acquise du seul fait de deux dispenses : si la source réserve le choix à l’enseignant, place cette appréciation dans la même proposition que la conservation de la note.
 Préserve les branches conditionnelles tant que la question ne permet pas de choisir.
 Extrais ensemble l’action possible, sa condition et l’autorité qui apprécie la situation.
-Lorsque le passage propose plusieurs issues, réunis dès la décision l’autorité qui choisit, chaque issue et sa condition propre : ne présente pas leur choix comme libre si la source le motive par des éléments précis.
-Une formalité prescrite « dans les deux cas » ou « quelle que soit l’issue » doit être donnée séparément comme commune aux deux branches, jamais rattachée à une seule. Ne transforme pas « peut » ou « soit » en obligation.
+Lorsque le passage propose plusieurs issues, expose les issues pertinentes avec leurs conditions ;
+ne transforme pas « peut » ou « soit » en « doit » ou « ne doit pas ».
 Une phrase principale catégorique reste incorrecte même si sa justification contient une possibilité.
 Place dès la première affirmation le périmètre indispensable de la règle (public, diplôme, dispositif ou situation qui la conditionne). Ne le reporte pas seulement dans une réserve finale : tant qu'il n'est pas confirmé, présente le cadre conditionnellement, sans l'appliquer au candidat.
 Pour une question sur la gestion d'un dispositif déjà nommé, explique ses conséquences documentées plutôt que de répondre que les bénéficiaires de ce dispositif peuvent le demander. Distingue demande initiale et suivi d'une situation déjà accordée.
@@ -1234,10 +1210,6 @@ Réponds uniquement en JSON selon ce schéma :
                         situation_mismatch(question, e.get('quote', '')) for e in c['evidence']):
                     accepted.remove(c)
                     errors.append({'claim': c, 'errors': ['affirmation concernant une autre situation']})
-            common = restore_shared_prescriptions(accepted, packets)
-            if common:
-                accepted.extend(common)
-                audit['restored_shared_prescriptions'] = common
             checks = (operation_errors(accepted, question),
                       evidence_logic.evidence_logic_errors(accepted),
                       coherence_errors(accepted, question),

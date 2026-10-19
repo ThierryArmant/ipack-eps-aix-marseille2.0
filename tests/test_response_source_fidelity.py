@@ -47,18 +47,3 @@ class SourceFidelityTests(unittest.TestCase):
         self.assertEqual(1,len(llm.prompts))
         self.assertIn('chemin de retour documenté',llm.prompts[0])
         self.assertIn('même si tu écris « environ »',llm.prompts[0])
-
-class SharedPrescriptionOutputTests(unittest.TestCase):
-    def test_omitted_common_formality_is_kept_without_second_call(self):
-        source='Si la demande est acceptée, enregistrer l’accord. Sinon, enregistrer le refus. Dans les deux cas, un rapport explique la décision.'
-        proposal={'claims':[{'section':'etape','text':'Si la demande est acceptée, enregistrer l’accord.','evidence':[{'document_id':'D1','passage_ids':['D1P1']}]}]}
-        llm=FakeLLM([proposal]);audit={}
-        answer=review_exam_answer(llm,question='Comment enregistrer la décision ?',public='GT',documents=mark_excerpt(source),audit=audit)
-        self.assertIn('Dans les deux cas, un rapport explique la décision.',answer)
-        self.assertEqual(1,len(llm.prompts))
-        self.assertTrue(audit['restored_shared_prescriptions'])
-    def test_common_formality_from_unused_proof_is_not_added(self):
-        docs=mark_excerpt('Enregistrer la décision.\n\nDans les deux cas, un rapport explique la décision.')
-        llm=FakeLLM([{'claims':[{'section':'etape','text':'Enregistrer la décision.','evidence':[{'document_id':'D1','passage_ids':['D1P1']}]}]}])
-        answer=review_exam_answer(llm,question='Comment enregistrer ?',public='GT',documents=docs)
-        self.assertNotIn('un rapport explique',answer)

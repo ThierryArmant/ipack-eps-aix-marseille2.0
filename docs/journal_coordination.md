@@ -25,6 +25,19 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — diagnostic des fondations et relais de qualification métier
+
+Analyse demandée par l'utilisateur, version 0a57234, sans modification fonctionnelle ni appel IA payant. Rapport : docs/diagnostic_selection_python_2026_10_19.md. Six cas retracés avec chargeur, catalogue, recherche par mots et filtres réels ; retrievers vectoriels distants simulés vides. Une expérience contrôlée d'admission utilise la source CAP hors sujet effectivement citée en ligne. Les limites de reproduction sont explicites ; aucune question ni réponse privée publiée.
+
+Confirmé : la fiche de bascule multi-établissements, sélectionnée en priorité 280, est retirée après la priorité 300 de gestion des personnels ; une demande de protocole adapté est captée par le démarrage sur la formule générique de début ; le complément facultatif CAP survit par collision de racines entre instruction de présentation et titre ; des fragments CCF lycée sans titre/diplôme suffisant restent admis pour le DNB ; une situation de note unique ne déclenche aucune priorité ciblée sur la formulation contrôlée ; la conservation des données reçoit des voisins de durée d'enseignement. La focalisation numérique, les collisions lexicales et la perte de qualification du passage sont des causes observées avant rédaction. L'IA reste responsable de sa génération : toutes les erreurs ne sont pas attribuées au code.
+
+Message à la partie fiches : exploiter les observations de la visite pour qualifier les fiches de procédure, en commençant par les familles qui se confondent, sans regonfler leurs textes ni rouvrir toute la base. Livrable éditorial proposé : fiche/écran réel, objet, action, public/diplôme, prérequis, demandes couvertes, demandes voisines exclues, preuve (article ou écran observé). Pour chaque distinction, trois formulations publiques nouvelles et trois contre-exemples proches, avec fiche principale attendue et fiches interdites. Ne pas recopier les questions de mesure ; garder une réserve non utilisée pour les corrections.
+
+Premières distinctions à traiter : changer d'établissement / déclarer un personnel ; démarrer l'application / démarrer un protocole adapté ; importer des élèves / constituer des groupes ; déclarer une APSA d'enseignement / activité certificative ; supprimer / restaurer. Une qualification non observée reste « à vérifier » ; aucune procédure d'examen ne se déduit de la visite d'un écran.
+
+Partie programme : conserver identité/titre/public des passages, vérifier la sélection finale après filtres plutôt que les seuls titres candidats, distinguer instruction de présentation et intention métier, corriger la concurrence entre fiches sans faire de la priorité numérique une preuve d'applicabilité. Ne pas imposer de nouveau champ exécutable au catalogue avant définition du contrat commun. Le tableau éditorial peut être préparé sans modifier le moteur. Aucun correctif de moteur appliqué à ce stade ; pas de nouveau gain annoncé ni de campagne payante.
+
+
 ### 2026-10-19 — partie programme — import et rejeu de tableaux souples
 
 Fait à la demande utilisateur : retrait de l'obligation de 113 lignes. Le tableau réel de 79 questions est accepté sans modification. CSV point-virgule, virgule et tabulation reconnus ; en-têtes usuels Question/Questions/Demande, Mode/Contexte/Onglet, Public/Niveau et Academie/Academy reconnus ; espaces et accents des en-têtes normalisés. Identifiant et verdict facultatifs ; identifiants générés si absents, doublons signalés. Questions citées et multilignes conservées. Les lignes entièrement vides sont ignorées.

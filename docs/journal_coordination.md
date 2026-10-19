@@ -25,6 +25,15 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-19 — partie programme — import et rejeu de tableaux souples
+
+Fait à la demande utilisateur : retrait de l'obligation de 113 lignes. Le tableau réel de 79 questions est accepté sans modification. CSV point-virgule, virgule et tabulation reconnus ; en-têtes usuels Question/Questions/Demande, Mode/Contexte/Onglet, Public/Niveau et Academie/Academy reconnus ; espaces et accents des en-têtes normalisés. Identifiant et verdict facultatifs ; identifiants générés si absents, doublons signalés. Questions citées et multilignes conservées. Les lignes entièrement vides sont ignorées.
+
+Interface : choix de la position de départ et du nombre exact de questions, limité aux lignes disponibles, cinq au départ pour un lot assez grand. Les colonnes public/contexte manquantes peuvent être renseignées par des choix communs explicites dans l'interface ; ces choix ne remplacent pas une valeur présente et ne devinent aucun diplôme. Erreurs par ligne en cas d'ambiguïté ou de données manquantes. Aucun appel IA pour interpréter le fichier ; génération seulement après lancement du lot. Panneau de préparation et panneau de rejeu utilisent le même lecteur.
+
+Validation : 13 tests ciblés dont formats variables, 79 lignes, alias, défauts explicites, guillemets et question multiligne, ambiguïté de colonnes ; suite complète 572 tests réussis en 84,434 s. Compilation et diff vérifiés. Aucun fichier privé publié ; aucune question rejouée ni coût IA engagé pour cette modification. Les réponses et les fiches ne sont pas modifiées.
+
+
 ### 2026-10-19 — partie programme, relais Examens — validation et fiches 102/103
 
 Fait : quatre raccordements de fa5d5de vérifiés localement avec filtrage réel et modèle simulé. Fiches 10 et 14 retenues ; un seul élève ne retient plus 10 ; accès remplaçant : deux fiches pertinentes au lieu de cinq ; panne ponctuelle : fermeture/report retenue et glossaire écarté après filtres. Treize des quatorze fiches Santorin visées retrouvées, la co-évaluation couverte par une bonne alternative. Sept reprises ciblées encore atteignables. Aucun taux de bonnes réponses ni gain de tokens réel déduit.

@@ -19,9 +19,42 @@ class AdminRetest113Tests(unittest.TestCase):
     def test_valid_file(self):
         self.assertEqual(len(parse_csv(sample())), 113)
 
-    def test_wrong_count(self):
-        with self.assertRaisesRegex(ValueError, "113 questions"):
-            parse_csv(sample(112))
+    def test_variable_count(self):
+        for count in [1, 5, 79, 112, 114]:
+            self.assertEqual(len(parse_csv(sample(count))), count)
+
+    def test_friendly_headers_and_comma(self):
+        rows = parse_csv('Question,Niveau,Onglet,Academy\nComment faire ?,Lycée voie générale,Examens,Aix-Marseille\n'.encode())
+        self.assertEqual(rows[0]['n'], '1')
+        self.assertEqual(rows[0]['public'], 'Lycée Général & Techno')
+        self.assertEqual(rows[0]['academie'], 'Aix-Marseille')
+        self.assertEqual(rows[0]['verdict'], '')
+
+    def test_tabular_export_and_blank_lines(self):
+        rows = parse_csv('Questions\tPublic\tContexte\nQuel menu ?\tCollège\tiPackEPS\n\n'.encode())
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['mode'], 'ipack')
+
+    def test_explicit_defaults_only_fill_missing(self):
+        rows = parse_csv('question;mode;public\nQuestion A ?;;\nQuestion B ?;ipack;Collège\n'.encode(), 'examens', 'Lycée voie générale')
+        self.assertEqual([r['mode'] for r in rows], ['examens', 'ipack'])
+        self.assertEqual(rows[1]['public'], 'Collège (DNB)')
+
+    def test_unknown_public_not_guessed(self):
+        with self.assertRaisesRegex(ValueError, 'public absent ou non reconnu'):
+            parse_csv('question;mode;public\nQuestion ?;examens;lycée\n'.encode())
+
+    def test_empty_table(self):
+        with self.assertRaisesRegex(ValueError, 'aucune question'):
+            parse_csv(sample(0))
+
+    def test_duplicate_aliases_not_silently_overwritten(self):
+        with self.assertRaisesRegex(ValueError, 'Deux colonnes'):
+            parse_csv('question;mode;contexte;public\nQ;ipack;examens;Collège\n'.encode())
+
+    def test_quoted_multiline_question_kept(self):
+        rows = parse_csv('question;mode;public\n"Première ligne; précision\nSuite ?";textes;Collège\n'.encode())
+        self.assertEqual(rows[0]['question'], 'Première ligne; précision\nSuite ?')
 
     def test_duplicate_id(self):
         content = sample().decode("utf-8-sig").replace("2;Question 2 ?", "1;Question 2 ?")

@@ -77,3 +77,33 @@ class GuideExplicationTests(unittest.TestCase):
             for block in g['menu']:
                 for entry in block['entrees']:
                     self.assertTrue(entry.get('explication'), (name, entry['parcours']))
+
+
+class GuideAsTests(unittest.TestCase):
+    def labels(self, q, public):
+        return [e['libelle'] for _, e in suggested_entries(q, public)]
+
+    def test_as_l_emporte_sur_l_activite(self):
+        self.assertEqual(self.labels('je fais foot dasn las j ele declare ou', 'Lycée voie générale'),
+                         ['Groupes AS : créer le groupe et ses élèves'])
+        self.assertEqual(self.labels("j'enseigne le foot en AS, je le déclare où ?", 'Collège'),
+                         ['Groupes AS : créer le groupe et ses élèves'])
+
+    def test_verbe_avoir_n_est_pas_l_as(self):
+        self.assertNotIn('Groupes AS : créer le groupe et ses élèves',
+                         self.labels('tu as raison, comment déclarer le hand en terminale ?', 'Lycée voie générale'))
+
+
+class GuideExamensRequestTests(unittest.TestCase):
+    def test_perdu_dans_examens_lycee_ouvre_le_guide(self):
+        from guide_request import requests_guide
+        for public in ('Lycée Général & Techno', 'Lycée Pro / CAP'):
+            self.assertTrue(requests_guide('je suis perdu', 'examens', public))
+        self.assertFalse(requests_guide('je suis perdu', 'examens', 'Collège'))
+        self.assertFalse(requests_guide('je suis perdu', 'textes', 'Lycée Général & Techno'))
+
+    def test_app_affiche_le_guide_examens_sous_la_reponse(self):
+        src = (ROOT / 'app.py').read_text(encoding='utf-8')
+        self.assertIn('"mode_guide": "examens" if mode == "examens" else None', src)
+        self.assertIn('mode=m.get("mode_guide")', src)
+        self.assertIn("'AIDE EXAMENS'", src)

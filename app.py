@@ -1798,10 +1798,12 @@ if prompt_a_traiter:
             elif est_cas_direct:
                 origine_reponse = "direct"
 
-            from guide_request import requests_guide, vague_request_opens_guide, MESSAGE as GUIDE_MESSAGE, MESSAGE_PARCOURS as GUIDE_MESSAGE_PARCOURS
+            from guide_request import requests_guide, vague_request_opens_guide, MESSAGE as GUIDE_MESSAGE, MESSAGE_PARCOURS as GUIDE_MESSAGE_PARCOURS, MESSAGE_EXAMENS as GUIDE_MESSAGE_EXAMENS
             _guide_demande = (requests_guide(prompt, mode, niveau_actuel_form)
                               or vague_request_opens_guide(prompt, mode, niveau_actuel_form))
-            if _guide_demande and suggested_entries(prompt, public_label(niveau_actuel_form)):
+            if _guide_demande and mode == "examens":
+                GUIDE_MESSAGE = GUIDE_MESSAGE_EXAMENS
+            elif _guide_demande and suggested_entries(prompt, public_label(niveau_actuel_form)):
                 GUIDE_MESSAGE = GUIDE_MESSAGE_PARCOURS  # le guide affiche déjà le parcours : plus de rubrique à choisir
             demande_precision = GUIDE_MESSAGE if _guide_demande else ("" if documented_dnb_dispense(prompt, niveau_actuel_form) else clarification(prompt, niveau_actuel_form))
             # Onglet Textes : une question sur un certificat ou une dispense n'est pas le choix d'une note d'examen ;
@@ -2020,7 +2022,7 @@ if prompt_a_traiter:
                 badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
             elif demande_precision:
                 texte_brut = '<p>' + demande_precision + '</p>'
-                badge, color_card = ('AIDE iPACKEPS' if _guide_demande else 'PRÉCISIONS NÉCESSAIRES'), 'general-card'
+                badge, color_card = (('AIDE EXAMENS' if mode == "examens" else 'AIDE iPACKEPS') if _guide_demande else 'PRÉCISIONS NÉCESSAIRES'), 'general-card'
             elif est_question_trop_courte:
                 texte_brut = """<h3>✍️ POUVEZ-VOUS PRÉCISER VOTRE QUESTION ?</h3>
 <p>Votre demande est trop courte pour que je retrouve la bonne fiche. Pour une réponse précise du premier coup, décrivez en une ou deux phrases :</p>
@@ -2852,6 +2854,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
              "aide_reperage": (_guide_demande or offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut)
                                or (mode == "ipack" and bool(suggested_entries(prompt, public_label(niveau_actuel_form))))),
              "guide_ouvert": _guide_demande,
+             "mode_guide": "examens" if mode == "examens" else None,
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
              "version": _sha,
@@ -2913,7 +2916,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici", expanded=m.get("guide_ouvert", False)) :
                     render_guide(st, "guide_" + str(id(m)), public_label(st.session_state.get("niveau_actif_form", "")),
                                  on_done=lambda m=m: m.update(aide_reperage=False, guide_ouvert=False),
-                                 question=_question_guide)
+                                 question=_question_guide, mode=m.get("mode_guide"))
             # Passages transmis à l'IA : diagnostic réservé au mode admin, les collègues ne voient que la réponse.
             if m.get("extraits") and st.session_state.get("is_admin", False):
                 with st.expander("Documents et passages transmis pour cette réponse" + "\u200b" * (st.session_state.get("nb_reponses", 0) % 2)):

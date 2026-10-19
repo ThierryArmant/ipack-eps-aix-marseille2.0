@@ -8,8 +8,13 @@ MESSAGE = 'Pas d’inquiétude, nous allons avancer étape par étape. Ouvrez le
 MESSAGE_PARCOURS = 'Pas d’inquiétude, nous allons avancer étape par étape. Le guide ci-dessous affiche le parcours qui correspond à votre question : suivez les étapes dans l’ordre.'
 PUBLICS = ('Collège', 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP', 'Lycée voie générale', 'Lycée voie professionnelle')
 
+LYCEES = ('Lycée Général & Techno', 'Lycée Pro / CAP', 'Lycée voie générale', 'Lycée voie professionnelle')
+# Onglet Examens (lycée seulement : pas de guide Examens au collège) : le guide des 12 étapes.
+MESSAGE_EXAMENS = 'Pas d’inquiétude, nous allons avancer étape par étape. Ouvrez le guide ci-dessous et choisissez simplement une phase de l’examen.'
+
+
 def requests_guide(question, mode, public):
-    if mode != 'ipack' or public not in PUBLICS:
+    if not ((mode == 'ipack' and public in PUBLICS) or (mode == 'examens' and public in LYCEES)):
         return False
     q = ''.join(c for c in unicodedata.normalize('NFD', question.lower()) if unicodedata.category(c) != 'Mn')
     words = re.findall(r'[a-z]+', q)

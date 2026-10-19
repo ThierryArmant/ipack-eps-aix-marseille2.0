@@ -80,7 +80,14 @@ CAS = [
     ("Comment saisir la moyenne finale dans Santorin ?", GT, 'examens', None, ['Bac GT : calcul, arrondi']),
     ("Quel coefficient EPS au CAP ?", PRO, 'examens', None, ['Bac GT : calcul, arrondi']),
     ("Nos protocoles sont validés : dans quel ordre faire Cyclades et Santorin jusqu'à la saisie des notes ?", GT, 'examens', 'Santorin : De la validation', ['Santorin : verrouillage']),
-
+    # Chantier « fragilités » (19 octobre, Claude) : inscription tardive et « note de service ».
+    ("Un élève s'est inscrit très en retard aux épreuves ponctuelles du bac, son nom n'apparaît pas sur les listes d'émargement Cyclades : peut-on l'accepter le jour J ?",
+     GT, 'examens', 'Cyclades : candidats absents de la liste', ['Questions sans consigne écrite trouvée']),
+    ("Un élève arrive en retard le jour du CCF, peut-il passer l'épreuve ?", GT, 'examens', 'Questions sans consigne écrite trouvée', []),
+    ("Les repères d'évaluation sous forme de curseurs académiques ne sont pas actualisés dans iPackEPS alors que la note de service est sortie",
+     GT, 'ipack', None, ['iPackEPS : notes, moyennes', "[SITUATION: PÉRIMÈTRE"]),
+    ("Je ne peux plus saisir mes notes.", GT, 'ipack', 'iPackEPS : notes, moyennes', []),
+    ("Combien de temps iPackEPS conserve-t-il les données de mes élèves, et à qui poser la question ?", GT, 'ipack', 'Passage d’année : conservation des données', []),
 ]
 
 

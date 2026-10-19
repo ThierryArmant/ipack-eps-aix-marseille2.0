@@ -1348,10 +1348,12 @@ Diagnostic de sélection (code 395a34d, sans appel IA) sur les questions de la s
 - Certificat médical CCF (Examens pro, Créteil) : fiches pertinentes sélectionnées ; blocage à analyser sur trace (portée Créteil ?).
 
 Plan et avancement :
-- [ ] 1. Inscription tardive → `cyclades_candidats_absents.txt` ; « sans consigne » écartée quand il s'agit d'inscription.
-- [ ] 2. « note de service » ne déclenche plus les fiches de notes.
-- [ ] 3. Fiches individuelles → fiche commission.
-- [ ] 4. Conservation des données → fiche prudence archivage.
+- [x] 1. Inscription tardive → `cyclades_candidats_absents.txt` (motif inscription tardive / absent des listes ou de l'émargement, priorité 310) ; même motif en `exclure_motifs` de « sans consigne ». L'élève arrivé en retard le jour du CCF garde la fiche « sans consigne ».
+- [x] 2. « note de service » / « note d'information » ne déclenchent plus `ipack_perimetre` ni `ipack_300` (motif `\bnotes?\b` avec exclusions). La question des curseurs ne reçoit plus de fiche de notes ; il lui manque toujours une vraie fiche (point 7).
+- [~] 3. Fiches individuelles : non modifié. La section se trouve dans un complément sans entrée de catalogue ; la recherche générale la retrouve déjà (réponse du matin correcte sur le fond). Défaut restant = phrase hors sujet DI+DI+note reprise (rédaction).
+- [x] 4. Conservation des données → `ipack_archivage_prudence.txt` (motif conservation/données/combien de temps ajouté).
 - [ ] 5. Saisie des notes impossible (onglet iPackEPS) : réponse cohérente.
 - [ ] 6. Blocages : contrôle de sélection des 13 bloquées du rejeu (fichier privé, hors dépôt).
 - [ ] 7. Sujets sans fiche : liste à relever à l'écran avec Thierry (curseurs académiques…).
+
+Validation après points 1, 2, 4 : 7 cas ajoutés à `tests/test_selection_questions_types.py` ; suite complète réussie. Non vérifié sur le hub (aucun appel IA fait).

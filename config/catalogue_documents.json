@@ -3553,7 +3553,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "notes?|moyenne|resultats|pronote|bulletin|bareme|hors connexion|synchronis|evaluation.*supprim"
+      "\\bnotes?\\b(?! de service)(?! d.information)|moyenne|resultats|pronote|bulletin|bareme|hors connexion|synchronis|evaluation.*supprim"
     ],
     "exclure_motifs": [
       "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
@@ -3781,7 +3781,7 @@
       "ipack"
     ],
     "motifs": [
-      "notes?|moyenne|resultats|pronote|bulletin|hors connexion|synchronis"
+      "\\bnotes?\\b(?! de service)(?! d.information)|moyenne|resultats|pronote|bulletin|hors connexion|synchronis"
     ],
     "date_verification": "2026-10-11",
     "exclure_motifs": [
@@ -3874,7 +3874,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "archiv|historique|passage d.annee"
+      "archiv|historique|passage d.annee",
+      "conserv\\w*.{0,40}donnees|donnees.{0,40}conserv|combien de temps.{0,40}(?:garde|conserv)"
     ],
     "exclusif_motifs": [
       "archiv|historique|conserv|sans.*perdre"
@@ -4499,9 +4500,10 @@
       "ipack"
     ],
     "prioritaire": true,
-    "priorite": 140,
+    "priorite": 310,
     "motifs": [
-      "^(?=.*cyclades)(?=.*(?:manquant|manquent|(?:il|me|nous|en) manque|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))"
+      "^(?=.*cyclades)(?=.*(?:manquant|manquent|(?:il|me|nous|en) manque|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))",
+      "inscri\\w*.{0,40}(?:retard|tard)|(?:retard|tard)\\w*.{0,40}inscri|(?:n.apparai\\w*|absent\\w*|ne figure\\w*|pas sur).{0,40}(?:listes?|emargement)"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
@@ -5678,6 +5680,9 @@
       "emarg|feuille de presence|(?:convocation|convoquer|convoque)s? (?:des |les )?(?:eleves|candidats)|(?:eleves|candidats).{0,20}convoqu",
       "(?=.*\\bccf\\b)(?=.*(?:ponctuel|\\bept\\b))(?=.*(?:jour|date|meme|pendant|caler|programm|prevoir|organis))",
       "teleconsult|consultation (?:a distance|en ligne|video)"
+    ],
+    "exclure_motifs": [
+      "inscri\\w*.{0,40}(?:retard|tard)|(?:retard|tard)\\w*.{0,40}inscri|(?:n.apparai\\w*|absent\\w*|ne figure\\w*|pas sur).{0,40}(?:listes?|emargement)"
     ]
   },
   "data/examens/audit_faq_2026_10_12/j3_procedure_verifiee.txt": {

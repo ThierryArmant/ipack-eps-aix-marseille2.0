@@ -1,0 +1,268 @@
+{
+ "description": "Guide pas à pas Examens (lycée GT, pro, CAP) : 3 phases et 11 étapes, d'après le guide des examens EPS (Normandie 2025) et le document éditeur « Interfaçage iPackEPS / Cyclades » ; chaque étape prouvée par une fiche du hub ; dates propres à chaque académie, non reprises.",
+ "parcours": {
+  "1. Déposer les référentiels (iPackEPS)": [
+   {
+    "clic": "[Dossier Certificatif] → [Dépôt Référentiels Certificatifs]",
+    "video": "https://youtu.be/T_-j01ovoA4",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "1) [Dépôt Référentiels Certificatifs]"
+   },
+   {
+    "clic": "Ligne de l'APSA → [Envoyer] (dépôt ou remplacement)",
+    "video": "https://youtu.be/T_-j01ovoA4",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "il sert à déposer un référentiel ou à remplacer un référentiel déjà déposé"
+   }
+  ],
+  "2. Saisir les protocoles (iPackEPS)": [
+   {
+    "clic": "[Dossier EPS] → [Groupes] → [Gérer les S.A.] : composer l'ensemble certificatif",
+    "video": "https://youtu.be/y4Woi0RY50I",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "[Dossier EPS] > [Groupes] > [Gérer les S.A.] : on compose les ensembles certificatifs"
+   },
+   {
+    "clic": "[Dossier Certificatif] → [Protocole d'Évaluation des Épreuves Certificatives]",
+    "video": "https://youtu.be/Bq7_ooQuZtU",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "indiquez les dates d'évaluation / rattrapage et coévaluateur"
+   },
+   {
+    "clic": "Dates d'évaluation, de rattrapage, co-évaluateur (obligatoire en voie générale) → [Enregistrer]",
+    "video": "https://youtu.be/Bq7_ooQuZtU",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "indiquez les dates d'évaluation / rattrapage et coévaluateur"
+   }
+  ],
+  "3. Associer les candidats aux groupes (iPackEPS)": [
+   {
+    "clic": "[Dossier EPS] → [Élèves] → à gauche Visualisation « Statut »",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "Visualisation « Statut », puis dans la liste « Sélection » : « élèves sans groupes »"
+   },
+   {
+    "clic": "Sélection : « élèves sans groupes »",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "« élèves sans groupes » : tous les élèves qui ne sont dans aucun groupe s'affichent"
+   },
+   {
+    "clic": "À droite : Type « EPS » et le groupe → cocher les élèves → [Ajouter -->]",
+    "video": "3.1 Dossier EPS — Élèves",
+    "source": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+    "preuve": "à droite, Type « EPS » et le groupe créé ; cocher les élèves à basculer, puis [Ajouter -->]"
+   }
+  ],
+  "4. Générer le fichier puis l'importer dans Cyclades": [
+   {
+    "clic": "[Export Elèves] → [Exporter les Elèves]",
+    "video": "https://youtu.be/t7b1yl4ATcU",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "bouton [Exporter les Elèves]"
+   },
+   {
+    "clic": "Chef d'établissement : importer ce fichier dans Cyclades (une seule fenêtre, bon examen)",
+    "video": "https://youtu.be/4ZsuQi_YoMs",
+    "source": "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt",
+    "preuve": "Étape 2, chef d'établissement : importer ce fichier dans Cyclades"
+   }
+  ],
+  "5. Cyclades : vérifier protocoles et affectations": [
+   {
+    "clic": "Cyclades → [EPS] → [Associer les élèves à un protocole] : chaque élève dans son protocole",
+    "video": "https://youtu.be/YCLktNeYbPw",
+    "source": "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt",
+    "preuve": "[EPS] / [Associer les élèves à un protocole]"
+   },
+   {
+    "clic": "Enseignant remplacé : [EPS] → [Contrôler / Réaffecter des protocoles] (chef d'établissement)",
+    "video": "https://youtu.be/ImAk9BcpiO4",
+    "source": "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt",
+    "preuve": "[EPS] / [Contrôler / Réaffecter des protocoles]"
+   }
+  ],
+  "6. Santorin : distribuer les lots de correction": [
+   {
+    "clic": "Santorin, chef d'établissement → [Distribution] → automatique : un lot par protocole",
+    "video": "https://youtu.be/-EtWyhSzNlM",
+    "source": "data/examens/santorin_cas_pratiques/14_de_la_validation_des_protocoles_a_la_saisie_des_notes_l.txt",
+    "preuve": "lancer la distribution automatique ; chaque protocole devient un lot de correction"
+   }
+  ],
+  "7. Santorin : saisir les notes et les appréciations": [
+   {
+    "clic": "Santorin, enseignant : élève par élève, points par AFL ou AFLP (AFL1 d'abord, point décimal)",
+    "video": "https://youtu.be/hFLv_cAuq30",
+    "source": "data/examens/santorin_cas_pratiques/02_saisie_des_notes_dans_santorin_les_gestes_qui_evitent_d.txt",
+    "preuve": "La saisie se fait élève par élève, en renseignant la répartition des points pour chaque AFL ou AFLP"
+   },
+   {
+    "clic": "[Enregistrer] après chaque APSA ; ne pas cliquer « Réinitialiser »",
+    "video": "https://youtu.be/hFLv_cAuq30",
+    "source": "data/examens/santorin_cas_pratiques/02_saisie_des_notes_dans_santorin_les_gestes_qui_evitent_d.txt",
+    "preuve": "Enregistrer obligatoirement, avec le bouton situé en bas à droite, après chaque APSA"
+   },
+   {
+    "clic": "Champ « Appréciations » : seulement pour 0, AB, DI + DI + Note",
+    "video": "https://youtu.be/hFLv_cAuq30",
+    "source": "data/examens/santorin_cas_pratiques/03_quand_remplir_le_champ_appreciations_dans_santorin.txt",
+    "preuve": "se remplit uniquement pour les cas particuliers"
+   }
+  ],
+  "8. Santorin : verrouiller son lot": [
+   {
+    "clic": "Toutes les notes saisies et vérifiées (rattrapages compris) → [Corrections] → verrouiller",
+    "video": "https://youtu.be/a4sp4ULplCE",
+    "source": "data/examens/santorin_cas_pratiques/05_faut_il_verrouiller_son_lot_tout_de_suite_apres_la_sais.txt",
+    "preuve": "C'est l'enseignant qui verrouille son lot, une seule fois"
+   },
+   {
+    "clic": "Déverrouiller ensuite : seulement le chef d'établissement",
+    "video": "https://youtu.be/iOMHPSMC7lM",
+    "source": "data/examens/santorin_cas_pratiques/05_faut_il_verrouiller_son_lot_tout_de_suite_apres_la_sais.txt",
+    "preuve": "seul le chef d'établissement peut le déverrouiller"
+   }
+  ],
+  "9. Vérifier les certificats médicaux des DI (iPackEPS)": [
+   {
+    "clic": "[Mes Élèves] → [Visualisation] → onglet [Inaptitudes] : déposer le certificat",
+    "video": "https://youtu.be/34w4Z6dd1dM",
+    "source": "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt",
+    "preuve": "allez dans le module [mes Élèves] / [Visualisation], onglet [Inaptitudes]"
+   },
+   {
+    "clic": "Contrôle : [Dossier Certificatif] → [Dépôt de Documents pour la CAHPN]",
+    "video": "https://youtu.be/YjvU7KCuJpk",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "Certificats Médicaux"
+   }
+  ],
+  "10. Vérifier les appréciations dans Santorin": [
+   {
+    "clic": "Chaque 0, AB et DI + DI + Note a son appréciation (lue par la commission)",
+    "video": "https://youtu.be/hFLv_cAuq30",
+    "source": "data/examens/santorin_cas_pratiques/03_quand_remplir_le_champ_appreciations_dans_santorin.txt",
+    "preuve": "La commission académique lit cette appréciation"
+   }
+  ],
+  "11. Déposer le dossier établissement pour la CAHPN": [
+   {
+    "clic": "[Dossier Certificatif] → [Dépôt de Documents pour la CAHPN]",
+    "video": "https://youtu.be/FZ1KSuuKkEA",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "[Dépôt de Documents pour la CAHPN]"
+   },
+   {
+    "clic": "Fiche établissement, notes, inaptes, certificats, fiches individuelles",
+    "video": "https://youtu.be/rUKz8xMU_Ls",
+    "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
+    "preuve": "Dépôt des fichiers de notes"
+   }
+  ],
+  "12. Option EPS : où vont les notes": [
+   {
+    "clic": "Pas dans Santorin : logiciel de vie scolaire (Pronote…), remontée par le livret",
+    "video": "https://youtu.be/hFLv_cAuq30",
+    "source": "data/examens/santorin_cas_pratiques/12_note_de_l_enseignement_optionnel_d_eps_option_eps_ou_se.txt",
+    "preuve": "elle se saisit dans le logiciel de vie scolaire"
+   }
+  ]
+ },
+ "menu": [
+  {
+   "rubrique": "Phase 1 — Préparer (iPackEPS, dès la rentrée)",
+   "entrees": [
+    {
+     "libelle": "Étape 1 : déposer les référentiels",
+     "parcours": "1. Déposer les référentiels (iPackEPS)",
+     "prerequis": [
+      "[Dossier EPS] > [APSA] (APSA certificatives)"
+     ]
+    },
+    {
+     "libelle": "Étape 2 : saisir les protocoles",
+     "parcours": "2. Saisir les protocoles (iPackEPS)",
+     "prerequis": [
+      "[Dossier EPS] > [Classes], [APSA] et [Périodes]"
+     ]
+    }
+   ]
+  },
+  {
+   "rubrique": "Phase 2 — Noter (après validation des protocoles)",
+   "entrees": [
+    {
+     "libelle": "Étape 3 : associer les candidats aux groupes",
+     "parcours": "3. Associer les candidats aux groupes (iPackEPS)",
+     "prerequis": [
+      "[Classes] (élèves importés)"
+     ]
+    },
+    {
+     "libelle": "Étape 4 : fichier iPackEPS → Cyclades",
+     "parcours": "4. Générer le fichier puis l'importer dans Cyclades",
+     "prerequis": [
+      "la validation des protocoles par la commission académique"
+     ]
+    },
+    {
+     "libelle": "Étape 5 : Cyclades, protocoles et affectations",
+     "parcours": "5. Cyclades : vérifier protocoles et affectations",
+     "prerequis": [
+      "l'import du fichier dans Cyclades"
+     ]
+    },
+    {
+     "libelle": "Étape 6 : Santorin, distribuer les lots",
+     "parcours": "6. Santorin : distribuer les lots de correction",
+     "prerequis": [
+      "la vérification dans Cyclades"
+     ]
+    },
+    {
+     "libelle": "Étape 7 : Santorin, saisir notes et appréciations",
+     "parcours": "7. Santorin : saisir les notes et les appréciations",
+     "prerequis": [
+      "la distribution des lots"
+     ]
+    },
+    {
+     "libelle": "Étape 8 : Santorin, verrouiller son lot",
+     "parcours": "8. Santorin : verrouiller son lot",
+     "prerequis": [
+      "la saisie de toutes les notes du lot"
+     ]
+    }
+   ]
+  },
+  {
+   "rubrique": "Phase 3 — Dossier pour la commission",
+   "entrees": [
+    {
+     "libelle": "Étape 9 : certificats médicaux des DI",
+     "parcours": "9. Vérifier les certificats médicaux des DI (iPackEPS)",
+     "prerequis": []
+    },
+    {
+     "libelle": "Étape 10 : appréciations dans Santorin",
+     "parcours": "10. Vérifier les appréciations dans Santorin",
+     "prerequis": []
+    },
+    {
+     "libelle": "Étape 11 : déposer le dossier établissement",
+     "parcours": "11. Déposer le dossier établissement pour la CAHPN",
+     "prerequis": [
+      "les étapes 9 et 10"
+     ]
+    },
+    {
+     "libelle": "Option EPS : où vont les notes",
+     "parcours": "12. Option EPS : où vont les notes",
+     "prerequis": []
+    }
+   ]
+  }
+ ]
+}

@@ -7,11 +7,16 @@ MENU = ROOT / 'data/ipack/plan_des_menus_professeur_2026.txt'
 COLLEGE = ROOT / 'config/guide_ipack_college.json'
 LYCEE_GT = ROOT / 'config/guide_ipack_lycee_gt.json'
 LYCEE_PRO = ROOT / 'config/guide_ipack_lycee_pro.json'
+EXAMENS_LYCEE = ROOT / 'config/guide_examens_lycee.json'
 
 
-def guide_file(public):
-    """Guide à menu relevé à l'écran : collège, lycée général et technologique ; sinon parcours simples."""
+def guide_file(public, mode=None):
+    """Guide à menu relevé à l'écran : collège, lycée général et technologique ; sinon parcours simples.
+    Onglet Examens (lycée) : les 3 phases et 11 étapes de l'examen, iPackEPS, Cyclades et Santorin."""
     public = str(public or '')
+    if mode == 'examens':
+        lycee = ('Lycée voie générale', 'Lycée Général & Techno', 'Lycée voie professionnelle', 'Lycée Pro / CAP')
+        return EXAMENS_LYCEE if public in lycee else None
     if public.startswith('Collège'):
         return COLLEGE
     if public in ('Lycée voie générale', 'Lycée Général & Techno'):
@@ -163,10 +168,10 @@ def prerequisite_text(rubrique, entry):
     return 'Avant ' + target + ', vous devez avoir complété : ' + ' → '.join(items) + '.'
 
 
-def render_guide(st, key, public, on_done=None):
-    path = guide_file(public)
+def render_guide(st, key, public, on_done=None, mode=None):
+    path = guide_file(public, mode)
     college = bool(path) and college_routes(path)
-    available = college or routes()
+    available = college or ([] if mode == 'examens' else routes())
     if not available:
         st.info('Guide indisponible pour le moment.')
         return
@@ -176,7 +181,7 @@ def render_guide(st, key, public, on_done=None):
         names = [b['rubrique'] for b in menu]
         with left:
             rubrique = st.selectbox('Rubrique iPackEPS', names, index=None, label_visibility='collapsed',
-                                    placeholder='Choisissez un dossier…', key=key + '_rub')
+                                    placeholder='Choisissez une phase…' if mode == 'examens' else 'Choisissez un dossier…', key=key + '_rub')
         if rubrique not in names:
             return
         entries = menu[names.index(rubrique)]['entrees']

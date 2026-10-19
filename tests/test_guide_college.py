@@ -315,3 +315,35 @@ class GuideLyceeGTTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class GuideExamensTests(unittest.TestCase):
+    """Guide pas à pas de l'onglet Examens (lycée) : 3 phases, étapes prouvées par les fiches, vidéos de la playlist."""
+    def test_fichier_par_onglet(self):
+        self.assertEqual(guide.guide_file('Lycée voie générale', 'examens'), guide.EXAMENS_LYCEE)
+        self.assertEqual(guide.guide_file('Lycée Pro / CAP', 'examens'), guide.EXAMENS_LYCEE)
+        self.assertIsNone(guide.guide_file('Collège (DNB)', 'examens'))
+        self.assertEqual(guide.guide_file('Lycée voie générale'), guide.LYCEE_GT)
+
+    def test_toutes_les_etapes_prouvees_et_videos_officielles(self):
+        raw = json.loads(guide.EXAMENS_LYCEE.read_text(encoding='utf-8'))
+        routes = guide.college_routes(guide.EXAMENS_LYCEE)
+        self.assertEqual(set(routes), set(raw['parcours']))
+        cles = {t['etape'] for t in json.loads(Path('config/tutoriels_parcours_college.json').read_text(encoding='utf-8'))['tutoriels']}
+        for steps in routes.values():
+            for s in steps:
+                self.assertTrue(s['video'] in PLAYLIST or s['video'] in cles, s)
+                self.assertLessEqual(len(s['clic']), 95, s['clic'])
+        self.assertEqual([b['rubrique'][:7] for b in raw['menu']], ['Phase 1', 'Phase 2', 'Phase 3'])
+        atteints = {e['parcours'] for b in raw['menu'] for e in b['entrees']}
+        self.assertEqual(atteints, set(raw['parcours']))
+
+    def test_rendu_phase2_distribution(self):
+        ui = UI('Étape 6 : Santorin, distribuer les lots', rub='Phase 2 — Noter (après validation des protocoles)')
+        guide.render_guide(ui, 'ex', 'Lycée voie générale', mode='examens')
+        self.assertIn('[Distribution]', ui.shown); self.assertIn('Lancer le tutoriel vidéo', ui.shown)
+
+    def test_college_examens_sans_guide(self):
+        ui = UI(None)
+        guide.render_guide(ui, 'exc', 'Collège (DNB)', mode='examens')
+        self.assertTrue(any('indisponible' in i for i in ui.infos))

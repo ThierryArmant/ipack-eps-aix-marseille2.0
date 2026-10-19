@@ -180,7 +180,8 @@
      "prerequis": [
       "[Dossier EPS] > [APSA] (APSA certificatives)"
      ],
-     "cible": "l'étape 1"
+     "cible": "l'étape 1",
+     "explication": "Les APSA doivent d'abord être déclarées certificatives dans [Dossier EPS] > [APSA]. Dans iPackEPS, ouvrez le [Dossier Certificatif], puis [Dépôt Référentiels Certificatifs]. Sur la ligne de chaque APSA, cliquez sur [Envoyer] pour déposer le référentiel ou le remplacer."
     },
     {
      "libelle": "Étape 2 : saisir les protocoles",
@@ -188,7 +189,8 @@
      "prerequis": [
       "[Dossier EPS] > [Classes], [APSA] et [Périodes]"
      ],
-     "cible": "l'étape 2"
+     "cible": "l'étape 2",
+     "explication": "Les [Classes], les [APSA] et les [Périodes] du [Dossier EPS] doivent être en place. Dans [Dossier EPS] > [Groupes], composez l'ensemble certificatif de chaque groupe avec [Gérer les S.A.]. Ouvrez ensuite le [Dossier Certificatif], puis [Protocole d'Évaluation des Épreuves Certificatives]. Indiquez les dates d'évaluation et de rattrapage et le co-évaluateur, obligatoire en voie générale, puis cliquez sur [Enregistrer]."
     }
    ]
   },
@@ -201,7 +203,8 @@
      "prerequis": [
       "[Classes] (élèves importés)"
      ],
-     "cible": "l'étape 3"
+     "cible": "l'étape 3",
+     "explication": "Les élèves doivent être importés dans [Classes]. Dans [Dossier EPS] > [Élèves], choisissez à gauche la visualisation « Statut », puis la sélection « élèves sans groupes ». À droite, choisissez le type « EPS » et le groupe, cochez les élèves et cliquez sur [Ajouter -->]. Recommencez jusqu'à ce qu'aucun candidat ne reste sans groupe."
     },
     {
      "libelle": "Étape 4 : fichier iPackEPS → Cyclades",
@@ -209,7 +212,8 @@
      "prerequis": [
       "la validation des protocoles par la commission académique"
      ],
-     "cible": "l'étape 4"
+     "cible": "l'étape 4",
+     "explication": "Cette étape vient après la validation des protocoles par la commission académique. Dans iPackEPS, faites [Export Elèves] > [Exporter les Elèves] pour générer le fichier. Le chef d'établissement l'importe ensuite dans Cyclades, avec une seule fenêtre ouverte et sur le bon examen."
     },
     {
      "libelle": "Étape 5 : Cyclades, protocoles et affectations",
@@ -217,7 +221,8 @@
      "prerequis": [
       "l'import du fichier dans Cyclades"
      ],
-     "cible": "l'étape 5"
+     "cible": "l'étape 5",
+     "explication": "Une fois le fichier importé, ouvrez Cyclades, menu [EPS] > [Associer les élèves à un protocole], et vérifiez que chaque élève est dans son protocole. Si un enseignant a été remplacé, le chef d'établissement réaffecte le protocole avec [EPS] > [Contrôler / Réaffecter des protocoles]."
     },
     {
      "libelle": "Étape 6 : Santorin, distribuer les lots",
@@ -225,7 +230,8 @@
      "prerequis": [
       "la vérification dans Cyclades"
      ],
-     "cible": "l'étape 6"
+     "cible": "l'étape 6",
+     "explication": "Après la vérification dans Cyclades, le chef d'établissement ouvre Santorin, menu [Distribution], et lance la distribution automatique : chaque protocole devient un lot de correction."
     },
     {
      "libelle": "Étape 7 : Santorin, saisir notes et appréciations",
@@ -233,7 +239,8 @@
      "prerequis": [
       "la distribution des lots"
      ],
-     "cible": "l'étape 7"
+     "cible": "l'étape 7",
+     "explication": "Une fois les lots distribués, chaque enseignant ouvre Santorin et saisit les notes élève par élève, en répartissant les points par AFL ou AFLP : commencez par l'AFL1 et utilisez le point décimal. Cliquez sur [Enregistrer] après chaque APSA, et ne cliquez pas sur « Réinitialiser ». Le champ « Appréciations » ne se remplit que pour un 0, une absence (AB) ou un DI + DI + Note."
     },
     {
      "libelle": "Étape 8 : Santorin, verrouiller son lot",
@@ -241,7 +248,8 @@
      "prerequis": [
       "la saisie de toutes les notes du lot"
      ],
-     "cible": "l'étape 8"
+     "cible": "l'étape 8",
+     "explication": "Ne verrouillez qu'une fois toutes les notes du lot saisies et vérifiées, rattrapages compris. Ouvrez alors [Corrections] et verrouillez le lot. Après verrouillage, seul le chef d'établissement peut déverrouiller."
     }
    ]
   },
@@ -251,12 +259,14 @@
     {
      "libelle": "Étape 9 : certificats médicaux des DI",
      "parcours": "9. Vérifier les certificats médicaux des DI (iPackEPS)",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "Pour chaque élève dispensé, ouvrez dans iPackEPS [Mes Élèves], puis [Visualisation] et l'onglet [Inaptitudes], et déposez son certificat. Contrôlez ensuite l'ensemble dans [Dossier Certificatif] > [Dépôt de Documents pour la CAHPN]."
     },
     {
      "libelle": "Étape 10 : appréciations dans Santorin",
      "parcours": "10. Vérifier les appréciations dans Santorin",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "Relisez votre lot dans Santorin : chaque 0, chaque absence (AB) et chaque DI + DI + Note doit avoir son appréciation, car la commission la lit."
     },
     {
      "libelle": "Étape 11 : déposer le dossier établissement",
@@ -264,12 +274,14 @@
      "prerequis": [
       "les étapes 9 et 10"
      ],
-     "cible": "l'étape 11"
+     "cible": "l'étape 11",
+     "explication": "Une fois les étapes 9 et 10 faites, ouvrez dans iPackEPS le [Dossier Certificatif], puis [Dépôt de Documents pour la CAHPN]. Déposez-y la fiche établissement, les notes, la liste des inaptes, les certificats et les fiches individuelles."
     },
     {
      "libelle": "Option EPS : où vont les notes",
      "parcours": "12. Option EPS : où vont les notes",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "Les notes de l'option EPS ne se saisissent pas dans Santorin. Elles se saisissent dans le logiciel de vie scolaire de l'établissement (Pronote, par exemple) et remontent par le livret."
     }
    ]
   }

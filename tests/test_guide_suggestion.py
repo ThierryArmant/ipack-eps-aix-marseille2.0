@@ -60,8 +60,8 @@ class GuideMessageTests(unittest.TestCase):
 
 class GuideExplicationTests(unittest.TestCase):
     def test_explication_ne_cite_que_des_boutons_du_parcours(self):
-        for name in ('college', 'lycee_gt', 'lycee_pro'):
-            g = json.loads((ROOT / f'config/guide_ipack_{name}.json').read_text(encoding='utf-8'))
+        for name in ('ipack_college', 'ipack_lycee_gt', 'ipack_lycee_pro', 'examens_lycee'):
+            g = json.loads((ROOT / f'config/guide_{name}.json').read_text(encoding='utf-8'))
             for block in g['menu']:
                 for entry in block['entrees']:
                     texte = entry.get('explication', '')
@@ -71,8 +71,9 @@ class GuideExplicationTests(unittest.TestCase):
                     for bouton in re.findall(r'\[[^\]]+\]', texte):
                         self.assertIn(bouton, clics, (name, entry['parcours'], bouton))
 
-    def test_college_explique_chaque_parcours(self):
-        g = json.loads((ROOT / 'config/guide_ipack_college.json').read_text(encoding='utf-8'))
-        for block in g['menu']:
-            for entry in block['entrees']:
-                self.assertTrue(entry.get('explication'), entry['parcours'])
+    def test_chaque_guide_explique_chaque_parcours(self):
+        for name in ('ipack_college', 'ipack_lycee_gt', 'ipack_lycee_pro', 'examens_lycee'):
+            g = json.loads((ROOT / f'config/guide_{name}.json').read_text(encoding='utf-8'))
+            for block in g['menu']:
+                for entry in block['entrees']:
+                    self.assertTrue(entry.get('explication'), (name, entry['parcours']))

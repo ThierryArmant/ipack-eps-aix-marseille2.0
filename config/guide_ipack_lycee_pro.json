@@ -593,7 +593,8 @@
     {
      "libelle": "Ordre de rentrée",
      "parcours": "Me repérer depuis le début (ordre de rentrée)",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "À chaque rentrée, on remplit iPackEPS dans l'ordre, en partant du tableau de bord. Commencez par vérifier la fiche [Établissement], puis ouvrez [Ma Fiche Professeur] et cliquez sur [Enregistrer]. Entrez ensuite dans [Les Dossiers et Projets], puis [Dossier EPS] : regardez d'abord les [Projets], puis mettez à jour l'[Équipe EPS et Intervenants Extérieurs] avec [Actualiser]. Passez aux [Classes] pour les actualiser, les configurer, les organiser et importer les élèves. Déclarez ensuite les activités dans [APSA], liste [APSA de Collège ou Voie Professionnelle], puis créez les [Périodes] et, dans [Groupes], utilisez [Gérer les S.A.]. Placez les élèves avec [Élèves], vérifiez les [Équipements Sportifs] et les [Emplois du temps] dans l'[Agenda Équipe]. Vient enfin le [Dossier Certificatif], pour l'examen."
     },
     {
      "libelle": "Examen : les étapes dans l'ordre (rentrée → janvier → fin d'année)",
@@ -601,7 +602,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "L'examen se prépare en trois temps. À la rentrée, ouvrez [Dossier EPS] > [APSA] > [APSA de Collège ou Voie Professionnelle], puis sur chaque activité évaluée cliquez sur le crayon [Modif.], mettez « Certificative » sur OUI et [Enregistrer]. Dans le [Dossier Certificatif], ouvrez [Dépôt Référentiels Certificatifs] et cliquez sur [Envoyer] sur la ligne de chaque APSA. Revenez dans [Dossier EPS] > [Groupes] et composez l'ensemble certificatif avec [Gérer les S.A.]. Dans le [Dossier Certificatif], ouvrez [Protocole d'Évaluation des Épreuves Certificatives] et indiquez pour chaque APSA la date d'évaluation, la date de rattrapage et un co-évaluateur si besoin (il n'est obligatoire qu'en voie générale), puis [Enregistrer]. Répondez OUI à « Dossier terminé, nous le soumettons pour validation » et cliquez sur [Enregistrer]. En janvier, dans [Classes] > [Configuration des Classes], cliquez sur [Actualiser], puis faites [Importer] dans [Importation des Élèves]. Dans [Élèves], en visualisation « Statut », sélectionnez « élèves sans groupes » pour n'oublier personne, puis faites [Export Elèves] > [Exporter les Elèves] : le chef d'établissement importe ce fichier dans Cyclades. En fin d'année, déposez les documents dans [Dossier Certificatif] > [Dépôt de Documents pour la CAHPN]."
     }
    ]
   },
@@ -611,7 +613,8 @@
     {
      "libelle": "Niveaux de formation",
      "parcours": "Établissement : niveaux de formation",
-     "prerequis": []
+     "prerequis": [],
+     "explication": "Depuis le tableau de bord, ouvrez [Établissement] puis [Configuration]. Cochez les niveaux de vos classes, puis cliquez sur [Enregistrer]."
     }
    ]
   },
@@ -623,14 +626,16 @@
      "parcours": "Me déclarer coordonnateur ou responsable de la certification",
      "prerequis": [
       "[Établissement]"
-     ]
+     ],
+     "explication": "Vérifiez d'abord que la fiche [Établissement] est à jour. Depuis le tableau de bord, ouvrez [Ma Fiche Professeur], puis [Fonctions]. Cochez la fonction qui vous concerne, puis cliquez sur [Enregistrer]."
     },
     {
      "libelle": "Vœux de Jury",
      "parcours": "Faire mes vœux de jury",
      "prerequis": [
       "[Établissement]"
-     ]
+     ],
+     "explication": "Une fois la fiche [Établissement] à jour, ouvrez [Ma Fiche Professeur] depuis le tableau de bord, puis [Vœux de Jury]. Indiquez votre vœu 1 et votre vœu 2, puis cliquez sur [Enregistrer]."
     }
    ]
   },
@@ -643,7 +648,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Une fois [Établissement] et [Ma Fiche Professeur] complétés, entrez dans le [Dossier EPS] et ouvrez [Projets (Étab, EPS, AS)]. Le menu de gauche vous laisse choisir le projet voulu : [Projet Établissement], [Projet EPS], [Projet AS] ou [Projet SSS]. Ses axes s'y trouvent."
     },
     {
      "libelle": "Équipe EPS et Intervenants Extérieurs",
@@ -651,7 +657,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Équipe EPS et Intervenants Extérieurs], puis [Membres de l'équipe], et cliquez sur [Actualiser] pour faire apparaître les collègues. Pour un TZR, cliquez sur le crayon [Modifier] de sa ligne, indiquez qui il « Remplace », puis cliquez sur [Enregistrer]."
     },
     {
      "libelle": "Classes (établissement de l’Éducation nationale)",
@@ -659,7 +666,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Classes] puis [Configuration des Classes] et cliquez sur [Actualiser] pour récupérer les classes. Sur chaque classe, cliquez sur le crayon [Modifier], indiquez son cycle, puis [Enregistrer]. Passez ensuite à [Organisation des Classes] : avec le crayon [Modifier], choisissez le mode et attribuez-vous la classe à votre nom, puis [Enregistrer] ; c'est obligatoire pour les classes d'examen. Enfin, dans [Importation des Élèves], cliquez sur [Importer] pour faire entrer les élèves."
     },
     {
      "libelle": "CFA, MFR, AEFE : pas de classes, groupes directement",
@@ -669,14 +677,16 @@
       "[Ma Fiche Professeur]",
       "[APSA] (APSA certificatives)"
      ],
-     "cible": "de créer vos groupes"
+     "cible": "de créer vos groupes",
+     "explication": "Dans ces établissements, il n'y a pas de [Classes] : on crée directement les groupes. Les APSA certificatives doivent déjà être déclarées dans [APSA]. Dans le [Dossier EPS], ouvrez [Groupes], puis [Groupes EPS], et cliquez sur [Créer un groupe]. Avec [Gérer les S.A.], choisissez l'APSA, indiquez si les élèves sont « évalués pour l'examen », choisissez la période, puis [Ajouter]. Il n'y a pas d'export des élèves : les élèves sont placés dans Cyclades, par le menu [EPS] > [Associer les élèves à un protocole]."
     },
     {
      "libelle": "APSA : déclarer une APSA certificative",
      "parcours": "Déclarer une APSA certificative",
      "prerequis": [
       "[Classes]"
-     ]
+     ],
+     "explication": "Une fois vos [Classes] en place, ouvrez [Dossier EPS] > [APSA] > [APSA de Collège ou Voie Professionnelle]. Si l'activité n'apparaît pas, ajoutez-la avec le « + » d'une liste, ou avec [Créer une APSA]. Cliquez ensuite sur le crayon [Modif.] de l'APSA, mettez « Certificative » sur OUI, puis cliquez sur [Enregistrer]."
     },
     {
      "libelle": "Périodes · Groupes : protocole d'examen d'un groupe",
@@ -684,7 +694,8 @@
      "prerequis": [
       "[Classes] (élèves importés)",
       "[APSA] (APSA certificatives)"
-     ]
+     ],
+     "explication": "Il faut que les élèves soient importés dans [Classes] et que les APSA certificatives soient déclarées dans [APSA]. Dans le [Dossier EPS], ouvrez [Périodes] et créez les périodes utiles avec [Créer une nouvelle Période]. Ouvrez ensuite [Groupes] et, sur le groupe, cliquez sur [Gérer les S.A.] pour composer l'ensemble certificatif. Pour chaque APSA, répondez OUI ou NON à « évalués sur cette APSA pour l'examen », choisissez la période, puis cliquez sur [Ajouter]. Dans la même fenêtre, vérifiez l'« État du Protocole »."
     },
     {
      "libelle": "Groupes AS : créer le groupe et ses élèves",
@@ -693,7 +704,8 @@
       "[Classes] (élèves importés)",
       "[APSA]",
       "[Périodes] (dont la période [Année])"
-     ]
+     ],
+     "explication": "Avant de commencer, les élèves doivent être importés dans [Classes], l'activité déclarée dans [APSA], et la période [Année] créée dans [Périodes]. Dans le [Dossier EPS], ouvrez [Groupes], puis [Groupes AS], et cliquez sur [Créer un groupe]. Avec [Gérer les S.A.], associez l'activité au groupe sur la période [Année]. Ensuite, ouvrez [Élèves] : choisissez votre groupe à droite ; à gauche, en visualisation « Classes », choisissez le niveau puis la classe ; cochez les élèves et cliquez sur [Ajouter -->]."
     },
     {
      "libelle": "Élèves : placer des élèves dans un groupe d’examen",
@@ -701,7 +713,8 @@
      "prerequis": [
       "[Classes] (élèves importés)",
       "[Groupes] (groupe créé)"
-     ]
+     ],
+     "explication": "Il faut que les élèves soient importés dans [Classes] et que le groupe existe dans [Groupes]. Dans le [Dossier EPS], ouvrez [Élèves]. À gauche, en visualisation « Classes », choisissez la ou les classes. À droite, choisissez le type « EPS » puis votre groupe. Cochez les élèves et cliquez sur [Ajouter -->]."
     },
     {
      "libelle": "Élèves : trouver les élèves sans groupe",
@@ -709,7 +722,8 @@
      "prerequis": [
       "[Classes] (élèves importés)",
       "[Groupes] (groupes créés)"
-     ]
+     ],
+     "explication": "Il faut que les élèves soient importés dans [Classes] et que les groupes existent dans [Groupes]. Dans le [Dossier EPS], ouvrez [Élèves]. À gauche, choisissez la visualisation « Statut », puis la sélection « élèves sans groupes » : la liste montre ceux qui manquent. À droite, choisissez le type « EPS » et le groupe, cochez les élèves et cliquez sur [Ajouter -->]."
     },
     {
      "libelle": "Équipements Sportifs",
@@ -717,7 +731,8 @@
      "prerequis": [
       "[Établissement]",
       "[Ma Fiche Professeur]"
-     ]
+     ],
+     "explication": "Dans le [Dossier EPS], ouvrez [Équipements Sportifs] puis [Configuration des Équipements]. Sélectionnez l'équipement à changer et cliquez sur [Modifier l'Équipement]."
     },
     {
      "libelle": "Emplois du temps",
@@ -726,7 +741,8 @@
       "[Classes] (votre nom attribué)",
       "[Groupes] (séquences ajoutées)",
       "[Équipements Sportifs]"
-     ]
+     ],
+     "explication": "Il faut d'abord que vos [Classes] soient à votre nom, que les séquences aient été ajoutées dans [Groupes] et que les [Équipements Sportifs] existent. Dans le [Dossier EPS], ouvrez [Emplois du temps], puis [Agenda Équipe], et choisissez votre nom. Double-cliquez sur la case horaire voulue, choisissez le groupe, la séquence et l'équipement, puis cliquez sur [Créer le créneau]."
     },
     {
      "libelle": "Envoyer le dossier pour validation",
@@ -735,7 +751,8 @@
       "tout le [Dossier EPS]",
       "[Ma Fiche Professeur] > [Fonctions] (« Coordonnateur EPS » coché)"
      ],
-     "cible": "d’envoyer le dossier EPS pour validation"
+     "cible": "d’envoyer le dossier EPS pour validation",
+     "explication": "Cette étape est réservée au coordonnateur : « Coordonnateur EPS » doit être coché dans [Ma Fiche Professeur] > [Fonctions], et tout le [Dossier EPS] doit être rempli. Dans le [Dossier EPS], ouvrez [Vérification]. Pour la ligne « Dossier terminé, nous le soumettons pour validation », choisissez OUI, puis cliquez sur [Enregistrer]."
     }
    ]
   },
@@ -748,14 +765,16 @@
      "prerequis": [
       "[Dossier EPS] > [APSA] (APSA déclarée certificative)",
       "[Groupes] (APSA attribuée à un groupe)"
-     ]
+     ],
+     "explication": "L'APSA doit d'abord être déclarée certificative dans [Dossier EPS] > [APSA], et attribuée à un groupe dans [Groupes]. Ouvrez ensuite le [Dossier Certificatif], puis [Dépôt Référentiels Certificatifs]. Sur la ligne de l'APSA, cliquez sur [Envoyer] pour déposer le référentiel ou le remplacer."
     },
     {
      "libelle": "Protocole d'Évaluation : dates, rattrapage, co-évaluateur",
      "parcours": "Dates d'épreuve, rattrapage et co-évaluateur",
      "prerequis": [
       "[Groupes] (séquences évaluées pour l'examen)"
-     ]
+     ],
+     "explication": "Il faut que les séquences évaluées pour l'examen aient été déclarées dans [Groupes]. Ouvrez le [Dossier Certificatif], puis [Protocole d'Évaluation des Épreuves Certificatives], et choisissez l'examen : vos groupes y remontent sous forme de protocoles. Pour chaque APSA, indiquez la date d'évaluation, la date de rattrapage et un co-évaluateur si besoin (il n'est obligatoire qu'en voie générale), puis cliquez sur [Enregistrer]. Vérifiez enfin que les colonnes Validité et Référentiel affichent des coches vertes."
     },
     {
      "libelle": "Soumettre le dossier certificatif",
@@ -764,7 +783,8 @@
       "les référentiels déposés",
       "les épreuves configurées"
      ],
-     "cible": "de soumettre le dossier certificatif"
+     "cible": "de soumettre le dossier certificatif",
+     "explication": "Les référentiels doivent être déposés et les épreuves configurées. Ouvrez le [Dossier Certificatif] et vérifiez les blocs « Référentiels » et « Protocoles ». Pour la ligne « Dossier terminé, nous le soumettons pour validation », choisissez OUI, puis cliquez sur [Enregistrer]."
     },
     {
      "libelle": "Cyclades : bilan et export des élèves",
@@ -773,14 +793,16 @@
       "les protocoles validés par la CAHPN et déposés dans Cyclades par l'inspection",
       "les candidats importés dans Cyclades par le service des examens"
      ],
-     "cible": "d’exporter vers Cyclades"
+     "cible": "d’exporter vers Cyclades",
+     "explication": "Cette étape vient après la validation des protocoles par la CAHPN, leur dépôt dans Cyclades par l'inspection, et l'import des candidats dans Cyclades par le service des examens. Ouvrez le [Dossier Certificatif], puis [Cyclades] et [Bilan Protocoles]. Pour repérer les élèves sans groupe, allez dans [Dossier EPS] > [Élèves], visualisation « Statut », sélection « élèves sans groupes ». Faites ensuite [Export Elèves] > [Exporter les Elèves] : le chef d'établissement importe ce fichier dans Cyclades, et les groupes et les élèves y sont placés."
     },
     {
      "libelle": "Dépôt de Documents pour la CAHPN",
      "parcours": "Déposer les documents pour la CAHPN",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "En fin d'année, une fois le [Dossier EPS] complet, ouvrez le [Dossier Certificatif], puis [Dépôt de Documents pour la CAHPN]. Déposez-y la fiche établissement, les notes, la liste des inaptes, les certificats et les fiches individuelles."
     }
    ]
   },
@@ -792,7 +814,8 @@
      "parcours": "Certificats médicaux d'inaptitude",
      "prerequis": [
       "[Classes] (élèves importés)"
-     ]
+     ],
+     "explication": "Il faut que les élèves soient importés dans [Classes]. Ouvrez [Mes Élèves], puis [Visualisation], et l'onglet [Inaptitudes]. Déposez le certificat de l'élève. La liste complète se retrouve dans [Mes Élèves] > [Inaptitudes]."
     }
    ]
   },
@@ -804,7 +827,8 @@
      "parcours": "Section sportive : ma section n'apparaît pas",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "La section n'apparaît que si son groupe existe dans le [Dossier EPS]. Ouvrez [Groupes], puis [Sections Sportives Scolaires], et cliquez sur [Créer un groupe]. Ensuite, entrez dans [Les Dossiers et Projets], puis [Dossier Section Sportive Scolaire], et ouvrez le [Projet Annuel SSS]."
     }
    ]
   },
@@ -816,7 +840,8 @@
      "parcours": "Demander la validation d'une sortie APPN",
      "prerequis": [
       "le [Dossier EPS]"
-     ]
+     ],
+     "explication": "Une fois le [Dossier EPS] rempli, entrez dans [Les Dossiers et Projets], puis [Dossier APPN]. Choisissez l'activité et cliquez sur [Créer]. Déposez le projet, le protocole et la convention, puis cliquez sur [Enregistrer]."
     }
    ]
   }

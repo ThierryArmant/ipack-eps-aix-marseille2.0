@@ -1978,7 +1978,7 @@ if prompt_a_traiter:
                             continue
                         _vus.add(_cle)
                         _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
-                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=reference_url(_md, prompt), selection='catalogue', scopes=_md.get('examens', []))
+                        _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=(reference_url(_md, prompt) or _url_source(_path, _txt, prompt)), selection='catalogue', scopes=_md.get('examens', []))
                                          if mode in ("examens", "ipack", "textes") else _bloc)
                         _priorites_fiches.append(_md.get('priorite', 0))
                         _url = reference_url(_md, prompt)

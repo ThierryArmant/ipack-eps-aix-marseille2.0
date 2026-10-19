@@ -18,7 +18,17 @@ def documentary_limit(text):
 def unsupported_certainty(text, supports):
     """Le silence documentaire seul ne prouve jamais une prescription."""
     proof = [normalized(p) for p in supports if p]
-    documentary_absence = lambda p: bool(_ABSENCE.search(p) or re.search(r"(?:les )?sources.{0,40}ne prevoient pas|aucun texte (?:des sources|de la base|du corpus).{0,25}ne prevoit", p) or re.search(r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", p))
+    def documentary_absence(p):
+        # Le silence sur un point ne retire pas une règle explicite dans une
+        # autre phrase du même passage. Les simples renvois ne sont pas des règles.
+        statements = [part.strip() for part in re.split(r'[.;!?]', p) if part.strip()]
+        factual = [part for part in statements if not re.match(
+            r"(?:faire|faites|veuillez|verifier|verifiez|consulter|consultez|demander|demandez|contacter|contactez|"
+            r"ne pas (?:affirmer|transformer|conclure))\b|(?:sources?|nature de la source|references?)\s*:|https?://", part)]
+        return bool(factual) and all(_ABSENCE.search(part) or re.search(
+            r"(?:les )?sources.{0,40}ne prevoient pas|aucun texte (?:des sources|de la base|du corpus).{0,25}ne prevoit|"
+            r"aucun texte (?:de la base|disponible)|aucune consigne (?:de la base|disponible)", part)
+            for part in factual)
     if not proof or not all(documentary_absence(p) for p in proof):
         return False
     # Une reprise littérale d'un constat limité au corpus ne le généralise pas.

@@ -390,8 +390,8 @@ def validate_claims(data, packets, *, checked=False):
                 errors.append('document inconnu')
                 continue
             level = source.get('display_level', 'documentaire')
-            if 'passage_ids' in e:
-                selected = e['passage_ids']
+            if 'passage_ids' in e or 'passage_id' in e:
+                selected = e['passage_ids'] if 'passage_ids' in e else [e['passage_id']]
                 spans = {span['id']: span for span in source['passages']}
                 if not isinstance(selected, list) or not selected or len(selected) > 6:
                     errors.append('sélection de passages invalide')
@@ -698,8 +698,10 @@ def situation_mismatch(question, text):
     # Les dossiers de campagne SSS ne sont pas la configuration des groupes de rentrée.
     def note_count(value):
         counts = set()
-        for count, pattern in ((1, r"une (?:seule )?note|note unique|1 note"),
-                               (2, r"deux notes|2 notes"), (3, r"trois notes|3 notes")):
+        if re.search(r"\baucune note\b|\bsans (?:aucune )?(?:note|evaluation)\b|\baucune evaluation\b", value):
+            counts.add(0)
+        for count, pattern in ((1, r"\bune (?:seule )?note\b|\bnote unique\b|\b1 note\b"),
+                               (2, r"\bdeux notes\b|\b2 notes\b"), (3, r"\btrois notes\b|\b3 notes\b")):
             if re.search(pattern, value):
                 counts.add(count)
         return counts
@@ -1020,7 +1022,9 @@ def dnb_document_mismatch(question, public, packet):
     lycee_assessment = re.search(r'\bccf\b|\baflp?\b|\bbac\b|\bcap\b|di \+ di', body_norm)
     # Un document qui explique explicitement le circuit DNB/LSU reste disponible.
     dnb_explanation = re.search(r'\bdnb\b|\bbrevet\b|\blsu\b|college', body_norm)
-    return bool(software and lycee_assessment and not dnb_explanation)
+    general_privacy = (re.search(r'video|photo|image|rgpd', exam_route)
+                       and not re.search(r'eppcs|epccs|specialite|epreuve|certificati', exam_route))
+    return bool(software and lycee_assessment and not dnb_explanation and not general_privacy)
 
 
 def lycee_dnb_mismatch(question, public, packet):
@@ -1286,6 +1290,7 @@ Si une consigne manque, précise cette limite sans inventer de procédure.
 Vérifie que la décision et les conditions disent la même chose : une décision négative ne peut autoriser ensuite la même action.
 Une condition de statut non établie ne permet pas une décision affirmative. Si les faits ne tranchent pas, conserve les branches conditionnelles.
 Pas de HTML ni d'attribution bibliographique dans la prose. Au plus 12 affirmations, sans répétitions.
+Chaque preuve sélectionne un document_id et un tableau passage_ids non vide avec les identifiants exacts des passages fournis ; jamais un identifiant vide.
 Réponds uniquement en JSON selon ce schéma :
 ''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
 
@@ -1395,6 +1400,9 @@ Réponds uniquement en JSON selon ce schéma :
                 selected = {k: e[k] for k in ('document_id', 'passage_ids') if k in e}
                 if 'passage_id' in e:
                     selected['passage_ids'] = [e['passage_id']]
+                source = next((p for p in packets if p['id'] == e.get('document_id')), None)
+                if source and any(str(reason).startswith(('sélection de passages invalide', 'passage absent du document', 'une preuve annotée', 'citation absente du passage')) for reason in error.get('errors', [])):
+                    selected['available_passage_ids'] = [span['id'] for span in source['passages']]
                 item['rejected_evidence'].append(selected)
             item['section'] = claim.get('section')
         audit['repair_feedback'] = feedback

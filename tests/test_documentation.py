@@ -12,7 +12,7 @@ from documentary_review import mark_excerpt
 
 def app_functions():
     tree = ast.parse(Path('app.py').read_text())
-    names = {'decouper_en_fiches', 'charger_dossier_txt_securise', '_recherche_documentaire'}
+    names = {'decouper_en_fiches', 'charger_dossier_txt_securise', '_recherche_documentaire', '_url_source'}
     nodes = [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name in names]
     env = dict(re=re, reference_url=reference_url, mark_excerpt=mark_excerpt, **{name: getattr(kc, name) for name in
                         ('document_records', 'incompatible', 'reference_notice', 'obsolete_reference', 'section_scopes', 'passage_key')})

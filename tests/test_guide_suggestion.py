@@ -107,3 +107,20 @@ class GuideExamensRequestTests(unittest.TestCase):
         self.assertIn('"mode_guide": "examens" if mode == "examens" else None', src)
         self.assertIn('mode=m.get("mode_guide")', src)
         self.assertIn("'AIDE EXAMENS'", src)
+
+
+class LienSourceTests(unittest.TestCase):
+    def fonction(self):
+        import ast
+        from response_controls import reference_url
+        src = (ROOT / 'app.py').read_text(encoding='utf-8')
+        node = next(n for n in ast.parse(src).body if isinstance(n, ast.FunctionDef) and n.name == '_url_source')
+        ns = {'re': re, 'reference_url': reference_url}
+        exec(compile(ast.Module(body=[node], type_ignores=[]), 'app.py', 'exec'), ns)
+        return ns['_url_source']
+
+    def test_url_du_catalogue_puis_du_passage(self):
+        f = self.fonction()
+        self.assertTrue(f('/app/data/textes/fiches/sorties_second_degre_guide_2025.txt', '', '').startswith('https://eduscol'))
+        self.assertEqual(f('', 'Source : https://exemple.fr/texte.pdf.', ''), 'https://exemple.fr/texte.pdf')
+        self.assertEqual(f('', 'sans lien', ''), '')

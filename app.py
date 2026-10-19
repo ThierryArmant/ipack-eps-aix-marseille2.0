@@ -1289,6 +1289,19 @@ titre_affiche = label_titres.get(
     module_actif,
     "⚠️ EN ATTENTE DE SÉLECTION DU CONTEXTE CI-DESSOUS ⬇️"
 )
+def _url_source(path, texte, question):
+    """Lien du texte cité : URL du catalogue pour ce fichier, sinon première adresse web du passage."""
+    import knowledge_catalog as _kc
+    chemin = str(path or '')
+    chemin = chemin[chemin.find('data/'):] if 'data/' in chemin else chemin
+    md = _kc.catalog().get(chemin) or {}
+    url = reference_url(md, question) if md else ''
+    if not url:
+        trouve = re.search(r'https?://[^\s)\]>»"]+', texte or '')
+        url = trouve.group(0).rstrip('.,;') if trouve else ''
+    return url
+
+
 def _bandeau_etape(numero, titre, sous_titre, couleur=""):
     """En-tête d'étape : pastille (✓ si faite, numéro sinon) et titre, dans le panneau du parcours.
     Une seule logique de couleur : vert = fait, ambre = en cours, gris = pas encore ouvert."""
@@ -1410,7 +1423,7 @@ with st.container(key="parcours"):
                     )
                 # Rappel discret sous la barre (l'œil reste sur la question) ; libère la hauteur d'un cadre.
                 st.markdown(
-                    '<div style="font-size:0.78rem;opacity:0.65;text-align:left;margin-top:-0.4rem;">'
+                    '<div style="font-size:0.78rem;color:#CBD5E1;text-align:left;margin-top:-0.4rem;">'
                     '<strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. '
                     'Vérifiez vos copier-coller avant l’envoi.</div>',
                     unsafe_allow_html=True,
@@ -1905,6 +1918,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
                         _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '',
+                            url=_url_source(_provenance_id.group(1) if _provenance_id else '', _txt, prompt),
                             title=next((line.lstrip('# ').strip() for line in _txt.splitlines()
                                         if line.strip() and not line.startswith(('[DOCUMENT:', '[PORTEE:'))), ''))
                                          if mode in ("examens", "ipack", "textes") else _bloc)
@@ -1942,6 +1956,7 @@ if prompt_a_traiter:
                         _bloc = (etiquette + " " if etiquette else "") + _txt
                         _extraits.append(mark_excerpt(_bloc,
                             path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
+                            url=_url_source(n.node.metadata.get('path', n.node.metadata.get('source', '')), _txt, prompt),
                             title=n.node.metadata.get('title', ''), scopes=n.node.metadata.get('examens', [])) if mode in ("examens", "ipack", "textes") else _bloc)
                         if avec_sources:
                             _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))

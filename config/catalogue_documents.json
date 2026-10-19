@@ -781,7 +781,8 @@
     "prioritaire": true,
     "priorite": 320,
     "modes": [
-      "textes"
+      "textes",
+      "examens"
     ],
     "motifs": [
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service",

@@ -616,7 +616,7 @@
     "reponses_directes": [
       {
         "motifs": [
-          "^(?!.*(?:a change|changement|nouveaute|evolution|quoi de neuf|nouvelles? fonctionnalite)).*?(?:(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour))"
+          "^(?!.*(?:projets?|fiche|equipe|classes?|eleves?|protocoles?|referentiels?|a change|changement|nouveaute|evolution|quoi de neuf|nouvelles? fonctionnalite)).*?(?:(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour))"
         ],
         "reponse": "iPackEPS est une application en ligne : aucune version minimale à installer pour Cyclades ou Santorin et aucune mise à jour à effectuer soi-même. À Aix-Marseille, ouvrez iPackEPS dans un navigateur via ESTEREL ; les données sont sur le serveur, pas dans une installation locale à remplacer. Tout le monde utilise la version en cours. Pour l'export vers Cyclades, vérifier les protocoles validés et l'affectation des candidats aux groupes ; les notes certificatives se saisissent dans Santorin. En cas de blocage, contacter ipackeps@ac-aix-marseille.fr. Source : fiche d'accès iPackEPS et documentation de l'éditeur."
       }
@@ -2352,7 +2352,20 @@
     "title": "[ARTICLE 109] [Dossiers]/[Dossier Certificatif] Conservation des Documents d'Évaluation et Émargements",
     "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:conserv|archiv|combien de temps))(?=.*(?:papier|grilles?|fiches? d.evaluation|documents? d.evaluation|emargements?))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:conserv|archiv|combien de temps))(?=.*(?:papier|grilles?|fiches? d.evaluation|documents? d.evaluation|emargements?))"
+    ]
   },
   "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt": {
     "title": "[ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT",
@@ -3938,7 +3951,9 @@
     "exclusif_motifs": [
       "archiv|historique|conserv|sans.*perdre"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "(?:papier|grilles?|emargements?|fiches? d.evaluation|documents? d.evaluation).{0,80}(?:conserv|archiv)|(?:conserv|archiv).{0,80}(?:papier|grilles?|emargements?|fiches? d.evaluation|documents? d.evaluation)"
+    ],
     "date_verification": "2026-10-11",
     "priorite": 100,
     "reponse_directe_motifs": []
@@ -5541,12 +5556,14 @@
     ],
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 330,
     "motifs": [
-      "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))"
+      "(?=.*(?:absen))(?=.*(?:sans.*justifi|aucun.*justifi|non justifi|injustifi))(?=.*(?:ccf|rattrap|differe))",
+      "(?=.*(?:rattrap|differe|ccf))(?=.*(?:sans|aucun|pas de|non valide|invalide))(?=.*(?:certificat|justificatif|medical))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
@@ -7254,7 +7271,8 @@
       "\\bappn\\b|(?:falaise|escalade|kayak|ski|voile|canoe|randonnee).{0,80}(?:declar|ipack|dossier|projet|validation)"
     ],
     "exclure_motifs": [
-      "equipement de securite|materiel|registre|\\bepi\\b"
+      "equipement de securite|materiel|registre|\\bepi\\b",
+      "cyclades|reaffect|santorin"
     ]
   },
   "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt": {
@@ -8112,5 +8130,78 @@
     "retrieval_enabled": false,
     "statut": "source_officielle_copie_textuelle_2026-10-19",
     "url": "https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526679C"
+  },
+  "data/examens/audit100_2026_10_20/calcul_points_afl_gt.txt": {
+    "title": "Bac GT : addition des points AFL et moyenne des épreuves",
+    "statut": "audit_100_sources_relues_2026_10_20",
+    "examens": [
+      "gt"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*afl[123]?)(?=.*(?:calcul|somme|addition|moyenne|note (?:finale|globale)))(?!.*(?:aflp|bac ?pro|\\bcap\\b))"
+    ],
+    "centrer_motifs": [
+      "(?=.*afl[123]?)(?=.*(?:calcul|somme|addition|moyenne|note (?:finale|globale)))(?!.*(?:aflp|bac ?pro|\\bcap\\b))"
+    ],
+    "exclusif_motifs": [
+      "(?=.*afl[123]?)(?=.*(?:calcul|somme|addition|moyenne|note (?:finale|globale)))(?!.*(?:aflp|bac ?pro|\\bcap\\b))"
+    ]
+  },
+  "data/examens/audit100_2026_10_20/formalites_signatures_ccf.txt": {
+    "title": "CCF : co-évaluation, signatures et bordereaux sont des questions distinctes",
+    "statut": "audit_100_sources_relues_2026_10_20",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*sign(?:er|ature|ent|e))(?=.*(?:bordereau|fiche|grille|ccf|evaluateurs?))"
+    ],
+    "centrer_motifs": [
+      "(?=.*sign(?:er|ature|ent|e))(?=.*(?:bordereau|fiche|grille|ccf|evaluateurs?))"
+    ],
+    "exclusif_motifs": [
+      "(?=.*sign(?:er|ature|ent|e))(?=.*(?:bordereau|fiche|grille|ccf|evaluateurs?))"
+    ],
+    "exclure_motifs": [
+      "\\bpv\\b|proces.verba"
+    ]
+  },
+  "data/examens/audit100_2026_10_20/reaffecter_evaluateur_cyclades.txt": {
+    "title": "Cyclades : faire réaffecter les protocoles au bon évaluateur",
+    "statut": "audit_100_sources_relues_2026_10_20",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
+    ],
+    "exclusif_motifs": [
+      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
+    ]
   }
 }

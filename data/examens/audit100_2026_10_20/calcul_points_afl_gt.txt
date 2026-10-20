@@ -1,0 +1,7 @@
+### Bac GT : addition des points AFL et moyenne des épreuves
+[PORTEE: gt]
+Pour une APSA de l’enseignement commun en CCF, la note sur 20 est la somme des points obtenus aux AFL1, AFL2 et AFL3 ; ce n’est pas une moyenne entre les AFL. L’AFL1 est évalué sur 12 points, les AFL2 et AFL3 sur 8 points au total, selon la répartition choisie par le candidat prévue par le référentiel : 4/4, 6/2 ou 2/6. Ne pas omettre l’AFL3 quand la question ne cite que les AFL1 et AFL2.
+Distinguer ce total par APSA de la note finale d’EPS : pour l’ensemble certificatif ordinaire, celle-ci est la moyenne des notes des trois épreuves, arrondie au point entier le plus proche après harmonisation académique. Les règles d’inaptitude ou de contrôle adapté peuvent modifier le nombre d’épreuves retenues ; elles ne se déduisent pas de ce calcul ordinaire.
+Dans Santorin, le professeur renseigne les points par AFL et épreuve ; il ne remplace pas cette saisie par une moyenne des AFL.
+Sources : note de service MENE2531948N du 20 février 2026, 2.d ; annexe 1, barème et notation des cinq champs ; guides de saisie Santorin déjà présents dans le corpus (Besançon 2025, Corse 2024-2025).
+https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

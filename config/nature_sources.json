@@ -6327,6 +6327,25 @@
    "autres_academies_citees": [],
    "portee_texte": "cap",
    "titre": "Texte national MENE2526679C — corps du texte hors annexes"
+  },
+  "data/examens/audit100_2026_10_20/calcul_points_afl_gt.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "reference": "sources explicites de la fiche ; audit 100 du 20 octobre 2026"
+  },
+  "data/examens/audit100_2026_10_20/formalites_signatures_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "reference": "sources explicites de la fiche ; audit 100 du 20 octobre 2026"
+  },
+  "data/examens/audit100_2026_10_20/reaffecter_evaluateur_cyclades.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "reference": "sources explicites de la fiche ; audit 100 du 20 octobre 2026"
   }
  }
 }

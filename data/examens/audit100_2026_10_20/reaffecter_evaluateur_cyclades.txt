@@ -1,0 +1,7 @@
+### Cyclades : faire réaffecter les protocoles au bon évaluateur
+[PORTEE: gt,pro,cap]
+Si un protocole est rattaché à l’adresse d’un autre enseignant, demander au chef d’établissement de vérifier l’évaluateur attribué dans Cyclades puis de réaffecter le protocole au bon enseignant.
+Le chef d’établissement utilise [EPS] > [Contrôler / Réaffecter des protocoles] et choisit l’évaluateur de chaque protocole dans la colonne de l’adresse utilisée pour la notation. Il faut vérifier cette adresse ; le seul fait qu’un collègue a saisi le protocole ne suffit pas à affirmer que la saisie des notes est impossible.
+Si les lots ont déjà été distribués, faire également réaffecter les lots dans Santorin (suivi des lots) ou relancer la distribution selon les droits du responsable. Le destinataire doit disposer de la mission Imag’in correspondante. Ne pas supprimer les notes ni le protocole pour un simple changement d’évaluateur.
+Cette opération de réaffectation logicielle ne concerne pas un dossier APPN ni la validation pédagogique d’un protocole.
+Sources : mémo Cyclades Enseignant EPS version 2.0 et supports techniques cités par le corpus : Besançon 2025, DIEC Aix-Marseille 2024, tutoriel EPS Créteil « Contrôler / Réaffecter les protocoles des enseignants » (article 64). Extrait de data/examens/complement_cyclades_protocoles_cas_enseignant.txt ; pas de nouvelle procédure locale ajoutée.

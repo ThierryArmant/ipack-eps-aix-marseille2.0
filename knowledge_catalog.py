@@ -289,19 +289,20 @@ def reference_notice(targets, question=None, public=None):
     result = []
     public = canonical_public(public)
     level = _LEVEL_WORD.get(public, '')
+    # Ces données dépendent de la question, pas du document parcouru.
+    q = normalise(question) if question is not None else ''
+    enriched = enrich(question) if question is not None else ''
+    years = set(re.findall(r'\b20\d{2}\b', q))
+    staff_only = bool(question and staff_service_question(question)
+                      and not re.search(r'eleve|classe de|\bdnb\b|\bbrevet\b|\blsu\b', q))
     for path, md in entries.items():
         if md.get('retrieval_enabled') is False:
             continue
-        if (question and staff_service_question(question)
-                and not re.search(r'eleve|classe de|\bdnb\b|\bbrevet\b|\blsu\b', normalise(question))
-                and (path.startswith('data/commun/dnb/') or path == 'data/examens/regles_dnb_eps.txt')):
+        if staff_only and (path.startswith('data/commun/dnb/') or path == 'data/examens/regles_dnb_eps.txt'):
             continue
         if not md.get('prioritaire') or (md.get('examens') and not set(md['examens']) & set(targets)):
             continue
         if question is not None:
-            q = normalise(question)
-            enriched = enrich(question)
-            years = set(re.findall(r'\b20\d{2}\b', q))
             if years and md.get('sessions') and not years & set(md['sessions']):
                 continue
             # Motifs positifs : sur la question enrichie du langage courant ; exclusions : sur la question d'origine.

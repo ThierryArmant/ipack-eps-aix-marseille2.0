@@ -717,10 +717,10 @@ def context_document_mismatch(question, public, mode, packet):
             and re.search(r'cas particuliers?|commission', q)
             and re.search(r'conditions techniques ou materielles|impossibilite materielle', title)):
         return True
-    if (re.search(r'releve|resultats?', q) and re.search(r'recevoir|recoiv|publ|quand', q)
+    if (re.search(r'releves?(?: officiels?)? (?:de |des )?notes|resultats?', q) and re.search(r'recevoir|recoiv|publ|quand', q)
             and path == 'data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt'):
         return True
-    if (re.search(r'(?:apres|terminee|une fois|suite a).{0,80}(?:harmonisation|commission|jury)|(?:harmonisation|commission|jury).{0,40}terminee', q)
+    if (re.search(r'(?:apres|suite a) (?:la |le |l.)?(?:commission(?: d.harmonisation)?|harmonisation|jury)|(?:commission(?: d.harmonisation)?|harmonisation|jury).{0,25}termine|une fois (?:la |le |l.)?(?:commission(?: d.harmonisation)?|harmonisation|jury).{0,25}(?:termine|passe|reuni)', q)
             and path == 'data/examens/situations_2026_10_13/santorin_corriger_une_note.txt'):
         return True
     return False

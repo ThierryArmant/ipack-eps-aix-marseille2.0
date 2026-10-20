@@ -1089,7 +1089,7 @@ def response_focus_notes(question, packets):
     return notes
 
 
-def handicap_overview_packets(question, packets):
+def handicap_overview_requested(question, packets):
     """Une vue d'ensemble nationale n'a pas besoin des procédures de blessure/saisie."""
     from knowledge_catalog import normalise
     q = normalise(question)
@@ -1098,8 +1098,47 @@ def handicap_overview_packets(question, packets):
     if (not selected or not re.search(r'handicap|inaptitude.*permanente', q)
             or not re.search(r'evalu|epreuves?|controle adapte', q)
             or re.search(r'ipack|cyclades|santorin|blesse|temporaire|cours d.annee|sais|declar|depos|creer|certificat|amex|incluscol|mdph|recours|delai|inscri|protocole|valid|transf|shn|sportif|option|eppcs', q)):
+        return False
+    return True
+
+
+def handicap_overview_packets(question, packets):
+    if not handicap_overview_requested(question, packets):
         return packets
-    return [p for p in packets if p.get('origin') != 'document' or p in selected]
+    anchor = 'data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt'
+    return [p for p in packets if p.get('origin') != 'document' or p.get('path') == anchor]
+
+
+def preserve_handicap_overview_excerpts(parsed, question, packets):
+    """Restituer deux passages sensibles sans paraphrase, puis les valider normalement."""
+    if not parsed.get('claims') or not handicap_overview_requested(question, packets):
+        return parsed, []
+    anchor = next(p for p in packets if p.get('path') == 'data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt')
+    claims = list(parsed['claims'])
+    restored = []
+    for passage in anchor['passages']:
+        text = passage['text']
+        configurations = text.startswith('Les trois possibilités documentées en CCF sont :')
+        preference = text.startswith('Les épreuves adaptées sont de préférence choisies')
+        if not (configurations or preference):
+            continue
+        def cites(claim):
+            return any(e.get('document_id') == anchor['id'] and passage['id'] in e.get('passage_ids', [])
+                       for e in claim.get('evidence', []) if isinstance(e, dict))
+        matching = [i for i, c in enumerate(claims) if isinstance(c, dict) and cites(c)]
+        # Les modalités constituent le coeur de cette vue d'ensemble. Le choix
+        # des listes reste facultatif à couvrir, mais sa réserve ne doit pas disparaître.
+        if not configurations and not matching:
+            continue
+        claim = {'section': 'etape', 'text': text, 'evidence': [
+            {'document_id': anchor['id'], 'passage_ids': [passage['id']]}]}
+        if matching:
+            claims[matching[0]] = claim
+            claims = [c for i, c in enumerate(claims) if i not in matching[1:]]
+        else:
+            claims.append(claim)
+        restored.append(passage['id'])
+    return dict(parsed, claims=claims), restored
 
 
 def packet_covered_by_focus(candidate, focused):
@@ -1362,6 +1401,9 @@ Réponds uniquement en JSON selon ce schéma :
             if meta:
                 audit.setdefault('excluded_editorial_claims', []).extend(meta)
                 parsed['claims'] = [c for c in parsed['claims'] if c not in meta]
+            parsed, restored = preserve_handicap_overview_excerpts(parsed, question, packets)
+            if restored:
+                audit['verbatim_handicap_passages'] = restored
             accepted, errors = validate_claims(parsed, packets)
             # Un mauvais passage ne doit pas masquer un défaut de rédaction
             # indépendant des preuves (par exemple une permission trop vague).

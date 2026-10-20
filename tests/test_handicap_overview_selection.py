@@ -34,3 +34,26 @@ class HandicapOverviewTests(unittest.TestCase):
         self.assertNotIn('Cyclades',reg['text'])
         soft=next(s for s in p['passages'] if s['text'].strip().startswith('Pas de nouvelle validation'))
         self.assertNotEqual(soft['scope']['nature'],['texte_national'])
+
+    def test_realistic_omission_and_absolute_preference_restore_source_without_retry(self):
+        p=self.packets[0]
+        general=next(s for s in p['passages'] if s['text'].startswith('Réponse directe'))
+        lists=next(s for s in p['passages'] if s['text'].startswith('Les épreuves adaptées sont de préférence'))
+        llm=FakeLLM([{'claims':[
+            {'section':'decision','text':"Le contrôle adapté est construit par l'équipe EPS et les services de santé scolaire et soumis à la commission académique.", 'evidence':[{'document_id':p['id'],'passage_ids':[general['id']]}]},
+            {'section':'etape','text':"Les épreuves adaptées doivent être choisies dans les listes nationale, académique ou d'établissement.",'evidence':[{'document_id':p['id'],'passage_ids':[lists['id']]}]}
+        ]}]);audit={}
+        answer=review_exam_answer(llm,question='Quelles possibilités pour évaluer au bac un lycéen en situation de handicap ?',public='Lycée Général & Techno',documents=self.docs,academy='Nantes',audit=audit)
+        for expected in ['autant que possible','de préférence','Trois épreuves','Deux épreuves','cas très particuliers']:
+            self.assertIn(expected,answer)
+        self.assertNotIn('doivent être choisies',answer)
+        self.assertEqual(len(llm.prompts),1)
+        self.assertFalse(audit['repair_performed'])
+        self.assertEqual(len(audit['verbatim_handicap_passages']),2)
+
+    def test_verbatim_does_not_invent_when_source_or_answer_missing(self):
+        from documentary_review import preserve_handicap_overview_excerpts
+        self.assertEqual(preserve_handicap_overview_excerpts({'claims':[]},'Handicap : quelles épreuves ?',self.packets),({'claims':[]},[]))
+        proposal={'claims':[{'section':'decision','text':'Exemple','evidence':[]}]}
+        for q,packets in [('Handicap : créer un protocole dans Cyclades ?',self.packets),('Handicap : quelles épreuves ?',self.packets[1:])]:
+            self.assertEqual(preserve_handicap_overview_excerpts(proposal,q,packets),(proposal,[]))

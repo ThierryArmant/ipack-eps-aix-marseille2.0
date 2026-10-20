@@ -556,7 +556,9 @@
     "motifs": [
       "(?=.*(?:centre.{0,15}etranger|etablissement.{0,15}etranger|aefe))(?=.*(?:ipack|protocole|sequence|certific|fonctions))"
     ],
-    "exclure_motifs": [],
+    "exclure_motifs": [
+      "\\bmfr\\b|\\bcfa\\b|\\bgesbf\\b"
+    ],
     "exclusif_motifs": [
       "(?=.*(?:centre.{0,15}etranger|etablissement.{0,15}etranger|aefe))(?=.*(?:ipack|protocole|sequence|certific|fonctions))"
     ],
@@ -626,7 +628,10 @@
       "^(?!.*ipack)(?=.*santorin)",
       "installations? sportives?|equipements? sportifs?|declarer (?:mes |les |nos )?installations?",
       "inutilisable|indisponible|hors service|(?:notre|cette|l.) installation(?!.{0,20}(?:ipack|application|logiciel))",
-      "(?:pas|plus) (?:d.)?acces.{0,30}(?:au |aux |a l.|a la )?(?:module|menu|dossier|onglet|certificati)|\\binstance\\b"
+      "(?:pas|plus) (?:d.)?acces.{0,30}(?:au |aux |a l.|a la )?(?:module|menu|dossier|onglet|certificati)|\\binstance\\b",
+      "widget|pratic",
+      "^(?!.*i ?pack).*(?:ordre de mission|convocation|imag.in|cyclades|santorin)",
+      "(?=.*(?:telecharg|imprim|edit))(?=.*(?:fichier|document|certificat|convocation|releve|bordereau|fiche|protocole|liste))"
     ],
     "centrer_motifs": [
       "(?=.*(?:connect|connex|acced|acces))(?=.*(?:ipack|portail))(?=.*ordinateur (?:personnel|perso))"
@@ -1088,6 +1093,9 @@
     ],
     "motifs": [
       "etablissement.*(?:trouv|appar|liste)|aucun.*etablissement"
+    ],
+    "exclure_motifs": [
+      "aucun eleve|pas d.eleve"
     ]
   },
   "data/ipack/fiches/ipack_016_situation_erreur_de_type_de_scolarite_classes_mixtes.txt": {
@@ -1484,7 +1492,20 @@
     "title": "[ARTICLE 55] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission] Dépôt des documents pour la commission académique d’harmonisation des notes aux Examens d’EPS",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:depos|transmett))(?=.*(?:documents?|fiches?))(?=.*(?:cas particuliers?|commission|cahpn))(?!.*(?:proces.verbal|\\bpv\\b))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:depos|transmett))(?=.*(?:documents?|fiches?))(?=.*(?:cas particuliers?|commission|cahpn))(?!.*(?:proces.verbal|\\bpv\\b))"
+    ],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ]
   },
   "data/ipack/fiches/ipack_072_article_83_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_de_la_fiche_etabl.txt": {
     "title": "[ARTICLE 83] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] : dépôt de la Fiche Établissement",
@@ -3703,7 +3724,8 @@
     "date_verification": "2026-10-12",
     "title": "Bac GT : ensemble certificatif, listes d'activités et commission académique",
     "motifs": [
-      "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)"
+      "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)",
+      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))"
     ],
     "exclure_motifs": [
       "option|eppcs",
@@ -3718,8 +3740,10 @@
       "commission.*harmonisation"
     ],
     "centrer_motifs": [
-      "(?=.*(?:combien|nombre))(?=.*(?:epreuves|activites|apsa))(?=.*(?:ccf|bac))"
-    ]
+      "(?=.*(?:combien|nombre))(?=.*(?:epreuves|activites|apsa))(?=.*(?:ccf|bac))",
+      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))"
+    ],
+    "priorite": 300
   },
   "data/commun/audit60/certificat_medical.txt": {
     "title": "Certificat d’inaptitude : rôle médical et rôle pédagogique",
@@ -3827,12 +3851,14 @@
       "cap"
     ],
     "modes": [
-      "ipack",
-      "examens"
+      "textes",
+      "examens",
+      "ipack"
     ],
     "prioritaire": true,
     "motifs": [
-      "contest|recours|parent.*note"
+      "contest|recours|parent.*note",
+      "(?=.*erreur)(?=.*(?:jury|releve|resultat|report))"
     ],
     "exclure_motifs": [
       "amenag|amex|incluscol"
@@ -3840,8 +3866,10 @@
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F22331",
     "date_verification": "2026-10-11",
     "centrer_motifs": [
-      "contest|recours|parent.*note"
-    ]
+      "contest|recours|parent.*note",
+      "(?=.*erreur)(?=.*(?:jury|releve|resultat|report))"
+    ],
+    "priorite": 300
   },
   "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt": {
     "title": "[SITUATION: PÉRIMÈTRE — CE QU'iPackEPS NE GÈRE PAS (NOTES DE CLASSE, ABSENCES, APPEL, BULLETINS, EXPORT DE NOTES VERS PRONOTE)]",
@@ -4085,18 +4113,24 @@
     "statut": "revue_corpus_2026-10-11_limite_explicite",
     "examens": [],
     "modes": [
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "motifs": [
-      "proces.verbal|\\bpv\\b.*ccf|ccf.*\\bpv\\b"
+      "proces.verbal|\\bpv\\b.*ccf|ccf.*\\bpv\\b",
+      "proces.verbaux|proces.verbal|\\bpv\\b"
     ],
     "exclusif_motifs": [
       "proces.verbal|\\bpv\\b.*ccf|ccf.*\\bpv\\b"
     ],
     "exclure_motifs": [],
     "date_verification": "2026-10-11",
-    "url": ""
+    "url": "",
+    "priorite": 300,
+    "centrer_motifs": [
+      "proces.verbaux|proces.verbal|\\bpv\\b"
+    ]
   },
   "data/commun/audit60/aix_protocoles_2026.txt": {
     "title": "Aix-Marseille : protocoles et circuit EPS — 2026",
@@ -4581,7 +4615,7 @@
     "priorite": 310,
     "motifs": [
       "^(?=.*cyclades)(?=.*(?:manquant|manquent|(?:il|me|nous|en) manque|absent|introuvable|n.apparai))(?=.*(?:candidat|eleve))(?=.*(?:liste|inscri|export|import|ipack))(?!.*(?:apsa|activite|referentiel|fca|ccf|epreuve|note|rattrapage|protocole))",
-      "inscri\\w*.{0,40}(?:retard|tard)|(?:retard|tard)\\w*.{0,40}inscri|(?:n.apparai\\w*|absent\\w*|ne figure\\w*|pas sur).{0,40}(?:listes?|emargement)"
+      "inscri\\w*.{0,40}(?:retard|tard)|(?:retard|tard)\\w*.{0,40}inscri|(?=.*(?:cyclades|emargement|examen|ponctuel))(?=.*(?:n.apparai\\w*|absent\\w*|ne figure\\w*|pas sur).{0,40}(?:listes?|emargement))"
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "statut": "revu_retest_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
@@ -5606,11 +5640,15 @@
     "priorite": 340,
     "motifs": [
       "^(?!.*(?:seul un eleve|un seul eleve|un seul candidat|seul un candidat|arrive apres)).*(?=.*(?:piscine|installation))(?=.*(?:ferm|indispon|impossible))(?=.*(?:classe|ensemble.*groupe|tout.*groupe))(?=.*(?:evalu|santorin|natation|ce\\b))",
-      "(?=.*(?:panne|intemperie|ferme\\w* (?:un|le|ce) jour|ponctuel))(?=.*(?:piscine|installation|gymnase|stade))"
+      "(?=.*(?:panne|intemperie|ferme\\w* (?:un|le|ce) jour|ponctuel))(?=.*(?:piscine|installation|gymnase|stade))",
+      "(?=.*(?:installation|plateau sportif|piscine|gymnase))(?=.*(?:fermeture|ferme|indisponible))(?=.*(?:dispens|saisi|neutralis|ccf|epreuve))(?!.*(?:un seul eleve|un seul candidat))"
     ],
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
     "date_verification": "2026-10-12",
-    "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12"
+    "statut": "reponse_relue_audit_lot3_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
+    "centrer_motifs": [
+      "(?=.*(?:installation|plateau sportif|piscine|gymnase))(?=.*(?:fermeture|ferme|indisponible))(?=.*(?:dispens|saisi|neutralis|ccf|epreuve))(?!.*(?:un seul eleve|un seul candidat))"
+    ]
   },
   "data/examens/audit_lot3_2026_10_12/protocole_standard_apres.txt": {
     "title": "Aix : ajout de protocole standard après validation",
@@ -5712,7 +5750,15 @@
     "url": "https://eps-pedagogie.web.ac-grenoble.fr/sites/default/files/media-fichiers/2024-10/5_memo-fdr_gerer_eps-ccf_v3.0.pdf",
     "motifs": [
       "harmonisation en masse|cloture (?:de l.epreuve|academique|des notes|de la saisie)|notes?.{0,20}remont|remont\\w*.{0,20}notes?|notes?.{0,40}(?:a|ont|a-t-elle|ont-elles) (?:change|ete (?:modifi|baiss|augment|majore|minore))|(?:change|majore|minore|baisse|modifie)\\w*.{0,30}(?:par|apres) (?:la )?(?:commission|cahpn|harmonisation)",
-      "(?:releve|note finale|note (?:obtenue|definitive|du bac)).{0,80}(?:pas celle|differ|modifi|change|baiss|augment)|(?:pas celle|differente?).{0,40}(?:saisi|mise|mis)"
+      "(?:releve|note finale|note (?:obtenue|definitive|du bac)).{0,80}(?:pas celle|differ|modifi|change|baiss|augment)|(?:pas celle|differente?).{0,40}(?:saisi|mise|mis)",
+      "(?=.*(?:apres|terminee|une fois|suite a))(?=.*(?:harmonisation|commission|jury))(?=.*(?:note|modifi|corrig))",
+      "(?=.*santorin)(?=.*(?:serveur.{0,20}ferm|campagne.{0,20}ferm|saisie.{0,20}ferm|clotur))",
+      "(?=.*cloture)(?=.*saisies?)(?=.*(?:etablissement|definitiv))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:apres|terminee|une fois|suite a))(?=.*(?:harmonisation|commission|jury))(?=.*(?:note|modifi|corrig))",
+      "(?=.*santorin)(?=.*(?:serveur.{0,20}ferm|campagne.{0,20}ferm|saisie.{0,20}ferm|clotur))",
+      "(?=.*cloture)(?=.*saisies?)(?=.*(?:etablissement|definitiv))"
     ]
   },
   "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
@@ -6043,6 +6089,9 @@
     ],
     "motifs": [
       "^(?=.*(?:mauvaise note|erreur de (?:note|saisie)|trompe|corriger (?:une|la|ma) note|modifier (?:une|la|ma) note|reinitialis))(?=.*(?:santorin|fiche|lot|saisi|tape|reinitialis))(?!.*(?:cadenas|copies?))"
+    ],
+    "exclure_motifs": [
+      "(?=.*(?:apres|terminee|une fois|suite a))(?=.*(?:harmonisation|commission|jury))"
     ]
   },
   "data/examens/situations_2026_10_13/santorin_saisie_disparue.txt": {
@@ -6844,10 +6893,14 @@
     "title": "Bac GT : contrôle adapté pour inaptitude partielle permanente ou handicap (note 2026, 2.e)",
     "priorite": 320,
     "motifs": [
-      "^(?=.*(?:inaptitude (?:partielle )?(?:permanente|definitive)|inapte (?:partiel\\w* )?(?:a l.annee|toute l.annee|permanent)|handicap|controle adapte|epreuves? adaptees?))(?=.*(?:evalu|organis|ccf|note|bac|epreuve|certif))"
+      "^(?=.*(?:inaptitude (?:partielle )?(?:permanente|definitive)|inapte (?:partiel\\w* )?(?:a l.annee|toute l.annee|permanent)|handicap|controle adapte|epreuves? adaptees?))(?=.*(?:evalu|organis|ccf|note|bac|epreuve|certif))",
+      "(?=.*(?:besoins educatifs particuliers|\\bbep\\b))(?=.*adaptee?s?)(?=.*(?:combien|nombre|epreuves|apsa))"
     ],
     "exclure_motifs": [
       "\\bcap\\b|bac ?pro|\\bdnb\\b|brevet|college|option|\\bshn\\b|haut niveau|ipack|saisir|bouton|temporaire|en cours d.annee|blesse|totale|totalement|dispens"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:besoins educatifs particuliers|\\bbep\\b))(?=.*adaptee?s?)(?=.*(?:combien|nombre|epreuves|apsa))"
     ]
   },
   "data/examens/mesure3_corrections/gt_protocole_communique_candidats.txt": {
@@ -6920,7 +6973,8 @@
     "title": "Bac GT : inaptitude en CCF, les possibilités",
     "motifs": [
       "(?:evaluation|epreuve) (?:adaptee|differee)|adapt\\w* (?:l.|une |son |cette )?epreuve|(?:note|moyenne|calcul\\w*|dispens\\w*).{0,40}inapt|inapt.{0,60}(?:note|moyenne|calcul|dispens|deux epreuves|troisieme|une (?:seule )?epreuve|adapt|differ)",
-      "(?=.*(?:inapt|entorse|blesse|\\bcertificats?\\b))(?=.*(?:adapt|commission|valid))"
+      "(?=.*(?:inapt|entorse|blesse|\\bcertificats?\\b))(?=.*(?:adapt|commission|valid))",
+      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))"
     ],
     "exclure_motifs": [
       "option|eppcs",
@@ -6928,6 +6982,9 @@
       "(?=.*ponctuel)(?=.*(?:absen|malade|justif|repass))",
       "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
       "candidat (?:individuel|libre)|\\bcned\\b"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))"
     ]
   },
   "data/commun/audit60/gt_absence_professeur_ccf.txt": {
@@ -6968,7 +7025,8 @@
       "textes"
     ],
     "motifs": [
-      "^(?=.*(?:certificat|inapt|medecin scolaire|medecin de sante scolaire|dispens))(?=.*(?:contenir|contenu|mentionn|indiqu|modele|formulaire|diagnostic|secret medical|duree|(?:trois|quatre|cinq|six|plusieurs|[3-9]) mois|suivi|fin du certificat|termine|expire|reprend|reprise|nouveau certificat|medecin scolaire|medecin de sante scolaire|faire examiner|examen medical|demander (?:un|l.)examen|88.977|1989|valable|validite|delai|48 ?h|heures|transmettre|transmission))"
+      "^(?=.*(?:certificat|inapt|medecin scolaire|medecin de sante scolaire|dispens))(?=.*(?:contenir|contenu|mentionn|indiqu|modele|formulaire|diagnostic|secret medical|duree|(?:trois|quatre|cinq|six|plusieurs|[3-9]) mois|suivi|fin du certificat|termine|expire|reprend|reprise|nouveau certificat|medecin scolaire|medecin de sante scolaire|faire examiner|examen medical|demander (?:un|l.)examen|88.977|1989|valable|validite|delai|48 ?h|heures|transmettre|transmission))",
+      "(?=.*certificat)(?=.*(?:modele|formulaire|type academique|document accepte|papier libre|papier a en.tete))"
     ],
     "exclure_motifs": [
       "ccf|\\bbac\\b|\\bdnb\\b|\\bcap\\b|examen (?:du|de l)|ipack|saisir|santorin|cyclades|lsu|\\bnote\\b(?! de service)|retroacti|apres (?:le|l.)(?:ccf|epreuve)",
@@ -6976,7 +7034,10 @@
     ],
     "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000684730",
     "date_verification": "2026-10-18",
-    "domaine_textes": "05_sante"
+    "domaine_textes": "05_sante",
+    "centrer_motifs": [
+      "(?=.*certificat)(?=.*(?:modele|formulaire|type academique|document accepte|papier libre|papier a en.tete))"
+    ]
   },
   "data/examens/mesure3_corrections/remplacer_activite_protocole_valide.txt": {
     "title": "Remplacer une activité d'un protocole validé par une autre (travaux, installation indisponible)",
@@ -6990,10 +7051,12 @@
     "priorite": 350,
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "motifs": [
-      "^(?=.*(?:remplac|substitu|a change|changement d.(?:apsa|activite)|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
+      "^(?=.*(?:remplac|substitu|a change|changement d.(?:apsa|activite)|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))",
+      "(?=.*(?:modifier|changer|remplacer))(?=.*apsa)(?=.*protocole)(?=.*(?:verrouillage|verrouille|apres la date))(?!.*(?:inapt|blesse|adapte))"
     ],
     "exclusif_motifs": [
       "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"
@@ -7002,7 +7065,10 @@
       "un seul (?:eleve|candidat)|seul un (?:eleve|candidat)|inapt|blesse|protocole adapte|standard|professeur|enseignant absent|collegue|\\bshn\\b|haut niveau|option|lot\\b|santorin|groupe.{0,20}importe|absen|stage|rate |manqu|note de remplacement|epreuve de (?:repli|substitution)|rattrap|differe"
     ],
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
-    "date_verification": "2026-10-18"
+    "date_verification": "2026-10-18",
+    "centrer_motifs": [
+      "(?=.*(?:modifier|changer|remplacer))(?=.*apsa)(?=.*protocole)(?=.*(?:verrouillage|verrouille|apres la date))(?!.*(?:inapt|blesse|adapte))"
+    ]
   },
   "data/textes/fiches/tzr_decret_99_823_remplacement.txt": {
     "title": "TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)",
@@ -7104,7 +7170,8 @@
     ],
     "exclure_motifs": [
       "santorin|cyclades|imag.in|verrouill",
-      "protocole adapte|handicap|inapt|amenag|\\bpap\\b|\\bpps\\b|\\bpai\\b"
+      "protocole adapte|handicap|inapt|amenag|\\bpap\\b|\\bpps\\b|\\bpai\\b",
+      "widget|pratic"
     ],
     "tutoriels": [
       {
@@ -7186,10 +7253,14 @@
     "priorite": 300,
     "motifs": [
       "(?=.*(?:barrette|melang|alignee|en menus?|deux classes|2 classes|plusieurs classes|trois classes|3 classes))(?=.*(?:groupe|mode|declar|cree|organis))|quel mode|mode (?:seul|mixte|groupe)|import\\w*.{0,50}(?:fonctionn|reussi|marche|bien passe|verifier)|(?:verifier|savoir).{0,40}import",
-      "import\\w*.{0,30}(?:mes |les |des )?eleves|eleves.{0,30}import|(?:actualiser|configurer|organiser|afficher|trouver|voir).{0,30}(?:mes |les )?classes\\b|classes?.{0,30}(?:n.apparai|vide|manque)"
+      "import\\w*.{0,30}(?:mes |les |des )?eleves|eleves.{0,30}import|(?:actualiser|configurer|organiser|afficher|trouver|voir).{0,30}(?:mes |les )?classes\\b|classes?.{0,30}(?:n.apparai|vide|manque)",
+      "(?=.*(?:aucun eleve|pas d.eleves|eleves.{0,35}(?:n.apparai|manqu|absent)))(?!.*(?:\\bas\\b|section sportive|\\bsss\\b|cyclades|santorin|\\bsep\\b))"
     ],
     "exclure_motifs": [
       "\\bas\\b|association sportive|unss|section sportive"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:aucun eleve|pas d.eleves|eleves.{0,35}(?:n.apparai|manqu|absent)))(?!.*(?:\\bas\\b|section sportive|\\bsss\\b|cyclades|santorin|\\bsep\\b))"
     ]
   },
   "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt": {
@@ -7372,11 +7443,15 @@
     "motifs": [
       "(?:ou|comment).{0,40}(?:saisir|declarer|indiquer|renseigner).{0,40}(?:epreuves?|dates? d.(?:evaluation|epreuve)|evaluateurs?)|transferer.{0,40}(?:groupes?|eleves?).{0,30}cyclades|(?:fiche|eleve).{0,30}cas particulier.{0,80}(?:depos|commission|harmonisation)|dossier certificatif",
       "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer).{0,30}(?:les )?protocoles?(?: d.evaluation)?",
-      "\\bfca\\b|fiches? certificatives? d.activite"
+      "\\bfca\\b|fiches? certificatives? d.activite",
+      "(?=.*ipack)(?=.*(?:declinaison|referentiel))(?=.*(?:aflp|valider|validation|chef))"
     ],
     "exclure_motifs": [
       "\\bdnb\\b|brevet|college|absen|inapt|bless|fraude",
       "^(?!.*ipack).*santorin"
+    ],
+    "centrer_motifs": [
+      "(?=.*ipack)(?=.*(?:declinaison|referentiel))(?=.*(?:aflp|valider|validation|chef))"
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {
@@ -7447,7 +7522,8 @@
       "(?=.*(?:referentiel|export|cyclades))(?=.*(?:date|quand|calendrier|limite|30 mai|avant le|delai|moment|periode))"
     ],
     "exclure_motifs": [
-      "rattrap|date d.evaluation|co.?evaluat"
+      "rattrap|date d.evaluation|co.?evaluat",
+      "releve|resultats?|convocation|harmonisation|jury"
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/faq_lycee_referent_2026_10_18.txt": {
@@ -8028,7 +8104,10 @@
     ],
     "url": "https://questions.assemblee-nationale.fr/q16/16-4573QE.htm",
     "date_verification": "2026-10-19",
-    "domaine_textes": "06_sorties_transports"
+    "domaine_textes": "06_sorties_transports",
+    "exclure_motifs": [
+      "(?=.*(?:examinateur|centre d.examen|imag.in))(?=.*ordre de mission)(?!.*(?:eleves|minibus|conduire|transport des))"
+    ]
   },
   "data/examens/validation_menu_cadre_national_gt.txt": {
     "title": "Bac GT : faire valider le menu et le protocole d’évaluation",
@@ -8195,13 +8274,68 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
+      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))",
+      "(?=.*cyclades)(?=.*(?:evaluateur|enseignant|professeur))(?=.*(?:modifier|changer|maladie|remplac))"
     ],
     "centrer_motifs": [
-      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
+      "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))",
+      "(?=.*cyclades)(?=.*(?:evaluateur|enseignant|professeur))(?=.*(?:modifier|changer|maladie|remplac))"
     ],
     "exclusif_motifs": [
       "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))"
     ]
+  },
+  "data/examens/audit100_2026_10_20/imagin_consulter_sa_convocation.txt": {
+    "title": "Imag’in : consulter sa mission et télécharger sa convocation, notamment au ponctuel",
+    "statut": "sources_institutionnelles_consultees_2026-10-20",
+    "examens": [
+      "gt",
+      "pro",
+      "cap",
+      "dnb"
+    ],
+    "modes": [
+      "examens",
+      "ipack",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "motifs": [
+      "(?=.*(?:imag.in|ordre de mission))(?=.*(?:telecharg|recuper|consult|imprim|edit))(?=.*(?:convocation|mission))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:imag.in|ordre de mission))(?=.*(?:telecharg|recuper|consult|imprim|edit))(?=.*(?:convocation|mission))"
+    ],
+    "date_verification": "2026-10-20",
+    "url": "https://appli.ac-aix-marseille.fr/imagin/ressources/imagin/aide/guideEnseignant.pdf",
+    "exclure_motifs": [
+      "creer|convoquer|ajouter|supprim|annul|santorin|\\bccf\\b"
+    ]
+  },
+  "data/examens/audit100_2026_10_20/cyclades_documents_candidat.txt": {
+    "title": "Cyclades candidat : consulter ses convocations et son relevé de notes",
+    "statut": "sources_institutionnelles_consultees_2026-10-20",
+    "examens": [
+      "gt",
+      "pro",
+      "cap",
+      "dnb"
+    ],
+    "modes": [
+      "examens",
+      "ipack",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 310,
+    "motifs": [
+      "(?=.*(?:releve.{0,25}notes|convocation))(?=.*(?:candidat|eleves?|individuel|libre|cyclades))(?=.*(?:recev|recoiv|consult|telecharg|quand|comment|ou ))(?!.*(?:examinateur|correcteur|enseignant|imag.in|erreur|contest|recours|differ|ecart))"
+    ],
+    "centrer_motifs": [
+      "(?=.*(?:releve.{0,25}notes|convocation))(?=.*(?:candidat|eleves?|individuel|libre|cyclades))(?=.*(?:recev|recoiv|consult|telecharg|quand|comment|ou ))(?!.*(?:examinateur|correcteur|enseignant|imag.in|erreur|contest|recours|differ|ecart))"
+    ],
+    "date_verification": "2026-10-20",
+    "url": "https://cache.media.education.gouv.fr/file/examens/08/1/GPS_ESPACE_CANDIDAT%282%29_882081.pdf"
   }
 }

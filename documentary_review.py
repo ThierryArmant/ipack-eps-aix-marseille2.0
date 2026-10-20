@@ -430,6 +430,10 @@ def validate_claims(data, packets, *, checked=False):
             for ref in re.findall(r'https?://[^\s<>\"]+|\b[A-Z]{4}\d{7}[A-Z]\b', text):
                 if not any(ref.rstrip('.,;)') in s for s in supports):
                     errors.append('référence absente des documents justificatifs')
+            email_pattern = r'[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}'
+            known_emails = {m.lower() for support in supports for m in re.findall(email_pattern, support)}
+            if any(m.lower() not in known_emails for m in re.findall(email_pattern, text)):
+                errors.append('adresse électronique absente des passages justificatifs : recopier exactement le contact sourcé')
             if re.search(r'<[^>]+>', text):
                 errors.append('HTML interdit dans une affirmation')
             # Un classement de champs calculé n'établit aucune procédure de dépôt.
@@ -678,6 +682,46 @@ def circuit_document_mismatch(question, text):
             and not re.search(r'\bccf\b|baccalaureat|\bbac\b|certific|santorin', q)
             and re.search(r'coefficient.{0,40}neutralis|neutralis.{0,40}coefficient', t)
             and not re.search(r'bulletin.{0,25}trimestr|trimestr.{0,25}bulletin', t)):
+        return True
+    return False
+
+
+def context_document_mismatch(question, public, mode, packet):
+    """Exclusions d'objet précises, avant le choix d'une fiche prioritaire."""
+    from knowledge_catalog import normalise
+    q = normalise(question)
+    title = normalise(packet.get('title', ''))
+    path = packet.get('path', '')
+    # Une question Examens sans iPack n'a pas besoin du rappel carnet de notes.
+    if (mode == 'examens' and not re.search(r'i ?pack|pronote|ecole.?directe', q)
+            and path in {'data/commun/audit60/ipack_perimetre.txt',
+                         'data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt'}):
+        return True
+    if (re.search(r'widget|pratic', q)
+            and not re.search(r'widget|pratic', normalise(packet.get('text', '')))):
+        return True
+    if (re.search(r'aucun eleve|pas d.eleves', q)
+            and not re.search(r'personnel|enseignant|professeur|etablissement non trouve|établissement non trouvé', q)
+            and re.search(r'enseignant.{0,20}apparait|etablissement non trouve|mon etablissement n.apparait', title)):
+        return True
+    if ('college' in normalise(public) and not re.search(r'\bsep\b|section d.enseignement professionnel|lycee', q)
+            and re.search(r'\bsep\b|section d.enseignement professionnel', title)):
+        return True
+    if (re.search(r'\bcfa\b|\bmfr\b|\bgesbf\b', q)
+            and path == 'data/ipack/courriels_aix_2026_10_13/centres_etrangers_blocage_non_resolu.txt'):
+        return True
+    if (re.search(r'certificat', q) and re.search(r'modele|formulaire|type academique|seul document|papier', q)
+            and re.search(r'presence en cours|doit.il venir en cours', title)):
+        return True
+    if (re.search(r'depos|transmett', q) and re.search(r'document|fiche', q)
+            and re.search(r'cas particuliers?|commission', q)
+            and re.search(r'conditions techniques ou materielles|impossibilite materielle', title)):
+        return True
+    if (re.search(r'releve|resultats?', q) and re.search(r'recevoir|recoiv|publ|quand', q)
+            and path == 'data/ipack/visite_lycee_2026_10_18/calendrier_certificatif_aix_marseille.txt'):
+        return True
+    if (re.search(r'(?:apres|terminee|une fois|suite a).{0,80}(?:harmonisation|commission|jury)|(?:harmonisation|commission|jury).{0,40}terminee', q)
+            and path == 'data/examens/situations_2026_10_13/santorin_corriger_une_note.txt'):
         return True
     return False
 
@@ -1263,7 +1307,8 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not lycee_dnb_mismatch(question, public, p)]
     audit['excluded_situation_documents'] = [p['id'] for p in packets
                                              if situation_mismatch(question, p['title'])
-                                             or circuit_document_mismatch(question, p['text'])]
+                                             or circuit_document_mismatch(question, p['text'])
+                                             or context_document_mismatch(question, public, mode, p)]
     packets = [p for p in packets if p['id'] not in audit['excluded_situation_documents']]
     focused = [p for p in packets if catalogue_focus_match(question, p)
                or (p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300)]

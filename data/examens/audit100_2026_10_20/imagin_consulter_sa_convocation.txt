@@ -1,0 +1,7 @@
+### Imag’in : consulter sa mission et télécharger sa convocation, notamment au ponctuel
+[PORTEE: gt,pro,cap,dnb]
+Dans le service enseignant d’Imag’in, ouvrir [Consultation missions] : les missions affectées sont visibles lorsque le gestionnaire académique a ouvert le service. Sur la ligne de la mission, le bouton de téléchargement permet de récupérer le duplicata de la convocation. Sélectionner la ligne pour consulter les détails, dont le centre, le type et le numéro de mission. L’onglet de l’autre académie permet de consulter ses missions quand on y est convoqué.
+Cette consultation personnelle ne crée pas une mission de correction pour un collègue. La création des convocations de correcteurs CCF par l’établissement et la transmission des droits vers Santorin constituent une autre procédure. L’absence d’une mission dans cet écran ne permet pas à l’enseignant de la créer lui-même : demander au service des examens la vérification de l’affectation et de l’ouverture du service.
+Nature de la source : fonctionnement du logiciel Imag’in, service enseignant ; guide DSII Rennes diffusé par l’académie d’Aix-Marseille, janvier 2025, sections 2.2 et 2.3, pages PDF 12 et 13.
+Source consultée le 20 octobre 2026 : guide utilisateur Imag’in.
+https://appli.ac-aix-marseille.fr/imagin/ressources/imagin/aide/guideEnseignant.pdf

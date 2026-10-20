@@ -1,0 +1,9 @@
+### Cyclades candidat : consulter ses convocations et son relevé de notes
+[PORTEE: gt,pro,cap,dnb]
+Le candidat consulte ses documents dans son espace personnel Cyclades, en sélectionnant la candidature concernée : la rubrique des documents rassemble notamment la convocation et le relevé de notes. Il peut ouvrir le document mis à disposition puis le télécharger ou l’imprimer. Dans l’interface décrite actuellement par le portail candidats du SIEC, cette rubrique s’appelle [Mes documents] ; le guide national plus ancien la nomme [Documents relatifs à mes candidatures].
+Les documents sont mis à disposition progressivement pendant la session : l’import des protocoles d’iPackEPS dans Cyclades ne fixe pas la date de publication du relevé de notes du candidat. Vérifier le calendrier des résultats et les informations de convocation de la session et de l’académie ; cette fiche ne fournit aucune date de publication locale.
+La convocation du candidat indique son épreuve et le centre retenu ; la fiche ne permet pas d’énumérer les centres EPS d’une académie. Ne pas confondre ce document avec la convocation de l’examinateur dans Imag’in ni avec l’écran de saisie Santorin.
+Nature de la source : documentation du logiciel Cyclades, espace candidat ; pas une consigne de calendrier académique.
+Sources consultées le 20 octobre 2026 : guide national « Espace candidat », section Mes documents, page 3 ; portail candidats du SIEC (rubrique documents de l’espace candidat).
+https://cache.media.education.gouv.fr/file/examens/08/1/GPS_ESPACE_CANDIDAT%282%29_882081.pdf
+https://siec.education.fr/candidats/

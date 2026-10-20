@@ -27,11 +27,11 @@
    "ajout": "eleve blesse inapte"
   },
   {
-   "motif": "cadenas|lot (?:est )?bloque|bloque mon lot|valide definitivement|plus modifier|rouvrir (?:mon|le|son) lot|deverrouill",
+   "motif": "cadenas|lot (?:est )?bloque|bloque mon lot|valide definitivement|(?=.*(?:lot|santorin))(?=.*plus modifier)|rouvrir (?:mon|le|son) lot|deverrouill",
    "ajout": "verrouiller deverrouiller lot corriger erreur"
   },
   {
-   "motif": "aucun lot|pas de lot|santorin (?:est )?vide|(?:apparai\\w*|vois) (?:pas|plus|aucun).{0,20}(?:santorin|lot)|il manque des (?:eleves|gamins|candidats)|manque des (?:eleves|gamins|candidats).{0,20}lot",
+   "motif": "aucun lot|pas de lot|santorin (?:est )?vide|(?:apparai\\w*|vois) (?:pas|plus|aucun).{0,20}(?:santorin|lot)|manque des (?:eleves|gamins|candidats).{0,20}lot",
    "ajout": "santorin eleves manquants dans les lots distribution des lots"
   },
   {
@@ -39,7 +39,7 @@
    "ajout": "eleve"
   },
   {
-   "motif": "(?:acce\\w*|trouve pas|ou est|rentrer mes notes|entrer mes notes).{0,25}santorin|pas de mission|mission .{0,15}imag",
+   "motif": "(?:acce\\w*|trouve pas|ou est|rentrer mes notes|entrer mes notes).{0,25}santorin|(?=.*(?:santorin|\\bccf\\b))(?=.*(?:pas de mission|mission .{0,15}imag))",
    "ajout": "santorin convocation mission imag'in"
   },
   {
@@ -47,7 +47,7 @@
    "ajout": "fraude"
   },
   {
-   "motif": "(?:mauvais|autre) (?:lot|groupe)|pas dans (?:le bon|son) lot|eleve d.une autre classe",
+   "motif": "(?:mauvais|autre) lot|pas dans (?:le bon|son) lot|(?=.*(?:santorin|cyclades))(?=.*(?:(?:mauvais|autre) groupe|eleve d.une autre classe))",
    "ajout": "eleve dans le mauvais lot"
   },
   {
@@ -73,6 +73,18 @@
   {
    "motif": "absent.{0,40}(?:ca fait|\\b0\\b|zero)|(?:\\b0\\b|zero).{0,40}absent",
    "ajout": "ccf note absence"
+  },
+  {
+   "motif": "pas de mission|mission .{0,15}imag",
+   "ajout": "convocation mission imag'in"
+  },
+  {
+   "motif": "(?:il )?manque des (?:eleves|gamins|candidats)",
+   "ajout": "eleves manquants"
+  },
+  {
+   "motif": "(?:mauvais|autre) groupe|eleve d.une autre classe",
+   "ajout": "affectation eleve groupe"
   }
  ],
  "equivalences_verification": {

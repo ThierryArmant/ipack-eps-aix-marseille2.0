@@ -6352,6 +6352,26 @@
     "logiciel"
    ],
    "reference": "sources explicites de la fiche ; audit 100 du 20 octobre 2026"
+  },
+  "data/examens/audit100_2026_10_20/imagin_consulter_sa_convocation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Documentation du service utilisateur, sans calendrier académique",
+   "titre": "Imag’in : consulter sa mission et télécharger sa propre convocation"
+  },
+  "data/examens/audit100_2026_10_20/cyclades_documents_candidat.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "Documentation du service utilisateur, sans calendrier académique",
+   "titre": "Cyclades candidat : consulter ses convocations et son relevé de notes"
   }
  }
 }

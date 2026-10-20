@@ -1,9 +1,5 @@
 ### [SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]
-- Mots-clés : chef d'établissement, contrôle de conformité, signature, dossier certificatif, FCA, nouveautés, glisser-déposer, bouton légende, inventaire EPI, certificats médicaux, export ZIP, SSS, APPN, professeurs externes
-- Formulations courantes des collègues : Que doit vérifier le chef d'établissement avant de signer ? ; La signature du chef est bloquée, pourquoi ? ; Quelles sont les nouveautés d'iPackEPS ? ; Quels formats de fichiers puis-je déposer ? ; Peut-on faire un contrôle adapté pour un élève blessé en cours d'année ?
-- Rôle : Le chef d'établissement exerce un **contrôle de conformité** avant la transmission à la CAHPN. Avant de signer et valider le dossier certificatif, il doit s'assurer que les protocoles soumis respectent les structures de la voie (3 APSA pour le Bac GT/Pro, 2 pour le CAP) et que les fiches d'évaluation (FCA) sont bien rattachées. Si une alerte bloque la signature, vérifier la présence des commentaires obligatoires d'équipe en cas d'écarts.
-======================================================================
-📚 MÉMOIRE SOUVERAINE : NOUVEAUTÉS IPACKEPS & AJOUTS TERRAIN (v2026.2.x)
-======================================================================
-
-----------------------------------------------------------------------
+À Aix-Marseille, le contrôle du dossier certificatif n’attend pas à proprement parler une signature du chef d’établissement. La vigilance relève de l’équipe EPS et de la direction selon l’organisation de l’établissement. Vérifier la composition de l’ensemble certificatif, les dates d’épreuves, le co-évaluateur en voie générale et les référentiels déposés et validés ; ne pas remplacer ces vérifications par un simple rattachement de FCA.
+À Aix-Marseille, un protocole non valide (composition, dates, co-évaluateur en voie générale ou référentiel non déposé et validé) ne remonte pas dans Cyclades. L’équipe vérifie donc dès janvier, dans la campagne concernée, que tous les protocoles créés dans iPackEPS ont été importés dans Cyclades, puis signale les manques au chargé de mission Examens. Il s’agit d’un contrôle de suivi recommandé par l’assistance, pas d’une date limite nationale.
+La vérification du dossier certificatif est distincte des signatures prévues pour d’autres dossiers (APPN, sections sportives, natation).
+Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.

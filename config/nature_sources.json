@@ -1128,13 +1128,16 @@
   },
   "data/examens/audit_faq_2026_10_12/j4_procedure_verifiee.txt": {
    "nature": [
-    "logiciel"
+    "consigne_academique"
    ],
    "academie": "aix-marseille",
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": "Logiciel (Santorin).",
-   "titre": "FAQ EPS — Santorin : « la candidature n'est plus valide »"
+   "titre": "FAQ EPS — Santorin : « la candidature n'est plus valide »",
+   "source_reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.",
+   "type_source": "retour_assistance_transmis",
+   "date_verification": "2026-10-20"
   },
   "data/examens/audit_faq_2026_10_12/j5_procedure_verifiee.txt": {
    "nature": [
@@ -4100,13 +4103,16 @@
   },
   "data/ipack/fiches/ipack_224_situation_role_de_controle_du_chef_d_etablissement_sur_les_protocoles.txt": {
    "nature": [
-    "logiciel"
+    "consigne_academique"
    ],
-   "academie": null,
+   "academie": "aix-marseille",
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": null,
-   "titre": "[SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]"
+   "titre": "[SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]",
+   "source_reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.",
+   "type_source": "retour_assistance_transmis",
+   "date_verification": "2026-10-20"
   },
   "data/ipack/fiches/ipack_231_1_definition_et_perimetre_de_l_application.txt": {
    "nature": [

@@ -4,3 +4,6 @@
 - URL: spip.php?article84
 - Texte: Accès à la fonctionnalité : interface Professeur ou chef d’Établissement : module : [Dossiers]/[Dossier Certificatif]/[Dépôt des documents pour la commission]. Il est possible que votre académie vous demande de déposer des fiches explicatives concernant les cas particuliers d’élèves à signaler. Ceci concerne notamment les élèves qui auraient été inaptes sur 2 Épreuves, et n’auraient qu’une seule note. L’enseignant devra alors justifier son choix de garder la note ou de demander une dispense d’évaluation EPS pour cet élève.
 
+
+À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense.
+Source complémentaire : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.

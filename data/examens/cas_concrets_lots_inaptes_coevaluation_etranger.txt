@@ -15,10 +15,10 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Si l'enseignant n'apparaît pas parmi les personnels que l'on peut convoquer : le signaler au correspondant examens EPS de l'académie, qui demande son ajout au service des examens.
 
 ### [SITUATION: SANTORIN — DES ÉLÈVES SONT DANS CYCLADES MAIS JE NE LES VOIS PAS DANS MON LOT]
-- Formulations courantes des collègues : il me manque des élèves dans Santorin ; un élève ajouté tardivement n'est pas dans mon lot ; élève arrivé en cours d'année absent de Santorin.
-- Cause la plus fréquente : l'élève a été associé à son protocole dans Cyclades APRÈS la distribution des lots ; il est en attente de lot.
-- Que faire : le chef d'établissement relance une distribution automatique. Si des élèves manquent encore sur le tableau de bord, il peut rafraîchir la base avec « rejouer l'import ».
-- L'enseignant ne peut pas ajouter lui-même un élève à son lot.
+- À Aix-Marseille, si l’élève est déjà présent dans Cyclades pour le bon examen et le bon établissement, ne pas répondre qu’il faut d’abord l’inscrire à cet examen. Vérifier son association au protocole, puis sa distribution dans Santorin : la relance d’une distribution ne garantit pas le retour dans le lot d’origine. L’élève peut avoir été distribué dans un autre lot tout en conservant ses APSA évaluatives.
+- À Aix-Marseille, rechercher d’abord le lot où le candidat a été distribué. Le responsable habilité peut le déplacer vers le lot du correcteur, ou donner au correcteur l’accès au lot qui contient ce candidat selon l’organisation de l’établissement. Donner accès au lot ne signifie pas déverrouiller un lot déjà noté. Ne pas recréer l’élève ni supprimer ses notes pour résoudre un simple problème de distribution.
+- L’enseignant ne peut pas ajouter librement un candidat à son lot. Une association tardive au protocole est une cause possible, à vérifier, pas une cause certaine.
+- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.
 
 ### [SITUATION: SANTORIN — ERREUR « INCOHÉRENCES DE DONNÉES SUR DES CANDIDATS … MAL DÉFINIES (SOUS ÉPREUVES) »]
 - Formulations courantes des collègues : message incohérences de données ; sous épreuves mal définies ; j'ai changé une APSA dans un protocole et Santorin affiche une erreur.
@@ -31,9 +31,9 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 - Solution rapide : dans Cyclades, [EPS] / [Associer les élèves à un protocole], placer l'élève. Solution complète : mettre à jour la liste des élèves dans iPackEPS, le placer dans son groupe, puis regénérer et réimporter le fichier.
 
 ### [SITUATION: SANTORIN — ERREUR « LA CANDIDATURE N'EST PLUS VALIDE DANS LE SYSTÈME D'INFORMATION EXAMENS/CONCOURS », OU IMPOSSIBLE DE VERROUILLER LE LOT]
-- Formulations courantes des collègues : je ne peux pas verrouiller mon lot ; candidature plus valide ; un élève parti bloque mon lot ; la suppression automatique n'est pas possible.
-- Cause : un élève a quitté l'établissement, mais la base de Santorin ne s'est pas synchronisée.
-- Seule solution : un signalement au service des examens de l'académie, en indiquant le RNE de l'établissement, l'examen concerné et les élèves concernés, pour transmission à l'équipe nationale Santorin. Ni l'enseignant ni le chef d'établissement ne peuvent corriger cela eux-mêmes.
+- À Aix-Marseille, un message de candidature non valide rapporté par l’utilisateur ne suffit pas à établir qu’un élève a quitté l’établissement ni qu’une désynchronisation est certaine. Le responsable SAV n’a pas confirmé ce libellé : faire vérifier la situation de l’élève dans l’établissement et à l’examen avant de décider.
+- À Aix-Marseille, si le départ de l’élève est avéré dans l’établissement, faire sortir le candidat du lot Santorin par le responsable habilité pour permettre la validation du lot. Ne pas transformer cette opération en suppression de la candidature dans Cyclades, ni saisir « Absent » ou zéro pour contourner le blocage. Si le retrait est techniquement impossible ou si la candidature reste incohérente, le chef d’établissement saisit la DIEC avec l’UAI/RNE, l’examen et les candidats concernés ; le recours technique n’est pas la seule action dans tous les cas.
+- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.
 
 ### [SITUATION: SANTORIN — IMPOSSIBLE D'AFFECTER DANS UN LOT UN ÉLÈVE VENU D'UN AUTRE ÉTABLISSEMENT OU D'UNE AUTRE ACADÉMIE]
 - Formulations courantes des collègues : élève arrivé d'une autre académie ; il est dans mon protocole Cyclades mais je ne peux pas le mettre dans un lot ; introuvable dans Santorin.
@@ -213,11 +213,10 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 ################ PROTOCOLES DANS CYCLADES (mémo national « Enseignant EPS » de Cyclades, version 1.0 du 2 octobre 2023, lu en entier) ################
 
 ### [SITUATION: PROTOCOLE ADAPTÉ — COMBIEN D'ACTIVITÉS FAUT-IL AU MINIMUM ?]
-- Mots-clés : protocole adapté, nombre d'APSA, deux activités, une seule activité, troisième facultative, candidat avec aménagement, protocole adapté non valide.
-- Formulations courantes des collègues : mon protocole adapté ne se valide pas avec deux activités ; faut-il trois activités dans un protocole adapté ; peut-on faire un protocole adapté avec une seule épreuve en CAP.
-- Le type « Adapté » sert aux candidats avec aménagement. Règle de Cyclades : au baccalauréat général, technologique et professionnel, un protocole adapté comporte au moins 2 APSA, la troisième est facultative ; au CAP, au moins 1 APSA, la deuxième est facultative. Ce minimum est une règle du logiciel, pas du texte : il n'oblige pas l'élève à passer une épreuve de plus qu'il ne peut.
-- Un protocole adapté se crée dans Cyclades par l'activité [Gérer l'EPS] - [Créer un protocole], en choisissant le type « Adapté », à tout moment de l'année.
-- Écart à signaler : les textes permettent, « pour des cas très particuliers », une seule épreuve adaptée au baccalauréat (bac GT : note de service du 20 février 2026, 2.e ; bac pro : circulaire MENE2505383C, B.3.1). Or un protocole adapté Cyclades du baccalauréat demande au moins 2 APSA. Aucun document consulté ne décrit la saisie de ce cas : ne pas inventer de contournement (APSA fictive, DI imposé) ; l'établissement s'adresse à l'inspection pédagogique et à la division des examens avant de créer le protocole.
+- Distinguer le nombre d’épreuves réglementairement retenues et la possibilité technique de créer ou d’importer le protocole.
+- À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.
+- Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel.
+- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.
 
 ### [SITUATION: DANS UNE MÊME CLASSE, UN ÉLÈVE A UNE ÉPREUVE ADAPTÉE — FAUT-IL UN PROTOCOLE À PART ?]
 - Mots-clés : un élève adapté dans la classe, protocole distinct, groupe distinct, nom du groupe, même classe plusieurs protocoles.

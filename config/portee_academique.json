@@ -143,7 +143,9 @@
       "Le protocole comporte activités et déclinaisons du référentiel, ensembles certificatifs/FCA, calendrier et évaluateurs, modalités différées, adaptations, information des familles et si possible outils de recueil. Il fait partie du projet pédagogique EPS.",
       "L'établissement importe dans Cyclades le fichier généré par iPackEPS pour associer les candidats aux protocoles. Ne pas confondre cette association avec la transmission des protocoles assurée par l'inspection, ni avec la saisie des notes dans Santorin.",
       "Les référentiels doivent être recherchés sur le portail EPS académique et selon le diplôme ; le BA fournit les listes et les activités d'établissement en annexes 1 et 2. Les listes d'APSA et d'activités d'établissement ne sont PAS les référentiels détaillés/FCA : ne pas annoncer que tous les référentiels sont fournis dans ces annexes. Ce lien donne le BA lui-même, pas un dossier de référentiels détaillés ni actualisés 2027.",
-      "Calendrier historique du BA : CAHPN GT/pro le 13 novembre 2025, EPPCS le 14 novembre 2025 ; demande d'activité établissement pour 2027 au plus tard le 30 mai 2026. Ces dates ne sont pas des échéances pour une demande effectuée maintenant. Pour la session 2027, faire confirmer calendrier, FCA et circuit par les instructions académiques applicables."
+      "Calendrier historique du BA : CAHPN GT/pro le 13 novembre 2025, EPPCS le 14 novembre 2025 ; demande d'activité établissement pour 2027 au plus tard le 30 mai 2026. Ces dates ne sont pas des échéances pour une demande effectuée maintenant. Pour la session 2027, faire confirmer calendrier, FCA et circuit par les instructions académiques applicables.",
+      "À Aix-Marseille, le contrôle du dossier certificatif n’attend pas à proprement parler une signature du chef d’établissement. La vigilance relève de l’équipe EPS et de la direction selon l’organisation de l’établissement. Vérifier la composition de l’ensemble certificatif, les dates d’épreuves, le co-évaluateur en voie générale et les référentiels déposés et validés ; ne pas remplacer ces vérifications par un simple rattachement de FCA.",
+      "À Aix-Marseille, un protocole non valide (composition, dates, co-évaluateur en voie générale ou référentiel non déposé et validé) ne remonte pas dans Cyclades. L’équipe vérifie donc dès janvier, dans la campagne concernée, que tous les protocoles créés dans iPackEPS ont été importés dans Cyclades, puis signale les manques au chargé de mission Examens. Il s’agit d’un contrôle de suivi recommandé par l’assistance, pas d’une date limite nationale."
      ]
     }
    ]
@@ -435,6 +437,18 @@
     }
    ]
   },
+  "data/examens/audit_faq_2026_10_12/j4_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Santorin : candidature non valide, lot impossible à verrouiller",
+     "lignes": [
+      "À Aix-Marseille, un message de candidature non valide rapporté par l’utilisateur ne suffit pas à établir qu’un élève a quitté l’établissement ni qu’une désynchronisation est certaine. Le responsable SAV n’a pas confirmé ce libellé : faire vérifier la situation de l’élève dans l’établissement et à l’examen avant de décider.",
+      "À Aix-Marseille, si le départ de l’élève est avéré dans l’établissement, faire sortir le candidat du lot Santorin par le responsable habilité pour permettre la validation du lot. Ne pas transformer cette opération en suppression de la candidature dans Cyclades, ni saisir « Absent » ou zéro pour contourner le blocage. Si le retrait est techniquement impossible ou si la candidature reste incohérente, le chef d’établissement saisit la DIEC avec l’UAI/RNE, l’examen et les candidats concernés ; le recours technique n’est pas la seule action dans tous les cas."
+     ]
+    }
+   ]
+  },
   "data/examens/audit_faq_2026_10_12/j5_procedure_verifiee.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -464,6 +478,18 @@
      "section": "### Troisième activité impossible pour la classe : autorisation et CE",
      "lignes": [
       "Non : l’absence prolongée du professeur n’est pas une inaptitude médicale des élèves et ne justifie pas de saisir DI pour toute la classe. Si la troisième activité ne peut réellement pas être assurée, le chef d’établissement saisit l’inspection EPS et le service des examens en amont pour faire examiner la situation ; une certification exceptionnelle sur deux activités requiert l’autorisation du recteur après expertise de l’inspection. L’absence du professeur ne vaut pas autorisation automatique. Une fois l’autorisation obtenue et les modalités de saisie confirmées, le guide DIEC décrit dans Santorin « Déclarer CE » sur le lot, puis le choix de l’APSA : CE neutralise cette activité pour les candidats du lot. Ne pas saisir DI ou Absent pour remplacer cette procédure, ni déclarer CE avant l’accord. Le texte national autorise le dispositif exceptionnel ; le bouton et le circuit de saisie relèvent du guide technique académique. Vérifier les instructions de la session concernée."
+     ]
+    }
+   ]
+  },
+  "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Bac GT CCF : absence injustifiée distincte de force majeure",
+     "lignes": [
+      "À Aix-Marseille, selon le responsable SAV, l’absence se saisit par le statut d’absence (désigné « ABT » dans son retour), dont Cyclades reporte la valeur zéro dans le bilan évaluatif. Ne pas saisir directement une prestation notée zéro pour un candidat absent : le zéro saisi comme prestation correspond à un candidat présent. Ne pas généraliser ce code aux autres académies, examens ou versions sans leur guide de saisie.",
+      "À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense."
      ]
     }
    ]
@@ -534,6 +560,22 @@
      ]
     },
     {
+     "section": "### [SITUATION: SANTORIN — DES ÉLÈVES SONT DANS CYCLADES MAIS JE NE LES VOIS PAS DANS MON LOT]",
+     "lignes": [
+      "- À Aix-Marseille, si l’élève est déjà présent dans Cyclades pour le bon examen et le bon établissement, ne pas répondre qu’il faut d’abord l’inscrire à cet examen. Vérifier son association au protocole, puis sa distribution dans Santorin : la relance d’une distribution ne garantit pas le retour dans le lot d’origine. L’élève peut avoir été distribué dans un autre lot tout en conservant ses APSA évaluatives.",
+      "- À Aix-Marseille, rechercher d’abord le lot où le candidat a été distribué. Le responsable habilité peut le déplacer vers le lot du correcteur, ou donner au correcteur l’accès au lot qui contient ce candidat selon l’organisation de l’établissement. Donner accès au lot ne signifie pas déverrouiller un lot déjà noté. Ne pas recréer l’élève ni supprimer ses notes pour résoudre un simple problème de distribution.",
+      "- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
+     ]
+    },
+    {
+     "section": "### [SITUATION: SANTORIN — ERREUR « LA CANDIDATURE N'EST PLUS VALIDE DANS LE SYSTÈME D'INFORMATION EXAMENS/CONCOURS », OU IMPOSSIBLE DE VERROUILLER LE LOT]",
+     "lignes": [
+      "- À Aix-Marseille, un message de candidature non valide rapporté par l’utilisateur ne suffit pas à établir qu’un élève a quitté l’établissement ni qu’une désynchronisation est certaine. Le responsable SAV n’a pas confirmé ce libellé : faire vérifier la situation de l’élève dans l’établissement et à l’examen avant de décider.",
+      "- À Aix-Marseille, si le départ de l’élève est avéré dans l’établissement, faire sortir le candidat du lot Santorin par le responsable habilité pour permettre la validation du lot. Ne pas transformer cette opération en suppression de la candidature dans Cyclades, ni saisir « Absent » ou zéro pour contourner le blocage. Si le retrait est techniquement impossible ou si la candidature reste incohérente, le chef d’établissement saisit la DIEC avec l’UAI/RNE, l’examen et les candidats concernés ; le recours technique n’est pas la seule action dans tous les cas.",
+      "- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
+     ]
+    },
+    {
      "section": "### [SITUATION: L'ENSEIGNANT DU GROUPE EST ABSENT ET NON REMPLACÉ — UNE ÉPREUVE N'A PAS PU ÊTRE ÉVALUÉE POUR TOUTE LA CLASSE]",
      "lignes": [
       "- C'est le cas exceptionnel (CE), prévu notamment pour un professeur absent non remplacé : il demande l'autorisation préalable du recteur, après expertise de l'inspection pédagogique (note de service du 20 février 2026, 2.d ; le support de la DIEC parle d'autorisation de la commission académique d'EPS), sollicitée par la direction auprès de l'inspection pédagogique et du service des examens."
@@ -555,6 +597,14 @@
      "section": "### [SITUATION: L'ENSEIGNANT CONVOQUÉ À LA SOUS-COMMISSION D'EPS NE PEUT PAS VENIR — COMMENT LE FAIRE REMPLACER ?]",
      "lignes": [
       "- Le remplaçant reçoit une convocation à son nom (cas traité par le service des examens d'Aix-Marseille)."
+     ]
+    },
+    {
+     "section": "### [SITUATION: PROTOCOLE ADAPTÉ — COMBIEN D'ACTIVITÉS FAUT-IL AU MINIMUM ?]",
+     "lignes": [
+      "- À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
+      "- Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel.",
+      "- Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
      ]
     },
     {
@@ -624,7 +674,9 @@
     {
      "section": "### [SITUATION: FICHE INDIVIDUELLE POUR LA COMMISSION — DANS QUELS CAS LA REMPLIR ? (DI + DI + NOTE, 0/20, ABT…)]",
      "lignes": [
-      "- Prudence : aucune source officielle vérifiée ici ne confirme à Aix-Marseille une dispense automatique lorsque le candidat a deux activités non évaluées et une seule note. Ne pas transformer cette note en DI sur cette seule base ; appliquer le texte du diplôme et documenter le dossier pour la commission selon les consignes académiques applicables."
+      "- Prudence : aucune source officielle vérifiée ici ne confirme à Aix-Marseille une dispense automatique lorsque le candidat a deux activités non évaluées et une seule note. Ne pas transformer cette note en DI sur cette seule base ; appliquer le texte du diplôme et documenter le dossier pour la commission selon les consignes académiques applicables.",
+      "À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
+      "Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel."
      ]
     }
    ]
@@ -936,6 +988,13 @@
       "- À Aix-Marseille (BA 549, session 2026), la CAHPN valide les protocoles ; l’inspection assure leur transmission vers Cyclades. L’établissement importe ensuite le fichier d’association des candidats généré par iPackEPS. Ne pas présenter cette transmission comme automatique par la commission ni confondre protocoles, association des candidats et saisie des notes dans Santorin. Pour 2027, vérifier les instructions académiques applicables.",
       "R1 : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix."
      ]
+    },
+    {
+     "section": "### [TUTORIEL SANTORIN — DISTRIBUTION DES LOTS DE CORRECTION ET ERREURS DE DISTRIBUTION (article 66)]",
+     "lignes": [
+      "R5 : À Aix-Marseille, un message de candidature non valide rapporté par l’utilisateur ne suffit pas à établir qu’un élève a quitté l’établissement ni qu’une désynchronisation est certaine. Le responsable SAV n’a pas confirmé ce libellé : faire vérifier la situation de l’élève dans l’établissement et à l’examen avant de décider. À Aix-Marseille, si le départ de l’élève est avéré dans l’établissement, faire sortir le candidat du lot Santorin par le responsable habilité pour permettre la validation du lot. Ne pas transformer cette opération en suppression de la candidature dans Cyclades, ni saisir « Absent » ou zéro pour contourner le blocage. Si le retrait est techniquement impossible ou si la candidature reste incohérente, le chef d’établissement saisit la DIEC avec l’UAI/RNE, l’examen et les candidats concernés ; le recours technique n’est pas la seule action dans tous les cas.",
+      "R7 : À Aix-Marseille, si l’élève est déjà présent dans Cyclades pour le bon examen et le bon établissement, ne pas répondre qu’il faut d’abord l’inscrire à cet examen. Vérifier son association au protocole, puis sa distribution dans Santorin : la relance d’une distribution ne garantit pas le retour dans le lot d’origine. L’élève peut avoir été distribué dans un autre lot tout en conservant ses APSA évaluatives. À Aix-Marseille, rechercher d’abord le lot où le candidat a été distribué. Le responsable habilité peut le déplacer vers le lot du correcteur, ou donner au correcteur l’accès au lot qui contient ce candidat selon l’organisation de l’établissement. Donner accès au lot ne signifie pas déverrouiller un lot déjà noté. Ne pas recréer l’élève ni supprimer ses notes pour résoudre un simple problème de distribution."
+     ]
     }
    ]
   },
@@ -976,6 +1035,13 @@
      "lignes": [
       "- Résolution : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir au préalable l'inspection pédagogique, qui assure le transfert vers Cyclades. Ne pas parler de faire « invalider » les protocoles : on demande à l'inspection de valider et transférer le nouveau protocole.",
       "- L'enseignant vérifie aussi que le nom du groupe est strictement identique dans iPackEPS et dans le protocole. (Les guides d'autres académies, Strasbourg 2024, Normandie 2025, Corse 2024-2025, décrivent une autre manipulation directement dans Cyclades : ne pas l'appliquer à Aix-Marseille.)"
+     ]
+    },
+    {
+     "section": "### [SITUATION: CRÉER UN PROTOCOLE ADAPTÉ EN COURS D'ANNÉE POUR UN ÉLÈVE BLESSÉ]",
+     "lignes": [
+      "- À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
+      "- Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel."
      ]
     },
     {
@@ -1427,6 +1493,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_073_article_84_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_des_fiches_indivi.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 84] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles",
+     "lignes": [
+      "À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_099_1_affectation_et_convocation_automatique_des_enseignants_d_eps.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1530,6 +1607,18 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: INAPTITUDE EN COURS D'ANNÉE : ADAPTER SANS IMPROVISER (CONTRÔLE ADAPTÉ, FCA, PROTOCOLE ADAPTÉ)]",
+     "lignes": [
+      "À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
+      "Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1538,6 +1627,18 @@
      "lignes": [
       "- Mots-clés : TZR, enseignant partagé, multi-établissements, sélecteur d'établissement, ESTEREL, STS-Web, classes invisibles, second établissement, secrétariat, affectation",
       "- Procédure de bascule : sur la page d'accueil d'iPackEPS (après connexion au portail académique, ESTEREL à Aix-Marseille), bloc « Sélectionnez votre établissement » : [Entrer] sur l'établissement voulu ; pour changer ensuite, icône « Changer d'Établissement » du bloc « Informations » du [Tableau de bord] (on y revient par le fil d'Ariane, en haut à gauche) (article 43 et écran relevé ci-dessus). Si l'établissement n'apparaît pas, l'enseignant n'est pas encore installé dans la base des personnels de cet établissement (STS-Web à Aix-Marseille) : demander à son administration de le faire ; les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_224_situation_role_de_controle_du_chef_d_etablissement_sur_les_protocoles.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: RÔLE DE CONTRÔLE DU CHEF D'ÉTABLISSEMENT SUR LES PROTOCOLES]",
+     "lignes": [
+      "À Aix-Marseille, le contrôle du dossier certificatif n’attend pas à proprement parler une signature du chef d’établissement. La vigilance relève de l’équipe EPS et de la direction selon l’organisation de l’établissement. Vérifier la composition de l’ensemble certificatif, les dates d’épreuves, le co-évaluateur en voie générale et les référentiels déposés et validés ; ne pas remplacer ces vérifications par un simple rattachement de FCA.",
+      "À Aix-Marseille, un protocole non valide (composition, dates, co-évaluateur en voie générale ou référentiel non déposé et validé) ne remonte pas dans Cyclades. L’équipe vérifie donc dès janvier, dans la campagne concernée, que tous les protocoles créés dans iPackEPS ont été importés dans Cyclades, puis signale les manques au chargé de mission Examens. Il s’agit d’un contrôle de suivi recommandé par l’assistance, pas d’une date limite nationale."
      ]
     }
    ]

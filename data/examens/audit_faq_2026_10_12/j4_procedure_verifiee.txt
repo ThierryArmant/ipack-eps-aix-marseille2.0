@@ -1,12 +1,7 @@
-### FAQ EPS — Santorin : « la candidature n'est plus valide », lot impossible à verrouiller
+### FAQ EPS — Santorin : candidature non valide, lot impossible à verrouiller
 [PORTEE: gt,pro,cap]
-Ce message signifie qu'un élève du lot a quitté l'établissement mais que la base de Santorin ne s'est pas synchronisée.
-- Seule solution : le chef d'établissement le signale au service des examens de l'académie (la DIEC à Aix-Marseille), en indiquant le RNE de l'établissement, l'examen et les élèves concernés, pour transmission à l'équipe nationale Santorin.
-- Ni l'enseignant ni le chef d'établissement ne peuvent le corriger eux-mêmes. Ne pas supprimer l'élève, ne pas saisir « Absent » pour débloquer.
-- Ce n'est pas une question de déverrouillage : un lot verrouillé se déverrouille par le chef d'établissement, sans passer par le service des examens.
-Aucun texte national ni document publié ne traite ce cas : c'est le fonctionnement constaté de Santorin.
-
-Portée : Logiciel (Santorin).
-Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.
-Source : retours de l'assistance examens EPS d'Aix-Marseille (pas de document publié).
-Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
+À Aix-Marseille, un message de candidature non valide rapporté par l’utilisateur ne suffit pas à établir qu’un élève a quitté l’établissement ni qu’une désynchronisation est certaine. Le responsable SAV n’a pas confirmé ce libellé : faire vérifier la situation de l’élève dans l’établissement et à l’examen avant de décider.
+À Aix-Marseille, si le départ de l’élève est avéré dans l’établissement, faire sortir le candidat du lot Santorin par le responsable habilité pour permettre la validation du lot. Ne pas transformer cette opération en suppression de la candidature dans Cyclades, ni saisir « Absent » ou zéro pour contourner le blocage. Si le retrait est techniquement impossible ou si la candidature reste incohérente, le chef d’établissement saisit la DIEC avec l’UAI/RNE, l’examen et les candidats concernés ; le recours technique n’est pas la seule action dans tous les cas.
+Ce n'est pas une question de déverrouillage : un lot déjà verrouillé et une candidature incohérente sont deux situations distinctes.
+Nature de la source : retour d’assistance académique Aix-Marseille, pas texte national.
+Source : Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale.

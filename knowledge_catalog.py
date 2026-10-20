@@ -135,10 +135,10 @@ def activity_goal_clarification(question, public):
 def teaching_registration_clarification(question):
     """L'activité et la classe ne déterminent pas la rubrique à renseigner."""
     q = normalise(question)
-    teaching = re.search(r"enseign|je (?:fais|pratique)|(?:ma|mes|avec les|avec ma|avec mes).{0,20}(?:eleves|classes?|[3-6](?:e|eme))", q)
+    teaching = re.search(r"\benseign|je (?:fais|pratique)|(?:ma|mes|avec les|avec ma|avec mes).{0,20}(?:eleves|classes?|[3-6](?:e|eme))", q)
     registration = re.search(r'renseign|rempl|saisir|saisie|declar|enregistr|rentrer|indiquer', q)
     target = re.search(r'programmation|sequences?|groupes?|emploi du temps|dossier|fiche|specialit|competence|'
-                       r'affectation|services?\b|etablissement|examen|compte|acces|liste.{0,15}apsa|(?:dans|menu|rubrique).{0,20}apsa|protocole|certific|notes?|evaluation|inapt', q)
+                       r'affectation|services?\b|etablissement|examen|compte|acces|liste.{0,15}apsa|(?:dans|menu|rubrique).{0,20}apsa|protocole|certific|notes?|evaluation|inapt|savoir.nager|\basns\b|\bassn\b|attestation|sports?.etudes|projets?|modules?|tuiles?', q)
     if teaching and registration and not target:
         return "Pouvez-vous préciser ce que vous souhaitez renseigner dans iPackEPS ?"
     return ''
@@ -148,6 +148,7 @@ def clarification(question, public, *, mode=None):
     q = normalise(question)
     # Le message seul ne permet pas de choisir un module ni de diagnostiquer un agenda.
     if (mode == 'ipack' and re.search(r'informations? manquantes?', q)
+            and not re.search(r'dans quel ordre|par (?:ou|quoi) commencer', q)
             and not re.search(r'classe|groupe|agenda|creneau|protocole|referentiel|fiche professeur|fiche etablissement|equipement|certificat|sequence|apsa|periode|eleve|dossier (?:eps|certificatif)|menu|rubrique', q)):
         return ("Dans quel écran ou menu d’iPackEPS apparaît « informations manquantes » ? "
                 "Le message seul ne permet pas d’identifier le champ à compléter.")
@@ -193,6 +194,19 @@ def clarification(question, public, *, mode=None):
     project_type = re.search(r'\beps\b|\bas\b|etablissement|\bsss\b|section sportive|sports.etudes', q)
     # Relevé à l'écran (18/10/2026) : établissement, EPS, AS et SSS sont tous dans [Dossier EPS] > [Projets] ;
     # la fiche ciblée répond directement, sans demander le type de projet.
+    # Expliquer un dépôt ou une déclaration ne choisit pas le statut médical.
+    medical_document_step = (
+        re.search(r'depos|joindre|enregistr|declar|comment saisir|ou saisir', q)
+        and re.search(r'certificat|inaptitude|epreuve de substitution', q)
+        and not re.search(r'\bdi\b|\bzero\b|\b0\b|je (?:mets|dois mettre|saisis)|'
+                          r'quel(?:le)?s? (?:note|code|statut)|annuler|conserver|retenir|note finale', q))
+    if medical_document_step:
+        return ''
+    # Comparer deux libellés n'est pas décider lequel attribuer à un cas médical.
+    if (re.search(r'santorin|codes?|note particuliere', q)
+            and re.search(r'(?:absent|\babs\b).{0,100}(?:ou|et|comme|versus|vs).{0,40}(?:dispens|\bdisp\b)', q)
+            and not re.search(r'mon eleve|cet eleve|blesse|certificat|partiel|total', q)):
+        return ''
     # Les conditions médicales restent nécessaires pour choisir une valeur
     # individuelle, pas pour expliquer un circuit logiciel ou les possibilités.
     if re.search(r'dispens.{0,20}epreuve.{0,15}eps|\baflp\d?\b|'

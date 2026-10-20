@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "statut": "experimental_non_bloquant_non_branche_interface",
+  "description": "Repères locaux de précision, évalués sur la question complète et le contexte choisi. Aucun mot isolé ne prouve une ambiguïté. Aucune génération, aucune réécriture de la question.",
+  "principes": [
+    "Tous les résultats sont des suggestions non bloquantes.",
+    "Le mode choisi et les logiciels nommés servent à éviter les questions redondantes ; aucun niveau ou académie manquant n’est supposé.",
+    "Une distinction pouvant être expliquée par la fiche ne suffit pas à demander une précision.",
+    "Le mot relève ne déclenche aucune alerte à lui seul.",
+    "Aucun terme ajouté par l’enrichissement de recherche n’est utilisé ici."
+  ],
+  "regles": [
+    {
+      "id": "validation_objet",
+      "termes": [
+        "valider",
+        "validation"
+      ],
+      "motifs": [
+        "\\bvalid(?:er|ation)\\b"
+      ],
+      "exclure_motifs": [
+        "protocole|referentiel|\\bfca\\b|\\blots?\\b|\\bnotes?\\b|fiche|dossier|projet|epreuve|certificat|absence|dispens|menu|liste|apsa|groupe|classe|competence|socle|bulletin|donnee|saisi|resultat|examen",
+        "natation|savoir.nager|asns|assr|attestation|diplome|natatoire|inscription|session"
+      ],
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "message": "Que souhaitez-vous valider ?",
+      "options": [
+        "Un protocole ou un référentiel",
+        "Un lot de notes",
+        "Un dossier ou une fiche"
+      ],
+      "priorite": 110
+    },
+    {
+      "id": "fiche_depot",
+      "termes": [
+        "fiche",
+        "document",
+        "déposer"
+      ],
+      "motifs": [
+        "(?=.*(?:depos|envoy|transmett))(?=.*(?:fiche|document))"
+      ],
+      "exclure_motifs": [
+        "individuell|etablissement|certificat|medical|referentiel|\\bfca\\b|eleve|classe|professeur|synthese|recapitulat|commission|cahpn|projet|natation|\\bas\\b|appn|section sportive|\\bsss\\b|protocole|grille|note|emargement"
+      ],
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "message": "Quel document souhaitez-vous déposer ?",
+      "options": [
+        "Un référentiel d’activité",
+        "Une fiche concernant un élève",
+        "Un document pour la commission"
+      ],
+      "priorite": 100
+    },
+    {
+      "id": "modification_objet",
+      "termes": [
+        "modifier",
+        "changer",
+        "corriger"
+      ],
+      "motifs": [
+        "(?:ne peux plus|ne peut plus|impossible de|n.arrive pas a).{0,25}(?:modifi|chang|corrig)|(?:modifi|chang|corrig).{0,20}(?:impossible|bloqu)"
+      ],
+      "exclure_motifs": [
+        "protocole|referentiel|\\blot\\b|note|fiche|dossier|projet|eleve|classe|groupe|etablissement|mot de passe|email|e.mail|adresse|date|nom|horaire|emploi du temps|apsa|sequence|periode|installation|equipement|fonction|certificat|bareme|convocation|mission|appreciation"
+      ],
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "message": "Quel élément souhaitez-vous modifier ?",
+      "options": [
+        "Une fiche ou un dossier",
+        "Un protocole ou un groupe",
+        "Une note ou un lot"
+      ],
+      "priorite": 110
+    },
+    {
+      "id": "eleves_localisation",
+      "termes": [
+        "élèves absents de la liste",
+        "élèves introuvables"
+      ],
+      "motifs": [
+        "(?:mes|nos|les|des) eleves\\b.{0,40}(?:n.apparai|introuvables?|manqu|absents? (?:de|dans) (?:la |les )?listes?)|(?:ne (?:vois|trouve) pas|il manque).{0,30}(?:mes|nos|les|des) eleves\\b"
+      ],
+      "exclure_motifs": [
+        "ipack|santorin|cyclades|imag.in|\\blot|protocole|groupe|classe|siecle|pronote|ecole.?directe|inscri|ccf|import|export|session|depart|demission|change.*etablissement"
+      ],
+      "modes": [
+        "examens"
+      ],
+      "message": "Où vos élèves sont-ils introuvables ?",
+      "options": [
+        "Dans la liste des inscrits à l’examen",
+        "Dans un groupe ou un protocole",
+        "Dans le lot où saisir les notes"
+      ],
+      "priorite": 90
+    },
+    {
+      "id": "saisie_notes_usage",
+      "termes": [
+        "saisir mes notes",
+        "notes bloquées"
+      ],
+      "motifs": [
+        "(?=.*(?:ne peux plus|ne peut plus|impossible|n.arrive pas|bloqu))(?=.*sais)(?=.*notes?)"
+      ],
+      "exclure_motifs": [
+        "ccf|santorin|cyclades|imag.in|\\blot|aflp?|bac|cap|brevet|dnb|pronote|ecole.?directe|bulletin|moyenne de classe|notes? (?:de cours|de classe|du trimestre|trimestrielles?|certificatives?|d.examen)"
+      ],
+      "modes": [
+        "ipack"
+      ],
+      "message": "S’agit-il des notes de cours ou des notes d’examen ?",
+      "options": [
+        "Les notes des cours d’EPS",
+        "Les notes de CCF au bac ou au CAP"
+      ],
+      "priorite": 120
+    },
+    {
+      "id": "probleme_ecran",
+      "termes": [
+        "ça bloque",
+        "accès restreint",
+        "message d’erreur"
+      ],
+      "motifs": [
+        "(?=.*(?:ca bloque|tout est bloque|acces restreint|message d.erreur|informations manquantes))"
+      ],
+      "exclure_motifs": [
+        "classes?|groupe|protocole|referentiel|\\bfca\\b|\\blot|fiche|dossier|agenda|emploi du temps|import|export|eleve|note|equipement|installation|connexion|connect|portail|compte|code|mot de passe|fonction|sequence|periode|certificat|enregistr|tuiles?|ecran|verificat|signature|supprim",
+        "\\binstance\\b|\\b40[03]\\b|forbidden|not found"
+      ],
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "message": "Sur quel écran le blocage apparaît-il ?",
+      "options": [
+        "L’accès à l’application",
+        "Une fiche ou un dossier",
+        "La saisie ou la validation des notes"
+      ],
+      "priorite": 80
+    },
+    {
+      "id": "logiciel_hors_contexte",
+      "termes": [
+        "application",
+        "logiciel"
+      ],
+      "motifs": [
+        "(?=.*(?:application|logiciel))(?=.*(?:connexion|connect|bloqu|n.ouvre|message d.erreur))"
+      ],
+      "exclure_motifs": [
+        "ipack|cyclades|santorin|imag.in|pronote|ecole.?directe|arena|esterel|pratic|lsu|lsl"
+      ],
+      "modes": [
+        "textes"
+      ],
+      "message": "De quel logiciel parlez-vous ?",
+      "options": [
+        "iPackEPS",
+        "Cyclades ou Santorin",
+        "Le logiciel de vie scolaire"
+      ],
+      "priorite": 70
+    }
+  ]
+}

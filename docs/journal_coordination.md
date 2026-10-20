@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-20 — partie programme — voisinage des démarches de convocation et du bulletin
+Fait : séparation ciblée entre convocation au ponctuel et mission CCF, consultation personnelle d'un ordre de mission et création des missions de correcteurs, bulletin trimestriel et neutralisation du coefficient d'examen. Le contrôle examine aussi le corps du document avant la sélection ciblée : un titre générique ne suffit plus à laisser entrer ces trois confusions. Les exclusions apparaissent dans le diagnostic existant excluded_situation_documents. Aucun nouveau texte réglementaire, aucune réponse en dur, aucune nouvelle génération.
+Limite : écarter une mauvaise fiche ne crée pas une procédure documentaire absente. Le téléchargement d'une convocation et la mention au bulletin restent à confirmer avec leurs sources pertinentes ; ces sujets ne sont pas déclarés entièrement résolus en production. Les comparaisons explicites entre circuits et les démarches CCF conservent leurs documents. Les autres erreurs du lot restent à examiner.
+Validation : quatre tests ciblés, dont une transmission simulée avec titre générique, plus contre-exemples de procédures voisines. Suite complète : 727 tests réussis. Aucun appel payant ; questions et réponses privées non publiées. Fiches SAV conservées sans modification.
+
+
 ### 2026-10-19 — partie programme — faux rejets inaptitude annuelle, accident et vidéo/RGPD ; preuves manquantes
 Reproduit sans génération payante : « aucune note » était reconnue comme « une note » par une expression sans borne de mot ; la fiche annuelle citant une moyenne fictive sur deux notes était alors considérée comme une autre situation. Les nombres de notes positifs sont désormais bornés et l'absence de note est distinguée. Les incompatibilités réelles entre une et deux notes restent refusées.
 Reproduit : le filtre collège retirait une fiche générale de vidéo/droit à l'image parce qu'elle mentionne aussi les notes CCF et Santorin comme comparaison. Le filtre ne déduit plus une portée exclusivement lycée de cette seule comparaison ; les fiches explicitement réservées au lycée et les procédures CCF restent écartées. Le routage réel simulé transmet à nouveau le passage sur l'information et le circuit d'autorisation d'image, puis accepte une réponse sourcée.

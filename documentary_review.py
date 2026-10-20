@@ -655,12 +655,41 @@ def no_applicable_guidance(mode):
     return NO_APPLICABLE_GUIDANCE
 
 
+def circuit_document_mismatch(question, text):
+    """Sépare consultation personnelle, création CCF et bulletin scolaire."""
+    def norm(value):
+        return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
+                       if not unicodedata.combining(c))
+    q, t = norm(question), norm(text)
+    ccf = r'\bccf\b|controle en cours de formation|notation eps ccf'
+    # Une convocation d'examinateur au ponctuel n'est pas une mission CCF.
+    if (re.search(r'ponctuel', q) and not re.search(ccf, q)
+            and re.search(ccf, t) and not re.search(r'ponctuel', t)):
+        return True
+    # Lire son document ne crée pas une mission pour les correcteurs.
+    consulting = re.search(r'(?:telecharg|recuper|consult|imprim|edit).{0,60}(?:ordre de mission|(?:ma |une |la )?convocation)', q)
+    if (consulting and not re.search(r'santorin|\bccf\b|creer|convoquer|ajouter|manquant|absent', q)
+            and re.search(r'creer (?:les |la |une |des )?(?:missions?|convocations?)', t)
+            and re.search(r'santorin|notation eps ccf', t)
+            and not re.search(r'ponctuel|espace intervenant|espace personnel', t)):
+        return True
+    # La mention sur un bulletin ne neutralise pas un coefficient d'examen.
+    if (re.search(r'bulletin.{0,25}trimestr|trimestr.{0,25}bulletin', q)
+            and not re.search(r'\bccf\b|baccalaureat|\bbac\b|certific|santorin', q)
+            and re.search(r'coefficient.{0,40}neutralis|neutralis.{0,40}coefficient', t)
+            and not re.search(r'bulletin.{0,25}trimestr|trimestr.{0,25}bulletin', t)):
+        return True
+    return False
+
+
 def situation_mismatch(question, text):
     """Écarte des confusions explicites ; ne prétend pas prouver l'applicabilité."""
     def norm(value):
         return ''.join(c for c in unicodedata.normalize('NFKD', value.lower())
                        if not unicodedata.combining(c))
     q, t = norm(question), norm(text)
+    if circuit_document_mismatch(question, text):
+        return True
     from knowledge_catalog import staff_service_question
     if (staff_service_question(question) and not re.search(r'eleve|classe de|\bdnb\b|\bbrevet\b|\blsu\b', q)
             and re.search(r'dnb|brevet|controle continu.{0,15}(?:college|troisieme)|livret scolaire|\blsu\b', t)
@@ -1232,8 +1261,10 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not dnb_document_mismatch(question, public, p)]
     audit['excluded_lycee_dnb_documents'] = [p['id'] for p in packets if lycee_dnb_mismatch(question, public, p)]
     packets = [p for p in packets if not lycee_dnb_mismatch(question, public, p)]
-    audit['excluded_situation_documents'] = [p['id'] for p in packets if situation_mismatch(question, p['title'])]
-    packets = [p for p in packets if not situation_mismatch(question, p['title'])]
+    audit['excluded_situation_documents'] = [p['id'] for p in packets
+                                             if situation_mismatch(question, p['title'])
+                                             or circuit_document_mismatch(question, p['text'])]
+    packets = [p for p in packets if p['id'] not in audit['excluded_situation_documents']]
     focused = [p for p in packets if catalogue_focus_match(question, p)
                or (p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300)]
     if not focused:

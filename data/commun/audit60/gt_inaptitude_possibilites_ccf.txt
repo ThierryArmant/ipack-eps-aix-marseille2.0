@@ -1,6 +1,9 @@
 ### Bac GT : inaptitude en CCF, les possibilités
 [PORTEE: gt]
 Sigles : CCF = contrôle en cours de formation.
+Une inaptitude « totale » ne précise pas sa durée : elle peut concerner une période limitée ou toute l’année. Ces situations ne conduisent pas automatiquement à la même décision d’examen.
+Cas sans aucune évaluation possible sur toute l’année : si l’inaptitude totale médicalement attestée couvre toute l’année et qu’aucun élément ne permet de proposer une note, la dispense de l’épreuve d’EPS neutralise son coefficient ; le dossier est traité selon le circuit académique.
+Cas d’une période limitée ou de notes déjà obtenues : examiner une évaluation différée et les notes effectivement disponibles. Les possibilités de certification sur deux épreuves, sur une seule ou de dispense sont détaillées ci-dessous ; une inaptitude totale au moment d’une épreuve ne supprime pas automatiquement les notes antérieures. Une adaptation de l’épreuve pendant l’inaptitude n’est prévue que si elle est partielle.
 Réponse directe : pour une inaptitude partielle ou temporaire, on étudie d'abord une épreuve adaptée ou une évaluation différée ; ensuite seulement, selon les notes obtenues, l'enseignant apprécie : moyenne des deux notes si seule la troisième épreuve est impossible, note unique ou dispense si deux épreuves sont impossibles, dispense si les éléments sont trop réduits ; ce sont des possibilités, pas des codes automatiques.
 Une seule épreuve impossible et deux notes obtenues : le candidat peut être noté sur la moyenne des deux notes.
 Deux épreuves impossibles : l'enseignant apprécie entre une note unique et la dispense.
@@ -10,3 +13,5 @@ La validation par la commission concerne le protocole annuel et le contrôle ada
 Nature de la source : texte national (note de service).
 Source : note de service du 20 février 2026, MENE2531948N, partie 2.e.
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+
+La mention médicale et le statut d’examen sont distincts. Cette fiche explique les cas possibles ; elle ne choisit pas un code Santorin local sans le guide applicable. Le choix d’un statut à l’examen ne règle pas la présence en cours.

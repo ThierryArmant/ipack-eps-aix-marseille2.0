@@ -7,8 +7,10 @@ from pathlib import Path
 
 
 def normalise(text):
-    return ''.join(c for c in unicodedata.normalize('NFD', text.lower())
-                   if unicodedata.category(c) != 'Mn')
+    value = ''.join(c for c in unicodedata.normalize('NFD', text.lower())
+                    if unicodedata.category(c) != 'Mn')
+    # Tolérance d'une faute attestée ; aucun autre mot ni fait n'est ajouté.
+    return re.sub(r'\bimaptitudes?\b', lambda m: m.group().replace('imapt', 'inapt'), value)
 
 
 _EQUIVALENCES = None

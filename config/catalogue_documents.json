@@ -528,14 +528,14 @@
       "examens"
     ],
     "motifs": [
-      "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
+      "(?=.*(?:eleve|candidat))(?=.*(?:\\bparti(?:e|s|es)?\\b|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
     ],
     "exclure_motifs": [
       "option|eppcs|abandon|transmettre.{0,15}note|moyenne|releve de note",
       "chang\\w* de classe|nouvelle classe|ancienne classe"
     ],
     "exclusif_motifs": [
-      "(?=.*(?:eleve|candidat))(?=.*(?:parti|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
+      "(?=.*(?:eleve|candidat))(?=.*(?:\\bparti(?:e|s|es)?\\b|chang|quitt|radie))(?=.*(?:sans groupe|pas de groupe|reimport|import|alerte))"
     ],
     "sessions": []
   },
@@ -5498,7 +5498,7 @@
     "prioritaire": true,
     "priorite": 320,
     "motifs": [
-      "(?=.*santorin)(?=.*(?:eleves|candidats))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
+      "(?=.*santorin)(?=.*(?:\\beleves?\\b|\\bcandidats?\\b))(?=.*(?:manqu|absen|n.appara|pas.*present))(?=.*(?:inscri|cyclades|distribution))"
     ],
     "url": "https://github.com/Pole-Examens/tutoriels-examens",
     "date_verification": "2026-10-12",
@@ -5783,7 +5783,7 @@
     ],
     "url": "https://eps.ac-versailles.fr/IMG/pdf/examens_eps_2025_version_lc_visio.pdf",
     "motifs": [
-      "^(?=.*(?:quitte|parti|plus (?:scolarise|dans l.etablissement|au lycee)|descolaris|demissionn?e?|abandonn))(?=.*(?:inscri|candidat|ccf|convoc|examen))(?=.*(?:eleve|candidat))(?!.*(?:enseignant|professeur|coordonn|collegue))"
+      "^(?=.*(?:quitte|\\bparti(?:e|s|es)?\\b|plus (?:scolarise|dans l.etablissement|au lycee)|descolaris|demissionn?e?|abandonn))(?=.*(?:inscri|candidat|ccf|convoc|examen))(?=.*(?:eleve|candidat))(?!.*(?:enseignant|professeur|coordonn|collegue))"
     ],
     "exclure_motifs": [
       "\\boption\\b"
@@ -6650,7 +6650,7 @@
     "motifs": [
       "^(?=.*\\beleves?\\b)(?=.*(?:ajout\\w*|rajout\\w*|cree\\w*|creer|inscri\\w*|mettre))(?=.*(?:manuel\\w*|a la main|absent de la liste|pas dans la liste|n.apparai\\w* pas|manqu\\w*|arrive\\w*|nouvel))",
       "(?=.*(?:nouv\\w* eleve|eleve.{0,25}(?:arrive|nouveau|nouvelle)))(?=.*(?:trouve pas|vois pas|voit pas|apparai|absent|manqu|liste|introuvable))",
-      "(?=.*(?:eleves?|base eleve|listing))(?=.*(?:mettre a jour|actualis|pas a jour|parti|quitt|depart|sortant))(?=.*(?:liste|listing|base|arriv|nouve|classe|lycee|etablissement))"
+      "(?=.*(?:eleves?|base eleve|listing))(?=.*(?:mettre a jour|actualis|pas a jour|\\bparti(?:e|s|es)?\\b|quitt|depart|sortant))(?=.*(?:liste|listing|base|arriv|nouve|classe|lycee|etablissement))"
     ],
     "exclure_motifs": [
       "santorin|\\blots?\\b|cyclades|protocole|equipe|collegue|professeur|enseignant|groupes? eps.{0,30}(?:pas|aucun)"

@@ -692,6 +692,12 @@ def context_document_mismatch(question, public, mode, packet):
     q = normalise(question)
     title = normalise(packet.get('title', ''))
     path = packet.get('path', '')
+    if (mode in ('ipack', 'examens') and re.search(r'inapt|dispens', q)
+            and re.search(r'note|statut|code|sais|je met|mettre', q)
+            and not re.search(r'presence|venir en cours|assister|rester en cours|appel|obligation de presence', q)
+            and (path == 'data/textes/fiches/dispense_inaptitude_presence_cours.txt'
+                 or re.search(r'presence en cours|doit.il venir en cours', title))):
+        return True
     # L'accès informatique à un établissement ne prouve rien sur les ORS.
     if (mode == 'ipack'
             and re.search(r'etablissements?|\blgt\b|\blp\b|lycees?|colleges?', q)

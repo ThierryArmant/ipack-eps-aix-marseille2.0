@@ -32,7 +32,7 @@
   },
   {
    "motif": "aucun lot|pas de lot|santorin (?:est )?vide|(?:apparai\\w*|vois) (?:pas|plus|aucun).{0,20}(?:santorin|lot)|manque des (?:eleves|gamins|candidats).{0,20}lot",
-   "ajout": "santorin eleves manquants dans les lots distribution des lots"
+   "ajout": "santorin acces aux lots distribution des lots"
   },
   {
    "motif": "\\bgamins?\\b|\\bgosses?\\b|\\bmomes?\\b",

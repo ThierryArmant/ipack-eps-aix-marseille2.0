@@ -153,7 +153,7 @@ class Audit355Retest11Tests(unittest.TestCase):
         code = open('app.py', encoding='utf-8').read()
         self.assertIn('"[FICHE PRIORITAIRE" in extraits_doc', code)
         self.assertIn('consigne_ia + RELANCE_FICHE_PRIORITAIRE', code)
-        self.assertIn('reference_notice(_cibles, prompt, niveau_actuel_form)', code)
+        self.assertIn('reference_notice(_cibles, search_prompt or prompt, niveau_actuel_form)', __import__('pathlib').Path('document_retrieval.py').read_text())
 
 
 class Audit355Retest13Tests(unittest.TestCase):

@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-21 — comparateur documentaire A/B réservé à l’administration
+Fait : deux colonnes pour la même question, même contexte, même modèle et température. A cherche à partir de la question originale ; B ajoute une interprétation courte et contrôlée avant la recherche. La rédaction garde toujours la question originale. Même moteur documentaire partagé, mêmes contrôles de preuves ; pilote compare_candidates laissé désactivé. Aucun échange entre architectures ni réponse métier en dur ajoutée.
+Interface : lancement payant explicite uniquement, réponses, fiches, interprétation, traces, appels, jetons et durée ; téléchargement JSON privé. Pas d’écriture au journal des collègues, pas de lot automatique, aucun appel à l’ouverture ou au téléchargement. Une interprétation invalide arrête B sans repli silencieux. Une colonne en erreur ne bloque pas l’autre. Compteurs de génération hors recherches vectorielles ; métriques inconnues signalées.
+Limite affichée : comparaison du parcours documentaire, sans les guides, clarifications préalables, enrichissements et faits calculés antérieurs à la recherche du parcours public. A n’est pas une reproduction intégrale de toute réponse publique. La requête B peut elle-même introduire une supposition : son interprétation reste visible pour contrôle. Pas de gain de fiabilité annoncé avant mesure.
+Validation : 781 tests locaux réussis ; compilation et contrôle du diff. Le moteur de recherche public est extrait dans document_retrieval avec ses entrées d’origine ; tests de routage conservés. Cinq tests du comparateur : conservation de la question et du contexte, rejet d’interprétation invalide, absence d’accès hors administration, rejet d’une tentative de changement de contexte et ouverture sans génération. Aucun appel IA payant. Affichage Streamlit réel et qualité des deux réponses encore à vérifier en ligne. Mode d’emploi : docs/comparateur_architectures.md.
+
+
 
 ### 2026-10-21 — diagnostic d’un petit lot iPackEPS et pilote de comparaison désactivé
 Le petit lot fourni a été examiné sur 9565294 sans modifier ses déclencheurs : catalogue et recherche lexicale réelle, vecteurs simulés vides, modèle factice, académies conservées. Neuf formulations sur dix se retrouvent déjà dans la banque de 1 343 après normalisation des espaces et apostrophes ; ne pas présenter ce lot comme une mesure inédite. Questions et résultats détaillés privés, hors dépôt.

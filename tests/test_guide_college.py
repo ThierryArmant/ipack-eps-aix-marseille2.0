@@ -189,7 +189,7 @@ class GuideCollegeTests(unittest.TestCase):
 
     def test_nouvel_eleve_introuvable(self):
         import knowledge_catalog as kc
-        t = "iPackEPS : élève absent de la liste, comment l'ajouter"
+        t = "iPackEPS : mettre à jour la liste des élèves (arrivées, départs, changements de classe)"
         self.assertIn(t, kc.priority_titles('je ne trouve pas mon nouvel élève', 'Collège', 'ipack'))
         self.assertNotIn(t, kc.priority_titles('nouvel élève en natation, quelle évaluation ?', 'Collège', 'ipack'))
         self.assertIn('[Importer]', Path('data/ipack/situations_2026_10_17/eleve_absent_liste_ajout.txt').read_text(encoding='utf-8'))

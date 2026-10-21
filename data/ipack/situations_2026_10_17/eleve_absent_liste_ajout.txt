@@ -1,8 +1,9 @@
-### iPackEPS : élève absent de la liste, comment l'ajouter
+### iPackEPS : mettre à jour la liste des élèves (arrivées, départs, changements de classe)
 [PORTEE: gt,pro,cap,dnb]
 Sigles : SIECLE = base élèves des établissements.
 Dans un établissement alimenté par la base élèves (SIECLE), la liste des élèves vient de cette base : les articles iPackEPS ne décrivent pas de formulaire pour créer librement un élève.
-Élève arrivé en cours d'année, changé de classe ou liste pas à jour : [Dossiers] > [Dossier EPS] > [Classes] > [Importation des Élèves] > [Importer] (bouton relevé à l'écran le 18 octobre 2026, version 2026.2.1.1) ; l'import est à refaire régulièrement, car de nouveaux élèves arrivent.
+Élève arrivé en cours d'année, ayant quitté l'établissement, changé de classe ou liste pas à jour : [Dossiers] > [Dossier EPS] > [Classes] > [Importation des Élèves] > [Importer] (bouton relevé à l'écran le 18 octobre 2026, version 2026.2.1.1) ; l'import est à refaire régulièrement, car de nouveaux élèves arrivent.
+Pour les départs : l’article 18, question 3, indique le même réimport pour mettre à jour les listes après le départ d’un élève. Vérifier ensuite la liste. Si un élève parti reste présent, faire vérifier par l’administration que son départ est enregistré dans la base élèves, puis refaire l’import ; si l’écart persiste, le signaler à l’assistance iPackEPS. L’article ne décrit pas le mécanisme de suppression ni le devenir des placements et des données historiques ; ne pas en déduire une suppression manuelle générale. Cette mise à jour de la liste iPackEPS ne vaut pas retrait d’une candidature ou d’un lot Santorin.
 S'il n'apparaît toujours pas : il doit d'abord être inscrit dans la base élèves de l'établissement ; faire vérifier son inscription par l'administration, puis refaire l'import.
 Une fois l'élève dans sa classe, le placer dans son groupe EPS, AS ou SSS par [Dossiers] > [Dossier EPS] > [Élèves].
 Après un import de groupes Pronote ou École Directe, si quelques élèves « n'ont pas été retrouvés », les ajouter dans le groupe par la procédure habituelle de placement des élèves, et signaler à l'administration que les corrections doivent être faites dans SIECLE.

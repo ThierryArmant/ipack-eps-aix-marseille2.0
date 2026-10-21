@@ -6,7 +6,7 @@ import knowledge_catalog as kc
 
 GT = 'Lycée Général & Techno'
 CLG = 'Collège (DNB)'
-AJOUT = "iPackEPS : élève absent de la liste, comment l'ajouter"
+AJOUT = "iPackEPS : mettre à jour la liste des élèves (arrivées, départs, changements de classe)"
 PRONOTE = '[ARTICLE 88] [Dossiers]/[DossierEPS]/[Élèves] Import d’élèves depuis Pronote / École-Directe'
 PONCTUEL = 'Bac GT ponctuel : publics et conditions de neutralisation'
 EQUIPE = 'iPackEPS : actualisation de l’équipe EPS'

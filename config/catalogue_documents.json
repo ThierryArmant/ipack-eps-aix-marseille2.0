@@ -809,7 +809,8 @@
     ],
     "exclure_motifs": [
       "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole",
-      "ipack|logiciel|(?:passer|changer|basculer|acceder|entrer).{0,40}etablissement|etablissement.{0,40}(?:passer|changer|basculer|n.apparai|introuvable)|\\bclasses?\\b|\\bgroupes?\\b|equipe eps|actualis|ne (?:vois|trouve) pas"
+      "ipack|logiciel|(?:passer|changer|basculer|acceder|entrer).{0,40}etablissement|etablissement.{0,40}(?:passer|changer|basculer|n.apparai|introuvable)|\\bclasses?\\b|\\bgroupes?\\b|equipe eps|actualis|ne (?:vois|trouve) pas",
+      "(?=.*(?:etablissements?|\\blgt\\b|\\blp\\b|lycees?|colleges?))(?=.*(?:plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)))"
     ],
     "domaine_textes": "01_service_statuts"
   },
@@ -2465,7 +2466,8 @@
     ],
     "motifs": [
       "(?:deux|2|plusieurs) etablissements.{0,60}(?:passer|basculer|changer|acceder|choisir)|(?:passer|basculer|changer).{0,30}(?:de l.un a l.autre|d.etablissement)|selecteur d.etablissement|(?:college et (?:un )?lycee|lycee et (?:un )?college).{0,60}(?:passer|basculer|changer|acceder)",
-      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)"
+      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)",
+      "(?=.*(?:deux|2|plusieurs|second|autre|\\blgt\\b|\\blp\\b))(?=.*(?:etablissements?|\\blgt\\b|\\blp\\b|lycees?|colleges?))(?=.*(?:plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)))"
     ],
     "exclure_motifs": [
       "cite scolaire|manqu|absent"
@@ -2479,7 +2481,8 @@
       }
     ],
     "centrer_motifs": [
-      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)"
+      "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)",
+      "(?=.*(?:deux|2|plusieurs|second|autre|\\blgt\\b|\\blp\\b))(?=.*(?:etablissements?|\\blgt\\b|\\blp\\b|lycees?|colleges?))(?=.*(?:plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)))"
     ]
   },
   "data/ipack/fiches/ipack_223_situation_eleve_ayant_fait_l_objet_d_une_sanction_disciplinaire_exclusion_pendant_un_ccf.txt": {
@@ -6642,11 +6645,12 @@
     "prioritaire": true,
     "priorite": 300,
     "date_verification": "2026-10-17",
-    "title": "iPackEPS : élève absent de la liste, comment l'ajouter",
+    "title": "iPackEPS : mettre à jour la liste des élèves (arrivées, départs, changements de classe)",
     "examens": [],
     "motifs": [
       "^(?=.*\\beleves?\\b)(?=.*(?:ajout\\w*|rajout\\w*|cree\\w*|creer|inscri\\w*|mettre))(?=.*(?:manuel\\w*|a la main|absent de la liste|pas dans la liste|n.apparai\\w* pas|manqu\\w*|arrive\\w*|nouvel))",
-      "(?=.*(?:nouv\\w* eleve|eleve.{0,25}(?:arrive|nouveau|nouvelle)))(?=.*(?:trouve pas|vois pas|voit pas|apparai|absent|manqu|liste|introuvable))"
+      "(?=.*(?:nouv\\w* eleve|eleve.{0,25}(?:arrive|nouveau|nouvelle)))(?=.*(?:trouve pas|vois pas|voit pas|apparai|absent|manqu|liste|introuvable))",
+      "(?=.*(?:eleves?|base eleve|listing))(?=.*(?:mettre a jour|actualis|pas a jour|parti|quitt|depart|sortant))(?=.*(?:liste|listing|base|arriv|nouve|classe|lycee|etablissement))"
     ],
     "exclure_motifs": [
       "santorin|\\blots?\\b|cyclades|protocole|equipe|collegue|professeur|enseignant|groupes? eps.{0,30}(?:pas|aucun)"

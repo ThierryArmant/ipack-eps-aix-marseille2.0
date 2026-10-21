@@ -692,6 +692,14 @@ def context_document_mismatch(question, public, mode, packet):
     q = normalise(question)
     title = normalise(packet.get('title', ''))
     path = packet.get('path', '')
+    # L'accès informatique à un établissement ne prouve rien sur les ORS.
+    if (mode == 'ipack'
+            and re.search(r'etablissements?|\blgt\b|\blp\b|lycees?|colleges?', q)
+            and re.search(r'plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)', q)
+            and not re.search(r'\bors\b|\bissr\b|obligations? de service|maximum de service|reduction.{0,20}heure', q)
+            and (path == 'data/textes/complement_obligations_service_eps.txt'
+                 or re.search(r'obligations? de service|maximum de service', title))):
+        return True
     # Une question Examens sans iPack n'a pas besoin du rappel carnet de notes.
     if (mode == 'examens' and not re.search(r'i ?pack|pronote|ecole.?directe', q)
             and path in {'data/commun/audit60/ipack_perimetre.txt',

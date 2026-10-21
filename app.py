@@ -1184,19 +1184,20 @@ retriever_peda = initialiser_base_peda(timestamp_fichier)
 # ======================================================================
 # 🔑 ZONE SECRÈTE ADMIN (SIDEBAR DISCRÈTE POUR VOIR LES VEILLES)
 # ======================================================================
-with st.expander("⚙️ Administration", expanded=False):
-    mot_de_passe_entre = st.text_input("Mot de passe admin", type="password")
-    if admin_secret_key and mot_de_passe_entre == admin_secret_key:
-        st.session_state.is_admin = True
-        st.success("Mode Admin activé (Veilles visibles)")
-    elif mot_de_passe_entre:
-        st.error("Mot de passe incorrect")
+from admin_style import ADMIN_CSS
+st.markdown(ADMIN_CSS, unsafe_allow_html=True)
+with st.container(border=True, key="hub_admin_login"):
+    with st.expander("⚙️ Administration", expanded=False):
+        mot_de_passe_entre = st.text_input("Mot de passe admin", type="password")
+        if admin_secret_key and mot_de_passe_entre == admin_secret_key:
+            st.session_state.is_admin = True
+            st.success("Mode Admin activé (Veilles visibles)")
+        elif mot_de_passe_entre:
+            st.error("Mot de passe incorrect")
 
 # Audit réservé aux administrateurs : aucune question enregistrée côté serveur.
 if st.session_state.get("is_admin", False):
     from admin_retest_113 import render as render_admin_retest_113
-    from admin_style import ADMIN_CSS
-    st.markdown(ADMIN_CSS, unsafe_allow_html=True)
     from admin_retest_113_live import render as render_admin_retest_113_live
     with st.container(border=True, key="hub_admin_tools"):
         render_admin_retest_113(st)

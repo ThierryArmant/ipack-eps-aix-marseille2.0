@@ -25,6 +25,9 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-21 — panneau de connexion administrateur opaque avant authentification
+Correction du périmètre de l’habillage : le formulaire du mot de passe restait en dehors des conteneurs opaques, et la feuille de style n’était chargée qu’après authentification. Style désormais chargé avant la connexion ; formulaire, champ et messages de succès/erreur placés dans le même fond blanc opaque. Aucun changement du contrôle du mot de passe ni des droits. Validation : compilation et vérification du positionnement avant authentification ; rendu final à contrôler sur le hub.
+
 ### 2026-10-21 — fond commun des panneaux d’administration
 Demande utilisateur : harmoniser toute la zone des outils d’administration. Audit documentaire, rejeu et comparateur sont placés dans des conteneurs blancs opaques avec texte foncé, champs clairs et boutons bleus, comme le panneau de tests existant. Bandeau de veille administrateur également harmonisé. CSS limité aux conteneurs administrateur ; aucun changement du parcours des collègues, des réponses, de la recherche ou des appels IA. Capture jointe inaccessible localement : référence reprise dans le style existant du panneau de tests, sans prétendre avoir contrôlé la capture.
 Validation : compilation, contrôle du diff et 781 tests locaux réussis. Aucun appel IA. Affichage final à vérifier sur le hub.

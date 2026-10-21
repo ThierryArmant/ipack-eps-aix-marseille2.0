@@ -26,6 +26,10 @@ Attendu de l'autre partie : … (ou « rien »)
 ## Entrées
 
 
+### 2026-10-21 — mention de prudence en fin de réponse
+À la demande de l’utilisateur : mention courte dans iPackEPS et Examens, sous les références et avant le diagnostic administrateur, en petit texte discret. Signale les erreurs possibles, l’analyse des réponses par les concepteurs et la possibilité de reposer la question plus tard, sans délai de correction promis. Mention d’interface uniquement : hors prompt, hors preuves et hors réponse enregistrée dans le journal des questions ; conservée dans l’affichage de la conversation. Aucun ajout de réponse métier en dur, aucune génération supplémentaire.
+Validation : compilation de app.py, exécution isolée de la condition pour les trois modes et vérification du placement. Pas de rejeu IA payant.
+
 ### 2026-10-21 — retours terrain : accès à un établissement et mise à jour des élèves
 Reproduction locale des deux défauts signalés, sans appel IA : la mention de plusieurs établissements sélectionnait les obligations de service malgré une perte d’accès ; la fiche ciblée d’import ne restituait pas les départs pourtant couverts par l’article 18, question 3, déjà conservé dans la banque. Questions privées non reproduites dans le dépôt.
 Correction : motif d’accès perdu au second établissement vers la fiche multi-établissements, exclusion des ORS pour cette intention et filtre avant génération si une fiche ORS revient par la recherche vectorielle. Une question explicite sur les ORS conserve sa portée. La cause de la perte d’accès n’est pas affirmée ; vérifier le choix d’établissement puis le rattachement administratif ou l’erreur d’entrée selon le constat. Pas d’hypothèse de réaffectation rectorale.

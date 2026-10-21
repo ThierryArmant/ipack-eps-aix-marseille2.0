@@ -2816,8 +2816,15 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             f"<div style='font-size: 12.5px; color: #94A3B8; margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;'>📍 <em>Contexte utilisé pour cette réponse : {contexte_choisi_nom} — Niveau : <b>{public_label(niveau_actuel_form)}</b>.</em></div>"
         )
 
-        # Les limites concrètes figurent dans la réponse, sans avertissement générique répété.
+        # Mention d'interface demandée : hors génération et hors preuves documentaires.
         footer_assistance = ""
+        if mode in ("ipack", "examens"):
+            footer_assistance = (
+                "<div style='margin-top: 12px; font-size: 12px; color: #94A3B8;'>"
+                "Je peux faire des erreurs. Mes concepteurs analysent mes réponses pour les améliorer ; "
+                "en cas de doute, vous pouvez revenir poser votre question plus tard."
+                "</div>"
+            )
 
         # ✅ AJOUT : onglet Textes, on montre sur quels documents s'appuie la réponse
         bloc_sources = ""
@@ -2859,7 +2866,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             )
 
         formatted_answer = (
-            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{bloc_diag}{footer_assistance}</div>'
+            f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{footer_assistance}{bloc_diag}</div>'
         )
 
         log_interaction(

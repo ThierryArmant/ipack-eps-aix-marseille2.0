@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-21 — prototype de clarification dans le comparateur administrateur
+Fait : ajout de C face à A, choix explicite de la méthode, détection du doute avant rédaction, choix sans présélection ou précision libre, reprise de C seule et traces téléchargeables. Question originale et réponse A conservées ; garde-fous de version/modèle et une seule reprise. Aucun changement du parcours public ni des fiches.
+Constaté : 823 tests locaux réussis, compilation et contrôle du diff ; efficacité et surcoût avec le modèle réel encore à mesurer. Filtres ciblés de correction explicite, sans prétention de compréhension générale. Documentation : docs/prototype_clarification_admin.md. Aucun appel de génération réel pendant cette intégration.
+Attendu de l'autre partie : rien. Mesurer le prototype administrateur avant activation publique.
+
+
 ### 2026-10-21 — orientation commune avant le comparateur A/B
 Correction de protocole : le comparateur documentaire contournait le guidage qui résolvait déjà certaines demandes du parcours public. Ces cas ne doivent pas être classés comme des régressions du hub ni opposés artificiellement aux architectures documentaires.
 Fait : extraction sans changement des règles de guidage, précision et réponse documentaire directe dans question_preflight.prepare_question, appelée par app.py et par le comparateur. Même priorité de réponse documentaire directe, même exception de clarification médicale dans Textes. Niveau/domaine effectifs et académie déterminés par les fonctions publiques existantes. Le contexte initial reste exporté. Si le parcours commun traite la question, affichage d’un résultat commun et du même guide interactif avec clés de session distinctes ; aucune recherche, aucune génération, aucun A/B facturable. Sinon, comparaison documentaire maintenue. Bouton explicite « Tester le parcours — IA payante si nécessaire » et documentation révisée.

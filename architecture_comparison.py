@@ -21,6 +21,10 @@ Contexte imposé (ne pas modifier) : ''' + json.dumps(
     keys = {'action', 'objet', 'incertitudes', 'recherche'}
     if not isinstance(result, dict) or set(result) != keys:
         raise ValueError("Interprétation non conforme : champs attendus absents ou supplémentaires.")
+    if isinstance(result['incertitudes'], list):
+        if len(result['incertitudes']) > 10 or any(not isinstance(x, str) for x in result['incertitudes']):
+            raise ValueError("Liste d’incertitudes non conforme.")
+        result['incertitudes'] = '; '.join(result['incertitudes'])
     if any(not isinstance(result[k], str) or len(result[k]) > 600 for k in keys):
         raise ValueError("Interprétation non conforme : texte trop long ou type incorrect.")
     if not result['recherche'].strip():
@@ -51,7 +55,7 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version):
             if error:
                 raise RuntimeError("Recherche documentaire indisponible : comparaison incomplète.")
             item['answer'] = review_exam_answer(
-                traced, question=question, public=public, documents=documents,
+                llm, question=question, public=public, documents=documents,
                 audit=audit, academy=academy, mode=mode, instructions=instructions)
         except Exception as exc:
             # Ne pas exposer des détails de fournisseur susceptibles de contenir des secrets.

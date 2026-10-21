@@ -25,6 +25,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-21 — trois comparaisons privées et deux correctifs du comparateur
+Essais autorisés en ligne sur 34bdac6 : trois cas iPackEPS connus. Une seule paire A/B complète, réponses identiques et requête B inchangée ; deux interruptions B pour liste vide d’incertitudes rejetée par le validateur. Pas de gagnant ni taux de fiabilité déduit. Recherche et sélection restent à distinguer : une procédure voisine peut être retenue alors que la fiche attendue n’a pas été retrouvée. Questions et traces détaillées privées, hors dépôt.
+Défaut de mesure constaté : modèle de rédaction tracé deux fois dans le même audit, deux lignes identiques pour un appel réel ; compteurs du comparateur gonflés. Correction : seul le vérificateur trace la rédaction, l’interprète garde sa trace propre dans le même audit. Normalisation bornée des listes de chaînes d’incertitudes (liste vide admise), sans accepter de champs supplémentaires ni modifier le contexte imposé. Aucune réponse métier ou fiche modifiée. Compteurs anciens conservés bruts avec bilan privé expliquant la correction, aucune réécriture silencieuse.
+Validation : 783 tests locaux réussis, dont test intégrant le traçage du vérificateur (un appel A, deux B) et rejet de liste d’incertitudes mal typée. Aucun nouvel appel IA après les trois essais. Les trois interprétations recopiaient la question : cette observation ne prouve pas qu’interpréter avant recherche est inutile en général. Il faut mesurer une reformulation utile et la disponibilité des fiches avant d’ajouter une troisième architecture.
+
 ### 2026-10-21 — panneau de connexion administrateur opaque avant authentification
 Correction du périmètre de l’habillage : le formulaire du mot de passe restait en dehors des conteneurs opaques, et la feuille de style n’était chargée qu’après authentification. Style désormais chargé avant la connexion ; formulaire, champ et messages de succès/erreur placés dans le même fond blanc opaque. Aucun changement du contrôle du mot de passe ni des droits. Validation : compilation et vérification du positionnement avant authentification ; rendu final à contrôler sur le hub.
 

@@ -71,3 +71,22 @@ class ArchitectureComparisonTests(unittest.TestCase):
         llm = FakeLLM('ne doit pas être appelé')
         render(Surface(), llm=llm, retrieve=None, version='test', model='fake')
         self.assertEqual(llm.prompts, [])
+
+    def test_generation_is_counted_once_even_when_reviewer_traces(self):
+        from documentary_review import TracedLLM
+        llm = FakeLLM('{"action":"chercher","objet":"accès","incertitudes":[],"recherche":"accès"}')
+        def reviewed(model, *, audit, **kwargs):
+            TracedLLM(model, audit).complete('rédaction')
+            return 'réponse'
+        with patch('architecture_comparison.review_exam_answer', side_effect=reviewed):
+            result = run_comparison(llm=llm, retrieve=lambda *args: ('preuves', [], [], ''),
+                                    question='q', public='p', mode='ipack', academy='a', version='test')
+        self.assertEqual(len(llm.prompts), 3)
+        self.assertEqual(result['branches']['A']['usage']['calls'], 1)
+        self.assertEqual(result['branches']['B']['usage']['calls'], 2)
+        self.assertEqual(result['branches']['B']['interpretation']['incertitudes'], '')
+
+    def test_invalid_uncertainty_list_is_rejected(self):
+        with self.assertRaises(ValueError):
+            interpret(FakeLLM('{"action":"a","objet":"o","incertitudes":[{"fait":"inventé"}],"recherche":"q"}'),
+                      'q', 'p', 'ipack', 'a')

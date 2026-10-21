@@ -1302,9 +1302,12 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens'):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy'):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
+    if selection_policy not in ('legacy', 'compare_candidates'):
+        raise ValueError('Politique de sélection inconnue')
+    audit['requested_selection_policy'] = selection_policy
     packets = source_packets(documents)
     audit['context_exact'] = documents
     audit['context_sha256'] = hashlib.sha256(documents.encode()).hexdigest()
@@ -1324,6 +1327,18 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                                              or circuit_document_mismatch(question, p['text'])
                                              or context_document_mismatch(question, public, mode, p)]
     packets = [p for p in packets if p['id'] not in audit['excluded_situation_documents']]
+    # Expérience explicite uniquement : aucune activation dans app.py.
+    # Un paquet trop grand conserve le comportement courant, sans tronquer
+    # une condition de preuve ni masquer arbitrairement une sous-question.
+    comparable = [p for p in packets if p['origin'] == 'document']
+    compare_candidates = (selection_policy == 'compare_candidates'
+                          and len(comparable) <= 8
+                          and sum(len(p['text']) for p in comparable) <= 18000)
+    audit['effective_selection_policy'] = 'compare_candidates' if compare_candidates else 'legacy'
+    audit['candidate_comparison_fallback'] = (selection_policy == 'compare_candidates' and not compare_candidates)
+    if compare_candidates:
+        audit['candidate_comparison_excluded_program_ids'] = [p['id'] for p in packets if p['origin'] != 'document']
+        packets = comparable
     focused = [p for p in packets if catalogue_focus_match(question, p)
                or (p['origin'] == 'document' and isinstance(p['priority'], (int, float)) and p['priority'] >= 300)]
     if not focused:
@@ -1334,7 +1349,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                    and isinstance(p['priority'], (int, float)) and p['priority'] >= 200]
     audit['focused_document_ids'] = [p['id'] for p in focused]
     audit['document_selection_before_focus'] = [p['id'] for p in packets]
-    if focused:
+    if focused and not compare_candidates:
         # Les résumés généraux générés par le programme ne complètent pas
         # une fiche de situation : leurs règles abrégées peuvent perdre ses réserves.
         generic = [p for p in packets if p['origin'] == 'program'
@@ -1374,7 +1389,9 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_handicap_overview_documents'] = [p['id'] for p in before_handicap if p not in packets]
     audit['document_selection_after_focus'] = [p['id'] for p in packets]
     audit['excluded_by_priority_focus'] = [p['id'] for p in audit['documents'] if p['id'] in audit['document_selection_before_focus'] and p['id'] not in audit['document_selection_after_focus']]
-    audit['context_selection'] = 'fiches_specifiques_prioritaires' if focused else 'tous_les_passages_disponibles'
+    audit['context_selection'] = ('comparaison_des_fiches_candidates' if compare_candidates
+                                else 'fiches_specifiques_prioritaires' if focused
+                                else 'tous_les_passages_disponibles')
     packets, marked = select_academy(packets, academy)
     audit['academy'] = academy
     audit['marked_academic_passages'] = marked
@@ -1405,6 +1422,19 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'réponds seulement sur ce que les passages établissent pour le même objet, sinon retourne {"claims":[]}.')
     recorded = TracedLLM(llm, audit)
     model_packets = [compact_model_packet(p) for p in packets]
+    if compare_candidates:
+        # Descriptions de recherche issues des titres, jamais des preuves nouvelles.
+        for model_packet, packet in zip(model_packets, packets):
+            examples = re.findall(r'^\s*-?\s*Formulations courantes[^:]*:\s*(.+)$', packet['text'], re.M)
+            model_packet['retrieval_profile'] = {'objet_annonce': packet['title'],
+                                                 'exemples_documentaires': [e[:400] for e in examples[:1]]}
+        instructions += ('\nCOMPARAISON DES CANDIDATS : identifie l’action et l’objet demandés, puis choisis '
+                         'les passages qui y répondent réellement. Les titres, exemples et priorités de recherche '
+                         'ne prouvent ni l’applicabilité ni les faits. Une fiche peut être écartée même si elle '
+                         'partage des mots avec la question. Combine des fiches pour des sous-demandes distinctes '
+                         'seulement si leurs conditions sont compatibles. Si un volet manque, signale cette limite '
+                         'sans lui substituer une procédure voisine. Les affirmations restent justifiées par les '
+                         'seuls identifiants de passages ; ne publie pas ton travail de comparaison.')
     audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
     data = json.dumps({'public':public,'academy':academy,'question':question,'documents':model_packets,
                        'evidence_constraints':audit['evidence_constraints'],

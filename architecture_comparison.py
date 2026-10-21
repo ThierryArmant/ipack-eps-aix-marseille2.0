@@ -2,6 +2,11 @@
 import json
 import time
 from pathlib import Path
+from question_preflight import prepare_question
+from knowledge_catalog import effective_context
+from academie import request_academy
+from hub_session import public_label
+from guided_navigation import render_guide
 from documentary_review import TracedLLM, review_exam_answer, usage_summary
 
 
@@ -34,9 +39,19 @@ Contexte imposé (ne pas modifier) : ''' + json.dumps(
 
 def run_comparison(*, llm, retrieve, question, public, mode, academy, version):
     """Même moteur de recherche et de contrôle ; seule B ajoute l'interprétation."""
+    initial_context = dict(public=public, mode=mode, academy=academy)
+    initial_mode = mode
+    public, mode = effective_context(question, public, mode)
+    academy, academy_notice = request_academy(question, initial_mode, academy)
+    common = prepare_question(question, public, mode)
     result = dict(question=question, public=public, mode=mode, academy=academy,
                   version=version, model=str(getattr(llm, "model", "")),
-                  temperature=getattr(llm, "temperature", None), branches={})
+                  temperature=getattr(llm, "temperature", None), branches={},
+                  initial_context=initial_context, academy_notice=academy_notice, preflight=common,
+                  comparison_executed=common['kind'] == 'ia')
+    if not result['comparison_executed']:
+        result['usage'] = usage_summary({})
+        return result
     instructions = Path('config/consignes_fiabilite.txt').read_text(encoding='utf-8')
     for branch in ('A', 'B'):
         audit = {}
@@ -71,9 +86,10 @@ def render(st, *, llm, retrieve, version, model):
     with st.expander('🧪 Comparateur des architectures A / B', expanded=False):
         st.caption('A : recherche actuelle → rédaction. B : interprétation IA → même recherche → rédaction. '
                    'Même modèle, température et contrôles. Pas de discussion entre les colonnes.')
-        st.info('Ce comparateur étudie le parcours documentaire : les raccourcis, guides, réponses en cache '
-                'et demandes de précision préalables du hub ne sont pas exécutés. A ne reproduit donc pas tout le parcours public.')
-        st.warning('Le bouton lance deux traitements facturables. B ajoute un appel d’interprétation ; '
+        st.info('Le guidage, les demandes de précision et les réponses documentaires directes sont vérifiés en commun avant A/B. '
+                'Si ce parcours suffit, aucun appel IA et aucune comparaison ne sont lancés. '
+                'Les autres anciennes branches spécifiques du hub ne sont pas reproduites : ce test ne certifie pas tout le parcours public.')
+        st.warning('Si une réponse IA est nécessaire, le bouton lance deux traitements facturables. B ajoute un appel d’interprétation ; '
                    'une réparation peut ajouter un appel dans chaque colonne. Les recherches vectorielles sont hors compteurs ci-dessous. '
                    'Aucun enregistrement dans le journal des collègues. Téléchargez les résultats avant de quitter la session.')
         with st.form('architecture_comparison_form'):
@@ -81,7 +97,7 @@ def render(st, *, llm, retrieve, version, model):
             public = st.selectbox('Niveau du comparatif', ['Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'])
             mode = st.selectbox('Domaine du comparatif', ['ipack', 'examens', 'textes'])
             academy = st.text_input('Académie du comparatif', value='Aix-Marseille')
-            submitted = st.form_submit_button('Comparer A et B — appels IA payants')
+            submitted = st.form_submit_button('Tester le parcours — IA payante si nécessaire')
         if submitted:
             if not question.strip():
                 st.error('Saisissez une question.')
@@ -95,23 +111,36 @@ def render(st, *, llm, retrieve, version, model):
             return
         st.write(result['question'])
         st.caption(f"Version {result['version']} · modèle {result['model']} · température {result['temperature']} · {result['public']} · {result['mode']} · {result['academy']}")
-        for col, branch, title in zip(st.columns(2), ('A', 'B'), ('A — Recherche actuelle', 'B — Interprétation avant recherche')):
-            with col:
-                st.subheader(title)
-                item = result['branches'][branch]
-                if item.get('error'):
-                    st.error(item['error'])
-                if item.get('answer'):
-                    st.markdown(item['answer'], unsafe_allow_html=True)
-                usage = item['usage']
-                st.caption(f"{usage['calls']} appels · {item['elapsed_seconds']} s · " +
-                           (f"{usage['input_tokens']} jetons entrée · {usage['output_tokens']} sortie" if usage['complete']
-                            else 'Comptage des jetons incomplet'))
-                if 'interpretation' in item:
-                    with st.expander('Interprétation et requête B'):
-                        st.json(item['interpretation'])
-                with st.expander('Fiches et trace complète'):
-                    st.json(item)
-        st.caption('Deux réponses identiques ne prouvent pas leur exactitude. Comparez la pertinence, les conditions et les sources.')
+        if not result.get('comparison_executed', True):
+            common = result['preflight']
+            st.success('Parcours commun du hub — comparaison A/B non nécessaire. 0 appel IA, 0 jeton de génération.')
+            if common['kind'] == 'guide':
+                st.write(common['precision'])
+                render_guide(st, 'architecture_comparison_common_guide', public_label(result['public']),
+                             mode=result['mode'], question=result['question'])
+            elif common['kind'] == 'documentee':
+                st.write(common['documented_answer'])
+                st.json(common['documented_source'])
+            else:
+                st.write(common['precision'])
+        else:
+            for col, branch, title in zip(st.columns(2), ('A', 'B'), ('A — Recherche actuelle', 'B — Interprétation avant recherche')):
+                with col:
+                    st.subheader(title)
+                    item = result['branches'][branch]
+                    if item.get('error'):
+                        st.error(item['error'])
+                    if item.get('answer'):
+                        st.markdown(item['answer'], unsafe_allow_html=True)
+                    usage = item['usage']
+                    st.caption(f"{usage['calls']} appels · {item['elapsed_seconds']} s · " +
+                               (f"{usage['input_tokens']} jetons entrée · {usage['output_tokens']} sortie" if usage['complete']
+                                else 'Comptage des jetons incomplet'))
+                    if 'interpretation' in item:
+                        with st.expander('Interprétation et requête B'):
+                            st.json(item['interpretation'])
+                    with st.expander('Fiches et trace complète'):
+                        st.json(item)
+            st.caption('Deux réponses identiques ne prouvent pas leur exactitude. Comparez la pertinence, les conditions et les sources.')
         st.download_button('Télécharger le comparatif et ses traces', json.dumps(result, ensure_ascii=False, indent=2),
                            file_name='comparatif_architectures_prive.json', mime='application/json')

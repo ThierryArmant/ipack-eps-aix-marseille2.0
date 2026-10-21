@@ -123,7 +123,10 @@ class FichesVoisines(unittest.TestCase):
         self.assertNotIn('exclusivement à deux exigences', lai)
         self.assertIn('aucune règle nationale des 48 heures', Path('data/textes/fiches/arrete_1989_certificat_inaptitude.txt').read_text(encoding='utf-8'))
         self.assertIn('ne pas conclure à une obligation', Path('data/textes/fiches/tzr_decret_99_823_remplacement.txt').read_text(encoding='utf-8'))
-        self.assertIn('if mode == "textes" and demande_precision.startswith', Path('app.py').read_text(encoding='utf-8'))
+        from question_preflight import prepare_question
+        from unittest.mock import patch
+        with patch('question_preflight.clarification', return_value="Pour décider d'une note : précisez"):
+            self.assertEqual(prepare_question('Certificat médical et recours', GT, 'textes')['precision'], '')
 
     def test_premisse_et_objet_non_couvert_dans_la_consigne(self):
         from pathlib import Path

@@ -27,6 +27,7 @@ class VagueRequestTests(unittest.TestCase):
 
     def test_app_branche_le_guide_avant_toute_generation(self):
         from pathlib import Path
-        src = Path('app.py').read_text(encoding='utf-8')
+        src = Path('question_preflight.py').read_text(encoding='utf-8')
+        self.assertIn('prepare_question(prompt, niveau_actuel_form, mode)', Path('app.py').read_text())
         self.assertIn('or vague_request_opens_guide(prompt, mode, niveau_actuel_form)', src)
         self.assertIn('demande_precision = GUIDE_MESSAGE if _guide_demande', src)

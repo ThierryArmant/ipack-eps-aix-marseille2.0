@@ -30,7 +30,8 @@ class NotesEntryClarificationTests(unittest.TestCase):
         self.assertNotIn('Dans quel logiciel', clarification('Où saisir les notes ?', 'Lycée Général & Techno', mode='ipack'))
 
     def test_app_supplies_mode_to_documentary_clarification(self):
-        tree = ast.parse(Path('app.py').read_text())
+        tree = ast.parse(Path('question_preflight.py').read_text())
+        self.assertIn('prepare_question(prompt, niveau_actuel_form, mode)', Path('app.py').read_text())
         calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call)
                  and isinstance(n.func, ast.Name) and n.func.id == 'clarification']
         self.assertTrue(calls)

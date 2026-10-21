@@ -55,7 +55,7 @@ class GuideMessageTests(unittest.TestCase):
         from guide_request import MESSAGE_PARCOURS
         self.assertNotIn('choisissez simplement une rubrique', MESSAGE_PARCOURS)
         src = (ROOT / 'app.py').read_text(encoding='utf-8')
-        self.assertIn('GUIDE_MESSAGE = GUIDE_MESSAGE_PARCOURS', src)
+        self.assertIn('GUIDE_MESSAGE = MESSAGE_PARCOURS', (ROOT / 'question_preflight.py').read_text(encoding='utf-8'))
 
 
 class GuideExplicationTests(unittest.TestCase):

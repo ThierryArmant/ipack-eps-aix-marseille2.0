@@ -29,8 +29,9 @@ class ArchitectureComparisonTests(unittest.TestCase):
         self.assertEqual(queries[1], ('question originale', 'Collège (DNB)', 'ipack', 'accès second établissement'))
         for call in review.call_args_list:
             self.assertEqual(call.kwargs['question'], 'question originale')
-            self.assertEqual(call.kwargs['academy'], 'Grenoble')
+            self.assertEqual(call.kwargs['academy'], 'Non précisée')
             self.assertNotIn('selection_policy', call.kwargs)
+        self.assertEqual(result['initial_context']['academy'], 'Grenoble')
         self.assertEqual(result['branches']['B']['usage']['calls'], 1)
         self.assertFalse(result['branches']['B']['usage']['complete'])
 
@@ -90,3 +91,35 @@ class ArchitectureComparisonTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             interpret(FakeLLM('{"action":"a","objet":"o","incertitudes":[{"fait":"inventé"}],"recherche":"q"}'),
                       'q', 'p', 'ipack', 'a')
+
+    def test_guided_question_never_calls_search_or_model(self):
+        from unittest.mock import Mock
+        llm = FakeLLM('ne pas appeler')
+        retrieve = Mock(side_effect=AssertionError('recherche inattendue'))
+        result = run_comparison(llm=llm, retrieve=retrieve,
+                                question="J'enseigne le volley aux cinquièmes, comment renseigner cela ?",
+                                public='Collège (DNB)', mode='ipack', academy='Aix-Marseille', version='test')
+        self.assertEqual(result['preflight']['kind'], 'guide')
+        self.assertFalse(result['comparison_executed'])
+        self.assertEqual(result['branches'], {})
+        self.assertEqual(result['usage']['calls'], 0)
+        self.assertEqual(llm.prompts, [])
+        retrieve.assert_not_called()
+
+    def test_clarification_never_calls_search_or_model(self):
+        llm = FakeLLM('ne pas appeler')
+        result = run_comparison(llm=llm, retrieve=None,
+                                question='Inaptitude : dois-je attribuer zéro ou DI ?',
+                                public='Lycée Général & Techno', mode='examens', academy='Aix-Marseille', version='test')
+        self.assertEqual(result['preflight']['kind'], 'clarification')
+        self.assertFalse(result['comparison_executed'])
+        self.assertEqual(llm.prompts, [])
+
+    def test_documented_response_has_same_precedence_as_public_hub(self):
+        llm = FakeLLM('ne pas appeler')
+        with patch('question_preflight.documented_response', return_value=('extrait documenté', {'title':'source'})):
+            result = run_comparison(llm=llm, retrieve=None, question='aide moi je suis perdu',
+                                    public='Collège (DNB)', mode='ipack', academy='Aix-Marseille', version='test')
+        self.assertEqual(result['preflight']['kind'], 'documentee')
+        self.assertEqual(result['preflight']['documented_answer'], 'extrait documenté')
+        self.assertEqual(llm.prompts, [])

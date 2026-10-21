@@ -25,6 +25,10 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-21 — fond commun des panneaux d’administration
+Demande utilisateur : harmoniser toute la zone des outils d’administration. Audit documentaire, rejeu et comparateur sont placés dans des conteneurs blancs opaques avec texte foncé, champs clairs et boutons bleus, comme le panneau de tests existant. Bandeau de veille administrateur également harmonisé. CSS limité aux conteneurs administrateur ; aucun changement du parcours des collègues, des réponses, de la recherche ou des appels IA. Capture jointe inaccessible localement : référence reprise dans le style existant du panneau de tests, sans prétendre avoir contrôlé la capture.
+Validation : compilation, contrôle du diff et 781 tests locaux réussis. Aucun appel IA. Affichage final à vérifier sur le hub.
+
 ### 2026-10-21 — comparateur documentaire A/B réservé à l’administration
 Fait : deux colonnes pour la même question, même contexte, même modèle et température. A cherche à partir de la question originale ; B ajoute une interprétation courte et contrôlée avant la recherche. La rédaction garde toujours la question originale. Même moteur documentaire partagé, mêmes contrôles de preuves ; pilote compare_candidates laissé désactivé. Aucun échange entre architectures ni réponse métier en dur ajoutée.
 Interface : lancement payant explicite uniquement, réponses, fiches, interprétation, traces, appels, jetons et durée ; téléchargement JSON privé. Pas d’écriture au journal des collègues, pas de lot automatique, aucun appel à l’ouverture ou au téléchargement. Une interprétation invalide arrête B sans repli silencieux. Une colonne en erreur ne bloque pas l’autre. Compteurs de génération hors recherches vectorielles ; métriques inconnues signalées.

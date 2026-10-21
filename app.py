@@ -1195,9 +1195,12 @@ with st.expander("⚙️ Administration", expanded=False):
 # Audit réservé aux administrateurs : aucune question enregistrée côté serveur.
 if st.session_state.get("is_admin", False):
     from admin_retest_113 import render as render_admin_retest_113
-    render_admin_retest_113(st)
+    from admin_style import ADMIN_CSS
+    st.markdown(ADMIN_CSS, unsafe_allow_html=True)
     from admin_retest_113_live import render as render_admin_retest_113_live
-    render_admin_retest_113_live(st)
+    with st.container(border=True, key="hub_admin_tools"):
+        render_admin_retest_113(st)
+        render_admin_retest_113_live(st)
 
 # ======================================================================
 # 5. BANDEAU SUPÉRIEUR
@@ -1246,18 +1249,18 @@ if st.session_state.get("is_admin", False):
     _liste_veille = ""
     if _rapport_veille and _rapport_veille["titres"]:
         _liste_veille = "<ul style='margin: 6px 0 0 18px; padding: 0;'>" + "".join(
-            f'<li><a href="{_html_veille.escape(u)}" target="_blank" style="color: #FFB020 !important;">{_html_veille.escape(t)}</a></li>'
+            f'<li><a href="{_html_veille.escape(u)}" target="_blank" style="color: #17365D !important;">{_html_veille.escape(t)}</a></li>'
             for t, u in _rapport_veille["titres"]) + "</ul>"
-    _lien_veille = (f'<br><a href="{_rapport_veille["url"]}" target="_blank" style="color: #FFB020 !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">Lire le rapport complet</a>'
+    _lien_veille = (f'<br><a href="{_rapport_veille["url"]}" target="_blank" style="color: #17365D !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">Lire le rapport complet</a>'
                     if _rapport_veille else "")
     st.markdown(
         f"""
-        <div style="background-color: rgba(15, 23, 42, 0.85) !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+        <div style="background-color: #FFFFFF !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
             <div style="display: flex; align-items: flex-start; gap: 12px;">
                 <span style="font-size: 22px; margin-top: 2px;">🔔</span>
                 <div style="width: 100%;">
-                    <strong style="color: #FFB020 !important; font-size: 14px; text-transform: uppercase;">{_html_veille.escape(_titre_veille)} (admin)</strong>
-                    <div style="color: #F1F5F9 !important; font-size: 13.5px; margin-top: 6px;">{_html_veille.escape(_phrase_veille)}{_liste_veille}{_lien_veille}</div>
+                    <strong style="color: #17365D !important; font-size: 14px; text-transform: uppercase;">{_html_veille.escape(_titre_veille)} (admin)</strong>
+                    <div style="color: #14263D !important; font-size: 13.5px; margin-top: 6px;">{_html_veille.escape(_phrase_veille)}{_liste_veille}{_lien_veille}</div>
                 </div>
             </div>
         </div>
@@ -1316,8 +1319,9 @@ if st.session_state.get("is_admin", False):
             retriever_peda=retriever_peda, retriever_santorin=retriever_santorin,
             retriever_ipack=retriever_ipack, libelle_source=libelle_source,
             _url_source=_url_source, search_prompt=search_prompt)
-    render_architecture_comparison(st, llm=Settings.llm, retrieve=_comparison_retrieve,
-                                  version=_sha, model=modele_ia)
+    with st.container(border=True, key="hub_admin_comparison"):
+        render_architecture_comparison(st, llm=Settings.llm, retrieve=_comparison_retrieve,
+                                      version=_sha, model=modele_ia)
 
 def _bandeau_etape(numero, titre, sous_titre, couleur=""):
     """En-tête d'étape : pastille (✓ si faite, numéro sinon) et titre, dans le panneau du parcours.

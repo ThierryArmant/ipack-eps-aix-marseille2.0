@@ -195,9 +195,14 @@ def clarification(question, public, *, mode=None):
     # Relevé à l'écran (18/10/2026) : établissement, EPS, AS et SSS sont tous dans [Dossier EPS] > [Projets] ;
     # la fiche ciblée répond directement, sans demander le type de projet.
     # Expliquer un dépôt ou une déclaration ne choisit pas le statut médical.
+    explicit_value_choice = bool(re.search(
+        r'je (?:mets|dois mettre|saisis)|'
+        r'quel(?:le)?s? (?:note|code|statut|valeur)|'
+        r'(?:note|code|statut|valeur).{0,35}(?:choisir|retenir|utiliser|mettre)', q))
     medical_document_step = (
         re.search(r'depos|joindre|enregistr|declar|comment saisir|ou saisir', q)
         and re.search(r'certificat|inaptitude|epreuve de substitution', q)
+        and not explicit_value_choice
         and not re.search(r'\bdi\b|\bzero\b|\b0\b|je (?:mets|dois mettre|saisis)|'
                           r'quel(?:le)?s? (?:note|code|statut)|annuler|conserver|retenir|note finale', q))
     if medical_document_step:
@@ -205,6 +210,8 @@ def clarification(question, public, *, mode=None):
     # Comparer deux libellés n'est pas décider lequel attribuer à un cas médical.
     if (re.search(r'santorin|codes?|note particuliere', q)
             and re.search(r'(?:absent|\babs\b).{0,100}(?:ou|et|comme|versus|vs).{0,40}(?:dispens|\bdisp\b)', q)
+            and not (explicit_value_choice and re.search(
+                r'je (?:mets|dois mettre|saisis)|inapt|pour (?:mon|cet|un) eleve', q))
             and not re.search(r'mon eleve|cet eleve|blesse|certificat|partiel|total', q)):
         return ''
     # Les conditions médicales restent nécessaires pour choisir une valeur

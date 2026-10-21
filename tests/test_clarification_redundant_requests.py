@@ -17,3 +17,22 @@ class RedundantClarifications(unittest.TestCase):
         self.assertEqual(clarification('Santorin : si je coche Absent, ça donne zéro ou ça neutralise comme Dispensé ?', 'Lycée Pro / CAP',mode='examens'),'')
         self.assertEqual(clarification('Informations manquantes : dans quel ordre remplir les tuiles ?', 'Lycée Général & Techno',mode='ipack'),'')
         self.assertTrue(clarification('Informations manquantes : que faire ?', 'Lycée Général & Techno',mode='ipack'))
+
+    def test_administrative_wording_does_not_hide_individual_value_choice(self):
+        for q in [
+            'Comment saisir une inaptitude dans Santorin : je mets Absent ou Dispensé ?',
+            'Comment saisir une inaptitude, quelle valeur mettre ?',
+        ]:
+            with self.subTest(q=q):
+                self.assertIn('CAP ou baccalauréat professionnel', clarification(q, 'Lycée Pro / CAP', mode='examens'))
+        self.assertTrue(clarification(
+            'Comment saisir une inaptitude dans Santorin : je mets Absent ou Dispensé ?',
+            'Lycée Général & Techno', mode='examens'))
+        for q in [
+            'Comment saisir une inaptitude dans Santorin ?',
+            'Où déposer le certificat médical de l’élève déjà dispensé ?',
+            'Santorin : Absent ou Dispensé, quelle différence dans le calcul ?',
+            'Quels libellés Santorin correspondent aux cas Absent et Dispensé ?',
+        ]:
+            with self.subTest(q=q):
+                self.assertEqual(clarification(q, 'Lycée Pro / CAP', mode='examens'), '')

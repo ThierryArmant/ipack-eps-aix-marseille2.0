@@ -165,3 +165,75 @@ def workflow_fidelity_errors(claims, question):
                 and re.search(r'import', text) and not re.search(r'\borganisation\b', combined)):
             errors.append({'index':i, 'errors':['le parcours cité passe par Organisation des Classes avant l’import ; conserver cette étape pour attribuer le professeur']})
     return errors
+
+
+# Familles d'opérations : rapprochements de vocabulaire, aucune réponse métier.
+_ACTION_FAMILIES = (
+    r'accept|admett|admis|admission|accueill',
+    r'export|import|transfert|televers',
+    r'evaluation differee|epreuve differee|rattrapage',
+    r'evaluation ponctuelle|epreuve ponctuelle|examen ponctuel|ponctuel de remplacement',
+)
+
+
+def evidence_relation_errors(claims, question):
+    """Contrôler des transferts explicites de prédicat et de condition.
+
+    Ne prouve pas l'implication sémantique générale : aucun fait nouveau produit.
+    Une réserve d'incertitude reste possible quand le prédicat n'est pas documenté.
+    """
+    errors = []
+    for i, claim in enumerate(claims):
+        text = normalized(claim.get('text', ''))
+        proof = normalized(' '.join(e.get('quote', '') for e in claim.get('evidence', [])))
+        if not proof:
+            continue
+        bounded = bool(re.search(r"(?:sources|passages|documents|documentation).{0,40}ne.{0,30}pas|"
+                                 r"ne.{0,25}pas.{0,15}confirmer|pas (?:possible de confirmer|documente)|non confirme|reste a verifier", text))
+        if bounded:
+            continue
+        q = normalized(question)
+        optional = r'\boption\b|optionnel|option eps|eps option|facultati'
+        scoped_proof = re.sub(r"en complement de l.epreuve obligatoire(?: ponctuelle)?", '', proof)
+        if (re.search(r'ponctuel|epreuve obligatoire', q) and not re.search(optional, q)
+                and re.search(r'optionnel|enseignement option|option eps|eps option|facultati', scoped_proof) and not re.search(r'obligatoire|enseignement commun', scoped_proof)
+                and not re.search(optional, text)):
+            errors.append({'index': i, 'errors': ['une preuve limitée à l’option ne justifie pas une règle de l’épreuve obligatoire : retrouver le passage du régime demandé']})
+        single = r'\bdi(?:\s*\+\s*|\s+)di\b|note unique|une seule (?:note|epreuve|evaluation)|une (?:note|epreuve) sur trois'
+        if (re.search(r'inapt', q) and re.search(r'sais|declar|enregistr', q)
+                and not re.search(single + r'|moyenne|calcul|deux notes|deux epreuves', q)
+                and re.search(r'note unique|une seule note', text)
+                and not re.search(r'(?:\bsi\b|lorsque|dans le cas).{0,100}(?:une seule note|note unique|deux.{0,40}(?:imposs|inapt|di))', text)):
+            errors.append({'index': i, 'errors': ['le nombre de notes déjà obtenues n’est pas établi par la demande : ne pas appliquer le cas de note unique sans condition']})
+        # Un qualificatif constitutif d'un droit doit être étayé, pas déduit du
+        # thème commun de la preuve (par ex. une indemnité quelconque).
+        if re.search(r'\bprotege\w*\b', text) and not re.search(r'\bprotege\w*\b|protection|garanti', proof):
+            errors.append({'index': i, 'errors': ['garantie ou protection affirmée sans passage qui l’établit : conserver seulement le droit et les conditions effectivement documentés']})
+        # Le « non » d'une opération ne prouve pas le refus d'une autre action.
+        for action in _ACTION_FAMILIES[:1]:
+            if (re.search(action, text) and re.search(r'\bnon\b|ne.{0,45}pas|impossible|interdit', text)
+                    and not re.search(action, proof)):
+                errors.append({'index': i, 'errors': ['la négation citée porte sur une autre opération : le refus de l’action affirmée doit être documenté, sinon signaler ce qui reste à vérifier']})
+        # Une condition d'une branche ne restreint pas une autre alternative.
+        exclusive = re.search(r'uniquement si|seulement si|sauf(?: dans| en)?', text)
+        if exclusive:
+            for action in _ACTION_FAMILIES[2:]:
+                head = text[:exclusive.start()]
+                if not re.search(action, head):
+                    continue
+                branches = re.split(r'\bsoit\b|(?<=[.;])\s+', proof)
+                matching = [b for b in branches if re.search(action, b)]
+                other = ' '.join(b for b in branches if not re.search(action, b))
+                tail = text[exclusive.end():]
+                # Un fait d'évaluation antérieure et une cause de différé sont
+                # des conditions distinctes, pas des synonymes.
+                for condition, marker in ((r'notes?.{0,30}(?:deja|obten|acquis)|(?:deja|obten|acquis).{0,30}notes?', r'\bnotes?\b'), (r'force majeure', r'force majeure')):
+                    if (matching and re.search(condition, tail) and re.search(marker, other)
+                            and not any(re.search(marker, b) for b in matching)):
+                        errors.append({'index': i, 'errors': ['condition empruntée à une autre branche du passage : conserver les alternatives sans ajouter de préalable ni d’exception à l’opération demandée']})
+        # Un périmètre logiciel négatif doit nommer l'objet qu'il exclut. Les
+        # synonymes de notes/bulletins ne démontrent pas le périmètre d'un référentiel.
+        if (re.search(r'curseur', text) and re.search(r'ne.{0,45}pas.{0,20}ger|ne.{0,35}gere|pas.{0,25}gere', text)
+                and not re.search(r'curseur', proof)):
+            errors.append({'index': i, 'errors': ['le passage cité ne documente pas cet objet logiciel : ne pas déduire son absence du périmètre d’un autre objet']})
+    return errors

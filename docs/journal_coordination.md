@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — applicabilité des preuves et branches de décision
+Fait : exclusions d’objet avant orientation (option contre épreuve obligatoire, note unique non présumée par une opération d’enregistrement, périmètre des curseurs, rapport d’accident contre défense de l’agent). Contrôles de restitution ciblés : une négation reste liée à son opération ; une protection doit être documentée ; les conditions des branches alternatives ne se transfèrent pas d’une branche à l’autre. Consigne de rédaction renforcée sur ces relations, sans ajouter de réponse métier ni de nouvel appel.
+Fait : le comptage des notes distingue une note à saisir des évaluations déjà obtenues ; les passages explicitement contrastifs restent lisibles. Un conseil final facultatif de contact rejeté faute de preuve peut être omis si des démarches sont déjà valides : pas si le contact est demandé, obligatoire ou lié à une urgence. Retrait tracé, sans nouvelle génération et sans supprimer les conditions métier.
+Validation : 914 tests OK, dont 13 tests ciblés couvrant cas corrigés et voisins, réparation du circuit et conservation des démarches valides. Examen mécanique hors ligne des affirmations des 113 traces : sept lignes correspondent aux six familles de transferts identifiées (deux variantes du même cas). Les nouveaux refus de comptage de notes sont supprimés sur les deux traces concernées ; un conseil facultatif final n’entraîne plus le rejet des démarches sur la trace étudiée. Aucun rejeu payant.
+Limites : contrôles conservateurs de formes explicites, pas une vérification sémantique générale. Ils empêchent des affirmations non justifiées ; une nouvelle rédaction correcte reste à mesurer. Sans source sur une fonctionnalité, aucune procédure n’est inventée. Le lot de mesure doit distinguer refus légitime, réponse partielle et régression.
+Attendu : tests en ligne par couples (demande corrigée puis demande voisine), avant toute nouvelle série complète.
+
 ### 2026-10-22 — partie programme — rétablir le journal partagé pour les rejeux
 Fait : à la demande du pilote, les réponses des rejeux administrateur sont de nouveau envoyées au même journal que les questions ordinaires, avec les champs de mesure existants (version, appels, jetons et durée). L’export privé avec les traces reste disponible ; le panneau le précise.
 Limite : aucun rattrapage automatique des lignes déjà calculées pendant l’exclusion. Elles peuvent être reprises depuis le CSV sans nouvel appel de génération. La réception dans la feuille dépend du service de journalisation et n’est pas vérifiée par un appel réel pendant ce correctif.

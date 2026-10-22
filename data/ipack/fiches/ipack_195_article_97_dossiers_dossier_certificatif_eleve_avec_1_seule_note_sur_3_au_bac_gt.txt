@@ -1,8 +1,9 @@
 ### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT
 Mots-clés : 1 seule note bac, blessure longue durée, garder la note ou dispenser, note unique, DI DI note, neutralisation coeff bac, fiche individuelle.
-- Règle : avec une seule note sur trois, la moyenne ne se valide pas d'elle-même. Procédure nationale (tutoriel Santorin, article 67) : l'enseignant, en concertation avec l'équipe, soit conserve la note unique en la justifiant dans le champ « Appréciations », soit la remplace par DI (dispense) en le justifiant aussi ; l'épreuve d'EPS est alors neutralisée.
+- Règle nationale (bac GT en CCF) : lorsque l’inaptitude attestée en cours d’année empêche de présenter deux autres épreuves, l’enseignant du groupe classe apprécie la situation. Il peut retenir l’unique note pour la certification ou, si les éléments d’appréciation sont trop réduits, ne proposer aucune note et mentionner la dispense d’épreuve ; le coefficient EPS est alors neutralisé. Il examine également les possibilités d’adaptation ou d’évaluation différée. Cette règle ne dépend pas de l’académie.
 - Procédure :
   1. L'équipe formule une proposition motivée (note représentative d'un engagement réel, ou dispense).
   2. Dans iPackEPS : déposer la fiche individuelle dans [Dossier Certificatif] > [Dépôt des documents CAHPN] (article 84).
   3. La commission académique (CAHPN) examine ces situations lors de l'harmonisation.
-- Point académique non trouvé : aucune source officielle vérifiée (BA spécial n° 549 d'Aix-Marseille, session 2026) n'établit à Aix-Marseille une dispense automatique quand le candidat a deux DI et une seule note. Appliquer la procédure ci-dessus et, en cas de doute, suivre la circulaire académique de la session ou interroger la DIEC (examenseps@ac-aix-marseille.fr).
+Source de la décision : note de service du 20 février 2026, MENE2531948N, partie 2.e, https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N
+Source de la saisie et du dépôt : tutoriel Santorin / iPackEPS articles 67 et 84 ; les pièces et le circuit de transmission restent à distinguer de la décision nationale.

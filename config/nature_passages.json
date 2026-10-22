@@ -769,6 +769,76 @@
           "reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
         }
       ]
+    },
+    "data/examens/situations_2026_10_13/gt_une_seule_note_sur_trois.txt": {
+      "nature_non_attribuee": [
+        "a_verifier"
+      ],
+      "passages": [
+        {
+          "texte": "Quand une inaptitude attestée en cours d'année empêche le candidat de présenter deux épreuves de son ensemble certificatif, il n'a qu'une seule note : la règle de la moyenne de deux notes ne s'applique pas. C'est l'enseignant du groupe classe qui apprécie, entre deux possibilités prévues par la note de service :",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        },
+        {
+          "texte": "1. permettre une certification sur une seule épreuve : la moyenne du candidat retenue pour le baccalauréat n'est constituée que de cette seule note ;",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        },
+        {
+          "texte": "2. s'il considère les éléments d'appréciation trop réduits, ne pas formuler de proposition de note et mentionner « dispensé de l'épreuve d'éducation physique et sportive » : le coefficient de l'EPS est neutralisé.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        },
+        {
+          "texte": "Avant cela, envisager l'adaptation de l'épreuve (inaptitude partielle) ou l'évaluation différée.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        },
+        {
+          "texte": "Saisie dans Santorin : note unique retenue → « Dispensé » sur les deux APSA non évaluées et la note sur la troisième ; pas de note → « Dispensé » sur les trois épreuves. Dans les deux cas, une appréciation explique la décision à la commission académique.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "guide de saisie Santorin, inaptes avec une note"
+        }
+      ]
+    },
+    "data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt": {
+      "nature_non_attribuee": [
+        "a_verifier"
+      ],
+      "passages": [
+        {
+          "texte": "- Règle nationale (bac GT en CCF) : lorsque l’inaptitude attestée en cours d’année empêche de présenter deux autres épreuves, l’enseignant du groupe classe apprécie la situation. Il peut retenir l’unique note pour la certification ou, si les éléments d’appréciation sont trop réduits, ne proposer aucune note et mentionner la dispense d’épreuve ; le coefficient EPS est alors neutralisé. Il examine également les possibilités d’adaptation ou d’évaluation différée. Cette règle ne dépend pas de l’académie.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        }
+      ]
+    },
+    "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
+      "nature_non_attribuee": [
+        "a_verifier"
+      ],
+      "passages": [
+        {
+          "texte": "Portée : au bac GT, la décision sur une seule note après inaptitude attestée en cours d’année relève de la note de service nationale du 20 février 2026, MENE2531948N, 2.e. Les consignes académiques organisent la transmission et les justificatifs ; elles ne sont pas la source de ce choix national.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
+        }
+      ]
     }
   }
 }

@@ -134,3 +134,31 @@ class SourceScopeTests(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+
+class NationalDecisionScopeTests(unittest.TestCase):
+    def test_national_rule_is_not_restricted_by_academic_provenance(self):
+        original=[{'id':'D1','passages':[{'id':'D1P1','text':'Règle nationale.',
+            'scope':{'nature':['texte_national'],'academy':'Aix-Marseille','not_confirmed_for':'Lyon'}}]}]
+        selected,marked=select_academy(original,'Créteil')
+        self.assertEqual(marked,[])
+        self.assertNotIn('not_confirmed_for',selected[0]['passages'][0]['scope'])
+        self.assertNotIn('academy',selected[0]['passages'][0]['scope'])
+        self.assertIn('academy',original[0]['passages'][0]['scope'])
+
+    def test_one_note_decision_has_national_attribution_and_software_stays_separate(self):
+        path='data/examens/situations_2026_10_13/gt_une_seule_note_sur_trois.txt'
+        selected,marked=select_academy(packets(path),'Créteil')
+        rules=[s for s in selected[0]['passages'] if s['text'].startswith(('Quand une inaptitude','1. permettre','2. s', 'Avant cela'))]
+        self.assertEqual(len(rules),2)
+        self.assertIn("1. permettre une certification",rules[0]["text"])
+        self.assertIn("2. s",rules[0]["text"])
+        self.assertTrue(all(s['scope']['nature']==['texte_national'] for s in rules))
+        self.assertTrue(all(not s['scope'].get('not_confirmed_for') for s in rules))
+        software=next(s for s in selected[0]['passages'] if s['text'].startswith('Saisie dans Santorin'))
+        self.assertEqual(software['scope']['nature'],['logiciel'])
+        self.assertFalse(software['scope'].get('not_confirmed_for'))
+
+    def test_real_academic_procedure_is_still_marked(self):
+        _,marked=select_academy(packets(AIX_PROTOCOLES),'Créteil')
+        self.assertTrue(marked)

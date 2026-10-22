@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme et fiches — décision nationale et circuit académique
+Fait : vérification du texte national du 20 février 2026, partie 2.e. Attribution exacte des passages de décision nationale dans les fiches mixtes ; la saisie reste attribuée au logiciel. Les passages explicitement nationaux, comme les fonctions logicielles communes, ne sont plus territorialisés par l’origine de leur document. Les véritables consignes académiques restent marquées hors de leur académie. Retrait de deux anciennes réserves d’absence de consigne locale qui brouillaient le choix national ; référence du texte ajoutée à l’article documentaire concerné. Aucun résultat métier calculé ni réponse en dur.
+Autre blocage examiné : deux fiches techniques de création de protocole généralisaient une procédure de blessure temporaire au contrôle adapté. Leur champ est désormais explicite : inaptitude partielle temporaire, sans assimilation automatique au handicap ou à l’inaptitude permanente ; la création technique ne vaut pas validation réglementaire. Le reste de la procédure et les restrictions techniques sont conservés.
+Validation : compilation et 880 tests locaux réussis ; registre de portée académique régénéré, tests des attributions nationales, logicielles et locales, maintien des conditions de décision. Rejeu privé à effectuer avec le fournisseur secondaire uniquement ; aucune question ni trace de mesure dans le dépôt.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — conserver ensemble procédure et restrictions
 Fait : les traces privées montrent plusieurs fragments d’une même fiche (même chemin et même titre) exposés comme choix distincts. Le choix pouvait conserver la procédure et perdre le fragment des restrictions. Les candidats d’orientation sont désormais réunis par section documentaire de provenance connue et complétés depuis la section active locale quand elle est identifiable. Une compilation reste divisée par sections ; aucun mélange entre sujets de titres différents. Les fragments sans provenance ne sont pas fusionnés. Le budget de descriptions et le nombre d’appels restent identiques.
 Traçabilité : reconstruction des identifiants de passages et remplacement du fragment dans l’audit par le texte complet effectivement envoyé, sans mutation des paquets d’origine. Une description compacte reste partielle ; les contrôles de preuve sont conservés.

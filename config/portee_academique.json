@@ -888,17 +888,6 @@
     }
    ]
   },
-  "data/examens/santorin_cas_pratiques/04_eleve_inapte_toute_l_annee_ou_avec_une_seule_note_sur_t.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### Santorin / Cyclades : Élève inapte toute l'année, ou avec une seule note sur trois — que saisir dans santorin ?",
-     "lignes": [
-      "- AIX-MARSEILLE : la dispense automatique avec deux activités non évaluées et une seule note n’est pas confirmée par une source officielle vérifiée dans cette base. Ne pas supprimer la note automatiquement ; apprécier le cas selon le texte propre au diplôme et les justificatifs, puis suivre les consignes de la commission."
-     ]
-    }
-   ]
-  },
   "data/examens/santorin_cas_pratiques/10_une_activite_n_a_pas_pu_etre_evaluee_pour_tout_un_group.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1558,17 +1547,6 @@
      "lignes": [
       "2. Un enseignant de l'équipe EPS clique sur [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l'équipe] > [Actualiser] (chemin relevé à l'écran le 18 octobre 2026 ; comptes remontés ensuite, 48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie).",
       "- Pour toute question sur l'hébergement, la durée de conservation ou un outil numérique : le délégué à la protection des données de l'académie (Aix-Marseille : dpd@ac-aix-marseille.fr)."
-     ]
-    }
-   ]
-  },
-  "data/ipack/fiches/ipack_195_article_97_dossiers_dossier_certificatif_eleve_avec_1_seule_note_sur_3_au_bac_gt.txt": {
-   "academie": "aix-marseille",
-   "sections": [
-    {
-     "section": "### [ARTICLE 97] [Dossiers]/[Dossier Certificatif] Élève avec 1 seule note sur 3 au Bac GT",
-     "lignes": [
-      "- Point académique non trouvé : aucune source officielle vérifiée (BA spécial n° 549 d'Aix-Marseille, session 2026) n'établit à Aix-Marseille une dispense automatique quand le candidat a deux DI et une seule note. Appliquer la procédure ci-dessus et, en cas de doute, suivre la circulaire académique de la session ou interroger la DIEC (examenseps@ac-aix-marseille.fr)."
      ]
     }
    ]

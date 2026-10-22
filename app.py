@@ -1872,7 +1872,12 @@ if prompt_a_traiter:
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
             # ==================================================================
-            def _recherche_documentaire():
+            _orientation_active = (mode in ('ipack', 'examens')
+                and bool(st.secrets.get('ALBERT_API_KEY'))
+                and (st.secrets.get('FOURNISSEUR_IA') or 'albert').strip().lower() == 'albert'
+                and (st.secrets.get('ORIENTATION_FICHES') or 'gpt_shortlist').strip().lower() == 'gpt_shortlist')
+
+            def _recherche_documentaire(defer_exclusivity=False):
                 from document_retrieval import retrieve_documents
                 return retrieve_documents(
                     prompt=prompt,
@@ -1892,10 +1897,11 @@ if prompt_a_traiter:
                     libelle_source=libelle_source,
                     _url_source=_url_source,
                     reference_notice=reference_notice,
+                    defer_exclusivity=defer_exclusivity,
                 )
 
             if openai_api_key and not est_cas_direct:
-                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire()
+                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire(defer_exclusivity=_orientation_active)
 
             besoin_ia = False  # passe à True si aucune réponse en dur ne convient : c'est alors l'IA qui répond
 
@@ -2277,7 +2283,7 @@ if prompt_a_traiter:
                     print(f"Erreur de l'arbitre des réponses en dur : {e_arbitre}")
 
             if besoin_ia and openai_api_key and not extraits_doc:
-                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire()
+                extraits_doc, sources_consultees, fiches_diag, erreur_rag = _recherche_documentaire(defer_exclusivity=_orientation_active)
 
             if besoin_ia and (erreur_rag or not extraits_doc):
                 texte_brut = ("<h3>DOCUMENTATION INSUFFISANTE</h3><p>La recherche n'a pas fourni "
@@ -2511,10 +2517,6 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
-                        _orientation_active = (mode in ('ipack', 'examens')
-                            and bool(st.secrets.get('ALBERT_API_KEY'))
-                            and (st.secrets.get('FOURNISSEUR_IA') or 'albert').strip().lower() == 'albert'
-                            and (st.secrets.get('ORIENTATION_FICHES') or 'gpt_shortlist').strip().lower() == 'gpt_shortlist')
                         _orientation_llm = TracedLLM(OpenAI(model='gpt-4o-mini', temperature=0.0,
                             api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20),
                             usage_ia, capture_text=False, stage='selection') if _orientation_active else None

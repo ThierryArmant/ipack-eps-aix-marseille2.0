@@ -74,3 +74,33 @@ class ExclusiveSelectionTests(unittest.TestCase):
             text,_,_,error=route.route('Manipuler une plage de mon agenda','Collège (DNB)',mode)
             self.assertEqual(error,'')
             self.assertIn('[ARTICLE 20]',text)
+
+
+class DeferredExclusiveSelectionTests(unittest.TestCase):
+    def test_orientation_can_compare_technical_evidence_after_exclusive_notice(self):
+        from test_documentation import DocumentationTests, Retriever
+        from types import SimpleNamespace
+        route=DocumentationTests();route.setUp()
+        guide='data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt'
+        route.env['reference_notice']=lambda *args:[(guide,{'title':'Cadre général','exclusif_motifs':['.*']})]
+        route.route('Opération de gestion Z', 'Collège (DNB)', 'ipack')
+        extra=SimpleNamespace(text='PROCEDURE_TECHNIQUE_Z',metadata={'source':'guide_z'})
+        route.env['retriever_ipack']=Retriever([extra])
+        legacy=route.env['_recherche_documentaire']()[0]
+        oriented=route.env['_recherche_documentaire'](defer_exclusivity=True)[0]
+        self.assertNotIn('PROCEDURE_TECHNIQUE_Z',legacy)
+        self.assertIn('PROCEDURE_TECHNIQUE_Z',oriented)
+        self.assertIn('[ARTICLE 20]',oriented)
+
+    def test_deferred_lookup_remains_bounded_and_keeps_examination_filter(self):
+        from test_documentation import DocumentationTests, Retriever
+        from types import SimpleNamespace
+        route=DocumentationTests();route.setUp()
+        route.env['reference_notice']=lambda *args:[]
+        route.route('Opération de gestion Z','Lycée Général & Techno','ipack')
+        route.env['retriever_ipack']=Retriever([
+            SimpleNamespace(text='[PORTEE: cap] MAUVAISE_PORTEE',metadata={})]+[
+            SimpleNamespace(text=f'PASSAGE_Z_{i}',metadata={'source':str(i)}) for i in range(30)])
+        text=route.env['_recherche_documentaire'](defer_exclusivity=True)[0]
+        self.assertNotIn('MAUVAISE_PORTEE',text)
+        self.assertLessEqual(text.count('PASSAGE_Z_'),10)

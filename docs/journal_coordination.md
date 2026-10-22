@@ -25,6 +25,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — recherche complémentaire avant orientation
+Fait : une exclusivité du catalogue pouvait arrêter la recherche avant la récupération des procédures techniques. Lorsque l’orientation est active, la recherche conserve les notices prioritaires mais diffère cet arrêt pour permettre au sélecteur de comparer les preuves complémentaires. En iPackEPS, la recherche locale par mots passe avant les compléments réglementaires pour garder une place aux procédures du logiciel. Le plafond de dix extraits, la déduplication et les filtres de portée restent actifs. Circuit historique et comparateurs inchangés par défaut.
+Constaté : 873 tests locaux réussis ; défaut reproduit hors ligne par arrêt anticipé ; le nouveau parcours laisse entrer une procédure complémentaire tout en conservant la notice initiale. Une présence dans les candidats ne démontre pas encore le choix correct du modèle. Préparation privée d’un comparatif à sept entrées figées et passages identiques ; aucune réponse antérieure transmise et aucun appel distant exécuté. La mesure réelle reste à faire après rétablissement des quotas.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — description de la sous-procédure demandée
 Fait : analyse hors ligne des traces existantes. Les descriptions d’orientation privilégiaient parfois une introduction générale contenant plusieurs mots de la question au détriment d’un paragraphe de procédure précis. Classement local des lignes par rareté des termes dans la fiche, avec prise en compte des intitulés de sous-procédures ; conservation du contenu introduit par « Texte: », auparavant supprimé du choix d’extrait. Aucun contenu métier ajouté, aucun appel supplémentaire, aucune modification des fiches.
 Constaté : la sous-procédure pertinente devient visible dans la description sur un cas privé déjà mesuré. Ce résultat vérifie la préparation des données, pas le futur choix du modèle. Une autre procédure reste absente des candidats sur un cas privé : défaut de récupération encore ouvert. Un essai de changement général du classement des fiches n’a pas été retenu. Compilation et 871 tests locaux réussis ; relecture réelle à effectuer lorsque le quota du fournisseur principal sera disponible. Aucun rejeu distant exécuté.

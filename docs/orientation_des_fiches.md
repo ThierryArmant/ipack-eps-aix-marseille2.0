@@ -23,3 +23,5 @@ Si tous les choix proposés sont incompatibles, la lecture complète antérieure
 Validation locale : contrats, exclusions, préservation de la branche compatible, ambiguïté et transmission au rédacteur. Une mesure en ligne reste nécessaire pour établir un gain de fiabilité ; les tests avec réponses simulées ne prouvent pas la justesse des choix d’un modèle réel.
 
 Les extraits proches de la question sont choisis parmi les lignes de contenu, y compris le texte des articles. Les intitulés de sous-procédures et les termes peu répétés dans une fiche aident à distinguer une action précise d’une introduction générale. Ce classement reste local, sous le budget existant ; il ne garantit ni la récupération de la bonne fiche ni sa sélection par le modèle.
+
+Lorsque l’orientation est active, l’exclusivité d’une notice ne coupe plus la recherche complémentaire avant comparaison. La notice reste candidate ; les procédures complémentaires gardent les filtres de portée et le plafond documentaire existants. Sur iPackEPS, la recherche locale par mots précède les compléments réglementaires. L’ancien circuit garde son arrêt anticipé par défaut.

@@ -9,7 +9,7 @@ from knowledge_catalog import incompatible, reference_notice, passage_key
 from response_controls import reference_url
 from documentary_review import mark_excerpt
 
-def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_college, est_clairement_lycee, mots_cles_intention_peda, recherche_mots, chercher_par_mots, retriever_textes, retriever_peda, retriever_santorin, retriever_ipack, libelle_source, _url_source, search_prompt=None, reference_notice=reference_notice):
+def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_college, est_clairement_lycee, mots_cles_intention_peda, recherche_mots, chercher_par_mots, retriever_textes, retriever_peda, retriever_santorin, retriever_ipack, libelle_source, _url_source, search_prompt=None, reference_notice=reference_notice, defer_exclusivity=False):
     """Cherche les passages utiles dans les bases pour la question en cours.
     Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
     _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
@@ -152,7 +152,7 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             _diag.append(('[prioritaire] ' + _md.get('title', _path), None))
             # Une demande explicitement hors périmètre ne doit pas recevoir
             # une procédure voisine qui réalise l'action dans l'autre sens.
-            if any(re.search(m, p_norm) for m in _md.get('exclusif_motifs', [])):
+            if not defer_exclusivity and any(re.search(m, p_norm) for m in _md.get('exclusif_motifs', [])):
                 # L'exclusivité arrête la recherche complémentaire ; elle conserve
                 # les fiches spécifiques déjà sélectionnées et leurs conditions.
                 _indices = [len(_extraits) - 1]
@@ -161,6 +161,8 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
                                 if priority >= 300 and priority > _md.get('priorite', 0)] + _indices
                 return ("\n\n".join(_extraits[i] for i in _indices),
                         [_sources[i] for i in _indices], [_diag[i] for i in _indices], '')
+        if defer_exclusivity and mode == 'ipack':
+            _ajouter_par_mots('ipack', maximum=3)
         if mode in ('ipack', 'examens') and re.search(r'inapt|dispens|absen|reglement|dnb|brevet|ccf', p_norm):
             _ajouter(retriever_textes, '[Cadre réglementaire]', avec_sources=True, maximum=4)
         if niveau_actuel_form == "1er degré":
@@ -179,7 +181,8 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             # introuvables : l'IA inventait alors des menus ou restait dans le vague. On va aussi les chercher, à parts égales.
             _ajouter(retriever_ipack, "[Base iPackEPS]", avec_sources=True, avec_diag=True, maximum=8)
         elif mode == "ipack":
-            _ajouter_par_mots("ipack", maximum=3)
+            if not defer_exclusivity:
+                _ajouter_par_mots("ipack", maximum=3)
             _ajouter(retriever_ipack, avec_sources=True, avec_diag=True)
             if not _college_hors_examen:
                 _ajouter_par_mots("santorin", "[Base Examens & Santorin]", maximum=2)

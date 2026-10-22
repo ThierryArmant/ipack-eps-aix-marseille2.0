@@ -6,7 +6,7 @@ Le contexte public, l’onglet et l’académie sont transmis sans réinterprét
 
 Bornes : quatorze descriptions au plus, quatorze mille caractères de prompt, quatre fiches retenues au plus, une tentative d’orientation, vingt secondes de délai et six cents jetons de sortie au plus. La question n’est jamais tronquée pour tenir dans cette borne : une longue demande conserve le circuit antérieur. Les textes détaillés retenus ne sont pas coupés pour satisfaire le budget d’orientation.
 
-Un choix ambigu conserve les branches proposées ; le rédacteur doit vérifier les conditions complètes et demander seulement la précision indispensable. Aucune fiche pertinente sélectionnée : réserve documentaire, sans rédaction sur une fiche voisine. Erreur technique, identifiant inventé ou JSON invalide : retour au circuit documentaire antérieur, sans nouvelle tentative d’orientation.
+Un choix ambigu conserve les branches proposées ; le rédacteur doit vérifier les conditions complètes et demander seulement la précision indispensable. Orientation sans correspondance : relecture des preuves complètes par le rédacteur, car une description partielle ne démontre pas que la fiche ne répond pas ; aucune autorisation ni procédure ne peut être déduite de cette incertitude. Erreur technique, identifiant inventé ou JSON invalide : retour au circuit documentaire antérieur, sans nouvelle tentative d’orientation.
 
 Les tentatives et jetons sont séparés entre `selection` et `generation`. Une sélection réussie n’est pas comptée comme une utilisation du secours de rédaction. Le secours technique existant reste actif pour le fournisseur de rédaction. Les comparateurs privés existants et l’onglet Textes conservent leur parcours, afin de ne pas élargir l’expérience réglementaire sans mesure.
 

@@ -37,12 +37,13 @@ class SelectorTests(unittest.TestCase):
         self.assertEqual([p['id'] for p in result],['D1','D2'])
         self.assertEqual(audit['status'],'ambiguous')
 
-    def test_no_match_does_not_generate_on_neighbor(self):
-        selector=FakeLLM([{'status':'no_match','ids':[],'objet':'objet non couvert'}]);writer=FakeLLM([]);audit={}
+    def test_no_match_on_partial_descriptions_preserves_full_review(self):
+        selector=FakeLLM([{'status':'no_match','ids':[],'objet':'objet non couvert'}]);writer=FakeLLM([{'claims':[]}]);audit={}
         with patch('document_selector.catalogue_candidates', return_value=[]):
             answer=review_exam_answer(writer,question='Information non couverte par ces fiches',public='Lycée Général & Techno',
                 documents=DOC,audit=audit,selector_llm=selector,selection_policy='gpt_shortlist',mode='ipack')
-        self.assertIn('Aucune consigne',answer);self.assertEqual(writer.prompts,[])
+        self.assertIn('Aucune consigne',answer);self.assertEqual(len(writer.prompts),1)
+        self.assertEqual(audit['document_orientation']['status'],'no_match_full_review')
         self.assertEqual(audit['accepted_claims'],[]);self.assertEqual(audit['calls'][0]['stage'],'selection')
 
     def test_selector_can_keep_lower_priority_before_focus(self):

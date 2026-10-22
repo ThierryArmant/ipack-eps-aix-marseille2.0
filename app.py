@@ -714,7 +714,7 @@ if tavily_api_key and TavilyClient:
 # ✅ Modèle réglable sans toucher au code : secret Streamlit MODELE_IA (ex. "gpt-4.1" ou "gpt-4o").
 # Sans ce secret, on garde gpt-4o-mini.
 modele_ia = (st.secrets.get("MODELE_IA") or "gpt-4o-mini").strip()
-from generation_runtime import load_runtime
+from runtime_bootstrap import load_runtime
 _generation_runtime = load_runtime()
 TracedLLM = _generation_runtime.TracedLLM
 usage_summary = _generation_runtime.usage_summary

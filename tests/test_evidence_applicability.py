@@ -110,3 +110,40 @@ class ApplicabilityTests(unittest.TestCase):
         self.assertEqual(len(audit['excluded_unsupported_optional_referrals']),1)
         self.assertIn('vérifier les rubriques',answer)
         self.assertNotIn('contacter',answer)
+
+    def test_admission_decision_cannot_escape_by_rephrasing(self):
+        proof="Refaire l'export ne crée pas de candidat. Faire vérifier l'inscription et l'identité par la direction."
+        for text in ["Il n'est pas possible d'accepter ce candidat.",
+                     "Il n’est pas possible d’accepter ce candidat. Avant toute décision, vérifier son inscription.",
+                     "L'admission du candidat est refusée.",
+                     "Le candidat peut être accepté le jour de l'épreuve.",
+                     "Il est possible d'admettre ce candidat après vérification."]:
+            with self.subTest(text=text):
+                self.assertTrue(evidence_relation_errors([claim(text,proof)],'Un candidat manque : que faire ?'))
+        self.assertFalse(evidence_relation_errors([claim("Faire vérifier l'inscription par la direction avant toute décision.",proof)],'Un candidat manque : que faire ?'))
+
+    def test_repair_rephrasing_unsupported_admission_still_fails(self):
+        from documentary_review import review_exam_answer, mark_excerpt
+        from test_documentary_review import FakeLLM
+        proof="Refaire l'export ne crée pas de candidat inscrit. Faire vérifier son inscription à l'épreuve par la direction."
+        def c(text):
+            return {'section':'decision','text':text,'evidence':[{'document_id':'D1','passage_ids':['D1P1']}]}
+        writer=FakeLLM([{'claims':[c("Non, le candidat inscrit à l'épreuve ne peut pas être accepté.")]},
+                        {'claims':[c("Il n'est pas possible d'accepter le candidat inscrit à l'épreuve.")]}])
+        audit={}
+        with self.assertRaises(ValueError):
+            review_exam_answer(writer,question='Peut-on accepter ce candidat ?',public='Lycée voie générale',mode='examens',documents=mark_excerpt(proof,title='Inscription du candidat'),audit=audit)
+        self.assertTrue(audit['repair_performed'])
+        self.assertFalse(audit['repair_successful'])
+        self.assertTrue(audit['final_rejections'])
+
+    def test_export_fiche_no_longer_has_a_detached_negative_answer(self):
+        from pathlib import Path
+        text=Path('data/examens/cyclades_candidats_absents.txt').read_text()
+        self.assertNotIn("Non : refaire",text)
+        self.assertIn("Refaire l'export iPackEPS ne crée pas un candidat",text)
+
+    def test_admission_guard_does_not_turn_certificate_acceptance_into_entry(self):
+        c=claim("Pour accepter un certificat médical, il doit être établi par un médecin.",
+                "Le certificat médical doit être établi par un médecin.")
+        self.assertFalse(evidence_relation_errors([c],"Comment accepter le certificat d'un élève ?"))

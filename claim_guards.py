@@ -209,11 +209,17 @@ def evidence_relation_errors(claims, question):
         # thème commun de la preuve (par ex. une indemnité quelconque).
         if re.search(r'\bprotege\w*\b', text) and not re.search(r'\bprotege\w*\b|protection|garanti', proof):
             errors.append({'index': i, 'errors': ['garantie ou protection affirmée sans passage qui l’établit : conserver seulement le droit et les conditions effectivement documentés']})
-        # Le « non » d'une opération ne prouve pas le refus d'une autre action.
+        # Toute décision sur l'admission doit porter sur ce prédicat : le
+        # contrôle vaut aussi pour la reformulation de la réparation et pour
+        # une permission inventée, pas seulement pour un « non » littéral.
+        admission = bool(re.search(r'(?:accept\w*|admett\w*|accueill\w*) (?:un |le |ce |les |des |ces )?(?:candidat|eleve)', text)
+                         or re.search(r'(?:candidat|eleve).{0,90}(?:etre|est|sera|sont|seront) (?:accept|admis|accueill)', text)
+                         or (re.search(r'candidat|eleve', q) and re.search(r'admission', text))
+                         or (re.search(r'candidat|eleve', q) and not re.search(r'certificat|justificatif|fichier|lot|protocole', text)))
         for action in _ACTION_FAMILIES[:1]:
-            if (re.search(action, text) and re.search(r'\bnon\b|ne.{0,45}pas|impossible|interdit', text)
+            if (admission and re.search(action, text) and re.search(r'\b(?:peut|peuvent|doit|doivent|devez|non)\b|possible|impossible|interdit|autorise|refus|(?:ne|n.).{0,45}pas', text)
                     and not re.search(action, proof)):
-                errors.append({'index': i, 'errors': ['la négation citée porte sur une autre opération : le refus de l’action affirmée doit être documenté, sinon signaler ce qui reste à vérifier']})
+                errors.append({'index': i, 'errors': ['le passage cité ne justifie pas cette décision sur une autre opération : autorisation et refus doivent être documentés, sinon conserver les vérifications établies']})
         # Une condition d'une branche ne restreint pas une autre alternative.
         exclusive = re.search(r'uniquement si|seulement si|sauf(?: dans| en)?', text)
         if exclusive:

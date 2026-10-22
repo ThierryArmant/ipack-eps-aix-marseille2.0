@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — parties programme et fiche — décision d’admission reformulée en réparation
+Constaté : le refus non étayé est rejeté au premier brouillon, mais une reformulation en impossibilité échappe au même contrôle pendant la réparation.
+Fait : le contrôle de l’opération vise désormais permission, refus et impossibilité d’admission, indépendamment de la formulation négative ; une phrase de vérification ajoutée ne suffit pas à justifier la décision. Le périmètre est limité à l’admission de personnes et ne bloque pas l’acceptation documentée d’un certificat. La fiche candidats absents conserve sa procédure mais perd le « Non : » détaché qui pouvait être réappliqué à une autre question. Registre de portée régénéré.
+Validation : 918 tests OK, dont 17 ciblés ; les deux brouillons de la trace sont refusés hors ligne par le contrôle corrigé. Tests d’une réparation encore non justifiée, du voisin export/inscription et de l’acceptation d’un document. Aucun appel réel de génération.
+Limite : la source établit la vérification d’inscription et le circuit de régularisation, pas une autorisation ou un refus d’admission le jour de l’épreuve. Une rédaction correcte reste à vérifier en ligne ; pas de garantie générale de réponse.
+Attendu : retester le cas d’admission sur la version corrigée ; ne pas relancer la série complète.
+
 ### 2026-10-22 — partie programme — applicabilité des preuves et branches de décision
 Fait : exclusions d’objet avant orientation (option contre épreuve obligatoire, note unique non présumée par une opération d’enregistrement, périmètre des curseurs, rapport d’accident contre défense de l’agent). Contrôles de restitution ciblés : une négation reste liée à son opération ; une protection doit être documentée ; les conditions des branches alternatives ne se transfèrent pas d’une branche à l’autre. Consigne de rédaction renforcée sur ces relations, sans ajouter de réponse métier ni de nouvel appel.
 Fait : le comptage des notes distingue une note à saisir des évaluations déjà obtenues ; les passages explicitement contrastifs restent lisibles. Un conseil final facultatif de contact rejeté faute de preuve peut être omis si des démarches sont déjà valides : pas si le contact est demandé, obligatoire ou lié à une urgence. Retrait tracé, sans nouvelle génération et sans supprimer les conditions métier.

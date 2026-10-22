@@ -84,3 +84,42 @@ class ClaimGuardsTests(unittest.TestCase):
         proof = "Aucun texte de la base n'interdit ni n'organise cette communication. Faire confirmer la consigne."
         self.assertTrue(unsupported_certainty("Il n'existe pas de règle écrite interdisant cette communication.", [proof]))
         self.assertFalse(unsupported_certainty("Aucun texte de la base ne permet de confirmer une interdiction de cette communication.", [proof]))
+
+class UnverifiedFeatureTests(unittest.TestCase):
+    proof = ("Le filtre d'archive ne démontre pas la possibilité de modifier une ancienne saisie. "
+             "Cette possibilité n'a pas été relevée dans la visite ; distinguer consultation et modification et faire vérifier ce point.")
+
+    def test_unverified_feature_cannot_become_prohibition(self):
+        for text in ("Il n'est pas possible de modifier une ancienne saisie.",
+                     "La modification des archives est autorisée.",
+                     "Vous devez modifier les archives."):
+            with self.subTest(text=text):
+                self.assertTrue(unsupported_certainty(text, [self.proof]))
+
+    def test_reserve_and_real_restriction_remain_allowed(self):
+        for text, proof in [
+            ("La possibilité de modifier une ancienne saisie n'a pas été confirmée et doit être vérifiée.", self.proof),
+            ("Il n'est pas possible de confirmer cette fonction avec les passages disponibles.", self.proof),
+            ("La modification des archives est impossible.", 'La modification des archives est impossible dans cet outil.'),
+            ("La modification est interdite.", self.proof + ' La modification est interdite après clôture.'),
+            ("La modification est interdite.", 'La consultation est possible ; la modification est interdite.'),
+        ]:
+            with self.subTest(text=text,proof=proof):
+                self.assertFalse(unsupported_certainty(text, [proof]))
+
+    def test_validator_rejects_certainty_and_accepts_documentary_limit(self):
+        packets=source_packets(mark_excerpt(self.proof,title='Consultation des archives'))
+        def proposal(text):
+            return {'claims':[{'section':'limite','text':text,
+                    'evidence':[{'document_id':'D1','passage_ids':['D1P1','D1P2','D1P3']}]}]}
+        ids=[p['id'] for p in packets[0]['passages']]
+        bad=proposal("Il n'est pas possible de modifier une ancienne saisie.")
+        bad['claims'][0]['evidence'][0]['passage_ids']=ids
+        accepted,errors=validate_claims(bad,packets)
+        self.assertFalse(accepted)
+        self.assertTrue(any('absence de consigne' in str(e) for e in errors))
+        good=proposal("Les passages ne permettent pas de confirmer la possibilité de modifier une ancienne saisie.")
+        good['claims'][0]['evidence'][0]['passage_ids']=ids
+        accepted,errors=validate_claims(good,packets)
+        self.assertTrue(accepted)
+        self.assertFalse(errors)

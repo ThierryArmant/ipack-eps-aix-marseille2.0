@@ -9,6 +9,23 @@ def provider_for_replay(state, configured):
                         and batch.get('provider') == 'openai') else configured
 
 
+def academy_for_replay(state, configured):
+    """Préserver le contexte explicite de la ligne privée, sans changer le public."""
+    from academie import ACADEMIES, NON_PRECISEE, academy_context
+    batch = state.get('audit113_batch') or {}
+    if not state.get('is_admin') or not batch.get('waiting'):
+        return configured
+    index = batch.get('index')
+    rows = batch.get('rows') or []
+    if not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(rows):
+        return configured
+    row = rows[index]
+    selected = str(row.get('academie') or '').strip()
+    if selected not in ACADEMIES + [NON_PRECISEE]:
+        return configured
+    return academy_context(row.get('question', ''), selected)[0]
+
+
 def render(st):
     if not st.session_state.get("is_admin", False):
         return

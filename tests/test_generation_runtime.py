@@ -8,6 +8,7 @@ class RuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             (root/'document_selector.py').write_text('# fixture')
+            (root/'claim_guards.py').write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm = "provider"')
             p=root/'documentary_review.py'
             p.write_text('TracedLLM="old"; usage_summary=None; review_exam_answer=None')
@@ -25,3 +26,18 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(llm.complete('proof').text,'ok')
         self.assertEqual(runtime.usage_summary(inner)['calls'],2)
         self.assertTrue(runtime.usage_summary(outer)['fallback_used'])
+
+    def test_guard_change_selects_new_runtime_without_mutating_old(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'document_selector.py').write_text('# fixture')
+            (root/'albert_adapter.py').write_text('generation_llm=None')
+            guard=root/'claim_guards.py'
+            guard.write_text('marker="old"')
+            (root/'documentary_review.py').write_text('from .claim_guards import marker\nTracedLLM=marker;usage_summary=None;review_exam_answer=None')
+            before=load_runtime(root)
+            guard.write_text('marker="new"')
+            after=load_runtime(root)
+            self.assertEqual(before.TracedLLM,'old')
+            self.assertEqual(after.TracedLLM,'new')
+            self.assertIsNot(before,after)

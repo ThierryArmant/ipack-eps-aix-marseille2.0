@@ -16,7 +16,10 @@ if __package__:
     from .document_selector import select_documents
 else:
     from document_selector import select_documents
-from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
+if __package__:
+    from .claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
+else:
+    from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}

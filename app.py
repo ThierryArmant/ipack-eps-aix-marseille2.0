@@ -1529,6 +1529,8 @@ if prompt_a_traiter:
         niveau_actuel_form, mode = effective_context(prompt, niveau_actuel_form, mode)
         academie_reponse, avertissement_academie_question = request_academy(
             prompt, mode_initial, st.session_state.get("academie_utilisateur"))
+        if st.session_state.get("is_admin", False):
+            academie_reponse = _admin_replay.academy_for_replay(st.session_state, academie_reponse)
         origine_reponse = "ia"
 
         onglets_noms = {

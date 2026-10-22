@@ -2,9 +2,9 @@
 import re
 from evidence_logic import normalized
 
-_ABSENCE = re.compile(r"(?:aucun\w*|pas de|absence de).{0,90}(?:consigne|texte|regle|procedure|documentation).{0,60}(?:(?:re)?trouv|disponible|etabli)|(?:consigne|texte|regle|procedure).{0,60}(?:non (?:re)?trouve|non etabli)|\ba verifier\b")
-_CATEGORICAL = re.compile(r"\b(?:interdit\w*|obligatoire\w*|autorise\w*|impossible|devez|doit|doivent|ne (?:peut|peuvent).{0,20}pas|n.est.{0,15}pas (?:permis|autorise))\b")
-_LIMIT = re.compile(r"(?:ne|n').{0,55}(?:peut|permet|permettent).{0,20}pas.{0,35}(?:confirmer|affirmer|conclure|etablir)|(?:pas|aucun\w*).{0,65}(?:consigne|texte|regle|procedure).{0,60}(?:(?:re)?trouv|etabli)|reste a (?:verifier|confirmer)|a faire confirmer")
+_ABSENCE = re.compile(r"(?:aucun\w*|pas de|absence de).{0,90}(?:consigne|texte|regle|procedure|documentation).{0,60}(?:(?:re)?trouv|disponible|etabli)|(?:consigne|texte|regle|procedure).{0,60}(?:non (?:re)?trouve|non etabli)|\ba verifier\b|ne .{0,35}(?:demontre\w*|etabli\w*|prouve\w*).{0,12}pas (?:la possibilite|que)|possibilite.{0,80}n.a pas ete (?:releve\w*|confirme\w*|verifie\w*)|faire verifier (?:ce|le) point")
+_CATEGORICAL = re.compile(r"\b(?:interdit\w*|obligatoire\w*|autorise\w*|impossible|devez|doit|doivent|ne (?:peut|peuvent).{0,20}pas|n.est.{0,15}pas (?:permis|autorise|possible))\b")
+_LIMIT = re.compile(r"(?:ne|n').{0,55}(?:peut|permet|permettent).{0,20}pas.{0,35}(?:confirmer|affirmer|conclure|etablir)|(?:pas|aucun\w*).{0,65}(?:consigne|texte|regle|procedure).{0,60}(?:(?:re)?trouv|etabli)|reste a (?:verifier|confirmer)|a faire confirmer|n.est pas possible de (?:confirmer|affirmer|conclure|etablir)")
 
 
 def documentary_limit(text):
@@ -38,7 +38,10 @@ def unsupported_certainty(text, supports):
     # une autre phrase ne sauve pas une conclusion catégorique.
     for sentence in re.split(r'[.;!?]', normalized(text)):
         nonexistent_rule = re.search(r"(?:n'existe|ne existe|n'existent).{0,12}pas.{0,45}(?:regle|consigne|texte|interdiction|autorisation)|aucune.{0,20}(?:regle|consigne|interdiction).{0,20}n'existe", sentence)
-        if (not _CATEGORICAL.search(sentence) and not nonexistent_rule) or _LIMIT.search(sentence):
+        # Une obligation de vérifier n'est pas une obligation métier. Retirer
+        # seulement ces verbes du test, sans masquer une interdiction voisine.
+        categorical_sentence = re.sub(r"\b(?:doit|doivent) etre (?:verifie\w*|confirme\w*)\b", '', sentence)
+        if (not _CATEGORICAL.search(categorical_sentence) and not nonexistent_rule) or _LIMIT.search(sentence):
             continue
         if re.search(r'\b(?:doit|doivent|devez)\s+(?:faire\s+)?(?:verifier|confirmer|consulter|demander)\b', sentence):
             continue

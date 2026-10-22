@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — conserver ensemble procédure et restrictions
+Fait : les traces privées montrent plusieurs fragments d’une même fiche (même chemin et même titre) exposés comme choix distincts. Le choix pouvait conserver la procédure et perdre le fragment des restrictions. Les candidats d’orientation sont désormais réunis par section documentaire de provenance connue et complétés depuis la section active locale quand elle est identifiable. Une compilation reste divisée par sections ; aucun mélange entre sujets de titres différents. Les fragments sans provenance ne sont pas fusionnés. Le budget de descriptions et le nombre d’appels restent identiques.
+Traçabilité : reconstruction des identifiants de passages et remplacement du fragment dans l’audit par le texte complet effectivement envoyé, sans mutation des paquets d’origine. Une description compacte reste partielle ; les contrôles de preuve sont conservés.
+Validation : compilation et 877 tests locaux réussis ; vérification hors ligne de la présence conjointe de la procédure, des restrictions et des conditions d’une section privée historiquement fragmentée ; tests de séparation des sections et de fidélité de l’audit. Un rejeu distant ciblé est nécessaire pour juger le choix réel et la rédaction. Questions et traces privées hors dépôt.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — fournisseur du rejeu privé
 Fait : à la demande explicite de l’utilisateur, option administrateur pour exécuter un lot privé avec le fournisseur secondaire directement, sans appeler le fournisseur principal. Choix figé dans le lot et limité aux questions en attente d’un administrateur ; aucune modification de clé, de secret ou de fournisseur des questions ordinaires. L’orientation des fiches reste celle du parcours courant. Compteurs et traces réels conservés ; pas de confusion avec un secours après panne.
 Validation : tests du périmètre administrateur et du retour au fournisseur configuré hors lot. Mesure privée séparée, aucune question ni trace dans le dépôt.

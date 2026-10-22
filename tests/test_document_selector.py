@@ -192,4 +192,45 @@ class ProfileOperationTests(unittest.TestCase):
         self.assertIn('[Gestion]',card['demande_proche_extrait'])
         self.assertNotIn('Mots-clés',card['demande_proche_extrait'])
 
+class CompleteSectionTests(unittest.TestCase):
+    def test_fragments_share_one_complete_section_and_keep_other_sections_out(self):
+        from document_selector import complete_candidate_sections
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'config').mkdir();(root/'data/ipack').mkdir(parents=True)
+            (root/'config/catalogue_documents.json').write_text('{}')
+            path='data/ipack/manual.txt'
+            (root/path).write_text('[SITUATION: GESTION DU SUPPORT]\nProcédure : ouvrir le support.\n'
+                'Restriction : opération réservée au responsable.\n'
+                '[SITUATION: AUTRE OPERATION]\nAUTRE_SECTION_A_EXCLURE')
+            packets=[{'id':'D1','path':path,'title':'[SITUATION: GESTION DU SUPPORT]',
+                      'text':'Procédure : ouvrir le support.','origin':'document','passages':[{'id':'D1P1'}]},
+                     {'id':'D2','path':path,'title':'[SITUATION: GESTION DU SUPPORT]',
+                      'text':'Restriction : opération réservée au responsable.','origin':'document'}]
+            result=complete_candidate_sections(packets,root)
+            self.assertEqual(len(result),1)
+            self.assertIn('Restriction',result[0]['text'])
+            self.assertNotIn('AUTRE_SECTION_A_EXCLURE',result[0]['text'])
+            self.assertNotIn('passages',result[0])
+            self.assertIn('passages',packets[0])
+
+    def test_reconstructed_section_replaces_audit_and_renumbers_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'config').mkdir();(root/'data/ipack').mkdir(parents=True)
+            (root/'config/catalogue_documents.json').write_text('{}')
+            path='data/ipack/manual.txt'
+            (root/path).write_text('[SITUATION: OUVRIR LE SUPPORT]\nOuvrir le support.\nRestriction : rôle attribué.')
+            docs=mark_excerpt('Ouvrir le support.',path=path,title='[SITUATION: OUVRIR LE SUPPORT]')
+            from document_selector import candidate_pool as real_pool
+            def pool(*args,**kwargs):
+                kwargs["root"]=root
+                return real_pool(*args,**kwargs)
+            selector=FakeLLM([choice('selected',['D1'])]);writer=RawFakeLLM([{'claims':[]}]);audit={}
+            with patch('document_selector.candidate_pool',side_effect=pool):
+                review_exam_answer(writer,question='Ouvrir le support',public='Lycée Général & Techno',
+                    documents=docs,selector_llm=selector,selection_policy='gpt_shortlist',audit=audit,mode='ipack')
+            document=next(x for x in audit['documents'] if x['id']=='D1')
+            self.assertIn('Restriction',document['text'])
+            self.assertTrue(all(x['id'].startswith('D1P') for x in document['passages']))
+            self.assertIn('Restriction',writer.prompts[0])
+
 if __name__=='__main__':unittest.main()

@@ -103,6 +103,51 @@ def _catalogue_profiles(root, signature):
     return result
 
 
+def _snapshot(root):
+    root = Path(root)
+    cat = root / 'config/catalogue_documents.json'
+    if not cat.is_file():
+        return []
+    md = _index_entries(root)
+    signature = (cat.stat().st_mtime_ns, tuple((path, (root/path).stat().st_mtime_ns)
+                 for path in md if (root/path).is_file()))
+    return _catalogue_profiles(str(root), signature)
+
+
+def complete_candidate_sections(packets, root):
+    """Une section documentaire est une unité de choix, pas un fragment vectoriel."""
+    sections = {}
+    for section, _, _ in _snapshot(root):
+        key = (section['path'], frozenset(_words(section['title'])))
+        sections.setdefault(key, []).append(section['text'])
+    grouped = {}
+    result = []
+    for original in packets:
+        if original.get('origin') != 'document':
+            continue
+        packet = dict(original)
+        path = packet.get('path', '')
+        key = (path, frozenset(_words(packet.get('title', ''))))
+        # Ne pas agréger des documents sans provenance vérifiable.
+        if not path:
+            result.append(packet)
+            continue
+        if key in sections:
+            packet['text'] = '\n\n'.join(dict.fromkeys(sections[key]))
+            packet.pop('passages', None)
+            packet['selection'] = 'orientation_section_complete'
+        if key in grouped:
+            existing = grouped[key]
+            if packet['text'] not in existing['text']:
+                existing['text'] += '\n\n' + packet['text']
+                existing.pop('passages', None)
+                existing['selection'] = 'orientation_section_complete'
+            continue
+        grouped[key] = packet
+        result.append(packet)
+    return result
+
+
 def catalogue_candidates(question, public, mode, *, root=None):
     """Réserve de fiches avant le filtre de priorité, bornée par le contexte déclaré."""
     root = Path(root) if root else Path(__file__).resolve().parent
@@ -135,7 +180,7 @@ def catalogue_candidates(question, public, mode, *, root=None):
 
 
 def candidate_pool(packets, question, public, mode, *, root=None):
-    seeds = [dict(p) for p in packets if p.get('origin') == 'document']
+    seeds = complete_candidate_sections(packets, Path(root) if root else Path(__file__).resolve().parent)
     seen = {(p.get('path'), frozenset(_words(p.get('title', '')))) for p in seeds}
     extra = [p for p in catalogue_candidates(question, public, mode, root=root)
              if (p['path'], frozenset(_words(p.get('title', '')))) not in seen]

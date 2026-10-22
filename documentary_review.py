@@ -1410,7 +1410,11 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                         recovered.append(parsed)
                     else:
                         recovered.append(packet)
+                recovered_by_id = {p['id']:p for p in recovered}
                 known_ids = {p['id'] for p in audit['documents']}
+                # Une section reconstituée remplace le fragment de même identifiant
+                # dans la trace, avec ses propres passages renumérotés.
+                audit['documents'] = [recovered_by_id.get(p['id'], p) for p in audit['documents']]
                 audit['documents'] += [p for p in recovered if p['id'] not in known_ids]
                 packets = recovered + [p for p in packets if p['origin'] == 'program'
                     and not p['text'].lstrip().startswith('REPÈRES DOCUMENTAIRES PAR EXAMEN')]

@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — rétablir le journal partagé pour les rejeux
+Fait : à la demande du pilote, les réponses des rejeux administrateur sont de nouveau envoyées au même journal que les questions ordinaires, avec les champs de mesure existants (version, appels, jetons et durée). L’export privé avec les traces reste disponible ; le panneau le précise.
+Limite : aucun rattrapage automatique des lignes déjà calculées pendant l’exclusion. Elles peuvent être reprises depuis le CSV sans nouvel appel de génération. La réception dans la feuille dépend du service de journalisation et n’est pas vérifiée par un appel réel pendant ce correctif.
+Validation : compilation et tests du rejeu administrateur hors ligne ; aucun appel payant.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — réserve rétrospective étrangère à la demande
 Fait : retrait avant validation des seuls constats de connaissance sur une saisie rétrospective lorsque la demande ne porte sur aucun historique, archive, conservation ou période antérieure. Les prescriptions et conditions métier restent contrôlées ; les réserves temporelles restent présentes pour les demandes historiques. Le retrait est tracé dans excluded_unrelated_period_limits. Ajout d’une consigne de pertinence des réserves à l’intérieur d’une fiche.
 Constaté hors ligne sur les brouillons existants : deux demandes d’impression conservent leurs démarches sourcées sans le constat rétrospectif ; la demande portant sur l’année précédente conserve ce constat. Aucun nouvel appel réel de génération. Aucun ajout de réponse en dur ni modification d’affichage.

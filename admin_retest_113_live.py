@@ -51,7 +51,7 @@ def render(st):
     with st.container(border=True, key="admin_retest_opaque"):
         st.info("⬇️ IMPORTER LE FICHIER CSV, PUIS LANCER LES TESTS CI-DESSOUS")
         st.warning("Les tests utilisent la clé IA du HUB et peuvent être facturés. "
-                   "Les résultats restent dans cette session et sont à télécharger avant de la quitter.")
+                   "Les réponses sont envoyées au journal Google Sheets. Le CSV avec les traces reste à télécharger avant de quitter cette session.")
         uploaded = st.file_uploader("Tableau CSV privé des questions", type=["csv"], key="audit113_live_csv")
         if batch:
             st.write(f"Réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")

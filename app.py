@@ -1205,7 +1205,8 @@ with st.container(border=True, key="hub_admin_login"):
 # Audit réservé aux administrateurs : aucune question enregistrée côté serveur.
 if st.session_state.get("is_admin", False):
     from admin_retest_113 import render as render_admin_retest_113
-    from admin_retest_113_live import render as render_admin_retest_113_live
+    from admin_replay_loader import load_replay
+    render_admin_retest_113_live = load_replay().render
     with st.container(border=True, key="hub_admin_tools"):
         render_admin_retest_113(st)
         render_admin_retest_113_live(st)
@@ -2734,16 +2735,18 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{footer_assistance}{bloc_diag}</div>'
         )
 
-        log_interaction(
-            question=prompt, 
-            reponse=texte_brut, 
-            mode=mode, 
-            contexte=contexte_choisi_nom, 
-            niveau=niveau_actuel_form,
-            usage=usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None,
-            academie=academie_reponse,
-            version=_sha
-        )
+        # Les essais administrateur restent dans leur export privé, hors journal des collègues.
+        if not (st.session_state.get("audit113_batch") or {}).get("waiting"):
+            log_interaction(
+                question=prompt,
+                reponse=texte_brut,
+                mode=mode,
+                contexte=contexte_choisi_nom,
+                niveau=niveau_actuel_form,
+                usage=usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None,
+                academie=academie_reponse,
+                version=_sha
+            )
 
         if diagnostic_ia is not None:
             diagnostic_ia['usage_response'] = usage_summary(usage_ia)

@@ -30,3 +30,9 @@ A reste OpenAI et D reste Albert seul, sans secours : une panne D doit rester vi
 843 tests locaux réussis : mécanisme de secours, conservation exacte du prompt, comptage des tentatives et traceurs imbriqués, absence de secours sur défaut documentaire, arrêt après échec des deux services, état isolé par question, chargement cohérent, séparation collège/lycée, contexte explicite du comparateur et suite existante. Pas de panne provoquée sur les services réels ni de modification des clés pour le test. La simulation de panne valide le mécanisme ; elle ne prouve pas la disponibilité future des fournisseurs.
 
 Les corrections de fiches précisent les limites connues : accès distinct des élèves hors SIECLE, historique de saisie natation non établi, FCA académique distincte du dépôt établissement, dossier soumis distinct de validé. Aucune recherche web automatique ni mémorisation de réponse métier n'est ajoutée.
+
+## Rejeu administrateur et affinements du 22 octobre
+
+L'export de lot contient désormais question, version, compteurs/modèles et trace documentaire pour chaque réponse. Il reste privé à la session et au téléchargement ; les questions de test ne sont pas écrites au journal externe des collègues. Un lot se suspend après utilisation du secours payant : sa réponse reste exportée, mais la mesure du fournisseur principal ne continue pas silencieusement avec un autre modèle.
+
+Une réserve dont la citation vise un paragraphe sans rapport peut être remplacée par une unique réserve littérale du même document, sur le même sujet, puis revérifiée. Aucune permission ou obligation n'est créée ainsi. Les procédures scolaires/CCF et ponctuelles sont mieux séparées ; les preuves des guides sont conservées lors du déplacement de contenu. Validation après ces modifications : 850 tests locaux réussis.

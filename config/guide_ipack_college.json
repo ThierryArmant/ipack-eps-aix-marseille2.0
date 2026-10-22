@@ -233,13 +233,13 @@
    {
     "clic": "[Dossier EPS] → [Vérification]",
     "video": "https://youtu.be/ToTBgO_nMAI",
-    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "source": "data/ipack/complement_cyclades_cas_pratiques.txt",
     "preuve": "bouton [Vérification]"
    },
    {
     "clic": "« Dossier terminé, nous le soumettons pour validation » → OUI → [Enregistrer]",
     "video": "https://youtu.be/ToTBgO_nMAI",
-    "source": "data/ipack/situations_2026_10_17/bouton_envoi_dossier_grise.txt",
+    "source": "data/ipack/complement_cyclades_cas_pratiques.txt",
     "preuve": "« Dossier terminé, nous le soumettons pour validation »"
    }
   ],

@@ -126,6 +126,9 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Envoi pour validation : [Dossiers] > [Dossier EPS], lancer la vérification des données, corriger les alertes signalées, puis indiquer que le dossier est terminé (un commentaire est demandé s'il reste une alerte) et cliquer sur [Enregistrer]. L'icône passe au vert « en attente de validation » ; la commission académique valide ou demande des corrections.
 - Les dates limites dépendent de chaque académie : elles sont fixées chaque année par l'inspection pédagogique et la DEC de votre académie.
 
+
+Écran relevé le 18 octobre 2026 (collège, version 2026.2.1.1) : en haut de [Dossier EPS], bloc « État de validation de votre Dossier EPS » : bouton [Vérification], message d'état (par exemple « Dossier en cours de saisie, veuillez le finaliser puis le proposer »), interrupteur « Dossier terminé, nous le soumettons pour validation » (NON par défaut, à passer sur OUI), zones « Vos commentaires éventuels » et « Commentaires de la commission », puis [Enregistrer].
+
 ### [SITUATION: QUI FAIT QUOI DANS iPackEPS — LE COORDONNATEUR OU CHAQUE ENSEIGNANT ?]
 - Mots-clés : qui fait quoi, répartition des rôles, coordonnateur, chaque enseignant, équipe EPS, qui saisit, qui remplit, groupes, emploi du temps, fiche professeur.
 - Formulations courantes des collègues : est-ce au coordonnateur de tout saisir ; chaque prof doit-il remplir ses groupes ; qui remplit les emplois du temps ; qui importe les élèves ; que doit faire chaque collègue.

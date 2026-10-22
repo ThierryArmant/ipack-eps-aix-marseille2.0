@@ -494,16 +494,32 @@ def source_limits_for_rejections(rejections, packets, question):
     result, seen = [], set()
     for rejection in rejections:
         errors = rejection.get('errors', [])
-        if not errors or any(not str(e).startswith('absence de consigne transformée') for e in errors):
-            return []
         claim = rejection.get('claim', {})
+        lexical_only = bool(errors) and all(str(e).startswith('passage cité sans rapport') for e in errors)
+        value = evidence_logic.normalized(claim.get('text', ''))
+        bounded_absence = bool(re.fullmatch(
+            r'(?:les )?(?:passages|sources|documents)(?: fournis| disponibles| consultes)?.{0,20}'
+            r'ne (?:precisent|decrivent|documentent|permettent de confirmer) pas[^;]+'
+            r'(?:; cette etape (?:n.est pas couverte|reste non confirmee)[.]?)?', value))
+        certainty_only = bool(errors) and all(str(e).startswith('absence de consigne transformée') for e in errors)
+        if not certainty_only and not (lexical_only and claim.get('section') == 'limite' and bounded_absence):
+            return []
         found = False
         for evidence in claim.get('evidence', []):
             packet = by_id.get(evidence.get('document_id'))
             if not packet:
                 return []
             selected = evidence.get('passage_ids')
-            if selected:
+            if lexical_only:
+                # Même document déjà cité : ne changer ni source ni décision.
+                # Une unique réserve littérale doit nommer le sujet demandé.
+                spans = [span for span in packet['passages']
+                         if documentary_limit(span['text'])
+                         and len(_racines(claim.get('text', '')) & _racines(span['text'])) >= 2
+                         and len(_racines(question) & _racines(span['text'])) >= 2]
+                if len(spans) != 1:
+                    return []
+            elif selected:
                 spans = [span for span in packet['passages'] if span['id'] in selected]
             else:
                 spans = [{'text': evidence.get('quote', '')}]
@@ -696,6 +712,13 @@ def circuit_document_mismatch(question, text):
             and re.search(r'creer (?:les |la |une |des )?(?:missions?|convocations?)', t)
             and re.search(r'santorin|notation eps ccf', t)
             and not re.search(r'ponctuel|espace intervenant|espace personnel', t)):
+        return True
+    # Le dépôt dans la fiche d'un élève scolarisé n'établit pas le circuit ponctuel.
+    if (re.search(r'ponctuel', q) and not re.search(ccf, q)
+            and re.search(r'inapt|certificat', q)
+            and not re.search(r'ipack', q)
+            and re.search(r'mes eleves|saisir une inaptitude', t)
+            and not re.search(r'ponctuel', t)):
         return True
     # La mention sur un bulletin ne neutralise pas un coefficient d'examen.
     if (re.search(r'bulletin.{0,25}trimestr|trimestr.{0,25}bulletin', q)

@@ -16,3 +16,8 @@ C bénéficie d'informations supplémentaires après confirmation : un résultat
 ## Contrôle du contexte avant décision
 
 Le contrôle du doute distingue les faits du demandeur des conditions présentes dans les fiches. Il demande des citations exactes de la question et la liste des informations décisives manquantes. Une décision « claire » avec une citation absente de la question, sans ancrage, ou avec un manque décisif déclaré est rejetée avant rédaction. Ce contrôle ne prouve pas que le modèle a détecté tous les manques : le comportement réel reste à mesurer. L'analyse figure dans « Décision de C : contexte et doute ». Aucun appel supplémentaire n'est ajouté.
+
+
+## Cohérence du chargement
+
+L'application charge les trois modules propres au comparateur dans un espace identifié par l'empreinte de leurs sources. Cela évite un numéro de version courant associé à une ancienne consigne conservée dans le processus. Les modules du parcours public ne sont pas rechargés. Pour mesurer C, vérifier les champs `context_basis` et `missing_context` dans la trace du contrôle du doute.

@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — cohérence de la version du prototype administrateur
+Fait : le premier essai en ligne a montré un numéro de version courant avec l'ancienne consigne du module C encore chargée. Le comparateur et ses deux dépendances propres sont désormais chargés dans un espace isolé identifié par l'empreinte de leurs sources ; aucun rechargement des modules publics partagés. Un ensemble déjà en cours reste stable, un nouveau contenu reçoit un autre espace.
+Constaté : premier essai exclu de la mesure de qualité du correctif, trace conservée en privé. Tests locaux : changement immédiat d'une dépendance et conservation de l'ensemble précédent ; module défectueux sans remplacement de l'ensemble fonctionnel. Vérifier dans la trace en ligne les nouveaux champs de contexte avant les dix essais.
+Attendu de l'autre partie : rien.
+
+
 ### 2026-10-22 — contrôle du contexte dans le prototype administrateur C
 Fait : une fiche retrouvée ne doit pas établir à elle seule le contexte du demandeur. Consigne renforcée sur les incidents dont l'écran ou l'opération restent inconnus ; décision structurée avec citations exactes de la question et informations décisives manquantes. Le code refuse une décision sans justification, ou une décision claire avec ancrage inventé ou manque décisif déclaré. Analyse du doute visible dans une section dédiée.
 Constaté : 827 tests locaux réussis ; refus des faux ancrages et des décisions sans justification, contradiction entre manque et décision claire, et maintien d'une demande explicite sans interruption. Aucun appel supplémentaire ajouté, aucune réponse métier en dur, aucune fiche ni parcours public modifié. Efficacité du contrôle avec le modèle réel encore à confirmer ; aucune promesse de clarification systématique.

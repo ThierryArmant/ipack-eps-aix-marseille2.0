@@ -1308,7 +1308,8 @@ def _url_source(path, texte, question):
 
 
 if st.session_state.get("is_admin", False):
-    from architecture_comparison import render as render_architecture_comparison
+    from admin_comparison_loader import load_comparison
+    render_architecture_comparison = load_comparison().render
     from document_retrieval import retrieve_documents
     def _comparison_retrieve(question, public, mode, search_prompt=None):
         return retrieve_documents(

@@ -2,7 +2,10 @@
 import json
 import time
 import uuid
-from clarification_pilot import assess_uncertainty, resume_clarification
+if __package__:
+    from .clarification_pilot import assess_uncertainty, resume_clarification
+else:
+    from clarification_pilot import assess_uncertainty, resume_clarification
 from pathlib import Path
 from question_preflight import prepare_question
 from knowledge_catalog import effective_context

@@ -9,7 +9,10 @@ from documentary_review import (source_packets, review_exam_answer, usage_summar
 from question_preflight import prepare_question
 from knowledge_catalog import effective_context
 from academie import request_academy
-from confirmed_scope import routing_question, retrieve_confirmed
+if __package__:
+    from .confirmed_scope import routing_question, retrieve_confirmed
+else:
+    from confirmed_scope import routing_question, retrieve_confirmed
 
 
 RULES = '''Tu examines une question et des extraits documentaires avant toute réponse.

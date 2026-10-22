@@ -4,3 +4,5 @@ Vérifier d'abord que l'activité figure bien sur la liste académique de votre 
 Pour s'écarter de la proposition académique, déclarer l'activité comme épreuve d'établissement, sous réserve de la validation préalable de l'inspection et qu'aucune autre épreuve d'établissement ne soit déjà programmée.
 Nature de la source : fonctionnement du logiciel iPackEPS et réponses du correspondant académique iPackEPS (Aix-Marseille) ; la composition de la liste académique dépend de chaque académie.
 Source : réponses écrites du correspondant iPackEPS, « Épreuve de la liste académique : pas de FCA à déposer » et « Cross-training, épreuve d'établissement », 2025-2026.
+
+Périmètre des deux démarches : le dépôt d’une FCA établissement concerne l’épreuve d’établissement après validation préalable ; il ne constitue pas une étape supplémentaire à effectuer pour une APSA déjà reconnue de la liste académique, dont le référentiel est académique. La liste d’activités et le circuit local doivent correspondre à l’académie concernée.

@@ -21,6 +21,7 @@ class AlbertComparisonTests(unittest.TestCase):
             return TracedLLM(llm,audit).complete(question+'\n'+documents).text
         with patch('architecture_comparison.review_exam_answer',side_effect=review):
             result=run_comparison(llm=first,comparison_llm=second,retrieve=retrieve,question='Une demande explicite.',public='Lycée Général & Techno',mode='ipack',academy='Grenoble',version='v',experimental='D')
+        self.assertEqual(result['academy'],'Grenoble')
         self.assertEqual(retrieve.call_count,1)
         self.assertEqual(first.prompts,second.prompts)
         self.assertEqual(result['branches']['A']['usage']['calls'],1)

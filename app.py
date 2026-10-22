@@ -103,6 +103,8 @@ def log_interaction(question, reponse, mode="", contexte="", niveau="", usage=No
         "jetons_entree": usage.get("input_tokens", ""),
         "jetons_sortie": usage.get("output_tokens", ""),
         "duree_ia_s": usage.get("duration_seconds", ""),
+        "modeles_ia": ", ".join(usage.get("models", [])),
+        "secours_gpt": "oui" if usage.get("fallback_used") else "",
         "cache": "oui" if usage.get("cache_hit") else ""
     }
     try:
@@ -712,9 +714,14 @@ if tavily_api_key and TavilyClient:
 # ✅ Modèle réglable sans toucher au code : secret Streamlit MODELE_IA (ex. "gpt-4.1" ou "gpt-4o").
 # Sans ce secret, on garde gpt-4o-mini.
 modele_ia = (st.secrets.get("MODELE_IA") or "gpt-4o-mini").strip()
+from generation_runtime import load_runtime
+_generation_runtime = load_runtime()
+TracedLLM = _generation_runtime.TracedLLM
+usage_summary = _generation_runtime.usage_summary
+review_exam_answer = _generation_runtime.review_exam_answer
 if openai_api_key:
     Settings.llm = OpenAI(
-        model=modele_ia, temperature=0.0, api_key=openai_api_key
+        model=modele_ia, temperature=0.0, api_key=openai_api_key, max_retries=0, timeout=45
     )
     Settings.embed_model = OpenAIEmbedding(
         model="text-embedding-3-small", api_key=openai_api_key
@@ -1239,7 +1246,7 @@ def _version_deployee():
 _sha = _version_deployee()
 
 if st.session_state.get("is_admin", False):
-    st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + modele_ia
+    st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
                + (" · version " + _sha if _sha else ""))
 
 if st.session_state.get("is_admin", False):
@@ -1539,7 +1546,11 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
-        llm_reponse = TracedLLM(Settings.llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else Settings.llm
+        _generation_llm = _generation_runtime.generation_llm(
+            openai_llm=Settings.llm, api_key=st.secrets.get("ALBERT_API_KEY"),
+            albert_model=st.secrets.get("ALBERT_MODEL", ""),
+            provider=(st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower())
+        llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
         est_sss = False
@@ -2794,6 +2805,10 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 _qualif = "" if _usage['complete'] else " · relevé incomplet"
                 if _usage.get('cache_hit'):
                     _qualif += " · réponse reprise du cache"
+                if _usage.get('models'):
+                    _qualif += " · modèle : " + ", ".join(_usage['models'])
+                if _usage.get('fallback_used'):
+                    _qualif += " · secours GPT utilisé"
                 if m.get('version'):
                     _qualif += " · version " + m['version']
                 _jetons = (f"{_usage['input_tokens']} jetons d'entrée · {_usage['output_tokens']} jetons de sortie"
@@ -2852,7 +2867,7 @@ with st.container(key="notice_rgpd"), st.expander(
     <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
     <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
-    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la génération des réponses, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
+    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, Albert API (DINUM) pour la génération des réponses, OpenAI pour la recherche documentaire et comme secours de génération en cas d’indisponibilité d’Albert, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Durée de conservation</h3>
     <p>Les échanges sont conservés uniquement pendant le temps nécessaire à leur analyse et à l’amélioration du HUB, dans la limite de six mois à compter de leur enregistrement. Ils sont supprimés manuellement lorsque leur analyse et les corrections correspondantes sont terminées, sans attendre cette échéance. Les enseignements utiles peuvent être conservés sous forme de fiches générales ne permettant pas d’identifier une personne. Cette durée concerne le journal du HUB ; les traitements et durées propres aux prestataires relèvent de leurs conditions applicables.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Traitement hors de l’Union européenne</h3>

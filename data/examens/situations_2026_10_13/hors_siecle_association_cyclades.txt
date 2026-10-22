@@ -2,6 +2,7 @@
 [PORTEE: gt,pro,cap]
 Sigles : CFA = centre de formation d'apprentis ; MFR = maison familiale rurale ; AEFE = Agence pour l'enseignement français à l'étranger.
 Certains établissements ont une base élèves qui n'est pas synchronisée avec la base académique SIECLE : principalement les CFA, GRETA, MFR, lycées agricoles et établissements AEFE. iPackEPS ne contient alors ni classes ni élèves : c'est normal, et l'export des élèves vers Cyclades ne peut pas servir.
+L’absence de classes et d’élèves synchronisés ne signifie pas que l’enseignant ne peut pas disposer d’un accès à iPackEPS : l’ouverture de cet accès dépend de l’académie, comme précisé ci-dessous.
 Dans iPackEPS : déposer les référentiels et créer les groupes et les protocoles sans élèves. Ne pas chercher à importer les classes et les élèves.
 Les étapes du circuit qui reposent sur la base élèves ne s'appliquent pas : actualisation de la liste des candidats, affectation dans les groupes iPackEPS, fichier d'import vers Cyclades.
 L'association des candidats aux protocoles se fait directement dans Cyclades, menu [EPS] > [Associer les élèves à un protocole] : sélectionner un ou plusieurs élèves puis les glisser-déposer dans le protocole, ou choisir le protocole dans la colonne « Grp. Élève » ; puis [Enregistrer]. Un élève est associé à un seul protocole.

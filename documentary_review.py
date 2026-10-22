@@ -293,6 +293,8 @@ def usage_summary(audit):
     known = [c for c in calls if c.get('usage', {}).get('input_tokens') is not None
              and c.get('usage', {}).get('output_tokens') is not None]
     return {'scope': 'generation_only', 'calls': len(calls),
+            'models': list(dict.fromkeys(c.get('resolved_model') or c.get('model', '') for c in calls if c.get('model'))),
+            'fallback_used': any(c.get('provider') == 'albert' and 'error' in c for c in calls) and any(c.get('provider') == 'openai' and 'error' not in c for c in calls),
             'failed_calls': sum('error' in c for c in calls),
             'calls_with_usage': len(known), 'complete': len(known) == len(calls),
             'input_tokens': sum(c['usage']['input_tokens'] for c in known),
@@ -314,20 +316,38 @@ class TracedLLM:
         audit['temperature'] = getattr(llm, 'temperature', None)
 
     def complete(self, prompt, **kwargs):
-        call = {}
+        return self.complete_with_attempts(prompt, lambda target, text, **opts: target.complete(text, **opts), **kwargs)
+
+    def complete_with_attempts(self, prompt, invoke, **kwargs):
+        # Les traceurs imbriqués enregistrent chacun les appels fournisseur réels,
+        # sans compter le routeur de secours comme un troisième appel.
+        def record(target, text, **opts):
+            return self._record(target, text, invoke, **opts)
+        delegate = getattr(self.llm, 'complete_with_attempts', None)
+        if callable(delegate):
+            return delegate(prompt, record, **kwargs)
+        return record(self.llm, prompt, **kwargs)
+
+    def _record(self, target, prompt, invoke, **kwargs):
+        call = {'model': str(getattr(target, 'model', '')),
+                'provider': getattr(target, 'provider', 'openai' if str(getattr(target, 'model', '')).startswith('gpt-') else '')}
         if self.capture_text:
-            call = {'prompt': str(prompt), 'prompt_sha256': hashlib.sha256(str(prompt).encode()).hexdigest(),
-                    'prompt_chars': len(str(prompt))}
+            call.update(prompt=str(prompt), prompt_sha256=hashlib.sha256(str(prompt).encode()).hexdigest(),
+                        prompt_chars=len(str(prompt)))
         self.audit['calls'].append(call)
         start = time.monotonic()
         try:
-            result = self.llm.complete(prompt, **kwargs)
+            result = invoke(target, prompt, **kwargs)
             if self.capture_text:
                 call['output'] = str(result.text)
             call['usage'] = response_token_usage(result)
+            call['resolved_model'] = getattr(target, 'resolved_model', None) or call['model']
             return result
         except Exception as exc:
             call['error'] = type(exc).__name__
+            # Seulement un code prédéfini du transport, jamais corps HTTP/clé.
+            if hasattr(exc, 'code') and re.fullmatch(r'[a-z_0-9]{1,60}', str(exc.code)):
+                call['error_code'] = str(exc.code)
             raise
         finally:
             call['duration_seconds'] = round(time.monotonic() - start, 3)
@@ -1131,6 +1151,9 @@ def lycee_dnb_mismatch(question, public, packet):
         return False
     if packet.get('origin') == 'program':
         return False
+    title = normalise(packet.get('title', ''))
+    if re.search(r'^(?:\[situation:\s*)?college\s*[:—-]', title):
+        return True
     scopes = re.findall(r'\[PORTEE:\s*([^\]]+)\]', packet.get('text', ''))
     return bool(scopes) and all(set(x.strip() for x in scope.split(',')) == {'dnb'} for scope in scopes)
 

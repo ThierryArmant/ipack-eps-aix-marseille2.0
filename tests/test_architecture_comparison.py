@@ -29,7 +29,7 @@ class ArchitectureComparisonTests(unittest.TestCase):
         self.assertEqual(queries[1], ('question originale', 'Collège (DNB)', 'ipack', 'accès second établissement'))
         for call in review.call_args_list:
             self.assertEqual(call.kwargs['question'], 'question originale')
-            self.assertEqual(call.kwargs['academy'], 'Non précisée')
+            self.assertEqual(call.kwargs['academy'], 'Grenoble')
             self.assertNotIn('selection_policy', call.kwargs)
         self.assertEqual(result['initial_context']['academy'], 'Grenoble')
         self.assertEqual(result['branches']['B']['usage']['calls'], 1)

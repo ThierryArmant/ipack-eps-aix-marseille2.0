@@ -7,3 +7,5 @@ Statistiques Enquête Natation : statistiques globales de l'année, filtres dép
 Parcours guidé : [Les Dossiers et Projets] → [Dossier Natation] → [Validation ASNS] → [Imprimer les diplômes de la sélection].
 Nature de la source : fonctionnement du logiciel iPackEPS (espace professeur, version 2026.2.1.1), relevé à l'écran avec le correspondant académique iPackEPS ; fonction commune à toutes les académies.
 Source : visite guidée de l'espace professeur iPackEPS (collège) avec le correspondant académique iPackEPS, 18 octobre 2026 ; textes affichés à l'écran cités entre guillemets.
+
+Périmètre du relevé : la consultation et le filtre « Année de validation » ne démontrent pas la possibilité de saisir rétrospectivement l’enquête natation ou une validation ASNS pour une année précédente. Cette possibilité n’a pas été relevée dans la visite du 18 octobre ; distinguer les validations individuelles de l’enquête annuelle et faire vérifier ce point.

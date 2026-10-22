@@ -4,18 +4,20 @@ import time
 import uuid
 import hashlib
 if __package__:
-    from .albert_adapter import AlbertLLM, AlbertError, available_models
+    from .albert_adapter import AlbertLLM, AlbertError, available_models, generation_llm
     from .clarification_pilot import assess_uncertainty, resume_clarification
 else:
-    from albert_adapter import AlbertLLM, AlbertError, available_models
+    from albert_adapter import AlbertLLM, AlbertError, available_models, generation_llm
     from clarification_pilot import assess_uncertainty, resume_clarification
 from pathlib import Path
 from question_preflight import prepare_question
 from knowledge_catalog import effective_context
-from academie import request_academy
+from academie import request_academy, academy_context
 from hub_session import public_label
 from guided_navigation import render_guide
-from documentary_review import TracedLLM, review_exam_answer, usage_summary
+from generation_runtime import load_runtime
+_runtime = load_runtime()
+TracedLLM, review_exam_answer, usage_summary = _runtime.TracedLLM, _runtime.review_exam_answer, _runtime.usage_summary
 
 
 def interpret(llm, question, public, mode, academy):
@@ -57,7 +59,7 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
     initial_context = dict(public=public, mode=mode, academy=academy)
     initial_mode = mode
     public, mode = effective_context(question, public, mode)
-    academy, academy_notice = request_academy(question, initial_mode, academy)
+    academy, academy_notice = academy_context(question, academy)
     common = prepare_question(question, public, mode)
     result = dict(question=question, public=public, mode=mode, academy=academy,
                   version=version, model=str(getattr(llm, "model", "")),

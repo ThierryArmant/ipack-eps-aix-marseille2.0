@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — premier comparatif réel de fournisseurs, version 937aab7
+Fait : clé détectée après correction de son emplacement dans les secrets, catalogue accessible, puis un seul cas connu et précis comparé en administration. Une recherche partagée, même contexte, mêmes sources et même empreinte du prompt de rédaction vérifiés dans les traces privées. Un appel par modèle, aucun rejet initial ni réparation ; les deux réponses décrivent le même circuit documentaire.
+Constaté : 7 127 et 7 289 jetons au total selon chaque fournisseur, soit 14 416 pour ce comparatif, hors recherche vectorielle. Aucun vainqueur ni taux de fiabilité déduit d'un seul cas. Questions, réponses et détails privés conservés hors dépôt. Parcours public inchangé ; aucun appel automatique aux deux fournisseurs.
+Attendu de l'autre partie : rien.
+
+
 ### 2026-10-22 — comparatif administrateur de deux fournisseurs de génération
 Fait : ajout d'une colonne D comparant un second fournisseur au modèle actuel sur une seule recherche partagée. Même question originale, mêmes fiches, contexte et contrôles. Lecture serveur de la clé depuis les secrets, découverte des modèles sur bouton explicite, choix du modèle, compteurs séparés et export privé. Aucun changement du fournisseur public, des fiches ni des règles de preuve. Aucun échange entre modèles ni vote assimilé à une validation.
 Constaté : 832 tests locaux réussis, compilation et contrôle du diff. Le prototype C reste expérimental après la mesure ciblée ; l'ajout de D ne l'active pas pour les collègues. Le chargement isolé inclut le nouvel adaptateur. Documentation : docs/comparatif_modeles_admin.md. Génération et réparation possibles seulement sur lancement explicite ; découverte sans génération. Plafond de sortie du second fournisseur documenté, erreurs sans secret, aucun repli silencieux.

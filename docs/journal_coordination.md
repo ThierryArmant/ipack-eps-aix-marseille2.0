@@ -1,3 +1,9 @@
+## 23 octobre — frontière inscription Cyclades / lot Santorin
+
+Le test hors IA reproduisait la confusion : la fiche Santorin « élève manquant mais présent dans Cyclades » n'était écartée dans aucun des deux modes pour une demande explicitement située dans Cyclades. Le contrôle de rédaction acceptait également l'association au protocole comme condition pour apparaître dans Cyclades.
+
+Correction : écarter cette fiche lorsque l'absence est explicitement située dans Cyclades sans demande sur un lot/Santorin ; refuser la confusion explicite entre présence dans Cyclades et association au protocole. La procédure pour un candidat déjà présent dans Cyclades mais absent de Santorin reste admissible. Aucun texte métier en dur, aucune suppression d'onglet, aucun changement de fiche. Tests sur les deux contextes et les formulations voisines ; validation hors IA, pas de rejeu payant. L'étape exacte de la sélection IA d'origine reste à vérifier dans sa trace.
+
 ## 22 octobre — réponse utile avant les explications
 
 Consigne de rédaction précisée dans documentary_review.py : conclusion documentée et condition indispensable en décision avant les démarches ; chemin direct pour une navigation ; aucune obligation de oui/non si la source ne tranche pas. Aucun contrôle, fiche ou réponse métier en dur ajouté. Le relevé précédent de trois réponses tardives et deux refus d'admission ne constitue pas une mesure exhaustive des causes sur les 113 réponses. Validation technique sans appel IA ; effet sur la rédaction à confirmer en ligne sur les cas concernés et leurs voisins.

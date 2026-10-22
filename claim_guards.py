@@ -193,6 +193,14 @@ def evidence_relation_errors(claims, question):
         if bounded:
             continue
         q = normalized(question)
+        # Une affectation à un protocole ne constitue pas une inscription.
+        for clause in re.split(r'[.;!?]', text):
+            if (re.search(r"(?:apparait|apparaitre|present|presence|figur\w*).{0,20}(?:dans |sur )?cyclades", clause)
+                    and re.search(r"(?:doit|faut|necessaire|condition|pour qu|pour apparaitre)", clause)
+                    and re.search(r"assoc\w*|affect\w*", clause)
+                    and re.search(r"protocole", clause)
+                    and not re.search(r"ne .{0,40}pas|n.est pas|ne suffit pas|pas necessaire", clause)):
+                errors.append({'index': i, 'errors': ['ne pas confondre inscription dans Cyclades et association à un protocole : une procédure pour un candidat déjà inscrit ne justifie pas cette condition de présence']})
         optional = r'\boption\b|optionnel|option eps|eps option|facultati'
         scoped_proof = re.sub(r"en complement de l.epreuve obligatoire(?: ponctuelle)?", '', proof)
         if (re.search(r'ponctuel|epreuve obligatoire', q) and not re.search(optional, q)

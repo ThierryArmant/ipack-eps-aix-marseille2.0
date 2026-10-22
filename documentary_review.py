@@ -788,6 +788,15 @@ def context_document_mismatch(question, public, mode, packet):
             and (path == 'data/textes/fiches/dispense_inaptitude_presence_cours.txt'
                  or re.search(r'presence en cours|doit.il venir en cours', title))):
         return True
+    # L'absence dans la liste des inscrits ne satisfait pas le préalable
+    # d'une procédure destinée à un candidat déjà présent dans Cyclades.
+    absent_in_cyclades = bool(re.search(
+        r"(?:manqu\w*|absent\w*|n.apparait\w* pas|ne figur\w* pas).{0,45}(?:dans|sur) cyclades|"
+        r"cyclades.{0,30}(?:candidat|eleve).{0,20}(?:manqu|absent)", q))
+    if (absent_in_cyclades and not re.search(r'santorin|\blots?\b', q)
+            and re.search(r'santorin', title)
+            and re.search(r'(?:present|inscrit).{0,20}(?:dans )?cyclades', title)):
+        return True
     # Une règle propre à l'option ne répond pas à l'épreuve obligatoire.
     optional = r'\boption\b|optionnel|option eps|eps option|facultati'
     if (re.search(r'ponctuel|\bccf\b|epreuve obligatoire', q) and not re.search(optional, q)

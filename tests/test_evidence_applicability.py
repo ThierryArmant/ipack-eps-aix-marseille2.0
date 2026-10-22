@@ -7,6 +7,25 @@ def claim(text, proof):
     return {'section':'decision','text':text,'evidence':[{'quote':proof}]}
 
 class ApplicabilityTests(unittest.TestCase):
+    def test_missing_registration_does_not_select_missing_lot_procedure(self):
+        packet = {'title':'Santorin : élève manquant mais présent dans Cyclades', 'text':'Associer un candidat inscrit à un protocole.'}
+        for mode in ('ipack', 'examens'):
+            for q in ('Un candidat manque dans Cyclades : refaire un export ?', 'Un élève est absent dans Cyclades.'):
+                self.assertTrue(context_document_mismatch(q, 'Lycée voie générale', mode, packet))
+            for q in ('Un candidat est présent dans Cyclades mais absent dans Santorin.', 'Un candidat manque dans mon lot Santorin.'):
+                self.assertFalse(context_document_mismatch(q, 'Lycée voie générale', mode, packet))
+            correct = {'title':'Cyclades : candidats absents de la liste', 'text':'Vérifier inscription et identité.'}
+            self.assertFalse(context_document_mismatch('Un candidat manque dans Cyclades.', 'Lycée voie générale', mode, correct))
+
+    def test_protocol_association_is_not_condition_of_registration(self):
+        proof = 'Un candidat inscrit dans Cyclades sans lot Santorin doit être associé à son protocole puis distribué.'
+        wrong = 'Pour apparaître dans Cyclades, le candidat doit être associé à un protocole dans Cyclades.'
+        self.assertTrue(evidence_relation_errors([claim(wrong, proof)], 'Un candidat manque dans Cyclades.'))
+        for text in ('Le candidat doit être associé à un protocole dans Cyclades pour apparaître dans Santorin.',
+                     'Pour apparaître dans Cyclades, une association à un protocole ne suffit pas.',
+                     'Vérifier son inscription dans Cyclades puis son association au protocole.'):
+            self.assertFalse(evidence_relation_errors([claim(text, proof)], 'Un candidat manque dans mon lot.'))
+
     def test_negative_export_is_not_a_refusal_of_admission(self):
         proof="Non : exporter le fichier ne crée pas l'inscription. Faire vérifier la candidature par la direction."
         self.assertTrue(evidence_relation_errors([claim("Le candidat ne peut pas être admis à l'épreuve.",proof)],'Peut-on accueillir ce candidat ?'))

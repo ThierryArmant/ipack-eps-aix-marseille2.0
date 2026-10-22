@@ -49,6 +49,41 @@ def unsupported_certainty(text, supports):
     return False
 
 
+def unrelated_retrospective_limit(claim, question):
+    """Écarter un seul constat de connaissance sur une saisie rétrospective.
+
+    Aucun droit, condition d'accès, délai, archivage ou règle de conservation
+    ne doit être retiré. Une demande portant sur l'historique conserve la réserve.
+    """
+    if claim.get('section') != 'limite':
+        return False
+    q = normalized(question)
+    if re.search(r"n[ −–-]1|precedent|anterieur|retrospect|histori|archiv|ancien|dernier|passe|il y a|conserv|\b20\d{2}\b", q):
+        return False
+    text = normalized(claim.get('text', ''))
+    parts = [part.strip() for part in re.split(r'[.!?;]', text) if part.strip()]
+    if not parts:
+        return False
+    # Le constat doit viser explicitement une opération passée non confirmée,
+    # et ne porter aucune autre prescription que faire vérifier cette possibilité.
+    first = parts[0]
+    retrospective = re.search(r"retrospect|annee (?:precedente|anterieure)|n[ −–-]1", first)
+    absence = re.fullmatch(
+        r"(?:la possibilite de|les passages ne permettent pas de confirmer la possibilite de) "
+        r"(?:saisir|renseigner|modifier|completer).{1,500}", first)
+    if not retrospective or not absence:
+        return False
+    if not (re.search(r"n.est pas confirmee|n.a pas ete confirmee|reste non confirmee", first)
+            or first.startswith('les passages ne permettent pas de confirmer')):
+        return False
+    if re.search(r"interdit|autorise|obligatoire|uniquement|seulement|doit|doivent|ne peut|delai|conserv", first):
+        return False
+    return all(re.fullmatch(
+        r"(?:cette verification doit etre faite(?: separement)?|"
+        r"il est recommande de verifier ce point(?: aupres du .{1,100})?)", part)
+        for part in parts[1:])
+
+
 def operation_errors(claims, question):
     """Rejeter deux substitutions explicites, sans exiger de verbe dans les réserves."""
     q = normalized(question)

@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — réserve rétrospective étrangère à la demande
+Fait : retrait avant validation des seuls constats de connaissance sur une saisie rétrospective lorsque la demande ne porte sur aucun historique, archive, conservation ou période antérieure. Les prescriptions et conditions métier restent contrôlées ; les réserves temporelles restent présentes pour les demandes historiques. Le retrait est tracé dans excluded_unrelated_period_limits. Ajout d’une consigne de pertinence des réserves à l’intérieur d’une fiche.
+Constaté hors ligne sur les brouillons existants : deux demandes d’impression conservent leurs démarches sourcées sans le constat rétrospectif ; la demande portant sur l’année précédente conserve ce constat. Aucun nouvel appel réel de génération. Aucun ajout de réponse en dur ni modification d’affichage.
+Validation : cinq tests ciblés, dont traversée du circuit avec un rédacteur simulé et sans réparation ; suite complète finale : 901 tests OK.
+Limites : correction bornée à une forme explicite de constat documentaire sur la saisie rétrospective ; pas une solution générale aux erreurs de sélection ou de pertinence. Les refus affichés sans leur trace restent inexpliqués.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — conserver les réserves entre orientation et rédaction
 Fait : conservation bornée de deux compléments de réserve documentaire, extraits littéralement de fiches admissibles déjà candidates. Le complément ne transmet pas la procédure voisine ; identifiants de passages et portée restent traçables. Aucun ajout de réponse métier, aucune modification des fiches.
 Fait : une réserve de corpus rédigée sans citation peut être remplacée par une unique réserve explicite retrouvée dans les passages transmis, puis repassée par tous les contrôles. Les prescriptions sans preuve, les réserves ambiguës et les documents incompatibles restent refusés. Consigne de rédaction : une procédure générale ne démontre pas le cas laissé non confirmé par la réserve.

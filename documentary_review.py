@@ -17,9 +17,9 @@ if __package__:
 else:
     from document_selector import select_documents, uncertainty_excerpt
 if __package__:
-    from .claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
+    from .claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors, unrelated_retrospective_limit
 else:
-    from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
+    from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors, unrelated_retrospective_limit
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
 _SECTIONS = {'decision': 'Décision', 'condition': 'Conditions', 'etape': 'Démarches', 'limite': 'Limites et précisions'}
@@ -1595,7 +1595,7 @@ Donne les autorités, conditions et délais explicitement documentés au lieu de
 Quand le passage énumère des conditions cumulatives, restitue ensemble celles qui concernent la demande : une autorisation générale ne remplace pas une validation spécifique. Ne confonds pas une condition documentée avec un fait non établi pour le cas ; donne la règle puis ce qui reste à vérifier.
 Ne fournis que les éléments documentés répondant à cette question.
 Si plusieurs dossiers ou procédures restent possibles, n'en choisis pas un au seul motif qu'il est bien documenté : donne seulement le point commun établi et demande le type qui change le chemin. Une branche sans lien avec la demande ne doit pas être ajoutée pour remplir une rubrique.
-Les sections sont facultatives : omets toute rubrique sans information pertinente.
+Les sections sont facultatives : omets toute rubrique sans information pertinente. Une réserve sur une autre opération ou une autre période ne doit pas être ajoutée seulement parce qu’elle figure dans la même fiche.
 Pour changer de contexte depuis un écran quelconque, conserve aussi le chemin de retour documenté vers le point de départ (fil d’Ariane, tableau de bord), puis les clics de changement. Ne remplace pas cette navigation par une nouvelle connexion.
 Pour un chemin documenté, conserve la rubrique finale qui permet d'accéder à la fonction demandée : ne t'arrête pas au module parent. Si une seconde partie de la demande (année antérieure, archive, historique) n'est pas couverte par ce chemin, indique cette limite plutôt que de présenter le chemin partiel comme une résolution complète.
 Pour une simple demande de navigation (« où saisir », « où rentrer », « dans quel menu »), donne directement le chemin documenté et l'action demandée, dans une seule rubrique Démarches si cela suffit. N'ajoute ni diagnostic, ni vérification de liste vide, ni import ou étape ultérieure sans demande explicite. Une condition indispensable reste à mentionner si les passages l'établissent ; ne suppose pas une panne ou une configuration incomplète. Si la question signale aussi un problème (liste vide, blocage, erreur), conserve les vérifications documentées qui répondent à ce problème.
@@ -1659,6 +1659,11 @@ Réponds uniquement en JSON selon ce schéma :
             if meta:
                 audit.setdefault('excluded_editorial_claims', []).extend(meta)
                 parsed['claims'] = [c for c in parsed['claims'] if c not in meta]
+            irrelevant = [c for c in parsed['claims'] if isinstance(c, dict)
+                          and unrelated_retrospective_limit(c, question)]
+            if irrelevant:
+                audit.setdefault('excluded_unrelated_period_limits', []).extend(irrelevant)
+                parsed['claims'] = [c for c in parsed['claims'] if c not in irrelevant]
             parsed, restored = preserve_handicap_overview_excerpts(parsed, question, packets)
             if restored:
                 audit['verbatim_handicap_passages'] = restored

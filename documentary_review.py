@@ -12,6 +12,10 @@ import time
 import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
+if __package__:
+    from .document_selector import select_documents
+else:
+    from document_selector import select_documents
 from claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
 
 _MARKER = re.compile(r'^\[EXTRAIT_IDENTIFIE: (\{[^\n]+\})\]\n', re.M)
@@ -292,9 +296,15 @@ def usage_summary(audit):
     calls = audit.get('calls', [])
     known = [c for c in calls if c.get('usage', {}).get('input_tokens') is not None
              and c.get('usage', {}).get('output_tokens') is not None]
-    return {'scope': 'generation_only', 'calls': len(calls),
+    return {'scope': 'selection_and_generation' if any(c.get('stage') == 'selection' for c in calls) else 'generation_only', 'calls': len(calls),
             'models': list(dict.fromkeys(c.get('resolved_model') or c.get('model', '') for c in calls if c.get('model'))),
-            'fallback_used': any(c.get('provider') == 'albert' and 'error' in c for c in calls) and any(c.get('provider') == 'openai' and 'error' not in c for c in calls),
+            'fallback_used': any(c.get('provider') == 'albert' and 'error' in c for c in calls) and any(c.get('provider') == 'openai' and c.get('stage', 'generation') == 'generation' and 'error' not in c for c in calls),
+            'selection_calls': sum(c.get('stage') == 'selection' for c in calls),
+            'generation_calls': sum(c.get('stage', 'generation') == 'generation' for c in calls),
+            'by_stage': {stage: {'calls': sum(c.get('stage', 'generation') == stage for c in calls),
+                               'input_tokens': sum(c['usage']['input_tokens'] for c in known if c.get('stage', 'generation') == stage),
+                               'output_tokens': sum(c['usage']['output_tokens'] for c in known if c.get('stage', 'generation') == stage)}
+                         for stage in ('selection', 'generation')},
             'failed_calls': sum('error' in c for c in calls),
             'calls_with_usage': len(known), 'complete': len(known) == len(calls),
             'input_tokens': sum(c['usage']['input_tokens'] for c in known),
@@ -305,10 +315,11 @@ def usage_summary(audit):
 
 class TracedLLM:
     """Capture le texte EXACT passé à complete, pas une reconstruction a posteriori."""
-    def __init__(self, llm, audit, *, capture_text=True):
+    def __init__(self, llm, audit, *, capture_text=True, stage="generation"):
         self.llm = llm
         self.audit = audit
         self.capture_text = capture_text
+        self.stage = stage
         self.model = getattr(llm, 'model', '')
         self.temperature = getattr(llm, 'temperature', None)
         audit.setdefault('calls', [])
@@ -329,7 +340,7 @@ class TracedLLM:
         return record(self.llm, prompt, **kwargs)
 
     def _record(self, target, prompt, invoke, **kwargs):
-        call = {'model': str(getattr(target, 'model', '')),
+        call = {'model': str(getattr(target, 'model', '')), 'stage': self.stage,
                 'provider': getattr(target, 'provider', 'openai' if str(getattr(target, 'model', '')).startswith('gpt-') else '')}
         if self.capture_text:
             call.update(prompt=str(prompt), prompt_sha256=hashlib.sha256(str(prompt).encode()).hexdigest(),
@@ -1348,10 +1359,10 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy'):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
-    if selection_policy not in ('legacy', 'compare_candidates'):
+    if selection_policy not in ('legacy', 'compare_candidates', 'gpt_shortlist'):
         raise ValueError('Politique de sélection inconnue')
     audit['requested_selection_policy'] = selection_policy
     packets = source_packets(documents)
@@ -1373,6 +1384,46 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                                              or circuit_document_mismatch(question, p['text'])
                                              or context_document_mismatch(question, public, mode, p)]
     packets = [p for p in packets if p['id'] not in audit['excluded_situation_documents']]
+    shortlist_applied = False
+    if selection_policy == 'gpt_shortlist':
+        selection_audit = audit.setdefault('document_orientation', {})
+        if selector_llm is not None:
+            selected = select_documents(TracedLLM(selector_llm, audit, stage='selection'), packets,
+                                        question=question, public=public, mode=mode,
+                                        academy=academy, audit=selection_audit,
+                                        admissible=lambda p: not (dnb_document_mismatch(question, public, p)
+                                            or lycee_dnb_mismatch(question, public, p)
+                                            or situation_mismatch(question, p['title'])
+                                            or circuit_document_mismatch(question, p['text'])
+                                            or context_document_mismatch(question, public, mode, p)))
+            if selected is not None:
+                shortlist_applied = True
+                recovered = []
+                for packet in selected:
+                    if 'passages' not in packet:
+                        parsed = source_packets(mark_excerpt(packet['text'], path=packet['path'],
+                            title=packet['title'], url=packet.get('url', ''),
+                            selection='orientation_catalogue', scopes=packet.get('scopes', [])))[0]
+                        parsed['id'] = packet['id']
+                        for i, span in enumerate(parsed['passages'], 1):
+                            span['id'] = packet['id'] + 'P' + str(i)
+                        recovered.append(parsed)
+                    else:
+                        recovered.append(packet)
+                known_ids = {p['id'] for p in audit['documents']}
+                audit['documents'] += [p for p in recovered if p['id'] not in known_ids]
+                packets = recovered + [p for p in packets if p['origin'] == 'program'
+                    and not p['text'].lstrip().startswith('REPÈRES DOCUMENTAIRES PAR EXAMEN')]
+                if not selected:
+                    audit.update(effective_selection_policy='gpt_shortlist', model_document_ids=[],
+                                 model_passage_ids=[], model_packet_count=0, model_passage_count=0,
+                                 model_passage_chars=0, accepted_claims=[], final_claims=[],
+                                 final_rejections=[], semantic_review=False, context_selection='aucune_fiche_applicable')
+                    rendered = '<p>' + no_applicable_guidance(mode) + '</p>'
+                    audit['rendered_answer'] = rendered
+                    return rendered
+        else:
+            selection_audit['status'] = 'fallback_unavailable'
     # Expérience explicite uniquement : aucune activation dans app.py.
     # Un paquet trop grand conserve le comportement courant, sans tronquer
     # une condition de preuve ni masquer arbitrairement une sous-question.
@@ -1380,7 +1431,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     compare_candidates = (selection_policy == 'compare_candidates'
                           and len(comparable) <= 8
                           and sum(len(p['text']) for p in comparable) <= 18000)
-    audit['effective_selection_policy'] = 'compare_candidates' if compare_candidates else 'legacy'
+    audit['effective_selection_policy'] = 'gpt_shortlist' if shortlist_applied else 'compare_candidates' if compare_candidates else 'legacy'
     audit['candidate_comparison_fallback'] = (selection_policy == 'compare_candidates' and not compare_candidates)
     if compare_candidates:
         audit['candidate_comparison_excluded_program_ids'] = [p['id'] for p in packets if p['origin'] != 'document']
@@ -1395,7 +1446,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                    and isinstance(p['priority'], (int, float)) and p['priority'] >= 200]
     audit['focused_document_ids'] = [p['id'] for p in focused]
     audit['document_selection_before_focus'] = [p['id'] for p in packets]
-    if focused and not compare_candidates:
+    if focused and not compare_candidates and not shortlist_applied:
         # Les résumés généraux générés par le programme ne complètent pas
         # une fiche de situation : leurs règles abrégées peuvent perdre ses réserves.
         generic = [p for p in packets if p['origin'] == 'program'
@@ -1431,11 +1482,11 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     packets = [p for p in packets if not situation_mismatch(question, p['title']) and not course_duration_mismatch(question, p)]
     packets = [p for p in packets if not (p['origin'] == 'program' and p['title'] == "Académie de l'utilisateur")]
     before_handicap = packets
-    packets = handicap_overview_packets(question, packets)
+    packets = packets if shortlist_applied else handicap_overview_packets(question, packets)
     audit['excluded_handicap_overview_documents'] = [p['id'] for p in before_handicap if p not in packets]
     audit['document_selection_after_focus'] = [p['id'] for p in packets]
     audit['excluded_by_priority_focus'] = [p['id'] for p in audit['documents'] if p['id'] in audit['document_selection_before_focus'] and p['id'] not in audit['document_selection_after_focus']]
-    audit['context_selection'] = ('comparaison_des_fiches_candidates' if compare_candidates
+    audit['context_selection'] = ('orientation_descriptions_courtes' if shortlist_applied else 'comparaison_des_fiches_candidates' if compare_candidates
                                 else 'fiches_specifiques_prioritaires' if focused
                                 else 'tous_les_passages_disponibles')
     packets, marked = select_academy(packets, academy)
@@ -1481,6 +1532,11 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'seulement si leurs conditions sont compatibles. Si un volet manque, signale cette limite '
                          'sans lui substituer une procédure voisine. Les affirmations restent justifiées par les '
                          'seuls identifiants de passages ; ne publie pas ton travail de comparaison.')
+    if shortlist_applied:
+        instructions += ('\nLes fiches ont été orientées sur leurs descriptions partielles. Vérifie leur contenu complet : '
+                         'le choix préalable ne prouve pas leur applicabilité. Conserve les conditions, limites et '
+                         'branches utiles ; si une information manque, présente les cas documentés ou demande '
+                         'uniquement la précision indispensable. Ne complète pas avec une procédure voisine.')
     audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
     data = json.dumps({'public':public,'academy':academy,'question':question,'documents':model_packets,
                        'evidence_constraints':audit['evidence_constraints'],

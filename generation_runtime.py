@@ -11,7 +11,7 @@ import threading
 import types
 
 _LOCK = threading.RLock()
-_FILES = ('albert_adapter', 'documentary_review')
+_FILES = ('albert_adapter', 'document_selector', 'documentary_review')
 
 
 def load_runtime(base_dir=None):
@@ -26,12 +26,14 @@ def load_runtime(base_dir=None):
         package.__path__ = [str(root)]
         package.__package__ = package_name
         try:
+            sys.modules[package_name] = package
             for name, path, data in sources:
                 full_name = package_name + '.' + name
                 module = importlib.util.module_from_spec(importlib.util.spec_from_file_location(full_name, path))
+                sys.modules[full_name] = module
                 exec(compile(data, str(path), 'exec'), module.__dict__)
                 setattr(package, name, module)
-            # Publication seulement lorsque les deux modules ont été compilés.
+            # La fonction ne retourne le paquet qu’après compilation de tous les modules.
             package.generation_llm = package.albert_adapter.generation_llm
             for name in ('TracedLLM', 'usage_summary', 'review_exam_answer'):
                 setattr(package, name, getattr(package.documentary_review, name))
@@ -39,4 +41,6 @@ def load_runtime(base_dir=None):
             return package
         except BaseException:
             sys.modules.pop(package_name, None)
+            for name, _, _ in sources:
+                sys.modules.pop(package_name + '.' + name, None)
             raise

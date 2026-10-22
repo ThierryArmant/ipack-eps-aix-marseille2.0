@@ -7,6 +7,7 @@ class RuntimeTests(unittest.TestCase):
     def test_new_sources_do_not_mutate_runtime_in_another_session(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'document_selector.py').write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm = "provider"')
             p=root/'documentary_review.py'
             p.write_text('TracedLLM="old"; usage_summary=None; review_exam_answer=None')

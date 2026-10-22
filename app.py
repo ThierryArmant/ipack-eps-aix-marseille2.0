@@ -2511,10 +2511,19 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
+                        _orientation_active = (mode in ('ipack', 'examens')
+                            and bool(st.secrets.get('ALBERT_API_KEY'))
+                            and (st.secrets.get('FOURNISSEUR_IA') or 'albert').strip().lower() == 'albert'
+                            and (st.secrets.get('ORIENTATION_FICHES') or 'gpt_shortlist').strip().lower() == 'gpt_shortlist')
+                        _orientation_llm = TracedLLM(OpenAI(model='gpt-4o-mini', temperature=0.0,
+                            api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20),
+                            usage_ia, capture_text=False, stage='selection') if _orientation_active else None
                         reponse_ia = review_exam_answer(
                             llm_reponse, question=prompt, public=niveau_actuel_form,
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             academy=academie_reponse, mode=mode,
+                            selector_llm=_orientation_llm,
+                            selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )
                         _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
@@ -2816,7 +2825,9 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                     _qualif += " · version " + m['version']
                 _jetons = (f"{_usage['input_tokens']} jetons d'entrée · {_usage['output_tokens']} jetons de sortie"
                            if _usage['complete'] or _usage['calls_with_usage'] else "jetons indisponibles")
-                st.caption(f"Usage IA : {_usage['calls']} appels de génération · "
+                _repartition = (f" · orientation : {_usage.get('selection_calls', 0)} · rédaction : {_usage.get('generation_calls', 0)}"
+                                if _usage.get('selection_calls') else '')
+                st.caption(f"Usage IA : {_usage['calls']} appels IA{_repartition} · "
                            f"{_jetons}"
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
             if m.get("aide_reperage"):

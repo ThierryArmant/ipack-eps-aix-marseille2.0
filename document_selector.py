@@ -167,9 +167,16 @@ procédure. Ne choisis pas plusieurs fiches seulement parce qu'elles parlent du 
 Une limite documentée du logiciel peut répondre à une fonction demandée : conserve cette fiche.
 Les extraits sont partiels : une réserve dans la description n'exclut pas le reste de la fiche.
 Sélectionne au plus 4 identifiants fournis, sans priorité automatique au premier.
+Pour chaque identifiant retenu, vérifie séparément l'opération et les conditions :
+operation directe = même action sur le même objet dans le même outil ; voisine = autre
+manipulation ; incertaine = description insuffisante. Conditions etablies = contexte
+compatible ou fiche exposant explicitement les branches ; inconnues = fait nécessaire non
+précisé ; incompatibles = condition contredite par la demande. Ne déduis jamais une condition
+de la simple présence d'un mot commun. Une fiche détaillée sur une opération voisine ne
+remplace pas une procédure manquante. Compare les restrictions avant les chemins de menus.
 Si plusieurs interprétations restent plausibles : status ambiguous et les fiches correspondantes.
 Si aucune ne traite la demande : status no_match, ids vide. Sinon status selected.
-Retourne uniquement {"status":"selected|ambiguous|no_match","ids":["id"],"objet":"description courte"}.
+Retourne uniquement {"status":"selected|ambiguous|no_match","ids":["id"],"objet":"description courte","compatibilites":[{"id":"id","operation":"directe|voisine|incertaine","conditions":"etablies|inconnues|incompatibles"}]}. Une vérification par identifiant ; liste vide pour no_match.
 DONNEES :\n'''
     def prompt_for(cs):
         return prefix + json.dumps({'question':question, 'public':public, 'mode':mode,
@@ -189,7 +196,7 @@ DONNEES :\n'''
         if text.startswith('```'):
             text = text.split('\n', 1)[1].rsplit('```', 1)[0]
         result = json.loads(text)
-        if not isinstance(result, dict) or set(result) != {'status', 'ids', 'objet'}:
+        if not isinstance(result, dict) or set(result) != {'status', 'ids', 'objet', 'compatibilites'}:
             raise ValueError('schema')
         ids, state = result['ids'], result['status']
         allowed = {p['id'] for p in pool}
@@ -198,7 +205,25 @@ DONNEES :\n'''
             or len(set(ids)) != len(ids) or not isinstance(result['objet'], str) or len(result['objet']) > 300
             or (state == 'no_match' and ids) or (state != 'no_match' and not ids)):
             raise ValueError('choice')
-        audit.update(status=state, selected_ids=ids, object_summary=result['objet'])
+        checks = result['compatibilites']
+        if (not isinstance(checks, list) or len(checks) != len(ids)
+            or any(not isinstance(c, dict) or set(c) != {'id', 'operation', 'conditions'}
+                   or c['id'] not in ids or c['operation'] not in {'directe', 'voisine', 'incertaine'}
+                   or c['conditions'] not in {'etablies', 'inconnues', 'incompatibles'} for c in checks)
+            or len({c['id'] for c in checks}) != len(ids)):
+            raise ValueError('compatibility')
+        rejected = [c['id'] for c in checks if c['operation'] == 'voisine' or c['conditions'] == 'incompatibles']
+        ids = [i for i in ids if i not in rejected]
+        uncertain = any(c['id'] in ids and (c['operation'] == 'incertaine' or c['conditions'] == 'inconnues')
+                        for c in checks)
+        if state != 'no_match' and not ids:
+            # Une proposition explicitement incompatible ne remplace pas les preuves
+            # complètes du circuit antérieur ; aucune réponse métier n'est fabriquée.
+            state = 'no_match'
+        elif uncertain:
+            state = 'ambiguous'
+        audit.update(status=state, selected_ids=ids, object_summary=result['objet'],
+                     compatibility_checks=checks, excluded_incompatible_ids=rejected)
         if state == 'no_match':
             # Une description partielle ne démontre pas l'absence de réponse dans
             # les passages déjà retrouvés. Le rédacteur conserve le dernier examen.

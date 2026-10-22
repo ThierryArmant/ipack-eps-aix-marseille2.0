@@ -1537,6 +1537,16 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'le choix préalable ne prouve pas leur applicabilité. Conserve les conditions, limites et '
                          'branches utiles ; si une information manque, présente les cas documentés ou demande '
                          'uniquement la précision indispensable. Ne complète pas avec une procédure voisine.')
+    if shortlist_applied and audit.get('document_orientation', {}).get('status') == 'ambiguous':
+        instructions += ('\nUne condition ou l’opération reste incertaine après orientation. Ne transforme pas '
+                         'cette incertitude en fait acquis. Si les passages couvrent les alternatives, expose '
+                         'brièvement les cas conditionnels. Sinon demande seulement la précision qui change '
+                         'la procédure, sans présenter une des branches comme déjà applicable.')
+    if audit.get('document_orientation', {}).get('excluded_incompatible_ids'):
+        instructions += ('\nL’orientation a signalé une opération voisine ou une condition incompatible. '
+                         'Relis les preuves complètes sans prendre leur thème commun pour une réponse. '
+                         'Ne remplace pas la manipulation demandée par une autre manipulation ; indique '
+                         'la limite documentaire si la procédure exacte reste absente.')
     audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
     data = json.dumps({'public':public,'academy':academy,'question':question,'documents':model_packets,
                        'evidence_constraints':audit['evidence_constraints'],

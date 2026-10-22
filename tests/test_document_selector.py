@@ -6,7 +6,22 @@ from unittest.mock import patch
 from types import SimpleNamespace
 from document_selector import profile, select_documents, candidate_pool, MAX_PROMPT_CHARS
 from documentary_review import review_exam_answer, mark_excerpt, source_packets, TracedLLM, usage_summary
-from test_documentary_review import FakeLLM, DOC, claim
+from test_documentary_review import FakeLLM as RawFakeLLM, DOC, claim
+
+
+def choice(status, ids, objet='', checks=None):
+    return {'status':status, 'ids':ids, 'objet':objet,
+            'compatibilites':checks if checks is not None else [
+                {'id':i,'operation':'directe','conditions':'etablies'} for i in ids]}
+
+
+class FakeLLM(RawFakeLLM):
+    def __init__(self, outputs):
+        # Anciens scénarios : déclarer explicitement leur hypothèse de compatibilité.
+        outputs = [choice(x['status'], x['ids'], x.get('objet',''))
+                   if isinstance(x,dict) and set(x)=={'status','ids','objet'} else x for x in outputs]
+        super().__init__(outputs)
+
 
 class SelectorTests(unittest.TestCase):
     def choose(self, output, documents=DOC, question='Ouvrir le dossier', **kwargs):
@@ -117,5 +132,46 @@ class SelectorTests(unittest.TestCase):
         permanent=profile({'id':'P','title':'Handicap permanent','text':'Si handicap permanent, soumettre à la commission.','scopes':['gt']})
         temporary=profile({'id':'T','title':'Inaptitude temporaire','text':'Si inaptitude temporaire, transmettre pour information.','scopes':['gt']})
         self.assertNotEqual(permanent['conditions_extraits'],temporary['conditions_extraits'])
+
+class CompatibilityTests(unittest.TestCase):
+    choose = SelectorTests.choose
+    def test_unknown_condition_retains_evidence_as_ambiguous(self):
+        output=choice('selected',['D1'],checks=[{'id':'D1','operation':'directe','conditions':'inconnues'}])
+        result,audit,_=self.choose(output)
+        self.assertEqual(audit['status'],'ambiguous')
+        self.assertEqual([p['id'] for p in result],['D1'])
+
+    def test_neighbor_operation_cannot_become_selected_evidence(self):
+        output=choice('selected',['D1'],checks=[{'id':'D1','operation':'voisine','conditions':'etablies'}])
+        result,audit,_=self.choose(output)
+        self.assertIsNone(result)
+        self.assertEqual(audit['excluded_incompatible_ids'],['D1'])
+        self.assertEqual(audit['status'],'no_match_full_review')
+
+    def test_incompatible_branch_removed_but_direct_branch_preserved(self):
+        docs=DOC+'\n'+mark_excerpt('Autre procédure.',title='Autre opération')
+        checks=[{'id':'D1','operation':'directe','conditions':'etablies'},
+                {'id':'D2','operation':'directe','conditions':'incompatibles'}]
+        result,audit,_=self.choose(choice('selected',['D1','D2'],checks=checks),docs)
+        self.assertEqual([p['id'] for p in result],['D1'])
+        self.assertEqual(audit['excluded_incompatible_ids'],['D2'])
+
+    def test_missing_compatibility_is_invalid_without_retry(self):
+        audit={};llm=RawFakeLLM([{'status':'selected','ids':['D1'],'objet':''}])
+        with patch('document_selector.catalogue_candidates',return_value=[]):
+            result=select_documents(llm,source_packets(DOC),question='Ouvrir dossier',
+                public='Lycée Général & Techno',mode='ipack',academy='Non précisée',audit=audit)
+        self.assertIsNone(result);self.assertEqual(audit['status'],'fallback_error')
+        self.assertEqual(len(llm.prompts),1)
+
+    def test_ambiguous_writer_receives_no_assumed_branch(self):
+        selector=FakeLLM([choice('selected',['D1'],checks=[
+            {'id':'D1','operation':'incertaine','conditions':'inconnues'}])])
+        writer=RawFakeLLM([{'claims':[]}]);audit={}
+        with patch('document_selector.catalogue_candidates',return_value=[]):
+            review_exam_answer(writer,question='Ouvrir dossier',public='Lycée Général & Techno',
+                documents=DOC,selector_llm=selector,selection_policy='gpt_shortlist',audit=audit,mode='ipack')
+        self.assertIn('Ne transforme pas cette incertitude en fait acquis',writer.prompts[0])
+        self.assertEqual(len(writer.prompts),1)
 
 if __name__=='__main__':unittest.main()

@@ -13,3 +13,11 @@ Les tentatives et jetons sont séparés entre `selection` et `generation`. Une s
 Activation par défaut dans les deux onglets concernés. Retour au fonctionnement antérieur : secret `ORIENTATION_FICHES = "legacy"`. Les parcours guidés et réponses documentaires sans génération ne déclenchent aucun appel d’orientation. Les résultats du rejeu administrateur restent séparés du journal des collègues.
 
 Le choix d’un identifiant ne prouve jamais l’applicabilité juridique d’une fiche. Les contrôles et une mesure réelle restent nécessaires ; aucun taux de fiabilité garanti.
+
+## Compatibilité de l’opération et des conditions
+
+Le même appel d’orientation déclare désormais, pour chaque identifiant retenu, si l’opération est directe, voisine ou incertaine et si les conditions sont établies, inconnues ou incompatibles. Le programme valide ce contrat : une fiche déclarée voisine ou incompatible ne reste pas dans la sélection orientée. Une incertitude impose un statut ambigu, même si le sélecteur avait annoncé un choix certain. Les déclarations sont conservées dans la trace administrateur ; elles restent des jugements du modèle, jamais des preuves.
+
+Si tous les choix proposés sont incompatibles, la lecture complète antérieure reste disponible avec une réserve explicite sur le risque de procédure voisine. Une description partielle ne justifie pas à elle seule un refus définitif. Le rédacteur doit présenter les alternatives documentées sous conditions ou demander uniquement la précision qui change la procédure. Aucun fait manquant ni réponse métier n’est ajouté par le programme. Aucun appel ni budget supplémentaire n’est créé.
+
+Validation locale : contrats, exclusions, préservation de la branche compatible, ambiguïté et transmission au rédacteur. Une mesure en ligne reste nécessaire pour établir un gain de fiabilité ; les tests avec réponses simulées ne prouvent pas la justesse des choix d’un modèle réel.

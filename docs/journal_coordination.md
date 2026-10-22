@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — comparatif administrateur de deux fournisseurs de génération
+Fait : ajout d'une colonne D comparant un second fournisseur au modèle actuel sur une seule recherche partagée. Même question originale, mêmes fiches, contexte et contrôles. Lecture serveur de la clé depuis les secrets, découverte des modèles sur bouton explicite, choix du modèle, compteurs séparés et export privé. Aucun changement du fournisseur public, des fiches ni des règles de preuve. Aucun échange entre modèles ni vote assimilé à une validation.
+Constaté : 832 tests locaux réussis, compilation et contrôle du diff. Le prototype C reste expérimental après la mesure ciblée ; l'ajout de D ne l'active pas pour les collègues. Le chargement isolé inclut le nouvel adaptateur. Documentation : docs/comparatif_modeles_admin.md. Génération et réparation possibles seulement sur lancement explicite ; découverte sans génération. Plafond de sortie du second fournisseur documenté, erreurs sans secret, aucun repli silencieux.
+Attendu de l'autre partie : rien.
+
+
 ### 2026-10-22 — cohérence de la version du prototype administrateur
 Fait : le premier essai en ligne a montré un numéro de version courant avec l'ancienne consigne du module C encore chargée. Le comparateur et ses deux dépendances propres sont désormais chargés dans un espace isolé identifié par l'empreinte de leurs sources ; aucun rechargement des modules publics partagés. Un ensemble déjà en cours reste stable, un nouveau contenu reçoit un autre espace.
 Constaté : premier essai exclu de la mesure de qualité du correctif, trace conservée en privé. Tests locaux : changement immédiat d'une dépendance et conservation de l'ensemble précédent ; module défectueux sans remplacement de l'ensemble fonctionnel. Vérifier dans la trace en ligne les nouveaux champs de contexte avant les dix essais.

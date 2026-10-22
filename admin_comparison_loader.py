@@ -7,7 +7,7 @@ import threading
 import types
 
 _LOCK = threading.RLock()
-_FILES = ('confirmed_scope', 'clarification_pilot', 'architecture_comparison')
+_FILES = ('albert_adapter', 'confirmed_scope', 'clarification_pilot', 'architecture_comparison')
 
 
 def load_comparison(base_dir=None):

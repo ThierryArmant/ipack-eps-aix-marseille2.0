@@ -1323,7 +1323,9 @@ if st.session_state.get("is_admin", False):
             _url_source=_url_source, search_prompt=search_prompt)
     with st.container(border=True, key="hub_admin_comparison"):
         render_architecture_comparison(st, llm=Settings.llm, retrieve=_comparison_retrieve,
-                                      version=_sha, model=modele_ia)
+                                      version=_sha, model=modele_ia,
+                                      albert_api_key=st.secrets.get("ALBERT_API_KEY"),
+                                      albert_model=st.secrets.get("ALBERT_MODEL", ""))
 
 def _bandeau_etape(numero, titre, sous_titre, couleur=""):
     """En-tête d'étape : pastille (✓ si faite, numéro sinon) et titre, dans le panneau du parcours.

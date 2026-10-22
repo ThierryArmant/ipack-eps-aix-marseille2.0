@@ -6,6 +6,7 @@ from admin_comparison_loader import load_comparison
 
 class AdminLoaderTests(unittest.TestCase):
     def make(self, root, value):
+        (root / 'albert_adapter.py').write_text('PLACEHOLDER = True')
         (root / 'confirmed_scope.py').write_text('VALUE = ' + repr(value))
         (root / 'clarification_pilot.py').write_text('from .confirmed_scope import VALUE')
         (root / 'architecture_comparison.py').write_text('from .clarification_pilot import VALUE')

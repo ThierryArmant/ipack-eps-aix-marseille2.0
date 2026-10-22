@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — langage courant des collègues
+Fait : enrichissement du lexique existant par six familles de formulations de terrain : accès au second établissement, mouvements dans la liste des élèves, activité pratiquée avec une classe, présence d’un collègue dans la liste de l’équipe, avancement des modules et module grisé. Motifs contextualisés, limites documentées ; aucun mot ajouté ne constitue une prescription ou une cause acquise. Retrait de l’équivalence ordonnance / certificat médical, insuffisamment précise. Les synonymes du contrôle des preuves restent inchangés.
+Périmètre : enrichissement local avant les motifs du catalogue, sans nouveau passage au modèle ni changement du circuit d’orientation. Le sélecteur court ne consomme pas encore ce lexique directement ; son raccordement éventuel doit être vérifié séparément pour ne pas transformer une hypothèse de recherche en fait dans la question. Aucun contenu de fiche ni réponse en dur ajouté. Questions et traces de mesure conservées hors dépôt ; exemples de contrôle synthétiques.
+Validation : contrôle des formulations et des voisins AS/classe, équipe/absence au CCF, import/lots et modules/cases de notes ; 883 tests locaux réussis. Aucune mesure de justesse en ligne déduite de ces contrôles.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme et fiches — décision nationale et circuit académique
 Fait : vérification du texte national du 20 février 2026, partie 2.e. Attribution exacte des passages de décision nationale dans les fiches mixtes ; la saisie reste attribuée au logiciel. Les passages explicitement nationaux, comme les fonctions logicielles communes, ne sont plus territorialisés par l’origine de leur document. Les véritables consignes académiques restent marquées hors de leur académie. Retrait de deux anciennes réserves d’absence de consigne locale qui brouillaient le choix national ; référence du texte ajoutée à l’article documentaire concerné. Aucun résultat métier calculé ni réponse en dur.
 Autre blocage examiné : deux fiches techniques de création de protocole généralisaient une procédure de blessure temporaire au contrôle adapté. Leur champ est désormais explicite : inaptitude partielle temporaire, sans assimilation automatique au handicap ou à l’inaptitude permanente ; la création technique ne vaut pas validation réglementaire. Le reste de la procédure et les restrictions techniques sont conservés.

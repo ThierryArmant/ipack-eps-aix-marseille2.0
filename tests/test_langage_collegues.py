@@ -56,3 +56,40 @@ class VerificationSynonymesTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class LexiqueTerrainTests(unittest.TestCase):
+    def ajout(self, question):
+        return kc.enrich(question).partition(' || ')[2]
+
+    def test_formulations_nouvelles_et_question_conservee(self):
+        cas = [
+            ('Dans iPack, mon second collège a disparu de la sélection.', 'acces multi-etablissements'),
+            ('La liste des gamins dans iPack contient des nouveaux et des partis.', 'arrivees departs'),
+            ('Je fais de la danse avec mes cinquièmes, où le renseigner dans iPack ?', 'sequences apprentissage'),
+            ('Dans iPack, deux collègues ne sont pas affichés dans notre équipe.', 'membres equipe eps'),
+            ('Où en est la saisie de mon dossier iPack en pourcentage ?', 'jauge modules'),
+            ('Une tuile iPack est devenue grise.', 'module inaccessible'),
+        ]
+        for question, expected in cas:
+            with self.subTest(question=question):
+                self.assertTrue(kc.enrich(question).startswith(kc.normalise(question)))
+                self.assertIn(expected, self.ajout(question))
+
+    def test_pas_de_confusion_avec_circuits_voisins(self):
+        cas = [
+            ('La liste des élèves arrivés dans mon lot Santorin est incomplète.', 'mise a jour liste'),
+            ('Je fais une activité AS avec ma classe, comment la déclarer dans iPack ?', 'sequences apprentissage'),
+            ('Comment renseigner ma spécialité avec mes sixièmes dans iPack ?', 'sequences apprentissage'),
+            ('Je déclare un référentiel pour ma classe de seconde dans iPack.', 'sequences apprentissage'),
+            ('Mon collègue sera absent au CCF demain.', 'membres equipe eps'),
+            ('Les cases de notes de Santorin sont grisées.', 'module inaccessible'),
+            ('Quel pourcentage des élèves obtient une bonne note dans iPack ?', 'jauge modules'),
+            ('Mon second établissement prévoit des ORS différentes.', 'acces multi-etablissements'),
+        ]
+        for question, excluded in cas:
+            with self.subTest(question=question):
+                self.assertNotIn(excluded, self.ajout(question))
+
+    def test_ordonnance_ne_devient_pas_certificat(self):
+        self.assertNotIn('certificat medical', self.ajout("L'élève me montre une ordonnance."))
+        self.assertIn('certificat medical', self.ajout("Il me donne un mot du médecin."))

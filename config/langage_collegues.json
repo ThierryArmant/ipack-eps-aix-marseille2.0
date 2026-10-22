@@ -1,6 +1,6 @@
 {
  "description": "Langage courant des collègues traduit en termes officiels, ajoutés à la question (sans rien remplacer) avant le choix des fiches. Motifs appliqués au texte en minuscules et sans accents.",
- "date": "2026-10-13",
+ "date": "2026-10-22",
  "equivalences": [
   {
    "motif": "\\bseche\\b|\\bsecher\\b|pas venue?\\b|jamais venue?|venue? a aucune|n.etait pas la|etait pas la|pas la le jour|\\bmanquait\\b|pas presente?\\b|ne s.est pas presente|a rate (?:un|le|son|sa) (?:ccf|epreuve)",
@@ -11,7 +11,7 @@
    "ajout": "sans justificatif"
   },
   {
-   "motif": "\\bcertif\\b|mot du (?:medecin|docteur)|ordonnance|arret maladie de l.eleve",
+   "motif": "\\bcertif\\b|mot du (?:medecin|docteur)|arret maladie de l.eleve",
    "ajout": "certificat medical"
   },
   {
@@ -85,6 +85,42 @@
   {
    "motif": "(?:mauvais|autre) groupe|eleve d.une autre classe",
    "ajout": "affectation eleve groupe"
+  },
+  {
+   "id": "acces_second_etablissement",
+   "motif": "^(?=.*ipack)(?=.*(?:second|autre|deux|2|plusieurs))(?=.*(?:etablissements?|lycees?|colleges?|\\blgt\\b|\\blp\\b))(?=.*(?:ne vois plus|vois plus|ne trouve plus|trouve plus|n.apparai\\w* plus|a disparu|plus acces|perdu.{0,15}acces))",
+   "ajout": "choix des etablissements acces multi-etablissements",
+   "limite": "Ne donne aucune cause de perte d’accès ni règle de service."
+  },
+  {
+   "id": "mouvements_liste_eleves",
+   "motif": "^(?!.*(?:santorin|cyclades|\\blots?\\b|emargement))(?=.*(?:eleves?|gamins?|gosses?))(?=.*(?:liste|listing|base eleve))(?=.*(?:partis?|quitt\\w*|arriv\\w*|nouveaux|nouvelles|chang\\w*.{0,15}classe|plus au (?:lycee|college)))",
+   "ajout": "mise a jour liste eleves arrivees departs changements de classe",
+   "limite": "Ne présume ni la base source ni l’effet d’un import sur les départs."
+  },
+  {
+   "id": "activite_classe",
+   "motif": "^(?!.*(?:\\bas\\b|association sportive|section sportive|specialite|protocole|referentiel|\\bfca\\b|certificat|commission))(?=.*ipack)(?=.*(?:ma classe|mes (?:sixiemes?|cinquiemes?|quatriemes?|troisiemes?|6e|5e|4e|3e)|classe de))(?=.*(?:je fais|nous faisons|j.enseigne|on pratique|activite))(?=.*(?:renseig\\w*|declar\\w*|indiq\\w*|enregistr\\w*))",
+   "ajout": "activite de classe apsa periodes sequences apprentissage",
+   "limite": "Ne transforme pas la classe en groupe AS et ne suppose pas une création manuelle d’APSA."
+  },
+  {
+   "id": "collegue_liste_equipe",
+   "motif": "^(?=.*ipack)(?=.*(?:collegues?|profs?|enseignants?|professeurs?))(?=.*(?:equipe|liste|apparai\\w*|affich\\w*|vois|voit))(?=.*(?:pas|plus|manqu\\w*|absent|introuvable))",
+   "ajout": "membres equipe eps presence dans la liste",
+   "limite": "Absence dans une liste, sans déduire une absence au CCF ou un changement d’affectation."
+  },
+  {
+   "id": "avancement_modules",
+   "motif": "^(?=.*ipack)(?=.*(?:pourcentage|\\bprogression\\b|avancement|ou on en est|ou j.en suis))(?=.*(?:donnees|dossier|module|saisie|rempli|renseig\\w*))",
+   "ajout": "verification des donnees jauge modules",
+   "limite": "Ne concerne pas une moyenne, une note ou un résultat d’élève."
+  },
+  {
+   "id": "module_grise",
+   "motif": "^(?=.*ipack)(?=.*(?:module|tuile))(?=.*(?:gris\\w*|inactif|inaccessible|plus accessible))",
+   "ajout": "module inaccessible periode de saisie",
+   "limite": "La période est une piste de recherche, pas la cause certaine ; ne s’applique pas aux cases de notes."
   }
  ],
  "equivalences_verification": {
@@ -126,5 +162,10 @@
     "proviseur"
    ]
   ]
- }
+ },
+ "principes": [
+  "Les ajouts décrivent un objet de recherche, jamais une cause, un droit ou une procédure acquise.",
+  "Les mots de la question sont conservés ; les équivalences de vérification restent réservées aux synonymes stricts.",
+  "Une formulation ambiguë ne doit pas être convertie en situation certaine ; les conditions sont vérifiées dans les fiches."
+ ]
 }

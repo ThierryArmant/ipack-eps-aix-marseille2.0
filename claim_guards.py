@@ -217,8 +217,16 @@ def evidence_relation_errors(claims, question):
                          or (re.search(r'candidat|eleve', q) and re.search(r'admission', text))
                          or (re.search(r'candidat|eleve', q) and not re.search(r'certificat|justificatif|fichier|lot|protocole', text)))
         for action in _ACTION_FAMILIES[:1]:
-            if (admission and re.search(action, text) and re.search(r'\b(?:peut|peuvent|doit|doivent|devez|non)\b|possible|impossible|interdit|autorise|refus|(?:ne|n.).{0,45}pas', text)
-                    and not re.search(action, proof)):
+            # La modalité doit qualifier l'action dans la même proposition.
+            # « Vérifier avant de décider » ne décide pas d'une admission.
+            # Examiner aussi la proposition suivante pour ne pas laisser une
+            # permission/refus passer après une introduction de vérification.
+            heads = [re.split(r"\bavant (?:de\b|d[' ])", clause, maxsplit=1)[0]
+                     for clause in re.split(r'[.;!?,]', text)]
+            unsupported = any(re.search(action, head) and re.search(
+                r'\b(?:peut|peuvent|doit|doivent|devez|non)\b|possible|impossible|interdit|autorise|refus|(?:ne|n.).{0,45}pas', head)
+                for head in heads)
+            if admission and unsupported and not re.search(action, proof):
                 errors.append({'index': i, 'errors': ['le passage cité ne justifie pas cette décision sur une autre opération : autorisation et refus doivent être documentés, sinon conserver les vérifications établies']})
         # Une condition d'une branche ne restreint pas une autre alternative.
         exclusive = re.search(r'uniquement si|seulement si|sauf(?: dans| en)?', text)

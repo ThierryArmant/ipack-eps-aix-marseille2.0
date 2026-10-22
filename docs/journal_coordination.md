@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — vérifier avant de décider n’est pas une décision d’admission
+Constaté : après clarification de la fiche, la rédaction demande correctement une vérification avant décision, mais le contrôle rattache la modalité de vérification à une mention ultérieure d’acceptation et rejette les démarches utiles.
+Fait : le contrôle d’admission rapproche l’action et sa modalité dans la même proposition. La subordonnée « avant de décider » ne vaut ni autorisation ni refus. Les propositions suivantes restent contrôlées pour qu’une décision non documentée ne passe pas derrière une introduction prudente. Aucune nouvelle réponse métier, aucune modification des fiches.
+Validation : 920 tests OK, dont 19 ciblés sur l’applicabilité. Simulation hors ligne du circuit complet avec le premier brouillon exact de la nouvelle trace : deux affirmations conservées, vérification et contact affichés, zéro rejet, aucune réparation. Les formulations d’admission non étayées des traces antérieures restent refusées. Aucun appel de génération réel.
+Limite : une simulation avec un brouillon existant valide le contrôle, pas la stabilité des futures rédactions. Le texte disponible ne tranche toujours pas l’admission le jour de l’épreuve.
+Attendu : vérifier ce cas en ligne, puis poursuivre les couples corrigé/voisin ; aucun nouveau rejeu complet nécessaire à ce stade.
+
 ### 2026-10-22 — parties programme et fiche — décision d’admission reformulée en réparation
 Constaté : le refus non étayé est rejeté au premier brouillon, mais une reformulation en impossibilité échappe au même contrôle pendant la réparation.
 Fait : le contrôle de l’opération vise désormais permission, refus et impossibilité d’admission, indépendamment de la formulation négative ; une phrase de vérification ajoutée ne suffit pas à justifier la décision. Le périmètre est limité à l’admission de personnes et ne bloque pas l’acceptation documentée d’un certificat. La fiche candidats absents conserve sa procédure mais perd le « Non : » détaché qui pouvait être réappliqué à une autre question. Registre de portée régénéré.

@@ -147,3 +147,27 @@ class ApplicabilityTests(unittest.TestCase):
         c=claim("Pour accepter un certificat médical, il doit être établi par un médecin.",
                 "Le certificat médical doit être établi par un médecin.")
         self.assertFalse(evidence_relation_errors([c],"Comment accepter le certificat d'un élève ?"))
+
+    def test_verification_before_decision_is_not_an_admission_decision(self):
+        proof="Faire vérifier l'inscription et l'identité auprès du secrétariat et de la direction. Si une régularisation est nécessaire, la direction contacte le service des examens."
+        for text in [
+            "Si un candidat n'apparaît pas sur la liste, il est nécessaire de vérifier son inscription auprès de la direction avant de décider de son acceptation.",
+            "Avant d'accepter un candidat, il faut vérifier son inscription auprès de la direction.",
+            "La décision d'acceptation dépend de la vérification de l'inscription. Si une régularisation est nécessaire, la direction doit contacter le service des examens."]:
+            self.assertFalse(evidence_relation_errors([claim(text,proof)],'Peut-on accepter le candidat ?'),text)
+        for text in [
+            "Il n'est pas possible d'accepter ce candidat. Avant toute décision, vérifier son inscription.",
+            "Avant d'accepter le candidat, vérifier son inscription ; ensuite il peut être accepté.",
+            "Vérifier l'inscription avant de décider. Le candidat peut être accepté."]:
+            self.assertTrue(evidence_relation_errors([claim(text,proof)],'Peut-on accepter le candidat ?'),text)
+
+    def test_prudent_verification_reaches_display_without_repair(self):
+        from documentary_review import review_exam_answer, mark_excerpt
+        from test_documentary_review import FakeLLM
+        proof="Faire vérifier l'inscription et l'identité auprès du secrétariat et de la direction. Si une régularisation est nécessaire, la direction contacte le service des examens."
+        text="Il est nécessaire de vérifier l'inscription du candidat auprès du secrétariat et de la direction avant de décider de son acceptation."
+        writer=FakeLLM([{'claims':[{'section':'etape','text':text,'evidence':[{'document_id':'D1','passage_ids':['D1P1']}]}]}]);audit={}
+        answer=review_exam_answer(writer,question='Peut-on accepter un candidat absent de la liste ?',public='Lycée voie générale',mode='examens',documents=mark_excerpt(proof,title='Vérification de candidature'),audit=audit)
+        self.assertEqual(len(writer.prompts),1)
+        self.assertFalse(audit['repair_performed'])
+        self.assertIn('vérifier',answer)

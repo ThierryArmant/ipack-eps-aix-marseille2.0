@@ -25,6 +25,13 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — conserver les réserves entre orientation et rédaction
+Fait : conservation bornée de deux compléments de réserve documentaire, extraits littéralement de fiches admissibles déjà candidates. Le complément ne transmet pas la procédure voisine ; identifiants de passages et portée restent traçables. Aucun ajout de réponse métier, aucune modification des fiches.
+Fait : une réserve de corpus rédigée sans citation peut être remplacée par une unique réserve explicite retrouvée dans les passages transmis, puis repassée par tous les contrôles. Les prescriptions sans preuve, les réserves ambiguës et les documents incompatibles restent refusés. Consigne de rédaction : une procédure générale ne démontre pas le cas laissé non confirmé par la réserve.
+Validation : suite complète, 895 tests OK ; sept tests ciblés OK (dont un test de bout en bout ajouté après la suite). Contrôle hors ligne sur la fiche réelle : le passage de périmètre rétrospectif est conservé. Aucun appel de génération réel, aucun rejeu payant.
+Limites : rapprochement lexical borné, ne remplace pas la vérification d’applicabilité par le rédacteur. Des réserves peuvent rester manquantes si elles ne sont pas parmi les candidats. Qualité de la réponse finale à remesurer sur un petit lot avant un rejeu complet ; aucun gain global de fiabilité chiffré à ce stade.
+Attendu de l'autre partie : rien.
+
 ### 2026-10-22 — partie programme — certitude documentaire et contexte du rejeu
 Fait : correction bornée du contrôle de certitude : un constat explicite de possibilité non vérifiée ne prouve pas « pas possible ». Les obligations de vérification restent des réserves admissibles ; une interdiction effectivement énoncée par les sources n’est pas retirée. Relecture hors ligne des affirmations des dix traces privées : l’affirmation catégorique fautive est détectée, la réserve documentaire conservée ; aucun appel fournisseur pour cette vérification. Pas de réponse métier ni de nouvelle règle réglementaire ajoutée.
 Chargement : le module des contrôles est inclus dans l’empreinte du moteur et importé dans son espace isolé. Un contrôle modifié produit un nouvel ensemble ; celui d’une session en cours reste immuable.

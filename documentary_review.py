@@ -13,9 +13,9 @@ import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
 if __package__:
-    from .document_selector import select_documents
+    from .document_selector import select_documents, uncertainty_excerpt
 else:
-    from document_selector import select_documents
+    from document_selector import select_documents, uncertainty_excerpt
 if __package__:
     from .claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors
 else:
@@ -516,6 +516,21 @@ def source_limits_for_rejections(rejections, packets, question):
             r'ne (?:precisent|decrivent|documentent|permettent de confirmer) pas[^;]+'
             r'(?:; cette etape (?:n.est pas couverte|reste non confirmee)[.]?)?', value))
         certainty_only = bool(errors) and all(str(e).startswith('absence de consigne transformée') for e in errors)
+        missing_only = errors == ['preuves absentes ou trop nombreuses'] and claim.get('evidence') == []
+        if missing_only and claim.get('section') == 'limite' and bounded_absence:
+            matches = [(p, span) for p in packets for span in p['passages']
+                       if uncertainty_excerpt(span['text'])
+                       and len(_racines(question) & _racines(span['text'])) >= 2
+                       and len(_racines(claim.get('text', '')) & _racines(span['text'])) >= 2
+                       and not situation_mismatch(question, span['text'])
+                       and not editorial_instruction(span['text'])
+                       and len(span['text']) <= 1800]
+            if len(matches) != 1:
+                return []
+            packet, span = matches[0]
+            result.append({'section': 'limite', 'text': span['text'],
+                           'evidence': [{'document_id': packet['id'], 'passage_ids': [span['id']]}]})
+            continue
         if not certainty_only and not (lexical_only and claim.get('section') == 'limite' and bounded_absence):
             return []
         found = False
@@ -1541,7 +1556,9 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'seuls identifiants de passages ; ne publie pas ton travail de comparaison.')
     if shortlist_applied:
         instructions += ('\nLes fiches ont été orientées sur leurs descriptions partielles. Vérifie leur contenu complet : '
-                         'le choix préalable ne prouve pas leur applicabilité. Conserve les conditions, limites et '
+                         'le choix préalable ne prouve pas leur applicabilité. Une réserve documentaire conservée '
+                         'doit être citée avec son identifiant si elle limite le cas demandé. Une procédure générale '
+                         'ne démontre pas son application au cas que cette réserve laisse non confirmé. Conserve les conditions, limites et '
                          'branches utiles ; si une information manque, présente les cas documentés ou demande '
                          'uniquement la précision indispensable. Ne complète pas avec une procédure voisine.')
     if shortlist_applied and audit.get('document_orientation', {}).get('status') == 'ambiguous':

@@ -1,3 +1,7 @@
+## 22 octobre — réponse utile avant les explications
+
+Consigne de rédaction précisée dans documentary_review.py : conclusion documentée et condition indispensable en décision avant les démarches ; chemin direct pour une navigation ; aucune obligation de oui/non si la source ne tranche pas. Aucun contrôle, fiche ou réponse métier en dur ajouté. Le relevé précédent de trois réponses tardives et deux refus d'admission ne constitue pas une mesure exhaustive des causes sur les 113 réponses. Validation technique sans appel IA ; effet sur la rédaction à confirmer en ligne sur les cas concernés et leurs voisins.
+
 # Journal de coordination — Hub IA - EPS
 
 Tableau de liaison entre la **partie fiches** (fiches, catalogue, registres, tests associés) et la **partie programme** (`app.py`, `documentary_review.py`, `source_scope.py`, consignes du modèle, tests en ligne).

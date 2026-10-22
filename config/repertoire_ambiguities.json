@@ -1,0 +1,1565 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-23",
+  "status": "repertoire_preparatoire_non_branche",
+  "runtime_enabled": false,
+  "scope": "Questions iPackEPS et Examens ; passerelles vers les textes lorsqu’elles changent la procédure.",
+  "corpus": {
+    "unique_normalized_questions": 1236,
+    "source_files": 6,
+    "sha256": "5920d6d698a758c3969863ea626cab34094bb42032ab79ffe13f0ae92526ce12",
+    "limit": "Copies locales disponibles ; ne représente pas à lui seul la banque annoncée d’environ 1 400 questions. Les anciennes réponses ne sont pas utilisées.",
+    "counts_meaning": "Nombre de questions repérées par thème ; chevauchements possibles ; ni nombre d’ambiguïtés avérées ni nombre d’échecs."
+  },
+  "existing_lexicon": "config/lexique_clarification.json",
+  "activation_policy": [
+    "Aucune entrée n’est appelée par le hub dans cette version.",
+    "Analyser la question originale complète avec le contexte explicite avant tout enrichissement lexical.",
+    "Demander une précision seulement si au moins deux procédures documentées restent plausibles et si le fait absent change la conduite.",
+    "Un mot seul, un faible score ou la présence de plusieurs fiches ne suffisent pas.",
+    "Si l’information est déjà donnée ou si une explication conditionnelle courte suffit, répondre sans clarification.",
+    "Une absence de source ou une prémisse contredite ne se résout pas par une clarification artificielle.",
+    "Une question maximum à la fois ; permettre une réponse libre et conserver la question initiale.",
+    "Après précision, refaire l’examen des fiches sur la demande complétée ; ne pas injecter de conclusion métier depuis le répertoire.",
+    "L’onglet est un indice ; il ne change pas un fait explicite dans la question.",
+    "Le répertoire n’est ni une source réglementaire ni un catalogue de réponses en dur."
+  ],
+  "entries": [
+    {
+      "id": "A01",
+      "title": "Élèves ou candidats manquants",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "La liste ou le logiciel dans lequel la personne manque.",
+      "clarification": {
+        "question": "Où manque cet élève ou candidat ?",
+        "choices": [
+          {
+            "branch_id": "ipack",
+            "label": "Dans la liste des élèves iPackEPS"
+          },
+          {
+            "branch_id": "inscription",
+            "label": "Dans la liste des inscrits de Cyclades"
+          },
+          {
+            "branch_id": "lot",
+            "label": "Dans un lot Santorin, alors qu’il est présent dans Cyclades"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "ipack",
+          "label": "Dans la liste des élèves iPackEPS",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt"
+          ]
+        },
+        {
+          "id": "inscription",
+          "label": "Dans la liste des inscrits de Cyclades",
+          "document_paths": [
+            "data/examens/cyclades_candidats_absents.txt"
+          ]
+        },
+        {
+          "id": "lot",
+          "label": "Dans un lot Santorin, alors qu’il est présent dans Cyclades",
+          "document_paths": [
+            "data/ipack/fiches/ipack_171_situation_santorin_eleve_manquant_mais_present_dans_cyclades.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le logiciel et la liste sont explicitement identifiés. Une absence dans Cyclades ne devient jamais une présence dans Cyclades pour utiliser la branche Santorin.",
+      "example_needing_clarification": "Il me manque un élève, comment le retrouver ?",
+      "example_already_precise": "Un candidat absent de la liste des inscrits de Cyclades peut-il être ajouté par un export ?",
+      "existing_lexicon_ids": [
+        "eleves_localisation"
+      ],
+      "corpus_topic_count": 119,
+      "analysis_patterns": [
+        "eleve|candidat",
+        "manqu|absen|apparai|introuv"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A02",
+      "title": "Lots absents ou candidats absents du lot",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’objet absent : mission/examen, lot entier, ou candidat à l’intérieur du lot.",
+      "clarification": {
+        "question": "Qu’est-ce qui manque dans votre accès à la notation ?",
+        "choices": [
+          {
+            "branch_id": "lots",
+            "label": "Un ou plusieurs lots entiers"
+          },
+          {
+            "branch_id": "eleves",
+            "label": "Des candidats dans un lot accessible"
+          },
+          {
+            "branch_id": "mission",
+            "label": "La mission permettant d’accéder à la notation"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "lots",
+          "label": "Un ou plusieurs lots entiers",
+          "document_paths": [
+            "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt"
+          ]
+        },
+        {
+          "id": "eleves",
+          "label": "Des candidats dans un lot accessible",
+          "document_paths": [
+            "data/ipack/fiches/ipack_171_situation_santorin_eleve_manquant_mais_present_dans_cyclades.txt"
+          ]
+        },
+        {
+          "id": "mission",
+          "label": "La mission permettant d’accéder à la notation",
+          "document_paths": [
+            "data/examens/fiches/memoire_examens_santorin_010_2_logistique_santorin_et_distribution_des_lots.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "La question distingue déjà un lot entier d’un élève absent ; ne pas ajouter les étapes de pagination des candidats pour expliquer des lots manquants.",
+      "example_needing_clarification": "Je ne retrouve pas tout dans Santorin.",
+      "example_already_precise": "J’ai mes lots de CAP mais aucun lot de bac professionnel.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 35,
+      "analysis_patterns": [
+        "lot",
+        "manqu|absen|trouv|retrouv|voi"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A03",
+      "title": "Import et export : sens du transfert",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "La source, la destination et le type de données.",
+      "clarification": {
+        "question": "Quelles données souhaitez-vous transférer, et vers quel logiciel ?",
+        "choices": [
+          {
+            "branch_id": "siecle",
+            "label": "Actualiser les élèves dans iPackEPS depuis la base de l’établissement"
+          },
+          {
+            "branch_id": "pronote",
+            "label": "Importer une liste provenant de Pronote ou ÉcoleDirecte"
+          },
+          {
+            "branch_id": "cyclades",
+            "label": "Transmettre les groupes/protocoles d’iPackEPS vers Cyclades"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "siecle",
+          "label": "Actualiser les élèves dans iPackEPS depuis la base de l’établissement",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt"
+          ]
+        },
+        {
+          "id": "pronote",
+          "label": "Importer une liste provenant de Pronote ou ÉcoleDirecte",
+          "document_paths": [
+            "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt"
+          ]
+        },
+        {
+          "id": "cyclades",
+          "label": "Transmettre les groupes/protocoles d’iPackEPS vers Cyclades",
+          "document_paths": [
+            "data/ipack/fiches/ipack_235_5_dossiers_certificatifs_cahpn_et_examens_cyclades.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "La source, la destination et l’objet du transfert sont donnés. L’export ne prouve ni création de candidature ni transfert de notes.",
+      "example_needing_clarification": "Mon import ne fonctionne plus.",
+      "example_already_precise": "J’importe un fichier CSV de Pronote vers les groupes iPackEPS.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 51,
+      "analysis_patterns": [
+        "import|export|transfert|transfer|synchron"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A04",
+      "title": "Accès impossible ou base élèves vide",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "La connexion est-elle possible ? Le compte est-il dans un établissement alimenté par SIECLE ?",
+      "clarification": {
+        "question": "Pouvez-vous entrer dans iPackEPS et ouvrir votre établissement ?",
+        "choices": [
+          {
+            "branch_id": "acces",
+            "label": "Non, l’accès ou le choix d’établissement échoue"
+          },
+          {
+            "branch_id": "vide",
+            "label": "Oui, mais les listes d’élèves sont vides"
+          },
+          {
+            "branch_id": "hors_siecle",
+            "label": "Oui, dans un établissement sans alimentation SIECLE"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "acces",
+          "label": "Non, l’accès ou le choix d’établissement échoue",
+          "document_paths": [
+            "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt"
+          ]
+        },
+        {
+          "id": "vide",
+          "label": "Oui, mais les listes d’élèves sont vides",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt"
+          ]
+        },
+        {
+          "id": "hors_siecle",
+          "label": "Oui, dans un établissement sans alimentation SIECLE",
+          "document_paths": [
+            "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le symptôme et le type d’établissement sont donnés. Si la question signale deux problèmes, traiter les deux sans les fusionner.",
+      "example_needing_clarification": "Je suis en MFR et rien n’apparaît.",
+      "example_already_precise": "Je peux ouvrir iPackEPS mais mon CFA ne contient aucun élève.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 18,
+      "analysis_patterns": [
+        "acces|connexion|connect|aucun eleve|pas d eleve",
+        "ipack|etablissement|cfa|mfr|aefe"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A05",
+      "title": "Collègue absent : équipe, mission ou droits sur le lot",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’endroit où le collègue manque.",
+      "clarification": {
+        "question": "Où votre collègue n’apparaît-il pas ?",
+        "choices": [
+          {
+            "branch_id": "equipe",
+            "label": "Dans l’équipe EPS d’iPackEPS"
+          },
+          {
+            "branch_id": "mission",
+            "label": "Dans les missions d’évaluation"
+          },
+          {
+            "branch_id": "correcteur",
+            "label": "Dans les correcteurs d’un lot Santorin"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "equipe",
+          "label": "Dans l’équipe EPS d’iPackEPS",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt"
+          ]
+        },
+        {
+          "id": "mission",
+          "label": "Dans les missions d’évaluation",
+          "document_paths": [
+            "data/examens/fiches/memoire_examens_santorin_010_2_logistique_santorin_et_distribution_des_lots.txt"
+          ]
+        },
+        {
+          "id": "correcteur",
+          "label": "Dans les correcteurs d’un lot Santorin",
+          "document_paths": [
+            "data/ipack/fiches/ipack_006_doc_ref_distribution_des_lots_santorin.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le logiciel, la mission ou le lot est déjà nommé avec le symptôme ; ne pas réinterroger sur un fait donné.",
+      "example_needing_clarification": "Comment ajouter mon remplaçant ?",
+      "example_already_precise": "Mon remplaçant apparaît dans l’équipe iPackEPS mais n’a pas accès au lot Santorin.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 55,
+      "analysis_patterns": [
+        "collegue|professeur|enseignant|remplacant",
+        "apparai|manqu|acces|droit|absen"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A06",
+      "title": "Deux établissements : navigation, personnels ou service",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’action recherchée, pas le seul statut TZR.",
+      "clarification": {
+        "question": "Cherchez-vous un accès dans iPackEPS ou une information sur votre service ?",
+        "choices": [
+          {
+            "branch_id": "navigation",
+            "label": "Passer d’un établissement à l’autre ou retrouver un accès"
+          },
+          {
+            "branch_id": "equipe",
+            "label": "Faire apparaître un collègue dans l’équipe du bon établissement"
+          },
+          {
+            "branch_id": "service",
+            "label": "Connaître les obligations de service ou indemnités"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "navigation",
+          "label": "Passer d’un établissement à l’autre ou retrouver un accès",
+          "document_paths": [
+            "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt"
+          ]
+        },
+        {
+          "id": "equipe",
+          "label": "Faire apparaître un collègue dans l’équipe du bon établissement",
+          "document_paths": [
+            "data/ipack/acces_cite_scolaire_equipe_stsweb.txt"
+          ]
+        },
+        {
+          "id": "service",
+          "label": "Connaître les obligations de service ou indemnités",
+          "document_paths": [
+            "data/textes/complement_obligations_service_eps.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "La perte d’accès, la navigation ou la question de service est explicite. Ne pas substituer une fiche ORS à une difficulté de connexion.",
+      "example_needing_clarification": "TZR sur deux établissements, que dois-je faire ?",
+      "example_already_precise": "Je ne vois plus mon deuxième lycée dans iPackEPS.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 33,
+      "analysis_patterns": [
+        "etablissement|lycee|college",
+        "tzr|partag|deux|2 etabl|lgt|\\blp\\b"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A07",
+      "title": "Activité d’une classe, spécialité du professeur ou AS",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "À qui et à quel enseignement l’activité est rattachée.",
+      "clarification": {
+        "question": "Que souhaitez-vous renseigner pour cette activité ?",
+        "choices": [
+          {
+            "branch_id": "classe",
+            "label": "L’activité enseignée à une classe en EPS"
+          },
+          {
+            "branch_id": "professeur",
+            "label": "Votre spécialité dans la fiche professeur"
+          },
+          {
+            "branch_id": "as",
+            "label": "Un groupe d’association sportive ou de section sportive"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "classe",
+          "label": "L’activité enseignée à une classe en EPS",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt"
+          ]
+        },
+        {
+          "id": "professeur",
+          "label": "Votre spécialité dans la fiche professeur",
+          "document_paths": [
+            "data/ipack/fiches/ipack_057_article_11_fiche_professeur_renseigner_sa_fiche_professeur.txt"
+          ]
+        },
+        {
+          "id": "as",
+          "label": "Un groupe d’association sportive ou de section sportive",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Une classe et une activité enseignée sont données, ou la spécialité personnelle/AS est explicite. La présence du nom d’un sport ne suffit pas à choisir une spécialité.",
+      "example_needing_clarification": "Je veux ajouter le football.",
+      "example_already_precise": "Je pratique le football avec une classe de cinquième : où le déclarer ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 12,
+      "analysis_patterns": [
+        "football|foot|activite|apsa",
+        "declar|renseign|ajout|creer|saisi"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A08",
+      "title": "Classe, groupe EPS, protocole ou lot",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le regroupement concerné et l’étape du parcours.",
+      "clarification": {
+        "question": "Quel regroupement souhaitez-vous modifier ?",
+        "choices": [
+          {
+            "branch_id": "enseignement",
+            "label": "Une classe ou un groupe d’enseignement EPS"
+          },
+          {
+            "branch_id": "protocole",
+            "label": "L’association d’un candidat à un protocole d’examen"
+          },
+          {
+            "branch_id": "lot",
+            "label": "La répartition des candidats dans les lots Santorin"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "enseignement",
+          "label": "Une classe ou un groupe d’enseignement EPS",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt",
+            "data/ipack/visite_college_2026_10_18/groupes_as_sss_placement_eleves.txt"
+          ]
+        },
+        {
+          "id": "protocole",
+          "label": "L’association d’un candidat à un protocole d’examen",
+          "document_paths": [
+            "data/examens/situations_2026_10_13/hors_siecle_association_cyclades.txt"
+          ]
+        },
+        {
+          "id": "lot",
+          "label": "La répartition des candidats dans les lots Santorin",
+          "document_paths": [
+            "data/ipack/fiches/ipack_006_doc_ref_distribution_des_lots_santorin.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le logiciel, le regroupement et l’action sont identifiés ; ne pas transformer un groupe EPS en lot de correction.",
+      "example_needing_clarification": "Je dois changer un élève de groupe.",
+      "example_already_precise": "Je dois déplacer un candidat d’un lot Santorin vers un autre.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 38,
+      "analysis_patterns": [
+        "groupe|classe",
+        "creer|chang|affect|plac|deplac|fusion|supprim"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A09",
+      "title": "Protocole : programmation ou certification",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le public, l’objet du protocole et l’étape (création, modification, validation).",
+      "clarification": {
+        "question": "De quel protocole parlez-vous ?",
+        "choices": [
+          {
+            "branch_id": "college",
+            "label": "De la programmation EPS au collège"
+          },
+          {
+            "branch_id": "certificatif",
+            "label": "D’un protocole d’examen au lycée"
+          },
+          {
+            "branch_id": "adapte",
+            "label": "D’un protocole individuel adapté"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "college",
+          "label": "De la programmation EPS au collège",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt",
+            "data/ipack/visite_college_2026_10_18/apsa_periodes_sequences.txt"
+          ]
+        },
+        {
+          "id": "certificatif",
+          "label": "D’un protocole d’examen au lycée",
+          "document_paths": [
+            "data/ipack/fiches/ipack_069_article_42_dossiers_dossier_certificatif_protocoles_configuration_des_protocoles_des_epreu.txt"
+          ]
+        },
+        {
+          "id": "adapte",
+          "label": "D’un protocole individuel adapté",
+          "document_paths": [
+            "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt",
+            "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le niveau et l’objet sont donnés. Une prémisse de CCF DNB contradictoire avec les sources se corrige ; elle ne crée pas une nouvelle branche réglementaire.",
+      "example_needing_clarification": "Comment valider mon protocole ?",
+      "example_already_precise": "Où saisir le protocole certificatif d’une terminale générale ?",
+      "existing_lexicon_ids": [
+        "validation_objet"
+      ],
+      "corpus_topic_count": 48,
+      "analysis_patterns": [
+        "protocole",
+        "creer|sais|modif|valid|declar|renseign"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A10",
+      "title": "Contrôle adapté : permanent ou temporaire, règle ou saisie",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le caractère de l’inaptitude et si la demande porte sur la règle ou la création technique.",
+      "clarification": {
+        "question": "Cherchez-vous la règle d’adaptation ou la manipulation dans le logiciel ?",
+        "choices": [
+          {
+            "branch_id": "cadre",
+            "label": "Les possibilités d’évaluation en cas de handicap ou d’inaptitude permanente"
+          },
+          {
+            "branch_id": "temporaire",
+            "label": "L’adaptation après une blessure temporaire"
+          },
+          {
+            "branch_id": "creation",
+            "label": "La création ou l’association du protocole dans Cyclades"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "cadre",
+          "label": "Les possibilités d’évaluation en cas de handicap ou d’inaptitude permanente",
+          "document_paths": [
+            "data/examens/mesure3_corrections/gt_controle_adapte_inaptitude_permanente.txt"
+          ]
+        },
+        {
+          "id": "temporaire",
+          "label": "L’adaptation après une blessure temporaire",
+          "document_paths": [
+            "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt"
+          ]
+        },
+        {
+          "id": "creation",
+          "label": "La création ou l’association du protocole dans Cyclades",
+          "document_paths": [
+            "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le type est connu, ou une explication générale des branches répond déjà à la demande. Ne pas imposer trois précisions médicales pour indiquer un menu ; ne pas confondre possibilité nationale et capacité de création logicielle.",
+      "example_needing_clarification": "Je veux un protocole adapté, comment faire ?",
+      "example_already_precise": "Après une blessure temporaire, comment associer cet élève à son protocole dans Cyclades ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 37,
+      "analysis_patterns": [
+        "adapt|handicap|bless",
+        "protocole|epreuve|evaluation|controle"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A11",
+      "title": "Déclaration médicale, statut et résultat",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’action : enregistrer le constat, choisir un statut, ou déterminer une note.",
+      "clarification": {
+        "question": "Souhaitez-vous enregistrer le certificat ou déterminer le statut/la note d’examen ?",
+        "choices": [
+          {
+            "branch_id": "declaration",
+            "label": "Déclarer l’inaptitude et joindre le certificat dans iPackEPS"
+          },
+          {
+            "branch_id": "statut",
+            "label": "Choisir le statut à saisir dans Santorin"
+          },
+          {
+            "branch_id": "resultat",
+            "label": "Déterminer le résultat à partir des évaluations réalisées"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "declaration",
+          "label": "Déclarer l’inaptitude et joindre le certificat dans iPackEPS",
+          "document_paths": [
+            "data/ipack/fiches/ipack_031_situation_ipackeps_saisie_inaptitude_et_depot_certificat_medical.txt"
+          ]
+        },
+        {
+          "id": "statut",
+          "label": "Choisir le statut à saisir dans Santorin",
+          "document_paths": [
+            "data/examens/guide_national_inaptes_partiels_temporaires.txt"
+          ]
+        },
+        {
+          "id": "resultat",
+          "label": "Déterminer le résultat à partir des évaluations réalisées",
+          "document_paths": [
+            "data/commun/audit60/gt_inaptitude_possibilites_ccf.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’opération demandée est explicite. Le simple enregistrement d’une inaptitude ne prouve ni note unique ni dispense d’épreuve.",
+      "example_needing_clarification": "Comment saisir sa dispense ?",
+      "example_already_precise": "Où joindre le certificat médical dans la fiche de l’élève iPackEPS ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 47,
+      "analysis_patterns": [
+        "inapt|dispens|certificat",
+        "sais|declar|enregistr|mettr|je met"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A12",
+      "title": "DI, absence et nombre de notes par diplôme",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le diplôme/régime et, pour une décision individuelle, les évaluations et périodes médicales pertinentes.",
+      "clarification": {
+        "question": "Pour quel diplôme et quelle situation d’évaluation souhaitez-vous déterminer le résultat ?",
+        "choices": [
+          {
+            "branch_id": "gt",
+            "label": "Bac général ou technologique"
+          },
+          {
+            "branch_id": "pro",
+            "label": "Bac professionnel"
+          },
+          {
+            "branch_id": "cap",
+            "label": "CAP"
+          },
+          {
+            "branch_id": "college",
+            "label": "Collège / DNB"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "gt",
+          "label": "Bac général ou technologique",
+          "document_paths": [
+            "data/commun/audit60/gt_inaptitude_possibilites_ccf.txt"
+          ]
+        },
+        {
+          "id": "pro",
+          "label": "Bac professionnel",
+          "document_paths": [
+            "data/examens/situations_2026_10_13/bac_pro_deux_notes_inaptitude.txt"
+          ]
+        },
+        {
+          "id": "cap",
+          "label": "CAP",
+          "document_paths": [
+            "data/commun/cap_inaptitude_temporaire.txt"
+          ]
+        },
+        {
+          "id": "college",
+          "label": "Collège / DNB",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le diplôme est identifié dans la question ou le contexte non ambigu. Pour une demande générale expliquer les branches documentées ; demander les faits individuels uniquement si un choix en dépend.",
+      "example_needing_clarification": "Deux dispenses et une note : que garder ?",
+      "example_already_precise": "Au bac général, deux DI et une note restante : quelles possibilités ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 59,
+      "analysis_patterns": [
+        "\\bdi\\b|dispens|absent|inapt",
+        "notes?|moyenne|coefficient|zero|statut"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A13",
+      "title": "Certificat : CCF ou ponctuel",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le régime d’examen et le circuit académique lorsqu’il change la procédure.",
+      "clarification": {
+        "question": "Le certificat concerne-t-il un élève évalué en CCF ou un candidat au ponctuel ?",
+        "choices": [
+          {
+            "branch_id": "ccf",
+            "label": "Un élève évalué en CCF"
+          },
+          {
+            "branch_id": "ponctuel",
+            "label": "Un candidat à l’épreuve ponctuelle"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "ccf",
+          "label": "Un élève évalué en CCF",
+          "document_paths": [
+            "data/ipack/fiches/ipack_031_situation_ipackeps_saisie_inaptitude_et_depot_certificat_medical.txt",
+            "data/commun/audit60/certificat_medical.txt"
+          ]
+        },
+        {
+          "id": "ponctuel",
+          "label": "Un candidat à l’épreuve ponctuelle",
+          "document_paths": [
+            "data/commun/audit60/aix_certificats_2026.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "CCF ou ponctuel est déjà précisé. Ne pas ajouter automatiquement le dépôt iPackEPS d’un élève scolaire au circuit d’un candidat individuel.",
+      "example_needing_clarification": "Où envoyer son certificat d’inaptitude ?",
+      "example_already_precise": "Un candidat individuel au ponctuel doit transmettre son certificat : par quel circuit ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 30,
+      "analysis_patterns": [
+        "certificat|medical",
+        "transm|depos|accept|modele|valid|joindre"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A14",
+      "title": "Valider : quel objet et quel rôle ?",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’objet à valider, le rôle du compte et le symptôme si la question signale un blocage.",
+      "clarification": {
+        "question": "Quel élément souhaitez-vous valider ou envoyer ?",
+        "choices": [
+          {
+            "branch_id": "dossier",
+            "label": "Un dossier ou un référentiel dans iPackEPS"
+          },
+          {
+            "branch_id": "notes",
+            "label": "Un lot de notes dans Santorin"
+          },
+          {
+            "branch_id": "enquete",
+            "label": "L’enquête natation"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "dossier",
+          "label": "Un dossier ou un référentiel dans iPackEPS",
+          "document_paths": [
+            "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt",
+            "data/ipack/fiches/ipack_070_article_38_dossiers_dossier_certificatif_referentiels_remontee_des_referentiels_d_evaluati.txt"
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "Un lot de notes dans Santorin",
+          "document_paths": [
+            "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt"
+          ]
+        },
+        {
+          "id": "enquete",
+          "label": "L’enquête natation",
+          "document_paths": [
+            "data/ipack/fiches/ipack_077_article_4_dossiers_dossier_natation_enquete_saisie_de_l_enquete_natation.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’objet est nommé. Le rôle n’est demandé que si les droits changent effectivement l’action ; ne pas transformer toute validation en signature du chef.",
+      "example_needing_clarification": "Le bouton valider reste grisé.",
+      "example_already_precise": "Comment verrouiller mon lot de notes dans Santorin ?",
+      "existing_lexicon_ids": [
+        "validation_objet",
+        "probleme_ecran"
+      ],
+      "corpus_topic_count": 72,
+      "analysis_patterns": [
+        "valid|sign|envoi|envoy",
+        "dossier|lot|notes|fiche|protocole|referentiel|grise"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A15",
+      "title": "Soumis, en attente et validé",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’état textuel observé et l’objet concerné.",
+      "clarification": {
+        "question": "Quel état est affiché pour ce dossier ou référentiel ?",
+        "choices": [
+          {
+            "branch_id": "envoi",
+            "label": "Il n’a pas encore été envoyé"
+          },
+          {
+            "branch_id": "attente",
+            "label": "Il est envoyé et en attente de validation"
+          },
+          {
+            "branch_id": "rejet",
+            "label": "Il a été rejeté ou demande une correction"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "envoi",
+          "label": "Il n’a pas encore été envoyé",
+          "document_paths": [
+            "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt"
+          ]
+        },
+        {
+          "id": "attente",
+          "label": "Il est envoyé et en attente de validation",
+          "document_paths": [
+            "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt"
+          ]
+        },
+        {
+          "id": "rejet",
+          "label": "Il a été rejeté ou demande une correction",
+          "document_paths": [
+            "data/ipack/fiches/ipack_199_article_101_dossiers_dossier_certificatif_referentiels_rejet_d_un_referentiel_par_la_commi.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’état est déjà cité. Une question générale sur les états appelle leur explication, pas une interruption. Un pourcentage complet ne prouve pas la validation par la commission.",
+      "example_needing_clarification": "Mon dossier est terminé mais je ne sais pas s’il est validé.",
+      "example_already_precise": "Le référentiel affiche « en attente de validation » depuis mon envoi.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 43,
+      "analysis_patterns": [
+        "valid|commiss|attente",
+        "dossier|protocole|referentiel|fca"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A16",
+      "title": "Saisie des notes bloquée",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le logiciel, le diplôme et le symptôme qui départagent les procédures.",
+      "clarification": {
+        "question": "Dans quel logiciel la saisie est-elle bloquée ?",
+        "choices": [
+          {
+            "branch_id": "ipack",
+            "label": "iPackEPS : je cherche où saisir les notes"
+          },
+          {
+            "branch_id": "santorin",
+            "label": "Santorin : cases grisées, lot verrouillé ou accès manquant"
+          },
+          {
+            "branch_id": "scolaire",
+            "label": "Le logiciel de vie scolaire pour les notes de cours"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "ipack",
+          "label": "iPackEPS : je cherche où saisir les notes",
+          "document_paths": [
+            "data/commun/audit60/ipack_perimetre.txt"
+          ]
+        },
+        {
+          "id": "santorin",
+          "label": "Santorin : cases grisées, lot verrouillé ou accès manquant",
+          "document_paths": [
+            "data/ipack/complement_saisie_notes_bloquee.txt"
+          ]
+        },
+        {
+          "id": "scolaire",
+          "label": "Le logiciel de vie scolaire pour les notes de cours",
+          "document_paths": [
+            "data/ipack/fiches/ipack_300_situation_perimetre_ce_que_ipackeps_ne_gere_pas.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le logiciel et le symptôme sont donnés. Ne pas donner à la fois choix AFLP, import élèves et déverrouillage sans les conditions propres à chaque cas.",
+      "example_needing_clarification": "Je ne peux plus entrer mes notes.",
+      "example_already_precise": "Dans Santorin en bac pro, les cases AFLP sont grisées.",
+      "existing_lexicon_ids": [
+        "saisie_notes_usage",
+        "logiciel_hors_contexte",
+        "probleme_ecran"
+      ],
+      "corpus_topic_count": 113,
+      "analysis_patterns": [
+        "note|afl|aflp",
+        "sais|case|grise|bloqu|possible|peux"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A17",
+      "title": "Erreur de saisie, harmonisation ou contestation",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "La nature du désaccord et le moment : saisie, harmonisation ou résultat publié.",
+      "clarification": {
+        "question": "Souhaitez-vous corriger une saisie ou comprendre/contester un résultat ?",
+        "choices": [
+          {
+            "branch_id": "saisie",
+            "label": "Corriger une note saisie dans Santorin"
+          },
+          {
+            "branch_id": "harmonisation",
+            "label": "Comprendre une note modifiée après harmonisation"
+          },
+          {
+            "branch_id": "recours",
+            "label": "Contester un résultat ou signaler une erreur matérielle"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "saisie",
+          "label": "Corriger une note saisie dans Santorin",
+          "document_paths": [
+            "data/examens/fiches/examens_105_situation_santorin_valider_definitivement_ses_notes_eps.txt"
+          ]
+        },
+        {
+          "id": "harmonisation",
+          "label": "Comprendre une note modifiée après harmonisation",
+          "document_paths": [
+            "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt"
+          ]
+        },
+        {
+          "id": "recours",
+          "label": "Contester un résultat ou signaler une erreur matérielle",
+          "document_paths": [
+            "data/commun/audit60/contestation_note.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le moment et l’action sont explicites. Le verbe « relève » ne prouve pas la présence d’un relevé de notes. Ne pas revenir à la préparation d’une commission déjà passée.",
+      "example_needing_clarification": "Il faut modifier la note de cet élève.",
+      "example_already_precise": "La note publiée sur le relevé diffère de ma saisie initiale dans Santorin.",
+      "existing_lexicon_ids": [
+        "modification_objet"
+      ],
+      "corpus_topic_count": 28,
+      "analysis_patterns": [
+        "note|resultat",
+        "corrig|erreur|different|chang|contest|modif|harmonis"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A18",
+      "title": "Déposer plusieurs FCA ou composer le menu individuel",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le dépôt documentaire ou l’ensemble certificatif d’un candidat ; objectif CA1/CA5 uniquement s’il change la réponse demandée.",
+      "clarification": {
+        "question": "Votre question porte-t-elle sur le dépôt des fiches ou sur les épreuves d’un même candidat ?",
+        "choices": [
+          {
+            "branch_id": "depot",
+            "label": "Déposer plusieurs fiches d’activité dans iPackEPS"
+          },
+          {
+            "branch_id": "ensemble",
+            "label": "Composer l’ensemble certificatif d’un candidat"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "depot",
+          "label": "Déposer plusieurs fiches d’activité dans iPackEPS",
+          "document_paths": [
+            "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt"
+          ]
+        },
+        {
+          "id": "ensemble",
+          "label": "Composer l’ensemble certificatif d’un candidat",
+          "document_paths": [
+            "data/ipack/courriels_aix_2026_10_14/courses_deux_fca_pdf_menu_individuel.txt",
+            "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le dépôt ou le candidat est identifié. Si la distinction peut être expliquée brièvement, répondre avec les deux portées sans obliger le professeur à classer lui-même ses courses.",
+      "example_needing_clarification": "Peut-on mettre les deux courses ensemble ?",
+      "example_already_precise": "Peut-on regrouper deux FCA de demi-fond dans le même PDF ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 18,
+      "analysis_patterns": [
+        "courses?|demi fond|3 500|3x|fca",
+        "depos|pdf|champ|certific|menu|document"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A19",
+      "title": "Fiche individuelle, fiche établissement ou référentiel",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le document demandé et sa destination.",
+      "clarification": {
+        "question": "Quel document souhaitez-vous remplir ou déposer ?",
+        "choices": [
+          {
+            "branch_id": "individuelle",
+            "label": "Une fiche individuelle pour un cas particulier d’élève"
+          },
+          {
+            "branch_id": "etablissement",
+            "label": "La fiche établissement pour la commission"
+          },
+          {
+            "branch_id": "referentiel",
+            "label": "Un référentiel d’évaluation d’activité"
+          },
+          {
+            "branch_id": "professeur",
+            "label": "La fiche professeur"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "individuelle",
+          "label": "Une fiche individuelle pour un cas particulier d’élève",
+          "document_paths": [
+            "data/ipack/fiches/ipack_073_article_84_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_des_fiches_indivi.txt"
+          ]
+        },
+        {
+          "id": "etablissement",
+          "label": "La fiche établissement pour la commission",
+          "document_paths": [
+            "data/ipack/fiches/ipack_072_article_83_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_de_la_fiche_etabl.txt"
+          ]
+        },
+        {
+          "id": "referentiel",
+          "label": "Un référentiel d’évaluation d’activité",
+          "document_paths": [
+            "data/ipack/fiches/ipack_070_article_38_dossiers_dossier_certificatif_referentiels_remontee_des_referentiels_d_evaluati.txt"
+          ]
+        },
+        {
+          "id": "professeur",
+          "label": "La fiche professeur",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/fiche_professeur_fonctions_enregistrer.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "La nature du document est déjà indiquée. Ne pas ajouter le cas DI+DI+note à une simple demande de format sans motif.",
+      "example_needing_clarification": "Il faut déposer quelle fiche ?",
+      "example_already_precise": "Où déposer la fiche individuelle de cas particulier pour la commission ?",
+      "existing_lexicon_ids": [
+        "fiche_depot"
+      ],
+      "corpus_topic_count": 9,
+      "analysis_patterns": [
+        "fiche|document",
+        "depos|format|rempl|transm|envoy"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A20",
+      "title": "Natation : enquête, ASNS ou statistiques",
+      "priority": "haute",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’opération du dossier Natation et, si la demande le précise, l’année visée.",
+      "clarification": {
+        "question": "Que souhaitez-vous faire dans le dossier Natation ?",
+        "choices": [
+          {
+            "branch_id": "enquete",
+            "label": "Renseigner l’enquête natation"
+          },
+          {
+            "branch_id": "asns",
+            "label": "Valider ou imprimer les attestations ASNS"
+          },
+          {
+            "branch_id": "statistiques",
+            "label": "Consulter les statistiques du savoir-nager"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "enquete",
+          "label": "Renseigner l’enquête natation",
+          "document_paths": [
+            "data/ipack/fiches/ipack_077_article_4_dossiers_dossier_natation_enquete_saisie_de_l_enquete_natation.txt",
+            "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt"
+          ]
+        },
+        {
+          "id": "asns",
+          "label": "Valider ou imprimer les attestations ASNS",
+          "document_paths": [
+            "data/ipack/fiches/ipack_076_article_49_dossiers_dossier_natation_asns_gestion_des_validations_d_asns_import_et_impress.txt",
+            "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt"
+          ]
+        },
+        {
+          "id": "statistiques",
+          "label": "Consulter les statistiques du savoir-nager",
+          "document_paths": [
+            "data/ipack/fiches/ipack_078_article_25_dossiers_dossier_natation_statistiques_acces_aux_statistiques_dossier_natation.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’enquête, l’impression ou les statistiques sont explicitement nommées. Une année passée non documentée appelle une réserve ciblée ; elle ne justifie pas une question sur une opération déjà claire.",
+      "example_needing_clarification": "Comment faire le dossier natation ?",
+      "example_already_precise": "Comment imprimer les diplômes ASNS de la sélection ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 6,
+      "analysis_patterns": [
+        "natation|savoir nager|asns|assn",
+        "dossier|sais|enquet|statist|imprim|attest|annee"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A21",
+      "title": "Année précédente : consulter, recopier, saisir ou conserver",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’opération rétrospective et le dossier concerné.",
+      "clarification": {
+        "question": "Souhaitez-vous consulter une ancienne année, reprendre son contenu ou modifier une ancienne saisie ?",
+        "choices": [
+          {
+            "branch_id": "consultation",
+            "label": "Consulter ou reprendre la programmation précédente"
+          },
+          {
+            "branch_id": "saisie",
+            "label": "Renseigner rétroactivement une enquête ou une validation"
+          },
+          {
+            "branch_id": "conservation",
+            "label": "Connaître la durée de conservation ou récupérer des données"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "consultation",
+          "label": "Consulter ou reprendre la programmation précédente",
+          "document_paths": [
+            "data/ipack/fiches/ipack_305_situation_reprendre_la_programmation_de_l_annee_precedente.txt",
+            "data/commun/audit60/ipack_archivage_prudence.txt"
+          ]
+        },
+        {
+          "id": "saisie",
+          "label": "Renseigner rétroactivement une enquête ou une validation",
+          "document_paths": [
+            "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt"
+          ]
+        },
+        {
+          "id": "conservation",
+          "label": "Connaître la durée de conservation ou récupérer des données",
+          "document_paths": [
+            "data/commun/audit60/ipack_archivage_prudence.txt",
+            "data/ipack/fiches/ipack_207_article_109_dossiers_dossier_certificatif_conservation_des_documents_d_evaluation_et_emarg.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’opération et la période sont données. Consulter n’établit pas le droit de modifier ; ne pas mentionner une réserve sur N−1 dans une impression courante.",
+      "example_needing_clarification": "Comment récupérer l’année dernière ?",
+      "example_already_precise": "Puis-je saisir aujourd’hui l’enquête natation de l’année précédente ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 15,
+      "analysis_patterns": [
+        "annee precedente|an dernier|n 1|historique|archiv|conserv",
+        "ipack|programm|natation|donnee|dossier|projet|ccf"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A22",
+      "title": "EPS obligatoire, option, EPPCS et régime d’examen",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Le dispositif, le diplôme et le régime réellement concernés.",
+      "clarification": {
+        "question": "De quel enseignement ou régime d’évaluation parlez-vous ?",
+        "choices": [
+          {
+            "branch_id": "obligatoire",
+            "label": "L’EPS obligatoire en CCF"
+          },
+          {
+            "branch_id": "ponctuel",
+            "label": "L’épreuve ponctuelle obligatoire"
+          },
+          {
+            "branch_id": "option",
+            "label": "L’enseignement optionnel EPS"
+          },
+          {
+            "branch_id": "epccs",
+            "label": "La spécialité EPPCS"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "obligatoire",
+          "label": "L’EPS obligatoire en CCF",
+          "document_paths": [
+            "data/commun/audit60/gt_inaptitude_possibilites_ccf.txt"
+          ]
+        },
+        {
+          "id": "ponctuel",
+          "label": "L’épreuve ponctuelle obligatoire",
+          "document_paths": [
+            "data/ipack/fiches/ipack_193_article_95_dossiers_dossier_certificatif_candidats_individuels_candidats_libres_vs_ccf.txt"
+          ]
+        },
+        {
+          "id": "option",
+          "label": "L’enseignement optionnel EPS",
+          "document_paths": [
+            "data/commun/gt_option_eps_lsl.txt"
+          ]
+        },
+        {
+          "id": "epccs",
+          "label": "La spécialité EPPCS",
+          "document_paths": [
+            "data/examens/fiches/examens_100_situation_eppcs_epreuve_terminale_ecrit_oral.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "Le dispositif est nommé ou la demande compare les régimes. Pour une comparaison, expliquer les distinctions documentées. Le mot « option » d’un bouton logiciel ne signifie pas enseignement optionnel.",
+      "example_needing_clarification": "Quelles épreuves d’EPS dois-je organiser ?",
+      "example_already_precise": "Quel est le déroulement de l’épreuve ponctuelle obligatoire d’EPS au bac général ?",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 186,
+      "analysis_patterns": [
+        "eps|epcs|eppcs|option|ponctuel|ccf",
+        "epreuve|evalu|notes|inscri|examen"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A23",
+      "title": "SHN : éligibilité, mention, protocole et notation",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "L’étape du parcours SHN et le diplôme si une décision individuelle en dépend.",
+      "clarification": {
+        "question": "Quel point du parcours de cet élève souhaitez-vous vérifier ?",
+        "choices": [
+          {
+            "branch_id": "eligibilite",
+            "label": "L’éligibilité aux aménagements"
+          },
+          {
+            "branch_id": "mention",
+            "label": "La mention SHN dans l’application"
+          },
+          {
+            "branch_id": "protocole",
+            "label": "Le protocole et l’activité de spécialité"
+          },
+          {
+            "branch_id": "notation",
+            "label": "La notation selon le diplôme"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "eligibilite",
+          "label": "L’éligibilité aux aménagements",
+          "document_paths": [
+            "data/commun/gt_shn_eligibilite.txt"
+          ]
+        },
+        {
+          "id": "mention",
+          "label": "La mention SHN dans l’application",
+          "document_paths": [
+            "data/examens/pilote_shn_2026_10_16/reperer_mention_santorin.txt"
+          ]
+        },
+        {
+          "id": "protocole",
+          "label": "Le protocole et l’activité de spécialité",
+          "document_paths": [
+            "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt"
+          ]
+        },
+        {
+          "id": "notation",
+          "label": "La notation selon le diplôme",
+          "document_paths": [
+            "data/commun/gt_shn_eligibilite.txt",
+            "data/commun/pro_shn_ccf.txt",
+            "data/commun/cap_shn_ccf.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "L’étape est indiquée. Une demande générale peut recevoir le parcours documenté sans interruption. Ne pas créer un nouveau protocole si celui existant satisfait déjà la condition.",
+      "example_needing_clarification": "J’ai un SHN, comment le traiter ?",
+      "example_already_precise": "La mention SHN n’apparaît pas pour ce candidat dans Santorin.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 43,
+      "analysis_patterns": [
+        "shn|haut niveau|sport etudes|ppf",
+        "statut|protocole|20|notes?|mention|declar|adapt"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    },
+    {
+      "id": "A24",
+      "title": "Absence individuelle, enseignant absent ou impossibilité collective",
+      "priority": "standard",
+      "modes": [
+        "ipack",
+        "examens"
+      ],
+      "status": "candidat_pilote_non_active",
+      "missing_fact": "Qui est empêché et si la cause concerne un individu ou la formation du groupe.",
+      "clarification": {
+        "question": "Qui n’a pas pu être évalué, et pour quelle raison ?",
+        "choices": [
+          {
+            "branch_id": "eleve",
+            "label": "Un élève absent ou médicalement inapte"
+          },
+          {
+            "branch_id": "enseignant",
+            "label": "Le groupe privé d’enseignement par l’absence du professeur"
+          },
+          {
+            "branch_id": "collectif",
+            "label": "Une impossibilité matérielle ou collective d’organiser l’épreuve"
+          }
+        ],
+        "allow_free_text": true
+      },
+      "branches": [
+        {
+          "id": "eleve",
+          "label": "Un élève absent ou médicalement inapte",
+          "document_paths": [
+            "data/examens/guide_national_inaptes_partiels_temporaires.txt"
+          ]
+        },
+        {
+          "id": "enseignant",
+          "label": "Le groupe privé d’enseignement par l’absence du professeur",
+          "document_paths": [
+            "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt"
+          ]
+        },
+        {
+          "id": "collectif",
+          "label": "Une impossibilité matérielle ou collective d’organiser l’épreuve",
+          "document_paths": [
+            "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt"
+          ]
+        }
+      ],
+      "do_not_ask_when": "La personne, la cause et le caractère individuel/collectif sont déjà indiqués. « Absence » ne suffit ni à choisir zéro/DI ni à déclarer un cas exceptionnel pour tout un lot.",
+      "example_needing_clarification": "On n’a pas pu faire le CCF, que saisir ?",
+      "example_already_precise": "La piscine est fermée : toute la classe n’a pas pu passer l’épreuve prévue.",
+      "existing_lexicon_ids": [],
+      "corpus_topic_count": 56,
+      "analysis_patterns": [
+        "absen|impossib|ferme|fermeture|pas pu",
+        "ccf|epreuve|piscine|gymnase|enseignant"
+      ],
+      "pattern_role": "repérage thématique hors ligne uniquement ; ne constitue pas un déclencheur de clarification"
+    }
+  ]
+}

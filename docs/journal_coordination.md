@@ -1,3 +1,11 @@
+## 23 octobre — répertoire préparatoire des ambiguïtés, sans activation
+
+À la demande de l’utilisateur : construire le répertoire, conserver le correctif dc7cc79, préparer un essai Albert ciblé quand l’accès sera de nouveau disponible. Ajout de config/repertoire_ambiguities.json : 24 familles, branches reliées aux fiches existantes, fait discriminant, question courte et réponse libre, critères pour ne pas redemander une précision déjà donnée. Références aux sept règles du lexique expérimental existant, laissé intact. Aucun import du nouveau répertoire dans app.py, aucun comportement du hub modifié par cet ajout.
+
+Corpus local : 1 236 formulations distinctes après normalisation dans la base consolidée et les cinq lots complémentaires disponibles. Ce n’est pas la preuve d’un traitement exhaustif de la banque annoncée d’environ 1 400. Seuls questions, contextes et provenances ont servi ; aucune ancienne réponse prise comme vérité. Repérage thématique de 693 formulations candidates (avec chevauchements et faux rapprochements possibles) : ne pas présenter ce nombre comme des questions ambiguës ou des échecs. Questions et correspondances détaillées gardées hors dépôt public.
+
+Plan préparé dans docs/jeu_cible_ambiguities_albert.json : 14 essais, dont deux paires dans les deux onglets, avec attendus de comportement et erreurs à éviter. Résultats tous vides : aucun appel IA ni test Albert exécuté. Disponibilité/quota à vérifier avant lancement ; un secours GPT ne devra pas être compté comme une réponse Albert. Contrôle local de la structure, des chemins documentaires actifs et des identifiants du lexique. Documentation : docs/repertoire_ambiguities_ipack_examens.md. Ce répertoire ne contient ni réponse métier automatique ni nouveau blocage.
+
 ## 23 octobre — frontière inscription Cyclades / lot Santorin
 
 Le test hors IA reproduisait la confusion : la fiche Santorin « élève manquant mais présent dans Cyclades » n'était écartée dans aucun des deux modes pour une demande explicitement située dans Cyclades. Le contrôle de rédaction acceptait également l'association au protocole comme condition pour apparaître dans Cyclades.

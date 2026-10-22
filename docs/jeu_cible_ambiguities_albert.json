@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "status": "prepare_non_execute",
+  "purpose": "Comparer Albert et le secours GPT sur des frontières ciblées ; aucune réponse historique utilisée comme vérité.",
+  "quota_policy": "Vérifier la disponibilité/quota avant le lancement. Aucun appel automatique. Enregistrer le fournisseur qui a réellement répondu ; un secours GPT n’est pas un résultat Albert.",
+  "evaluation": [
+    "Question déjà précise : ne pas demander une précision fournie.",
+    "Question ambiguë : demander le fait qui départage les procédures, ou donner un point commun documenté sans choisir une branche au hasard.",
+    "Ne pas compléter une procédure avec une fiche contradictoire.",
+    "Vérifier chaque conclusion avec les passages transmis et leur portée.",
+    "Relever orientation, rédaction, réparations, fournisseur, jetons et motif exact des rejets."
+  ],
+  "cases": [
+    {
+      "id": "T01-ipack",
+      "question": "Un candidat est absent de la liste des inscrits dans Cyclades. Un nouvel export iPackEPS peut-il créer son inscription ?",
+      "mode": "ipack",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A01",
+        "A03"
+      ],
+      "expected_behavior": "Répondre sans demander où il manque ; distinguer inscription et association à un protocole.",
+      "must_not": [
+        "Présenter une association au protocole comme condition de présence dans Cyclades.",
+        "Utiliser une fiche réservée aux candidats déjà présents dans Cyclades pour créer l’inscription."
+      ],
+      "result": null
+    },
+    {
+      "id": "T01-examens",
+      "question": "Un candidat est absent de la liste des inscrits dans Cyclades. Un nouvel export iPackEPS peut-il créer son inscription ?",
+      "mode": "examens",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A01",
+        "A03"
+      ],
+      "expected_behavior": "Répondre sans demander où il manque ; distinguer inscription et association à un protocole.",
+      "must_not": [
+        "Présenter une association au protocole comme condition de présence dans Cyclades.",
+        "Utiliser une fiche réservée aux candidats déjà présents dans Cyclades pour créer l’inscription."
+      ],
+      "result": null
+    },
+    {
+      "id": "T02-ipack",
+      "question": "Le candidat est bien inscrit dans Cyclades mais il manque dans mon lot Santorin. Que vérifier ?",
+      "mode": "ipack",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A01",
+        "A02"
+      ],
+      "expected_behavior": "Conserver le fait de l’inscription et examiner association/distribution selon les sources.",
+      "must_not": [
+        "Demander une nouvelle inscription sans indice.",
+        "Confondre une absence de lot avec une absence dans la liste des inscrits."
+      ],
+      "result": null
+    },
+    {
+      "id": "T02-examens",
+      "question": "Le candidat est bien inscrit dans Cyclades mais il manque dans mon lot Santorin. Que vérifier ?",
+      "mode": "examens",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A01",
+        "A02"
+      ],
+      "expected_behavior": "Conserver le fait de l’inscription et examiner association/distribution selon les sources.",
+      "must_not": [
+        "Demander une nouvelle inscription sans indice.",
+        "Confondre une absence de lot avec une absence dans la liste des inscrits."
+      ],
+      "result": null
+    },
+    {
+      "id": "T03",
+      "question": "Il manque plusieurs élèves dans ma liste, comment les retrouver ?",
+      "mode": "ipack",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A01"
+      ],
+      "expected_behavior": "Demander de quelle liste il s’agit avant de choisir une procédure ; l’onglet seul ne suffit pas.",
+      "must_not": [
+        "Prescrire arbitrairement import iPackEPS ou distribution Santorin."
+      ],
+      "result": null
+    },
+    {
+      "id": "T04",
+      "question": "Je n’arrive plus à saisir mes notes.",
+      "mode": "examens",
+      "public": "Lycée voie professionnelle",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A16"
+      ],
+      "expected_behavior": "Cibler le logiciel ou le symptôme nécessaire ; ne pas juxtaposer toutes les causes.",
+      "must_not": [
+        "Prescrire automatiquement le choix AFLP, un import d’élèves et un déverrouillage."
+      ],
+      "result": null
+    },
+    {
+      "id": "T05",
+      "question": "Dans Santorin en bac pro, les cases AFLP de mon lot sont grisées. Que vérifier ?",
+      "mode": "ipack",
+      "public": "Lycée voie professionnelle",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A16"
+      ],
+      "expected_behavior": "Respecter logiciel/diplôme/symptôme explicites malgré l’onglet iPackEPS.",
+      "must_not": [
+        "Redemander le logiciel.",
+        "Donner les chemins de gestion des classes iPackEPS comme solution."
+      ],
+      "result": null
+    },
+    {
+      "id": "T06",
+      "question": "J’enseigne le football à une classe de sixième. Où déclarer cette activité dans iPackEPS ?",
+      "mode": "ipack",
+      "public": "Collège",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A07"
+      ],
+      "expected_behavior": "Choisir le parcours d’activité de classe.",
+      "must_not": [
+        "Proposer la spécialité de la fiche professeur.",
+        "Créer un groupe AS sans demande AS."
+      ],
+      "result": null
+    },
+    {
+      "id": "T07",
+      "question": "Je veux déposer une fiche, où aller ?",
+      "mode": "ipack",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A19"
+      ],
+      "expected_behavior": "Demander quel document ou quelle destination.",
+      "must_not": [
+        "Présumer une FCA ou une fiche individuelle de cas particulier."
+      ],
+      "result": null
+    },
+    {
+      "id": "T08",
+      "question": "Un candidat individuel au ponctuel doit transmettre son certificat d’inaptitude totale : par quel circuit ?",
+      "mode": "examens",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A13"
+      ],
+      "expected_behavior": "Utiliser le circuit ponctuel applicable à la session documentée ; signaler une limite de session si nécessaire.",
+      "must_not": [
+        "Ajouter systématiquement un dépôt iPackEPS prévu pour les élèves en CCF.",
+        "Généraliser un ancien formulaire à toute session."
+      ],
+      "result": null
+    },
+    {
+      "id": "T09",
+      "question": "Comment imprimer les attestations ASNS des élèves sélectionnés ?",
+      "mode": "ipack",
+      "public": "Collège",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A20"
+      ],
+      "expected_behavior": "Donner le chemin d’impression documenté sans clarification inutile.",
+      "must_not": [
+        "Ajouter une réserve sur la saisie rétroactive d’une ancienne enquête."
+      ],
+      "result": null
+    },
+    {
+      "id": "T10",
+      "question": "Puis-je encore saisir l’enquête natation de l’année précédente ?",
+      "mode": "ipack",
+      "public": "Collège",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A20",
+        "A21"
+      ],
+      "expected_behavior": "Conserver la période demandée ; séparer navigation établie et possibilité rétroactive non confirmée.",
+      "must_not": [
+        "Assimiler filtre de consultation et autorisation de modifier l’année précédente."
+      ],
+      "result": null
+    },
+    {
+      "id": "T11",
+      "question": "Peut-on regrouper deux FCA de demi-fond dans un PDF pour les déposer ?",
+      "mode": "ipack",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A18"
+      ],
+      "expected_behavior": "Répondre sur le dépôt avec la portée de la source, en distinguant le menu individuel si utile.",
+      "must_not": [
+        "Transformer l’autorisation de dépôt en autorisation de deux épreuves du même champ pour un candidat.",
+        "Exiger un classement CA1/CA5 si les deux FCA sont explicitement de demi-fond."
+      ],
+      "result": null
+    },
+    {
+      "id": "T12",
+      "question": "Mon référentiel apparaît « en attente de validation ». Est-il validé par la commission ?",
+      "mode": "examens",
+      "public": "Lycée voie générale",
+      "academy": "Aix-Marseille",
+      "family_ids": [
+        "A15"
+      ],
+      "expected_behavior": "Expliquer la différence entre soumission et validation sur la base documentaire.",
+      "must_not": [
+        "Redemander l’état déjà cité.",
+        "Déduire la validation du simple envoi."
+      ],
+      "result": null
+    }
+  ]
+}

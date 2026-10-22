@@ -10,11 +10,11 @@ from clarification_pilot import assess_uncertainty, resume_clarification
 DOC = mark_excerpt('L’écran Alpha concerne la consultation ; l’écran Bêta concerne la modification.',
                    path='guide_test.txt', title='Deux opérations distinctes')
 ASK = dict(status='needs_clarification', reason='L’opération voulue n’est pas précisée.',
-           question='Souhaitez-vous consulter ou modifier ?',
+           question='Souhaitez-vous consulter ou modifier ?', context_basis=[], missing_context=['Opération souhaitée'],
            options=[{'label':'Consulter une information', 'document_ids':['D1']},
                     {'label':'Modifier une information', 'document_ids':['D1']}])
-CLEAR = dict(status='clear', reason='L’opération est précisée.', question='', options=[])
-GAP = dict(status='source_gap', reason='Les extraits ne couvrent pas cette opération.', question='', options=[])
+CLEAR = dict(status='clear', reason='La demande peut être traitée.', question='', options=[], context_basis=['dossier'], missing_context=[])
+GAP = dict(status='source_gap', reason='Les extraits ne couvrent pas cette opération.', question='', options=[], context_basis=[], missing_context=[])
 
 class FakeLLM:
     model = 'factice'
@@ -168,3 +168,40 @@ class ClarificationPilotTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             resume_clarification(result, choice=None, detail='', llm=llm, retrieve=retrieve, version='test')
         retrieve.assert_not_called()
+
+
+    def test_clear_cannot_use_a_fact_found_only_in_document(self):
+        verdict = copy.deepcopy(CLEAR)
+        verdict['context_basis'] = ['L’écran Alpha']
+        result, _, _, calls = self.start(verdict)
+        self.assertEqual(calls, 1)
+        self.assertEqual(result['branches']['C']['state'], 'error')
+        self.assertNotIn('answer', result['branches']['C'])
+
+    def test_clear_cannot_ignore_reported_decisive_missing_context(self):
+        verdict = copy.deepcopy(CLEAR)
+        verdict['missing_context'] = ['Écran concerné par le problème']
+        result, _, _, calls = self.start(verdict)
+        self.assertEqual(calls, 1)
+        self.assertEqual(result['branches']['C']['state'], 'error')
+        self.assertNotIn('answer', result['branches']['C'])
+
+    def test_explicit_request_stays_clear_with_verbatim_context(self):
+        verdict = copy.deepcopy(CLEAR)
+        verdict['context_basis'] = ['modifier', 'écran Bêta']
+        with patch('architecture_comparison.review_exam_answer', return_value='réponse') as reviewed:
+            result = run_comparison(llm=FakeLLM(verdict), retrieve=Mock(return_value=(DOC, [], [], '')),
+                                    question='Je veux modifier le dossier dans l’écran Bêta.',
+                                    public='Lycée Général & Techno', mode='ipack', academy='Non précisée',
+                                    version='test', experimental='C')
+        self.assertEqual(reviewed.call_count, 2)
+        self.assertEqual(result['branches']['C']['state'], 'completed')
+
+
+    def test_clear_without_justification_never_reaches_writer(self):
+        verdict = copy.deepcopy(CLEAR)
+        verdict['reason'] = '   '
+        result, _, _, calls = self.start(verdict)
+        self.assertEqual(calls, 1)
+        self.assertEqual(result['branches']['C']['state'], 'error')
+        self.assertNotIn('answer', result['branches']['C'])

@@ -25,6 +25,12 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — contrôle du contexte dans le prototype administrateur C
+Fait : une fiche retrouvée ne doit pas établir à elle seule le contexte du demandeur. Consigne renforcée sur les incidents dont l'écran ou l'opération restent inconnus ; décision structurée avec citations exactes de la question et informations décisives manquantes. Le code refuse une décision sans justification, ou une décision claire avec ancrage inventé ou manque décisif déclaré. Analyse du doute visible dans une section dédiée.
+Constaté : 827 tests locaux réussis ; refus des faux ancrages et des décisions sans justification, contradiction entre manque et décision claire, et maintien d'une demande explicite sans interruption. Aucun appel supplémentaire ajouté, aucune réponse métier en dur, aucune fiche ni parcours public modifié. Efficacité du contrôle avec le modèle réel encore à confirmer ; aucune promesse de clarification systématique.
+Attendu de l'autre partie : rien.
+
+
 ### 2026-10-21 — prototype de clarification dans le comparateur administrateur
 Fait : ajout de C face à A, choix explicite de la méthode, détection du doute avant rédaction, choix sans présélection ou précision libre, reprise de C seule et traces téléchargeables. Question originale et réponse A conservées ; garde-fous de version/modèle et une seule reprise. Aucun changement du parcours public ni des fiches.
 Constaté : 823 tests locaux réussis, compilation et contrôle du diff ; efficacité et surcoût avec le modèle réel encore à mesurer. Filtres ciblés de correction explicite, sans prétention de compréhension générale. Documentation : docs/prototype_clarification_admin.md. Aucun appel de génération réel pendant cette intégration.

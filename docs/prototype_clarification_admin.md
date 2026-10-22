@@ -11,3 +11,8 @@ Les compteurs et le téléchargement privé incluent les appels de C avant et ap
 Les vérifications locales contrôlent le cheminement et les garde-fous, pas l'efficacité du modèle réel. Les filtres après confirmation couvrent quelques corrections explicites de logiciel et de rôle ; ils ne constituent pas un analyseur universel. Une nouvelle recherche complémentaire est bornée à une tentative. Des documents voisins peuvent subsister.
 
 C bénéficie d'informations supplémentaires après confirmation : un résultat meilleur ne prouve pas un gain à entrée identique. Comparer aussi les interruptions inutiles, les conditions conservées, les sources et les coûts. Le comparateur ne reproduit pas toutes les anciennes branches spécifiques du parcours public. Aucun remplacement du parcours des collègues n'est activé par ce prototype.
+
+
+## Contrôle du contexte avant décision
+
+Le contrôle du doute distingue les faits du demandeur des conditions présentes dans les fiches. Il demande des citations exactes de la question et la liste des informations décisives manquantes. Une décision « claire » avec une citation absente de la question, sans ancrage, ou avec un manque décisif déclaré est rejetée avant rédaction. Ce contrôle ne prouve pas que le modèle a détecté tous les manques : le comportement réel reste à mesurer. L'analyse figure dans « Décision de C : contexte et doute ». Aucun appel supplémentaire n'est ajouté.

@@ -194,6 +194,9 @@ def render(st, *, llm, retrieve, version, model):
                     st.caption(f"{usage['calls']} appels · {item['elapsed_seconds']} s · " +
                                (f"{usage['input_tokens']} jetons entrée · {usage['output_tokens']} sortie" if usage['complete']
                                 else 'Comptage des jetons incomplet'))
+                    if 'uncertainty' in item:
+                        with st.expander('Décision de C : contexte et doute'):
+                            st.json(item['uncertainty'])
                     if 'interpretation' in item:
                         with st.expander('Interprétation et requête B'):
                             st.json(item['interpretation'])

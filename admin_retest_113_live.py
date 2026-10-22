@@ -3,6 +3,12 @@ import csv
 import io
 import json
 
+def provider_for_replay(state, configured):
+    batch = state.get('audit113_batch') or {}
+    return 'openai' if (state.get('is_admin') and batch.get('waiting')
+                        and batch.get('provider') == 'openai') else configured
+
+
 def render(st):
     if not st.session_state.get("is_admin", False):
         return
@@ -78,7 +84,9 @@ def render(st):
                                 value=min(5, remaining), step=1))
         st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
         st.caption("Les réponses ne sont pas évaluées automatiquement : téléchargement pour vérification humaine.")
+        gpt_only = st.checkbox("Rejeu privé : GPT uniquement, sans appel à Albert", value=False,
+                               key="audit113_gpt_only")
         if st.button(f"Lancer {n} questions dans le moteur réel du HUB", type="primary", key="audit113_live_start"):
             state["audit113_batch"] = {"rows": rows[start-1:start-1+n], "index": 0, "results": [],
-                                       "waiting": False, "stopped": False}
+                                       "waiting": False, "stopped": False, "provider": "openai" if gpt_only else "configured"}
             st.rerun()

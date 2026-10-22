@@ -25,6 +25,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — fournisseur du rejeu privé
+Fait : à la demande explicite de l’utilisateur, option administrateur pour exécuter un lot privé avec le fournisseur secondaire directement, sans appeler le fournisseur principal. Choix figé dans le lot et limité aux questions en attente d’un administrateur ; aucune modification de clé, de secret ou de fournisseur des questions ordinaires. L’orientation des fiches reste celle du parcours courant. Compteurs et traces réels conservés ; pas de confusion avec un secours après panne.
+Validation : tests du périmètre administrateur et du retour au fournisseur configuré hors lot. Mesure privée séparée, aucune question ni trace dans le dépôt.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — recherche complémentaire avant orientation
 Fait : une exclusivité du catalogue pouvait arrêter la recherche avant la récupération des procédures techniques. Lorsque l’orientation est active, la recherche conserve les notices prioritaires mais diffère cet arrêt pour permettre au sélecteur de comparer les preuves complémentaires. En iPackEPS, la recherche locale par mots passe avant les compléments réglementaires pour garder une place aux procédures du logiciel. Le plafond de dix extraits, la déduplication et les filtres de portée restent actifs. Circuit historique et comparateurs inchangés par défaut.
 Constaté : 873 tests locaux réussis ; défaut reproduit hors ligne par arrêt anticipé ; le nouveau parcours laisse entrer une procédure complémentaire tout en conservant la notice initiale. Une présence dans les candidats ne démontre pas encore le choix correct du modèle. Préparation privée d’un comparatif à sept entrées figées et passages identiques ; aucune réponse antérieure transmise et aucun appel distant exécuté. La mesure réelle reste à faire après rétablissement des quotas.

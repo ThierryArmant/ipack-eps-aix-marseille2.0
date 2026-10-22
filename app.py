@@ -1206,7 +1206,8 @@ with st.container(border=True, key="hub_admin_login"):
 if st.session_state.get("is_admin", False):
     from admin_retest_113 import render as render_admin_retest_113
     from admin_replay_loader import load_replay
-    render_admin_retest_113_live = load_replay().render
+    _admin_replay = load_replay()
+    render_admin_retest_113_live = _admin_replay.render
     with st.container(border=True, key="hub_admin_tools"):
         render_admin_retest_113(st)
         render_admin_retest_113_live(st)
@@ -1547,10 +1548,13 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
+        _provider_reponse = (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower()
+        if st.session_state.get("is_admin", False):
+            _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
         _generation_llm = _generation_runtime.generation_llm(
             openai_llm=Settings.llm, api_key=st.secrets.get("ALBERT_API_KEY"),
             albert_model=st.secrets.get("ALBERT_MODEL", ""),
-            provider=(st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower())
+            provider=_provider_reponse)
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False

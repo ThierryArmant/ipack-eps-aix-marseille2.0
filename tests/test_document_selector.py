@@ -174,4 +174,22 @@ class CompatibilityTests(unittest.TestCase):
         self.assertIn('Ne transforme pas cette incertitude en fait acquis',writer.prompts[0])
         self.assertEqual(len(writer.prompts),1)
 
+class ProfileOperationTests(unittest.TestCase):
+    def test_procedure_heading_beats_general_introduction(self):
+        packet={'id':'D1','title':'Manuel des supports','text':
+            "Présentation : la plateforme permet de préparer, distribuer, ouvrir et vérifier les supports.\n"
+            "Support incomplet : ouvrir le volet de signalement puis décrire les pages manquantes.\n"
+            "Validation : contrôler le traitement des supports.", 'scopes':[]}
+        card=profile(packet,'Mon support est incomplet : comment le signaler sur la plateforme ?')
+        self.assertTrue(card['demande_proche_extrait'].startswith('Support incomplet :'))
+        self.assertIn('volet de signalement',card['demande_proche_extrait'])
+
+    def test_article_text_is_not_discarded_as_metadata(self):
+        packet={'id':'D1','title':'Article','text':
+            '- Mots-clés : plateforme, support\n- Texte: Accès au support : [Tableau] > [Gestion] > [Ouvrir].',
+            'scopes':[]}
+        card=profile(packet,'Où accéder au support ?')
+        self.assertIn('[Gestion]',card['demande_proche_extrait'])
+        self.assertNotIn('Mots-clés',card['demande_proche_extrait'])
+
 if __name__=='__main__':unittest.main()

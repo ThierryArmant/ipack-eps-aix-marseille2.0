@@ -25,6 +25,11 @@ Attendu de l'autre partie : … (ou « rien »)
 
 ## Entrées
 
+### 2026-10-22 — partie programme — description de la sous-procédure demandée
+Fait : analyse hors ligne des traces existantes. Les descriptions d’orientation privilégiaient parfois une introduction générale contenant plusieurs mots de la question au détriment d’un paragraphe de procédure précis. Classement local des lignes par rareté des termes dans la fiche, avec prise en compte des intitulés de sous-procédures ; conservation du contenu introduit par « Texte: », auparavant supprimé du choix d’extrait. Aucun contenu métier ajouté, aucun appel supplémentaire, aucune modification des fiches.
+Constaté : la sous-procédure pertinente devient visible dans la description sur un cas privé déjà mesuré. Ce résultat vérifie la préparation des données, pas le futur choix du modèle. Une autre procédure reste absente des candidats sur un cas privé : défaut de récupération encore ouvert. Un essai de changement général du classement des fiches n’a pas été retenu. Compilation et 871 tests locaux réussis ; relecture réelle à effectuer lorsque le quota du fournisseur principal sera disponible. Aucun rejeu distant exécuté.
+Attendu de l’autre partie : rien.
+
 ### 2026-10-22 — partie programme — compatibilité avant rédaction
 Fait : même appel d’orientation, avec vérification distincte de l’opération et des conditions pour chaque fiche retenue. Contrat JSON validé, trace des vérifications, retrait des choix déclarés voisins ou incompatibles dans la sélection orientée ; condition inconnue ou opération incertaine force le statut ambigu. Le rédacteur doit conserver les alternatives documentées ou demander la précision qui change réellement la procédure. Si tous les choix sont écartés, relecture complète antérieure avec réserve explicite sur la substitution d’une procédure voisine. Aucun changement de fiche ni réponse métier en dur, aucun appel supplémentaire.
 Constaté : le bilan privé montre des progrès ciblés et des erreurs persistantes, sans preuve d’un gain global. Le fournisseur principal a atteint une limite d’usage ; aucune mesure en ligne de cette modification pendant le blocage. Compilation et 869 tests locaux de mécanique et de comportements voisins réussis ; une nouvelle mesure réelle reste indispensable avant de conclure à une amélioration des réponses. Questions et traces hors dépôt.

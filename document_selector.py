@@ -1,6 +1,8 @@
 """Orientation courte : descriptions de fiches, jamais deuxième rédaction métier."""
 import hashlib
 import json
+import math
+from collections import Counter
 import re
 import unicodedata
 from functools import lru_cache
@@ -35,8 +37,19 @@ def profile(packet, question=""):
     useful = [line for line in lines if not line.startswith(('[', 'http', 'Nature ', 'Source', 'URL:'))]
     direct = next((line for line in useful if re.match(r'R[eé]ponse (?:directe|courte)', line)), '')
     examples = next((line.split(':', 1)[-1] for line in useful if line.startswith('Formulations courantes')), '')
-    content = [line for line in useful if not line.startswith(('Mots-clés', 'Formulations courantes', 'Texte:'))]
-    relevant = sorted(content, key=lambda line: -len(_words(question) & _words(line))) if question else content
+    content = [re.sub(r'^Texte\s*:\s*', '', line) for line in useful
+               if not line.startswith(('Mots-clés', 'Formulations courantes'))]
+    # Un intitulé de sous-procédure porte davantage d'information que des mots
+    # répétés dans une présentation générale. Garder le texte de l'article.
+    frequency = Counter(w for line in content for w in _words(line))
+    question_words = _words(question)
+    def relevance(line):
+        terms = _words(line)
+        heading = line.split(':', 1)[0]
+        heading_words = _words(heading) if ':' in line and len(heading) <= 120 else set()
+        return sum((1 + math.log((len(content) + 1) / (frequency[w] + 1)))
+                   * (3 if w in heading_words else 1) for w in question_words & terms)
+    relevant = sorted(content, key=lambda line: -relevance(line)) if question else content
     limits = [line for line in relevant if re.search(r'ne .{0,65}(?:pas|jamais)|sans |uniquement|seulement|non confirm|non document|ne prouve|hors |distingu', line, re.I)]
     conditions = [line for line in relevant if re.search(r'\bsi\b|lorsque|avant|apr[eè]s|condition|permanent|temporaire|r[eé]serv[eé]', line, re.I)]
     return {'id': packet['id'], 'objet': _clip(packet.get('title', ''), 180),

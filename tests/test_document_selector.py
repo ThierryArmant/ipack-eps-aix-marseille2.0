@@ -31,6 +31,46 @@ class SelectorTests(unittest.TestCase):
                                     mode='ipack',academy='Non précisée',audit=audit,**kwargs)
         return result,audit,llm
 
+    def test_mixed_real_profile_exposes_gt_branch_without_pro_condition(self):
+        text = Path('data/examens/complement_saisie_bloquee_diagnostic.txt').read_text()
+        packet = {'id':'D1', 'title':'Diagnostic de saisie', 'text':text, 'scopes':['gt','pro','cap']}
+        gt = profile(packet, 'La saisie des évaluations est bloquée', 'Lycée Général & Techno')
+        self.assertIn('Au bac GT', gt['branche_public_extrait'])
+        self.assertIn('AFL1', gt['branche_public_extrait'])
+        self.assertNotIn('Au bac professionnel', gt['demande_proche_extrait'])
+        self.assertFalse(any(line.startswith('Au bac professionnel') for line in gt['conditions_extraits']))
+        pro = profile(packet, 'La saisie des évaluations est bloquée', 'Lycée Pro / CAP')
+        self.assertIn('Au bac professionnel', pro['branche_public_extrait'])
+        self.assertIn('AFLP', pro['branche_public_extrait'])
+        self.assertEqual(packet['text'], text)
+
+    def test_public_description_keeps_exact_symptom_and_comparisons(self):
+        text = ('Au bac GT, vérifier la première valeur.\n'
+                'Au bac professionnel uniquement, vérifier le choix.\n'
+                'Si un cadenas apparaît sur le lot verrouillé, contacter la direction.')
+        packet = {'id':'D1', 'title':'Diagnostic', 'text':text}
+        card = profile(packet, 'Mon lot est verrouillé avec un cadenas', 'Lycée Général & Techno')
+        self.assertIn('cadenas', card['demande_proche_extrait'])
+        card = profile(packet, 'Comparer le bac GT au bac professionnel', 'Lycée Général & Techno')
+        self.assertEqual(card['branche_public_extrait'], '')
+        self.assertTrue(any('professionnel' in x for x in card['limites_extraits']))
+
+    def test_gt_card_and_condition_contract_reach_selector_at_one_call(self):
+        text = Path('data/examens/complement_saisie_bloquee_diagnostic.txt').read_text()
+        docs = mark_excerpt(text, path='data/examens/complement_saisie_bloquee_diagnostic.txt',
+                            title='Santorin — Diagnostic de saisie')
+        result, audit, llm = self.choose(choice('ambiguous', ['D1'], checks=[
+            {'id':'D1','operation':'directe','conditions':'inconnues'}]), documents=docs,
+            question='La saisie des évaluations est bloquée')
+        self.assertIn('Au bac GT', audit['cards'][0]['branche_public_extrait'])
+        self.assertIn('Le seul diplôme compatible ne prouve pas', llm.prompts[0])
+        self.assertIn("n'impose pas une clarification", llm.prompts[0])
+        self.assertIn('Choisis assez de fiches', llm.prompts[0])
+        self.assertEqual(audit['status'], 'ambiguous')
+        self.assertEqual(result[0]['text'].strip(), text.strip())
+        self.assertEqual(len(llm.prompts), 1)
+        self.assertLessEqual(len(llm.prompts[0]), MAX_PROMPT_CHARS)
+
     def test_compact_descriptions_not_full_proof(self):
         text='Réponse directe : ouvrir le dossier.\nSi le rôle est attribué, agir.\nNe pas confondre avec le lot.\n'+('détail '*3000)
         docs=mark_excerpt(text,title='Dossier',priority=300)

@@ -1772,7 +1772,7 @@
     {
      "section": "### iPackEPS lycée : le Dossier Certificatif (référentiels, protocoles, documents CAHPN, export Cyclades)",
      "lignes": [
-      "Réponse directe — moment de l'export vers Cyclades : seulement quand les protocoles ont été validés par la CAHPN et déposés dans Cyclades par l'inspection, et que les candidats ont été importés dans Cyclades par le service des examens du rectorat (référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille). Dates : fixées par chaque académie.",
+      "Opération distincte — export des élèves d’iPackEPS vers Cyclades, circuit rapporté pour Aix-Marseille : deux préalables à cet export, selon le référent de la FAQ lycée iPackEPS de l’académie d’Aix-Marseille :",
       "Voie professionnelle (bac pro) et CAP : même démarche selon le référent de la FAQ lycée iPackEPS de l'académie d'Aix-Marseille ; à l'examen, 3 épreuves pour le baccalauréat, 2 pour le CAP ; le co-évaluateur n'est obligatoire que pour la voie générale."
      ]
     }

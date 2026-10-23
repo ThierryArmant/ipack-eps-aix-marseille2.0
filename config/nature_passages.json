@@ -839,6 +839,45 @@
           "reference": "note de service du 20 février 2026, MENE2531948N, 2.e"
         }
       ]
+    },
+    "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt": {
+      "nature_non_attribuee": [
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Opération distincte — export des élèves d’iPackEPS vers Cyclades, circuit rapporté pour Aix-Marseille : deux préalables à cet export, selon le référent de la FAQ lycée iPackEPS de l’académie d’Aix-Marseille :",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "aix-marseille",
+          "reference": "Explications du référent FAQ lycée iPackEPS Aix-Marseille, 18 octobre 2026 ; relevé documentaire existant."
+        },
+        {
+          "texte": "Préalable 1 à l’export des élèves — protocoles validés par la CAHPN et déposés dans Cyclades par l’inspection.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "aix-marseille",
+          "reference": "Explications du référent FAQ lycée iPackEPS Aix-Marseille, 18 octobre 2026 ; relevé documentaire existant."
+        },
+        {
+          "texte": "Préalable 2 à l’export des élèves — candidats déjà importés dans Cyclades par le service des examens du rectorat.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "aix-marseille",
+          "reference": "Explications du référent FAQ lycée iPackEPS Aix-Marseille, 18 octobre 2026 ; relevé documentaire existant."
+        },
+        {
+          "texte": "Moment de l’export des élèves — lorsque ces deux préalables sont satisfaits. Dates fixées par chaque académie. Ces explications documentent les préalables de l’export iPackEPS ; elles ne documentent pas un ordre entre le dépôt des protocoles et l’import des candidats.",
+          "nature": [
+            "consigne_academique"
+          ],
+          "academie": "aix-marseille",
+          "reference": "Explications du référent FAQ lycée iPackEPS Aix-Marseille, 18 octobre 2026 ; relevé documentaire existant."
+        }
+      ]
     }
   }
 }

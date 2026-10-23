@@ -5,8 +5,8 @@ import json
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 from urllib.error import HTTPError, URLError
 
-# Suspension temporaire demandée par le pilote ; indépendante des secrets.
-ALBERT_PAUSED = True
+# Intégration Albert réactivée à la demande du pilote le 23 octobre 2026.
+ALBERT_PAUSED = False
 
 BASE_URL = 'https://albert.api.etalab.gouv.fr/v1'
 

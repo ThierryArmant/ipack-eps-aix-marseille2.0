@@ -1,6 +1,6 @@
 # Moule commun : actions, préalables et procédures
 
-Décision du 23 octobre 2026 : reprendre à terme toutes les fiches avec un même moule, par lots vérifiés. Ce document définit le travail à réaliser ; il ne signifie pas que les fiches actives sont déjà converties. Les trois JSON pilotes restent hors index.
+Périmètre révisé par l’utilisateur le 23 octobre 2026 : appliquer le moule seulement aux fiches dont un défaut est établi ; conserver les fiches qui fonctionnent. Un premier lot de deux fiches défectueuses (ASNS individuelle et préalables de l’export Cyclades) est restructuré ; la suite dépend des retours d’Albert en intégration complète. Ce document définit le travail à réaliser ; il ne signifie pas que les fiches actives sont déjà converties. Les trois JSON pilotes restent hors index.
 
 ## Structure de rédaction
 
@@ -13,9 +13,9 @@ Décision du 23 octobre 2026 : reprendre à terme toutes les fiches avec un mêm
 7. **Limites et exceptions utiles** : garder leur branche, leur période et leur preuve. Ne pas ajouter au cas courant toutes les réserves des cas particuliers.
 8. **Références et traçabilité** : texte ou écran d'origine, extrait exact, lien disponible, date/version, statut de contrôle. Aucun statut « revalidé » fondé sur la seule mise en forme.
 
-## Migration de l'ensemble du corpus
+## Application ciblée aux fiches défectueuses
 
-- Partir de l'inventaire et du registre de portée existants ; ne pas les remplacer par une nouvelle liste déconnectée.
+- Partir de l'inventaire et du registre de portée existants ; ne pas les remplacer par une nouvelle liste déconnectée. Sélectionner uniquement les défauts établis, sans réécrire les fiches satisfaisantes.
 - Conserver les originaux et l'identité des fiches ; repérer les doublons et les fiches qui regroupent plusieurs procédures.
 - Séparer en premier les unités ambiguës qui mélangent actions, conditions ou branches ; ne supprimer aucune réserve pour raccourcir.
 - Pour chaque fiche, tracer ancien chemin/empreinte, nouvelle structure, sources, points non confirmés et statut de revue.

@@ -1617,7 +1617,16 @@
     "title": "[ARTICLE 50] [Mes Élèves]/[Visualisation]/[ASNS] Validation et Impression de l’ASNS",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:asns|savoir.?nager))(?=.*(?:valid|imprim|attestation|editer))(?=.*(?:mes eleves|individuel|pour un eleve))",
+      "(?=.*(?:asns|savoir.?nager))(?=.*valid)(?!.*(?:dossier natation|collectif|en serie))"
+    ]
   },
   "data/ipack/fiches/ipack_087_article_82_mes_eleves_visualisation_inaptitudes_declaration_des_inaptitudes_des_eleves.txt": {
     "title": "[ARTICLE 82] [Mes Élèves]/[Visualisation][Inaptitudes] : déclaration des inaptitudes des élèves",

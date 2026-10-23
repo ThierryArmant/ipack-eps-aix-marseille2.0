@@ -3555,14 +3555,15 @@
     },
     {
       "path": "data/ipack/fiches/ipack_086_article_50_mes_eleves_visualisation_asns_validation_et_impression_de_l_asns.txt",
-      "sha256": "bcb915e86078b0bd5b8c431d2b825c1732b19009b55238fcfa0b3537a2100fc2",
+      "sha256": "59320e0190d979c18e13bb60d4358882c12e9ac85bb52fdb4752ad0fa634629b",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
-      ]
+      ],
+      "revue_structure_2026_10_23": "Moule appliqué au défaut observé ; sources existantes conservées, réponse en ligne et source primaire non revalidées."
     },
     {
       "path": "data/ipack/fiches/ipack_087_article_82_mes_eleves_visualisation_inaptitudes_declaration_des_inaptitudes_des_eleves.txt",
@@ -5556,15 +5557,16 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-      "sha256": "3825f1faac81c281d6c28f974c07ad74c5f05243caf56b4c344b71380e9a0b4f",
+      "sha256": "d87b6c050cd264c172235b84fb5a383d58af043d45cce225d381e60fe418b94c",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler"
-      ]
+      ],
+      "revue_structure_2026_10_23": "Moule appliqué au défaut observé ; sources existantes conservées, réponse en ligne et source primaire non revalidées."
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/faq_lycee_referent_2026_10_18.txt",

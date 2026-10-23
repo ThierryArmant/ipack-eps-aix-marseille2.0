@@ -713,7 +713,7 @@ if tavily_api_key and TavilyClient:
 
 # ✅ Modèle réglable sans toucher au code : secret Streamlit MODELE_IA (ex. "gpt-4.1" ou "gpt-4o").
 # Sans ce secret, on garde gpt-4o-mini.
-modele_ia = (st.secrets.get("MODELE_IA") or "gpt-4o-mini").strip()
+modele_ia = "gpt-4o-mini"  # Essai comparatif temporaire : mini seul, Albert suspendu.
 from runtime_bootstrap import load_runtime
 _generation_runtime = load_runtime()
 TracedLLM = _generation_runtime.TracedLLM
@@ -1264,7 +1264,7 @@ if st.session_state.get("is_admin", False):
                 st.warning(_probe_result["message"])
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
-        st.caption("Modèle GPT configuré : " + modele_ia + " · Rédaction Albert activée (clé serveur requise)."
+        st.caption("Modèle GPT configuré : " + modele_ia + " · Albert temporairement suspendu : sélection et rédaction GPT-mini."
                    + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
@@ -1609,7 +1609,7 @@ if prompt_a_traiter:
             _test_model = "gpt-4o-mini"
         _test_gpt41 = bool(_test_model)
         _test_selector = None
-        _provider_reponse = "albert" # Intégration complète autorisée par le pilote.
+        _provider_reponse = "openai" # Essai comparatif autorisé : Albert temporairement suspendu.
         if st.session_state.get("is_admin", False):
             _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
         _generation_llm = _generation_runtime.generation_llm(

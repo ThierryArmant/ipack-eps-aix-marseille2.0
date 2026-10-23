@@ -10,7 +10,7 @@
 - Étape 6, enseignant : saisir ses notes dans Santorin, élève par élève, par AFL ou AFLP (AFL1 d'abord, point décimal, enregistrer après chaque APSA).
 - Étape 7, enseignant : verrouiller son lot une fois les notes examinées en équipe ; seul le chef d'établissement peut ensuite le déverrouiller.
 - Les dates limites de chaque étape dépendent de chaque académie : elles sont fixées par la DEC de votre académie. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
-* **Cases AFLP inactives :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
+* **Cases AFLP inactives (bac professionnel ou CAP uniquement) :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
 
 Sources : MENE2531948N (bac GT), MENE2505383C (bac pro), MENE2517122C (CAP), session 2026 et suivantes.
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

@@ -1,3 +1,21 @@
+## 23 octobre — ouverture de la revue documentaire exhaustive
+
+Demande du pilote : relire toutes les fiches afin de traiter les incohérences à la source. Inventaire exhaustif des fichiers texte actifs, avec les exclusions du chargeur : 597 fichiers, dont 172 marqués synthese_non_revalidee dans le catalogue. Ce statut n’est ni une preuve d’erreur ni une validation. Registre à empreintes dans docs/audit_fiches/registre.json ; critères et ordre de revue dans LISEZMOI.md. Toutes les fiches restent à relire intégralement : aucun balayage automatique ne vaut certification documentaire.
+
+La recherche transversale de la famille AFLP retrouve aussi la fiche iPack 164 sans diplôme déclaré et une mention dans la fiche 007. Portée pro/CAP explicitée ; catalogue de 164 aligné. Contrôle final du lot : 924 tests réussis, sans appel distant. Publication directe via la connexion du dépôt ; l’essai par Git n’a pas abouti faute d’identification, aucun écrasement distant.
+
+## 23 octobre — reprise des corrections locales de visite et applicabilité au diplôme
+
+Base GitHub vérifiée : 8b1620d. Les huit fiches locales et le registre de portée ont été récupérés sans écrasement ; copie différentielle privée conservée avant intervention. Le précédent résultat local est vérifié : 922 tests réussis. Publication autorisée par le pilote pour les corrections validées, parties fiches et programme.
+
+Fiches : distinction import des élèves / reprise du placement depuis un fichier, ordre de préparation sans obligation préalable d’inaptitude, étapes groupes / protocoles, actualisation de l’équipe sans déclaration temporaire de fonction, bases des personnels distinctes des contacts d’établissement, menu de validation et impression ASNS. L’alerte élèves sans groupe ne prouve plus un blocage global du fichier. Les préalables d’export rapportés pour Aix-Marseille sont explicitement situés dans cette académie ; registre régénéré.
+
+Saisie : plusieurs fiches mixtes généralisaient le bouton de choix des AFLP. Correction à partir des fiches FAQ vérifiées déjà présentes : branche pro/CAP explicitée, branche GT et saisie AFL1/AFL2/AFL3 distinguées, cause non déduite d’une seule case grisée. La demande de précision devient un recours si les vérifications conditionnelles ne suffisent pas. Les portées documentaires déclarées incompatibles avec le public lycée sont exclues avant orientation ; les documents mixtes et comparaisons explicites restent disponibles. Consigne commune d’applicabilité passage par passage, sans réponse métier en dur ni appel supplémentaire.
+
+Validation : 922 tests existants réussis après correction ; deux nouveaux tests ciblés réussis (portées GT/pro/CAP, conservation des documents mixtes et comparaisons, circuit documentaire avec rédacteur simulé à un appel sans réparation). Aucun appel IA distant ni rejeu massif. Ces contrôles ne démontrent ni la formulation future du modèle ni un gain chiffré de fiabilité ou de jetons.
+
+Limite vidéo : images partiellement examinées lors du travail préparatoire ; audio des quatre visites non transcrit et non exploité dans cette reprise. La quatrième visite contient les explications du SAV examens, dont la portée indiquée par le pilote est Aix-Marseille ; aucune règle nouvelle n’est déduite de cet audio. Les mentions des visites dans les corrections renvoient aux relevés d’écran et aux fiches déjà disponibles, sans attester une transcription orale.
+
 ## 23 octobre — répertoire préparatoire des ambiguïtés, sans activation
 
 À la demande de l’utilisateur : construire le répertoire, conserver le correctif dc7cc79, préparer un essai Albert ciblé quand l’accès sera de nouveau disponible. Ajout de config/repertoire_ambiguities.json : 24 familles, branches reliées aux fiches existantes, fait discriminant, question courte et réponse libre, critères pour ne pas redemander une précision déjà donnée. Références aux sept règles du lexique expérimental existant, laissé intact. Aucun import du nouveau répertoire dans app.py, aucun comportement du hub modifié par cet ajout.

@@ -3,7 +3,7 @@ Nature de la source : documentation du logiciel.
 Portée : fonctionnement iPackEPS ; aucune distinction académique pour ces fonctions.
 Sources : procédure Évolutions majeures interface et modules (2026), section 1 ; réponses écrites du correspondant iPackEPS, rubrique enseignant absent de la liste (2025-2026).
 
-Tous les enseignants, et non plus seulement le coordonnateur, peuvent actualiser la liste de l’équipe pédagogique dans [Dossiers] > [Dossier EPS] > [Équipe EPS].
+Tous les enseignants, et non plus seulement le coordonnateur, peuvent actualiser la liste de l’équipe pédagogique : [Tableau de bord] > [Les Dossiers et Projets] > [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l’équipe] > [Actualiser] (chemin relevé le 18 octobre 2026, version 2026.2.1.1).
 Actualiser la liste ne signifie pas créer librement un compte enseignant ou modifier son identité administrative dans iPackEPS.
 La liste est alimentée par les bases des personnels : si un collègue manque, demander à l’administration de l’établissement de vérifier et de mettre à jour son enregistrement administratif, puis actualiser la liste dans iPackEPS après synchronisation.
 Un enseignant absent de la liste ne peut pas être choisi comme responsable de groupe ni co-évaluateur. Ne pas contourner le problème en le créant comme intervenant extérieur : ce profil ne donne pas de prérogative de notation.

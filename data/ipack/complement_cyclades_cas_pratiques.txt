@@ -17,8 +17,8 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: L'EXPORT VERS CYCLADES EST BLOQUÉ CAR DES ÉLÈVES NE SONT AFFECTÉS À AUCUN GROUPE]
 - Mots-clés : export bloqué, élèves sans groupe, fichier d'export non généré, tous les élèves affectés à un groupe.
 - Formulations courantes des collègues : je n'arrive pas à générer le fichier pour Cyclades ; l'export dit que des élèves ne sont dans aucun groupe ; le fichier d'élèves ne se crée pas.
-- Avant de générer le fichier, tous les élèves des classes à examen doivent être affectés à un groupe DANS iPackEPS. Tant qu'un élève de classe à examen reste sans groupe, le fichier ne peut pas être généré.
-- La correction se fait donc dans iPackEPS (placement des élèves dans les groupes), pas dans Cyclades. Une fois tous les élèves placés, le chef d'établissement génère le fichier d'export puis l'importe dans Cyclades. (Source : document Corse 2024-2025.)
+- Dans [Dossier Certificatif] > [Cyclades] > [Bilan Protocoles], le relevé du 18 octobre 2026 signale les « Elèves sans Groupe EPS » : « Ces élèves n'ont pas de protocole et ne seront donc pas exportés vers Cyclades. Vérifiez et corrigez si besoin ». Cette alerte établit que ces élèves ne seront pas exportés ; elle ne démontre pas, à elle seule, que tout le fichier est impossible à générer.
+- Corriger leur placement dans iPackEPS : [Dossier EPS] > [Élèves], Visualisation « Statut », Sélection « élèves sans groupes », puis choisir le groupe de destination et [Ajouter -->]. À Aix-Marseille, avant l’export, respecter les préalables documentés : protocoles validés et déposés dans Cyclades par l’inspection, candidats déjà importés dans Cyclades par le service des examens. Si un message bloque effectivement la génération du fichier, identifier ce message ; ne pas déduire un blocage global de la seule liste des élèves sans groupe. Source : visite lycée et réponses du référent de la FAQ lycée, 18 octobre 2026 ; le document Corse 2024-2025 antérieur ne suffit pas à établir un blocage général pour tous les contextes.
 
 ### [SITUATION: LES ÉLÈVES APPARAISSENT DANS CYCLADES MAIS SANS PROTOCOLE]
 - Mots-clés : élèves sans protocole, import non fait, associer les élèves à un protocole, réaffectation manuelle.
@@ -30,7 +30,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: UN ÉLÈVE EST DANS iPackEPS MAIS MANQUE AU MOMENT DE L'IMPORT]
 - Mots-clés : élève manquant, élève absent de la liste, réimporter, base élèves SIECLE, Pronote.
 - Formulations courantes des collègues : il me manque un élève dans iPackEPS ; un nouvel élève n'apparaît pas ; l'élève est dans Pronote mais pas dans iPackEPS.
-- Relancer l'import des élèves dans iPackEPS (bouton d'import / d'actualisation des élèves).
+- Si la liste concernée est celle des élèves d’iPackEPS : [Dossiers] > [Dossier EPS] > [Classes] > [Importation des Élèves] > [Importer]. Le bouton [Actualiser] concerne la liste des classes dans [Configuration des Classes], pas l’import des élèves (relevé d’écran du 18 octobre 2026, version 2026.2.1.1). Cette procédure ne traite pas un candidat absent de Cyclades ni un candidat absent d’un lot Santorin.
 - Si l'élève manque toujours, vérifier avec le secrétariat qu'il figure bien dans la base élèves SIECLE de l'établissement : c'est SIECLE qui alimente iPackEPS, et non le logiciel de vie scolaire (Pronote ou autre). Un élève présent dans Pronote mais pas encore dans SIECLE n'apparaîtra pas. (Source : guide Normandie 2025.)
 
 ### [SITUATION: CFA, LYCÉE AGRICOLE, ÉTABLISSEMENT À L'ÉTRANGER — PAS D'ÉLÈVES DANS iPackEPS]

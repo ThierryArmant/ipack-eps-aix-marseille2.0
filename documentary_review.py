@@ -782,6 +782,20 @@ def context_document_mismatch(question, public, mode, packet):
     q = normalise(question)
     title = normalise(packet.get('title', ''))
     path = packet.get('path', '')
+    # Les portées déclarées sont des conditions de preuve, y compris au lycée.
+    pub = normalise(public)
+    target = ('gt' if re.search(r'general|techno|^gt$', pub) else
+              'pro' if re.search(r'professionnel|pro|cap', pub) else None)
+    explicit = re.findall(r'\[PORTEE:\s*([^\]]+)\]', packet.get('text', ''))
+    declared = set(packet.get('scopes') or [])
+    for scope in explicit:
+        declared.update(x.strip() for x in scope.split(','))
+    # Une comparaison explicite peut nécessiter plusieurs diplômes.
+    comparison = bool(re.search(r'compar|difference|contrairement|alors que', q))
+    if target and declared and not comparison:
+        compatible = {'gt'} if target == 'gt' else {'pro', 'cap'}
+        if not (declared & compatible):
+            return True
     if (mode in ('ipack', 'examens') and re.search(r'inapt|dispens', q)
             and re.search(r'note|statut|code|sais|je met|mettre', q)
             and not re.search(r'presence|venir en cours|assister|rester en cours|appel|obligation de presence', q)
@@ -1640,6 +1654,7 @@ Les réflexions de rédaction, erreurs mécaniques, règles de preuve et comment
 Une réponse courte est suffisante, mais elle doit couvrir chaque demande explicite dont les passages donnent la réponse.
 Les indications response_focus rappellent les éléments à couvrir ; elles ne remplacent jamais les preuves documentaires et ne doivent pas être citées ni publiées.
 Avant de rédiger, repère les différentes demandes, puis la règle générale, ses exceptions et les faits permettant de choisir la branche applicable. Ne publie pas ce travail préparatoire.
+Le diplôme indiqué par le public fait partie des conditions d’applicabilité. Dans une fiche mixte, vérifie la portée de chaque passage et de chaque bouton : une procédure propre à un autre diplôme ne devient pas applicable par sa présence dans la même fiche. Conserve les démarches communes documentées et les branches compatibles ; ne redemande pas le diplôme déjà donné. Un symptôme imprécis ne justifie ni une cause unique ni une demande de clarification systématique si des vérifications conditionnelles utiles sont documentées.
 Une exception documentée prime sur la règle générale lorsque ses conditions sont établies. Distingue les formalités : la dispense ou la satisfaction de l'une n'emporte pas celles des autres.
 N'infère jamais qu'un encadrement ou un dispositif suffit du seul fait qu'aucun minimum chiffré n'est fixé. Une appréciation réservée à une autorité doit figurer dans la même proposition que la possibilité conditionnelle.
 Un délai présenté comme indicatif ou sans garantie doit garder ces réserves dans la même affirmation, même si tu écris « environ ».

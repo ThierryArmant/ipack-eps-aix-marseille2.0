@@ -7,7 +7,7 @@
 - Distribution des lots, liste d'« adresses mail non retrouvées » : mission Imag'in non créée pour ces enseignants, ou adresse différente entre Cyclades et Imag'in ; créer les missions, sinon passer par la distribution manuelle.
 - Alerte « incohérences de données sur les candidats » dans Santorin : élèves ayant changé d'établissement, désinscrits ou démissionnaires ; le chef d'établissement met à jour l'inscription, sinon contacter la DEC de son académie.
 - « Erreur données : passage du protocole … vers le protocole …, des APSA sont modifiées » : des notes avaient été saisies sur une APSA remplacée ; rouvrir la fiche de chaque élève concerné et cliquer sur [Enregistrer].
-- Cases de saisie des AFL ou AFLP inactives : le professeur n'a pas cliqué sur [Choisir AFLP] pour son lot.
+- Au bac professionnel ou au CAP uniquement, des cases AFLP inactives peuvent nécessiter le choix [Choisir AFLP] sur le lot ; une case grisée ne suffit pas à établir cette cause. Au bac GT, cette procédure ne s’applique pas : vérifier la saisie AFL1 puis AFL2/AFL3 et la répartition choisie, selon la fiche FAQ Saisie GT.
 - Note à virgule non prise : taper un point (4.5) puis Entrée.
 - Bouton [Verrouiller] grisé : un élève au moins n'a pas d'évaluation sur chacune des APSA.
 - Cadenas fermé, saisie impossible : lot verrouillé ; seul le chef d'établissement peut le rouvrir.

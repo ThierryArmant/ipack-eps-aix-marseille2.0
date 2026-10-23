@@ -143,7 +143,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Dernière vérification avant le verrouillage : s'assurer qu'il ne reste aucun élève en attente d'attribution de protocole, et que tous les élèves présents dans Cyclades et Santorin sont bien affectés à un protocole et à un lot de correction.
 - Ce sommaire ne donne pas le détail des écrans : pour le pas-à-pas, renvoyer au tutoriel vidéo correspondant.
 
-* **Cases AFLP inactives :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
+* **Cases AFLP inactives (bac professionnel ou CAP uniquement) :** vérifier d’abord la sélection des AFLP via [Choisir AFLP] sur le lot. Des champs grisés ne prouvent pas à eux seuls cette cause : vérifier aussi les droits, le verrouillage et la disponibilité du lot avec la direction ou l’assistance.
 
 Sources : MENE2531948N (bac GT), MENE2505383C (bac pro), MENE2517122C (CAP), session 2026 et suivantes.
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

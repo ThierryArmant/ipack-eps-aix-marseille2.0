@@ -1,42 +1,43 @@
 ### [PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]
-- Mots-clés : étapes d'installation iPackEPS, ordre de configuration, espace établissement, équipe eps, classes, groupes, inaptitudes, emploi du temps, dnb, collège.
-- Instruction absolue : Toute configuration d'iPackEPS doit impérativement respecter la chronologie administrative et technique en 8 étapes strictes, de l'amont (établissement) vers l'aval (suivi pédagogique) :
+- Mots-clés : étapes d'installation iPackEPS, ordre de configuration, espace établissement, fiche professeur, équipe EPS, classes, APSA, périodes, groupes, inaptitudes, emploi du temps, dnb, collège.
+- Parcours de préparation de rentrée : compléter les données dont dépend l’étape suivante. Les inaptitudes se déclarent lorsqu’elles se présentent ; ce ne sont pas une étape obligatoire avant tout emploi du temps.
 
 1. Connexion institutionnelle :
-   - Connexion à le portail académique (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; dans d'autres académies, souvent ARENA) avec les identifiants académiques officiels.
-   - Lancement de l'application iPackEPS. Si elle n'apparaît pas dans ESTEREL : bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ».
+   - Ouvrir iPackEPS depuis le portail académique (ESTEREL à Aix-Marseille ; le portail et sa rubrique peuvent différer ailleurs). Si l’application manque dans ESTEREL : [Aide] > [Synchro manuelle], puis rafraîchir la page, selon la documentation d’accès de cette académie.
 
-2. Configuration de l'Espace Établissement :
-   - Accès : Tableau de bord => [Établissement].
-   - Rôle : Vérification et validation des données administratives générales (les contacts du chef d'établissement et des adjoints proviennent de la base RAMSESE).
+2. Établissement, puis fiche personnelle :
+   - [Tableau de bord] > [Établissement] : vérifier les coordonnées, contacts et niveaux de formation. Les erreurs de contacts issus de RAMSESE se signalent à l’administration ; ce n’est pas la liste des enseignants.
+   - [Tableau de bord] > [Ma Fiche Professeur] : renseigner service et fonctions, puis [Enregistrer]. Les fonctions se déclarent si elles correspondent au rôle réellement exercé. Cette fiche se complète avant les dossiers.
 
-3. Paramétrage de l'Espace Professeurs (Équipe EPS) :
-   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Équipe EPS].
-   - Manipulation : Cliquer sur [Actualiser] pour forcer la mise à jour de l'équipe pédagogique extraite des bases du rectorat. Actualisation de la [Fiche Professeur] pour les fonctions spécifiques.
+3. Équipe EPS :
+   - [Les Dossiers et Projets] > [Dossier EPS] > [Équipe EPS et Intervenants Extérieurs] > [Membres de l’équipe] > [Actualiser].
+   - Vérifier les membres et les remplacements. Les fonctions affichées dans le bilan de l’équipe proviennent de chaque fiche professeur ; la page d’équipe ne la remplace pas.
 
-4. Configuration des Classes et Importation des Élèves :
-   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Classes].
-   - Étape A : Déclarer et configurer les structures de classes (attribution des cycles scolaires, ex: 6e à 3e au collège).
-   - Étape B : Importer les élèves (synchronisation SIÈCLE). L'import Pronote / École-Directe sert seulement à reprendre des groupes déjà constitués : bouton [Import Pronote] dans [Dossiers] => [Dossier EPS] => [Élèves] (article 88).
-   - Étape C : En cas de mouvement en cours d'année, actualiser via [Configuration des Classes] > [Actualiser], puis [Importation des Élèves] > [Importer] (écran relevé le 18 octobre 2026, version 2026.2.1.1 : dans [Importation des Élèves], le bouton est [Importer] ; [Actualiser] sert à la liste des classes dans [Configuration des Classes]).
+4. Classes et élèves, dans un établissement alimenté par la base élèves :
+   - [Dossier EPS] > [Classes] > [Configuration des Classes] > [Actualiser], puis configurer chaque classe par le crayon [Modifier].
+   - [Organisation des Classes] : définir le mode de fonctionnement et les enseignants selon le mode choisi, puis [Enregistrer].
+   - [Importation des Élèves] > [Importer]. Une classe configurée sans lancement de cet import ne suffit pas à faire remonter les élèves.
+   - Pour les arrivées, départs ou changements de classe, refaire l’import et vérifier la mise à jour administrative si un écart persiste.
+   - Pour un établissement non alimenté par la base élèves (certains CFA, MFR ou établissements à l’étranger), utiliser le parcours spécifique : groupes et protocoles sans élèves dans iPackEPS, association des candidats déjà inscrits dans Cyclades. Ne pas déduire ce cas du seul intitulé de l’établissement.
 
-5. Organisation des Groupes et Programmation :
-   - Accès : Tableau de bord => [Dossiers] => [Dossier EPS] => [Groupes].
-   - Manipulation : Création des groupes d'enseignement (EPS, options, dispositifs spécifiques) et attribution des séquences d'apprentissage et des APSA.
-   - Placement des élèves : [Dossiers] => [Dossier EPS] => [Élèves] (article 18) pour répartir chaque élève dans son groupe.
+5. APSA, périodes, groupes et placement :
+   - [Dossier EPS] > [APSA] : sélectionner l’activité dans les listes proposées ; [Créer une APSA] seulement si elle n’y figure pas.
+   - [Périodes] : définir les dates et la période [Année] utile aux groupes AS/SSS.
+   - [Groupes] > [Groupes EPS] > [Gérer les S.A.] : associer l’APSA et la période, puis [Ajouter]. Créer les groupes spécifiques nécessaires avec [Créer un groupe].
+   - [Élèves] : sélectionner les élèves et leur groupe de destination, puis [Ajouter -->]. Un fichier de groupes Pronote/ÉcoleDirecte peut reprendre ce placement avec [Importer un fichier d’élèves (CSV Pronote/École-Directe…)], si les classes et élèves sont déjà présents dans iPackEPS (article 88) ; il ne remplace pas l’import de l’étape 4.
 
-6. Gestion des Inaptitudes et Dispenses :
-   - Accès : Tableau de bord => [Mes Élèves] => [Visualisation] => onglet [Inaptitudes].
-   - Manipulation : Sélectionner l'élève, ouvrir l'onglet [Inaptitudes], déclarer l'inaptitude avec ses dates exactes et téléverser le certificat médical (rappel : un mot des parents n'est pas une inaptitude médicale).
+6. Équipements, puis emploi du temps :
+   - [Dossier EPS] > [Équipements Sportifs] : déclarer les installations utilisées.
+   - [Emplois du temps] > [Agenda Équipe] : choisir son agenda et double-cliquer sur une case horaire ; sélectionner groupe, séquence, équipement, dates et répétition, puis [Créer le créneau]. Si une liste est vide, vérifier le prérequis correspondant.
 
-7. Saisie des Emplois du Temps (EDT) et Équipements :
-   - Équipements : Déclaration des installations sportives dans [Dossiers] => [Dossier EPS] => [Équipements] (article 19).
-   - EDT : Positionnement des groupes et séquences sur les créneaux horaires dans [Dossiers] => [Dossier EPS] => [EDT] (article 20).
+7. Inaptitudes, si un élève est concerné :
+   - [Mes Élèves] > [Visualisation] > choisir l’élève > [Inaptitudes] : renseigner les dates et joindre le certificat selon la procédure de déclaration. Cet enregistrement ne détermine pas, à lui seul, une note ou une dispense d’examen.
 
-8. Suivi Pédagogique et Évaluation (Règles spécifiques par niveau) :
-   - Au Collège (DNB) : iPackEPS sert à l'organisation (classes, groupes, APSA, séquences, EDT, inaptitudes) ; au collège on parle d'AFC (attendus de fin de cycle), pas d'AFL. La saisie des notes pour les bulletins et le LSU se fait exclusivement sur Pronote ou ÉcoleDirecte (pas de CCF ni Santorin).
-   - Au Lycée (CCF / Examens) : Paramétrage des protocoles certificatifs et préparation des dossiers pour Cyclades et Santorin.
-   - Et un peu plus tard (lycée, à partir de janvier) : l'export vers Cyclades, une fois les protocoles validés par la commission académique. Ce n'est pas une étape de rentrée.
+8. Dossiers selon le niveau :
+   - Collège : Dossier EPS, puis dossiers Natation, SSS ou APPN si concernés. Pas de protocole certificatif EPS ni de saisie CCF dans Santorin au titre du DNB.
+   - Lycée : les séquences certificatives se composent dans [Dossier EPS] > [Groupes] > [Gérer les S.A.]. Compléter ensuite les référentiels et les dates d’épreuves dans [Dossier Certificatif].
+   - À Aix-Marseille, l’export vers Cyclades intervient après validation et dépôt des protocoles par l’inspection, et après import des candidats dans Cyclades par le service des examens. Ce n’est pas une étape de rentrée ; les dates relèvent du calendrier académique.
+
+Sources : relevés de visite collège et lycée du 18 octobre 2026 (espace professeur, version 2026.2.1.1) ; réponses du référent FAQ lycée du même jour ; articles 14, 18, 88 et documentation d’accès académique pour les précisions correspondantes. Les boutons ont été relevés en lecture seule : ce parcours ne certifie pas l’exécution de tous les enregistrements.
 
 [SECTION: SUITE_CERTIFICATION_LYCEE_CCF]
-

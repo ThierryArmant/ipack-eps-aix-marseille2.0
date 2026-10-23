@@ -2097,8 +2097,11 @@
   },
   "data/ipack/fiches/ipack_164_situation_santorin_cases_aflp_inactives_impossible_de_saisir.txt": {
     "title": "[SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]",
-    "statut": "synthese_non_revalidee",
-    "examens": [],
+    "statut": "recoupe_faq_k2_k3_2026_10_23",
+    "examens": [
+      "pro",
+      "cap"
+    ],
     "origine": "data/archives/compilations/ipack.txt"
   },
   "data/ipack/fiches/ipack_165_situation_santorin_date_limite_de_saisie_des_notes.txt": {

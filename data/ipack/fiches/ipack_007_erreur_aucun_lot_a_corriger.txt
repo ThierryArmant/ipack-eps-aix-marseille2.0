@@ -7,6 +7,6 @@
   2. Si des candidats restent non distribués : corriger l'adresse mail de l'examinateur dans Cyclades (activité « EPS - Contrôler/réaffecter des protocoles ») ou faire une distribution manuelle.
   3. Vérifier que l'enseignant est convoqué dans Imag'in (mission « Notation EPS CCF »).
   4. Si le problème persiste : écrire à la DEC (DIEC à Aix-Marseille) avec une capture d'écran.
-- Note : le bouton « Choisir les AFLP » ne peut pas fonctionner tant que le lot n'apparaît pas.
+- Note : au bac professionnel ou au CAP, le bouton « Choisir les AFLP » ne peut pas fonctionner tant que le lot n'apparaît pas.
 
 [SECTION: LOGISTIQUE_EXAMENS_SANTORIN]

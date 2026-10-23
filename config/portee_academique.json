@@ -1027,6 +1027,12 @@
      ]
     },
     {
+     "section": "### [SITUATION: L'EXPORT VERS CYCLADES EST BLOQUÉ CAR DES ÉLÈVES NE SONT AFFECTÉS À AUCUN GROUPE]",
+     "lignes": [
+      "- Corriger leur placement dans iPackEPS : [Dossier EPS] > [Élèves], Visualisation « Statut », Sélection « élèves sans groupes », puis choisir le groupe de destination et [Ajouter -->]. À Aix-Marseille, avant l’export, respecter les préalables documentés : protocoles validés et déposés dans Cyclades par l’inspection, candidats déjà importés dans Cyclades par le service des examens. Si un message bloque effectivement la génération du fichier, identifier ce message ; ne pas déduire un blocage global de la seule liste des élèves sans groupe. Source : visite lycée et réponses du référent de la FAQ lycée, 18 octobre 2026 ; le document Corse 2024-2025 antérieur ne suffit pas à établir un blocage général pour tous les contextes."
+     ]
+    },
+    {
      "section": "### [SITUATION: CRÉER UN PROTOCOLE ADAPTÉ EN COURS D'ANNÉE POUR UN ÉLÈVE BLESSÉ]",
      "lignes": [
       "- À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
@@ -1331,8 +1337,8 @@
     {
      "section": "### [PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]",
      "lignes": [
-      "- Connexion à le portail académique (dans l'académie d'Aix-Marseille : portail ESTEREL, bloc « Enquête et pilotage » ; dans d'autres académies, souvent ARENA) avec les identifiants académiques officiels.",
-      "- Lancement de l'application iPackEPS. Si elle n'apparaît pas dans ESTEREL : bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page »."
+      "- Ouvrir iPackEPS depuis le portail académique (ESTEREL à Aix-Marseille ; le portail et sa rubrique peuvent différer ailleurs). Si l’application manque dans ESTEREL : [Aide] > [Synchro manuelle], puis rafraîchir la page, selon la documentation d’accès de cette académie.",
+      "- À Aix-Marseille, l’export vers Cyclades intervient après validation et dépôt des protocoles par l’inspection, et après import des candidats dans Cyclades par le service des examens. Ce n’est pas une étape de rentrée ; les dates relèvent du calendrier académique."
      ]
     }
    ]

@@ -1,4 +1,7 @@
 ### [SITUATION: SANTORIN — CASES AFLP INACTIVES / IMPOSSIBLE DE SAISIR]
+[PORTEE: pro,cap]
 * DIAGNOSTIC À VÉRIFIER : si les cases sont grisées ou inactives, vérifier que le bouton « Choisir les AFLP » a été activé et validé en amont. Ne pas conclure d'emblée à cette seule cause, ni exclure un autre blocage.
-* RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFL(P) qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
+* RÉSOLUTION : C'est l'enseignant lui-même qui, dans Santorin, sur son lot, clique sur [choisir AFLP] pour déclarer, pour chaque APSA, les AFLP qu'il évalue sur ce protocole. Une fois ce choix fait, les cases de saisie deviennent actives. Ce n'est pas le rôle du coordonnateur.
 
+
+Portée : bac professionnel et CAP uniquement ; ne pas appliquer ce bouton au bac GT. Référence de recoupement : FAQ vérifiée Santorin pro/CAP (k3), distinction GT (k2).

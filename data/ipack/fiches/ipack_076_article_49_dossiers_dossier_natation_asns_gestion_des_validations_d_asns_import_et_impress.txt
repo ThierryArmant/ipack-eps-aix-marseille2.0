@@ -2,5 +2,5 @@
 - Mots-clés : ASNS, savoir nager, Dossier Natation, import, impression, validation manuelle, attestation, [Mes Élèves], [Visualisation]
 - Formulations courantes des collègues : Où gérer les validations d’ASNS ? ; Comment importer ou imprimer les ASNS ? ; Comment valider l’ASNS à la main pour un élève ? ; Où est le menu ASNS ?
 - URL: spip.php?article49
-- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier Natation => ASNS. Note : pour valider manuellement l’ASNS pour vos élèves, passez par le menu [tableau de Bord ==> [Mes Élèves] ==> [Visualisation].
+- Texte : Accès relevé le 18 octobre 2026 (version 2026.2.1.1) : [Tableau de bord] > [Les Dossiers et Projets] > [Dossier Natation] > [Validation ASNS] (« Import / Impression des ASNS »). Sélectionner les élèves, compléter éventuellement « Date Attestation » et « Enseignant », puis [Imprimer les diplômes de la sélection]. Pour valider de nouveaux élèves, l’écran renvoie vers [Mes Élèves] > [Visualisation], onglet [Savoir Nager] ; le menu du dossier Natation sert ici à l’import/impression des validations. Source : article 49 et visite guidée collège du 18 octobre 2026, fiche Natation/ASNS. L’ancien article nommait la rubrique [ASNS].
 

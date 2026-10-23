@@ -120,7 +120,10 @@ def render(st, trace, key):
         st.warning('Prototypes indisponibles ; aucune vérification effectuée.')
         return
     with st.expander('Contrôle pilote des étapes et chemins — sans appel IA'):
-        st.caption('Revue de la proposition initiale. Choisissez explicitement les branches utiles ; cela ne confirme pas leurs conditions. Aucune réparation automatique, aucun nouvel appel IA.')
+        st.caption('Revue de la proposition initiale : les restitutions appliquées ensuite à la réponse finale sont indiquées séparément. Le contrôle manuel ne modifie pas la réponse et ne lance aucun appel IA.')
+        restored = trace.get('navigation_restore') or {}
+        if restored.get('applied'):
+            st.info(str(len(restored.get('replacements', []))) + ' passage(s) avec chemin restitué(s) dans la réponse finale ; la proposition initiale reste disponible pour comparaison.')
         if not pilots:
             st.caption('Aucun des trois prototypes ne correspond aux documents transmis pour cette réponse.')
             return

@@ -7,6 +7,7 @@ class RuntimeTests(unittest.TestCase):
     def test_new_sources_do_not_mutate_runtime_in_another_session(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'navigation_restore.py').write_text('# fixture')
             (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
             (root/'claim_guards.py').write_text('# fixture')
@@ -31,6 +32,7 @@ class RuntimeTests(unittest.TestCase):
     def test_guard_change_selects_new_runtime_without_mutating_old(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'navigation_restore.py').write_text('# fixture')
             (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm=None')
@@ -58,6 +60,7 @@ class RuntimeTests(unittest.TestCase):
     def test_test_helper_change_selects_new_runtime(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
+            (root/'navigation_restore.py').write_text('# fixture')
             for name in ('document_selector', 'claim_guards'):
                 (root / (name + '.py')).write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm=None')

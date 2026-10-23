@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "path": "data/examens/complement_saisie_bloquee_diagnostic.txt",
+      "sha256": "5d130eb49496df103e01a2bcf72dcbd38b1561ea6095f25033bbabd1ed7a5672"
+    },
+    {
+      "path": "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt",
+      "sha256": "2ed65c963a0039550ab2a2ce1511ba91168852c3b1442ef1b67eeab3258db122"
+    },
+    {
+      "path": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
+      "sha256": "8c508c654895414330868b30cf13ab1b8909ca4ad69e7b29e4e3d3c1ca3ef367"
+    },
+    {
+      "path": "data/ipack/visite_college_2026_10_18/equipe_eps_actualiser_tzr.txt",
+      "sha256": "0b48f933414b68079b728ee5cac4016b6f03defc4e9f8d590353bba66aac8e9e"
+    },
+    {
+      "path": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
+      "sha256": "56c75ae74ef445272c7653f69fa5fc8d90bdb34d8acc77b24b0ed90a08902683"
+    },
+    {
+      "path": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
+      "sha256": "ee5c5609a2c27bf7b59b13e888bc0541a24c138af95b774dfcbadf97c8c2c3e2"
+    },
+    {
+      "path": "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt",
+      "sha256": "1b73b88c07fedbda8890701bdafc30cc8554067c65c3ab09545166845b2dbac5"
+    },
+    {
+      "path": "data/ipack/fiches/ipack_060_article_14_dossiers_dossiereps_classes_configuration_des_classes_et_import_des_eleves.txt",
+      "sha256": "158bd3eaedcd080f0e2a738b17e8ba8fb26fad86820f73e9043060e61bf4b880"
+    },
+    {
+      "path": "data/ipack/fiches/ipack_086_article_50_mes_eleves_visualisation_asns_validation_et_impression_de_l_asns.txt",
+      "sha256": "bcb915e86078b0bd5b8c431d2b825c1732b19009b55238fcfa0b3537a2100fc2"
+    },
+    {
+      "path": "data/ipack/fiches/ipack_069_article_42_dossiers_dossier_certificatif_protocoles_configuration_des_protocoles_des_epreu.txt",
+      "sha256": "60c42fe38867598cfd60c5cea721a80c32f581f27a06880de303af4aa78ae14e"
+    }
+  ]
+}

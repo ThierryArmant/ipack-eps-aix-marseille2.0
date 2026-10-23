@@ -1934,6 +1934,21 @@ Au plus 12 affirmations, sans HTML ; uniquement le JSON du schéma suivant :
     # Une réponse vide peut être mécaniquement valide, mais n'est pas une réparation utile.
     audit['repair_successful'] = bool(audit.get('repair_trigger')) and bool(accepted) and not bool(rejected)
     audit['repair_empty'] = bool(audit.get('repair_trigger')) and not bool(accepted) and not bool(rejected)
+    if accepted and not rejected:
+        try:
+            from .navigation_restore import restore_navigation
+        except ImportError:
+            from navigation_restore import restore_navigation
+        candidate, navigation_report = restore_navigation(final, accepted, packets, model_packets)
+        if navigation_report['replacements']:
+            restored_final, restored_accepted, restored_errors = resolve(json.dumps(candidate, ensure_ascii=False))
+            if not restored_errors and len(restored_accepted) == len(accepted):
+                final, accepted = restored_final, restored_accepted
+                navigation_report['applied'] = True
+            else:
+                navigation_report['applied'] = False
+                navigation_report['validation_rejections'] = restored_errors
+        audit['navigation_restore'] = navigation_report
     audit['final_claims'] = final['claims']
     audit['accepted_claims'] = accepted
     audit['final_rejections'] = rejected

@@ -10876,9 +10876,9 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
-      "sha256": "7281abd8cbd269ef7156f7b9b8ffa10e0692ea52cc8c41d25e2b0c35fb47ce5e",
+      "sha256": "e9b3f548f085e8c731ff0b1135655fa19cece2533a94833e8e7ea59ddf7d1a8b",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_correspondant_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner"
@@ -11236,7 +11236,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-      "sha256": "f553b9e6176dfe70d75f8ad9df0f521b677982b24d7438f4c55c9dc8506a722b",
+      "sha256": "4e0e133e322ef890ef24a8f03f1b516802d73abb46dd50f218eeab2df003ae53",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",

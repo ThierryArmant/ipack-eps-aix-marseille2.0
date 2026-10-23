@@ -1593,7 +1593,10 @@ if prompt_a_traiter:
         diagnostic_ia = None
         usage_ia = {}
         from one_question_model_test import consume_model_test
-        from single_document_test import consume_single_document_test, consume_short_prompt_test, TARGET as _single_target
+        _test_runtime = _generation_runtime.single_document_test
+        consume_single_document_test = _test_runtime.consume_single_document_test
+        consume_short_prompt_test = _test_runtime.consume_short_prompt_test
+        _single_target = _test_runtime.TARGET
         _short_prompt_test = consume_short_prompt_test(st.session_state, mode)
         _single_document_test = consume_single_document_test(st.session_state, mode)
         _test_model = consume_model_test(st.session_state)

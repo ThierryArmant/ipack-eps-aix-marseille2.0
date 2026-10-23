@@ -7,6 +7,7 @@ class RuntimeTests(unittest.TestCase):
     def test_new_sources_do_not_mutate_runtime_in_another_session(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
             (root/'claim_guards.py').write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm = "provider"')
@@ -30,6 +31,7 @@ class RuntimeTests(unittest.TestCase):
     def test_guard_change_selects_new_runtime_without_mutating_old(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
             (root/'albert_adapter.py').write_text('generation_llm=None')
             guard=root/'claim_guards.py'
@@ -41,3 +43,30 @@ class RuntimeTests(unittest.TestCase):
             self.assertEqual(before.TracedLLM,'old')
             self.assertEqual(after.TracedLLM,'new')
             self.assertIsNot(before,after)
+
+    def test_stale_global_test_module_does_not_break_new_runtime(self):
+        import sys
+        import types
+        from unittest.mock import patch
+        stale = types.ModuleType('single_document_test')
+        with patch.dict(sys.modules, {'single_document_test': stale}):
+            runtime = load_runtime()
+            self.assertTrue(callable(runtime.single_document_test.consume_short_prompt_test))
+            self.assertIn('SCHEMA', runtime.single_document_test.short_prompt('{}', '{}'))
+            self.assertIs(sys.modules['single_document_test'], stale)
+
+    def test_test_helper_change_selects_new_runtime(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in ('document_selector', 'claim_guards'):
+                (root / (name + '.py')).write_text('# fixture')
+            (root/'albert_adapter.py').write_text('generation_llm=None')
+            (root/'documentary_review.py').write_text('TracedLLM=None;usage_summary=None;review_exam_answer=None')
+            helper = root/'single_document_test.py'
+            helper.write_text('marker="before"')
+            before = load_runtime(root)
+            helper.write_text('marker="after"')
+            after = load_runtime(root)
+            self.assertIsNot(before, after)
+            self.assertEqual(before.single_document_test.marker, 'before')
+            self.assertEqual(after.single_document_test.marker, 'after')

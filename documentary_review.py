@@ -1587,7 +1587,10 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
     audit['excluded_field_calculation_documents'] = [p['id'] for p in field_calculations]
     packets = [p for p in packets if p not in field_calculations]
     if test_document_path is not None:
-        from single_document_test import isolate_document
+        try:
+            from .single_document_test import isolate_document
+        except ImportError:
+            from single_document_test import isolate_document
         audit['single_document_test'] = {'path': test_document_path, 'before_ids': [p['id'] for p in packets]}
         packets = isolate_document(packets, test_document_path)
     audit['model_document_ids'] = [p['id'] for p in packets]
@@ -1724,7 +1727,10 @@ Réponds uniquement en JSON selon ce schéma :
     if test_short_prompt:
         if test_document_path is None or repair_enabled:
             raise ValueError("Consignes courtes réservées à l’essai sans réparation, avec une fiche isolée.")
-        from single_document_test import short_prompt
+        try:
+            from .single_document_test import short_prompt
+        except ImportError:
+            from single_document_test import short_prompt
         prompt = short_prompt(_SCHEMA, data)
         audit["test_prompt_profile"] = "short_v1"
         audit["test_writer_prompt_chars"] = len(prompt)

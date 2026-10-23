@@ -3,7 +3,8 @@
 Sigles : AFL = attendus de fin de lycée ; AFLP = attendus de fin de lycée professionnel ; APSA = activités physiques, sportives et artistiques.
 Non : l'enseignant ne saisit pas une note finale calculée par lui (par exemple 13,17).
 - La saisie se fait élève par élève et épreuve par épreuve, en renseignant la répartition des points pour chaque AFL ou AFLP, et non une note globale.
-- Bac général et technologique : la note finale correspond à la moyenne des trois notes ; elle est arrondie au point entier le plus proche après harmonisation par la commission académique. L'arrondi n'est donc pas fait par l'enseignant au moment de la saisie.
+Action de calcul — bac GT, enseignement commun en CCF : pour une APSA, additionner les points obtenus aux AFL1, AFL2 et AFL3 ; ce n'est pas une moyenne entre les AFL. L'AFL1 est sur 12 points et les AFL2/AFL3 sur 8 points au total, selon la répartition 4/4, 6/2 ou 2/6 choisie par le candidat. Source complémentaire : fiche du corpus calcul_points_afl_gt, MENE2531948N, 2.d et annexe 1.
+Résultat distinct — note finale d'EPS au bac GT, ensemble certificatif ordinaire : moyenne des trois notes d'APSA, et non des trois AFL d'une même APSA ; arrondi au point entier le plus proche après harmonisation par la commission académique. L'arrondi n'est donc pas fait par l'enseignant au moment de la saisie. Les cas d'inaptitude ou d'adaptation doivent être examinés séparément ; ne pas appliquer automatiquement trois notes à ces cas.
 Nature de la source : texte national pour le calcul et l'arrondi ; fonctionnement du logiciel pour la saisie.
 Sources : note de service du 20 février 2026, MENE2531948N ; guides de saisie Santorin (support Besançon 2025, document Corse 2024-2025).
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

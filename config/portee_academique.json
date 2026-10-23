@@ -337,6 +337,17 @@
     }
    ]
   },
+  "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### FAQ EPS — Protocoles adaptés : écart texte / Cyclades",
+     "lignes": [
+      "Retour local ultérieur — à Aix-Marseille, le retour SAV transmis le 20 octobre 2026 rapporte que la création directe du protocole adapté discuté au baccalauréat n'accepte pas une ou deux épreuves ; le circuit d'inspection via extraction iPack IA-IPR est décrit dans les fiches du corpus complement_cyclades_protocoles_cas_enseignant et complement_cyclades_cas_pratiques. Ce retour local ne vérifie pas le fonctionnement des autres académies, versions ou du CAP. L'audio de la visite n'a pas été transcrit pour cette reprise."
+     ]
+    }
+   ]
+  },
   "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt": {
    "academie": "aix-marseille",
    "sections": [

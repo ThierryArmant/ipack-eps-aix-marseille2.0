@@ -17,7 +17,7 @@ ATTENTION : fiches rédigées à partir du texte publié au BO. Pour une citatio
 - L'ensemble certificatif comporte trois épreuves, qui relèvent obligatoirement de trois champs d'apprentissage distincts.
 - Deux de ces épreuves au moins s'appuient sur des activités de la liste nationale fixée par le programme.
 - Chaque épreuve évalue les trois attendus de fin de lycée (AFL1, AFL2, AFL3) et donne lieu à une note de 0 à 20.
-- La note finale est la moyenne des trois notes, arrondie à l'entier le plus proche, après harmonisation académique.
+- Résultat — ensemble certificatif ordinaire du bac GT : la note finale d'EPS est la moyenne des trois notes d'APSA, arrondie à l'entier le plus proche après harmonisation académique. Ce calcul porte sur trois épreuves, pas sur les trois AFL d'une même APSA. Les cas d'inaptitude et d'adaptation relèvent de leurs branches propres.
 - PORTÉE : cette règle vaut pour les baccalauréats général et technologique. Elle ne s'applique pas telle quelle au baccalauréat professionnel ni au CAP, qui ont leurs propres textes.
 
 ### [SITUATION: CO-ÉVALUATION AU BAC GT — QUI ÉVALUE ? (note de service du 20 février 2026)]

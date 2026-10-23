@@ -1,6 +1,6 @@
 # Moule commun : actions, préalables et procédures
 
-Périmètre révisé par l’utilisateur le 23 octobre 2026 : appliquer le moule seulement aux fiches dont un défaut est établi ; conserver les fiches qui fonctionnent. Un premier lot de deux fiches défectueuses (ASNS individuelle et préalables de l’export Cyclades) est restructuré ; la suite dépend des retours d’Albert en intégration complète. Ce document définit le travail à réaliser ; il ne signifie pas que les fiches actives sont déjà converties. Les trois JSON pilotes restent hors index.
+Périmètre au 24 octobre 2026 : examiner l'ensemble des 597 fichiers actifs, puis appliquer le moule aux défauts établis dans les fiches existantes ; conserver les fiches qui fonctionnent. Le classement automatique de tout le corpus est tracé dans docs/audit_fiches/registre.json et ne vaut pas validation documentaire. Les essais mini ont montré des améliorations ciblées, mais aussi des limites de sélection et d'interprétation. Albert reste temporairement suspendu. Aucune conversion générale automatique ni nouveau document métier pour contourner les fiches existantes. Les trois JSON pilotes restent hors index.
 
 ## Structure de rédaction
 

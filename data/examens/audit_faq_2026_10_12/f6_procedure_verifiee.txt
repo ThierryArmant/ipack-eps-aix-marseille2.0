@@ -3,9 +3,9 @@
 Sigles : APSA = activités physiques, sportives et artistiques ; CCF = contrôle en cours de formation.
 Trois niveaux à distinguer :
 - Texte national : pour des cas très particuliers de handicap, le texte du bac permet de proposer une seule épreuve adaptée, le candidat étant évalué sur une seule note (note de service du 20 février 2026, 2.e). C’est donc réglementairement possible.
-- Logiciel : les mémos Cyclades consultés décrivent un protocole adapté d’au moins deux APSA au bac GT et pro (au moins une au CAP). Ce minimum vient du logiciel, pas du texte. Ce minimum figure dans les mémos consultés ; la version de Cyclades en service n’a pas été vérifiée.
+- Observation historique — les anciens mémos Cyclades cités décrivaient un minimum technique de deux APSA au bac GT/pro, une au CAP. Leur lecture ne vérifie pas le fonctionnement actuel de Cyclades : ne pas présenter ces minima comme une possibilité ou une impossibilité garantie dans la version utilisée. Ils ne constituent pas une règle du texte national.
 - Démarche : en cas d’écart entre le texte et la saisie, l’établissement fait traiter ce cas par le service des examens et l’inspection pédagogique EPS de l’académie. Ne pas ajouter une APSA fictive pour passer le contrôle du logiciel.
-Aucune consigne académique d’Aix propre à ce cas n’a été trouvée.
+Retour local ultérieur — à Aix-Marseille, le retour SAV transmis le 20 octobre 2026 rapporte que la création directe du protocole adapté discuté au baccalauréat n'accepte pas une ou deux épreuves ; le circuit d'inspection via extraction iPack IA-IPR est décrit dans les fiches du corpus complement_cyclades_protocoles_cas_enseignant et complement_cyclades_cas_pratiques. Ce retour local ne vérifie pas le fonctionnement des autres académies, versions ou du CAP. L'audio de la visite n'a pas été transcrit pour cette reprise.
 Le texte autorise l’épreuve unique ; il ne modifie pas le logiciel. Rien dans les sources n’indique que Cyclades accepte un protocole adapté à une seule APSA au bac parce que le texte le permet, ni qu’une dérogation technique s’applique automatiquement : ne pas l’affirmer.
 Conclusion : l’élève n’a pas à passer une deuxième APSA pour satisfaire le logiciel ; c’est l’obstacle technique qui se traite avec le service des examens et l’inspection de l’académie.
 

@@ -21,5 +21,5 @@
 - Aucune note n'est saisie dans iPackEPS : les notes et les statuts d'examen se saisissent uniquement dans Santorin.
 
 ### [SITUATION: DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN]
-- Qui : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même.
+- Acteur pour déplacer un candidat d'un lot à un autre : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même. Ce passage décrit ce déplacement individuel ; il ne détermine pas les droits de réaffectation d'un lot entier à un autre examinateur.
 - Chemin : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant].

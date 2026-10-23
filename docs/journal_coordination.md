@@ -1,3 +1,10 @@
+## 23 octobre — essais de modèle sur le parcours direct, dix questions au maximum
+
+Autorisation du pilote : jusqu’à dix questions manuelles avec le même modèle pour orientation et rédaction, sans fournisseur alternatif. Boutons administrateur d’activation et d’arrêt, compteur réglable de 1 à 10, décrémenté à chaque question directe traitée. Orientation et rédaction utilisent gpt-4.1 sans secours fournisseur pendant ces essais ; le fonctionnement ordinaire revient après épuisement ou arrêt. Aucune modification des secrets, fiches, consignes, priorités ou contrôles. Le comparateur reste distinct et ne consomme pas ce compteur. Aucun appel distant automatique à la publication.
+Validation : suite de 926 tests réussie pour le dispositif initial à une question ; extension du compteur à dix vérifiée ensuite par les trois tests ciblés (administrateur, épuisement et branche fournisseur). Aucun appel IA réel lancé.
+
+La dernière trace privée montre une orientation par petit modèle qui retient uniquement la piste navigateur, puis un échec quota du fournisseur alternatif et une rédaction de secours. Elle ne permet pas une comparaison à documents identiques avec le premier essai. Ce nouveau test isole le choix du modèle sur le parcours direct ; il n’établira pas à lui seul une fiabilité générale.
+
 ## 23 octobre — ouverture de la revue documentaire exhaustive
 
 Demande du pilote : relire toutes les fiches afin de traiter les incohérences à la source. Inventaire exhaustif des fichiers texte actifs, avec les exclusions du chargeur : 597 fichiers, dont 172 marqués synthese_non_revalidee dans le catalogue. Ce statut n’est ni une preuve d’erreur ni une validation. Registre à empreintes dans docs/audit_fiches/registre.json ; critères et ordre de revue dans LISEZMOI.md. Toutes les fiches restent à relire intégralement : aucun balayage automatique ne vaut certification documentaire.

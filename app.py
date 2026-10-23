@@ -1252,6 +1252,15 @@ if st.session_state.get("is_admin", False):
                + (" · version " + _sha if _sha else ""))
 
 if st.session_state.get("is_admin", False):
+    _gpt41_test_count = st.number_input("Nombre de questions GPT-4.1", min_value=1, max_value=10, value=10, step=1)
+    if st.button("Activer les essais GPT-4.1 sans Albert"):
+        st.session_state["gpt41_once_pending"] = int(_gpt41_test_count)
+    if st.button("Arrêter les essais GPT-4.1"):
+        st.session_state.pop("gpt41_once_pending", None)
+    if st.session_state.get("gpt41_once_pending"):
+        st.info(f"{st.session_state['gpt41_once_pending']} question(s) directe(s) restante(s) : sélection et rédaction GPT-4.1, sans Albert. Lancement manuel ; appels facturables.")
+
+if st.session_state.get("is_admin", False):
     import html as _html_veille
     from veille_mensuelle import dernier_rapport, texte_bandeau
     _rapport_veille = dernier_rapport()
@@ -1550,6 +1559,8 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
+        from one_question_model_test import consume_gpt41_test
+        _test_gpt41 = consume_gpt41_test(st.session_state)
         _provider_reponse = (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower()
         if st.session_state.get("is_admin", False):
             _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
@@ -1557,6 +1568,9 @@ if prompt_a_traiter:
             openai_llm=Settings.llm, api_key=st.secrets.get("ALBERT_API_KEY"),
             albert_model=st.secrets.get("ALBERT_MODEL", ""),
             provider=_provider_reponse)
+        if _test_gpt41:
+            _generation_llm = OpenAI(model='gpt-4.1', temperature=0.0,
+                api_key=openai_api_key, max_retries=0, timeout=45)
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
@@ -1882,6 +1896,9 @@ if prompt_a_traiter:
                 and bool(st.secrets.get('ALBERT_API_KEY'))
                 and (st.secrets.get('FOURNISSEUR_IA') or 'albert').strip().lower() == 'albert'
                 and (st.secrets.get('ORIENTATION_FICHES') or 'gpt_shortlist').strip().lower() == 'gpt_shortlist')
+
+            if _test_gpt41 and mode in ('ipack', 'examens'):
+                _orientation_active = True
 
             def _recherche_documentaire(defer_exclusivity=False):
                 from document_retrieval import retrieve_documents
@@ -2521,9 +2538,10 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 try:
                     if mode in ("examens", "ipack", "textes"):
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
+                                         'one_question_gpt41_test': _test_gpt41,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
-                        _orientation_llm = TracedLLM(OpenAI(model='gpt-4o-mini', temperature=0.0,
+                        _orientation_llm = TracedLLM(OpenAI(model='gpt-4.1' if _test_gpt41 else 'gpt-4o-mini', temperature=0.0,
                             api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20),
                             usage_ia, capture_text=False, stage='selection') if _orientation_active else None
                         reponse_ia = review_exam_answer(

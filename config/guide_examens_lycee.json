@@ -6,13 +6,13 @@
     "clic": "[Dossier Certificatif] → [Dépôt Référentiels Certificatifs]",
     "video": "https://youtu.be/T_-j01ovoA4",
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "1) [Dépôt Référentiels Certificatifs]"
+    "preuve": "[Dossier Certificatif] > [Dépôt Référentiels Certificatifs]"
    },
    {
     "clic": "Ligne de l'APSA → [Envoyer] (dépôt ou remplacement)",
     "video": "https://youtu.be/T_-j01ovoA4",
     "source": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-    "preuve": "il sert à déposer un référentiel ou à remplacer un référentiel déjà déposé"
+    "preuve": "déposer ou remplacer une FCA d'établissement"
    }
   ],
   "2. Saisir les protocoles (iPackEPS)": [

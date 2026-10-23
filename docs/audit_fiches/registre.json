@@ -951,9 +951,9 @@
     },
     {
       "path": "data/examens/audit100_2026_10_20/formalites_signatures_ccf.txt",
-      "sha256": "a7de75a74dbbbb282c9a26598acd95ef04be29e825ec3c3628d05508e5b3c767",
+      "sha256": "0e552b8836f41b9765907864b0d1ca4ab4c93eab43eee06a3941c0ee0888f862",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "audit_100_sources_relues_2026_10_20",
       "signaux": []
     },
@@ -1548,9 +1548,9 @@
     },
     {
       "path": "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt",
-      "sha256": "70900df044feeb88c51921126ecd56145e5d2b23a940b891ce7af5322097982a",
+      "sha256": "99d44b76c4745988fc5ca5c5ee272a7fad8278b9da5cb033aa82560586976156",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
       "signaux": []
     },
@@ -1626,7 +1626,7 @@
     },
     {
       "path": "data/examens/circuit_aix_ipack_cyclades_santorin.txt",
-      "sha256": "9b34f1db12bf948078a862109dc860e922313d1ad90a7a1926c2aaaeb3c3b212",
+      "sha256": "2a976ebe6a51e29a4d061eb61b9b08cae0a0a6eb3c71e15f2677d6e3da65b452",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "source_academique_lue_2026-10-11",
@@ -1762,7 +1762,7 @@
     },
     {
       "path": "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt",
-      "sha256": "a4035ae1e6723f7ceb56a4ac74a60b0b4ff0202b0c8035d3d8d147e0366ba996",
+      "sha256": "e86714b9b5973524e8ae762a424f08f9f08a0396cbc5a334c806b44b5ccf428e",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2025-2026",
@@ -5382,9 +5382,9 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt",
-      "sha256": "2b8c94124a3b72060ed274260f0d79e12741387eb12289cc4fb2efd4c2729767",
+      "sha256": "fdc0bad281e30deeb8fac44bb5339e5ddf18a39a3f3ff0ad1ad211bcf8348df1",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -5561,7 +5561,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-      "sha256": "d87b6c050cd264c172235b84fb5a383d58af043d45cce225d381e60fe418b94c",
+      "sha256": "f553b9e6176dfe70d75f8ad9df0f521b677982b24d7438f4c55c9dc8506a722b",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",
@@ -6358,9 +6358,9 @@
     },
     {
       "path": "data/textes/fiches/dispense_inaptitude_presence_cours.txt",
-      "sha256": "8060e7115b55920ba94a226287d3748eedd4468f5f2a7007831cf4849139a2a0",
+      "sha256": "74f6c745af19b1501df4fab1231b12c1f6b6643dffa9a6b66159bd6264ec1dd6",
       "famille": "textes",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "sources_relues_2026-10-17_lacune_signalee",
       "signaux": [
         "diplome_non_balise_a_examiner",

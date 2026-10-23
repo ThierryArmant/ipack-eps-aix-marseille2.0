@@ -11,6 +11,10 @@ Origine : réponses écrites du chargé de mission examens EPS de l'académie d'
   4. Les enseignants évaluateurs sont convoqués dans IMAG'IN, puis le chef d'établissement distribue les candidats dans les lots de correction de Santorin (distribution largement automatisée).
   5. La saisie des notes dans Santorin n'est accessible qu'une fois l'association des candidats terminée et les lots distribués.
 
+### [SITUATION: ASSOCIER MANUELLEMENT LES CANDIDATS AUX PROTOCOLES DANS CYCLADES]
+Action : associer les candidats aux protocoles existants si le fichier d'association n'est pas importé. Acteur : chef d'établissement ou enseignant. Point de départ : Cyclades, [EPS] > [Associer les élèves à un protocole]. Rattacher manuellement les candidats aux protocoles existants ; vérifier ensuite la constitution des groupes dans Cyclades. Source complémentaire : supports Corse 2024-2025 et Besançon 2025 déjà cités dans complement_cyclades_cas_pratiques.
+Opération distincte : créer la mission Imag'in de l'enseignant permet l'accès aux missions de notation ; cela n'associe pas les candidats à leur protocole. La distribution dans Santorin est encore une autre opération.
+
 ### [SITUATION: SANTORIN AFFICHE « AUCUN LOT À CORRIGER »]
 - Formulations courantes des collègues : sur Santorin on m'informe que je n'ai pas de lot à corriger ; est-ce le chef d'établissement qui doit agir ; je n'ai pas mes codes pour accéder au lot de correction (professeur remplaçant).
 - Réponse : si « Aucun lot à corriger » s'affiche, le chef d'établissement n'a pas encore distribué les lots dans Santorin, ou l'enseignant n'a pas été convoqué. Le chef d'établissement doit : convoquer l'enseignant dans IMAG'IN sur la mission de correction, éditer la convocation en cliquant sur l'icône PDF (c'est ce qui la transmet à Santorin), puis relancer la distribution automatique des lots dans Santorin.

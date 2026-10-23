@@ -15,8 +15,41 @@ def documentary_limit(text):
     return bool(re.search(r"aucun texte de la base|aucune consigne de la base|(?:aucun\w*|pas de|absence de).{0,75}(?:consigne|texte|regle|procedure).{0,65}(?:(?:re)?trouv|dans (?:la base|le corpus|la documentation))", value))
 
 
+def mixed_documentary_limit_conflict(text, supports):
+    """Une règle voisine dans la preuve ne lève pas une limite sur un autre objet.
+
+    Contrôle lexical borné, pas une preuve d'implication sémantique générale.
+    Les règles explicitement prescriptives sur le même objet restent recevables.
+    """
+    stop = {'cett', 'ceci', 'cela', 'doit', 'doiv', 'faut', 'avec', 'dans', 'pour',
+            'obli', 'auto', 'inte', 'poss', 'impo', 'nati', 'regl', 'text', 'pass',
+            'comm', 'form', 'cons', 'chaq', 'tout', 'plus', 'etre', 'sont', 'sera'}
+    def roots(value):
+        return {w[:4] for w in re.findall(r"[a-z]{4,}", value) if w[:4] not in stop}
+    limit = re.compile(r"(?:ne |n.).{0,35}(?:suffit|permet).{0,20}pas.{0,35}(?:demontrer|etablir|confirmer).{0,30}"
+                       r"(?:obligation|autorisation|interdiction|possibilite)\s+(.*)")
+    statements = [part.strip() for proof in supports for part in re.split(r'[.;!?]', normalized(proof)) if part.strip()]
+    objects = [roots(match.group(1)) for part in statements if (match := limit.search(part))]
+    for clause in re.split(r'[.;!?]', normalized(text)):
+        if not _CATEGORICAL.search(clause) or re.search(r"ne.{0,40}pas.{0,25}(?:prouver|demontrer|etablir|confirmer|conclure)|non (?:demontre|etabli|confirme)", clause):
+            continue
+        claim_roots = roots(clause)
+        for target in objects:
+            shared = target & claim_roots
+            if len(shared) < 2:
+                continue
+            explicit = any(_CATEGORICAL.search(part) and not limit.search(part)
+                           and not _ABSENCE.search(part) and not _LIMIT.search(part)
+                           and len(roots(part) & shared) >= 2 for part in statements)
+            if not explicit:
+                return True
+    return False
+
+
 def unsupported_certainty(text, supports):
     """Le silence documentaire seul ne prouve jamais une prescription."""
+    if mixed_documentary_limit_conflict(text, supports):
+        return True
     proof = [normalized(p) for p in supports if p]
     def documentary_absence(p):
         # Le silence sur un point ne retire pas une règle explicite dans une

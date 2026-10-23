@@ -55,3 +55,7 @@ Les branches sont choisies explicitement par le réviseur : sélectionner une br
 4. Décider ensuite comment alimenter la recherche et la rédaction avec cette structure, en gardant les preuves et une trace de migration.
 
 Les consignes courtes restent un essai administrateur. Elles ne sont pas devenues les consignes générales du Hub. La dernière réponse citant le bon passage mais omettant le chemin ne justifie pas une réinsertion automatique du chemin dans toutes les réponses.
+
+## Panneau administrateur du Hub
+
+Sous une réponse disposant d’une trace, ouvrir « Contrôle pilote des étapes et chemins — sans appel IA ». Choisir le prototype proposé et les branches à examiner, puis « Vérifier les éléments conservés — sans appel IA ». Pour le diagnostic GT général, examiner `gt` et, comme vérification conditionnelle, `lot_verrouille`. Ne pas sélectionner pro/CAP pour une demande GT hors comparaison. Le résultat porte sur la proposition initiale et indique des omissions lexicales possibles ; il ne confirme pas les faits déclencheurs. Il est inclus dans la trace téléchargeable, sans changer la réponse ou déclencher de génération. Les fiches actives ne sont pas remplacées par les JSON pilotes.

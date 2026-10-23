@@ -2915,6 +2915,11 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                     st.caption("Ces passages ont été fournis au modèle ; leur présence ne garantit pas que chaque phrase de sa réponse est justifiée.")
                     st.code(m["extraits"], language=None)
             if m.get("diagnostic_ia") and st.session_state.get("is_admin", False):
+                try:
+                    from admin_fiche_pilot import render as _render_fiche_pilot
+                    _render_fiche_pilot(st, m["diagnostic_ia"], "fiche_pilot_" + str(id(m)))
+                except (OSError, ValueError, KeyError, AttributeError, TypeError):
+                    st.warning("Contrôle pilote indisponible ; la réponse reste inchangée.")
                 with st.expander("Trace exacte des appels IA et vérification des affirmations"):
                     st.caption("Le programme contrôle l'existence des passages et fixe les étiquettes de source. L'interprétation et l'applicabilité de la rédaction ne sont pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
                     st.download_button("Télécharger la trace de cette réponse", json.dumps(m["diagnostic_ia"], ensure_ascii=False, indent=2),

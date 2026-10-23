@@ -1,16 +1,16 @@
 ### Santorin — Saisie bloquée : identifier le symptôme avant la procédure
 [PORTEE: gt,pro,cap]
 
-Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3, puis la répartition choisie par l’élève (vérifications en cas de saisie des notes bloquée) ; la procédure [Choisir AFLP] ne s’applique pas. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base.
+Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3, puis la répartition choisie par l’élève. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base.
 
 Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir dans [Correction] > [Liste des lots], avec le cadenas.
 
 Au bac professionnel ou au CAP uniquement, si les AFLP sont notés X ou Y et les champs d'une ou plusieurs APSA bloqués : vérifier le choix des AFLP dans Santorin. Le professeur utilise [choisir AFLP] sur son lot et déclare les AFL(P) évalués pour le protocole ; la FAQ décrit cette manipulation dans ce cas précis.
 
-Une impossibilité de saisir les notes ne précise pas le symptôme et ne permet pas d'identifier la cause. Si les vérifications conditionnelles documentées ne suffisent pas et que le symptôme n'est pas donné, demander ce qui apparaît exactement : cases grisées ou inactives, AFLP affichés X ou Y, cadenas sur le lot, ou message d'erreur à recopier sans données personnelles. Ne pas redemander ce qui est déjà décrit.
+Si les vérifications conditionnelles ci-dessus ne suffisent pas, relever le symptôme encore non précisé : cases grisées ou inactives, cadenas sur le lot, ou message d'erreur à recopier sans données personnelles. Une difficulté de saisie seule ne permet pas d'identifier une cause unique.
 
-Les pistes ci-dessus correspondent à des symptômes distincts et ne constituent pas une liste exhaustive des causes. Une case grisée, sans autre indication, ne prouve pas que le choix des AFLP a été oublié.
+Les pistes ci-dessus correspondent à des symptômes distincts et ne constituent pas une liste exhaustive des causes. Une case grisée, sans autre indication, ne permet pas de déterminer une cause particulière.
 
 Portée : diagnostic logiciel conditionnel, reformulation de sources déjà présentes ; aucune règle réglementaire nouvelle. Tutoriels non revalidés en ligne lors de cette reprise.
 
-Sources de la base : tutoriels Créteil Cyclades Santorin, question de saisie Q6 et sa réponse ; complément de diagnostic de saisie déjà présent. Pour le déverrouillage : procédure établissement déjà décrite dans la base.
+Provenance documentaire : tutoriels Créteil Cyclades Santorin, question de saisie Q6 et sa réponse ; complément de diagnostic de saisie déjà présent ; déverrouillage : procédure établissement déjà décrite dans la base.

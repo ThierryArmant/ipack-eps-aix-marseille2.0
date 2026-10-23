@@ -14,3 +14,12 @@ def consume_gpt41_test(state):
     else:
         state['gpt41_once_pending'] = remaining - 1
     return True
+
+
+def consume_model_test(state):
+    from openai_test_adapter import TEST_MODELS
+    model = state.get('openai_test_model', 'gpt-4.1')
+    if model not in TEST_MODELS:
+        state.pop('gpt41_once_pending', None)
+        return None
+    return model if consume_gpt41_test(state) else None

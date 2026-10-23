@@ -1442,7 +1442,7 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
     if selection_policy not in ('legacy', 'compare_candidates', 'gpt_shortlist'):
@@ -1817,7 +1817,11 @@ Réponds uniquement en JSON selon ce schéma :
                 audit['first_pass_rejection_reasons'] = sorted({str(e) for r in rejected for e in r['errors']})
                 audit['documentary_limit_extraction'] = True
                 final, accepted, rejected = extracted, checked_limits, []
-    if rejected:
+    if rejected and not repair_enabled:
+        audit['repair_disabled_for_test'] = True
+        audit['first_pass_rejection_count'] = len(rejected)
+        audit['first_pass_rejection_reasons'] = sorted({str(reason) for item in rejected for reason in item.get('errors', [])})
+    if rejected and repair_enabled:
         # Mesure agrégée sans appel IA et sans modifier les règles de validation.
         # Ne pas publier les brouillons ou les questions dans les journaux publics.
         audit['first_pass_rejection_count'] = len(rejected)

@@ -1266,13 +1266,18 @@ if st.session_state.get("is_admin", False):
         st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
                    + (" · version " + _sha if _sha else ""))
 
-        _gpt41_test_count = st.number_input("Nombre de questions GPT-4.1", min_value=1, max_value=10, value=10, step=1)
-        if st.button("Activer les essais GPT-4.1 sans Albert"):
-            st.session_state["gpt41_once_pending"] = int(_gpt41_test_count)
-        if st.button("Arrêter les essais GPT-4.1"):
+        from openai_test_adapter import TEST_MODELS
+        _test_model_choice = st.selectbox("Modèle pour la sélection ET la rédaction", TEST_MODELS, index=3)
+        _test_question_count = st.number_input("Nombre de questions de test", min_value=1, max_value=10, value=1, step=1)
+        st.caption("Deux appels API maximum par question : sélection 600 jetons de sortie, rédaction 1 600. Sans Albert, secours ni relance payante. GPT-5.4 : raisonnement none. Recherche documentaire hors de ces compteurs.")
+        if st.button("Activer le modèle choisi pour les prochaines questions"):
+            st.session_state["openai_test_model"] = _test_model_choice
+            st.session_state["gpt41_once_pending"] = int(_test_question_count)
+        if st.button("Arrêter les essais de modèle"):
             st.session_state.pop("gpt41_once_pending", None)
         if st.session_state.get("gpt41_once_pending"):
-            st.info(f"{st.session_state['gpt41_once_pending']} question(s) directe(s) restante(s) : sélection et rédaction GPT-4.1, sans Albert. Lancement manuel ; appels facturables.")
+            st.info(f"ESSAI ACTIF : {st.session_state.get('openai_test_model', 'gpt-4.1')} pour la sélection ET la rédaction · {st.session_state['gpt41_once_pending']} question(s) restante(s) · sans Albert. Posez ensuite la question en direct, hors comparateur.")
+
 
 if st.session_state.get("is_admin", False):
     import html as _html_veille
@@ -1573,8 +1578,10 @@ if prompt_a_traiter:
         erreur_rag = ""
         diagnostic_ia = None
         usage_ia = {}
-        from one_question_model_test import consume_gpt41_test
-        _test_gpt41 = consume_gpt41_test(st.session_state)
+        from one_question_model_test import consume_model_test
+        _test_model = consume_model_test(st.session_state)
+        _test_gpt41 = bool(_test_model)
+        _test_selector = None
         _provider_reponse = (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower()
         if st.session_state.get("is_admin", False):
             _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
@@ -1583,8 +1590,8 @@ if prompt_a_traiter:
             albert_model=st.secrets.get("ALBERT_MODEL", ""),
             provider=_provider_reponse)
         if _test_gpt41:
-            _generation_llm = OpenAI(model='gpt-4.1', temperature=0.0,
-                api_key=openai_api_key, max_retries=0, timeout=45)
+            from openai_test_adapter import test_clients
+            _test_selector, _generation_llm = test_clients(_test_model, openai_api_key)
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
@@ -2552,10 +2559,12 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                 try:
                     if mode in ("examens", "ipack", "textes"):
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
-                                         'one_question_gpt41_test': _test_gpt41,
+                                         'one_question_gpt41_test': _test_model == 'gpt-4.1',
+                                         'test_model': _test_model,
+                                         'test_api_call_limit': 2 if _test_model else None,
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
-                        _orientation_llm = TracedLLM(OpenAI(model='gpt-4.1' if _test_gpt41 else 'gpt-4o-mini', temperature=0.0,
+                        _orientation_llm = TracedLLM(_test_selector if _test_gpt41 else OpenAI(model='gpt-4o-mini', temperature=0.0,
                             api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20),
                             usage_ia, capture_text=False, stage='selection') if _orientation_active else None
                         reponse_ia = review_exam_answer(
@@ -2563,6 +2572,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             academy=academie_reponse, mode=mode,
                             selector_llm=_orientation_llm,
+                            repair_enabled=not bool(_test_model),
                             selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )

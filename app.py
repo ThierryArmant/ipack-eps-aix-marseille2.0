@@ -2916,7 +2916,8 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                     st.code(m["extraits"], language=None)
             if m.get("diagnostic_ia") and st.session_state.get("is_admin", False):
                 try:
-                    from admin_fiche_pilot import render as _render_fiche_pilot
+                    from admin_fiche_pilot_loader import load_panel
+                    _render_fiche_pilot = load_panel().render
                     _render_fiche_pilot(st, m["diagnostic_ia"], "fiche_pilot_" + str(id(m)))
                 except (OSError, ValueError, KeyError, AttributeError, TypeError):
                     st.warning("Contrôle pilote indisponible ; la réponse reste inchangée.")

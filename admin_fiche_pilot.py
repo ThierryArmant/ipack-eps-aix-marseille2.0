@@ -1,4 +1,5 @@
 """Revue administrateur locale ; aucun appel IA, aucune modification de réponse."""
+import copy
 import hashlib
 import importlib.util
 import json
@@ -46,6 +47,72 @@ def review(trace, pilot, branch_ids, root=ROOT):
             'target': 'proposition_initiale', 'trace_version': trace.get('version'),
             **checker.coverage(pilot, branch_ids, answer)}
 
+def navigation_preview(trace, pilot, branch_ids, root=ROOT):
+    """Aperçu seulement : recopie d'un passage réellement cité et transmis."""
+    report = review(trace, pilot, branch_ids, root)
+    result = {'status': 'apercu_seulement', 'pilot_id': pilot['id'], 'branch_ids': list(branch_ids),
+              'trace_version': trace.get('version'), 'replacements': [], 'claims': [],
+              'automatic_repair': False, 'original_response_changed': False}
+    if report.get('errors'):
+        result['errors'] = report['errors']
+        return result
+    claims = copy.deepcopy(trace.get('final_claims') or [])
+    result['claims'] = claims
+    if not claims:
+        result['reason'] = 'Aucune affirmation finale acceptée : aucune restitution proposée.'
+        return result
+    data = None
+    for call in reversed(trace.get('calls', [])):
+        if call.get('stage') != 'generation':
+            continue
+        tail = call.get('prompt', '').rpartition('DONNEES :')[2].lstrip()
+        if tail:
+            try:
+                data, _ = json.JSONDecoder().raw_decode(tail)
+            except (ValueError, TypeError):
+                continue
+            if isinstance(data, dict) and isinstance(data.get('documents'), list):
+                break
+            data = None
+    if data is None:
+        result['reason'] = 'Documents transmis non retrouvés : aucune restitution proposée.'
+        return result
+    paths = {p['id']: p.get('path') for p in trace.get('documents', [])}
+    allowed_paths = {s['path'] for s in pilot['sources']}
+    spans = {(d['id'], p['id']): p['text'] for d in data['documents']
+             if paths.get(d['id']) in allowed_paths for p in d.get('passages', [])}
+    checker = load_checker(root)
+    answer = '\n'.join(c.get('text', '') for c in claims)
+    changed = set()
+    for branch in pilot['branches']:
+        if branch['id'] not in branch_ids:
+            continue
+        for step in branch['steps']:
+            # Pas de restitution des règles, choix ou autorités sur simple ressemblance lexicale.
+            if step.get('nature') != 'logiciel' or not step.get('navigation'):
+                continue
+            if all(checker.normalized(path) in checker.normalized(answer) for path in step['navigation']):
+                continue
+            for index, claim in enumerate(claims):
+                evidence = claim.get('evidence', [])
+                if index in changed or len(evidence) != 1 or len(evidence[0].get('passage_ids', [])) != 1:
+                    continue
+                item = evidence[0]
+                passage = spans.get((item['document_id'], item['passage_ids'][0]))
+                if passage != step['text']:
+                    continue
+                # Remplacer le texte entier conserve les conditions et l'acteur de la source.
+                previous = claim['text']
+                claim['text'] = passage
+                changed.add(index)
+                result['replacements'].append({'index': index, 'step_id': step['id'],
+                                               'before': previous, 'after': passage,
+                                               'evidence': copy.deepcopy(evidence)})
+                answer = '\n'.join(c.get('text', '') for c in claims)
+                break
+    return result
+
+
 def render(st, trace, key):
     try:
         pilots = available_pilots(trace)
@@ -67,6 +134,24 @@ def render(st, trace, key):
                 trace['fiche_pilot_review'] = review(trace, pilot, branches)
             except (OSError, ValueError, KeyError) as exc:
                 st.warning(str(exc))
+        if st.button('Prévisualiser les passages cités avec leur chemin — sans appel IA', key=key+'_preview'):
+            try:
+                trace['fiche_pilot_preview'] = navigation_preview(trace, pilot, branches)
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                st.warning(str(exc))
+        preview = trace.get('fiche_pilot_preview')
+        if preview:
+            st.caption('Aperçu : ' + str(preview.get('pilot_id', 'prototype')) + ' · branches : ' + ', '.join(preview.get('branch_ids', [])))
+            st.caption('Aperçu expérimental séparé : la réponse originale reste inchangée. Le réviseur doit confirmer l’applicabilité du passage et de son acteur.')
+            if preview.get('errors'):
+                st.warning('Prototype à revoir : ' + '; '.join(preview['errors']))
+            elif preview.get('replacements'):
+                for change in preview['replacements']:
+                    st.write('Passage recopié — ' + change['step_id'])
+                    st.write(change['after'])
+                st.json(preview)
+            else:
+                st.info(preview.get('reason') or 'Aucun remplacement admissible : un passage avec chemin doit être cité seul et avoir été transmis intégralement.')
         report = trace.get('fiche_pilot_review')
         if report:
             st.caption("Dernier contrôle : " + str(report.get("pilot_id", "prototype")) + " · branches : " + ", ".join(report.get("branch_ids", [])))

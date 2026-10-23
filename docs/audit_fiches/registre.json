@@ -1626,15 +1626,16 @@
     },
     {
       "path": "data/examens/circuit_aix_ipack_cyclades_santorin.txt",
-      "sha256": "95afdd45f2b487a29719d598b860689b4cc11fbd0b33b427acfc9b7ebc78ad45",
+      "sha256": "9b34f1db12bf948078a862109dc860e922313d1ad90a7a1926c2aaaeb3c3b212",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "source_academique_lue_2026-10-11",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler"
-      ]
+      ],
+      "revue_structure_2026_10_23": "Retour de cinq réponses Albert : séparer opérations et habilitations, sources du corpus ; effet de rédaction à confirmer."
     },
     {
       "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
@@ -1683,15 +1684,16 @@
     },
     {
       "path": "data/examens/complement_saisie_santorin_cas_pratiques.txt",
-      "sha256": "a908c78b0e81d0671d48abd7793564416fe3413c9b99add341e13db2316d43d4",
+      "sha256": "f8cd1c888112c386a0e440ff42cd43ffd2cc9648a8b3e71face71a7f9b53e34d",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler",
         "synthese_non_revalidee"
-      ]
+      ],
+      "revue_structure_2026_10_23": "Retour de cinq réponses Albert : séparer opérations et habilitations, sources du corpus ; effet de rédaction à confirmer."
     },
     {
       "path": "data/examens/cyclades_candidats_absents.txt",
@@ -2153,11 +2155,12 @@
     },
     {
       "path": "data/examens/santorin_cas_pratiques/08_extraire_les_notes_saisies_dans_santorin.txt",
-      "sha256": "e956af1148ea7e43c530d378828b80ebf37a92f9b94a91db08248d92e1cfb16b",
+      "sha256": "5152d8d352f549dcccb9310ba0ec327c4c743b6a6ba864f37f084ca039455e12",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "extrait_complement_santorin_2026-10-18",
-      "signaux": []
+      "signaux": [],
+      "revue_structure_2026_10_23": "Retour de cinq réponses Albert : séparer opérations et habilitations, sources du corpus ; effet de rédaction à confirmer."
     },
     {
       "path": "data/examens/santorin_cas_pratiques/09_vocabulaire_epreuve_de_substitution_de_rattrapage_diffe.txt",
@@ -3736,15 +3739,16 @@
     },
     {
       "path": "data/ipack/fiches/ipack_102_4_erreurs_de_distribution_et_distribution_manuelle.txt",
-      "sha256": "5d2a05474bf94c9e7341c760679ef40dfeba67511d4042a0b965db7c6cbe6bce",
+      "sha256": "d7577c1349006b58cb5b2327f73943cbac7e2608a9cbdf670cd5500bc1134f03",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
-      ]
+      ],
+      "revue_structure_2026_10_23": "Retour de cinq réponses Albert : séparer opérations et habilitations, sources du corpus ; effet de rédaction à confirmer."
     },
     {
       "path": "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt",

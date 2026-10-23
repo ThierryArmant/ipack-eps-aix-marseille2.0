@@ -1,3 +1,19 @@
+## 23 octobre — retour des cinq premières questions Albert et corrections documentaires
+
+Base : e6877e8. Le CSV privé de cinq réponses contient bien les traces complètes dans diagnostic_ia, avec prompts, sorties, preuves et relevés. Les cinq appels de sélection sont GPT-4o-mini ; les cinq rédactions sont Albert gpt-oss-120b, sans secours. Total affiché : 53 570 jetons d’entrée + 1 864 de sortie = 55 434 ; 10 appels. Le fichier privé et les formulations du lot ne sont pas reproduits dans le dépôt. L’utilisateur prévoit ensuite un rejeu de 45 questions et autorise les corrections par « feu ».
+
+Analyse : sur le lot, deux guidages conformes aux passages, une généralisation excessive sur l’exclusivité d’un droit, une confusion entre distribution manuelle et notification, une réserve sur Besançon contredite par les références citées. Ce n’est pas une mesure comparative mini/Albert à prompt identique ni une preuve de fiabilité générale. Les contrôles existants avaient accepté les cinq sorties ; les erreurs de sens ne sont pas automatiquement prouvées par une citation présente.
+
+Corrections : séparer les préalables Imag’in et adresse Cyclades, la distribution manuelle (Distribution manuelle > Ajouter dans un nouveau lot > examinateur > Valider) et la notification des lots déjà créés dans ipack_102. Même séparation dans la section correspondante du circuit Aix ; retrait de la recommandation non conditionnée de supprimer les lots, avec maintien de la réserve déjà documentée sur les notes existantes. Sources déjà présentes : tutoriel qEvM8o5JxIE et fiche mail_examinateur, pas de transcription nouvelle.
+
+Extraction des notes : compléter les deux occurrences actives de l’observation Besançon par la précision du tutoriel Créteil déjà présente dans la fiche dédiée (profils statistiques et référent habilité). Ne pas transformer « le chef peut » en « seul le chef peut », mais ne pas inventer non plus un droit d’export complet pour tout référent : la synthèse ne précise pas ce dernier point. La cause technique des restrictions n’est pas expliquée par le support.
+
+Portée : attribution exacte en logiciel des lignes de la section de réaffectation dans complement_cyclades_protocoles_cas_enseignant, dont les sources citées incluent Besançon, Lyon et Aix. Les autres passages locaux, notamment protocoles adaptés du retour SAV Aix, restent locaux. Aucun retrait global des réserves académiques, aucune nouvelle réponse métier en dur, aucun filtre de question, aucune modification du fournisseur Albert.
+
+Registre : empreintes renouvelées pour les quatre fichiers texte modifiés, statut a_confirmer. Les sources primaires n’ont pas été revalidées ; les archives ne sont pas réécrites. L’ASNS et le dossier certificatif du lot précédent, ainsi que les fiches satisfaisantes, restent inchangés. Le rejeu réel reste à effectuer par l’utilisateur ; aucun appel IA réel ni rejeu automatique par l’agent. Audio des visites toujours non transcrit.
+
+Validation : 988 tests locaux réussis, dont trois tests ciblés sur unités de preuve distinctes, portée logicielle à Besançon et maintien des réserves d’habilitation dans les deux copies. Registre de portée régénéré sans écart, git diff --check réussi. Aucun appel IA réel. Effet rédactionnel à mesurer sur le rejeu utilisateur.
+
 ## 23 octobre — décision finale : deux fiches ciblées et Albert en parcours normal
 
 L’utilisateur confirme finalement de faire les fiches avec le moule ET d’intégrer Albert, puis de réaliser lui-même un rejeu de questions nouvelles. Cette décision remplace la pause de restructuration notée ci-dessous. Pas de conversion générale : seules les fiches associées à un défaut observé sont reprises, les fiches satisfaisantes restent intactes.

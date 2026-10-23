@@ -68,6 +68,7 @@ ATTENTION : Santorin et Cyclades sont des applications nationales, les manipulat
 - Mots-clés : extraction des notes, export, récapitulatif, tableur, préparer la commission.
 - Formulations courantes des collègues : comment récupérer un tableau de mes notes ; peut-on exporter toutes les notes de l'établissement.
 - Le chef d'établissement peut extraire toutes les notes de l'établissement depuis Santorin. Un enseignant ne peut extraire que ses propres notes. (Source : support Besançon 2025.)
+Précision des habilitations — le tutoriel technique de Créteil (article 71, synthèse du corpus relue le 6 octobre 2026) décrit des statistiques simplifiées côté professeur et des statistiques détaillées côté chef d’établissement ; un référent établissement Santorin peut aussi accéder aux statistiques avancées selon son habilitation. Cette synthèse ne précise pas si tout autre rôle habilité aux statistiques avancées dispose aussi de l’export de l’ensemble des notes : faire vérifier le droit d’extraction de ce profil. Le support Besançon décrit le périmètre d’accès du professeur et du chef, sans détailler le mécanisme technique qui l’impose. Source : fiche du corpus « Santorin : export du détail des notes — accès établissement », https://ipackeps.ac-creteil.fr/spip.php?article71 .
 
 ### [SITUATION: VOCABULAIRE — ÉPREUVE DE SUBSTITUTION, DE RATTRAPAGE, DIFFÉRÉE]
 - Mots-clés : épreuve de substitution, rattrapage, épreuve différée, vocabulaire.

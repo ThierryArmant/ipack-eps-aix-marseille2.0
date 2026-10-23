@@ -767,6 +767,41 @@
           ],
           "academie": "Aix-Marseille",
           "reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
+        },
+        {
+          "texte": "- Mots-clés : email professeur grisé, protocole d'un collègue, réaffecter le protocole, chef d'établissement.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Manipulation Cyclades/Santorin : sources déjà citées dans cette section, Lyon 8/10/2026, Besançon 2025 et DIEC Aix 2024 ; attribution logicielle distincte d’un circuit académique."
+        },
+        {
+          "texte": "- Formulations courantes des collègues : j'ai créé le protocole de mon collègue, il est à mon nom ; je ne peux pas changer l'adresse mail ; mon collègue ne voit pas son lot ; le coordonnateur a saisi tous les protocoles et mes collègues ne voient pas leurs lots ; le proviseur adjoint a créé les protocoles et personne ne voit ses lots ; tous les lots sont au nom d'une seule personne.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Manipulation Cyclades/Santorin : sources déjà citées dans cette section, Lyon 8/10/2026, Besançon 2025 et DIEC Aix 2024 ; attribution logicielle distincte d’un circuit académique."
+        },
+        {
+          "texte": "- Cause : Cyclades rattache chaque protocole à l'adresse de la personne qui l'a créé ; si une seule personne a tout saisi, tous les lots partent à son adresse lors de la distribution.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Manipulation Cyclades/Santorin : sources déjà citées dans cette section, Lyon 8/10/2026, Besançon 2025 et DIEC Aix 2024 ; attribution logicielle distincte d’un circuit académique."
+        },
+        {
+          "texte": "- Le champ de l'adresse mail du professeur n'est pas modifiable par l'enseignant : le protocole porte l'adresse de celui qui l'a créé.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Manipulation Cyclades/Santorin : sources déjà citées dans cette section, Lyon 8/10/2026, Besançon 2025 et DIEC Aix 2024 ; attribution logicielle distincte d’un circuit académique."
+        },
+        {
+          "texte": "- C'est le chef d'établissement qui réaffecte le protocole au bon enseignant : Cyclades, menu [EPS] / [Contrôler / Réaffecter des protocoles], colonne de l'adresse utilisée pour la notation, en choisissant l'évaluateur de chaque protocole. Si les lots sont déjà distribués, réaffecter aussi les lots dans Santorin (suivi des lots) ou relancer la distribution. (Sources : académie de Lyon, article 1971 du 8/10/2026 ; support Besançon 2025 ; support DIEC Aix-Marseille 2024.)",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Manipulation Cyclades/Santorin : sources déjà citées dans cette section, Lyon 8/10/2026, Besançon 2025 et DIEC Aix 2024 ; attribution logicielle distincte d’un circuit académique."
         }
       ]
     },

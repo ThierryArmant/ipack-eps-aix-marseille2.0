@@ -1273,7 +1273,13 @@ if st.session_state.get("is_admin", False):
         if st.button("Activer le modèle choisi pour les prochaines questions"):
             st.session_state["openai_test_model"] = _test_model_choice
             st.session_state["gpt41_once_pending"] = int(_test_question_count)
+        if st.button("Tester une fois mini avec la fiche diagnostique seule"):
+            st.session_state["single_document_pending"] = True
+            st.session_state.pop("gpt41_once_pending", None)
+        if st.session_state.get("single_document_pending"):
+            st.info("ESSAI FICHE SEULE prêt : prochaine question directe dans Examens, mini aux deux étapes, une seule fiche au rédacteur. Aucun appel avant votre question.")
         if st.button("Arrêter les essais de modèle"):
+            st.session_state.pop("single_document_pending", None)
             st.session_state.pop("gpt41_once_pending", None)
         if st.session_state.get("gpt41_once_pending"):
             st.info(f"ESSAI ACTIF : {st.session_state.get('openai_test_model', 'gpt-4.1')} pour la sélection ET la rédaction · {st.session_state['gpt41_once_pending']} question(s) restante(s) · sans Albert. Posez ensuite la question en direct, hors comparateur.")
@@ -1579,7 +1585,11 @@ if prompt_a_traiter:
         diagnostic_ia = None
         usage_ia = {}
         from one_question_model_test import consume_model_test
+        from single_document_test import consume_single_document_test, TARGET as _single_target
+        _single_document_test = consume_single_document_test(st.session_state, mode)
         _test_model = consume_model_test(st.session_state)
+        if _single_document_test:
+            _test_model = "gpt-4o-mini"
         _test_gpt41 = bool(_test_model)
         _test_selector = None
         _provider_reponse = "openai" # Suspension temporaire Albert demandée par le pilote.
@@ -2573,6 +2583,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             academy=academie_reponse, mode=mode,
                             selector_llm=_orientation_llm,
                             repair_enabled=not bool(_test_model),
+                            test_document_path=_single_target if _single_document_test else None,
                             selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )

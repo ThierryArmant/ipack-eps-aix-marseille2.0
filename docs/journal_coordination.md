@@ -1,3 +1,9 @@
+## 23 octobre — essai administrateur unique avec la seule fiche diagnostique
+
+Base : 71ad232. Ajout d’un bouton explicite « Tester une fois mini avec la fiche diagnostique seule ». Activation sans appel réseau ; prochaine question directe dans Examens uniquement, réservée à l’administrateur, consommée une fois. Force GPT-4o-mini pour sélection et rédaction via les clients de test existants, sans Albert, secours ou réparation payante. La sélection normale est conservée pour l’observation ; après sélection et contrôles de portée, seule la fiche data/examens/complement_saisie_bloquee_diagnostic.txt est transmise au rédacteur. Son contenu et les consignes restent intacts. Si cette fiche est absente ou dupliquée, l’essai s’arrête explicitement au lieu de retomber sur d’autres documents. Trace : single_document_test avec identifiants avant isolation et model_document_ids final. Le parcours ordinaire conserve son comportement par défaut, sans filtrage. Bouton d’arrêt commun annule aussi cet essai. Aucun contenu métier en dur ajouté.
+
+Validation : compilation, signature du chargeur runtime et 941 tests hors ligne réussis, dont consommation administrateur unique, non-consommation hors Examens, intégrité du paquet et arrêt sur absence/doublon. Aucun appel IA réel. Résultat à mesurer par le pilote sur la même question ; cette isolation réduit aussi le volume documentaire et ne sépare donc pas concurrence sémantique et longueur du contexte à elle seule. Corrections locales préservées.
+
 ## 23 octobre — essai d’organisation de la fiche de saisie bloquée
 
 Base : 43ba46b. La trace 13 montre le passage GT enrichi lexicalement intégralement reçu par GPT-4o-mini puis omis, comme le cadenas, dès la proposition initiale ; aucun rejet ni réparation. Les symptômes sont cette fois correctement marqués inconnus par la sélection. L’indice lexical seul n’a pas suffi sur cet essai.

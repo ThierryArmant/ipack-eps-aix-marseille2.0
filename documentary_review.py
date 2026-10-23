@@ -1442,7 +1442,7 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True, test_document_path=None):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
     if selection_policy not in ('legacy', 'compare_candidates', 'gpt_shortlist'):
@@ -1586,6 +1586,10 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                           and "champs d'apprentissage au lycee des activites citees" in evidence_logic.normalized(p['text'])]
     audit['excluded_field_calculation_documents'] = [p['id'] for p in field_calculations]
     packets = [p for p in packets if p not in field_calculations]
+    if test_document_path is not None:
+        from single_document_test import isolate_document
+        audit['single_document_test'] = {'path': test_document_path, 'before_ids': [p['id'] for p in packets]}
+        packets = isolate_document(packets, test_document_path)
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
     audit['document_selection_after_academy'] = [p['id'] for p in packets]

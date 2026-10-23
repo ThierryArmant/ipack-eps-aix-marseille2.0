@@ -1263,7 +1263,7 @@ if st.session_state.get("is_admin", False):
                 st.warning(_probe_result["message"])
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
-        st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
+        st.caption("Modèle GPT configuré : " + modele_ia + " · Albert temporairement désactivé."
                    + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
@@ -1361,7 +1361,7 @@ if st.session_state.get("is_admin", False):
     with st.container(border=True, key="hub_admin_comparison"):
         render_architecture_comparison(st, llm=Settings.llm, retrieve=_comparison_retrieve,
                                       version=_sha, model=modele_ia,
-                                      albert_api_key=st.secrets.get("ALBERT_API_KEY"),
+                                      albert_api_key=None, # Albert suspendu, y compris dans le comparateur.
                                       albert_model=st.secrets.get("ALBERT_MODEL", ""))
 
 def _bandeau_etape(numero, titre, sous_titre, couleur=""):
@@ -1582,7 +1582,7 @@ if prompt_a_traiter:
         _test_model = consume_model_test(st.session_state)
         _test_gpt41 = bool(_test_model)
         _test_selector = None
-        _provider_reponse = (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower()
+        _provider_reponse = "openai" # Suspension temporaire Albert demandée par le pilote.
         if st.session_state.get("is_admin", False):
             _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
         _generation_llm = _generation_runtime.generation_llm(
@@ -2930,7 +2930,7 @@ with st.container(key="notice_rgpd"), st.expander(
     <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
     <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
-    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, Albert API (DINUM) pour la génération des réponses, OpenAI pour la recherche documentaire et comme secours de génération en cas d’indisponibilité d’Albert, et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
+    <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la génération des réponses (Albert API temporairement désactivé), et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Durée de conservation</h3>
     <p>Les échanges sont conservés uniquement pendant le temps nécessaire à leur analyse et à l’amélioration du HUB, dans la limite de six mois à compter de leur enregistrement. Ils sont supprimés manuellement lorsque leur analyse et les corrections correspondantes sont terminées, sans attendre cette échéance. Les enseignements utiles peuvent être conservés sous forme de fiches générales ne permettant pas d’identifier une personne. Cette durée concerne le journal du HUB ; les traitements et durées propres aux prestataires relèvent de leurs conditions applicables.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Traitement hors de l’Union européenne</h3>

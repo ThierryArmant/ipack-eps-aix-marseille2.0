@@ -8,6 +8,13 @@ from albert_adapter import AlbertLLM, AlbertError, available_models, BASE_URL
 from documentary_review import TracedLLM, usage_summary
 
 class AlbertAdapterTests(unittest.TestCase):
+    def setUp(self):
+        # Contrats conservés pour une éventuelle réactivation ; aucun réseau réel.
+        from unittest.mock import patch
+        switch = patch("albert_adapter.ALBERT_PAUSED", False)
+        switch.start()
+        self.addCleanup(switch.stop)
+
     def response(self, payload, status=200):
         result=io.BytesIO(json.dumps(payload).encode());result.status=status
         return result

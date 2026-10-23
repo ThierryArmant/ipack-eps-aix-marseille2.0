@@ -1,3 +1,9 @@
+## 23 octobre — suspension temporaire complète d’Albert
+
+À la demande du pilote, les essais ne doivent effectuer aucun appel Albert. Le parcours direct utilise GPT ; le comparateur ne reçoit plus la clé Albert. Verrou indépendant des secrets dans l’adaptateur : découverte des modèles et génération sont arrêtées avant toute requête HTTP ; la fabrique de génération renvoie directement le client GPT, sans tentative Albert ni secours factice. La sélection documentaire existante est conservée pour isoler le changement de rédacteur. Clés et réglages serveur conservés pour une réactivation ultérieure ; aucune requête IA lancée pour cette intervention. Le panneau administrateur et la notice indiquent la suspension. Les corrections locales de fiches préparées dans les autres espaces restent intactes ; aucun ajout lexical à la fiche dans ce lot.
+
+Validation : 939 tests hors ligne réussis, dont 21 sur Albert et sa suspension. Compilation et différentiel vérifiés. Les tests du verrou confirment zéro accès réseau pour la découverte et la génération, même avec une clé configurée. Aucun appel IA réel.
+
 ## 23 octobre — sélection et rédaction avec le même modèle, compteur et plafonds de test
 
 À la demande du pilote : rendre possible un essai réel GPT-5.4 sur les deux étapes, sans fournisseur alternatif. L’administration propose désormais gpt-4o-mini, gpt-4.1-mini, gpt-4.1 et gpt-5.4 ; activation manuelle du modèle choisi pour une à dix questions directes, une question par défaut. Le modèle actif et les questions restantes sont explicitement affichés. Aucun appel au choix du modèle, à l’activation ou au chargement du panneau. Le bouton de vérification d’accès reste indépendant.

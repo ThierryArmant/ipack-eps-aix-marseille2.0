@@ -5,6 +5,9 @@ import json
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 from urllib.error import HTTPError, URLError
 
+# Suspension temporaire demandée par le pilote ; indépendante des secrets.
+ALBERT_PAUSED = True
+
 BASE_URL = 'https://albert.api.etalab.gouv.fr/v1'
 
 
@@ -31,6 +34,8 @@ def _http_error(status):
 
 
 def _request(api_key, method, route, payload=None, timeout=90):
+    if ALBERT_PAUSED:
+        raise AlbertServiceError('Albert temporairement désactivé pour les essais.', 'temporarily_disabled')
     if not isinstance(api_key, str) or not api_key.strip() or any(c in api_key for c in '\r\n'):
         raise AlbertServiceError('Clé Albert absente ou non conforme dans les secrets Streamlit.', 'key_unavailable')
     request = Request(BASE_URL + route, method=method,
@@ -129,7 +134,7 @@ class AlbertWithFallback:
 
 def generation_llm(*, openai_llm, api_key=None, albert_model='', provider='albert'):
     """Objet neuf par question : aucun état de panne partagé entre collègues."""
-    if provider == 'openai' or not api_key:
+    if ALBERT_PAUSED or provider == 'openai' or not api_key:
         return openai_llm
     if provider != 'albert':
         raise ValueError('FOURNISSEUR_IA doit valoir albert ou openai.')

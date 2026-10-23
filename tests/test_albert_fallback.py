@@ -13,6 +13,13 @@ class Fake:
         return SimpleNamespace(text=r,raw={'usage':{'prompt_tokens':8,'completion_tokens':2,'total_tokens':10}})
 
 class FallbackTests(unittest.TestCase):
+    def setUp(self):
+        # Contrats conservés pour une éventuelle réactivation ; aucun réseau réel.
+        from unittest.mock import patch
+        switch = patch("albert_adapter.ALBERT_PAUSED", False)
+        switch.start()
+        self.addCleanup(switch.stop)
+
     def test_primary_success_never_calls_gpt(self):
         a=Fake('albert',['ok']);g=Fake('openai',[]);audit={}
         self.assertEqual(TracedLLM(AlbertWithFallback(a,g),audit).complete('proof').text,'ok')

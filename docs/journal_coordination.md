@@ -1,3 +1,13 @@
+## 23 octobre — correction urgente de l’import CSV avec traces volumineuses
+
+Base : d3733c7. L’utilisateur reprend dix anciennes questions pour une comparaison avant/après et rencontre _csv.Error dans parse_csv pendant l’itération DictReader. Les exports incluent diagnostic_ia, dont un champ peut dépasser la limite Python par défaut de 131 072 caractères. La capture ne fournit pas le message final de l’exception ; le dépassement est reproduit sur le format d’export déjà fourni.
+
+Correctif : relever la taille de champ à la limite du fichier, sans diminuer une limite globale déjà supérieure ; accepter les fichiers jusqu’à 50 Mo au lieu de 2 Mo pour réimporter les exports avec traces ; parser en CSV strict et convertir csv.Error (en-tête ou lignes) en ValueError lisible déjà pris en charge par les panneaux. Les anciennes réponses et traces restent ignorées pour la construction des questions rejouées : ni injection dans le prompt, ni nouvel appel IA pendant l’import. Le fichier privé n’est pas modifié.
+
+Chargement : nouveau admin_csv_loader par empreinte du code du parseur, utilisé dans le panneau de préparation et dans le rejeu ; changement du module de rejeu observé par son chargeur existant. Pas d’importlib.reload ni de remplacement d’un module utilisé par une autre session. Aucun changement de fiches, de fournisseur Albert ni de nombre de questions choisi.
+
+Validation : 16 tests de parsing/chargement et 8 tests de rejeu réussis ; import réel du CSV privé fourni (5 questions reconnues), test synthétique de plus de 2 Mo avec champs de plus de 131 072 caractères et retours à la ligne, erreur de guillemets convertie en message ; compilation et diff vérifiés. Pas de nouvelle exécution de la suite globale (988 tests avant ce correctif) ni d’appel IA réel. Pour reprendre, vérifier la nouvelle version et réimporter le fichier, sans relancer une question déjà traitée.
+
 ## 23 octobre — retour des cinq premières questions Albert et corrections documentaires
 
 Base : e6877e8. Le CSV privé de cinq réponses contient bien les traces complètes dans diagnostic_ia, avec prompts, sorties, preuves et relevés. Les cinq appels de sélection sont GPT-4o-mini ; les cinq rédactions sont Albert gpt-oss-120b, sans secours. Total affiché : 53 570 jetons d’entrée + 1 864 de sortie = 55 434 ; 10 appels. Le fichier privé et les formulations du lot ne sont pas reproduits dans le dépôt. L’utilisateur prévoit ensuite un rejeu de 45 questions et autorise les corrections par « feu ».

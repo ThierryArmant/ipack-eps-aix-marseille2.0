@@ -16,6 +16,42 @@ def sample(count=113):
     return output.getvalue().encode("utf-8-sig")
 
 class AdminRetest113Tests(unittest.TestCase):
+    def test_large_trace_columns_are_accepted_and_not_replayed(self):
+        output = io.StringIO()
+        writer = csv.DictWriter(output, fieldnames=['question','mode','public','diagnostic_ia'], delimiter=';')
+        writer.writeheader()
+        for i in range(5):
+            writer.writerow({'question':f'Question {i} ?', 'mode':'examens', 'public':'Collège',
+                             'diagnostic_ia':'preuve;\n' * 70000})
+        data = output.getvalue().encode('utf-8')
+        self.assertGreater(len(data), 2_000_000)
+        previous = csv.field_size_limit()
+        try:
+            csv.field_size_limit(131072)
+            rows = parse_csv(data)
+        finally:
+            csv.field_size_limit(previous)
+        self.assertEqual(len(rows), 5)
+        self.assertNotIn('diagnostic_ia', rows[0])
+        self.assertEqual(rows[0]['question'], 'Question 0 ?')
+
+    def test_malformed_quoted_csv_becomes_friendly_value_error(self):
+        with self.assertRaisesRegex(ValueError, 'CSV illisible'):
+            parse_csv(b'question;mode;public\n"Unclosed;examens;College\n')
+
+    def test_csv_loader_observes_parser_update_without_reload(self):
+        import tempfile
+        from pathlib import Path
+        from admin_csv_loader import load_csv_import
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'admin_retest_113.py'
+            path.write_text('parse_csv = "old"')
+            old = load_csv_import(directory)
+            path.write_text('parse_csv = "new"')
+            new = load_csv_import(directory)
+            self.assertEqual(old.parse_csv, 'old')
+            self.assertEqual(new.parse_csv, 'new')
+
     def test_valid_file(self):
         self.assertEqual(len(parse_csv(sample())), 113)
 

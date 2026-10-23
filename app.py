@@ -1204,7 +1204,8 @@ with st.container(border=True, key="hub_admin_login"):
 
 # Audit réservé aux administrateurs : aucune question enregistrée côté serveur.
 if st.session_state.get("is_admin", False):
-    from admin_retest_113 import render as render_admin_retest_113
+    from admin_csv_loader import load_csv_import
+    render_admin_retest_113 = load_csv_import().render
     from admin_replay_loader import load_replay
     _admin_replay = load_replay()
     render_admin_retest_113_live = _admin_replay.render

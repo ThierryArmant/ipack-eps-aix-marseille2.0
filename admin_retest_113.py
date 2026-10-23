@@ -12,10 +12,23 @@ def _key(value):
                    if unicodedata.category(c) != 'Mn').replace('_', ' ')
 
 
+MAX_CSV_BYTES = 50_000_000
+
+
 def parse_csv(data, default_mode=None, default_public=None):
+    """Accepter les exports avec traces et convertir toute erreur CSV pour l'interface."""
+    if csv.field_size_limit() < MAX_CSV_BYTES:
+        csv.field_size_limit(MAX_CSV_BYTES)
+    try:
+        return _parse_csv(data, default_mode, default_public)
+    except csv.Error:
+        raise ValueError("CSV illisible : vérifiez le séparateur et les guillemets, puis réexportez le tableau en CSV UTF-8.") from None
+
+
+def _parse_csv(data, default_mode=None, default_public=None):
     """Reconnaît le tableau sans inventer le public ou le contexte manquants."""
-    if len(data) > 2_000_000:
-        raise ValueError("Fichier trop volumineux (maximum 2 Mo).")
+    if len(data) > MAX_CSV_BYTES:
+        raise ValueError("Fichier trop volumineux (maximum 50 Mo).")
     try:
         text = data.decode("utf-8-sig")
     except UnicodeDecodeError as exc:
@@ -24,9 +37,9 @@ def parse_csv(data, default_mode=None, default_public=None):
         raise ValueError("Le fichier est vide.")
     try:
         dialect = csv.Sniffer().sniff(text[:20000], delimiters=";,\t")
-        reader = csv.DictReader(io.StringIO(text), dialect=dialect)
+        reader = csv.DictReader(io.StringIO(text), dialect=dialect, strict=True)
     except csv.Error:
-        reader = csv.DictReader(io.StringIO(text), delimiter=";")
+        reader = csv.DictReader(io.StringIO(text), delimiter=";", strict=True)
     aliases = {'n': 'n', 'id': 'n', 'numero': 'n', 'question': 'question',
                'questions': 'question', 'demande': 'question', 'mode': 'mode',
                'contexte': 'mode', 'onglet': 'mode', 'public': 'public',

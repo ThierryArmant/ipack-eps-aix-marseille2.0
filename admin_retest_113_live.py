@@ -87,7 +87,9 @@ def render(st):
             return
         if uploaded is None:
             return
-        from admin_retest_113 import parse_csv, import_defaults
+        from admin_csv_loader import load_csv_import
+        csv_import = load_csv_import()
+        parse_csv, import_defaults = csv_import.parse_csv, csv_import.import_defaults
         defaults = import_defaults(st, "audit_live_defaults")
         try:
             rows = parse_csv(uploaded.getvalue(), *defaults)

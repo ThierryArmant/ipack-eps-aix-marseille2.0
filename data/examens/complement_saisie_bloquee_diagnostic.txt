@@ -1,9 +1,13 @@
 ### Santorin — Saisie bloquée : identifier le symptôme avant la procédure
 [PORTEE: gt,pro,cap]
 
-Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3, puis la répartition choisie par l’élève. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base.
+Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3.
 
-Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir dans [Correction] > [Liste des lots], avec le cadenas.
+Au bac GT, vérifier ensuite la répartition choisie par l’élève. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base.
+
+Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir.
+
+Si un cadenas rouge ou fermé apparaît sur le lot, le chef d'établissement intervient dans [Correction] > [Liste des lots], avec le cadenas.
 
 Au bac professionnel ou au CAP uniquement, si les AFLP sont notés X ou Y et les champs d'une ou plusieurs APSA bloqués : vérifier le choix des AFLP dans Santorin. Le professeur utilise [choisir AFLP] sur son lot et déclare les AFL(P) évalués pour le protocole ; la FAQ décrit cette manipulation dans ce cas précis.
 

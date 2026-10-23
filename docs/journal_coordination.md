@@ -1,3 +1,11 @@
+## 23 octobre — essai de séparation des actions pour limiter les omissions
+
+Base : cb186ca. Trace 19 vérifiée : fiche seule, short_v1 actif, branche pro/CAP exclue, zéro rejet/réparation. AFL1, répartition et chemin sont transmis, mais les deux derniers sont absents dès la proposition initiale ; aucun retrait par le code.
+
+À la demande du pilote, modification de présentation de la seule fiche : vérification AFL1 et vérification de la répartition dans deux paragraphes, chacun explicitement GT ; cadenas : demande au chef et chemin d’intervention dans deux paragraphes, chacun rappelant la condition du cadenas rouge/fermé. Même ordre, acteurs, chemin, limites, provenance et branche pro/CAP. Aucune règle ni action nouvelle, aucune instruction générale ajoutée. Le code, le modèle et les consignes restent identiques afin de tester l’effet de la séparation des actions. Ne pas présenter cet essai comme un correctif général démontré.
+
+Validation : 30 tests ciblés hors ligne réussis. Extraction et compactage réels de la fiche : AFL1 et répartition ont chacun un identifiant de passage distinct ; chemin conservé et aucune mention AFLP dans les passages GT ; pro/CAP conserve sa procédure et n’obtient pas la branche GT. Aucun appel IA réel ni rejeu massif. Conservation effective des étapes à vérifier lors du prochain essai manuel. Registre d’audit historique non revalidé ; corrections locales plus larges préservées.
+
 ## 23 octobre — nettoyage des passages communs de la fiche diagnostique
 
 Base : 0419913. Retour utilisateur : AFL1, répartition et chemin de déverrouillage désormais repris, mais mentions AFLP parasites dans les passages communs, consigne éditoriale « Demander… » publiée et renvoi vague vers les tutoriels. La trace de ce retour n’a pas été fournie : ne pas prétendre avoir contrôlé les exclusions de cet appel précis.

@@ -1,3 +1,7 @@
+## 23 octobre — huit essais publics réels, mini uniquement
+
+Suite autorisée du lot : questions 3 à 10 testées chacune une fois sur c9a3f73, contexte iPackEPS et académie Aix-Marseille. Relevés publics : 16 appels, gpt-4o-mini uniquement, 92 933 jetons d’entrée et 2 619 de sortie. Aucune trace administrateur dans cette session ; pas d’attribution certaine du défaut à la sélection ou à la rédaction. Six guidages utilisables avec réserves mineures ; deux réponses non validées : ASNS depuis Mes élèves redirigé vers impression Natation sans expliquer la validation ; configuration certificative enrichie d’un ordre causal non soutenu entre validation des protocoles et import des candidats. Détail dans docs/fiches_pilotes/resultats_huit_essais_2026_10_23.md. Pas de modification du code ni des fiches, aucun rejeu supplémentaire. Le guidage TZR est accepté comme suffisant par l’utilisateur ; ne pas confondre omission cosmétique et défaut matériel. Audio des visites toujours non transcrit.
+
 ## 23 octobre — restitution finale bornée et examen de dix fiches difficiles
 
 Base : 304f6de. Autorisations du pilote : intégrer le détail restitué dans la réponse principale et examiner dix fiches récalcitrantes. Petit périmètre enregistré par chemin et empreinte dans config/navigation_restore_pilot.json : Santorin saisie, multi-établissements, classes, équipe EPS, ASNS, APSA/protocoles, imports Pronote, configuration classes, ASNS Mes élèves et protocoles certificatifs. Aucune fiche active modifiée. Le moule JSON des trois prototypes reste hors index.

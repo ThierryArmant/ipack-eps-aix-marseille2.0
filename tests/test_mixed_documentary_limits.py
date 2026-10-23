@@ -23,3 +23,20 @@ class MixedLimitsTests(unittest.TestCase):
             'evidence':[{'document_id':'D1','quote':self.proof}]}]},packets)
         self.assertFalse(accepted)
         self.assertIn('absence de consigne',str(errors))
+    def test_exact_retest_reserve_no_longer_requests_repair(self):
+        text="La co-évaluation par deux enseignants d'EPS est prévue, mais cela ne signifie pas qu'une double signature est obligatoire sur chaque fiche individuelle en fin d'épreuve."
+        self.assertFalse(unsupported_certainty(text,[self.proof]))
+        from documentary_review import source_packets,mark_excerpt,validate_claims
+        packets=source_packets(mark_excerpt(self.proof,title='Formalités'))
+        accepted,errors=validate_claims({'claims':[{'section':'condition','text':text,
+            'evidence':[{'document_id':'D1','quote':self.proof}]}]},packets)
+        self.assertFalse(errors)
+        self.assertEqual(len(accepted),1)
+    def test_logical_reserve_does_not_hide_neighbor_categorical_exemption(self):
+        for link in ('. ', ', mais ', ', donc ', '; toutefois '):
+            text="Cela ne signifie pas qu'une double signature est obligatoire sur chaque fiche individuelle"+link+"la double signature sur chaque fiche individuelle n'est pas obligatoire."
+            with self.subTest(link=link):
+                self.assertTrue(unsupported_certainty(text,[self.proof]))
+    def test_other_non_entailment_paraphrases_are_preserved(self):
+        for verb in ('implique','prouve','démontre','veut dire'):
+            self.assertFalse(unsupported_certainty("Cela ne "+verb+" pas qu'une double signature est obligatoire sur chaque fiche individuelle.",[self.proof]))

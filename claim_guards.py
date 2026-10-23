@@ -30,7 +30,14 @@ def mixed_documentary_limit_conflict(text, supports):
                        r"(?:obligation|autorisation|interdiction|possibilite)\s+(.*)")
     statements = [part.strip() for proof in supports for part in re.split(r'[.;!?]', normalized(proof)) if part.strip()]
     objects = [roots(match.group(1)) for part in statements if (match := limit.search(part))]
-    for clause in re.split(r'[.;!?]', normalized(text)):
+    # Une réserve porte sur sa proposition, pas sur une conclusion voisine.
+    # « ne signifie pas que X est obligatoire » nie une déduction, pas X.
+    clauses = re.split(r'[.;!?]|,\s*|\b(?:mais|cependant|toutefois|pourtant|donc|en revanche)\b', normalized(text))
+    for clause in clauses:
+        non_entailment = re.search(
+            r"\bne\s+(?:signifie|veut dire|implique|demontre|prouve)\s+pas\s+(?:necessairement\s+)?qu[ei']", clause)
+        if non_entailment:
+            continue
         if not _CATEGORICAL.search(clause) or re.search(r"ne.{0,40}pas.{0,25}(?:prouver|demontrer|etablir|confirmer|conclure)|non (?:demontre|etabli|confirme)", clause):
             continue
         claim_roots = roots(clause)

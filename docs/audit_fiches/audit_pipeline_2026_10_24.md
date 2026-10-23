@@ -33,3 +33,9 @@ Six tests : formulation défaillante tirée des traces, réserve acceptable, pre
 - Les transformations de présentation après génération, les autres modules et les branches rares de app.py n'ont pas tous fait l'objet d'un essai d'interface. Aucun fonctionnement universellement sans bug n'est annoncé.
 
 Albert reste suspendu. Ne pas lancer un nouveau lot massif pour valider cette revue. Le changement de contrôle devra être distingué du changement des fiches lors de la prochaine comparaison.
+
+## Ajustement après le test réel de la question 40
+
+Le rejeu utilisateur 0d02b4d a produit une réponse finale prudente mais deux appels de rédaction (10 417 jetons) : le contrôle ajouté a rejeté à tort « cela ne signifie pas qu'une double signature est obligatoire ». La négation porte ici sur la déduction, pas sur l'obligation elle-même. Ne pas considérer cette réparation comme une amélioration prouvée.
+
+Ajustement : reconnaître les formes négatives de déduction (« ne signifie/implique/prouve/démontre/veut dire pas que ») dans la proposition concernée. Séparer les propositions aux ponctuations et connecteurs d'opposition ou conséquence pour qu'une réserve ne protège pas une conclusion catégorique voisine. Ne pas accepter pour autant « n'est pas obligatoire ». Neuf tests ciblés couvrent les deux sens, plusieurs paraphrases et une conclusion erronée après une réserve. Revalidation locale de la proposition initiale exacte du CSV privé : trois affirmations acceptées, zéro rejet ; aucun nouvel appel IA. Ce résultat déterministe ne garantit pas que tout futur brouillon sera identique ni exempt d'autres erreurs.

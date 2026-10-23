@@ -1,3 +1,13 @@
+## 24 octobre — corriger le faux positif sur une négation de déduction
+
+Base : 0d02b4d. Le test utilisateur de la question 40 affiche une réponse prudente mais a déclenché une réparation : « cela ne signifie pas qu’une double signature est obligatoire » a été rejeté par le contrôle ajouté, à tort. Deux appels GPT-mini, 10 417 jetons. L’utilisateur confie la correction à l’agent ; aucun nouvel appel IA réel.
+
+Cause : le contrôle sur preuve mixte reconnaissait obligatoire sans distinguer la négation de déduction (« ne signifie pas que ») de la négation de la règle (« n’est pas obligatoire »). Correction au niveau des propositions et reconnaissance de quelques formulations de non-implication ; ponctuations et connecteurs d’opposition/conséquence séparent les conclusions, afin qu’une réserve voisine ne dispense pas du contrôle d’une conclusion catégorique. La règle métier n’est ni ajoutée ni modifiée.
+
+Validation : neuf tests ciblés réussis, dont formulation exacte rejetée, paraphrases, conclusion catégorique voisine encore bloquée et passage dans validate_claims. Revalidation locale de la proposition initiale du CSV privé avec ses preuves : trois affirmations acceptées, zéro rejet. Seize tests de contrôles existants réussis ; suite globale finale 1018 tests réussis ; compilation et diff vérifiés. Ce cas n’exige donc pas un nouveau rejeu payant pour établir la disparition du faux positif. Cela ne garantit pas le contenu d’une nouvelle génération.
+
+Rapport d’audit complété. Albert reste suspendu, mini seul. Aucune fiche, consigne, sélection ou clé changée. Restent ouverts les défauts de sélection et de transfert des conditions/droits entre opérations ; ne pas présenter ce correctif ciblé comme une certification sémantique générale.
+
 ## 24 octobre — revue du parcours et faille de contrôle sur preuve mixte
 
 Base : 5084a56. L’utilisateur demande une revue de app.py parce que les erreurs récurrentes traversent les filtres. Revue structurelle de l’AST complet et lecture des portions actives du parcours documentaire et modules associés ; pas une vérification exhaustive de toutes les branches UI. Rapport détaillé : docs/audit_fiches/audit_pipeline_2026_10_24.md, avec périmètre, constats et points encore ouverts. Aucun appel IA réel.

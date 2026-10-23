@@ -1,3 +1,11 @@
+## 23 octobre — schéma non ambigu dans l’essai à consignes courtes
+
+Base : 3750705. Trace 17 : profil short_v1 actif ; 11 affirmations rejetées pour section invalide, car le rédacteur a recopié littéralement decision|condition|etape|limite. La proposition contient AFL1 et le chemin de déverrouillage, mais omet encore la répartition et ajoute des actions AFLP sans réserver explicitement ces actions au pro/CAP. Ce n’est pas une réponse métier validée ni une preuve de complétude avec consignes courtes.
+
+Correction isolée de l’essai : l’exemple JSON montre désormais une seule valeur valide, et une instruction séparée définit les quatre choix de section. Schéma global, validateur, fiches, modèles et autres consignes inchangés ; aucun reclassement ni acceptation automatique d’une sortie invalide. Les instructions courtes de portée demeurent identiques pour ne pas mélanger les effets. La fonction est déjà incluse dans le runtime à empreinte, ce changement sera donc chargé sans ancien import global.
+
+Validation : compilation et huit tests ciblés réussis sur le prompt court, le schéma réel, les données inchangées et le chargement runtime avec ancien module en mémoire. Le test confirme l’exemple JSON valide et l’absence de l’alternative littérale dans le prompt d’essai, sans modification du schéma normal. Aucun appel IA réel ; respect du format et applicabilité métier encore à vérifier au prochain essai manuel.
+
 ## 23 octobre — correctif ImportError après mise à jour de l’essai
 
 Incident signalé sur l’import de consume_short_prompt_test dans app.py après e9017e9 : module single_document_test conservé en mémoire dans sa version antérieure. Le module d’essai rejoint l’ensemble runtime immuable dont l’empreinte inclut les sources. app.py utilise les fonctions de ce runtime ; la rédaction charge les fonctions d’isolation et de consignes courtes relativement au même paquet (import classique conservé uniquement pour l’usage hors paquet). Aucun importlib.reload ni suppression de module partagé. Une modification du module d’essai crée un nouveau runtime et conserve l’ancien pour les sessions déjà en cours. Aucun changement des fiches, modèles, consignes ou conditions des essais.

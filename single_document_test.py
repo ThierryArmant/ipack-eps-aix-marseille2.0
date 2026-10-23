@@ -37,4 +37,10 @@ Les sections sont facultatives ; évite les répétitions. Au plus 12 affirmatio
 """
 
 def short_prompt(schema, data):
-    return SHORT_INSTRUCTIONS + '\nSCHEMA :\n' + schema + '\nDONNEES :\n' + data
+    # Montrer une valeur valide, pas une alternative que le modèle peut recopier.
+    example = schema.replace('"decision|condition|etape|limite"', '"etape"')
+    format_rule = ('Pour chaque affirmation, section contient une seule valeur : '
+                   '"decision" pour une conclusion, "condition" pour un préalable, '
+                   '"etape" pour une action, "limite" pour une réserve. '
+                   'L’exemple utilise "etape" ; choisis la valeur adaptée à chaque affirmation.')
+    return SHORT_INSTRUCTIONS + '\nFORMAT :\n' + format_rule + '\nSCHEMA :\n' + example + '\nDONNEES :\n' + data

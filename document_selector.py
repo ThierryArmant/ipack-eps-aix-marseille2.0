@@ -30,6 +30,38 @@ def _clip(text, size):
     return re.sub(r'\s+', ' ', str(text)).strip()[:size]
 
 
+def question_excerpt(text, question, size):
+    """Description partielle centrée, sans changer la preuve intégrale.
+
+    Budget identique à l'ancien préfixe ; une suite omise est rendue visible.
+    Préférer une phrase pertinente entière lorsqu'elle tient dans le budget.
+    """
+    value = re.sub(r'\s+', ' ', str(text)).strip()
+    if len(value) <= size or not question:
+        return _clip(value, size)
+    query = _words(question)
+    if not query:
+        return _clip(value, size)
+    units = [m for m in re.finditer(r'.+?(?:[.!?;](?=\s|$)|$)', value) if m.group().strip()]
+    def score(fragment):
+        return len(_words(fragment) & query)
+    best = max(units, key=lambda m: (score(m.group()), -m.start()), default=None)
+    if best is None or score(best.group()) <= score(value[:size]):
+        return value[:size-1].rstrip() + '…'
+    chosen = best.group().strip()
+    if len(chosen) <= size - 2:
+        return ('…' if best.start() else '') + chosen + ('…' if best.end() < len(value) else '')
+    # Phrase trop longue : fenêtrer à une frontière de mots, jamais transmettre
+    # ce résumé comme une citation ni retirer le texte complet de la fiche.
+    offsets = [m.start() for m in re.finditer(r'\S+', chosen)]
+    width = size - 2
+    start = max(offsets, key=lambda i: (score(chosen[i:i+width]), -i))
+    fragment = chosen[start:start+width]
+    if start + width < len(chosen) and ' ' in fragment:
+        fragment = fragment.rsplit(' ', 1)[0]
+    return '…' + fragment.strip() + '…'
+
+
 def uncertainty_excerpt(text):
     """Limite de connaissance explicite, et non interdiction ou condition métier."""
     value = ''.join(c for c in unicodedata.normalize('NFD', text.lower()) if not unicodedata.combining(c))
@@ -136,10 +168,10 @@ def profile(packet, question="", public=""):
     conditions = [line for line in descriptive if re.search(r'\bsi\b|lorsque|avant|apr[eè]s|condition|permanent|temporaire|r[eé]serv[eé]', line, re.I)]
     return {'id': packet['id'], 'objet': _clip(packet.get('title', ''), 180),
             'description': _clip(direct or examples or ' '.join(useful[:2]), 240),
-            'demande_proche_extrait': _clip(relevant[0] if relevant else '', 240),
+            'demande_proche_extrait': question_excerpt(relevant[0] if relevant else '', question, 240),
             'branche_public_extrait': _clip(branch, 340),
-            'conditions_extraits': [_clip(x, 150) for x in conditions[:2]],
-            'limites_extraits': [_clip(x, 170) for x in limits[:2]],
+            'conditions_extraits': [question_excerpt(x, question, 150) for x in conditions[:2]],
+            'limites_extraits': [question_excerpt(x, question, 170) for x in limits[:2]],
             'publics_declares': packet.get('scopes', []), 'description_partielle': True}
 
 

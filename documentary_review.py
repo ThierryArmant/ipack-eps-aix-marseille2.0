@@ -1687,7 +1687,10 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
                          'Ne remplace pas la manipulation demandée par une autre manipulation ; indique '
                          'la limite documentaire si la procédure exacte reste absente.')
     audit['evidence_constraints'] = evidence_logic.evidence_constraints(packets)
+    # Le plan du sélecteur décrit la demande ; les préalables restent à prouver.
+    audit['request_contract'] = audit.get('document_orientation', {}).get('request_contract')
     data = json.dumps({'public':public,'academy':academy,'question':question,'documents':model_packets,
+                       'request_contract':audit['request_contract'],
                        'evidence_constraints':audit['evidence_constraints'],
                        'response_focus':response_focus_notes(question, packets)}, ensure_ascii=False)
     prompt = '''Rédige une réponse EPS à partir des seuls passages fournis.
@@ -1703,7 +1706,7 @@ Rédige pour le collègue : uniquement la conclusion utile, les actions concrèt
 Les réflexions de rédaction, erreurs mécaniques, règles de preuve et commentaires sur les passages restent internes. Ne les transforme pas en conseils génériques pour le collègue. Les références seront affichées par le programme.
 Une réponse courte est suffisante, mais elle doit couvrir chaque demande explicite dont les passages donnent la réponse.
 Les indications response_focus rappellent les éléments à couvrir ; elles ne remplacent jamais les preuves documentaires et ne doivent pas être citées ni publiées.
-Avant de rédiger, repère les différentes demandes, puis la règle générale, ses exceptions et les faits permettant de choisir la branche applicable. Ne publie pas ce travail préparatoire.
+Avant de rédiger, sépare les actions demandées et le point de départ indiqué dans la question. request_contract en rappelle des fragments, sans prouver leur interprétation ni leur exhaustivité ; la question complète prime. Pour chaque action, retrouve dans les passages : conditions d'application, préalables, acteur, étapes et résultat. Une preuve portant sur une opération ne justifie pas automatiquement une autre opération voisine. Si une action reste non documentée, nomme précisément cette limite après les éléments établis. Conserve le point de départ demandé quand il est documenté ; explique une alternative sans prétendre qu'il s'agit du même parcours. Deux préalables à une opération ne prouvent aucun ordre entre eux : n'introduis « avant » ou « puis » que si la source établit cette relation. N'ajoute pas de réserve d'une autre année ou branche sans utilité pour la demande. Ne publie pas ce travail préparatoire.
 Le diplôme indiqué par le public fait partie des conditions d’applicabilité. Dans une fiche mixte, vérifie la portée de chaque passage et de chaque bouton : une procédure propre à un autre diplôme ne devient pas applicable par sa présence dans la même fiche. Conserve les démarches communes documentées et les branches compatibles ; ne redemande pas le diplôme déjà donné. Un symptôme imprécis ne justifie ni une cause unique ni une demande de clarification systématique si des vérifications conditionnelles utiles sont documentées.
 Une exception documentée prime sur la règle générale lorsque ses conditions sont établies. Distingue les formalités : la dispense ou la satisfaction de l'une n'emporte pas celles des autres.
 N'infère jamais qu'un encadrement ou un dispositif suffit du seul fait qu'aucun minimum chiffré n'est fixé. Une appréciation réservée à une autorité doit figurer dans la même proposition que la possibilité conditionnelle.

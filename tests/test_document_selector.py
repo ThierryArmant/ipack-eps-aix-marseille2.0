@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from types import SimpleNamespace
-from document_selector import profile, select_documents, candidate_pool, MAX_PROMPT_CHARS
+from document_selector import profile, select_documents, candidate_pool, MAX_PROMPT_CHARS, request_contract
 from documentary_review import review_exam_answer, mark_excerpt, source_packets, TracedLLM, usage_summary
 from test_documentary_review import FakeLLM as RawFakeLLM, DOC, claim
 
@@ -30,6 +30,38 @@ class SelectorTests(unittest.TestCase):
             result=select_documents(llm,source_packets(documents),question=question,public='Lycée Général & Techno',
                                     mode='ipack',academy='Non précisée',audit=audit,**kwargs)
         return result,audit,llm
+
+    def test_composed_request_contract_keeps_actions_and_start(self):
+        question = "Comment valider et imprimer l'ASNS depuis Mes élèves ?"
+        output = choice('selected', ['D1'])
+        output['demande'] = {'actions':['valider','imprimer'], 'point_depart':'Mes élèves'}
+        _, audit, llm = self.choose(output, question=question)
+        self.assertEqual(audit['request_contract'], output['demande'])
+        self.assertEqual(len(llm.prompts), 1)
+
+    def test_request_contract_cannot_add_source_title_or_precondition(self):
+        question = 'Comment imprimer ?'
+        self.assertIsNone(request_contract({'actions':['valider'], 'point_depart':''}, question))
+        self.assertIsNone(request_contract({'actions':['imprimer'], 'point_depart':'Natation'}, question))
+        self.assertIsNone(request_contract({'actions':['imprimer'], 'point_depart':'', 'prealable':'validé'}, question))
+        output = choice('selected', ['D1'])
+        output['demande'] = {'actions':['valider'], 'point_depart':''}
+        result, audit, _ = self.choose(output, question=question)
+        self.assertTrue(result)
+        self.assertIsNone(audit['request_contract'])
+
+    def test_request_contract_is_transmitted_as_planning_not_evidence(self):
+        selector = FakeLLM([dict(choice('selected', ['D1']), demande={
+            'actions':['Ouvrir'], 'point_depart':'dossier'})])
+        writer = FakeLLM([{'claims':[]}]); audit = {}
+        with patch('document_selector.catalogue_candidates', return_value=[]):
+            review_exam_answer(writer, question='Ouvrir le dossier', public='Collège (DNB)',
+                               mode='ipack', documents=DOC, audit=audit,
+                               selection_policy='gpt_shortlist', selector_llm=selector)
+        self.assertEqual(audit['request_contract']['actions'], ['Ouvrir'])
+        self.assertIn('"request_contract":', writer.prompts[0])
+        self.assertIn('Deux préalables', writer.prompts[0])
+        self.assertEqual(len(selector.prompts) + len(writer.prompts), 2)
 
     def test_mixed_real_profile_exposes_gt_branch_without_pro_condition(self):
         text = Path('data/examens/complement_saisie_bloquee_diagnostic.txt').read_text()

@@ -283,6 +283,21 @@ def candidate_pool(packets, question, public, mode, *, root=None):
     return selected[:MAX_CANDIDATES]
 
 
+def request_contract(value, question):
+    """Repères de demande, jamais preuves : uniquement des fragments de la question."""
+    if not isinstance(value, dict) or set(value) != {'actions', 'point_depart'}:
+        return None
+    actions, start = value['actions'], value['point_depart']
+    def literal(text, limit):
+        return (isinstance(text, str) and len(text) <= limit
+                and text.casefold() in question.casefold())
+    if (not isinstance(actions, list) or not 1 <= len(actions) <= 8
+            or any(not literal(x, 160) or not x.strip() for x in actions)
+            or not literal(start, 200)):
+        return None
+    return {'actions': list(dict.fromkeys(actions)), 'point_depart': start}
+
+
 def select_documents(llm, packets, *, question, public, mode, academy, audit, root=None, admissible=None):
     """Un appel borné. Une erreur technique ou de format revient à la sélection existante."""
     audit.update(status='not_run', selected_ids=[])
@@ -324,9 +339,16 @@ de la simple présence d'un mot commun. Une fiche détaillée sur une opération
 remplace pas une procédure manquante. Compare les restrictions avant les chemins de menus.
 Si plusieurs interprétations restent plausibles : status ambiguous et les fiches correspondantes.
 Ce statut n'impose pas une clarification : le rédacteur peut fournir des vérifications conditionnelles.
-Dans objet, conserve les faits réellement donnés ; n'ajoute pas un symptôme extrait du titre d'une fiche.
+Dans objet, conserve toutes les actions et le point de départ explicitement demandés ;
+ne résume pas une demande composée à sa dernière action. Dans demande.actions, recopie
+séparément les fragments exacts de la question qui désignent ces actions. Dans point_depart,
+recopie le menu ou l'espace explicitement demandé, sinon chaîne vide. Ces repères décrivent
+la demande, jamais les préalables métier. Une fiche peut couvrir une partie de la demande :
+ne la classe pas voisine seulement parce qu'une autre fiche complète les autres actions.
+Les préalables, l'ordre et les procédures distinctes doivent être vérifiés dans les sources,
+pas déduits du titre ni inventés dans le résumé.
 Si aucune ne traite la demande : status no_match, ids vide. Sinon status selected.
-Retourne uniquement {"status":"selected|ambiguous|no_match","ids":["id"],"objet":"description courte","compatibilites":[{"id":"id","operation":"directe|voisine|incertaine","conditions":"etablies|inconnues|incompatibles"}]}. Une vérification par identifiant ; liste vide pour no_match.
+Retourne uniquement {"status":"selected|ambiguous|no_match","ids":["id"],"objet":"description courte","demande":{"actions":["fragment exact de la question"],"point_depart":"fragment exact ou vide"},"compatibilites":[{"id":"id","operation":"directe|voisine|incertaine","conditions":"etablies|inconnues|incompatibles"}]}. Une vérification par identifiant ; liste vide pour no_match.
 DONNEES :\n'''
     def prompt_for(cs):
         return prefix + json.dumps({'question':question, 'public':public, 'mode':mode,
@@ -346,8 +368,12 @@ DONNEES :\n'''
         if text.startswith('```'):
             text = text.split('\n', 1)[1].rsplit('```', 1)[0]
         result = json.loads(text)
-        if not isinstance(result, dict) or set(result) != {'status', 'ids', 'objet', 'compatibilites'}:
+        if not isinstance(result, dict) or set(result) not in ({'status', 'ids', 'objet', 'compatibilites'},
+                {'status', 'ids', 'objet', 'compatibilites', 'demande'}):
             raise ValueError('schema')
+        contract = request_contract(result.get('demande'), question)
+        audit['request_contract'] = contract
+        audit['request_contract_status'] = ('literal_fragments' if contract else 'unavailable')
         ids, state = result['ids'], result['status']
         allowed = {p['id'] for p in pool}
         if (state not in {'selected', 'ambiguous', 'no_match'} or not isinstance(ids, list)

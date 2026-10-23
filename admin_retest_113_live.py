@@ -9,21 +9,72 @@ def provider_for_replay(state, configured):
                         and batch.get('provider') == 'openai') else configured
 
 
-def academy_for_replay(state, configured):
-    """Préserver le contexte explicite de la ligne privée, sans changer le public."""
-    from academie import ACADEMIES, NON_PRECISEE, academy_context
+def _replay_row(state):
     batch = state.get('audit113_batch') or {}
     if not state.get('is_admin') or not batch.get('waiting'):
-        return configured
+        return None
     index = batch.get('index')
     rows = batch.get('rows') or []
     if not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(rows):
-        return configured
-    row = rows[index]
+        return None
+    return rows[index]
+
+
+def is_replay_question(state):
+    return _replay_row(state) is not None
+
+
+def academy_context_for_replay(state, configured, notice=''):
+    """Une ligne rejouée ne dépend jamais de l'académie mémorisée par l'interface."""
+    from academie import ACADEMIES, NON_PRECISEE, academy_context
+    row = _replay_row(state)
+    if row is None:
+        return configured, notice
     selected = str(row.get('academie') or '').strip()
-    if selected not in ACADEMIES + [NON_PRECISEE]:
-        return configured
-    return academy_context(row.get('question', ''), selected)[0]
+    selected = selected if selected in ACADEMIES + [NON_PRECISEE] else NON_PRECISEE
+    question = row.get('question', '')
+    effective, message = academy_context(question, selected)
+    if effective != selected:
+        return effective, message
+    # Deux formulations de périmètre rencontrées dans les CSV : intitulé initial
+    # « Cyclades Académie session : ... » et question terminée par « à Académie ? ».
+    # Une simple citation de guide/tutoriel d'une académie ne suffit pas.
+    import re
+    import unicodedata
+    def norm(text):
+        return ''.join(c for c in unicodedata.normalize('NFKD', text.lower())
+                       if not unicodedata.combining(c)).replace('’', "'").replace('-', ' ')
+    q = norm(question)
+    declared = []
+    for name in ACADEMIES:
+        if name in ('Autre', "Établissement français à l'étranger"):
+            continue
+        place = re.escape(norm(name)).replace(r'\ ', r'\s+')
+        if (re.search(r'^(?:(?:cyclades|santorin|ipackeps)\s+)?' + place + r'(?:\s+20\d{2})?\s*[:—]', q)
+                or re.search(r"\b(?:a|dans l'academie de|pour l'academie de)\s+" + place + r'\s*[?!.]?\s*$', q)
+                or re.search(r"\ba\s+" + place + r'(?=\s*[,;:]|\s+et\b)', q)):
+            declared.append(name)
+    if len(declared) == 1:
+        effective = declared[0]
+        message = (f"Ligne CSV : {selected} ; question : {effective}. La réponse utilise {effective}.") if selected != NON_PRECISEE and effective != selected else ''
+    return effective, message
+
+
+def academy_for_replay(state, configured):
+    return academy_context_for_replay(state, configured)[0]
+
+
+def replay_academy_details(state):
+    row = _replay_row(state)
+    if row is None:
+        return {}
+    from academie import ACADEMIES, NON_PRECISEE
+    effective, _ = academy_context_for_replay(state, NON_PRECISEE)
+    raw = str(row.get('academie') or '').strip()
+    base = raw if raw in ACADEMIES else NON_PRECISEE
+    return {'academie_effective': effective,
+            'academie_origine': ('question' if effective != base
+                                 else 'csv' if raw in ACADEMIES else 'non_precisee')}
 
 
 def render(st):
@@ -41,6 +92,7 @@ def render(st):
             batch["results"].append({"n": row["n"], "mode": row["mode"],
                                      "public": row["public"], "academie": row.get("academie", ""),
                                      "question": row["question"], "nouvelle_reponse": answer,
+                                     **replay_academy_details(state),
                                      "version": message.get("version", ""),
                                      "usage_ia": message.get("usage_ia") or {},
                                      "diagnostic_ia": message.get("diagnostic_ia") or {}})
@@ -57,7 +109,7 @@ def render(st):
             st.write(f"Réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")
             if batch["results"]:
                 output = io.StringIO()
-                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia"], delimiter=";")
+                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine"], delimiter=";")
                 writer.writeheader()
                 for result in batch["results"]:
                     writer.writerow({**result, "usage_ia": json.dumps(result.get("usage_ia", {}), ensure_ascii=False),
@@ -79,7 +131,8 @@ def render(st):
                 state["active_module"] = row["mode"].strip().lower()
                 state["niveau_actif_form"] = row["public"]
                 academy = (row.get("academie") or "").strip()
-                state["academie_utilisateur"] = academy if academy and academy.lower() != "non précisée" else None
+                from academie import ACADEMIES
+                state["academie_utilisateur"] = academy if academy in ACADEMIES else None
                 state["current_prompt"] = row["question"]
                 state["messages_hub"] = []
                 batch["waiting"] = True
@@ -102,7 +155,7 @@ def render(st):
         n = int(st.number_input("Nombre de questions à rejouer", min_value=1, max_value=remaining,
                                 value=min(5, remaining), step=1))
         st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
-        st.caption("Les réponses ne sont pas évaluées automatiquement : téléchargement pour vérification humaine.")
+        st.caption("Chaque question utilise son académie CSV ou celle déclarée dans la question ; une cellule vide reste Non précisée. Les réponses ne sont pas évaluées automatiquement.")
         gpt_only = st.checkbox("Rejeu privé : GPT uniquement, sans appel à Albert", value=False,
                                key="audit113_gpt_only")
         if st.button(f"Lancer {n} questions dans le moteur réel du HUB", type="primary", key="audit113_live_start"):

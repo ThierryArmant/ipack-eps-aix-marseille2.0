@@ -1400,9 +1400,10 @@ def _consigne(texte, couleur="amber"):
 prompt = None
 _contexte_ok = bool(st.session_state.get("contexte_valide"))
 _academie_requise = module_actif == "examens"
-if _academie_requise and not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
+_replay_question = bool(st.session_state.get("is_admin", False) and _admin_replay.is_replay_question(st.session_state))
+if _academie_requise and not _replay_question and not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
     st.session_state.academie_utilisateur = st.session_state.academie_memorisee
-if st.session_state.get("academie_utilisateur"):
+if st.session_state.get("academie_utilisateur") and not _replay_question:
     st.session_state.academie_memorisee = st.session_state.academie_utilisateur
 _academie_ok = not _academie_requise or bool(st.session_state.get("academie_utilisateur"))
 if st.session_state.get("niveau_actif_form"):
@@ -1461,7 +1462,9 @@ with st.container(key="parcours"):
                         select_module(st.session_state, "textes")
                         st.rerun()
 
-            if _academie_requise:
+            if _academie_requise and _replay_question:
+                st.caption("Académie du rejeu : " + _admin_replay.academy_for_replay(st.session_state, "Non précisée"))
+            elif _academie_requise:
                 if not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
                     st.session_state.academie_utilisateur = st.session_state.academie_memorisee
 
@@ -1573,7 +1576,8 @@ if prompt_a_traiter:
         academie_reponse, avertissement_academie_question = request_academy(
             prompt, mode_initial, st.session_state.get("academie_utilisateur"))
         if st.session_state.get("is_admin", False):
-            academie_reponse = _admin_replay.academy_for_replay(st.session_state, academie_reponse)
+            academie_reponse, avertissement_academie_question = _admin_replay.academy_context_for_replay(
+                st.session_state, academie_reponse, avertissement_academie_question)
         origine_reponse = "ia"
 
         onglets_noms = {

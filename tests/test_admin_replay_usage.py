@@ -29,8 +29,19 @@ class ReplayUsageTests(unittest.TestCase):
         results=list(csv.DictReader(io.StringIO(ui.downloads[0].decode('utf-8-sig')),delimiter=';'))
         self.assertEqual(results[0]['question'],'Où est le menu ?')
         self.assertEqual(results[0]['version'],'v')
+        self.assertEqual(results[0]['academie_effective'],'Non précisée')
+        self.assertEqual(results[0]['academie_origine'],'non_precisee')
         self.assertEqual(json.loads(results[0]['usage_ia'])['calls'],1)
         self.assertEqual(json.loads(results[0]['diagnostic_ia'])['calls'][0]['prompt'],'exact proof')
+    def test_csv_exports_effective_scope_from_question_not_previous_academy(self):
+        row = self.row(); row['question'] = 'Quelle note à Aix-Marseille ?'
+        ui=Surface([row]); ui.session_state['academie_memorisee']='Créteil'
+        render(ui)
+        results=list(csv.DictReader(io.StringIO(ui.downloads[0].decode('utf-8-sig')),delimiter=';'))
+        self.assertEqual(results[0]['academie'], '')
+        self.assertEqual(results[0]['academie_effective'], 'Aix-Marseille')
+        self.assertEqual(results[0]['academie_origine'], 'question')
+
     def test_provider_fallback_is_retained_but_batch_stops_before_next_question(self):
         ui=Surface([self.row(),self.row(2)],True);render(ui)
         self.assertEqual(len(ui.session_state['audit113_batch']['results']),1)

@@ -1,3 +1,11 @@
+## 23 octobre — essai d’organisation de la fiche de saisie bloquée
+
+Base : 43ba46b. La trace 13 montre le passage GT enrichi lexicalement intégralement reçu par GPT-4o-mini puis omis, comme le cadenas, dès la proposition initiale ; aucun rejet ni réparation. Les symptômes sont cette fois correctement marqués inconnus par la sélection. L’indice lexical seul n’a pas suffi sur cet essai.
+
+Essai autorisé : réorganisation de la seule fiche diagnostique, sans modification de ses phrases : vérification GT en premier, cadenas ensuite, branche pro/CAP distincte, puis clarification et limites. Paragraphes séparés par des lignes vides. Tous les passages, leur portée et leurs réserves sont conservés mot pour mot, y compris l’indice lexical précédent. Ce test porte conjointement sur l’ordre et la séparation des paragraphes, pas sur une règle nouvelle. Code, consignes, modèles et autres fiches inchangés ; Albert reste suspendu. Contrôle hors ligne : neuf lignes originales conservées, sept paragraphes réordonnés sans suppression ni modification de phrase. Aucun appel IA lancé, aucune amélioration encore mesurée. Registre d’audit historique non revalidé ; corrections locales plus larges préservées.
+
+Rejeu manuel : même question et même contexte, GPT-4o-mini aux deux étapes. Examiner les passages effectivement transmis et la proposition initiale avant le rendu ; un résultat isolé ne prouve pas une correction générale.
+
 ## 23 octobre — essai lexical minimal sur la saisie bloquée GT
 
 Base : 9e163f4. La trace privée 12 confirme que le passage GT et celui du cadenas sont transmis au rédacteur, mais absents de sa proposition ; zéro rejet et zéro réparation. Le sélecteur affirme aussi à tort que les symptômes navigateur et perte de notes sont établis. À la demande du pilote, essai isolé : ajout de « (vérifications en cas de saisie des notes bloquée) » après la répartition choisie par l’élève, dans la phrase GT. Aucun changement de règle, code, modèle, consigne, priorité ou autre fiche ; Albert reste suspendu. Les corrections locales plus larges sont préservées hors de ce lot. Le registre d’audit antérieur n’est pas une validation de cette nouvelle empreinte : la fiche reste à relire.

@@ -1,3 +1,9 @@
+## 23 octobre — vérifier manuellement l’accès au modèle avec la clé du Hub
+
+Ajout d’un bouton administrateur de contrôle GPT-5.4, indépendant du compteur d’essais. Un clic effectue une requête courte, sans documents, sans fournisseur alternatif ni secours ; sortie plafonnée à 32 jetons, raisonnement none, aucune relance automatique, délai de 20 secondes. Modèle réellement retourné et jetons affichés ; un accès n’est confirmé qu’après réponse non vide du modèle demandé. Refus d’accès, authentification, quota et erreur de paramètres distingués sans exposer les messages bruts ni la clé. Résultat conservé dans la session pour éviter un appel au simple rafraîchissement.
+
+Aucun appel réel déclenché pendant la préparation. Le contrôle ne modifie pas les secrets ni le choix des modèles de réponse : le compteur existant reste réservé à GPT-4.1. La disponibilité de GPT-5.4 avec la clé du serveur reste à vérifier par le clic du pilote.
+
 ## 23 octobre — descriptions de sélection adaptées au public et conditions réellement établies
 
 Constat confirmé par les traces privées : sur la demande générale de saisie, la description courte de la fiche diagnostique mettait en avant la branche pro/CAP et ne présentait pas son passage GT. Le classement lexical de lignes ignorait le public, pourtant déclaré pour la fiche entière. Le sélecteur pouvait ainsi écarter la fiche générale sur une représentation déséquilibrée. Sa consigne assimilait aussi un simple contexte compatible à des conditions établies, tout en privilégiant une fiche unique. Les deux modèles essayés ont retenu seulement la piste navigateur ; ce résultat ne démontre pas une limite de lecture du rédacteur.

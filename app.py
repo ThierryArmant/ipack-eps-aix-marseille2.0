@@ -1249,6 +1249,20 @@ _sha = _version_deployee()
 
 if st.session_state.get("is_admin", False):
     with st.container(border=True, key="hub_admin_model_tests"):
+        st.caption("Accès GPT-5.4 : contrôle indépendant des essais ci-dessous, un appel très court facturable, sans Albert ni secours.")
+        if st.button("Vérifier l’accès à GPT-5.4 avec la clé du Hub"):
+            from model_access_probe import probe_gpt54
+            with st.spinner("Vérification de l’accès GPT-5.4…"):
+                st.session_state["gpt54_access_result"] = probe_gpt54(openai_api_key)
+        _probe_result = st.session_state.get("gpt54_access_result")
+        if _probe_result:
+            if _probe_result["ok"]:
+                st.success(_probe_result["message"])
+                st.caption(f"Modèle confirmé : {_probe_result['model']} · entrée : {_probe_result['input_tokens']} jetons · sortie : {_probe_result['output_tokens']} jetons")
+            else:
+                st.warning(_probe_result["message"])
+                if _probe_result.get("http_status"):
+                    st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
         st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
                    + (" · version " + _sha if _sha else ""))
 

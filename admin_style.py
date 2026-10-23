@@ -5,7 +5,7 @@ div[class*="st-key-hub_admin_"] {
     color: #14263D !important;
     border-radius: 14px;
 }
-div.st-key-hub_admin_login, div.st-key-hub_admin_tools, div.st-key-hub_admin_comparison {
+div.st-key-hub_admin_login, div.st-key-hub_admin_tools, div.st-key-hub_admin_comparison, div.st-key-hub_admin_model_tests {
     border: 2px solid #17365D !important;
     padding: 20px !important;
     margin: 16px 0 !important;

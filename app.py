@@ -1248,17 +1248,17 @@ def _version_deployee():
 _sha = _version_deployee()
 
 if st.session_state.get("is_admin", False):
-    st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
-               + (" · version " + _sha if _sha else ""))
+    with st.container(border=True, key="hub_admin_model_tests"):
+        st.caption("Révision documentaire : 2026-10-11 · corrections audit 60 · modèle : " + ((st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b") + " (Albert, secours GPT)" if st.secrets.get("ALBERT_API_KEY") and (st.secrets.get("FOURNISSEUR_IA") or "albert").strip().lower() == "albert" else modele_ia)
+                   + (" · version " + _sha if _sha else ""))
 
-if st.session_state.get("is_admin", False):
-    _gpt41_test_count = st.number_input("Nombre de questions GPT-4.1", min_value=1, max_value=10, value=10, step=1)
-    if st.button("Activer les essais GPT-4.1 sans Albert"):
-        st.session_state["gpt41_once_pending"] = int(_gpt41_test_count)
-    if st.button("Arrêter les essais GPT-4.1"):
-        st.session_state.pop("gpt41_once_pending", None)
-    if st.session_state.get("gpt41_once_pending"):
-        st.info(f"{st.session_state['gpt41_once_pending']} question(s) directe(s) restante(s) : sélection et rédaction GPT-4.1, sans Albert. Lancement manuel ; appels facturables.")
+        _gpt41_test_count = st.number_input("Nombre de questions GPT-4.1", min_value=1, max_value=10, value=10, step=1)
+        if st.button("Activer les essais GPT-4.1 sans Albert"):
+            st.session_state["gpt41_once_pending"] = int(_gpt41_test_count)
+        if st.button("Arrêter les essais GPT-4.1"):
+            st.session_state.pop("gpt41_once_pending", None)
+        if st.session_state.get("gpt41_once_pending"):
+            st.info(f"{st.session_state['gpt41_once_pending']} question(s) directe(s) restante(s) : sélection et rédaction GPT-4.1, sans Albert. Lancement manuel ; appels facturables.")
 
 if st.session_state.get("is_admin", False):
     import html as _html_veille

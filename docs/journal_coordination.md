@@ -1,3 +1,7 @@
+## 23 octobre — contraste du panneau de test des modèles
+
+Le panneau ajouté pour les essais apparaissait directement sur la photo de fond : légende de version et libellé du compteur difficiles à lire. Version et commandes regroupées dans un conteneur administrateur à fond blanc opaque, texte sombre et marge intérieure, avec le style commun existant. Aucun changement de modèle, compteur ou appel. Validation : compilation et vérification du différentiel ; modification uniquement visuelle.
+
 ## 23 octobre — essais de modèle sur le parcours direct, dix questions au maximum
 
 Autorisation du pilote : jusqu’à dix questions manuelles avec le même modèle pour orientation et rédaction, sans fournisseur alternatif. Boutons administrateur d’activation et d’arrêt, compteur réglable de 1 à 10, décrémenté à chaque question directe traitée. Orientation et rédaction utilisent gpt-4.1 sans secours fournisseur pendant ces essais ; le fonctionnement ordinaire revient après épuisement ou arrêt. Aucune modification des secrets, fiches, consignes, priorités ou contrôles. Le comparateur reste distinct et ne consomme pas ce compteur. Aucun appel distant automatique à la publication.

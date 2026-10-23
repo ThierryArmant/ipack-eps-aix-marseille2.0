@@ -1442,7 +1442,7 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
-def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True, test_document_path=None):
+def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True, test_document_path=None, test_short_prompt=False):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
     if selection_policy not in ('legacy', 'compare_candidates', 'gpt_shortlist'):
@@ -1720,6 +1720,14 @@ Pas de HTML ni d'attribution bibliographique dans la prose. Au plus 12 affirmati
 Chaque preuve sélectionne un document_id et un tableau passage_ids non vide avec les identifiants exacts des passages fournis ; jamais un identifiant vide.
 Réponds uniquement en JSON selon ce schéma :
 ''' + _SCHEMA + '\nCONSIGNES INSTITUTIONNELLES :\n' + instructions + '\nDONNEES :\n' + data
+
+    if test_short_prompt:
+        if test_document_path is None or repair_enabled:
+            raise ValueError("Consignes courtes réservées à l’essai sans réparation, avec une fiche isolée.")
+        from single_document_test import short_prompt
+        prompt = short_prompt(_SCHEMA, data)
+        audit["test_prompt_profile"] = "short_v1"
+        audit["test_writer_prompt_chars"] = len(prompt)
 
     def resolve(output):
         try:

@@ -1274,12 +1274,20 @@ if st.session_state.get("is_admin", False):
             st.session_state["openai_test_model"] = _test_model_choice
             st.session_state["gpt41_once_pending"] = int(_test_question_count)
         if st.button("Tester une fois mini avec la fiche diagnostique seule"):
+            st.session_state.pop("short_prompt_pending", None)
             st.session_state["single_document_pending"] = True
             st.session_state.pop("gpt41_once_pending", None)
+        if st.button("Tester une fois mini : fiche seule et consignes courtes"):
+            st.session_state["single_document_pending"] = True
+            st.session_state["short_prompt_pending"] = True
+            st.session_state.pop("gpt41_once_pending", None)
+        if st.session_state.get("short_prompt_pending"):
+            st.info("ESSAI CONSIGNES COURTES armé : une question, même fiche seule, mini uniquement.")
         if st.session_state.get("single_document_pending"):
             st.info("ESSAI FICHE SEULE prêt : prochaine question directe dans Examens, mini aux deux étapes, une seule fiche au rédacteur. Aucun appel avant votre question.")
         if st.button("Arrêter les essais de modèle"):
             st.session_state.pop("single_document_pending", None)
+            st.session_state.pop("short_prompt_pending", None)
             st.session_state.pop("gpt41_once_pending", None)
         if st.session_state.get("gpt41_once_pending"):
             st.info(f"ESSAI ACTIF : {st.session_state.get('openai_test_model', 'gpt-4.1')} pour la sélection ET la rédaction · {st.session_state['gpt41_once_pending']} question(s) restante(s) · sans Albert. Posez ensuite la question en direct, hors comparateur.")
@@ -1585,7 +1593,8 @@ if prompt_a_traiter:
         diagnostic_ia = None
         usage_ia = {}
         from one_question_model_test import consume_model_test
-        from single_document_test import consume_single_document_test, TARGET as _single_target
+        from single_document_test import consume_single_document_test, consume_short_prompt_test, TARGET as _single_target
+        _short_prompt_test = consume_short_prompt_test(st.session_state, mode)
         _single_document_test = consume_single_document_test(st.session_state, mode)
         _test_model = consume_model_test(st.session_state)
         if _single_document_test:
@@ -2584,6 +2593,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             selector_llm=_orientation_llm,
                             repair_enabled=not bool(_test_model),
                             test_document_path=_single_target if _single_document_test else None,
+                            test_short_prompt=_short_prompt_test,
                             selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
                             instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
                         )

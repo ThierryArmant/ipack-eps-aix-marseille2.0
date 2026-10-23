@@ -1,3 +1,11 @@
+## 23 octobre — rejeu par numéros de questions séparés par virgules
+
+Base : 49b367b. À la demande du pilote, le panneau de rejeu accepte une liste de numéros dans un champ facultatif, par exemple 3,5,8,19,26,30,40,41,44,49. Correspondance sur la colonne n du CSV, pas sur la position dans le fichier ; ordre de saisie conservé, doublons ignorés pour éviter de payer plusieurs fois la même demande. Les identifiants numériques avec zéros initiaux sont normalisés ; une collision ambiguë bloque la sélection. Les éléments vides, caractères non numériques et numéros absents sont signalés avant tout lancement. La liste choisie est affichée avant le bouton explicite de lancement. Champ vide : plage consécutive historique conservée.
+
+Le lot contient exactement les lignes choisies et conserve leurs contextes, numéros et traces exportées. Aucun lancement automatique, aucun appel IA de vérification, aucune modification de fiches, fournisseur ou sélection documentaire. Albert reste suspendu ; sélection GPT indépendante du rédacteur depuis 49b367b.
+
+Validation : 18 tests de rejeu réussis, dont cinq nouveaux tests sur identifiants non consécutifs, ordre, conservation des lignes, doublons, erreurs et collisions. Compilation et diff vérifiés. Le chargeur de rejeu par empreinte existant détecte le module modifié sans importlib.reload. Aucun crédit IA consommé par l’agent.
+
 ## 23 octobre — découpler la sélection GPT du fournisseur de rédaction
 
 Base : e5d6f2a. Le CSV mini contient 50 réponses : 49 questions avec appels GPT-4o-mini et une réponse sans IA ; aucun Albert. 62 appels, 566 640 jetons, 13 réparations. Défaut découvert : _orientation_active exigeait le fournisseur albert et sa clé. Le passage temporaire à openai a donc désactivé la sélection GPT dans les parcours iPackEPS/Examens. L’annonce précédente « sélection inchangée » était incorrecte ; ce lot ne constitue pas une comparaison contrôlée des rédacteurs. Les erreurs communes restent informatives, mais les passages effectivement remis peuvent différer.

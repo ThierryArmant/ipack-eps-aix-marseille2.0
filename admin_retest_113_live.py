@@ -77,6 +77,27 @@ def replay_academy_details(state):
                                  else 'csv' if raw in ACADEMIES else 'non_precisee')}
 
 
+def select_replay_numbers(rows, value):
+    """Sélectionner les identifiants n du CSV, dans l'ordre demandé, sans doublon."""
+    import re
+    tokens = str(value).split(',')
+    if any(not re.fullmatch(r'[0-9]+', token.strip()) for token in tokens):
+        raise ValueError('Saisissez des numéros séparés par des virgules, par exemple 3,5,8. Aucun élément vide ni intervalle.')
+    requested = list(dict.fromkeys(str(int(token.strip())) for token in tokens))
+    lookup = {}
+    for row in rows:
+        raw = str(row.get('n', '')).strip()
+        if re.fullmatch(r'[0-9]+', raw):
+            number = str(int(raw))
+            if number in lookup:
+                raise ValueError(f'Numéro ambigu dans le CSV : {number}. Corrigez les identifiants avant le rejeu.')
+            lookup[number] = row
+    missing = [number for number in requested if number not in lookup]
+    if missing:
+        raise ValueError('Numéros absents du CSV : ' + ', '.join(missing))
+    return [lookup[number] for number in requested]
+
+
 def render(st):
     if not st.session_state.get("is_admin", False):
         return
@@ -150,15 +171,28 @@ def render(st):
             st.error(str(exc))
             return
         st.success(f"{len(rows)} questions reconnues. Vous choisissez combien en rejouer.")
-        start = int(st.number_input("Commencer à la question", min_value=1, max_value=len(rows), value=1, step=1))
-        remaining = len(rows) - start + 1
-        n = int(st.number_input("Nombre de questions à rejouer", min_value=1, max_value=remaining,
-                                value=min(5, remaining), step=1))
-        st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
+        numbers = st.text_input("Numéros des questions séparés par des virgules (facultatif)",
+                                key="audit113_question_numbers", placeholder="3,5,8,19,26,30,40,41,44,49")
+        st.caption("Utilise la colonne n du CSV, dans l'ordre saisi, sans rejouer les doublons. Laisser vide pour une plage consécutive.")
+        if numbers.strip():
+            try:
+                selected_rows = select_replay_numbers(rows, numbers)
+            except ValueError as exc:
+                st.error(str(exc))
+                return
+            n = len(selected_rows)
+            st.caption("Questions choisies : " + ", ".join(str(row['n']) for row in selected_rows))
+        else:
+            start = int(st.number_input("Commencer à la question", min_value=1, max_value=len(rows), value=1, step=1))
+            remaining = len(rows) - start + 1
+            n = int(st.number_input("Nombre de questions à rejouer", min_value=1, max_value=remaining,
+                                    value=min(5, remaining), step=1))
+            selected_rows = rows[start-1:start-1+n]
+            st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
         st.caption("Chaque question utilise son académie CSV ou celle déclarée dans la question ; une cellule vide reste Non précisée. Les réponses ne sont pas évaluées automatiquement.")
         gpt_only = st.checkbox("Rejeu privé : GPT uniquement, sans appel à Albert", value=False,
                                key="audit113_gpt_only")
         if st.button(f"Lancer {n} questions dans le moteur réel du HUB", type="primary", key="audit113_live_start"):
-            state["audit113_batch"] = {"rows": rows[start-1:start-1+n], "index": 0, "results": [],
+            state["audit113_batch"] = {"rows": selected_rows, "index": 0, "results": [],
                                        "waiting": False, "stopped": False, "provider": "openai" if gpt_only else "configured"}
             st.rerun()

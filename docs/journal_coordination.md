@@ -1,3 +1,13 @@
+## 23 octobre — découpler la sélection GPT du fournisseur de rédaction
+
+Base : e5d6f2a. Le CSV mini contient 50 réponses : 49 questions avec appels GPT-4o-mini et une réponse sans IA ; aucun Albert. 62 appels, 566 640 jetons, 13 réparations. Défaut découvert : _orientation_active exigeait le fournisseur albert et sa clé. Le passage temporaire à openai a donc désactivé la sélection GPT dans les parcours iPackEPS/Examens. L’annonce précédente « sélection inchangée » était incorrecte ; ce lot ne constitue pas une comparaison contrôlée des rédacteurs. Les erreurs communes restent informatives, mais les passages effectivement remis peuvent différer.
+
+Correction limitée : retirer de _orientation_active les conditions sur le fournisseur et ALBERT_API_KEY. Garder les modules concernés et ORIENTATION_FICHES ; une configuration explicite legacy reste respectée, le parcours Textes reste inchangé. Albert reste suspendu, le modèle normal reste GPT-4o-mini comme dans e5d6f2a. Aucune fiche ou consigne modifiée, aucune réactivation implicite d’Albert.
+
+Validation sans appel IA : deux nouveaux tests exécutant l’expression réelle extraite de app.py sur les deux fournisseurs avec ou sans clé, sur Textes et sur le réglage legacy ; 27 tests du sélecteur réussis, compilation vérifiée. Le test de pause précédemment validé empêche toujours les appels Albert. Ne pas annoncer la correction des erreurs de sens : ce changement rétablit seulement la comparabilité de la sélection documentaire.
+
+L’utilisateur signale qu’il reste dix questions incluant Albert. Ne lancer aucun rejeu automatique ; préserver ces appels. Avant une comparaison, vérifier les mêmes questions, public, académie, passages effectivement transmis et consignes ; le même corpus seul ne garantit pas les mêmes extraits. Une réactivation d’Albert reste à coordonner explicitement après cette correction. Audio des visites non transcrit.
+
 ## 23 octobre — Albert suspendu à la demande du pilote, comparaison mini seul
 
 Base : f047974. L’utilisateur demande de bloquer Albert pour vérifier si GPT-4o-mini reproduit les erreurs du lot de 40. ALBERT_PAUSED=True bloque les appels réseau Albert, y compris découverte et comparateur ; generation_llm renvoie le client GPT sans tenter Albert même avec une clé présente. Parcours normal explicitement openai ; modèle temporairement fixé à gpt-4o-mini pour sélection et rédaction, indépendamment du secret MODELE_IA. Libellé administrateur actualisé. Ne pas armer les outils de test d’un autre modèle pendant cette comparaison. Aucun changement de fiches, de sélection documentaire ou de consignes ; ne pas corriger les erreurs du lot simultanément, afin de conserver la base de comparaison.

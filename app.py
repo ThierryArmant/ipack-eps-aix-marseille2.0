@@ -1940,9 +1940,8 @@ if prompt_a_traiter:
             # ==================================================================
             # 4. APPEL AU RAG (BASE DOCUMENTAIRE) POUR L'IA
             # ==================================================================
+            # La sélection des fiches ne dépend ni du rédacteur ni de la clé Albert.
             _orientation_active = (mode in ('ipack', 'examens')
-                and bool(st.secrets.get('ALBERT_API_KEY'))
-                and _provider_reponse == 'albert'
                 and (st.secrets.get('ORIENTATION_FICHES') or 'gpt_shortlist').strip().lower() == 'gpt_shortlist')
 
             if _test_gpt41 and mode in ('ipack', 'examens'):

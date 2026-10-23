@@ -6,7 +6,8 @@ Origine : réponses écrites du chargé de mission examens EPS de l'académie d'
 - Réponse : aucune note ne se saisit dans iPackEPS. L'ordre des étapes est le suivant :
   1. Automne : dépôt des référentiels et saisie des protocoles (groupes) dans iPackEPS, sans les élèves.
   2. Après la clôture des inscriptions aux examens (en général décembre-janvier), les candidats remontent automatiquement dans iPackEPS. L'établissement répartit alors ses candidats dans les protocoles existants.
-  3. Depuis iPackEPS, générer le fichier d'export, que le chef d'établissement importe dans CYCLADES pour associer automatiquement les candidats aux protocoles. Cette voie n'est pas obligatoire mais recommandée ; l'association peut aussi se faire à la main dans CYCLADES (IMAG'IN > Portail des missions).
+  3. Depuis iPackEPS, générer le fichier d'export, que le chef d'établissement importe dans CYCLADES pour associer automatiquement les candidats aux protocoles. Cette voie n'est pas obligatoire mais recommandée ; l'association peut aussi se faire à la main dans CYCLADES, activité [EPS] > [Associer les élèves à un protocole].
+  Association manuelle — acteur : chef d'établissement ou enseignant. Dans Cyclades, [EPS] > [Associer les élèves à un protocole], rattacher les candidats aux protocoles existants. Source complémentaire déjà présente au corpus : supports Corse 2024-2025 et Besançon 2025, complement_cyclades_cas_pratiques. Cette opération est distincte de la convocation Imag'in : une mission d'évaluation ne constitue pas une association des candidats.
   4. Les enseignants évaluateurs sont convoqués dans IMAG'IN, puis le chef d'établissement distribue les candidats dans les lots de correction de Santorin (distribution largement automatisée).
   5. La saisie des notes dans Santorin n'est accessible qu'une fois l'association des candidats terminée et les lots distribués.
 

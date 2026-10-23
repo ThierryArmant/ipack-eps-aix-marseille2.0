@@ -1684,7 +1684,7 @@
     },
     {
       "path": "data/examens/complement_saisie_santorin_cas_pratiques.txt",
-      "sha256": "f8cd1c888112c386a0e440ff42cd43ffd2cc9648a8b3e71face71a7f9b53e34d",
+      "sha256": "4a37bf08f91ac6015cb8447d013597432dd8d896e0f5f03fb4123c732821181f",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -1762,9 +1762,9 @@
     },
     {
       "path": "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt",
-      "sha256": "0c8390ab4536405f1d3ed1263b106fbb638217f0ef5a913de22d14dfe8f9c02d",
+      "sha256": "a4035ae1e6723f7ceb56a4ac74a60b0b4ff0202b0c8035d3d8d147e0366ba996",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2025-2026",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -2155,7 +2155,7 @@
     },
     {
       "path": "data/examens/santorin_cas_pratiques/08_extraire_les_notes_saisies_dans_santorin.txt",
-      "sha256": "5152d8d352f549dcccb9310ba0ec327c4c743b6a6ba864f37f084ca039455e12",
+      "sha256": "70801519c27e5985f7546dfed8d07511b5ac87cf6fbd42205e593a83de8e404d",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "extrait_complement_santorin_2026-10-18",
@@ -2418,9 +2418,9 @@
     },
     {
       "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
-      "sha256": "b4c65a7264ceea39e14a32a8f1c1309f6c6dc79083fedb791db20eb0c10f9cca",
+      "sha256": "a4e55e3d82967105686a6acfe38d244a11bcde45999dd6e0d40372672bdb96d3",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "reference_non_explicite_a_verifier",

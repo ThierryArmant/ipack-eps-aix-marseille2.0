@@ -681,6 +681,48 @@
           ],
           "academie": "Aix-Marseille",
           "reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
+        },
+        {
+          "texte": "- Accès : portail Santorin - Chef d'Établissement (ou professeur d'EPS référent Santorin), fonctionnalité [Distribution]. C'est la première étape dans Santorin, réservée au chef d'établissement : une distribution automatique transforme chaque protocole en lot de correction. Si elle échoue, ou si de nouveaux élèves arrivent après la distribution automatique, on procède à une distribution manuelle.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
+        },
+        {
+          "texte": "Condition de conservation : maintenir dans le nouveau protocole l'APSA déjà évaluée. Une note déjà saisie est conservée si cette APSA est présente dans le nouveau protocole. Exemple : conserver la Danse si une note de Danse a déjà été saisie.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
+        },
+        {
+          "texte": "Procédure décrite : dans Cyclades, créer le protocole adapté, puis y associer l'élève. Le changement porte sur le protocole, pas sur un nouveau lot Santorin. Selon ce tutoriel, les APSA sont corrigées dans Santorin sans sortir l'élève de son lot ; aucune redistribution n'est nécessaire pour cette opération. Vérifier ensuite la note et le lot effectifs ; ne pas étendre ce résultat à une redistribution ultérieure.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
+        },
+        {
+          "texte": "- Action distincte : changer le lot de correction dans Santorin, et non associer un candidat à un protocole dans Cyclades.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
+        },
+        {
+          "texte": "- Accès : portail Santorin - Chef d'Établissement (ou professeur d'EPS référent Santorin), fonctionnalité [Distribution]. Santorin permet de déplacer des élèves d'un lot à un autre sans passer par Cyclades. Cette possibilité ne rend pas le changement de lot nécessaire lors du changement de protocole décrit dans la section précédente.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
+        },
+        {
+          "texte": "- Accès : portail Santorin - Chef d'Établissement. Si un enseignant ne peut pas saisir ses notes, le chef d'établissement (ou le référent évaluation EPS) peut affecter sur le lot un autre collègue de l'équipe, ou se déclarer lui-même évaluateur.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
         }
       ]
     },
@@ -911,6 +953,21 @@
           ],
           "academie": "aix-marseille",
           "reference": "Explications du référent FAQ lycée iPackEPS Aix-Marseille, 18 octobre 2026 ; relevé documentaire existant."
+        }
+      ]
+    },
+    "data/examens/fiches/correspondant_04_cyclades_santorin_imagin.txt": {
+      "nature_non_attribuee": [
+        "consigne_academique",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "  Association manuelle — acteur : chef d'établissement ou enseignant. Dans Cyclades, [EPS] > [Associer les élèves à un protocole], rattacher les candidats aux protocoles existants. Source complémentaire déjà présente au corpus : supports Corse 2024-2025 et Besançon 2025, complement_cyclades_cas_pratiques. Cette opération est distincte de la convocation Imag'in : une mission d'évaluation ne constitue pas une association des candidats.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
         }
       ]
     }

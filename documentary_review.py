@@ -13,9 +13,9 @@ import unicodedata
 from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
 import evidence_logic
 if __package__:
-    from .document_selector import select_documents, uncertainty_excerpt
+    from .document_selector import select_documents, uncertainty_excerpt, _leading_diploma_scopes
 else:
-    from document_selector import select_documents, uncertainty_excerpt
+    from document_selector import select_documents, uncertainty_excerpt, _leading_diploma_scopes
 if __package__:
     from .claim_guards import unsupported_certainty, operation_errors, documentary_limit, activity_field_errors, workflow_fidelity_errors, unrelated_retrospective_limit, evidence_relation_errors
 else:
@@ -1442,6 +1442,48 @@ def absent_terms_notice(terms):
             'faites vérifier ce point auprès du service compétent.</p>')
 
 
+
+def filter_diploma_passages(packets, question, public, audit):
+    """Exclut seulement les paragraphes explicitement attribués à un autre public."""
+    q, pub = evidence_logic.normalized(question), evidence_logic.normalized(public)
+    if re.search(r'compar|difference|contrairement|alors que', q):
+        return packets
+    def targets(value):
+        found = set()
+        if re.search(r'bac\s+(?:gt|general|technologique)|lycee\s+(?:general|voie generale)|^gt$', value):
+            found.add('gt')
+        if re.search(r'bac\s+pro|lycee\s+(?:pro|voie professionnelle)', value):
+            found.add('pro')
+        if re.search(r'\bcap\b', value):
+            found.add('cap')
+        if re.search(r'\bdnb\b|college|brevet', value):
+            found.add('dnb')
+        return found
+    wanted = targets(q) or targets(pub)
+    if 'pro' in wanted and 'cap' in pub and not targets(q):
+        wanted.add('cap')
+    if not wanted:
+        return packets
+    excluded, result = [], []
+    for packet in packets:
+        kept = []
+        for passage in packet['passages']:
+            lines = [line.strip() for line in passage['text'].splitlines() if line.strip()]
+            scopes = [(_leading_diploma_scopes(line) if re.match(
+                r'^(?:au|en|pour le|pour les)\s+(?:bac\b|baccalaureat\b|lycee\b|cap\b|college\b|dnb\b|brevet\b)',
+                evidence_logic.normalized(line)) else set()) for line in lines]
+            explicit = set().union(*scopes) if scopes else set()
+            # Conserver les paragraphes mixtes ou les continuations de portée incertaine.
+            if scopes and all(scopes) and explicit and not (explicit & wanted):
+                excluded.append({'document_id': packet['id'], 'passage_id': passage['id'],
+                                 'declared_scopes': sorted(explicit), 'target_scopes': sorted(wanted)})
+            else:
+                kept.append(passage)
+        if kept:
+            result.append({**packet, 'passages': kept})
+    audit['excluded_diploma_passages'] = excluded
+    return result
+
 def review_exam_answer(llm, *, question, public, documents, draft='', audit=None, instructions='', academy='Aix-Marseille', mode='examens', selection_policy='legacy', selector_llm=None, repair_enabled=True, test_document_path=None, test_short_prompt=False):
     """Un appel de rédaction ; un second uniquement après échec mécanique."""
     audit = audit if audit is not None else {}
@@ -1593,6 +1635,7 @@ def review_exam_answer(llm, *, question, public, documents, draft='', audit=None
             from single_document_test import isolate_document
         audit['single_document_test'] = {'path': test_document_path, 'before_ids': [p['id'] for p in packets]}
         packets = isolate_document(packets, test_document_path)
+    packets = filter_diploma_passages(packets, question, public, audit)
     audit['model_document_ids'] = [p['id'] for p in packets]
     audit['model_passage_ids'] = [s['id'] for p in packets for s in p['passages']]
     audit['document_selection_after_academy'] = [p['id'] for p in packets]

@@ -32,6 +32,7 @@ class DiplomaApplicabilityTests(unittest.TestCase):
         self.assertIn('D1', audit['excluded_situation_documents'])
         self.assertIn('D2', audit['model_document_ids'])
         self.assertIn('Au bac GT, vérifier', llm.prompts[0])
-        self.assertIn('Au bac professionnel ou au CAP uniquement', llm.prompts[0])
+        self.assertNotIn('Au bac professionnel ou au CAP uniquement', llm.prompts[0])
+        self.assertTrue(audit['excluded_diploma_passages'])
         self.assertEqual(len(llm.prompts), 1)
         self.assertFalse(audit['repair_performed'])

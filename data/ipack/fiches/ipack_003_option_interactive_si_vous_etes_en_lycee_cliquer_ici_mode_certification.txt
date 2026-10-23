@@ -1,17 +1,18 @@
 ### [OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]
 - Mots-clés : suite lycée, étape apres edt lycée, ccf, fiches certificatives, fca, depot referentiels, cahn, cyclades, santorin, bac general, bac technologique, bac pro, cap.
-- Instruction de routage : Si l'utilisateur est en lycée ou gère des classes à examens (Bac GT, Bac Pro, CAP), ignorer les procédures de collège et appliquer strictement la suite chronologique ci-dessous après la saisie des emplois du temps :
+- Portée : préparation du dossier certificatif du lycée (bac GT, bac pro, CAP). Les actions ci-dessous sont distinctes ; appliquer leurs conditions, sans en déduire une obligation uniforme pour les aménagements, l'EPPCS ou les autres académies.
 
 1. Vérification et validation des protocoles d'évaluation (CCF) :
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Protocoles d'évaluation].
    - Règle d'or : L'application croise groupes et programmations. Vérifier la conformité des ensembles certificatifs : 
-     * Voie GT et Pro : Stricte obligation de 3 APSA relevant de 3 Champs d'Apprentissage (CA) distincts.
-     * Voie CAP : Stricte obligation de 2 APSA relevant de 2 Champs d'Apprentissage (CA) distincts.
-   - En cas d'erreur (signalée en rouge), rectifier la séquence dans le groupe associé.
+     * Voie GT et Pro : Ensemble ordinaire : 3 APSA relevant de 3 Champs d'Apprentissage (CA) distincts.
+     * Voie CAP : Ensemble ordinaire : 2 APSA relevant de 2 Champs d'Apprentissage (CA) distincts.
+   - Branches adaptées ou aménagées : examiner leurs règles propres avant de conclure à un nombre d'épreuves obligatoire ; le cadre ordinaire ne suffit pas à rejeter un protocole adapté. Lire le message d'erreur avant de modifier le groupe ou sa séquence.
 
 2. Dépôt des référentiels (Fiches Certificatives d'Activités - FCA) :
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Référentiels].
-   - Action : Téléverser les fiches d'évaluation et grilles critériées (AFL1, AFL2, AFL3) pour chaque APSA certificative. Étape obligatoire pour l'analyse et la validation de l'inspection avant les épreuves.
+   - Action conditionnelle : déposer le référentiel d'établissement attendu dans [Dépôt Référentiels Certificatifs], avec [Envoyer]. Pour une APSA reconnue de la liste académique, l'établissement n'a pas de référentiel à déposer : le référentiel académique fait référence. La visibilité de l'APSA ne prouve pas un dépôt obligatoire.
+   - Vocabulaire : AFL pour le bac GT ; AFLP pour la voie professionnelle et le CAP. L'EPPCS suit sa branche propre et ne doit pas être assimilé à la certification de l'enseignement commun.
 
 3. Soumission du dossier à la Commission Académique (CAHPN) (article 45) :
    - Chemin : depuis le [Dossier Certificatif], ouvrir la fenêtre de validation du dossier.
@@ -23,12 +24,14 @@
    - Déposer les fiches individuelles spécifiques (cas complexes d'élèves) si demandées par l'académie.
 
 5. Export des groupes pour Cyclades :
-   - Quand : à partir de janvier, une fois les protocoles validés par la commission académique.
+   - Quand, circuit Aix-Marseille : après validation et dépôt des protocoles dans Cyclades par l'inspection ET import des candidats dans Cyclades par la DIEC. Le calendrier dépend de l'académie ; ne pas fixer janvier comme date universelle.
    - Chemin : [Tableau de bord] => [Dossiers] => [Dossier Certificatif] => [Cyclades].
-   - Action : le chef d'établissement (ou son secrétariat) génère le fichier d'export des groupes et des élèves, puis l'importe dans Cyclades sans l'ouvrir dans un tableur.
+   - Actions distinctes : dans iPackEPS, [Cyclades] > [Export Elèves] > [Exporter les Elèves] génère le fichier des groupes et élèves ; l'importation de ce fichier dans Cyclades est une opération séparée du circuit d'établissement. Le relevé de l'espace professeur n'établit pas un droit exclusif du chef ou de son secrétariat à générer le fichier. Ne pas l'ouvrir dans un tableur.
    - Fin de chaîne (hors iPackEPS) : le chef d'établissement distribue les lots de candidats dans Santorin, puis les enseignants y saisissent les notes.
 [SECTION: CADRE_REGLEMENTAIRE_GENERAL] 
 
 [SITUATION: DÉFINITION DEC]
 Instruction : DEC = Division des Examens et Concours (dans l'académie d'Aix-Marseille : DIEC, Division des examens et concours). Il s'agit du service académique du Rectorat chargé de l'organisation et de la gestion administrative des examens et concours. C'est l'autorité qui valide les affectations dans Cyclades, gère les convocations via IMAG'IN et traite les dossiers de force majeure.
 
+
+Sources de la reprise : relevé Dossier Certificatif et calendrier certificatif Aix-Marseille du 18 octobre 2026 ; correspondant_03_apsa_referentiels_fca ; MENE2531948N, MENE2505383C (B.1 et B.3), MENE2517122C modifiée. La préparation générale ne vaut pas preuve d'une date, d'une habilitation ou d'une possibilité dans une situation particulière.

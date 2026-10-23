@@ -7,6 +7,8 @@ class RuntimeTests(unittest.TestCase):
     def test_new_sources_do_not_mutate_runtime_in_another_session(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'source_scope.py').write_text('# fixture')
+            (root/'evidence_logic.py').write_text('# fixture')
             (root/'navigation_restore.py').write_text('# fixture')
             (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
@@ -32,6 +34,8 @@ class RuntimeTests(unittest.TestCase):
     def test_guard_change_selects_new_runtime_without_mutating_old(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            (root/'source_scope.py').write_text('# fixture')
+            (root/'evidence_logic.py').write_text('# fixture')
             (root/'navigation_restore.py').write_text('# fixture')
             (root/'single_document_test.py').write_text('# fixture')
             (root/'document_selector.py').write_text('# fixture')
@@ -60,6 +64,8 @@ class RuntimeTests(unittest.TestCase):
     def test_test_helper_change_selects_new_runtime(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
+            (root/'source_scope.py').write_text('# fixture')
+            (root/'evidence_logic.py').write_text('# fixture')
             (root/'navigation_restore.py').write_text('# fixture')
             for name in ('document_selector', 'claim_guards'):
                 (root / (name + '.py')).write_text('# fixture')
@@ -73,3 +79,20 @@ class RuntimeTests(unittest.TestCase):
             self.assertIsNot(before, after)
             self.assertEqual(before.single_document_test.marker, 'before')
             self.assertEqual(after.single_document_test.marker, 'after')
+
+    def test_scope_dependency_change_creates_new_runtime_without_mutating_previous(self):
+        import shutil
+        from generation_runtime import _FILES
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            for name in _FILES:shutil.copyfile(Path(name+'.py'),root/(name+'.py'))
+            before=load_runtime(root)
+            source=root/'source_scope.py'
+            source.write_text(source.read_text()+'\nREVISION_SCOPE_TEST = True\n')
+            after=load_runtime(root)
+            self.assertIsNot(before,after)
+            self.assertFalse(hasattr(before.source_scope,'REVISION_SCOPE_TEST'))
+            self.assertTrue(after.source_scope.REVISION_SCOPE_TEST)
+            self.assertIs(after.documentary_review.scoped_segments,after.source_scope.scoped_segments)
+            self.assertIs(after.documentary_review.evidence_logic,after.evidence_logic)
+            self.assertIs(after.claim_guards.normalized,after.evidence_logic.normalized)

@@ -84,7 +84,7 @@ def scoped_segments(path, body):
     offset=0
     for line in body.splitlines(keepends=True):
         text=line.rstrip('\r\n')
-        if text and not text.startswith(('###','[PORTEE:', '[DOCUMENT:', 'Portée :','Nature de la source',
+        if text and not text.startswith(('###','[PORTEE:', '[DOCUMENT:', 'Nature de la source',
                                          'Nature des sources', 'Sources datées :','Source :','Fiche de contrôle :','http')):
             marked=any(m in text for m in matches)
             # Une fiche mixte est annoncée comme telle : aucune de ses natures n'est arbitrairement choisie.

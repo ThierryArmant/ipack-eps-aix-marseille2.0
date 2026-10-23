@@ -1354,6 +1354,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]",
+     "lignes": [
+      "- Quand, circuit Aix-Marseille : après validation et dépôt des protocoles dans Cyclades par l'inspection ET import des candidats dans Cyclades par la DIEC. Le calendrier dépend de l'académie ; ne pas fixer janvier comme date universelle."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_007_erreur_aucun_lot_a_corriger.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1416,6 +1427,17 @@
      "section": "### [SITUATION: ANNULATION / MODIFICATION D'INTITULÉ DE GROUPE]",
      "lignes": [
       "- Instruction : un groupe ne peut pas porter le même nom qu'une classe déjà importée dans iPackEPS. Si un intitulé Pronote ou École-Directe correspond en fait à une classe (et non à un groupe), ne pas créer de groupe de ce nom : configurer cette classe en « mode seul ou mixte » dans [Dossier EPS] > [Classes] > « Organisation des classes ». Pour renommer un groupe mal nommé, le modifier dans [Dossier EPS] > [Groupes]. En cas de blocage, contacter le correspondant iPackEPS (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]",
+     "lignes": [
+      "Branche établissement — une activité absente de la liste académique n'est pas, pour ce seul motif, interdite de dépôt. À Aix-Marseille, le correspondant décrit le cross-training comme épreuve d'établissement, avec accord préalable de l'inspection et une seule épreuve d'établissement par ensemble. Cette appartenance ne se transpose pas aux listes d'autres académies."
      ]
     }
    ]

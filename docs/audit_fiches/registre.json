@@ -3579,7 +3579,7 @@
     },
     {
       "path": "data/examens/complement_saisie_bloquee_diagnostic.txt",
-      "sha256": "fcc8fd70cb71356acb6b2ec460d0a2f3a3816c742d5a4452b5c9d3a1a440a3e8",
+      "sha256": "5d130eb49496df103e01a2bcf72dcbd38b1561ea6095f25033bbabd1ed7a5672",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "diagnostic_conditionnel_sources_existantes_non_revalidees",
@@ -3975,9 +3975,9 @@
     },
     {
       "path": "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt",
-      "sha256": "d8e04e8226ef870de77180ee43f55df876ac12e0dc54ac01e9718fa2b7a94385",
+      "sha256": "74eb3654e691d303e967b3378cffd31471d3cbdcf71351b4b043b2cfc163cf3b",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "affirmation_absolue_a_relire",
@@ -3995,7 +3995,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 1
+        "apparitions_dans_passages_transmis_traces": 1,
+        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
       }
     },
     {
@@ -5808,9 +5809,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt",
-      "sha256": "ebc2e7c4cdff378cf061f6130c4ac5c2ddbc60f55160ce864650e695c148f58e",
+      "sha256": "4724a57713886c4c33a91b20d23cfa7291d840e4b4fcd0c411ffc249114b7eee",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -5827,7 +5828,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 2
+        "apparitions_dans_passages_transmis_traces": 2,
+        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
       }
     },
     {
@@ -6196,9 +6198,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt",
-      "sha256": "cdba52f5e6928018049ee08f176c9d49899836eca40a0ab3a737aaa0f05ebfca",
+      "sha256": "3611532e5fa42cfb5c681def19cf993586354a7f5ef2c167faf09425fa6bc9a7",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -6213,7 +6215,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 1
+        "apparitions_dans_passages_transmis_traces": 1,
+        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
       }
     },
     {
@@ -8854,9 +8857,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_151_thematique_l_evaluation_en_eps_nombre_d_activites_pour_la_certification.txt",
-      "sha256": "652f9ac84137fb1f1da573a12ddff9276167416fdce2466514bf6e5be51da37f",
+      "sha256": "70ffbe9ccea1965f0f008a3f56ac1d8daf5b365fc09f8c4b5863a8ebbf357428",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -8874,7 +8877,8 @@
           7
         ],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
       }
     },
     {
@@ -10809,9 +10813,9 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt",
-      "sha256": "299edcb0c187075fb18a475dfee3d17bf9f2c8d0cdd59337c8d680568406707f",
+      "sha256": "911b04935fa9ec3f14ac85356784f8bc925cc94b61e24b4bc6d1956a468c6658",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "extraction_technique_sources_existantes_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -10827,7 +10831,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 2
+        "apparitions_dans_passages_transmis_traces": 2,
+        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
       }
     },
     {
@@ -11236,7 +11241,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/dossier_certificatif_lycee_gt.txt",
-      "sha256": "4e0e133e322ef890ef24a8f03f1b516802d73abb46dd50f218eeab2df003ae53",
+      "sha256": "49cbfe63b7bcb0cd8d70f33bdf9fb38a09980acab53372124d1b68a8244cd8fa",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",

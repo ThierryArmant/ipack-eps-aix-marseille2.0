@@ -1625,7 +1625,8 @@
     ],
     "motifs": [
       "(?=.*(?:asns|savoir.?nager))(?=.*(?:valid|imprim|attestation|editer))(?=.*(?:mes eleves|individuel|pour un eleve))",
-      "(?=.*(?:asns|savoir.?nager))(?=.*valid)(?!.*(?:dossier natation|collectif|en serie))"
+      "(?=.*(?:asns|savoir.?nager))(?=.*valid)(?!.*(?:dossier natation|collectif|en serie))",
+      "(?=.*(?:asns|savoir.?nager))(?=.*(?:valid|imprim|attestation|editer))(?=.*(?:pour|d.) (?:un seul|un|cet) eleve)"
     ]
   },
   "data/ipack/fiches/ipack_087_article_82_mes_eleves_visualisation_inaptitudes_declaration_des_inaptitudes_des_eleves.txt": {
@@ -2479,7 +2480,8 @@
     "motifs": [
       "(?:deux|2|plusieurs) etablissements.{0,60}(?:passer|basculer|changer|acceder|choisir)|(?:passer|basculer|changer).{0,30}(?:de l.un a l.autre|d.etablissement)|selecteur d.etablissement|(?:college et (?:un )?lycee|lycee et (?:un )?college).{0,60}(?:passer|basculer|changer|acceder)",
       "(?=.*(?:tzr|partag|deux|plusieurs))(?=.*etablissements?)(?=.*(?:integr|priorit|declar.{0,30}services?))(?=.*ipack)",
-      "(?=.*(?:deux|2|plusieurs|second|autre|\\blgt\\b|\\blp\\b))(?=.*(?:etablissements?|\\blgt\\b|\\blp\\b|lycees?|colleges?))(?=.*(?:plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)))"
+      "(?=.*(?:deux|2|plusieurs|second|autre|\\blgt\\b|\\blp\\b))(?=.*(?:etablissements?|\\blgt\\b|\\blp\\b|lycees?|colleges?))(?=.*(?:plus acces|pas acces|perdu.{0,15}acces|acces.{0,25}(?:perdu|bloqu|refus|restreint)))",
+      "(?=.*(?:deux|2|plusieurs) (?:colleges?|lycees?|etablissements?))(?=.*(?:choisir|basculer|passer de|changer d|acceder au second))"
     ],
     "exclure_motifs": [
       "cite scolaire|manqu|absent"
@@ -3603,7 +3605,19 @@
     "statut": "reponse_correspondant_academique_2025-2026",
     "examens": [],
     "origine": "boîte de l'assistance iPackEPS de l'académie d'Aix-Marseille (réponses écrites, anonymisées)",
-    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte"
+    "portee": "règles d'iPackEPS générales ; consignes locales signalées « Aix-Marseille » dans le texte",
+    "prioritaire": true,
+    "priorite": 290,
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*cyclades)(?=.*(?:associer|association|rattacher))(?=.*(?:eleves?|candidats?))(?=.*protocoles?)"
+    ],
+    "exclure_motifs": [
+      "\\b(?:cfa|greta|mfr|aefe)\\b|hors siecle|apsa.{0,20}groupes?"
+    ]
   },
   "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
     "title": "Réponses du correspondant iPackEPS : accès, comptes et liste des enseignants",

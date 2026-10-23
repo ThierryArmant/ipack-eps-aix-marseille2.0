@@ -10,8 +10,12 @@ import json
 import re
 import time
 import unicodedata
-from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
-import evidence_logic
+if __package__:
+    from .source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
+    from . import evidence_logic
+else:
+    from source_scope import annotations, scoped_segments, select_academy, evidence_label, model_passage
+    import evidence_logic
 if __package__:
     from .document_selector import select_documents, uncertainty_excerpt, _leading_diploma_scopes
 else:

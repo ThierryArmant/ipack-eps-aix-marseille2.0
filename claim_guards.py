@@ -1,6 +1,9 @@
 """Contrôles ciblés de restitution ; aucune nouvelle décision réglementaire."""
 import re
-from evidence_logic import normalized
+if __package__:
+    from .evidence_logic import normalized
+else:
+    from evidence_logic import normalized
 
 _ABSENCE = re.compile(r"(?:aucun\w*|pas de|absence de).{0,90}(?:consigne|texte|regle|procedure|documentation).{0,60}(?:(?:re)?trouv|disponible|etabli)|(?:consigne|texte|regle|procedure).{0,60}(?:non (?:re)?trouve|non etabli)|\ba verifier\b|ne .{0,35}(?:demontre\w*|etabli\w*|prouve\w*).{0,12}pas (?:la possibilite|que)|possibilite.{0,80}n.a pas ete (?:releve\w*|confirme\w*|verifie\w*)|faire verifier (?:ce|le) point")
 _CATEGORICAL = re.compile(r"\b(?:interdit\w*|obligatoire\w*|autorise\w*|impossible|devez|doit|doivent|ne (?:peut|peuvent).{0,20}pas|n.est.{0,15}pas (?:permis|autorise|possible))\b")

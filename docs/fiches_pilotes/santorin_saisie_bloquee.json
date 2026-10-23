@@ -1,0 +1,209 @@
+{
+  "format_version": 1,
+  "id": "santorin_saisie_bloquee",
+  "type": "diagnostic",
+  "situation": "Santorin — Saisie bloquée : identifier le symptôme avant la procédure",
+  "scope": {
+    "diplomas": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "academies": [
+      "non_precisee"
+    ],
+    "software": [
+      "Santorin"
+    ]
+  },
+  "verification": {
+    "status": "structure_controlee_sources_non_revalidees",
+    "date": "2026-10-23"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "path": "data/examens/complement_saisie_bloquee_diagnostic.txt",
+      "sha256": "5d130eb49496df103e01a2bcf72dcbd38b1561ea6095f25033bbabd1ed7a5672",
+      "reference_urls": []
+    }
+  ],
+  "branches": [
+    {
+      "id": "gt",
+      "scope": {
+        "diplomas": [
+          "gt"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": [
+          "Santorin"
+        ]
+      },
+      "condition": "Au bac GT",
+      "steps": [
+        {
+          "id": "gt_afl1",
+          "actor": "enseignant",
+          "text": "Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Au bac GT, vérifier la présence de la note AFL1 avant la saisie AFL2/AFL3."
+            }
+          ],
+          "required_elements": [
+            "note AFL1",
+            "AFL2/AFL3"
+          ],
+          "navigation": [],
+          "nature": "logiciel"
+        },
+        {
+          "id": "gt_repartition",
+          "actor": "enseignant",
+          "text": "Au bac GT, vérifier ensuite la répartition choisie par l’élève. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Au bac GT, vérifier ensuite la répartition choisie par l’élève. Source : FAQ Saisie GT vérifiée, guide Normandie et tutoriel Dijon déjà référencés dans la base."
+            }
+          ],
+          "required_elements": [
+            "répartition choisie"
+          ],
+          "navigation": [],
+          "nature": "logiciel"
+        }
+      ],
+      "limits": []
+    },
+    {
+      "id": "lot_verrouille",
+      "scope": {
+        "diplomas": [
+          "gt",
+          "pro",
+          "cap"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": [
+          "Santorin"
+        ]
+      },
+      "condition": "Si un cadenas rouge ou fermé apparaît sur le lot",
+      "steps": [
+        {
+          "id": "demande_chef",
+          "actor": "enseignant",
+          "text": "Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Si un cadenas rouge ou fermé apparaît sur le lot : le lot est verrouillé. Le professeur ne peut pas le déverrouiller ; demander au chef d'établissement d'intervenir."
+            }
+          ],
+          "required_elements": [
+            "chef d'établissement"
+          ],
+          "navigation": [],
+          "nature": "logiciel"
+        },
+        {
+          "id": "chemin_chef",
+          "actor": "chef d'établissement",
+          "text": "Si un cadenas rouge ou fermé apparaît sur le lot, le chef d'établissement intervient dans [Correction] > [Liste des lots], avec le cadenas.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Si un cadenas rouge ou fermé apparaît sur le lot, le chef d'établissement intervient dans [Correction] > [Liste des lots], avec le cadenas."
+            }
+          ],
+          "required_elements": [],
+          "navigation": [
+            "[Correction] > [Liste des lots]"
+          ],
+          "nature": "logiciel"
+        }
+      ],
+      "limits": []
+    },
+    {
+      "id": "pro_cap",
+      "scope": {
+        "diplomas": [
+          "pro",
+          "cap"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": [
+          "Santorin"
+        ]
+      },
+      "condition": "Si les AFLP sont notés X ou Y et les champs bloqués",
+      "steps": [
+        {
+          "id": "choix_aflp",
+          "actor": "enseignant",
+          "text": "Au bac professionnel ou au CAP uniquement, si les AFLP sont notés X ou Y et les champs d'une ou plusieurs APSA bloqués : vérifier le choix des AFLP dans Santorin. Le professeur utilise [choisir AFLP] sur son lot et déclare les AFL(P) évalués pour le protocole ; la FAQ décrit cette manipulation dans ce cas précis.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Au bac professionnel ou au CAP uniquement, si les AFLP sont notés X ou Y et les champs d'une ou plusieurs APSA bloqués : vérifier le choix des AFLP dans Santorin. Le professeur utilise [choisir AFLP] sur son lot et déclare les AFL(P) évalués pour le protocole ; la FAQ décrit cette manipulation dans ce cas précis."
+            }
+          ],
+          "required_elements": [
+            "[choisir AFLP]"
+          ],
+          "navigation": [],
+          "nature": "logiciel"
+        }
+      ],
+      "limits": []
+    },
+    {
+      "id": "symptome_persistant",
+      "scope": {
+        "diplomas": [
+          "gt",
+          "pro",
+          "cap"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": [
+          "Santorin"
+        ]
+      },
+      "condition": "Si les vérifications conditionnelles ne suffisent pas",
+      "steps": [
+        {
+          "id": "relever_symptome",
+          "actor": "enseignant",
+          "text": "Si les vérifications conditionnelles ci-dessus ne suffisent pas, relever le symptôme encore non précisé : cases grisées ou inactives, cadenas sur le lot, ou message d'erreur à recopier sans données personnelles. Une difficulté de saisie seule ne permet pas d'identifier une cause unique.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Si les vérifications conditionnelles ci-dessus ne suffisent pas, relever le symptôme encore non précisé : cases grisées ou inactives, cadenas sur le lot, ou message d'erreur à recopier sans données personnelles. Une difficulté de saisie seule ne permet pas d'identifier une cause unique."
+            }
+          ],
+          "required_elements": [
+            "message d'erreur"
+          ],
+          "navigation": [],
+          "nature": "logiciel"
+        }
+      ],
+      "limits": [
+        "Les pistes ci-dessus correspondent à des symptômes distincts et ne constituent pas une liste exhaustive des causes. Une case grisée, sans autre indication, ne permet pas de déterminer une cause particulière."
+      ]
+    }
+  ]
+}

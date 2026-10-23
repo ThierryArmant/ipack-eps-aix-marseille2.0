@@ -1,0 +1,132 @@
+{
+  "format_version": 1,
+  "id": "ipack_multi_etablissements",
+  "type": "navigation",
+  "situation": "[SITUATION: ENSEIGNANTS TZR OU PARTAGÉS (MULTI-ÉTABLISSEMENTS)]",
+  "scope": {
+    "diplomas": [
+      "college",
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "academies": [
+      "non_precisee"
+    ],
+    "software": [
+      "iPackEPS"
+    ]
+  },
+  "verification": {
+    "status": "structure_controlee_sources_non_revalidees",
+    "date": "2026-10-23"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "path": "data/ipack/fiches/ipack_222_situation_enseignants_tzr_ou_partages_multi_etablissements.txt",
+      "sha256": "2ed65c963a0039550ab2a2ce1511ba91168852c3b1442ef1b67eeab3258db122",
+      "reference_urls": [
+        "https://youtu.be/HtFmE-6rCl4"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "basculer",
+      "scope": {
+        "diplomas": [
+          "college",
+          "gt",
+          "pro",
+          "cap"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": [
+          "iPackEPS"
+        ]
+      },
+      "condition": "Enseignant rattaché à plusieurs établissements",
+      "steps": [
+        {
+          "id": "retour_tableau",
+          "actor": "enseignant",
+          "text": "depuis n'importe quel écran, remonter par le fil d'Ariane (en haut à gauche, un à trois niveaux : Tableau de bord > Les Dossiers et Projets > Dossier…) jusqu'au [Tableau de bord]",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "depuis n'importe quel écran, remonter par le fil d'Ariane (en haut à gauche, un à trois niveaux : Tableau de bord > Les Dossiers et Projets > Dossier…) jusqu'au [Tableau de bord]"
+            }
+          ],
+          "required_elements": [
+            "fil d'Ariane"
+          ],
+          "navigation": [
+            "[Tableau de bord]"
+          ],
+          "nature": "logiciel"
+        },
+        {
+          "id": "choix_etablissement",
+          "actor": "enseignant",
+          "text": "son bloc « Informations », en haut, contient « Année Scolaire » et l'icône « Changer d'Établissement » (la même icône figure sur la page « Sélectionnez l'année scolaire ») ; cliquer sur cette icône, puis [Entrer] sur l'autre établissement.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "son bloc « Informations », en haut, contient « Année Scolaire » et l'icône « Changer d'Établissement » (la même icône figure sur la page « Sélectionnez l'année scolaire ») ; cliquer sur cette icône, puis [Entrer] sur l'autre établissement."
+            }
+          ],
+          "required_elements": [
+            "Changer d'Établissement"
+          ],
+          "navigation": [
+            "[Entrer]"
+          ],
+          "nature": "logiciel"
+        }
+      ],
+      "limits": [
+        "Le relevé ne fixe aucun ordre de priorité entre les établissements pour cette intégration ; il ne désigne pas un établissement principal chargé de saisir les services ou les classes des autres."
+      ]
+    },
+    {
+      "id": "etablissement_absent",
+      "scope": {
+        "diplomas": [
+          "college",
+          "gt",
+          "pro",
+          "cap"
+        ],
+        "academies": [
+          "Aix-Marseille"
+        ],
+        "software": [
+          "iPackEPS"
+        ]
+      },
+      "condition": "Si l’établissement n’apparaît pas",
+      "steps": [
+        {
+          "id": "rattachement",
+          "actor": "administration",
+          "text": "Si l'établissement n'apparaît pas, faire vérifier que l'enseignant est bien installé dans la base des personnels de cet établissement (STS-Web à Aix-Marseille) : demander à son administration de le faire ; les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie).",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Si l'établissement n'apparaît pas, faire vérifier que l'enseignant est bien installé dans la base des personnels de cet établissement (STS-Web à Aix-Marseille) : demander à son administration de le faire ; les comptes remontent ensuite (48 h environ : délai indicatif cité par l'assistance iPackEPS d'Aix-Marseille, sans garantie)."
+            }
+          ],
+          "required_elements": [
+            "sans garantie"
+          ],
+          "navigation": [],
+          "nature": "academique"
+        }
+      ],
+      "limits": []
+    }
+  ]
+}

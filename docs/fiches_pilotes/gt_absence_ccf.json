@@ -1,0 +1,152 @@
+{
+  "format_version": 1,
+  "id": "gt_absence_ccf",
+  "type": "regle_et_circuit",
+  "situation": "Bac GT CCF : absence injustifiée distincte de force majeure",
+  "scope": {
+    "diplomas": [
+      "gt"
+    ],
+    "academies": [
+      "non_precisee"
+    ],
+    "software": []
+  },
+  "verification": {
+    "status": "structure_controlee_sources_non_revalidees",
+    "date": "2026-10-23"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "path": "data/examens/audit_lot2_2026_10_12/absence_injustifiee_gt.txt",
+      "sha256": "d7236b6e12f7ce97671ea5b7a15424d6d9ee1c2ecd5dfbea96f78673c1ea9df9",
+      "reference_urls": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "absence_injustifiee",
+      "scope": {
+        "diplomas": [
+          "gt"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": []
+      },
+      "condition": "Absence effectivement non justifiée à un CCF",
+      "steps": [
+        {
+          "id": "consequence",
+          "actor": "evaluation",
+          "text": "Au bac général et technologique, une absence effectivement non justifiée à un CCF ne donne pas droit à l’évaluation différée et entraîne zéro pour cette épreuve, non éliminatoire.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Au bac général et technologique, une absence effectivement non justifiée à un CCF ne donne pas droit à l’évaluation différée et entraîne zéro pour cette épreuve, non éliminatoire."
+            }
+          ],
+          "required_elements": [
+            "non justifiée",
+            "zéro",
+            "non éliminatoire"
+          ],
+          "navigation": [],
+          "nature": "synthese_reglementaire"
+        }
+      ],
+      "limits": [
+        "L’absence de certificat médical valide ne prouve pas à elle seule qu’une absence est injustifiée : un autre justificatif peut établir une force majeure."
+      ]
+    },
+    {
+      "id": "force_majeure",
+      "scope": {
+        "diplomas": [
+          "gt"
+        ],
+        "academies": [
+          "non_precisee"
+        ],
+        "software": []
+      },
+      "condition": "Candidat assidu empêché par un cas de force majeure",
+      "steps": [
+        {
+          "id": "decision_differe",
+          "actor": "chef d’établissement",
+          "text": "Vérifiez d’abord les justificatifs : pour un candidat assidu empêché par un cas de force majeure, le chef d’établissement peut autoriser un différé après consultation de l’équipe pédagogique ; ne pas remplacer cette décision par une validation automatique du professeur ou par une exigence générale d’accord du recteur.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Vérifiez d’abord les justificatifs : pour un candidat assidu empêché par un cas de force majeure, le chef d’établissement peut autoriser un différé après consultation de l’équipe pédagogique ; ne pas remplacer cette décision par une validation automatique du professeur ou par une exigence générale d’accord du recteur."
+            }
+          ],
+          "required_elements": [
+            "peut autoriser",
+            "après consultation de l’équipe pédagogique"
+          ],
+          "navigation": [],
+          "nature": "synthese_reglementaire"
+        }
+      ],
+      "limits": []
+    },
+    {
+      "id": "saisie_aix",
+      "scope": {
+        "diplomas": [
+          "gt"
+        ],
+        "academies": [
+          "Aix-Marseille"
+        ],
+        "software": [
+          "Cyclades",
+          "Santorin"
+        ]
+      },
+      "condition": "Absence à saisir dans le cadre du guide d’Aix-Marseille",
+      "steps": [
+        {
+          "id": "statut_absence",
+          "actor": "enseignant",
+          "text": "À Aix-Marseille, selon le responsable SAV, l’absence se saisit par le statut d’absence (désigné « ABT » dans son retour), dont Cyclades reporte la valeur zéro dans le bilan évaluatif. Ne pas saisir directement une prestation notée zéro pour un candidat absent : le zéro saisi comme prestation correspond à un candidat présent. Ne pas généraliser ce code aux autres académies, examens ou versions sans leur guide de saisie.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "À Aix-Marseille, selon le responsable SAV, l’absence se saisit par le statut d’absence (désigné « ABT » dans son retour), dont Cyclades reporte la valeur zéro dans le bilan évaluatif. Ne pas saisir directement une prestation notée zéro pour un candidat absent : le zéro saisi comme prestation correspond à un candidat présent. Ne pas généraliser ce code aux autres académies, examens ou versions sans leur guide de saisie."
+            }
+          ],
+          "required_elements": [
+            "ABT",
+            "Ne pas saisir directement"
+          ],
+          "navigation": [],
+          "nature": "academique"
+        },
+        {
+          "id": "fiche_individuelle",
+          "actor": "etablissement",
+          "text": "À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense."
+            }
+          ],
+          "required_elements": [],
+          "navigation": [
+            "[Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]"
+          ],
+          "nature": "academique"
+        }
+      ],
+      "limits": []
+    }
+  ]
+}

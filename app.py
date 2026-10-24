@@ -2637,7 +2637,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 _generation_llm, reviewer=_generation_runtime.documentary_review,
                                 tracer=TracedLLM, question=prompt, public=niveau_actuel_form,
                                 documents=contexte_complet_ia, audit=diagnostic_ia,
-                                academy=academie_reponse, mode=mode)
+                                academy=academie_reponse, mode=mode, synthesis=True)
                             usage_ia['calls'] = diagnostic_ia.get('calls', [])
                             _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
                         else:

@@ -8,6 +8,7 @@ class RuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             (root/'exact_source_answer.py').write_text('# fixture')
+            (root/'short_answer.py').write_text('# fixture')
             (root/'question_normalization.py').write_text('# fixture')
             (root/'source_scope.py').write_text('# fixture')
             (root/'evidence_logic.py').write_text('# fixture')
@@ -37,6 +38,7 @@ class RuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             (root/'exact_source_answer.py').write_text('# fixture')
+            (root/'short_answer.py').write_text('# fixture')
             (root/'question_normalization.py').write_text('# fixture')
             (root/'source_scope.py').write_text('# fixture')
             (root/'evidence_logic.py').write_text('# fixture')
@@ -69,6 +71,7 @@ class RuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root/'exact_source_answer.py').write_text('# fixture')
+            (root/'short_answer.py').write_text('# fixture')
             (root/'question_normalization.py').write_text('# fixture')
             (root/'source_scope.py').write_text('# fixture')
             (root/'evidence_logic.py').write_text('# fixture')

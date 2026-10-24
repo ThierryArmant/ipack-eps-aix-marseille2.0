@@ -11,7 +11,7 @@ import threading
 import types
 
 _LOCK = threading.RLock()
-_FILES = ('question_normalization', 'source_scope', 'evidence_logic', 'single_document_test', 'navigation_restore', 'albert_adapter', 'document_selector', 'claim_guards', 'exact_source_answer', 'documentary_review')
+_FILES = ('question_normalization', 'source_scope', 'evidence_logic', 'single_document_test', 'navigation_restore', 'albert_adapter', 'document_selector', 'claim_guards', 'short_answer', 'exact_source_answer', 'documentary_review')
 
 
 def load_runtime(base_dir=None):

@@ -43,14 +43,14 @@ def media_text(audit, fallback):
     return result
 
 
-def render_focused_sources(selected, focus_ids, reviewer, report):
+def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False):
     """Recopie des passages entiers ; le contexte source reste consultable."""
     spans = {s['id']: (p, s) for p in selected for s in p['passages']}
-    blocks = ['<h3>Réponse</h3>']
+    blocks = [] if numbered else ['<h3>Réponse</h3>']
     references = {}
     previous_section = None
     sections = []
-    for passage_id in focus_ids:
+    for position, passage_id in enumerate(focus_ids, 1):
         packet, span = spans[passage_id]
         section, section_origin = section_label(packet, span)
         section_key = (packet['id'], section)
@@ -66,7 +66,9 @@ def render_focused_sources(selected, focus_ids, reviewer, report):
         if key not in references:
             references[key] = len(references) + 1
         ref = str(references[key])
+        # Numéro d'extrait : c'est lui que cite la réponse courte.
         blocks.append('<p style="white-space:pre-wrap;line-height:1.65;margin:0.6rem 0 1rem">'
+                      + ('<strong>' + str(position) + '.</strong> ' if numbered else '')
                       + html.escape(span['text']) + ' <sup>[' + ref + ']</sup></p>')
     blocks.append('<details><summary>Sources et portée (' + str(len(references)) + ')</summary>')
     for (document_id, label), number in references.items():
@@ -124,7 +126,29 @@ def render_exact_sources(selected, reviewer, report):
     return '\n'.join(blocks)
 
 
-def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit):
+def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, report, extracts_html):
+    """Réponse courte en tête, extraits fidèles numérotés repliés dessous ; sinon extraits seuls."""
+    try:
+        from .short_answer import short_answer
+    except ImportError:
+        from short_answer import short_answer
+    spans = {s['id']: (p, s) for p in selected for s in p['passages']}
+    passages = []
+    for passage_id in focus:
+        packet, span = spans[passage_id]
+        passages.append((section_label(packet, span)[0], span['text']))
+    lead = short_answer(llm, tracer=tracer, audit=audit, question=question, passages=passages)
+    if not lead:
+        return extracts_html
+    numbered = render_focused_sources(selected, focus, reviewer, {}, numbered=True)
+    report['display_version_lead'] = 'short-answer-v1'
+    return ('<h3>Réponse</h3>' + lead
+            + '<p><small>Réponse rédigée à partir des extraits ci-dessous (numéros) : vérifiez votre cas.</small></p>'
+            + '<details><summary>Voir les extraits des fiches (' + str(len(focus)) + ')</summary>'
+            + numbered + '</details>')
+
+
+def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False):
     packets = reviewer.source_packets(documents)
     audit.update(documents=packets, context_exact=documents,
                  context_sha256=hashlib.sha256(documents.encode()).hexdigest(),
@@ -242,6 +266,9 @@ DONNEES :
         else:
             report['focus_status'] = 'selected_by_model_not_semantically_proven'
             answer = render_focused_sources(selected, focus, reviewer, report)
+            if synthesis:
+                answer = with_short_answer(llm, tracer, audit, question, selected, focus,
+                                           reviewer, report, answer)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

@@ -5013,7 +5013,7 @@
     },
     {
       "path": "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt",
-      "sha256": "0b455f4d97fb1eb095615afc58fb2c58a56d70fb009cf0a6c2db38071ab38f50",
+      "sha256": "51bdf0af0e91a59028114a53b19595183d264afe6f3a76f30901c2692ca76c1e",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
@@ -5031,7 +5031,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 1,
-        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
+        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
       }
     },
     {
@@ -5294,7 +5294,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "a493aa36d43fb0c22e3435ad280ca217aeb5e56f0a35feddcb34d09918124f3c",
+      "sha256": "fc3b47ae34b2135b8db52e38b20beb7052d39d78493b70d4264c3f0b5cf99f3a",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5321,7 +5321,7 @@
           148
         ],
         "apparitions_dans_passages_transmis_traces": 14,
-        "reprise_ciblee": "nettoyage_reaffectation_adaptation_2026_10_24"
+        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
       }
     },
     {
@@ -9052,7 +9052,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt",
-      "sha256": "6cf77e18fd42c99c489500d39da93e0559b5d525986d526ec1ee1b2f8886ee9a",
+      "sha256": "6d43c88e5615c91a5791bf416c187468fed4be4fb1df848f7be1deedd54dfeb3",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -9076,7 +9076,7 @@
           22
         ],
         "apparitions_dans_passages_transmis_traces": 1,
-        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
+        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
       }
     },
     {
@@ -10129,7 +10129,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt",
-      "sha256": "81f0d8f31f7f6e9fcd598987592740dcdf6dadc2389d225ac5e9ad077047fc0d",
+      "sha256": "ce144b376984e5e67676e2c82c3a458ec1eb711f776347851f795455d2612426",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -10148,7 +10148,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 0,
-        "reprise_ciblee": "fiche212_unites_condition_action_2026_10_24"
+        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
       }
     },
     {

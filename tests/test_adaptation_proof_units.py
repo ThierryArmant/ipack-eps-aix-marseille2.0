@@ -27,10 +27,10 @@ class AdaptationProofUnitsTests(unittest.TestCase):
         good="Pour une inaptitude partielle temporaire, le chef d'établissement ou un enseignant peut créer au besoin le protocole adapté selon le circuit applicable."
         self.assertFalse(evidence_logic_errors([c(good,proof)]))
     def test_actual_date_inversion_is_not_rescued_by_after_at_end(self):
-        proof=next(s['text']for s in spans()if s['text'].startswith('Branche — après la date butoir :'))
+        proof=next(s['text']for s in spans()if s['text'].startswith('Branche — inaptitude partielle temporaire après la date butoir :'))
         bad="La création d'un protocole adapté dans iPackEPS avant la date butoir fixée par la CAHPN ne sera pas transférée vers Cyclades après cette date."
         self.assertTrue(evidence_logic_errors([c(bad,proof)]))
-        good="Après la date butoir, un protocole adapté créé dans iPackEPS ne sera pas transféré par le circuit ordinaire."
+        good="Pour une inaptitude partielle temporaire, après la date butoir, un protocole adapté créé dans iPackEPS ne sera pas transféré par le circuit ordinaire."
         self.assertFalse(evidence_logic_errors([c(good,proof)]))
     def test_other_temporal_conditions_and_optional_actions(self):
         for subject in ['dossier','contrat','fichier']:

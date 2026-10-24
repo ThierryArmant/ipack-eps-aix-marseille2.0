@@ -1616,7 +1616,6 @@
     {
      "section": "### Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)",
      "lignes": [
-      "- Technique : le chef d'établissement (ou un enseignant) crée un protocole de type adapté dans Cyclades ([EPS] > [Créer un protocole], type adapté), en y conservant les APSA déjà notées, puis y associe l'élève. Le correspondant iPackEPS d'Aix-Marseille l'indique (2025-2026) : en cours d'année, des protocoles adaptés peuvent être ajoutés directement dans Cyclades. Dans iPackEPS, on déclare l'inaptitude ([Mes Élèves] > [Inaptitudes], avec le certificat).",
       "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.",
       "- Si l'export est bloqué : vérifier qu'aucun élève de classe à examen n'est « sans groupe EPS » ([Dossier EPS] > [Élèves]). Si Cyclades refuse l'import, voir les fiches sur les alertes d'import Cyclades. Sinon, écrire à l'assistance iPackEPS (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
      ]

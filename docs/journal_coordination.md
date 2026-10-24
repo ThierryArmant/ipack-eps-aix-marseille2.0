@@ -1,3 +1,17 @@
+## 24 octobre — copie contradictoire dans le complément Cyclades : quatre sources concordantes
+
+Base : 10b112c. Nouveau rejeu privé 6/7 sur Examens, mêmes questions/contextes : 33543 jetons, deux orientations/deux rédactions, mini seul, aucune réparation ni panne. L'inversion avant/après a disparu ; 6 reste incorrecte (création depuis la fiche élève iPackEPS inventée à partir d'une procédure Cyclades), 7 partielle et répétitive. Aucun taux de réussite global déduit.
+
+Trace : 6 s'appuie sur D7, complement_cyclades_cas_pratiques. Le paragraphe conservait « avant la date butoir… transféré » et une parenthèse non bornée « créé dans iPackEPS en cours d'année… ne serait pas transféré ». Correction de cette contradiction, pas simple ajout d'une consigne au modèle. Quatre sources existantes alignées : iPack 212, iPack 160, complément Cyclades iPack et protocole_adapte_en_cours_annee.
+
+Unités communes de création conditionnelle et calendrier, conservées entières dans les preuves : inaptitude partielle temporaire ; création Cyclades seulement au besoin avec [EPS] > [Créer un protocole], type adapté, puis association. Cas de note déjà saisie : conserver l'APSA dans le protocole Cyclades, nom distinct, [EPS] > [Associer les élèves à un protocole], vérifier note/lot dans Santorin. Ne pas décrire une création dans la fiche individuelle iPackEPS. Avant/après date butoir distingués et attribués au formateur Aix du 11 octobre, sans date universelle. Réserve SAV locale du 20 octobre conservée ; aucun nouvel audio exploité. Les indications automne/janvier des anciens supports sont des exemples à confirmer.
+
+Annotations et empreintes alignées, portée régénérée, statuts a_confirmer. Les autres sections des compilations restent conservées ; leur contenu n'est pas certifié par ces modifications. Pas de nouveau document métier ni de réponse en dur, pas de nouveau contrôleur Python. Travail sur les sources réellement sélectionnées et leurs copies.
+
+Quatre nouveaux tests : mêmes unités dans quatre fiches après découpage/attribution, conditions médicales et académiques conservées, contradiction retirée, permission observée sans condition signalée et logiciel d'association explicite. Test temporel précédent mis à jour pour conserver aussi le périmètre médical du libellé. Suite globale finale 1071 tests réussis ; contrôle mécanique des 435 fichiers sans anomalie selon ses critères, compilation et diff vérifiés. Aucun nouvel appel IA payant ni rejeu exécuté. Rapport existant complété dans docs/audit_fiches/controle_branches_2026_10_24.md.
+
+Limite : cette concordance évite qu'une autre copie active du même cas réintroduise ces formulations ; elle ne garantit pas que mini restitue toutes les démarches et ne prouve pas les 90 %. Ne pas relancer un lot massif par défaut.
+
 ## 24 octobre — parcours Examens : iPack 212, condition/action indissociables et calendrier
 
 Base : 39ea338. Rejeux privés successifs : Textes, 6 bloquée et 7 réparée/exploitable (23654 jetons, quatre rédactions). Puis mêmes questions déplacées vers Examens : 31346 jetons, deux orientations/deux rédactions, aucun rejet mais deux réponses défectueuses. Ne pas assimiler un changement d'onglet à un test isolé du correctif, ni absence de rejet à exactitude.

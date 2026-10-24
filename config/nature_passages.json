@@ -564,36 +564,11 @@
           "reference": "MENE2531948N, 2.e — contrôle adapté bac GT"
         },
         {
-          "texte": "Branche — inaptitude partielle temporaire : si le traitement individuel nécessite un autre protocole, le chef d'établissement ou un enseignant crée au besoin le protocole de type adapté dans Cyclades selon la configuration acceptée et le circuit applicable, puis y associe l'élève. Conserver les APSA déjà notées ; ne pas modifier le protocole standard et les groupes pour ce seul élève. La création n'est pas une étape obligatoire pour toute adaptation.",
-          "nature": [
-            "logiciel"
-          ],
-          "reference": "Synthèse des procédures déjà présentes ; formateur académique 11 octobre 2026 pour le calendrier, article 82 pour la déclaration ; réserve SAV locale distincte."
-        },
-        {
           "texte": "Déclaration dans iPackEPS — pour l'élève concerné, [Mes Élèves] > [Visualisation] > choisir l'élève > [Inaptitudes] : dates, APSA concernées, type d'inaptitude et scan du certificat médical (article 82). Cette déclaration est distincte du choix réglementaire et de la création d'un protocole.",
           "nature": [
             "logiciel"
           ],
           "reference": "Synthèse des procédures déjà présentes ; formateur académique 11 octobre 2026 pour le calendrier, article 82 pour la déclaration ; réserve SAV locale distincte."
-        },
-        {
-          "texte": "Branche — avant la date butoir : selon la précision du formateur académique du 11 octobre 2026, un enseignant peut créer le protocole adapté dans iPackEPS pour le transfert des protocoles vers Cyclades par l'inspection, selon la campagne académique. La date dépend de cette campagne.",
-          "nature": [
-            "consigne_academique",
-            "logiciel"
-          ],
-          "reference": "Précision du formateur iPackEPS de l’académie d’Aix-Marseille du 11 octobre 2026 ; calendrier de la campagne à confirmer.",
-          "academie": "Aix-Marseille"
-        },
-        {
-          "texte": "Branche — après la date butoir : selon cette même précision du 11 octobre 2026, un protocole adapté créé dans iPackEPS après cette échéance ne bénéficie pas du transfert ordinaire vers Cyclades. Vérifier le circuit applicable dans Cyclades ; cette limite porte sur la création après l'échéance, pas sur une création antérieure.",
-          "nature": [
-            "consigne_academique",
-            "logiciel"
-          ],
-          "reference": "Précision du formateur iPackEPS de l’académie d’Aix-Marseille du 11 octobre 2026 ; calendrier de la campagne à confirmer.",
-          "academie": "Aix-Marseille"
         },
         {
           "texte": "Branche — inaptitude partielle temporaire : garder la trace des conditions de passation adaptées pour information de la commission. Un cas individuel particulier (une seule note, DI + note) se documente selon les pièces attendues par l'académie dans [Dossiers] > [Dossier Certificatif]. La note ou la mention retenue se saisit dans Santorin, pas dans iPackEPS ; cette fiche ne choisit pas automatiquement un code.",
@@ -622,6 +597,31 @@
             "texte_national"
           ],
           "reference": "MENE2531948N, 2.e — inaptitude temporaire bac GT"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si le traitement individuel nécessite un autre protocole, le chef d'établissement ou un enseignant crée au besoin le protocole de type adapté dans Cyclades, [EPS] > [Créer un protocole], type adapté, selon la configuration acceptée et le circuit applicable, puis y associe l'élève. Conserver les APSA déjà notées ; ne pas modifier le protocole standard et les groupes pour ce seul élève. La création n'est pas une étape obligatoire pour toute adaptation.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire avant la date butoir : selon la précision du formateur académique du 11 octobre 2026, un enseignant peut créer le protocole adapté dans iPackEPS pour le transfert des protocoles vers Cyclades par l'inspection, selon la campagne académique. La date dépend de cette campagne.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire après la date butoir : selon cette même précision du 11 octobre 2026, un protocole adapté créé dans iPackEPS après cette échéance ne bénéficie pas du transfert ordinaire vers Cyclades. Vérifier le circuit applicable dans Cyclades ; cette limite porte sur la création après l'échéance, pas sur une création antérieure.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
         }
       ]
     },
@@ -807,6 +807,38 @@
           ],
           "academie": "Aix-Marseille",
           "reference": "Retour du responsable SAV iPackEPS–Examens d’Aix-Marseille transmis le 20 octobre 2026 ; observation technique et circuit académique, pas règle nationale."
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si le traitement individuel nécessite un autre protocole, le chef d'établissement ou un enseignant crée au besoin le protocole de type adapté dans Cyclades, [EPS] > [Créer un protocole], type adapté, selon la configuration acceptée et le circuit applicable, puis y associe l'élève. Conserver les APSA déjà notées ; ne pas modifier le protocole standard et les groupes pour ce seul élève. La création n'est pas une étape obligatoire pour toute adaptation.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire avant la date butoir : selon la précision du formateur académique du 11 octobre 2026, un enseignant peut créer le protocole adapté dans iPackEPS pour le transfert des protocoles vers Cyclades par l'inspection, selon la campagne académique. La date dépend de cette campagne.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire après la date butoir : selon cette même précision du 11 octobre 2026, un protocole adapté créé dans iPackEPS après cette échéance ne bénéficie pas du transfert ordinaire vers Cyclades. Vérifier le circuit applicable dans Cyclades ; cette limite porte sur la création après l'échéance, pas sur une création antérieure.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si un protocole doit changer alors qu'une APSA est déjà notée, conserver cette APSA dans le nouveau protocole Cyclades ; lui donner un nom distinct de l'ancien (exemple documentaire TG1 A), puis [EPS] > [Associer les élèves à un protocole]. Vérifier ensuite la note et le lot effectifs dans Santorin. Cette procédure ne décrit pas un menu de création de protocole depuis la fiche individuelle d'un élève dans iPackEPS, ni une redistribution systématique des lots.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
         }
       ]
     },
@@ -1072,6 +1104,85 @@
             "texte_national"
           ],
           "reference": "MENE2531948N, 2.a — bac GT, enseignement commun"
+        }
+      ]
+    },
+    "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt": {
+      "nature_non_attribuee": [
+        "texte_national",
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si le traitement individuel nécessite un autre protocole, le chef d'établissement ou un enseignant crée au besoin le protocole de type adapté dans Cyclades, [EPS] > [Créer un protocole], type adapté, selon la configuration acceptée et le circuit applicable, puis y associe l'élève. Conserver les APSA déjà notées ; ne pas modifier le protocole standard et les groupes pour ce seul élève. La création n'est pas une étape obligatoire pour toute adaptation.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire avant la date butoir : selon la précision du formateur académique du 11 octobre 2026, un enseignant peut créer le protocole adapté dans iPackEPS pour le transfert des protocoles vers Cyclades par l'inspection, selon la campagne académique. La date dépend de cette campagne.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire après la date butoir : selon cette même précision du 11 octobre 2026, un protocole adapté créé dans iPackEPS après cette échéance ne bénéficie pas du transfert ordinaire vers Cyclades. Vérifier le circuit applicable dans Cyclades ; cette limite porte sur la création après l'échéance, pas sur une création antérieure.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si un protocole doit changer alors qu'une APSA est déjà notée, conserver cette APSA dans le nouveau protocole Cyclades ; lui donner un nom distinct de l'ancien (exemple documentaire TG1 A), puis [EPS] > [Associer les élèves à un protocole]. Vérifier ensuite la note et le lot effectifs dans Santorin. Cette procédure ne décrit pas un menu de création de protocole depuis la fiche individuelle d'un élève dans iPackEPS, ni une redistribution systématique des lots.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
+        }
+      ]
+    },
+    "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt": {
+      "nature_non_attribuee": [
+        "logiciel"
+      ],
+      "passages": [
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si le traitement individuel nécessite un autre protocole, le chef d'établissement ou un enseignant crée au besoin le protocole de type adapté dans Cyclades, [EPS] > [Créer un protocole], type adapté, selon la configuration acceptée et le circuit applicable, puis y associe l'élève. Conserver les APSA déjà notées ; ne pas modifier le protocole standard et les groupes pour ce seul élève. La création n'est pas une étape obligatoire pour toute adaptation.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire avant la date butoir : selon la précision du formateur académique du 11 octobre 2026, un enseignant peut créer le protocole adapté dans iPackEPS pour le transfert des protocoles vers Cyclades par l'inspection, selon la campagne académique. La date dépend de cette campagne.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire après la date butoir : selon cette même précision du 11 octobre 2026, un protocole adapté créé dans iPackEPS après cette échéance ne bénéficie pas du transfert ordinaire vers Cyclades. Vérifier le circuit applicable dans Cyclades ; cette limite porte sur la création après l'échéance, pas sur une création antérieure.",
+          "nature": [
+            "consigne_academique",
+            "logiciel"
+          ],
+          "reference": "Formateur iPackEPS Aix-Marseille, précision du 11 octobre 2026 ; campagne académique à confirmer.",
+          "academie": "Aix-Marseille"
+        },
+        {
+          "texte": "Branche — inaptitude partielle temporaire : si un protocole doit changer alors qu'une APSA est déjà notée, conserver cette APSA dans le nouveau protocole Cyclades ; lui donner un nom distinct de l'ancien (exemple documentaire TG1 A), puis [EPS] > [Associer les élèves à un protocole]. Vérifier ensuite la note et le lot effectifs dans Santorin. Cette procédure ne décrit pas un menu de création de protocole depuis la fiche individuelle d'un élève dans iPackEPS, ni une redistribution systématique des lots.",
+          "nature": [
+            "logiciel"
+          ],
+          "reference": "Procédure Cyclades des supports existants (mémo enseignant, Besançon/Corse/Normandie) ; distinction avec création dans iPackEPS."
         }
       ]
     }

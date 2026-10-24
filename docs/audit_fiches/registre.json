@@ -5013,7 +5013,7 @@
     },
     {
       "path": "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt",
-      "sha256": "51bdf0af0e91a59028114a53b19595183d264afe6f3a76f30901c2692ca76c1e",
+      "sha256": "4da53664d33b20826ed6630e4365ba9c3d53305ea8d1d0449c019b1e70751bac",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
@@ -5031,7 +5031,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 1,
-        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
+        "reprise_ciblee": "condition_conservation_note_et_non_prescription_2026_10_24"
       }
     },
     {
@@ -5294,7 +5294,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "fc3b47ae34b2135b8db52e38b20beb7052d39d78493b70d4264c3f0b5cf99f3a",
+      "sha256": "203d21e8273ee1d28988e88c22d86a0d7ecfb2e0470244128287b46ff3da6550",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5321,7 +5321,7 @@
           148
         ],
         "apparitions_dans_passages_transmis_traces": 14,
-        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
+        "reprise_ciblee": "condition_conservation_note_et_non_prescription_2026_10_24"
       }
     },
     {
@@ -9052,7 +9052,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt",
-      "sha256": "6d43c88e5615c91a5791bf416c187468fed4be4fb1df848f7be1deedd54dfeb3",
+      "sha256": "39a2e6f3d083eaee21bd7e1e5df29d7913eb6396e7445c79d6db738e9ca775e5",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -9076,7 +9076,7 @@
           22
         ],
         "apparitions_dans_passages_transmis_traces": 1,
-        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
+        "reprise_ciblee": "condition_conservation_note_et_non_prescription_2026_10_24"
       }
     },
     {

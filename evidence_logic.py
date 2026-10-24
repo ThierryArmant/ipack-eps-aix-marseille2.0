@@ -84,8 +84,25 @@ _BRANCH_STOP = set("branche cas pour dans avec sans sous selon les des une est s
 _BRANCH_RULE = re.compile(r"\b(?:doit|doivent|devez|faut|necessaire|obligatoire|interdit|autorise|possible|peut|peuvent)\b|\bne (?:peut|peuvent|sera|seront)\b")
 
 
+def _branch_tokens(text):
+    # Pluriels réguliers : « notée » et « notées » gardent la même racine.
+    return [(w[:-1] if len(w)>4 and w.endswith('s') else w)[:6]
+            for w in re.findall(r"[a-z]{4,}", normalized(text)) if w not in _BRANCH_STOP]
+
+
 def _branch_words(text):
-    return {w[:6] for w in re.findall(r"[a-z]{4,}", normalized(text)) if w not in _BRANCH_STOP}
+    return set(_branch_tokens(text))
+
+
+def _prescriptive_branch_head(text):
+    if not _BRANCH_RULE.search(text) or _UNCERTAIN.search(text):
+        return False
+    epistemic = re.search(r"(?:\bne\s+|\bn').{0,35}(?:demontre|prouve|etablit|confirme|permet).{0,15}\bpas\b",text)
+    # « Ne démontre pas que X est nécessaire » n'impose pas X. Une obligation
+    # située AVANT cette réserve reste une prescription à contrôler.
+    if epistemic and not _BRANCH_RULE.search(text[:epistemic.start()]):
+        return False
+    return True
 
 
 def explicit_branch_condition_lost(claim):
@@ -96,7 +113,7 @@ def explicit_branch_condition_lost(claim):
     peut demander de conserver le libellé explicite. Aucune décision métier codée.
     """
     heads = [proposition_head(part) for part in re.split(r'[.;!?]\s*', claim['text']) if part.strip()]
-    normative = [part for part in heads if _BRANCH_RULE.search(part) and not _UNCERTAIN.search(part)]
+    normative = [part for part in heads if _prescriptive_branch_head(part)]
     if not normative:
         return False
     alternatives = []
@@ -104,7 +121,7 @@ def explicit_branch_condition_lost(claim):
         match = _BRANCH.match(evidence.get('quote', ''))
         if match:
             for part in re.split(r'\s+ou\s+', normalized(match.group(1))):
-                ordered = [w[:6] for w in re.findall(r'[a-z]{4,}', part) if w not in _BRANCH_STOP]
+                ordered = _branch_tokens(part)
                 if ordered:
                     alternatives.append((set(ordered), ordered if re.search(r'\bavant\b|\bapres\b',part) else []))
     def preserved(text, alternative):

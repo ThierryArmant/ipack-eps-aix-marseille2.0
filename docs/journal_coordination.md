@@ -1,3 +1,15 @@
+## 24 octobre — deux réserves sur baba14f : corriger nos faux positifs
+
+Dernier CSV privé (7)(1), 6/7 dans Examens sur baba14f : deux réserves après réparation, 56052 jetons, deux orientations/quatre rédactions, mini seul, aucun Albert/secours/panne. Le blocage n'est pas une réussite fonctionnelle. Les erreurs précédentes ne sont pas affichées comme réponse validée, mais notre contrôle rejetait aussi des éléments corrects.
+
+Faux positif démontré sur 7 : une phrase correctement conditionnée est suivie de « La validation du projet annuel ... ne démontre pas qu'une nouvelle validation ... soit nécessaire ». Le contrôle prenait nécessaire pour une prescription et demandait de répéter la branche dans ce constat négatif. evidence_logic distingue désormais cette non-prescription d'une véritable obligation. Une prescription catégorique précédant une réserve reste contrôlée. Pluriels réguliers normalisés pour les termes de branche (notée/notées), sans inférence sémantique.
+
+Autre surrestriction introduite par nos copies alignées : le libellé médical avait été attaché à la conservation technique d'une APSA déjà notée. La condition des supports existants (Créteil article 73, cas de note déjà saisie) est la présence de l'APSA évaluée dans le nouveau protocole. Dans les trois copies concernées, ce libellé devient « Branche — APSA déjà notée », avec la procédure inchangée et la réserve de versions conservée dans l'attribution. Les conditions médicales de création/validation/certification ne sont pas supprimées. Empreintes renouvelées, annotations exactes mises à jour ; a_confirmer pour la revue complète.
+
+Sept tests dédiés : phrases exactes observées, réserve versus obligation, conservation dans les trois vraies sources, pluriels, obligations et permissions non conditionnées qui doivent encore être détectées, exemples hors EPS. Relecture hors ligne des propositions finales du CSV avec seul libellé de preuve actualisé : aucun signal de ces contrôles sur 7 ; un signal reste sur 6 pour la création sans périmètre médical. Cela ne certifie ni la complétude ni la prochaine rédaction réelle. Aucune nouvelle réponse modèle générée.
+
+Suite globale finale : 1078 tests réussis ; contrôle mécanique 435 fichiers sans anomalie selon ses critères, compilation et diff vérifiés. Aucun nouvel appel IA payant ni rejeu exécuté pendant le travail. Rapport existant complété dans docs/audit_fiches/controle_branches_2026_10_24.md. Ne pas demander une relance payante par défaut pour vérifier ces mêmes faux positifs, reproduits localement ; ne pas annoncer 90 % à partir de refus ou de tests de code.
+
 ## 24 octobre — copie contradictoire dans le complément Cyclades : quatre sources concordantes
 
 Base : 10b112c. Nouveau rejeu privé 6/7 sur Examens, mêmes questions/contextes : 33543 jetons, deux orientations/deux rédactions, mini seul, aucune réparation ni panne. L'inversion avant/après a disparu ; 6 reste incorrecte (création depuis la fiche élève iPackEPS inventée à partir d'une procédure Cyclades), 7 partielle et répétitive. Aucun taux de réussite global déduit.

@@ -2899,8 +2899,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
              "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None}
         )
 
+        _texte_medias = _generation_runtime.exact_source_answer.media_text(diagnostic_ia, texte_final)
         for video_name, video_url in VIDEOS_TUTOS.items():
-            if video_name in texte_final:
+            if video_name in _texte_medias:
                 if est_dnb and "santorin" in video_name.lower():
                     continue
                 st.session_state.messages_hub.append(
@@ -2911,7 +2912,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
         # de fichier .mp4 : sans ce bloc, la vidéo n'était plus affichée sous la réponse.
         if mode != "textes" and not est_dnb:
             _deja = {m["content"] for m in st.session_state.messages_hub if m.get("type") == "video"}
-            for _url in re.findall(r"https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{6,}", texte_final)[:1]:
+            for _url in re.findall(r"https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?v=)[A-Za-z0-9_-]{6,}", _texte_medias)[:1]:
                 if _url not in _deja:
                     st.session_state.messages_hub.append(
                         {"role": "assistant", "type": "video", "content": _url}

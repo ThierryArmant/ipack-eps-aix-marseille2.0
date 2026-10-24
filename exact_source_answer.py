@@ -5,6 +5,19 @@ import json
 import re
 
 
+def media_text(audit, fallback):
+    """Les annexes repliées ne déclenchent pas de vidéo sous la réponse ciblée."""
+    report = (audit or {}).get('exact_extracts', {})
+    if report.get('display_version') != 'exact-focus-v1':
+        return fallback
+    ids = report.get('focused_passage_ids', [])
+    spans = {s['id']: s['text'] for p in report.get('selected_sources', [])
+             for s in p.get('passages', [])}
+    result = '\n'.join(spans[i] for i in ids if i in spans)
+    report['automatic_media_passage_ids'] = [i for i in ids if i in spans]
+    return result
+
+
 def render_focused_sources(selected, focus_ids, reviewer, report):
     """Recopie des passages entiers ; le contexte source reste consultable."""
     spans = {s['id']: (p, s) for p in selected for s in p['passages']}

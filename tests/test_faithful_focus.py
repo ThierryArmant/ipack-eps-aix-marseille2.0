@@ -36,7 +36,7 @@ class FaithfulFocusTests(unittest.TestCase):
             with self.subTest(action=action):
                 answer, audit, llm = self.run_case([action+'\n\n'+neighbour],
                     lambda ps: dict(principal='D1', complements=[], passages=[ps[0]['passages'][0]['id']]))
-                lead, context = answer.split('<details><summary>Vérifier', 1)
+                lead, context = answer.split('<details><summary>Consulter', 1)
                 self.assertIn(html.escape(action), lead)
                 self.assertNotIn(html.escape(neighbour), lead)
                 self.assertIn(html.escape(neighbour), context)
@@ -50,7 +50,7 @@ class FaithfulFocusTests(unittest.TestCase):
             return dict(principal='D1', complements=['D2'], passages=[
                 ps[0]['passages'][0]['id'], ps[1]['passages'][0]['id'], ps[1]['passages'][1]['id']])
         answer, audit, _ = self.run_case(texts, choose)
-        lead = answer.split('<details><summary>Vérifier')[0]
+        lead = answer.split('<details><summary>Consulter')[0]
         for text in ['Action si la condition est satisfaite.', 'Préalable dans un autre outil.', 'Ne pas supprimer les notes.']:
             self.assertIn(text, lead)
         self.assertEqual(audit['exact_extracts']['focused_passage_ids'], ['D1P1','D2P1','D2P2'])
@@ -68,7 +68,7 @@ class FaithfulFocusTests(unittest.TestCase):
         action = 'Action A si X ; action B si Y. <script>danger()</script>'
         answer, _, _ = self.run_case([action],
             lambda ps: dict(principal='D1', complements=[], passages=['D1P1']))
-        self.assertIn(html.escape(action), answer.split('<details><summary>Vérifier')[0])
+        self.assertIn(html.escape(action), answer.split('<details><summary>Consulter')[0])
         self.assertNotIn('<script>', answer)
 
 

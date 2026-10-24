@@ -56,7 +56,7 @@ class ExactSelectionUnitTests(unittest.TestCase):
         self.assertEqual([s['id'] for s in payload['documents'][0]['passages']],['D1P2'])
         self.assertEqual(a['exact_extracts']['excluded_search_metadata'],['D1P1','D1P3'])
         self.assertEqual(len(a['documents'][0]['passages']),3)
-        self.assertIn('Mots-clés',out.split('<details>')[1])
+        self.assertIn('Mots-clés',out.split('<summary>Consulter les passages complets</summary>',1)[1])
 
     def test_metadata_cannot_be_selected_and_mixed_business_span_is_kept(self):
         _,a,llm=self.run_case(['Mots-clés : importer.\n\nAction : valider.'],

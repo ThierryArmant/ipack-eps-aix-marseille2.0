@@ -46,9 +46,8 @@ def media_text(audit, fallback):
 def render_focused_sources(selected, focus_ids, reviewer, report):
     """Recopie des passages entiers ; le contexte source reste consultable."""
     spans = {s['id']: (p, s) for p in selected for s in p['passages']}
-    numbers = {p['id']: n for n, p in enumerate(selected, 1)}
-    blocks = ['<h3>Passages retenus pour votre demande</h3>',
-              '<p>Extraits sélectionnés, sans réécriture. Le choix et la complétude restent à vérifier dans les sources ci-dessous.</p>']
+    blocks = ['<h3>Réponse</h3>']
+    references = {}
     previous_section = None
     sections = []
     for passage_id in focus_ids:
@@ -56,17 +55,26 @@ def render_focused_sources(selected, focus_ids, reviewer, report):
         section, section_origin = section_label(packet, span)
         section_key = (packet['id'], section)
         if section and section_key != previous_section:
-            blocks.append('<h4>' + html.escape(section) + '</h4>')
+            display_section = re.sub(r'^\[SITUATION:\s*(.*?)\]$', r'\1', section)
+            display_section = re.sub(r'^\[ARTICLE\s+\d+\]\s*(?:\[[^\]]*\]\s*)+', '', display_section)
+            blocks.append('<h4>' + html.escape(display_section) + '</h4>')
         previous_section = section_key
         sections.append(dict(passage_id=passage_id, document_id=packet['id'],
                              section=section, section_origin=section_origin))
         label = reviewer.evidence_label({'scope': span.get('scope', {})}, packet, reviewer._LEVELS)
-        blocks.append('<p style="white-space:pre-wrap">' + html.escape(span['text']) + '</p>')
-        blocks.append('<p><small>[' + str(numbers[packet['id']]) + '] '
-                      + html.escape(label) + '</small></p>')
+        key = (packet['id'], label)
+        if key not in references:
+            references[key] = len(references) + 1
+        ref = str(references[key])
+        blocks.append('<p style="white-space:pre-wrap;line-height:1.65;margin:0.6rem 0 1rem">'
+                      + html.escape(span['text']) + ' <sup>[' + ref + ']</sup></p>')
+    blocks.append('<details><summary>Sources et portée (' + str(len(references)) + ')</summary>')
+    for (document_id, label), number in references.items():
+        blocks.append('<p><small>[' + str(number) + '] ' + html.escape(label) + '</small></p>')
+    blocks.append('</details>')
     full_report = {}
     complete = render_exact_sources(selected, reviewer, full_report)
-    blocks.extend(['<details><summary>Vérifier les textes complets et leurs conditions</summary>',
+    blocks.extend(['<details><summary>Consulter les passages complets</summary>',
                    complete, '</details>'])
     report.update(display_version='exact-focus-v1', focused_passage_ids=focus_ids,
                   focused_sections=sections,

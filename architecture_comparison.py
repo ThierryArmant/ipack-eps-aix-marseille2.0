@@ -327,7 +327,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                         st.error(str(exc))
         with st.form('architecture_comparison_form'):
 
-            method = st.selectbox('Méthode face à A', ['G — Sources exactes sans réécriture', 'F — Préparer le contexte par rôle', 'E — Proposition Gemini : isoler les procédures', 'D — Albert, mêmes fiches que A', 'C — Préciser en cas de doute', 'B — Interpréter avant recherche'])
+            method = st.selectbox('Méthode face à A', ['H — Albert sur la sélection G', 'G — Sources exactes sans réécriture', 'F — Préparer le contexte par rôle', 'E — Proposition Gemini : isoler les procédures', 'D — Albert, mêmes fiches que A', 'C — Préciser en cas de doute', 'B — Interpréter avant recherche'])
+            st.caption('H réutilise le dernier résultat G de cette session ou le fichier G importé au-dessus. Un appel Albert, aucun nouveau Mini. Question et contexte du résultat G sont conservés ; ils ne sont pas à ressaisir.')
             baseline_choice = st.selectbox('Calcul de la référence A (option pour G)', ['G seule — ne pas recalculer A', 'Calculer A et la variante'])
             albert_choice = st.selectbox('Modèle Albert accessible', ['Choisir un modèle'] + st.session_state.get('albert_models', []))
             albert_exact = st.text_input('Identifiant Albert si absent de la liste (facultatif)', value=albert_model or '')
@@ -337,7 +338,19 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
             academy = st.text_input('Académie du comparatif', value='Aix-Marseille')
             submitted = st.form_submit_button('Tester le parcours — IA payante si nécessaire')
         if submitted:
-            if not question.strip():
+            if method[0] == 'H':
+                try:
+                    if not saved_g:
+                        raise ValueError('Aucun résultat G conservé. Importez votre fichier comparatif G dans le champ « Importer un comparatif G pour Albert » situé au-dessus de cette liste. Aucun appel lancé.')
+                    if not albert_api_key:
+                        raise AlbertError('Clé Albert absente : aucun appel lancé.')
+                    model_id = albert_exact.strip() or (albert_choice if albert_choice != 'Choisir un modèle' else '')
+                    direct = AlbertLLM(albert_api_key,model_id,temperature=getattr(llm,'temperature',0.0))
+                    with st.spinner('Rédaction Albert sur la sélection G enregistrée…'):
+                        st.session_state['architecture_comparison_result'] = write_selected_g_with_albert(saved_g,direct,version=version)
+                except (AlbertError,ValueError) as exc:
+                    st.error(str(exc))
+            elif not question.strip():
                 st.error('Saisissez une question.')
             else:
                 try:

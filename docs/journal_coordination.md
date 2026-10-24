@@ -1,3 +1,9 @@
+## 24 octobre — accès Albert/G dans la liste existante du comparateur
+
+Base cafbe22, HEAD et journal relus ; travail isolé dans hub-albert-menu. L'utilisateur ne retrouve pas le panneau séparé Albert/G. Ajout de « H — Albert sur la sélection G » en première position dans la liste « Méthode face à A », celle montrée sur sa capture. Le bouton habituel du formulaire peut désormais lancer la rédaction Albert sur G sans ressaisir la question ni le contexte. Résultat G courant ou export importé requis ; s'il manque, message explicite et aucun appel. Clé et modèle requis. Aucun nouveau Mini, aucun nouveau A, aucune recherche ni réparation ajoutée. Le bouton séparé reste disponible. Il ne s'agit pas d'une réactivation globale d'Albert.
+
+19 tests ciblés passent (architecture 10, Albert 5, sélection G/Albert 4), syntaxe vérifiée. Aucun appel réel fournisseur. Interface de découverte corrigée ; le test réel Albert reste à lancer par l'utilisateur.
+
 ## 24 octobre — rédaction Albert sur la sélection G déjà enregistrée
 
 Base 1613605, HEAD et journal relus ; modifications isolées dans hub-albert-selected-g, fiches et travaux locaux antérieurs préservés. Le résultat G réel fourni par l'utilisateur sélectionne D3 et D6, sans écriture métier : un appel Mini, 5 232 jetons, 1 830 caractères de passages restitués sur 10 898 retrouvés. Cette baisse concerne la restitution, pas les textes lus par le sélecteur. Aucun menu inventé ni transposition des droits dans ce résultat ; affichage encore lourd. Un cas ne démontre pas une efficacité générale.

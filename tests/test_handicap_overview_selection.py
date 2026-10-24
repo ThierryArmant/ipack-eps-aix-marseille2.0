@@ -29,11 +29,12 @@ class HandicapOverviewTests(unittest.TestCase):
 
     def test_temporary_rule_is_national_but_software_is_not(self):
         p=next(p for p in self.packets if p['path']==TEMP)
-        reg=next(s for s in p['passages'] if s['text'].startswith("Pour une inaptitude temporaire en cours d'année"))
+        reg=next(s for s in p['passages'] if s['text'].startswith("Branche — inaptitude partielle temporaire : au bac GT"))
         self.assertEqual(reg['scope']['nature'],['texte_national'])
         self.assertNotIn('Cyclades',reg['text'])
-        soft=next(s for s in p['passages'] if s['text'].strip().startswith('Pas de nouvelle validation'))
-        self.assertNotEqual(soft['scope']['nature'],['texte_national'])
+        soft=next(s for s in p['passages'] if 'crée au besoin' in s['text'])
+        self.assertEqual(soft['scope']['nature'],['logiciel'])
+        self.assertTrue(soft['text'].startswith('Branche — inaptitude partielle temporaire :'))
 
     def test_realistic_omission_and_absolute_preference_restore_source_without_retry(self):
         p=self.packets[0]

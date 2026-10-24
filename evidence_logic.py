@@ -80,8 +80,8 @@ def _objects(text):
 
 # Marqueur rédactionnel explicite, indépendant du sujet métier.
 _BRANCH = re.compile(r'^\s*Branche\s*[—–-]\s*([^:\n]{3,180})\s*:', re.I)
-_BRANCH_STOP = set("branche cas pour dans avec sans sous selon les des une est sont ces cette meme cours annee deja soit leur leurs aux avant apres lorsque".split())
-_BRANCH_RULE = re.compile(r"\b(?:doit|doivent|devez|faut|necessaire|obligatoire|interdit|autorise|possible)\b|\bne (?:peut|peuvent)\b")
+_BRANCH_STOP = set("branche cas pour dans avec sans sous selon les des une est sont ces cette meme cours annee deja soit leur leurs aux lorsque".split())
+_BRANCH_RULE = re.compile(r"\b(?:doit|doivent|devez|faut|necessaire|obligatoire|interdit|autorise|possible|peut|peuvent)\b|\bne (?:peut|peuvent|sera|seront)\b")
 
 
 def _branch_words(text):
@@ -103,9 +103,20 @@ def explicit_branch_condition_lost(claim):
     for evidence in claim.get('evidence', []):
         match = _BRANCH.match(evidence.get('quote', ''))
         if match:
-            alternatives.extend(words for part in re.split(r'\s+ou\s+', normalized(match.group(1)))
-                                if (words := _branch_words(part)))
-    return bool(alternatives) and any(not any(words <= _branch_words(part) for words in alternatives)
+            for part in re.split(r'\s+ou\s+', normalized(match.group(1))):
+                ordered = [w[:6] for w in re.findall(r'[a-z]{4,}', part) if w not in _BRANCH_STOP]
+                if ordered:
+                    alternatives.append((set(ordered), ordered if re.search(r'\bavant\b|\bapres\b',part) else []))
+    def preserved(text, alternative):
+        words, ordered = alternative
+        if not words <= _branch_words(text):
+            return False
+        if not ordered:
+            return True
+        # Les mots « avant » et « après » présents ailleurs ne réparent pas
+        # l'ordre inversé de la condition citée. Aucun calendrier métier ici.
+        return bool(re.search(r'\b'+r'\w*\b.*?\b'.join(map(re.escape,ordered))+r'\w*\b',normalized(text)))
+    return bool(alternatives) and any(not any(preserved(part, alternative) for alternative in alternatives)
                                       for part in normative)
 
 
@@ -132,10 +143,34 @@ def non_implication_to_obligation(claim):
     return False
 
 
+def optional_action_made_mandatory(claim):
+    """Une action explicitement « au besoin » ne devient pas une obligation."""
+    head = proposition_head(claim['text'])
+    if not re.search(r'\b(?:necessaire|obligatoire|doit|doivent|devez|faut)\b',head):
+        return False
+    if _CONDITIONAL.search(head) or re.search(r'au besoin|si necessaire|en cas de besoin',head):
+        return False
+    proofs = [normalized(e.get('quote','')) for e in claim.get('evidence',[])]
+    for proof in proofs:
+        for action in re.findall(r'\b([a-z]{4,})\s+au besoin\b',proof):
+            root = action[:4]
+            if not re.search(r'\b'+re.escape(root)+r'[a-z]*\b',head):
+                continue
+            direct = any('au besoin' not in other and not _CONDITIONAL.search(other)
+                         and re.search(r'\b(?:necessaire|obligatoire|doit|doivent|devez|faut)\b',other)
+                         and re.search(r'\b'+re.escape(root)+r'[a-z]*\b',other)
+                         for source in proofs for other in re.split(r'[.;!?]\s*',source))
+            if not direct:
+                return True
+    return False
+
+
 def evidence_logic_errors(claims):
     """Ne valide jamais une conclusion : renvoie les pertes explicites détectées."""
     errors = []
     for i, claim in enumerate(claims):
+        if optional_action_made_mandatory(claim):
+            errors.append({'index': i, 'errors': ['action prévue au besoin transformée en obligation : conserver la condition de nécessité de cette action']})
         if non_implication_to_obligation(claim):
             errors.append({'index': i, 'errors': ['constat de non-équivalence transformé en obligation : la preuve dit que cette action ne vaut pas décision, sans établir que cette action soit obligatoire']})
         if explicit_branch_condition_lost(claim):

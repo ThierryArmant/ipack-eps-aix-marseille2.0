@@ -26,3 +26,19 @@ La réparation reste celle qui existait : jusqu'à un appel de rédaction suppl�
 ## Limites
 
 Ce contrôle est lexical, pas une preuve sémantique. Il ne couvre pas toutes les formulations conditionnelles, peut demander la conservation explicite d'un libellé là où une paraphrase serait correcte, et ne prouve pas que les faits de l'utilisateur établissent la condition citée. Il ne choisit pas une branche à la place du modèle. Il ne vérifie pas à lui seul qu'une règle portant sur une branche n'est pas attribuée à l'autre. Ne pas annoncer 90 % ni une suppression générale des erreurs. La prochaine génération réelle de 6/7 reste à observer ; aucun lot massif n'est requis pour ce contrôle.
+
+## Suite sur Examens — base 39ea338 : unités autonomes dans iPack 212
+
+Le rejeu privé de 6/7 dans Textes avait déclenché deux réparations : 7 exploitable, 6 bloquée après une réparation encore incomplète. Puis les mêmes questions ont été déplacées vers Examens : 31346 jetons, deux orientations et deux rédactions, aucun rejet. Les deux réponses étaient pourtant défectueuses. La comparaison entre onglets ne mesure pas l'effet isolé d'un changement de code.
+
+Le parcours Examens sélectionne aussi iPack 212. L'annotation nationale isolait « Pour une inaptitude temporaire… », puis le reste de la même ligne devenait une nouvelle preuve commençant par « Pas de nouvelle validation… ». Ce fragment avait perdu son antécédent. Le contrôle limité aux preuves portant un libellé explicite de branche ne pouvait pas récupérer une condition absente de sa preuve.
+
+Réorganisation de la fiche existante, avec conservation du titre et des formulations de recherche : unités séparées pour permanente/handicap, temporaire (alternatives de certification), adaptation d'une épreuve si partielle temporaire, création technique éventuelle, déclaration d'inaptitude, calendrier avant/après, traçabilité et réserve SAV locale. La condition et l'action sont dans la même ligne et dans la même annotation. Les attributions nationales et logicielles couvrent désormais les unités complètes. Le code ne choisit pas le cas médical et aucune piste audio de visite n'est nouvellement exploitée.
+
+Les alternatives d'une inaptitude temporaire totale ne sont pas supprimées : elles sont dans une unité distincte de l'adaptation d'une épreuve pour inaptitude partielle. La réserve technique Aix-Marseille est conservée avec sa date, son circuit et sa limite de portée. Les empreintes et le registre de portée sont actualisés, statut documentaire a_confirmer.
+
+Le contrôle de branche conserve maintenant l'ordre des mots significatifs pour les libellés temporels explicites « avant/après la date… » ; rencontrer « après » ailleurs dans la phrase ne suffit plus à compenser une inversion. Il couvre aussi les possibilités et les conséquences négatives futures. Un contrôle borné repère également une action « au besoin » devenue obligatoire sans condition ni autre preuve établissant cette obligation. Il s'appuie sur le verbe cité et ne couvre pas tous les synonymes.
+
+Six tests dédiés : vraies unités après annotation, nature nationale/logicielle, condition conservée dans la création, obligation injustifiée, inversion exacte de date, domaines fictifs et vérification des offsets. Un test ancien recherchait justement le fragment isolé « Pas de nouvelle validation » : il exige maintenant l'unité logicielle complète et sa condition. Les autres tests sont conservés.
+
+Les contrôles restent lexicaux et bornés ; ils ne prouvent pas toute l'applicabilité et peuvent refuser des paraphrases éloignées. Aucun nouvel appel IA, aucune modification des plafonds de réparation. La prochaine rédaction réelle n'est pas prétendue validée par les tests locaux.

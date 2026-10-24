@@ -36,7 +36,7 @@ def complete_selection_contracts(candidates, selected, focus, question, report):
         if contract['mode'] == 'complete_decision':
             if packet['id'] not in [p['id'] for p in selected]:
                 continue
-            if not any(s['id'] in focus for s in required):
+            if not any(s['id'] in focus and not search_metadata(s) for s in packet['passages']):
                 continue
             # Groupe déclaré explicitement : ne jamais généraliser à tous les « Si ».
             if len({section_label(packet, s)[0] for s in required}) != 1:

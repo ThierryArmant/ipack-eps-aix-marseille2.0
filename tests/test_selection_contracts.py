@@ -30,6 +30,17 @@ class SelectionContractsTests(unittest.TestCase):
                 _,focus=complete_selection_contracts([p],[p],['D1P2'],'Erreur groupe protocole '+detail,{})
                 self.assertEqual(focus,['D1P2'])
 
+    def test_selected_explanation_alone_also_restores_declared_decision(self):
+        p=self.decision()
+        p['passages'].insert(0,dict(id='D1P0',text='Le champ est grisé.'))
+        _,focus=complete_selection_contracts([p],[p],['D1P0'],'Erreur groupe Cyclades',{})
+        self.assertEqual(focus,['D1P0','D1P1','D1P2','D1P3'])
+
+    def test_document_without_focused_passage_does_not_trigger_decision(self):
+        p=self.decision()
+        _,focus=complete_selection_contracts([p],[p],['D9P1'],'Erreur groupe Cyclades',{})
+        self.assertEqual(focus,['D9P1'])
+
     def test_no_general_completion_of_other_sections_or_unknown_sources(self):
         p=self.decision();p['path']='data/autre.txt'
         _,focus=complete_selection_contracts([p],[p],['D1P2'],'Erreur groupe Cyclades',{})

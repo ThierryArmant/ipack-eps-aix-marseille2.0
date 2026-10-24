@@ -1,5 +1,13 @@
 # Comparateur documentaire A/B
 
+## Variante E — proposition Gemini : isoler les procédures
+
+Choisir « E — Proposition Gemini : isoler les procédures » face à A. Cette variante reprend la proposition fournie par l'utilisateur : identifier l'action, l'objet et la phase, rattacher les conditions à leur opération, distinguer les procédures voisines et vérifier acteur et chemin dans les passages cités. Elle conserve les vrais préalables documentés. Elle ne déduit pas « aucune condition » d'une absence de preuve et n'invente pas un rôle générique de responsable habilité.
+
+A et E partagent exactement les documents récupérés une seule fois, le modèle, la température, la question originale, le contexte et les contrôles. E ajoute seulement la consigne expérimentale aux instructions de rédaction existantes. Aucun appel à Gemini ou Albert, ni analyse IA supplémentaire. Chaque colonne peut avoir sa réparation habituelle, comptée séparément. Si la recherche A échoue, E n'en lance pas une autre. Les parcours communs sans IA restent prioritaires.
+
+La consigne exacte est consultable dans le panneau et exportée avec son identifiant et son empreinte dans la trace E. C'est une adaptation prudente, pas la copie littérale de toute la proposition ; ce test n'effectue pas sa réécriture suggérée des fiches et n'ajoute pas de raisonnement détaillé à afficher. Il ne reproduit pas tout le pipeline de sélection du Hub public et ne prouve pas qu'une consigne empêche les erreurs. Aucun effet sur la réponse publique, aucun lancement automatique. Reprendre une même question dans A/E, examiner les deux réponses et télécharger le JSON avant de quitter la session.
+
 Accès : administration du hub, panneau « Comparateur des architectures A / B ».
 Saisir une question, un niveau, un domaine et une académie, puis cliquer sur « Tester le parcours — IA payante si nécessaire ».
 

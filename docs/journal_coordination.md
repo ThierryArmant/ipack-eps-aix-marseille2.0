@@ -1,3 +1,13 @@
+## 24 octobre — comparateur E : proposition Gemini adaptée, isolation des procédures
+
+Base 869ace4, HEAD et journal vérifiés, travail isolé dans hub-gemini-comparison ; travaux locaux précédents préservés. À la demande de l'utilisateur, ajout « E — Proposition Gemini : isoler les procédures » au comparateur administrateur, sélectionné en premier. L'utilisateur prévoit de tester lui-même la question rebelle de réaffectation d'un lot. Aucun essai réel lancé par l'agent.
+
+E utilise le même modèle, la même température, question originale, contexte et les documents récupérés une seule fois pour A ; mêmes contrôles et réparations habituelles. Seule une consigne supplémentaire de rédaction est ajoutée : identifier action/objet/phase, rattacher les conditions à leur opération, vérifier acteur et chemin. La proposition est adaptée pour préserver les vrais préalables d'une autre opération, ne pas déduire l'absence de toute condition et ne pas inventer de rôle habilité ou menu. Aucun appel à Gemini ou Albert dans E, aucune analyse IA supplémentaire ni raisonnement détaillé à afficher. Une réparation peut ajouter son appel habituel dans chaque colonne ; tous les usages restent comptabilisés. Si la recherche A est absente, E ne relance pas une recherche différente. Parcours sans IA commun conservé.
+
+La consigne exacte est visible dans le panneau et exportée dans la trace E avec version et empreinte. Aucun changement des fiches, du prompt public, des choix du Hub public, ni du journal des collègues. Ce comparateur ne reproduit pas tout le pipeline public de sélection ; ne pas extrapoler le résultat à une garantie de sélection. Il teste la composante consigne de la proposition, pas sa restructuration des fiches.
+
+Vérification hors fournisseur : 61 tests ciblés passent (4 nouveaux E, 10 architecture, 2 chargeur administrateur, 5 comparatif Albert, 40 clarification), syntaxe vérifiée. Vérifications d'identité des documents/modèle/contexte, d'absence de recherche E indépendante et d'appel Albert/interprétation, comptage séparé des générations et absence de génération si parcours documentaire commun. Aucun résultat métier préjugé.
+
 ## 24 octobre — normalisation prudente de la question pour la recherche
 
 Base publiée f0a5236, journal relu et modifications locales préservées dans leur répertoire. Travail isolé dans hub-question-normalization ; aucun reset ni publication globale du checkout ancien. Autorisation utilisateur : ajouter un correcteur de saisie local, sans appel fournisseur supplémentaire.

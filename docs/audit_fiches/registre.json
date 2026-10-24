@@ -482,10 +482,10 @@
     },
     {
       "path": "data/commun/audit60/gt_inaptitude_demarche.txt",
-      "sha256": "86c0e2f730428e57f5ba39a16ca9cc1a89cf10230c1184d143e17ed9f35c4830",
+      "sha256": "42c31037bf9e804bbd7638b766e98e05b8cb8ea622392f6b2b99d54730d186cf",
       "famille": "commun",
-      "statut_audit": "a_relire",
-      "statut_catalogue": "verifie_2026-10-11_portee_explicite",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "reprise_ciblee_2026-10-24_branches_medicales_et_selection_textes",
       "signaux": [
         "affirmation_absolue_a_relire"
       ],
@@ -500,7 +500,8 @@
         "lignes_conditions_multiples": [
           7
         ],
-        "apparitions_dans_passages_transmis_traces": 6
+        "apparitions_dans_passages_transmis_traces": 6,
+        "reprise_ciblee": "nettoyage_reaffectation_adaptation_2026_10_24"
       }
     },
     {
@@ -5293,7 +5294,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "87c7ea7bcacdd4dd342396b78b9f05d71bc6f7d5b03b092b9b9c02607664a174",
+      "sha256": "a493aa36d43fb0c22e3435ad280ca217aeb5e56f0a35feddcb34d09918124f3c",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5320,7 +5321,7 @@
           148
         ],
         "apparitions_dans_passages_transmis_traces": 14,
-        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
+        "reprise_ciblee": "nettoyage_reaffectation_adaptation_2026_10_24"
       }
     },
     {

@@ -43,7 +43,7 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 ### [SITUATION: UN ÉVALUATEUR A CHANGÉ (REMPLACEMENT, DÉPART) — RÉAFFECTER LE PROTOCOLE DANS CYCLADES]
 - Mots-clés : changement d'enseignant, remplaçant, réaffecter un protocole, Contrôler / Réaffecter des protocoles, adresse mail de l'évaluateur.
 - Formulations courantes des collègues : mon collègue est remplacé, comment donner son protocole au remplaçant ; le remplaçant ne voit pas les élèves du titulaire ; comment changer l'évaluateur d'un protocole.
-- Cette étape n'est nécessaire que si un enseignant affecté à un protocole a été remplacé par un autre.
+- Champ de ce cas : un remplacement ou un départ peut nécessiter une réaffectation de l'évaluateur. Ce n'est pas le seul motif : une adresse erronée ou un protocole saisi au nom d'un collègue se traite aussi en vérifiant l'évaluateur puis en demandant sa réaffectation au chef d'établissement (fiche existante reaffecter_evaluateur_cyclades). Le seul auteur de la saisie ne prouve pas un blocage de notation.
 - C'est le chef d'établissement qui agit, dans Cyclades, activité [EPS] / [Contrôler / Réaffecter des protocoles] : il remplace l'adresse mail de l'évaluateur par celle du nouvel enseignant. La réaffectation reste possible toute l'année.
 - L'enseignant remplaçant ne peut pas le faire lui-même : il le demande à son chef d'établissement. (Sources concordantes : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
 

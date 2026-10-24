@@ -4104,22 +4104,25 @@
   },
   "data/commun/audit60/gt_inaptitude_demarche.txt": {
     "title": "Bac GT CCF : inaptitude, adaptation puis calcul conditionnel",
-    "statut": "verifie_2026-10-11_portee_explicite",
+    "statut": "reprise_ciblee_2026-10-24_branches_medicales_et_selection_textes",
     "examens": [
       "gt"
     ],
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "motifs": [
       "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt",
-      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)"
+      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)",
+      "^(?!.*(?:\\bshn\\b|haut niveau|eppcs|incluscol|amex|\\bpap\\b|\\bpai\\b|\\bpps\\b|demande d.amenagement|cyclades|santorin|ipack))(?=.*protocole\\w*.{0,20}adapt)(?=.*(?:en cours d.annee|anticip|retour.{0,25}commission|changer.{0,25}protocole|protocole.{0,25}chang))"
     ],
     "exclusif_motifs": [
       "inapt.*(?:epreuve|ccf|note|calcul)|(?:epreuve|ccf).*inapt",
-      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)"
+      "(?:arret|certificat|bless|malad|hospitalis|opere)(?=.*(?:\\bdeux|\\b2) (?:autres )?notes)|(?:\\bdeux|\\b2) (?:autres )?notes.*(?:arret|certificat|bless|malad|hospitalis|opere)",
+      "^(?!.*(?:\\bshn\\b|haut niveau|eppcs|incluscol|amex|\\bpap\\b|\\bpai\\b|\\bpps\\b|demande d.amenagement|cyclades|santorin|ipack))(?=.*protocole\\w*.{0,20}adapt)(?=.*(?:en cours d.annee|anticip|retour.{0,25}commission|changer.{0,25}protocole|protocole.{0,25}chang))"
     ],
     "exclure_motifs": [
       "option|eppcs",
@@ -4129,7 +4132,8 @@
       "inapt.*total.*septembre.*juin",
       "(?:collegue|professeur|\\bprof\\b|enseignant|evaluateur|examinateur).{0,40}(?:arret|malad)|(?:arret|malad).{0,30}(?:du|de la|d.un|d.une) (?:collegue|professeur|prof\\b|enseignant)",
       "qu.une? seule? (?:ccf|epreuves?|notes?|activites?|evaluations?)|une? seule? (?:ccf|epreuve|note|evaluation) sur (?:les )?(?:trois|3)|1 (?:ccf|note|epreuve) sur 3",
-      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))"
+      "(?=.*(?:(?:deux|2) inaptitudes?(?: totales?| partielles?)?|dispens.{0,25}(?:deux|2|les deux)|\\bdi\\s*\\+\\s*di))(?=.*(?:une note|\\bnote\\b|une (?:seule )?epreuve))",
+      "\\bshn\\b|haut niveau"
     ],
     "date_verification": "2026-10-11",
     "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N"

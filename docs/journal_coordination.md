@@ -1,3 +1,15 @@
+## 24 octobre — perte des conditions de branche : reproduction locale et contrôle borné
+
+Base : 9c5dd8d. Le nouveau CSV privé (5)(3) reprend les mêmes dix premières questions et contextes, mini seul : 17 appels (7 orientations, 10 rédactions), 101693 jetons contre 113311, aucun Albert/secours/panne/réparation. Analyse manuelle : 5 exploitables (1/2/3/5/10), 3 partielles (4/8/9), 2 problématiques (6/7). Q2 corrigée ; Q6/Q7 reçoivent désormais la bonne fiche et ses deux branches mais mini généralise la branche permanente et transforme une non-équivalence en obligation. Aucun nouveau rejeu payant.
+
+Ajout borné dans evidence_logic : prescription citant une preuve « Branche — condition : » qui omet son périmètre ; non-équivalence « action ne vaut pas décision » transformée en nécessité de cette action sans autre preuve qui l'établisse. Aucun métier/diplôme/condition médicale codé, aucune décision ni réponse imposée. Contrôle lexical, pas validation sémantique ; paraphrases et formulations non balisées restent des limites. Deux branches explicitement conditionnées dans la même affirmation sont préservées.
+
+Relecture hors ligne des affirmations exactes des dix réponses : signal sur trois affirmations de 6 (dont une avec deux motifs), une de 7, aucun nouveau signal sur les huit autres. Cela ne rend pas 4/8/9 complètes. Simulations de la chaîne réelle avec les propositions exactes puis la même erreur répétée : réparation existante puis réserve institutionnelle en cas de refus persistant. Test synthétique d'une réparation correcte accepté. Aucun appel fournisseur : réponses simulées, pas nouveau modèle interrogé.
+
+Dix nouveaux tests dédiés : exemples réels/fictifs, conditions alternatives, deux branches dans une affirmation, réserves neutres, preuves non balisées, obligation indépendamment établie, réparation et rendu de secours. Rapport docs/audit_fiches/controle_branches_2026_10_24.md. Compilation et diff vérifiés ; suite finale : 1061 tests réussis.
+
+Aucun changement de fiche, fournisseur, température ou plafond d'appels. evidence_logic appartient déjà au paquet immuable de génération. La réparation peut utiliser l'appel supplémentaire déjà prévu : le nombre effectif de réparations peut augmenter, sans ajout systématique d'un appel par question. Ne pas annoncer que le modèle comprend désormais toujours, ni que les 90 % sont atteints. Prochain essai utile limité à 6/7 dans les mêmes contextes, sans relancer les dix par défaut.
+
 ## 24 octobre — rejeu des dix premières questions : nettoyer la réaffectation et les branches de protocole adapté
 
 Base : 1d44629. Analyse du CSV privé (4)(3) reçu : dix premières questions historiques, pas les dix numéros ciblés de la fin des essais précédents ; comparaison possible avec les mêmes dix anciennes lignes, mais architecture/fournisseur différents selon version, donc aucune attribution causale globale au moule ou au modèle. Bilan strict : 4 exploitables (1/3/5/10), 3 partielles (4/8/9), 3 problématiques (2/6/7). 18 appels, 7 orientations et 11 rédactions, 113311 jetons (109787 entrée, 3524 sortie), une réparation, mini seul, aucun Albert ni secours. Aucun nouveau rejeu lancé.

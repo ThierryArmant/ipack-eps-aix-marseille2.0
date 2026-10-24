@@ -78,10 +78,68 @@ def _objects(text):
     return {w[:6] for w in re.findall(r"[a-z]{4,}", normalized(text)) if w not in ignored}
 
 
+# Marqueur rédactionnel explicite, indépendant du sujet métier.
+_BRANCH = re.compile(r'^\s*Branche\s*[—–-]\s*([^:\n]{3,180})\s*:', re.I)
+_BRANCH_STOP = set("branche cas pour dans avec sans sous selon les des une est sont ces cette meme cours annee deja soit leur leurs aux avant apres lorsque".split())
+_BRANCH_RULE = re.compile(r"\b(?:doit|doivent|devez|faut|necessaire|obligatoire|interdit|autorise|possible)\b|\bne (?:peut|peuvent)\b")
+
+
+def _branch_words(text):
+    return {w[:6] for w in re.findall(r"[a-z]{4,}", normalized(text)) if w not in _BRANCH_STOP}
+
+
+def explicit_branch_condition_lost(claim):
+    """Signale une prescription qui cite une branche mais en perd le périmètre.
+
+    Contrôle lexical borné aux preuves dont le libellé commence par « Branche — ».
+    Les variantes sémantiques ne sont pas prouvées ; une reformulation très éloignée
+    peut demander de conserver le libellé explicite. Aucune décision métier codée.
+    """
+    heads = [proposition_head(part) for part in re.split(r'[.;!?]\s*', claim['text']) if part.strip()]
+    normative = [part for part in heads if _BRANCH_RULE.search(part) and not _UNCERTAIN.search(part)]
+    if not normative:
+        return False
+    alternatives = []
+    for evidence in claim.get('evidence', []):
+        match = _BRANCH.match(evidence.get('quote', ''))
+        if match:
+            alternatives.extend(words for part in re.split(r'\s+ou\s+', normalized(match.group(1)))
+                                if (words := _branch_words(part)))
+    return bool(alternatives) and any(not any(words <= _branch_words(part) for words in alternatives)
+                                      for part in normative)
+
+
+def non_implication_to_obligation(claim):
+    """« X ne constitue pas Y » ne prouve pas que X est obligatoire."""
+    head = proposition_head(claim['text'])
+    if not re.search(r'\b(?:necessaire|obligatoire|doit|doivent|devez|faut)\b', head):
+        return False
+    proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
+    for proof in proofs:
+        for sentence in re.split(r'[.;!?]\s*', proof):
+            match = re.search(r"(.{5,220}?)\s+(?:ne constitue|ne vaut|n'equivaut).{0,10}pas", sentence)
+            if not match:
+                continue
+            action = _branch_words(match.group(1))
+            if len(action & _branch_words(head)) < 2:
+                continue
+            direct = any(re.search(r'\b(?:necessaire|obligatoire|doit|doivent|devez|faut)\b', other)
+                         and len(action & _branch_words(other)) >= 2
+                         for source in proofs for other in re.split(r'[.;!?]\s*', source)
+                         if not re.search(r"ne constitue|ne vaut|n'equivaut", other))
+            if not direct:
+                return True
+    return False
+
+
 def evidence_logic_errors(claims):
     """Ne valide jamais une conclusion : renvoie les pertes explicites détectées."""
     errors = []
     for i, claim in enumerate(claims):
+        if non_implication_to_obligation(claim):
+            errors.append({'index': i, 'errors': ['constat de non-équivalence transformé en obligation : la preuve dit que cette action ne vaut pas décision, sans établir que cette action soit obligatoire']})
+        if explicit_branch_condition_lost(claim):
+            errors.append({'index': i, 'errors': ['condition explicite de la branche citée omise : conserver son périmètre dans la prescription, sans appliquer cette branche à un cas non établi']})
         head = proposition_head(claim['text'])
         proofs = [normalized(e.get('quote', '')) for e in claim.get('evidence', [])]
         historical_pending = any(_historical_confirmation(p) for p in proofs)

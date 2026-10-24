@@ -8326,13 +8326,15 @@
     ],
     "modes": [
       "examens",
-      "textes"
+      "textes",
+      "ipack"
     ],
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
       "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))",
-      "(?=.*cyclades)(?=.*(?:evaluateur|enseignant|professeur))(?=.*(?:modifier|changer|maladie|remplac))"
+      "(?=.*cyclades)(?=.*(?:evaluateur|enseignant|professeur))(?=.*(?:modifier|changer|maladie|remplac))",
+      "^(?!.*\\b(?:eleves?|candidats?)\\b)(?=.*(?:r[e]?affect|confier|attribu|transferer|changer))(?=.*\\blots?\\b)(?=.*(?:examinateur|evaluateur|enseignant|correcteur|collegue|professeur))"
     ],
     "centrer_motifs": [
       "(?=.*(?:reaffect|adresse.*(?:evaluateur|professeur)|collegue.*(?:saisi|protocole)))(?=.*protocol)(?=.*(?:cyclades|chef|collegue|evaluateur|tableau de bord))",

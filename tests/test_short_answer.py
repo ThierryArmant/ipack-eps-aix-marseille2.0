@@ -135,5 +135,36 @@ class GardeFousDeSens(unittest.TestCase):
         self.assertEqual(sa.unsupported("À Aix-Marseille, prévenez l'inspection pédagogique au préalable.", src), [])
 
 
+class ConditionsEtCouverture(unittest.TestCase):
+    BRANCHE = ("- Si les protocoles sont déjà validés, la suppression directe n'est plus possible. À Aix-Marseille, "
+               "créer le protocole corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique au préalable.")
+
+    def test_trait_d_union_insecable_vaut_trait_d_union(self):
+        phrase = "Si les protocoles sont déjà validés, à Aix\u2011Marseille, créez le protocole corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenez l'inspection pédagogique au préalable."
+        self.assertEqual(sa.unsupported(phrase, self.BRANCHE), [])
+
+    def test_condition_de_la_branche_perdue_refusee(self):
+        phrase = "À Aix-Marseille, créez le protocole corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenez l'inspection pédagogique au préalable."
+        self.assertEqual(sa.unsupported(phrase, self.BRANCHE), ['modalite:condition_perdue'])
+
+    def test_vraie_omission_d_academie_toujours_refusee(self):
+        phrase = "Si les protocoles sont déjà validés, prévenez l'inspection pédagogique au préalable."
+        self.assertIn('portee:aix-marseille', sa.unsupported(phrase, self.BRANCHE))
+
+    def test_extrait_non_repris_reste_ouvert(self):
+        rt = load_runtime(); dr = rt.documentary_review
+        docs = dr.mark_excerpt("Le champ est grisé : c'est normal.\n\nSi quelques élèves sont mal placés : ne rien supprimer.",
+                               path='data/exemple.txt', title='Mauvais groupe')
+        ids = [s['id'] for s in dr.source_packets(docs)[0]['passages']][-2:]
+        llm = _llm({'principal': 'D1', 'complements': [], 'passages': ids},
+                   {'phrases': [{'texte': "Le champ grisé est normal.", 'passages': [1]}]})
+        audit = {}
+        out = rt.exact_source_answer.exact_answer(llm, reviewer=dr, tracer=lambda l, a, stage: l, documents=docs,
+            question='Mauvais groupe', public='Lycée Général & Techno', mode='examens', academy='Aix-Marseille',
+            audit=audit, synthesis=True)
+        self.assertEqual(audit['short_answer']['uncited_passages'], [2])
+        self.assertIn('<details open><summary>Autres cas et précisions des fiches, non repris ci-dessus : extraits 2', out)
+
+
 if __name__ == '__main__':
     unittest.main()

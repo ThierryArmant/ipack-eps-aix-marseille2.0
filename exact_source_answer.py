@@ -196,7 +196,16 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     if not lead:
         return extracts_html
     numbered = render_focused_sources(selected, focus, reviewer, {}, numbered=True)
-    report['display_version_lead'] = 'short-answer-v1'
+    report['display_version_lead'] = 'short-answer-v3'
+    # Couverture : un extrait retenu que la réponse courte ne reprend pas reste visible, ouvert.
+    cited = {n for item in audit.get('short_answer', {}).get('kept', []) for n in item['passages']}
+    missing = [n for n in range(1, len(focus) + 1) if n not in cited]
+    audit['short_answer']['uncited_passages'] = missing
+    if missing:
+        summary = ('Autres cas et précisions des fiches, non repris ci-dessus : extraits '
+                   + ', '.join(str(n) for n in missing))
+        return ('<h3>Réponse</h3>' + lead
+                + '<details open><summary>' + summary + '</summary>' + numbered + '</details>')
     return ('<h3>Réponse</h3>' + lead
             + '<p><small>Réponse rédigée à partir des extraits ci-dessous (numéros) : vérifiez votre cas.</small></p>'
             + '<details><summary>Voir les extraits des fiches (' + str(len(focus)) + ')</summary>'

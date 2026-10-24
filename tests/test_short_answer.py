@@ -46,6 +46,12 @@ class ControlesPhrases(unittest.TestCase):
         self.assertEqual(rep['status'], 'rendered')
         self.assertNotIn('(2)', out)
 
+    def test_renvoi_discordant_ou_nombre_metier_toujours_controle(self):
+        out, rep = self.run_sa([{'texte': "Le nouvel enseignant doit avoir sa mission dans Imag'in (3).", 'passages': [2]},
+                                {'texte': "Réaffectez le lot sous 15 jours.", 'passages': [1]}])
+        self.assertEqual(rep['status'], 'nothing_kept')
+        self.assertEqual([r['raisons'] for r in rep['rejected']], [['nombre:3'], ['nombre:15']])
+
     def test_numero_absent_ou_hors_liste_refuse(self):
         out, rep = self.run_sa([{'texte': 'Phrase sans source.', 'passages': []},
                                 {'texte': 'Autre.', 'passages': [9]}])

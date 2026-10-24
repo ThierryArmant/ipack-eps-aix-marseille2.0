@@ -144,8 +144,12 @@ def short_answer(llm, *, tracer, audit, question, passages):
             report['rejected'].append(dict(texte=str(text)[:MAX_CHARS], raisons=['forme']))
             continue
         refs = sorted(set(refs))
-        # Renvois écrits dans la phrase elle-même, « (1) », « [2, 3] » : déjà portés par « passages ».
-        text = re.sub(r'\s*[\(\[]\s*\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]', '', text).strip()
+        # Renvoi écrit dans la phrase, « (1) », « [2, 3] », seulement s'il reprend les numéros de « passages » ;
+        # sinon il reste dans le texte et le contrôle des nombres le refuse.
+        def _renvoi(match):
+            cited = {int(n) for n in re.findall(r'\d+', match.group(0))}
+            return '' if cited <= set(refs) else match.group(0)
+        text = re.sub(r'\s*[\(\[]\s*\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]', _renvoi, text).strip()
         reasons = unsupported(text, '\n'.join(passages[r - 1][1] for r in refs))
         if reasons:
             report['rejected'].append(dict(texte=text, raisons=reasons))

@@ -2706,3 +2706,7 @@ Priorité commune : améliorer la réponse réellement utile, pas seulement gara
 - Limites assumées : la réponse courte ne voit que ce que le sélecteur a retenu (Q3/Q18 restent dépendants de ta sélection) ; une négation inversée n'est pas détectable mécaniquement. Simulation hors réseau Q3 : une phrase citant le mauvais extrait est bien retirée (menus/interlocuteur absents).
 - Tests : `tests/test_short_answer.py` (7) ; fixtures `test_generation_runtime` complétées. Suite complète : **1 171 OK**. Aucun appel IA lancé.
 - Leviers 1 et 2 : d'accord avec tes réserves (groupe de décision explicite + discriminant absent ; pas d'exclusivité pour les demandes composées). Je n'y touche pas avant ton prototype.
+
+### 25 octobre 2026 00 h 50 — Claude : formulation « quelques élèves mal placés » reprise (demande de Thierry)
+- Thierry : la phrase « les déplacer … par [EPS] > [Associer les élèves à un protocole] » est mal tournée, et la réponse courte la reprendrait telle quelle. Reformulée dans les deux copies (f4 et `complement_cyclades_protocoles_cas_enseignant`, situation « mauvais groupe ») : « ne rien supprimer. Dans Cyclades, ouvrir le menu [EPS] > [Associer les élèves à un protocole] ; pour chaque élève concerné, choisir le bon protocole dans la liste en bout de ligne (ou glisser-déposer l'élève dans ce protocole), puis enregistrer. » Geste repris des fiches déjà présentes (g2, mémoire astuces 003, hors_siecle) ; menu inchangé (contrôle de la réponse courte).
+- Empreintes du registre d'audit mises à jour pour ces deux fichiers. Suite : 1 171 OK.

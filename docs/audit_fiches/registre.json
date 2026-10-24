@@ -2437,7 +2437,7 @@
     },
     {
       "path": "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt",
-      "sha256": "cbe553128982b3e927b145bda41280fa15f2395c0b35c2c899c6d71655e8dd85",
+      "sha256": "fbdcbdb2bdc4e83657b82c7f4826d0068fe0a6b2266f454f2c87811ce4de7435",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "reponse_relue_audit_lot4_2026_10_13",
@@ -3502,7 +3502,7 @@
     },
     {
       "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
-      "sha256": "2e43019c60e038b0072f59cac744f759d97c14679feb2a671acb6276ea30617b",
+      "sha256": "ed7e208d0c2753b2a0eecfd01dcdb423648ccf4acd034d4064fd690e4994dd54",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",

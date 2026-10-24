@@ -3,6 +3,7 @@ import json
 import time
 import uuid
 import hashlib
+import copy
 if __package__:
     from .exact_source_answer import exact_answer
     from .context_planner import plan_context
@@ -66,6 +67,71 @@ Contexte imposé (ne pas modifier) : ''' + json.dumps(
         raise ValueError("Interprétation non conforme : texte trop long ou type incorrect.")
     if not result['recherche'].strip():
         raise ValueError("Requête interprétée vide.")
+    return result
+
+
+def write_selected_g_with_albert(saved, albert_llm, *, version):
+    """Réutilise une sélection G exportée ; un seul appel Albert sans secours."""
+    if not isinstance(albert_llm, AlbertLLM):
+        raise ValueError('Un modèle Albert direct est requis, sans secours GPT.')
+    if not isinstance(saved, dict) or saved.get('experimental') != 'G':
+        raise ValueError('Importer un résultat G original.')
+    question, public, mode, academy = (saved.get(k) for k in ('question','public','mode','academy'))
+    if any(not isinstance(v, str) or not v.strip() for v in (question,public,mode,academy)):
+        raise ValueError('Contexte G incomplet.')
+    branches = saved.get('branches', {})
+    source = branches.get('G', {}) if isinstance(branches,dict) else {}
+    source_audit = source.get('audit', {}) if isinstance(source,dict) else {}
+    selection = source_audit.get('exact_extracts', {}) if isinstance(source_audit,dict) else {}
+    if not isinstance(selection,dict) or not isinstance(source,dict):
+        raise ValueError('Trace G invalide.')
+    original = source.get('retrieved_documents')
+    if (selection.get('status') != 'rendered_exact_sources' or not isinstance(original, str)
+            or hashlib.sha256(original.encode()).hexdigest() != selection.get('context_sha256')):
+        raise ValueError('Sélection G absente ou empreinte du contexte invalide.')
+    packets = _runtime.documentary_review.source_packets(original)
+    by_id = {p['id']:p for p in packets}
+    ids, archived = selection.get('selected_ids'), selection.get('selected_sources')
+    if (not isinstance(ids, list) or not ids or any(not isinstance(i,str) or i not in by_id for i in ids)
+            or len(ids) != len(set(ids)) or not isinstance(archived,list) or len(archived) != len(ids)):
+        raise ValueError('Identifiants G invalides.')
+    # Ne pas accepter des passages ajoutés à la sélection exportée.
+    for i, old in zip(ids, archived):
+        p = by_id[i]
+        if (not isinstance(old,dict) or old.get('id') != i or old.get('text') != p['text']
+                or old.get('path') != p.get('path')
+                or not isinstance(old.get('passages'),list)
+                or any(not isinstance(s,dict) for s in old['passages'])
+                or [(s.get('id'),s.get('text')) for s in old.get('passages',[])] !=
+                   [(s['id'],s['text']) for s in p['passages']]):
+            raise ValueError('Les passages G ne correspondent pas au contexte exporté.')
+    docs = '\n\n'.join(_runtime.documentary_review.mark_excerpt(
+        by_id[i]['text'],path=by_id[i].get('path',''),title=by_id[i].get('title',''),
+        priority=by_id[i].get('priority',0),origin=by_id[i].get('origin','document'),
+        url=by_id[i].get('url',''),selection=by_id[i].get('selection',''),scopes=by_id[i].get('scopes',[])) for i in ids)
+    result = copy.deepcopy(saved)
+    result.update(experimental='H', baseline_branch='G', source_version=saved.get('version'),
+                  version=version, model=albert_llm.model, temperature=albert_llm.temperature,
+                  run_id=uuid.uuid4().hex, comparison_executed=True)
+    # L'usage G historique est conservé comme historique, pas comme nouveau coût.
+    result['branches'] = {'G':copy.deepcopy(source)}
+    result['branches']['G']['historical_result'] = True
+    audit = {}
+    item = dict(audit=audit, model=albert_llm.model, temperature=albert_llm.temperature,
+                retrieved_documents=docs, original_g_selected_ids=ids,
+                mini_called=False, source_g_run_id=saved.get('run_id'))
+    result['branches']['H'] = item
+    start = time.monotonic()
+    try:
+        item['answer'] = review_exam_answer(albert_llm, question=question, public=public,
+            documents=docs,audit=audit,academy=academy,mode=mode,repair_enabled=False,
+            instructions=Path('config/consignes_fiabilite.txt').read_text(encoding='utf-8'))
+    except Exception as exc:
+        item['error'] = (str(exc) if isinstance(exc,AlbertError)
+                         else type(exc).__name__ + ' : essai interrompu, sans relance ni secours.')
+    item['usage'] = usage_summary(audit)
+    item['elapsed_seconds'] = round(time.monotonic()-start,2)
+    result['new_usage'] = item['usage']
     return result
 
 
@@ -230,6 +296,35 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                     st.error(str(exc))
         else:
             st.caption('Albert : ajoutez ALBERT_API_KEY aux secrets Streamlit pour activer le comparatif D.')
+        imported_g = st.file_uploader('Importer un comparatif G pour Albert — aucun appel à l’import',
+                                     type=['json'], key='selected_g_albert_upload')
+        if imported_g is not None:
+            try:
+                raw_g = imported_g.getvalue()
+                if len(raw_g) > 5_000_000:
+                    raise ValueError('Fichier trop volumineux pour cet essai.')
+                archived_g = json.loads(raw_g.decode('utf-8-sig'))
+                if not isinstance(archived_g,dict) or archived_g.get('experimental') != 'G':
+                    raise ValueError('Ce fichier doit être un export G.')
+                st.session_state['selected_g_for_albert'] = archived_g
+            except (ValueError,UnicodeError):
+                st.session_state.pop('selected_g_for_albert',None)
+                st.error('Import G invalide : aucun appel lancé.')
+        current_g = st.session_state.get('architecture_comparison_result',{})
+        saved_g = (current_g if current_g.get('experimental') == 'G'
+                   else st.session_state.get('selected_g_for_albert'))
+        if saved_g:
+            with st.expander('Albert sur la sélection G déjà obtenue — sans rappeler Mini'):
+                st.write(saved_g.get('question',''))
+                st.caption('Un seul appel Albert, sans secours GPT ni réparation payante. La sélection G historique est réutilisée ; aucun nouveau tri Mini. Les contrôles peuvent refuser la rédaction.')
+                selected_model = st.text_input('Modèle Albert pour cette sélection G',value=albert_model or '',key='selected_g_albert_model')
+                if st.button('Rédiger la sélection G avec Albert — 1 appel',disabled=not bool(albert_api_key)):
+                    try:
+                        direct = AlbertLLM(albert_api_key,selected_model.strip(),temperature=getattr(llm,'temperature',0.0))
+                        with st.spinner('Rédaction Albert sur les sources G…'):
+                            st.session_state['architecture_comparison_result'] = write_selected_g_with_albert(saved_g,direct,version=version)
+                    except (AlbertError,ValueError) as exc:
+                        st.error(str(exc))
         with st.form('architecture_comparison_form'):
 
             method = st.selectbox('Méthode face à A', ['G — Sources exactes sans réécriture', 'F — Préparer le contexte par rôle', 'E — Proposition Gemini : isoler les procédures', 'D — Albert, mêmes fiches que A', 'C — Préciser en cas de doute', 'B — Interpréter avant recherche'])
@@ -279,7 +374,10 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                 st.write(common['precision'])
         else:
             experiment = result.get('experimental', 'B')
-            for col, branch, title in zip(st.columns(2), ('A', experiment), ('A — Recherche actuelle', experiment + {'C':' — Préciser en cas de doute', 'B':' — Interprétation avant recherche', 'D':' — Albert, mêmes fiches', 'E':' — Proposition Gemini : isoler les procédures', 'F':' — Contexte préparé par rôle', 'G':' — Sources exactes sans réécriture'}[experiment])):
+            baseline = result.get('baseline_branch','A')
+            for col, branch, title in zip(st.columns(2), (baseline, experiment),
+                ('G — Extraits enregistrés (historique)' if baseline == 'G' else 'A — Recherche actuelle',
+                 experiment + {'C':' — Préciser en cas de doute', 'B':' — Interprétation avant recherche', 'D':' — Albert, mêmes fiches', 'E':' — Proposition Gemini : isoler les procédures', 'F':' — Contexte préparé par rôle', 'G':' — Sources exactes sans réécriture', 'H':' — Albert sur la sélection G'}[experiment])):
                 with col:
                     st.subheader(title)
                     item = result['branches'][branch]
@@ -316,6 +414,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                     if item.get('answer'):
                         st.markdown(item['answer'], unsafe_allow_html=True)
                     st.caption('Modèle : ' + item.get('model', result['model']))
+                    if item.get('historical_result'):
+                        st.caption('Usage historique G : aucun appel Mini relancé dans cet essai.')
                     usage = item['usage']
                     st.caption(f"{usage['calls']} appels · {item['elapsed_seconds']} s · " +
                                (f"{usage['input_tokens']} jetons entrée · {usage['output_tokens']} sortie" if usage['complete']

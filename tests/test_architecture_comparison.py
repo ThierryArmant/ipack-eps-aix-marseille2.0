@@ -65,6 +65,7 @@ class ArchitectureComparisonTests(unittest.TestCase):
             def caption(self, *args, **kwargs): pass
             info = caption
             warning = caption
+            def file_uploader(self, *args, **kwargs): return None
             def text_area(self, *args, **kwargs): return 'question'
             def text_input(self, *args, **kwargs): return 'académie'
             def selectbox(self, label, values): return values[0]

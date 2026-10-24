@@ -1,5 +1,13 @@
 # Comparateur documentaire A/B
 
+## Albert sur une sélection G enregistrée
+
+Après un résultat G dans la session, ouvrir « Albert sur la sélection G déjà obtenue — sans rappeler Mini » et utiliser le bouton « Rédiger la sélection G avec Albert — 1 appel ». Si la session a été perdue, importer l'export JSON G avec le champ dédié ; cet import ne lance aucun appel. Le modèle Albert exact est repris du secret configuré et reste visible dans le champ dédié. Sans clé, le bouton est désactivé ; identifiant absent ou invalide : erreur sans appel.
+
+Le programme vérifie l'empreinte du contexte exporté et l'identité des textes sélectionnés avec les candidats du même export, puis transmet seulement les documents G retenus, leur question, niveau, domaine et académie. Cette cohérence ne certifie pas l'authenticité d'un fichier modifié ni la justesse des sources. Le texte est traité comme données, pas comme instructions. Pas de nouvelle recherche, sélection Mini, appel à Gemini, secours GPT ou réparation payante. Un appel direct Albert au maximum ; les contrôles habituels peuvent refuser sa rédaction.
+
+Résultat H : colonne G historique et nouvelle rédaction Albert côte à côte, avec traces et export. L'usage historique de G est clairement distingué ; new_usage contient seulement le nouvel appel Albert. Ni chargement ni import ni téléchargement ne déclenchent de génération. Cette expérience ne réactive pas Albert sur le Hub public et n'est pas une preuve de meilleure qualité.
+
 ## Variante G — sources exactes sans réécriture
 
 G change le mécanisme de restitution. Un seul appel au même modèle choisit un identifiant de source principale et des compléments nécessaires parmi les documents retrouvés. Il ne doit ni classer toutes les sources, ni rédiger une réponse métier. Le programme vérifie les identifiants puis restitue tous les passages des documents retenus, mot pour mot, sans synthèse, réparation ou assemblage de droits et menus. Les en-têtes purement techniques sont masqués à l'écran ; le texte source et la portée restent dans les traces. Les caractères HTML des sources sont échappés.

@@ -58,6 +58,7 @@ class AlbertComparisonTests(unittest.TestCase):
 
     def test_opening_admin_panel_with_key_never_calls_provider(self):
         class Surface:
+            def file_uploader(self, *args, **kwargs): return None
             session_state={'is_admin':True}
             def __enter__(self):return self
             def __exit__(self,*args):pass

@@ -41,6 +41,11 @@ def mixed_documentary_limit_conflict(text, supports):
             r"\bne\s+(?:signifie|veut dire|implique|demontre|prouve)\s+pas\s+(?:necessairement\s+)?qu[ei']", clause)
         if non_entailment:
             continue
+        # Faire vérifier un point n'affirme pas que l'action métier est autorisée.
+        # Forme passive bornée : une seconde prescription reste contrôlée.
+        if re.fullmatch(r"[^;.!?]{1,220}\b(?:doit|doivent)\s+etre\s+(?:verifie|confirme|precise)(?:e|es|s)?"
+                        r"(?:\s+(?:aupres de|par) [^;.!?]+)?\s*", clause):
+            continue
         if not _CATEGORICAL.search(clause) or re.search(r"ne.{0,40}pas.{0,25}(?:prouver|demontrer|etablir|confirmer|conclure)|non (?:demontre|etabli|confirme)", clause):
             continue
         claim_roots = roots(clause)
@@ -231,6 +236,23 @@ def evidence_relation_errors(claims, question):
         proof = normalized(' '.join(e.get('quote', '') for e in claim.get('evidence', [])))
         if not proof:
             continue
+        # Deux inversions explicites ; aucun choix réglementaire n'est produit.
+        # Le recoupement du sujet évite de transférer une anomalie voisine.
+        stop = {'normal', 'normale', 'cette', 'celui', 'comme', 'dans', 'pour', 'avec', 'sont', 'mais', 'peut', 'doit'}
+        roots = lambda value: {w[:5] for w in re.findall(r"[a-z]{4,}", value) if w not in stop}
+        negative_normal = r"\banormal(?:e|es|s)?\b|(?:ne\s+\w+|n.est)\s+pas(?:\s+\w+){0,5}\s+normal(?:e|es|s)?\b"
+        for clause in re.split(r'[.;!?]', text):
+            head = re.split(r'\bcar\b|parce que|puisque', clause, maxsplit=1)[0]
+            if (re.search(r"\b(?:il est|c.est) normal(?:e)?\b", head)
+                    and not re.search(r"\bne\b.{0,45}\bpas\b|\bn[’']", head)
+                    and any(re.search(negative_normal, part) and len(roots(head) & roots(part)) >= 2
+                            for part in re.split(r'[.;!?]', proof))):
+                errors.append({'index': i, 'errors': ['conclusion normale opposée à une anomalie explicite dans sa preuve : conserver le sens négatif du passage cité']})
+        for exclusion in re.finditer(r"\bne s.applique(?:nt)? pas (?:a|au|aux)\s+([^.;!?]+)", text):
+            target = roots(exclusion.group(1))
+            if (target and not target & roots(proof)
+                    and not re.search(r'uniquement|seulement|exclusivement|reserve.{0,20}a', proof)):
+                errors.append({'index': i, 'errors': ['exclusion d’un cas absent de la preuve sans restriction explicite : une liste d’exemples ne prouve pas cette exclusion']})
         bounded = bool(re.search(r"(?:sources|passages|documents|documentation).{0,40}ne.{0,30}pas|"
                                  r"ne.{0,25}pas.{0,15}confirmer|pas (?:possible de confirmer|documente)|non confirme|reste a verifier", text))
         if bounded:

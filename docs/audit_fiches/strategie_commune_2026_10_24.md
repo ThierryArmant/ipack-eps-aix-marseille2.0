@@ -25,3 +25,11 @@ Aucune fiche métier, règle réglementaire, donnée privée ou clé publiée. A
 Reconstruction hors fournisseur à partir des données disponibles : préfixe de rédaction commun de 7961 caractères pour les trois cas, contre environ 26000 auparavant (environ -69 à -70 % de caractères de consignes). Il ne s'agit pas d'une mesure de jetons facturés ou de qualité générée. Les propositions enregistrées servent uniquement à exercer le circuit, sans nouvelle rédaction. Audit de portée inchangé puisque les fiches ne changent pas.
 
 La prochaine étape est un rejeu réel ciblé autorisé par l'utilisateur, version vérifiée, mini seul, traces récupérées avant de quitter la session. Les 480 suivantes ne sont pas relancées automatiquement. La contradiction collège peut encore échapper aux contrôles mécaniques : ne pas transformer les tests de code en validation métier ni annoncer 90 %.
+
+## Premier contrôle réel puis correction bornée
+
+Rejeu utilisateur délégué dans le hub sur c5d5ff5 : trois questions, mêmes contextes, 31462 jetons / sept appels mini température 0, une réparation. Le coût total diminue de 4,25 % face aux 32858 jetons précédents, bien moins que le préfixe ; les réponses sont plus longues et une réparation supplémentaire a eu lieu. Le coordonnateur reçoit les fiches complémentaires et la fonction de certification. Collège reste contradictoire ; la réparation SSS ajoute une exclusion que sa liste d'exemples citée n'établit pas. Pas de réussite globale annoncée.
+
+Contrôle additionnel de deux déformations explicites dans evidence_relation_errors : normalité affirmée malgré anomalie explicite sur un sujet recoupé ; cas exclu absent de la preuve sans restriction explicite. Le contrôle n'infère aucune solution métier. Forme passive de demande de vérification distinguée d'une obligation de réaliser l'action. Repère de concision commun rétabli (une à six affirmations utiles, sans omission indispensable).
+
+1096 tests réussis ; quatre tests multi-domaines et contre-exemples. Aucune nouvelle alerte relation/certitude sur les 98 réponses témoins contrôlables parmi les 100 utiles historiques. Limites lexicales conservées : pas de vérification sémantique universelle. Prochains essais réels bornés aux deux défauts persistants.

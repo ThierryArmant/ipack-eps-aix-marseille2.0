@@ -1,3 +1,13 @@
+## 24 octobre — prise en main des trois rejeux et contrôle de deux déformations explicites
+
+L'utilisateur autorise explicitement la prise en main du rejeu administrateur ; connexion via saisie sécurisée, aucun secret conservé dans le dépôt. Trois générations réelles sur c5d5ff5, mini seul à température 0, mêmes contextes : 31462 jetons, sept appels (trois orientations, quatre rédactions), une réparation. Contre 32858 jetons/six appels sur 61d0947 : environ -4,25 % de jetons, mais une réparation supplémentaire. Ne pas confondre la réduction de consignes avec une baisse proportionnelle du coût total. La réponse coordonnateur reçoit quatre fiches et conserve le préalable Responsable de la Certification ; elle reste trop longue. La contradiction normale/anormale au collège subsiste. La réparation SSS ajoute une exclusion de la reconduction non établie par son passage cité. Les trois cas ne sont pas validés.
+
+Intervention bornée sur claim_guards, dans les contrôles de relation existants : conclusion « il est normal » opposée à une anomalie explicite dans sa preuve, avec recoupement du sujet ; exclusion « ne s'applique pas à » portant sur un objet absent de la preuve sans restriction explicite. Aucune réponse métier produite ni modification de fiche. Les limites de ce contrôle restent lexicales ; une paraphrase éloignée peut échapper au contrôle ou produire un faux positif.
+
+Un faux positif voisin est corrigé : une forme passive demandant seulement de faire vérifier/confirmer un point ne devient pas une autorisation de dépôt. Une prescription distincte reste contrôlée. Repère de concision d'une à six affirmations rétabli, sans supprimer conditions ou volets indispensables ; le plafond de douze reste technique.
+
+1096 tests réussis (41,858 s), quatre nouveaux tests multi-domaines et contre-exemples. Relecture des 100 témoins utiles : aucun nouveau rejet de relation/certitude sur les 98 avec affirmations contrôlables, deux sorties hors structure. Ce n'est pas une nouvelle rédaction de 100 réponses ni leur certification globale. Prochaine vérification limitée aux deux cas non résolus ; les 480 restent en attente. Export privé des trois générations récupéré ; aucune question, réponse privée ou trace publiée. Mini seul, Albert désactivé, plafonds d'appels inchangés.
+
 ## 24 octobre — simplifier les consignes et distinguer les sources complémentaires
 
 Base 61d0947. Dernier rejeu ciblé : trois réponses, 32858 jetons, mini température 0 ; collège encore contradictoire, sources complémentaires de la vue d'ensemble coordonnateur écartées comme voisines, dépôt d'annexes non démontré remplacé par réserve justifiée. Aucun gain global déduit.

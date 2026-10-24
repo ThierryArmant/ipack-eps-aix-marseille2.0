@@ -1,0 +1,537 @@
+[
+  {
+    "cas": "Q3",
+    "version": "4874042",
+    "context_sha256": "cfabd3c2f2ed440fce0f5c9401c4d7c5ac21e7bbe7d22503e43be4453b43e8b3",
+    "documents": [
+      {
+        "id": "D1",
+        "path": "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt",
+        "title": "FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves",
+        "sha256": "721d699d44e7d7564acf33d2bee3cc81d218b3e564bfc765a4acc8801033bf14",
+        "sections": [
+          "FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D2",
+        "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
+        "title": "[SITUATION: PROTOCOLE CYCLADES CRÉÉ AVEC LE MAUVAIS GROUPE D'ÉLÈVES — LE CHAMP « GROUPE ÉLÈVE » N'EST PLUS MODIFIABLE]",
+        "sha256": "8b949ba0ff3bcd73c51468aa9c1d6e9313e6d7512b8d28b6f2807a15f91cf222",
+        "sections": [
+          "[SITUATION: PROTOCOLE CYCLADES CRÉÉ AVEC LE MAUVAIS GROUPE D'ÉLÈVES — LE CHAMP « GROUPE ÉLÈVE » N'EST PLUS MODIFIABLE]"
+        ],
+        "passages": 8
+      },
+      {
+        "id": "D3",
+        "path": "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt",
+        "title": "FAQ EPS — Protocole Cyclades créé avec le mauvais groupe d'élèves",
+        "sha256": "8c011bc754f471cc5fb127553eb19bb341e176e6be68cfae1c4a1c66a75532f0",
+        "sections": [
+          "FAQ EPS — Protocole Cyclades créé avec le mauvais groupe d'élèves"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D4",
+        "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
+        "title": "[SITUATION: LE GROUPE ÉLÈVE N'EST PAS RENSEIGNÉ DANS LE LOGICIEL DE SCOLARITÉ — QUE METTRE DANS LE PROTOCOLE ?]",
+        "sha256": "764f7d4abbce79a8ecc06a5baf7d22b75223294cd9578bc1870fcd3ae71080a4",
+        "sections": [
+          "[SITUATION: LE GROUPE ÉLÈVE N'EST PAS RENSEIGNÉ DANS LE LOGICIEL DE SCOLARITÉ — QUE METTRE DANS LE PROTOCOLE ?]"
+        ],
+        "passages": 4
+      },
+      {
+        "id": "D5",
+        "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
+        "title": "[TUTORIEL CYCLADES — VÉRIFIER L'AFFECTATION DES ÉLÈVES À LEURS PROTOCOLES (article 63)]",
+        "sha256": "4c815b35cefd123eb0a3b2f6160dd6410e646b136d049f7f6614763fd17b03b5",
+        "sections": [
+          "[TUTORIEL CYCLADES — VÉRIFIER L'AFFECTATION DES ÉLÈVES À LEURS PROTOCOLES (article 63)]"
+        ],
+        "passages": 4
+      },
+      {
+        "id": "D6",
+        "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
+        "title": "[SITUATION: CYCLADES — VÉRIFIER QUE CHAQUE ÉLÈVE EST LIÉ AU BON PROTOCOLE]",
+        "sha256": "5f1a6e50b60880716e80401780678cc1fb9e2fa7fbcc5fca1822258800bb7623",
+        "sections": [
+          "[SITUATION: CYCLADES — VÉRIFIER QUE CHAQUE ÉLÈVE EST LIÉ AU BON PROTOCOLE]"
+        ],
+        "passages": 5
+      },
+      {
+        "id": "D7",
+        "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
+        "title": "[SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]",
+        "sha256": "da9174ce22802d226885c5c7f0f4abaa736ed8c9ee2840613742613653737cac",
+        "sections": [
+          "[SITUATION: CYCLADES — MODIFIER OU SUPPRIMER UN PROTOCOLE, CHANGER LES ÉPREUVES D'UN GROUPE]"
+        ],
+        "passages": 8
+      },
+      {
+        "id": "D8",
+        "path": "data/examens/circuit_aix_ipack_cyclades_santorin.txt",
+        "title": "[SITUATION: ÉTABLISSEMENT « HORS SIECLE » (CFA, GRETA, MFR, AEFE) — ASSOCIER LES CANDIDATS AUX PROTOCOLES DIRECTEMENT DANS CYCLADES]",
+        "sha256": "b77430a8537ea07806934855afd889d73a98ab8878491cd1751dcd941744ae5c",
+        "sections": [
+          "[SITUATION: ÉTABLISSEMENT « HORS SIECLE » (CFA, GRETA, MFR, AEFE) — ASSOCIER LES CANDIDATS AUX PROTOCOLES DIRECTEMENT DANS CYCLADES]"
+        ],
+        "passages": 10
+      },
+      {
+        "id": "D9",
+        "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
+        "title": "[SITUATION: SANTORIN — ERREUR « VEUILLEZ AFFECTER UN PROTOCOLE AU GROUPE DANS L'ACTIVITÉ ASSOCIER LES ÉLÈVES À UN PROTOCOLE »]",
+        "sha256": "25ca39144cdb0d85f8ba13ace7f9083cbc639376bb9ebe1528b44ecfbc9cccd6",
+        "sections": [
+          "[SITUATION: SANTORIN — ERREUR « VEUILLEZ AFFECTER UN PROTOCOLE AU GROUPE DANS L'ACTIVITÉ ASSOCIER LES ÉLÈVES À UN PROTOCOLE »]"
+        ],
+        "passages": 4
+      },
+      {
+        "id": "D10",
+        "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
+        "title": "[SITUATION: ALERTE CYCLADES « LE GROUPE ÉLÈVE IMPORTÉ NE CORRESPOND À AUCUN GROUPE LIÉ AUX PROTOCOLES »]",
+        "sha256": "8dff169e1532ac1f0c0b2d61237007d6e691a27a3c7d3063baaecd161862c732",
+        "sections": [
+          "[SITUATION: ALERTE CYCLADES « LE GROUPE ÉLÈVE IMPORTÉ NE CORRESPOND À AUCUN GROUPE LIÉ AUX PROTOCOLES »]"
+        ],
+        "passages": 8
+      }
+    ]
+  },
+  {
+    "cas": "Q9",
+    "version": "4874042",
+    "context_sha256": "adff965447bb30537743e8c19af5d34dda7c67097ed91d7b361009bd5599e3a8",
+    "documents": [
+      {
+        "id": "D1",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "4a40f49465223f398ea70f9ea90704daa1cf43b6ca4914cc3fea888a4c9d77d4",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 11
+      },
+      {
+        "id": "D2",
+        "path": "data/ipack/fiches/correspondant_05_sss_appn_registre.txt",
+        "title": "[SITUATION: CHANGER L'ACTIVITÉ D'UNE SECTION SPORTIVE (EX. HANDBALL VERS FOOTBALL)]",
+        "sha256": "73c1dc876576910cb2749bfa5064a8ef0dd6fb8322e91403ef4d6b36d96592d9",
+        "sections": [
+          "[SITUATION: CHANGER L'ACTIVITÉ D'UNE SECTION SPORTIVE (EX. HANDBALL VERS FOOTBALL)]"
+        ],
+        "passages": 3
+      },
+      {
+        "id": "D3",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "5c9442a16d7b9f301edef433cb8ea63c339f1859bc0d0d1884093ad66bc6df07",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D4",
+        "path": "data/ipack/visite_college_2026_10_18/dossier_sss_acces_campagne.txt",
+        "title": "iPackEPS : Dossier Section Sportive Scolaire — modules, campagne et section absente",
+        "sha256": "c2c178642b6833a22a82522d06b489c3540698fd0554ac3cd8ff2fdfda316a74",
+        "sections": [
+          "iPackEPS : Dossier Section Sportive Scolaire — modules, campagne et section absente"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D5",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "abe22d0a4735a16f8305cb02c9db8c4668feeedfdc1223019b1125a122d55351",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 6
+      },
+      {
+        "id": "D6",
+        "path": "data/ipack/transcriptions_videos_tutoriels.txt",
+        "title": "[SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]",
+        "sha256": "54a6d3f598848ffa191568ad141b46c06b52a55beca9dae977a171ee822e09c3",
+        "sections": [
+          "[SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]"
+        ],
+        "passages": 9
+      },
+      {
+        "id": "D7",
+        "path": "data/ipack/plan_des_menus_professeur_2026.txt",
+        "title": "[SITUATION: PLAN DES MENUS D'iPackEPS — ESPACE PROFESSEUR (version 2026.2.1.1)]",
+        "sha256": "eaaaa1e32406beb6ff2bcc9563769bd007a3a83aa178684cf580992958bca464",
+        "sections": [
+          "[SITUATION: PLAN DES MENUS D'iPackEPS — ESPACE PROFESSEUR (version 2026.2.1.1)]"
+        ],
+        "passages": 6
+      },
+      {
+        "id": "D8",
+        "path": "data/commun/audit60/ipack_groupes_apsa.txt",
+        "title": "iPackEPS : groupe AS et création d’APSA",
+        "sha256": "45749229ab7656b494650d90af9eba4d55aba30259a5db1a483309690d0f886d",
+        "sections": [
+          "iPackEPS : groupe AS et création d’APSA"
+        ],
+        "passages": 6
+      },
+      {
+        "id": "D9",
+        "path": "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt",
+        "title": "iPackEPS : où déposer et retrouver les projets (établissement, EPS, AS, SSS, Sport-Études)",
+        "sha256": "a949dd8fb22699d327a8cf3c6c6b80c7376043230103006ca0b7df9934b82295",
+        "sections": [
+          "iPackEPS : où déposer et retrouver les projets (établissement, EPS, AS, SSS, Sport-Études)"
+        ],
+        "passages": 9
+      },
+      {
+        "id": "D10",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "4d848da8b48395a5220987b0ef231ed6655b1973b266d089d0df521a9ff2cf21",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 2
+      }
+    ]
+  },
+  {
+    "cas": "Q15",
+    "version": "4874042",
+    "context_sha256": "9dad0848e15d8c93898663a591892f19784e4e1a174c49db98ed74f02594317f",
+    "documents": [
+      {
+        "id": "D1",
+        "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
+        "title": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS",
+        "sha256": "19e51d91883897841087bbecc60ddb6974579bd8eab2689e006c1d4aafbb6c74",
+        "sections": [
+          "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS"
+        ],
+        "passages": 10
+      },
+      {
+        "id": "D2",
+        "path": "data/ipack/fiches/ipack_058_article_27_dossiers_dossiereps_projets_depot_des_projets_et_configuration_des_axes_des_pro.txt",
+        "title": "[ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets",
+        "sha256": "7c440f0da3a9a1db756e6adf0304b25c66c24cd0516c9066a2dbc0b47c845207",
+        "sections": [
+          "[ARTICLE 27] [Dossiers]/[DossierEPS]/[Projets] Dépôt des projets et Configuration des Axes des Projets"
+        ],
+        "passages": 11
+      },
+      {
+        "id": "D3",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "95c27556599ff048122a54239784501ec24e434a0eeb8b45343d53843812aee9",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D4",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "abe22d0a4735a16f8305cb02c9db8c4668feeedfdc1223019b1125a122d55351",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 6
+      },
+      {
+        "id": "D5",
+        "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
+        "title": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS",
+        "sha256": "74854ec4dc7fcce6c57af9cca1932f1f3a3a534df17d53df7b2e661fba887b69",
+        "sections": [
+          "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS"
+        ],
+        "passages": 3
+      },
+      {
+        "id": "D6",
+        "path": "data/ipack/transcriptions_videos_tutoriels.txt",
+        "title": "[SITUATION: SECTION SPORTIVE — DEMANDER LA RECONDUCTION OU LA FERMETURE (vidéo)]",
+        "sha256": "ebcb9217d87a7bfd58255c89e29e64b91fdfb125d5d14bf1be68a1d7e3177fe0",
+        "sections": [
+          "[SITUATION: SECTION SPORTIVE — DEMANDER LA RECONDUCTION OU LA FERMETURE (vidéo)]"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D7",
+        "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
+        "title": "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS",
+        "sha256": "8ef8173916ebdd2e5692825a33605a99d2590aa3e35745a092d7ac5d0dec439b",
+        "sections": [
+          "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d’une SSS"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D8",
+        "path": "data/ipack/transcriptions_videos_tutoriels.txt",
+        "title": "[SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]",
+        "sha256": "54a6d3f598848ffa191568ad141b46c06b52a55beca9dae977a171ee822e09c3",
+        "sections": [
+          "[SITUATION: SECTION SPORTIVE — REMPLIR UNE DEMANDE D'OUVERTURE (vidéo)]"
+        ],
+        "passages": 9
+      },
+      {
+        "id": "D9",
+        "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
+        "title": "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire",
+        "sha256": "4c2cb2c879dbccc3fa391544b45db3af034e67fc5aa2e629ab2b4b6584c213ae",
+        "sections": [
+          "[ARTICLE 28] [Dossiers]/[dossier SSS]/[ouverture] demande d’ouverture de Section Sportive Scolaire"
+        ],
+        "passages": 3
+      },
+      {
+        "id": "D10",
+        "path": "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt",
+        "title": "[ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire",
+        "sha256": "72d5a39c4aff0f14496657dd5682db0d7c786d5be2c62da4ddc95618123bb44a",
+        "sections": [
+          "[ARTICLE 31] [Dossiers]/[Dossier SSS]/[Projet] Saisie du Projet Annuel de Section Sportive Scolaire"
+        ],
+        "passages": 2
+      }
+    ]
+  },
+  {
+    "cas": "Q18",
+    "version": "4874042",
+    "context_sha256": "8652eeec34e55fe7dadc41892484e83c8404a46cbd5ab1871e4fc0b2d1229e5f",
+    "documents": [
+      {
+        "id": "D1",
+        "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
+        "title": "iPackEPS : qui contacter pour quoi (assistance, DEC, inspection)",
+        "sha256": "116c06ed90bdb5ab38988e2fa57145a1196176d65a4c0c1c1bb084ec902fe76c",
+        "sections": [
+          "iPackEPS : qui contacter pour quoi (assistance, DEC, inspection)"
+        ],
+        "passages": 13
+      },
+      {
+        "id": "D2",
+        "path": "data/examens/fiches/memoire_examens_santorin_009_1_acteurs_et_roles_institutionnels.txt",
+        "title": "1. Acteurs et Rôles Institutionnels",
+        "sha256": "3f49c2afb82871721b7061a4ae35bb7dd56c5d09633bf4a25748785fb413e1ff",
+        "sections": [
+          "1. Acteurs et Rôles Institutionnels"
+        ],
+        "passages": 1
+      },
+      {
+        "id": "D3",
+        "path": "data/examens/erreurs_cyclades_santorin.txt",
+        "title": "Cyclades et Santorin : messages d'erreur, ce qu'ils veulent dire",
+        "sha256": "6ed8768942ecdb2ff8605676f11cfdc107a8b187b04630c3f3846bb92f976a0d",
+        "sections": [
+          "Cyclades et Santorin : messages d'erreur, ce qu'ils veulent dire"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D4",
+        "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
+        "title": "[TUTORIEL SANTORIN — DISTRIBUTION DES LOTS DE CORRECTION ET ERREURS DE DISTRIBUTION (article 66)]",
+        "sha256": "2487c9ef4ce83d3f062df75b1b7996e2b4574ad22b8d17c27ba2aae62c8364a9",
+        "sections": [
+          "[TUTORIEL SANTORIN — DISTRIBUTION DES LOTS DE CORRECTION ET ERREURS DE DISTRIBUTION (article 66)]"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D5",
+        "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
+        "title": "iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)",
+        "sha256": "7c7eb6b44403e4b58f0b820ba2580856d6428d6e1757f3a5c973fcd0e58753ed",
+        "sections": [
+          "iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D6",
+        "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
+        "title": "iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)",
+        "sha256": "dfbe5d7de38319c734cdc123f07e0abe32a03fd1bfeb0004378e758d73320b20",
+        "sections": [
+          "iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D7",
+        "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
+        "title": "[TUTORIEL SANTORIN — SAISIE DES NOTES : QUESTIONS FRÉQUENTES (article 67)]",
+        "sha256": "3085da9782612888e6b657b6a7f4a8d839dc57a3fb8d545b03f1e364979ec00c",
+        "sections": [
+          "[TUTORIEL SANTORIN — SAISIE DES NOTES : QUESTIONS FRÉQUENTES (article 67)]"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D8",
+        "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
+        "title": "[TUTORIEL SANTORIN — DERNIÈRES VÉRIFICATIONS AVANT LE VERROUILLAGE (article 74)]",
+        "sha256": "a6774c8c58ae4386f0366a24f69248951298f856e42e53bb6e7a700848bba6d0",
+        "sections": [
+          "[TUTORIEL SANTORIN — DERNIÈRES VÉRIFICATIONS AVANT LE VERROUILLAGE (article 74)]"
+        ],
+        "passages": 5
+      },
+      {
+        "id": "D9",
+        "path": "data/examens/videos_tutoriels_cyclades_santorin.txt",
+        "title": "[SITUATION: SANTORIN / CYCLADES — DERNIÈRE VÉRIFICATION AVANT VERROUILLAGE : TOUS LES ÉLÈVES SONT-ILS DISTRIBUÉS ? (vidéo)]",
+        "sha256": "1218705663319e5c9326a845502d1e922375bf96dd87afeae4bf2903a660943f",
+        "sections": [
+          "[SITUATION: SANTORIN / CYCLADES — DERNIÈRE VÉRIFICATION AVANT VERROUILLAGE : TOUS LES ÉLÈVES SONT-ILS DISTRIBUÉS ? (vidéo)]"
+        ],
+        "passages": 8
+      },
+      {
+        "id": "D10",
+        "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
+        "title": "[SITUATION: SANTORIN — IMPOSSIBLE D'AFFECTER DANS UN LOT UN ÉLÈVE VENU D'UN AUTRE ÉTABLISSEMENT OU D'UNE AUTRE ACADÉMIE]",
+        "sha256": "d7cde711efe819350018ba42e0b9a8d8298e7506ca89bf60112f7d391378dad5",
+        "sections": [
+          "[SITUATION: SANTORIN — IMPOSSIBLE D'AFFECTER DANS UN LOT UN ÉLÈVE VENU D'UN AUTRE ÉTABLISSEMENT OU D'UNE AUTRE ACADÉMIE]"
+        ],
+        "passages": 5
+      }
+    ]
+  },
+  {
+    "cas": "lot",
+    "version": "38cb472",
+    "context_sha256": "be8f51d01d1d251d8ad706a4b1fb010aa9bc4525bacad8fdd1cae01d2e4dbfdd",
+    "documents": [
+      {
+        "id": "D1",
+        "path": "data/examens/complement_reponses_validees.txt",
+        "title": "[SITUATION: DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN]",
+        "sha256": "df979ba085e4fd5f72d144121739e30e1550792c6b3ad2bdeedae00cee08ce74",
+        "sections": [
+          "[SITUATION: DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN]"
+        ],
+        "passages": 3
+      },
+      {
+        "id": "D2",
+        "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
+        "title": "[SITUATION: SANTORIN — UN ÉLÈVE EST DANS LE MAUVAIS LOT]",
+        "sha256": "fdc255484602dd56da127160c6a0e6d63249a52c96f8f58ea4d45c18f25e3b2c",
+        "sections": [
+          "[SITUATION: SANTORIN — UN ÉLÈVE EST DANS LE MAUVAIS LOT]"
+        ],
+        "passages": 5
+      },
+      {
+        "id": "D3",
+        "path": "data/examens/circuit_aix_ipack_cyclades_santorin.txt",
+        "title": "[SITUATION: SANTORIN, PORTAIL ÉTABLISSEMENT — IL MANQUE DES ÉLÈVES APRÈS LA DISTRIBUTION, OU UN ENSEIGNANT A OUBLIÉ DE CLÔTURER SON LOT]",
+        "sha256": "2d528a0d9882708ed3cbaba5dbcac057a27a44d947002b3c3c420b617899073a",
+        "sections": [
+          "[SITUATION: SANTORIN, PORTAIL ÉTABLISSEMENT — IL MANQUE DES ÉLÈVES APRÈS LA DISTRIBUTION, OU UN ENSEIGNANT A OUBLIÉ DE CLÔTURER SON LOT]"
+        ],
+        "passages": 4
+      },
+      {
+        "id": "D4",
+        "path": "data/ipack/fiches/ipack_106_8_suivi_de_l_avancement_par_l_etablissement.txt",
+        "title": "8. Suivi de l'avancement par l'établissement",
+        "sha256": "3561f0a57dcbc2ca06e28ba492cd31ba7e6b74e8a5255788b9c29bf8cbbb1d76",
+        "sections": [
+          "8. Suivi de l'avancement par l'établissement"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D5",
+        "path": "data/ipack/fiches/ipack_169_situation_santorin_lot_manquant_d_un_collegue_imag_in.txt",
+        "title": "[SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]",
+        "sha256": "5bb70650c7073d7ca6b7b9fd8b130073dcfc1c70ea090a5b2bda2ef6784877d5",
+        "sections": [
+          "[SITUATION: SANTORIN — LOT MANQUANT D'UN COLLÈGUE (IMAG'IN)]"
+        ],
+        "passages": 4
+      },
+      {
+        "id": "D6",
+        "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
+        "title": "[SITUATION: SANTORIN — TOUT UN LOT EST ATTRIBUÉ AU MAUVAIS ENSEIGNANT, OU IL FAUT LE CONFIER À UN AUTRE]",
+        "sha256": "26b5b551c234ea236e871e4f34d3fe1b91aaff1ddbc209a84297063fa3e470ce",
+        "sections": [
+          "[SITUATION: SANTORIN — TOUT UN LOT EST ATTRIBUÉ AU MAUVAIS ENSEIGNANT, OU IL FAUT LE CONFIER À UN AUTRE]"
+        ],
+        "passages": 5
+      },
+      {
+        "id": "D7",
+        "path": "data/examens/videos_tutoriels_cyclades_santorin.txt",
+        "title": "[SITUATION: SANTORIN — DÉPLACER DES ÉLÈVES D'UN LOT VERS UN AUTRE LOT EXISTANT (vidéo)]",
+        "sha256": "876563a72169d10e2498eedfb5582ebfb4c774233e841c285d8a2fcab069c5c5",
+        "sections": [
+          "[SITUATION: SANTORIN — DÉPLACER DES ÉLÈVES D'UN LOT VERS UN AUTRE LOT EXISTANT (vidéo)]"
+        ],
+        "passages": 5
+      },
+      {
+        "id": "D8",
+        "path": "data/examens/fiches/memoire_examens_santorin_007_situation_matrice_de_saisie_resolution_des_bugs_d_interface_santorin_co_evaluation.txt",
+        "title": "[SITUATION: MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION]",
+        "sha256": "5d3b7852e258ee3def92f98b001d76f25e8cd54b55acfd41cfa1e23b539b929d",
+        "sections": [
+          "[SITUATION: MATRICE DE SAISIE : RÉSOLUTION DES BUGS D'INTERFACE SANTORIN & CO-ÉVALUATION]"
+        ],
+        "passages": 2
+      },
+      {
+        "id": "D9",
+        "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
+        "title": "[SITUATION: SANTORIN — DES ÉLÈVES SONT DANS CYCLADES MAIS JE NE LES VOIS PAS DANS MON LOT]",
+        "sha256": "b46edcb95c49dea524212ee2b180d86648f91572f184441acd46628c479b2e33",
+        "sections": [
+          "[SITUATION: SANTORIN — DES ÉLÈVES SONT DANS CYCLADES MAIS JE NE LES VOIS PAS DANS MON LOT]"
+        ],
+        "passages": 7
+      },
+      {
+        "id": "D10",
+        "path": "data/examens/videos_tutoriels_cyclades_santorin.txt",
+        "title": "[SITUATION: SANTORIN — AJOUTER UN DEUXIÈME ÉVALUATEUR SUR UN LOT (vidéo)]",
+        "sha256": "70d34c4218e9197987403e978fc9d16151561578f766e1558db3782679f2f764",
+        "sections": [
+          "[SITUATION: SANTORIN — AJOUTER UN DEUXIÈME ÉVALUATEUR SUR UN LOT (vidéo)]"
+        ],
+        "passages": 9
+      }
+    ]
+  }
+]

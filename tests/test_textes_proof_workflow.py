@@ -29,7 +29,10 @@ class TextesProofWorkflowTests(unittest.TestCase):
         self.assertTrue(any(k.arg == 'mode' and isinstance(k.value, ast.Name)
                             and k.value.id == 'mode' for k in call.keywords))
         node = parents[call]
-        while not isinstance(node, ast.If):
+        # Le premier If est désormais le choix du mode fidèle : la revue libre
+        # est dans son else. Vérifier le garde de domaine qui englobe les deux.
+        while not (isinstance(node, ast.If) and isinstance(node.test, ast.Compare)
+                   and isinstance(node.test.left, ast.Name) and node.test.left.id == 'mode'):
             node = parents[node]
         for mode in ('textes', 'examens', 'ipack'):
             self.assertTrue(eval(compile(ast.Expression(node.test), 'app.py', 'eval'), {'mode': mode}))
@@ -98,3 +101,4 @@ class TextesProofWorkflowTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

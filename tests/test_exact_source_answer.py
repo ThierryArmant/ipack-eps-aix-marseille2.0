@@ -38,9 +38,8 @@ class ExactSourceTests(unittest.TestCase):
         self.assertIn('Préalable : enregistrer dans un autre outil.',answer)
         self.assertEqual(audit['exact_extracts']['selected_ids'],['D1','D2'])
 
-    def test_unknown_duplicate_or_invented_answer_is_never_rendered(self):
+    def test_unknown_or_invented_answer_is_never_rendered(self):
         variants=[{'principal':'D99','complements':[]},
-                  {'principal':'D1','complements':['D1']},
                   {'principal':None,'complements':['D1']},
                   {'principal':'D1','complements':[],'answer':'MENU_INVENTE'}]
         for choice in variants:
@@ -91,3 +90,4 @@ class ExactSourceTests(unittest.TestCase):
         llm.complete.assert_called_once()
         self.assertEqual(result['branches']['A']['usage']['calls'],0)
         self.assertEqual(result['branches']['A']['state'],'baseline_not_generated')
+

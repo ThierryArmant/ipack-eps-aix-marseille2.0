@@ -139,13 +139,19 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
                 retained = plan_context(TracedLLM(branch_llm, audit, stage='selection'),
                     question=question, public=public, mode=mode, academy=academy,
                     packets=original_packets, audit=item['context_plan'])
-                if item['context_plan']['status'] == 'planned':
+                if item['context_plan']['status'] in ('planned', 'planned_partial'):
                     documents = '\n\n'.join(_runtime.documentary_review.mark_excerpt(
                         p['text'], path=p.get('path', ''), title=p.get('title', ''),
                         priority=p.get('priority', 0), origin=p.get('origin', 'document'),
                         url=p.get('url', ''), selection=p.get('selection', ''), scopes=p.get('scopes', []))
                         for p in retained)
                 item['planned_documents'] = documents
+                if not item['context_plan'].get('excluded_neighbor_ids'):
+                    item['state'] = 'context_not_reduced'
+                    item['comparison_note'] = ('Aucun document écarté avec un classement exploitable : '
+                        'les documents non classés restent conservés. Rédaction F non lancée pour éviter '
+                        'un nouvel appel sur un contexte non réduit. Ceci ne démontre pas une absence de réponse métier.')
+                    continue
             branch_instructions = instructions
             if branch == 'E':
                 branch_instructions += '\n\n' + GEMINI_SCOPE_INSTRUCTIONS
@@ -187,7 +193,7 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
         st.warning('Si une réponse IA est nécessaire, le bouton lance deux traitements facturables. B ajoute un appel d’interprétation ; '
                    'C ajoute un contrôle du doute et peut attendre votre précision ; une réparation peut ajouter un appel dans chaque colonne. Les recherches vectorielles sont hors compteurs ci-dessous. '
                    'E ne change que les consignes de rédaction : aucun appel à Gemini ni à Albert, aucun appel d’analyse supplémentaire. '
-                   'F ajoute un appel de préparation du contexte ; les documents retenus restent entiers. '
+                   'F ajoute au plus un appel de préparation ; sans réduction, sa rédaction est arrêtée. Les documents retenus restent entiers. '
                    'Aucun enregistrement dans le journal des collègues. Téléchargez les résultats avant de quitter la session.')
         with st.expander('Consigne expérimentale E — proposition Gemini'):
             st.caption('Test des consignes seulement : les fiches ne sont pas réécrites. Les affirmations non prouvées de la proposition sont écartées.')
@@ -260,6 +266,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                     item = result['branches'][branch]
                     if item.get('error'):
                         st.error(item['error'])
+                    if item.get('state') == 'context_not_reduced':
+                        st.warning(item['comparison_note'])
                     if item.get('common_result'):
                         common = item['common_result']
                         st.write(common.get('documented_answer') or common.get('precision', ''))
@@ -304,7 +312,7 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
             if experiment == 'D':
                 st.caption('D change uniquement le modèle de génération. Recherche partagée, mêmes contrôles. Albert : plafond de sortie 4 096 jetons ; éventuelle réparation comptée séparément.')
             if experiment == 'F':
-                st.caption('F classe les documents à partir de leurs passages complets. Procédures principales, préalables, compléments, limites et cas incertains restent entiers. Seules les opérations classées voisines sont écartées ; leurs traces restent exportées. Ce classement du modèle reste à vérifier. Un appel de préparation supplémentaire est compté ; aucun Gemini ni Albert.')
+                st.caption('F classe les documents à partir de leurs passages complets. Un plan partiel est conservé ; tout document non classé reste entier et incertain. Seuls les voisins explicitement classés sont écartés. Sans exclusion exploitable, aucune rédaction F supplémentaire. Le classement reste à vérifier ; au plus un appel de préparation, aucun Gemini ni Albert.')
             if experiment == 'E':
                 st.caption('E utilise le modèle de A avec les documents de A et les mêmes contrôles. Seule la consigne d’isolation des procédures est ajoutée ; ce test ne modifie pas le Hub public. Aucun modèle Gemini appelé.')
             st.caption('Deux réponses identiques ne prouvent pas leur exactitude. Comparez la pertinence, les conditions et les sources.')

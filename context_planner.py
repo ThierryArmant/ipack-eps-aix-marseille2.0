@@ -2,7 +2,7 @@
 import hashlib
 import json
 
-VERSION = 'roles-documents-complets-v1'
+VERSION = 'roles-documents-complets-v2'
 MAX_PROMPT_CHARS = 40000
 ROLES = ('principal', 'prealable', 'complement', 'limite', 'incertain', 'voisin')
 
@@ -37,9 +37,9 @@ Pour une demande générale, conserve les responsabilités et limites, pas seule
 Pour une demande composée, couvre TOUS ses volets. Les préalables dans un autre outil restent utiles.
 Une condition inconnue n'est pas fausse : conserve les branches et leurs conditions.
 Ne classe pas voisin un document portant une limite ou une contradiction pertinente.
-Pour chaque rôle, cite un passage_id fourni et une citation exacte non vide de ce passage.
+Pour chaque rôle, indique un passage_id fourni. Le programme recopiera le passage exact : ne le réécris pas.
 Les documents retenus resteront entiers : ne réécris ni procédure, ni menu, ni règle.
-Retourne uniquement {"documents":[{"id":"D1","role":"principal","passage_id":"D1P1","quote":"citation exacte"}]}.
+Retourne uniquement {"documents":[{"id":"D1","role":"principal","passage_id":"D1P1"}]}.
 Une entrée par document, sans omission ni doublon. Aucune connaissance extérieure.
 DONNEES :
 ''' + json.dumps(data, ensure_ascii=False)
@@ -56,17 +56,22 @@ DONNEES :
             raise ValueError('schema')
         rows = result['documents']
         by_id = {p['id']: p for p in candidates}
-        if (not isinstance(rows, list) or len(rows) != len(candidates)
-                or any(not isinstance(r, dict) or set(r) != {'id', 'role', 'passage_id', 'quote'}
+        if (not isinstance(rows, list) or len(rows) > len(candidates)
+                or any(not isinstance(r, dict) or set(r) not in ({'id', 'role', 'passage_id'}, {'id', 'role', 'passage_id', 'quote'})
                        or not all(isinstance(v, str) for v in r.values()) for r in rows)
-                or {r['id'] for r in rows} != set(by_id)):
+                or len({r['id'] for r in rows}) != len(rows)
+                or any(r['id'] not in by_id for r in rows)):
             raise ValueError('coverage')
         for row in rows:
             spans = {s['id']: s['text'] for s in by_id[row['id']]['passages']}
             if (row['role'] not in ROLES or row['passage_id'] not in spans
-                    or not row['quote'].strip() or row['quote'] not in spans[row['passage_id']]):
+                    or ('quote' in row and (not row['quote'].strip() or row['quote'] not in spans[row['passage_id']]))):
                 raise ValueError('anchor')
-        audit['decisions'] = rows
+        audit['decisions'] = [dict(row, source_passage=next(s['text'] for s in by_id[row['id']]['passages']
+                                                          if s['id'] == row['passage_id'])) for row in rows]
+        missing = [p['id'] for p in candidates if p['id'] not in {r['id'] for r in rows}]
+        audit['unclassified_ids'] = missing
+        audit['unclassified_policy'] = 'conserves_entiers_comme_incertains'
         if not any(r['role'] == 'principal' for r in rows):
             audit.update(status='fallback_no_principal_full_context', after_ids=audit['before_ids'])
             return packets
@@ -74,7 +79,7 @@ DONNEES :
         retained = [p for p in packets if roles.get(p['id']) != 'voisin']
         # Classement de documents, jamais prescription d'un ordre d'opérations.
         retained.sort(key=lambda p: ROLES.index(roles.get(p['id'], 'incertain')))
-        audit.update(status='planned', after_ids=[p['id'] for p in retained],
+        audit.update(status='planned_partial' if missing else 'planned', after_ids=[p['id'] for p in retained],
                      excluded_neighbor_ids=[r['id'] for r in rows if r['role'] == 'voisin'],
                      semantic_roles_proven=False,
                      passage_chars_after=sum(len(s['text']) for p in retained for s in p['passages']),

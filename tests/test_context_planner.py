@@ -43,10 +43,10 @@ class ContextPlannerTests(unittest.TestCase):
         self.assertFalse(audit['semantic_roles_proven'])
         llm.complete.assert_called_once()
 
-    def test_invalid_missing_or_fabricated_citation_keeps_everything(self):
+    def test_invalid_duplicate_or_fabricated_citation_keeps_everything(self):
         packets=[packet('D1','Action A'),packet('D2','Autre action')]
         valid=[self.row(p, 'principal') for p in packets]
-        variants=[valid[:1], [valid[0],valid[0]],
+        variants=[[valid[0],valid[0]],
                   [dict(valid[0],quote='inventé'), valid[1]],
                   [dict(valid[0],passage_id='D2P1'),valid[1]],
                   [dict(valid[0],role='incompatible'),valid[1]]]
@@ -55,6 +55,24 @@ class ContextPlannerTests(unittest.TestCase):
                 result, audit, _=self.plan(packets, rows)
                 self.assertIs(result, packets)
                 self.assertEqual(audit['status'],'fallback_invalid_full_context')
+
+    def test_partial_plan_keeps_unclassified_and_only_excludes_explicit_neighbor(self):
+        packets=[packet('D1','Préalable encore non classé'),packet('D2','Action principale'),
+                 packet('D3','Opération distincte')]
+        rows=[self.row(packets[1],'principal'), self.row(packets[2],'voisin')]
+        result,audit,_=self.plan(packets,rows)
+        self.assertEqual([p['id'] for p in result],['D2','D1'])
+        self.assertEqual(audit['status'],'planned_partial')
+        self.assertEqual(audit['unclassified_ids'],['D1'])
+        self.assertIs(result[1],packets[0])
+
+    def test_compact_schema_copies_witness_from_source(self):
+        packets=[packet('D1','Condition indispensable'),packet('D2','Opération distincte')]
+        rows=[dict(id='D1',role='principal',passage_id='D1P1'),
+              dict(id='D2',role='voisin',passage_id='D2P1')]
+        result,audit,_=self.plan(packets,rows)
+        self.assertEqual(result,[packets[0]])
+        self.assertEqual(audit['decisions'][0]['source_passage'],'Condition indispensable')
 
     def test_no_main_document_does_not_turn_uncertainty_into_empty_answer(self):
         packets=[packet('D1','Limite A'),packet('D2','Autre A')]
@@ -84,6 +102,25 @@ class ContextPlannerTests(unittest.TestCase):
 
 
 class PlannedComparisonTests(unittest.TestCase):
+    def test_no_reduction_does_not_pay_for_another_writer(self):
+        import architecture_comparison as ac
+        dr=ac._runtime.documentary_review
+        docs='\n\n'.join(dr.mark_excerpt(text,path='data/test'+str(i)+'.txt',title=text)
+                         for i,text in enumerate(['Procédure utile','Élément non classé']))
+        p=dr.source_packets(docs)[0]
+        llm=SimpleNamespace(model='gpt-4o-mini',temperature=0,
+            complete=Mock(return_value=SimpleNamespace(text=json.dumps({'documents':[
+                dict(id=p['id'],role='principal',passage_id=p['passages'][0]['id'])]}))))
+        with patch('architecture_comparison.review_exam_answer',return_value='A') as review:
+            result=ac.run_comparison(llm=llm,retrieve=lambda *args:(docs,[],[],''),
+                question='Question',public='p',mode='examens',academy='Aix-Marseille',
+                version='test',experimental='F')
+        review.assert_called_once()
+        item=result['branches']['F']
+        self.assertEqual(item['state'],'context_not_reduced')
+        self.assertNotIn('answer',item)
+        self.assertEqual(item['usage']['generation_calls'],0)
+
     def test_f_reuses_search_preserves_passages_and_does_not_change_e(self):
         import architecture_comparison as ac
         dr=ac._runtime.documentary_review

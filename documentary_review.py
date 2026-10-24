@@ -920,7 +920,7 @@ def situation_mismatch(question, text):
         return True
 
     # Le correctif d'une APSA Courses ne répond pas à un incident non identifié.
-    course_case = r'\bcourses\b|relais.?vitesse|demi.fond|\bhaies\b|\bsauts\b|\blancers\b'
+    course_case = r'\bcourses?\b|relais.?vitesse|demi.fond|\bhaies\b|\bsauts\b|\blancers\b'
     if (not re.search(course_case, q) and re.search(course_case, t)
             and re.search(r'remplac|fusionn|selectionn|declar.{0,50}certificative', t)):
         return True

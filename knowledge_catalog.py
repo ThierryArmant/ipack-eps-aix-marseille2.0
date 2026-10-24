@@ -6,11 +6,37 @@ import unicodedata
 from pathlib import Path
 
 
+# Tolérance de recherche uniquement : une permutation de deux lettres voisines
+# dans un mot métier long. Ni code, ni nombre, ni négation, ni statut médical.
+# Les collisions sont exclues plutôt que résolues arbitrairement.
+_SEARCH_WORDS = frozenset('''protocole protocoles remplacer remplacement
+certificatif certificatifs certificative certificatives referentiel referentiels
+enseignant enseignants etablissement etablissements importation configuration
+organisation synchronisation distribution affectation reaffectation
+coordonnateur coordonnateurs coordinateur coordinateurs'''.split())
+
+
+def _transposition_aliases():
+    candidates = {}
+    for word in _SEARCH_WORDS:
+        for i in range(len(word) - 1):
+            variant = word[:i] + word[i + 1] + word[i] + word[i + 2:]
+            if variant != word and variant not in _SEARCH_WORDS:
+                candidates.setdefault(variant, set()).add(word)
+    return {variant: next(iter(words)) for variant, words in candidates.items()
+            if len(words) == 1}
+
+
+_SEARCH_TRANSPOSITIONS = _transposition_aliases()
+
+
 def normalise(text):
     value = ''.join(c for c in unicodedata.normalize('NFD', text.lower())
                     if unicodedata.category(c) != 'Mn')
-    # Tolérance d'une faute attestée ; aucun autre mot ni fait n'est ajouté.
-    return re.sub(r'\bimaptitudes?\b', lambda m: m.group().replace('imapt', 'inapt'), value)
+    value = re.sub(r'\s+', ' ', value).strip()
+    value = re.sub(r'\bimaptitudes?\b', lambda m: m.group().replace('imapt', 'inapt'), value)
+    return re.sub(r'\b[a-z]{8,}\b',
+                  lambda m: _SEARCH_TRANSPOSITIONS.get(m.group(), m.group()), value)
 
 
 _EQUIVALENCES = None

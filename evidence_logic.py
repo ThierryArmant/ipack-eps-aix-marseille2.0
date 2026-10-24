@@ -153,7 +153,7 @@ def non_implication_to_obligation(claim):
                 continue
             direct = any(re.search(r'\b(?:necessaire|obligatoire|doit|doivent|devez|faut)\b', other)
                          and len(action & _branch_words(other)) >= 2
-                         for source in proofs for other in re.split(r'[.;!?]\s*', source)
+                         for source in proofs for other in re.split(r'[.;!?:]\s*', source)
                          if not re.search(r"ne constitue|ne vaut|n'equivaut", other))
             if not direct:
                 return True

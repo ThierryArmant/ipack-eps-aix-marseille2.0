@@ -1,3 +1,13 @@
+## 24 octobre — simplifier les consignes et distinguer les sources complémentaires
+
+Base 61d0947. Dernier rejeu ciblé : trois réponses, 32858 jetons, mini température 0 ; collège encore contradictoire, sources complémentaires de la vue d'ensemble coordonnateur écartées comme voisines, dépôt d'annexes non démontré remplacé par réserve justifiée. Aucun gain global déduit.
+
+Autorisation utilisateur : améliorer l'efficacité générale et publier systématiquement les correctifs vérifiés ; il demande ensuite explicitement de prendre la main sur les rejeux administrateur. Travail local isolé préservé. Stratégie commune hiérarchisée et dédupliquée dans config/consignes_fiabilite.txt ; rédaction/réparation ramenées à leurs contrats utiles ; bibliographie affichée par programme, seulement identifiants en JSON. Exemple de section valide. Faits explicitement donnés distingués des règles/fonctions à prouver. Pas de baisse de seuil de validation.
+
+Sélecteur : manipulation, diagnostic ou vue d'ensemble ; catégorie complementaire pour un volet demandé ou préalable indispensable, distinct de voisine/incompatible. Maximum quatre fiches et un appel inchangés. Réparation : seules affirmations validées non impliquées par les erreurs transmises pour conservation ; brouillon rejeté absent, réponse complète recontrôlée, pas de fusion automatique sans validation.
+
+1092 tests réussis (42,754 s), quatre nouveaux tests et contre-exemples. Reconstitution hors fournisseur : préfixe de consignes de 7961 caractères contre 26086–26404 sur les trois anciennes rédactions. Réduction de caractères, pas encore mesure de coût ou efficacité d'une nouvelle réponse. Les contrôles ne garantissent toujours pas toute la sémantique. Aucun appel IA lancé pour développer ces changements ; les générations réelles ciblées sont explicitement autorisées par l'utilisateur. Mini seul, température 0, Albert suspendu, plafonds inchangés. Aucun contenu privé publié. Les 480 restent en attente. Rapport : docs/audit_fiches/strategie_commune_2026_10_24.md.
+
 ## 24 octobre — comparaison réelle sur 414a080 et reprise ciblée des conditions/limites
 
 HEAD vérifié à 414a080. Les mêmes 20 contextes privés (12 iPackEPS, 8 Examens) sont rejoués par l'utilisateur, mini seul, température 0. Lecture manuelle provisoire : 13 utiles, 5 partielles, 1 insuffisante, 1 guide non observable, contre 12/4/3/1 sur f79cb52. Deux gains depuis insuffisante ; une utile devient partielle (préalable de fonction omis), onze utiles préservées. Course : faux rejet disparu à contexte identique ; Pronote utile sans réparation ; gain SSS non attribué causalement au correctif. 218532 jetons et 37 appels contre 228230 et 39 ; une réparation échouée contre trois auparavant. Aucun taux général ni 90 % démontré.

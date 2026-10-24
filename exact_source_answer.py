@@ -203,7 +203,7 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
             + numbered + '</details>')
 
 
-def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False):
+def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False, selector_llm=None):
     packets = reviewer.source_packets(documents)
     audit.update(documents=packets, context_exact=documents,
                  context_sha256=hashlib.sha256(documents.encode()).hexdigest(),
@@ -277,7 +277,7 @@ DONNEES :
         report['status'] = 'budget_exceeded_no_call'
         return '<p>Contexte trop volumineux pour sélectionner les sources sans les tronquer. Aucun appel lancé.</p>'
     try:
-        raw = tracer(llm, audit, stage='selection').complete(prompt).text.strip()
+        raw = tracer(selector_llm if selector_llm is not None else llm, audit, stage='selection').complete(prompt).text.strip()
         if raw.startswith('```'):
             raw = raw.split('\n', 1)[1].rsplit('```', 1)[0]
         choice = json.loads(raw)

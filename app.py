@@ -1265,10 +1265,14 @@ if st.session_state.get("is_admin", False):
                 st.warning(_probe_result["message"])
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
-        st.checkbox("Mode fidèle : textes sources, sans rédaction IA", value=True, key="admin_faithful")
-        st.caption("Le mode fidèle affiche d'abord les passages sélectionnés, sans réécriture. Les textes complets et leurs conditions restent consultables ; pertinence et complétude restent à vérifier.")
+        st.checkbox("Mode documenté : réponse courte et extraits consultables", value=True, key="admin_faithful")
+        st.checkbox("Mini sélectionne les passages, Albert rédige", value=True, key="admin_mini_albert")
+        st.caption("Deux appels au maximum : sélection des passages puis réponse courte. Les extraits et les contrôles restent conservés.")
         st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
-        if st.session_state.get("admin_albert_only"):
+        if st.session_state.get("admin_faithful", True) and st.session_state.get("admin_mini_albert", True):
+            st.caption("ESSAI MIXTE ACTIF : recherche par le code → gpt-4o-mini sélectionne → Albert rédige. Le réglage Albert seul est ignoré dans ce mode. Aucun secours automatique ni réparation payante."
+                       + (" · version " + _sha if _sha else ""))
+        elif st.session_state.get("admin_albert_only"):
             st.caption(("MODE FIDÈLE : Albert choisit les passages, le programme restitue le texte exact ("
                         if st.session_state.get("admin_faithful") else "ESSAI DIRECT ACTIF : recherche par le code → Albert (") + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
                        + "). Aucun appel de sélection ou rédaction Mini, aucun secours GPT, aucune réparation payante."
@@ -1624,8 +1628,10 @@ if prompt_a_traiter:
         _faithful_trial = (st.session_state.get("is_admin", False)
             and st.session_state.get("admin_faithful", True)
             and mode in ("examens", "ipack", "textes"))
+        _mixed_trial = (_faithful_trial and st.session_state.get("admin_mini_albert", True))
         _albert_only_trial = (st.session_state.get("is_admin", False)
             and st.session_state.get("admin_albert_only", True)
+            and not _mixed_trial
             and mode in ("examens", "ipack", "textes"))
         if _albert_only_trial:
             _test_model = None
@@ -1647,7 +1653,7 @@ if prompt_a_traiter:
         if _test_gpt41:
             from openai_test_adapter import test_clients
             _test_selector, _generation_llm = test_clients(_test_model, openai_api_key)
-        if _albert_only_trial:
+        if _albert_only_trial or _mixed_trial:
             _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
                 temperature=0.0, allow_paused_test=True)
@@ -2624,6 +2630,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                          'one_question_gpt41_test': _test_model == 'gpt-4.1',
                                          'test_model': _test_model,
                                          'albert_only_trial': _albert_only_trial,
+                                         'mini_albert_trial': _mixed_trial,
                                          'faithful_sources_only': _faithful_trial,
                                          'test_api_call_limit': 2 if _test_model else None,
                                          'normalisation_question': normalise_question(prompt),
@@ -2637,7 +2644,10 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 _generation_llm, reviewer=_generation_runtime.documentary_review,
                                 tracer=TracedLLM, question=prompt, public=niveau_actuel_form,
                                 documents=contexte_complet_ia, audit=diagnostic_ia,
-                                academy=academie_reponse, mode=mode, synthesis=True)
+                                academy=academie_reponse, mode=mode, synthesis=True,
+                                selector_llm=OpenAI(model='gpt-4o-mini', temperature=0.0,
+                                    api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20)
+                                    if _mixed_trial else None)
                             usage_ia['calls'] = diagnostic_ia.get('calls', [])
                             _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
                         else:

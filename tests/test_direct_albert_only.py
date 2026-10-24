@@ -18,10 +18,10 @@ def execute(node,env):
 
 
 class DirectAlbertOnlyTests(unittest.TestCase):
-    def route(self,state,mode):
+    def route(self,state,mode,mixed=False):
         constructor=Mock(return_value='albert-direct')
         env=dict(st=SimpleNamespace(session_state=state,secrets={'ALBERT_API_KEY':'placeholder','ALBERT_MODEL':'gpt-oss-120b'}),
-                 mode=mode,_test_model='gpt-4.1',_test_gpt41=True,_single_document_test=True,
+                 mode=mode,_mixed_trial=mixed,_test_model='gpt-4.1',_test_gpt41=True,_single_document_test=True,
                  _short_prompt_test=True,_generation_llm='ordinary-writer',
                  _generation_runtime=SimpleNamespace(albert_adapter=SimpleNamespace(AlbertLLM=constructor)))
         assignment=next(n for n in ast.walk(TREE) if assigns(n,'_albert_only_trial'))
@@ -31,6 +31,11 @@ class DirectAlbertOnlyTests(unittest.TestCase):
         for branch in branches:
             if any(assigns(n,'_test_model') or assigns(n,'_generation_llm') for n in branch.body):
                 execute(branch,env)
+        provider=next(n for n in ast.walk(TREE) if isinstance(n,ast.If)
+                      and isinstance(n.test,ast.BoolOp)
+                      and any(isinstance(a,ast.Name) and a.id=='_mixed_trial' for a in n.test.values)
+                      and any(assigns(a,'_generation_llm') for a in n.body))
+        execute(provider,env)
         env['_orientation_active']=True
         orientation=next(n for n in branches if any(assigns(a,'_orientation_active') for a in n.body))
         execute(orientation,env)
@@ -53,6 +58,12 @@ class DirectAlbertOnlyTests(unittest.TestCase):
                 env,constructor=self.route(state,mode)
                 self.assertEqual(env['_generation_llm'],'ordinary-writer')
                 constructor.assert_not_called()
+
+    def test_mixed_mode_does_not_claim_albert_only_but_uses_albert_writer(self):
+        env,constructor=self.route({'is_admin':True,'admin_albert_only':True},'examens',mixed=True)
+        self.assertFalse(env['_albert_only_trial'])
+        self.assertEqual(env['_generation_llm'],'albert-direct')
+        constructor.assert_called_once()
 
     def test_trial_has_no_paid_repair_and_other_mode_retains_its_policy(self):
         review=next(n for n in ast.walk(TREE) if isinstance(n,ast.Call)

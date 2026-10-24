@@ -9,7 +9,7 @@
   - Q2 : Notre équipe propose plusieurs référentiels pour une même APSA (contrôle adapté…), mais iPackEPS ne me propose de déposer qu’un seul référentiel.
   - R2 : Il vous suffit de créer sur le même document vos divers référentiels, sur plusieurs pages différentes. Par exemple : page 1 : référentiel course de vitesse, page 2 : référentiel relais, page 3 : version contrôle adapté, etc…
   - Q3 : Je veux déposer un référentiel, mais l’APSA n’apparaît pas dans le tableau.
-  - R3 : Pour qu’une APSA apparaisse, il faut qu'elle soit déclarée Certificative (dans [Dossier EPS] / [APSA]) et que l’APSA soit déclarée dans l’offre de formation d’au moins un groupe d’examen (dans [dossier EPS] / [Groupes]).
+  - R3 — enseignement commun, référentiel d'établissement attendu : vérifier la déclaration Certificative dans [Dossier EPS] / [APSA] et l'offre de formation d'au moins un groupe d'examen dans [Dossier EPS] / [Groupes]. Ces conditions de visibilité ne valent pas obligation de dépôt pour une APSA académique (R6). Pour l'EPPCS, la case Certificative ne s'applique pas : se reporter à R1 et au groupe de spécialité.
   - Q4 : Comment déposer des référentiels pour les APSAs adaptées ?
   - R4 : Nous n’avons pas prévu de gestion spécifique des référentiels adaptés. Si par exemple à la place des Courses (liste Nationale), vous proposez une APSA Marche Nordique Adaptée, vous pouvez rajouter des pages supplémentaires au référentiel de Courses, pour y inclure votre référentiel de Marche Nordique Adaptée.
   - Q5 : J’ai déclaré par erreur le Badminton en APSA certificative, j’ai donc une alerte sur le dépôt de référentiel.

@@ -970,6 +970,50 @@
           "reference": "Séparation des opérations à partir des supports déjà présents au corpus ; pas de revalidation primaire."
         }
       ]
+    },
+    "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt": {
+      "passages": [
+        {
+          "texte": "Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N, 2.a — bac GT, enseignement commun"
+        }
+      ]
+    },
+    "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt": {
+      "passages": [
+        {
+          "texte": "Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N, 2.a — bac GT, enseignement commun"
+        }
+      ]
+    },
+    "data/ipack/fiches/ipack_237_7_administration_rapports_et_parametrage_technique.txt": {
+      "passages": [
+        {
+          "texte": "Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N, 2.a — bac GT, enseignement commun"
+        }
+      ]
+    },
+    "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt": {
+      "passages": [
+        {
+          "texte": "Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.",
+          "nature": [
+            "texte_national"
+          ],
+          "reference": "MENE2531948N, 2.a — bac GT, enseignement commun"
+        }
+      ]
     }
   }
 }

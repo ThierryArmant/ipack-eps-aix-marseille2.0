@@ -47,7 +47,7 @@
    "ajout": "fraude"
   },
   {
-   "motif": "(?:mauvais|autre) lot|pas dans (?:le bon|son) lot|(?=.*(?:santorin|cyclades))(?=.*(?:(?:mauvais|autre) groupe|eleve d.une autre classe))",
+   "motif": "(?:mauvais|autre) lot|pas dans (?:le bon|son) lot|(?=.*santorin)(?=.*(?:(?:mauvais|autre) groupe|eleve d.une autre classe))",
    "ajout": "eleve dans le mauvais lot"
   },
   {

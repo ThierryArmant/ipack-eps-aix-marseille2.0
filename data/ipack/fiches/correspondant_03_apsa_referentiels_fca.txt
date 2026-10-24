@@ -18,7 +18,7 @@ Origine : réponses écrites du correspondant iPackEPS / chargé de mission exam
 
 ### [SITUATION: CROSS-TRAINING, MARCHE, ACTIVITÉ NON LISTÉE : ÉPREUVE D'ÉTABLISSEMENT]
 - Formulations courantes des collègues : l'icône « certificative » n'est pas sélectionnable pour le cross-training ; je ne peux pas avoir une deuxième activité établissement ; notre activité adaptée n'existe pas dans la liste nationale.
-- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Une seule épreuve d'établissement est possible par ensemble ; elle suppose l'accord préalable de l'inspection.
+- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Au bac GT, la borne actuelle est une activité établissement par lycée pour l'enseignement commun, et non une activité différente pour chaque ensemble ; elle suppose l'accord de l'inspection (MENE2531948N, 2.a).
 - Si plusieurs activités se disputent la place d'épreuve d'établissement, ne déclarer qu'une activité athlétique sous « Courses » libère la place pour l'épreuve d'établissement (par exemple une épreuve adaptée) ; toutes les activités dont le référentiel a été validé peuvent rester programmées.
 
 ### [SITUATION: ÉPREUVES ADAPTÉES (BAC GT, BAC PRO, CAP)]
@@ -44,3 +44,5 @@ Origine : réponses écrites du correspondant iPackEPS / chargé de mission exam
 ### [SITUATION: REMPLACER UNE FCA DÉJÀ DÉPOSÉE]
 - Formulations courantes des collègues : pouvez-vous déposer ma nouvelle FCA à ma place ; iPackEPS est en maintenance, je dois remplacer une fiche.
 - Réponse : le correspondant académique ne peut pas déposer de fiche à la place de l'établissement. Le remplacement se fait par l'établissement dans iPackEPS, dès que l'application est accessible.
+
+Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.

@@ -1,3 +1,19 @@
+## 24 octobre — famille FCA/protocoles : contenu, procédures, moule et tests
+
+Base : 26897e1. Thierry demande explicitement vérification par familles, procédures, moule et tests. Journal et HEAD contrôlés avant modification ; patch et fichiers non suivis sauvegardés localement avant reprise. Aucun appel IA, aucun rejeu payant ; Albert reste suspendu.
+
+16 sources existantes corrigées sur unités identifiées, sans certification complète des fiches. Quatre copies remplaçaient la borne nationale d'une activité établissement par lycée (enseignement commun bac GT, MENE2531948N 2.a, relue en ligne) par une borne par ensemble. Correction iPack 023, correspondant 03, iPack 237 et FCA liste académique ; passage national distinct attribué explicitement pour ne pas devenir une consigne uniquement aixoise hors académie.
+
+Neuf copies de création de protocole adapté conservaient une garantie générale/historique « à tout moment » sans la réserve SAV Aix-Marseille à cet endroit : iPack 160/212, fiche autonome protocole adapté en cours d'année, guide inaptes temporaires, compléments Cyclades iPack/Examens, tutoriels Créteil, vidéos tutoriels et mémoire Santorin 012. Réserve technique intégrée aux situations où l'action est proposée, avec circuit inspection/extraction iPack IA-IPR, cas de baccalauréat discutés, sans transposition CAP/autres académies/versions ni ajout d'APSA fictive. Les possibilités réglementaires et la création technique restent distinctes. Aucun audio nouvellement transcrit.
+
+iPack 061 : borner l'ancien « accepte n'importe quelle APSA » à une observation technique qui n'autorise pas réglementairement toute activité ; distinguer permanente/temporaire selon 2.e. iPack 070 : rendre la condition de visibilité compatible avec les exceptions EPPCS et référentiel académique présentes dans la même fiche. iPack 075 : soumission technique avec alerte distincte de la validation par la commission et de la régularisation des anomalies. Moule appliqué aux unités défectueuses : action, condition/alternative, résultat et limite, sans conversion globale ni nouvelle fiche métier.
+
+Défaut de raccordement reproduit : enrichissement d'une question « mauvais groupe dans Cyclades » en « mauvais lot », puis possible procédure Santorin ; équivalence limitée aux mauvais lots explicites ou au contexte Santorin. La fiche de suppression iPack 177 était aussi prioritaire pour Cyclades : exclusion Cyclades dans ce raccordement, cas f4 existant renforcé. Questions inédites sur référentiel rejeté et soumission avec alertes raccordées aux articles existants 101 et 45 ; contre-exemples conservés.
+
+Neuf tests dédiés du vrai catalogue/découpage/paquet de preuves/portée, sans modèle. Un ancien test attendait précisément l'enrichissement erroné Cyclades en lot : attente corrigée avec maintien du cas Santorin positif. Suite finale 1047 tests réussis ; contrôle mécanique des 435 fichiers sans anomalie selon ses critères ; compilation et diff vérifiés. Empreintes et portée actualisées, statuts a_confirmer. Rapport : docs/audit_fiches/famille_fca_protocoles_2026_10_24.md.
+
+Limites : les articles iPack 38/42 n'ont pas pu être rouverts en ligne ; comparaison des copies déjà présentes, aucune prétendue revalidation en ligne de ces articles. MENE2531948N 2.a/2.e relu sur le BO. Les tests de code et de raccordement ne prouvent pas la prochaine rédaction du modèle ni les 90 %. Les autres unités/familles restent à vérifier ; aucune clôture exhaustive annoncée.
+
 ## 24 octobre — revue autonome : pertes de portée, copies et questions inédites
 
 Base : 82f7efc. Thierry autorise la revue autonome iPackEPS/Santorin/Cyclades/Examens et les décisions d'amélioration, objectif de 90 %. Aucun appel IA ni rejeu payant ; Albert reste suspendu, mini seul. Les travaux locaux précédents sont conservés.

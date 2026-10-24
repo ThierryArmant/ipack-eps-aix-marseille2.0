@@ -3499,9 +3499,9 @@
     },
     {
       "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
-      "sha256": "a2ce188b20053c4a6a83f3dfc63b6708dc094e70bc5cfe83b441e346264a7296",
+      "sha256": "e50f636555422e6db4446c8c09174d01f4ce625c8274c73e7d91802bc22dd9b0",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -3522,7 +3522,8 @@
           9,
           90
         ],
-        "apparitions_dans_passages_transmis_traces": 15
+        "apparitions_dans_passages_transmis_traces": 15,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -4140,9 +4141,9 @@
     },
     {
       "path": "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt",
-      "sha256": "6aed02dcdb920163d03a908cf0439172449196309bdca552a2d3aaaa9534e9e7",
+      "sha256": "c09c5c2bc55b7db6f1bd1d278736abde55559c32b50a11de00c8d86019ea0e7e",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_sources",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -4162,7 +4163,8 @@
         "lignes_conditions_multiples": [
           94
         ],
-        "apparitions_dans_passages_transmis_traces": 1
+        "apparitions_dans_passages_transmis_traces": 1,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -4189,9 +4191,9 @@
     },
     {
       "path": "data/examens/guide_national_inaptes_partiels_temporaires.txt",
-      "sha256": "8bcd86909f4a1b4c035d154323b8282aec85c1f39318487768a7eaf465c94738",
+      "sha256": "5e03a5c7d6608c202cab0253bb5a1a4f41b965adaf96a304a1bc3cabed08a6cb",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "guide_national_document_de_travail_lu_par_extraits_2026-10-11",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -4208,7 +4210,8 @@
         "lignes_conditions_multiples": [
           23
         ],
-        "apparitions_dans_passages_transmis_traces": 3
+        "apparitions_dans_passages_transmis_traces": 3,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -5009,9 +5012,9 @@
     },
     {
       "path": "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt",
-      "sha256": "7da815aba371eb76f790107f196cdec6748e0f42f5152df5db5c0e4d66a79221",
+      "sha256": "0b455f4d97fb1eb095615afc58fb2c58a56d70fb009cf0a6c2db38071ab38f50",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
       "signaux": [
         "affirmation_absolue_a_relire"
@@ -5026,7 +5029,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 1
+        "apparitions_dans_passages_transmis_traces": 1,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -5138,7 +5142,7 @@
     },
     {
       "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
-      "sha256": "a4e55e3d82967105686a6acfe38d244a11bcde45999dd6e0d40372672bdb96d3",
+      "sha256": "c9ce1ec6a6a88819f9a633d427e95d6e4a8c8e39847ca613712dab9a85dfaf54",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5167,7 +5171,8 @@
           63,
           73
         ],
-        "apparitions_dans_passages_transmis_traces": 26
+        "apparitions_dans_passages_transmis_traces": 26,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -5190,9 +5195,9 @@
     },
     {
       "path": "data/examens/videos_tutoriels_cyclades_santorin.txt",
-      "sha256": "b9e1eb3b1117666d1310b424ca38458b28019edcc35ae347f3caff957a374cb0",
+      "sha256": "e3e03ee287d6f07229562993b1664f310d64f54964b8a22e76dc135dfd03767a",
       "famille": "examens",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -5213,7 +5218,8 @@
         "lignes_conditions_multiples": [
           53
         ],
-        "apparitions_dans_passages_transmis_traces": 15
+        "apparitions_dans_passages_transmis_traces": 15,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -5287,9 +5293,9 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "84a7c5333db65ec3c627327e6647957ee88afa37a11785c42f037a470a10a657",
+      "sha256": "87c7ea7bcacdd4dd342396b78b9f05d71bc6f7d5b03b092b9b9c02607664a174",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -5313,7 +5319,8 @@
           63,
           148
         ],
-        "apparitions_dans_passages_transmis_traces": 14
+        "apparitions_dans_passages_transmis_traces": 14,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -5666,9 +5673,9 @@
     },
     {
       "path": "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt",
-      "sha256": "410ec53e3a7068c3ace867e91ac059003fc771f6fcdb304900138a6615d3d29c",
+      "sha256": "45fe0a4d171666a3452ead57bf9e5e390f2f9e7170e9f00f0ebd97a9fd8acc12",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2025-2026",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -5688,7 +5695,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 4
+        "apparitions_dans_passages_transmis_traces": 4,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -6198,7 +6206,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt",
-      "sha256": "3611532e5fa42cfb5c681def19cf993586354a7f5ef2c167faf09425fa6bc9a7",
+      "sha256": "d2408becfb352d5b0c9f0f58d3c8772808cf970e826d02532e46d3702fa738cd",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -6216,7 +6224,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 1,
-        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -6822,9 +6830,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_061_article_15_dossiers_dossiereps_apsas_declaration_des_apsas.txt",
-      "sha256": "ed4f63f6d3a535fd4c514bb793d6ed078dfdaebbc60453fcd4fce437bf2da44e",
+      "sha256": "1dd94e3c61b314915c822832810f0c2b1934cc3ab73896799e80abe7a865a0ec",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -6841,7 +6849,8 @@
           12
         ],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -7031,9 +7040,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_070_article_38_dossiers_dossier_certificatif_referentiels_remontee_des_referentiels_d_evaluati.txt",
-      "sha256": "576f5c4750c758c8f52712a046ed6422942d219141fb46a6895eee3c15c4f6df",
+      "sha256": "98f9c11915e5cf5597bf06d60f1167be8d4123329d69d5d272fdb9063b8be8f5",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -7050,7 +7059,8 @@
         "lignes_conditions_multiples": [
           5
         ],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -7144,9 +7154,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt",
-      "sha256": "9ea4b78e063a3f3168317c26951e41b00de2e2fddde802e09da6d65776d01f3d",
+      "sha256": "ae1f64a8ad79d21905f0cd36228148f4e27e3bc52e2f3e13f3574bb3f0ad89be",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -7160,7 +7170,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -9040,9 +9051,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_160_thematique_inaptitudes_et_dispenses_modification_post_cahpn_en_cas_d_inaptitude_temporaire.txt",
-      "sha256": "5b825d10a3d9d263601bbc72b08ffb380f855b1376315bf28bb37554808f60b3",
+      "sha256": "6cf77e18fd42c99c489500d39da93e0559b5d525986d526ec1ee1b2f8886ee9a",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -9063,7 +9074,8 @@
         "lignes_conditions_multiples": [
           22
         ],
-        "apparitions_dans_passages_transmis_traces": 1
+        "apparitions_dans_passages_transmis_traces": 1,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -10116,9 +10128,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt",
-      "sha256": "36bb0c59e6f3b36c4959ace2c63202c2be55328fdf6995e4b9453f2b66fc0fbf",
+      "sha256": "3a752497b820c4b488942170b6c1239956e539fbda0fc84d62be3345406e0efd",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "affirmation_absolue_a_relire",
@@ -10134,7 +10146,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -10404,9 +10417,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_237_7_administration_rapports_et_parametrage_technique.txt",
-      "sha256": "1082b98c935308e62cdc28dd899ce5302e0c157438c32b5aca2be90663787b5e",
+      "sha256": "33b4e8c35329228e0ea5ef3fbf6c0f62eb4c52083c566ed5cf4523337d7f9e93",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
       "signaux": [
         "reference_non_explicite_a_verifier",
@@ -10424,7 +10437,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 3
+        "apparitions_dans_passages_transmis_traces": 3,
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {
@@ -10813,7 +10827,7 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt",
-      "sha256": "911b04935fa9ec3f14ac85356784f8bc925cc94b61e24b4bc6d1956a468c6658",
+      "sha256": "3a52183ac590a95485eefa1a788c4ec9c506ab0a0192f0f8057a3469546d5123",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "extraction_technique_sources_existantes_2026-10-18",
@@ -10832,7 +10846,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 2,
-        "reprise_ciblee": "branches_et_copies_contradictoires_2026_10_24"
+        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
       }
     },
     {

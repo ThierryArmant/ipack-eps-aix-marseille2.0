@@ -1,7 +1,8 @@
 ### [ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique
 - Mots-clés : proposer le dossier, Dossier EPS, Dossier Certificatif, validation, alertes, bouton [vérification], curseur [OUI], commentaire, [enregistrer], collège, dates manquantes
 - Formulations courantes des collègues : Je n’arrive pas à proposer mon dossier à cause des alertes ; Peut-on valider le dossier malgré les alertes ? ; Je suis en collège et j’ai des alertes sur le dossier certificatif, pourquoi ? ; Comment soumettre le dossier EPS à la commission ?
-- Réponse courte : Oui : après un clic sur [vérification], les curseurs sont débloqués et le dossier peut être soumis à validation même avec des alertes, en ajoutant un commentaire puis en cliquant sur [enregistrer].
+- Action — soumettre le dossier : après un clic sur [vérification], les curseurs sont débloqués et le dossier peut être soumis à validation même avec des alertes, en ajoutant un commentaire puis en cliquant sur [enregistrer].
+- Résultat — dossier soumis, pas dossier validé : le commentaire ne corrige pas automatiquement les dates, la composition ou les référentiels signalés. Distinguer l'envoi technique de l'avis de la commission et de la validité nécessaire au transfert vers Cyclades (relevé Dossier Certificatif et retour SAV Aix-Marseille déjà présents).
 - URL: spip.php?article45
 - Texte: Accès à cette fonctionnalité : Tableau de bord OU Tableau de bord => Dossiers et Projets => Dossier EPS OU Tableau de bord => Dossiers et Projets => Dossier Certificatif.
 - QUESTIONS / RÉPONSES :

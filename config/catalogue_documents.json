@@ -1534,7 +1534,12 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "alertes?.{0,80}dossier certificatif|dossier certificatif.{0,80}(?:college|alertes?)|(?:college|collegien).{0,80}dossier certificatif"
+      "alertes?.{0,80}dossier certificatif|dossier certificatif.{0,80}(?:college|alertes?)|(?:college|collegien).{0,80}dossier certificatif",
+      "(?=.*dossier)(?=.*(?:soumet|soumis|propos|transmet|envoi|envoy))(?=.*(?:alert|avertissement))"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
     ]
   },
   "data/ipack/fiches/ipack_076_article_49_dossiers_dossier_natation_asns_gestion_des_validations_d_asns_import_et_impress.txt": {
@@ -2201,6 +2206,9 @@
     ],
     "motifs": [
       "supprim\\w*.{0,40}protocole|protocole.{0,40}(?:supprim|errone)"
+    ],
+    "exclure_motifs": [
+      "cyclades"
     ]
   },
   "data/ipack/fiches/ipack_178_situation_ipackeps_repartir_les_eleves_dans_les_groupes.txt": {
@@ -2349,7 +2357,18 @@
     "title": "[ARTICLE 101] [Dossiers]/[Dossier Certificatif]/[Référentiels] Rejet d'un référentiel par la Commission Académique (Statut Rouge)",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*referentiel)(?=.*(?:refus|rejet|rouge))(?=.*(?:remplac|corrig|depos|modifi|renvo|faire))"
+    ],
+    "exclure_motifs": [
+      "cyclades|santorin"
+    ]
   },
   "data/ipack/fiches/ipack_200_article_102_materiel_epi_controle_periodique_et_registre_de_securite_escalade.txt": {
     "title": "[ARTICLE 102] [Matériel]/[EPI] Contrôle Périodique et Registre de Sécurité Escalade",
@@ -5715,7 +5734,8 @@
     "date_verification": "2026-10-13",
     "title": "FAQ EPS — Protocole Cyclades avec le mauvais groupe d'élèves",
     "motifs": [
-      "(?=.*(?:tromp|erreur|mauvais|faux|changer|modifi))(?=.*groupe)(?=.*(?:protocole|cyclades))(?=.*(?:grise|modifiable|bloque|changer|tromp))"
+      "(?=.*(?:tromp|erreur|mauvais|faux|changer|modifi))(?=.*groupe)(?=.*(?:protocole|cyclades))(?=.*(?:grise|modifiable|bloque|changer|tromp))",
+      "(?=.*cyclades)(?=.*protocole)(?=.*groupe)(?=.*(?:mauvais|errone|erreur|faux))"
     ]
   },
   "data/examens/audit_faq_2026_10_12/g5_procedure_verifiee.txt": {

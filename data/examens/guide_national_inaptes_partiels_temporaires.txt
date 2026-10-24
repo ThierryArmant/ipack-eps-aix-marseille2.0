@@ -15,7 +15,8 @@ Source : « Les inaptes partiels temporaires en EPS – Guide d'accompagnement �
   6. « Modification de l'ensemble certificatif proposé, pour permettre la pratique et la certification » (exemple : danse à la place de l'acrosport ; l'élève doit continuer à couvrir les champs d'apprentissage exigés).
   7. « Substitution d'une APSA de l'ensemble certificatif par une APSA alternative » (exemple : marche nordique à la place d'une course).
 - Recommandation du guide : présenter l'épreuve adaptée par écrit au candidat et recueillir son accord.
-- Dans les logiciels : une épreuve adaptée ou un ensemble modifié se traduit par un protocole de type « adapté », créé directement dans Cyclades à tout moment de l'année ; les épreuves adaptées sont portées à la connaissance de la commission académique.
+- Dans les logiciels : une épreuve adaptée ou un ensemble modifié se traduit par un protocole de type « adapté », créé directement dans Cyclades selon le circuit applicable ; les épreuves adaptées sont portées à la connaissance de la commission académique.
+Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.
 
 ### [SITUATION: CERTIFICAT MÉDICAL D'INAPTITUDE PARTIELLE — QUI L'ÉTABLIT, QUE DOIT-IL DIRE, COMBIEN DE TEMPS VAUT-IL ?]
 - Mots-clés : certificat médical, inaptitude partielle, médecin traitant, médecin scolaire, validité, incapacités fonctionnelles, dispense, infirmière.

@@ -667,6 +667,7 @@
     {
      "section": "### [SITUATION: MODIFIER OU CRÉER UN PROTOCOLE APRÈS LA TRANSMISSION À LA COMMISSION]",
      "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.",
       "- Pour modifier ou créer un protocole STANDARD : À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Dans une autre académie, suivre la procédure indiquée par son inspection et sa division des examens."
      ]
     },
@@ -850,7 +851,19 @@
     {
      "section": "### 4. Réglementation des Absences et Épreuves Différées",
      "lignes": [
-      "- *Erreur protocole inexistant :* Si des protocoles ont été créés après l'export académique. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix."
+      "- *Erreur protocole inexistant :* Si des protocoles ont été créés après l'export académique. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé directement dans Cyclades selon sa configuration et le circuit applicable, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix.",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
+     ]
+    }
+   ]
+  },
+  "data/examens/guide_national_inaptes_partiels_temporaires.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: ÉLÈVE BLESSÉ OU PARTIELLEMENT INAPTE POUR QUELQUES SEMAINES — QUE FAIRE AVANT DE LE METTRE DISPENSÉ ?]",
+     "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     }
    ]
@@ -956,6 +969,17 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Élève blessé en cours d'année : le protocole adapté se crée directement dans Cyclades",
+     "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
+     ]
+    }
+   ]
+  },
   "data/examens/situations_2026_10_13/santorin_export_detail_notes.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -973,20 +997,23 @@
     {
      "section": "### [TUTORIEL CYCLADES — VÉRIFIER L'AFFECTATION DES ÉLÈVES À LEURS PROTOCOLES (article 63)]",
      "lignes": [
-      "R2 : Les noms des groupes importés n'existent pas dans la liste des protocoles que la commission académique a importée pour l'établissement, ce qui arrive si de nouveaux protocoles ont été créés APRÈS l'export par la commission. Résolution : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix. Les noms des groupes doivent correspondre EXACTEMENT aux protocoles."
+      "R2 : Les noms des groupes importés n'existent pas dans la liste des protocoles que la commission académique a importée pour l'établissement, ce qui arrive si de nouveaux protocoles ont été créés APRÈS l'export par la commission. Résolution : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé directement dans Cyclades selon sa configuration et le circuit applicable, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix. Les noms des groupes doivent correspondre EXACTEMENT aux protocoles.",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     },
     {
      "section": "### [TUTORIEL CYCLADES — CONTRÔLER / RÉAFFECTER LES PROTOCOLES DES ENSEIGNANTS (article 64)]",
      "lignes": [
-      "R2 : Non. Lorsque des protocoles ont été importés pour un établissement, Cyclades refuse de les réimporter. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « invalider » ou « dévalider » les protocoles. Créer le protocole standard dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Les tutoriels d'autres académies (dévalidation par la commission, retransmission) ne s'appliquent pas tels quels à Aix. Le protocole doit porter exactement le même nom dans Cyclades et dans iPackEPS pour permettre ensuite l'import des élèves."
+      "R2 : Non. Lorsque des protocoles ont été importés pour un établissement, Cyclades refuse de les réimporter. À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « invalider » ou « dévalider » les protocoles. Créer le protocole standard dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Un protocole ADAPTÉ peut être créé directement dans Cyclades selon sa configuration et le circuit applicable, par le chef d'établissement ou un enseignant. Les tutoriels d'autres académies (dévalidation par la commission, retransmission) ne s'appliquent pas tels quels à Aix. Le protocole doit porter exactement le même nom dans Cyclades et dans iPackEPS pour permettre ensuite l'import des élèves.",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     },
     {
      "section": "### [TUTORIEL CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, STANDARD OU ADAPTÉ (article 65)]",
      "lignes": [
       "- À Aix-Marseille (BA 549, session 2026), la CAHPN valide les protocoles ; l’inspection assure leur transmission vers Cyclades. L’établissement importe ensuite le fichier d’association des candidats généré par iPackEPS. Ne pas présenter cette transmission comme automatique par la commission ni confondre protocoles, association des candidats et saisie des notes dans Santorin. Pour 2027, vérifier les instructions académiques applicables.",
-      "R1 : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix."
+      "R1 : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir l'inspection pédagogique avant, qui assure le transfert. Un protocole ADAPTÉ peut être créé directement dans Cyclades selon sa configuration et le circuit applicable, par le chef d'établissement ou un enseignant. Ne pas parler de faire « invalider » les protocoles. Les tutoriels d'autres académies (demande à la commission, resoumission) ne s'appliquent pas tels quels à Aix.",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     },
     {
@@ -1010,7 +1037,8 @@
     {
      "section": "### [SITUATION: CYCLADES — CRÉER UN PROTOCOLE EN COURS D'ANNÉE, NOTAMMENT ADAPTÉ (vidéo)]",
      "lignes": [
-      "- Nouveau protocole classique (standard) après validation : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « invalider » ou « dévalider » les protocoles. Créer le protocole standard dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Un protocole ADAPTÉ peut être créé à tout moment directement dans Cyclades, par le chef d'établissement ou un enseignant. Les tutoriels d'autres académies (dévalidation par la commission, retransmission) ne s'appliquent pas tels quels à Aix."
+      "- Nouveau protocole classique (standard) après validation : À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : ne pas demander de faire « invalider » ou « dévalider » les protocoles. Créer le protocole standard dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Un protocole ADAPTÉ peut être créé directement dans Cyclades selon sa configuration et le circuit applicable, par le chef d'établissement ou un enseignant. Les tutoriels d'autres académies (dévalidation par la commission, retransmission) ne s'appliquent pas tels quels à Aix.",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     }
    ]
@@ -1054,6 +1082,12 @@
      "section": "### [SITUATION: AJOUTER UN PROTOCOLE STANDARD APRÈS LA VALIDATION DE LA COMMISSION]",
      "lignes": [
       "- À Aix-Marseille (précision d'un formateur iPackEPS de l'académie, 11/10/2026) : un protocole STANDARD créé dans iPackEPS après la validation des protocoles ne peut être transféré vers Cyclades que par l'inspection, qui doit être informée AU PRÉALABLE de cette demande. Démarche : créer le protocole dans iPackEPS ([Dossiers] > [Dossier Certificatif]), prévenir au préalable l'inspection pédagogique, qui assure le transfert vers Cyclades. Ne pas parler de faire « invalider » les protocoles : on demande à l'inspection de valider et transférer le nouveau protocole."
+     ]
+    },
+    {
+     "section": "### [SITUATION: POURQUOI UNE APSA OU UN PROTOCOLE N'EST PAS TRANSFÉRÉ VERS CYCLADES]",
+     "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
      ]
     },
     {
@@ -1320,7 +1354,7 @@
     {
      "section": "### [SITUATION: CROSS-TRAINING, MARCHE, ACTIVITÉ NON LISTÉE : ÉPREUVE D'ÉTABLISSEMENT]",
      "lignes": [
-      "- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Une seule épreuve d'établissement est possible par ensemble ; elle suppose l'accord préalable de l'inspection."
+      "- Réponse : dans l'académie d'Aix-Marseille, le cross-training est une épreuve d'établissement (il n'est pas dans la liste académique de cette académie ; d'autres académies l'y inscrivent). Au bac GT, la borne actuelle est une activité établissement par lycée pour l'enseignement commun, et non une activité différente pour chaque ensemble ; elle suppose l'accord de l'inspection (MENE2531948N, 2.a)."
      ]
     },
     {
@@ -1437,7 +1471,7 @@
     {
      "section": "### [SITUATION: NON-CERTIFICATION D'UNE APSA (EX: CROSS-TRAINING)]",
      "lignes": [
-      "Branche établissement — une activité absente de la liste académique n'est pas, pour ce seul motif, interdite de dépôt. À Aix-Marseille, le correspondant décrit le cross-training comme épreuve d'établissement, avec accord préalable de l'inspection et une seule épreuve d'établissement par ensemble. Cette appartenance ne se transpose pas aux listes d'autres académies."
+      "Branche établissement — une activité absente de la liste académique n'est pas, pour ce seul motif, interdite de dépôt. À Aix-Marseille, le correspondant décrit le cross-training comme épreuve d'établissement, avec accord préalable de l'inspection et au plus une activité établissement par lycée pour l'enseignement commun au bac GT (MENE2531948N, 2.a). Cette appartenance ne se transpose pas aux listes d'autres académies."
      ]
     }
    ]
@@ -1521,6 +1555,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_061_article_15_dossiers_dossiereps_apsas_declaration_des_apsas.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 15] [Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs",
+     "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_073_article_84_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_des_fiches_indivi.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1528,6 +1573,17 @@
      "section": "### [ARTICLE 84] [Dossiers]/[Dossier Certificatif]/[Dépôt des documents CAHPN] Dépôt des fiches Individuelles",
      "lignes": [
       "À Aix-Marseille, les situations de zéro pour une prestation, d’absence (ABT dans le retour d’assistance) et de certificat médical rejeté sont des cas sensibles à documenter par une fiche individuelle dans iPackEPS : [Dossiers et projets] > [Dossier certificatif] > [Dépôt de documents pour la CAHPN] > [Fiche individuelle (cas particulier)]. Conserver les faits et pièces qui justifient le traitement ; le dépôt de la fiche ne décide pas à lui seul d’une note ou d’une dispense."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [ARTICLE 45] [Dossiers] Proposer le Dossier EPS ou Dossier Certificatif à la Commission Académique",
+     "lignes": [
+      "- Résultat — dossier soumis, pas dossier validé : le commentaire ne corrige pas automatiquement les dates, la composition ou les référentiels signalés. Distinguer l'envoi technique de l'avis de la commission et de la validité nécessaire au transfert vers Cyclades (relevé Dossier Certificatif et retour SAV Aix-Marseille déjà présents)."
      ]
     }
    ]
@@ -1561,6 +1617,7 @@
      "section": "### Thématique : Inaptitudes et dispenses (Modification post-CAHPN en cas d'inaptitude temporaire)",
      "lignes": [
       "- Technique : le chef d'établissement (ou un enseignant) crée un protocole de type adapté dans Cyclades ([EPS] > [Créer un protocole], type adapté), en y conservant les APSA déjà notées, puis y associe l'élève. Le correspondant iPackEPS d'Aix-Marseille l'indique (2025-2026) : en cours d'année, des protocoles adaptés peuvent être ajoutés directement dans Cyclades. Dans iPackEPS, on déclare l'inaptitude ([Mes Élèves] > [Inaptitudes], avec le certificat).",
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.",
       "- Si l'export est bloqué : vérifier qu'aucun élève de classe à examen n'est « sans groupe EPS » ([Dossier EPS] > [Élèves]). Si Cyclades refuse l'import, voir les fiches sur les alertes d'import Cyclades. Sinon, écrire à l'assistance iPackEPS (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
      ]
     }
@@ -1630,6 +1687,7 @@
     {
      "section": "### [SITUATION: INAPTITUDE EN COURS D'ANNÉE : ADAPTER SANS IMPROVISER (CONTRÔLE ADAPTÉ, FCA, PROTOCOLE ADAPTÉ)]",
      "lignes": [
+      "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.",
       "À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
       "Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel."
      ]
@@ -1758,7 +1816,7 @@
     {
      "section": "### iPackEPS : épreuve de la liste académique — pas de FCA à déposer",
      "lignes": [
-      "Vérifier d'abord que l'activité figure bien sur la liste académique de votre académie : à Aix-Marseille, le cross-training n'y est pas, c'est une épreuve d'établissement (d'autres académies l'inscrivent sur leur liste) ; une épreuve d'établissement suppose l'accord préalable de l'inspection et une seule est possible par ensemble."
+      "Vérifier d'abord que l'activité figure bien sur la liste académique de votre académie : à Aix-Marseille, le cross-training n'y est pas, c'est une épreuve d'établissement (d'autres académies l'inscrivent sur leur liste) ; une épreuve d'établissement suppose l'accord préalable de l'inspection et au bac GT, une seule activité établissement est possible par lycée pour l'enseignement commun (MENE2531948N, 2.a)."
      ]
     }
    ]

@@ -139,4 +139,5 @@ class RemainingAuditNeighbours(unittest.TestCase):
             self.assertNotIn('deverrouiller lot',enriched)
         self.assertIn('santorin',kc.enrich('Il manque des élèves dans mon lot'))
         self.assertIn('deverrouiller lot',kc.enrich('Je ne peux plus modifier mon lot Santorin'))
-        self.assertIn('mauvais lot',kc.enrich('Un élève est dans un autre groupe Cyclades'))
+        self.assertNotIn('mauvais lot',kc.enrich('Un élève est dans un autre groupe Cyclades'))
+        self.assertIn('mauvais lot',kc.enrich('Un élève est dans un autre groupe Santorin'))

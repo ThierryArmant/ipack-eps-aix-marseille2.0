@@ -1265,13 +1265,21 @@ if st.session_state.get("is_admin", False):
                 st.warning(_probe_result["message"])
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
-        st.caption("Modèle GPT configuré : " + modele_ia + " · Albert temporairement suspendu : sélection et rédaction GPT-mini."
-                   + (" · version " + _sha if _sha else ""))
+        st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
+        if st.session_state.get("admin_albert_only"):
+            st.caption("ESSAI DIRECT ACTIF : recherche par le code → Albert (" + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
+                       + "). Aucun appel de sélection ou rédaction Mini, aucun secours GPT, aucune réparation payante."
+                       + (" · version " + _sha if _sha else ""))
+        else:
+            st.caption("Modèle GPT configuré : " + modele_ia + " · Albert suspendu hors essais dédiés."
+                       + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
         _test_model_choice = st.selectbox("Modèle pour la sélection ET la rédaction", TEST_MODELS, index=3)
         _test_question_count = st.number_input("Nombre de questions de test", min_value=1, max_value=10, value=1, step=1)
-        st.caption("Deux appels API maximum par question : sélection 600 jetons de sortie, rédaction 1 600. Sans Albert, secours ni relance payante. GPT-5.4 : raisonnement none. Recherche documentaire hors de ces compteurs.")
+        st.caption(("Les réglages GPT ci-dessous sont suspendus pendant l’essai Albert seul. "
+                    if st.session_state.get("admin_albert_only") else "")
+                   + "Pour les essais GPT : deux appels API maximum par question, sélection 600 jetons de sortie et rédaction 1 600. Recherche documentaire hors compteurs.")
         if st.button("Activer le modèle choisi pour les prochaines questions"):
             st.session_state["openai_test_model"] = _test_model_choice
             st.session_state["gpt41_once_pending"] = int(_test_question_count)
@@ -1610,6 +1618,14 @@ if prompt_a_traiter:
             _test_model = "gpt-4o-mini"
         _test_gpt41 = bool(_test_model)
         _test_selector = None
+        _albert_only_trial = (st.session_state.get("is_admin", False)
+            and st.session_state.get("admin_albert_only", True)
+            and mode in ("examens", "ipack", "textes"))
+        if _albert_only_trial:
+            _test_model = None
+            _test_gpt41 = False
+            _single_document_test = False
+            _short_prompt_test = False
         _provider_reponse = "openai" # Essai comparatif autorisé : Albert temporairement suspendu.
         if st.session_state.get("is_admin", False):
             _provider_reponse = _admin_replay.provider_for_replay(st.session_state, _provider_reponse)
@@ -1620,6 +1636,10 @@ if prompt_a_traiter:
         if _test_gpt41:
             from openai_test_adapter import test_clients
             _test_selector, _generation_llm = test_clients(_test_model, openai_api_key)
+        if _albert_only_trial:
+            _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
+                st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
+                temperature=0.0, allow_paused_test=True)
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False
@@ -1947,6 +1967,8 @@ if prompt_a_traiter:
 
             if _test_gpt41 and mode in ('ipack', 'examens'):
                 _orientation_active = True
+            if _albert_only_trial:
+                _orientation_active = False
 
             def _recherche_documentaire(defer_exclusivity=False):
                 from document_retrieval import retrieve_documents
@@ -2588,6 +2610,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         diagnostic_ia = {'question': prompt, 'public': niveau_actuel_form, 'version': _sha,
                                          'one_question_gpt41_test': _test_model == 'gpt-4.1',
                                          'test_model': _test_model,
+                                         'albert_only_trial': _albert_only_trial,
                                          'test_api_call_limit': 2 if _test_model else None,
                                          'normalisation_question': normalise_question(prompt),
                                          'sources_recherche': sources_consultees,
@@ -2600,7 +2623,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                             documents=contexte_complet_ia, audit=diagnostic_ia,
                             academy=academie_reponse, mode=mode,
                             selector_llm=_orientation_llm,
-                            repair_enabled=not bool(_test_model),
+                            repair_enabled=not bool(_test_model) and not _albert_only_trial,
                             test_document_path=_single_target if _single_document_test else None,
                             test_short_prompt=_short_prompt_test,
                             selection_policy='gpt_shortlist' if _orientation_active else 'legacy',

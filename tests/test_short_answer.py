@@ -95,5 +95,34 @@ class Integration(unittest.TestCase):
         llm.complete.assert_called_once()
 
 
+class GardeFousDeSens(unittest.TestCase):
+    """Le sens de la source (incertitude, interdiction, portée) ne peut pas être transformé."""
+    def test_incertitude_transformee_en_interdiction_refusee(self):
+        src = ("La description de la demande ne suffit pas à confirmer la possibilité de joindre les pièces "
+               "dans le même module. Le lieu et le mode de transmission restent à vérifier.")
+        self.assertIn('modalite:incertitude_effacee', sa.unsupported("Les pièces ne peuvent pas être jointes dans ce module.", src))
+        self.assertIn('modalite:interdiction_ajoutee', sa.unsupported("Les pièces ne peuvent pas être jointes dans ce module.", src))
+        self.assertEqual(sa.unsupported("La possibilité de joindre les pièces dans ce module n'est pas confirmée : vérifiez le lieu et le mode de transmission.", src), [])
+
+    def test_vraie_interdiction_de_la_source_conservee(self):
+        src = "Dans Cyclades, le champ « groupe élève » d'un protocole n'est plus modifiable une fois le protocole créé."
+        self.assertEqual(sa.unsupported("Une fois le protocole créé, le champ « groupe élève » ne peut plus être modifié.", src), [])
+
+    def test_consequence_inventee_refusee(self):
+        src = "Il faut au préalable déclarer l'APSA dans [Dossiers] / [Dossier EPS] / [APSA]."
+        self.assertIn('modalite:consequence_ajoutee',
+                      sa.unsupported("Déclarez d'abord l'APSA, sinon la demande ne s'affichera pas.", src))
+
+    def test_consequence_presente_dans_la_source_conservee(self):
+        src = "Le chef d'établissement met à jour l'inscription, sinon contacter la DEC de son académie."
+        self.assertNotIn('modalite:consequence_ajoutee',
+                         sa.unsupported("Le chef d'établissement met à jour l'inscription, sinon il contacte la DEC.", src))
+
+    def test_consigne_academique_garde_son_academie(self):
+        src = "À Aix-Marseille, ne pas demander d'invalidation : prévenir l'inspection pédagogique au préalable."
+        self.assertIn('portee:aix-marseille', sa.unsupported("Prévenez l'inspection pédagogique au préalable.", src))
+        self.assertEqual(sa.unsupported("À Aix-Marseille, prévenez l'inspection pédagogique au préalable.", src), [])
+
+
 if __name__ == '__main__':
     unittest.main()

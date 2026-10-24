@@ -1,3 +1,13 @@
+## 24 octobre — pour Claude : dossier des traces de la question de réaffectation d'un lot
+
+Thierry demande de remettre à Claude les traces de la question longuement répétée, puis de les consigner dans un journal. Dossier de lecture : [réaffectation d'un lot, essais Mini et Albert](audit_fiches/dossier_reaffectation_lot_pour_claude_2026_10_24.md). Base 08d9159 relue, incluant l'entrée de Claude sur la frontière FAQ. Aucun changement de programme ni appel IA pour ce travail documentaire ; les périmètres de travail de Claude sont préservés.
+
+Douze JSON rassemblés dans une archive privée remise à Thierry, avec index des versions/architectures, provenance et empreintes : variantes Mini caccd47, cas action/objet/attendu 277bed2, comparateur E, deux F, G, H bloqué, H Albert sur G, Albert direct, sources entières et passages ciblés. Onze exports originaux inchangés et un seul cas extrait du lot de dix. Traces brutes non publiées dans GitHub. Le dossier public décrit les témoins et les sources pour permettre la reprise ; Thierry peut transmettre l'archive complète à Claude.
+
+Ne pas confondre H bloqué localement et réponse réelle d'Albert, ni recompter G embarqué comme historique dans H. Les deux variantes de majuscule/minuscule n'ont pas un contexte documentaire identique : pas de conclusion causale sur la majuscule ou un cache. La dernière trace ciblée 38cb472 contient un appel Albert à 5 404 jetons, D3P3/D6P4, 556 caractères de passages en tête. Elle est antérieure à la correction des vidéos 7be4e5b et à la frontière FAQ de Claude : ne pas leur attribuer rétrospectivement son résultat.
+
+Points à examiner : confusion lot/candidat/deuxième évaluateur ; condition de clôture attachée à une autre opération ; droit, bouton ou propagation ajoutés sans preuve ; bonne source conservée mais noyée dans des opérations voisines ; différence entre choix pertinent et simple recopie fidèle. Les boutons précis de réaffectation dans Santorin restent non détaillés dans la source ciblée. Pas de nouvelle procédure inventée pour combler cette limite. La liste complète des fichiers, versions et points d'analyse est dans le dossier lié.
+
 ## 24 octobre — passation à Claude, arrivée d'Albert et analyse des deux rejeux à quatre
 
 Thierry demande une reprise commune GPT/Claude et insiste pour inclure l'arrivée d'Albert. Note de passation détaillée : [docs/audit_fiches/passation_claude_2026_10_24_soir.md](audit_fiches/passation_claude_2026_10_24_soir.md). Base 4874042 relue ; dernière modification de programme 7be4e5b. Cette publication est documentaire uniquement, sans changement de code ni nouveau rejeu.

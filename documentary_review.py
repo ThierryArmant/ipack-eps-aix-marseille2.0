@@ -124,6 +124,12 @@ def _literal(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 
+def _line_indent(body, position):
+    """Indentation (espaces, tabulations) de la ligne qui contient la position."""
+    line = body[body.rfind('\n', 0, position) + 1:].split('\n', 1)[0]
+    return len(line) - len(line.lstrip(' \t'))
+
+
 def bind_faq_context(spans, body):
     """Une réponse numérotée conserve les faits de sa question source.
 
@@ -143,11 +149,22 @@ def bind_faq_context(spans, body):
             # une restriction née d'un cas particulier ne devient pas universelle.
             end = i + 2
             last = following
+            answer_indent = _line_indent(body, following['start'])
             while end < len(spans):
                 candidate = spans[end]
+                gap = body[last['end']:candidate['start']]
                 if (re.match(r"^\s*(?:[-*]\s*)?(?:Q\d+\b|R\d+\b|#{1,6}\s)", candidate['text'], re.I)
                         or candidate.get('scope') != span.get('scope')
-                        or body[last['end']:candidate['start']].strip()):
+                        or gap.strip()):
+                    break
+                # Frontière structurelle : seule une sous-puce de la réponse lui appartient.
+                # Une ligne moins indentée que la réponse (rappel de section, « Sources : »)
+                # ou un paragraphe autonome après une ligne vide (« Action : … Attendu … »)
+                # n'est pas une condition de cette réponse et reste une unité distincte.
+                candidate_indent = _line_indent(body, candidate['start'])
+                if candidate_indent < answer_indent or (
+                        re.search(r"\n[ \t]*\n", gap) and candidate_indent <= answer_indent
+                        and not re.match(r"^\s*[-*•]\s", candidate['text'])):
                     break
                 last = candidate
                 end += 1

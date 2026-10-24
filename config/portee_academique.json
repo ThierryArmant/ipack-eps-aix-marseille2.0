@@ -1687,7 +1687,8 @@
      "section": "### [SITUATION: INAPTITUDE EN COURS D'ANNÉE : ADAPTER SANS IMPROVISER (CONTRÔLE ADAPTÉ, FCA, PROTOCOLE ADAPTÉ)]",
      "lignes": [
       "À Aix-Marseille, le responsable SAV signale pour les protocoles adaptés du baccalauréat discutés que la création directe dans Cyclades n’accepte pas un protocole composé uniquement d’une ou deux épreuves, ni plusieurs APSA d’un même champ. Une configuration adaptée dérogeant aux trois APSA de champs distincts passe par l’inspection, via un import des protocoles depuis une extraction d’iPack IA-IPR. Contacter le chargé de mission Examens pour ce circuit ; ne pas ajouter une APSA fictive ni imposer une épreuve supplémentaire à l’élève pour satisfaire l’écran.",
-      "Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel."
+      "Cette contrainte de création directe est un retour technique d’Aix-Marseille du 20 octobre 2026 : elle ne modifie pas les possibilités de contrôle adapté prévues par le texte du diplôme et ne doit pas être généralisée aux autres académies, versions ou au CAP sans confirmation. Les seuils des anciens mémos Cyclades ne sont plus donnés ici comme garantie du fonctionnement actuel.",
+      "Action : distinguer l'adaptation réglementaire, la déclaration d'inaptitude et le changement technique de protocole. Objet concerné : le candidat et le type d'inaptitude attestée ; les logiciels ont des opérations différentes. Attendu final : conserver la branche médicale applicable, créer au besoin le protocole dans l'outil et le circuit décrits, puis associer le candidat et vérifier dans Santorin la note et le lot effectifs. La fiche individuelle d'inaptitude iPackEPS n'est pas un menu de création de protocole. Pour une contrainte de création directe signalée à Aix-Marseille, suivre la réserve SAV locale plutôt qu'ajouter une APSA fictive."
      ]
     }
    ]
@@ -1803,7 +1804,8 @@
      "section": "### iPackEPS : qui contacter pour quoi (assistance iPackEPS, DEC, inspection, chef d'établissement)",
      "lignes": [
       "Réponse directe — un bug ou un blocage d'iPackEPS non résolu (lien absent, établissement ou enseignant absent, module à activer) : le correspondant académique iPackEPS ; à Aix-Marseille : ipackeps@ac-aix-marseille.fr, en précisant l'établissement et son UAI, le menu concerné, le message d'erreur exact, avec une capture d'écran.",
-      "- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran)."
+      "- Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran).",
+      "Action : orienter vers l'interlocuteur correspondant au problème. Objet concerné : distinguer une anomalie de données d'examen dans Cyclades/Santorin et un blocage d'accès ou de module iPackEPS. Attendu final : pour les incohérences de données d'examen, l'interlocuteur décrit est la DEC de l'académie concernée ; pour les blocages d'iPackEPS, c'est le correspondant iPackEPS. Les coordonnées propres à chaque DEC ne sont pas fournies par cette fiche ; l'adresse d'assistance iPackEPS d'Aix-Marseille ne constitue pas une coordonnée de DEC pour une autre académie."
      ]
     }
    ]

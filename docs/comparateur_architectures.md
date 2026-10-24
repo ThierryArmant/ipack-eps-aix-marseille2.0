@@ -1,5 +1,17 @@
 # Comparateur documentaire A/B
 
+## Variante G — sources exactes sans réécriture
+
+G change le mécanisme de restitution. Un seul appel au même modèle choisit un identifiant de source principale et des compléments nécessaires parmi les documents retrouvés. Il ne doit ni classer toutes les sources, ni rédiger une réponse métier. Le programme vérifie les identifiants puis restitue tous les passages des documents retenus, mot pour mot, sans synthèse, réparation ou assemblage de droits et menus. Les en-têtes purement techniques sont masqués à l'écran ; le texte source et la portée restent dans les traces. Les caractères HTML des sources sont échappés.
+
+Cette méthode garantit seulement la fidélité de la restitution au texte source, pas sa justesse ni la pertinence du choix. Une source sur une opération voisine peut encore être choisie, mais le programme n'en transforme pas les droits en autorisation pour l'opération demandée. Les extraits sont présentés comme extraits, sans titre affirmant que leur procédure résout nécessairement la demande. Les sources contradictoires ne sont pas arbitrées automatiquement. Tous les compléments retenus restent entiers pour préserver leurs conditions.
+
+Le prompt de sélection contient les passages complets, avec les portées identiques mutualisées sans perte dans une table de référence. Pas de consigne de rédaction générale ou Gemini dans cet appel. Une sélection inconnue, dupliquée ou de format incorrect n'est ni rendue ni réparée par un nouvel appel ; absence de sélection et échec sont affichés comme tels, sans prétendre démontrer une absence de source. Le budget de 40 000 caractères est un garde expérimental : dépassement sans appel, jamais une coupe de preuve.
+
+Choisir « G seule — ne pas recalculer A » pour un essai à au plus un appel de sélection, hors recherche documentaire vectorielle. A conserve alors seulement la recherche commune et affiche explicitement qu'elle n'a pas été recalculée : ce n'est pas une comparaison de deux réponses nouvelles. L'option « Calculer A et la variante » conserve la comparaison complète et le coût habituel de A. Aucun Albert ou Gemini dans G. Guidage et réponses directes du parcours commun restent prioritaires et peuvent éviter tout appel.
+
+G est réservé au comparateur. Aucune fiche ni réponse publique modifiée. L'export inclut sources candidates, sources retenues complètes, empreinte du contexte, prompt et sortie de sélection, durée et usages. Les tests simulés vérifient fidélité et absence de rédaction ; ils ne prouvent pas l'efficacité réelle de Mini sur le choix des sources.
+
 ## Variante F — préparer le contexte par rôle
 
 F expérimente une préparation généralisable, sans liste de situations métier codée en dur. À partir de la même recherche que A, un appel au même modèle examine les passages complets de chaque document et lui attribue un rôle : principal, préalable documenté, complément d'une sous-demande, limite/exception/contradiction pertinente, incertain, ou opération voisine sans lien nécessaire. Chaque décision indique un identifiant de passage ; le programme en recopie le texte exact dans la trace. Une ancienne sortie contenant une citation exacte reste acceptée. Ces vérifications prouvent l'existence du passage, pas la justesse sémantique du classement.

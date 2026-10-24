@@ -20,6 +20,7 @@ class AdminLoaderTests(unittest.TestCase):
 
     def make(self, root, value):
         (root / 'context_planner.py').write_text('PLACEHOLDER = True')
+        (root / 'exact_source_answer.py').write_text('PLACEHOLDER = True')
         (root / 'albert_adapter.py').write_text('PLACEHOLDER = True')
         (root / 'confirmed_scope.py').write_text('VALUE = ' + repr(value))
         (root / 'clarification_pilot.py').write_text('from .confirmed_scope import VALUE')

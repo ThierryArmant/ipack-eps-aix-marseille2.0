@@ -4,10 +4,12 @@ import time
 import uuid
 import hashlib
 if __package__:
+    from .exact_source_answer import exact_answer
     from .context_planner import plan_context
     from .albert_adapter import AlbertLLM, AlbertError, available_models, generation_llm
     from .clarification_pilot import assess_uncertainty, resume_clarification
 else:
+    from exact_source_answer import exact_answer
     from context_planner import plan_context
     from albert_adapter import AlbertLLM, AlbertError, available_models, generation_llm
     from clarification_pilot import assess_uncertainty, resume_clarification
@@ -67,10 +69,12 @@ Contexte imposé (ne pas modifier) : ''' + json.dumps(
     return result
 
 
-def run_comparison(*, llm, retrieve, question, public, mode, academy, version, experimental='B', comparison_llm=None):
+def run_comparison(*, llm, retrieve, question, public, mode, academy, version, experimental='B', comparison_llm=None, compute_baseline=True):
     """Compare le parcours actuel à une expérience, sans modifier le parcours public."""
-    if experimental not in ('B', 'C', 'D', 'E', 'F'):
+    if experimental not in ('B', 'C', 'D', 'E', 'F', 'G'):
         raise ValueError('Méthode expérimentale inconnue.')
+    if not compute_baseline and experimental != 'G':
+        raise ValueError('Le mode sans recalcul de A est réservé à G.')
     if experimental == 'D':
         if comparison_llm is None:
             raise ValueError('Modèle Albert non configuré : aucun comparatif lancé.')
@@ -87,6 +91,7 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
                   initial_context=initial_context, academy_notice=academy_notice, preflight=common,
                   experimental=experimental, run_id=uuid.uuid4().hex,
                   comparison_executed=common['kind'] == 'ia')
+    result['baseline_generation_requested'] = compute_baseline
     if not result['comparison_executed']:
         result['usage'] = usage_summary({})
         if experimental == 'C' and common['kind'] == 'clarification':
@@ -113,9 +118,9 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
             if branch == 'B':
                 item['interpretation'] = interpret(traced, question, public, mode, academy)
                 search = item['interpretation']['recherche']
-            if branch in ('E', 'F') and 'retrieved_documents' not in result['branches']['A']:
+            if branch in ('E', 'F', 'G') and 'retrieved_documents' not in result['branches']['A']:
                 raise ValueError('Recherche A absente : comparaison sur les mêmes documents impossible.')
-            if branch in ('C', 'D', 'E', 'F') and 'retrieved_documents' in result['branches']['A']:
+            if branch in ('C', 'D', 'E', 'F', 'G') and 'retrieved_documents' in result['branches']['A']:
                 original = result['branches']['A']
                 documents, sources, diagnostics, error = (original['retrieved_documents'], original['sources'],
                                                          original['retrieval'], original['retrieval_error'])
@@ -126,6 +131,16 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
                         retrieved_documents=documents)
             if error:
                 raise RuntimeError("Recherche documentaire indisponible : comparaison incomplète.")
+            if branch == 'A' and not compute_baseline:
+                item['state'] = 'baseline_not_generated'
+                item['comparison_note'] = 'A non recalculée : seule sa recherche documentaire est utilisée. Ce lancement ne compare pas deux réponses nouvelles.'
+                continue
+            if branch == 'G':
+                item['answer'] = exact_answer(branch_llm, reviewer=_runtime.documentary_review,
+                    tracer=TracedLLM, documents=documents, question=question, public=public,
+                    mode=mode, academy=academy, audit=audit)
+                item['state'] = audit['exact_extracts']['status']
+                continue
             if branch == 'C':
                 item['uncertainty'] = assess_uncertainty(traced, question=question, public=public,
                                                        mode=mode, academy=academy, documents=documents)
@@ -186,14 +201,16 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
         st.caption('A : recherche actuelle → rédaction. B : interprétation IA → même recherche → rédaction. '
                    'C : recherche → détection du doute → précision éventuelle. D : modèle Albert, mêmes fiches et contrôles que A. '
                    'E : proposition Gemini adaptée, isolation des procédures avec le même modèle et les mêmes fiches que A. '
-                   'F : préparation du contexte à partir des passages complets, puis rédaction.')
+                   'F : préparation du contexte à partir des passages complets, puis rédaction. '
+                   'G : sélection des sources puis copie exacte, sans rédaction métier.')
         st.info('Le guidage, les demandes de précision et les réponses documentaires directes sont vérifiés en commun avant A/B. '
                 'Si ce parcours suffit, aucun appel IA et aucune comparaison ne sont lancés. '
                 'Les autres anciennes branches spécifiques du hub ne sont pas reproduites : ce test ne certifie pas tout le parcours public.')
-        st.warning('Si une réponse IA est nécessaire, le bouton lance deux traitements facturables. B ajoute un appel d’interprétation ; '
+        st.warning('Selon le choix, le bouton lance A et la variante, tous deux facturables. G seule évite le recalcul de A. B ajoute un appel d’interprétation ; '
                    'C ajoute un contrôle du doute et peut attendre votre précision ; une réparation peut ajouter un appel dans chaque colonne. Les recherches vectorielles sont hors compteurs ci-dessous. '
                    'E ne change que les consignes de rédaction : aucun appel à Gemini ni à Albert, aucun appel d’analyse supplémentaire. '
                    'F ajoute au plus un appel de préparation ; sans réduction, sa rédaction est arrêtée. Les documents retenus restent entiers. '
+                   'G : au plus un appel de sélection, sans rédaction ni réparation ; A reste facturable. '
                    'Aucun enregistrement dans le journal des collègues. Téléchargez les résultats avant de quitter la session.')
         with st.expander('Consigne expérimentale E — proposition Gemini'):
             st.caption('Test des consignes seulement : les fiches ne sont pas réécrites. Les affirmations non prouvées de la proposition sont écartées.')
@@ -215,7 +232,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
             st.caption('Albert : ajoutez ALBERT_API_KEY aux secrets Streamlit pour activer le comparatif D.')
         with st.form('architecture_comparison_form'):
 
-            method = st.selectbox('Méthode face à A', ['F — Préparer le contexte par rôle', 'E — Proposition Gemini : isoler les procédures', 'D — Albert, mêmes fiches que A', 'C — Préciser en cas de doute', 'B — Interpréter avant recherche'])
+            method = st.selectbox('Méthode face à A', ['G — Sources exactes sans réécriture', 'F — Préparer le contexte par rôle', 'E — Proposition Gemini : isoler les procédures', 'D — Albert, mêmes fiches que A', 'C — Préciser en cas de doute', 'B — Interpréter avant recherche'])
+            baseline_choice = st.selectbox('Calcul de la référence A (option pour G)', ['G seule — ne pas recalculer A', 'Calculer A et la variante'])
             albert_choice = st.selectbox('Modèle Albert accessible', ['Choisir un modèle'] + st.session_state.get('albert_models', []))
             albert_exact = st.text_input('Identifiant Albert si absent de la liste (facultatif)', value=albert_model or '')
             question = st.text_area('Question à comparer', max_chars=4000)
@@ -238,7 +256,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                         st.session_state['architecture_comparison_result'] = run_comparison(
                             llm=llm, retrieve=retrieve, question=question.strip(), public=public,
                             mode=mode, academy=academy.strip() or 'Non précisée', version=version,
-                            experimental=method[0], comparison_llm=secondary)
+                            experimental=method[0], comparison_llm=secondary,
+                            compute_baseline=not (method[0] == 'G' and baseline_choice.startswith('G seule')))
                 except (AlbertError, ValueError) as exc:
                     st.error(str(exc))
         result = st.session_state.get('architecture_comparison_result')
@@ -260,12 +279,14 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                 st.write(common['precision'])
         else:
             experiment = result.get('experimental', 'B')
-            for col, branch, title in zip(st.columns(2), ('A', experiment), ('A — Recherche actuelle', experiment + {'C':' — Préciser en cas de doute', 'B':' — Interprétation avant recherche', 'D':' — Albert, mêmes fiches', 'E':' — Proposition Gemini : isoler les procédures', 'F':' — Contexte préparé par rôle'}[experiment])):
+            for col, branch, title in zip(st.columns(2), ('A', experiment), ('A — Recherche actuelle', experiment + {'C':' — Préciser en cas de doute', 'B':' — Interprétation avant recherche', 'D':' — Albert, mêmes fiches', 'E':' — Proposition Gemini : isoler les procédures', 'F':' — Contexte préparé par rôle', 'G':' — Sources exactes sans réécriture'}[experiment])):
                 with col:
                     st.subheader(title)
                     item = result['branches'][branch]
                     if item.get('error'):
                         st.error(item['error'])
+                    if item.get('state') == 'baseline_not_generated':
+                        st.info(item['comparison_note'])
                     if item.get('state') == 'context_not_reduced':
                         st.warning(item['comparison_note'])
                     if item.get('common_result'):
@@ -311,6 +332,8 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                 st.caption('C bénéficie de votre précision éventuelle : les entrées ne sont alors plus identiques. Une seule reprise, sans boucle automatique.')
             if experiment == 'D':
                 st.caption('D change uniquement le modèle de génération. Recherche partagée, mêmes contrôles. Albert : plafond de sortie 4 096 jetons ; éventuelle réparation comptée séparément.')
+            if experiment == 'G':
+                st.caption('G sélectionne des sources puis le programme les recopie intégralement, sans synthèse IA ni réparation. Cela empêche une réécriture des menus, droits et conditions ; la pertinence du choix et la justesse de la source restent à vérifier. Aucune activation sur le Hub public.')
             if experiment == 'F':
                 st.caption('F classe les documents à partir de leurs passages complets. Un plan partiel est conservé ; tout document non classé reste entier et incertain. Seuls les voisins explicitement classés sont écartés. Sans exclusion exploitable, aucune rédaction F supplémentaire. Le classement reste à vérifier ; au plus un appel de préparation, aucun Gemini ni Albert.')
             if experiment == 'E':

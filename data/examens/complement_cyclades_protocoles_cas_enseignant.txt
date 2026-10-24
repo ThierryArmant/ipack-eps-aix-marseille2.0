@@ -9,6 +9,8 @@ Sources : mémo « Enseignant EPS » de l'application Cyclades (version 2.0) et 
 - Si les protocoles ont déjà été validés, cette suppression n'est plus possible directement. À Aix-Marseille : ne pas demander de réouverture ni d'invalidation des protocoles. Créer le protocole standard corrigé dans iPackEPS ([Dossiers] > [Dossier Certificatif]) et prévenir l'inspection pédagogique AU PRÉALABLE : c'est elle qui assure le transfert vers Cyclades. Dans une autre académie, suivre la procédure indiquée par son inspection et sa division des examens.
 - Si seuls quelques élèves sont mal placés (et non tout le groupe), il n'est pas nécessaire de supprimer : les déplacer dans le bon protocole par le menu [EPS] / [Associer les élèves à un protocole].
 
+Action : corriger le groupe d'élèves d'un protocole Cyclades. Objet concerné : le groupe entier, ou seulement quelques élèves mal associés. Attendu final : pour tout le groupe, supprimer/recréer seulement si le protocole n'est pas déjà validé ; s'il est validé, suivre la branche académique décrite ci-dessus en prévenant l'inspection au préalable. Pour quelques élèves seulement, utiliser [EPS] > [Associer les élèves à un protocole] sans supprimer tout le protocole.
+
 ### [SITUATION: LE GROUPE ÉLÈVE N'EST PAS RENSEIGNÉ DANS LE LOGICIEL DE SCOLARITÉ — QUE METTRE DANS LE PROTOCOLE ?]
 - Mots-clés : groupe élève absent, logiciel de scolarité, nom de groupe libre, répartition manuelle des candidats.
 - Formulations courantes des collègues : je n'ai pas de groupe élève à choisir ; quel groupe mettre dans mon protocole ; les groupes ne remontent pas.

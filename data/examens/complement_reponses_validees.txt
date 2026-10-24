@@ -22,4 +22,4 @@
 
 ### [SITUATION: DÉPLACER UN CANDIDAT D'UN LOT À UN AUTRE DANS SANTORIN]
 - Acteur pour déplacer un candidat d'un lot à un autre : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant qui n'est pas référent ne peut pas le faire lui-même. Ce passage décrit ce déplacement individuel ; il ne détermine pas les droits de réaffectation d'un lot entier à un autre examinateur.
-- Chemin : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant].
+- Action : déplacer un candidat d'un lot à un autre. Objet concerné : un candidat individuel. Résultat attendu : ce candidat change de lot. Chemin de ce déplacement individuel : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant].

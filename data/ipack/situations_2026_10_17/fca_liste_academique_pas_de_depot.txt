@@ -10,3 +10,5 @@ Périmètre des deux démarches : le dépôt d’une FCA établissement concerne
 Alternative — une activité absente de la liste académique n'est pas automatiquement interdite de dépôt : examiner la branche épreuve d'établissement et ses conditions d'accord de l'inspection. Inversement, une activité visible et déclarée certificative n'impose pas un dépôt d'établissement si son référentiel est académique.
 
 Cadre national — bac GT, enseignement commun : au plus une activité établissement par lycée, et non une activité différente par ensemble certificatif. Référence : note de service MENE2531948N du 20 février 2026, 2.a.
+
+Action : déterminer si un référentiel d'établissement doit être déposé. Objet concerné : l'activité et son statut dans la liste de l'académie concernée. Attendu final : si le référentiel de l'activité est académique, l'établissement n'a pas de FCA à déposer pour elle ; si l'activité relève d'une épreuve d'établissement, appliquer cette branche et ses conditions d'accord de l'inspection. Le simple fait d'être hors liste académique n'établit pas une interdiction de dépôt.

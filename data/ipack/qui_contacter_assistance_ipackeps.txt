@@ -12,3 +12,5 @@ Réponse directe — un bug ou un blocage d'iPackEPS non résolu (lien absent, �
 - Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran).
 Nature de la source : synthèse des circuits d'assistance iPackEPS et des examens ; adresse de l'assistance propre à Aix-Marseille.
 Source : fiche « messages d'erreur et contacts » du hub (section « qui contacter pour quoi »), extraite pour être transmise seule.
+
+Action : orienter vers l'interlocuteur correspondant au problème. Objet concerné : distinguer une anomalie de données d'examen dans Cyclades/Santorin et un blocage d'accès ou de module iPackEPS. Attendu final : pour les incohérences de données d'examen, l'interlocuteur décrit est la DEC de l'académie concernée ; pour les blocages d'iPackEPS, c'est le correspondant iPackEPS. Les coordonnées propres à chaque DEC ne sont pas fournies par cette fiche ; l'adresse d'assistance iPackEPS d'Aix-Marseille ne constitue pas une coordonnée de DEC pour une autre académie.

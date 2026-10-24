@@ -11,3 +11,5 @@
 
   - Q3 : Où transmettre les pièces complémentaires demandées pour la reconduction ?
   - R3 : Si votre académie demande des pièces complémentaires, elles sont précisées dans ses documents d'accompagnement des sections sportives. La description de la demande de reconduction ne suffit pas à confirmer la possibilité de déposer ou joindre les pièces complémentaires en annexe à la demande dans le même module [Évolution]. Le lieu et le mode de transmission de ces pièces restent à vérifier auprès de l'inspection qui les demande. Tutoriels : Evolution_et_fermeture_SSS.mp4 et Signature_chef_etablissement_SSS.mp4.
+
+Action : distinguer reconduction et transmission des pièces complémentaires. Objet concerné : la demande dans [Évolution], d'une part, et les annexes demandées par l'inspection, d'autre part. Attendu final : demander la reconduction dans [Évolution], avec signature du chef d'établissement ; pour le vote du CA, la convention ou d'autres pièces complémentaires, le lieu et le mode de transmission restent à vérifier auprès de l'inspection qui les demande. Le chemin de reconduction ne prouve pas une fonction de dépôt des annexes.

@@ -44,7 +44,7 @@ Aucune règle nouvelle dans ce fichier : chaque situation reprend, avec les mots
 ### [SITUATION: SANTORIN — UN ÉLÈVE EST DANS LE MAUVAIS LOT]
 - Formulations courantes des collègues : mon élève est dans le lot d'un collègue ; comment changer un élève de lot ; erreur de lot.
 - Acteur pour déplacer un candidat d'un lot à un autre : le chef d'établissement, ou l'enseignant référent Santorin de l'établissement. Un enseignant non référent ne peut pas le faire. Ce passage décrit ce déplacement individuel ; il ne détermine pas les droits de réaffectation d'un lot entier à un autre examinateur.
-- Chemin : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant]. Le déplacement se fait dans Santorin, sans repasser par Cyclades.
+- Action : déplacer un candidat d'un lot à un autre. Objet concerné : un candidat individuel. Résultat attendu : ce candidat change de lot. Chemin de ce déplacement individuel : [Distribution] > [Lots] > [Candidats] > [Déplacer vers un lot existant]. Le déplacement se fait dans Santorin, sans repasser par Cyclades.
 - Si l'élève est en réalité dans le mauvais PROTOCOLE : corriger d'abord dans Cyclades, [EPS] / [Associer les élèves à un protocole].
 
 ### [SITUATION: SANTORIN — TOUT UN LOT EST ATTRIBUÉ AU MAUVAIS ENSEIGNANT, OU IL FAUT LE CONFIER À UN AUTRE]

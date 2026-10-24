@@ -482,7 +482,7 @@
     },
     {
       "path": "data/commun/audit60/gt_inaptitude_demarche.txt",
-      "sha256": "42c31037bf9e804bbd7638b766e98e05b8cb8ea622392f6b2b99d54730d186cf",
+      "sha256": "df15dadb3b1bdeb586709affc11f512698feed1f550d8f5c02d4fc95c87aba3c",
       "famille": "commun",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reprise_ciblee_2026-10-24_branches_medicales_et_selection_textes",
@@ -501,7 +501,7 @@
           7
         ],
         "apparitions_dans_passages_transmis_traces": 6,
-        "reprise_ciblee": "nettoyage_reaffectation_adaptation_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -3297,7 +3297,7 @@
     },
     {
       "path": "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt",
-      "sha256": "99d44b76c4745988fc5ca5c5ee272a7fad8278b9da5cb033aa82560586976156",
+      "sha256": "f98e6b297666c78c09579ff95a9bea46ab0655fa6b1f1038c959b47d053ac74a",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
@@ -3312,7 +3312,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 6
+        "apparitions_dans_passages_transmis_traces": 6,
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -3443,7 +3444,7 @@
     },
     {
       "path": "data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt",
-      "sha256": "dfb671a2380f76cbb1ffa6e9a9d23c69bb7aad7d8a67a4f27d28ca48743b8633",
+      "sha256": "046a696d1b37eca33dbfdfa8fca47c7623689546e71df7fa4f5793d7fbb3d515",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reformulation_sources_lues_2026-10-11",
@@ -3469,7 +3470,7 @@
           187
         ],
         "apparitions_dans_passages_transmis_traces": 22,
-        "reprise_ciblee": "defaut_etabli_par_trace_ou_copie_active_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -3501,7 +3502,7 @@
     },
     {
       "path": "data/examens/complement_cyclades_protocoles_cas_enseignant.txt",
-      "sha256": "e50f636555422e6db4446c8c09174d01f4ce625c8274c73e7d91802bc22dd9b0",
+      "sha256": "2e43019c60e038b0072f59cac744f759d97c14679feb2a671acb6276ea30617b",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -3525,7 +3526,7 @@
           90
         ],
         "apparitions_dans_passages_transmis_traces": 15,
-        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -3556,7 +3557,7 @@
     },
     {
       "path": "data/examens/complement_reponses_validees.txt",
-      "sha256": "c4f3df1fe82af845d24f6f86892f8ea842c395773ad2c9b581bb67135228bc8c",
+      "sha256": "bf4e8c285720d6247bc6d978e73490ccbafbe7c5369a6ec26c573c78937ee839",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -3577,7 +3578,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 6,
-        "reprise_ciblee": "defaut_etabli_par_trace_ou_copie_active_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -7262,9 +7263,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
-      "sha256": "1c79d90363c21fe1e3bfbb3ee460c353ca926cd815e8b13cb553bb80f01d89b2",
+      "sha256": "f74e171ab0de976bac07f426e8b00d2cea959072f719e0cf9dcdc11f400d05fd",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -7278,7 +7279,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -7327,7 +7329,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "ac26dbe7b5601b8499b7800d2474132ea8f817b1875c3f0bc51ea90aaeb4207f",
+      "sha256": "85722a80ab4f6b314e4797fabbd02076b506747dc49714a6b3f32db1d8252929",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -7345,7 +7347,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 0,
-        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -10131,7 +10133,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_212_situation_interdiction_d_improviser_un_controle_adapte_fca_a_la_volee.txt",
-      "sha256": "ce144b376984e5e67676e2c82c3a458ec1eb711f776347851f795455d2612426",
+      "sha256": "ab85ed01adc4c2af08bfdd5328e90cbd13edf366716c3a57cd12f799fee798cb",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -10150,7 +10152,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 0,
-        "reprise_ciblee": "copies_adaptation_meme_procedure_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -10721,7 +10723,7 @@
     },
     {
       "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
-      "sha256": "d61ef48e7af37daea008ec630a707d2611acc1bb4c64328c69321a6afb4e10df",
+      "sha256": "b641a721e0904748b475e38a743aa29dde179c553cd7bd952c33677b050431d3",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "extrait_fiche_contacts_2026-10-18",
@@ -10739,7 +10741,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 0,
-        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -10831,7 +10833,7 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/fca_liste_academique_pas_de_depot.txt",
-      "sha256": "3a52183ac590a95485eefa1a788c4ec9c506ab0a0192f0f8057a3469546d5123",
+      "sha256": "60b69e7aa9d9612197fba3798ed385330fed21bc607e78122bd0fa3ec4ea0988",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "extraction_technique_sources_existantes_2026-10-18",
@@ -10850,7 +10852,7 @@
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
         "apparitions_dans_passages_transmis_traces": 2,
-        "reprise_ciblee": "famille_fca_protocoles_2026_10_24_conditions_et_alternatives"
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {
@@ -11173,9 +11175,9 @@
     },
     {
       "path": "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt",
-      "sha256": "56c75ae74ef445272c7653f69fa5fc8d90bdb34d8acc77b24b0ed90a08902683",
+      "sha256": "34ac9a9b16db9f97a1845cb8b853224bf754f630c07daee4a919df7f31860111",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_correspondant_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner"
@@ -11189,7 +11191,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 2
+        "apparitions_dans_passages_transmis_traces": 2,
+        "reprise_ciblee": "pilote_actions_objets_attendus_10_questions_2026_10_24"
       }
     },
     {

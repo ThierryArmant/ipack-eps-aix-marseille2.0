@@ -2,10 +2,55 @@
 import hashlib
 import html
 import json
+import re
+
+
+def render_exact_sources(selected, reviewer, report):
+    """Présentation seulement : texte métier intact, références regroupées."""
+    blocks = []
+    rendered, hidden = [], []
+    for index, packet in enumerate(selected, 1):
+        title = packet.get('title', 'Source')
+        display_title = re.sub(r'^\[SITUATION:\s*(.*?)\]$', r'\1', title)
+        blocks.append('<h3>' + html.escape(display_title) + '</h3>')
+        labels, references, paragraphs = [], {}, []
+        for span in packet['passages']:
+            text = span['text']
+            if (len(text.strip().splitlines()) == 1
+                    and text.strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))):
+                hidden.append(dict(id=span['id'], reason='metadata'))
+                continue
+            if text.strip().lstrip('# ').strip() == title.strip().lstrip('# ').strip():
+                hidden.append(dict(id=span['id'], reason='repeated_title'))
+                continue
+            label = reviewer.evidence_label({'scope': span.get('scope', {})}, packet, reviewer._LEVELS)
+            if label not in references:
+                references[label] = len(labels)+1
+                labels.append(label)
+            paragraphs.append((span, references[label]))
+        for span, label_number in paragraphs:
+            ref = str(index) + ('.'+str(label_number) if len(labels)>1 else '')
+            blocks.append('<p style="white-space:pre-wrap">' + html.escape(span['text'])
+                          + ' <sup>[' + ref + ']</sup></p>')
+            rendered.append(span['id'])
+        blocks.append('<details><summary>Référence et portée [' + str(index) + ']</summary>')
+        for n, label in enumerate(labels,1):
+            ref=str(index)+('.'+str(n) if len(labels)>1 else '')
+            blocks.append('<p>['+ref+'] '+html.escape(label)+'</p>')
+        url=packet.get('url','')
+        if url.startswith(('https://','http://')):
+            blocks.append('<a href="'+html.escape(url,quote=True)+'" target="_blank" rel="noopener noreferrer">Consulter la source</a>')
+        blocks.append('</details>')
+    report.update(display_version='exact-display-v2', rendered_passage_ids=rendered,
+                  hidden_non_business_passages=hidden)
+    return '\n'.join(blocks)
 
 
 def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit):
     packets = reviewer.source_packets(documents)
+    audit.update(documents=packets, context_exact=documents,
+                 context_sha256=hashlib.sha256(documents.encode()).hexdigest(),
+                 accepted_claims=[], repair_performed=False)
     candidates = [p for p in packets if p.get('origin') == 'document']
     report = audit.setdefault('exact_extracts', {})
     report.update(version='sources-integrales-v1', status='not_run',
@@ -14,7 +59,7 @@ def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, ac
                   relevance_proven=False)
     if not candidates:
         report['status'] = 'no_documents'
-        return '<p>Aucun document disponible pour cette comparaison.</p>'
+        return '<p>Aucun passage documentaire retrouvé pour cette demande.</p>'
     scopes, scope_ids, sources = {}, {}, []
     for p in candidates:
         spans = []
@@ -44,7 +89,7 @@ DONNEES :
     report.update(prompt_chars=len(prompt), prompt_sha256=hashlib.sha256(prompt.encode()).hexdigest())
     if len(prompt) > 40000:
         report['status'] = 'budget_exceeded_no_call'
-        return '<p>Contexte trop volumineux pour cet essai : aucun appel lancé dans G.</p>'
+        return '<p>Contexte trop volumineux pour sélectionner les sources sans les tronquer. Aucun appel lancé.</p>'
     try:
         raw = tracer(llm, audit, stage='selection').complete(prompt).text.strip()
         if raw.startswith('```'):
@@ -66,20 +111,11 @@ DONNEES :
         report.update(status='rendered_exact_sources', selected_ids=[p['id'] for p in selected],
                       selected_sources=selected, no_business_rewriting=True,
                       passage_chars=sum(len(s['text']) for p in selected for s in p['passages']))
-        blocks = ['<h3>Extraits exacts de la documentation</h3>']
-        for index, packet in enumerate(selected, 1):
-            blocks.append('<h4>[' + str(index) + '] ' + html.escape(packet.get('title', 'Source')) + '</h4>')
-            for span in packet['passages']:
-                # Seuls les en-têtes techniques sont masqués ; aucune condition retirée.
-                if span['text'].strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:')):
-                    continue
-                label = reviewer.evidence_label({'scope': span.get('scope', {})}, packet, reviewer._LEVELS)
-                blocks.append('<blockquote style="white-space:pre-wrap">' + html.escape(span['text'])
-                              + '</blockquote><small>' + html.escape(label) + '</small>')
-            url = packet.get('url', '')
-            if url.startswith(('https://', 'http://')):
-                blocks.append('<p><a href="' + html.escape(url, quote=True) + '" target="_blank" rel="noopener noreferrer">Consulter la source</a></p>')
-        return '\n'.join(blocks)
+        answer = render_exact_sources(selected, reviewer, report)
+        audit['rendered_answer'] = answer
+        audit['model_document_ids'] = [p['id'] for p in candidates]
+        audit['effective_selection_policy'] = 'exact_sources_only'
+        return answer
     except Exception as exc:
         report.update(status='invalid_selection_no_retry', error_type=type(exc).__name__)
         return '<p>Sélection non exploitable : aucune procédure générée et aucun nouvel appel automatique.</p>'

@@ -1265,9 +1265,12 @@ if st.session_state.get("is_admin", False):
                 st.warning(_probe_result["message"])
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
+        st.checkbox("Mode fidèle : textes sources, sans rédaction IA", value=True, key="admin_faithful")
+        st.caption("Le mode fidèle conserve les textes documentaires et leurs conditions. Il remplace la rédaction libre ; le choix des sources reste à vérifier.")
         st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
         if st.session_state.get("admin_albert_only"):
-            st.caption("ESSAI DIRECT ACTIF : recherche par le code → Albert (" + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
+            st.caption(("MODE FIDÈLE : Albert choisit les sources, le programme restitue le texte exact ("
+                        if st.session_state.get("admin_faithful") else "ESSAI DIRECT ACTIF : recherche par le code → Albert (") + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
                        + "). Aucun appel de sélection ou rédaction Mini, aucun secours GPT, aucune réparation payante."
                        + (" · version " + _sha if _sha else ""))
         else:
@@ -1618,10 +1621,18 @@ if prompt_a_traiter:
             _test_model = "gpt-4o-mini"
         _test_gpt41 = bool(_test_model)
         _test_selector = None
+        _faithful_trial = (st.session_state.get("is_admin", False)
+            and st.session_state.get("admin_faithful", True)
+            and mode in ("examens", "ipack", "textes"))
         _albert_only_trial = (st.session_state.get("is_admin", False)
             and st.session_state.get("admin_albert_only", True)
             and mode in ("examens", "ipack", "textes"))
         if _albert_only_trial:
+            _test_model = None
+            _test_gpt41 = False
+            _single_document_test = False
+            _short_prompt_test = False
+        if _faithful_trial:
             _test_model = None
             _test_gpt41 = False
             _single_document_test = False
@@ -1968,6 +1979,8 @@ if prompt_a_traiter:
             if _test_gpt41 and mode in ('ipack', 'examens'):
                 _orientation_active = True
             if _albert_only_trial:
+                _orientation_active = False
+            if _faithful_trial:
                 _orientation_active = False
 
             def _recherche_documentaire(defer_exclusivity=False):
@@ -2513,7 +2526,7 @@ if prompt_a_traiter:
                                                   "La course en durée proprement dite vise l'entretien de soi et relève du champ 5.</p>"
                                                   "<p>Dans votre question, il s'agit donc d'une seule et même activité (le demi-fond) : elle ne compte que pour une épreuve du protocole, "
                                                   "à compléter par des activités d'autres champs.</p>")
-                    if verdict_champs:
+                    if verdict_champs and not _faithful_trial:
                         pass
                     elif len(_trouvees) >= 2:
                         _par_champ = {}
@@ -2611,6 +2624,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                          'one_question_gpt41_test': _test_model == 'gpt-4.1',
                                          'test_model': _test_model,
                                          'albert_only_trial': _albert_only_trial,
+                                         'faithful_sources_only': _faithful_trial,
                                          'test_api_call_limit': 2 if _test_model else None,
                                          'normalisation_question': normalise_question(prompt),
                                          'sources_recherche': sources_consultees,
@@ -2618,18 +2632,27 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                         _orientation_llm = TracedLLM(_test_selector if _test_gpt41 else OpenAI(model='gpt-4o-mini', temperature=0.0,
                             api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20),
                             usage_ia, capture_text=False, stage='selection') if _orientation_active else None
-                        reponse_ia = review_exam_answer(
-                            llm_reponse, question=prompt, public=niveau_actuel_form,
-                            documents=contexte_complet_ia, audit=diagnostic_ia,
-                            academy=academie_reponse, mode=mode,
-                            selector_llm=_orientation_llm,
-                            repair_enabled=not bool(_test_model) and not _albert_only_trial,
-                            test_document_path=_single_target if _single_document_test else None,
-                            test_short_prompt=_short_prompt_test,
-                            selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
-                            instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
-                        )
-                        _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
+                        if _faithful_trial:
+                            reponse_ia = _generation_runtime.exact_source_answer.exact_answer(
+                                _generation_llm, reviewer=_generation_runtime.documentary_review,
+                                tracer=TracedLLM, question=prompt, public=niveau_actuel_form,
+                                documents=contexte_complet_ia, audit=diagnostic_ia,
+                                academy=academie_reponse, mode=mode)
+                            usage_ia['calls'] = diagnostic_ia.get('calls', [])
+                            _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
+                        else:
+                            reponse_ia = review_exam_answer(
+                                llm_reponse, question=prompt, public=niveau_actuel_form,
+                                documents=contexte_complet_ia, audit=diagnostic_ia,
+                                academy=academie_reponse, mode=mode,
+                                selector_llm=_orientation_llm,
+                                repair_enabled=not bool(_test_model) and not _albert_only_trial,
+                                test_document_path=_single_target if _single_document_test else None,
+                                test_short_prompt=_short_prompt_test,
+                                selection_policy='gpt_shortlist' if _orientation_active else 'legacy',
+                                instructions=Path("config/consignes_fiabilite.txt").read_text(encoding="utf-8"),
+                            )
+                            _doc_utilises = {e['document_id'] for c in diagnostic_ia['accepted_claims'] for e in c['evidence']}
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
                                              for p in diagnostic_ia['documents'] if p['id'] in _doc_utilises]
                     else:

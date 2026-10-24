@@ -582,6 +582,9 @@ def source_limits_for_rejections(rejections, packets, question):
                 spans = [{'text': evidence.get('quote', '')}]
             for span in spans:
                 text = span['text'].strip().lstrip('-* ')
+                # Retirer seulement l'en-tête Q/R d'une FAQ ; la réponse reste
+                # littérale et conserve ses conditions, la preuve cite le bloc entier.
+                text = re.sub(r'^Q\d+\s*:[^\n]*\n\s*-?\s*R\d+\s*:\s*', '', text)
                 if (not documentary_limit(text) or len(text) > 1800
                         or len(_racines(question) & _racines(text)) < 2
                         or situation_mismatch(question, text) or editorial_instruction(text)):
@@ -1733,6 +1736,11 @@ SCHEMA :
     def resolve(output):
         try:
             parsed = _json_response(output)
+            # Alias de format observé : aucune règle ni affirmation réécrite.
+            for c in parsed['claims']:
+                if isinstance(c, dict) and c.get('section') == 'limit':
+                    c['section'] = 'limite'
+                    audit['normalized_section_aliases'] = audit.get('normalized_section_aliases', 0) + 1
             # Supprimer les seules consignes éditoriales, sans modifier une règle
             # ni transformer une décision rejetée en réponse approuvée.
             meta = [c for c in parsed['claims'] if isinstance(c, dict) and editorial_instruction(str(c.get('text', '')))]

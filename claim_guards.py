@@ -15,7 +15,8 @@ def documentary_limit(text):
     value = normalized(text)
     if re.search(r"n'existe|n'existent|reponse directe|ne pas repondre|pour les (?:questions|situations)", value):
         return False
-    return bool(re.search(r"aucun texte de la base|aucune consigne de la base|(?:aucun\w*|pas de|absence de).{0,75}(?:consigne|texte|regle|procedure).{0,65}(?:(?:re)?trouv|dans (?:la base|le corpus|la documentation))", value))
+    return bool(re.search(r"aucun texte de la base|aucune consigne de la base|(?:aucun\w*|pas de|absence de).{0,75}(?:consigne|texte|regle|procedure).{0,65}(?:(?:re)?trouv|dans (?:la base|le corpus|la documentation))", value)
+                or re.search(r"(?:passages|sources|documents|description).{0,100}ne (?:suffit|permet|permettent) pas.{0,30}confirmer.{0,30}(?:possibilite|obligation|autorisation|interdiction)", value))
 
 
 def mixed_documentary_limit_conflict(text, supports):

@@ -33,3 +33,9 @@ Rejeu utilisateur délégué dans le hub sur c5d5ff5 : trois questions, mêmes c
 Contrôle additionnel de deux déformations explicites dans evidence_relation_errors : normalité affirmée malgré anomalie explicite sur un sujet recoupé ; cas exclu absent de la preuve sans restriction explicite. Le contrôle n'infère aucune solution métier. Forme passive de demande de vérification distinguée d'une obligation de réaliser l'action. Repère de concision commun rétabli (une à six affirmations utiles, sans omission indispensable).
 
 1096 tests réussis ; quatre tests multi-domaines et contre-exemples. Aucune nouvelle alerte relation/certitude sur les 98 réponses témoins contrôlables parmi les 100 utiles historiques. Limites lexicales conservées : pas de vérification sémantique universelle. Prochains essais réels bornés aux deux défauts persistants.
+
+## Deuxième vérification et réparation littérale hors fournisseur
+
+Sur d1f45e6, deux générations réelles : 26063 jetons, six appels, deux réparations. Collège correct, réparation pour section limit au lieu de limite ; SSS encore non confirmée après une réparation impérative sans preuve. Cinq essais cumulés : 57525 jetons, treize appels. Le bon collège n'a pas déclenché le nouveau contrôle normal/anormal ; ne pas attribuer sa correction à ce garde-fou sans preuve.
+
+Normalisation du seul alias de format limit→limite. Récupération littérale des réserves explicites de non-implication documentaire depuis la preuve citée ; conditions conservées et validation complète, retrait du seul en-tête FAQ pour l'affichage. Les propositions enregistrées passent sans réparation après ces corrections locales ; aucune nouvelle réponse modèle produite pour vérifier ces mêmes défauts. 1099 tests réussis, trois nouveaux cas ; aucun nouveau rejet parmi les 98 témoins utiles contrôlables. Le prochain jeu réel est borné aux mêmes 20 témoins et doit conserver sa version, ses contextes et ses traces.

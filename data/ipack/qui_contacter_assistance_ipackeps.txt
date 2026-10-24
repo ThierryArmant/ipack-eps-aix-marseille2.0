@@ -8,7 +8,7 @@ Réponse directe — un bug ou un blocage d'iPackEPS non résolu (lien absent, �
 - La DEC (division des examens et concours) de son académie : inscriptions des candidats, missions et convocations Imag'in, incohérences de données, statut de sportif de haut niveau, calendrier et dates limites des examens.
 - L'inspection pédagogique régionale (IA-IPR d'EPS) et la commission académique : validation ou réouverture des protocoles, référentiels, cas exceptionnel, sections sportives, projets APPN.
 - Le rectorat, service des personnels : statut, contrat et affectation d'un enseignant ou d'un vacataire.
-- Chaque académie a ses propres adresses de contact et son propre calendrier.
+- Informations spécifiques de contact de la DEC (division des examens et concours) : aucune procédure locale de contact de la DEC n'est décrite dans la documentation de cette fiche ; les coordonnées de DEC propres à chaque académie ne sont pas fournies ici. Chaque académie a ses propres adresses de contact et son propre calendrier.
 - Académie d'Aix-Marseille, assistance iPackEPS : ipackeps@ac-aix-marseille.fr (préciser l'établissement et son UAI, le menu concerné, le message d'erreur exact, et joindre une capture d'écran).
 Nature de la source : synthèse des circuits d'assistance iPackEPS et des examens ; adresse de l'assistance propre à Aix-Marseille.
 Source : fiche « messages d'erreur et contacts » du hub (section « qui contacter pour quoi »), extraite pour être transmise seule.

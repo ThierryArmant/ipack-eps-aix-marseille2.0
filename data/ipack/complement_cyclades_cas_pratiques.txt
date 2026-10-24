@@ -95,8 +95,9 @@ Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la c
 ### [SITUATION: SE DÉCLARER COORDONNATEUR EPS OU RESPONSABLE DE LA CERTIFICATION DANS iPackEPS]
 - Mots-clés : coordonnateur EPS, responsable de la certification, fonctions EPS, fiche professeur, nouveau coordonnateur, droits insuffisants, menus grisés.
 - Formulations courantes des collègues : je deviens coordonnateur cette année, où le déclarer ; je n'ai pas accès au dossier certificatif ; comment cocher coordonnateur EPS ; mes fonctions ont disparu à la rentrée.
-- Chemin exact, rapide : Tableau de bord > Ma fiche professeur > Fonctions > cocher la case « Coordonnateur EPS » dans « Fonctions EPS dans l'établissement ». Pour gérer les examens, cocher aussi « Responsable de la Certification » au même endroit.
-- Cette déclaration est un préalable : sans elle, les modules de préparation des examens (APSA certificatives, référentiels, protocoles) ne sont pas accessibles en modification. Ordre conseillé à la rentrée : fiche Établissement, puis Fiche Professeur, puis les dossiers et projets.
+- Fonction de coordination : Tableau de bord > Ma fiche professeur > Fonctions > cocher la case « Coordonnateur EPS » dans « Fonctions EPS dans l'établissement » pour déclarer la coordination EPS.
+- Gestion des examens — préalable : Tableau de bord > Ma fiche professeur > Fonctions > cocher aussi « Responsable de la Certification » pour gérer les examens ; la seule déclaration « Coordonnateur EPS » ne remplace pas cette déclaration de responsabilité de la certification. Sans la déclaration nécessaire à la gestion des examens, les modules de préparation des examens (APSA certificatives, référentiels, protocoles) ne sont pas accessibles en modification.
+- Ordre conseillé à la rentrée : fiche Établissement, puis Fiche Professeur, puis les dossiers et projets.
 - Les fonctions sont à redéclarer à chaque rentrée scolaire. (Chemin confirmé par un correspondant académique iPackEPS.)
 
 ### [SITUATION: DÉCLARER LES ACTIVITÉS D'EXAMEN DE L'ANNÉE — LES QUATRE ÉTAPES DE L'AUTOMNE, DANS L'ORDRE]

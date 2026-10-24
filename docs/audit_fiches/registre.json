@@ -5294,7 +5294,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "203d21e8273ee1d28988e88c22d86a0d7ecfb2e0470244128287b46ff3da6550",
+      "sha256": "4effd0615c6971dbddf975b5198cc54ca9926a61b34b531916ffadb765da23cf",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5321,7 +5321,7 @@
           148
         ],
         "apparitions_dans_passages_transmis_traces": 14,
-        "reprise_ciblee": "condition_conservation_note_et_non_prescription_2026_10_24"
+        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
       }
     },
     {
@@ -7326,9 +7326,9 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "c198f34ee1c8d96ab6fb024600e2be0aaec572275bc9da2561eb294efe86f1bd",
+      "sha256": "ac26dbe7b5601b8499b7800d2474132ea8f817b1875c3f0bc51ea90aaeb4207f",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -7343,7 +7343,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
       }
     },
     {
@@ -10719,9 +10720,9 @@
     },
     {
       "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
-      "sha256": "20943d517ed4cc3a60b62fe1f995d985d537dea484157baba74f104950aedc29",
+      "sha256": "d61ef48e7af37daea008ec630a707d2611acc1bb4c64328c69321a6afb4e10df",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "extrait_fiche_contacts_2026-10-18",
       "signaux": [
         "diplome_non_balise_a_examiner",
@@ -10736,7 +10737,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 0
+        "apparitions_dans_passages_transmis_traces": 0,
+        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
       }
     },
     {
@@ -11015,9 +11017,9 @@
     },
     {
       "path": "data/ipack/visite_college_2026_10_18/college_pas_de_dossier_certificatif.txt",
-      "sha256": "e9d022b279a55e57fe57ab44b9e8f078422d2d82484ddaaf668ccbfdbea22203",
+      "sha256": "55691829b8d11668e36e69918a2edb648f9973d07286efd9d12df99d37272bc1",
       "famille": "ipack",
-      "statut_audit": "a_relire",
+      "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_correspondant_2026-10-18",
       "signaux": [],
       "revue_structurelle": {
@@ -11029,7 +11031,8 @@
         ],
         "lignes_plus_1000_caracteres": [],
         "lignes_conditions_multiples": [],
-        "apparitions_dans_passages_transmis_traces": 2
+        "apparitions_dans_passages_transmis_traces": 2,
+        "reprise_ciblee": "comparaison20_conditions_limites_2026_10_24"
       }
     },
     {

@@ -537,6 +537,12 @@ def source_limits_for_rejections(rejections, packets, question):
             r'(?:les )?(?:passages|sources|documents)(?: fournis| disponibles| consultes)?.{0,20}'
             r'ne (?:precisent|decrivent|documentent|permettent de confirmer) pas[^;]+'
             r'(?:; cette etape (?:n.est pas couverte|reste non confirmee)[.]?)?', value))
+        # Une réserve peut commencer par son objet plutôt que « les passages ».
+        # Forme déclarative bornée au corpus : aucune prescription ajoutée.
+        bounded_absence = bounded_absence or bool(re.fullmatch(
+            r"les (?:informations|coordonnees|contacts|modalites|procedures?)[^.;!?]{0,220} "
+            r"ne sont pas (?:specifiquement )?(?:documente[es]+|confirme[es]+|precise[es]+) "
+            r"dans les (?:passages|documents|sources)(?: fournis| disponibles| consultes)?[.]?", value))
         certainty_only = bool(errors) and all(str(e).startswith('absence de consigne transformée') for e in errors)
         missing_only = errors == ['preuves absentes ou trop nombreuses'] and claim.get('evidence') == []
         if missing_only and claim.get('section') == 'limite' and bounded_absence:

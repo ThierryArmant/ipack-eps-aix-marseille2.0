@@ -1266,10 +1266,10 @@ if st.session_state.get("is_admin", False):
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
         st.checkbox("Mode fidèle : textes sources, sans rédaction IA", value=True, key="admin_faithful")
-        st.caption("Le mode fidèle conserve les textes documentaires et leurs conditions. Il remplace la rédaction libre ; le choix des sources reste à vérifier.")
+        st.caption("Le mode fidèle affiche d'abord les passages sélectionnés, sans réécriture. Les textes complets et leurs conditions restent consultables ; pertinence et complétude restent à vérifier.")
         st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
         if st.session_state.get("admin_albert_only"):
-            st.caption(("MODE FIDÈLE : Albert choisit les sources, le programme restitue le texte exact ("
+            st.caption(("MODE FIDÈLE : Albert choisit les passages, le programme restitue le texte exact ("
                         if st.session_state.get("admin_faithful") else "ESSAI DIRECT ACTIF : recherche par le code → Albert (") + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
                        + "). Aucun appel de sélection ou rédaction Mini, aucun secours GPT, aucune réparation payante."
                        + (" · version " + _sha if _sha else ""))

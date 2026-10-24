@@ -5,6 +5,28 @@ import json
 import re
 
 
+def render_focused_sources(selected, focus_ids, reviewer, report):
+    """Recopie des passages entiers ; le contexte source reste consultable."""
+    spans = {s['id']: (p, s) for p in selected for s in p['passages']}
+    numbers = {p['id']: n for n, p in enumerate(selected, 1)}
+    blocks = ['<h3>Passages retenus pour votre demande</h3>',
+              '<p>Extraits sélectionnés, sans réécriture. Le choix et la complétude restent à vérifier dans les sources ci-dessous.</p>']
+    for passage_id in focus_ids:
+        packet, span = spans[passage_id]
+        label = reviewer.evidence_label({'scope': span.get('scope', {})}, packet, reviewer._LEVELS)
+        blocks.append('<p style="white-space:pre-wrap">' + html.escape(span['text']) + '</p>')
+        blocks.append('<p><small>[' + str(numbers[packet['id']]) + '] '
+                      + html.escape(label) + '</small></p>')
+    full_report = {}
+    complete = render_exact_sources(selected, reviewer, full_report)
+    blocks.extend(['<details><summary>Vérifier les textes complets et leurs conditions</summary>',
+                   complete, '</details>'])
+    report.update(display_version='exact-focus-v1', focused_passage_ids=focus_ids,
+                  focused_passage_chars=sum(len(spans[i][1]['text']) for i in focus_ids),
+                  focus_completeness_proven=False, complete_sources_display=full_report)
+    return '\n'.join(blocks)
+
+
 def render_exact_sources(selected, reviewer, report):
     """Présentation seulement : texte métier intact, références regroupées."""
     blocks = []
@@ -78,11 +100,20 @@ une alternative utile, une condition, une limite ou une contradiction applicable
 Une opération voisine et un mot commun ne suffisent pas à justifier un complément.
 Respecte les négations et les distinctions entre opérations. Ne transforme pas une limite
 sur les droits d'une autre opération en permission pour celle demandée.
-Les sources retenues seront recopiées EN ENTIER : aucun menu ou droit ne sera réécrit.
+Les sources restent consultables en entier. Choisis aussi les passages à afficher en premier.
+Chaque passage choisi sera recopié EN ENTIER, sans couper une phrase : aucun menu,
+droit ni condition ne sera réécrit. Sélectionne l'action demandée et ses préalables,
+conditions, exceptions et limites explicitement applicables, même dans d'autres passages.
+Ne sélectionne pas les formulations de recherche, les titres ni une opération voisine seule.
+Un passage qui décrit l'action avec sa condition est préférable à une mention générale.
+Ordre des passages : réponse directe à la demande, puis préalables et limites nécessaires.
+Si un passage mélange des opérations, il reste entier ; ne fabrique pas une procédure combinée.
 Pour une question générale ou composée, conserve les sources nécessaires à tous les volets.
 Ne classe pas tous les documents : retourne seulement les identifiants retenus.
 Si aucune source ne répond, principal=null et complements=[].
-JSON uniquement : {"principal":"D1","complements":["D2"]}.
+JSON uniquement : {"principal":"D1","complements":["D2"],"passages":["D1P2","D2P3"]}.
+passages contient seulement des identifiants des sources retenues, sans doublon.
+Si principal=null, complements=[] et passages=[].
 DONNEES :
 ''' + json.dumps(dict(question=question, public=public, mode=mode, academy=academy,
                      scopes=scopes, documents=sources), ensure_ascii=False)
@@ -95,9 +126,12 @@ DONNEES :
         if raw.startswith('```'):
             raw = raw.split('\n', 1)[1].rsplit('```', 1)[0]
         choice = json.loads(raw)
-        if not isinstance(choice, dict) or set(choice) != {'principal', 'complements'}:
+        if not isinstance(choice, dict) or set(choice) not in (
+                {'principal', 'complements'}, {'principal', 'complements', 'passages'}):
             raise ValueError('schema')
         main, extra = choice['principal'], choice['complements']
+        if 'passages' in choice and not isinstance(choice['passages'], list):
+            raise ValueError('passage_list')
         by_id = {p['id']: p for p in candidates}
         if (not isinstance(extra, list) or any(not isinstance(i, str) or i not in by_id for i in extra)
                 or len(extra) != len(set(extra))
@@ -105,13 +139,31 @@ DONNEES :
                 or (main is None and extra)):
             raise ValueError('source_ids')
         if main is None:
+            if choice.get('passages'):
+                raise ValueError('passages_without_source')
             report.update(status='no_source_selected', selected_ids=[])
             return '<p>Aucune source applicable retenue par le sélecteur ; ce choix reste à vérifier.</p>'
         selected = [by_id[i] for i in [main] + extra]
+        focus = choice.get('passages')
+        if focus is not None:
+            allowed = {s['id']: s for p in selected for s in p['passages']}
+            if (not isinstance(focus, list) or not focus
+                    or any(not isinstance(i, str) or i not in allowed for i in focus)
+                    or len(focus) != len(set(focus))):
+                raise ValueError('passage_ids')
+            if any(len(allowed[i]['text'].strip().splitlines()) == 1
+                   and allowed[i]['text'].strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))
+                   for i in focus):
+                raise ValueError('metadata_as_answer')
         report.update(status='rendered_exact_sources', selected_ids=[p['id'] for p in selected],
                       selected_sources=selected, no_business_rewriting=True,
                       passage_chars=sum(len(s['text']) for p in selected for s in p['passages']))
-        answer = render_exact_sources(selected, reviewer, report)
+        if focus is None:
+            report['focus_status'] = 'legacy_full_sources_no_focus'
+            answer = render_exact_sources(selected, reviewer, report)
+        else:
+            report['focus_status'] = 'selected_by_model_not_semantically_proven'
+            answer = render_focused_sources(selected, focus, reviewer, report)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

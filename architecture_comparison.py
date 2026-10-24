@@ -320,7 +320,7 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                 selected_model = st.text_input('Modèle Albert pour cette sélection G',value=albert_model or '',key='selected_g_albert_model')
                 if st.button('Rédiger la sélection G avec Albert — 1 appel',disabled=not bool(albert_api_key)):
                     try:
-                        direct = AlbertLLM(albert_api_key,selected_model.strip(),temperature=getattr(llm,'temperature',0.0))
+                        direct = AlbertLLM(albert_api_key,selected_model.strip(),temperature=getattr(llm,'temperature',0.0),allow_paused_test=True)
                         with st.spinner('Rédaction Albert sur les sources G…'):
                             st.session_state['architecture_comparison_result'] = write_selected_g_with_albert(saved_g,direct,version=version)
                     except (AlbertError,ValueError) as exc:
@@ -345,7 +345,7 @@ def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_mod
                     if not albert_api_key:
                         raise AlbertError('Clé Albert absente : aucun appel lancé.')
                     model_id = albert_exact.strip() or (albert_choice if albert_choice != 'Choisir un modèle' else '')
-                    direct = AlbertLLM(albert_api_key,model_id,temperature=getattr(llm,'temperature',0.0))
+                    direct = AlbertLLM(albert_api_key,model_id,temperature=getattr(llm,'temperature',0.0),allow_paused_test=True)
                     with st.spinner('Rédaction Albert sur la sélection G enregistrée…'):
                         st.session_state['architecture_comparison_result'] = write_selected_g_with_albert(saved_g,direct,version=version)
                 except (AlbertError,ValueError) as exc:

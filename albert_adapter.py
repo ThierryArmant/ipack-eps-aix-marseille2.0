@@ -5,7 +5,7 @@ import json
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 from urllib.error import HTTPError, URLError
 
-# Intégration Albert réactivée à la demande du pilote le 23 octobre 2026.
+# Parcours public suspendu ; un essai administrateur H peut être autorisé par instance.
 ALBERT_PAUSED = True
 
 BASE_URL = 'https://albert.api.etalab.gouv.fr/v1'
@@ -33,8 +33,8 @@ def _http_error(status):
     return AlbertServiceError(notices.get(status, 'Service Albert indisponible (HTTP ' + str(status) + ').'), 'http_' + str(status))
 
 
-def _request(api_key, method, route, payload=None, timeout=90):
-    if ALBERT_PAUSED:
+def _request(api_key, method, route, payload=None, timeout=90, *, allow_paused_test=False):
+    if ALBERT_PAUSED and not allow_paused_test:
         raise AlbertServiceError('Albert temporairement désactivé pour les essais.', 'temporarily_disabled')
     if not isinstance(api_key, str) or not api_key.strip() or any(c in api_key for c in '\r\n'):
         raise AlbertServiceError('Clé Albert absente ou non conforme dans les secrets Streamlit.', 'key_unavailable')
@@ -72,7 +72,7 @@ def available_models(api_key):
 
 
 class AlbertLLM:
-    def __init__(self, api_key, model, temperature=0.0, timeout=90):
+    def __init__(self, api_key, model, temperature=0.0, timeout=90, *, allow_paused_test=False):
         if not isinstance(model, str) or not re.fullmatch(r'[A-Za-z0-9_./:-]{1,200}', model):
             raise AlbertError('Indiquez un identifiant exact de modèle Albert.')
         self._api_key = api_key
@@ -81,13 +81,17 @@ class AlbertLLM:
         self.model = model
         self.temperature = temperature
         self.resolved_model = None
+        self._allow_paused_test = allow_paused_test is True
 
     def complete(self, prompt, **kwargs):
         if kwargs:
             raise AlbertError('Paramètres supplémentaires non pris en charge par ce comparateur.')
+        request_options = {'timeout': self.timeout}
+        if self._allow_paused_test:
+            request_options['allow_paused_test'] = True
         data = _request(self._api_key, 'POST', '/chat/completions',
                         {'model': self.model, 'messages': [{'role': 'user', 'content': str(prompt)}],
-                         'temperature': self.temperature, 'stream': False, 'max_tokens': 4096}, timeout=self.timeout)
+                         'temperature': self.temperature, 'stream': False, 'max_tokens': 4096}, **request_options)
         try:
             choice = data['choices'][0]
             content = choice['message']['content']

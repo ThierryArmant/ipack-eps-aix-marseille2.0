@@ -3,6 +3,33 @@ from unittest.mock import patch
 from albert_adapter import ALBERT_PAUSED, AlbertLLM, AlbertServiceError, available_models, generation_llm
 
 class AlbertPausedTests(unittest.TestCase):
+    def test_authorized_admin_instance_reaches_http_without_unpausing_public(self):
+        import json
+        payload={'choices':[{'message':{'content':'réponse'},'finish_reason':'stop'}],
+                 'model':'gpt-oss-120b','usage':{'prompt_tokens':3,'completion_tokens':2,'total_tokens':5}}
+        with patch('albert_adapter.ALBERT_PAUSED',True), patch('albert_adapter.build_opener') as network:
+            response=network.return_value.open.return_value.__enter__.return_value
+            response.status=200
+            response.read.return_value=json.dumps(payload).encode()
+            direct=AlbertLLM('placeholder','gpt-oss-120b',allow_paused_test=True)
+            self.assertEqual(direct.complete('question').text,'réponse')
+            network.return_value.open.assert_called_once()
+            with self.assertRaises(AlbertServiceError):
+                AlbertLLM('placeholder','gpt-oss-120b').complete('question')
+            with self.assertRaises(AlbertServiceError):
+                available_models('placeholder')
+            network.return_value.open.assert_called_once()
+            gpt=object()
+            self.assertIs(generation_llm(openai_llm=gpt,api_key='placeholder',provider='albert'),gpt)
+
+    def test_authorized_admin_service_failure_is_not_retried(self):
+        from urllib.error import URLError
+        with patch('albert_adapter.ALBERT_PAUSED',True), patch('albert_adapter.build_opener') as network:
+            network.return_value.open.side_effect=URLError('unavailable')
+            with self.assertRaises(AlbertServiceError):
+                AlbertLLM('placeholder','gpt-oss-120b',allow_paused_test=True).complete('question')
+            network.return_value.open.assert_called_once()
+
     def test_no_network_for_discovery_or_generation(self):
         self.assertTrue(ALBERT_PAUSED)
         with patch('albert_adapter.ALBERT_PAUSED', True), patch('albert_adapter.build_opener') as network:

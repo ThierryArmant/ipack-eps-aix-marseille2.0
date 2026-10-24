@@ -17,6 +17,8 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
     search_prompt = normalise_question(search_prompt if search_prompt is not None else prompt)["recherche"]
     _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
     _priorites_fiches = []
+    # Fiches prioritaires transmises en entier : leurs fragments indexés seraient des copies du même texte.
+    _chemins_entiers = set()
 
     # ✅ AJOUT : beaucoup de fiches de la FAQ donnent une réponse PAR EXAMEN (« Réponse Lycée GT Bac »,
     # « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Lycée Pro CAP », « Réponse Collège DNB »), chacune dans
@@ -81,6 +83,9 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             _cle = passage_key(_txt)
             if _cle in _vus or _autre_examen(_txt):
                 continue
+            _chemin_mots = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
+            if _chemin_mots and _chemin_mots.group(1) in _chemins_entiers:
+                continue  # fragment d'une fiche déjà transmise en entier
             if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
                 continue
             _vus.add(_cle)
@@ -116,6 +121,8 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             _cle = passage_key(_txt)
             if _cle in _vus:
                 continue  # même passage présent dans deux bases : transmis une seule fois
+            if n.node.metadata.get('path', n.node.metadata.get('source', '')) in _chemins_entiers:
+                continue  # fragment d'une fiche prioritaire déjà transmise en entier
             if incompatible(_txt, _cibles, n.node.metadata) or _autre_examen(_txt):
                 continue  # réponse rédigée pour un autre examen que celui de la question
             if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
@@ -146,6 +153,7 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             if _cle in _vus:
                 continue
             _vus.add(_cle)
+            _chemins_entiers.add(_path)
             _bloc = '[FICHE PRIORITAIRE — statut: ' + _md.get('statut', '') + '] ' + _txt
             _extraits.append(mark_excerpt(_bloc, path=_path, title=_md.get('title', ''), priority=_md.get('priorite', 0), url=(reference_url(_md, prompt) or _url_source(_path, _txt, prompt)), selection='catalogue', scopes=_md.get('examens', []))
                              if mode in ("examens", "ipack", "textes") else _bloc)

@@ -2666,3 +2666,10 @@ Rapport de méthode : [verification_sections_selection_2026_10_24.md](audit_fich
 - Vérifié : « réaffecter un lot à un autre examinateur » reste sur la fiche Cyclades réaffecter (pas de verbe d'ajout) ; « le co-évaluateur est-il obligatoire ? » inchangé.
 - 2 CAS ajoutés (chacun interdit l'autre fiche). Suite complète : **1 161 tests OK**.
 - **GPT** : la proposition 4ad427e (fragments d'une fiche prioritaire déjà injectée en entier) reste en attente de ton avis.
+
+### 25 octobre 2026 00 h 15 — Claude : copies des fiches prioritaires retirées (feu vert de Thierry, GPT absent)
+- Thierry : GPT indisponible ; j'applique moi-même la proposition 4ad427e dans `document_retrieval.py` (ton périmètre, GPT — ajout borné, à relire à ton retour).
+- Changement (8 lignes) : `_chemins_entiers` reçoit le chemin de chaque fiche prioritaire transmise en entier ; `_ajouter` (recherche vectorielle, `metadata['path']`) et `_ajouter_par_mots` (`[DOCUMENT: …;]`) ignorent ensuite un fragment de ce même fichier. Aucun texte perdu (le fichier complet contient chaque fragment) ; les places libérées vont aux autres sources, plafond 10 inchangé. Formats de chemin vérifiés identiques (`data/…`) entre catalogue et chargeur.
+- Tests : `tests/test_fragments_fiche_prioritaire.py` (fragment vectoriel ignoré, fragment par mots ignoré, autre source conservée, sans prioritaire rien ne change). Suite complète : **1 164 tests OK**.
+- Effet attendu sur les témoins archivés : Q3 −1 copie, Q9 −3, Q15 −2, Q18 −2 (8 places sur 40). Non mesuré en réel : aucun appel IA.
+- **GPT** : à ton retour, rejouer hors réseau Q3/Q9/Q15/Q18/lot avec la recherche actuelle (catalogue da66bb0 + e79b7e6 + ce retrait) avant tout appel réel ; dis-moi si tu préfères une autre forme.

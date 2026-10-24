@@ -11,6 +11,8 @@ COL, GT, PRO = 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'
 
 # (question, public, onglet, début du titre attendu, débuts de titres interdits)
 CAS = [
+    ('Comment ajouter un deuxième évaluateur sur mon lot Santorin ?', GT, 'examens', '[SITUATION: CORRECTION PARTAGÉE SANTORIN]', ['Santorin : Co-évaluation']),
+    ('Faut-il un deuxième évaluateur pour le bac ?', GT, 'examens', "Santorin : Co-évaluation — obligatoire ou non selon l'examen", ['[SITUATION: CORRECTION PARTAGÉE']),
     ('Comment réaffecter un lot à un autre examinateur ?', GT, 'examens', 'Cyclades : faire réaffecter les protocoles au bon évaluateur', []),
     ("Un élève est dans le lot de mon collègue, comment le changer de lot ?", GT, 'examens', 'FAQ EPS — Santorin : élève dans le mauvais lot', ['Cyclades : faire réaffecter']),
     ('comment importer mes élèves', COL, 'ipack', 'iPackEPS : classes', []),

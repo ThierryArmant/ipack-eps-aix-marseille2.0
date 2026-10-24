@@ -1056,7 +1056,8 @@
       "ipack"
     ],
     "motifs": [
-      "(?:ajouter|deuxieme|second) correcteur|co.?correct|partag\\w*.{0,30}lots?|lots?.{0,30}partag|(?:deux enseignants|deux professeurs|a deux).{0,60}(?:meme )?lot|collegue.{0,40}(?:aussi|egalement) (?:saisir|corriger)"
+      "(?:ajouter|deuxieme|second) correcteur|co.?correct|partag\\w*.{0,30}lots?|lots?.{0,30}partag|(?:deux enseignants|deux professeurs|a deux).{0,60}(?:meme )?lot|collegue.{0,40}(?:aussi|egalement) (?:saisir|corriger)",
+      "(?:ajout|rajout|mettre|associer|attribuer|donner acces).{0,30}(?:deuxieme|second|2e|autre) (?:correcteur|evaluateur|examinateur|enseignant|professeur|collegue)"
     ],
     "exclure_motifs": [
       "rempla"
@@ -7916,7 +7917,8 @@
     "prioritaire": true,
     "priorite": 270,
     "motifs": [
-      "co.?evaluat|deux enseignants.{0,40}(?:evalu|not|saisi)|evaluer a deux"
+      "co.?evaluat|deux enseignants.{0,40}(?:evalu|not|saisi)|evaluer a deux",
+      "(?:faut.il|oblig|necessaire|impose|exige|doit.on).{0,40}(?:deuxieme|second|2e) (?:correcteur|evaluateur|examinateur)|(?:deuxieme|second|2e) (?:correcteur|evaluateur|examinateur).{0,40}(?:oblig|necessaire|impose|exige)"
     ],
     "exclure_motifs": []
   },

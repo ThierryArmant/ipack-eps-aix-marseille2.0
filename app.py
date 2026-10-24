@@ -1,4 +1,5 @@
 from pathlib import Path
+from question_normalization import normalise_question
 import academie
 import knowledge_catalog
 import source_scope
@@ -2588,6 +2589,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                          'one_question_gpt41_test': _test_model == 'gpt-4.1',
                                          'test_model': _test_model,
                                          'test_api_call_limit': 2 if _test_model else None,
+                                         'normalisation_question': normalise_question(prompt),
                                          'sources_recherche': sources_consultees,
                                          'recherche': fiches_diag, 'erreur_recherche': erreur_rag}
                         _orientation_llm = TracedLLM(_test_selector if _test_gpt41 else OpenAI(model='gpt-4o-mini', temperature=0.0,

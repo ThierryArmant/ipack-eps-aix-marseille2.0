@@ -1,6 +1,7 @@
 """Recherche commune au hub et au comparateur administrateur."""
 import re
 import unicodedata
+from question_normalization import normalise_question
 
 def normaliser(txt):
     return "".join(c for c in unicodedata.normalize("NFD", txt.lower()) if unicodedata.category(c) != "Mn")
@@ -12,6 +13,8 @@ from documentary_review import mark_excerpt
 def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_college, est_clairement_lycee, mots_cles_intention_peda, recherche_mots, chercher_par_mots, retriever_textes, retriever_peda, retriever_santorin, retriever_ipack, libelle_source, _url_source, search_prompt=None, reference_notice=reference_notice, defer_exclusivity=False):
     """Cherche les passages utiles dans les bases pour la question en cours.
     Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
+    # La demande originale reste la référence des preuves et de la rédaction.
+    search_prompt = normalise_question(search_prompt if search_prompt is not None else prompt)["recherche"]
     _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
     _priorites_fiches = []
 

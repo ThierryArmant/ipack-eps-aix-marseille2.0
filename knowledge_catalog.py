@@ -4,6 +4,7 @@ import json
 import re
 import unicodedata
 from pathlib import Path
+from question_normalization import normalise_question
 
 
 # Tolérance de recherche uniquement : une permutation de deux lettres voisines
@@ -31,7 +32,7 @@ _SEARCH_TRANSPOSITIONS = _transposition_aliases()
 
 
 def normalise(text):
-    value = ''.join(c for c in unicodedata.normalize('NFD', text.lower())
+    value = ''.join(c for c in unicodedata.normalize('NFD', normalise_question(text)['recherche'].lower())
                     if unicodedata.category(c) != 'Mn')
     value = re.sub(r'\s+', ' ', value).strip()
     value = re.sub(r'\bimaptitudes?\b', lambda m: m.group().replace('imapt', 'inapt'), value)

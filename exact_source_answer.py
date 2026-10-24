@@ -3,6 +3,61 @@ import hashlib
 import html
 import json
 import re
+import unicodedata
+from pathlib import Path
+
+
+def complete_selection_contracts(candidates, selected, focus, question, report):
+    """Contrats documentaires bornés : sélection de preuves, jamais de texte ajouté."""
+    def norm(value):
+        return ''.join(c for c in unicodedata.normalize('NFKD', value.lower().replace('’', "'"))
+                       if not unicodedata.combining(c))
+    try:
+        data = json.loads((Path(__file__).parent / 'config/contrats_selection.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        report['selection_contracts_status'] = 'unavailable_unchanged'
+        return selected, focus
+    q = norm(question)
+    for contract in data['contracts']:
+        if not all(re.search(p, q) for p in contract['question_all']):
+            continue
+        if contract.get('question_exclude') and re.search(contract['question_exclude'], q):
+            continue
+        packet = next((p for p in candidates if p.get('path') == contract['path']), None)
+        if packet is None:
+            continue
+        groups = [[s for s in packet['passages'] if not search_metadata(s)
+                   and re.search(pattern, norm(s['text'].strip()))]
+                  for pattern in contract['required_passages']]
+        # Aucun choix approximatif : chaque preuve déclarée doit être identifiable.
+        if any(len(g) != 1 for g in groups):
+            continue
+        required = [g[0] for g in groups]
+        if contract['mode'] == 'complete_decision':
+            if packet['id'] not in [p['id'] for p in selected]:
+                continue
+            if not any(s['id'] in focus for s in required):
+                continue
+            # Groupe déclaré explicitement : ne jamais généraliser à tous les « Si ».
+            if len({section_label(packet, s)[0] for s in required}) != 1:
+                continue
+            wanted = set(focus) | {s['id'] for s in required}
+            new_focus = [s['id'] for p in selected for s in p['passages'] if s['id'] in wanted]
+            new_selected = selected
+        else:
+            compound = bool(re.search(contract['compound_question'], q))
+            required_ids = [s['id'] for s in required]
+            new_selected = [packet] + ([p for p in selected if p['id'] != packet['id']] if compound else [])
+            new_focus = required_ids + ([i for i in focus if i not in required_ids] if compound else [])
+        if sum(len(s['text']) for p in new_selected for s in p['passages'] if s['id'] in new_focus) > 12000:
+            continue
+        report.setdefault('selection_contracts', []).append(dict(
+            contract=contract['id'], origin='code', before=focus[:], after=new_focus[:],
+            added=[i for i in new_focus if i not in focus],
+            removed=[i for i in focus if i not in new_focus],
+            applicability_proven=False))
+        selected, focus = new_selected, new_focus
+    return selected, focus
 
 
 def search_metadata(span):
@@ -256,8 +311,12 @@ DONNEES :
                    and allowed[i]['text'].strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))
                    for i in focus):
                 raise ValueError('metadata_as_answer')
+        model_selection = dict(principal=main, complements=extra, passages=focus[:] if focus is not None else None)
+        if focus is not None:
+            selected, focus = complete_selection_contracts(candidates, selected, focus, question, report)
         report.update(status='rendered_exact_sources', selected_ids=[p['id'] for p in selected],
-                      normalized_selection=dict(principal=main, complements=extra, passages=focus),
+                      model_selection=model_selection,
+                      normalized_selection=dict(principal=selected[0]['id'], complements=[p['id'] for p in selected[1:]], passages=focus),
                       selected_sources=selected, no_business_rewriting=True,
                       passage_chars=sum(len(s['text']) for p in selected for s in p['passages']))
         if focus is None:

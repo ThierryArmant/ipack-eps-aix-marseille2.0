@@ -1,0 +1,37 @@
+{
+  "version": "selection-contracts-v1",
+  "contracts": [
+    {
+      "id": "cyclades_groupe_decision",
+      "path": "data/examens/audit_faq_2026_10_12/f4_procedure_verifiee.txt",
+      "question_all": [
+        "cyclades|protocole",
+        "groupe|eleves",
+        "tromp|erreur|erron|mauvais|gris|corrig"
+      ],
+      "question_exclude": "valid|quelques|certains|seuls|tout le groupe|tous les eleves",
+      "required_passages": [
+        "^-?\\s*si tout le groupe",
+        "^-?\\s*si les protocoles sont deja valides",
+        "^-?\\s*si seuls quelques eleves"
+      ],
+      "mode": "complete_decision"
+    },
+    {
+      "id": "interlocuteur_donnees_examens",
+      "path": "data/ipack/qui_contacter_assistance_ipackeps.txt",
+      "question_all": [
+        "qui contacter|a qui (?:m.adresser|ecrire)|quel (?:contact|service)|coordonnees",
+        "\\bdec\\b|\\bdiec\\b",
+        "eleve|candidat|division|inscri|donnees"
+      ],
+      "question_exclude": "",
+      "required_passages": [
+        "^-?\\s*la dec \\(",
+        "informations specifiques de contact de la dec"
+      ],
+      "mode": "contact_first",
+      "compound_question": "comment (?:corrig|resoud|modifi|repar)|quelle (?:procedure|demarche)|quelles (?:etapes|verifications)|diagnostiqu"
+    }
+  ]
+}

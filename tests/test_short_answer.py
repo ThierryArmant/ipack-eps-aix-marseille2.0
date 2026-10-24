@@ -41,6 +41,11 @@ class ControlesPhrases(unittest.TestCase):
         self.assertNotIn('DEC', out)
         self.assertIn("Imag&#x27;in", out)
 
+    def test_renvoi_ecrit_dans_la_phrase_retire_et_non_pris_pour_un_nombre(self):
+        out, rep = self.run_sa([{'texte': "Le nouvel enseignant doit avoir sa mission dans Imag'in (2).", 'passages': [2]}])
+        self.assertEqual(rep['status'], 'rendered')
+        self.assertNotIn('(2)', out)
+
     def test_numero_absent_ou_hors_liste_refuse(self):
         out, rep = self.run_sa([{'texte': 'Phrase sans source.', 'passages': []},
                                 {'texte': 'Autre.', 'passages': [9]}])

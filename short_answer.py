@@ -107,7 +107,7 @@ et ses marqueurs de moment (« au préalable », « avant », « d'abord »).
 Plusieurs moyens ou cas alternatifs se présentent comme des alternatives (« soit… soit… »,
 « selon votre cas »), jamais comme des étapes à enchaîner.
 Recopie les menus entre crochets exactement comme dans les passages.
-Chaque phrase indique les numéros n des passages qui la justifient.
+Chaque phrase indique dans « passages » les numéros n qui la justifient ; ne les écris pas dans le texte.
 Si les passages ne répondent pas à la question, renvoie {"phrases":[]}.
 JSON uniquement : {"phrases":[{"texte":"…","passages":[1,2]}]}
 DONNEES :
@@ -144,6 +144,8 @@ def short_answer(llm, *, tracer, audit, question, passages):
             report['rejected'].append(dict(texte=str(text)[:MAX_CHARS], raisons=['forme']))
             continue
         refs = sorted(set(refs))
+        # Renvois écrits dans la phrase elle-même, « (1) », « [2, 3] » : déjà portés par « passages ».
+        text = re.sub(r'\s*[\(\[]\s*\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]', '', text).strip()
         reasons = unsupported(text, '\n'.join(passages[r - 1][1] for r in refs))
         if reasons:
             report['rejected'].append(dict(texte=text, raisons=reasons))

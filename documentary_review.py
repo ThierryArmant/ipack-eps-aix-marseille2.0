@@ -176,6 +176,32 @@ def bind_faq_context(spans, body):
     return out
 
 
+_SECTION = re.compile(r"^#{2,6}\s*(.+?)\s*$", re.M)
+
+
+def bind_sections(spans, body):
+    """Chaque passage porte l'intitulé de la situation titrée (« ### ») à laquelle il appartient.
+
+    Le découpage ligne par ligne (portée attachée à chaque ligne, unités de preuve distinctes)
+    supprimait les titres : le modèle choisissait des lignes sans savoir à quelle situation
+    elles appartenaient (réaffecter un lot / déplacer un candidat / second évaluateur).
+    Les unités de preuve ne sont pas fusionnées ici : seul l'intitulé est ajouté, à part du
+    texte exact, pour la sélection et l'affichage.
+    """
+    heads = [(m.start(), m.group(1)) for m in _SECTION.finditer(body)]
+    if not heads:
+        return spans
+    out = []
+    for span in spans:
+        title = ''
+        for start, text in heads:
+            if start > span['start']:
+                break
+            title = text
+        out.append({**span, 'section': title} if title else span)
+    return out
+
+
 _LIST_ITEM = re.compile(r"^\s*(?:[-*•]\s+|\d+[.)]\s+|-?\s*\[?[EÉ]tape \d+\]?\s*:?\s)")
 _LIST_STOP = re.compile(r"^\s*(?:[-*]\s*)?(?:Q\d+\s*:|R\d+\s*:|#{1,6}\s|Sources?\b|Nature de)", re.I)
 _LIST_MAX = 1500
@@ -262,6 +288,8 @@ def source_packets(context):
             passages = [{'id': document_id + 'P' + str(i + 1), **span} for i, span in enumerate(scoped)]
         passages = bind_faq_context(passages, body)
         passages = bind_list_items(passages, body)
+        if scoped is not None:
+            passages = bind_sections(passages, body)
         passages = [{**span, 'id': document_id + 'P' + str(i+1)} for i, span in enumerate(passages)]
         # Affichage conservateur pour les fiches non annotées. Une fiche mixte reste documentaire.
         display_level = 'documentaire'

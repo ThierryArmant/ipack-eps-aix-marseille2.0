@@ -1342,6 +1342,13 @@ label_titres = {
     ),
 }
 
+# « Tous publics » n'est plus un public de l'étape 1 : c'est une case de l'onglet Textes.
+# Ancienne session ou ligne de rejeu « Tous publics » : public neutre + case cochée, onglet Textes.
+if st.session_state.get("niveau_actif_form") == "Tous publics":
+    st.session_state["niveau_actif_form"] = "Lycée Général & Techno"
+    st.session_state["textes_tous_publics"] = True
+    select_module(st.session_state, "textes")
+
 # Le premier degré ouvre exclusivement les textes, même dans une session existante.
 if st.session_state.get("niveau_actif_form") in ("1er degré", "Tous publics") and st.session_state.get("active_module") != "textes":
     select_module(st.session_state, "textes")
@@ -1437,7 +1444,7 @@ with st.container(key="parcours"):
         st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
         niveau_scolaire = st.radio(
             "Public cible",
-            ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP", "Tous publics"],
+            ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
             index=None, horizontal=True, key="niveau_actif_form", format_func=public_label,
             label_visibility="collapsed", on_change=valider_public,
         )
@@ -1468,6 +1475,10 @@ with st.container(key="parcours"):
                                  type="primary" if module_actif == "textes" else "secondary"):
                         select_module(st.session_state, "textes")
                         st.rerun()
+
+            if st.session_state.get("active_module") == "textes":
+                st.checkbox("Ma question vaut pour tous les publics (textes réglementaires généraux)",
+                            key="textes_tous_publics")
 
             if _academie_requise and _replay_question:
                 st.caption("Académie du rejeu : " + _admin_replay.academy_for_replay(st.session_state, "Non précisée"))
@@ -1578,6 +1589,8 @@ if prompt_a_traiter:
         p_norm = normaliser(prompt)
         
         niveau_actuel_form = st.session_state.get("niveau_actif_form", "Collège (DNB)")
+        if mode == "textes" and st.session_state.get("textes_tous_publics"):
+            niveau_actuel_form = "Tous publics"
         niveau_initial, mode_initial = niveau_actuel_form, mode
         niveau_actuel_form, mode = effective_context(prompt, niveau_actuel_form, mode)
         academie_reponse, avertissement_academie_question = request_academy(

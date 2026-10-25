@@ -177,6 +177,8 @@ def render(st):
                     return
                 state["active_module"] = row["mode"].strip().lower()
                 state["niveau_actif_form"] = row["public"]
+                # « Tous publics » est une case de l'onglet Textes : remise à zéro à chaque ligne.
+                state["textes_tous_publics"] = row["public"] == "Tous publics"
                 academy = (row.get("academie") or "").strip()
                 from academie import ACADEMIES
                 state["academie_utilisateur"] = academy if academy in ACADEMIES else None

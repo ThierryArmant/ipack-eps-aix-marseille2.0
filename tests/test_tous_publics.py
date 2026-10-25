@@ -33,3 +33,24 @@ class TousPublicsTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class TousPublicsCaseTextes(unittest.TestCase):
+    def test_public_tous_publics_absent_du_choix_de_public(self):
+        from pathlib import Path
+        app = Path('app.py').read_text(encoding='utf-8')
+        self.assertIn('["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],', app)
+        self.assertIn('key="textes_tous_publics"', app)
+        self.assertIn('if mode == "textes" and st.session_state.get("textes_tous_publics"):', app)
+
+    def test_rejeu_remet_la_case_a_zero_a_chaque_ligne(self):
+        from test_admin_replay_usage import Surface
+        from admin_retest_113_live import render
+        # La première ligne est déjà répondue dans Surface : le rendu lance la suivante.
+        rows=[{'n':'0','question':'P ?','mode':'textes','public':'Collège (DNB)','academie':''},
+              {'n':'1','question':'Q ?','mode':'textes','public':'Tous publics','academie':''},
+              {'n':'2','question':'R ?','mode':'textes','public':'Collège (DNB)','academie':''}]
+        ui=Surface(rows); render(ui)
+        self.assertTrue(ui.session_state['textes_tous_publics'])
+        ui.session_state['messages_hub']=[{'role':'assistant','type':'text','content':'ok'}]; render(ui)
+        self.assertFalse(ui.session_state['textes_tous_publics'])

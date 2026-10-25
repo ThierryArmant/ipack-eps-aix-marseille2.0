@@ -3269,3 +3269,13 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
 - Mode Seul ou Mixte : on coche le ou les enseignants de la classe (ex. un le mardi, un le jeudi).
 - Mode Groupe : on crée le groupe, et plusieurs enseignants peuvent être cochés sur un même groupe.
 - ajouter_collegue_a_une_classe.txt réécrit en conséquence. La réserve « droits 2026 à vérifier » est retirée.
+
+## 2026-10-25 — « Tous publics » déplacé dans l'onglet Textes (demande de Thierry)
+- Le libellé long « Tous publics — textes réglementaires uniquement » passait sur deux lignes à l'étape 1. Ce n'était pas la demande : Thierry voulait que « Tous publics » n'apparaisse que dans l'onglet Textes.
+- app.py :
+  - étape 1 : quatre publics seulement ;
+  - étape 2 : quand l'onglet Textes est choisi, une case « Ma question vaut pour tous les publics (textes réglementaires généraux) » (clé textes_tous_publics) ;
+  - traitement : en mode textes avec la case cochée, le public envoyé à la recherche est « Tous publics » (même chaîne qu'avant : effective_context, CSV, tests inchangés) ;
+  - ancienne session ou ligne de rejeu « Tous publics » : public neutre (Lycée général) et case cochée, onglet Textes.
+- admin_retest_113_live : la case est remise à zéro à chaque ligne du rejeu.
+- public_label redonne « Tous publics ». 2 tests ajoutés, suite OK (1246).

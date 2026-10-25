@@ -353,6 +353,19 @@ DONNEES :
         if 'passages' in choice and not isinstance(choice['passages'], list):
             raise ValueError('passage_list')
         by_id = {p['id']: p for p in candidates}
+        # Identifiants inventés par le sélecteur (document ou passage absent du contexte) : écartés et tracés,
+        # au lieu de rejeter toute la sélection, tant qu'il reste une source et un passage valides.
+        if isinstance(extra, list):
+            unknown = [i for i in extra if not (isinstance(i, str) and i in by_id)]
+            if unknown:
+                report['identifiants_inconnus_ecartes'] = list(unknown)
+                extra = [i for i in extra if isinstance(i, str) and i in by_id]
+        if isinstance(choice.get('passages'), list):
+            known = {s['id'] for p in candidates for s in p['passages']}
+            bad = [i for i in choice['passages'] if not (isinstance(i, str) and i in known)]
+            if bad and len(bad) < len(choice['passages']):
+                report.setdefault('identifiants_inconnus_ecartes', []).extend(bad)
+                choice = dict(choice, passages=[i for i in choice['passages'] if isinstance(i, str) and i in known])
         if (not isinstance(extra, list) or any(not isinstance(i, str) or i not in by_id for i in extra)
                 or (main is not None and (not isinstance(main, str) or main not in by_id))
                 or (main is None and extra)):

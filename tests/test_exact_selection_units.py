@@ -38,10 +38,19 @@ class ExactSelectionUnitTests(unittest.TestCase):
         self.assertEqual(lead.count('Ne pas supprimer les notes.'),1)
         llm.complete.assert_called_once()
 
-    def test_unknown_or_wrong_types_are_not_repaired_by_deduplication(self):
+    def test_invented_ids_are_dropped_and_traced_when_valid_ones_remain(self):
+        # 25 octobre (Claude, essai à l'aveugle) : un identifiant inventé ne bloque plus toute la sélection.
         for choice in [
             {'principal':'D1','complements':['D1','D99'],'passages':['D1P1']},
-            {'principal':'D1','complements':[{}],'passages':['D1P1']},
+            {'principal':'D1','complements':[{}],'passages':['D1P1']}]:
+            with self.subTest(choice=choice):
+                _,a,llm=self.run_case(['Action.'],choice)
+                self.assertEqual(a['exact_extracts']['status'],'rendered_exact_sources')
+                self.assertTrue(a['exact_extracts']['identifiants_inconnus_ecartes'])
+                llm.complete.assert_called_once()
+
+    def test_unknown_or_wrong_types_are_not_repaired_by_deduplication(self):
+        for choice in [
             {'principal':'D1','complements':['D1'],'passages':['D99P1','D99P1']},
             {'principal':None,'complements':['D1'],'passages':[]}]:
             with self.subTest(choice=choice):

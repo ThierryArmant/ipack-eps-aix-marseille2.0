@@ -2412,14 +2412,15 @@
     "examens": [],
     "origine": "data/archives/compilations/ipack.txt",
     "prioritaire": true,
-    "priorite": 300,
+    "priorite": 310,
     "modes": [
       "textes",
       "examens",
       "ipack"
     ],
     "motifs": [
-      "(?=.*(?:conserv|archiv|combien de temps))(?=.*(?:papier|grilles?|fiches? d.evaluation|documents? d.evaluation|emargements?))"
+      "(?=.*(?:conserv|archiv|combien de temps))(?=.*(?:papier|grilles?|fiches? d.evaluation|documents? d.evaluation|emargements?))",
+      "(?=.*(?:combien de temps|duree|jusqu.a quand))(?=.*(?:garder|conserver|archiver))(?=.*(?:fiches?|feuilles?|grilles?|documents?|emargement|signee?s?))"
     ],
     "centrer_motifs": [
       "(?=.*(?:conserv|archiv|combien de temps))(?=.*(?:papier|grilles?|fiches? d.evaluation|documents? d.evaluation|emargements?))"

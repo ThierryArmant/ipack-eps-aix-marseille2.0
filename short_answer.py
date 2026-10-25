@@ -44,7 +44,7 @@ _PHRASE_INCERTAINE = (r"verifi", r"confirm", r"documente", r"mentionn", r"rensei
                       r"ne (?:precise|dit|indique) pas", r"sous reserve", r"aucune source", r"pas certain", r"incertain")
 # Impossibilité ou interdiction : seulement si la source l'énonce elle-même.
 _IMPOSSIBLE = r"impossible|interdit|ne (?:peut|peuvent|pouvez|pourra|pourrez) (?:pas|plus)|n.est (?:pas|plus) (?:possible|autorise|permis|modifiable)|pas (?:le )?droit|ne (?:doit|doivent|devez) pas|jamais"
-_IMPOSSIBLE_SOURCE = _IMPOSSIBLE + r"|ne pas |n.est (?:pas|plus) modifiable|plus possible|aucun|\bpas d.|\bsans\b|non recevable|irrecevable|exclu"
+_IMPOSSIBLE_SOURCE = _IMPOSSIBLE + r"|au moins|au maximum|uniquement|exclusivement|seule?s? |appartient|releve d|revient a|ne pas |n.est (?:pas|plus) modifiable|plus possible|aucun|\bpas d.|\bsans\b|non recevable|irrecevable|exclu"
 # Conséquence « sinon / à défaut » : seulement si la source pose elle-même l'alternative.
 _CONSEQUENCE = r"\bsinon\b|a defaut|faute de|sans quoi|a moins que"
 _CONSEQUENCE_SOURCE = _CONSEQUENCE + r"|\bsi\b.{0,80}\b(?:pas|plus|aucun)\b|en cas d.absence|lorsque .{0,60}pas"
@@ -101,7 +101,7 @@ def unsupported(phrase, cited_text, question='', titles=''):
         if quote and quote not in source:
             reasons.append('citation:' + quote)
     for objet in _OBJETS:
-        if re.search(objet, p) and not re.search(objet, source + ' ' + _compact(titles)):
+        if re.search(objet, p) and not re.search(objet, source + ' ' + context):
             reasons.append('objet:' + objet)
     for actor in _ACTEURS:
         # Un interlocuteur déjà nommé dans la question (« avec l'accord du chef ») n'est pas un ajout.

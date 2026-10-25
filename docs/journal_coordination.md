@@ -3204,4 +3204,4 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
 - Registres mis à jour (catalogue, nature_sources, portee, registre sha). Routage hors ligne vérifié sur les 5 questions. Audit mécanique 0 erreur, suite OK (1242).
 
 ## 2026-10-25 — Fiche « collègue sur une classe » confirmée
-- Thierry confirme : chaque enseignant se connecte avec son propre accès académique, donc personne ne peut cocher un collègue à sa place. Fiche corrigée : c'est le collègue lui-même qui se coche dans « Professeurs attribués à la classe ».
+- Correction : Thierry précise que, par le passé, le coordonnateur pouvait cocher tous les collègues, puis tout le monde a pu le faire ; pour la version 2026, c'est à vérifier (iPackEPS injoignable ce soir). La fiche donne cet historique et, en attendant, la solution sûre : le collègue se coche lui-même. Question 152 mise de côté.

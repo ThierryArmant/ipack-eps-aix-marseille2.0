@@ -3062,3 +3062,16 @@ CSV (6) : 12 questions iPackEPS sur 879afcd+ — **toujours Albert en rédaction
 
 ### 25 octobre 2026 15 h 35 — Claude : Mini rédacteur — un seul élément de plusieurs phrases, refusé en « forme »
 CSV (7), 5 questions iPackEPS, version f85100d, **Mini sélectionne et rédige** (`calls` : selection + short_answer en gpt-4o-mini ; drapeau mini_albert_trial=false : case « Mini sélectionne / Albert rédige » décochée côté session). 4/5 `nothing_kept` : gpt-4o-mini met **3 ou 4 phrases dans un seul élément** de `phrases`, > 320 caractères → rejet de forme. Correctif général dans `_split_long` : un élément trop long composé de plusieurs phrases complètes est redécoupé en une phrase par élément (mêmes passages cités, contrôles appliqués à chacune) ; consigne : « chaque élément contient UNE seule phrase ». Rejeu hors réseau des 5 sorties : 93 → 4 phrases, 94 → 3, 95 → 3, 97 → 3, 96 inchangée. Tests + suite complète OK. À rejouer par Thierry sur la version publiée avec cette entrée (case « Sans Albert : Mini rédige aussi » de 90db8ee).
+
+### 25 octobre 2026 15 h 50 — Claude : mêmes deux lots à l'aveugle, Mini seul (b2d0239), notation
+Fichiers (8) iPackEPS et (9) Examens, version b2d0239. **Sans pool** : `mini_albert_trial=false` (case « Mini sélectionne / Albert rédige » décochée), donc Mini sélectionne puis rédige via `with_short_answer`. Notation Claude, même grille.
+| Lot | J | I | F | É | B |
+|---|---:|---:|---:|---:|---:|
+| iPackEPS | 24 | 1 | 0 | 0 | 0 |
+| Examens | 12 | 9 | 1 | 2 | 1 |
+| **Total (50)** | **36 (72 %)** | 10 | 1 | 2 | 1 |
+Comparaison sur les mêmes questions : 9ad91a7 (Mini sélectionne, Albert rédige, avant assouplissements) **30 J (60 %)**, F 1 ; réponses d'origine du 19 octobre **35 J (70 %)**, F 3. **J+I 92 %**.
+- iPackEPS : quasi parfait ; les assouplissements 16ab467 et le redécoupage b2d0239 ont levé les faux refus.
+- Examens : 9 I dont 5 où une phrase juste est refusée : **consigne d'Aix à un utilisateur d'une autre académie sans mention « Aix »** (31, 52, 33) et **déduction négative** non littérale (35 « ne peut pas refuser », 46 « ne peut pas trois activités académiques » alors que la source dit « au moins deux de la liste nationale »). Correctif publié avec cette entrée : en mode non-pool, `with_short_answer` transmet désormais **public et académie** à `short_answer` (le rédacteur ne les connaissait pas) et la consigne demande de nommer l'académie propre à la règle et de conseiller la vérification dans l'académie de l'utilisateur. Les déductions négatives restent refusées (prudence).
+- F 45 (contrainte d'AFLP en bac pro répondue par la règle des deux notes), B 49 (sélection invalide), É 39 (conservation : fiche ARTICLE 109 non retenue), É 50 (EPPCS droit à l'image : non documenté).
+- Le pool n'a pas encore été mesuré : à rejouer avec la case « Mini sélectionne… » cochée (ton chemin `with_common_pool`), rédacteur Mini.

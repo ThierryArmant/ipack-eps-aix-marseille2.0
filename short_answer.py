@@ -152,7 +152,9 @@ N'ajoute aucun menu, chiffre, délai, interlocuteur, adresse ni condition absent
 Garde le degré de certitude de la source : ce qu'elle dit « à vérifier » ou « non confirmé » reste
 à vérifier ; ne le transforme jamais en interdiction, en obligation ni en permission.
 N'écris « impossible », « interdit » ou « sinon » que si le passage le dit lui-même.
-Une consigne propre à une académie garde le nom de l'académie (ex. « À Aix-Marseille, … »)
+Une consigne propre à une académie garde le nom de l'académie (ex. « À Aix-Marseille, … »),
+surtout si l'académie de l'utilisateur (contexte) est différente : ajoute alors de vérifier la règle dans son académie.
+Une consigne propre à une académie garde toujours son nom
 et ses marqueurs de moment (« au préalable », « avant », « d'abord »).
 Plusieurs moyens ou cas alternatifs se présentent comme des alternatives (« soit… soit… »,
 « selon votre cas »), jamais comme des étapes à enchaîner.

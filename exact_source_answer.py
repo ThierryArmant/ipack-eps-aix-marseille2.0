@@ -181,7 +181,8 @@ def render_exact_sources(selected, reviewer, report):
     return '\n'.join(blocks)
 
 
-def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, report, extracts_html):
+def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, report, extracts_html,
+                      public=None, academy=None):
     """Réponse courte en tête, extraits fidèles numérotés repliés dessous ; sinon extraits seuls."""
     try:
         from .short_answer import short_answer
@@ -192,7 +193,9 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     for passage_id in focus:
         packet, span = spans[passage_id]
         passages.append((section_label(packet, span)[0], span['text']))
-    lead = short_answer(llm, tracer=tracer, audit=audit, question=question, passages=passages)
+    # Public et académie de l'utilisateur : une consigne propre à une autre académie doit être présentée comme telle.
+    lead = short_answer(llm, tracer=tracer, audit=audit, question=question, passages=passages,
+                        context=dict(public=public, academie=academy) if (public or academy) else None)
     if not lead:
         return extracts_html
     numbered = render_focused_sources(selected, focus, reviewer, {}, numbered=True)
@@ -399,7 +402,7 @@ DONNEES :
                                               reviewer, report, answer, public, mode, academy)
                 else:
                     answer = with_short_answer(llm, tracer, audit, question, selected, focus,
-                                               reviewer, report, answer)
+                                               reviewer, report, answer, public, academy)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

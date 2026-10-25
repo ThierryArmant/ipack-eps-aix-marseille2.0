@@ -3121,3 +3121,10 @@ Fichiers (12) iPackEPS et (13) Examens, ebc4b79, Mini sélectionne et rédige, s
 `aix_certificats_2026` et `aix_marche_adaptee` : les lignes qui donnent les annexes 7 / 8 du BA 549 commencent désormais par « à Aix-Marseille » (aucun autre mot changé ; la ligne nationale « absence d'effet rétroactif » n'est pas étiquetée). Effet : une phrase reprenant l'annexe 7 sans nommer Aix est refusée (`portee:aix-marseille`), la même avec « À Aix-Marseille » passe. Registres mis à jour, suite complète OK.
 Question 45 (contrainte d'AFLP en bac pro) : structure 12 points (AFLP 1 et 2, fin de séquence) / 8 points (deux AFLP choisis parmi 3 à 6, répartition 4/4, 6/2, 2/6) trouvée dans un support d'inspection (Strasbourg, 2021) et dans la fiche CAP du corpus, **pas encore relue dans le texte officiel bac pro** : fiche non écrite tant que la source nationale n'est pas vérifiée.
 Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les questions.
+
+## 2026-10-25 — Lots aveugles B (pour GPT)
+- Les numéros proposés par GPT, lus comme ID de la sauvegarde du 19/10, recoupaient les lots déjà joués (L1 : 9 numéros, L2 : 4) et contenaient des questions Textes (11) : non retenus tels quels.
+- Thierry veut uniquement iPack et Examens : deux lots neufs construits depuis la sauvegarde, ID ≤ 200, hors questions déjà jouées (lots 25+25, rejeux 49/71), répartis régulièrement.
+  - iPack B (25) : Q107–Q186.
+  - Examens B (25) : Q54–Q198.
+- Configuration du rejeu : Mini seul (pool décoché, Albert seul décoché). Correction J/I/F/É/B ensuite ici.

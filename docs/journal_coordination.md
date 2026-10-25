@@ -2839,3 +2839,11 @@ Différences prouvées ou points de comparaison :
 - À vérifier ensuite hors réseau : injection d'une ligne et soumission directe avec même question/public/mode/académie, mêmes drapeaux et version ; comparer question effective, documents/context_sha256, modèles/stages, choix brut et final, rejets et affichage. Tant qu'on n'a pas cette paire comparable, ne pas conclure que le rejeu dégrade par lui-même, ni qu'il est exempt de défauts.
 
 Le problème Q3 déjà observé reste localisé en synthèse/contrôle (phrase trop longue, conditions/portée) dans les traces de rejeu : il n'est pas imputable à un parcours sans IA. Cette entrée est un compte rendu de lecture et un défaut de priorité identifié, PAS une validation d'équivalence complète ni un correctif publié. GPT conserve le chantier routage/rejeu ; Claude peut poursuivre rédaction sans concurrence. Aucun nouveau rejeu payant nécessaire pour commencer cette vérification.
+
+
+### 25 octobre 2026 — GPT : import CSV, singulier « texte » refusé à tort
+Fichier privé utilisateur inspecté pour sa structure uniquement, aucun contenu de question/réponse affiché ou utilisé pour ajuster le moteur. 100 lignes, en-têtes n/question/mode/public/academie/verdict, séparateur point-virgule. Modes :49 examen,31 texte,20 ipack. Cause du message ligne7 : « texte » singulier absent des alias, alors qu'examen singulier était accepté. Ajout texte et texte officiel → textes, message d'erreur indique désormais la valeur reçue et les formes acceptées. Pas de modification des questions, du routage métier ou du choix de niveau.
+
+Autre problème distinct :7 publics vides et1 « Candidats libres » (statut, pas niveau scolaire). Aucun niveau deviné ; le défaut commun de niveau existant peut servir pour les cellules vides avec choix explicite de Thierry. Le statut candidat libre seul reste insuffisant pour choisir collège/GT/pro. Ne pas annoncer que le CSV complet est prêt à rejouer tant que ces niveaux ne sont pas explicités.
+
+Tests :16 import existants +2 nouveaux alias/niveaux =18 réussis ; 100 modes du fichier validés sur une copie structurelle (questions remplacées par un texte neutre, public factice réservé à ce test, jamais utilisé pour un rejeu). Aucun fichier privé publié, aucun appel IA. Le lecteur accepte maintenant ipack, examen(s), texte(s), casse et espaces externes.

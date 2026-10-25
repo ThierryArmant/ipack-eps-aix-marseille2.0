@@ -56,7 +56,7 @@ def _parse_csv(data, default_mode=None, default_public=None):
         raise ValueError("Colonne question introuvable : nommez-la Question, Questions ou Demande.")
     modes = {'ipack': 'ipack', 'ipackeps': 'ipack', 'assistance technique ipackeps': 'ipack',
              'examens': 'examens', 'examen': 'examens', 'examens & santorin': 'examens',
-             'textes': 'textes', 'textes officiels': 'textes',
+             'texte': 'textes', 'textes': 'textes', 'texte officiel': 'textes', 'textes officiels': 'textes',
              'securite & responsabilite juridique (textes officiels)': 'textes'}
     publics = {'college': 'Collège (DNB)', 'college (dnb)': 'Collège (DNB)',
                'college dnb': 'Collège (DNB)', '1er degre': '1er degré', 'premier degre': '1er degré',
@@ -79,7 +79,8 @@ def _parse_csv(data, default_mode=None, default_public=None):
         mode = _key(row.get('mode') or default_mode).replace('l’onglet ', '').replace("l'onglet ", '')
         public = _key(row.get('public') or default_public)
         if mode not in modes:
-            raise ValueError(f"Ligne {line} : Mode inconnu ou absent. Indiquez iPackEPS, Examens ou Textes, ou choisissez le contexte commun ci-dessous.")
+            value = row.get('mode') or '(vide)'
+            raise ValueError(f"Ligne {line} : Mode inconnu : {value!r}. Valeurs acceptées : ipack, examen(s), texte(s). Pour une cellule vide, choisissez le contexte commun ci-dessous.")
         if public not in publics:
             raise ValueError(f"Ligne {line} : public absent ou non reconnu. Indiquez le niveau ou choisissez le public commun ci-dessous.")
         rows.append(dict(row, n=ident, mode=modes[mode], public=publics[public],

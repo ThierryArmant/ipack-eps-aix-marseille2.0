@@ -295,3 +295,19 @@ class InterlocuteurDeLaQuestion(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class PorteeAcademiquePhraseVoisine(unittest.TestCase):
+    SRC = ("Réponse directe — un bug ou un blocage d'iPackEPS non résolu : le correspondant académique iPackEPS ; "
+           "à Aix-Marseille : ipackeps@ac-aix-marseille.fr, en précisant l'établissement et son UAI, le menu concerné et le message d'erreur exact.")
+
+    def test_regle_nationale_voisine_d_une_adresse_academique_acceptee(self):
+        self.assertEqual(sa.unsupported("Pour un bug ou un blocage d'iPackEPS non résolu, contactez le correspondant académique iPackEPS.", self.SRC), [])
+
+    def test_consigne_academique_sans_academie_refusee(self):
+        self.assertIn('portee:aix-marseille', sa.unsupported(
+            "Précisez l'établissement et son UAI, le menu concerné et le message d'erreur exact.", self.SRC))
+
+    def test_academie_nommee_dans_la_question_suffit(self):
+        self.assertEqual(sa.unsupported("Précisez l'établissement et son UAI, le menu concerné et le message d'erreur exact.",
+                                        self.SRC, question="À qui m'adresser dans l'académie d'Aix-Marseille si j'ai un bug ?"), [])

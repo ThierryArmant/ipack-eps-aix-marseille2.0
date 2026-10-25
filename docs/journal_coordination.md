@@ -3150,3 +3150,14 @@ Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les quest
 
 ## 2026-10-25 — GPT : libellé Tous publics explicite, publication autorisée
 Thierry autorise maintenant la publication de l'ajustement préparé pendant son rejeu. Libellé affiché : « Tous publics — textes réglementaires uniquement ». Identifiant interne « Tous publics » conservé ; restriction existante à l'onglet textes et validation CSV inchangées. Vérifications locales : onglet textes seul, redirection depuis examens/ipack, libellé. Aucun appel IA. Aucun autre fichier fonctionnel modifié.
+## 2026-10-25 — Lot iPack B (25 questions, Mini seul, version 8815cc6)
+- J 16 (64 %), I 9, F 0, É 0, B 0 (la question 136 avait bloqué le lot ; rejouée à part, réponse obtenue).
+- I : 121, 125, 127, 136, 144, 146, 159, 184, 186.
+- Deux causes :
+  1. Faux refus « portée Aix-Marseille » (112, 144). Une règle nationale était refusée parce que la même source donnait aussi l'adresse d'Aix, même quand la question nommait Aix.
+  2. Réponses limitées à « oui / non » sans dire quoi faire (159, 184, 186, aussi 136 et 146). Les extraits affichés en dessous contiennent pourtant la démarche.
+- Correctifs short_answer (version suivante) :
+  - la portée académique est jugée sur les phrases sources que la réponse reprend, plus sur toute la source ; l'académie nommée dans la question suffit ;
+  - nouvelle consigne : après un oui/non, dire quoi faire ou les possibilités.
+  - 3 tests ajoutés, suite complète OK (1231).
+- Encore à faire : 121 (condition_perdue sur des vérifications utiles), 127 (stats natation des années passées : la fiche reste ambiguë).

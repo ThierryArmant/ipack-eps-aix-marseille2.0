@@ -3241,3 +3241,10 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
   - Vrais manques : AED seul avec une classe ; vacataire au-delà de 200 h ; pacte et RCD ; ouverture d'une SSS ; parents accompagnateurs et assurance ; congés, grève, droit syndical ; programme de LP ; droit à l'image ; APQ.
   - Fiche existante non atteinte (motifs du catalogue à revoir) : chaleur, buts, zéro disciplinaire, heures d'AS, loi Fauchon, surveillance, CO, intervenants en escalade.
 - Prochaine étape proposée à Thierry : motifs du catalogue d'abord (sans nouveau contenu), puis fiches manquantes après relecture des textes sur Légifrance / BO.
+
+## 2026-10-25 — Onglet Textes : questions raccordées aux fiches existantes
+- Motifs ajoutés au catalogue : chaleur en degrés, buts mal fixés ou instables, zéro pour refus de tenue ou de travail, heures d'AS par semaine, « 2 h d'AS au lieu de 3 », CO (élève non revenu, équipement), falaise, intervenant hors de vue, parents accompagnateurs.
+- Fiches rendues prioritaires dans Textes : responsabilité civile et pénale (032, avec une réponse directe sur la loi Fauchon) ; statuts des personnels (AED, vacataire 200 h, contractuel).
+- 9 fiches d'examen ouvertes aussi à l'onglet Textes (arrondis GT et pro, SHN, CAP ponctuel, verrouillage, protocoles Aix, absence DNB).
+- Résultat hors ligne : 26 des 31 questions Textes non raccordées le sont maintenant ; aucune question déjà raccordée n'a changé de fiche. Suite OK.
+- Restent des manques de contenu : assurance et refus d'un élève en sortie ; ouverture d'une SSS ; élève seul au gymnase ; pacte / RCD ; congés, grève, droit syndical ; programme de LP ; droit à l'image ; APQ.

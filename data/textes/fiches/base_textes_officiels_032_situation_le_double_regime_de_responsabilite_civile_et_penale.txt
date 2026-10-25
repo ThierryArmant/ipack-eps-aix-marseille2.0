@@ -1,4 +1,5 @@
 ### Responsabilité de l'enseignant : distinguer les régimes civil et pénal
+Réponse directe : non, la loi Fauchon (loi n° 2000-647 du 10 juillet 2000, qui a réécrit l'article 121-3 du Code pénal) n'empêche pas une condamnation. Un enseignant, auteur indirect d'un dommage non intentionnel, reste pénalement responsable s'il a violé de façon manifestement délibérée une obligation particulière de prudence ou de sécurité prévue par la loi ou le règlement, ou commis une faute caractérisée exposant autrui à un risque d'une particulière gravité qu'il ne pouvait ignorer. Sur le plan civil, l'État se substitue à l'enseignant (article L911-4 du Code de l'éducation).
 Nature de la source : textes nationaux ; synthèse révisée le 18 octobre 2026.
 Dans les situations entrant dans le champ de l'article L911-4 du Code de l'éducation, l'État se substitue aux membres de l'enseignement public pour la responsabilité civile ; le texte réserve une action récursoire conformément au droit commun. Ce mécanisme ne garantit pas une indemnisation automatique ni une immunité générale dans toute activité.
 Source : Code de l'éducation, L911-4.

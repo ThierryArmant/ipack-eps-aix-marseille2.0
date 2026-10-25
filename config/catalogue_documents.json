@@ -805,7 +805,8 @@
       "heure.*supplementaire|\\bhsa\\b|maximum.*service|obligation.*service|complement.*service",
       "service partage|complement de service|(?:deux|plusieurs|2) etablissements",
       "ponder|\\bors\\b|service (?:hebdomadaire|d.enseignement)|combien d.heures.{0,30}(?:prof|enseign|service)|heure de reduction|reduction de service|autre discipline",
-      "formateur academique|caffa"
+      "formateur academique|caffa",
+      "(?:combien|nombre).{0,30}heures?.{0,40}(?:\\bas\\b|association sportive|unss)|(?:\\bas\\b|association sportive|unss).{0,30}(?:par semaine|hebdomad|chaque semaine)"
     ],
     "exclure_motifs": [
       "professeurs? des ecoles|premier degre|1er degre|\\bapc\\b|108 ?h|\\b108\\b|conseils? d.ecole|maitre formateur|rased|directeur d.ecole|directrice d.ecole",
@@ -818,7 +819,15 @@
     "title": "complement statuts personnels eps",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "domaine_textes": "01_service_statuts"
+    "domaine_textes": "01_service_statuts",
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "\\baed\\b|assistant d.education|preprofessionnalisation|vacataire|vacation|contractuel.{0,40}(?:diplome|qualif|recrut)|etudiant.{0,30}staps"
+    ]
   },
   "data/textes/escalade_controles_securite.txt": {
     "title": "Escalade SAE et moulinette : contrôles du professeur",
@@ -827,7 +836,8 @@
     "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
     "prioritaire": true,
     "motifs": [
-      "escalad|moulinette|assurage|encord"
+      "escalad|moulinette|assurage|encord",
+      "falaise|grimp"
     ],
     "priorite": 320,
     "modes": [
@@ -920,7 +930,8 @@
     ],
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ]
   },
   "data/commun/cap_session_2026.txt": {
@@ -940,7 +951,8 @@
     ],
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ]
   },
   "data/commun/referentiel_champs_activites_afl.txt": {
@@ -2724,7 +2736,8 @@
     ],
     "motifs": [
       "punition|sanction|disciplinaire|(?:baisser|retirer).{0,25}note|zero.{0,30}(?:bavard|tenue|comportement)",
-      "exclu(?:re|sion|s).{0,30}(?:cours|tenue)|(?:oubli|oublie).{0,20}tenue"
+      "exclu(?:re|sion|s).{0,30}(?:cours|tenue)|(?:oubli|oublie).{0,20}tenue",
+      "zero.{0,50}(?:refus|tenue|travail|comportement|insolen)|(?:refus|refuse).{0,60}(?:tenue|travailler|participer).{0,60}zero"
     ],
     "url": "https://www.education.gouv.fr/bo/14/Hebdo22/MENE1406107C.htm",
     "date_verification": "2026-10-16",
@@ -2778,7 +2791,9 @@
       "textes"
     ],
     "motifs": [
-      "(?=.*(?:parent|intervenant|accompagnat|benevol))(?=.*(?:agre|autorisation|autorise|diplome|qualifi))"
+      "(?=.*(?:parent|intervenant|accompagnat|benevol))(?=.*(?:agre|autorisation|autorise|diplome|qualifi))",
+      "(?=.*intervenant)(?=.*(?:hors de (?:ma )?vue|pas (?:dans|a) (?:ma )?vue|sans moi|en mon absence|seul avec|au pied))",
+      "(?=.*parents?)(?=.*accompagn)(?=.*(?:sortie|formalit|voyage))"
     ],
     "domaine_textes": "06_sorties_transports"
   },
@@ -2862,7 +2877,15 @@
     "statut": "sources_officielles_relues_2026_10_18",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "03_responsabilite"
+    "domaine_textes": "03_responsabilite",
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "fauchon|faute caracteris|faute deliberee|delit non intentionnel|responsabilite penale|121-3|condamn"
+    ]
   },
   "data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt": {
     "title": "[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]",
@@ -2980,7 +3003,8 @@
       "textes"
     ],
     "motifs": [
-      "(?=.*(?:\\bbuts?\\b|paniers?|equipements? sportifs?))(?=.*(?:verif|control|stabil|ancr|secur|entretien))"
+      "(?=.*(?:\\bbuts?\\b|paniers?|equipements? sportifs?))(?=.*(?:verif|control|stabil|ancr|secur|entretien))",
+      "(?=.*(?:\\bbuts?\\b|paniers?))(?=.*(?:fix|instable|tomb|bascul|couch|bouge|mobile|lest))"
     ],
     "domaine_textes": "07_securite"
   },
@@ -3002,7 +3026,8 @@
       "textes"
     ],
     "motifs": [
-      "canicul|pollution|forte.{0,15}chaleur|vigilance rouge|ozone|verglas|grand froid"
+      "canicul|pollution|forte.{0,15}chaleur|vigilance rouge|ozone|verglas|grand froid",
+      "(?:3\\d|4\\d) ?(?:°|degres?)|temperatur|il fait (?:tres |trop )?chaud|chaleur"
     ],
     "url": "https://www.education.gouv.fr/recommandations-aux-directeurs-d-ecole-et-chefs-d-etablissement-pour-prevenir-les-effets-de-la-456261",
     "date_verification": "2026-10-16",
@@ -3293,7 +3318,8 @@
     "date_verification": "2026-10-10",
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ]
   },
   "data/commun/dnb/04_inaptitudes_dispenses.txt": {
@@ -3606,7 +3632,8 @@
     ],
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ]
   },
   "data/commun/sorties_premier_degre.txt": {
@@ -4200,7 +4227,8 @@
     ],
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "motifs": [
@@ -4484,7 +4512,8 @@
     "prioritaire": true,
     "priorite": 110,
     "motifs": [
-      "(?=.*(?:\\bas\\b|association sportive|forfait))(?=.*(?:remplac|substitu|dispens))(?=.*(?:heure|enseignement|cours))"
+      "(?=.*(?:\\bas\\b|association sportive|forfait))(?=.*(?:remplac|substitu|dispens))(?=.*(?:heure|enseignement|cours))",
+      "(?:\\d|deux|une) ?h(?:eures?)? d.(?:as|association sportive)\\b.{0,30}(?:au lieu|plutot|que|seulement)|(?:ne faire|faire) que .{0,10}(?:\\d|deux) ?h"
     ],
     "examens": [],
     "statut": "verifie_2026-10-11 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -4617,7 +4646,8 @@
     "prioritaire": true,
     "priorite": 95,
     "motifs": [
-      "course.*orientation|\\bco\\b.*(?:foret|sortie|binome|trinome)|battue|eleve.*(?:perdu|manquant)"
+      "course.*orientation|\\bco\\b.*(?:foret|sortie|binome|trinome)|battue|eleve.*(?:perdu|manquant)",
+      "\\bco\\b.{0,80}(?:revenu|rassemblement|retard|equipement|materiel|prevoir)|(?:pas|non) revenu.{0,60}(?:rassemblement|balise|heure)|point de rassemblement|course d.orientation.{0,60}(?:equipement|materiel|prevoir)"
     ],
     "url": "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
     "date_verification": "2026-10-11",
@@ -5407,7 +5437,8 @@
     ],
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 300,
@@ -5979,7 +6010,8 @@
     "statut": "reponse_relue_audit_lot6_2026_10_13",
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 300,
@@ -6768,7 +6800,8 @@
     "priorite": 300,
     "modes": [
       "examens",
-      "ipack"
+      "ipack",
+      "textes"
     ],
     "motifs": [
       "^(?=.*\\bcap\\b)(?=.*(?:bareme|\\d+ points|sur (?:12|8|20)\\b|aflp|fil de la sequence|fin de sequence|repartir|repartition|ponctuel|danse|demi.?fond|tennis de table|\\b800\\b|referentiel|notation|arrondi|combien d.(?:activites|apsa|epreuves)|deux activites|note finale))"
@@ -8064,7 +8097,8 @@
       "gt"
     ],
     "modes": [
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 290,

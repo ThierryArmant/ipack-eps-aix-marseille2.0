@@ -28,7 +28,7 @@ class FaithfulDisplayTests(unittest.TestCase):
         llm=SimpleNamespace(model='fake',temperature=0,
             complete=Mock(return_value=SimpleNamespace(text='{"principal":"D1","complements":[]}')))
         docs=dr.mark_excerpt('Si la condition manque, ne pas valider.',path='data/example.txt',title='Procédure')
-        env=dict(_faithful_trial=True,_mixed_trial=False,_generation_runtime=runtime,_generation_llm=llm,
+        env=dict(_faithful_trial=True,_mixed_trial=False,_albert_redige_trial=False,_generation_runtime=runtime,_generation_llm=llm,
                  TracedLLM=dr.TracedLLM,prompt='Question',niveau_actuel_form='p',
                  contexte_complet_ia=docs,diagnostic_ia={},academie_reponse='Aix-Marseille',
                  mode='examens',usage_ia={})

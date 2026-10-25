@@ -3320,6 +3320,9 @@
       "examens",
       "ipack",
       "textes"
+    ],
+    "exclure_motifs": [
+      "\\b(?:sixieme|cinquieme|quatrieme|6e|5e|4e|6eme|5eme|4eme)\\b"
     ]
   },
   "data/commun/dnb/04_inaptitudes_dispenses.txt": {
@@ -8775,5 +8778,23 @@
     ],
     "domaine_textes": "09_programmes",
     "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/evaluation_classe_absence_zero.txt": {
+    "title": "Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "dnb"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "modes": [
+      "textes",
+      "examens"
+    ],
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:zero|0 ?/ ?20))(?=.*(?:absent|absence))(?=.*(?:sixieme|cinquieme|quatrieme|6e|5e|4e|6eme|5eme|4eme|evaluation de classe|controle))"
+    ],
+    "domaine_textes": "04_vie_etablissement"
   }
 }

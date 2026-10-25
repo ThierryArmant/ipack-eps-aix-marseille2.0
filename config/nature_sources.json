@@ -6579,6 +6579,16 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national (circulaire 2022)",
    "titre": "30 minutes d'activité physique quotidienne (APQ)"
+  },
+  "data/textes/fiches/evaluation_classe_absence_zero.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (circulaire 2014) ; pas de règle propre",
+   "titre": "Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique"
   }
  }
 }

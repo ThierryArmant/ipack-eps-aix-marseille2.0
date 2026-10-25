@@ -3314,3 +3314,25 @@ Validation hors réseau : compilation des3 modules +23 tests (rejeu/provideur/ac
 
 ## 2026-10-25 — GPT : sauvegarde partielle du comparatif met le lot en pause
 Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confirmé : le bouton de préparation d'export partiel produisait le CSV puis le hook repartait immédiatement sur la question suivante. Correction : préparation partielle met stopped=True ; un lot arrêté expose également le téléchargement ; clic Arrêter provoque un rerun pour rendre l'export disponible. Données de résultats existantes conservées, aucune remise à zéro ou relance fournisseur par ce correctif. Un appel réseau en cours peut encore retarder l'interface : cause exacte des8min non établie sans logs. Délai réseau Albert limité30s pour le comparatif par lot (ancien90s) ; pas de retry ni fallback ajouté. Changement de version suspend le lot comparatif conformément au mécanisme existant, sans rejouer les lignes obtenues. Validation24 tests hors réseau et compilation ; nouveau test préparation partielle→pause→aucun appel suivant. Aucun fournisseur appelé par GPT.
+## 2026-10-25 — Essai comparatif « Albert rédige » rebranché (admin seulement, décoché par défaut)
+- Demande de Thierry : comparer Mini et Albert sur le lot B 50, maintenant que l'accès Albert est revenu (budget illimité, plafond 50 requêtes/minute en expérimentation).
+- app.py : case admin « Essai : Albert rédige la réponse courte (Mini choisit les passages) ». C'est la même chaîne que Mini seul : sélection Mini, réponse courte et contrôles identiques, sans pool commun. Seul le rédacteur change (gpt-oss-120b, température 0). Diagnostic : albert_redige_trial.
+- exact_source_answer.exact_answer : nouveau paramètre common_pool (vrai par défaut, comportement inchangé). À faux, un sélecteur distinct passe par with_short_answer.
+- Rappel : la température 0,7 et le modèle DeepSeek vus dans le Playground Albert ne concernent pas le hub. Le hub envoie son modèle et sa température à chaque appel (trace : resolved_model gpt-oss-120b).
+- Tests ajoutés ; test_faithful_display reçoit la nouvelle variable. Suite OK.
+
+## 2026-10-25 — Pendant le comparatif (à publier après le lot de Thierry)
+- 330 (CAP, candidat individuel) : cap_session_2026.txt dit maintenant explicitement qu'un candidat sans organisme de formation passe l'examen ponctuel, soit une seule épreuve de l'annexe 2, sans CCF (MENE2517122C, 1.1 et 2.2).
+- 335 (zéro en quatrième) : nouvelle fiche textes/fiches/evaluation_classe_absence_zero.txt.
+  - Aucun texte national ne prévoit le zéro pour absence à une évaluation de classe ; zéro disciplinaire proscrit (2014-059) ; ne pas confondre avec la règle du DNB en troisième.
+  - La fiche DNB des absences exclut désormais 6e, 5e et 4e.
+- Registres et classement Textes mis à jour, suite OK.
+
+## 2026-10-25 — Claude : correction du comparatif Mini / Albert (lot B 50, version 505dd3b)
+
+- Mini : 50/50 réponses, 38 J, 12 I, 0 F (76 % J ; grille plus stricte que la correction à 84 %).
+- Albert (gpt-oss-120b, température 0) : 29 réponses seulement. 21 blocages : 20 « Sélection non exploitable » et 1 AlbertServiceError.
+- Sur les 29 réponses d'Albert : 22 J, 6 I, 1 F (n159 : répond « Oui » à une question piège sur le déverrouillage Santorin). Mini, sur les mêmes 29 : 20 J, 9 I.
+- Albert rédige un peu mieux (plus complet, nuances justes : n136, n144, n162, n73), mais sa sélection des passages échoue dans 40 % des cas. Le défaut lui est propre : une fuite de consigne interne (n135).
+- Conclusion : Mini reste seul en production. Si on reprend Albert, ce sera uniquement comme rédacteur, après une sélection faite par Mini (essai `admin_albert_redige`, désactivé par défaut, publié ce jour).
+- Publié depuis la branche d'attente, après la fin du lot : l'essai Albert rédacteur (case admin, désactivée), la ligne « candidat individuel » du CAP, et la fiche Textes evaluation_classe_absence_zero.

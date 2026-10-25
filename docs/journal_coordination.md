@@ -3205,3 +3205,10 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
 
 ## 2026-10-25 — Fiche « collègue sur une classe » confirmée
 - Correction : Thierry précise que, par le passé, le coordonnateur pouvait cocher tous les collègues, puis tout le monde a pu le faire ; pour la version 2026, c'est à vérifier (iPackEPS injoignable ce soir). La fiche donne cet historique et, en attendant, la solution sûre : le collègue se coche lui-même. Question 152 mise de côté.
+
+## 2026-10-25 — Questions d'un collègue de Thierry (5 questions, présentation classique)
+- J : deuxième correcteur Santorin ; supprimer un créneau EDT (clic droit > [Supprimer]).
+- I/F « 2 h d'AS au lieu de 3 » : le hub parle de « réduction à 2 heures », non prévue par le texte (le décret vise le remplacement des trois heures). Il donne 20 h pour tous (17 h pour un agrégé) et écrit « pas un choix personnel », alors que le remplacement se fait à la demande de l'intéressé. as_remplacement_forfait.txt complété : remplacement des 3 h, remplacement partiel non documenté, maxima 20 h / 17 h.
+- I « texte des HSE des coordos » : le hub donne l'IMP sans nommer les textes et sans corriger la prémisse. La fiche IMP commence maintenant par : pas de HSE mais une IMP ; décret 2015-475, arrêté du 27/04/2015, circulaire 2015-058 II.2.
+- F « protocole Ultimate (académique) + Danse + aquagym (établissement) refusé » : le hub n'a pas trouvé la vraie raison (une seule activité de la liste nationale, il en faut deux). Ajouté à protocole_refuse_par_la_commission.txt : règle 2.a et cas « académique + établissement = non conforme ».
+- Registres et tests à jour (1242 OK).

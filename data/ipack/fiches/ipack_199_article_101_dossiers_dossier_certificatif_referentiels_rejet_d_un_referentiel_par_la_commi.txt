@@ -5,4 +5,4 @@ Mots-clés : référentiel refusé, dossier rejeté CAHPN, modifier référentie
   2. Modifier le document localement (Word/PDF) pour corriger les critères non conformes (ex : AFL non équilibrés, barème hors seuils).
   3. Dans `[Dossier Certificatif]` > `[Référentiels]`, cliquer sur le bouton `[Envoyer]` face à l'APSA concernée pour déposer la nouvelle version.
   4. Le statut repasse automatiquement en `[En attente de validation]`.
-
+- Libellés dans la version 2026.2.1.1 (relevé à l'écran d'un lycée le 18 octobre 2026) : [Les Dossiers et Projets] > [Dossier Certificatif] > [Dépôt Référentiels Certificatifs], bouton [Envoyer] sur la ligne de l'APSA ; l'article de l'assistance emploie un libellé plus ancien.

@@ -4,7 +4,7 @@
 - URL: spip.php?article18
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Dossiers => Dossier EPS => Élèves. Note : depuis la version 2025 il est possible de récupérer d’un clic les élèves de Pronote / École Directe (Menus de Terminale, groupe d’AS, de savoir-nager...). 
 - QUESTIONS / RÉPONSES :
-  - Q1 : La liste de mes classes n’apparaît pas (ou certaines classes sont manquantes) lorsque je sélectionne [Visualisation par : [classes]] dans la première liste déroulante.
+  - Q1 : La liste de mes classes n’apparaît pas (ou certaines classes sont manquantes) lorsque je sélectionne « Visualisation par : Classes » dans la première liste déroulante.
   - R1 : Ce problème apparaît si vous n’avez pas encore configuré toutes les classes de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).
   - Q2 : Lorsque je sélectionne une classe, celle-ci est vide, aucun élève n’apparaît.
   - R2 : Ce problème apparaît si vous n’avez pas encore importé les élèves de votre établissement. Suivez le tutoriel de configuration des classes et d’import des élèves (Article 14).

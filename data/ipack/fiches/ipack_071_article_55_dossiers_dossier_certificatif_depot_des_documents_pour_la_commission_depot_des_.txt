@@ -7,4 +7,4 @@
 - QUESTIONS / RÉPONSES :
   - Q1 : Est-il possible de déposer plusieurs certificats médicaux d’un élève pour une même activité ? (le certificat qui couvre la date du CCF et le certificat qui couvre la date du rattrapage par exemple ?)
   - R1 : OUI, depuis la version 2025.3.1 (décembre 2025) il est possible de déposer plusieurs certificats pour une même séquence d’apprentissage.
-
+- Libellés dans la version 2026.2.1.1 (relevé à l'écran d'un lycée le 18 octobre 2026) : [Les Dossiers et Projets] > [Dossier Certificatif] > [Dépôt de Documents pour la CAHPN] (fiche établissement, fichiers de notes, listes d'inaptes, certificats médicaux, fiches individuelles des cas particuliers) ; l'article de l'assistance emploie un libellé plus ancien.

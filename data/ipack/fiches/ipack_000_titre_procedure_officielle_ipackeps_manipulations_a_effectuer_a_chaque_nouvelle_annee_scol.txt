@@ -1,5 +1,5 @@
 TITRE : Procédure officielle iPackEPS - Manipulations à effectuer à chaque nouvelle année scolaire
-Réponse directe — à chaque rentrée, partir du tableau de bord en haut à gauche et avancer module par module : fiche professeur (service, fonctions et vœux de jury à refaire) ; équipe EPS ([Actualiser]) ; classes (actualiser, configurer les nouvelles, [Organisation des classes] avec les enseignants) puis importation des élèves ; APSA nouvelles, dates des séquences, groupes à reconfigurer et élèves à répartir ; en lycée, dates du dossier certificatif. L'export vers Cyclades vient plus tard (à partir de janvier, protocoles validés), pas à la rentrée.
+Réponse directe — à chaque rentrée, partir du tableau de bord en haut à gauche et avancer module par module : fiche Établissement d'abord (à vérifier ; ses données sont en grande partie conservées), puis fiche professeur (service, fonctions et vœux de jury à refaire) ; équipe EPS ([Actualiser]) ; classes (actualiser, configurer les nouvelles, [Organisation des classes] avec les enseignants) puis importation des élèves ; APSA nouvelles, dates des séquences, groupes à reconfigurer et élèves à répartir ; en lycée, dates du dossier certificatif. L'export vers Cyclades vient plus tard (à partir de janvier, protocoles validés), pas à la rentrée.
 - Mots-clés : nouvelle année scolaire, rentrée, tableau de bord, fiche professeur, service, équipe EPS, bouton Actualiser, Organisation des classes, importation des élèves, dossier APSA, groupes, dossier certificatif, export Cyclades
 - Formulations courantes des collègues : Que faut-il refaire dans iPackEPS à la rentrée ? ; Qu'est-ce qui est conservé d'une année sur l'autre ? ; Dans quel ordre remplir les modules ? ; Faut-il reconfigurer les classes avant d'importer les élèves ? ; L'export vers Cyclades se fait-il à la rentrée ?
 
@@ -7,7 +7,8 @@ Réponse directe — à chaque rentrée, partir du tableau de bord en haut à ga
 - Règle d'or absolue : Le processus de saisie dans iPackEPS consiste systématiquement à partir de chaque tableau de bord en haut à gauche, puis à avancer module par module de gauche à droite, et à passer ensuite à la ligne suivante.
 - Ne pas remplir un module tant que les modules précédents ne sont pas complétés : les données d'un module dépendent des saisies en amont.
 
-2. FICHE PROFESSEUR ET SERVICE :
+2. FICHE ÉTABLISSEMENT, PUIS FICHE PROFESSEUR ET SERVICE :
+- Ordre : vérifier d'abord la fiche [Établissement], puis compléter [Ma Fiche Professeur] (relevé du correspondant académique iPackEPS, 18 octobre 2026).
 - Les données de l'établissement et de la fiche professeur de l'année précédente sont pour l'essentiel conservées.
 - Les informations de service et de fonctions sont réinitialisées à zéro chaque année : l'enseignant doit obligatoirement recompléter son nombre d'heures EPS, ses heures de décharge d'établissement, et réactualiser ses fonctions (coordonnateur, secrétaire, etc.).
 - Les compétences et spécialités sportives déclarées sont conservées. Il faut en revanche refaire ses vœux de jury, ses vœux de formation, et préciser les souhaits d'inspection (conseiller pédagogique).

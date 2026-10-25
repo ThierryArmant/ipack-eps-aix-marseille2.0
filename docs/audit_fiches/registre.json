@@ -4323,7 +4323,7 @@
     },
     {
       "path": "data/examens/mesure3_corrections/remplacer_activite_protocole_valide.txt",
-      "sha256": "9e600a00af258e9101087569c95d4180d69210e2c4eed8ec033afb73181ca239",
+      "sha256": "e42e4401f197949f261c173a889e22dd17ebb6b1c57d0136d9d7baa9d189cac2",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "sources_existantes_regroupees_2026-10-18",
@@ -5751,7 +5751,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_000_titre_procedure_officielle_ipackeps_manipulations_a_effectuer_a_chaque_nouvelle_annee_scol.txt",
-      "sha256": "009ebba6958f55a1748653f4fdac4b9aca85355d776784340d142e0dad4afccf",
+      "sha256": "9a02ad4902b5b09498754287513e010f22d58de855bd830f2be837c635f26bd0",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -6928,7 +6928,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_065_article_18_dossiers_dossiereps_eleves_placement_des_eleves_dans_les_groupes.txt",
-      "sha256": "4b90ac1c207b60f35b352d002e21b83d1ced497cc6436b63093cb957f1d1a216",
+      "sha256": "9433627dc875e2233da968a9b5fb65e6affa71076fa4a3d8ee156ae002c2f93d",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "synthese_non_revalidee",
@@ -7068,7 +7068,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_071_article_55_dossiers_dossier_certificatif_depot_des_documents_pour_la_commission_depot_des_.txt",
-      "sha256": "6ae61042f5589b4a0d9c8d8c8d5c98cd7031149dc76523c7c9f3bee4195a0748",
+      "sha256": "46e4499ac1885801371f0a49bb7f1a4312b2bc2a1d929b44c9bd256798febd96",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "synthese_non_revalidee",
@@ -9883,7 +9883,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_199_article_101_dossiers_dossier_certificatif_referentiels_rejet_d_un_referentiel_par_la_commi.txt",
-      "sha256": "64d3c6bfb35aafaddd21a9ae104b67a8bdbf449badf91c7b28dbeb5b6d700008",
+      "sha256": "a7c4acd65ea4cb29bec77bf6e3e0431ad8c051d0671ff4dc0a32cd75ca2ca1cf",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "synthese_non_revalidee",

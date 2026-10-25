@@ -193,5 +193,54 @@ class ObjetEtRenvoisNommes(unittest.TestCase):
         self.assertEqual(sa.unsupported("Ne proposez pas de note et indiquez « dispensé de l'épreuve d'EPS ».", src), [])
 
 
+class PoolCommun(unittest.TestCase):
+    """Pool commun Mini/Albert : identifiants stables, récupération, portée diplôme et académie."""
+    POOL = [
+        dict(id='D1P1', section='Contacts', texte="Bug iPackEPS non résolu : le correspondant académique iPackEPS ; à Aix-Marseille : ipackeps@ac-aix-marseille.fr.",
+             portee={'academie': 'Aix-Marseille'}, propose_par_mini=True),
+        dict(id='D1P2', section='Contacts', texte="Dans une autre académie, s'adresser au correspondant académique iPackEPS de son académie.",
+             portee={}, propose_par_mini=False),
+        dict(id='D2P1', section='Co-évaluation GT', texte="Au bac GT, la co-évaluation est réalisée par deux enseignants d'EPS.",
+             portee={'examens': ['gt']}, propose_par_mini=True),
+    ]
+
+    def run_pool(self, phrases, public='Lycée Général & Techno', academy='Paris'):
+        audit = {}
+        out = sa.short_answer(_llm({'phrases': phrases}), tracer=lambda l, a, stage: l, audit=audit,
+                              question='Qui contacter ?', passages=self.POOL, public=public, academy=academy)
+        return out, audit['short_answer']
+
+    def test_identifiants_du_pool_et_recuperation_tracee(self):
+        out, rep = self.run_pool([{'texte': "Adressez-vous au correspondant académique iPackEPS de votre académie.", 'passages': ['D1P2']}])
+        self.assertEqual(rep['status'], 'rendered')
+        self.assertEqual(rep['kept'][0]['ids'], ['D1P2'])
+        self.assertEqual(rep['kept'][0]['recupere_du_pool'], ['D1P2'])
+
+    def test_consigne_d_une_autre_academie_refusee(self):
+        out, rep = self.run_pool([{'texte': "À Aix-Marseille, écrivez à ipackeps@ac-aix-marseille.fr.", 'passages': ['D1P1']}])
+        self.assertIn('portee:autre_academie', rep['rejected'][0]['raisons'])
+        out, rep = self.run_pool([{'texte': "À Aix-Marseille, écrivez à ipackeps@ac-aix-marseille.fr.", 'passages': ['D1P1']}], academy='Aix-Marseille')
+        self.assertEqual(rep['status'], 'rendered')
+
+    def test_regle_d_un_autre_diplome_refusee(self):
+        phrase = [{'texte': "Au bac GT, la co-évaluation est réalisée par deux enseignants d'EPS.", 'passages': ['D2P1']}]
+        out, rep = self.run_pool(phrase, public='Lycée Pro / CAP')
+        self.assertIn('portee:autre_diplome', rep['rejected'][0]['raisons'])
+        out, rep = self.run_pool(phrase, public='Lycée Général & Techno')
+        self.assertEqual(rep['status'], 'rendered')
+
+    def test_identifiant_inconnu_et_renvoi_ecrit(self):
+        out, rep = self.run_pool([{'texte': 'Phrase.', 'passages': ['D9P9']},
+                                  {'texte': "Adressez-vous au correspondant académique iPackEPS de votre académie (D1P2).", 'passages': ['D1P2']}])
+        self.assertEqual(rep['rejected'][0]['raisons'], ['forme'])
+        self.assertNotIn('(D1P2)', out)
+
+    def test_consigne_mentionne_la_proposition_mini_et_les_identifiants(self):
+        prompt = sa.build_prompt('q', self.POOL, {'public': 'Lycée Général & Techno', 'academie': 'Paris'})
+        self.assertIn('"propose_par_mini": false', prompt)
+        self.assertIn('"D1P3"', prompt)
+        self.assertIn('"academie": "Paris"', prompt)
+
+
 if __name__ == '__main__':
     unittest.main()

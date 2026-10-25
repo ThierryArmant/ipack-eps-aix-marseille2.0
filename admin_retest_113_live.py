@@ -117,7 +117,9 @@ def render(st):
                                      "version": message.get("version", ""),
                                      "usage_ia": message.get("usage_ia") or {},
                                      # Trace conservée en texte compact : bien plus légère en mémoire qu'un dictionnaire.
-                                     "diagnostic_ia": json.dumps(message.get("diagnostic_ia") or {}, ensure_ascii=False)})
+                                     "diagnostic_ia": json.dumps(message.get("diagnostic_ia") or {}, ensure_ascii=False),
+                                     # Les vidéos sont des messages séparés : sans cette colonne, le CSV ne les montrait jamais.
+                                     "videos": " ".join(m.get("content", "") for m in messages if m.get("type") == "video")})
             batch["index"] += 1
             batch["waiting"] = False
             batch.pop("retries", None)
@@ -153,7 +155,7 @@ def render(st):
                        and st.button("Préparer un fichier des réponses déjà obtenues", key="audit113_partial"))
             if batch["results"] and (finished or partial):
                 output = io.StringIO()
-                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine"], delimiter=";")
+                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"], delimiter=";", extrasaction="ignore")
                 writer.writeheader()
                 for result in batch["results"]:
                     writer.writerow({**result, "usage_ia": json.dumps(result.get("usage_ia", {}), ensure_ascii=False),

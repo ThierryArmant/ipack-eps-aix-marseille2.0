@@ -3172,3 +3172,12 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
   - l'exemple JSON montre trois phrases (réponse, ce qu'il faut faire, condition) ;
   - l'académie de l'utilisateur vaut académie nommée pour le contrôle de portée (un collègue de Lille reste protégé).
   - 3 tests ajoutés, suite complète OK (1234).
+
+## 2026-10-25 — Vidéos absentes en mode documenté (question de Thierry)
+- Cause 1 : en mode documenté, aucune affirmation rédigée (accepted_claims vide). supporting_tutorials ne trouvait donc jamais de vidéo à proposer.
+- Cause 2 : le CSV du rejeu n'exportait que le texte. Les vidéos sont des messages séparés et n'y apparaissaient jamais.
+- Correctifs :
+  - tutorial_links.py : en mode documenté, les passages affichés servent de preuves. Les motifs sont lus en respectant les majuscules (« l'établissement » en minuscule ne déclenche plus la vidéo « Saisie établissement »).
+  - admin_retest_113_live.py : nouvelle colonne « videos » dans le CSV du rejeu.
+- Simulation sur les lots B : 7 réponses gagnent une vidéo cohérente (108, 126, 136, 152, 153, 155, 132).
+- 4 tests ajoutés, suite complète OK (1238).

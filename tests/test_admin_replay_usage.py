@@ -79,3 +79,12 @@ class InterruptedReplayTests(unittest.TestCase):
         ui=self.stuck();ui.session_state['current_prompt']='Q1 ?';render(ui)
         b=ui.session_state['audit113_batch']
         self.assertEqual((b['index'],b.get('retries')),(0,None))
+
+
+class ReplayVideoColumn(unittest.TestCase):
+    def test_video_messages_are_exported(self):
+        ui=Surface([{'n':'1','question':'Q ?','mode':'ipack','public':'Collège (DNB)','academie':''}])
+        ui.session_state['messages_hub'].append({'role':'assistant','type':'video','content':'https://youtu.be/abc'})
+        render(ui)
+        results=list(csv.DictReader(io.StringIO(ui.downloads[0].decode('utf-8-sig')),delimiter=';'))
+        self.assertEqual(results[0]['videos'],'https://youtu.be/abc')

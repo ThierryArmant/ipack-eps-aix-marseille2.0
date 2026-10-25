@@ -28,7 +28,15 @@ def supporting_tutorials(audit, catalogue, limit=1):
         return []
     packets = {p['id']: p for p in audit.get('documents', [])}
     result=[]
-    for claim in audit.get('accepted_claims', []):
+    claims = list(audit.get('accepted_claims', []))
+    if not claims:
+        # Mode documenté : pas d'affirmations rédigées, les preuves sont les passages retenus et affichés.
+        report = audit.get('exact_extracts') or {}
+        spans = {s['id']: s.get('text', '') for src in report.get('selected_sources', [])
+                 for s in src.get('passages', [])}
+        claims = [{'text': spans[i], 'exact': True, 'evidence': [{'document_id': re.match(r'(D\d+)', i).group(1)}]}
+                  for i in report.get('focused_passage_ids', []) if i in spans and re.match(r'D\d+', i)]
+    for claim in claims:
         text=claim.get('text', '')
         if not (claim.get('section') == 'etape' or re.search(
                 r'clic|menu|onglet|bouton|ouvrir|s[ée]lectionn|choisir|\[', text, re.I)):
@@ -47,7 +55,10 @@ def supporting_tutorials(audit, catalogue, limit=1):
             for candidate in candidates:
                 url=candidate.get('url', '')
                 motifs=candidate.get('motifs', [])
-                if _valid_url(url) and (not motifs or any(re.search(m, text, re.I) for m in motifs)) and url not in result:
+                # Passages exacts : motifs pris à la lettre (ils portent leurs majuscules), sinon « l'établissement »
+                # suffirait à proposer la vidéo « Saisie établissement ».
+                flags = 0 if claim.get('exact') else re.I
+                if _valid_url(url) and (not motifs or any(re.search(m, text, flags) for m in motifs)) and url not in result:
                     result.append(url)
                     if len(result) >= limit:
                         return result

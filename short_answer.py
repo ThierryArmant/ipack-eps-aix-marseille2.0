@@ -37,7 +37,7 @@ def _compact(text):
 
 # Incertitude documentaire : la source ne tranche pas. La phrase doit le dire, pas trancher.
 _INCERTAIN = (r"ne suffit pas a confirmer", r"(?:reste|restent) a (?:verifier|confirmer|preciser)", r"a verifier",
-              r"non confirme", r"pas confirme", r"n.est pas (?:documente|precise|indique)", r"ne (?:precise|dit|indique) pas",
+              r"non confirme", r"pas confirme", r"n.est pas (?:documente|precise|indique)", r"ne (?:precise|dit|indique|documente) pas",
               r"aucune source", r"aucun (?:texte|document) ne", r"pas de (?:source|consigne) (?:connue|disponible|publiee)",
               r"ne permet pas de (?:confirmer|savoir|dire|conclure)", r"sous reserve", r"a confirmer")
 _PHRASE_INCERTAINE = (r"verifi", r"confirm", r"renseign", r"pas (?:precise|indique|documente)",

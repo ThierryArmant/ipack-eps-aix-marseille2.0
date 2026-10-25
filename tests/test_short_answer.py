@@ -366,3 +366,16 @@ class ConsignesInternes(unittest.TestCase):
 
     def test_conseil_utile_accepte(self):
         self.assertEqual(sa.unsupported("Distinguez sa présence dans l'équipe et son affectation à une classe.", self.SRC), [])
+
+
+class NombresEtPremisses(unittest.TestCase):
+    def test_nombre_ecrit_en_lettres_dans_la_source(self):
+        self.assertEqual(sa.unsupported("Les 3 heures d'AS sont comprises.", "les trois heures d'association sportive sont comprises", "combien d'heures d'AS ?"), [])
+
+    def test_sigle_de_la_question_absent_des_passages_refuse(self):
+        self.assertIn('premisse:PDF/A', sa.unsupported("Il doit être déposé au format PDF/A dans iPackEPS.",
+                                                       "Déposer le projet EPS dans iPackEPS.", "Faut-il le format PDF/A dans iPackEPS ?"))
+
+    def test_sigle_courant_accepte(self):
+        self.assertEqual(sa.unsupported("Le TZR assure le service de la personne remplacée.",
+                                        "le titulaire assure le service de la personne remplacée", "Je suis TZR : qui fixe mon service ?"), [])

@@ -3279,3 +3279,14 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
   - ancienne session ou ligne de rejeu « Tous publics » : public neutre (Lycée général) et case cochée, onglet Textes.
 - admin_retest_113_live : la case est remise à zéro à chaque ligne du rejeu.
 - public_label redonne « Tous publics ». 2 tests ajoutés, suite OK (1246).
+
+## 2026-10-25 — Rejeu Textes (50 questions, version 6bf2684, mode documenté)
+- Bonne fiche atteinte : 48/50. n900 renvoyé à juste titre vers l'onglet Examens ; n934 (AP en sixième, hors EPS) et n1192 (format PDF/A) sans fiche.
+- Qualité : J 38 (76 %), I 9, F 3.
+  - F : n335 (contradiction sur le zéro en quatrième) ; n1192 (« PDF/A obligatoire » : prémisse de la question reprise, absente du corpus) ; n1121 (« le recteur fixe votre emploi du temps », faux pour un TZR).
+  - I : 326, 330, 934, 2, 9, 17, 1196, 1221, 1223.
+- Décision : pas de pastilles de domaine (le routage est à 96 %). Les pertes viennent de la rédaction.
+- Correctifs short_answer :
+  - un nombre écrit en lettres dans la source est accepté (« trois heures » ↔ « 3 heures » ; refus à tort en 1131 et 1196) ;
+  - un sigle ou format repris de la question mais absent des passages et des titres est refusé (raison premisse:, ex. PDF/A) ; liste de sigles courants exemptée.
+  - 3 tests ajoutés, suite OK.

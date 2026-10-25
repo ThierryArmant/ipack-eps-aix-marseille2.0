@@ -57,6 +57,11 @@ _CONDITION = r"\b(?:si|s.il|s.ils|lorsque|lorsqu|quand|en cas|dans le cas|des qu
 # Outils et documents : une phrase ne peut pas appliquer la règle à un objet que ses passages ne citent pas.
 # Consignes adressées au rédacteur dans les fiches (« ne pas inventer… », « le corpus ») : jamais à recopier au collègue.
 _CONSIGNE_INTERNE = r"\binvent\w*|ne (?:pas|jamais) (?:promettre|annoncer|attribuer|presenter)\b|\bcorpus\b|\bcette fiche\b|\bces fiches\b|\bce releve\b|\bil est important de ne pas\b"
+_NOMBRES_EN_LETTRES = {'1': 'une?', '2': 'deux', '3': 'trois', '4': 'quatre', '5': 'cinq', '6': 'six', '7': 'sept',
+                       '8': 'huit', '9': 'neuf', '10': 'dix', '12': 'douze', '15': 'quinze', '20': 'vingt', '30': 'trente'}
+_SIGLES_COURANTS = {'eps', 'as', 'unss', 'ccf', 'dnb', 'cap', 'shn', 'tzr', 'aed', 'sss', 'appn', 'ca', 'gt', 'lp',
+                    'bac', 'ia', 'ipr', 'dasen', 'dec', 'diec', 'cpe', 'pai', 'pap', 'pps', 'rgpd', 'imp', 'hsa', 'hse',
+                    'rcd', 'ce', 'cm2', 'cp', 'ce1', 'ce2', 'cm1', 'rep', 'ac', 'afl', 'aflp', 'eppcs', 'svt', 'pe'}
 _OBJETS = (r"\bbulletins?\b", r"\blivret", r"\blsu\b", r"\blsl\b", r"pronote", r"\bcyclades\b", r"santorin",
            r"ipack", r"imag.?in", r"esterel", r"\barena\b", r"releve de notes", r"carnet de notes", r"\bent\b")
 
@@ -104,8 +109,16 @@ def unsupported(phrase, cited_text, question='', titles=''):
         if menu not in source:
             reasons.append('menu:' + menu)
     for number in re.findall(r'\d+(?:[.,]\d+)?', p):
-        if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source + ' ' + context):
+        word = _NOMBRES_EN_LETTRES.get(number)
+        if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source + ' ' + context) and not (
+                word and re.search(r'\b' + word + r'\b', source)):
             reasons.append('nombre:' + number)
+    # Sigle ou format repris de la question mais absent des passages (ex. « PDF/A ») : prémisse non vérifiée.
+    for sigle in re.findall(r'\b[A-Z][A-Z0-9]*(?:/[A-Z0-9]+)+\b|\b[A-Z]{2,}[0-9]*\b', phrase):
+        s_low = sigle.lower()
+        if (s_low not in source and s_low not in _compact(titles) and s_low in _compact(question)
+                and s_low not in _SIGLES_COURANTS):
+            reasons.append('premisse:' + sigle)
     for link in re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+|https?://\S+|www\.\S+', p):
         if link.rstrip('.,;)') not in source:
             reasons.append('adresse:' + link)

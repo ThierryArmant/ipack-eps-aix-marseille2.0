@@ -120,6 +120,23 @@ def render(st):
                                      "diagnostic_ia": json.dumps(message.get("diagnostic_ia") or {}, ensure_ascii=False)})
             batch["index"] += 1
             batch["waiting"] = False
+            batch.pop("retries", None)
+        elif "current_prompt" not in state:
+            # Traitement interrompu (clic, rafraîchissement, coupure) : la question n'a rien produit
+            # et ne sera jamais traitée. Une relance, puis la ligne est notée bloquée et le lot continue.
+            row = batch["rows"][batch["index"]]
+            if batch.get("retries", 0) < 1:
+                batch["retries"] = batch.get("retries", 0) + 1
+                batch["waiting"] = False
+            else:
+                batch["results"].append({"n": row["n"], "mode": row["mode"], "public": row["public"],
+                                         "academie": row.get("academie", ""), "question": row["question"],
+                                         "nouvelle_reponse": "[BLOQUÉE : traitement interrompu deux fois, aucune réponse]",
+                                         **replay_academy_details(state), "version": "", "usage_ia": {},
+                                         "diagnostic_ia": "{}"})
+                batch["index"] += 1
+                batch["waiting"] = False
+                batch.pop("retries", None)
     st.markdown("""<style>.st-key-admin_retest_opaque{background:#fff!important;color:#14263d!important;border:2px solid #17365d!important;border-radius:14px;padding:20px!important}.st-key-admin_retest_opaque p,.st-key-admin_retest_opaque label{color:#14263d!important}.st-key-admin_retest_opaque [data-testid="stAlert"]{background:#eaf2fc!important;opacity:1!important}.st-key-admin_retest_opaque [data-testid="stFileUploader"]{background:#f1f5fb!important;opacity:1!important}.st-key-admin_retest_opaque button{background:#17365d!important;color:#fff!important;border:2px solid #17365d!important;opacity:1!important}.st-key-admin_retest_opaque button p,.st-key-admin_retest_opaque button span{color:#fff!important;font-weight:700!important}.st-key-admin_retest_opaque button:hover{background:#245b94!important}</style>""",unsafe_allow_html=True)
     st.markdown("""<div style="background:#17365d;color:#fff;border:3px solid #f6b73c;border-radius:12px;padding:16px 20px;margin:18px 0 8px 0;font-size:22px;font-weight:800">🧪 ADMINISTRATION — TESTS IA DU HUB<br><span style="font-size:15px;font-weight:500">Outil réservé à l’administrateur • nombre de questions au choix</span></div>""", unsafe_allow_html=True)
     with st.container(border=True, key="admin_retest_opaque"):

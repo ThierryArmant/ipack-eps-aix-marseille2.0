@@ -57,3 +57,25 @@ class ReplayUsageTests(unittest.TestCase):
         self.assertTrue(circuit_document_mismatch('Transmettre le certificat du candidat inapte au ponctuel',text))
         self.assertFalse(circuit_document_mismatch('Saisir le certificat de notre élève en CCF',text))
         self.assertFalse(circuit_document_mismatch('Comparer la procédure CCF et ponctuel',text))
+
+
+class InterruptedReplayTests(unittest.TestCase):
+    def row(self,n):return {'n':str(n),'question':'Q%d ?'%n,'mode':'ipack','public':'Collège (DNB)','academie':''}
+    def stuck(self):
+        ui=Surface([self.row(1),self.row(2)]);ui.session_state['messages_hub']=[]
+        return ui
+    def test_interrupted_question_is_relaunched_once(self):
+        ui=self.stuck();render(ui)
+        b=ui.session_state['audit113_batch']
+        self.assertEqual((b['index'],b['results'],b['waiting']),(0,[],True))
+        self.assertEqual(ui.session_state['current_prompt'],'Q1 ?')
+    def test_second_interruption_marks_blocked_and_moves_on(self):
+        ui=self.stuck();render(ui)
+        ui.session_state.pop('current_prompt');ui.session_state['messages_hub']=[];render(ui)
+        b=ui.session_state['audit113_batch']
+        self.assertEqual(b['index'],1);self.assertIn('BLOQUÉE',b['results'][0]['nouvelle_reponse'])
+        self.assertEqual(ui.session_state['current_prompt'],'Q2 ?')
+    def test_pending_prompt_is_left_alone(self):
+        ui=self.stuck();ui.session_state['current_prompt']='Q1 ?';render(ui)
+        b=ui.session_state['audit113_batch']
+        self.assertEqual((b['index'],b.get('retries')),(0,None))

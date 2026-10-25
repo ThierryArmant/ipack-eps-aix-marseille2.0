@@ -3142,3 +3142,7 @@ Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les quest
 - app.py, panneau admin : les cases « Pool commun », « Sans Albert : le rédacteur est Mini » et « Albert seul » sont supprimées. Les réglages sont forcés en Mini seul (gpt-4o-mini sélectionne puis rédige).
 - admin_retest_113_live.py : la case « GPT uniquement » est supprimée ; le rejeu passe toujours en openai.
 - Le code de routage Albert reste en place mais n'est plus atteignable depuis l'interface (tests inchangés, 1225 OK). GPT : ne pas réintroduire d'option Albert sans accord de Thierry.
+
+## 2026-10-25 — Rejeu bloqué à 12/25 : correctif
+- Cause : si le traitement d'une question est interrompu (clic, rafraîchissement, coupure), current_prompt est déjà effacé et le lot attend une réponse qui ne viendra jamais.
+- Correctif (admin_retest_113_live.py) : une relance automatique, puis la ligne est notée « [BLOQUÉE …] » et le lot continue. Trois tests ajoutés, suite complète OK.

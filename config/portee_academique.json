@@ -991,6 +991,28 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_25/calendrier_ccf_et_ordre_des_sequences.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Peut-on changer l'ordre des séquences ou des épreuves de CCF dans l'année ?",
+     "lignes": [
+      "À Aix-Marseille, la modification d'un protocole standard déjà validé passe par iPackEPS et l'inspection pédagogique, prévenue au préalable (voir la fiche « Modifier ou créer un protocole après la transmission à la commission »). Dans une autre académie, suivre la procédure de son inspection et de son service des examens."
+     ]
+    }
+   ]
+  },
+  "data/examens/situations_2026_10_25/ipack_cyclades_transfert_sans_synchronisation_horaire.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS et Cyclades : y a-t-il une synchronisation automatique, à quelle heure ?",
+     "lignes": [
+      "Ce que décrit le circuit académique d'Aix-Marseille :"
+     ]
+    }
+   ]
+  },
   "data/examens/tutoriels_creteil_cyclades_santorin.txt": {
    "academie": "aix-marseille",
    "sections": [

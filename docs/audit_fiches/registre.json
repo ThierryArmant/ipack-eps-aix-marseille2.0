@@ -13268,6 +13268,46 @@
         ],
         "apparitions_dans_passages_transmis_traces": 0
       }
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/indemnite_ccf_eps.txt",
+      "sha256": "46b310cff8996141b6111ad830a1dfcbc1a6185de396ecf554bcc646dd69ad67",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/ipack_cyclades_transfert_sans_synchronisation_horaire.txt",
+      "sha256": "9038002c2a141dc0e163a1898ae1074dd2e769f7dd31438ae325051a1233e288",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/ponctuel_lieu_et_convocation.txt",
+      "sha256": "84244db8fd46c2993c935fdeba77ad58599dae6796906619e4561d3596c1da7c",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/connexion_impossible_sur_le_terrain.txt",
+      "sha256": "0d5e1f4d4cb4bc52b2e503ad41e7a5371ae1e6c12c9d3a49f168e8d49062b99e",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/calendrier_ccf_et_ordre_des_sequences.txt",
+      "sha256": "3b4c05cf8a714e24930a2a4b20d37036e9c016f4f7309fec8c6e8a6199af0388",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
     }
   ],
   "revue_structurelle": {

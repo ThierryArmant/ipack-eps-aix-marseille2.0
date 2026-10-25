@@ -11,6 +11,11 @@ COL, GT, PRO = 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'
 
 # (question, public, onglet, début du titre attendu, débuts de titres interdits)
 CAS = [
+    ('Les profs d\'EPS sont-ils payés pour les CCF qu\'ils font passer dans leur lycée ?', PRO, 'examens', "CCF d'EPS : pas d'indemnité spécifique", []),
+    ('Quand iPackEPS envoie-t-il automatiquement les protocoles vers Cyclades, à quelle heure ?', GT, 'ipack', 'iPackEPS et Cyclades : pas de synchronisation', ['[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL']),
+    ('Dans quelle ville ou sur quel site un candidat libre passe-t-il son examen ponctuel d\'EPS ?', GT, 'examens', "Examen ponctuel d'EPS : lieu des épreuves", []),
+    ('Pas de réseau au stade pour recevoir le code de connexion à Santorin : comment noter ?', GT, 'examens', "Pas de réseau ou pas de code de connexion", []),
+    ('Peut-on inverser l\'ordre des séquences de demi-fond et de badminton dans l\'année ?', GT, 'textes', 'Ordre des séquences et calendrier', []),
     ('Comment ajouter un deuxième évaluateur sur mon lot Santorin ?', GT, 'examens', '[SITUATION: CORRECTION PARTAGÉE SANTORIN]', ['Santorin : Co-évaluation']),
     ('Faut-il un deuxième évaluateur pour le bac ?', GT, 'examens', "Santorin : Co-évaluation — obligatoire ou non selon l'examen", ['[SITUATION: CORRECTION PARTAGÉE']),
     ('Comment réaffecter un lot à un autre examinateur ?', GT, 'examens', 'Cyclades : faire réaffecter les protocoles au bon évaluateur', []),

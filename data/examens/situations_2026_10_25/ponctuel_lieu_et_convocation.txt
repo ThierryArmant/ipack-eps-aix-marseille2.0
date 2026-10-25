@@ -1,0 +1,8 @@
+### Examen ponctuel d'EPS : où se déroulent les épreuves et comment le savoir ?
+[PORTEE: gt,pro,cap]
+Réponse directe : il n'existe pas de liste nationale des lieux d'épreuve. Le service des examens de l'académie (DEC, ou SIEC en Île-de-France) organise l'examen ponctuel et convoque chaque candidat sur un centre d'examen ; le lieu figure sur la convocation.
+Où trouver le lieu : la convocation du candidat, consultable dans son espace personnel Cyclades (rubrique des documents de la candidature).
+Bac général et technologique : l'examen ponctuel terminal concerne les candidats individuels et les candidats inscrits au CNED ; il porte sur deux activités évaluées, si l'organisation le permet, au cours d'une seule journée (note de service du 20 février 2026).
+Sites particuliers (installation spécifique, territoire isolé, littoral) : leur choix relève de l'organisation académique ; le hub ne dispose d'aucune liste de sites. Se renseigner auprès du service des examens de l'académie.
+Nature de la source : texte national pour le principe de l'examen ponctuel (note de service du 20 février 2026) ; organisation et lieux : service des examens de chaque académie.
+Sources : fiches du hub « Note de service bac GT 2026 — examen ponctuel terminal » (data/examens/complement_note_de_service_bac_gt_2026.txt), « Candidats individuels » (iPackEPS, article 95 : candidats convoqués directement par la DEC sur un centre d'examen ponctuel) et « Cyclades candidat : consulter ses convocations ».

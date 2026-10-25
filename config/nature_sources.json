@@ -6372,6 +6372,59 @@
    "autres_academies_citees": [],
    "portee_texte": "Documentation du service utilisateur, sans calendrier académique",
    "titre": "Cyclades candidat : consulter ses convocations et son relevé de notes"
+  },
+  "data/examens/situations_2026_10_25/indemnite_ccf_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "CCF d'EPS : pas d'indemnité spécifique (décret 2010-1000)"
+  },
+  "data/examens/situations_2026_10_25/ipack_cyclades_transfert_sans_synchronisation_horaire.txt": {
+   "nature": [
+    "logiciel",
+    "consigne_academique"
+   ],
+   "academie": "Aix-Marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS et Cyclades : pas de synchronisation automatique à heure fixe"
+  },
+  "data/examens/situations_2026_10_25/ponctuel_lieu_et_convocation.txt": {
+   "nature": [
+    "texte_national",
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Examen ponctuel d'EPS : lieu des épreuves et convocation"
+  },
+  "data/examens/situations_2026_10_25/connexion_impossible_sur_le_terrain.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Pas de réseau ou pas de code de connexion sur le lieu d'épreuve"
+  },
+  "data/examens/situations_2026_10_25/calendrier_ccf_et_ordre_des_sequences.txt": {
+   "nature": [
+    "texte_national",
+    "consigne_academique"
+   ],
+   "academie": "Aix-Marseille",
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Ordre des séquences et calendrier des épreuves de CCF"
   }
  }
 }

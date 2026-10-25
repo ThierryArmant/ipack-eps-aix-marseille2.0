@@ -1,0 +1,8 @@
+### Pas de réseau ou pas de code de connexion sur le lieu d'épreuve : comment noter ?
+[PORTEE: gt,pro,cap]
+Réponse directe : la validité d'une épreuve de CCF ne dépend pas de la connexion. L'enseignant note sur papier (grille d'évaluation et feuille d'émargement de secours), puis reporte les notes dans Santorin dès que la connexion est rétablie.
+Code de connexion (code à usage unique, application d'authentification, SMS) : le mode d'authentification à Santorin dépend de l'académie et de son portail (ARENA ou équivalent). Le hub ne documente pas de procédure de connexion sans réseau. En cas de blocage, s'adresser à l'assistance informatique de l'académie.
+Saisie hors ligne : le hub ne documente pas de mode hors ligne pour Santorin ; la saisie se fait connecté, sur ordinateur de préférence, avec un navigateur à jour.
+Pour ne rien perdre : conserver les grilles papier dans le dossier de l'épreuve ; la saisie doit être terminée avant la date limite fixée par l'académie.
+Nature de la source : continuité de l'épreuve et saisie Santorin décrites par les fiches du hub ; authentification : propre à chaque académie, non documentée ici.
+Sources : fiches du hub « Le numérique a planté pendant mon épreuve, le CCF est-il valable ? » et « Impossible de saisir les notes dans Santorin (cases inactives) ».

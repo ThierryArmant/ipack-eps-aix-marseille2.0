@@ -1,0 +1,8 @@
+### Peut-on changer l'ordre des séquences ou des épreuves de CCF dans l'année ?
+[PORTEE: gt,pro,cap]
+Réponse directe : en dehors de l'examen, aucun texte vérifié dans le hub ne fixe l'ordre des séquences d'EPS dans l'année ; cette programmation relève de l'équipe EPS et du projet pédagogique d'EPS.
+Pour l'examen (CCF) : le protocole d'évaluation de l'établissement précise notamment le calendrier des épreuves (note de service du 20 février 2026). Il est validé par la commission académique et communiqué aux élèves et aux familles.
+Conséquence : changer l'ordre ou la période d'une épreuve de CCF, c'est s'écarter du calendrier du protocole validé. Prévenir le chef d'établissement et suivre le circuit de modification du protocole de l'académie ; un changement d'activité, lui, modifie le protocole et doit être validé à nouveau.
+À Aix-Marseille, la modification d'un protocole standard déjà validé passe par iPackEPS et l'inspection pédagogique, prévenue au préalable (voir la fiche « Modifier ou créer un protocole après la transmission à la commission »). Dans une autre académie, suivre la procédure de son inspection et de son service des examens.
+Nature de la source : texte national pour le contenu du protocole (note de service du 20 février 2026) ; programmation des séquences : non réglementée par les textes vérifiés ; circuit de modification : consigne académique.
+Sources : data/examens/complement_note_de_service_bac_gt_2026.txt (protocole d'évaluation : contenu) ; data/examens/complement_cyclades_protocoles_cas_enseignant.txt (modifier un protocole après transmission).

@@ -1,0 +1,11 @@
+### iPackEPS et Cyclades : y a-t-il une synchronisation automatique, à quelle heure ?
+[PORTEE: gt,pro,cap]
+Réponse directe : le hub ne documente aucune synchronisation automatique à heure fixe entre iPackEPS et Cyclades. Le passage d'iPackEPS vers Cyclades se fait par des opérations déclenchées par des personnes, pas par un envoi programmé.
+Ce que décrit le circuit académique d'Aix-Marseille :
+- les protocoles : c'est l'inspection pédagogique régionale qui reporte dans Cyclades la validité des protocoles attestée dans iPackEPS ; l'établissement vérifie ensuite dans Cyclades que ses protocoles ont le statut validé ;
+- les candidats et les groupes : le chef d'établissement génère dans iPackEPS le fichier des candidats et des groupes, puis l'importe dans Cyclades ; il vérifie ensuite que chaque candidat est affecté à son protocole.
+Une modification faite dans iPackEPS après ces opérations n'apparaît donc pas d'elle-même dans Cyclades : refaire l'opération concernée (nouvel export puis import, ou demande à l'inspection pour un protocole), selon le circuit de l'académie.
+Dans une autre académie, l'ordre et les acteurs peuvent différer : suivre le guide de son service des examens.
+Ne pas confondre avec la « synchronisation » du portail académique (Estérel / ARENA), qui sert à faire apparaître l'application iPackEPS dans le portail, ni avec Santorin, qui reprend les données de Cyclades.
+Nature de la source : fonctionnement des logiciels et circuit académique d'Aix-Marseille, repris de la fiche du hub « Circuit Aix : iPackEPS, Cyclades, Santorin » (étapes 3 et 4).
+Sources : data/examens/circuit_aix_ipack_cyclades_santorin.txt (guide académique des tutoriels examens d'Aix-Marseille).

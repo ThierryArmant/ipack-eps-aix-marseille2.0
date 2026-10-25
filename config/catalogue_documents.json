@@ -1075,6 +1075,9 @@
     ],
     "motifs": [
       "esterel|portail|synchronis"
+    ],
+    "exclure_motifs": [
+      "cyclades|santorin"
     ]
   },
   "data/ipack/fiches/ipack_014_situation_erreur_de_profil_et_d_anciennete_enseignant.txt": {
@@ -8398,5 +8401,110 @@
     ],
     "date_verification": "2026-10-20",
     "url": "https://cache.media.education.gouv.fr/file/examens/08/1/GPS_ESPACE_CANDIDAT%282%29_882081.pdf"
+  },
+  "data/examens/situations_2026_10_25/indemnite_ccf_eps.txt": {
+    "title": "CCF d'EPS : pas d'indemnité spécifique (décret 2010-1000)",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:indemn|remuner|\\bpaye|\\bpaie|retribu|heures? sup|vacation|argent))(?=.*(?:ccf|evaluat|examen|imag.?in|epreuve|notation))"
+    ]
+  },
+  "data/examens/situations_2026_10_25/ipack_cyclades_transfert_sans_synchronisation_horaire.txt": {
+    "title": "iPackEPS et Cyclades : pas de synchronisation automatique à heure fixe",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*synchro)(?=.*(?:ipack|cyclades))",
+      "(?=.*(?:a quelle heure|quand|frequence|automatique))(?=.*(?:transf|remont|envoi|bascul|passent?))(?=.*ipack)(?=.*cyclades)"
+    ],
+    "exclure_motifs": [
+      "esterel|arena|portail"
+    ]
+  },
+  "data/examens/situations_2026_10_25/ponctuel_lieu_et_convocation.txt": {
+    "title": "Examen ponctuel d'EPS : lieu des épreuves et convocation",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*ponctuel)(?=.*(?:\\bou (?:se|ont|a|sont|passe|doivent)|\\blieux?\\b|\\bsites?\\b|centre d.examen|\\bcommunes?\\b|littoral|isolee?s?\\b|se deroul))"
+    ]
+  },
+  "data/examens/situations_2026_10_25/connexion_impossible_sur_le_terrain.txt": {
+    "title": "Pas de réseau ou pas de code de connexion sur le lieu d'épreuve",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:\\botp\\b|code (?:de connexion|a usage unique|par sms|de securite)|pas de reseau|sans reseau|reseau (?:mobile|telephon)|hors.?ligne|sans connexion|sans internet|pas de connexion|pas d.internet))(?=.*(?:santorin|saisi|not|epreuve|terrain|ccf|grilles?|stade|gymnase))"
+    ],
+    "exclure_motifs": [
+      "ipack"
+    ]
+  },
+  "data/examens/situations_2026_10_25/calendrier_ccf_et_ordre_des_sequences.txt": {
+    "title": "Ordre des séquences et calendrier des épreuves de CCF",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "textes",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:ordre|intervert|inverser|permuter|deplacer|decaler|changer|modifier))(?=.*(?:sequences?|calendrier des (?:epreuves|ccf)|ordre de passage|periodes? des? (?:epreuves|ccf)))"
+    ],
+    "exclure_motifs": [
+      "lots?\\b|santorin"
+    ]
   }
 }

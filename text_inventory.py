@@ -29,7 +29,7 @@ NAMED = {
  'sortie_musee':6,'sorties_mixte':6,'sorties_premier':6,'sorties_second':6,'texte_transport':6,
  'tzr_decret':1,'partenariats_defense':12,'premier_degré':12,'sorties_encadrement':6,
  'sortie_assurance':6,'sss_ouverture':12,'surveillance_continue':3,'remplacement_courte':1,'conge_maladie':1,
- 'greve_enseignant':1,'droit_syndical':1,'programme_eps_voie':9,'droit_image':11,'apq_30':9,
+ 'greve_enseignant':1,'evaluation_classe':4,'droit_syndical':1,'programme_eps_voie':9,'droit_image':11,'apq_30':9,
 }
 
 def domain_for(path):

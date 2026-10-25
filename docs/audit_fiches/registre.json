@@ -1054,7 +1054,7 @@
     },
     {
       "path": "data/commun/cap_session_2026.txt",
-      "sha256": "a6e923119efdf341988c7e9d43da2fcde6a3e78b72519de2f1d372e4c34220ba",
+      "sha256": "e623e14622dbd56edf1a860efd3792545f7e7c57c048ffbaeafd91febbe8019f",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-10",
@@ -13419,6 +13419,14 @@
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/evaluation_classe_absence_zero.txt",
+      "sha256": "aba692c1d97227f552fe6c963097aa943e9956a0c0395a4a26fe075b2696c6bf",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
       "signaux": []
     }
   ],

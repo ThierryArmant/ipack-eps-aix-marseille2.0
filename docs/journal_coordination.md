@@ -3316,3 +3316,10 @@ Validation hors réseau : compilation des3 modules +23 tests (rejeu/provideur/ac
 - exact_source_answer.exact_answer : nouveau paramètre common_pool (vrai par défaut, comportement inchangé). À faux, un sélecteur distinct passe par with_short_answer.
 - Rappel : la température 0,7 et le modèle DeepSeek vus dans le Playground Albert ne concernent pas le hub. Le hub envoie son modèle et sa température à chaque appel (trace : resolved_model gpt-oss-120b).
 - Tests ajoutés ; test_faithful_display reçoit la nouvelle variable. Suite OK.
+
+## 2026-10-25 — Pendant le comparatif (à publier après le lot de Thierry)
+- 330 (CAP, candidat individuel) : cap_session_2026.txt dit maintenant explicitement qu'un candidat sans organisme de formation passe l'examen ponctuel, soit une seule épreuve de l'annexe 2, sans CCF (MENE2517122C, 1.1 et 2.2).
+- 335 (zéro en quatrième) : nouvelle fiche textes/fiches/evaluation_classe_absence_zero.txt.
+  - Aucun texte national ne prévoit le zéro pour absence à une évaluation de classe ; zéro disciplinaire proscrit (2014-059) ; ne pas confondre avec la règle du DNB en troisième.
+  - La fiche DNB des absences exclut désormais 6e, 5e et 4e.
+- Registres et classement Textes mis à jour, suite OK.

@@ -116,7 +116,8 @@ def render(st):
                                      **replay_academy_details(state),
                                      "version": message.get("version", ""),
                                      "usage_ia": message.get("usage_ia") or {},
-                                     "diagnostic_ia": message.get("diagnostic_ia") or {}})
+                                     # Trace conservée en texte compact : bien plus légère en mémoire qu'un dictionnaire.
+                                     "diagnostic_ia": json.dumps(message.get("diagnostic_ia") or {}, ensure_ascii=False)})
             batch["index"] += 1
             batch["waiting"] = False
     st.markdown("""<style>.st-key-admin_retest_opaque{background:#fff!important;color:#14263d!important;border:2px solid #17365d!important;border-radius:14px;padding:20px!important}.st-key-admin_retest_opaque p,.st-key-admin_retest_opaque label{color:#14263d!important}.st-key-admin_retest_opaque [data-testid="stAlert"]{background:#eaf2fc!important;opacity:1!important}.st-key-admin_retest_opaque [data-testid="stFileUploader"]{background:#f1f5fb!important;opacity:1!important}.st-key-admin_retest_opaque button{background:#17365d!important;color:#fff!important;border:2px solid #17365d!important;opacity:1!important}.st-key-admin_retest_opaque button p,.st-key-admin_retest_opaque button span{color:#fff!important;font-weight:700!important}.st-key-admin_retest_opaque button:hover{background:#245b94!important}</style>""",unsafe_allow_html=True)
@@ -128,13 +129,19 @@ def render(st):
         uploaded = st.file_uploader("Tableau CSV privé des questions", type=["csv"], key="audit113_live_csv")
         if batch:
             st.write(f"Réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")
-            if batch["results"]:
+            # Mémoire : le fichier (plusieurs Mo) n'est fabriqué qu'une fois le lot terminé, ou sur demande ;
+            # le recréer à chaque rafraîchissement pendant le lot accumulait des copies en mémoire.
+            finished = batch["index"] >= len(batch["rows"])
+            partial = (not finished and batch["results"]
+                       and st.button("Préparer un fichier des réponses déjà obtenues", key="audit113_partial"))
+            if batch["results"] and (finished or partial):
                 output = io.StringIO()
                 writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine"], delimiter=";")
                 writer.writeheader()
                 for result in batch["results"]:
                     writer.writerow({**result, "usage_ia": json.dumps(result.get("usage_ia", {}), ensure_ascii=False),
-                                     "diagnostic_ia": json.dumps(result.get("diagnostic_ia", {}), ensure_ascii=False)})
+                                     "diagnostic_ia": (result["diagnostic_ia"] if isinstance(result.get("diagnostic_ia"), str)
+                                                       else json.dumps(result.get("diagnostic_ia", {}), ensure_ascii=False))})
                 st.download_button("Télécharger les réponses obtenues", output.getvalue().encode("utf-8-sig"),
                                    file_name="retest_113_reponses_privees.csv", mime="text/csv")
             if st.button("🔄 Nouveau test — choisir nombre de questions au choix", key="audit113_reset", type="primary"):

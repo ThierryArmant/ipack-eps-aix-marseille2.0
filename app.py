@@ -1394,6 +1394,23 @@ if st.session_state.get("is_admin", False):
             retriever_peda=retriever_peda, retriever_santorin=retriever_santorin,
             retriever_ipack=retriever_ipack, libelle_source=libelle_source,
             _url_source=_url_source, search_prompt=search_prompt)
+    _comparison_batch = st.session_state.get("audit113_batch") or {}
+    if (_comparison_batch.get("comparison") == "mini_albert" and not _comparison_batch.get("stopped")
+            and _comparison_batch.get("index", 0) < len(_comparison_batch.get("rows", []))):
+        def _run_replay_model_comparison(row, academy):
+            # Réglages propres au lot, sans modifier les modèles du hub ni autoriser un secours.
+            mini = OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,
+                          max_tokens=900, max_retries=0, timeout=30)
+            albert = _generation_runtime.albert_adapter.AlbertLLM(
+                st.secrets.get("ALBERT_API_KEY"), _comparison_batch["albert_model"],
+                temperature=0.0, allow_paused_test=True)
+            return load_comparison().run_model_comparison(
+                mini=mini, albert=albert, retrieve=_comparison_retrieve,
+                question=row["question"], public=row["public"], mode=row["mode"],
+                academy=academy, version=_sha)
+        with st.spinner("Rejeu comparatif Mini / Albert : question " + str(_comparison_batch["index"] + 1)):
+            _admin_replay.comparison_step(st.session_state, _run_replay_model_comparison, _sha)
+        st.rerun()
     with st.container(border=True, key="hub_admin_comparison"):
         render_architecture_comparison(st, llm=Settings.llm, retrieve=_comparison_retrieve,
                                       version=_sha, model=modele_ia,

@@ -98,12 +98,60 @@ def select_replay_numbers(rows, value):
     return [lookup[number] for number in requested]
 
 
+
+COMPARISON_COLUMNS = ["reponse_mini", "reponse_albert", "modele_mini", "modele_albert",
+                      "usage_mini", "usage_albert", "erreur_mini", "erreur_albert"]
+
+
+def comparison_step(state, runner, version):
+    """Une question par rafraîchissement ; jamais de relance payante après interruption."""
+    batch = state.get('audit113_batch') or {}
+    if (not state.get('is_admin') or batch.get('comparison') != 'mini_albert'
+            or batch.get('stopped') or batch['index'] >= len(batch['rows'])):
+        return False
+    if batch.get('version') and batch['version'] != version:
+        batch['stopped'] = True
+        batch['stop_reason'] = 'Version modifiée pendant le lot : arrêt pour ne pas mélanger les versions.'
+        return False
+    batch['version'] = version
+    row = batch['rows'][batch['index']]
+    # Le marqueur reste présent si Streamlit interrompt le traitement : ne pas refacturer la ligne.
+    interrupted = batch.get('comparison_inflight') is not None
+    batch['comparison_inflight'] = batch['index']
+    academy, _ = academy_context_for_replay(dict(is_admin=True, audit113_batch=dict(
+        waiting=True, index=0, rows=[row])), 'Non précisée')
+    try:
+        if interrupted:
+            raise RuntimeError('Traitement interrompu ; aucune relance automatique.')
+        result = runner(row, academy)
+    except Exception:
+        result = dict(version=version, branches={name:dict(error=(
+            'Traitement interrompu ; aucune relance automatique.' if interrupted else
+            'Comparaison interrompue ; consulter les journaux techniques.'), usage={}) for name in ('Mini','Albert')})
+    mini = result['branches'].get('Mini', {})
+    albert = result['branches'].get('Albert', {})
+    record = dict(n=row['n'], mode=row['mode'], public=row['public'], academie=row.get('academie',''),
+                  academie_effective=academy, question=row['question'], version=version,
+                  nouvelle_reponse=mini.get('answer',''), usage_ia=mini.get('usage',{}),
+                  diagnostic_ia=json.dumps(result, ensure_ascii=False, separators=(',',':')),
+                  videos='')
+    for name, item in [('mini',mini),('albert',albert)]:
+        record['reponse_'+name] = item.get('answer','')
+        record['modele_'+name] = item.get('model','')
+        record['usage_'+name] = json.dumps(item.get('usage',{}), ensure_ascii=False)
+        record['erreur_'+name] = item.get('error','')
+    batch['results'].append(record)
+    batch['index'] += 1
+    batch.pop('comparison_inflight',None)
+    return True
+
+
 def render(st):
     if not st.session_state.get("is_admin", False):
         return
     state = st.session_state
     batch = state.get("audit113_batch")
-    if batch and batch.get("waiting"):
+    if batch and batch.get("waiting") and batch.get("comparison") != "mini_albert":
         messages = state.get("messages_hub", [])
         message = next((m for m in reversed(messages)
                         if m.get("role") == "assistant" and m.get("type") == "text"), {})
@@ -155,7 +203,7 @@ def render(st):
                        and st.button("Préparer un fichier des réponses déjà obtenues", key="audit113_partial"))
             if batch["results"] and (finished or partial):
                 output = io.StringIO()
-                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"], delimiter=";", extrasaction="ignore")
+                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"] + (COMPARISON_COLUMNS if batch.get("comparison") == "mini_albert" else []), delimiter=";", extrasaction="ignore")
                 writer.writeheader()
                 for result in batch["results"]:
                     writer.writerow({**result, "usage_ia": json.dumps(result.get("usage_ia", {}), ensure_ascii=False),
@@ -169,6 +217,11 @@ def render(st):
                 st.rerun()
             if st.button("Arrêter après la question en cours", key="audit113_stop"):
                 batch["stopped"] = True
+            if batch.get("comparison") == "mini_albert":
+                st.caption("Comparatif Mini / Albert : mêmes documents, réponses et traces séparées. Aucun envoi au journal Google Sheets par ce parcours.")
+                if batch.get("stop_reason"):
+                    st.warning(batch["stop_reason"])
+                return
             if not batch["waiting"] and not batch.get("stopped") and batch["index"] < len(batch["rows"]):
                 row = batch["rows"][batch["index"]]
                 if batch["results"] and batch["results"][-1].get("usage_ia", {}).get("fallback_used"):
@@ -218,8 +271,26 @@ def render(st):
             selected_rows = rows[start-1:start-1+n]
             st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
         st.caption("Chaque question utilise son académie CSV ou celle déclarée dans la question ; une cellule vide reste Non précisée. Les réponses ne sont pas évaluées automatiquement.")
-        st.caption("Rejeu en Mini seul (gpt-4o-mini) : aucun appel à Albert.")
-        if st.button(f"Lancer {n} questions dans le moteur réel du HUB", type="primary", key="audit113_live_start"):
+        comparison_choice = st.selectbox("Traitement du rejeu", ["Mini seul — moteur habituel du HUB", "Comparer Mini et Albert — mêmes documents"] , key="audit113_comparison_choice")
+        compare = comparison_choice.startswith("Comparer")
+        albert_model = ""
+        if compare:
+            st.warning("Comparaison documentée : au maximum 2 appels Mini + 2 appels Albert par question, hors recherche documentaire. 50 questions = au maximum 100 appels par modèle. Ce parcours compare les modèles et ne reproduit pas les réponses directes du moteur habituel.")
+            albert_model = st.text_input("Modèle Albert du lot", value=st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b", key="audit113_albert_model")
+            if n > 50:
+                st.error("Limitez le comparatif à 50 questions par lot.")
+                return
+            if not st.secrets.get("ALBERT_API_KEY"):
+                st.error("Clé ALBERT_API_KEY absente : aucun comparatif lancé.")
+                return
+            if not albert_model.strip():
+                st.error("Indiquez le modèle Albert.")
+                return
+        else:
+            st.caption("Rejeu en Mini seul (gpt-4o-mini) : aucun appel à Albert.")
+        if st.button((f"Comparer {n} questions — Mini et Albert" if compare else f"Lancer {n} questions dans le moteur réel du HUB"), type="primary", key="audit113_live_start"):
             state["audit113_batch"] = {"rows": selected_rows, "index": 0, "results": [],
-                                       "waiting": False, "stopped": False, "provider": "openai"}
+                                       "waiting": False, "stopped": False, "provider": "openai",
+                                       "comparison": "mini_albert" if compare else None,
+                                       "albert_model": albert_model.strip()}
             st.rerun()

@@ -277,6 +277,10 @@ def run_model_comparison(*, mini, albert, retrieve, question, public, mode, acad
             item['answer'] = exact_answer(client, reviewer=_runtime.documentary_review,
                 tracer=TracedLLM, documents=documents, question=question, public=public,
                 mode=mode, academy=academy, audit=audit, synthesis=True)
+            short = audit.get('short_answer', {})
+            item['state'] = short.get('status') or audit.get('exact_extracts', {}).get('status')
+            if short.get('status') == 'invalid_no_retry':
+                item['error'] = 'Rédaction indisponible : ' + short.get('error_type', 'erreur fournisseur ou format')
         except Exception as exc:
             item['error'] = str(exc) if isinstance(exc, AlbertError) else 'Traitement interrompu ; aucun secours automatique.'
         item['usage'] = usage_summary(audit)

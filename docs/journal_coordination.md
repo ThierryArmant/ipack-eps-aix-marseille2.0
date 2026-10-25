@@ -3128,3 +3128,11 @@ Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les quest
   - iPack B (25) : Q107–Q186.
   - Examens B (25) : Q54–Q198.
 - Configuration du rejeu : Mini seul (pool décoché, Albert seul décoché). Correction J/I/F/É/B ensuite ici.
+
+## 2026-10-25 — Analyse du passage iPack (25 questions, version 5dfd1b2)
+- Configuration réelle : « Albert seul » coché (sélection gpt-oss-120b), pas Mini seul.
+- 7 questions bloquées par Albert, erreur HTTP 429 (quota) dès la sélection : n69, 70, 91, 97, 98, 99, 106. Ce n'est pas le hub : à rejouer en Mini seul.
+- n68 : sélection faite, rédaction refusée en 429 ; les extraits affichés suffisent (J).
+- Sur les 18 réponses obtenues : J 16, I 1 (n60 : changement de groupe en mars, on donne la manip iPack mais pas qui refait quoi côté examen), É 1 (n58 : commission d'établissement avant remontée, rien de documenté pour Aix, aucune source retenue). F 0.
+- Soit 89 % de J sur les réponses obtenues, 64 % sur les 25 à cause des blocages.
+- Pistes : n58, une fiche honnête « non documenté pour Aix, demander la consigne DIEC » ; n60, relier la fiche Cyclades réaffecter.

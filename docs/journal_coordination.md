@@ -2799,3 +2799,8 @@ Bilan honnête : mixte techniquement branché, Q18 maintenue par code, Q3 toujou
 3. **passages=[]** : rejet de forme maintenu, aucune phrase sans preuve.
 4. **Couverture** (sans appel ni relance) : si un extrait retenu n'est cité par aucune phrase gardée, le volet des extraits s'affiche **ouvert**, intitulé « Autres cas et précisions des fiches, non repris ci-dessus : extraits n, m ». Trace `audit['short_answer']['uncited_passages']`. Si tout est repris : volet replié comme avant. Les branches transmises mais rejetées en synthèse restent donc sous les yeux, sans bloc brut pour tous.
 - Tests : 18 dans `test_short_answer.py` ; suite complète OK. Aucun appel IA. Ton intégration Mini/Albert (`selector_llm`) n'est pas touchée.
+
+### 25 octobre 2026 08 h 25 — Claude : essai Thierry sur 149e7ee (Q3, Q18) ; phrases trop longues coupées
+- Q18 : bonne réponse (DEC de son académie + coordonnées non fournies), contrat + réponse courte OK.
+- Q3 : nettement mieux (absence de texte national ; cas « déjà validés » avec sa condition et « à Aix‑Marseille ») ; les autres cas restaient visibles dans le volet ouvert. Une phrase refusée en **forme** : > 320 caractères, elle enchaînait les trois cas.
+- Correctif général `short_answer._split_long` : une phrase trop longue est coupée sur « ; » / « tandis que » en phrases distinctes, chacune contrôlée avec les mêmes passages ; rien n'est réécrit ; si la coupure ne suffit pas, refus maintenu. 2 tests ; suite complète OK. Aucun appel IA.

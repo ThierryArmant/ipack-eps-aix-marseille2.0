@@ -166,5 +166,20 @@ class ConditionsEtCouverture(unittest.TestCase):
         self.assertIn('<details open><summary>Autres cas et précisions des fiches, non repris ci-dessus : extraits 2', out)
 
 
+class PhraseTropLongue(unittest.TestCase):
+    def test_phrase_qui_enchaine_les_cas_est_coupee_puis_controlee(self):
+        cas = ("Si tout le groupe est faux et que le protocole n'est pas validé, il faut supprimer le protocole puis le recréer avec le bon groupe, "
+               "en vérifiant ensuite que chaque élève apparaît bien dans le nouveau protocole")
+        phrase = cas + " ; si seuls quelques élèves sont mal placés, il ne faut rien supprimer et il faut ouvrir le menu [EPS] > [Associer les élèves à un protocole] pour les replacer."
+        self.assertGreater(len(phrase), sa.MAX_CHARS)
+        parts = sa._split_long([{'texte': phrase, 'passages': [1]}])
+        self.assertEqual(len(parts), 2)
+        self.assertTrue(parts[1]['texte'].startswith('Si seuls quelques élèves'))
+
+    def test_phrase_longue_sans_coupure_possible_reste_refusee(self):
+        phrase = 'x' * (sa.MAX_CHARS + 10)
+        self.assertEqual(sa._split_long([{'texte': phrase, 'passages': [1]}])[0]['texte'], phrase)
+
+
 if __name__ == '__main__':
     unittest.main()

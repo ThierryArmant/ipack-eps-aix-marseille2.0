@@ -127,6 +127,22 @@ DONNEES :
 ''' + json.dumps(dict(question=question, passages=data), ensure_ascii=False)
 
 
+def _split_long(phrases):
+    """Une phrase trop longue qui enchaîne plusieurs cas (« ; », « tandis que ») est coupée en
+    phrases distinctes, chacune contrôlée avec les mêmes passages. Rien n'est réécrit."""
+    out = []
+    for item in phrases:
+        text = item.get('texte') if isinstance(item, dict) else None
+        if isinstance(text, str) and len(text) > MAX_CHARS:
+            parts = [x.strip(' ,;\u202f') for x in re.split(r'\s*[;\u202f]+;?\s*|,?\s+tandis que\s+', text)]
+            parts = [x[0].upper() + x[1:] + ('' if x.endswith(('.', '!', '?')) else '.') for x in parts if x]
+            if len(parts) > 1 and all(len(x) <= MAX_CHARS for x in parts):
+                out.extend(dict(item, texte=x) for x in parts)
+                continue
+        out.append(item)
+    return out
+
+
 def short_answer(llm, *, tracer, audit, question, passages):
     """passages : liste ordonnée de (intitulé de situation, texte exact) déjà affichés.
     Renvoie le HTML de la réponse courte, ou '' si rien n'est exploitable."""
@@ -148,7 +164,7 @@ def short_answer(llm, *, tracer, audit, question, passages):
         report.update(status='invalid_no_retry', error_type=type(exc).__name__)
         return ''
     kept = []
-    for item in phrases[:MAX_PHRASES]:
+    for item in _split_long(phrases)[:MAX_PHRASES + 2]:
         text = item.get('texte') if isinstance(item, dict) else None
         refs = item.get('passages') if isinstance(item, dict) else None
         if (not isinstance(text, str) or not text.strip() or len(text) > MAX_CHARS

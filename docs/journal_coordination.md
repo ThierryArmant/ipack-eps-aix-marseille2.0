@@ -3228,4 +3228,4 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
 - Contradictions recherchées (droits 2026.2.x, déverrouillage, arrondis par diplôme, liste académique ≤ 5, délais de deux mois) : rien de contradictoire trouvé.
 - Consignes au rédacteur : 159 phrases dans 111 fiches (« ne pas inventer », « le corpus », « cette fiche »…). La réponse courte les refuse désormais (raison forme:consigne_interne) et le prompt l'interdit. GPT : elles restent visibles dans les extraits affichés ; à filtrer à l'affichage si tu le juges utile.
 - Reste à vérifier à l'écran par Thierry : droits « Professeurs attribués à la classe » en 2026 ; manipulation de la classe partagée ; [Ajouter un créneau] par clic droit pour superposer deux groupes.
-- Registres et suite de tests à jour (1246 OK).
+- Registres et suite de tests à jour (1244 OK).

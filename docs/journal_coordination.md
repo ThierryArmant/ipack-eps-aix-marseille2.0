@@ -3202,3 +3202,6 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
 - 146 : nouvelle fiche examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt. Elle reprend le cadre national 2.b, ce que le hub ne documente pas (pas de bascule automatique vers le ponctuel), le circuit d'Aix et les interlocuteurs.
 - 152 : nouvelle fiche ipack/situations_2026_10_25/ajouter_collegue_a_une_classe.txt. Deux étapes : équipe EPS [Actualiser], puis [Organisation des Classes] « Professeurs attribués à la classe » ; ce qui n'a pas été vérifié à l'écran est signalé.
 - Registres mis à jour (catalogue, nature_sources, portee, registre sha). Routage hors ligne vérifié sur les 5 questions. Audit mécanique 0 erreur, suite OK (1242).
+
+## 2026-10-25 — Fiche « collègue sur une classe » confirmée
+- Thierry confirme : chaque enseignant se connecte avec son propre accès académique, donc personne ne peut cocher un collègue à sa place. Fiche corrigée : c'est le collègue lui-même qui se coche dans « Professeurs attribués à la classe ».

@@ -379,3 +379,9 @@ class NombresEtPremisses(unittest.TestCase):
     def test_sigle_courant_accepte(self):
         self.assertEqual(sa.unsupported("Le TZR assure le service de la personne remplacée.",
                                         "le titulaire assure le service de la personne remplacée", "Je suis TZR : qui fixe mon service ?"), [])
+
+
+class SigleOrdinaireDeLaQuestion(unittest.TestCase):
+    def test_vtt_de_la_question_accepte(self):
+        self.assertEqual(sa.unsupported("Le chef d'établissement peut refuser la sortie VTT.",
+                                        "Le chef d'établissement autorise ou refuse la sortie.", "Mon chef refuse ma sortie VTT, en a-t-il le droit ?"), [])

@@ -114,7 +114,9 @@ def unsupported(phrase, cited_text, question='', titles=''):
                 word and re.search(r'\b' + word + r'\b', source)):
             reasons.append('nombre:' + number)
     # Sigle ou format repris de la question mais absent des passages (ex. « PDF/A ») : prémisse non vérifiée.
-    for sigle in re.findall(r'\b[A-Z][A-Z0-9]*(?:/[A-Z0-9]+)+\b|\b[A-Z]{2,}[0-9]*\b', phrase):
+    # Seulement les formats et références techniques (barre oblique ou chiffre : PDF/A, ISO9001) ;
+    # un sigle ordinaire de la question (VTT, CO) n'est pas une prémisse.
+    for sigle in re.findall(r'\b[A-Z][A-Z0-9]*(?:/[A-Z0-9]+)+\b|\b[A-Z]{2,}[0-9]+\b', phrase):
         s_low = sigle.lower()
         if (s_low not in source and s_low not in _compact(titles) and s_low in _compact(question)
                 and s_low not in _SIGLES_COURANTS):
